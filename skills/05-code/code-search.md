@@ -1,0 +1,24 @@
+# Code Search
+
+**Category:** `code`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+
+### Description
+
+Search through a codebase by keyword, symbol, regex, or semantic meaning to find relevant files, functions, or usages.
+
+### Example
+
+```bash
+# ripgrep semantic search
+rg 'def train' --type py
+
+# GitHub code search
+gh api search/code?q=skill+repo:SamoTech/skills-tree
+```
+
+### Related Skills
+
+- [Code Reading](../01-perception/code-reading.md)
+- [Refactoring](refactoring.md)

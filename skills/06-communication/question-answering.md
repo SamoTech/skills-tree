@@ -1,0 +1,23 @@
+# Question Answering
+
+**Category:** `communication`  
+**Skill Level:** `basic`  
+**Stability:** `stable`
+
+### Description
+
+Answer questions accurately and concisely based on provided context, retrieved knowledge, or world knowledge.
+
+### Example
+
+```python
+context = load_document('skills-tree/README.md')
+question = 'How many skill categories does the skills-tree have?'
+prompt = f'Context:\n{context}\n\nQuestion: {question}'
+answer = llm.invoke(prompt)
+```
+
+### Related Skills
+
+- [Summarization](summarization.md)
+- [RAG](../03-memory/rag.md)
