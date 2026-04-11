@@ -1,0 +1,25 @@
+# URL Fetching
+
+**Category:** `web`  
+**Skill Level:** `basic`  
+**Stability:** `stable`
+
+### Description
+
+Fetch the full HTML or text content of a URL via HTTP GET.
+
+### Example
+
+```python
+import httpx
+from markdownify import markdownify
+
+html = httpx.get('https://example.com').text
+markdown = markdownify(html)  # Convert to clean markdown
+```
+
+### Related Skills
+
+- [Web Scraping](web-scraping.md)
+- [DOM Inspection](dom-inspection.md)
+- [Browser Navigation](browser-navigation.md)
