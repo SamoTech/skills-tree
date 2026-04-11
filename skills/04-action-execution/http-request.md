@@ -1,0 +1,26 @@
+# HTTP Request
+
+**Category:** `action-execution`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+
+### Description
+
+Make outbound HTTP requests (GET, POST, PUT, DELETE, PATCH) to APIs and web servers.
+
+### Example
+
+```python
+import httpx
+response = httpx.post(
+    'https://api.example.com/users',
+    json={'name': 'Ossama', 'role': 'admin'},
+    headers={'Authorization': f'Bearer {token}'}
+)
+data = response.json()
+```
+
+### Related Skills
+
+- [API Response Parsing](../01-perception/api-response-parsing.md)
+- [Custom API Wrapper](../07-tool-use/custom-api-wrapper.md)

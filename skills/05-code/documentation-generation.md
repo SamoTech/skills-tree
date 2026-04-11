@@ -1,0 +1,21 @@
+# Documentation Generation
+
+**Category:** `code`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+
+### Description
+
+Automatically generate docstrings, README files, API documentation, and inline comments from source code.
+
+### Example
+
+```python
+prompt = f"""Generate a complete Google-style docstring for this Python function:\n{source_code}"""
+docstring = llm.invoke(prompt)
+```
+
+### Related Skills
+
+- [Code Explanation](code-explanation.md)
+- [Code Generation](code-generation.md)

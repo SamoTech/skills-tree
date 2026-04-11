@@ -1,0 +1,30 @@
+# Code Execution (Sandbox)
+
+**Category:** `code`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+
+### Description
+
+Run generated code in an isolated sandbox environment and capture stdout, stderr, and return values safely.
+
+### Example
+
+```python
+from e2b_code_interpreter import Sandbox
+with Sandbox() as sandbox:
+    result = sandbox.run_code('print(2 ** 10)')
+    print(result.logs.stdout)  # ['1024']
+```
+
+### Frameworks
+
+- E2B Code Interpreter
+- OpenAI Code Interpreter (Assistants API)
+- Modal sandboxes
+- Docker containers
+
+### Related Skills
+
+- [Shell Command Execution](../04-action-execution/shell-command.md)
+- [REPL Interaction](repl-interaction.md)
