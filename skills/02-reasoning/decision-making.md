@@ -1,0 +1,24 @@
+# Decision Making
+
+**Category:** `reasoning`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+
+### Description
+
+Select the best action from a set of options given context, constraints, and goals — using reasoning, scoring, or structured decision frameworks.
+
+### Example
+
+```
+Options: [send_email, create_ticket, escalate_to_human]
+Context: Customer reports critical production outage
+Decision: escalate_to_human
+Reason: Severity is critical and automated resolution confidence is low.
+```
+
+### Related Skills
+
+- [Planning](planning.md)
+- [Risk Assessment](risk-assessment.md)
+- [Prioritization](prioritization.md)
