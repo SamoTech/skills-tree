@@ -1,8 +1,6 @@
 <!-- Skills Tree -->
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/banner.svg" alt="Skills Tree" width="100%" />
-
 # 🌳 Skills Tree
 ### The Complete AI Agent & Computer Mode Capability Reference
 
@@ -10,12 +8,14 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
+[![Views](https://komarev.com/ghpvc/?username=SamoTech&label=Repo%20Views&color=0e75b6&style=for-the-badge)](https://github.com/SamoTech/skills-tree)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge&logo=github)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-515%2B-purple?style=for-the-badge)](skills/)
-[![Last Updated](https://img.shields.io/badge/Updated-April%202026-blue?style=for-the-badge)]()
+[![Security](https://img.shields.io/badge/Security-Policy-red?style=for-the-badge&logo=shield)](SECURITY.md)
+[![Sponsor](https://img.shields.io/badge/💖_Sponsor-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/SamoTech)
 
-**[🌐 Browse Online](https://samotech.github.io/skills-tree) · [📖 Docs](meta/) · [🤝 Contribute](CONTRIBUTING.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
+**[🌐 Browse Online](https://samotech.github.io/skills-tree) · [📖 Docs](meta/) · [🤝 Contribute](CONTRIBUTING.md) · [🔒 Security](SECURITY.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
 
 </div>
 
@@ -40,7 +40,10 @@ Use it to:
 skills-tree/
 ├── README.md                          ← You are here
 ├── CONTRIBUTING.md                    ← How to add & improve skills
-├── FUNDING.yml                        ← Sponsor this project
+├── LICENSE                            ← MIT License
+├── SECURITY.md                        ← Security policy & reporting
+├── .github/
+│   └── FUNDING.yml                    ← GitHub Sponsors config
 ├── docs/
 │   └── index.html                     ← 🌐 Interactive skill browser
 ├── skills/
@@ -61,8 +64,8 @@ skills-tree/
 │   ├── 15-orchestration/              ← Multi-agent coordination
 │   └── 16-domain-specific/            ← Medical, legal, finance, DevOps
 └── meta/
-    ├── frameworks.md                  ← 15+ supported agent frameworks
-    ├── glossary.md                    ← 25+ key terms defined
+    ├── frameworks.md                  ← 17+ supported agent frameworks
+    ├── glossary.md                    ← 60+ key terms defined
     └── skill-template.md              ← Template for new skills
 ```
 
@@ -254,19 +257,19 @@ Skills Tree is free and open source, maintained by [@SamoTech](https://github.co
 
 ---
 
-## 📊 Repository Stats
+## 🔒 Security
 
-<div align="center">
+Found a vulnerability in the viewer, a malicious code example, or an accidentally committed secret? Please report it responsibly.
 
-![Skills Tree Stats](https://github-readme-stats.vercel.app/api?username=SamoTech&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117)
-
-</div>
+📋 Full policy: [SECURITY.md](SECURITY.md) · [Report a vulnerability](https://github.com/SamoTech/skills-tree/security/advisories/new)
 
 ---
 
 ## 📄 License
 
 MIT © [Ossama Hashim](https://github.com/SamoTech) — free to use, fork, and build upon.
+
+See [LICENSE](LICENSE) for full terms.
 
 ---
 
