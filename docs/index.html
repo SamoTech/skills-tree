@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Tree — AI Agent Capability Browser</title>
+<meta name="description" content="Browse 515+ AI agent skills across 16 categories. The complete capability reference for AI agents, LLMs, and agentic frameworks.">
+<meta property="og:title" content="Skills Tree — AI Agent Capability Browser">
+<meta property="og:description" content="515+ skills for AI agents across 16 categories.">
+<meta property="og:url" content="https://samotech.github.io/skills-tree">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#0d1117;--surface:#161b22;--surface2:#21262d;--border:#30363d;
+--text:#e6edf3;--muted:#8b949e;--faint:#484f58;
+--primary:#3fb950;--primary-dim:#1a4722;
+--accent:#58a6ff;--accent-dim:#1d3557;
+--purple:#bc8cff;--orange:#f0883e;--red:#f85149;
+--radius:8px;--radius-lg:12px;--radius-xl:16px;
+--font-body:'Inter',sans-serif;--font-mono:'JetBrains Mono',monospace;
+--shadow:0 4px 16px rgba(0,0,0,.4);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100dvh;line-height:1.6}
+img,svg{display:block;max-width:100%}
+button{cursor:pointer;font:inherit;border:none;background:none;color:inherit}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(13,17,23,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1.5rem;gap:1rem;
+}
+.nav-logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.1rem;color:var(--text);text-decoration:none}
+.nav-logo svg{color:var(--primary)}
+.nav-links{display:flex;align-items:center;gap:1rem}
+.nav-links a{font-size:.875rem;color:var(--muted);transition:color .15s}
+.nav-links a:hover{color:var(--text);text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .9rem;border-radius:var(--radius);font-size:.875rem;font-weight:500;transition:all .15s;cursor:pointer}
+.btn-primary{background:var(--primary);color:#000}
+.btn-primary:hover{background:#52d65f}
+.btn-ghost{border:1px solid var(--border);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:5rem 1.5rem 3rem;
+  background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(63,185,80,.12),transparent);
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--primary-dim);color:var(--primary);
+  border:1px solid rgba(63,185,80,.3);border-radius:999px;
+  padding:.25rem .75rem;font-size:.8rem;font-weight:500;margin-bottom:1.5rem;
+}
+.hero h1{
+  font-size:clamp(2rem,.5rem + 4vw,4rem);
+  font-weight:800;letter-spacing:-.02em;line-height:1.1;
+  background:linear-gradient(135deg,var(--text) 40%,var(--primary));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:1rem;
+}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:56ch;margin:0 auto 2rem}
+.hero-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.hero-stats{
+  display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;
+  margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);
+}
+.stat{text-align:center}
+.stat-num{font-size:1.75rem;font-weight:700;color:var(--primary)}
+.stat-label{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+/* SEARCH */
+.search-bar{
+  max-width:680px;margin:0 auto 2.5rem;
+  position:relative;
+}
+.search-bar svg{
+  position:absolute;left:1rem;top:50%;transform:translateY(-50%);
+  color:var(--muted);pointer-events:none;
+}
+#search{
+  width:100%;padding:.75rem 1rem .75rem 3rem;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);color:var(--text);
+  font-family:var(--font-body);font-size:1rem;
+  transition:border-color .15s,box-shadow .15s;
+}
+#search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(88,166,255,.15)}
+#search::placeholder{color:var(--faint)}
+
+/* FILTERS */
+.filters{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  max-width:900px;margin:0 auto 2rem;
+  justify-content:center;
+}
+.filter-btn{
+  padding:.35rem .85rem;border-radius:999px;font-size:.8rem;font-weight:500;
+  border:1px solid var(--border);color:var(--muted);
+  transition:all .15s;cursor:pointer;
+}
+.filter-btn:hover,.filter-btn.active{
+  border-color:var(--accent);color:var(--accent);
+  background:var(--accent-dim);
+}
+
+/* MAIN */
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.section{padding:3rem 0}
+
+/* CATEGORY GRID */
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));
+  gap:1.25rem;
+}
+.category-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius-xl);padding:1.5rem;
+  transition:border-color .15s,transform .15s,box-shadow .15s;
+  cursor:pointer;
+}
+.category-card:hover{
+  border-color:var(--accent);transform:translateY(-2px);
+  box-shadow:var(--shadow);
+}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem}
+.card-icon{font-size:1.75rem;line-height:1}
+.card-badge{
+  font-size:.75rem;font-weight:600;padding:.2rem .6rem;
+  border-radius:999px;background:var(--primary-dim);color:var(--primary);
+}
+.card-title{font-size:1.05rem;font-weight:700;margin-bottom:.35rem}
+.card-desc{font-size:.875rem;color:var(--muted);line-height:1.5}
+.card-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1rem}
+.tag{
+  font-size:.72rem;padding:.15rem .55rem;
+  border-radius:999px;border:1px solid var(--border);
+  color:var(--faint);font-family:var(--font-mono);
+}
+
+/* SKILLS LIST */
+.skills-section{margin-top:1.5rem}
+.skills-section h2{font-size:1.25rem;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.skills-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:.75rem}
+.skill-item{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:.75rem 1rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:border-color .15s;
+}
+.skill-item:hover{border-color:var(--primary)}
+.skill-name{font-size:.875rem;font-weight:500;font-family:var(--font-mono)}
+.skill-level{
+  font-size:.7rem;padding:.15rem .45rem;border-radius:999px;
+  font-weight:500;white-space:nowrap;
+}
+.level-basic{background:rgba(63,185,80,.15);color:var(--primary)}
+.level-intermediate{background:rgba(88,166,255,.15);color:var(--accent)}
+.level-advanced{background:rgba(240,136,62,.15);color:var(--orange)}
+.level-experimental{background:rgba(248,81,73,.15);color:var(--red)}
+
+/* SPONSOR */
+.sponsor-section{
+  background:linear-gradient(135deg,var(--surface),rgba(188,140,255,.05));
+  border:1px solid rgba(188,140,255,.2);
+  border-radius:var(--radius-xl);padding:2.5rem;
+  text-align:center;margin:3rem 0;
+}
+.sponsor-section h2{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+.sponsor-section p{color:var(--muted);margin-bottom:1.5rem}
+.sponsor-tiers{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1rem;margin:1.5rem 0;
+}
+.tier-card{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:1.25rem;text-align:center;
+}
+.tier-icon{font-size:1.75rem;margin-bottom:.5rem}
+.tier-name{font-weight:700;margin-bottom:.25rem}
+.tier-price{font-size:.875rem;color:var(--primary);font-weight:600;margin-bottom:.5rem}
+.tier-desc{font-size:.8rem;color:var(--muted)}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem 1.5rem;
+  text-align:center;
+  color:var(--muted);
+  font-size:.875rem;
+}
+footer a{color:var(--accent)}
+
+/* RESULT COUNT */
+.result-info{text-align:center;color:var(--muted);font-size:.875rem;margin-bottom:1rem}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .hero{padding:3rem 1rem 2rem}
+  .hero-stats{gap:1.5rem}
+  nav{padding:.6rem 1rem}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+      <path d="M2 17l10 5 10-5"/>
+      <path d="M2 12l10 5 10-5"/>
+    </svg>
+    Skills Tree
+  </a>
+  <div class="nav-links">
+    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+    <a href="https://github.com/SamoTech/skills-tree/blob/main/meta/glossary.md" target="_blank" rel="noopener">Glossary</a>
+    <a href="https://github.com/sponsors/SamoTech" target="_blank" rel="noopener" class="btn btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-.425-.439-6.775-6.651-8.717-8.828C1.718 11.048 1 9.577 1 8.005c0-3.309 2.691-6 6-6 1.751 0 3.392.771 4.5 2.032C12.608 2.776 14.249 2.005 16 2.005c3.309 0 6 2.691 6 6 0 1.572-.718 3.043-2.283 4.76-1.942 2.177-8.292 8.389-8.717 8.828z"/></svg>
+      Sponsor
+    </a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+    Open Source &bull; MIT License
+  </div>
+  <h1>AI Agent Skills Tree</h1>
+  <p>The complete capability reference for AI agents, LLMs, computer-use models, and agentic frameworks — 515+ skills across 16 categories.</p>
+  <div class="hero-actions">
+    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      View on GitHub
+    </a>
+    <a href="https://github.com/sponsors/SamoTech" target="_blank" rel="noopener" class="btn btn-ghost">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-.425-.439-6.775-6.651-8.717-8.828C1.718 11.048 1 9.577 1 8.005c0-3.309 2.691-6 6-6 1.751 0 3.392.771 4.5 2.032C12.608 2.776 14.249 2.005 16 2.005c3.309 0 6 2.691 6 6 0 1.572-.718 3.043-2.283 4.76-1.942 2.177-8.292 8.389-8.717 8.828z"/></svg>
+      Sponsor
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">515+</div><div class="stat-label">Skills</div></div>
+    <div class="stat"><div class="stat-num">16</div><div class="stat-label">Categories</div></div>
+    <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Frameworks</div></div>
+    <div class="stat"><div class="stat-num">MIT</div><div class="stat-label">License</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="search" type="search" placeholder="Search skills, patterns, tools…" autocomplete="off">
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All Categories</button>
+    <button class="filter-btn" data-filter="basic">Basic</button>
+    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+    <button class="filter-btn" data-filter="advanced">Advanced</button>
+    <button class="filter-btn" data-filter="experimental">Experimental</button>
+  </div>
+
+  <div class="result-info" id="result-info">Showing all 16 categories &mdash; 515+ skills</div>
+
+  <!-- CATEGORY CARDS -->
+  <div class="section">
+    <div class="category-grid" id="category-grid">
+    </div>
+  </div>
+
+  <!-- SPONSOR -->
+  <div class="sponsor-section">
+    <h2>💖 Support Skills Tree</h2>
+    <p>Skills Tree is free and open source. Sponsoring helps keep it maintained, expanded, and free for everyone.</p>
+    <div class="sponsor-tiers">
+      <div class="tier-card"><div class="tier-icon">☕</div><div class="tier-name">Coffee</div><div class="tier-price">$5/mo</div><div class="tier-desc">Supporter badge + name in SPONSORS.md</div></div>
+      <div class="tier-card"><div class="tier-icon">🔧</div><div class="tier-name">Builder</div><div class="tier-price">$15/mo</div><div class="tier-desc">Priority responses + early previews</div></div>
+      <div class="tier-card"><div class="tier-icon">🚀</div><div class="tier-name">Pro</div><div class="tier-price">$49/mo</div><div class="tier-desc">Custom skill category on request</div></div>
+      <div class="tier-card"><div class="tier-icon">🏢</div><div class="tier-name">Teams</div><div class="tier-price">$199/mo</div><div class="tier-desc">Private Slack + consulting hour/month</div></div>
+    </div>
+    <a href="https://github.com/sponsors/SamoTech" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:.5rem">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-.425-.439-6.775-6.651-8.717-8.828C1.718 11.048 1 9.577 1 8.005c0-3.309 2.691-6 6-6 1.751 0 3.392.771 4.5 2.032C12.608 2.776 14.249 2.005 16 2.005c3.309 0 6 2.691 6 6 0 1.572-.718 3.043-2.283 4.76-1.942 2.177-8.292 8.389-8.717 8.828z"/></svg>
+      Become a Sponsor
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <p>Built with ❤️ by <a href="https://github.com/SamoTech" target="_blank" rel="noopener">Ossama Hashim</a> &bull; <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener">GitHub</a> &bull; MIT License</p>
+</footer>
+
+<script>
+const categories = [
+  {id:'01',icon:'👁️',name:'Perception',count:26,desc:'Sense, parse, and interpret all input types — text, images, PDFs, sensors, APIs.',tags:['ocr','pdf-parsing','audio-transcription','api-response-parsing','image-understanding'],path:'skills/01-perception/'},
+  {id:'02',icon:'🧠',name:'Reasoning',count:36,desc:'Think, plan, deduce, induce, hypothesize, and make decisions under uncertainty.',tags:['chain-of-thought','deductive','causal','tree-of-thought','risk-assessment'],path:'skills/02-reasoning/'},
+  {id:'03',icon:'🗄️',name:'Memory',count:19,desc:'Short-term, long-term, episodic, semantic, vector, and cross-session memory.',tags:['working-memory','rag','vector-store','episodic-memory','user-profile'],path:'skills/03-memory/'},
+  {id:'04',icon:'⚡',name:'Action Execution',count:37,desc:'File I/O, HTTP calls, email, mouse, keyboard, shell commands, database writes.',tags:['http-request','file-write','email-sending','shell-exec','database-write'],path:'skills/04-action-execution/'},
+  {id:'05',icon:'💻',name:'Code',count:42,desc:'Write, run, debug, review, refactor, test, and deploy code in any language.',tags:['code-generation','debugging','unit-test','refactoring','github-api'],path:'skills/05-code/'},
+  {id:'06',icon:'💬',name:'Communication',count:28,desc:'Summarize, translate, draft, argue, clarify, and adapt tone and persona.',tags:['summarization','translation','email-drafting','tone-adjustment','paraphrasing'],path:'skills/06-communication/'},
+  {id:'07',icon:'🔧',name:'Tool Use',count:55,desc:'55+ integrations — GitHub, Slack, Stripe, OpenAI, MCP, A2A, and more.',tags:['github-api','slack-api','mcp-tools','a2a','browser-tool','openai-api'],path:'skills/07-tool-use/'},
+  {id:'08',icon:'🎭',name:'Multimodal',count:25,desc:'Process and generate images, audio, video, VQA, 3D scenes, and charts.',tags:['image-classification','vqa','audio-transcription','video-description','chart-generation'],path:'skills/08-multimodal/'},
+  {id:'09',icon:'🤖',name:'Agentic Patterns',count:36,desc:'ReAct, CoT, ToT, MCTS, LATS, RAG, Constitutional AI, Debate, and more.',tags:['react','chain-of-thought','rag-pipeline','mcts','constitutional-ai','debate'],path:'skills/09-agentic-patterns/'},
+  {id:'10',icon:'🖥️',name:'Computer Use',count:37,desc:'Click, type, scroll, drag, OCR the screen, control terminals and VMs.',tags:['accessibility-tree','screen-ocr','terminal-interaction','vm-interaction','keyboard-shortcut'],path:'skills/10-computer-use/'},
+  {id:'11',icon:'🌐',name:'Web',count:28,desc:'Search, scrape, crawl, login, fill forms, run JavaScript, and parse feeds.',tags:['web-search','web-scraping','browser-navigation','web-crawling','form-filling'],path:'skills/11-web/'},
+  {id:'12',icon:'📊',name:'Data',count:18,desc:'ETL pipelines, SQL, pandas, embeddings, time series, anomaly detection.',tags:['etl','sql-query','data-transformation','embeddings','time-series'],path:'skills/12-data/'},
+  {id:'13',icon:'🎨',name:'Creative',count:27,desc:'Copywriting, image prompts, SVG design, music, memes, and video scripts.',tags:['copywriting','image-gen-prompt','svg-generation','lyrics-writing','meme-generation'],path:'skills/13-creative/'},
+  {id:'14',icon:'🔒',name:'Security',count:20,desc:'Sandboxing, secret scanning, human-in-loop, rollback, and audit logging.',tags:['sandboxed-execution','secret-scanning','human-in-loop','audit-logging','input-sanitization'],path:'skills/14-security/'},
+  {id:'15',icon:'🎼',name:'Orchestration',count:29,desc:'Multi-agent coordination, state machines, retry logic, consensus, and queues.',tags:['sequential-workflow','state-machine','retry-backoff','consensus-voting','task-queue'],path:'skills/15-orchestration/'},
+  {id:'16',icon:'🏺',name:'Domain-Specific',count:52,desc:'Medical, legal, finance, DevOps, education, science, and e-commerce skills.',tags:['medical','legal-research','financial-statement','iac-generation','quiz-generation'],path:'skills/16-domain-specific/'}
+];
+
+const baseUrl = 'https://github.com/SamoTech/skills-tree/tree/main/';
+
+function renderCards(items) {
+  const grid = document.getElementById('category-grid');
+  const info = document.getElementById('result-info');
+  const total = items.reduce((s,c) => s+c.count, 0);
+  info.textContent = `Showing ${items.length} of 16 categories — ${total} skills`;
+  grid.innerHTML = items.map(c => `
+    <a href="${baseUrl}${c.path}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit">
+      <div class="category-card" data-id="${c.id}">
+        <div class="card-header">
+          <span class="card-icon">${c.icon}</span>
+          <span class="card-badge">${c.count} skills</span>
+        </div>
+        <div class="card-title">${c.id} &mdash; ${c.name}</div>
+        <div class="card-desc">${c.desc}</div>
+        <div class="card-tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+    </a>
+  `).join('');
+}
+
+renderCards(categories);
+
+// Search
+document.getElementById('search').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  if (!q) { renderCards(categories); return; }
+  const filtered = categories.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    c.desc.toLowerCase().includes(q) ||
+    c.tags.some(t => t.includes(q))
+  );
+  renderCards(filtered);
+});
+
+// Filters
+document.getElementById('filters').addEventListener('click', function(e) {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // (level filtering would require per-skill data; currently shows category-level info)
+  renderCards(categories);
+});
+</script>
+</body>
+</html>
