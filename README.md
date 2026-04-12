@@ -9,7 +9,8 @@
 
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
-> **515+ production-ready skills. 16 categories. Every capability an AI agent needs — documented, versioned, and evolving.**
+> **515+ production-ready skills. 16 categories. Versioned, benchmarked, and evolving.**  
+> **Stop rediscovering. Start building on what the community has already proven.**
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
@@ -18,23 +19,31 @@
 [![Skills](https://img.shields.io/badge/Skills-515%2B-8b5cf6?style=for-the-badge)](skills/)
 [![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
 
-**[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md)**
+**[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
 </div>
 
 ---
 
-## Why This Exists
+## The Problem
 
-Every agent builder rediscovers the same skills from scratch.
+Every AI agent builder rediscovers the same skills from scratch.
 
-Someone learns RAG the hard way. Someone else figures out memory injection at 2am. A third person spends a week benchmarking ReAct vs LATS — and never shares the results.
+Someone learns RAG the hard way. Someone else figures out memory injection at 2am. A third person spends a week benchmarking ReAct vs LATS — and never shares the results. A fourth discovers the same failure modes you already hit last month.
 
-**Skills Tree ends that.**
+**That collective knowledge is disappearing into Slack threads, private repos, and Twitter bookmarks.**
 
-It's the shared operating system for AI agent capabilities — a living, versioned, community-powered index of everything an agent can do, how to implement it, and how it performs.
+Skills Tree fixes that.
 
-Stop reinventing. Start building on proven foundations.
+---
+
+## What This Is
+
+**Skills Tree is the shared operating system for AI agent capabilities.**
+
+A living, versioned, community-powered index of everything an agent can do — documented with working code, real benchmarks, failure modes, and evolution history. Every skill is production-ready. Every system shows how skills combine. Every benchmark is reproducible.
+
+It's not a list. It's infrastructure.
 
 ---
 
@@ -43,11 +52,11 @@ Stop reinventing. Start building on proven foundations.
 ```
 skills-tree/
 │
-├── skills/          → 515+ atomic skill files (the foundation)
+├── skills/          → 515+ atomic, production-ready skill files
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
-├── blueprints/      → Production architectures (RAG stack, orchestration patterns...)
-├── benchmarks/      → Head-to-head skill comparisons (ReAct vs LATS, RAG variants...)
-├── labs/            → Experimental & bleeding-edge skills
+├── blueprints/      → Copy-paste production architectures
+├── benchmarks/      → Head-to-head, reproducible skill comparisons
+├── labs/            → Experimental & bleeding-edge capabilities
 │
 ├── docs/            → Interactive web UI (GitHub Pages)
 └── meta/            → Schema, glossary, frameworks, roadmap, changelog
@@ -80,7 +89,7 @@ skills-tree/
 
 ## A Skill in 60 Seconds
 
-Every skill file is production-ready and self-contained:
+Every skill file is self-contained and production-ready:
 
 ````markdown
 # Memory Injection
@@ -98,52 +107,48 @@ client.messages.create(
 )
 ```
 
-## Benchmarks  → See benchmarks/memory/injection-strategies.md
+## Benchmarks  → benchmarks/memory/injection-strategies.md
 ## Related     → working-memory.md · rag.md · vector-store-retrieval.md
 ## Changelog   → v1 (2025-03) · v2 (2026-04, added retrieval scoring)
 ````
 
----
-
-## 🆕 What's New in v2.0
-
-| Feature | Description |
-|---|---|
-| **`/systems`** | End-to-end multi-skill workflows — research agent, code reviewer, data pipeline |
-| **`/blueprints`** | Reusable production architectures with deployment guides |
-| **`/benchmarks`** | Quantitative skill comparisons (accuracy, cost, latency) |
-| **`/labs`** | Experimental skills for bleeding-edge capabilities |
-| **Skill Versioning** | Every skill now tracks v1→v2→v3 evolution with changelogs |
-| **Viral Leaderboards** | Weekly top skills, most-improved, battle-tested rankings |
-| **Skill Evolution** | Community can upgrade skills — best versions surface automatically |
+Every skill includes:
+- ✅ What it does and why it matters
+- ✅ Typed inputs/outputs
+- ✅ Runnable Python code (`claude-opus-4-5` / `gpt-4o`)
+- ✅ Frameworks table (LangChain, LangGraph, CrewAI, mem0...)
+- ✅ Failure modes and edge cases
+- ✅ Related skills cross-links
+- ✅ Version history
 
 ---
 
-## 🏆 This Week's Highlights
+## Skill Versioning — How Evolution Works
 
-> Auto-updated weekly · [View all rankings →](meta/LEADERBOARD.md)
+Skills are not static files. They evolve as the community learns:
 
-**🔥 Most Active Skills**
-- `skills/09-agentic-patterns/react.md` — 12 community improvements
-- `skills/03-memory/memory-injection.md` — new v2 with retrieval scoring
-- `skills/02-reasoning/causal-reasoning.md` — new benchmark added
+```
+v1 — Initial entry: description + minimal example
+v2 — Enriched: better example + failure modes + related skills
+v3 — Battle-tested: benchmarks + model comparison + production notes
+```
 
-**⚡ Battle-Tested (used in 10+ public projects)**
-- `ReAct` · `Chain of Thought` · `RAG Pipeline` · `Memory Injection` · `Tool Use`
+**To upgrade a skill:**
+1. Bump the version in frontmatter
+2. Add a changelog entry explaining what improved
+3. Open a PR titled `improve: skill-name — v1 → v2`
 
-**🔬 Hot in Labs**
-- `labs/reasoning/tree-of-agents.md` — multi-agent tree search
-- `labs/memory/episodic-compression.md` — lossy-but-useful memory compression
+The best versions surface naturally — through PR merge frequency and inclusion in Systems + Blueprints.
 
 ---
 
 ## 🗺️ Systems — Multi-Skill Workflows
 
-Don't just pick skills — see how they combine into real systems:
+See how skills combine into real, working agent pipelines:
 
 | System | Skills Used | Use Case |
 |---|---|---|
-| [Research Agent](systems/research-agent.md) | Web search + RAG + Summarize + Cite | Deep research on any topic |
+| [Research Agent](systems/research-agent.md) | Web search + RAG + Summarize + Cite | Deep research automation |
 | [Code Reviewer](systems/code-reviewer.md) | Code reading + Reasoning + Comment gen | Automated PR reviews |
 | [Data Pipeline Agent](systems/data-pipeline-agent.md) | DB reading + ETL + Anomaly detection | Automated data ops |
 | [Customer Support Bot](systems/customer-support-bot.md) | Memory injection + Intent + Response gen | Personalized support |
@@ -153,65 +158,77 @@ Don't just pick skills — see how they combine into real systems:
 
 ## 🏗️ Blueprints — Production Architectures
 
-Copy-paste architectures for common agent patterns:
+Copy-paste architectures for the most common agent patterns:
 
 | Blueprint | Description |
 |---|---|
-| [RAG Stack](blueprints/rag-stack.md) | Full RAG pipeline: embed → store → retrieve → generate |
-| [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialized agents coordinated by an orchestrator |
-| [Human-in-the-Loop](blueprints/human-in-the-loop.md) | Approval gates, escalation triggers, audit trails |
-| [Self-Healing Agent](blueprints/self-healing-agent.md) | Error detection, retry logic, rollback, alerting |
-| [Memory-First Agent](blueprints/memory-first-agent.md) | Profile + episodic + vector memory working together |
+| [RAG Stack](blueprints/rag-stack.md) | Embed → store → retrieve → generate, fully wired |
+| [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialists + orchestrator pattern |
+| [Human-in-the-Loop](blueprints/human-in-the-loop.md) | Approval gates, escalation, audit trails |
+| [Self-Healing Agent](blueprints/self-healing-agent.md) | Error detection, retry logic, rollback |
+| [Memory-First Agent](blueprints/memory-first-agent.md) | Profile + episodic + vector memory combined |
 
 ---
 
-## 📊 Benchmarks
+## 📊 Benchmarks — Real Numbers, Reproducible
 
-We test skills so you don't have to:
+We test so you don't have to:
 
 | Benchmark | Winner | Margin | Link |
 |---|---|---|---|
 | ReAct vs LATS (HotpotQA) | LATS | +8.3% accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
 | RAG retrieval strategies | HyDE | +12% recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
-| Memory injection methods | Top-K semantic | Best cost/quality | [→](benchmarks/memory/injection-strategies.md) |
+| Memory injection methods | Top-K semantic | Best cost/quality ratio | [→](benchmarks/memory/injection-strategies.md) |
 | Code gen: Claude vs GPT-4o | Claude 3.7 | +6% on HumanEval | [→](benchmarks/code/model-comparison.md) |
+
+> Every benchmark includes methodology, dataset, and reproducible test scripts.
 
 ---
 
-## Skill Versioning — How Evolution Works
+## 🏆 This Week's Highlights
 
-Every skill follows semantic versioning:
+> Auto-updated weekly · [Full leaderboard →](meta/LEADERBOARD.md)
 
-```
-v1 — Initial entry (description + basic example)
-v2 — Enriched (better example + failure modes + related skills)
-v3 — Battle-tested (benchmarks + model comparison + production notes)
-```
+**🔥 Most Active Skills**
+- `skills/09-agentic-patterns/react.md` — 12 community improvements this month
+- `skills/03-memory/memory-injection.md` — v2 with retrieval scoring
+- `skills/02-reasoning/causal.md` — new benchmark comparison added
 
-**Upgrading a skill:** Bump the version in the frontmatter, add a changelog entry, open a PR titled `improve: skill-name — v1 → v2`.
+**⚡ Battle-Tested** *(used in 10+ public projects)*
+`ReAct` · `Chain of Thought` · `RAG Pipeline` · `Memory Injection` · `Tool Use`
 
-The community votes with PRs. Best versions surface through merge frequency and usage in Systems/Blueprints.
+**🔬 Hot in Labs**
+- `labs/reasoning/tree-of-agents.md` — multi-agent tree search
+- `labs/memory/episodic-compression.md` — lossy-but-useful memory compression
 
 ---
 
 ## 🤝 How to Contribute
 
-**4 contribution types — all welcome:**
+Four types of contributions — all valued:
 
 | Type | What It Is | PR Title Format |
 |---|---|---|
-| **New Skill** | A capability not yet in the index | `feat: add [skill] to [category]` |
+| **New Skill** | A capability not yet indexed | `feat: add [skill] to [category]` |
 | **Skill Upgrade** | Bump v1→v2 with better content | `improve: [skill] — v1→v2` |
-| **Benchmark** | Head-to-head comparison with real numbers | `benchmark: [skill-a] vs [skill-b]` |
-| **System/Blueprint** | Multi-skill workflow or architecture | `system: add [name]` / `blueprint: add [name]` |
+| **Benchmark** | Head-to-head with real numbers | `benchmark: [skill-a] vs [skill-b]` |
+| **System / Blueprint** | Multi-skill workflow or architecture | `system: add [name]` |
 
 ```bash
 git clone https://github.com/SamoTech/skills-tree.git
 cp meta/skill-template.md skills/05-code/my-new-skill.md
-# Fill in the template → open a PR
+# Fill in every section → open a PR
 ```
 
-📋 Full guide: [CONTRIBUTING.md](CONTRIBUTING.md)
+### Quality Rules
+
+- ❌ No generic prompts or vague descriptions
+- ❌ No skills without a working code example
+- ✅ Must solve a real, specific problem
+- ✅ Must be structured and reusable
+- ✅ Must include inputs, outputs, and at least one runnable example
+
+Full guide: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 ---
 
@@ -221,13 +238,13 @@ cp meta/skill-template.md skills/05-code/my-new-skill.md
 # Clone
 git clone https://github.com/SamoTech/skills-tree.git
 
-# Find a skill
+# Find a skill by keyword
 grep -r "memory injection" skills/ --include="*.md" -l
 
-# Browse a system end-to-end
+# Read a full system end-to-end
 cat systems/research-agent.md
 
-# Run a benchmark comparison
+# See benchmark results
 cat benchmarks/reasoning/react-vs-lats.md
 ```
 
@@ -238,12 +255,36 @@ Or **[browse the live UI →](https://samotech.github.io/skills-tree)**
 ## Who This Is For
 
 ```
-🏗️  Agent Builders       → Production skill patterns, ready to use
-🔬  AI Researchers        → Benchmarks, taxonomy, capability coverage
-📐  System Architects     → Blueprints for multi-agent systems
-🎓  Learners              → Structured path from basic → advanced
+🏗️  Agent Builders       → Production skill patterns, ready to use today
+🔬  AI Researchers        → Benchmarks, taxonomy, and full capability coverage
+📐  System Architects     → Blueprints for multi-agent production systems
+🎓  Learners              → Structured path from basic skills → advanced systems
 🤝  Contributors          → A community that improves everything together
 ```
+
+---
+
+## 🗺️ Roadmap
+
+See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
+
+**Near-term (v2.x):**
+- Skill dependency graph — visual map of how skills relate
+- Skill Paths — curated learning tracks (e.g., "Build a Research Agent in 5 skills")
+- JSON/YAML export of all skill metadata for programmatic use
+- Community skill ratings and upvotes
+- Auto-leaderboard: Top Skills This Week, Most Improved, Battle-Tested
+
+**Medium-term (v3.0):**
+- CLI: `skills-tree search "memory injection"` → returns ranked results
+- LangChain Hub / MCP registry integration
+- Localization: Arabic, Chinese, Spanish READMEs
+- Automated changelog generation on PR merge
+
+**Long-term vision:**
+- Skills Tree becomes the canonical reference for AI agent capabilities
+- Every major agent framework links here as the skill index
+- 1000+ skills, all battle-tested, all benchmarked
 
 ---
 
@@ -251,15 +292,20 @@ Or **[browse the live UI →](https://samotech.github.io/skills-tree)**
 
 > AI agents are becoming teammates, not tools.
 >
-> Skills Tree is the shared foundation they run on — a living OS of capabilities that the community builds, tests, and evolves together.
+> Skills Tree is the shared foundation they run on — a living OS of capabilities
+> that the community builds, tests, and evolves together.
 >
 > Every skill added here saves every agent builder who comes after you.
+> Every benchmark run here prevents someone else from wasting a week.
+> Every system documented here becomes a launchpad for the next builder.
+>
+> This is not a repo. It's infrastructure for the AI-native era.
 
 ---
 
 <div align="center">
 
-**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [🌐 Browse Skills](https://samotech.github.io/skills-tree) · [🤝 Contribute](CONTRIBUTING.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
+**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [🌐 Browse Skills](https://samotech.github.io/skills-tree) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
 
 *The AI Agent Skill OS — built by the community, for the community.*
 
