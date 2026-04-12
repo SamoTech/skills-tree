@@ -1,0 +1,34 @@
+# GitHub Pages Jekyll configuration
+title: "AI Agent Skills Tree"
+description: "A comprehensive, open-source taxonomy of AI agent capabilities — 515+ skills across 16 categories."
+url: "https://samotech.github.io"
+baseurl: "/skills-tree"
+repository: "SamoTech/skills-tree"
+
+# Exclude from Jekyll build
+exclude:
+  - skills/
+  - meta/
+  - CONTRIBUTING.md
+  - SECURITY.md
+  - SPONSORS.md
+  - LICENSE
+  - README.md
+
+# Enable GitHub metadata plugin
+plugins:
+  - jekyll-github-metadata
+
+# SEO & social
+author:
+  name: "SamoTech"
+  url: "https://github.com/SamoTech"
+
+twitter:
+  username: samotech
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: null

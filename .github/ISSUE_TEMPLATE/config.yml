@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussion
+    url: https://github.com/SamoTech/skills-tree/discussions
+    about: "Use Discussions for questions, ideas, and general conversation about the skills tree."
+  - name: 📖 Documentation
+    url: https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md
+    about: "Read the contribution guide before opening an issue."

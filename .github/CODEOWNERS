@@ -1,0 +1,17 @@
+# CODEOWNERS
+# Each line is a file pattern followed by one or more owners.
+# The last matching rule takes the highest precedence.
+
+# Global owner — all files
+* @SamoTech
+
+# Meta docs & schema — require maintainer review
+/meta/                  @SamoTech
+/CONTRIBUTING.md        @SamoTech
+/SECURITY.md            @SamoTech
+
+# Skill categories — maintainer owns all
+/skills/                @SamoTech
+
+# GitHub configuration
+/.github/               @SamoTech

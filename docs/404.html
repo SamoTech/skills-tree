@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found · AI Agent Skills Tree</title>
+  <style>
+    :root {
+      --bg: #171614;
+      --surface: #1c1b19;
+      --border: #393836;
+      --text: #cdccca;
+      --muted: #797876;
+      --primary: #4f98a3;
+      --primary-hover: #227f8b;
+      --font: 'Inter', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 480px;
+      text-align: center;
+    }
+    .code {
+      font-size: clamp(5rem, 15vw, 9rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--primary);
+      opacity: 0.25;
+      margin-bottom: 1.5rem;
+      font-variant-numeric: tabular-nums;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 36ch;
+      margin-inline: auto;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background 180ms ease;
+    }
+    .btn:hover { background: var(--primary-hover); }
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem auto;
+      max-width: 240px;
+    }
+    .links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 180ms ease;
+    }
+    .links a:hover { color: var(--primary); }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="code" aria-hidden="true">404</div>
+    <h1>Page not found</h1>
+    <p>The skill or page you're looking for doesn't exist — it may have been moved or the URL is incorrect.</p>
+    <a href="/skills-tree/" class="btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+      Back to Skills Tree
+    </a>
+    <hr class="divider">
+    <div class="links">
+      <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener">GitHub Repository</a>
+      <a href="https://github.com/SamoTech/skills-tree/issues" target="_blank" rel="noopener">Report an Issue</a>
+      <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+    </div>
+  </div>
+</body>
+</html>

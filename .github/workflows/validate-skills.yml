@@ -1,0 +1,56 @@
+name: Validate Skills
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+      - 'meta/**'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'meta/**'
+
+jobs:
+  validate:
+    name: Validate skill files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required frontmatter fields
+        run: |
+          echo "Checking skill .md files for required fields..."
+          FAIL=0
+          for f in skills/**/*.md; do
+            [[ "$f" == *README* ]] && continue
+            for field in "Category:" "Skill Level:" "Stability:" "Added:" "## Description" "## Example" "## Related Skills"; do
+              if ! grep -q "$field" "$f"; then
+                echo "MISSING '$field' in $f"
+                FAIL=1
+              fi
+            done
+          done
+          [ $FAIL -eq 0 ] && echo "All skill files passed validation."
+          exit $FAIL
+
+      - name: Check for broken relative links in skill files
+        run: |
+          echo "Checking for broken relative links..."
+          FAIL=0
+          for f in skills/**/*.md; do
+            dir=$(dirname "$f")
+            # Extract markdown links like [text](../path/file.md)
+            links=$(grep -oP '\(\.\.?/[^)]+\.md\)' "$f" | tr -d '()')
+            for link in $links; do
+              target="$dir/$link"
+              resolved=$(realpath --relative-to=. "$target" 2>/dev/null)
+              if [ ! -f "$resolved" ]; then
+                echo "Broken link in $f → $link"
+                FAIL=1
+              fi
+            done
+          done
+          [ $FAIL -eq 0 ] && echo "No broken links found."
+          exit $FAIL

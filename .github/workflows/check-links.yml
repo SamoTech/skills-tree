@@ -1,0 +1,31 @@
+name: Check External Links
+
+on:
+  schedule:
+    # Run every Monday at 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  linkcheck:
+    name: Check external links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdown-link-check
+        run: npm install -g markdown-link-check
+
+      - name: Check links in all Markdown files
+        run: |
+          find . -name '*.md' \
+            ! -path './node_modules/*' \
+            | xargs -I {} markdown-link-check {} \
+              --config .github/mlc-config.json \
+              --quiet || true
