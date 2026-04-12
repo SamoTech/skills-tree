@@ -1,282 +1,266 @@
-<!-- Skills Tree -->
 <div align="center">
 
-# 🌳 Skills Tree
-### The Complete AI Agent & Computer Mode Capability Reference
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-dark.svg">
+  <img src="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-light.svg" alt="Skills Tree" width="120">
+</picture>
 
-> A comprehensive, community-maintained catalog of every skill, tool, capability, mode, and pattern available to AI agents, LLMs, autonomous computer-use agents, and agentic frameworks.
+# Skills Tree
 
-[![GitHub Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
-[![Views](https://komarev.com/ghpvc/?username=SamoTech&label=Repo%20Views&color=0e75b6&style=for-the-badge)](https://github.com/SamoTech/skills-tree)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge&logo=github)](CONTRIBUTING.md)
+### The AI Agent Skill OS — Build Smarter Agents, Faster
+
+> **515+ production-ready skills. 16 categories. Every capability an AI agent needs — documented, versioned, and evolving.**
+
+[![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
+[![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-515%2B-purple?style=for-the-badge)](skills/)
-[![Security](https://img.shields.io/badge/Security-Policy-red?style=for-the-badge&logo=shield)](SECURITY.md)
-[![Sponsor](https://img.shields.io/badge/💖_Sponsor-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/SamoTech)
+[![Skills](https://img.shields.io/badge/Skills-515%2B-8b5cf6?style=for-the-badge)](skills/)
+[![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
 
-**[🌐 Browse Online](https://samotech.github.io/skills-tree) · [📖 Docs](meta/) · [🤝 Contribute](CONTRIBUTING.md) · [🔒 Security](SECURITY.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
+**[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md)**
 
 </div>
 
 ---
 
-## 📖 What Is Skills Tree?
+## Why This Exists
 
-**Skills Tree** is a living, open-source encyclopedia of every capability an AI agent or computer-use model can perform — from low-level perception and memory to high-level multi-agent orchestration, domain-specific reasoning, and creative generation.
+Every agent builder rediscovers the same skills from scratch.
 
-Use it to:
-- 🔍 **Discover** what AI agents can actually do across 16 capability domains
-- 🛠️ **Design** agent systems and pick the right skill patterns
-- 📚 **Learn** about agentic frameworks, tools, and real-world capabilities
-- 🤖 **Build** production AI agents with proven skill blueprints
-- 🤝 **Contribute** new skills, patterns, and examples you've discovered
+Someone learns RAG the hard way. Someone else figures out memory injection at 2am. A third person spends a week benchmarking ReAct vs LATS — and never shares the results.
+
+**Skills Tree ends that.**
+
+It's the shared operating system for AI agent capabilities — a living, versioned, community-powered index of everything an agent can do, how to implement it, and how it performs.
+
+Stop reinventing. Start building on proven foundations.
 
 ---
 
-## 🗂️ Repository Structure
+## What's Inside
 
 ```
 skills-tree/
-├── README.md                          ← You are here
-├── CONTRIBUTING.md                    ← How to add & improve skills
-├── LICENSE                            ← MIT License
-├── SECURITY.md                        ← Security policy & reporting
-├── .github/
-│   └── FUNDING.yml                    ← GitHub Sponsors config
-├── docs/
-│   └── index.html                     ← 🌐 Interactive skill browser
-├── skills/
-│   ├── 01-perception/                 ← Input sensing & parsing
-│   ├── 02-reasoning/                  ← Thinking, planning, logic
-│   ├── 03-memory/                     ← Memory systems & storage
-│   ├── 04-action-execution/           ← Real-world digital actions
-│   ├── 05-code/                       ← Code writing, running, review
-│   ├── 06-communication/              ← Language & dialogue skills
-│   ├── 07-tool-use/                   ← APIs & external integrations
-│   ├── 08-multimodal/                 ← Images, audio, video
-│   ├── 09-agentic-patterns/           ← Agent architectures & loops
-│   ├── 10-computer-use/               ← GUI, OS, desktop control
-│   ├── 11-web/                        ← Browsing, scraping, search
-│   ├── 12-data/                       ← Data processing & analysis
-│   ├── 13-creative/                   ← Text, image, music generation
-│   ├── 14-security/                   ← Safety, sandboxing, permissions
-│   ├── 15-orchestration/              ← Multi-agent coordination
-│   └── 16-domain-specific/            ← Medical, legal, finance, DevOps
-└── meta/
-    ├── frameworks.md                  ← 17+ supported agent frameworks
-    ├── glossary.md                    ← 60+ key terms defined
-    └── skill-template.md              ← Template for new skills
+│
+├── skills/          → 515+ atomic skill files (the foundation)
+├── systems/         → Multi-skill workflows (research agent, code reviewer...)
+├── blueprints/      → Production architectures (RAG stack, orchestration patterns...)
+├── benchmarks/      → Head-to-head skill comparisons (ReAct vs LATS, RAG variants...)
+├── labs/            → Experimental & bleeding-edge skills
+│
+├── docs/            → Interactive web UI (GitHub Pages)
+└── meta/            → Schema, glossary, frameworks, roadmap, changelog
 ```
 
 ---
 
-## 🌲 Skills Index — 515+ Skills Across 16 Categories
+## 🗂️ The 16 Skill Categories
 
-| # | Category | Skills | Description | Browse |
-|---|---|---|---|---|
-| 01 | 👁️ **Perception** | 26 | Sense, parse, and interpret all input types — text, images, PDFs, sensors, APIs | [→](skills/01-perception/) |
-| 02 | 🧠 **Reasoning** | 36 | Think, plan, deduce, induce, hypothesize, and make decisions | [→](skills/02-reasoning/) |
-| 03 | 🗄️ **Memory** | 19 | Short-term, long-term, episodic, semantic, vector, and cross-session memory | [→](skills/03-memory/) |
-| 04 | ⚡ **Action Execution** | 37 | File I/O, HTTP calls, email, mouse, keyboard, shell, database writes | [→](skills/04-action-execution/) |
-| 05 | 💻 **Code** | 42 | Write, run, debug, review, refactor, test, and deploy code | [→](skills/05-code/) |
-| 06 | 💬 **Communication** | 28 | Summarize, translate, draft, argue, clarify, and adapt tone | [→](skills/06-communication/) |
-| 07 | 🔧 **Tool Use** | 55 | 55+ APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A, and more | [→](skills/07-tool-use/) |
-| 08 | 🎭 **Multimodal** | 25 | Images, audio, video, VQA, 3D, chart generation | [→](skills/08-multimodal/) |
-| 09 | 🤖 **Agentic Patterns** | 36 | ReAct, CoT, ToT, MCTS, LATS, RAG, Constitutional AI, Debate | [→](skills/09-agentic-patterns/) |
-| 10 | 🖥️ **Computer Use** | 37 | Click, type, scroll, drag, OCR, terminal, VM, accessibility tree | [→](skills/10-computer-use/) |
-| 11 | 🌐 **Web** | 28 | Search, scrape, crawl, login, fill forms, run JS, parse RSS | [→](skills/11-web/) |
-| 12 | 📊 **Data** | 18 | ETL, SQL, pandas, embeddings, time series, anomaly detection | [→](skills/12-data/) |
-| 13 | 🎨 **Creative** | 27 | Copywriting, image prompts, SVG, music, memes, scripts | [→](skills/13-creative/) |
-| 14 | 🔒 **Security** | 20 | Sandboxing, secret scanning, human-in-loop, rollback, audit logs | [→](skills/14-security/) |
-| 15 | 🎼 **Orchestration** | 29 | Multi-agent, state machines, retry, consensus, task queues | [→](skills/15-orchestration/) |
-| 16 | 🏺 **Domain-Specific** | 52 | Medical, legal, finance, DevOps, education, science, e-commerce | [→](skills/16-domain-specific/) |
-
-<div align="center">
-
-### 🔢 **515+ skills documented and growing**
-
-</div>
+| # | Category | Skills | What It Covers |
+|---|---|---|---|
+| 01 | 👁️ **Perception** | 36 | Text, images, PDFs, code, sensors, databases, screens |
+| 02 | 🧠 **Reasoning** | 41 | Planning, deduction, abduction, causal chains, commonsense |
+| 03 | 🗄️ **Memory** | 26 | Working, episodic, semantic, vector, injection, forgetting |
+| 04 | ⚡ **Action Execution** | 37 | File I/O, HTTP, email, shell, database writes |
+| 05 | 💻 **Code** | 42 | Write, run, debug, review, refactor, test, deploy |
+| 06 | 💬 **Communication** | 28 | Summarize, translate, draft, argue, adapt tone |
+| 07 | 🔧 **Tool Use** | 55 | 55+ APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
+| 08 | 🎭 **Multimodal** | 25 | Images, audio, video, VQA, 3D, charts |
+| 09 | 🤖 **Agentic Patterns** | 36 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
+| 10 | 🖥️ **Computer Use** | 37 | Click, type, scroll, OCR, terminal, VM, a11y tree |
+| 11 | 🌐 **Web** | 28 | Search, scrape, crawl, login, fill forms, parse RSS |
+| 12 | 📊 **Data** | 18 | ETL, SQL, embeddings, time series, anomaly detection |
+| 13 | 🎨 **Creative** | 27 | Copywriting, image prompts, SVG, music, scripts |
+| 14 | 🔒 **Security** | 20 | Sandboxing, secret scanning, audit logs, rollback |
+| 15 | 🎼 **Orchestration** | 29 | Multi-agent, state machines, retry, consensus |
+| 16 | 🏺 **Domain-Specific** | 52 | Medical, legal, finance, DevOps, education, science |
 
 ---
 
-## ⚡ Quick Start
+## A Skill in 60 Seconds
 
-**Browse online** (recommended):
-👉 [https://samotech.github.io/skills-tree](https://samotech.github.io/skills-tree)
+Every skill file is production-ready and self-contained:
 
-**Clone locally**:
+````markdown
+# Memory Injection
+Category: memory | Level: intermediate | Stability: stable | Version: v2
+
+## Description
+Dynamically inject relevant past memories into an agent's system prompt
+before each turn — giving the model user context without filling the window.
+
+## Example
+```python
+client.messages.create(
+    system=f"{base_system}\n\n## Memory\n{top_k_memories}",
+    messages=[{"role": "user", "content": user_message}]
+)
+```
+
+## Benchmarks  → See benchmarks/memory/injection-strategies.md
+## Related     → working-memory.md · rag.md · vector-store-retrieval.md
+## Changelog   → v1 (2025-03) · v2 (2026-04, added retrieval scoring)
+````
+
+---
+
+## 🆕 What's New in v2.0
+
+| Feature | Description |
+|---|---|
+| **`/systems`** | End-to-end multi-skill workflows — research agent, code reviewer, data pipeline |
+| **`/blueprints`** | Reusable production architectures with deployment guides |
+| **`/benchmarks`** | Quantitative skill comparisons (accuracy, cost, latency) |
+| **`/labs`** | Experimental skills for bleeding-edge capabilities |
+| **Skill Versioning** | Every skill now tracks v1→v2→v3 evolution with changelogs |
+| **Viral Leaderboards** | Weekly top skills, most-improved, battle-tested rankings |
+| **Skill Evolution** | Community can upgrade skills — best versions surface automatically |
+
+---
+
+## 🏆 This Week's Highlights
+
+> Auto-updated weekly · [View all rankings →](meta/LEADERBOARD.md)
+
+**🔥 Most Active Skills**
+- `skills/09-agentic-patterns/react.md` — 12 community improvements
+- `skills/03-memory/memory-injection.md` — new v2 with retrieval scoring
+- `skills/02-reasoning/causal-reasoning.md` — new benchmark added
+
+**⚡ Battle-Tested (used in 10+ public projects)**
+- `ReAct` · `Chain of Thought` · `RAG Pipeline` · `Memory Injection` · `Tool Use`
+
+**🔬 Hot in Labs**
+- `labs/reasoning/tree-of-agents.md` — multi-agent tree search
+- `labs/memory/episodic-compression.md` — lossy-but-useful memory compression
+
+---
+
+## 🗺️ Systems — Multi-Skill Workflows
+
+Don't just pick skills — see how they combine into real systems:
+
+| System | Skills Used | Use Case |
+|---|---|---|
+| [Research Agent](systems/research-agent.md) | Web search + RAG + Summarize + Cite | Deep research on any topic |
+| [Code Reviewer](systems/code-reviewer.md) | Code reading + Reasoning + Comment gen | Automated PR reviews |
+| [Data Pipeline Agent](systems/data-pipeline-agent.md) | DB reading + ETL + Anomaly detection | Automated data ops |
+| [Customer Support Bot](systems/customer-support-bot.md) | Memory injection + Intent + Response gen | Personalized support |
+| [Computer Use Agent](systems/computer-use-agent.md) | Screen reading + OCR + Click + Type | Full GUI automation |
+
+---
+
+## 🏗️ Blueprints — Production Architectures
+
+Copy-paste architectures for common agent patterns:
+
+| Blueprint | Description |
+|---|---|
+| [RAG Stack](blueprints/rag-stack.md) | Full RAG pipeline: embed → store → retrieve → generate |
+| [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialized agents coordinated by an orchestrator |
+| [Human-in-the-Loop](blueprints/human-in-the-loop.md) | Approval gates, escalation triggers, audit trails |
+| [Self-Healing Agent](blueprints/self-healing-agent.md) | Error detection, retry logic, rollback, alerting |
+| [Memory-First Agent](blueprints/memory-first-agent.md) | Profile + episodic + vector memory working together |
+
+---
+
+## 📊 Benchmarks
+
+We test skills so you don't have to:
+
+| Benchmark | Winner | Margin | Link |
+|---|---|---|---|
+| ReAct vs LATS (HotpotQA) | LATS | +8.3% accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
+| RAG retrieval strategies | HyDE | +12% recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
+| Memory injection methods | Top-K semantic | Best cost/quality | [→](benchmarks/memory/injection-strategies.md) |
+| Code gen: Claude vs GPT-4o | Claude 3.7 | +6% on HumanEval | [→](benchmarks/code/model-comparison.md) |
+
+---
+
+## Skill Versioning — How Evolution Works
+
+Every skill follows semantic versioning:
+
+```
+v1 — Initial entry (description + basic example)
+v2 — Enriched (better example + failure modes + related skills)
+v3 — Battle-tested (benchmarks + model comparison + production notes)
+```
+
+**Upgrading a skill:** Bump the version in the frontmatter, add a changelog entry, open a PR titled `improve: skill-name — v1 → v2`.
+
+The community votes with PRs. Best versions surface through merge frequency and usage in Systems/Blueprints.
+
+---
+
+## 🤝 How to Contribute
+
+**4 contribution types — all welcome:**
+
+| Type | What It Is | PR Title Format |
+|---|---|---|
+| **New Skill** | A capability not yet in the index | `feat: add [skill] to [category]` |
+| **Skill Upgrade** | Bump v1→v2 with better content | `improve: [skill] — v1→v2` |
+| **Benchmark** | Head-to-head comparison with real numbers | `benchmark: [skill-a] vs [skill-b]` |
+| **System/Blueprint** | Multi-skill workflow or architecture | `system: add [name]` / `blueprint: add [name]` |
+
 ```bash
 git clone https://github.com/SamoTech/skills-tree.git
-cd skills-tree
-
-# List all skill categories
-ls skills/
-
-# Search for a specific skill
-grep -r "ReAct" skills/ --include="*.md" -l
-
-# Count total skills
-find skills -name "*.md" | wc -l
-```
-
----
-
-## 🤖 Skill Anatomy
-
-Every skill file follows a consistent, machine-readable structure:
-
-```markdown
-# Skill Name
-
-**Category:** `category-slug`
-**Skill Level:** `basic | intermediate | advanced`
-**Stability:** `stable | experimental | deprecated`
-
-### Description
-What this skill does and when to use it.
-
-### Inputs / Outputs
-Typed parameter tables.
-
-### Example
-Runnable code snippet.
-
-### Related Skills
-Links to adjacent skills.
-```
-
-See [`meta/skill-template.md`](meta/skill-template.md) for the full template.
-
----
-
-## 🏗️ Featured Skill Highlights
-
-<details>
-<summary><b>🤖 Agentic Patterns — the core loops that power autonomous agents</b></summary>
-
-| Pattern | File | Description |
-|---|---|---|
-| ReAct | [react.md](skills/09-agentic-patterns/react.md) | Reason + Act loop — the most widely used agent pattern |
-| Chain of Thought | [chain-of-thought.md](skills/09-agentic-patterns/chain-of-thought.md) | Step-by-step reasoning before answering |
-| Tree of Thought | [tot.md](skills/09-agentic-patterns/tot.md) | Explore multiple reasoning branches simultaneously |
-| RAG Pipeline | [rag-pipeline.md](skills/09-agentic-patterns/rag-pipeline.md) | Ground responses with retrieved documents |
-| MCTS | [mcts.md](skills/09-agentic-patterns/mcts.md) | Monte Carlo Tree Search for optimal planning |
-| Constitutional AI | [constitutional-ai.md](skills/09-agentic-patterns/constitutional-ai.md) | Self-critique and revision using a ruleset |
-| Multi-Agent Debate | [debate-pattern.md](skills/09-agentic-patterns/debate-pattern.md) | Multiple agents argue to improve answer quality |
-
-</details>
-
-<details>
-<summary><b>🔧 Tool Use — 55+ integrations agents can call</b></summary>
-
-| Tool | File | Use Case |
-|---|---|---|
-| GitHub API | [github-api.md](skills/07-tool-use/github-api.md) | Repos, PRs, issues, Actions |
-| MCP Tools | [mcp-tools.md](skills/07-tool-use/mcp-tools.md) | Model Context Protocol integrations |
-| A2A | [a2a-tool.md](skills/07-tool-use/a2a-tool.md) | Agent-to-Agent communication |
-| Slack API | [slack-api.md](skills/07-tool-use/slack-api.md) | Send messages, read channels |
-| SQL Tool | [sql-tool.md](skills/07-tool-use/sql-tool.md) | Query any database |
-| Browser Tool | [browser-tool.md](skills/07-tool-use/browser-tool.md) | Headless browser automation |
-| Image Gen | [image-gen-tool.md](skills/07-tool-use/image-gen-tool.md) | Generate images from prompts |
-
-</details>
-
-<details>
-<summary><b>🖥️ Computer Use — full OS and GUI control</b></summary>
-
-| Skill | File | Description |
-|---|---|---|
-| Accessibility Tree | [accessibility-tree.md](skills/10-computer-use/accessibility-tree.md) | Navigate UI via semantic element tree |
-| Screen OCR | [screen-ocr.md](skills/10-computer-use/screen-ocr.md) | Read text directly from screen pixels |
-| Terminal Interaction | [terminal-interaction.md](skills/10-computer-use/terminal-interaction.md) | Run shell commands in live terminal |
-| VM Interaction | [vm-interaction.md](skills/10-computer-use/vm-interaction.md) | Control sandboxed virtual machines |
-| Visual Element Detection | [visual-element-detection.md](skills/10-computer-use/visual-element-detection.md) | Locate buttons, fields, icons visually |
-
-</details>
-
-<details>
-<summary><b>🏺 Domain-Specific — 52 professional skills</b></summary>
-
-| Domain | Skills |
-|---|---|
-| 🏥 Medical | symptom-analysis, drug-interaction, clinical-note-summarization, medical-literature-search |
-| ⚖️ Legal | legal-research, contract-review, compliance-checking |
-| 💰 Finance | financial-statement, portfolio-analysis, stock-lookup, invoice-processing |
-| 🛠️ DevOps | iac-generation, incident-response, log-analysis, alert-triage |
-| 🎓 Education | lesson-plan, quiz-generation, essay-grading, flashcard-creation |
-| 🔬 Science | hypothesis-generation, literature-review, paper-summarization |
-| 🛒 E-Commerce | product-description, review-analysis, seo-optimization, ad-copy |
-
-</details>
-
----
-
-## 🚀 Use Cases
-
-```
-👩‍💻 Agent Developers    → Use as a capability checklist when designing agents
-🔬 AI Researchers       → Reference taxonomy for agent benchmarking
-📐 System Architects    → Map skill dependencies for multi-agent systems
-🎓 Students & Learners  → Structured learning path through agent capabilities
-🤝 Contributors         → Add newly discovered skills to the community index
-```
-
----
-
-## 🤝 Contributing
-
-We welcome contributions of all sizes — new skills, better examples, bug fixes, or new categories.
-
-```bash
-# Fork → Clone → Create your skill file
 cp meta/skill-template.md skills/05-code/my-new-skill.md
-# Fill in the template, then open a PR
+# Fill in the template → open a PR
 ```
 
 📋 Full guide: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 
-## 💖 Sponsor This Project
+## Quick Start
 
-Skills Tree is free and open source, maintained by [@SamoTech](https://github.com/SamoTech). If it saves you time designing AI agents, consider sponsoring:
+```bash
+# Clone
+git clone https://github.com/SamoTech/skills-tree.git
+
+# Find a skill
+grep -r "memory injection" skills/ --include="*.md" -l
+
+# Browse a system end-to-end
+cat systems/research-agent.md
+
+# Run a benchmark comparison
+cat benchmarks/reasoning/react-vs-lats.md
+```
+
+Or **[browse the live UI →](https://samotech.github.io/skills-tree)**
+
+---
+
+## Who This Is For
+
+```
+🏗️  Agent Builders       → Production skill patterns, ready to use
+🔬  AI Researchers        → Benchmarks, taxonomy, capability coverage
+📐  System Architects     → Blueprints for multi-agent systems
+🎓  Learners              → Structured path from basic → advanced
+🤝  Contributors          → A community that improves everything together
+```
+
+---
+
+## Vision
+
+> AI agents are becoming teammates, not tools.
+>
+> Skills Tree is the shared foundation they run on — a living OS of capabilities that the community builds, tests, and evolves together.
+>
+> Every skill added here saves every agent builder who comes after you.
+
+---
 
 <div align="center">
 
-[![Sponsor](https://img.shields.io/badge/💖_Sponsor_Skills_Tree-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/SamoTech)
+**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [🌐 Browse Skills](https://samotech.github.io/skills-tree) · [🤝 Contribute](CONTRIBUTING.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
 
-| Tier | Amount | Perks |
-|---|---|---|
-| ☕ Coffee | $5/mo | Supporter badge + name in SPONSORS.md |
-| 🔧 Builder | $15/mo | Priority issue responses + early previews |
-| 🚀 Pro | $49/mo | Custom skill category added on request |
-| 🏢 Teams | $199/mo | Private Slack channel + consulting hour/mo |
-
-</div>
-
----
-
-## 🔒 Security
-
-Found a vulnerability in the viewer, a malicious code example, or an accidentally committed secret? Please report it responsibly.
-
-📋 Full policy: [SECURITY.md](SECURITY.md) · [Report a vulnerability](https://github.com/SamoTech/skills-tree/security/advisories/new)
-
----
-
-## 📄 License
-
-MIT © [Ossama Hashim](https://github.com/SamoTech) — free to use, fork, and build upon.
-
-See [LICENSE](LICENSE) for full terms.
-
----
-
-<div align="center">
-
-**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) if Skills Tree helped you build better AI agents!**
-
-*Built with ❤️ by the open-source AI community*
+*The AI Agent Skill OS — built by the community, for the community.*
 
 </div>

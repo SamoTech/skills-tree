@@ -9,49 +9,41 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-### Added
-- CI workflow: skill format validation on every PR (`validate-skills.yml`)
-- CI workflow: weekly external link health check (`check-links.yml`)
-- `CODEOWNERS` file for review assignments
-- Issue template: skill update form (`skill-update.md`)
-- Issue template chooser config (`config.yml`)
-- `meta/ROADMAP.md` — planned expansions and coverage gaps
-- `meta/CHANGELOG.md` — this file
-- `meta/skill-schema.json` — machine-readable skill metadata schema
-- `docs/404.html` — custom GitHub Pages not-found page
-- `docs/_config.yml` — GitHub Pages Jekyll configuration
+---
+
+## [2.0.0] — 2026-04
+
+### Added — Architecture
+- `/systems` directory with `research-agent.md`, `code-reviewer.md`, `data-pipeline-agent.md`, `customer-support-bot.md`, `computer-use-agent.md`
+- `/blueprints` directory with `rag-stack.md`, `multi-agent-mesh.md`, `human-in-the-loop.md`, `self-healing-agent.md`, `memory-first-agent.md`
+- `/benchmarks` directory with `reasoning/react-vs-lats.md`, `memory/rag-retrieval-strategies.md`, `memory/injection-strategies.md`, `benchmarks/code/model-comparison.md`
+- `/labs` directory with `reasoning/tree-of-agents.md`, `memory/episodic-compression.md`
+- `meta/LEADERBOARD.md` — weekly top skills, battle-tested, most-improved
+- `meta/system-template.md` — template for new System files
+- `meta/benchmark-template.md` — template for new Benchmark files
+
+### Changed
+- `README.md` — v2.0 rewrite: new positioning ("The AI Agent Skill OS"), systems/blueprints/benchmarks sections, skill versioning explainer, leaderboard section
+- `CONTRIBUTING.md` — 4 contribution types + versioning rules + PR templates
+- Skill versioning system introduced: v1 (stub) → v2 (full) → v3 (battle-tested)
 
 ---
 
 ## [1.1.0] — 2025-04
 
 ### Added
-- Redesigned `docs/index.html` with full dark/light mode toggle
-- Level-based filtering (Basic / Intermediate / Advanced / Experimental)
-- Real-time search synced across navbar and hero search bar
-- Count-up animation for hero statistics
-- CSS scroll-driven reveal animations
-- Accessible empty state when search yields no results
-- Stats bar highlighting key category counts
-- Card redesign: gradient top-edge, skill level badges, browse CTA
+- Redesigned `docs/index.html` with dark/light mode toggle, level-based filtering, real-time search, count-up animations, CSS scroll-driven reveals, stats bar
 
 ### Fixed
-- Level filter buttons were non-functional — now correctly filter categories
-- Search previously case-sensitive — now case-insensitive
+- Level filter buttons were non-functional
+- Search was case-sensitive
 
 ---
 
 ## [1.0.0] — 2025-03
 
 ### Added
-- Initial release of the AI Agent Skills Tree
-- 16 skill categories covering the full agent capability spectrum
-- 515+ individual skill files in Markdown format
-- `meta/skill-template.md` — standard template for new skills
-- `meta/glossary.md` — definitions for all key terms
-- `meta/frameworks.md` — framework and model reference
-- `CONTRIBUTING.md` — contribution guide
-- `SECURITY.md` — security and responsible use policy
-- `SPONSORS.md` — sponsorship information
-- GitHub issue templates: bug report, new skill request
-- GitHub Pages documentation site (`docs/index.html`)
+- Initial release: 16 skill categories, 515+ skill files
+- `meta/skill-template.md`, `meta/glossary.md`, `meta/frameworks.md`
+- `CONTRIBUTING.md`, `SECURITY.md`, `SPONSORS.md`
+- GitHub Pages documentation site
