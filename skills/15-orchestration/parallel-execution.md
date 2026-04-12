@@ -3,6 +3,7 @@
 **Category:** `orchestration`  
 **Skill Level:** `advanced`  
 **Stability:** `stable`
+**Added:** 2025-03
 
 ### Description
 

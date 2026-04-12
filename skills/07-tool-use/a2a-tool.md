@@ -3,6 +3,7 @@
 **Category:** `tool-use`  
 **Skill Level:** `advanced`  
 **Stability:** `experimental`
+**Added:** 2025-03
 
 ### Description
 

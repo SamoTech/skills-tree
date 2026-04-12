@@ -3,6 +3,7 @@
 **Category:** `action-execution`  
 **Skill Level:** `intermediate`  
 **Stability:** `stable`
+**Added:** 2025-03
 
 ### Description
 

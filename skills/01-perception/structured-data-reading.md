@@ -3,6 +3,7 @@
 **Category:** `perception`  
 **Skill Level:** `basic`  
 **Stability:** `stable`
+**Added:** 2025-03
 
 ### Description
 
