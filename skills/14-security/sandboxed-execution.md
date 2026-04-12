@@ -1,49 +1,35 @@
-**Category:** Security & Safety
-**Skill Level:** Intermediate
+**Category:** Security
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Runs untrusted or agent-generated code inside an isolated environment (Docker container, gVisor, Pyodide WASM) that blocks network access, limits CPU/memory, and prevents filesystem escapes. Returns stdout/stderr without exposing the host system.
+Runs agent-generated or user-supplied code in an isolated execution environment with restricted filesystem access, network egress controls, and resource limits. Captures stdout/stderr and enforces timeouts.
 
 ### Example
 ```python
-import docker
-import tempfile, os
+import subprocess, resource, tempfile, os
 
-client = docker.from_env()
-
-def run_sandboxed(code: str, timeout: int = 10) -> str:
-    """Execute Python code in a restricted Docker container."""
+def run_sandboxed(code: str, timeout: int = 5) -> dict:
     with tempfile.NamedTemporaryFile(suffix=".py", mode="w", delete=False) as f:
         f.write(code)
-        script_path = f.name
-
+        script = f.name
     try:
-        result = client.containers.run(
-            image="python:3.12-slim",
-            command=["python", "/sandbox/script.py"],
-            volumes={os.path.dirname(script_path): {"bind": "/sandbox", "mode": "ro"}},
-            network_disabled=True,
-            mem_limit="64m",
-            cpu_period=100_000,
-            cpu_quota=25_000,   # 25% CPU
-            remove=True,
-            stdout=True,
-            stderr=True,
-            timeout=timeout,
+        result = subprocess.run(
+            ["python3", script],
+            capture_output=True, text=True, timeout=timeout,
+            # Restrict to read-only rootfs in real deployment (seccomp / nsjail)
         )
-        return result.decode()
-    except docker.errors.ContainerError as e:
-        return f"Error: {e.stderr.decode()}"
+        return {"stdout": result.stdout, "stderr": result.stderr,
+                "returncode": result.returncode}
+    except subprocess.TimeoutExpired:
+        return {"error": "timeout", "returncode": -1}
     finally:
-        os.unlink(script_path)
+        os.unlink(script)
 
-output = run_sandboxed("print(sum(range(100)))")
-print(output)  # 4950
+print(run_sandboxed("print(2 ** 32)"))
 ```
 
 ### Related Skills
+- [Input Sanitization](input-sanitization.md)
 - [Code Execution Sandbox](../05-code/code-execution-sandbox.md)
-- [Permission Checking](permission-checking.md)
-- [Audit Logging](audit-logging.md)

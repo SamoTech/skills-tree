@@ -1,50 +1,45 @@
 **Category:** Orchestration
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Automatically retries failed agent steps or API calls using exponential backoff with jitter. Distinguishes between transient errors (network timeout, 429) and permanent failures (400, 404) and only retries the former.
+Automatically retries failed tool calls or agent steps with configurable exponential backoff, jitter, and maximum attempt limits. Distinguishes transient errors (worth retrying) from permanent failures (abort immediately).
 
 ### Example
 ```python
-import time, random, functools
-from typing import Type
+import time, random
 
-RETRYABLE_ERRORS = (ConnectionError, TimeoutError)
+TRANSIENT = {429, 500, 502, 503, 504}
 
-def retry_with_backoff(
-    max_attempts: int = 5,
-    base_delay: float = 1.0,
-    max_delay: float = 60.0,
-    retryable: tuple[Type[Exception], ...] = RETRYABLE_ERRORS,
-):
-    def decorator(func):
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs):
-            for attempt in range(1, max_attempts + 1):
-                try:
-                    return func(*args, **kwargs)
-                except retryable as e:
-                    if attempt == max_attempts:
-                        raise
-                    delay = min(base_delay * (2 ** (attempt - 1)), max_delay)
-                    jitter = random.uniform(0, delay * 0.2)
-                    wait = delay + jitter
-                    print(f"Attempt {attempt} failed ({e}). Retrying in {wait:.1f}s...")
-                    time.sleep(wait)
-        return wrapper
-    return decorator
+def retry(fn, max_attempts=5, base_delay=1.0, max_delay=60.0):
+    for attempt in range(max_attempts):
+        try:
+            return fn()
+        except Exception as e:
+            code = getattr(e, "status_code", None)
+            if code not in TRANSIENT:
+                raise
+            if attempt == max_attempts - 1:
+                raise
+            delay = min(base_delay * 2 ** attempt, max_delay)
+            jitter = random.uniform(0, delay * 0.1)
+            print(f"Retry {attempt+1}/{max_attempts} after {delay+jitter:.1f}s")
+            time.sleep(delay + jitter)
 
-@retry_with_backoff(max_attempts=4, base_delay=2.0)
-def call_external_api(url: str) -> dict:
-    import requests
-    resp = requests.get(url, timeout=10)
-    resp.raise_for_status()
-    return resp.json()
+call_count = 0
+def flaky_call():
+    global call_count
+    call_count += 1
+    if call_count < 3:
+        e = Exception("service unavailable")
+        e.status_code = 503
+        raise e
+    return "success"
+
+print(retry(flaky_call))
 ```
 
 ### Related Skills
-- [Rate Limiting Awareness](../14-security/rate-limiting.md)
-- [Sequential Workflow](sequential-workflow.md)
-- [Logging and Observability](logging-observability.md)
+- [Budget Management](budget-management.md)
+- [Rate Limiting](../14-security/rate-limiting.md)

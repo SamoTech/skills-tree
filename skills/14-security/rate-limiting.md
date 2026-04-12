@@ -1,42 +1,38 @@
-**Category:** Security & Safety
-**Skill Level:** Basic
+**Category:** Security
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Detects and respects API rate limits by inspecting response headers (`X-RateLimit-Remaining`, `Retry-After`) and implementing exponential backoff with jitter. Prevents agents from hammering APIs and triggering bans.
+Throttles agent tool calls and API requests to prevent abuse, runaway loops, and cost overruns. Implements token-bucket, sliding-window, or fixed-window rate limiters per agent, tool, or endpoint.
 
 ### Example
 ```python
-import time, random, requests
-from functools import wraps
+import time
+from collections import defaultdict, deque
 
-def rate_limit_aware(max_retries: int = 5, base_delay: float = 1.0):
-    def decorator(func):
-        @wraps(func)
-        def wrapper(*args, **kwargs):
-            for attempt in range(max_retries):
-                response = func(*args, **kwargs)
-                if response.status_code == 429:
-                    retry_after = float(
-                        response.headers.get("Retry-After", base_delay * (2 ** attempt))
-                    )
-                    jitter = random.uniform(0, retry_after * 0.1)
-                    wait = retry_after + jitter
-                    print(f"Rate limited. Waiting {wait:.1f}s (attempt {attempt+1}/{max_retries})")
-                    time.sleep(wait)
-                    continue
-                return response
-            raise RuntimeError("Max retries exceeded after rate limiting")
-        return wrapper
-    return decorator
+class SlidingWindowLimiter:
+    def __init__(self, max_calls: int, window_sec: int):
+        self.max_calls = max_calls
+        self.window = window_sec
+        self._log: dict[str, deque] = defaultdict(deque)
 
-@rate_limit_aware(max_retries=5, base_delay=2.0)
-def call_api(url: str) -> requests.Response:
-    return requests.get(url)
+    def allow(self, key: str) -> bool:
+        now = time.time()
+        q = self._log[key]
+        while q and now - q[0] > self.window:
+            q.popleft()
+        if len(q) >= self.max_calls:
+            return False
+        q.append(now)
+        return True
+
+limiter = SlidingWindowLimiter(max_calls=5, window_sec=10)
+for i in range(7):
+    print(f"Call {i+1}: {'OK' if limiter.allow('agent-1') else 'BLOCKED'}", flush=True)
+    time.sleep(0.1)
 ```
 
 ### Related Skills
-- [HTTP Request](../04-action-execution/http-request.md)
-- [Audit Logging](audit-logging.md)
-- [Retry with Backoff](../15-orchestration/retry-backoff.md)
+- [Budget Management](../15-orchestration/budget-management.md)
+- [Retry Backoff](../15-orchestration/retry-backoff.md)

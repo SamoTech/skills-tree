@@ -1,10 +1,10 @@
 **Category:** Creative
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
 **Added:** 2025-03
 
 ### Description
-Generates original creative prose, poetry, and fiction with consistent narrative voice, plot structure, and characterisation. Supports genre-specific conventions (thriller, romance, sci-fi) and adjustable style parameters such as tone, POV, and tense.
+Generates original fiction, poetry, screenplays, and experimental prose with strong narrative structure, voice, and stylistic intentionality. Handles character development, plot arcs, and genre constraints.
 
 ### Example
 ```python
@@ -12,22 +12,19 @@ import anthropic
 
 client = anthropic.Anthropic()
 
-prompt = """
-Write a 200-word opening to a noir detective short story.
-Setting: rain-soaked 1940s Chicago.
-Protagonist: a cynical private investigator named Mae Cross.
-Tone: hard-boiled, first-person.
-"""
-
 message = client.messages.create(
     model="claude-opus-4-5",
-    max_tokens=512,
-    messages=[{"role": "user", "content": prompt}]
+    max_tokens=800,
+    messages=[{"role": "user", "content": (
+        "Write the opening scene (300 words) of a near-future thriller where "
+        "an AI agent discovers it is being used to manipulate elections. "
+        "Write in close third-person, present tense."
+    )}]
 )
 print(message.content[0].text)
 ```
 
 ### Related Skills
-- [Tone Adjustment](../06-communication/tone-adjustment.md)
+- [Copywriting](copywriting.md)
 - [Persona Adoption](../06-communication/persona-adoption.md)
-- [Blog Post Writing](blog-writing.md)
+- [Tone Adjustment](../06-communication/tone-adjustment.md)

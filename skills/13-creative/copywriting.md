@@ -1,10 +1,10 @@
 **Category:** Creative
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
 **Added:** 2025-03
 
 ### Description
-Crafts persuasive marketing and advertising copy — headlines, CTAs, product descriptions, email campaigns — applying proven frameworks such as AIDA (Attention, Interest, Desire, Action) and PAS (Problem, Agitate, Solution).
+Crafts persuasive marketing copy for landing pages, email campaigns, ads, and sales collateral. Masters AIDA and PAS frameworks, audience tone matching, and conversion-optimised structure.
 
 ### Example
 ```python
@@ -12,22 +12,18 @@ import anthropic
 
 client = anthropic.Anthropic()
 
-prompt = """
-Write three headline variants for a productivity SaaS app using the AIDA framework.
-Product: FocusFlow — a Pomodoro timer with AI scheduling.
-Target audience: remote software developers.
-Keep each headline under 12 words.
-"""
-
 message = client.messages.create(
     model="claude-opus-4-5",
-    max_tokens=256,
-    messages=[{"role": "user", "content": prompt}]
+    max_tokens=512,
+    messages=[{"role": "user", "content": (
+        "Write a 100-word landing page hero section for an AI writing tool targeting busy founders. "
+        "Use the PAS framework. End with a CTA button label."
+    )}]
 )
 print(message.content[0].text)
 ```
 
 ### Related Skills
+- [Blog Writing](blog-writing.md)
+- [Ad Copy Generation](../16-domain-specific/ad-copy.md)
 - [Tone Adjustment](../06-communication/tone-adjustment.md)
-- [Social Media Post Generation](social-media-post.md)
-- [Email Drafting](../06-communication/email-drafting.md)

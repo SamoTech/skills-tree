@@ -1,34 +1,31 @@
 **Category:** Creative
-**Skill Level:** Basic
+**Skill Level:** `advanced`
 **Stability:** stable
 **Added:** 2025-03
 
 ### Description
-Generates platform-appropriate social media content for Twitter/X, LinkedIn, Instagram, and Threads. Applies platform-specific character limits, hashtag strategies, emoji usage, and tone conventions.
+Crafts platform-native social media posts for Twitter/X, LinkedIn, Instagram, and TikTok. Applies character limits, hashtag strategy, hook writing, and engagement-optimised formatting for each channel.
 
 ### Example
 ```python
-import anthropic
+import anthropic, json
 
 client = anthropic.Anthropic()
 
-platform_specs = {
-    "twitter": "280 chars max, 2-3 hashtags, punchy",
-    "linkedin": "Up to 3000 chars, professional, story hook",
-    "instagram": "Caption + 10 hashtags, emoji-friendly",
-}
-
-for platform, spec in platform_specs.items():
-    prompt = f"Write a {platform} post announcing the launch of FocusFlow, an AI productivity app. Spec: {spec}"
-    msg = anthropic.Anthropic().messages.create(
+def write_posts(topic: str, platforms: list[str]) -> dict:
+    resp = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=256,
-        messages=[{"role": "user", "content": prompt}]
+        max_tokens=800,
+        messages=[{"role": "user", "content": (
+            f"Write social media posts about '{topic}' for: {', '.join(platforms)}.\n"
+            "Follow each platform's style and limits. Return JSON: {{platform: post_text}}."
+        )}]
     )
-    print(f"--- {platform.upper()} ---\n{msg.content[0].text}\n")
+    return json.loads(resp.content[0].text)
+
+print(write_posts("Launching an open-source AI skills tree", ["twitter", "linkedin"]))
 ```
 
 ### Related Skills
 - [Copywriting](copywriting.md)
 - [Tone Adjustment](../06-communication/tone-adjustment.md)
-- [Multilingual Output](../06-communication/multilingual-output.md)

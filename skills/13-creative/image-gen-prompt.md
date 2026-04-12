@@ -1,43 +1,32 @@
 **Category:** Creative
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
 **Added:** 2025-03
 
 ### Description
-Crafts detailed, model-optimised prompts for image generation APIs (DALL·E 3, Stable Diffusion, Midjourney). Structures prompts with subject, style, lighting, colour palette, composition, and negative prompt components to reliably produce the desired visual.
+Engineers detailed, model-specific prompts for image generation systems such as DALL-E, Stable Diffusion, and Midjourney. Applies techniques for subject, style, lighting, composition, aspect ratio, and negative prompt construction.
 
 ### Example
 ```python
 import anthropic
-import openai
 
-anthropics_client = anthropic.Anthropic()
-openai_client = openai.OpenAI()
+client = anthropic.Anthropic()
 
-# Step 1 — generate an optimised prompt
-planning = anthropics_client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=512,
-    messages=[{"role": "user", "content": (
-        "Write an optimised DALL-E 3 prompt for: "
-        "a futuristic Tokyo street at night, cyberpunk aesthetic, "
-        "neon reflections on wet pavement, ultra-detailed, cinematic."
-    )}]
-)
-image_prompt = planning.content[0].text
+def craft_image_prompt(concept: str, style: str, model: str = "sdxl") -> str:
+    resp = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=300,
+        messages=[{"role": "user", "content": (
+            f"Create a detailed {model} image generation prompt for: '{concept}'.\n"
+            f"Style: {style}. Include subject, lighting, composition, "
+            "camera settings, and a concise negative prompt."
+        )}]
+    )
+    return resp.content[0].text
 
-# Step 2 — generate the image
-response = openai_client.images.generate(
-    model="dall-e-3",
-    prompt=image_prompt,
-    size="1024x1024",
-    quality="hd",
-    n=1,
-)
-print(response.data[0].url)
+print(craft_image_prompt("futuristic city at dawn", "cinematic realism"))
 ```
 
 ### Related Skills
 - [Image Generation](../08-multimodal/image-generation.md)
 - [Creative Writing](creative-writing.md)
-- [SVG/Vector Art Generation](svg-generation.md)

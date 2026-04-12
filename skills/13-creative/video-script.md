@@ -1,10 +1,10 @@
 **Category:** Creative
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
 **Added:** 2025-03
 
 ### Description
-Produces formatted video scripts with scene headings, on-screen text (B-roll), voiceover narration, speaker labels, and timestamps. Supports YouTube explainers, product demos, documentary segments, and short-form vertical video (Reels/Shorts).
+Writes video scripts with hooks, pacing notes, on-screen text cues, B-roll suggestions, and calls to action. Adapts to YouTube, TikTok, course content, and product demo formats.
 
 ### Example
 ```python
@@ -12,25 +12,18 @@ import anthropic
 
 client = anthropic.Anthropic()
 
-prompt = """
-Write a 90-second YouTube explainer script on 'How LLM tokenisation works'.
-Format:
-- [TIME] SCENE: description
-- VO: voiceover line
-- ON-SCREEN: text overlay
-Target audience: developers new to AI.
-Tone: clear, slightly informal.
-"""
-
 message = client.messages.create(
     model="claude-opus-4-5",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": prompt}]
+    max_tokens=1000,
+    messages=[{"role": "user", "content": (
+        "Write a 90-second YouTube script explaining how RAG works to developers. "
+        "Include: hook (0-5s), problem setup (5-20s), explanation with analogy (20-70s), "
+        "demo teaser (70-80s), CTA (80-90s). Add [B-ROLL] notes inline."
+    )}]
 )
 print(message.content[0].text)
 ```
 
 ### Related Skills
-- [Blog Post Writing](blog-writing.md)
-- [Structured Output](../06-communication/structured-output.md)
+- [Blog Writing](blog-writing.md)
 - [Presentation Generation](presentation-gen.md)

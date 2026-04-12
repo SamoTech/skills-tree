@@ -1,44 +1,33 @@
-**Category:** Security & Safety
-**Skill Level:** Intermediate
+**Category:** Security
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Detects hardcoded secrets — API keys, passwords, private keys, tokens — in source code, configuration files, and agent outputs using pattern matching (regex) and entropy analysis. Integrates with pre-commit hooks or CI pipelines.
+Detects secrets, credentials, and sensitive data patterns in code, configs, agent outputs, and tool results before they propagate to storage or external systems. Integrates with pre-commit hooks and CI pipelines.
 
 ### Example
 ```python
 import re
 
-SECRET_PATTERNS = [
-    ("AWS Access Key",      r"AKIA[0-9A-Z]{16}"),
-    ("GitHub Token",        r"ghp_[A-Za-z0-9]{36}"),
-    ("OpenAI Key",          r"sk-[A-Za-z0-9]{48}"),
-    ("Generic Password",    r"(?i)password\s*=\s*['\"][^'\"]{8,}['\"]"),
-    ("Private Key Header",  r"-----BEGIN (RSA |EC )?PRIVATE KEY-----"),
-]
+SECRET_PATTERNS = {
+    "aws_key":      r"AKIA[0-9A-Z]{16}",
+    "github_token": r"ghp_[A-Za-z0-9]{36}",
+    "private_key":  r"-----BEGIN (RSA |EC )?PRIVATE KEY-----",
+    "generic_api":  r"(?i)(api_key|apikey|secret)[\s=:]+[\w\-]{20,}",
+}
 
-def scan_for_secrets(text: str) -> list[dict]:
+def scan(text: str) -> list[dict]:
     findings = []
-    for name, pattern in SECRET_PATTERNS:
+    for name, pattern in SECRET_PATTERNS.items():
         for match in re.finditer(pattern, text):
-            findings.append({
-                "type": name,
-                "match": match.group()[:20] + "...",
-                "position": match.start(),
-            })
+            findings.append({"type": name, "match": match.group(0)[:20] + "..."})
     return findings
 
-sample_code = """
-api_key = 'sk-abcdefghijklmnopqrstuvwxyz1234567890abcdefghijkl'
-AWS_KEY = 'AKIAIOSFODNN7EXAMPLE'
-"""
-
-for finding in scan_for_secrets(sample_code):
-    print(f"[{finding['type']}] at pos {finding['position']}: {finding['match']}")
+test = "export AWS_KEY=AKIAIOSFODNN7EXAMPLE  # TODO: remove"
+print(scan(test))
 ```
 
 ### Related Skills
-- [Input Sanitization](input-sanitization.md)
 - [Audit Logging](audit-logging.md)
-- [Permission Checking](permission-checking.md)
+- [Input Sanitization](input-sanitization.md)

@@ -1,54 +1,37 @@
 **Category:** Orchestration
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Executes a chain of agent steps in strict order where each step receives the output of the previous one. Implements pipeline composition with typed I/O contracts, error propagation, and optional checkpointing for long-running sequences.
+Orchestrates a deterministic pipeline of agent steps where each step receives the output of the previous one as input. Manages state passing, step validation, error propagation, and result accumulation.
 
 ### Example
 ```python
-from dataclasses import dataclass
 from typing import Any, Callable
 
-@dataclass
-class PipelineStep:
-    name: str
-    fn: Callable[[Any], Any]
+Step = tuple[str, Callable[[dict], dict]]
 
-class SequentialPipeline:
-    def __init__(self, steps: list[PipelineStep]):
-        self.steps = steps
+def run_pipeline(initial_state: dict, steps: list[Step]) -> dict:
+    state = initial_state.copy()
+    for step_name, fn in steps:
+        print(f"Running step: {step_name}")
+        result = fn(state)
+        state.update(result)
+        state["__last_step"] = step_name
+    return state
 
-    def run(self, initial_input: Any) -> Any:
-        state = initial_input
-        for step in self.steps:
-            print(f"[{step.name}] Running...")
-            state = step.fn(state)
-            print(f"[{step.name}] Done.")
-        return state
+pipeline = [
+    ("fetch",    lambda s: {"raw": f"data for {s['query']}"}),
+    ("parse",    lambda s: {"parsed": s["raw"].upper()}),
+    ("summarise",lambda s: {"summary": s["parsed"][:20] + "..."}),
+]
 
-# Define steps
-def fetch_data(url: str) -> dict:
-    return {"url": url, "rows": 500}  # simulated
-
-def clean_data(raw: dict) -> dict:
-    return {**raw, "cleaned": True}
-
-def analyse(clean: dict) -> dict:
-    return {**clean, "summary": "Analysis complete"}
-
-pipeline = SequentialPipeline([
-    PipelineStep("Fetch",   lambda x: fetch_data(x)),
-    PipelineStep("Clean",   clean_data),
-    PipelineStep("Analyse", analyse),
-])
-
-result = pipeline.run("https://api.example.com/data")
-print(result)
+result = run_pipeline({"query": "AI agents"}, pipeline)
+print(result["summary"])
 ```
 
 ### Related Skills
-- [Parallel Task Execution](parallel-execution.md)
 - [Conditional Branching](conditional-branching.md)
-- [Retry with Backoff](retry-backoff.md)
+- [Retry Backoff](retry-backoff.md)
+- [Logging & Observability](logging-observability.md)

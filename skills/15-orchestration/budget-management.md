@@ -1,54 +1,39 @@
 **Category:** Orchestration
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Tracks token consumption, API costs, and time budgets across an agent run. Raises warnings when approaching limits and gracefully terminates or truncates tasks that would exceed the budget, returning partial results where possible.
+Tracks and enforces token, cost, time, and API-call budgets across a multi-agent workflow. Allocates quotas per sub-agent, triggers warnings at thresholds, and halts or degrades execution when limits are reached.
 
 ### Example
 ```python
-import anthropic
-from dataclasses import dataclass
-
-client = anthropic.Anthropic()
+from dataclasses import dataclass, field
 
 @dataclass
 class Budget:
     max_tokens: int
     max_cost_usd: float
     used_tokens: int = 0
-    used_cost_usd: float = 0.0
+    used_cost: float = 0.0
 
-    COST_PER_1K_INPUT  = 0.000015  # claude-opus-4-5 input
-    COST_PER_1K_OUTPUT = 0.000075  # claude-opus-4-5 output
-
-    def charge(self, input_tokens: int, output_tokens: int) -> None:
-        cost = (input_tokens / 1000 * self.COST_PER_1K_INPUT +
-                output_tokens / 1000 * self.COST_PER_1K_OUTPUT)
-        self.used_tokens  += input_tokens + output_tokens
-        self.used_cost_usd += cost
-
-    def check(self) -> None:
+    def charge(self, tokens: int, cost_usd: float):
+        self.used_tokens += tokens
+        self.used_cost += cost_usd
         if self.used_tokens > self.max_tokens:
             raise RuntimeError(f"Token budget exceeded: {self.used_tokens}/{self.max_tokens}")
-        if self.used_cost_usd > self.max_cost_usd:
-            raise RuntimeError(f"Cost budget exceeded: ${self.used_cost_usd:.4f}/${self.max_cost_usd}")
+        if self.used_cost > self.max_cost_usd:
+            raise RuntimeError(f"Cost budget exceeded: ${self.used_cost:.4f}")
 
-bud = Budget(max_tokens=50_000, max_cost_usd=0.50)
+    @property
+    def remaining_tokens(self):
+        return self.max_tokens - self.used_tokens
 
-for step in ["research", "write", "review"]:
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=512,
-        messages=[{"role": "user", "content": f"Do the {step} step for a blog post on AI agents."}]
-    )
-    bud.charge(response.usage.input_tokens, response.usage.output_tokens)
-    bud.check()
-    print(f"[{step}] Tokens used so far: {bud.used_tokens} | Cost: ${bud.used_cost_usd:.4f}")
+b = Budget(max_tokens=10000, max_cost_usd=0.50)
+b.charge(4000, 0.12)
+print(f"Remaining tokens: {b.remaining_tokens}")
 ```
 
 ### Related Skills
-- [Logging and Observability](logging-observability.md)
-- [Task Queue Management](task-queue.md)
-- [Retry with Backoff](retry-backoff.md)
+- [Rate Limiting](../14-security/rate-limiting.md)
+- [Logging & Observability](logging-observability.md)

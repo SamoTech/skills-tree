@@ -1,57 +1,41 @@
 **Category:** Orchestration
-**Skill Level:** Intermediate
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
+**Added:** 2026-04
 
 ### Description
-Instruments agent executions with structured tracing, span timing, and log correlation IDs. Outputs to OpenTelemetry-compatible backends (Jaeger, Datadog, Grafana) and the console. Enables debugging multi-hop workflows by linking spans across agents.
+Instruments multi-agent workflows with structured logging, distributed tracing, and metrics collection. Provides visibility into agent steps, latency, token usage, and failure modes for debugging and monitoring.
 
 ### Example
 ```python
 import time, uuid, json
 from contextlib import contextmanager
-from typing import Optional
 
-class Tracer:
-    def __init__(self, service: str):
-        self.service = service
-        self.spans: list[dict] = []
+TRACE_LOG: list[dict] = []
 
-    @contextmanager
-    def span(self, name: str, parent_id: Optional[str] = None):
-        span_id = str(uuid.uuid4())[:8]
-        trace_id = str(uuid.uuid4())[:8]
-        start = time.perf_counter()
-        span = {"name": name, "span_id": span_id, "trace_id": trace_id,
-                "parent_id": parent_id, "service": self.service}
-        print(f"[TRACE] START {name} (span={span_id})")
-        try:
-            yield span_id
-            span["status"] = "ok"
-        except Exception as e:
-            span["status"] = "error"
-            span["error"] = str(e)
-            raise
-        finally:
-            span["duration_ms"] = round((time.perf_counter() - start) * 1000, 2)
-            self.spans.append(span)
-            print(f"[TRACE] END   {name} ({span['duration_ms']}ms, status={span['status']})")
+@contextmanager
+def span(name: str, trace_id: str = None):
+    span_id = str(uuid.uuid4())[:8]
+    trace_id = trace_id or str(uuid.uuid4())[:8]
+    start = time.perf_counter()
+    record = {"span_id": span_id, "trace_id": trace_id, "name": name, "status": "ok"}
+    try:
+        yield record
+    except Exception as e:
+        record["status"] = "error"
+        record["error"] = str(e)
+        raise
+    finally:
+        record["duration_ms"] = round((time.perf_counter() - start) * 1000, 2)
+        TRACE_LOG.append(record)
 
-    def export(self) -> str:
-        return json.dumps(self.spans, indent=2)
+with span("planner") as s:
+    with span("tool_call", s["trace_id"]):
+        time.sleep(0.01)
 
-tracer = Tracer("research-agent")
-
-with tracer.span("orchestrate") as root_id:
-    with tracer.span("research", parent_id=root_id):
-        time.sleep(0.05)
-    with tracer.span("write", parent_id=root_id):
-        time.sleep(0.03)
-
-print(tracer.export())
+print(json.dumps(TRACE_LOG, indent=2))
 ```
 
 ### Related Skills
 - [Audit Logging](../14-security/audit-logging.md)
-- [Budget / Token Management](budget-management.md)
-- [Sequential Workflow](sequential-workflow.md)
+- [Budget Management](budget-management.md)
