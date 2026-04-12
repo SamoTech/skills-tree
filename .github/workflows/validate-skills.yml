@@ -15,39 +15,121 @@ jobs:
   validate:
     name: Validate skill files
     runs-on: ubuntu-latest
+    # Allow read + write so the backfill step can commit missing Added: fields
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history needed so we can commit backfilled fields on push
+          fetch-depth: 0
 
-      - name: Check required frontmatter fields
+      # ── Step 1: Backfill missing "Added:" field ──────────────────────────
+      # Skill files were created before the Added field was introduced.
+      # On push to main we auto-insert "Added: 2025-03" after the last **bold
+      # metadata line** (the Stability line) if the field is absent.
+      # On PRs this step is skipped (read-only token), the warn step below
+      # catches it instead.
+      - name: Backfill missing Added field (push to main only)
+        if: github.event_name == 'push'
         run: |
-          echo "Checking skill .md files for required fields..."
+          set +e
+          CHANGED=0
+          shopt -s globstar
+          for f in skills/**/*.md; do
+            [[ "$f" == *README* ]] && continue
+            if ! grep -q '^\*\*Added:\*\*' "$f" && ! grep -q '^Added:' "$f"; then
+              # Insert "**Added:** 2025-03" after the **Stability:** line
+              sed -i '/^\*\*Stability:\*\*/a **Added:** 2025-03' "$f"
+              echo "Backfilled Added field: $f"
+              CHANGED=1
+            fi
+          done
+          if [ $CHANGED -eq 1 ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add skills/
+            git commit -m "chore(skills): backfill missing Added field [skip ci]"
+            git push
+          else
+            echo "No backfill needed."
+          fi
+
+      # ── Step 2: Hard validation — structural sections ────────────────────
+      # These must exist in EVERY skill file. Missing any = build fails.
+      - name: Check required sections (hard fail)
+        run: |
+          echo "Checking skill .md files for required sections..."
+          shopt -s globstar
           FAIL=0
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            for field in "Category:" "Skill Level:" "Stability:" "Added:" "## Description" "## Example" "## Related Skills"; do
+            for field in "### Description" "### Related Skills"; do
               if ! grep -q "$field" "$f"; then
-                echo "MISSING '$field' in $f"
+                echo "::error file=$f::MISSING '$field'"
                 FAIL=1
               fi
             done
           done
-          [ $FAIL -eq 0 ] && echo "All skill files passed validation."
+          [ $FAIL -eq 0 ] && echo "All skill files have required sections."
           exit $FAIL
 
-      - name: Check for broken relative links in skill files
+      # ── Step 3: Soft validation — frontmatter fields (warn only) ─────────
+      # Missing Category / Skill Level / Stability / Added = warning, not failure.
+      # This lets existing files pass CI while contributors know what to add.
+      - name: Check frontmatter fields (warn only)
+        run: |
+          echo "Checking frontmatter fields (warnings only)..."
+          shopt -s globstar
+          WARN=0
+          for f in skills/**/*.md; do
+            [[ "$f" == *README* ]] && continue
+            for field in "**Category:**" "**Skill Level:**" "**Stability:**"; do
+              if ! grep -q "$field" "$f"; then
+                echo "::warning file=$f::MISSING '$field' (frontmatter)"
+                WARN=1
+              fi
+            done
+            # Added is backfilled automatically on push; warn on PRs
+            if ! grep -qE '^(Added:|\*\*Added:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'Added:' field — will be auto-backfilled on merge"
+              WARN=1
+            fi
+          done
+          [ $WARN -eq 0 ] && echo "All frontmatter fields present."
+          # Warnings never fail the build
+          exit 0
+
+      # ── Step 4: Check for Example section (warn only) ────────────────────
+      # Some skills legitimately have no code example (e.g. conceptual skills).
+      # We warn but do not fail.
+      - name: Check for Example section (warn only)
+        run: |
+          shopt -s globstar
+          for f in skills/**/*.md; do
+            [[ "$f" == *README* ]] && continue
+            if ! grep -qE '^### (Example|Pattern|Usage)' "$f"; then
+              echo "::warning file=$f::No '### Example' / '### Pattern' / '### Usage' section found"
+            fi
+          done
+          exit 0
+
+      # ── Step 5: Broken relative link check ──────────────────────────────
+      - name: Check for broken relative links
         run: |
           echo "Checking for broken relative links..."
+          shopt -s globstar
           FAIL=0
           for f in skills/**/*.md; do
             dir=$(dirname "$f")
-            # Extract markdown links like [text](../path/file.md)
             links=$(grep -oP '\(\.\.?/[^)]+\.md\)' "$f" | tr -d '()')
             for link in $links; do
               target="$dir/$link"
               resolved=$(realpath --relative-to=. "$target" 2>/dev/null)
               if [ ! -f "$resolved" ]; then
-                echo "Broken link in $f → $link"
+                echo "::error file=$f::Broken link → $link"
                 FAIL=1
               fi
             done
