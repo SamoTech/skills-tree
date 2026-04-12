@@ -8,7 +8,7 @@
 
 Interleaves reasoning (Thought) steps with action (Act) steps and observation (Obs) steps in a loop until a task is complete. The most widely used agentic reasoning pattern.
 
-### Pattern
+### Example
 
 ```
 Thought: I need to find the population of Cairo.

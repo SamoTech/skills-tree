@@ -8,6 +8,21 @@
 
 Call another AI agent as a tool — delegating sub-tasks to specialized agents via the Google A2A protocol or custom RPC interfaces.
 
+### Example
+
+```python
+# Using Google A2A protocol to call a specialized research agent
+agent_client = A2AClient(endpoint="https://research-agent.example.com")
+response = await agent_client.send_task({
+    "id": "task-001",
+    "message": {
+        "role": "user",
+        "parts": [{"text": "Summarize the latest AI papers on RAG from 2025"}]
+    }
+})
+print(response.result.parts[0].text)
+```
+
 ### Architecture
 
 ```

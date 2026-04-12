@@ -8,7 +8,7 @@
 
 Explore multiple reasoning branches simultaneously, evaluate each path, and backtrack to find the optimal solution — unlike linear chain-of-thought.
 
-### Architecture
+### Example
 
 ```
 Root: Solve problem X
@@ -19,6 +19,12 @@ Root: Solve problem X
     ├── Step B1 → evaluate
     └── Step B2 → solution found ✓
 ```
+
+### Frameworks
+
+- `tot` Python library
+- LangGraph (custom branching graph)
+- Custom BFS/DFS prompt loops
 
 ### Related Skills
 
