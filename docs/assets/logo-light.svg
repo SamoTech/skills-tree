@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-label="Skills Tree">
+  <!-- Background -->
+  <rect width="120" height="120" rx="20" fill="#ffffff"/>
+
+  <!-- Trunk line -->
+  <line x1="60" y1="100" x2="60" y2="62" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Level 2 branches -->
+  <line x1="60" y1="72" x2="38" y2="55" stroke="#15803d" stroke-width="2" stroke-linecap="round"/>
+  <line x1="60" y1="72" x2="82" y2="55" stroke="#15803d" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Level 3 left branches -->
+  <line x1="38" y1="55" x2="24" y2="40" stroke="#166534" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="38" y1="55" x2="46" y2="38" stroke="#166534" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Level 3 right branches -->
+  <line x1="82" y1="55" x2="74" y2="38" stroke="#166534" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="82" y1="55" x2="96" y2="40" stroke="#166534" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Level 4 tips -->
+  <line x1="24" y1="40" x2="18" y2="28" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="24" y1="40" x2="29" y2="27" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="46" y1="38" x2="40" y2="26" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="46" y1="38" x2="51" y2="26" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="74" y1="38" x2="69" y2="26" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="74" y1="38" x2="79" y2="26" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="96" y1="40" x2="91" y2="27" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+  <line x1="96" y1="40" x2="101" y2="28" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Root node -->
+  <circle cx="60" cy="100" r="4.5" fill="#16a34a"/>
+
+  <!-- Central node -->
+  <circle cx="60" cy="62" r="4" fill="#16a34a"/>
+
+  <!-- Level 2 branch nodes -->
+  <circle cx="38" cy="55" r="3.5" fill="#15803d"/>
+  <circle cx="82" cy="55" r="3.5" fill="#15803d"/>
+
+  <!-- Level 3 nodes -->
+  <circle cx="24" cy="40" r="3" fill="#166534"/>
+  <circle cx="46" cy="38" r="3" fill="#166534"/>
+  <circle cx="74" cy="38" r="3" fill="#166534"/>
+  <circle cx="96" cy="40" r="3" fill="#166534"/>
+
+  <!-- Level 4 leaf nodes -->
+  <circle cx="18" cy="28" r="2.2" fill="#0d9488"/>
+  <circle cx="29" cy="27" r="2.2" fill="#0d9488"/>
+  <circle cx="40" cy="26" r="2.2" fill="#0d9488"/>
+  <circle cx="51" cy="26" r="2.2" fill="#0d9488"/>
+  <circle cx="69" cy="26" r="2.2" fill="#0d9488"/>
+  <circle cx="79" cy="26" r="2.2" fill="#0d9488"/>
+  <circle cx="91" cy="27" r="2.2" fill="#0d9488"/>
+  <circle cx="101" cy="28" r="2.2" fill="#0d9488"/>
+</svg>

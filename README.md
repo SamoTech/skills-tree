@@ -14,10 +14,16 @@
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
+[![Watchers](https://img.shields.io/github/watchers/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/watchers)
+[![Views](https://komarev.com/ghpvc/?username=SamoTech&label=Repo+Views&color=0e75b6&style=for-the-badge)](https://github.com/SamoTech/skills-tree)
+[![Issues](https://img.shields.io/github/issues/SamoTech/skills-tree?style=for-the-badge&color=ef4444&logo=github)](https://github.com/SamoTech/skills-tree/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+[![Contributors](https://img.shields.io/github/contributors/SamoTech/skills-tree?style=for-the-badge&color=f59e0b&logo=github)](https://github.com/SamoTech/skills-tree/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/SamoTech/skills-tree?style=for-the-badge&color=06b6d4&logo=github)](https://github.com/SamoTech/skills-tree/commits/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-515%2B-8b5cf6?style=for-the-badge)](skills/)
 [![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
+[![GitHub Pages](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
 
 **[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
