@@ -1,55 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-label="Skills Tree">
-  <!-- Background -->
-  <rect width="120" height="120" rx="20" fill="#0d1117"/>
-
-  <!-- Trunk line -->
-  <line x1="60" y1="100" x2="60" y2="62" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-
-  <!-- Level 2 branches -->
-  <line x1="60" y1="72" x2="38" y2="55" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
-  <line x1="60" y1="72" x2="82" y2="55" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/>
-
-  <!-- Level 3 left branches -->
-  <line x1="38" y1="55" x2="24" y2="40" stroke="#86efac" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="38" y1="55" x2="46" y2="38" stroke="#86efac" stroke-width="1.5" stroke-linecap="round"/>
-
-  <!-- Level 3 right branches -->
-  <line x1="82" y1="55" x2="74" y2="38" stroke="#86efac" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="82" y1="55" x2="96" y2="40" stroke="#86efac" stroke-width="1.5" stroke-linecap="round"/>
-
-  <!-- Level 4 tips -->
-  <line x1="24" y1="40" x2="18" y2="28" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="24" y1="40" x2="29" y2="27" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="46" y1="38" x2="40" y2="26" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="46" y1="38" x2="51" y2="26" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="74" y1="38" x2="69" y2="26" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="74" y1="38" x2="79" y2="26" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="96" y1="40" x2="91" y2="27" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-  <line x1="96" y1="40" x2="101" y2="28" stroke="#4fd1c5" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
-
-  <!-- Root node (trunk base) -->
-  <circle cx="60" cy="100" r="4.5" fill="#22c55e"/>
-
-  <!-- Level 2 nodes -->
-  <circle cx="60" cy="62" r="4" fill="#22c55e"/>
-
-  <!-- Level 2 branch nodes -->
-  <circle cx="38" cy="55" r="3.5" fill="#4ade80"/>
-  <circle cx="82" cy="55" r="3.5" fill="#4ade80"/>
-
-  <!-- Level 3 nodes -->
-  <circle cx="24" cy="40" r="3" fill="#86efac"/>
-  <circle cx="46" cy="38" r="3" fill="#86efac"/>
-  <circle cx="74" cy="38" r="3" fill="#86efac"/>
-  <circle cx="96" cy="40" r="3" fill="#86efac"/>
-
-  <!-- Level 4 leaf nodes -->
-  <circle cx="18" cy="28" r="2.2" fill="#4fd1c5"/>
-  <circle cx="29" cy="27" r="2.2" fill="#4fd1c5"/>
-  <circle cx="40" cy="26" r="2.2" fill="#4fd1c5"/>
-  <circle cx="51" cy="26" r="2.2" fill="#4fd1c5"/>
-  <circle cx="69" cy="26" r="2.2" fill="#4fd1c5"/>
-  <circle cx="79" cy="26" r="2.2" fill="#4fd1c5"/>
-  <circle cx="91" cy="27" r="2.2" fill="#4fd1c5"/>
-  <circle cx="101" cy="28" r="2.2" fill="#4fd1c5"/>
+  <!-- Tree trunk -->
+  <rect x="55" y="72" width="10" height="28" rx="3" fill="#4f98a3"/>
+  <!-- Root branches -->
+  <path d="M60 98 Q42 105 30 102" stroke="#4f98a3" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M60 98 Q78 105 90 102" stroke="#4f98a3" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Main canopy layers -->
+  <!-- Bottom layer -->
+  <ellipse cx="60" cy="68" rx="36" ry="16" fill="#1a626b" opacity="0.9"/>
+  <!-- Mid layer -->
+  <ellipse cx="60" cy="52" rx="28" ry="15" fill="#227f8b" opacity="0.95"/>
+  <!-- Top layer -->
+  <ellipse cx="60" cy="38" rx="20" ry="13" fill="#4f98a3"/>
+  <!-- Crown -->
+  <ellipse cx="60" cy="26" rx="12" ry="10" fill="#6dbac6"/>
+  <!-- Highlight dots (skill nodes) -->
+  <circle cx="38" cy="62" r="4" fill="#cdccca" opacity="0.8"/>
+  <circle cx="82" cy="62" r="4" fill="#cdccca" opacity="0.8"/>
+  <circle cx="44" cy="48" r="3.5" fill="#cdccca" opacity="0.7"/>
+  <circle cx="76" cy="48" r="3.5" fill="#cdccca" opacity="0.7"/>
+  <circle cx="50" cy="36" r="3" fill="#cdccca" opacity="0.6"/>
+  <circle cx="70" cy="36" r="3" fill="#cdccca" opacity="0.6"/>
+  <!-- Connection lines between nodes -->
+  <line x1="38" y1="62" x2="44" y2="48" stroke="#cdccca" stroke-width="1" opacity="0.4"/>
+  <line x1="82" y1="62" x2="76" y2="48" stroke="#cdccca" stroke-width="1" opacity="0.4"/>
+  <line x1="44" y1="48" x2="50" y2="36" stroke="#cdccca" stroke-width="1" opacity="0.4"/>
+  <line x1="76" y1="48" x2="70" y2="36" stroke="#cdccca" stroke-width="1" opacity="0.4"/>
 </svg>

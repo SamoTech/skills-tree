@@ -15,7 +15,7 @@
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
 [![Watchers](https://img.shields.io/github/watchers/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/watchers)
-[![Views](https://komarev.com/ghpvc/?username=SamoTech&label=Repo+Views&color=0e75b6&style=for-the-badge)](https://github.com/SamoTech/skills-tree)
+[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&count_bg=%230e75b6&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=Views&edge_flat=false)](https://github.com/SamoTech/skills-tree)
 [![Issues](https://img.shields.io/github/issues/SamoTech/skills-tree?style=for-the-badge&color=ef4444&logo=github)](https://github.com/SamoTech/skills-tree/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SamoTech/skills-tree?style=for-the-badge&color=f59e0b&logo=github)](https://github.com/SamoTech/skills-tree/graphs/contributors)
@@ -155,10 +155,13 @@ See how skills combine into real, working agent pipelines:
 | System | Skills Used | Use Case |
 |---|---|---|
 | [Research Agent](systems/research-agent.md) | Web search + RAG + Summarize + Cite | Deep research automation |
+| [Coding Agent](systems/coding-agent.md) | Code reading + Write + Debug + Test | End-to-end code generation |
 | [Code Reviewer](systems/code-reviewer.md) | Code reading + Reasoning + Comment gen | Automated PR reviews |
 | [Data Pipeline Agent](systems/data-pipeline-agent.md) | DB reading + ETL + Anomaly detection | Automated data ops |
 | [Customer Support Bot](systems/customer-support-bot.md) | Memory injection + Intent + Response gen | Personalized support |
 | [Computer Use Agent](systems/computer-use-agent.md) | Screen reading + OCR + Click + Type | Full GUI automation |
+| [Data Analyst](systems/data-analyst.md) | SQL + Charts + Summarize + Insight gen | Automated data analysis |
+| [Voice Agent](systems/voice-agent.md) | Audio transcription + NLU + TTS | Real-time voice interaction |
 
 ---
 
@@ -169,7 +172,9 @@ Copy-paste architectures for the most common agent patterns:
 | Blueprint | Description |
 |---|---|
 | [RAG Stack](blueprints/rag-stack.md) | Embed → store → retrieve → generate, fully wired |
-| [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialists + orchestrator pattern |
+| [Multi-Agent Workflow](blueprints/multi-agent-workflow.md) | Sequential orchestration with handoffs |
+| [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialists + orchestrator, parallel execution |
+| [Computer Use Browser](blueprints/computer-use-browser.md) | Browser automation via Playwright + vision |
 | [Human-in-the-Loop](blueprints/human-in-the-loop.md) | Approval gates, escalation, audit trails |
 | [Self-Healing Agent](blueprints/self-healing-agent.md) | Error detection, retry logic, rollback |
 | [Memory-First Agent](blueprints/memory-first-agent.md) | Profile + episodic + vector memory combined |
@@ -185,7 +190,7 @@ We test so you don't have to:
 | ReAct vs LATS (HotpotQA) | LATS | +8.3% accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
 | RAG retrieval strategies | HyDE | +12% recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
 | Memory injection methods | Top-K semantic | Best cost/quality ratio | [→](benchmarks/memory/injection-strategies.md) |
-| Code gen: Claude vs GPT-4o | Claude 3.7 | +6% on HumanEval | [→](benchmarks/code/model-comparison.md) |
+| Function calling comparison | Claude 3.7 | +6% on tool accuracy | [→](benchmarks/tool-use/function-calling-comparison.md) |
 
 > Every benchmark includes methodology, dataset, and reproducible test scripts.
 
@@ -206,6 +211,7 @@ We test so you don't have to:
 **🔬 Hot in Labs**
 - `labs/reasoning/tree-of-agents.md` — multi-agent tree search
 - `labs/memory/episodic-compression.md` — lossy-but-useful memory compression
+- `labs/tool-use/adaptive-tool-selection.md` — dynamic tool filtering for large registries
 
 ---
 
@@ -251,7 +257,7 @@ grep -r "memory injection" skills/ --include="*.md" -l
 cat systems/research-agent.md
 
 # See benchmark results
-cat benchmarks/reasoning/react-vs-lats.md
+cat benchmarks/tool-use/function-calling-comparison.md
 ```
 
 Or **[browse the live UI →](https://samotech.github.io/skills-tree)**
