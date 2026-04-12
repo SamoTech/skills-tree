@@ -1,0 +1,45 @@
+---
+Category: Memory
+Skill Level: Advanced
+Stability: Stable
+Tags: [long-term-memory, persistent-storage, user-preferences, knowledge-distillation]
+---
+
+# Long-Term Memory
+
+### Description
+Persists agent knowledge, learned preferences, and distilled insights across sessions and deployments. Long-term memory is durable (survives restarts), structured (organized for efficient retrieval), and self-maintaining (entries are updated, merged, or expired over time). Implemented via databases, file systems, or managed memory services like Mem0 or Zep.
+
+### When to Use
+- Remembering user preferences, goals, and constraints across many sessions
+- Accumulating domain expertise from tool outcomes over time (learning agents)
+- Persisting agent-generated knowledge distillations (summaries, rules, heuristics)
+- Cross-agent knowledge sharing in multi-agent systems
+
+### Example
+```python
+from mem0 import Memory
+
+m = Memory()
+
+# Store preference from interaction
+m.add("User prefers concise bullet-point summaries over long paragraphs.",
+      user_id="user_42", metadata={"category": "communication_style"})
+
+# Before responding, retrieve relevant long-term memories
+relevant = m.search("How should I format my response?", user_id="user_42", limit=5)
+for mem in relevant:
+    print(f"[{mem['score']:.2f}] {mem['memory']}")
+
+# Update when preferences change
+m.update(mem_id=relevant[0]["id"], data="User now prefers detailed explanations with examples.")
+```
+
+### Advanced Techniques
+- **Memory distillation**: run nightly summarization jobs that compress episodic memories into semantic facts
+- **Contradiction resolution**: before upserting, check semantic similarity to existing memories; merge or flag conflicts
+- **Tiered storage**: hot memories in Redis, warm in PostgreSQL + pgvector, cold in S3 + re-embed on access
+- **Memory audit trails**: store the source (which interaction, which tool output) for every memory entry
+
+### Related Skills
+- `episodic-memory`, `semantic-memory`, `working-memory`, `memory-augmented`, `rag`

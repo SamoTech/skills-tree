@@ -1,25 +1,53 @@
+---
+Category: Memory
+Skill Level: Advanced
+Stability: Stable
+Tags: [working-memory, scratchpad, state-tracking, context-management]
+---
+
 # Working Memory
 
-**Category:** `memory`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
-
 ### Description
+Maintains active task state, intermediate results, and evolving context during the execution of a complex multi-step task. Working memory is the agent's cognitive workspace — it holds what the agent is currently doing, what it has already done, and what it needs to do next.
 
-Maintain active context within a single conversation or task session using the model's context window as temporary storage.
+### When to Use
+- Multi-step agentic workflows where partial results must be tracked between tool calls
+- State machines where the agent transitions between phases (plan → execute → verify → replan)
+- Parallel sub-task coordination where results from multiple branches must be merged
 
 ### Example
-
 ```python
-# LangChain conversation buffer
-from langchain.memory import ConversationBufferMemory
-memory = ConversationBufferMemory()
-memory.save_context({'input': 'My name is Ossama'}, {'output': 'Hello Ossama!'})
-print(memory.load_memory_variables({}))
+from dataclasses import dataclass, field
+from typing import Any
+
+@dataclass
+class WorkingMemory:
+    goal: str
+    steps_completed: list[str] = field(default_factory=list)
+    tool_results: dict[str, Any] = field(default_factory=dict)
+    current_step: int = 0
+    errors: list[str] = field(default_factory=list)
+    scratchpad: str = ""
+
+    def record_result(self, tool: str, result: Any) -> None:
+        self.tool_results[f"{tool}_{self.current_step}"] = result
+        self.steps_completed.append(f"Step {self.current_step}: {tool}")
+        self.current_step += 1
+
+    def to_context(self) -> str:
+        return (
+            f"Goal: {self.goal}\n"
+            f"Completed: {self.steps_completed}\n"
+            f"Last results: {list(self.tool_results.items())[-3:]}\n"
+            f"Errors: {self.errors}\n"
+            f"Scratchpad: {self.scratchpad}"
+        )
 ```
 
-### Related Skills
+### Advanced Techniques
+- **Structured state schemas**: use Pydantic models as the working memory schema for validation and serialization
+- **Checkpoint snapshots**: serialize working memory to JSON at each step for resume-on-failure
+- **Attention masking**: in multi-agent setups, expose only task-relevant slices of working memory to each sub-agent
 
-- [Episodic Memory](episodic-memory.md)
-- [Memory Summarization](memory-summarization.md)
+### Related Skills
+- `short-term-memory`, `episodic-memory`, `task-decomposition`, `plan-and-execute`

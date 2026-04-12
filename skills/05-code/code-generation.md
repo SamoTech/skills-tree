@@ -1,32 +1,61 @@
+---
+Category: Code
+Skill Level: Advanced
+Stability: Stable
+Tags: [code-generation, llm, structured-output, test-driven, multi-file]
+---
+
 # Code Generation
 
-**Category:** `code`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
-
 ### Description
+Generates correct, idiomatic, production-quality code from natural language specifications, existing code context, or test cases. Covers single functions, full modules, multi-file projects, and API integrations. Includes test-driven generation (TDD-style), self-repair loops, and static analysis validation.
 
-Generate working code in any programming language from a natural language description.
+### When to Use
+- Scaffolding new features, modules, or microservices from specifications
+- Test-driven code generation: generate implementation from failing tests
+- Translating pseudocode, diagrams, or requirements into executable code
+- Auto-generating boilerplate (CRUD endpoints, data models, migrations)
 
 ### Example
-
 ```python
-prompt = "Write a Python function that takes a list of dicts and returns them sorted by 'date' key descending."
-code = llm.invoke(prompt)
-# def sort_by_date(items):
-#     return sorted(items, key=lambda x: x['date'], reverse=True)
+from openai import OpenAI
+import subprocess, textwrap
+
+client = OpenAI()
+
+def generate_and_validate(spec: str, language: str = "python") -> str:
+    """Generate code, run linter, self-repair if linting fails."""
+    prompt = f"""Generate {language} code for the following specification.
+Output ONLY the code, no explanation, no markdown fences.
+Specification: {spec}"""
+
+    for attempt in range(3):
+        r = client.chat.completions.create(
+            model="o3",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        code = r.choices[0].message.content.strip()
+
+        # Write to temp file and lint
+        with open("/tmp/gen_code.py", "w") as f:
+            f.write(code)
+        result = subprocess.run(["ruff", "check", "/tmp/gen_code.py"], capture_output=True, text=True)
+        if result.returncode == 0:
+            return code
+
+        # Feed lint errors back for self-repair
+        prompt = f"""The following code has lint errors. Fix them.
+Code:\n```python\n{code}\n```\nErrors: {result.stdout}
+Output ONLY the fixed code."""
+
+    return code  # return best attempt
 ```
 
-### Frameworks / Models
-
-- GPT-4o, Claude 3.7, Gemini 2.5 Pro
-- GitHub Copilot
-- DeepSeek Coder, Qwen Coder
-- Codestral (Mistral)
+### Advanced Techniques
+- **TDD generation**: first generate failing tests, then generate implementation until tests pass
+- **Multi-file projects**: use a project manifest (list of files + their purposes) and generate each file with cross-file context
+- **Compiler-in-the-loop**: for compiled languages (Go, Rust, TypeScript), compile and feed errors back
+- **RAG-enhanced**: retrieve similar code from the codebase before generating to ensure style consistency
 
 ### Related Skills
-
-- [Code Explanation](code-explanation.md)
-- [Debugging](debugging.md)
-- [Unit Test Generation](unit-test-generation.md)
+- `code-review`, `bug-fixing`, `code-testing`, `refactoring`, `code-execution`

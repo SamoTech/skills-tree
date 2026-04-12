@@ -1,29 +1,55 @@
+---
+Category: Memory
+Skill Level: Advanced
+Stability: Stable
+Tags: [episodic-memory, conversation-history, event-recall, temporal-context]
+---
+
 # Episodic Memory
 
-**Category:** `memory`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
-
 ### Description
+Records and retrieves specific past events, interactions, and experiences with temporal context. Episodic memory enables agents to recall what happened, when it happened, and what the outcome was — supporting continuity across sessions, learning from mistakes, and personalization based on interaction history.
 
-Store and retrieve records of past interactions, events, and actions the agent has taken — enabling learning from history.
+### When to Use
+- Maintaining conversational continuity across multiple sessions or agent invocations
+- Recalling previous tool outcomes to avoid repeating failed approaches
+- Building personalized agents that remember user preferences and past interactions
+- Debugging agentic runs by inspecting the full event timeline
 
 ### Example
-
 ```python
-# Store an episode
-memory_store.add({
-    'timestamp': '2026-04-11T22:00:00',
-    'task': 'Deploy API to Fly.io',
-    'outcome': 'success',
-    'steps_taken': ['wrote Dockerfile', 'ran flyctl deploy']
-})
-# Retrieve relevant episodes
-epochs = memory_store.search('deployment failures')
+from datetime import datetime, timezone
+from typing import Any
+from qdrant_client import QdrantClient, models
+from openai import OpenAI
+
+client = OpenAI()
+qdrant = QdrantClient(":memory:")
+qdrant.recreate_collection("episodes", vectors_config=models.VectorParams(size=1536, distance=models.Distance.COSINE))
+
+def embed(text: str) -> list[float]:
+    return client.embeddings.create(model="text-embedding-3-small", input=text).data[0].embedding
+
+def store_episode(event: str, outcome: Any, session_id: str) -> None:
+    text = f"Event: {event}\nOutcome: {outcome}"
+    vec = embed(text)
+    qdrant.upsert("episodes", points=[models.PointStruct(
+        id=int(datetime.now(timezone.utc).timestamp() * 1000),
+        vector=vec,
+        payload={"event": event, "outcome": str(outcome),
+                 "ts": datetime.now(timezone.utc).isoformat(), "session": session_id}
+    )])
+
+def recall_similar(query: str, top_k: int = 5) -> list[dict]:
+    hits = qdrant.search("episodes", query_vector=embed(query), limit=top_k)
+    return [h.payload for h in hits]
 ```
 
-### Related Skills
+### Advanced Techniques
+- **Temporal decay**: down-weight older episodes using `score * exp(-lambda * age_days)`
+- **Episode compression**: periodically summarize clusters of related episodes into abstract memories
+- **Contradiction detection**: before storing, check for episodes that contradict the new event and flag for review
+- **Multi-granularity**: store raw events + summarized episodes + abstract patterns as separate memory layers
 
-- [Working Memory](working-memory.md)
-- [Cross-Session Persistence](cross-session-persistence.md)
+### Related Skills
+- `semantic-memory`, `working-memory`, `long-term-memory`, `rag`, `memory-augmented`
