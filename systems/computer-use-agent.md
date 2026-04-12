@@ -1,123 +1,177 @@
----
-title: Computer Use Agent
-category: systems
-version: v1
-stability: experimental
-skills: [screen-reading, ocr, click, type, scroll, file-system-reading, planning]
----
+# Computer Use Agent System
 
-# Computer Use Agent
+**Category:** systems | **Level:** advanced | **Stability:** experimental | **Version:** v1
 
-> Full GUI automation agent that perceives desktop/browser state via screenshots, plans action sequences, and executes click/type/scroll/key commands to complete multi-step tasks.
+## Overview
+
+A full GUI automation agent that perceives live screen state, maps UI elements via accessibility tree or OCR, plans the next action (click, type, scroll, key), executes it, and loops until the goal is achieved — enabling end-to-end task completion in any desktop or browser application without an API.
+
+---
 
 ## Skills Used
 
-| Skill | Role |
+| Skill | Role in System |
 |---|---|
-| `skills/01-perception/screen-reading.md` | Parse screenshot → structured UI state |
-| `skills/01-perception/ocr.md` | Read text from non-native UI elements |
-| `skills/10-computer-use/click.md` | Precise element targeting |
-| `skills/10-computer-use/type.md` | Keyboard input with focus management |
-| `skills/10-computer-use/scroll.md` | Navigate long pages / lists |
-| `skills/02-reasoning/planning.md` | Multi-step task decomposition |
-| `skills/02-reasoning/self-correction.md` | Detect failures, re-plan |
+| `skills/10-computer-use/screen-reading.md` | Capture and interpret the current screen |
+| `skills/01-perception/ocr.md` | Extract text from non-accessible UI elements |
+| `skills/10-computer-use/a11y-tree.md` | Parse accessibility tree for element targeting |
+| `skills/10-computer-use/click.md` | Execute mouse click at target coordinate |
+| `skills/10-computer-use/type.md` | Send keyboard input to focused element |
+| `skills/10-computer-use/scroll.md` | Scroll to reveal off-screen content |
+| `skills/02-reasoning/planning.md` | Decompose goal into ordered UI action steps |
+| `skills/02-reasoning/self-correction.md` | Detect failed actions and retry differently |
+
+---
 
 ## Architecture
 
 ```
-  Task: "Book a flight EGY→LHR on May 15 under $600"
-        │
-        ▼
-┌─────────────────────┐
-│    Task Planner     │  breaks task into ordered sub-goals
-└─────────┬───────────┘
-          │
-    ┌─────▼──────────────────────────────┐
-    │         Action Loop               │
-    │                                   │
-    │  Screenshot → Perceive UI state   │
-    │       ↓                           │
-    │  Plan next action (tool call)     │
-    │       ↓                           │
-    │  Execute: click / type / scroll   │
-    │       ↓                           │
-    │  Verify: expected state reached?  │
-    │     yes → next step               │
-    │     no  → self-correct / retry    │
-    └─────────────────────────────────--┘
-          │
-          ▼
-     Task complete / escalate to human
+┌──────────────────────────────────────────────────────┐
+│               Computer Use Agent Loop                │
+├──────────────────────────────────────────────────────┤
+│                                                      │
+│  Goal: "Book a flight from Cairo to London"          │
+│    │                                                 │
+│    ▼                                                 │
+│  ┌─────────────────────────────────────────────┐    │
+│  │             Perception Layer                │    │
+│  │   Screenshot → OCR + a11y tree → JSON state │    │
+│  └──────────────────────┬──────────────────────┘    │
+│                         │                           │
+│                         ▼                           │
+│  ┌─────────────────────────────────────────────┐    │
+│  │              Planning Layer                 │    │
+│  │   Current state + goal → next action        │    │
+│  │   {type: click|type|scroll|key, target, val}│    │
+│  └──────────────────────┬──────────────────────┘    │
+│                         │                           │
+│                         ▼                           │
+│  ┌─────────────────────────────────────────────┐    │
+│  │             Execution Layer                 │    │
+│  │   PyAutoGUI / Playwright / xdotool          │    │
+│  └──────────────────────┬──────────────────────┘    │
+│                         │                           │
+│                         ▼                           │
+│           Goal reached? ──► Done                    │
+│                No ──► Loop (max 50 steps)            │
+└──────────────────────────────────────────────────────┘
 ```
+
+---
 
 ## Implementation
 
 ```python
 import anthropic
 import base64
-from pathlib import Path
+import pyautogui
+import json
+from PIL import ImageGrab
 
 client = anthropic.Anthropic()
 
-def screenshot_to_base64(path: str) -> str:
-    return base64.b64encode(Path(path).read_bytes()).decode()
+AGENT_SYSTEM = """
+You are a computer use agent. You see the current screen as an image.
+Your goal is provided. Output the SINGLE next action as JSON:
+{
+  "action": "click|type|scroll|key|done|fail",
+  "x": int (for click/scroll),
+  "y": int (for click/scroll),
+  "text": str (for type/key),
+  "direction": "up|down" (for scroll),
+  "reason": "why this action",
+  "goal_complete": true/false
+}
+If the goal is complete, use action=done. If you're stuck after reasoning, use action=fail.
+"""
 
-def run_computer_use_step(task: str, screenshot_path: str, history: list) -> dict:
-    screenshot_b64 = screenshot_to_base64(screenshot_path)
+def take_screenshot() -> str:
+    """Capture screen and return as base64."""
+    img = ImageGrab.grab()
+    import io
+    buf = io.BytesIO()
+    img.save(buf, format="PNG")
+    return base64.standard_b64encode(buf.getvalue()).decode()
 
+def get_next_action(goal: str, screenshot_b64: str, step: int) -> dict:
     response = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=1024,
-        tools=[{
-            "type": "computer_20250124",
-            "name": "computer",
-            "display_width_px": 1920,
-            "display_height_px": 1080,
-        }],
-        system=f"You are completing this task: {task}\nUse the computer tool to interact with the screen.",
-        messages=history + [{
+        max_tokens=512,
+        system=AGENT_SYSTEM,
+        messages=[{
             "role": "user",
-            "content": [{
-                "type": "image",
-                "source": {"type": "base64", "media_type": "image/png", "data": screenshot_b64}
-            }, {
-                "type": "text",
-                "text": "What is the current state of the screen? What action should I take next to complete the task?"
-            }]
+            "content": [
+                {"type": "image", "source": {"type": "base64", "media_type": "image/png", "data": screenshot_b64}},
+                {"type": "text", "text": f"Goal: {goal}\nStep: {step}/50"}
+            ]
         }]
     )
+    return json.loads(response.content[0].text)
 
-    for block in response.content:
-        if block.type == "tool_use" and block.name == "computer":
-            return {"action": block.input["action"], "params": block.input, "done": False}
-    return {"action": "none", "done": True, "summary": response.content[0].text}
+def execute_action(action: dict):
+    match action["action"]:
+        case "click":
+            pyautogui.click(action["x"], action["y"])
+        case "type":
+            pyautogui.typewrite(action["text"], interval=0.05)
+        case "scroll":
+            direction = -3 if action["direction"] == "down" else 3
+            pyautogui.scroll(direction, x=action["x"], y=action["y"])
+        case "key":
+            pyautogui.hotkey(*action["text"].split("+"))
 
-def run_task(task: str, executor):
-    history = []
-    for step in range(30):  # max 30 steps
-        shot = executor.screenshot()
-        result = run_computer_use_step(task, shot, history)
-        if result["done"]:
-            return result["summary"]
-        executor.execute(result["action"], result["params"])
-        history.append({"role": "assistant", "content": str(result)})
+def run_agent(goal: str, max_steps: int = 50) -> str:
+    for step in range(1, max_steps + 1):
+        screenshot = take_screenshot()
+        action = get_next_action(goal, screenshot, step)
+        print(f"Step {step}: {action['action']} — {action['reason']}")
+
+        if action["action"] == "done":
+            return "SUCCESS"
+        if action["action"] == "fail":
+            return f"FAILED at step {step}: {action['reason']}"
+
+        execute_action(action)
+        import time; time.sleep(0.8)  # wait for UI to settle
+
+    return "TIMEOUT: max steps reached"
+
+# Usage
+if __name__ == "__main__":
+    result = run_agent("Open Chrome, go to github.com, and star the skills-tree repo")
+    print(f"Result: {result}")
 ```
+
+---
 
 ## Failure Modes
 
-| Failure | Cause | Fix |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Infinite click loop | UI state not changing after action | Add state-hash comparison; break on repeat |
-| Wrong element targeted | Overlapping / off-screen elements | Use accessibility tree as backup selector |
-| CAPTCHA blocks | Bot detection | Pause + alert human; do not auto-solve |
-| Action diverges from task | Ambiguous sub-goal | Break task into explicit checkpoints with verification |
+| Wrong element clicked | Coordinate drift, dynamic layouts | Use a11y tree IDs over pixel coordinates |
+| Infinite loop | UI stuck / modal blocking | Detect repeated identical screenshots → abort |
+| Rate limiting | Too many API calls | Add 800ms sleep between steps |
+| Coordinate mismatch | HiDPI / retina displays | Scale coordinates by display DPI factor |
+
+---
+
+## Safety Guardrails
+
+```python
+BLOCKED_ACTIONS = ["rm -rf", "format", "DELETE FROM", "sudo"]
+# Always run in a VM or sandboxed environment
+# Never give the agent access to payment forms or admin panels without human approval
+# Log every screenshot + action for audit
+```
+
+---
 
 ## Related
 
-- `blueprints/computer-use-browser.md`
-- `skills/10-computer-use/`
-- `skills/01-perception/screen-reading.md`
+- `blueprints/computer-use-browser.md` — Browser-specific variant using Playwright
+- `skills/10-computer-use/screen-reading.md` · `skills/01-perception/ocr.md`
+- `skills/02-reasoning/self-correction.md` — Critical for recovery from failed steps
 
 ## Changelog
 
-- `v1` (2026-04) — Initial agent with screenshot-driven action loop and self-correction
+- **v1** (2026-04) — Initial system: screenshot loop, action planning, PyAutoGUI execution

@@ -1,128 +1,158 @@
----
-title: Code Reviewer
-category: systems
-version: v1
-stability: stable
-skills: [code-reading, reasoning, comment-generation, diff-analysis, security-scanning]
----
+# Code Reviewer System
 
-# Code Reviewer
+**Category:** systems | **Level:** intermediate | **Stability:** stable | **Version:** v1
 
-> Automated pull-request review agent that reads diffs, reasons about correctness, flags bugs, security issues, and style violations, then posts structured inline comments.
+## Overview
+
+An automated code review agent that reads pull request diffs, applies reasoning skills to identify bugs, style violations, security risks, and improvement opportunities, then generates structured, actionable review comments — mimicking a senior engineer's review process at scale.
+
+---
 
 ## Skills Used
 
-| Skill | Role |
+| Skill | Role in System |
 |---|---|
-| `skills/01-perception/code-reading.md` | Parse diff hunks, understand context |
-| `skills/02-reasoning/causal.md` | Trace impact of changes through call graph |
-| `skills/02-reasoning/risk-assessment.md` | Rate severity of each finding |
-| `skills/14-security/secret-scanning.md` | Catch leaked keys / tokens in diffs |
-| `skills/06-communication/comment-generation.md` | Draft clear, actionable review comments |
+| `skills/01-perception/code-reading.md` | Parse and understand the diff |
+| `skills/02-reasoning/causal.md` | Trace logic bugs to their root cause |
+| `skills/02-reasoning/risk-assessment.md` | Flag security and correctness risks |
+| `skills/02-reasoning/abductive.md` | Infer developer intent from context |
+| `skills/06-communication/summarize.md` | Produce concise, actionable comments |
+| `skills/05-code/debug.md` | Identify runtime and logic errors |
+| `skills/14-security/secret-scanning.md` | Detect accidentally committed secrets |
+
+---
 
 ## Architecture
 
 ```
-GitHub Webhook (PR opened/updated)
-        │
-        ▼
-┌──────────────────┐
-│  Diff Fetcher    │  ← pulls unified diff via GitHub API
-└────────┬─────────┘
-         │
-         ▼
-┌──────────────────────────────────────┐
-│          Chunk Router                │
-│  splits diff into per-file hunks     │
-│  skips generated / vendor files      │
-└──────┬──────────┬──────────┬─────────┘
-       │          │          │
-       ▼          ▼          ▼
-  Bug Check  Security    Style / DX
-  (causal)   (secret +   (comment
-              vuln scan)  generation)
-       │          │          │
-       └──────────┴──────────┘
-                  │
-                  ▼
-         Severity Ranker
-      (risk-assessment.md)
-                  │
-                  ▼
-        GitHub Review API
-     (inline + summary post)
+┌─────────────────────────────────────────────────┐
+│                  Code Reviewer                  │
+├─────────────────────────────────────────────────┤
+│                                                 │
+│  PR Diff ──► Diff Parser ──► Chunk Splitter     │
+│                                    │            │
+│                                    ▼            │
+│                          ┌─────────────────┐    │
+│                          │  Review Agent   │    │
+│                          │  ┌───────────┐  │    │
+│                          │  │ Bug Check │  │    │
+│                          │  │ Style     │  │    │
+│                          │  │ Security  │  │    │
+│                          │  │ Perf      │  │    │
+│                          │  └───────────┘  │    │
+│                          └────────┬────────┘    │
+│                                   │             │
+│                          Comment Formatter      │
+│                                   │             │
+│                          GitHub Review API      │
+└─────────────────────────────────────────────────┘
 ```
+
+---
 
 ## Implementation
 
 ```python
 import anthropic
 import httpx
+from typing import List
 
 client = anthropic.Anthropic()
 
-SYSTEM = """
-You are a senior code reviewer. Given a unified diff, you:
-1. Identify bugs, logic errors, and edge-case failures
-2. Flag security issues (injection, secrets, auth bypass, SSRF)
-3. Note performance problems (N+1 queries, unbounded loops)
-4. Suggest clarity / DX improvements
-5. Skip cosmetic nitpicks unless they harm readability
+SYSTEM_PROMPT = """
+You are a senior software engineer conducting a thorough code review.
+For each code chunk, identify:
+1. BUGS — logic errors, off-by-one, null dereferences, race conditions
+2. SECURITY — hardcoded secrets, injection vectors, improper auth
+3. STYLE — naming, complexity, dead code, missing docs
+4. PERFORMANCE — N+1 queries, missing indexes, inefficient loops
 
-For every finding output JSON:
-{"file": "path", "line": N, "severity": "critical|high|medium|low",
- "category": "bug|security|perf|style", "comment": "...", "suggestion": "..."}
+Format each issue as:
+**[SEVERITY: critical|major|minor]** `file.py:line` — Description + suggested fix.
+
+If a chunk looks good, say "LGTM" with one sentence of praise.
 """
 
-def review_pr(repo: str, pr_number: int, gh_token: str) -> list[dict]:
-    headers = {"Authorization": f"Bearer {gh_token}", "Accept": "application/vnd.github.v3.diff"}
-    diff = httpx.get(f"https://api.github.com/repos/{repo}/pulls/{pr_number}", headers=headers).text
+def get_pr_diff(repo: str, pr_number: int, token: str) -> str:
+    headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github.v3.diff"}
+    r = httpx.get(f"https://api.github.com/repos/{repo}/pulls/{pr_number}", headers=headers)
+    return r.text
 
+def split_diff_into_chunks(diff: str, max_lines: int = 80) -> List[str]:
+    """Split large diffs into reviewable chunks by file boundary."""
+    chunks, current = [], []
+    for line in diff.splitlines():
+        if line.startswith("diff --git") and current:
+            chunks.append("\n".join(current))
+            current = []
+        current.append(line)
+        if len(current) >= max_lines:
+            chunks.append("\n".join(current))
+            current = []
+    if current:
+        chunks.append("\n".join(current))
+    return chunks
+
+def review_chunk(chunk: str) -> str:
     response = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=4096,
-        system=SYSTEM,
-        messages=[{"role": "user", "content": f"Review this diff:\n\n{diff[:12000]}"}]
+        max_tokens=1024,
+        system=SYSTEM_PROMPT,
+        messages=[{"role": "user", "content": f"Review this diff:\n\n```diff\n{chunk}\n```"}]
     )
+    return response.content[0].text
 
-    import json, re
-    findings = []
-    for m in re.finditer(r'\{[^{}]+\}', response.content[0].text, re.DOTALL):
-        try:
-            findings.append(json.loads(m.group()))
-        except json.JSONDecodeError:
-            pass
-    return sorted(findings, key=lambda f: ["critical","high","medium","low"].index(f["severity"]))
+def review_pull_request(repo: str, pr_number: int, github_token: str) -> List[str]:
+    diff = get_pr_diff(repo, pr_number, github_token)
+    chunks = split_diff_into_chunks(diff)
+    reviews = [review_chunk(chunk) for chunk in chunks]
+    return reviews
 
-def post_review(repo: str, pr_number: int, findings: list[dict], gh_token: str, commit_sha: str):
-    headers = {"Authorization": f"Bearer {gh_token}", "Content-Type": "application/json"}
-    comments = [
-        {"path": f["file"], "line": f["line"], "body": f"**[{f['severity'].upper()}] {f['category']}**\n{f['comment']}\n\n```suggestion\n{f.get('suggestion','')}\n```"}
-        for f in findings if f["severity"] in ("critical", "high")
-    ]
-    summary = f"Found {len(findings)} issues: " + ", ".join(f"{f['severity']}: {f['category']}" for f in findings[:5])
-    httpx.post(
-        f"https://api.github.com/repos/{repo}/pulls/{pr_number}/reviews",
-        headers=headers,
-        json={"commit_id": commit_sha, "body": summary, "event": "COMMENT", "comments": comments}
+# Usage
+if __name__ == "__main__":
+    comments = review_pull_request(
+        repo="myorg/myrepo",
+        pr_number=42,
+        github_token="ghp_..."
     )
+    for i, comment in enumerate(comments):
+        print(f"--- Chunk {i+1} ---\n{comment}\n")
 ```
+
+---
+
+## Configuration
+
+```python
+REVIEW_CONFIG = {
+    "model": "claude-opus-4-5",
+    "max_chunk_lines": 80,       # Lines per review chunk
+    "severity_threshold": "minor",  # Only post comments at or above
+    "auto_approve": False,          # Never auto-approve, always human review
+    "languages": ["python", "typescript", "go", "rust"],
+    "skip_patterns": ["*.lock", "*.min.js", "migrations/"],
+}
+```
+
+---
 
 ## Failure Modes
 
-| Failure | Cause | Fix |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| False positives on generated code | Vendored / auto-generated files | Add `.codereviewignore` skip list |
-| Diff truncation on large PRs | Token limits | Chunk by file, review independently |
-| Stale line numbers | Force-push rebases PR | Re-fetch commit SHA before posting |
-| Review spam on draft PRs | Webhook fires on all events | Filter `draft: true` in webhook handler |
+| False positives | Model flags valid patterns | Tune system prompt with repo conventions |
+| Context loss | Large diffs exceed window | Chunk by file, pass imports as context |
+| Missed secrets | Obfuscated credentials | Add regex pre-pass before LLM |
+| Review fatigue | Too many minor comments | Set severity threshold to `major` |
+
+---
 
 ## Related
 
-- `systems/coding-agent.md`
-- `benchmarks/reasoning/react-vs-lats.md`
-- `skills/14-security/secret-scanning.md`
+- `systems/coding-agent.md` — Full coding system that can also fix what it reviews
+- `blueprints/multi-agent-workflow.md` — Parallelise review across multiple agents
+- `skills/05-code/debug.md` · `skills/14-security/secret-scanning.md`
 
 ## Changelog
 
-- `v1` (2026-04) — Initial system with diff parsing, severity ranking, inline comment posting
+- **v1** (2026-04) — Initial system: diff parsing, chunk review, structured output
