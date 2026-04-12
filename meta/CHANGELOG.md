@@ -5,6 +5,28 @@ Format: [Semantic Versioning](https://semver.org) · [Keep a Changelog](https://
 
 ---
 
+## [v2.2.0] — 2026-04-13
+
+### Added
+- **4 new blueprints** with full implementations:
+  - `blueprints/multi-agent-mesh.md` — N parallel specialists + orchestrator + merger + debate variant
+  - `blueprints/human-in-the-loop.md` — Risk classifier, approval gate, audit log, Slack/email channels
+  - `blueprints/self-healing-agent.md` — Error classification, exponential backoff retry, checkpoint, rollback
+  - `blueprints/memory-first-agent.md` — Profile + episodic + semantic vector memory, 3-layer injection
+- **2 new labs experiments:**
+  - `labs/memory/episodic-compression.md` — Lossy session compression at 10-15x ratio, dedup, temporal decay
+  - `labs/tool-use/adaptive-tool-selection.md` — Two-stage routing, -76% token cost, benchmark vs full registry
+- **1 new benchmark** — `benchmarks/memory/rag-retrieval-strategies.md` (HyDE +12% recall, 6 strategies × 2 datasets)
+- **Logo SVGs** — `docs/assets/logo-dark.svg` + `docs/assets/logo-light.svg` added to `docs/index.html` nav
+- **Views badge** fixed in README (hits.seeyoufarm.com)
+
+### Fixed
+- `blueprints/README.md` — updated to list all 7 blueprints including 4 new ones
+- `labs/README.md` — updated to list all 3 active lab experiments
+- Broken README benchmark link (`rag-retrieval-strategies.md` now exists)
+
+---
+
 ## [v2.1.0] — 2026-04-13
 
 ### Added

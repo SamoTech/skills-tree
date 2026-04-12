@@ -23,11 +23,11 @@ A lab skill graduates to `/skills` when:
 
 ## Current Lab Skills
 
-| Skill | Status | Description |
-|---|---|---|
-| [Tree of Agents](reasoning/tree-of-agents.md) | 🔬 Active | Multi-agent tree search for complex planning |
-| [Episodic Compression](memory/episodic-compression.md) | 🔬 Active | Lossy-but-useful memory compression for long sessions |
-| [Skill Self-Discovery](meta/skill-self-discovery.md) | 🧪 Early | Agent discovers its own capability gaps |
+| Skill | Area | Status | Description |
+|---|---|---|---|
+| [Tree of Agents](reasoning/tree-of-agents.md) | reasoning | 🔬 Active | Multi-agent tree search for complex planning |
+| [Episodic Compression](memory/episodic-compression.md) | memory | 🔬 Active | Lossy-but-useful memory compression — 10-15x ratio, 80%+ recall |
+| [Adaptive Tool Selection](tool-use/adaptive-tool-selection.md) | tool-use | 🔬 Active | Two-stage router filters 50+ tools down to 5-8 per task, -76% token cost |
 
 ---
 

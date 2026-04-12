@@ -23,16 +23,18 @@ A Blueprint must:
 | Blueprint | Use Case | Complexity |
 |---|---|---|
 | [RAG Stack](rag-stack.md) | Retrieval-augmented generation in production | Intermediate |
-| [Multi-Agent Mesh](multi-agent-mesh.md) | N specialized agents + orchestrator | Advanced |
-| [Human-in-the-Loop](human-in-the-loop.md) | Approval gates + audit trail | Intermediate |
-| [Self-Healing Agent](self-healing-agent.md) | Error detection + retry + rollback | Advanced |
-| [Memory-First Agent](memory-first-agent.md) | Profile + episodic + vector memory stack | Advanced |
+| [Multi-Agent Workflow](multi-agent-workflow.md) | Sequential orchestration with agent handoffs | Intermediate |
+| [Multi-Agent Mesh](multi-agent-mesh.md) | N specialized agents + orchestrator, parallel execution | Advanced |
+| [Computer Use Browser](computer-use-browser.md) | Browser automation via Playwright + vision | Advanced |
+| [Human-in-the-Loop](human-in-the-loop.md) | Approval gates + escalation + audit trail | Intermediate |
+| [Self-Healing Agent](self-healing-agent.md) | Error detection + exponential retry + rollback | Advanced |
+| [Memory-First Agent](memory-first-agent.md) | Profile + episodic + vector memory combined | Advanced |
 
 ---
 
 ## Contribute a Blueprint
 
 ```bash
-cp meta/blueprint-template.md blueprints/my-blueprint.md
+cp meta/skill-template.md blueprints/my-blueprint.md
 # PR title: blueprint: add [name]
 ```
