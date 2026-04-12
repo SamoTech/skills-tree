@@ -1,156 +1,151 @@
-# Research Agent
-
-**Skills Used:** Web Search · RAG Pipeline · Summarization · Citation Generation  
-**Complexity:** Intermediate  
-**Version:** v1  
-**Added:** 2026-04
-
 ---
+title: Research Agent
+type: system
+skills: [web-search, rag, chain-of-thought, communication/summarize, communication/cite]
+version: v1
+stability: stable
+updated: 2026-04
+---
+
+# Research Agent System
 
 ## What It Does
 
-Given a research question, this agent:
-1. Decomposes the question into sub-queries
-2. Searches the web for each sub-query
-3. Retrieves and embeds the top results
-4. Synthesizes a cited answer using RAG
+A multi-step autonomous research pipeline that:
+1. Breaks a complex question into sub-questions
+2. Searches the web for each sub-question
+3. Synthesizes findings across sources
+4. Produces a structured report with citations
 
----
-
-## Skill Flow
+## Skill Map
 
 ```
-Input: "What are the trade-offs between ReAct and LATS for agent planning?"
-   │
-   ▼
-[02-reasoning/query-decomposition]
-   │  → ["ReAct agent planning", "LATS agent planning", "ReAct vs LATS benchmark"]
-   ▼
-[11-web/web-search] × 3 queries in parallel
-   │  → 15 search results
-   ▼
-[11-web/url-content-extraction] × top 5 URLs
-   │  → raw page content
-   ▼
-[03-memory/rag-pipeline] (embed → store → retrieve)
-   │  → top-8 relevant chunks
-   ▼
-[06-communication/summarization] + [06-communication/citation-generation]
-   │
-   ▼
-Output: Cited, structured answer with sources
+User Query
+    │
+    ▼
+[Chain of Thought] — Decompose into 3-5 sub-questions
+    │
+    ▼ (for each sub-question)
+[Web Search] ────────────────────────────────────┐
+    │                                             │
+    ▼                                             │
+[RAG over results] — Extract key facts            │
+    │                                             │
+    ▼                                             │
+    └──────────── Merge all findings ◄────────────┘
+                         │
+                         ▼
+              [Summarize + Cite]
+                         │
+                         ▼
+                  Structured Report
 ```
 
----
-
-## Implementation
+## Full Implementation
 
 ```python
 import anthropic
 import httpx
-from typing import Optional
+import os
+from typing import List
 
 client = anthropic.Anthropic()
 
-def decompose_query(question: str) -> list[str]:
+# --- Stage 1: Decompose ---
+def decompose_question(question: str) -> List[str]:
     response = client.messages.create(
         model="claude-opus-4-5",
         max_tokens=512,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Break this research question into 3 targeted web search queries:\n"
-                f"Question: {question}\n"
-                "Return a JSON array of 3 query strings only."
-            )
-        }]
+        system="Break the question into 3-5 specific sub-questions needed to fully answer it. Return one per line, no numbering.",
+        messages=[{"role": "user", "content": question}]
     )
-    import json
-    return json.loads(response.content[0].text)
+    return [q.strip() for q in response.content[0].text.strip().split("\n") if q.strip()]
 
-def search_web(query: str) -> list[dict]:
-    # Replace with your preferred search API (Brave, Serper, Tavily, etc.)
-    # Returns: [{title, url, snippet}]
-    raise NotImplementedError("Plug in your search API here")
+# --- Stage 2: Search ---
+def search(query: str, n: int = 5) -> List[dict]:
+    # Replace with real search API
+    return [{"title": f"Result for: {query}", "snippet": f"Relevant content about {query}.", "url": "https://example.com"}] * n
 
-def fetch_content(url: str) -> str:
-    try:
-        r = httpx.get(url, timeout=10, follow_redirects=True)
-        from bs4 import BeautifulSoup
-        soup = BeautifulSoup(r.text, "html.parser")
-        return soup.get_text(separator=" ", strip=True)[:5000]
-    except Exception:
-        return ""
-
-def synthesize_answer(question: str, chunks: list[str]) -> str:
-    context = "\n\n---\n\n".join(chunks)
+# --- Stage 3: Extract facts ---
+def extract_facts(sub_question: str, results: List[dict]) -> str:
+    context = "\n".join(f"- {r['snippet']}" for r in results)
     response = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=2048,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Research question: {question}\n\n"
-                f"Source material:\n{context}\n\n"
-                "Write a comprehensive, cited answer. "
-                "Reference sources as [1], [2], etc. at the end."
-            )
-        }]
+        max_tokens=512,
+        system="Extract the most relevant facts from these search results to answer the sub-question. Be concise.",
+        messages=[{"role": "user", "content": f"Sub-question: {sub_question}\n\nSearch results:\n{context}"}]
     )
     return response.content[0].text
 
-def research_agent(question: str) -> str:
-    print(f"🔍 Researching: {question}")
-    queries = decompose_query(question)
-    print(f"📋 Sub-queries: {queries}")
-    results = []
-    for q in queries:
-        results.extend(search_web(q))
-    seen = set()
-    unique = [r for r in results if r["url"] not in seen and not seen.add(r["url"])]
-    chunks = []
-    for r in unique[:5]:
-        content = fetch_content(r["url"])
-        if content:
-            chunks.append(f"Source: {r['url']}\n{content}")
-    return synthesize_answer(question, chunks)
+# --- Stage 4: Synthesize ---
+def synthesize(question: str, findings: List[dict]) -> str:
+    findings_text = "\n\n".join(
+        f"Sub-question: {f['question']}\nFindings: {f['facts']}"
+        for f in findings
+    )
+    response = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=2048,
+        system="""Write a comprehensive, well-structured research report answering the original question.
+Use markdown with headers. Include a summary section and key findings. Be factual and precise.""",
+        messages=[{"role": "user", "content": f"Original question: {question}\n\nResearch findings:\n{findings_text}"}]
+    )
+    return response.content[0].text
 
-if __name__ == "__main__":
-    answer = research_agent("What are the trade-offs between ReAct and LATS for agent planning?")
-    print(answer)
+# --- Full pipeline ---
+def research_agent(question: str) -> dict:
+    print(f"🔍 Researching: {question}")
+
+    # Step 1: Decompose
+    sub_questions = decompose_question(question)
+    print(f"📋 Sub-questions: {sub_questions}")
+
+    # Steps 2-3: Search + extract per sub-question
+    findings = []
+    for sq in sub_questions:
+        results = search(sq)
+        facts = extract_facts(sq, results)
+        findings.append({"question": sq, "facts": facts, "sources": [r["url"] for r in results]})
+
+    # Step 4: Synthesize
+    report = synthesize(question, findings)
+
+    return {
+        "question": question,
+        "sub_questions": sub_questions,
+        "report": report,
+        "sources": [s for f in findings for s in f["sources"]]
+    }
+
+# Usage
+result = research_agent("What are the most effective multi-agent architectures for code generation in 2026?")
+print(result["report"])
 ```
 
----
+## Configuration Options
 
-## Inputs / Outputs
-
-| | Value |
-|---|---|
-| **Input** | Natural language research question (string) |
-| **Output** | Cited, structured answer (markdown string) |
-| **Avg. latency** | 15–30s depending on search API + page fetch |
-| **Avg. cost** | ~$0.02–0.05 per query (Claude Haiku variant: ~$0.004) |
-
----
-
-## Failure Modes
-
-| Failure | Cause | Fix |
+| Option | Default | Description |
 |---|---|---|
-| Stale results | Search API cache | Use `freshness` param if available |
-| Hallucinated citations | Low-quality chunks | Add chunk relevance threshold |
-| Timeout on fetch | Slow external sites | Add 5s timeout + skip on error |
-| Over-long synthesis | Many chunks | Limit to top-5 by BM25 score |
+| `model` | `claude-opus-4-5` | Swap for `claude-haiku-4-5` for speed/cost |
+| `sub_questions` | 3-5 | More = more thorough, more expensive |
+| `results_per_query` | 5 | Increase for broader coverage |
+| `max_report_tokens` | 2048 | Increase for longer reports |
 
----
+## Cost Profile
 
-## Related Skills
+| Question complexity | Est. API calls | Est. tokens | Est. cost |
+|---|---|---|---|
+| Simple (2 sub-questions) | 4 | ~3k | ~$0.02 |
+| Medium (4 sub-questions) | 6 | ~6k | ~$0.04 |
+| Deep (6 sub-questions) | 8 | ~10k | ~$0.07 |
 
-- [Query Decomposition](../skills/02-reasoning/query-decomposition.md)
-- [Web Search](../skills/11-web/web-search.md)
-- [RAG Pipeline](../skills/09-agentic-patterns/rag-pipeline.md)
-- [Summarization](../skills/06-communication/summarization.md)
+## Skills Used
 
-## Related Blueprints
+- [`skills/02-reasoning/chain-of-thought.md`](../skills/02-reasoning/chain-of-thought.md)
+- [`skills/11-web/web-search.md`](../skills/11-web/web-search.md)
+- [`skills/09-agentic-patterns/rag.md`](../skills/09-agentic-patterns/rag.md)
 
-- [RAG Stack](../blueprints/rag-stack.md)
+## Related
+
+- [`blueprints/rag-stack.md`](../blueprints/rag-stack.md) — Production retrieval architecture
+- [`systems/code-reviewer.md`](code-reviewer.md) — Code-focused system

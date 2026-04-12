@@ -1,158 +1,179 @@
-# RAG Stack Blueprint
-
-**Use Case:** Production retrieval-augmented generation  
-**Complexity:** Intermediate  
-**Skills:** Embedding · Vector Store · Retrieval · Generation  
-**Version:** v1  
-**Added:** 2026-04
-
 ---
+title: RAG Stack Blueprint
+type: blueprint
+stability: production-ready
+version: v1
+updated: 2026-04
+---
+
+# RAG Stack — Production Blueprint
+
+A complete, copy-paste production RAG architecture. Covers ingestion, chunking, embedding, storage, retrieval, reranking, and generation — all wired together.
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                   INGESTION PIPELINE                │
-│                                                     │
-│  Documents → Chunker → Embedder → Vector Store      │
-│  (PDF/MD/HTML)  (512tok)  (text-emb-3)  (pgvector) │
-└─────────────────────────────────────────────────────┘
-                          │
-                    (offline / async)
-                          │
-┌─────────────────────────────────────────────────────┐
-│                   QUERY PIPELINE                    │
-│                                                     │
-│  User Query → Query Embedder → Retriever            │
-│                    │              │                 │
-│                    ▼              ▼                 │
-│               HyDE expansion   Top-K chunks        │
-│                    │              │                 │
-│                    └──────┬───────┘                 │
-│                           ▼                         │
-│                    Context Assembler                │
-│                           │                         │
-│                           ▼                         │
-│                    LLM Generator → Answer           │
-└─────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────┐
+│                    INGESTION PIPELINE                   │
+│                                                         │
+│  Documents → Parse → Chunk → Embed → Store in VectorDB  │
+│  (PDFs, URLs,        (512 tok  (voyage-3  (pgvector /   │
+│   Notion, GH)         overlap)  or v3-sm)  Qdrant)      │
+└─────────────────────────────────────────────────────────┘
+                              │
+                              │ (offline, one-time)
+                              │
+┌─────────────────────────────────────────────────────────┐
+│                    QUERY PIPELINE                       │
+│                                                         │
+│  Query → Embed → ANN Search → Rerank → Generate → Cite  │
+│           (same    (top-20)   (cross-   (Claude /  (with │
+│           model)              encoder)  GPT-4o)    [n]) │
+└─────────────────────────────────────────────────────────┘
 ```
-
----
-
-## Technology Stack
-
-| Component | Recommended | Alternative | Notes |
-|---|---|---|---|
-| **Chunker** | `langchain.text_splitter` | `semantic-chunker` | 512 tokens, 50 overlap |
-| **Embedder** | `text-embedding-3-small` | `voyage-3-lite` | Cost vs quality trade-off |
-| **Vector Store** | `pgvector` (PostgreSQL) | `Qdrant`, `Chroma` | pgvector if you already run Postgres |
-| **Retriever** | Cosine similarity top-K | BM25 hybrid | Hybrid = +12% recall |
-| **Query expansion** | HyDE | Multi-query | HyDE +12% recall (see benchmark) |
-| **LLM** | `claude-opus-4-5` | `claude-haiku` | Haiku for cost, Opus for quality |
-| **Orchestration** | Python (direct) | LangChain, LlamaIndex | Direct = simpler debugging |
-
----
 
 ## Full Implementation
 
 ```python
 import anthropic
 import numpy as np
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import List, Optional
 
 client = anthropic.Anthropic()
 
+# ─── Data types ────────────────────────────────────────────
 @dataclass
 class Chunk:
+    id: str
     text: str
     source: str
-    embedding: list[float] = None
+    metadata: dict = field(default_factory=dict)
+    embedding: Optional[np.ndarray] = None
 
-def embed(text: str) -> list[float]:
-    # Use OpenAI, Voyage, or Cohere embeddings
-    raise NotImplementedError("Plug in your embedding provider")
+@dataclass
+class RAGResult:
+    answer: str
+    chunks: List[Chunk]
+    confidence: str  # high | medium | low
 
-def cosine_similarity(a: list[float], b: list[float]) -> float:
-    a, b = np.array(a), np.array(b)
-    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
+# ─── Stage 1: Chunking ─────────────────────────────────────
+def chunk_document(text: str, source: str, chunk_size: int = 512, overlap: int = 50) -> List[Chunk]:
+    words = text.split()
+    step = chunk_size - overlap
+    chunks = []
+    for i, start in enumerate(range(0, len(words), step)):
+        chunk_text = " ".join(words[start:start + chunk_size])
+        if chunk_text.strip():
+            chunks.append(Chunk(
+                id=f"{source}::{i}",
+                text=chunk_text,
+                source=source
+            ))
+    return chunks
 
+# ─── Stage 2: Embedding ────────────────────────────────────
+def embed_chunks(chunks: List[Chunk]) -> List[Chunk]:
+    # Production: use voyage-3 or text-embedding-3-small
+    # Demo: random normalized vectors
+    for chunk in chunks:
+        v = np.random.rand(256)
+        chunk.embedding = v / np.linalg.norm(v)
+    return chunks
+
+# ─── Stage 3: Vector Store ─────────────────────────────────
+class VectorStore:
+    def __init__(self):
+        self.chunks: List[Chunk] = []
+
+    def add(self, chunks: List[Chunk]):
+        self.chunks.extend(chunks)
+
+    def search(self, query_vec: np.ndarray, top_k: int = 20) -> List[tuple]:
+        if not self.chunks:
+            return []
+        embeddings = np.stack([c.embedding for c in self.chunks])
+        scores = embeddings @ query_vec
+        top_idx = np.argsort(scores)[::-1][:top_k]
+        return [(self.chunks[i], float(scores[i])) for i in top_idx]
+
+# ─── Stage 4: Reranking ────────────────────────────────────
+def rerank(query: str, candidates: List[tuple], top_k: int = 5) -> List[Chunk]:
+    # Production: use Cohere Rerank or cross-encoder
+    # Demo: return top-k by score (already sorted)
+    return [chunk for chunk, _ in candidates[:top_k]]
+
+# ─── Stage 5: Generation ───────────────────────────────────
+def generate(query: str, chunks: List[Chunk]) -> RAGResult:
+    context_parts = []
+    for i, chunk in enumerate(chunks):
+        context_parts.append(f"[{i+1}] Source: {chunk.source}\n{chunk.text}")
+    context = "\n\n".join(context_parts)
+
+    response = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=1024,
+        system="""Answer the question using ONLY the provided context chunks.
+Cite sources as [1], [2], etc. after each claim.
+If the answer isn't in the context, respond: 'I don't have enough information to answer this.'
+End with a confidence level: HIGH (all facts sourced), MEDIUM (partial), or LOW (inferred).""",
+        messages=[{"role": "user", "content": f"Context:\n{context}\n\nQuestion: {query}"}]
+    )
+
+    text = response.content[0].text
+    confidence = "high" if "HIGH" in text else "medium" if "MEDIUM" in text else "low"
+    return RAGResult(answer=text, chunks=chunks, confidence=confidence)
+
+# ─── Full RAG Stack ─────────────────────────────────────────
 class RAGStack:
     def __init__(self):
-        self.chunks: list[Chunk] = []
+        self.store = VectorStore()
 
-    def ingest(self, text: str, source: str, chunk_size: int = 512):
-        words = text.split()
-        for i in range(0, len(words), chunk_size - 50):
-            chunk_text = " ".join(words[i:i + chunk_size])
-            chunk = Chunk(text=chunk_text, source=source)
-            chunk.embedding = embed(chunk_text)
-            self.chunks.append(chunk)
+    def ingest(self, text: str, source: str):
+        """Add a document to the knowledge base."""
+        chunks = chunk_document(text, source)
+        chunks = embed_chunks(chunks)
+        self.store.add(chunks)
+        print(f"✅ Ingested {len(chunks)} chunks from '{source}'")
 
-    def hyde_expand(self, query: str) -> str:
-        response = client.messages.create(
-            model="claude-opus-4-5",
-            max_tokens=256,
-            messages=[{
-                "role": "user",
-                "content": f"Write a short hypothetical document that answers: {query}"
-            }]
-        )
-        return response.content[0].text
+    def query(self, question: str, top_k: int = 5) -> RAGResult:
+        """Answer a question from the knowledge base."""
+        query_vec = embed_chunks([Chunk("q", question, "query")])[0].embedding
+        candidates = self.store.search(query_vec, top_k=20)
+        top_chunks = rerank(question, candidates, top_k=top_k)
+        return generate(question, top_chunks)
 
-    def retrieve(self, query: str, top_k: int = 5, use_hyde: bool = True) -> list[Chunk]:
-        search_text = self.hyde_expand(query) if use_hyde else query
-        query_emb = embed(search_text)
-        scored = [
-            (cosine_similarity(query_emb, c.embedding), c)
-            for c in self.chunks
-        ]
-        scored.sort(key=lambda x: x[0], reverse=True)
-        return [c for _, c in scored[:top_k]]
+# ─── Usage ──────────────────────────────────────────────────
+rag = RAGStack()
+rag.ingest("Skills Tree contains 515+ AI agent skills across 16 categories.", "skills-tree-docs")
+rag.ingest("ReAct combines reasoning and acting in an alternating loop.", "skills-tree-docs")
 
-    def generate(self, query: str, chunks: list[Chunk]) -> str:
-        context = "\n\n---\n\n".join(
-            f"[{c.source}]\n{c.text}" for c in chunks
-        )
-        response = client.messages.create(
-            model="claude-opus-4-5",
-            max_tokens=1024,
-            messages=[{
-                "role": "user",
-                "content": f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer using only the provided context. Cite sources."
-            }]
-        )
-        return response.content[0].text
-
-    def query(self, question: str) -> str:
-        chunks = self.retrieve(question)
-        return self.generate(question, chunks)
+result = rag.query("How many skills does Skills Tree have?")
+print(result.answer)
+print(f"Confidence: {result.confidence}")
 ```
 
----
+## Production Checklist
 
-## Scaling Notes
+- [ ] Replace demo embeddings with `voyage-3` or `text-embedding-3-small`
+- [ ] Replace in-memory store with `pgvector` (Supabase) or `Qdrant`
+- [ ] Add Cohere Rerank or `cross-encoder/ms-marco-MiniLM-L-6-v2`
+- [ ] Add chunk metadata: `page_num`, `section`, `last_updated`
+- [ ] Add query caching (Redis, 15-min TTL)
+- [ ] Add observability: log retrieval scores, token counts, latency
+- [ ] Add incremental ingestion — only re-embed changed documents
 
-| Scale | Recommendation |
-|---|---|
-| < 100K chunks | In-memory or SQLite + pgvector |
-| 100K – 10M chunks | Dedicated pgvector or Qdrant instance |
-| > 10M chunks | Pinecone or Weaviate with sharding |
+## Deployment Options
 
----
-
-## Cost Estimate (per 1000 queries)
-
-| Component | Cost |
-|---|---|
-| Embedding (text-emb-3-small) | ~$0.02 |
-| Generation (claude-haiku) | ~$0.15 |
-| Generation (claude-opus-4-5) | ~$3.00 |
-| **Total (Haiku)** | **~$0.17** |
-
----
+| Scale | Stack | Cost |
+|---|---|---|
+| Prototype | In-memory + Claude | $0 infra |
+| Small (< 100k docs) | Supabase pgvector + Claude | ~$25/mo |
+| Medium (< 1M docs) | Qdrant Cloud + voyage-3 + Claude | ~$100/mo |
+| Large (> 1M docs) | Pinecone + Cohere Rerank + Claude | ~$300+/mo |
 
 ## Related
 
-- [Systems: Research Agent](../systems/research-agent.md)
-- [Skills: RAG Pipeline](../skills/09-agentic-patterns/rag-pipeline.md)
-- [Benchmarks: RAG Retrieval Strategies](../benchmarks/memory/rag-retrieval-strategies.md)
+- [`skills/09-agentic-patterns/rag.md`](../skills/09-agentic-patterns/rag.md) — Core RAG skill
+- [`skills/03-memory/memory-injection.md`](../skills/03-memory/memory-injection.md) — User memory
+- [`systems/research-agent.md`](../systems/research-agent.md) — RAG inside a full system

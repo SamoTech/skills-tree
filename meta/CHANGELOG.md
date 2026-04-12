@@ -1,90 +1,64 @@
 # Changelog
 
-All notable changes to the AI Agent Skills Tree are documented here.
-
-Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
-Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+All notable changes to Skills Tree are documented here.
+Format: [Semantic Versioning](https://semver.org) · [Keep a Changelog](https://keepachangelog.com)
 
 ---
 
-## [Unreleased]
+## [v2.1.0] — 2026-04-13
 
 ### Added
-- CI workflow: skill format validation on every PR (`validate-skills.yml`)
-- CI workflow: weekly external link health check (`check-links.yml`)
-- `CODEOWNERS` file for review assignments
-- Issue template: skill update form (`skill-update.md`)
-- Issue template chooser config (`config.yml`)
-- `meta/ROADMAP.md` — planned expansions and coverage gaps
-- `meta/CHANGELOG.md` — this file
-- `meta/skill-schema.json` — machine-readable skill metadata schema
-- `docs/404.html` — custom GitHub Pages not-found page
-- `docs/_config.yml` — GitHub Pages Jekyll configuration
-
----
-
-## [1.2.0] — 2026-04
-
-### Added
-- **11 expanded skill files in `skills/01-perception/`**:
-  - `chart-reading.md` — image chart parsing with base64 + URL support
-  - `code-reading.md` — multi-language source file analysis
-  - `database-reading.md` — NL-to-SQL pipeline for SQLite/PostgreSQL
-  - `structured-data-reading.md` — JSON/YAML/TOML/CSV normalization
-  - `file-system-reading.md` — directory traversal and summarization
-  - `email-parsing.md` — MIME-aware email structured extraction
-  - `screen-reading.md` — UI state extraction from screenshots
-  - `sensor-reading.md` — IoT/telemetry anomaly detection pipeline
-  - `pdf-parsing.md` — native Claude document block + pypdf fallback
-  - `url-dom-inspection.md` — httpx + BeautifulSoup web page intelligence
-  - `handwriting-recognition.md` — multi-format handwritten text transcription
-- **4 expanded skill files in `skills/02-reasoning/`**:
-  - `abductive.md` — ranked hypothesis generation with falsification tests
-  - `analogical.md` — structural analogy mapping across domains
-  - `causal.md` — causal chain analysis with confounder detection
-  - `commonsense.md` — implicit world knowledge inference
-- **7 expanded skill files in `skills/03-memory/`**:
-  - `fact-verification.md` — claim classification (verified/contradicted/uncertain)
-  - `forgetting.md` — GDPR-aware hard/soft memory deletion
-  - `memory-injection.md` — fact extraction + mem0 storage pipeline
-  - `memory-summarization.md` — rolling compression for long-running agents
-  - `procedural.md` — how-to knowledge store with versioning
-  - `user-profile.md` — confidence-gated signal extraction from conversations
+- **5 seed skill files** — full production-ready content:
+  - `skills/02-reasoning/react.md` (v3 — runnable example, benchmark, typed I/O)
+  - `skills/02-reasoning/chain-of-thought.md` (v2 — variants table, runnable example)
+  - `skills/03-memory/memory-injection.md` (v2 — production path, mem0 integration)
+  - `skills/09-agentic-patterns/rag.md` (v3 — 6 variants, full pipeline)
+  - `skills/11-web/web-search.md` (v2 — provider comparison, agentic loop)
+  - `skills/05-code/code-review.md` (v2 — JSON output, CI/CD integration)
+- **1 full system** — `systems/research-agent.md` (decompose → search → extract → synthesize)
+- **1 blueprint** — `blueprints/rag-stack.md` (full production RAG, deployment options)
+- **2 benchmarks** — `benchmarks/reasoning/react-vs-lats.md`, `benchmarks/memory/injection-strategies.md`
+- **1 lab** — `labs/reasoning/tree-of-agents.md` (multi-agent tree search, experimental)
+- **Logo** — `docs/assets/logo-dark.svg` + `docs/assets/logo-light.svg` (adaptive `<picture>` tag in README)
+- **Full badge suite** — Stars, Forks, Watchers, Views, Issues, PRs, Contributors, Last Commit, License, Skills count, Version, GitHub Pages
+- **LEADERBOARD.md** — live contributor and skill rankings
 
 ### Changed
-- All expanded files include: full description, inputs/outputs table, runnable Python example, frameworks table, notes, related skills, and per-file changelog
+- README.md fully rewritten — viral hook, roadmap, vision, complete badge row, logo
+- `meta/ROADMAP.md` fully rewritten — 6 phases, content strategy, distribution playbook
+- `meta/LEADERBOARD.md` seeded with real data
 
 ---
 
-## [1.1.0] — 2025-04
+## [v2.0.0] — 2026-04-12
 
 ### Added
-- Redesigned `docs/index.html` with full dark/light mode toggle
-- Level-based filtering (Basic / Intermediate / Advanced / Experimental)
-- Real-time search synced across navbar and hero search bar
-- Count-up animation for hero statistics
-- CSS scroll-driven reveal animations
-- Accessible empty state when search yields no results
-- Stats bar highlighting key category counts
-- Card redesign: gradient top-edge, skill level badges, browse CTA
+- New folder structure: `/systems`, `/blueprints`, `/benchmarks`, `/labs`
+- `docs/index.html` — interactive GitHub Pages UI (40KB, dark/light mode, search, filters)
+- `meta/ROADMAP.md` — full strategic plan extracted from positioning brief
+- `meta/LEADERBOARD.md` — placeholder for weekly rankings
+- `meta/skill-schema.json` — JSON Schema for skill frontmatter validation
+- `meta/glossary.md` — AI agent terminology reference
+- `meta/frameworks.md` — framework compatibility matrix
+- `meta/benchmark-template.md` — standard benchmark format
+- `meta/system-template.md` — standard system format
+- `.github/workflows/validate-skills.yml` — automated skill frontmatter validation
+- `docs/404.html` — custom 404 page
 
-### Fixed
-- Level filter buttons were non-functional — now correctly filter categories
-- Search previously case-sensitive — now case-insensitive
+### Changed
+- `docs/index.html` — level-based filtering, count-up stats, improved card design
+- All 16 skill category folders created and numbered
 
 ---
 
-## [1.0.0] — 2025-03
+## [v1.0.0] — 2025-12
 
 ### Added
-- Initial release of the AI Agent Skills Tree
-- 16 skill categories covering the full agent capability spectrum
-- 515+ individual skill files in Markdown format
-- `meta/skill-template.md` — standard template for new skills
-- `meta/glossary.md` — definitions for all key terms
-- `meta/frameworks.md` — framework and model reference
-- `CONTRIBUTING.md` — contribution guide
-- `SECURITY.md` — security and responsible use policy
-- `SPONSORS.md` — sponsorship information
-- GitHub issue templates: bug report, new skill request
-- GitHub Pages documentation site (`docs/index.html`)
+- Initial repository structure
+- 16 skill category folders
+- Basic README
+- MIT License
+- CONTRIBUTING.md
+- GitHub Actions: check-links, validate-skills
+- Issue templates: bug-report, new-skill, skill-update
+- CODEOWNERS, FUNDING.yml

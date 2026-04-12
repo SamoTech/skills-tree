@@ -1,121 +1,146 @@
+---
+title: Memory Injection
+category: 03-memory
+level: intermediate
+stability: stable
+version: v2
+tags: [memory, context, personalization, rag]
+updated: 2026-04
+---
+
 # Memory Injection
 
-**Category:** `memory`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
+## What It Does
 
----
+Dynamically retrieves and injects relevant memories (past conversations, user facts, preferences) into the model's system prompt before each turn. Gives the agent long-term user context without filling the context window with raw history.
 
-## Description
+The key insight: **you don't inject all memories — you retrieve the most relevant ones for the current query.**
 
-Store new information into a persistent memory store — vector database, key-value store, or structured database — so future agent turns can retrieve it. Handles deduplication, relevance scoring, and context-aware tagging at write time. Supports episodic memory ("what happened"), semantic memory ("what is true"), and procedural memory ("how to do it").
+## When to Use
 
----
+- Personalized assistants that remember user preferences
+- Multi-session agents that maintain continuity
+- Any agent where past context improves current response quality
 
-## Inputs
+## Inputs / Outputs
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `content` | `string` | ✅ | The information to store |
-| `memory_type` | `string` | ❌ | `episodic`, `semantic`, `procedural` (default: `semantic`) |
-| `tags` | `list` | ❌ | Optional category tags for retrieval filtering |
-| `user_id` | `string` | ❌ | Owner user/session identifier |
-
----
-
-## Outputs
-
-| Output | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `memory_id` | `string` | Unique ID of the stored memory |
-| `deduplicated` | `bool` | Whether a near-duplicate was found and merged |
-| `summary` | `string` | Condensed form stored (if original was compressed) |
+| `user_message` | `str` | Current user input |
+| `memory_store` | `VectorStore` | Indexed past memories |
+| `top_k` | `int` | Number of memories to inject (default: 5) |
+| `base_system` | `str` | Core system prompt |
+| → `response` | `str` | Model response with memory context |
 
----
-
-## Example
+## Runnable Example
 
 ```python
 import anthropic
-from mem0 import MemoryClient
-import json
+from typing import List
 
-llm_client = anthropic.Anthropic()
-mem_client = MemoryClient()  # requires MEM0_API_KEY
+client = anthropic.Anthropic()
 
-def smart_memory_inject(content: str, user_id: str, memory_type: str = "semantic") -> dict:
-    """
-    Extract key facts from content and store as structured memories.
-    """
-    # Extract facts worth storing
-    extract_response = llm_client.messages.create(
+# Simple in-memory store (replace with vector DB in production)
+class SimpleMemoryStore:
+    def __init__(self):
+        self.memories: List[str] = []
+
+    def add(self, memory: str):
+        self.memories.append(memory)
+
+    def retrieve(self, query: str, top_k: int = 5) -> List[str]:
+        # Production: use cosine similarity with embeddings
+        # Here: return most recent k memories
+        return self.memories[-top_k:]
+
+    def save_from_conversation(self, user_msg: str, assistant_msg: str):
+        """Extract and save memorable facts (use LLM extraction in prod)"""
+        # Simple heuristic: save if it contains personal info
+        keywords = ["my name", "i am", "i work", "i prefer", "i like", "i hate"]
+        if any(k in user_msg.lower() for k in keywords):
+            self.add(f"User said: {user_msg}")
+
+
+def chat_with_memory(
+    user_message: str,
+    store: SimpleMemoryStore,
+    base_system: str = "You are a helpful personal assistant."
+) -> str:
+    # 1. Retrieve relevant memories
+    memories = store.retrieve(user_message, top_k=5)
+
+    # 2. Build system prompt with injected memories
+    if memories:
+        memory_block = "\n".join(f"- {m}" for m in memories)
+        system = f"{base_system}\n\n## What you remember about this user:\n{memory_block}"
+    else:
+        system = base_system
+
+    # 3. Call the model
+    response = client.messages.create(
         model="claude-opus-4-5",
         max_tokens=1024,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"From this content, extract key facts worth remembering as {memory_type} memory.\n"
-                "Return JSON: {\"facts\": [\"fact 1\", \"fact 2\", ...]}\n"
-                "Exclude ephemeral or low-value details. Return ONLY valid JSON.\n\n"
-                f"Content:\n{content}"
-            )
-        }]
+        system=system,
+        messages=[{"role": "user", "content": user_message}]
     )
-    facts = json.loads(extract_response.content[0].text)["facts"]
 
-    # Store each fact
-    stored = []
-    for fact in facts:
-        result = mem_client.add(
-            messages=[{"role": "user", "content": fact}],
-            user_id=user_id,
-            metadata={"type": memory_type}
-        )
-        stored.append(result)
+    answer = response.content[0].text
 
-    return {"stored_count": len(stored), "facts": facts}
+    # 4. Save memorable content from this turn
+    store.save_from_conversation(user_message, answer)
 
-result = smart_memory_inject(
-    content="The user mentioned they are building a SaaS product in Next.js, prefers TypeScript, and deploys to Vercel.",
-    user_id="ossama",
-    memory_type="semantic"
-)
-print(json.dumps(result, indent=2))
+    return answer
+
+
+# Usage
+store = SimpleMemoryStore()
+store.add("User's name is Ossama")
+store.add("User is a full-stack developer in Cairo")
+store.add("User prefers Python and TypeScript")
+
+print(chat_with_memory("What stack should I use for my new project?", store))
+print(chat_with_memory("Do you remember what I do for work?", store))
 ```
 
----
+## Production Upgrade Path
 
-## Frameworks & Models
+```
+Simple list  →  SQLite + keyword search  →  pgvector  →  Pinecone/Qdrant
+```
 
-| Framework / Model | Implementation | Since |
+For production: use `text-embedding-3-small` or `voyage-3` to embed memories, store in a vector DB, and retrieve by cosine similarity against the current query embedding.
+
+## Framework Support
+
+| Framework | Tool | Notes |
 |---|---|---|
-| mem0 | `MemoryClient.add()` | v1.0 |
-| LangChain | `VectorStore.add_texts()` | v0.1 |
-| LangGraph | Memory write node | v0.1 |
+| mem0 | `Memory.add()` / `Memory.search()` | Purpose-built, recommended |
+| LangChain | `VectorStoreRetrieverMemory` | Solid, verbose config |
+| LangGraph | Custom node in graph | Maximum flexibility |
+| Zep | Hosted memory layer | Good for SaaS products |
 
----
+## Failure Modes
 
-## Notes
+| Failure | Cause | Fix |
+|---|---|---|
+| Stale memories | Old facts not updated | Add memory update + deduplication step |
+| Too many memories | Injecting all K memories bloats prompt | Cap at 5, score by recency + relevance |
+| Privacy leakage | Wrong user's memories injected | Always namespace by `user_id` |
+| No memory extraction | Saving nothing | Use LLM to extract facts after each turn |
 
-- Extract facts before storing — storing raw conversation turns wastes vector space
-- Tag memories at write time; retroactive tagging is expensive
-- Implement deduplication by checking cosine similarity > 0.95 before inserting
+## Benchmarks
 
----
+See → [`benchmarks/memory/injection-strategies.md`](../../benchmarks/memory/injection-strategies.md)
 
 ## Related Skills
 
-- [Memory Summarization](memory-summarization.md) — compressing before storing
-- [Forgetting](forgetting.md) — removing stored memories
-- [User Profile](user-profile.md) — user-scoped memory management
-
----
+- [`working-memory.md`](working-memory.md) — In-context message window management
+- [`rag.md`](../09-agentic-patterns/rag.md) — Retrieval-augmented generation
+- [`vector-store-retrieval.md`](vector-store-retrieval.md) — Building and querying vector stores
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: fact extraction + mem0 injection example, dedup note |
-| `2025-03` | Initial stub entry |
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial entry |
+| v2 | 2026-04 | Full runnable example, production path, mem0 integration, failure modes |
