@@ -2,7 +2,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-dark.svg">
-  <img src="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-light.svg" alt="Skills Tree" width="120">
+  <img src="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-light.svg" alt="Skills Tree" width="200" height="52">
 </picture>
 
 # Skills Tree
@@ -15,11 +15,12 @@
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
 [![Watchers](https://img.shields.io/github/watchers/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/watchers)
-[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&count_bg=%230e75b6&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=Views&edge_flat=false)](https://github.com/SamoTech/skills-tree)
+[![Views](https://visitor-badge.laobi.icu/badge?page_id=SamoTech.skills-tree&style=for-the-badge&color=0e75b6)](https://github.com/SamoTech/skills-tree)
 [![Issues](https://img.shields.io/github/issues/SamoTech/skills-tree?style=for-the-badge&color=ef4444&logo=github)](https://github.com/SamoTech/skills-tree/issues)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SamoTech/skills-tree?style=for-the-badge&color=f59e0b&logo=github)](https://github.com/SamoTech/skills-tree/graphs/contributors)
 [![Last Commit](https://img.shields.io/github/last-commit/SamoTech/skills-tree?style=for-the-badge&color=06b6d4&logo=github)](https://github.com/SamoTech/skills-tree/commits/main)
+[![Repo Size](https://img.shields.io/github/repo-size/SamoTech/skills-tree?style=for-the-badge&color=8b5cf6&logo=github)](https://github.com/SamoTech/skills-tree)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![Skills](https://img.shields.io/badge/Skills-515%2B-8b5cf6?style=for-the-badge)](skills/)
 [![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
