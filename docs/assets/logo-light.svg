@@ -1,28 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-label="Skills Tree">
-  <!-- Tree trunk -->
-  <rect x="55" y="72" width="10" height="28" rx="3" fill="#01696f"/>
-  <!-- Root branches -->
-  <path d="M60 98 Q42 105 30 102" stroke="#01696f" stroke-width="3" stroke-linecap="round" fill="none"/>
-  <path d="M60 98 Q78 105 90 102" stroke="#01696f" stroke-width="3" stroke-linecap="round" fill="none"/>
-  <!-- Main canopy layers -->
-  <!-- Bottom layer -->
-  <ellipse cx="60" cy="68" rx="36" ry="16" fill="#0c4e54" opacity="0.9"/>
-  <!-- Mid layer -->
-  <ellipse cx="60" cy="52" rx="28" ry="15" fill="#01696f" opacity="0.95"/>
-  <!-- Top layer -->
-  <ellipse cx="60" cy="38" rx="20" ry="13" fill="#1a7f8a"/>
-  <!-- Crown -->
-  <ellipse cx="60" cy="26" rx="12" ry="10" fill="#4f98a3"/>
-  <!-- Highlight dots (skill nodes) -->
-  <circle cx="38" cy="62" r="4" fill="#f7f6f2" opacity="0.9"/>
-  <circle cx="82" cy="62" r="4" fill="#f7f6f2" opacity="0.9"/>
-  <circle cx="44" cy="48" r="3.5" fill="#f7f6f2" opacity="0.8"/>
-  <circle cx="76" cy="48" r="3.5" fill="#f7f6f2" opacity="0.8"/>
-  <circle cx="50" cy="36" r="3" fill="#f7f6f2" opacity="0.7"/>
-  <circle cx="70" cy="36" r="3" fill="#f7f6f2" opacity="0.7"/>
-  <!-- Connection lines between nodes -->
-  <line x1="38" y1="62" x2="44" y2="48" stroke="#f7f6f2" stroke-width="1" opacity="0.5"/>
-  <line x1="82" y1="62" x2="76" y2="48" stroke="#f7f6f2" stroke-width="1" opacity="0.5"/>
-  <line x1="44" y1="48" x2="50" y2="36" stroke="#f7f6f2" stroke-width="1" opacity="0.5"/>
-  <line x1="76" y1="48" x2="70" y2="36" stroke="#f7f6f2" stroke-width="1" opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+  <!-- Icon mark: branching tree nodes -->
+  <g>
+    <!-- Root node -->
+    <circle cx="26" cy="26" r="8" fill="#1a7f37"/>
+    <!-- Branch lines -->
+    <line x1="34" y1="22" x2="50" y2="12" stroke="#1a7f37" stroke-width="2" stroke-linecap="round"/>
+    <line x1="34" y1="26" x2="50" y2="26" stroke="#1a7f37" stroke-width="2" stroke-linecap="round"/>
+    <line x1="34" y1="30" x2="50" y2="40" stroke="#1a7f37" stroke-width="2" stroke-linecap="round"/>
+    <!-- Leaf nodes -->
+    <circle cx="56" cy="12" r="5" fill="#0969da"/>
+    <circle cx="56" cy="26" r="5" fill="#0969da"/>
+    <circle cx="56" cy="40" r="5" fill="#0969da"/>
+    <!-- Sub-leaf from top -->
+    <line x1="61" y1="10" x2="72" y2="6" stroke="#d0d7de" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="61" y1="14" x2="72" y2="18" stroke="#d0d7de" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="75" cy="6" r="3" fill="#d0d7de"/>
+    <circle cx="75" cy="18" r="3" fill="#d0d7de"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="92" y="21" font-family="'Inter','Helvetica Neue',sans-serif" font-size="15" font-weight="700" fill="#1f2328" letter-spacing="-0.3">Skills</text>
+  <text x="92" y="39" font-family="'Inter','Helvetica Neue',sans-serif" font-size="15" font-weight="300" fill="#636c76" letter-spacing="1.5">TREE</text>
 </svg>
