@@ -1,0 +1,28 @@
+# Subagent Delegation
+
+**Category:** `agentic-patterns`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+
+### Description
+
+An orchestrator agent decomposes a task and delegates subtasks to specialized subagents, then aggregates their results into a final response.
+
+### Example
+
+```
+Orchestrator: "Produce a market research report on EVs"
+  │
+  ├── Research Agent  → gathers web data on EV market
+  ├── Analysis Agent  → runs statistical summaries
+  ├── Writing Agent   → drafts the report
+  └── Review Agent    → proofreads and formats
+
+Orchestrator: merges all outputs → final report
+```
+
+### Related Skills
+
+- [Plan and Execute](plan-and-execute.md)
+- [A2A Tool](../07-tool-use/a2a-tool.md)
+- [Agent Handoff](../15-orchestration/agent-handoff.md)
