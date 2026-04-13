@@ -1,23 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
-  <!-- Icon mark: branching tree nodes -->
-  <g>
-    <!-- Root node -->
-    <circle cx="26" cy="26" r="8" fill="#3fb950"/>
-    <!-- Branch lines -->
-    <line x1="34" y1="22" x2="50" y2="12" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
-    <line x1="34" y1="26" x2="50" y2="26" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
-    <line x1="34" y1="30" x2="50" y2="40" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
-    <!-- Leaf nodes -->
-    <circle cx="56" cy="12" r="5" fill="#58a6ff"/>
-    <circle cx="56" cy="26" r="5" fill="#58a6ff"/>
-    <circle cx="56" cy="40" r="5" fill="#58a6ff"/>
-    <!-- Sub-leaf from top -->
-    <line x1="61" y1="10" x2="72" y2="6" stroke="#484f58" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="61" y1="14" x2="72" y2="18" stroke="#484f58" stroke-width="1.5" stroke-linecap="round"/>
-    <circle cx="75" cy="6" r="3" fill="#484f58"/>
-    <circle cx="75" cy="18" r="3" fill="#484f58"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none" role="img" aria-label="Skills Tree">
+  <!-- Tree icon mark -->
+  <!-- Root trunk -->
+  <line x1="20" y1="38" x2="20" y2="26" stroke="#3fb950" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Branch left -->
+  <line x1="20" y1="26" x2="11" y2="18" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
+  <!-- Branch right -->
+  <line x1="20" y1="26" x2="29" y2="18" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
+  <!-- Branch center up -->
+  <line x1="20" y1="26" x2="20" y2="16" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
+  <!-- Leaf nodes -->
+  <circle cx="11" cy="15" r="4" fill="#3fb950" opacity="0.9"/>
+  <circle cx="20" cy="12" r="4.5" fill="#3fb950"/>
+  <circle cx="29" cy="15" r="4" fill="#3fb950" opacity="0.9"/>
+  <!-- Sub-leaf left -->
+  <circle cx="7" cy="22" r="2.5" fill="#58a6ff" opacity="0.7"/>
+  <line x1="11" y1="15" x2="7" y2="22" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <!-- Sub-leaf right -->
+  <circle cx="33" cy="22" r="2.5" fill="#58a6ff" opacity="0.7"/>
+  <line x1="29" y1="15" x2="33" y2="22" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+
   <!-- Wordmark -->
-  <text x="92" y="21" font-family="'Inter','Helvetica Neue',sans-serif" font-size="15" font-weight="700" fill="#e6edf3" letter-spacing="-0.3">Skills</text>
-  <text x="92" y="39" font-family="'Inter','Helvetica Neue',sans-serif" font-size="15" font-weight="300" fill="#8b949e" letter-spacing="1.5">TREE</text>
+  <text x="44" y="28" font-family="Inter, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#e6edf3" letter-spacing="-0.4">Skills</text>
+  <text x="95" y="28" font-family="Inter, -apple-system, sans-serif" font-size="17" font-weight="300" fill="#8b949e" letter-spacing="-0.2">Tree</text>
 </svg>
