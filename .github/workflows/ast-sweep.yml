@@ -19,7 +19,7 @@ on:
       dry_run:
         description: 'Dry run — print results only, do not write files or open PR'
         type: boolean
-        default: true
+        default: false
       skills_path:
         description: 'Skills directory to scan (default: skills/)'
         type: string
@@ -45,7 +45,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          # No cache: pip — repo has no requirements.txt or pyproject.toml
 
       - name: Install dependencies
         run: pip install httpx
@@ -56,16 +55,28 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             DRY_FLAG="--dry-run"
           fi
+          echo "dry_run input = '${{ inputs.dry_run }}' | DRY_FLAG = '${DRY_FLAG}'"
           python tools/ast_sweep.py \
             --skills-root "${{ inputs.skills_path }}" \
             --badge-output badge-data-output \
             --sbom-output meta/skills-sbom.cdx.json \
             $DRY_FLAG
 
+      - name: Ensure sweep-report.md exists
+        if: inputs.dry_run == false
+        run: |
+          if [ ! -f sweep-report.md ]; then
+            echo "## AST Sweep Report" > sweep-report.md
+            echo "" >> sweep-report.md
+            BADGE_COUNT=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+            echo "- **Badges generated:** ${BADGE_COUNT}" >> sweep-report.md
+            echo "- **Run date:** $(date -u '+%Y-%m-%d %H:%M UTC')" >> sweep-report.md
+            echo "" >> sweep-report.md
+            echo "_Auto-generated fallback report (ast_sweep.py did not produce sweep-report.md)_" >> sweep-report.md
+          fi
+
       # ----------------------------------------------------------------
       # PRE-MERGE BADGE PUSH
-      # Pushes Yellow badges immediately so site shows inferred state
-      # during review. revoke-phantom-badges.yml cleans up if PR is closed.
       # ----------------------------------------------------------------
       - name: Push Yellow badges to badge-data branch (pre-merge, with retry-rebase)
         if: inputs.dry_run == false && inputs.push_badges_immediately == true
@@ -76,7 +87,6 @@ jobs:
             exit 0
           fi
 
-          # Clone badge-data branch (creates orphan if missing)
           git clone --depth 1 \
             https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
             badge-data-branch \
@@ -88,7 +98,6 @@ jobs:
               git checkout --orphan badge-data
             )
 
-          # Copy new badge JSONs — never overwrite advisory or verified
           python3 - <<'PYEOF'
           import json
           from pathlib import Path
@@ -124,7 +133,6 @@ jobs:
           SWEEP_SHA=$(git -C .. rev-parse --short HEAD 2>/dev/null || echo 'manual')
           git commit -m "sweep(badges): machine-inferred badges pushed pre-merge from sweep@${SWEEP_SHA}"
 
-          # --- RETRY-REBASE LOOP ---
           for attempt in 1 2 3; do
             git push origin badge-data && {
               echo "✅ Pre-merge badge JSONs pushed to badge-data (attempt ${attempt})."
@@ -178,7 +186,10 @@ jobs:
               sha: existingSbom?.data?.sha,
             });
 
-            const report = fs.readFileSync('sweep-report.md', 'utf8');
+            const reportPath = 'sweep-report.md';
+            const report = fs.existsSync(reportPath)
+              ? fs.readFileSync(reportPath, 'utf8')
+              : '_(No sweep-report.md found — see workflow logs for details.)_';
 
             const pr = await github.rest.pulls.create({
               owner: context.repo.owner,
