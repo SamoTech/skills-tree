@@ -3,7 +3,7 @@ name: Revoke Phantom Badges
 # Fires when a pull request is CLOSED WITHOUT MERGING.
 #
 # The problem it solves (Phantom Badge race condition):
-#   ast-sweep.yml commits Yellow badge JSONs to `public/badges/` on `main`
+#   ast-sweep.yml commits Yellow badge JSONs to `docs/badges/` on `main`
 #   BEFORE the draft PR is merged, for immediate site visibility.
 #   But if the PR is later closed without merging, those Yellow badges become
 #   phantoms: the skill on `main` has no `dependencies` field, but the badge
@@ -15,7 +15,7 @@ name: Revoke Phantom Badges
 #      a. Checks whether that skill exists in the CURRENT `main` SBOM.
 #      b. If NOT in SBOM: reverts badge to `unscanned` (grey).
 #      c. If YES in SBOM: badge stays (a merged sweep already claimed it).
-#   3. Commits revocations directly to `public/badges/` on `main`.
+#   3. Commits revocations directly to `docs/badges/` on `main`.
 
 on:
   pull_request:
@@ -106,7 +106,7 @@ jobs:
           from pathlib import Path
 
           phantoms   = json.loads(Path("phantoms.json").read_text())
-          badge_dir  = Path("public/badges")
+          badge_dir  = Path("docs/badges")
           badge_dir.mkdir(parents=True, exist_ok=True)
 
           UNSCANNED = {
@@ -138,7 +138,7 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/badges/
+          git add docs/badges/
           git diff --staged --quiet && echo "No badge changes to commit." && exit 0
 
           PR_NUM="${{ steps.changed.outputs.pr_number }}"
