@@ -1,0 +1,131 @@
+name: Skill Upgrade Detector
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'skills/**/*.md'
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  detect-upgrade:
+    name: Detect skill version upgrades
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect upgraded skills
+        id: detect
+        run: |
+          # Get list of changed skill files in this PR
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' 2>/dev/null || \
+                    git diff --name-only HEAD~1...HEAD -- 'skills/**/*.md')
+
+          UPGRADES=""
+          V3_UPGRADES=""
+
+          for FILE in $CHANGED; do
+            [ -f "$FILE" ] || continue
+
+            NEW_VER=$(grep -m1 '^version:' "$FILE" | awk '{print $2}' | tr -d ' ')
+            [ -z "$NEW_VER" ] && continue
+
+            # Get old version from base branch
+            OLD_VER=$(git show origin/${{ github.base_ref }}:"$FILE" 2>/dev/null | grep -m1 '^version:' | awk '{print $2}' | tr -d ' ')
+            [ -z "$OLD_VER" ] && OLD_VER="v1"
+
+            SKILL=$(basename "$FILE" .md)
+            CATEGORY=$(echo "$FILE" | cut -d'/' -f2)
+
+            if [ "$OLD_VER" != "$NEW_VER" ]; then
+              UPGRADES="${UPGRADES}\n- \`${SKILL}\` (${CATEGORY}): ${OLD_VER} → ${NEW_VER}"
+              if [ "$NEW_VER" = "v3" ]; then
+                V3_UPGRADES="${V3_UPGRADES}\n- \`${SKILL}\`"
+              fi
+            fi
+          done
+
+          # Save to outputs (escape newlines for GitHub output)
+          echo "upgrades<<EOF" >> $GITHUB_OUTPUT
+          printf "%b" "$UPGRADES" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "v3_upgrades<<EOF" >> $GITHUB_OUTPUT
+          printf "%b" "$V3_UPGRADES" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          if [ -n "$UPGRADES" ]; then
+            echo "has_upgrades=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_upgrades=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -n "$V3_UPGRADES" ]; then
+            echo "has_v3=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_v3=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Post upgrade comment
+        if: steps.detect.outputs.has_upgrades == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const upgrades = `${{ steps.detect.outputs.upgrades }}`;
+            const hasV3 = `${{ steps.detect.outputs.has_v3 }}` === 'true';
+            const v3Skills = `${{ steps.detect.outputs.v3_upgrades }}`;
+
+            let body = `## 🚀 Skill Version Upgrade Detected\n\n`;
+            body += `This PR upgrades the following skills:\n${upgrades}\n\n`;
+
+            if (hasV3) {
+              body += `### ⚔️ Battle-Tested Achievement Unlocked!\n\n`;
+              body += `The following skills have reached **v3 — Battle-Tested** status:\n${v3Skills}\n\n`;
+              body += `> A v3 skill includes: full description, typed I/O schema, working code example, `;
+              body += `failure modes, prompt patterns, and a model comparison table.\n\n`;
+              body += `These will appear on the [Leaderboard](../blob/main/meta/LEADERBOARD.md) `;
+              body += `under ⚔️ Battle-Tested Skills after merge. 🎉\n`;
+            } else {
+              body += `> Keep going! Skills that reach **v3** earn the ⚔️ Battle-Tested badge `;
+              body += `on the [Leaderboard](../blob/main/meta/LEADERBOARD.md).\n`;
+            }
+
+            body += `\n---\n*Auto-detected by the [Skill Upgrade Detector workflow]`;
+            body += `(../.github/workflows/skill-upgrade-comment.yml)*`;
+
+            // Find existing bot comment to update instead of duplicating
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.data.find(
+              c => c.user.type === 'Bot' && c.body.includes('Skill Version Upgrade Detected')
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }

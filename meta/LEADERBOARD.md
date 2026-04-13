@@ -1,61 +1,104 @@
 # 🏆 Skills Tree Leaderboard
 
-> Auto-updated weekly · [Propose a correction via Issue](https://github.com/SamoTech/skills-tree/issues)
+> Auto-updated every Monday at 00:00 UTC by the [leaderboard workflow](../.github/workflows/leaderboard.yml).
+> Rankings are derived from merged PR activity, skill version upgrades, and contribution volume.
 
 ---
 
-## 🔥 Most Active Skills (Last 30 Days)
+## 📅 Week of 2026-04-13
 
-| Rank | Skill | Category | Updates | Contributors |
-|---|---|---|---|---|
-| 1 | [react.md](../skills/02-reasoning/react.md) | Reasoning | 3 | 2 |
-| 2 | [memory-injection.md](../skills/03-memory/memory-injection.md) | Memory | 2 | 2 |
-| 3 | [rag.md](../skills/09-agentic-patterns/rag.md) | Agentic Patterns | 2 | 1 |
-| 4 | [web-search.md](../skills/11-web/web-search.md) | Web | 1 | 1 |
-| 5 | [code-review.md](../skills/05-code/code-review.md) | Code | 1 | 1 |
+### 🔥 Top Skills This Week
 
----
+> Skills with the most PR activity, views, and recent improvements.
 
-## ⚡ Battle-Tested Skills
-
-*Used in 10+ public open-source projects*
-
-| Skill | Evidence | First Seen |
-|---|---|---|
-| [ReAct](../skills/02-reasoning/react.md) | LangChain, AutoGen, CrewAI all implement it | 2023 |
-| [Chain of Thought](../skills/02-reasoning/chain-of-thought.md) | Foundational — in every major agent framework | 2022 |
-| [RAG Pipeline](../skills/09-agentic-patterns/rag.md) | LlamaIndex, LangChain, Haystack | 2023 |
-| [Memory Injection](../skills/03-memory/memory-injection.md) | mem0, Zep, MemGPT | 2024 |
-| [Web Search](../skills/11-web/web-search.md) | Every research/browsing agent | 2023 |
+| Rank | Skill | Category | Version | Activity |
+|------|-------|----------|---------|----------|
+| 🥇 1 | `memory-injection` | Memory | v2 | 3 PRs merged |
+| 🥈 2 | `tool-calling` | Tool Use | v2 | 2 PRs merged |
+| 🥉 3 | `chain-of-thought` | Reasoning | v2 | 2 PRs merged |
+| 4 | `pdf-parsing` | Perception | v2 | 1 PR merged |
+| 5 | `chart-reading` | Perception | v2 | 1 PR merged |
 
 ---
 
-## 📈 Most Improved (This Quarter)
+### 🚀 Most Improved This Week
 
-| Skill | Version Jump | What Improved |
-|---|---|---|
-| [memory-injection.md](../skills/03-memory/memory-injection.md) | v1 → v2 | Added retrieval scoring, production path, mem0 integration |
-| [rag.md](../skills/09-agentic-patterns/rag.md) | v2 → v3 | Full runnable pipeline, 6 variants, blueprint link |
-| [react.md](../skills/02-reasoning/react.md) | v2 → v3 | Runnable example, benchmark link, typed I/O |
+> Skills that jumped from v1 → v2 or v2 → v3 this week.
 
----
-
-## 🥇 Top Contributors
-
-| Contributor | Skills Added | Skills Improved | Benchmarks |
-|---|---|---|---|
-| [@SamoTech](https://github.com/SamoTech) | 5 | 5 | 2 |
-
-*Want your name here? [Open a PR →](../CONTRIBUTING.md)*
+| Skill | Category | Upgrade | Contributor |
+|-------|----------|---------|-------------|
+| `abductive-reasoning` | Reasoning | v1 → v2 | @OssamaHashim |
+| `causal-reasoning` | Reasoning | v1 → v2 | @OssamaHashim |
+| `fact-verification` | Memory | v1 → v2 | @OssamaHashim |
+| `user-profile-memory` | Memory | v1 → v2 | @OssamaHashim |
+| `handwriting-recognition` | Perception | v1 → v2 | @OssamaHashim |
 
 ---
 
-## 🔬 Trending in Labs
+### ⚔️ Battle-Tested Skills
 
-| Lab | Status | Interest |
-|---|---|---|
-| [tree-of-agents.md](../labs/reasoning/tree-of-agents.md) | Experimental | +22% plan quality vs ReAct |
+> Skills that have reached **v3** — fully expanded with description, I/O schema, working code, failure modes, prompt patterns, and model comparison.
+
+| Skill | Category | Reached v3 | Champion |
+|-------|----------|------------|----------|
+| *(none yet — first skill to hit v3 earns this badge!)* | | | |
 
 ---
 
-*Last updated: April 2026 · Next update: May 2026*
+### 👥 Top Contributors — All Time
+
+| Rank | Contributor | Skills Added | Skills Improved | Total PRs |
+|------|-------------|-------------|-----------------|----------|
+| 🥇 1 | @OssamaHashim | 515 | 22 | 537 |
+
+---
+
+### 📈 Trending Systems
+
+> Systems and blueprints getting the most attention this week.
+
+| Rank | System / Blueprint | Type | Views |
+|------|--------------------|------|-------|
+| 1 | `rag-stack` | Blueprint | — |
+| 2 | `research-agent` | System | — |
+| 3 | `multi-agent-mesh` | Blueprint | — |
+| 4 | `memory-first-agent` | Blueprint | — |
+| 5 | `computer-use-agent` | System | — |
+
+---
+
+### 🔗 Used In
+
+> Public projects that reference Skills Tree skills. [Submit yours →](https://github.com/SamoTech/skills-tree/issues/new?template=used-in.md)
+
+| Project | Skills Used | Stars |
+|---------|-------------|-------|
+| *(be the first to list your project!)* | | |
+
+---
+
+## 📊 All-Time Stats
+
+| Metric | Count |
+|--------|-------|
+| Total skills | 515+ |
+| Expanded skills (v2+) | 22 |
+| Battle-Tested skills (v3) | 0 |
+| Systems | 8 |
+| Blueprints | 7 |
+| Benchmarks | 6 |
+| Lab experiments | 6 |
+| Contributors | 1 |
+| Total PRs merged | 537+ |
+
+---
+
+## 🗓️ Archive
+
+| Week | Highlights |
+|------|------------|
+| 2026-04-13 | First leaderboard published. 515+ skills, 22 expanded to v2. |
+
+---
+
+*Powered by the [Skills Tree Auto-Growth Engine](../.github/workflows/leaderboard.yml) · [Contribute a skill](../CONTRIBUTING.md) · [Propose a roadmap item](https://github.com/SamoTech/skills-tree/discussions)*
