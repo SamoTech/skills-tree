@@ -2,7 +2,7 @@ name: AST Dependency Sweep
 
 # Extracts import statements from skill code blocks, validates against PyPI,
 # generates the CycloneDX SBOM, and:
-#   1. Commits Yellow badge JSONs to `public/badges/` on `main` IMMEDIATELY.
+#   1. Commits Yellow badge JSONs to `docs/badges/` on `main` IMMEDIATELY.
 #   2. Opens a DRAFT PR to `main` with the SBOM + sweep report.
 #
 # PREREQUISITE: Repo Settings → Actions → General → Workflow permissions
@@ -20,7 +20,7 @@ on:
         type: string
         default: 'skills/'
       push_badges_immediately:
-        description: 'Commit Yellow badge JSONs to public/badges/ on main now (before PR merges)'
+        description: 'Commit Yellow badge JSONs to docs/badges/ on main now (before PR merges)'
         type: boolean
         default: true
 
@@ -77,9 +77,9 @@ jobs:
           fi
 
       # ----------------------------------------------------------------
-      # COMMIT BADGE JSONs TO public/badges/ ON MAIN
+      # COMMIT BADGE JSONs TO docs/badges/ ON MAIN
       # ----------------------------------------------------------------
-      - name: Commit Yellow badges to public/badges/ on main (pre-merge, with retry-rebase)
+      - name: Commit Yellow badges to docs/badges/ on main (pre-merge, with retry-rebase)
         if: inputs.dry_run == false && inputs.push_badges_immediately == true
         run: |
           JSON_COUNT=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
@@ -88,14 +88,14 @@ jobs:
             exit 0
           fi
 
-          mkdir -p public/badges
+          mkdir -p docs/badges
 
           python3 - <<'PYEOF'
           import json
           from pathlib import Path
 
           src  = Path("badge-data-output")
-          dest = Path("public/badges")
+          dest = Path("docs/badges")
           dest.mkdir(parents=True, exist_ok=True)
 
           written = skipped = 0
@@ -112,20 +112,20 @@ jobs:
                       continue
               dest_file.write_text(json.dumps(new_badge, indent=2))
               written += 1
-          print(f"Wrote {written} badge JSONs to public/badges/. Skipped {skipped} advisory/verified.")
+          print(f"Wrote {written} badge JSONs to docs/badges/. Skipped {skipped} advisory/verified.")
           PYEOF
 
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/badges/
+          git add docs/badges/
           git diff --staged --quiet && echo "No badge changes to commit." && exit 0
 
           SWEEP_SHA=$(git rev-parse --short HEAD)
-          git commit -m "sweep(badges): commit machine-inferred badge JSONs to public/badges/ [sweep@${SWEEP_SHA}]"
+          git commit -m "sweep(badges): commit machine-inferred badge JSONs to docs/badges/ [sweep@${SWEEP_SHA}]"
 
           for attempt in 1 2 3; do
             git push origin main && {
-              echo "✅ Badge JSONs committed to public/badges/ on main (attempt ${attempt})."
+              echo "✅ Badge JSONs committed to docs/badges/ on main (attempt ${attempt})."
               exit 0
             }
             echo "Push rejected (attempt ${attempt}/3). Pulling and rebasing..."
@@ -188,7 +188,7 @@ jobs:
                   '> \u26a0\ufe0f This is a machine-generated draft. Do NOT merge without reviewing Orange badges.',
                   '> See `meta/badge-states.md` for the verification PR template.',
                   '>',
-                  '> **Phantom badge contract:** Yellow badge JSONs are already live in `public/badges/` on `main`.',
+                  '> **Phantom badge contract:** Yellow badge JSONs are already live in `docs/badges/` on `main`.',
                   '> **If you close this PR without merging**, `revoke-phantom-badges.yml` will',
                   '> automatically reset affected badges to `unscanned` (grey) within ~60 seconds.',
                 ].join('\n'),
@@ -196,12 +196,12 @@ jobs:
                 base: 'main',
                 draft: true,
               });
-              console.log(`✅ Draft PR created: ${pr.data.html_url}`);
+              console.log(`\u2705 Draft PR created: ${pr.data.html_url}`);
             } catch (err) {
               if (err.message && err.message.includes('not permitted to create or approve pull requests')) {
                 core.warning(
                   'PR creation blocked by repo permissions.\n' +
-                  'Fix: Settings → Actions → General → Workflow permissions → ' +
+                  'Fix: Settings \u2192 Actions \u2192 General \u2192 Workflow permissions \u2192 ' +
                   'enable "Allow GitHub Actions to create and approve pull requests"'
                 );
               } else {
