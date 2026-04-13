@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "deps",
-  "message": "machine-inferred \u00b7 1 pkg",
-  "color": "yellow",
+  "message": "\u26a0\ufe0f 1 unknown pkg",
+  "color": "orange",
   "style": "flat-square"
 }
