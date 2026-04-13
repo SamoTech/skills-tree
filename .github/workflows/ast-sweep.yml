@@ -2,8 +2,8 @@ name: AST Dependency Sweep
 
 # Extracts import statements from skill code blocks, validates against PyPI,
 # generates the CycloneDX SBOM, and:
-#   1. Pushes Yellow badge JSONs to `badge-data` branch IMMEDIATELY (pre-merge)
-#      so the site shows Yellow even while the draft PR is under review.
+#   1. Commits Yellow badge JSONs to `public/badges/` on `main` IMMEDIATELY
+#      so GitHub Pages (served from main) serves them right away.
 #   2. Opens a DRAFT PR to `main` with the SBOM + sweep report.
 #
 # PHANTOM BADGE CONTRACT:
@@ -25,7 +25,7 @@ on:
         type: string
         default: 'skills/'
       push_badges_immediately:
-        description: 'Push Yellow badge JSONs to badge-data branch now (before PR merges)'
+        description: 'Commit Yellow badge JSONs to public/badges/ on main now (before PR merges)'
         type: boolean
         default: true
 
@@ -40,6 +40,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -76,35 +79,26 @@ jobs:
           fi
 
       # ----------------------------------------------------------------
-      # PRE-MERGE BADGE PUSH
+      # COMMIT BADGE JSONs TO public/badges/ ON MAIN
       # ----------------------------------------------------------------
-      - name: Push Yellow badges to badge-data branch (pre-merge, with retry-rebase)
+      - name: Commit Yellow badges to public/badges/ on main (pre-merge, with retry-rebase)
         if: inputs.dry_run == false && inputs.push_badges_immediately == true
         run: |
           JSON_COUNT=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
           if [ "$JSON_COUNT" = "0" ]; then
-            echo "No badge JSONs generated. Skipping badge-data push."
+            echo "No badge JSONs generated. Skipping commit."
             exit 0
           fi
 
-          git clone --depth 1 \
-            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
-            badge-data-branch \
-            --branch badge-data \
-            2>/dev/null || (
-              mkdir badge-data-branch && cd badge-data-branch &&
-              git init &&
-              git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git &&
-              git checkout --orphan badge-data
-            )
+          mkdir -p public/badges
 
           python3 - <<'PYEOF'
           import json
           from pathlib import Path
 
           src  = Path("badge-data-output")
-          dest = Path("badge-data-branch")
-          dest.mkdir(exist_ok=True)
+          dest = Path("public/badges")
+          dest.mkdir(parents=True, exist_ok=True)
 
           written = skipped = 0
           for new_file in src.glob("*.json"):
@@ -120,34 +114,27 @@ jobs:
                       continue
               dest_file.write_text(json.dumps(new_badge, indent=2))
               written += 1
-          print(f"Wrote {written} badge JSONs. Skipped {skipped} advisory/verified.")
+          print(f"Wrote {written} badge JSONs to public/badges/. Skipped {skipped} advisory/verified.")
           PYEOF
 
-          cd badge-data-branch
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
-          git add -A
-          git diff --staged --quiet && echo "No badge changes to push." && exit 0
+          git add public/badges/
+          git diff --staged --quiet && echo "No badge changes to commit." && exit 0
 
-          SWEEP_SHA=$(git -C .. rev-parse --short HEAD 2>/dev/null || echo 'manual')
-          git commit -m "sweep(badges): machine-inferred badges pushed pre-merge from sweep@${SWEEP_SHA}"
+          SWEEP_SHA=$(git rev-parse --short HEAD)
+          git commit -m "sweep(badges): commit machine-inferred badge JSONs to public/badges/ [sweep@${SWEEP_SHA}]"
 
           for attempt in 1 2 3; do
-            git push origin badge-data && {
-              echo "✅ Pre-merge badge JSONs pushed to badge-data (attempt ${attempt})."
+            git push origin main && {
+              echo "✅ Badge JSONs committed to public/badges/ on main (attempt ${attempt})."
               exit 0
             }
-            echo "Push rejected (attempt ${attempt}/3). Fetching and rebasing..."
-            git fetch origin badge-data
-            git rebase origin/badge-data || {
-              git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --ours {}
-              git add -A
-              git rebase --continue
-            }
+            echo "Push rejected (attempt ${attempt}/3). Pulling and rebasing..."
+            git pull --rebase origin main
             sleep $((attempt * 2))
           done
-          echo "ERROR: Pre-merge badge push failed after 3 attempts."
+          echo "ERROR: Badge commit to main failed after 3 attempts."
           exit 1
 
       # ----------------------------------------------------------------
@@ -202,7 +189,7 @@ jobs:
                 '> \u26a0\ufe0f This is a machine-generated draft. Do NOT merge without reviewing Orange badges.',
                 '> See `meta/badge-states.md` for the verification PR template.',
                 '>',
-                '> **Phantom badge contract:** Yellow badge JSONs are already live on `badge-data`.',
+                '> **Phantom badge contract:** Yellow badge JSONs are already live in `public/badges/` on `main`.',
                 '> **If you close this PR without merging**, `revoke-phantom-badges.yml` will',
                 '> automatically reset affected badges to `unscanned` (grey) within ~60 seconds.',
               ].join('\n'),
@@ -212,4 +199,4 @@ jobs:
             });
 
             console.log(`Draft PR created: ${pr.data.html_url}`);
-            console.log('Yellow badges already live. Phantom revocation active if PR is abandoned.');
+            console.log('Yellow badges already live in public/badges/. Phantom revocation active if PR is abandoned.');
