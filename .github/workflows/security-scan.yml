@@ -1,0 +1,62 @@
+# ============================================================
+# security-scan.yml
+# Weekly secret scanning on docs/ and skill files.
+# Also runs on every push to main.
+# ============================================================
+name: 🔐 Security Scan
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'skills/**'
+      - '.github/**'
+  schedule:
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  issues: write
+
+jobs:
+  scan:
+    name: Scan for secrets & vulnerabilities
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Gitleaks secret scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+        continue-on-error: true
+
+      - name: Scan HTML for exposed tokens
+        run: |
+          echo "Scanning docs/ for accidental secrets..."
+          PATTERNS=(
+            'ghp_[A-Za-z0-9]{36}'
+            'ghs_[A-Za-z0-9]{36}'
+            'sk-[A-Za-z0-9]{48}'
+            'AIza[0-9A-Za-z\-_]{35}'
+            'AKIA[0-9A-Z]{16}'
+            'password\s*=\s*["\x27][^"\x27]{8,}'
+          )
+          FOUND=0
+          for pattern in "${PATTERNS[@]}"; do
+            if grep -rqE "$pattern" docs/ 2>/dev/null; then
+              echo "❌ Potential secret matched pattern: $pattern"
+              FOUND=1
+            fi
+          done
+          if [ $FOUND -eq 0 ]; then
+            echo "✅ No obvious secrets found in docs/"
+          else
+            exit 1
+          fi

@@ -1,0 +1,82 @@
+# ============================================================
+# deploy-pages.yml
+# Builds and deploys docs/ to GitHub Pages on every push to
+# main that touches docs/ or skills/. Also runs on schedule
+# (weekly) to keep Pages alive even with no commits.
+# ============================================================
+name: 🚀 Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'skills/**'
+      - '_config.yml'
+  schedule:
+    # Every Monday at 03:00 UTC — keeps Pages active forever
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Reason for manual deploy'
+        required: false
+        default: 'Manual trigger'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Jekyll site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        run: |
+          cd docs
+          bundle init --force
+          bundle add jekyll github-pages jekyll-github-metadata --quiet
+          bundle exec jekyll build \
+            --source . \
+            --destination ./_site \
+            --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_site
+
+  deploy:
+    name: Deploy to Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

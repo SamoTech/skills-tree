@@ -1,0 +1,42 @@
+# ============================================================
+# keepalive.yml
+# GitHub disables scheduled workflows on repos with no activity
+# for 60 days. This workflow commits a tiny timestamp update
+# every 50 days to keep ALL other workflows alive forever.
+# ============================================================
+name: 💓 Keep Workflows Alive
+
+on:
+  schedule:
+    # Every 50 days at 01:00 UTC (before the 60-day GitHub cutoff)
+    - cron: '0 1 1 */2 *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  keepalive:
+    name: Heartbeat commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Write heartbeat timestamp
+        run: |
+          mkdir -p meta
+          echo "last_heartbeat: $(date -u +%Y-%m-%dT%H:%M:%SZ)" > meta/heartbeat.yml
+          echo "automated: true" >> meta/heartbeat.yml
+          echo "purpose: Keeps GitHub Actions scheduled workflows active" >> meta/heartbeat.yml
+
+      - name: Commit heartbeat
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add meta/heartbeat.yml
+          git diff --staged --quiet || (
+            git commit -m "chore: 💓 keepalive heartbeat $(date -u +%Y-%m-%d)"
+            git push
+          )

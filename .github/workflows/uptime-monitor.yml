@@ -1,0 +1,102 @@
+# ============================================================
+# uptime-monitor.yml
+# Pings the live GitHub Pages site every 30 minutes.
+# Opens an issue automatically if the site is down.
+# Closes it automatically when the site recovers.
+# ============================================================
+name: 🔍 Uptime Monitor
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  ping:
+    name: Ping live site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site availability
+        id: check
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            --max-time 15 \
+            --retry 3 \
+            --retry-delay 5 \
+            https://samotech.github.io/skills-tree/ || echo "000")
+          echo "status=$STATUS" >> $GITHUB_OUTPUT
+          echo "Site returned HTTP $STATUS"
+          if [ "$STATUS" = "200" ]; then
+            echo "result=up" >> $GITHUB_OUTPUT
+          else
+            echo "result=down" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout (needed for gh CLI)
+        if: steps.check.outputs.result == 'down'
+        uses: actions/checkout@v4
+
+      - name: Open downtime issue
+        if: steps.check.outputs.result == 'down'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const label = 'uptime-alert';
+            const title = '🔴 Site is DOWN: samotech.github.io/skills-tree';
+
+            // Ensure label exists
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner, repo: context.repo.repo, name: label
+              });
+            } catch(e) {
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner, repo: context.repo.repo,
+                name: label, color: 'f85149', description: 'Automated uptime alert'
+              });
+            }
+
+            // Check if open alert already exists
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: label
+            });
+            if (existing.data.length > 0) {
+              console.log('Open alert already exists, skipping.');
+              return;
+            }
+
+            const now = new Date().toISOString();
+            const http = '${{ steps.check.outputs.status }}';
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title,
+              body: `## 🔴 Site Down Alert\n\n**URL:** https://samotech.github.io/skills-tree/\n**HTTP Status:** \`${http}\`\n**Detected at:** ${now} UTC\n\n### What to check\n- [ ] GitHub Pages is enabled in repo Settings → Pages\n- [ ] \`docs/\` folder exists and has a valid \`index.html\`\n- [ ] The deploy workflow completed successfully\n- [ ] No Jekyll build errors in the Actions tab\n\n*This issue was opened automatically by the Uptime Monitor workflow. It will be closed automatically when the site recovers.*`,
+              labels: [label]
+            });
+
+      - name: Close recovery issue
+        if: steps.check.outputs.result == 'up'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const label = 'uptime-alert';
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: label
+            });
+            for (const issue of issues.data) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `## ✅ Site Recovered\n\nThe site is back up as of ${new Date().toISOString()} UTC.\n\nClosing this alert automatically.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number, state: 'closed'
+              });
+            }

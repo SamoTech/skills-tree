@@ -1,0 +1,37 @@
+# Auto-labeler config for actions/labeler@v5
+# Maps file path patterns to labels for PRs
+
+skills:
+  - changed-files:
+    - any-glob-to-any-file: 'skills/**'
+
+docs:
+  - changed-files:
+    - any-glob-to-any-file: 'docs/**'
+
+ci:
+  - changed-files:
+    - any-glob-to-any-file: '.github/workflows/**'
+    - any-glob-to-any-file: '.github/**.yml'
+
+configuration:
+  - changed-files:
+    - any-glob-to-any-file: '.github/**'
+    - any-glob-to-any-file: '*.yml'
+    - any-glob-to-any-file: '*.json'
+
+benchmarks:
+  - changed-files:
+    - any-glob-to-any-file: 'benchmarks/**'
+
+blueprints:
+  - changed-files:
+    - any-glob-to-any-file: 'blueprints/**'
+
+meta:
+  - changed-files:
+    - any-glob-to-any-file: 'meta/**'
+
+systems:
+  - changed-files:
+    - any-glob-to-any-file: 'systems/**'
