@@ -1,76 +1,94 @@
-name: Deploy Badge Data to Pages
+name: Deploy Badge Data
 
-# Deploys JSON badge files from the badge-data orphan branch to GitHub Pages.
+# Commits JSON badge files directly into badges/ on main.
 # Badge URLs in skill files point to:
 #   https://samotech.github.io/skills-tree/badges/<key>.json
 #
-# This keeps badge state inside the project's trust boundary (no external Gists),
-# provides full git history of every state transition, and eliminates external
-# service dependencies.
-#
-# See meta/badge-states.md for the four-state trust contract and badge URL format.
+# GitHub Pages is served from docs/ on main (via deploy-pages.yml).
+# Badge JSONs live alongside the site in badges/ — same branch, no conflict.
+# shields.io fetches them directly from the Pages-served static files.
 
 on:
   push:
     branches:
-      - badge-data     # Trigger on any push to the badge-data orphan branch
+      - badge-data       # Triggered when ast-sweep pushes badge JSONs here
   workflow_dispatch:
 
 jobs:
-  deploy:
-    name: Deploy badge JSONs to GitHub Pages
+  commit-badges:
+    name: Commit badge JSONs to main
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
 
     steps:
-      - name: Checkout badge-data branch
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout badge-data branch into temp dir
         uses: actions/checkout@v4
         with:
           ref: badge-data
+          path: _badge_source
 
-      - name: Set up Pages directory structure
+      - name: Copy badge JSONs into badges/ on main
         run: |
-          mkdir -p _site/badges
-          # Copy all badge JSONs into _site/badges/
-          cp *.json _site/badges/ 2>/dev/null || echo 'No JSON files found (first run)'
+          mkdir -p badges
+          # Copy all JSONs from badge-data root into badges/
+          find _badge_source -maxdepth 2 -name "*.json" \
+            ! -name "package*.json" \
+            ! -path "*/.github/*" \
+            -exec cp {} badges/ \;
+          BADGE_COUNT=$(ls badges/*.json 2>/dev/null | wc -l | tr -d ' ')
+          echo "Copied ${BADGE_COUNT} badge JSON files into badges/"
 
-          # Add CORS headers via _headers file (for shields.io fetcher)
-          cat > _site/_headers << 'EOF'
+      - name: Add CORS + cache headers file for GitHub Pages
+        run: |
+          mkdir -p docs
+          # Append badges/* rules to _headers if not already present
+          if ! grep -q "/badges/\*" docs/_headers 2>/dev/null; then
+            cat >> docs/_headers << 'EOF'
+
           /badges/*
             Access-Control-Allow-Origin: *
             Cache-Control: no-cache, max-age=60
             Content-Type: application/json
           EOF
+          fi
 
-          # Add a simple index listing all badge keys
-          echo '{' > _site/index.json
-          echo '  "badges": [' >> _site/index.json
-          ls _site/badges/*.json 2>/dev/null | \
-            sed 's|_site/badges/||;s|.json||' | \
-            awk '{printf "    \\"" $0 "\\",\n"}' | \
-            sed '$s/,$//' >> _site/index.json
-          echo '  ],' >> _site/index.json
-          echo "  \"total\": $(ls _site/badges/*.json 2>/dev/null | wc -l | tr -d ' ')" >> _site/index.json
-          echo '}' >> _site/index.json
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Report deployment
+      - name: Generate badges/index.json manifest
         run: |
-          BADGE_COUNT=$(ls _site/badges/*.json 2>/dev/null | wc -l | tr -d ' ')
-          echo "Deployed ${BADGE_COUNT} badge JSON files to GitHub Pages."
-          echo "Badge base URL: ${{ steps.deployment.outputs.page_url }}badges/"
+          echo '{' > badges/index.json
+          echo '  "badges": [' >> badges/index.json
+          ls badges/*.json 2>/dev/null | grep -v index.json | \
+            sed 's|badges/||;s|.json||' | \
+            awk '{printf "    \"" $0 "\",\n"}' | \
+            sed '$s/,$//' >> badges/index.json
+          echo '  ],' >> badges/index.json
+          echo "  \"total\": $(ls badges/*.json 2>/dev/null | grep -v index.json | wc -l | tr -d ' ')" >> badges/index.json
+          echo '}' >> badges/index.json
+          echo "index.json written:"
+          cat badges/index.json | head -5
+
+      - name: Commit and push badges to main
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add badges/
+          git add docs/_headers 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No badge changes to commit."
+          else
+            BADGE_COUNT=$(ls badges/*.json 2>/dev/null | grep -v index.json | wc -l | tr -d ' ')
+            git commit -m "chore: sync ${BADGE_COUNT} badge JSONs → badges/ on main [skip ci]"
+            git push origin main
+          fi
+
+      - name: Report
+        run: |
+          BADGE_COUNT=$(ls badges/*.json 2>/dev/null | grep -v index.json | wc -l | tr -d ' ')
+          echo "✅ ${BADGE_COUNT} badge JSONs committed to badges/ on main"
+          echo "🌐 Served at: https://samotech.github.io/skills-tree/badges/"
