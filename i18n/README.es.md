@@ -22,7 +22,7 @@
 
 ---
 
-🌐 **Leer en otros idiomas:** [English](../README.md) · [العربية](README.ar.md) · [中文](README.zh.md)
+🌐 **Leer en otros idiomas:** [English](../README.md) · [العربية](README.ar.md) · [中文](README.zh.md) · 🇪🇸 Español · [Français](README.fr.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · [Português](README.pt.md) · [Русский](README.ru.md) · [हिन्दी](README.hi.md)
 
 </div>
 
