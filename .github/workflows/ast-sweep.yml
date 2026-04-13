@@ -2,16 +2,11 @@ name: AST Dependency Sweep
 
 # Extracts import statements from skill code blocks, validates against PyPI,
 # generates the CycloneDX SBOM, and:
-#   1. Commits Yellow badge JSONs to `public/badges/` on `main` IMMEDIATELY
-#      so GitHub Pages (served from main) serves them right away.
+#   1. Commits Yellow badge JSONs to `public/badges/` on `main` IMMEDIATELY.
 #   2. Opens a DRAFT PR to `main` with the SBOM + sweep report.
 #
-# PHANTOM BADGE CONTRACT:
-#   Pre-merge Yellow badges are speculative. If the draft PR is closed WITHOUT
-#   merging, `revoke-phantom-badges.yml` fires and resets affected badges to
-#   unscanned (grey). The site never shows a stale Yellow for an abandoned PR.
-#
-# COLLISION SAFETY: pre-merge push step uses retry-rebase loop (max 3 attempts).
+# PREREQUISITE: Repo Settings → Actions → General → Workflow permissions
+#   must have "Allow GitHub Actions to create and approve pull requests" enabled.
 
 on:
   workflow_dispatch:
@@ -28,6 +23,9 @@ on:
         description: 'Commit Yellow badge JSONs to public/badges/ on main now (before PR merges)'
         type: boolean
         default: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   sweep:
@@ -178,25 +176,35 @@ jobs:
               ? fs.readFileSync(reportPath, 'utf8')
               : '_(No sweep-report.md found — see workflow logs for details.)_';
 
-            const pr = await github.rest.pulls.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'chore(deps): seed dependency frontmatter via AST sweep \u2014 DRAFT',
-              body: [
-                report,
-                '',
-                '---',
-                '> \u26a0\ufe0f This is a machine-generated draft. Do NOT merge without reviewing Orange badges.',
-                '> See `meta/badge-states.md` for the verification PR template.',
-                '>',
-                '> **Phantom badge contract:** Yellow badge JSONs are already live in `public/badges/` on `main`.',
-                '> **If you close this PR without merging**, `revoke-phantom-badges.yml` will',
-                '> automatically reset affected badges to `unscanned` (grey) within ~60 seconds.',
-              ].join('\n'),
-              head: branch,
-              base: 'main',
-              draft: true,
-            });
-
-            console.log(`Draft PR created: ${pr.data.html_url}`);
-            console.log('Yellow badges already live in public/badges/. Phantom revocation active if PR is abandoned.');
+            try {
+              const pr = await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'chore(deps): seed dependency frontmatter via AST sweep \u2014 DRAFT',
+                body: [
+                  report,
+                  '',
+                  '---',
+                  '> \u26a0\ufe0f This is a machine-generated draft. Do NOT merge without reviewing Orange badges.',
+                  '> See `meta/badge-states.md` for the verification PR template.',
+                  '>',
+                  '> **Phantom badge contract:** Yellow badge JSONs are already live in `public/badges/` on `main`.',
+                  '> **If you close this PR without merging**, `revoke-phantom-badges.yml` will',
+                  '> automatically reset affected badges to `unscanned` (grey) within ~60 seconds.',
+                ].join('\n'),
+                head: branch,
+                base: 'main',
+                draft: true,
+              });
+              console.log(`✅ Draft PR created: ${pr.data.html_url}`);
+            } catch (err) {
+              if (err.message && err.message.includes('not permitted to create or approve pull requests')) {
+                core.warning(
+                  'PR creation blocked by repo permissions.\n' +
+                  'Fix: Settings → Actions → General → Workflow permissions → ' +
+                  'enable "Allow GitHub Actions to create and approve pull requests"'
+                );
+              } else {
+                throw err;
+              }
+            }
