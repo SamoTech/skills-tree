@@ -1,3 +1,12 @@
+---
+title: "Virtual Machine Interaction"
+category: 10-computer-use
+level: advanced
+stability: experimental
+description: "Apply virtual machine interaction in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-vm-interaction.json)
 
 # Virtual Machine Interaction

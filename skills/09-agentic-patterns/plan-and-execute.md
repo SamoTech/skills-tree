@@ -1,9 +1,11 @@
 ---
-Category: Agentic Patterns
-Skill Level: Advanced
-Stability: Stable
-Tags: [plan-execute, planner, executor, replanning, task-graph]
+title: "Plan-and-Execute Pattern"
+category: 09-agentic-patterns
+level: intermediate
+stability: stable
+description: "Apply plan and execute in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-plan-and-execute.json)
 

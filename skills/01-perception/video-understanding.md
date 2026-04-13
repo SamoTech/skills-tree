@@ -1,9 +1,11 @@
 ---
-Category: Perception
-Skill Level: Advanced
-Stability: Stable
-Tags: [video, multimodal, temporal-reasoning, scene-detection, captioning]
+title: "Video Understanding"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply video understanding in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-video-understanding.json)
 

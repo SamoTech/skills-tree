@@ -1,3 +1,12 @@
+---
+title: "User Profile Memory"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply user profile memory in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-user-profile-memory.json)
 
 # User Profile Memory

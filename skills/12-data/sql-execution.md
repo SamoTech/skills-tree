@@ -1,3 +1,12 @@
+---
+title: "SQL Query Execution"
+category: 12-data
+level: intermediate
+stability: stable
+description: "Apply sql query execution in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-sql-execution.json)
 
 # SQL Query Execution

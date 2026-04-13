@@ -1,3 +1,12 @@
+---
+title: "Goal Setting"
+category: 02-reasoning
+level: intermediate
+stability: stable
+description: "Apply goal setting in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-goal-setting.json)
 
 # Goal Setting

@@ -1,3 +1,12 @@
+---
+title: "URL Fetching"
+category: 11-web
+level: basic
+stability: stable
+description: "Apply url fetching in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-url-fetching.json)
 
 # URL Fetching

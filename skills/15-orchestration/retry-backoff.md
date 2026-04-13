@@ -1,3 +1,12 @@
+---
+title: "Retry Backoff"
+category: 15-orchestration
+level: advanced
+stability: stable
+description: "Apply retry backoff in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-retry-backoff.json)
 
 **Category:** Orchestration

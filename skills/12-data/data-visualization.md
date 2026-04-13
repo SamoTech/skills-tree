@@ -1,3 +1,12 @@
+---
+title: "Data Visualization"
+category: 12-data
+level: intermediate
+stability: stable
+description: "Apply data visualization in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-visualization.json)
 
 # Data Visualization

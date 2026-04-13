@@ -1,3 +1,12 @@
+---
+title: "Memory-Augmented Agent"
+category: 09-agentic-patterns
+level: advanced
+stability: stable
+description: "Apply memory-augmented agent in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-memory-augmented.json)
 
 # Memory-Augmented Agent

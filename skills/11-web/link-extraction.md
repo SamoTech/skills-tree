@@ -1,3 +1,12 @@
+---
+title: "Link Extraction"
+category: 11-web
+level: basic
+stability: stable
+description: "Apply link extraction in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-link-extraction.json)
 
 # Link Extraction

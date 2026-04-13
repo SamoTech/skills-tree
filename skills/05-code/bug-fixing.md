@@ -1,9 +1,11 @@
 ---
-Category: Code
-Skill Level: Advanced
-Stability: Stable
-Tags: [debugging, bug-fixing, root-cause-analysis, static-analysis, test-repair]
+title: "Bug Fixing"
+category: 05-code
+level: intermediate
+stability: stable
+description: "Apply bug fixing in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-bug-fixing.json)
 

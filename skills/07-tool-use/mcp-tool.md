@@ -1,9 +1,11 @@
 ---
-Category: Tool Use
-Skill Level: Advanced
-Stability: Stable
-Tags: [mcp, model-context-protocol, tool-calling, server, anthropic]
+title: "MCP Tool Use"
+category: 07-tool-use
+level: intermediate
+stability: stable
+description: "Apply mcp tool in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-mcp-tool.json)
 

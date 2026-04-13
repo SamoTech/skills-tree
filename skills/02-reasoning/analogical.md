@@ -1,3 +1,12 @@
+---
+title: "Analogical Reasoning"
+category: 02-reasoning
+level: advanced
+stability: stable
+description: "Apply analogical reasoning in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-analogical.json)
 
 # Analogical Reasoning

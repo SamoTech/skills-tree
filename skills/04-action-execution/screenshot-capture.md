@@ -1,3 +1,12 @@
+---
+title: "Screenshot Capture (Action)"
+category: 04-action-execution
+level: basic
+stability: stable
+description: "Apply screenshot capture (action) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-screenshot-capture.json)
 
 # Screenshot Capture (Action)

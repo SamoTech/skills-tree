@@ -1,3 +1,12 @@
+---
+title: "Browser Navigation"
+category: 11-web
+level: intermediate
+stability: stable
+description: "Apply browser navigation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-browser-navigation.json)
 
 # Browser Navigation

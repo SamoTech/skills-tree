@@ -3,10 +3,12 @@ title: Web Search
 category: 11-web
 level: basic
 stability: stable
+description: "Apply web search in AI agent workflows."
 version: v2
 tags: [web, search, retrieval, tool-use]
 updated: 2026-04
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-search.json)
 

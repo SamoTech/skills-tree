@@ -1,3 +1,12 @@
+---
+title: "CAPTCHA Solving"
+category: 11-web
+level: advanced
+stability: experimental
+description: "Apply captcha solving in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-captcha-solving.json)
 
 # CAPTCHA Solving

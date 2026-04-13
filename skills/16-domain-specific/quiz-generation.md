@@ -1,3 +1,12 @@
+---
+title: "Quiz Generation"
+category: 16-domain-specific
+level: advanced
+stability: stable
+description: "Apply quiz generation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-quiz-generation.json)
 
 **Category:** Domain-Specific

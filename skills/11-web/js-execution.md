@@ -1,3 +1,12 @@
+---
+title: "JavaScript Execution"
+category: 11-web
+level: advanced
+stability: stable
+description: "Apply javascript execution in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-js-execution.json)
 
 # JavaScript Execution

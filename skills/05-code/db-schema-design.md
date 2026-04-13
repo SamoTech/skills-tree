@@ -1,3 +1,12 @@
+---
+title: "Database Schema Design"
+category: 05-code
+level: advanced
+stability: stable
+description: "Apply database schema design in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-db-schema-design.json)
 
 # Database Schema Design

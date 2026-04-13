@@ -1,3 +1,12 @@
+---
+title: "Debate Pattern"
+category: 09-agentic-patterns
+level: advanced
+stability: experimental
+description: "Apply debate pattern in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-debate-pattern.json)
 
 # Debate Pattern

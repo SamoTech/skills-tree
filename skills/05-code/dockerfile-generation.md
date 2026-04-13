@@ -1,3 +1,12 @@
+---
+title: "Dockerfile Generation"
+category: 05-code
+level: intermediate
+stability: stable
+description: "Apply dockerfile generation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dockerfile-generation.json)
 
 # Dockerfile Generation

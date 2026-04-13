@@ -1,3 +1,12 @@
+---
+title: "Time Series Reading"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply time series reading in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-time-series-reading.json)
 
 # Time Series Reading

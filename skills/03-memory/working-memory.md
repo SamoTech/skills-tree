@@ -1,9 +1,11 @@
 ---
-Category: Memory
-Skill Level: Advanced
-Stability: Stable
-Tags: [working-memory, scratchpad, state-tracking, context-management]
+title: "Working Memory"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply working memory in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-working-memory.json)
 

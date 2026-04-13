@@ -1,3 +1,12 @@
+---
+title: "Agent-to-Agent Tool (A2A)"
+category: 07-tool-use
+level: advanced
+stability: experimental
+description: "Apply agent-to-agent tool (a2a) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-a2a-tool.json)
 
 # Agent-to-Agent Tool (A2A)

@@ -1,3 +1,12 @@
+---
+title: "Form Submission"
+category: 04-action-execution
+level: intermediate
+stability: stable
+description: "Apply form submission in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-form-submission.json)
 
 # Form Submission

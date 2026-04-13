@@ -1,3 +1,12 @@
+---
+title: "API Endpoint Discovery"
+category: 11-web
+level: advanced
+stability: experimental
+description: "Apply api endpoint discovery in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-api-discovery.json)
 
 # API Endpoint Discovery

@@ -1,3 +1,12 @@
+---
+title: "Stripe API"
+category: 07-tool-use
+level: advanced
+stability: stable
+description: "Apply stripe api in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-stripe-api.json)
 
 # Stripe API

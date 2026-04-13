@@ -1,9 +1,11 @@
 ---
-Category: Memory
-Skill Level: Advanced
-Stability: Stable
-Tags: [rag, retrieval-augmented-generation, embeddings, chunking, reranking]
+title: "Retrieval-Augmented Generation (RAG)"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply rag in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-rag.json)
 

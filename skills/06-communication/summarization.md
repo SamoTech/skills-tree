@@ -1,9 +1,11 @@
 ---
-Category: Communication
-Skill Level: Advanced
-Stability: Stable
-Tags: [summarization, abstractive, extractive, hierarchical, multi-document]
+title: "Summarization"
+category: 06-communication
+level: intermediate
+stability: stable
+description: "Apply summarization in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-summarization.json)
 

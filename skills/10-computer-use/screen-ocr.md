@@ -1,3 +1,12 @@
+---
+title: "Screen Region OCR"
+category: 10-computer-use
+level: intermediate
+stability: stable
+description: "Apply screen region ocr in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-screen-ocr.json)
 
 # Screen Region OCR

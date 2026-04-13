@@ -1,3 +1,12 @@
+---
+title: "Data Aggregation"
+category: 12-data
+level: intermediate
+stability: stable
+description: "Apply data aggregation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-aggregation.json)
 
 # Data Aggregation

@@ -1,3 +1,12 @@
+---
+title: "ReAct (Reasoning + Acting)"
+category: 09-agentic-patterns
+level: intermediate
+stability: stable
+description: "Apply react (reasoning + acting) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-react.json)
 
 # ReAct (Reasoning + Acting)

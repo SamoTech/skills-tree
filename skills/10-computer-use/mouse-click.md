@@ -1,3 +1,12 @@
+---
+title: "Mouse Click"
+category: 10-computer-use
+level: basic
+stability: stable
+description: "Apply mouse click in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-mouse-click.json)
 
 # Mouse Click

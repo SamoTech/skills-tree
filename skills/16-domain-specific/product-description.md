@@ -1,3 +1,12 @@
+---
+title: "Product Description"
+category: 16-domain-specific
+level: advanced
+stability: stable
+description: "Apply product description in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-product-description.json)
 
 **Category:** Domain-Specific

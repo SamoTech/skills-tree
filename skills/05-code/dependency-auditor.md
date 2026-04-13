@@ -3,10 +3,12 @@ title: Dependency Auditor
 category: 05-code
 level: advanced
 stability: experimental
+description: "Apply dependency auditor in AI agent workflows."
 version: v1
 tags: [code, dependencies, auditing, sbom, verification, dogfooding]
 updated: 2026-04
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dependency-auditor.json)
 

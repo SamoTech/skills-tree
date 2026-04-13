@@ -1,3 +1,12 @@
+---
+title: "Image Captioning"
+category: 08-multimodal
+level: basic
+stability: stable
+description: "Apply image captioning in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-image-captioning.json)
 
 # Image Captioning

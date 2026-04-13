@@ -1,3 +1,12 @@
+---
+title: "Code Search"
+category: 05-code
+level: intermediate
+stability: stable
+description: "Apply code search in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-search.json)
 
 # Code Search

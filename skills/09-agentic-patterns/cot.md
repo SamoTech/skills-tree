@@ -1,3 +1,12 @@
+---
+title: "Chain of Thought (CoT)"
+category: 09-agentic-patterns
+level: intermediate
+stability: stable
+description: "Apply chain of thought (cot) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-cot.json)
 
 # Chain of Thought (CoT)

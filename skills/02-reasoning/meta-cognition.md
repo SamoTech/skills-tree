@@ -1,3 +1,12 @@
+---
+title: "Meta-Cognition"
+category: 02-reasoning
+level: intermediate
+stability: stable
+description: "Apply meta-cognition in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-meta-cognition.json)
 
 # Meta-Cognition

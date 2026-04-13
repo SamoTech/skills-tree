@@ -1,3 +1,12 @@
+---
+title: "JSON Schema Validation"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply json schema validation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-json-schema-validation.json)
 
 # JSON Schema Validation

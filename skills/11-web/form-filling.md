@@ -1,3 +1,12 @@
+---
+title: "Form Filling"
+category: 11-web
+level: intermediate
+stability: stable
+description: "Apply form filling in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-form-filling.json)
 
 # Form Filling

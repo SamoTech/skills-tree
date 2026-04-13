@@ -1,3 +1,12 @@
+---
+title: "ETL Pipeline"
+category: 12-data
+level: advanced
+stability: stable
+description: "Apply etl pipeline in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-etl-pipeline.json)
 
 # ETL Pipeline

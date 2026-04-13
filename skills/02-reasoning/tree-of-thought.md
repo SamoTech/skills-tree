@@ -1,3 +1,12 @@
+---
+title: "Tree of Thought (ToT)"
+category: 02-reasoning
+level: advanced
+stability: stable
+description: "Apply tree of thought (tot) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-tree-of-thought.json)
 
 # Tree of Thought (ToT)

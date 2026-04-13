@@ -1,3 +1,12 @@
+---
+title: "Consensus Voting"
+category: 15-orchestration
+level: advanced
+stability: stable
+description: "Apply consensus voting in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-consensus-voting.json)
 
 **Category:** Orchestration

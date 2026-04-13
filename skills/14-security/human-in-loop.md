@@ -1,3 +1,12 @@
+---
+title: "Human In Loop"
+category: 14-security
+level: advanced
+stability: stable
+description: "Apply human in loop in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-human-in-loop.json)
 
 **Category:** Security & Safety

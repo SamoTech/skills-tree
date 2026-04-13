@@ -1,3 +1,12 @@
+---
+title: "CI/CD Pipeline Generation"
+category: 05-code
+level: advanced
+stability: stable
+description: "Apply ci/cd pipeline generation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-cicd-generation.json)
 
 # CI/CD Pipeline Generation

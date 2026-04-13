@@ -1,3 +1,12 @@
+---
+title: "Accessibility Tree Navigation"
+category: 10-computer-use
+level: advanced
+stability: stable
+description: "Apply accessibility tree navigation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-accessibility-tree.json)
 
 # Accessibility Tree Navigation

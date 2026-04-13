@@ -1,3 +1,12 @@
+---
+title: "File Dialog Interaction"
+category: 10-computer-use
+level: intermediate
+stability: stable
+description: "Apply file dialog interaction in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-file-dialog.json)
 
 # File Dialog Interaction

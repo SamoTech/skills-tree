@@ -1,3 +1,12 @@
+---
+title: "Deductive Reasoning"
+category: 02-reasoning
+level: basic
+stability: stable
+description: "Apply deductive reasoning in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-deductive-reasoning.json)
 
 # Deductive Reasoning

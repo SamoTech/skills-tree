@@ -1,3 +1,12 @@
+---
+title: "Parallel Task Execution"
+category: 15-orchestration
+level: advanced
+stability: stable
+description: "Apply parallel task execution in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-parallel-execution.json)
 
 # Parallel Task Execution

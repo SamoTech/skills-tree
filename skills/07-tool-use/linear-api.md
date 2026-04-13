@@ -1,3 +1,12 @@
+---
+title: "Linear API"
+category: 07-tool-use
+level: intermediate
+stability: stable
+description: "Apply linear api in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-linear-api.json)
 
 # Linear API

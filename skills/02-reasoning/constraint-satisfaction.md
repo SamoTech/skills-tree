@@ -1,3 +1,12 @@
+---
+title: "Constraint Satisfaction"
+category: 02-reasoning
+level: advanced
+stability: stable
+description: "Apply constraint satisfaction in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-constraint-satisfaction.json)
 
 # Constraint Satisfaction

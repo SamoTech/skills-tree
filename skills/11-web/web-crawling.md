@@ -1,3 +1,12 @@
+---
+title: "Web Crawling"
+category: 11-web
+level: advanced
+stability: stable
+description: "Apply web crawling in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-crawling.json)
 
 # Web Crawling

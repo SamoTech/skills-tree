@@ -1,3 +1,12 @@
+---
+title: "Drag and Drop"
+category: 10-computer-use
+level: intermediate
+stability: stable
+description: "Apply drag and drop in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-drag-drop.json)
 
 # Drag and Drop

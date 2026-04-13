@@ -1,3 +1,12 @@
+---
+title: "Clarification Seeking"
+category: 06-communication
+level: intermediate
+stability: stable
+description: "Apply clarification seeking in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-clarification-seeking.json)
 
 # Clarification Seeking

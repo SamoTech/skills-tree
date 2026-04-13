@@ -1,9 +1,11 @@
 ---
-Category: Reasoning
-Skill Level: Advanced
-Stability: Stable
-Tags: [planning, task-graph, goal-decomposition, replanning, htns]
+title: "Planning"
+category: 02-reasoning
+level: intermediate
+stability: stable
+description: "Apply planning in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-planning.json)
 

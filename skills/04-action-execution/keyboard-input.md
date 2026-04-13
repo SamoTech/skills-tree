@@ -1,3 +1,12 @@
+---
+title: "Keyboard Input"
+category: 04-action-execution
+level: basic
+stability: stable
+description: "Apply keyboard input in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-keyboard-input.json)
 
 # Keyboard Input

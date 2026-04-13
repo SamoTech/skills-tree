@@ -1,3 +1,12 @@
+---
+title: "Visual Element Detection"
+category: 10-computer-use
+level: advanced
+stability: experimental
+description: "Apply visual element detection in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-visual-element-detection.json)
 
 # Visual Element Detection

@@ -1,3 +1,12 @@
+---
+title: "Permission Checking"
+category: 14-security
+level: advanced
+stability: stable
+description: "Apply permission checking in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-permission-checking.json)
 
 **Category:** Security

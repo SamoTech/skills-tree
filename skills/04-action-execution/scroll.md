@@ -1,3 +1,12 @@
+---
+title: "Scroll"
+category: 04-action-execution
+level: basic
+stability: stable
+description: "Apply scroll in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-scroll.json)
 
 # Scroll

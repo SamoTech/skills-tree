@@ -1,3 +1,12 @@
+---
+title: "Constitutional AI"
+category: 09-agentic-patterns
+level: advanced
+stability: stable
+description: "Apply constitutional ai in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-constitutional-ai.json)
 
 # Constitutional AI

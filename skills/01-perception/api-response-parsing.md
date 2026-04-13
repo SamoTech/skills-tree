@@ -1,9 +1,11 @@
 ---
-Category: Perception
-Skill Level: Advanced
-Stability: Stable
-Tags: [api, json, xml, grpc, parsing, schema-validation]
+title: "API Response Parsing"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply api response parsing in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-api-response-parsing.json)
 

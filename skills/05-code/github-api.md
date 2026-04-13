@@ -1,3 +1,12 @@
+---
+title: "GitHub API (Code)"
+category: 05-code
+level: intermediate
+stability: stable
+description: "Apply github api (code) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-github-api.json)
 
 # GitHub API (Code)

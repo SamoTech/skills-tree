@@ -1,3 +1,12 @@
+---
+title: "Data Joining"
+category: 12-data
+level: intermediate
+stability: stable
+description: "Apply data joining in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-joining.json)
 
 # Data Joining

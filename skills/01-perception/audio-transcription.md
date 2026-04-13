@@ -1,9 +1,11 @@
 ---
-Category: Perception
-Skill Level: Advanced
-Stability: Stable
-Tags: [audio, speech-to-text, whisper, diarization, timestamps]
+title: "Audio Transcription"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply audio transcription in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-audio-transcription.json)
 

@@ -1,3 +1,12 @@
+---
+title: "Fact Verification"
+category: 03-memory
+level: advanced
+stability: stable
+description: "Apply fact verification in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-fact-verification.json)
 
 # Fact Verification

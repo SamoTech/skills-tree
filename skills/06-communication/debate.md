@@ -1,3 +1,12 @@
+---
+title: "Debate"
+category: 06-communication
+level: advanced
+stability: stable
+description: "Apply debate in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-debate.json)
 
 # Debate

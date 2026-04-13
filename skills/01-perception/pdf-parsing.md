@@ -1,3 +1,12 @@
+---
+title: "PDF Parsing"
+category: 01-perception
+level: basic
+stability: stable
+description: "Apply pdf parsing in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-pdf-parsing.json)
 
 # PDF Parsing

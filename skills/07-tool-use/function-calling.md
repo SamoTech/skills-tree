@@ -1,3 +1,12 @@
+---
+title: "Function / Tool Calling"
+category: 07-tool-use
+level: basic
+stability: stable
+description: "Apply function / tool calling in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-function-calling.json)
 
 # Function / Tool Calling

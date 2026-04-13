@@ -1,3 +1,12 @@
+---
+title: "Alert Triage"
+category: 16-domain-specific
+level: advanced
+stability: stable
+description: "Apply alert triage in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-alert-triage.json)
 
 **Category:** Domain-Specific

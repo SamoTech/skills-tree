@@ -1,3 +1,12 @@
+---
+title: "Binary File Reading"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply binary file reading in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-binary-file-reading.json)
 
 # Binary File Reading

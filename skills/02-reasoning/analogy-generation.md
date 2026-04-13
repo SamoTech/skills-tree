@@ -1,3 +1,12 @@
+---
+title: "Analogy Generation"
+category: 02-reasoning
+level: intermediate
+stability: stable
+description: "Apply analogy generation in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-analogy-generation.json)
 
 # Analogy Generation

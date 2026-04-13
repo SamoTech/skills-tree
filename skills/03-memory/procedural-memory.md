@@ -1,3 +1,12 @@
+---
+title: "Procedural Memory"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply procedural memory in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural-memory.json)
 
 # Procedural Memory

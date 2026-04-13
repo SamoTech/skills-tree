@@ -3,10 +3,12 @@ title: RAG — Retrieval-Augmented Generation
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
+description: "Apply rag in AI agent workflows."
 version: v3
 tags: [rag, retrieval, embeddings, knowledge-base]
 updated: 2026-04
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-rag.json)
 

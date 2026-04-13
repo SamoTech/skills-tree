@@ -1,3 +1,12 @@
+---
+title: "CSV Processing"
+category: 12-data
+level: basic
+stability: stable
+description: "Apply csv processing in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-csv-processing.json)
 
 # CSV Processing

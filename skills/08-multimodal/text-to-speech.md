@@ -1,3 +1,12 @@
+---
+title: "Text to Speech"
+category: 08-multimodal
+level: intermediate
+stability: stable
+description: "Apply text to speech in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-text-to-speech.json)
 
 # Text to Speech

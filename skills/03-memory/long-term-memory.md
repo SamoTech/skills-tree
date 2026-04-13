@@ -1,9 +1,11 @@
 ---
-Category: Memory
-Skill Level: Advanced
-Stability: Stable
-Tags: [long-term-memory, persistent-storage, user-preferences, knowledge-distillation]
+title: "Long-Term Memory"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply long term memory in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-long-term-memory.json)
 

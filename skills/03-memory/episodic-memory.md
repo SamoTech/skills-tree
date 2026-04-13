@@ -1,9 +1,11 @@
 ---
-Category: Memory
-Skill Level: Advanced
-Stability: Stable
-Tags: [episodic-memory, conversation-history, event-recall, temporal-context]
+title: "Episodic Memory"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply episodic memory in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-episodic-memory.json)
 

@@ -1,9 +1,11 @@
 ---
-Category: Perception
-Skill Level: Advanced
-Stability: Stable
-Tags: [vision, multimodal, object-detection, vqa, grounding, ocr]
+title: "Image Understanding"
+category: 01-perception
+level: intermediate
+stability: stable
+description: "Apply image understanding in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-image-understanding.json)
 

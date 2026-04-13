@@ -1,3 +1,12 @@
+---
+title: "MCTS (Monte Carlo Tree Search)"
+category: 09-agentic-patterns
+level: advanced
+stability: experimental
+description: "Apply mcts (monte carlo tree search) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mcts.json)
 
 # MCTS (Monte Carlo Tree Search)

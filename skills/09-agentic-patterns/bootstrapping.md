@@ -1,3 +1,12 @@
+---
+title: "Bootstrapping"
+category: 09-agentic-patterns
+level: advanced
+stability: experimental
+description: "Apply bootstrapping in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-bootstrapping.json)
 
 # Bootstrapping

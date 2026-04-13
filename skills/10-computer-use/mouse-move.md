@@ -1,3 +1,12 @@
+---
+title: "Mouse Move"
+category: 10-computer-use
+level: basic
+stability: stable
+description: "Apply mouse move in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-mouse-move.json)
 
 # Mouse Move

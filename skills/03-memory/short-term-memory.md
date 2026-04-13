@@ -1,9 +1,11 @@
 ---
-Category: Memory
-Skill Level: Advanced
-Stability: Stable
-Tags: [short-term-memory, context-window, sliding-window, summarization-buffer]
+title: "Short-Term Memory"
+category: 03-memory
+level: intermediate
+stability: stable
+description: "Apply short term memory in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-short-term-memory.json)
 

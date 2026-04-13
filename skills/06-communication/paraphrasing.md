@@ -1,3 +1,12 @@
+---
+title: "Paraphrasing"
+category: 06-communication
+level: basic
+stability: stable
+description: "Apply paraphrasing in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-paraphrasing.json)
 
 # Paraphrasing

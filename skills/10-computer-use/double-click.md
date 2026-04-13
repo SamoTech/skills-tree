@@ -1,3 +1,12 @@
+---
+title: "Double Click"
+category: 10-computer-use
+level: basic
+stability: stable
+description: "Apply double click in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-double-click.json)
 
 # Double Click

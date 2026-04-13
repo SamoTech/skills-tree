@@ -1,3 +1,12 @@
+---
+title: "Presentation Gen"
+category: 13-creative
+level: advanced
+stability: stable
+description: "Apply presentation gen in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-presentation-gen.json)
 
 **Category:** Creative

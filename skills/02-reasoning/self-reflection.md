@@ -1,3 +1,12 @@
+---
+title: "Self-Reflection"
+category: 02-reasoning
+level: intermediate
+stability: stable
+description: "Apply self-reflection in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-self-reflection.json)
 
 # Self-Reflection

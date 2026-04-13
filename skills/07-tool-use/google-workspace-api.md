@@ -1,3 +1,12 @@
+---
+title: "Google Workspace API"
+category: 07-tool-use
+level: intermediate
+stability: stable
+description: "Apply google workspace api in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-google-workspace-api.json)
 
 # Google Workspace API

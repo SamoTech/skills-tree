@@ -1,3 +1,12 @@
+---
+title: "Question Answering"
+category: 06-communication
+level: basic
+stability: stable
+description: "Apply question answering in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-question-answering.json)
 
 # Question Answering

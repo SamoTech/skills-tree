@@ -1,9 +1,11 @@
 ---
-Category: Action Execution
-Skill Level: Advanced
-Stability: Stable
-Tags: [api, http, rest, graphql, authentication, retry, rate-limiting]
+title: "API Call"
+category: 04-action-execution
+level: intermediate
+stability: stable
+description: "Apply api call in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-api-call.json)
 

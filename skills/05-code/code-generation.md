@@ -1,9 +1,11 @@
 ---
-Category: Code
-Skill Level: Advanced
-Stability: Stable
-Tags: [code-generation, llm, structured-output, test-driven, multi-file]
+title: "Code Generation"
+category: 05-code
+level: intermediate
+stability: stable
+description: "Apply code generation in AI agent workflows."
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-generation.json)
 

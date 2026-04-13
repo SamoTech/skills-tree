@@ -1,3 +1,12 @@
+---
+title: "Causal Reasoning"
+category: 02-reasoning
+level: advanced
+stability: stable
+description: "Apply causal reasoning in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-causal.json)
 
 # Causal Reasoning

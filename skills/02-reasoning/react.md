@@ -3,10 +3,12 @@ title: ReAct (Reasoning + Acting)
 category: 02-reasoning
 level: intermediate
 stability: stable
+description: "Apply react in AI agent workflows."
 version: v3
 tags: [reasoning, planning, tool-use, agentic]
 updated: 2026-04
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-react.json)
 

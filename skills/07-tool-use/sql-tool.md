@@ -1,3 +1,12 @@
+---
+title: "SQL Tool"
+category: 07-tool-use
+level: intermediate
+stability: stable
+description: "Apply sql tool in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-sql-tool.json)
 
 # SQL Tool

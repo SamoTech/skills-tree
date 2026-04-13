@@ -3,10 +3,12 @@ title: Chain of Thought (CoT)
 category: 02-reasoning
 level: basic
 stability: stable
+description: "Apply chain of thought in AI agent workflows."
 version: v2
 tags: [reasoning, prompting, decomposition]
 updated: 2026-04
 ---
+
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-chain-of-thought.json)
 

@@ -1,3 +1,12 @@
+---
+title: "Review Analysis"
+category: 16-domain-specific
+level: advanced
+stability: stable
+description: "Apply review analysis in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-review-analysis.json)
 
 **Category:** Domain-Specific

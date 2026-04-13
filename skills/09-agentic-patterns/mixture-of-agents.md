@@ -1,3 +1,12 @@
+---
+title: "Mixture of Agents (MoA)"
+category: 09-agentic-patterns
+level: advanced
+stability: experimental
+description: "Apply mixture of agents (moa) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mixture-of-agents.json)
 
 # Mixture of Agents (MoA)

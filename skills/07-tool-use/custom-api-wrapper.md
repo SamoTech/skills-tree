@@ -1,3 +1,12 @@
+---
+title: "Custom API Wrapper"
+category: 07-tool-use
+level: intermediate
+stability: stable
+description: "Apply custom api wrapper in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-custom-api-wrapper.json)
 
 # Custom API Wrapper

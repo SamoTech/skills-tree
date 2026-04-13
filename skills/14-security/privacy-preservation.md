@@ -1,3 +1,12 @@
+---
+title: "Contact John at [REDACTED] or [REDACTED] (SSN: [REDACTED])"
+category: 14-security
+level: advanced
+stability: stable
+description: "Apply contact john at [redacted] or [redacted] (ssn: [redacted]) in AI agent workflows."
+added: "2025-03"
+---
+
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-privacy-preservation.json)
 
 **Category:** Security & Safety
