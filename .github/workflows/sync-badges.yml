@@ -24,7 +24,7 @@ on:
   workflow_dispatch:
     inputs:
       force_full_sync:
-        description: 'Regenerate ALL badge JSONs (not just changed files)'
+        description: 'Regenerate ALL badge JSONs (ignore Green/CVE protection — use with care)'
         type: boolean
         default: false
 
@@ -50,15 +50,17 @@ jobs:
 
       - name: Generate updated badge JSONs from main state
         run: |
-          python3 - <<'PYEOF'
-          import json, re
+          FORCE_FULL="${{ inputs.force_full_sync || 'false' }}"
+          python3 - <<PYEOF
+          import json, re, os
           from pathlib import Path
 
-          BADGE_DIR   = Path("docs/badges")
+          FORCE_FULL   = os.environ.get("FORCE_FULL", "false") == "true"
+          BADGE_DIR    = Path("docs/badges")
           BADGE_DIR.mkdir(parents=True, exist_ok=True)
 
-          SBOM_PATH   = Path("meta/skills-sbom.cdx.json")
-          SKILLS_ROOT = Path("skills")
+          SBOM_PATH    = Path("meta/skills-sbom.cdx.json")
+          SKILLS_ROOT  = Path("skills")
 
           sbom_skills: dict[str, list[str]] = {}
           if SBOM_PATH.exists():
@@ -87,7 +89,7 @@ jobs:
               return result
 
           def skill_key(path: Path) -> str:
-              rel = str(path).replace("\\", "/")
+              rel = str(path).replace("\\\\", "/")
               return rel.replace("/", "-").replace(".md", "")
 
           VERIFIED_BADGE = {
@@ -101,20 +103,25 @@ jobs:
               "color": "lightgrey", "style": "flat-square",
           }
 
-          updated = 0
+          updated = skipped = 0
           for skill_path in sorted(SKILLS_ROOT.rglob("*.md")):
               text = skill_path.read_text(encoding="utf-8", errors="ignore")
               fm   = parse_frontmatter(text)
               key  = skill_key(skill_path)
               badge_file = BADGE_DIR / f"{key}.json"
 
-              # Never downgrade advisory/CVE badges
-              if badge_file.exists():
+              if not FORCE_FULL and badge_file.exists():
                   existing = json.loads(badge_file.read_text())
+                  # Never downgrade CVE/critical badges
                   if "CVE" in existing.get("message", "") or existing.get("color") == "critical":
+                      skipped += 1
+                      continue
+                  # FIX: Never downgrade Green (verified) badges to Yellow/grey
+                  if existing.get("color") == "22c55e":
+                      skipped += 1
                       continue
 
-              skill_rel = str(skill_path).replace("\\", "/")
+              skill_rel = str(skill_path).replace("\\\\", "/")
               in_sbom   = skill_rel in sbom_skills
               dep_pkgs  = sbom_skills.get(skill_rel, [])
 
@@ -135,22 +142,24 @@ jobs:
               badge_file.write_text(json.dumps(badge, indent=2))
               updated += 1
 
-          print(f"Generated {updated} badge JSON updates in docs/badges/")
+          print(f"Generated {updated} badge JSON updates in docs/badges/. Skipped {skipped} protected.")
           PYEOF
+        env:
+          FORCE_FULL: ${{ inputs.force_full_sync || 'false' }}
 
       - name: Commit changed badges to main (with retry-rebase)
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs/badges/
-          git diff --staged --quiet && echo "✅ All badges already up to date. No commit needed." && exit 0
+          git diff --staged --quiet && echo "All badges already up to date. No commit needed." && exit 0
 
           TRIGGER_SHA=$(git rev-parse --short HEAD)
           git commit -m "sync(badges): update docs/badges/ from main@${TRIGGER_SHA}"
 
           for attempt in 1 2 3; do
             git push origin main && {
-              echo "✅ Badges committed to docs/badges/ on main (attempt ${attempt})."
+              echo "Badges committed to docs/badges/ on main (attempt ${attempt})."
               exit 0
             }
             echo "Push failed (attempt ${attempt}/3). Rebasing..."
