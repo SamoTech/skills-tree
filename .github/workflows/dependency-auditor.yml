@@ -128,6 +128,7 @@ jobs:
           fi
 
       - name: Commit badge proposals to branch
+        id: commit
         if: steps.check_promotions.outputs.has_promotions == 'true' && github.event.inputs.dry_run != 'true'
         run: |
           BRANCH="auditor/green-proposals-$(date +%Y%m%d-%H%M%S)"
@@ -146,7 +147,6 @@ Badge count: ${{ steps.check_promotions.outputs.badge_count }}
 Requires human review before merge."
           git push origin "$BRANCH"
           echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
-        id: commit
 
       - name: Open verification PR
         if: steps.check_promotions.outputs.has_promotions == 'true' && github.event.inputs.dry_run != 'true'
