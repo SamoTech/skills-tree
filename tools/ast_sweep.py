@@ -34,6 +34,14 @@ except ImportError:
     print("httpx required: pip install httpx")
     sys.exit(1)
 
+# Import shared utilities — single source of truth for key generation
+try:
+    from common import skill_path_to_badge_key, get_stdlib_modules
+except ImportError:
+    # Fallback when run from repo root (tools/ not on sys.path)
+    sys.path.insert(0, str(Path(__file__).parent))
+    from common import skill_path_to_badge_key, get_stdlib_modules
+
 # ─── Constants ────────────────────────────────────────────────────────────────
 
 PYPI_ALIASES = {
@@ -57,14 +65,13 @@ PSEUDO_CODE_SIGNALS = {
     "coming_soon", "future_", "todo_",
 }
 
+# Resolved once at module load — no per-call overhead
 STDBOOST_MODULES: set[str] = set()
-try:
-    import sys as _sys
-    STDLIB_MODULES = set(_sys.stdlib_module_names)  # Python 3.10+
-except AttributeError:
-    # Fallback for older Python
-    import sysconfig
-    STDLIB_MODULES = set(sysconfig.get_python_lib(standard_lib=True).split())
+STDLIB_MODULES: frozenset[str] = get_stdlib_modules()
+
+print(f"[ast_sweep] STDLIB_MODULES loaded: {len(STDLIB_MODULES)} names "
+      f"({'sys.stdlib_module_names' if hasattr(sys, 'stdlib_module_names') else 'fallback'})",
+      file=sys.stderr)
 
 
 # ─── Code Block Extraction ────────────────────────────────────────────────────
@@ -185,11 +192,28 @@ async def check_pypi_package(client: "httpx.AsyncClient", package: str) -> dict:
 
 
 async def validate_packages(packages: list[str]) -> dict[str, dict]:
-    """Validate all unique packages against PyPI concurrently."""
+    """
+    Validate all unique packages against PyPI with bounded concurrency.
+
+    Semaphore(20): limits active in-flight requests to 20 at any time.
+    httpx.Limits(max_connections=20): matches semaphore so the connection
+    pool never becomes the bottleneck. This keeps memory flat even when
+    len(packages) > 200.
+    """
     unique = list(set(packages))
-    async with httpx.AsyncClient() as client:
-        tasks = [check_pypi_package(client, pkg) for pkg in unique]
+    semaphore = asyncio.Semaphore(20)
+
+    async def check_safe(
+        client: "httpx.AsyncClient", pkg: str
+    ) -> dict:
+        async with semaphore:
+            return await check_pypi_package(client, pkg)
+
+    limits = httpx.Limits(max_connections=20, max_keepalive_connections=10)
+    async with httpx.AsyncClient(limits=limits) as client:
+        tasks = [check_safe(client, pkg) for pkg in unique]
         results = await asyncio.gather(*tasks)
+
     return {r["package"]: r for r in results}
 
 
@@ -200,20 +224,19 @@ def compute_badge_state(skill_result: dict, pypi_results: dict) -> dict:
     packages = skill_result["packages"]
 
     if not packages:
-        # No code blocks or no imports found — mark as unscanned (no data to judge)
         return {
             "schemaVersion": 1, "label": "deps", "message": "unscanned",
             "color": "lightgrey", "style": "flat-square",
         }
 
-    unknown = [p for p in packages if pypi_results.get(p, {}).get("exists") is False]
+    unknown  = [p for p in packages if pypi_results.get(p, {}).get("exists") is False]
     uncertain = [p for p in packages if pypi_results.get(p, {}).get("exists") is None]
     confirmed = [p for p in packages if pypi_results.get(p, {}).get("exists") is True]
 
     if unknown:
         return {
             "schemaVersion": 1, "label": "deps",
-            "message": f"⚠️ {len(unknown)} unknown pkg{'s' if len(unknown) > 1 else ''}",
+            "message": f"\u26a0\ufe0f {len(unknown)} unknown pkg{'s' if len(unknown) > 1 else ''}",
             "color": "orange", "style": "flat-square",
         }
     elif uncertain and not confirmed:
@@ -225,7 +248,7 @@ def compute_badge_state(skill_result: dict, pypi_results: dict) -> dict:
         pkg_count = len(confirmed)
         return {
             "schemaVersion": 1, "label": "deps",
-            "message": f"machine-inferred · {pkg_count} pkg{'s' if pkg_count != 1 else ''}",
+            "message": f"machine-inferred \u00b7 {pkg_count} pkg{'s' if pkg_count != 1 else ''}",
             "color": "yellow", "style": "flat-square",
         }
 
@@ -233,13 +256,26 @@ def compute_badge_state(skill_result: dict, pypi_results: dict) -> dict:
 # ─── SBOM Generation ─────────────────────────────────────────────────────────
 
 def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
-    """Generate a CycloneDX-format SBOM from sweep results."""
-    components = {}
+    """
+    Generate a CycloneDX-format SBOM from sweep results.
+
+    Only includes packages where pypi_results[pkg]["exists"] is True.
+    Unknown packages (Orange badges) are excluded:
+      - They cannot have CVEs (they don't exist on PyPI)
+      - Including them would cause osv_check.py to waste API calls
+      - They would pollute the SBOM with unverifiable package identifiers
+    """
+    components: dict[str, dict] = {}
 
     for skill in all_skill_results:
         for pkg in skill["packages"]:
-            purl = f"pkg:pypi/{pkg}"
             pypi_info = pypi_results.get(pkg, {})
+
+            # SBOM pollution guard: confirmed packages only
+            if pypi_info.get("exists") is not True:
+                continue
+
+            purl = f"pkg:pypi/{pkg}"
             if purl not in components:
                 components[purl] = {
                     "type": "library",
@@ -247,7 +283,7 @@ def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
                     "purl": purl,
                     "version": pypi_info.get("latest", "unknown"),
                     "usedIn": [],
-                    "pypiConfirmed": pypi_info.get("exists", None),
+                    "pypiConfirmed": True,  # Always True here by construction
                 }
             components[purl]["usedIn"].append(skill["path"])
 
@@ -257,7 +293,7 @@ def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
         "version": 1,
         "metadata": {
             "timestamp": datetime.now(timezone.utc).isoformat(),
-            "tools": [{"name": "skills-tree/ast_sweep", "version": "1.0.0"}],
+            "tools": [{"name": "skills-tree/ast_sweep", "version": "1.1.0"}],
             "component": {"type": "library", "name": "SamoTech/skills-tree"},
         },
         "components": list(components.values()),
@@ -267,12 +303,12 @@ def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
 # ─── Report Generation ────────────────────────────────────────────────────────
 
 def generate_report(all_skill_results, pypi_results, badge_states) -> str:
-    total = len(all_skill_results)
+    total  = len(all_skill_results)
     yellow = sum(1 for b in badge_states.values() if "machine-inferred" in b.get("message", ""))
     orange = sum(1 for b in badge_states.values() if "unknown" in b.get("message", ""))
     grey   = sum(1 for b in badge_states.values() if b.get("message") == "unscanned")
 
-    all_pkgs = {}
+    all_pkgs: dict[str, list[str]] = {}
     for s in all_skill_results:
         for p in s["packages"]:
             all_pkgs.setdefault(p, []).append(s["path"])
@@ -282,29 +318,29 @@ def generate_report(all_skill_results, pypi_results, badge_states) -> str:
     lines = [
         "# AST Sweep Report — Machine-Generated Draft",
         "",
-        "> ⚠️ This PR is a **draft**. Do NOT merge without reviewing Orange badges and unknown packages.",
-        "> Badge promotions from Yellow → Green require a separate human verification PR.",
+        "> \u26a0\ufe0f This PR is a **draft**. Do NOT merge without reviewing Orange badges and unknown packages.",
+        "> Badge promotions from Yellow \u2192 Green require a separate human verification PR.",
         "",
         "## Summary",
         "",
-        f"| State | Count |",
-        f"|---|---|",
-        f"| 🟡 Machine-inferred (pypi-confirmed) | {yellow} |",
-        f"| 🟠 Unknown packages (pypi-unknown) | {orange} |",
-        f"| ⬜ Unscanned (no imports found) | {grey} |",
+        "| State | Count |",
+        "|---|---|",
+        f"| \U0001f7e1 Machine-inferred (pypi-confirmed) | {yellow} |",
+        f"| \U0001f7e0 Unknown packages (pypi-unknown) | {orange} |",
+        f"| \u2b1c Unscanned (no imports found) | {grey} |",
         f"| **Total skills processed** | **{total}** |",
         "",
         "## Package Coverage",
         "",
         f"- **{len(all_pkgs)} unique packages** extracted across all skills",
         f"- **{len(pypi_results) - len(unknown_pkgs)} packages** confirmed on PyPI",
-        f"- **{len(unknown_pkgs)} packages** NOT found on PyPI — require author annotation",
+        f"- **{len(unknown_pkgs)} packages** NOT found on PyPI \u2014 require author annotation",
         "",
     ]
 
     if unknown_pkgs:
         lines += [
-            "## ⚠️ Unknown Packages (Require Author Action)",
+            "## \u26a0\ufe0f Unknown Packages (Require Author Action)",
             "",
             "These packages were not found on PyPI. Each skill using them has an Orange badge.",
             "Skill authors should add `type: illustrative` to the relevant code block, or fix the package name.",
@@ -312,7 +348,7 @@ def generate_report(all_skill_results, pypi_results, badge_states) -> str:
         ]
         for pkg in sorted(unknown_pkgs):
             skills_using = all_pkgs.get(pkg, [])
-            lines.append(f"- `{pkg}` — used in: {', '.join(f'`{s}`' for s in skills_using[:3])}")
+            lines.append(f"- `{pkg}` \u2014 used in: {', '.join(f'`{s}`' for s in skills_using[:3])}")
             if len(skills_using) > 3:
                 lines.append(f"  *(+{len(skills_using) - 3} more)*")
 
@@ -321,8 +357,8 @@ def generate_report(all_skill_results, pypi_results, badge_states) -> str:
         "## Next Steps",
         "",
         "1. Review Orange badges and add `type: illustrative` annotations or fix package names",
-        "2. SBOM has been written to `meta/skills-sbom.cdx.json`",
-        "3. Badge JSONs have been written to `badge-data-output/` — deploy to `badge-data` branch",
+        "2. SBOM has been written to `meta/skills-sbom.cdx.json` (confirmed packages only)",
+        "3. Badge JSONs have been written to `badge-data-output/` \u2014 deploy to `badge-data` branch",
         "4. See `meta/badge-states.md` for verification PR template",
         "",
         f"*Generated by `tools/ast_sweep.py` on {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}*",
@@ -366,7 +402,7 @@ async def async_main(args):
     # Step 3: Compute badge states
     badge_states = {}
     for result in all_results:
-        key = result["path"].replace("/", "-").replace("\\", "-").replace(".md", "")
+        key = skill_path_to_badge_key(result["path"])
         badge_states[key] = compute_badge_state(result, pypi_results)
 
     # Step 4: Write badge JSONs
@@ -376,12 +412,13 @@ async def async_main(args):
         (badge_output / f"{key}.json").write_text(json.dumps(badge, indent=2))
     print(f"\nWrote {len(badge_states)} badge JSONs to {badge_output}/")
 
-    # Step 5: Write SBOM
+    # Step 5: Write SBOM (confirmed packages only — no unknown pollution)
     sbom = generate_sbom(all_results, pypi_results)
     sbom_path = Path(args.sbom_output)
     sbom_path.parent.mkdir(parents=True, exist_ok=True)
     sbom_path.write_text(json.dumps(sbom, indent=2))
-    print(f"Wrote SBOM to {sbom_path}")
+    sbom_pkg_count = len(sbom["components"])
+    print(f"Wrote SBOM to {sbom_path} ({sbom_pkg_count} confirmed packages)")
 
     # Step 6: Write report
     report = generate_report(all_results, pypi_results, badge_states)

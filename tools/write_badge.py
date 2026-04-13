@@ -25,6 +25,13 @@ import argparse
 import sys
 from pathlib import Path
 
+# Import shared key utility — single source of truth
+try:
+    from common import skill_path_to_badge_key
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from common import skill_path_to_badge_key
+
 BADGE_STATES = {
     "unscanned": {
         "schemaVersion": 1, "label": "deps", "message": "unscanned",
@@ -35,20 +42,16 @@ BADGE_STATES = {
         "color": "yellow", "style": "flat-square",
     },
     "verified": {
-        "schemaVersion": 1, "label": "deps", "message": "✔ verified",
+        "schemaVersion": 1, "label": "deps", "message": "\u2714 verified",
         "color": "22c55e", "style": "flat-square", "namedLogo": "checkmarx",
     },
 }
 
 
-def skill_path_to_badge_key(skill_path: str) -> str:
-    return str(skill_path).replace("\\", "/").replace("/", "-").replace(".md", "")
-
-
 def build_advisory_badge(cve_id: str) -> dict:
     return {
         "schemaVersion": 1, "label": "deps",
-        "message": f"⚠️ {cve_id}",
+        "message": f"\u26a0\ufe0f {cve_id}",
         "color": "critical", "style": "flat-square",
     }
 
@@ -78,7 +81,7 @@ def main():
                 key = skill_path_to_badge_key(skill_path)
                 (output_dir / f"{key}.json").write_text(json.dumps(badge, indent=2))
                 written += 1
-                print(f"  advisory → {key}.json")
+                print(f"  advisory \u2192 {key}.json")
         print(f"Written {written} advisory badges from {args.advisory_file}")
         return 0
 
@@ -86,7 +89,7 @@ def main():
     if not args.skill or not args.status:
         parser.error("--skill and --status are required (or use --advisory-file for batch mode)")
 
-    key = skill_path_to_badge_key(args.skill)
+    key        = skill_path_to_badge_key(args.skill)
     badge_file = output_dir / f"{key}.json"
 
     if args.status == "advisory":
@@ -97,7 +100,7 @@ def main():
         badge = BADGE_STATES[args.status].copy()
 
     badge_file.write_text(json.dumps(badge, indent=2))
-    print(f"✅ {args.skill} → {args.status}")
+    print(f"\u2705 {args.skill} \u2192 {args.status}")
     print(f"   Written: {badge_file}")
     return 0
 
