@@ -1,23 +1,27 @@
 # Uncertainty Quantification
+Category: reasoning | Level: advanced | Stability: stable | Version: v1
 
-**Category:** `reasoning`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Express confidence levels in claims using explicit probability estimates, confidence intervals, or verbal hedges.
 
-### Description
-
-Express and communicate the degree of confidence in an answer, prediction, or decision — including knowing when to say "I don't know."
-
-### Example
-
+## Example
+```python
+import anthropic
+client = anthropic.Anthropic()
+response = client.messages.create(
+    model="claude-opus-4-5",
+    max_tokens=512,
+    messages=[{"role": "user", "content": "What is the probability that AGI will be achieved by 2030? Give a calibrated estimate with reasoning and confidence interval."}]
+)
+print(response.content[0].text)
 ```
-"The fix will likely resolve the issue (confidence ~80%).
-However, there may be a secondary cause I haven't ruled out.
-Recommendation: Monitor error rates for 15 min after deploy."
-```
 
-### Related Skills
+## Failure Modes
+- Overconfidence (99% on hard empirical questions)
+- Refusing to estimate when asked
 
-- [Risk Assessment](risk-assessment.md)
-- [Self-Reflection](self-reflection.md)
+## Related
+- `bayesian-reasoning.md` · `numerical-estimation.md`
+
+## Changelog
+- v1 (2026-04): Initial entry
