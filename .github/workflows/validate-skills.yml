@@ -12,7 +12,6 @@ on:
       - 'meta/**'
 
 env:
-  # Opt into Node.js 24 now to silence the Node 20 deprecation warning
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -28,10 +27,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      # ── Step 1: Backfill missing "Added:" field ──────────────────────────
-      # Skill files were created before the Added field was introduced.
-      # On push to main we auto-insert "**Added:** 2025-03" after the
-      # Stability line if the field is absent.
+      # ── Step 1: Backfill missing "added:" field ──────────────────────────
+      # Accepts both YAML frontmatter (added:) and bold-field (**Added:**).
+      # Uses retry-rebase loop to avoid race conditions with concurrent workflows.
       - name: Backfill missing Added field (push to main only)
         if: github.event_name == 'push'
         run: |
@@ -40,27 +38,38 @@ jobs:
           shopt -s globstar
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            if ! grep -q '^\*\*Added:\*\*' "$f" && ! grep -q '^Added:' "$f"; then
-              sed -i '/^\*\*Stability:\*\*/a **Added:** 2025-03' "$f"
-              echo "Backfilled Added field: $f"
+            # Accept YAML frontmatter "added:" OR bold "**Added:**"
+            if ! grep -qE '^added:' "$f" && ! grep -qE '^\*\*Added:\*\*' "$f"; then
+              if grep -q '^stability:' "$f"; then
+                sed -i '/^stability:/a added: "2025-03"' "$f"
+              else
+                sed -i '/^---$/a added: "2025-03"' "$f"
+              fi
+              echo "Backfilled added field: $f"
               CHANGED=1
             fi
           done
           if [ $CHANGED -eq 1 ]; then
             git config user.name  "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add skills/
-            git commit -m "chore(skills): backfill missing Added field [skip ci]"
-            git push
+            git commit -m "chore(skills): backfill missing added field [skip ci]"
+            for attempt in 1 2 3; do
+              git push origin main && {
+                echo "✅ Backfill pushed (attempt ${attempt})."
+                exit 0
+              }
+              echo "Push failed (attempt ${attempt}/3). Rebasing..."
+              git pull --rebase origin main
+              sleep $((attempt * 2))
+            done
+            echo "ERROR: All 3 push attempts failed."
+            exit 1
           else
             echo "No backfill needed."
           fi
 
       # ── Step 2: Hard validation — structural sections ────────────────────
-      # Skill files use ## (h2) headings for Description and Related sections.
-      # The validator accepts both the inline-metadata format (single-line
-      # "Category: … | Level: …") and the bold-field format (**Category:**).
-      # Missing Description or Related section = build fails.
       - name: Check required sections (hard fail)
         run: |
           echo "Checking skill .md files for required sections..."
@@ -68,12 +77,10 @@ jobs:
           FAIL=0
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            # Accept ## Description OR ### Description (both heading levels)
             if ! grep -qE '^#{1,3} Description' "$f"; then
               echo "::error file=$f::MISSING 'Description' section (## Description or ### Description)"
               FAIL=1
             fi
-            # Accept ## Related OR ### Related Skills OR ## Related Skills
             if ! grep -qE '^#{1,3} Related' "$f"; then
               echo "::error file=$f::MISSING 'Related' section (## Related or ### Related Skills)"
               FAIL=1
@@ -90,21 +97,20 @@ jobs:
           WARN=0
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            # Accept both inline (Category: foo) and bold (**Category:**) formats
-            if ! grep -qE '(Category:|^\*\*Category:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'Category' field"
+            if ! grep -qE '(^category:|^\*\*Category:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'category' field"
               WARN=1
             fi
-            if ! grep -qE '(Level:|^\*\*Skill Level:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'Level' or 'Skill Level' field"
+            if ! grep -qE '(^level:|^\*\*Skill Level:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'level' or 'Skill Level' field"
               WARN=1
             fi
-            if ! grep -qE '(Stability:|^\*\*Stability:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'Stability' field"
+            if ! grep -qE '(^stability:|^\*\*Stability:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'stability' field"
               WARN=1
             fi
-            if ! grep -qE '^(Added:|^\*\*Added:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'Added' field — will be auto-backfilled on merge"
+            if ! grep -qE '(^added:|^\*\*Added:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'added' field — will be auto-backfilled on merge"
               WARN=1
             fi
           done
