@@ -2,27 +2,28 @@
 
 # 🤖 Agentic Patterns
 
-Agentic patterns are **architectural strategies and reasoning frameworks** for building capable, reliable AI agents.
+Agentic patterns are **reusable architectural blueprints** for structuring agent reasoning, memory, and action loops.
 
 ## Skills in This Category
 
-| Pattern | Level | Description |
+| Skill | Level | Description |
 |---|---|---|
-| [ReAct](react.md) | Intermediate | Reason + Act: interleave thought and tool calls |
-| [Chain of Thought (CoT)](cot.md) | Intermediate | Step-by-step internal reasoning |
-| [Tree of Thought (ToT)](tot.md) | Advanced | Explore branching reasoning paths |
-| [MCTS (Monte Carlo Tree Search)](mcts.md) | Advanced | Game-tree search for decision-making |
-| [Reflection / Reflexion](reflection.md) | Advanced | Self-critique and iterative improvement |
-| [Plan and Execute](plan-and-execute.md) | Advanced | Create a plan, then execute it step-by-step |
-| [LATS (Language Agent Tree Search)](lats.md) | Advanced | Combine MCTS with language agents |
-| [Critic Agent](critic-agent.md) | Advanced | Separate agent that critiques outputs |
-| [Tool-Use Loop](tool-use-loop.md) | Intermediate | Iterative tool calling until task complete |
+| [ReAct](react.md) | Intermediate | Interleaved reasoning and acting loop |
+| [Chain of Thought (CoT)](cot.md) | Intermediate | Step-by-step reasoning before acting |
+| [Tree of Thought (ToT)](tot.md) | Advanced | Explore multiple reasoning branches |
+| [LATS](lats.md) | Advanced | Language Agent Tree Search with MCTS |
+| [MCTS](mcts.md) | Advanced | Monte Carlo Tree Search for decision making |
+| [RAG Pipeline](rag-pipeline.md) | Intermediate | Retrieval-Augmented Generation pipeline pattern |
+| [RAG](rag.md) | Intermediate | Core retrieval-augmented generation skill |
+| [Agentic RAG](agentic-rag.md) | Advanced | Agent-driven adaptive retrieval and generation |
+| [Reflection](reflection.md) | Intermediate | Agent self-evaluates and refines its outputs |
+| [Critic Agent](critic-agent.md) | Advanced | Separate critic model reviews and scores outputs |
+| [Self-Play](self-play.md) | Advanced | Agent improves via adversarial self-interaction |
+| [Constitutional AI](constitutional-ai.md) | Advanced | Constrain outputs using a set of principles |
+| [Debate Pattern](debate-pattern.md) | Advanced | Multiple agents argue positions to reach truth |
+| [Mixture of Agents](mixture-of-agents.md) | Advanced | Route tasks to specialized sub-agents |
+| [Memory Augmented](memory-augmented.md) | Intermediate | Agent with persistent external memory |
+| [Plan and Execute](plan-and-execute.md) | Intermediate | Separate planning and execution phases |
 | [Subagent Delegation](subagent-delegation.md) | Advanced | Orchestrator delegates to specialized subagents |
-| [RAG Pipeline](rag-pipeline.md) | Intermediate | Retrieve-then-generate pipeline |
-| [Agentic RAG](agentic-rag.md) | Advanced | Agent decides what/when to retrieve |
-| [Memory-Augmented Agent](memory-augmented.md) | Advanced | Agent with persistent external memory |
-| [Self-Play](self-play.md) | Advanced | Agent improves by playing against itself |
-| [Bootstrapping](bootstrapping.md) | Advanced | Agent generates its own training data |
-| [Mixture of Agents](mixture-of-agents.md) | Advanced | Ensemble of agents voting on outputs |
-| [Debate Pattern](debate-pattern.md) | Advanced | Multiple agents argue for/against a conclusion |
-| [Constitutional AI](constitutional-ai.md) | Advanced | Agent revises output against a principles list |
+| [Tool Use Loop](tool-use-loop.md) | Intermediate | Iterative tool call and observation loop |
+| [Bootstrapping](bootstrapping.md) | Intermediate | Agent self-initializes from minimal context |

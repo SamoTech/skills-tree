@@ -26,3 +26,21 @@ Perception skills enable agents to **sense, read, and interpret inputs** from th
 | [API Response Parsing](api-response-parsing.md) | Intermediate | Parse structured responses from external APIs |
 | [Chart/Graph Reading](chart-reading.md) | Advanced | Interpret data from charts and graphs in images |
 | [Handwriting Recognition](handwriting-recognition.md) | Advanced | Recognize handwritten text in images |
+| [Binary File Reading](binary-file-reading.md) | Advanced | Extract metadata, magic bytes, and content from binary files |
+| [Calendar Parsing](calendar-parsing.md) | Basic | Parse iCal files and calendar API responses into structured events |
+| [Contract Reading](contract-reading.md) | Advanced | Extract clauses, parties, dates, and obligations from legal contracts |
+| [Conversation History Reading](conversation-history-reading.md) | Basic | Load and structure multi-turn conversation histories for context injection |
+| [Geospatial Reading](geospatial-reading.md) | Intermediate | Read GeoJSON, Shapefile, and KML into coordinate and feature objects |
+| [Git Diff Reading](git-diff-reading.md) | Intermediate | Parse unified diff output into structured change objects |
+| [HTML Reading](html-reading.md) | Basic | Extract clean text and structured data from HTML pages |
+| [JSON Schema Validation](json-schema-validation.md) | Basic | Validate JSON payloads against a schema before processing |
+| [Knowledge Graph Reading](knowledge-graph-reading.md) | Advanced | Query and traverse knowledge graphs to extract entity relationships |
+| [Log Parsing](log-parsing.md) | Intermediate | Parse structured and unstructured log files into queryable event streams |
+| [Markdown Parsing](markdown-parsing.md) | Basic | Parse Markdown into structured AST extracting headings, code blocks, and links |
+| [Multimodal Document Reading](multimodal-document-reading.md) | Intermediate | Process documents containing mixed text, images, tables, and diagrams |
+| [Network Traffic Reading](network-traffic-reading.md) | Advanced | Capture and parse PCAP/HTTP traffic for analysis and security auditing |
+| [Social Media Reading](social-media-reading.md) | Basic | Fetch and parse posts, threads, and metadata from social media APIs |
+| [Spreadsheet Reading](spreadsheet-reading.md) | Basic | Read XLSX, CSV, and ODS files into structured tabular data |
+| [Table Extraction](table-extraction.md) | Intermediate | Extract structured tables from documents, images, and HTML |
+| [Time Series Reading](time-series-reading.md) | Intermediate | Ingest and parse time-stamped data streams into structured sequences |
+| [XML Parsing](xml-parsing.md) | Basic | Parse XML documents into structured trees or dicts |

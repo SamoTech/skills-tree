@@ -13,6 +13,7 @@ Action execution skills enable agents to **take concrete actions** in the world 
 | [File Delete](file-delete.md) | Basic | Delete files or directories |
 | [Shell Command Execution](shell-command.md) | Intermediate | Run shell/bash commands |
 | [HTTP Request](http-request.md) | Intermediate | Make GET/POST/PUT/DELETE HTTP calls |
+| [API Call](api-call.md) | Intermediate | Execute authenticated REST/GraphQL API requests with retry, rate-limit, and circuit-breaking |
 | [Email Sending](email-sending.md) | Intermediate | Compose and send emails |
 | [Calendar Event Creation](calendar-event.md) | Intermediate | Create events on calendar systems |
 | [Notification Sending](notification-sending.md) | Basic | Push notifications, alerts, webhooks |
