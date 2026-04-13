@@ -1,14 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Skills Tree icon">
-  <!-- Trunk -->
-  <line x1="16" y1="30" x2="16" y2="20" stroke="#3fb950" stroke-width="2.5" stroke-linecap="round"/>
-  <!-- Branch left -->
-  <line x1="16" y1="20" x2="8" y2="13" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
-  <!-- Branch right -->
-  <line x1="16" y1="20" x2="24" y2="13" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
-  <!-- Branch up -->
-  <line x1="16" y1="20" x2="16" y2="11" stroke="#3fb950" stroke-width="2" stroke-linecap="round"/>
-  <!-- Leaf nodes -->
-  <circle cx="8" cy="10" r="4" fill="#3fb950" opacity="0.9"/>
-  <circle cx="16" cy="7" r="4.5" fill="#3fb950"/>
-  <circle cx="24" cy="10" r="4" fill="#3fb950" opacity="0.9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Skills Tree">
+  <!-- Root trunk -->
+  <rect x="14" y="24" width="4" height="6" rx="2" fill="#3fb950"/>
+  <!-- Base -->
+  <rect x="10" y="22" width="12" height="2.5" rx="1.25" fill="#3fb950" opacity="0.4"/>
+  <!-- Branches -->
+  <line x1="11" y1="22" x2="6" y2="15" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="21" y1="22" x2="26" y2="15" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <line x1="16" y1="22" x2="16" y2="13" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Nodes -->
+  <circle cx="16" cy="10" r="4" fill="#3fb950"/>
+  <circle cx="16" cy="10" r="2" fill="#0d1117"/>
+  <circle cx="5" cy="13" r="3" fill="#58a6ff"/>
+  <circle cx="5" cy="13" r="1.5" fill="#0d1117"/>
+  <circle cx="27" cy="13" r="3" fill="#58a6ff"/>
+  <circle cx="27" cy="13" r="1.5" fill="#0d1117"/>
+  <!-- Top sub-nodes -->
+  <circle cx="10" cy="5" r="2" fill="#a371f7" opacity="0.9"/>
+  <circle cx="22" cy="5" r="2" fill="#a371f7" opacity="0.9"/>
+  <line x1="14" y1="7" x2="10" y2="5" stroke="#3fb950" stroke-width="1" opacity="0.5"/>
+  <line x1="18" y1="7" x2="22" y2="5" stroke="#3fb950" stroke-width="1" opacity="0.5"/>
 </svg>
