@@ -29,6 +29,8 @@
 
 **[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
+🌐 **Read in your language:** 🇬🇧 English · [🇸🇦 العربية](i18n/README.ar.md) · [🇨🇳 中文](i18n/README.zh.md) · [🇪🇸 Español](i18n/README.es.md)
+
 </div>
 
 ---
@@ -67,6 +69,7 @@ skills-tree/
 ├── labs/            → Experimental & bleeding-edge capabilities
 │
 ├── docs/            → Interactive web UI (GitHub Pages)
+├── i18n/            → Localized READMEs (Arabic, Chinese, Spanish)
 └── meta/            → Schema, glossary, frameworks, roadmap, changelog
 ```
 
@@ -292,7 +295,7 @@ See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 **Medium-term (v3.0):**
 - CLI: `skills-tree search "memory injection"` → returns ranked results
 - LangChain Hub / MCP registry integration
-- Localization: Arabic, Chinese, Spanish READMEs
+- ✅ ~~Localization: Arabic, Chinese, Spanish READMEs~~ — **shipped in v2.1**
 - Automated changelog generation on PR merge
 
 **Long-term vision:**
