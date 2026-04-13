@@ -29,7 +29,18 @@
 
 **[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
-🌐 **Read in your language:** 🇬🇧 English · [🇸🇦 العربية](i18n/README.ar.md) · [🇨🇳 中文](i18n/README.zh.md) · [🇪🇸 Español](i18n/README.es.md)
+🌐 **Read in your language:**
+🇬🇧 English
+· [🇸🇦 العربية](i18n/README.ar.md)
+· [🇨🇳 中文](i18n/README.zh.md)
+· [🇪🇸 Español](i18n/README.es.md)
+· [🇩🇪 Deutsch](i18n/README.de.md)
+· [🇫🇷 Français](i18n/README.fr.md)
+· [🇮🇳 हिन्दी](i18n/README.hi.md)
+· [🇯🇵 日本語](i18n/README.ja.md)
+· [🇰🇷 한국어](i18n/README.ko.md)
+· [🇧🇷 Português](i18n/README.pt.md)
+· [🇷🇺 Русский](i18n/README.ru.md)
 
 </div>
 
@@ -69,7 +80,7 @@ skills-tree/
 ├── labs/            → Experimental & bleeding-edge capabilities
 │
 ├── docs/            → Interactive web UI (GitHub Pages)
-├── i18n/            → Localized READMEs (Arabic, Chinese, Spanish)
+├── i18n/            → Localized READMEs (Arabic, Chinese, Spanish, German, French, Hindi, Japanese, Korean, Portuguese, Russian)
 └── meta/            → Schema, glossary, frameworks, roadmap, changelog
 ```
 
