@@ -18,6 +18,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   inject:
     name: Inject Badge Links into Skill Files
@@ -51,7 +54,6 @@ jobs:
 
           python tools/inject_badge_links.py $DRY_FLAG | tee inject-output.txt
 
-          # Match the actual script output: "  Injected → path/to/file.md"
           INJECTED=$(grep -c "Injected →" inject-output.txt || true)
           echo "injected_count=${INJECTED}" >> "$GITHUB_OUTPUT"
           echo "Injected badge links into ${INJECTED} file(s)."
