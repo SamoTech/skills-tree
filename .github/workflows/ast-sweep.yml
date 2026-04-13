@@ -50,6 +50,10 @@ jobs:
       - name: Install dependencies
         run: pip install httpx
 
+      # Clean output dir so stale/renamed skill badges don't persist
+      - name: Clean badge-data-output
+        run: rm -rf badge-data-output && mkdir -p badge-data-output
+
       - name: Run AST sweep
         run: |
           DRY_FLAG=""
@@ -63,8 +67,10 @@ jobs:
             --sbom-output meta/skills-sbom.cdx.json \
             $DRY_FLAG
 
+      # FIX: boolean workflow_dispatch inputs arrive as strings "true"/"false",
+      # so compare with != 'true' not == false.
       - name: Ensure sweep-report.md exists
-        if: inputs.dry_run == false
+        if: inputs.dry_run != 'true'
         run: |
           if [ ! -f sweep-report.md ]; then
             echo "## AST Sweep Report" > sweep-report.md
@@ -80,7 +86,8 @@ jobs:
       # COMMIT BADGE JSONs TO docs/badges/ ON MAIN
       # ----------------------------------------------------------------
       - name: Commit Yellow badges to docs/badges/ on main (pre-merge, with retry-rebase)
-        if: inputs.dry_run == false && inputs.push_badges_immediately == true
+        # FIX: boolean inputs are strings — use != 'true' not == false
+        if: inputs.dry_run != 'true' && inputs.push_badges_immediately != 'false'
         run: |
           JSON_COUNT=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
           if [ "$JSON_COUNT" = "0" ]; then
@@ -104,10 +111,8 @@ jobs:
               new_badge = json.loads(new_file.read_text())
               if dest_file.exists():
                   existing = json.loads(dest_file.read_text())
-                  if existing.get("color") in ("critical", "22c55e"):
-                      skipped += 1
-                      continue
-                  if existing.get("color") == "22c55e" and new_badge.get("color") == "yellow":
+                  # Never overwrite CVE/critical or Green (verified) badges
+                  if existing.get("color") in ("critical", "22c55e") or "CVE" in existing.get("message", ""):
                       skipped += 1
                       continue
               dest_file.write_text(json.dumps(new_badge, indent=2))
@@ -125,7 +130,7 @@ jobs:
 
           for attempt in 1 2 3; do
             git push origin main && {
-              echo "✅ Badge JSONs committed to docs/badges/ on main (attempt ${attempt})."
+              echo "Badges committed to docs/badges/ on main (attempt ${attempt})."
               exit 0
             }
             echo "Push rejected (attempt ${attempt}/3). Pulling and rebasing..."
@@ -139,14 +144,23 @@ jobs:
       # DRAFT PR: SBOM + sweep report to main
       # ----------------------------------------------------------------
       - name: Open draft PR with sweep results
-        if: inputs.dry_run == false
+        # FIX: boolean inputs are strings
+        if: inputs.dry_run != 'true'
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const branch = `feat/ast-sweep-${Date.now()}`;
 
-            const mainSha = context.sha;
+            // FIX: fetch fresh HEAD SHA — context.sha may be stale if the badge
+            // commit step pushed a new commit to main before this step runs.
+            const mainRef = await github.rest.git.getRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'heads/main',
+            });
+            const mainSha = mainRef.data.object.sha;
+
             await github.rest.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -174,7 +188,7 @@ jobs:
             const reportPath = 'sweep-report.md';
             const report = fs.existsSync(reportPath)
               ? fs.readFileSync(reportPath, 'utf8')
-              : '_(No sweep-report.md found — see workflow logs for details.)_';
+              : '_(No sweep-report.md found \u2014 see workflow logs for details.)_';
 
             try {
               const pr = await github.rest.pulls.create({
