@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "label": "deps",
+  "message": "pypi-uncertain",
+  "color": "grey",
+  "style": "flat-square"
+}
