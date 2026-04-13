@@ -5,13 +5,13 @@ name: Sync Badge Metadata
 # Problem it solves:
 #   When an ast-sweep PR merges to `main`, skills declare their dependencies.
 #   This workflow reads the SBOM + frontmatter on `main` and updates
-#   public/badges/ in-place — no separate branch needed.
+#   docs/badges/ in-place — no separate branch needed.
 #
 # How it works:
 #   1. Triggered on any push to `main` touching skills/ or the SBOM.
 #   2. Reads SBOM + skill frontmatter from the current `main`.
-#   3. Generates badge JSONs and commits them to public/badges/ on `main`.
-#   4. GitHub Pages (served from main) picks them up automatically.
+#   3. Generates badge JSONs and commits them to docs/badges/ on `main`.
+#   4. GitHub Pages (served from /docs on main) picks them up automatically.
 #
 # COLLISION SAFETY: push step uses retry-rebase loop (max 3 attempts).
 
@@ -54,7 +54,7 @@ jobs:
           import json, re
           from pathlib import Path
 
-          BADGE_DIR   = Path("public/badges")
+          BADGE_DIR   = Path("docs/badges")
           BADGE_DIR.mkdir(parents=True, exist_ok=True)
 
           SBOM_PATH   = Path("meta/skills-sbom.cdx.json")
@@ -135,22 +135,22 @@ jobs:
               badge_file.write_text(json.dumps(badge, indent=2))
               updated += 1
 
-          print(f"Generated {updated} badge JSON updates in public/badges/")
+          print(f"Generated {updated} badge JSON updates in docs/badges/")
           PYEOF
 
       - name: Commit changed badges to main (with retry-rebase)
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/badges/
+          git add docs/badges/
           git diff --staged --quiet && echo "✅ All badges already up to date. No commit needed." && exit 0
 
           TRIGGER_SHA=$(git rev-parse --short HEAD)
-          git commit -m "sync(badges): update public/badges/ from main@${TRIGGER_SHA}"
+          git commit -m "sync(badges): update docs/badges/ from main@${TRIGGER_SHA}"
 
           for attempt in 1 2 3; do
             git push origin main && {
-              echo "✅ Badges committed to public/badges/ on main (attempt ${attempt})."
+              echo "✅ Badges committed to docs/badges/ on main (attempt ${attempt})."
               exit 0
             }
             echo "Push failed (attempt ${attempt}/3). Rebasing..."
