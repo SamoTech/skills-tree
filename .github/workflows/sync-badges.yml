@@ -21,13 +21,16 @@ name: Sync Badge Metadata
 #
 # This ensures: merge a PR to `main` → badges update within ~60 seconds.
 # No manual steps. No drift.
+#
+# COLLISION SAFETY: push step uses retry-rebase loop (max 3 attempts).
+# See meta/KNOWN-LIMITATIONS.md for the Pages throttling known limitation.
 
 on:
   push:
     branches: [main]
     paths:
-      - 'skills/**/*.md'            # Any skill file change
-      - 'meta/skills-sbom.cdx.json' # SBOM update (from AST sweep merge)
+      - 'skills/**/*.md'
+      - 'meta/skills-sbom.cdx.json'
   workflow_dispatch:
     inputs:
       force_full_sync:
@@ -47,7 +50,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 0         # Full history so we can diff changed files
+          fetch-depth: 0
           path: main-repo
 
       - name: Checkout badge-data branch
@@ -55,7 +58,7 @@ jobs:
         with:
           ref: badge-data
           path: badge-data-repo
-        continue-on-error: true  # Branch may not exist yet (first run)
+        continue-on-error: true
 
       - name: Bootstrap badge-data branch if missing
         run: |
@@ -87,15 +90,14 @@ jobs:
           import json, re, os
           from pathlib import Path
 
-          MAIN       = Path("main-repo")
-          BADGE_OUT  = Path("badge-updates")
+          MAIN        = Path("main-repo")
+          BADGE_OUT   = Path("badge-updates")
           BADGE_OUT.mkdir(exist_ok=True)
 
-          SBOM_PATH  = MAIN / "meta" / "skills-sbom.cdx.json"
+          SBOM_PATH   = MAIN / "meta" / "skills-sbom.cdx.json"
           SKILLS_ROOT = MAIN / "skills"
 
-          # --- Load SBOM: which skills have known packages? ---
-          sbom_skills: dict[str, list[str]] = {}   # skill_path -> [package, ...]
+          sbom_skills: dict[str, list[str]] = {}
           if SBOM_PATH.exists():
               sbom = json.loads(SBOM_PATH.read_text())
               for component in sbom.get("components", []):
@@ -103,7 +105,6 @@ jobs:
                       sbom_skills.setdefault(skill_path, []).append(component["name"])
 
           def parse_frontmatter(text: str) -> dict:
-              """Extract YAML-ish frontmatter keys we care about (no full YAML parser needed)."""
               if not text.startswith("---"):
                   return {}
               end = text.find("---", 3)
@@ -115,11 +116,9 @@ jobs:
                   m = re.match(r'^(\w[\w-]*):\s*(.+)', line.strip())
                   if m:
                       result[m.group(1)] = m.group(2).strip().strip('"\'')
-              # Count dependencies list items
               dep_count = len(re.findall(r'^\s+-\s+package:', block, re.MULTILINE))
               if dep_count:
                   result["_dep_count"] = dep_count
-              # Check if ALL deps are verified
               conf_values = re.findall(r'confidence:\s*(\w[-\w]*)', block)
               result["_all_verified"] = bool(conf_values) and all(c == "verified" for c in conf_values)
               result["_any_machine"] = any(c == "machine-inferred" for c in conf_values)
@@ -143,19 +142,16 @@ jobs:
           updated = 0
           for skill_path in sorted(SKILLS_ROOT.rglob("*.md")):
               text = skill_path.read_text(encoding="utf-8", errors="ignore")
-              fm = parse_frontmatter(text)
-              key = skill_key(skill_path)
+              fm   = parse_frontmatter(text)
+              key  = skill_key(skill_path)
               badge_file = BADGE_OUT / f"{key}.json"
 
-              # Check if current badge on badge-data branch is already advisory (red)
-              # — never regress an advisory badge automatically
               existing_badge_path = Path("badge-data-repo") / f"{key}.json"
               if existing_badge_path.exists():
                   existing = json.loads(existing_badge_path.read_text())
                   if "CVE" in existing.get("message", "") or existing.get("color") == "critical":
-                      continue  # Never overwrite an advisory badge
+                      continue
 
-              # Determine new state
               skill_rel = str(skill_path.relative_to(MAIN)).replace("\\", "/")
               in_sbom   = skill_rel in sbom_skills
               dep_count = sbom_skills.get(skill_rel, [])
@@ -170,14 +166,12 @@ jobs:
                       "color": "yellow", "style": "flat-square",
                   }
               elif fm.get("_dep_count", 0) == 0 and not in_sbom:
-                  # No deps declared, not in SBOM — only write if currently unscanned
-                  # (don't overwrite yellow/green with grey)
                   if not existing_badge_path.exists():
                       badge = UNSCANNED_BADGE
                   else:
                       continue
               else:
-                  continue  # Nothing to change
+                  continue
 
               badge_file.write_text(json.dumps(badge, indent=2))
               updated += 1
@@ -200,7 +194,7 @@ jobs:
           echo "changed=$CHANGED" >> $GITHUB_OUTPUT
           echo "$CHANGED badge file(s) differ from badge-data branch."
 
-      - name: Push changed badges to badge-data branch
+      - name: Push changed badges to badge-data branch (with retry-rebase)
         if: steps.diff.outputs.changed != '0'
         run: |
           cp badge-updates/*.json badge-data-repo/ 2>/dev/null || true
@@ -208,6 +202,7 @@ jobs:
           cd badge-data-repo
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
           git add -A
           git diff --staged --quiet && echo "Nothing to commit." && exit 0
@@ -215,10 +210,30 @@ jobs:
           CHANGED=${{ steps.diff.outputs.changed }}
           TRIGGER_SHA=$(cd ../main-repo && git rev-parse --short HEAD)
           git commit -m "sync(badges): ${CHANGED} badge(s) updated from main@${TRIGGER_SHA}"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git badge-data
 
-          echo "✅ Pushed ${CHANGED} updated badge JSON(s) to badge-data branch."
-          echo "GitHub Pages will redeploy in ~30 seconds (deploy-badge-data.yml triggered)."
+          # --- RETRY-REBASE LOOP ---
+          # Handles concurrent pushes from osv-watch.yml or revoke-phantom-badges.yml.
+          # Max 3 attempts with exponential backoff (2s, 4s, 6s).
+          for attempt in 1 2 3; do
+            git push origin badge-data && {
+              echo "✅ Pushed ${CHANGED} badge(s) (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push rejected (attempt ${attempt}/3). Fetching and rebasing..."
+            git fetch origin badge-data
+            git rebase origin/badge-data || {
+              echo "Rebase conflict on attempt ${attempt}. Ours wins on badge JSONs."
+              # On JSON conflicts, our version (from SBOM) always wins
+              git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --ours {}
+              git add -A
+              git rebase --continue
+            }
+            sleep $((attempt * 2))
+          done
+
+          echo "ERROR: All 3 push attempts failed."
+          echo "The next sync-badges.yml trigger or osv-watch.yml run will recover."
+          exit 1
 
       - name: No changes needed
         if: steps.diff.outputs.changed == '0'

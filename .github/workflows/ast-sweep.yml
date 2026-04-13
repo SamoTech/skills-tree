@@ -2,15 +2,16 @@ name: AST Dependency Sweep
 
 # Extracts import statements from skill code blocks, validates against PyPI,
 # generates the CycloneDX SBOM, and:
-#   1. Opens a DRAFT PR to `main` with the sweep report (for review)
-#   2. Immediately pushes Yellow badge JSONs to `badge-data` branch
-#      so badges reflect machine-inferred state without waiting for PR merge.
+#   1. Pushes Yellow badge JSONs to `badge-data` branch IMMEDIATELY (pre-merge)
+#      so the site shows Yellow even while the draft PR is under review.
+#   2. Opens a DRAFT PR to `main` with the SBOM + sweep report.
 #
-# Step 2 closes the "branch-disconnect" gap: even before the SBOM PR merges,
-# users visiting the site see Yellow badges (not Grey) for scanned skills.
-# When the PR eventually merges, sync-badges.yml will re-confirm the state.
+# PHANTOM BADGE CONTRACT:
+#   Pre-merge Yellow badges are speculative. If the draft PR is closed WITHOUT
+#   merging, `revoke-phantom-badges.yml` fires and resets affected badges to
+#   unscanned (grey). The site never shows a stale Yellow for an abandoned PR.
 #
-# Run manually via workflow_dispatch. Re-run when large skill batches are added.
+# COLLISION SAFETY: pre-merge push step uses retry-rebase loop (max 3 attempts).
 
 on:
   workflow_dispatch:
@@ -62,23 +63,20 @@ jobs:
             $DRY_FLAG
 
       # ----------------------------------------------------------------
-      # STEP 2: Push badge JSONs to badge-data IMMEDIATELY (pre-merge)
-      # This is the key fix for the branch-disconnect trap.
-      # Badge JSONs are pushed now so the site shows Yellow, not Grey,
-      # even while the SBOM/frontmatter PR is still under review.
-      # The osv-watch and sync-badges workflows will keep them current.
+      # PRE-MERGE BADGE PUSH
+      # Pushes Yellow badges immediately so site shows inferred state
+      # during review. revoke-phantom-badges.yml cleans up if PR is closed.
       # ----------------------------------------------------------------
-      - name: Push Yellow badges to badge-data branch (pre-merge)
+      - name: Push Yellow badges to badge-data branch (pre-merge, with retry-rebase)
         if: inputs.dry_run == false && inputs.push_badges_immediately == true
         run: |
-          # Guard: only run if badge-data-output has files
           JSON_COUNT=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
           if [ "$JSON_COUNT" = "0" ]; then
-            echo "No badge JSONs generated (all skills unscanned). Skipping badge-data push."
+            echo "No badge JSONs generated. Skipping badge-data push."
             exit 0
           fi
 
-          # Clone badge-data branch (creates it if missing)
+          # Clone badge-data branch (creates orphan if missing)
           git clone --depth 1 \
             https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
             badge-data-branch \
@@ -90,52 +88,62 @@ jobs:
               git checkout --orphan badge-data
             )
 
-          # Copy new badge JSONs — but NEVER overwrite advisory (red) badges
+          # Copy new badge JSONs — never overwrite advisory or verified
           python3 - <<'PYEOF'
           import json
           from pathlib import Path
 
-          src   = Path("badge-data-output")
-          dest  = Path("badge-data-branch")
+          src  = Path("badge-data-output")
+          dest = Path("badge-data-branch")
           dest.mkdir(exist_ok=True)
 
-          overwritten = 0
-          skipped_advisory = 0
-
+          written = skipped = 0
           for new_file in src.glob("*.json"):
               dest_file = dest / new_file.name
               new_badge = json.loads(new_file.read_text())
-
-              # Never overwrite an advisory badge with a machine-inferred one
               if dest_file.exists():
                   existing = json.loads(dest_file.read_text())
-                  if existing.get("color") == "critical" or "CVE" in existing.get("message", ""):
-                      skipped_advisory += 1
+                  if existing.get("color") in ("critical", "22c55e"):
+                      skipped += 1
                       continue
-                  # Never overwrite Green (verified) with Yellow (machine-inferred)
                   if existing.get("color") == "22c55e" and new_badge.get("color") == "yellow":
-                      skipped_advisory += 1
+                      skipped += 1
                       continue
-
               dest_file.write_text(json.dumps(new_badge, indent=2))
-              overwritten += 1
-
-          print(f"Wrote {overwritten} badge JSONs. Skipped {skipped_advisory} advisory/verified.")
+              written += 1
+          print(f"Wrote {written} badge JSONs. Skipped {skipped} advisory/verified.")
           PYEOF
 
           cd badge-data-branch
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git add -A
           git diff --staged --quiet && echo "No badge changes to push." && exit 0
 
           SWEEP_SHA=$(git -C .. rev-parse --short HEAD 2>/dev/null || echo 'manual')
           git commit -m "sweep(badges): machine-inferred badges pushed pre-merge from sweep@${SWEEP_SHA}"
-          git push origin badge-data
-          echo "✅ Badge JSONs pushed to badge-data. deploy-badge-data.yml will trigger in ~30s."
+
+          # --- RETRY-REBASE LOOP ---
+          for attempt in 1 2 3; do
+            git push origin badge-data && {
+              echo "✅ Pre-merge badge JSONs pushed to badge-data (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push rejected (attempt ${attempt}/3). Fetching and rebasing..."
+            git fetch origin badge-data
+            git rebase origin/badge-data || {
+              git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --ours {}
+              git add -A
+              git rebase --continue
+            }
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Pre-merge badge push failed after 3 attempts."
+          exit 1
 
       # ----------------------------------------------------------------
-      # STEP 3: Open draft PR to main with SBOM + report (original behavior)
+      # DRAFT PR: SBOM + sweep report to main
       # ----------------------------------------------------------------
       - name: Open draft PR with sweep results
         if: inputs.dry_run == false
@@ -145,7 +153,6 @@ jobs:
             const fs = require('fs');
             const branch = `feat/ast-sweep-${Date.now()}`;
 
-            // Create branch
             const mainSha = context.sha;
             await github.rest.git.createRef({
               owner: context.repo.owner,
@@ -154,7 +161,6 @@ jobs:
               sha: mainSha,
             });
 
-            // Commit SBOM to the sweep branch
             const sbom = fs.readFileSync('meta/skills-sbom.cdx.json').toString('base64');
             const existingSbom = await github.rest.repos.getContent({
               owner: context.repo.owner,
@@ -172,7 +178,6 @@ jobs:
               sha: existingSbom?.data?.sha,
             });
 
-            // Read sweep report and post as PR body
             const report = fs.readFileSync('sweep-report.md', 'utf8');
 
             const pr = await github.rest.pulls.create({
@@ -186,10 +191,9 @@ jobs:
                 '> \u26a0\ufe0f This is a machine-generated draft. Do NOT merge without reviewing Orange badges.',
                 '> See `meta/badge-states.md` for the verification PR template.',
                 '>',
-                '> **Note:** Yellow badge JSONs have already been pushed to the `badge-data`',
-                '> branch (pre-merge). The site now shows Yellow for all scanned skills.',
-                '> Merging this PR updates `main` + the SBOM so `sync-badges.yml` and',
-                '> `osv-watch.yml` can reference the canonical dependency list.',
+                '> **Phantom badge contract:** Yellow badge JSONs are already live on `badge-data`.',
+                '> **If you close this PR without merging**, `revoke-phantom-badges.yml` will',
+                '> automatically reset affected badges to `unscanned` (grey) within ~60 seconds.',
               ].join('\n'),
               head: branch,
               base: 'main',
@@ -197,4 +201,4 @@ jobs:
             });
 
             console.log(`Draft PR created: ${pr.data.html_url}`);
-            console.log('Badge JSONs are already live on badge-data branch.');
+            console.log('Yellow badges already live. Phantom revocation active if PR is abandoned.');

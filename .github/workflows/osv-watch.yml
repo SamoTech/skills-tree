@@ -5,13 +5,13 @@ name: OSV Dependency Watchdog
 # Documented in meta/badge-states.md
 #
 # ALSO handles badge rehydration:
-# When this cron runs and finds no advisories, it verifies that any skills
-# already in the SBOM have at least a Yellow badge (not Grey). This prevents
-# stale Grey badges after manual badge-data operations.
+# On each run, verifies SBOM skills have at least Yellow badges (anti-drift pass).
+#
+# COLLISION SAFETY: push step uses retry-rebase loop (max 3 attempts).
 
 on:
   schedule:
-    - cron: '*/15 * * * *'   # Every 15 minutes — the SLA clock
+    - cron: '*/15 * * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -62,11 +62,6 @@ jobs:
             --advisory-file ../osv-hits.json \
             $DRY_FLAG
 
-      # ----------------------------------------------------------------
-      # REHYDRATION PASS: ensure SBOM skills have at least Yellow badges
-      # This is the safety net that catches Grey badges that slipped through.
-      # Runs after OSV check so advisory badges are not overwritten.
-      # ----------------------------------------------------------------
       - name: Rehydrate Yellow badges for SBOM skills (anti-drift pass)
         if: inputs.dry_run != 'true'
         run: |
@@ -74,8 +69,8 @@ jobs:
           import json
           from pathlib import Path
 
-          SBOM_PATH  = Path("main-repo/meta/skills-sbom.cdx.json")
-          BADGE_OUT  = Path("badge-data-output")
+          SBOM_PATH = Path("main-repo/meta/skills-sbom.cdx.json")
+          BADGE_OUT = Path("badge-data-output")
           BADGE_OUT.mkdir(exist_ok=True)
 
           if not SBOM_PATH.exists():
@@ -84,7 +79,6 @@ jobs:
 
           sbom = json.loads(SBOM_PATH.read_text())
 
-          # Build: skill_path -> [package, ...]
           skill_packages: dict[str, list[str]] = {}
           for component in sbom.get("components", []):
               for skill_path in component.get("usedIn", []):
@@ -92,27 +86,20 @@ jobs:
 
           rehydrated = 0
           for skill_path, packages in skill_packages.items():
-              key  = skill_path.replace("\\\\", "/").replace("/", "-").replace(".md", "")
+              key  = skill_path.replace("\\", "/").replace("/", "-").replace(".md", "")
               dest = BADGE_OUT / f"{key}.json"
-
-              # Never downgrade an existing advisory or verified badge
               if dest.exists():
                   existing = json.loads(dest.read_text())
                   if existing.get("color") in ("critical", "22c55e"):
                       continue
-                  if "machine-inferred" in existing.get("message", ""):
-                      continue  # Already Yellow, nothing to do
-                  if "verified" in existing.get("message", ""):
+                  if "machine-inferred" in existing.get("message", "") or "verified" in existing.get("message", ""):
                       continue
-
-              # Write Yellow badge for this SBOM-tracked skill
               n = len(packages)
-              badge = {
+              dest.write_text(json.dumps({
                   "schemaVersion": 1, "label": "deps",
                   "message": f"machine-inferred \u00b7 {n} pkg{'s' if n != 1 else ''}",
                   "color": "yellow", "style": "flat-square",
-              }
-              dest.write_text(json.dumps(badge, indent=2))
+              }, indent=2))
               rehydrated += 1
 
           print(f"Rehydrated {rehydrated} Yellow badge(s) for SBOM-tracked skills.")
@@ -124,14 +111,14 @@ jobs:
           git clone --branch badge-data --depth 1 \
             https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
             badge-data-branch 2>/dev/null || (
-              echo "badge-data branch missing. Will be created by sync-badges.yml on next skill push."
+              echo "badge-data branch missing. Skipping."
               exit 0
             )
 
-      - name: Push updated badges to badge-data branch
+      - name: Push updated badges to badge-data branch (with retry-rebase)
         if: inputs.dry_run != 'true'
         run: |
-          [ ! -d badge-data-branch ] && echo "badge-data branch not ready, skipping." && exit 0
+          [ ! -d badge-data-branch/.git ] && echo "badge-data branch not ready, skipping." && exit 0
 
           HAS_JSON=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
           [ "$HAS_JSON" = "0" ] && echo "No badge JSONs to push." && exit 0
@@ -141,19 +128,39 @@ jobs:
           cd badge-data-branch
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git add -A
           git diff --staged --quiet && echo "No badge changes to commit." && exit 0
 
           HIT_COUNT=0
           [ -f ../osv-hits.json ] && \
-            HIT_COUNT=$(python3 -c "import json,sys; d=json.load(open('../osv-hits.json')); print(len(d.get('hits',[])))" 2>/dev/null || echo 0)
+            HIT_COUNT=$(python3 -c "import json; d=json.load(open('../osv-hits.json')); print(len(d.get('hits',[])))" 2>/dev/null || echo 0)
 
           if [ "$HIT_COUNT" -gt "0" ]; then
             git commit -m "watchdog(osv): advisory badges updated — ${HIT_COUNT} package(s) affected"
           else
             git commit -m "watchdog(rehydrate): Yellow badges rehydrated for SBOM-tracked skills"
           fi
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git badge-data
+
+          # --- RETRY-REBASE LOOP ---
+          for attempt in 1 2 3; do
+            git push origin badge-data && {
+              echo "✅ Badge-data push succeeded (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push rejected (attempt ${attempt}/3). Fetching and rebasing..."
+            git fetch origin badge-data
+            git rebase origin/badge-data || {
+              # On JSON conflicts, advisory badges win (ours = OSV data)
+              git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --ours {}
+              git add -A
+              git rebase --continue
+            }
+            sleep $((attempt * 2))
+          done
+
+          echo "ERROR: All 3 push attempts failed. Next 15-min cron will recover."
+          exit 1
 
       - name: Post advisory summary as GitHub Issue
         if: steps.osv.outputs.has_hits == 'true' && inputs.dry_run != 'true'
@@ -174,23 +181,20 @@ jobs:
               body += `#### \`${hit.package}\` (${hit.purl})\n`;
               body += `**CVEs:** ${cves}\n\n`;
               body += `**Affected skills:**\n`;
-              for (const skill of hit.usedIn) {
-                body += `- \`${skill}\`\n`;
-              }
+              for (const skill of hit.usedIn) { body += `- \`${skill}\`\n`; }
               body += `\n`;
             }
 
             body += `### Resolution\n\n`;
-            body += `For each affected skill:\n`;
             body += `1. Update the skill's \`tested_version\` in frontmatter to a patched version\n`;
             body += `2. Open a verification PR (see \`meta/badge-states.md\`)\n`;
-            body += `3. On merge, the badge will transition from \`advisory\` back to \`verified\`\n`;
+            body += `3. On merge, the badge transitions from \`advisory\` back to \`verified\`\n`;
 
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `\ud83d\udea8 Dependency Advisory: ${hits.hits.map(h => h.package).join(', ')}`,
-              body: body,
+              body,
               labels: ['security', 'dependency-advisory'],
             });
 
