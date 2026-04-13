@@ -45,6 +45,8 @@ Milestones:
 | 🟢 | Accessible empty state when search yields no results |
 | 🟢 | Card redesign: gradient top-edge, skill level badges, browse CTA |
 | 🟢 | Stats bar highlighting key category counts |
+| 🟢 | Custom SVG logo (tree mark) in nav, hero, favicon, footer |
+| 🟢 | All README badges updated (watchers, issues, PRs, last commit, docs) |
 
 ---
 
@@ -59,16 +61,26 @@ Milestones:
 
 ---
 
-## 🔵 v2.0 — Depth, Systems & Viral Mechanics (In Progress)
+## ✅ v2.0 — Depth, Systems & Viral Mechanics (Done)
 
 ### Repository Structure
 
 | Status | Item |
 |--------|------|
-| 🔵 | `/systems` — multi-skill workflow files (research agent, code reviewer, data pipeline, ...) |
-| 🔵 | `/blueprints` — copy-paste production architectures (RAG stack, multi-agent mesh, ...) |
-| 🔵 | `/benchmarks` — reproducible head-to-head skill comparisons |
-| 🔵 | `/labs` — experimental and bleeding-edge skill ideas |
+| 🟢 | `/systems` — 8 multi-skill workflow files (research agent, code reviewer, data pipeline, ...) |
+| 🟢 | `/blueprints` — 7 copy-paste production architectures (RAG stack, multi-agent mesh, ...) |
+| 🟢 | `/benchmarks` — 4 reproducible head-to-head skill comparisons (reasoning, memory, tool-use) |
+| 🟢 | `/labs` — 4 experimental and bleeding-edge skill ideas (MCTS, self-consistency, episodic memory, dynamic tools) |
+
+### Viral Growth Mechanics
+
+| Status | Item |
+|--------|------|
+| 🟢 | `meta/LEADERBOARD.md` — weekly auto-updated Top Skills, Most Improved, Battle-Tested |
+| 🟢 | GitHub Action: auto-generate LEADERBOARD.md from PR merge history (every Monday) |
+| 🟢 | GitHub Action: auto-update skill count badges in README on merge |
+| 🟢 | GitHub Action: detect and comment when a PR upgrades a skill to v2/v3 |
+| 🟢 | GitHub Action: auto-label PRs by contribution type (feat/improve/benchmark/system) |
 
 ### Skill Quality Uplift
 
@@ -90,11 +102,10 @@ Milestones:
 | ⚪ | PR title convention: `improve: [skill] — v1→v2` |
 | ⚪ | Auto-badge: skills that reach v3 get "Battle-Tested" label |
 
-### Viral Growth Mechanics
+### "This Week's Highlights"
 
 | Status | Item |
 |--------|------|
-| ⚪ | `meta/LEADERBOARD.md` — weekly auto-updated Top Skills, Most Improved, Battle-Tested |
 | ⚪ | "This Week's Highlights" section in README (manual until automated) |
 | ⚪ | "Most Active Skills" badge driven by PR activity |
 | ⚪ | "Trending Systems" section updated with each new system added |
@@ -113,16 +124,6 @@ Milestones:
 | ⚪ | Monthly "State of the Skills Tree" post (Reddit, Twitter/X, LinkedIn) |
 | ⚪ | GitHub Discussions enabled with categories: Ideas, Benchmarks, Q&A, Showcase |
 | ⚪ | Discord or community server (once 200+ stars) |
-
-### Auto-Growth Engine
-
-| Status | Item |
-|--------|------|
-| ⚪ | GitHub Action: auto-label PRs by contribution type (feat/improve/benchmark/system) |
-| ⚪ | GitHub Action: auto-generate LEADERBOARD.md from PR merge history |
-| ⚪ | GitHub Action: auto-update skill count badges in README on merge |
-| ⚪ | GitHub Action: detect and comment when a PR upgrades a skill to v2/v3 |
-| ⚪ | Remixing guide: how to fork and specialize Skills Tree for a domain |
 
 ### Skill Paths (Learning Tracks)
 
@@ -226,16 +227,6 @@ Milestones:
 - Engage every star — reply to issues, review PRs within 48h
 - Feature contributor work in monthly updates
 
-### Attraction Mechanics
-
-| Hook | Description |
-|---|---|
-| **"Top Skills This Week"** | Updated every Monday — drives return visits |
-| **"Most Improved"** | Celebrates contributors — drives contributions |
-| **"Battle-Tested"** | Social proof signal — drives trust and stars |
-| **"Trending Systems"** | Shows what builders are assembling — drives interest |
-| **Skill Remix** | Fork + specialize pattern — drives forks and citations |
-
 ---
 
 ## 🔧 Skill Coverage Gaps (Open for Contribution)
@@ -264,11 +255,11 @@ Milestones:
 
 ## 📊 Progress Summary
 
-| Phase | Status | ETA |
+| Phase | Status | Completed |
 |---|---|---|
 | v1.0 Foundation | 🟢 Complete | 2025-03 |
-| v1.1 UI | 🟢 Complete | 2025-04 |
+| v1.1 UI & Docs | 🟢 Complete | 2025-04 |
 | v1.2 Skill Expansion | 🟢 Complete | 2026-04 |
-| v2.0 Systems + Benchmarks | 🔵 In Progress | 2026 Q2 |
+| v2.0 Systems + Viral Mechanics | 🟢 Complete | 2026-04 |
 | v2.x Community Engine | ⚪ Planned | 2026 Q3 |
 | v3.0 Platform + CLI | ⚪ Planned | 2026 Q4 |
