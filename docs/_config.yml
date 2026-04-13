@@ -5,9 +5,17 @@ url: "https://samotech.github.io"
 baseurl: "/skills-tree"
 repository: "SamoTech/skills-tree"
 
-# Exclude from Jekyll build
+# Keep assets/ and all docs files as-is (no Jekyll processing)
+include:
+  - assets
+
+# Exclude non-docs content from Jekyll build
 exclude:
   - skills/
+  - systems/
+  - blueprints/
+  - benchmarks/
+  - labs/
   - meta/
   - CONTRIBUTING.md
   - SECURITY.md
@@ -15,7 +23,7 @@ exclude:
   - LICENSE
   - README.md
 
-# Enable GitHub metadata plugin
+# Plugins
 plugins:
   - jekyll-github-metadata
 
@@ -32,3 +40,6 @@ defaults:
       path: ""
     values:
       layout: null
+
+# Allow SVG and other asset types
+# Jekyll copies unknown file types untouched
