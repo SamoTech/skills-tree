@@ -3,6 +3,7 @@ title: "Dependency Auditor"
 category: infrastructure
 phase: 3
 stability: stable
+added: "2025-03"
 level: advanced
 tags:
   - dependency-management

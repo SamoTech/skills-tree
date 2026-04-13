@@ -3,6 +3,7 @@ title: Web Search
 category: 11-web
 level: basic
 stability: stable
+added: "2025-03"
 description: "Apply web search in AI agent workflows."
 version: v2
 tags: [web, search, retrieval, tool-use]

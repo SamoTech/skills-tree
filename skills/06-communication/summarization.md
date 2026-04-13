@@ -3,6 +3,7 @@ title: "Summarization"
 category: 06-communication
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply summarization in AI agent workflows."
 ---
 

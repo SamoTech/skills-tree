@@ -3,6 +3,7 @@ title: Chain of Thought (CoT)
 category: 02-reasoning
 level: basic
 stability: stable
+added: "2025-03"
 description: "Apply chain of thought in AI agent workflows."
 version: v2
 tags: [reasoning, prompting, decomposition]

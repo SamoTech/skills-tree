@@ -3,6 +3,7 @@ title: "Planning"
 category: 02-reasoning
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply planning in AI agent workflows."
 ---
 

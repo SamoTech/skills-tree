@@ -3,6 +3,7 @@ title: "Episodic Memory"
 category: 03-memory
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply episodic memory in AI agent workflows."
 ---
 

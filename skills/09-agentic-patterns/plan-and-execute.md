@@ -3,6 +3,7 @@ title: "Plan-and-Execute Pattern"
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply plan and execute in AI agent workflows."
 ---
 

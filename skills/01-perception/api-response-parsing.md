@@ -3,6 +3,7 @@ title: "API Response Parsing"
 category: 01-perception
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply api response parsing in AI agent workflows."
 ---
 

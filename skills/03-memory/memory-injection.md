@@ -3,6 +3,7 @@ title: Memory Injection
 category: 03-memory
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply memory injection in AI agent workflows."
 version: v2
 tags: [memory, context, personalization, rag]

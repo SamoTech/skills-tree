@@ -3,6 +3,7 @@ title: "Retrieval-Augmented Generation (RAG)"
 category: 03-memory
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply rag in AI agent workflows."
 ---
 

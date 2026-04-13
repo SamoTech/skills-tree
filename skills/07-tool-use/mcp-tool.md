@@ -3,6 +3,7 @@ title: "MCP Tool Use"
 category: 07-tool-use
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply mcp tool in AI agent workflows."
 ---
 

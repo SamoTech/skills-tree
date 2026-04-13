@@ -3,6 +3,7 @@ title: Dependency Auditor
 category: 05-code
 level: advanced
 stability: experimental
+added: "2025-03"
 description: "Apply dependency auditor in AI agent workflows."
 version: v1
 tags: [code, dependencies, auditing, sbom, verification, dogfooding]

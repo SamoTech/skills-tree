@@ -3,6 +3,7 @@ title: "Long-Term Memory"
 category: 03-memory
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply long term memory in AI agent workflows."
 ---
 

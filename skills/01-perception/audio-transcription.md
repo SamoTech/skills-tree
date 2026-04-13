@@ -3,6 +3,7 @@ title: "Audio Transcription"
 category: 01-perception
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply audio transcription in AI agent workflows."
 ---
 

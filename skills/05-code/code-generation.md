@@ -3,6 +3,7 @@ title: "Code Generation"
 category: 05-code
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply code generation in AI agent workflows."
 ---
 

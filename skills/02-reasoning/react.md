@@ -3,6 +3,7 @@ title: ReAct (Reasoning + Acting)
 category: 02-reasoning
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply react in AI agent workflows."
 version: v3
 tags: [reasoning, planning, tool-use, agentic]

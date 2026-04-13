@@ -3,6 +3,7 @@ title: "Video Understanding"
 category: 01-perception
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply video understanding in AI agent workflows."
 ---
 

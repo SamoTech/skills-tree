@@ -3,6 +3,7 @@ title: "API Call"
 category: 04-action-execution
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply api call in AI agent workflows."
 ---
 

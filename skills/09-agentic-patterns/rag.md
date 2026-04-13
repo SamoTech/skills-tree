@@ -3,6 +3,7 @@ title: RAG — Retrieval-Augmented Generation
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
+added: "2025-03"
 description: "Apply rag in AI agent workflows."
 version: v3
 tags: [rag, retrieval, embeddings, knowledge-base]
