@@ -23,7 +23,7 @@
 [![Repo Size](https://img.shields.io/github/repo-size/SamoTech/skills-tree?style=for-the-badge&color=8b5cf6&logo=github)](https://github.com/SamoTech/skills-tree)
 [![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-343%2B-8b5cf6?style=for-the-badge)](skills/)
+[![Skills](https://img.shields.io/badge/Skills-344%2B-8b5cf6?style=for-the-badge)](skills/)
 [![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
 [![GitHub Pages](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
 
