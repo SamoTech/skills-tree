@@ -1,11 +1,16 @@
 name: AST Dependency Sweep
 
 # Extracts import statements from skill code blocks, validates against PyPI,
-# generates the CycloneDX SBOM, and opens a draft PR with machine-inferred
-# frontmatter + badge updates.
+# generates the CycloneDX SBOM, and:
+#   1. Opens a DRAFT PR to `main` with the sweep report (for review)
+#   2. Immediately pushes Yellow badge JSONs to `badge-data` branch
+#      so badges reflect machine-inferred state without waiting for PR merge.
 #
-# Run manually via workflow_dispatch (not on a schedule — this is a one-time
-# bootstrap step, then re-run when large batches of new skills are added).
+# Step 2 closes the "branch-disconnect" gap: even before the SBOM PR merges,
+# users visiting the site see Yellow badges (not Grey) for scanned skills.
+# When the PR eventually merges, sync-badges.yml will re-confirm the state.
+#
+# Run manually via workflow_dispatch. Re-run when large skill batches are added.
 
 on:
   workflow_dispatch:
@@ -18,6 +23,10 @@ on:
         description: 'Skills directory to scan (default: skills/)'
         type: string
         default: 'skills/'
+      push_badges_immediately:
+        description: 'Push Yellow badge JSONs to badge-data branch now (before PR merges)'
+        type: boolean
+        default: true
 
 jobs:
   sweep:
@@ -52,6 +61,82 @@ jobs:
             --sbom-output meta/skills-sbom.cdx.json \
             $DRY_FLAG
 
+      # ----------------------------------------------------------------
+      # STEP 2: Push badge JSONs to badge-data IMMEDIATELY (pre-merge)
+      # This is the key fix for the branch-disconnect trap.
+      # Badge JSONs are pushed now so the site shows Yellow, not Grey,
+      # even while the SBOM/frontmatter PR is still under review.
+      # The osv-watch and sync-badges workflows will keep them current.
+      # ----------------------------------------------------------------
+      - name: Push Yellow badges to badge-data branch (pre-merge)
+        if: inputs.dry_run == false && inputs.push_badges_immediately == true
+        run: |
+          # Guard: only run if badge-data-output has files
+          JSON_COUNT=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
+          if [ "$JSON_COUNT" = "0" ]; then
+            echo "No badge JSONs generated (all skills unscanned). Skipping badge-data push."
+            exit 0
+          fi
+
+          # Clone badge-data branch (creates it if missing)
+          git clone --depth 1 \
+            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
+            badge-data-branch \
+            --branch badge-data \
+            2>/dev/null || (
+              mkdir badge-data-branch && cd badge-data-branch &&
+              git init &&
+              git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git &&
+              git checkout --orphan badge-data
+            )
+
+          # Copy new badge JSONs — but NEVER overwrite advisory (red) badges
+          python3 - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          src   = Path("badge-data-output")
+          dest  = Path("badge-data-branch")
+          dest.mkdir(exist_ok=True)
+
+          overwritten = 0
+          skipped_advisory = 0
+
+          for new_file in src.glob("*.json"):
+              dest_file = dest / new_file.name
+              new_badge = json.loads(new_file.read_text())
+
+              # Never overwrite an advisory badge with a machine-inferred one
+              if dest_file.exists():
+                  existing = json.loads(dest_file.read_text())
+                  if existing.get("color") == "critical" or "CVE" in existing.get("message", ""):
+                      skipped_advisory += 1
+                      continue
+                  # Never overwrite Green (verified) with Yellow (machine-inferred)
+                  if existing.get("color") == "22c55e" and new_badge.get("color") == "yellow":
+                      skipped_advisory += 1
+                      continue
+
+              dest_file.write_text(json.dumps(new_badge, indent=2))
+              overwritten += 1
+
+          print(f"Wrote {overwritten} badge JSONs. Skipped {skipped_advisory} advisory/verified.")
+          PYEOF
+
+          cd badge-data-branch
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --staged --quiet && echo "No badge changes to push." && exit 0
+
+          SWEEP_SHA=$(git -C .. rev-parse --short HEAD 2>/dev/null || echo 'manual')
+          git commit -m "sweep(badges): machine-inferred badges pushed pre-merge from sweep@${SWEEP_SHA}"
+          git push origin badge-data
+          echo "✅ Badge JSONs pushed to badge-data. deploy-badge-data.yml will trigger in ~30s."
+
+      # ----------------------------------------------------------------
+      # STEP 3: Open draft PR to main with SBOM + report (original behavior)
+      # ----------------------------------------------------------------
       - name: Open draft PR with sweep results
         if: inputs.dry_run == false
         uses: actions/github-script@v7
@@ -69,8 +154,8 @@ jobs:
               sha: mainSha,
             });
 
-            // Commit SBOM
-            const sbom = fs.readFileSync('meta/skills-sbom.cdx.json', 'base64');
+            // Commit SBOM to the sweep branch
+            const sbom = fs.readFileSync('meta/skills-sbom.cdx.json').toString('base64');
             const existingSbom = await github.rest.repos.getContent({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -87,17 +172,29 @@ jobs:
               sha: existingSbom?.data?.sha,
             });
 
-            // Read and post report as PR body
+            // Read sweep report and post as PR body
             const report = fs.readFileSync('sweep-report.md', 'utf8');
 
             const pr = await github.rest.pulls.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: 'chore(deps): seed dependency frontmatter via AST sweep — DRAFT',
-              body: report + '\n\n---\n> ⚠️ This is a machine-generated draft. Do NOT merge without reviewing Orange badges. See `meta/badge-states.md`.',
+              title: 'chore(deps): seed dependency frontmatter via AST sweep \u2014 DRAFT',
+              body: [
+                report,
+                '',
+                '---',
+                '> \u26a0\ufe0f This is a machine-generated draft. Do NOT merge without reviewing Orange badges.',
+                '> See `meta/badge-states.md` for the verification PR template.',
+                '>',
+                '> **Note:** Yellow badge JSONs have already been pushed to the `badge-data`',
+                '> branch (pre-merge). The site now shows Yellow for all scanned skills.',
+                '> Merging this PR updates `main` + the SBOM so `sync-badges.yml` and',
+                '> `osv-watch.yml` can reference the canonical dependency list.',
+              ].join('\n'),
               head: branch,
               base: 'main',
               draft: true,
             });
 
             console.log(`Draft PR created: ${pr.data.html_url}`);
+            console.log('Badge JSONs are already live on badge-data branch.');

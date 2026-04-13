@@ -1,0 +1,225 @@
+name: Sync Badge Metadata
+
+# THE BRIDGE — closes the branch-disconnect gap.
+#
+# Problem it solves:
+#   ast-sweep.yml opens a PR to `main` with frontmatter + SBOM changes.
+#   When that PR merges, skills on `main` now declare their dependencies.
+#   Without this workflow, the `badge-data` branch would never learn about
+#   those changes — badges would stay Grey forever until the next manual sweep.
+#
+# How it works:
+#   1. Triggered on any push to `main` that touches skills/ or the SBOM.
+#   2. Reads the existing SBOM (meta/skills-sbom.cdx.json) to find confirmed packages.
+#   3. Reads skill frontmatter to find manually-verified skills.
+#   4. Generates badge JSONs from the CURRENT state of `main` (not a re-scan).
+#      - Skills with `confidence: verified` in frontmatter → Green
+#      - Skills present in SBOM with confirmed packages     → Yellow
+#      - Everything else                                    → stays as-is (no regression)
+#   5. Pushes ONLY the changed badge JSONs to `badge-data` branch.
+#   6. The `deploy-badge-data.yml` workflow fires automatically on that push.
+#
+# This ensures: merge a PR to `main` → badges update within ~60 seconds.
+# No manual steps. No drift.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/*.md'            # Any skill file change
+      - 'meta/skills-sbom.cdx.json' # SBOM update (from AST sweep merge)
+  workflow_dispatch:
+    inputs:
+      force_full_sync:
+        description: 'Regenerate ALL badge JSONs (not just changed files)'
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    name: Sync badge-data from main state
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0         # Full history so we can diff changed files
+          path: main-repo
+
+      - name: Checkout badge-data branch
+        uses: actions/checkout@v4
+        with:
+          ref: badge-data
+          path: badge-data-repo
+        continue-on-error: true  # Branch may not exist yet (first run)
+
+      - name: Bootstrap badge-data branch if missing
+        run: |
+          if [ ! -d badge-data-repo/.git ]; then
+            echo "badge-data branch not found. Creating orphan branch..."
+            cd main-repo
+            git checkout --orphan badge-data
+            git rm -rf . --quiet
+            echo '{"info": "Skills Tree badge data", "generated_by": "sync-badges.yml"}' > README.json
+            git add README.json
+            git config user.name  'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'chore: bootstrap badge-data orphan branch'
+            git push origin badge-data
+            cd ..
+            git clone --branch badge-data --depth 1 \
+              https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
+              badge-data-repo
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate updated badge JSONs from main state
+        run: |
+          python3 - <<'PYEOF'
+          import json, re, os
+          from pathlib import Path
+
+          MAIN       = Path("main-repo")
+          BADGE_OUT  = Path("badge-updates")
+          BADGE_OUT.mkdir(exist_ok=True)
+
+          SBOM_PATH  = MAIN / "meta" / "skills-sbom.cdx.json"
+          SKILLS_ROOT = MAIN / "skills"
+
+          # --- Load SBOM: which skills have known packages? ---
+          sbom_skills: dict[str, list[str]] = {}   # skill_path -> [package, ...]
+          if SBOM_PATH.exists():
+              sbom = json.loads(SBOM_PATH.read_text())
+              for component in sbom.get("components", []):
+                  for skill_path in component.get("usedIn", []):
+                      sbom_skills.setdefault(skill_path, []).append(component["name"])
+
+          def parse_frontmatter(text: str) -> dict:
+              """Extract YAML-ish frontmatter keys we care about (no full YAML parser needed)."""
+              if not text.startswith("---"):
+                  return {}
+              end = text.find("---", 3)
+              if end == -1:
+                  return {}
+              block = text[3:end]
+              result = {}
+              for line in block.splitlines():
+                  m = re.match(r'^(\w[\w-]*):\s*(.+)', line.strip())
+                  if m:
+                      result[m.group(1)] = m.group(2).strip().strip('"\'')
+              # Count dependencies list items
+              dep_count = len(re.findall(r'^\s+-\s+package:', block, re.MULTILINE))
+              if dep_count:
+                  result["_dep_count"] = dep_count
+              # Check if ALL deps are verified
+              conf_values = re.findall(r'confidence:\s*(\w[-\w]*)', block)
+              result["_all_verified"] = bool(conf_values) and all(c == "verified" for c in conf_values)
+              result["_any_machine"] = any(c == "machine-inferred" for c in conf_values)
+              return result
+
+          def skill_key(path: Path) -> str:
+              rel = str(path.relative_to(MAIN)).replace("\\", "/")
+              return rel.replace("/", "-").replace(".md", "")
+
+          VERIFIED_BADGE = {
+              "schemaVersion": 1, "label": "deps",
+              "message": "\u2714 verified",
+              "color": "22c55e", "style": "flat-square",
+          }
+          UNSCANNED_BADGE = {
+              "schemaVersion": 1, "label": "deps",
+              "message": "unscanned",
+              "color": "lightgrey", "style": "flat-square",
+          }
+
+          updated = 0
+          for skill_path in sorted(SKILLS_ROOT.rglob("*.md")):
+              text = skill_path.read_text(encoding="utf-8", errors="ignore")
+              fm = parse_frontmatter(text)
+              key = skill_key(skill_path)
+              badge_file = BADGE_OUT / f"{key}.json"
+
+              # Check if current badge on badge-data branch is already advisory (red)
+              # — never regress an advisory badge automatically
+              existing_badge_path = Path("badge-data-repo") / f"{key}.json"
+              if existing_badge_path.exists():
+                  existing = json.loads(existing_badge_path.read_text())
+                  if "CVE" in existing.get("message", "") or existing.get("color") == "critical":
+                      continue  # Never overwrite an advisory badge
+
+              # Determine new state
+              skill_rel = str(skill_path.relative_to(MAIN)).replace("\\", "/")
+              in_sbom   = skill_rel in sbom_skills
+              dep_count = sbom_skills.get(skill_rel, [])
+
+              if fm.get("_all_verified") and fm.get("_dep_count", 0) > 0:
+                  badge = VERIFIED_BADGE
+              elif in_sbom and dep_count:
+                  n = len(dep_count)
+                  badge = {
+                      "schemaVersion": 1, "label": "deps",
+                      "message": f"machine-inferred \u00b7 {n} pkg{'s' if n != 1 else ''}",
+                      "color": "yellow", "style": "flat-square",
+                  }
+              elif fm.get("_dep_count", 0) == 0 and not in_sbom:
+                  # No deps declared, not in SBOM — only write if currently unscanned
+                  # (don't overwrite yellow/green with grey)
+                  if not existing_badge_path.exists():
+                      badge = UNSCANNED_BADGE
+                  else:
+                      continue
+              else:
+                  continue  # Nothing to change
+
+              badge_file.write_text(json.dumps(badge, indent=2))
+              updated += 1
+
+          print(f"Generated {updated} badge JSON updates in badge-updates/")
+          PYEOF
+
+      - name: Check if there are any badge updates
+        id: diff
+        run: |
+          CHANGED=0
+          for f in badge-updates/*.json; do
+            [ -f "$f" ] || continue
+            KEY=$(basename "$f")
+            EXISTING="badge-data-repo/$KEY"
+            if [ ! -f "$EXISTING" ] || ! diff -q "$f" "$EXISTING" > /dev/null 2>&1; then
+              CHANGED=$((CHANGED + 1))
+            fi
+          done
+          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+          echo "$CHANGED badge file(s) differ from badge-data branch."
+
+      - name: Push changed badges to badge-data branch
+        if: steps.diff.outputs.changed != '0'
+        run: |
+          cp badge-updates/*.json badge-data-repo/ 2>/dev/null || true
+
+          cd badge-data-repo
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git add -A
+          git diff --staged --quiet && echo "Nothing to commit." && exit 0
+
+          CHANGED=${{ steps.diff.outputs.changed }}
+          TRIGGER_SHA=$(cd ../main-repo && git rev-parse --short HEAD)
+          git commit -m "sync(badges): ${CHANGED} badge(s) updated from main@${TRIGGER_SHA}"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git badge-data
+
+          echo "✅ Pushed ${CHANGED} updated badge JSON(s) to badge-data branch."
+          echo "GitHub Pages will redeploy in ~30 seconds (deploy-badge-data.yml triggered)."
+
+      - name: No changes needed
+        if: steps.diff.outputs.changed == '0'
+        run: echo "✅ All badges are already up to date. No push needed."
