@@ -1,0 +1,76 @@
+name: Deploy Badge Data to Pages
+
+# Deploys JSON badge files from the badge-data orphan branch to GitHub Pages.
+# Badge URLs in skill files point to:
+#   https://samotech.github.io/skills-tree/badges/<key>.json
+#
+# This keeps badge state inside the project's trust boundary (no external Gists),
+# provides full git history of every state transition, and eliminates external
+# service dependencies.
+#
+# See meta/badge-states.md for the four-state trust contract and badge URL format.
+
+on:
+  push:
+    branches:
+      - badge-data     # Trigger on any push to the badge-data orphan branch
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy badge JSONs to GitHub Pages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout badge-data branch
+        uses: actions/checkout@v4
+        with:
+          ref: badge-data
+
+      - name: Set up Pages directory structure
+        run: |
+          mkdir -p _site/badges
+          # Copy all badge JSONs into _site/badges/
+          cp *.json _site/badges/ 2>/dev/null || echo 'No JSON files found (first run)'
+
+          # Add CORS headers via _headers file (for shields.io fetcher)
+          cat > _site/_headers << 'EOF'
+          /badges/*
+            Access-Control-Allow-Origin: *
+            Cache-Control: no-cache, max-age=60
+            Content-Type: application/json
+          EOF
+
+          # Add a simple index listing all badge keys
+          echo '{' > _site/index.json
+          echo '  "badges": [' >> _site/index.json
+          ls _site/badges/*.json 2>/dev/null | \
+            sed 's|_site/badges/||;s|.json||' | \
+            awk '{printf "    \\"" $0 "\\",\n"}' | \
+            sed '$s/,$//' >> _site/index.json
+          echo '  ],' >> _site/index.json
+          echo "  \"total\": $(ls _site/badges/*.json 2>/dev/null | wc -l | tr -d ' ')" >> _site/index.json
+          echo '}' >> _site/index.json
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report deployment
+        run: |
+          BADGE_COUNT=$(ls _site/badges/*.json 2>/dev/null | wc -l | tr -d ' ')
+          echo "Deployed ${BADGE_COUNT} badge JSON files to GitHub Pages."
+          echo "Badge base URL: ${{ steps.deployment.outputs.page_url }}badges/"

@@ -1,0 +1,117 @@
+name: OSV Dependency Watchdog
+
+# Polls OSV.dev every 15 minutes for CVEs affecting packages in the SBOM.
+# SLA: badge states updated within 15 minutes of CVE appearing in OSV database.
+# Documented in meta/badge-states.md
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'   # Every 15 minutes — the SLA clock
+  workflow_dispatch:          # Manual trigger for testing
+    inputs:
+      dry_run:
+        description: 'Dry run (print hits, do not update badges)'
+        type: boolean
+        default: false
+
+jobs:
+  osv-scan:
+    name: Query OSV for Active Advisories
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # To push badge JSON updates to badge-data branch
+      issues: write            # To open advisory issues
+      pull-requests: write     # To comment on PRs touching affected skills
+
+    steps:
+      - name: Checkout main branch (for SBOM)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install httpx
+
+      - name: Run OSV check
+        id: osv
+        working-directory: main-repo
+        run: |
+          DRY_FLAG=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY_FLAG="--dry-run"
+          fi
+          python tools/osv_check.py \
+            --sbom meta/skills-sbom.cdx.json \
+            --badge-output badge-data-output \
+            --advisory-file osv-hits.json \
+            $DRY_FLAG
+
+      - name: Push updated badges to badge-data branch
+        if: steps.osv.outputs.has_hits == 'true' && inputs.dry_run != 'true'
+        working-directory: main-repo
+        run: |
+          # Checkout the badge-data branch alongside main-repo
+          git clone --branch badge-data --depth 1 \
+            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
+            badge-data-branch
+
+          # Copy updated advisory badge JSONs
+          cp badge-data-output/*.json badge-data-branch/ 2>/dev/null || true
+
+          cd badge-data-branch
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+
+          ADVISORY_COUNT=$(cat ../osv-hits.json | python3 -c \
+            "import json,sys; d=json.load(sys.stdin); print(len(d['hits']))")
+          git commit -m "watchdog(osv): advisory badges updated — ${ADVISORY_COUNT} package(s) affected"
+          git push origin badge-data
+
+      - name: Post advisory summary as GitHub Issue
+        if: steps.osv.outputs.has_hits == 'true' && inputs.dry_run != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const hits = JSON.parse(fs.readFileSync('main-repo/osv-hits.json', 'utf8'));
+
+            let body = `## 🚨 Dependency Advisory — ${new Date().toISOString().slice(0,10)}\n\n`;
+            body += `> Detected by 15-minute OSV polling. SLA: badge states are updated within 15 minutes.\n\n`;
+            body += `### Affected Packages\n\n`;
+
+            for (const hit of hits.hits) {
+              const cves = hit.vulns.map(v => `[${v.id}](https://osv.dev/vulnerability/${v.id})`).join(', ');
+              body += `#### \`${hit.package}\` (${hit.purl})\n`;
+              body += `**CVEs:** ${cves}\n\n`;
+              body += `**Affected skills:**\n`;
+              for (const skill of hit.usedIn) {
+                body += `- \`${skill}\`\n`;
+              }
+              body += `\n`;
+            }
+
+            body += `### Resolution\n\n`;
+            body += `For each affected skill:\n`;
+            body += `1. Update the skill's \`tested_version\` in frontmatter to a patched version\n`;
+            body += `2. Open a verification PR (see \`meta/badge-states.md\`)\n`;
+            body += `3. On merge, the badge will transition from \`advisory\` back to \`verified\`\n`;
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚨 Dependency Advisory: ${hits.hits.map(h => h.package).join(', ')}`,
+              body: body,
+              labels: ['security', 'dependency-advisory'],
+            });
+
+      - name: No advisories found
+        if: steps.osv.outputs.has_hits != 'true'
+        run: echo "✅ All packages clean. No advisories in OSV database."
