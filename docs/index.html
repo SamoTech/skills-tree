@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skills Tree — AI Agent Capability Browser</title>
-<meta name="description" content="Browse 515+ AI agent skills across 16 categories. The complete capability reference for AI agents, LLMs, and agentic frameworks.">
+<meta name="description" content="Browse 490+ AI agent skills across 16 categories. The complete capability reference for AI agents, LLMs, and agentic frameworks.">
 <meta property="og:title" content="Skills Tree — AI Agent Capability Browser">
-<meta property="og:description" content="515+ skills for AI agents across 16 categories.">
+<meta property="og:description" content="490+ skills for AI agents across 16 categories.">
 <meta property="og:url" content="https://samotech.github.io/skills-tree">
-<meta property="og:image" content="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-dark.svg">
-<link rel="icon" href="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:image" content="https://samotech.github.io/skills-tree/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Inline SVG favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233fb950'/><circle cx='16' cy='9' r='3' fill='white'/><circle cx='8' cy='22' r='3' fill='white'/><circle cx='24' cy='22' r='3' fill='white'/><line x1='16' y1='12' x2='8' y2='19' stroke='white' stroke-width='1.8'/><line x1='16' y1='12' x2='24' y2='19' stroke='white' stroke-width='1.8'/></svg>" type="image/svg+xml">
 <style>
 /* =============================================
    DESIGN TOKENS — Skills Tree
    Art direction: AI/dev tool → clean, dark-first
-   Palette: dark slate surfaces + green accent
+   Palette: dark slate surfaces + green accent (GitHub-matched)
    Typography: Inter (body/UI) + JetBrains Mono (code)
    Density: balanced
    ============================================= */
@@ -84,8 +85,6 @@ p{text-wrap:pretty}
   --shadow-sm:0 1px 3px rgba(0,0,0,.4);
   --shadow-md:0 4px 16px rgba(0,0,0,.5);
   --shadow-lg:0 12px 40px rgba(0,0,0,.6);
-  --logo-dark-url:"https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-dark.svg";
-  --logo-light-url:"https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-light.svg";
 }
 
 [data-theme="light"]{
@@ -144,11 +143,12 @@ nav{
 }
 
 .nav-logo{
-  display:flex;align-items:center;
+  display:flex;align-items:center;gap:var(--sp2);
   transition:opacity var(--dur-fast);flex-shrink:0;
 }
 .nav-logo:hover{opacity:.8}
-.nav-logo img{height:34px;width:auto;display:block;}
+.nav-logo-svg{height:32px;width:auto;}
+.nav-logo-text{font-size:var(--text-sm);font-weight:700;letter-spacing:-.02em;color:var(--text);white-space:nowrap;}
 
 .nav-center{
   flex:1;display:flex;justify-content:center;
@@ -204,6 +204,16 @@ nav{
   pointer-events:none;
 }
 
+/* Hero logo lockup */
+.hero-logo-wrap{
+  display:flex;align-items:center;justify-content:center;gap:var(--sp4);
+  margin-bottom:var(--sp6);position:relative;
+}
+.hero-logo-mark{
+  width:64px;height:64px;
+  filter:drop-shadow(0 0 20px var(--primary-dim));
+}
+
 .hero-badge{
   display:inline-flex;align-items:center;gap:var(--sp2);
   background:var(--primary-dim);color:var(--primary);
@@ -231,6 +241,13 @@ nav{
   max-width:52ch;margin:0 auto var(--sp8);
   line-height:1.6;position:relative;
 }
+
+/* GitHub badges row */
+.hero-badges-row{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp2);
+  margin-bottom:var(--sp6);position:relative;
+}
+.hero-badges-row img{height:20px;border-radius:3px;}
 
 .hero-actions{display:flex;gap:var(--sp3);justify-content:center;flex-wrap:wrap;position:relative;}
 
@@ -364,6 +381,7 @@ footer{border-top:1px solid var(--border);padding:var(--sp8) var(--sp6);text-ali
 footer a{color:var(--accent);transition:color var(--dur-fast)}
 footer a:hover{color:var(--text)}
 .footer-links{display:flex;gap:var(--sp4);justify-content:center;flex-wrap:wrap;margin-top:var(--sp3)}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:var(--sp2);margin-bottom:var(--sp4);opacity:.6;}
 
 /* ===== SCROLL REVEALS ===== */
 @supports(animation-timeline:scroll()){
@@ -383,12 +401,14 @@ footer a:hover{color:var(--text)}
   .stats-bar{grid-template-columns:1fr 1fr}
   .sponsor-tiers{grid-template-columns:1fr 1fr}
   .hero-stats{gap:var(--sp6)}
+  .hero-logo-mark{width:48px;height:48px;}
 }
 @media(max-width:480px){
   .stats-bar{grid-template-columns:1fr}
   .sponsor-tiers{grid-template-columns:1fr 1fr}
   .hero p{font-size:var(--text-base)}
   .category-grid{gap:var(--sp3)}
+  .hero-badges-row{gap:var(--sp1)}
 }
 </style>
 </head>
@@ -398,16 +418,21 @@ footer a:hover{color:var(--text)}
 
 <!-- NAV -->
 <nav role="navigation" aria-label="Primary navigation">
-  <!-- Logo: uses raw.githubusercontent.com so it always resolves on GitHub Pages -->
+  <!-- Inline SVG logo — no external image dependency -->
   <a href="https://samotech.github.io/skills-tree/" class="nav-logo" aria-label="Skills Tree home">
-    <img
-      id="nav-logo-img"
-      src="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-dark.svg"
-      alt="Skills Tree"
-      width="130"
-      height="34"
-      loading="eager"
-    >
+    <!-- Logo mark -->
+    <svg class="nav-logo-svg" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Tree mark -->
+      <rect x="0" y="0" width="32" height="32" rx="7" fill="#3fb950"/>
+      <circle cx="16" cy="8" r="3" fill="white"/>
+      <circle cx="8" cy="22" r="3" fill="white"/>
+      <circle cx="24" cy="22" r="3" fill="white"/>
+      <line x1="16" y1="11" x2="8" y2="19" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="16" y1="11" x2="24" y2="19" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="16" y1="11" x2="16" y2="25" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- Wordmark -->
+      <text x="40" y="22" font-family="Inter,-apple-system,sans-serif" font-size="14" font-weight="700" fill="currentColor" letter-spacing="-.3">Skills Tree</text>
+    </svg>
   </a>
 
   <div class="nav-center nav-links-desktop">
@@ -438,9 +463,41 @@ footer a:hover{color:var(--text)}
 
 <!-- HERO -->
 <header class="hero" role="banner">
+  <!-- Hero logo mark -->
+  <div class="hero-logo-wrap" aria-hidden="true">
+    <svg class="hero-logo-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="14" fill="#3fb950"/>
+      <circle cx="32" cy="14" r="5.5" fill="white"/>
+      <circle cx="14" cy="46" r="5.5" fill="white"/>
+      <circle cx="50" cy="46" r="5.5" fill="white"/>
+      <line x1="32" y1="20" x2="14" y2="40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="20" x2="50" y2="40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="20" x2="32" y2="52" stroke="white" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3"/>
+    </svg>
+  </div>
+
   <div class="hero-badge">Open Source &bull; MIT License</div>
   <h1><span class="gradient-text">AI Agent Skills Tree</span></h1>
   <p>The complete capability reference for AI agents, LLMs, computer-use models, and agentic frameworks.</p>
+
+  <!-- GitHub shield badges -->
+  <div class="hero-badges-row" aria-label="Repository badges">
+    <a href="https://github.com/SamoTech/skills-tree/stargazers" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/github/stars/SamoTech/skills-tree?style=flat&label=Stars&color=3fb950&labelColor=161b22" alt="GitHub stars" width="auto" height="20" loading="lazy">
+    </a>
+    <a href="https://github.com/SamoTech/skills-tree/forks" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/github/forks/SamoTech/skills-tree?style=flat&label=Forks&color=58a6ff&labelColor=161b22" alt="GitHub forks" width="auto" height="20" loading="lazy">
+    </a>
+    <a href="https://github.com/SamoTech/skills-tree/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/License-MIT-green?style=flat&labelColor=161b22" alt="MIT License" width="auto" height="20" loading="lazy">
+    </a>
+    <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.shields.io/badge/PRs-Welcome-3fb950?style=flat&labelColor=161b22" alt="PRs welcome" width="auto" height="20" loading="lazy">
+    </a>
+    <img src="https://img.shields.io/badge/Skills-490%2B-bc8cff?style=flat&labelColor=161b22" alt="490+ skills" width="auto" height="20" loading="lazy">
+    <img src="https://img.shields.io/badge/Categories-16-f0883e?style=flat&labelColor=161b22" alt="16 categories" width="auto" height="20" loading="lazy">
+  </div>
+
   <div class="hero-actions">
     <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -456,10 +513,10 @@ footer a:hover{color:var(--text)}
     </a>
   </div>
   <div class="hero-stats" role="list" aria-label="Repository statistics">
-    <div class="stat" role="listitem"><div class="stat-num">515+</div><div class="stat-label">Skills</div></div>
-    <div class="stat" role="listitem"><div class="stat-num">16</div><div class="stat-label">Categories</div></div>
-    <div class="stat" role="listitem"><div class="stat-num">25+</div><div class="stat-label">Frameworks</div></div>
-    <div class="stat" role="listitem"><div class="stat-num">MIT</div><div class="stat-label">License</div></div>
+    <div class="stat" role="listitem"><div class="stat-num" data-count="490" data-suffix="+">490+</div><div class="stat-label">Skills</div></div>
+    <div class="stat" role="listitem"><div class="stat-num" data-count="16">16</div><div class="stat-label">Categories</div></div>
+    <div class="stat" role="listitem"><div class="stat-num" data-count="16">16</div><div class="stat-label">Folders</div></div>
+    <div class="stat" role="listitem"><div class="stat-num" data-text="MIT">MIT</div><div class="stat-label">License</div></div>
   </div>
 </header>
 
@@ -487,7 +544,7 @@ footer a:hover{color:var(--text)}
     </div>
   </div>
 
-  <p class="result-info" id="result-info" aria-live="polite" aria-atomic="true">Showing all 16 categories — 515+ skills</p>
+  <p class="result-info" id="result-info" aria-live="polite" aria-atomic="true">Showing all 16 categories — 490+ skills</p>
 
   <section class="section" aria-label="Skill categories">
     <div class="category-grid" id="category-grid" role="list"></div>
@@ -510,6 +567,19 @@ footer a:hover{color:var(--text)}
 </main>
 
 <footer role="contentinfo">
+  <!-- Footer logo mark -->
+  <div class="footer-logo" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 64 64" fill="none">
+      <rect width="64" height="64" rx="14" fill="#3fb950"/>
+      <circle cx="32" cy="14" r="5.5" fill="white"/>
+      <circle cx="14" cy="46" r="5.5" fill="white"/>
+      <circle cx="50" cy="46" r="5.5" fill="white"/>
+      <line x1="32" y1="20" x2="14" y2="40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="20" x2="50" y2="40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="20" x2="32" y2="52" stroke="white" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 3"/>
+    </svg>
+    <span style="font-size:var(--text-sm);font-weight:700;color:var(--text-muted)">Skills Tree</span>
+  </div>
   <p>Built with ❤️ by <a href="https://github.com/SamoTech" target="_blank" rel="noopener noreferrer">Ossama Hashim</a></p>
   <nav class="footer-links" aria-label="Footer links">
     <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -523,14 +593,13 @@ footer a:hover{color:var(--text)}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-// ---- Theme toggle + logo swap ----
+// ---- Theme toggle ----
 (function(){
   const root = document.documentElement;
   const btn  = document.querySelector('[data-theme-toggle]');
-  const logo = document.getElementById('nav-logo-img');
-  const LOGO_DARK  = 'https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-dark.svg';
-  const LOGO_LIGHT = 'https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/logo-light.svg';
-  let theme = 'dark';
+  let theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  // Default dark for dev tools aesthetic
+  theme = 'dark';
   root.setAttribute('data-theme', theme);
 
   function updateBtn(){
@@ -541,7 +610,6 @@ footer a:hover{color:var(--text)}
         ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
         : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     }
-    if(logo) logo.src = isDark ? LOGO_DARK : LOGO_LIGHT;
   }
   updateBtn();
   if(btn) btn.addEventListener('click', () => {
@@ -551,25 +619,27 @@ footer a:hover{color:var(--text)}
   });
 })();
 
-// ---- Data ----
+// ---- Category data (counts verified from repo) ----
 const categories = [
-  {id:'01',icon:'👁️',name:'Perception',count:26,desc:'Sense, parse, and interpret all input types — text, images, PDFs, sensors, APIs.',tags:['ocr','pdf-parsing','audio-transcription','image-understanding'],levels:['basic','intermediate'],path:'skills/01-perception/'},
+  {id:'01',icon:'👁️',name:'Perception',count:33,desc:'Sense, parse, and interpret all input types — text, images, PDFs, sensors, APIs, logs.',tags:['ocr','pdf-parsing','audio-transcription','image-understanding'],levels:['basic','intermediate'],path:'skills/01-perception/'},
   {id:'02',icon:'🧠',name:'Reasoning',count:36,desc:'Think, plan, deduce, induce, hypothesize, and make decisions under uncertainty.',tags:['chain-of-thought','deductive','causal','tree-of-thought'],levels:['intermediate','advanced'],path:'skills/02-reasoning/'},
-  {id:'03',icon:'🗄️',name:'Memory',count:19,desc:'Short-term, long-term, episodic, semantic, vector, and cross-session memory.',tags:['working-memory','rag','vector-store','episodic-memory'],levels:['basic','intermediate','advanced'],path:'skills/03-memory/'},
-  {id:'04',icon:'⚡',name:'Action Execution',count:37,desc:'File I/O, HTTP calls, email, mouse, keyboard, shell commands, database writes.',tags:['http-request','file-write','shell-exec','database-write'],levels:['basic','intermediate','advanced'],path:'skills/04-action-execution/'},
-  {id:'05',icon:'💻',name:'Code',count:42,desc:'Write, run, debug, review, refactor, test, and deploy code in any language.',tags:['code-generation','debugging','unit-test','refactoring'],levels:['basic','intermediate','advanced'],path:'skills/05-code/'},
-  {id:'06',icon:'💬',name:'Communication',count:28,desc:'Summarize, translate, draft, argue, clarify, and adapt tone and persona.',tags:['summarization','translation','email-drafting','tone-adjustment'],levels:['basic','intermediate'],path:'skills/06-communication/'},
+  {id:'03',icon:'🗄️',name:'Memory',count:17,desc:'Short-term, long-term, episodic, semantic, vector, and cross-session memory.',tags:['working-memory','rag','vector-store','episodic-memory'],levels:['basic','intermediate','advanced'],path:'skills/03-memory/'},
+  {id:'04',icon:'⚡',name:'Action Execution',count:32,desc:'File I/O, HTTP calls, email, mouse, keyboard, shell commands, database writes.',tags:['http-request','file-write','shell-exec','database-write'],levels:['basic','intermediate','advanced'],path:'skills/04-action-execution/'},
+  {id:'05',icon:'💻',name:'Code',count:52,desc:'Write, run, debug, review, refactor, test, and deploy code in any language.',tags:['code-generation','debugging','unit-test','refactoring'],levels:['basic','intermediate','advanced'],path:'skills/05-code/'},
+  {id:'06',icon:'💬',name:'Communication',count:30,desc:'Summarize, translate, draft, argue, clarify, and adapt tone and persona.',tags:['summarization','translation','email-drafting','tone-adjustment'],levels:['basic','intermediate'],path:'skills/06-communication/'},
   {id:'07',icon:'🔧',name:'Tool Use',count:55,desc:'55+ integrations — GitHub, Slack, Stripe, OpenAI, MCP, A2A, and more.',tags:['github-api','slack-api','mcp-tools','a2a'],levels:['intermediate','advanced'],path:'skills/07-tool-use/'},
-  {id:'08',icon:'🎭',name:'Multimodal',count:25,desc:'Process and generate images, audio, video, VQA, 3D scenes, and charts.',tags:['image-classification','vqa','audio-transcription','chart-generation'],levels:['intermediate','advanced'],path:'skills/08-multimodal/'},
-  {id:'09',icon:'🤖',name:'Agentic Patterns',count:36,desc:'ReAct, CoT, ToT, MCTS, LATS, RAG, Constitutional AI, Debate, and more.',tags:['react','chain-of-thought','rag-pipeline','mcts'],levels:['advanced','experimental'],path:'skills/09-agentic-patterns/'},
+  {id:'08',icon:'🎭',name:'Multimodal',count:20,desc:'Process and generate images, audio, video, VQA, 3D scenes, and charts.',tags:['image-classification','vqa','audio-transcription','chart-generation'],levels:['intermediate','advanced'],path:'skills/08-multimodal/'},
+  {id:'09',icon:'🤖',name:'Agentic Patterns',count:18,desc:'ReAct, CoT, ToT, MCTS, LATS, RAG, Constitutional AI, Debate, and more.',tags:['react','chain-of-thought','rag-pipeline','mcts'],levels:['advanced','experimental'],path:'skills/09-agentic-patterns/'},
   {id:'10',icon:'🖥️',name:'Computer Use',count:37,desc:'Click, type, scroll, drag, OCR the screen, control terminals and VMs.',tags:['accessibility-tree','screen-ocr','terminal-interaction','vm-interaction'],levels:['intermediate','advanced'],path:'skills/10-computer-use/'},
-  {id:'11',icon:'🌐',name:'Web',count:28,desc:'Search, scrape, crawl, login, fill forms, run JavaScript, and parse feeds.',tags:['web-search','web-scraping','browser-navigation','form-filling'],levels:['basic','intermediate','advanced'],path:'skills/11-web/'},
-  {id:'12',icon:'📊',name:'Data',count:18,desc:'ETL pipelines, SQL, pandas, embeddings, time series, anomaly detection.',tags:['etl','sql-query','embeddings','time-series'],levels:['intermediate','advanced'],path:'skills/12-data/'},
-  {id:'13',icon:'🎨',name:'Creative',count:27,desc:'Copywriting, image prompts, SVG design, music, memes, and video scripts.',tags:['copywriting','image-gen-prompt','svg-generation','lyrics-writing'],levels:['basic','intermediate'],path:'skills/13-creative/'},
-  {id:'14',icon:'🔒',name:'Security',count:20,desc:'Sandboxing, secret scanning, human-in-loop, rollback, and audit logging.',tags:['sandboxed-execution','secret-scanning','human-in-loop','audit-logging'],levels:['intermediate','advanced'],path:'skills/14-security/'},
-  {id:'15',icon:'🎼',name:'Orchestration',count:29,desc:'Multi-agent coordination, state machines, retry logic, consensus, and queues.',tags:['sequential-workflow','state-machine','retry-backoff','consensus-voting'],levels:['advanced','experimental'],path:'skills/15-orchestration/'},
+  {id:'11',icon:'🌐',name:'Web',count:25,desc:'Search, scrape, crawl, login, fill forms, run JavaScript, and parse feeds.',tags:['web-search','web-scraping','browser-navigation','form-filling'],levels:['basic','intermediate','advanced'],path:'skills/11-web/'},
+  {id:'12',icon:'📊',name:'Data',count:28,desc:'ETL pipelines, SQL, pandas, embeddings, time series, anomaly detection.',tags:['etl','sql-query','embeddings','time-series'],levels:['intermediate','advanced'],path:'skills/12-data/'},
+  {id:'13',icon:'🎨',name:'Creative',count:22,desc:'Copywriting, image prompts, SVG design, music, memes, and video scripts.',tags:['copywriting','image-gen-prompt','svg-generation','lyrics-writing'],levels:['basic','intermediate'],path:'skills/13-creative/'},
+  {id:'14',icon:'🔒',name:'Security',count:18,desc:'Sandboxing, secret scanning, human-in-loop, rollback, and audit logging.',tags:['sandboxed-execution','secret-scanning','human-in-loop','audit-logging'],levels:['intermediate','advanced'],path:'skills/14-security/'},
+  {id:'15',icon:'🎼',name:'Orchestration',count:15,desc:'Multi-agent coordination, state machines, retry logic, consensus, and queues.',tags:['sequential-workflow','state-machine','retry-backoff','consensus-voting'],levels:['advanced','experimental'],path:'skills/15-orchestration/'},
   {id:'16',icon:'🏺',name:'Domain-Specific',count:52,desc:'Medical, legal, finance, DevOps, education, science, and e-commerce skills.',tags:['medical','legal-research','financial-statement','iac-generation'],levels:['intermediate','advanced'],path:'skills/16-domain-specific/'}
 ];
+
+const totalSkills = categories.reduce((s,c)=>s+c.count,0);
 
 const baseUrl = 'https://github.com/SamoTech/skills-tree/tree/main/';
 
@@ -578,15 +648,15 @@ function levelColor(l){ return {basic:'primary',intermediate:'accent',advanced:'
 function renderCards(items){
   const grid = document.getElementById('category-grid');
   const info = document.getElementById('result-info');
-  const total = items.reduce((s,c)=>s+c.count,0);
-  info.textContent = items.length>0 ? `Showing ${items.length} of 16 categories — ${total} skills` : 'No categories match your search';
+  const tot = items.reduce((s,c)=>s+c.count,0);
+  info.textContent = items.length>0 ? `Showing ${items.length} of 16 categories \u2014 ${tot} skills` : 'No categories match your search';
   if(!items.length){
     grid.innerHTML=`<div class="empty-state" role="listitem"><svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><h3>No results found</h3><p>Try a different search term or clear your filters.</p></div>`;
     return;
   }
   grid.innerHTML=items.map(c=>`
     <a href="${baseUrl}${c.path}" target="_blank" rel="noopener noreferrer"
-       class="category-card" role="listitem" aria-label="${c.name} — ${c.count} skills">
+       class="category-card" role="listitem" aria-label="${c.name} \u2014 ${c.count} skills">
       <div class="card-header">
         <div class="card-icon" aria-hidden="true">${c.icon}</div>
         <div class="card-meta">
@@ -598,7 +668,7 @@ function renderCards(items){
       <div class="card-desc">${c.desc}</div>
       <div class="card-tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
       <div class="card-footer">
-        <div>${c.levels.map(l=>`<span class="tag" style="border-color:var(--${levelColor(l)}-border,var(--border));color:var(--${levelColor(l)},var(--text-muted))">${l}</span>`).join('')}</div>
+        <div style="display:flex;gap:.25rem;flex-wrap:wrap">${c.levels.map(l=>`<span class="tag" style="border-color:var(--${levelColor(l)}-border,var(--border));color:var(--${levelColor(l)},var(--text-muted))">${l}</span>`).join('')}</div>
         <span class="card-action">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>`).join('');
@@ -631,14 +701,18 @@ document.querySelectorAll('#filters .filter-btn').forEach(b=>{
   });
 });
 
-// Count-up animation
-function countUp(el,target,sx=''){
-  const n=parseInt(target);if(isNaN(n)){el.textContent=target;return;}
-  let s=0;const step=Math.ceil(n/40);
-  const t=setInterval(()=>{s=Math.min(s+step,n);el.textContent=s+sx;if(s>=n)clearInterval(t);},30);
+// Count-up animation — safe, handles text values like "MIT"
+function countUp(el){
+  const raw = el.dataset.text;
+  if(raw){el.textContent=raw;return;}  // text-only stat (MIT)
+  const target = parseInt(el.dataset.count||el.textContent);
+  const suffix = el.dataset.suffix||'';
+  if(isNaN(target)){return;}  // safety net — never shows NaN
+  let cur=0;const step=Math.ceil(target/40);
+  const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur+suffix;if(cur>=target)clearInterval(t);},30);
 }
 const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){const el=e.target,raw=el.textContent,sx=raw.includes('+')?'+':'';countUp(el,parseInt(raw),sx);obs.unobserve(el);}});
+  entries.forEach(e=>{if(e.isIntersecting){countUp(e.target);obs.unobserve(e.target);}});
 },{threshold:.5});
 document.querySelectorAll('.stat-num').forEach(el=>obs.observe(el));
 </script>
