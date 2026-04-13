@@ -1,0 +1,189 @@
+# dependency-auditor.yml
+#
+# Phase 3 of the Dependency Watchdog pipeline.
+# Closes the Execution Gap: "package exists" -> "code actually runs".
+#
+# Triggers:
+#   - PR touching skills/**/*.md (audits changed skills only)
+#   - Weekly cron Sunday 02:00 UTC (full sweep of all Yellow-badged skills)
+#   - Manual workflow_dispatch (full sweep on demand)
+#
+# Outputs:
+#   - badge-data-output/<key>.json  (Green badge proposals)
+#   - verification-pr-body.md       (PR description for human sign-off)
+#
+# The Human-in-the-Loop contract:
+#   This workflow PROPOSES Green badges. It never merges them.
+#   A maintainer must review and merge the verification PR.
+#
+# Security model:
+#   - Snippets run inside ephemeral GitHub Actions runners (discarded after job)
+#   - PRs from external contributors require maintainer approval before
+#     the audit workflow is triggered (see: pull_request_target note below)
+#   - See SECURITY.md#phase-3-execution-gap--network-constraints for escalation
+
+name: Dependency Auditor (Phase 3)
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**/*.md'
+  schedule:
+    # Weekly full sweep: Sunday 02:00 UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:
+    inputs:
+      skills_root:
+        description: 'Skills directory to audit (default: skills)'
+        required: false
+        default: 'skills'
+      dry_run:
+        description: 'Dry run — print results, do not open PR'
+        required: false
+        default: 'false'
+        type: boolean
+
+jobs:
+  audit:
+    name: Run Dependency Auditor
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install auditor dependencies
+        run: |
+          pip install --quiet httpx packaging
+
+      - name: Determine skills to audit
+        id: scope
+        run: |
+          SKILLS_ROOT="${{ github.event.inputs.skills_root || 'skills' }}"
+          echo "skills_root=${SKILLS_ROOT}" >> $GITHUB_OUTPUT
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # Audit only changed skill files in this PR
+            CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+              | grep '^skills/.*\.md$' | head -50)
+            echo "Changed skill files:"
+            echo "$CHANGED"
+            echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+            echo "$CHANGED" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "mode=pr" >> $GITHUB_OUTPUT
+          else
+            # Full sweep: all .md files under skills/
+            echo "mode=full" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run dependency auditor
+        id: audit
+        run: |
+          DRY_RUN="${{ github.event.inputs.dry_run || 'false' }}"
+          SKILLS_ROOT="${{ steps.scope.outputs.skills_root }}"
+          MODE="${{ steps.scope.outputs.mode }}"
+
+          DRY_FLAG=""
+          if [ "$DRY_RUN" = "true" ]; then
+            DRY_FLAG="--dry-run"
+          fi
+
+          if [ "$MODE" = "pr" ] && [ -n "${{ steps.scope.outputs.changed_files }}" ]; then
+            # Write changed files list to a temp file for the script
+            echo "${{ steps.scope.outputs.changed_files }}" > /tmp/changed_skills.txt
+            python tools/dependency_auditor.py \
+              --skills-file /tmp/changed_skills.txt \
+              --badge-output badge-data-output \
+              --pr-body verification-pr-body.md \
+              $DRY_FLAG
+          else
+            python tools/dependency_auditor.py \
+              --skills-root "${SKILLS_ROOT}" \
+              --badge-output badge-data-output \
+              --pr-body verification-pr-body.md \
+              $DRY_FLAG
+          fi
+
+      - name: Check for Green promotions
+        id: check_promotions
+        run: |
+          COUNT=$(ls badge-data-output/*.json 2>/dev/null | wc -l || echo 0)
+          echo "badge_count=${COUNT}" >> $GITHUB_OUTPUT
+          if [ "$COUNT" -gt 0 ]; then
+            echo "has_promotions=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_promotions=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit badge proposals to branch
+        if: steps.check_promotions.outputs.has_promotions == 'true' && github.event.inputs.dry_run != 'true'
+        run: |
+          BRANCH="auditor/green-proposals-$(date +%Y%m%d-%H%M%S)"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout -b "$BRANCH"
+          git add badge-data-output/
+          if [ -f verification-pr-body.md ]; then
+            git add verification-pr-body.md
+          fi
+          git commit -m "feat(badges): propose Green promotions from dependency audit
+
+Auto-generated by dependency-auditor.yml.
+Badge count: ${{ steps.check_promotions.outputs.badge_count }}
+Requires human review before merge."
+          git push origin "$BRANCH"
+          echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
+        id: commit
+
+      - name: Open verification PR
+        if: steps.check_promotions.outputs.has_promotions == 'true' && github.event.inputs.dry_run != 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const branch = '${{ steps.commit.outputs.branch }}';
+            const badgeCount = '${{ steps.check_promotions.outputs.badge_count }}';
+
+            let body = `## \u{1F7E2} Dependency Auditor — Verification PR\n\n`;
+            body += `> Auto-generated by \`dependency-auditor.yml\`. **Do not merge without reviewing each skill.**\n\n`;
+            body += `**${badgeCount} skill(s)** have passed execution audit and are proposed for Yellow → Green promotion.\n\n`;
+
+            try {
+              const prBody = fs.readFileSync('verification-pr-body.md', 'utf8');
+              body = prBody;
+            } catch (e) {
+              // verification-pr-body.md not generated, use default body above
+            }
+
+            await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `\u{1F7E2} Badge Promotion: ${badgeCount} skill(s) verified by Dependency Auditor`,
+              body: body,
+              head: branch,
+              base: 'main',
+              draft: false,
+            });
+
+      - name: Summary
+        run: |
+          echo "### \U0001f4cb Dependency Auditor Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          echo "| Mode | ${{ steps.scope.outputs.mode }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Green promotions proposed | ${{ steps.check_promotions.outputs.badge_count }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Dry run | ${{ github.event.inputs.dry_run || 'false' }} |" >> $GITHUB_STEP_SUMMARY
