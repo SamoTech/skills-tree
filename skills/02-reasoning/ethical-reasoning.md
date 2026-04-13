@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-ethical-reasoning.json)
+
 # Ethical Reasoning
 Category: reasoning | Level: advanced | Stability: stable | Version: v1
 

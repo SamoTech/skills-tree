@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-function-calling.json)
+
 # Function / Tool Calling
 
 **Category:** `tool-use`  

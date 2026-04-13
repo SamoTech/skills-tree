@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-README.json)
+
 # 🎨 Creative Skills
 
 Creative skills enable agents to **generate original content** — writing, images, music, code, and more.

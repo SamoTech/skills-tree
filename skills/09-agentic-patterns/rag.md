@@ -8,6 +8,8 @@ tags: [rag, retrieval, embeddings, knowledge-base]
 updated: 2026-04
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-rag.json)
+
 # RAG — Retrieval-Augmented Generation
 
 ## What It Does

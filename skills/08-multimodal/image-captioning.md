@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-image-captioning.json)
+
 # Image Captioning
 
 **Category:** `multimodal`  

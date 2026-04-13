@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-argument-construction.json)
+
 # Argument Construction
 
 **Category:** `communication`  

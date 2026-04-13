@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-state-machine.json)
+
 **Category:** Orchestration
 **Skill Level:** Advanced
 **Stability:** stable

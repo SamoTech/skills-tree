@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [working-memory, scratchpad, state-tracking, context-management]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-working-memory.json)
+
 # Working Memory
 
 ### Description

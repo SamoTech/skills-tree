@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-README.json)
+
 # 💻 Code Skills
 
 Code skills enable agents to **write, read, execute, debug, and reason about code** across languages, frameworks, and environments.

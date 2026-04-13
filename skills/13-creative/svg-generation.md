@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-svg-generation.json)
+
 **Category:** Creative
 **Skill Level:** Advanced
 **Stability:** stable

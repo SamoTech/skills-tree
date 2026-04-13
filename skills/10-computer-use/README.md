@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-README.json)
+
 # 🖥️ Computer Use Skills
 
 Computer use skills enable agents to **interact with desktop GUIs, operating systems, and applications** as a human would.

@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-etl-pipeline.json)
+
 # ETL Pipeline
 
 **Category:** `data`  

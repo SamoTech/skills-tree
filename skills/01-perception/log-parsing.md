@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-log-parsing.json)
+
 # Log Parsing
 Category: perception | Level: intermediate | Stability: stable | Version: v1
 

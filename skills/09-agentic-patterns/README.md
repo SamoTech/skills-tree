@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-README.json)
+
 # 🤖 Agentic Patterns
 
 Agentic patterns are **architectural strategies and reasoning frameworks** for building capable, reliable AI agents.

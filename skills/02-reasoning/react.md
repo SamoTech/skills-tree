@@ -8,6 +8,8 @@ tags: [reasoning, planning, tool-use, agentic]
 updated: 2026-04
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-react.json)
+
 # ReAct — Reasoning + Acting
 
 ## What It Does

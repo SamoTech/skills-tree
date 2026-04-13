@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-README.json)
+
 # 🔒 Security & Safety Skills
 
 Security skills ensure agents **operate safely, respect permissions, avoid harmful actions**, and protect systems they interact with.

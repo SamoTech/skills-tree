@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-network-traffic-reading.json)
+
 # Network Traffic Reading
 Category: perception | Level: advanced | Stability: stable | Version: v1
 

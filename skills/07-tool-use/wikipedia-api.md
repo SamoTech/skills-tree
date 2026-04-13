@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-wikipedia-api.json)
+
 # Wikipedia API
 
 **Category:** `tool-use`  

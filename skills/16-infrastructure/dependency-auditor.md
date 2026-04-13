@@ -28,6 +28,8 @@ author: "@SamoTech"
 updated: "2026-04-13"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-infrastructure-dependency-auditor.json)
+
 # Dependency Auditor
 
 > **Phase 3 of the Dependency Watchdog pipeline.**

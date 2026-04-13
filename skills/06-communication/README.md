@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-README.json)
+
 # 💬 Communication Skills
 
 Communication skills enable agents to **express, translate, summarize, and converse** in natural language across styles, languages, and formats.

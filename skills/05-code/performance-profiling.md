@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-performance-profiling.json)
+
 # Performance Profiling
 
 **Category:** `code`  

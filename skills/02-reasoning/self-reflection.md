@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-self-reflection.json)
+
 # Self-Reflection
 Category: reasoning | Level: intermediate | Stability: stable | Version: v1
 

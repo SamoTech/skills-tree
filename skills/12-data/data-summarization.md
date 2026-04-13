@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-summarization.json)
+
 # Data Summarization
 
 **Category:** `data`  

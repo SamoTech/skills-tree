@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-README.json)
+
 # 🏺 Domain-Specific Skills
 
 Domain-specific skills apply AI agent capabilities to **specialized professional and industry domains**.

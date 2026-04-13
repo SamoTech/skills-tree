@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [debugging, bug-fixing, root-cause-analysis, static-analysis, test-repair]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-bug-fixing.json)
+
 # Bug Fixing
 
 ### Description

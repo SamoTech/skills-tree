@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [audio, speech-to-text, whisper, diarization, timestamps]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-audio-transcription.json)
+
 # Audio Transcription
 
 ### Description

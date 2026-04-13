@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-README.json)
+
 # 🧠 Memory Skills
 
 Memory skills enable agents to **store, retrieve, and reason over information** across turns, sessions, and tasks.

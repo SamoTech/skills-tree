@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-debate-pattern.json)
+
 # Debate Pattern
 
 **Category:** `agentic-patterns`

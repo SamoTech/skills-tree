@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural-memory.json)
+
 # Procedural Memory
 
 **Category:** `memory`  

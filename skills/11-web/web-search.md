@@ -8,6 +8,8 @@ tags: [web, search, retrieval, tool-use]
 updated: 2026-04
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-search.json)
+
 # Web Search
 
 ## What It Does

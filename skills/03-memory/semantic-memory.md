@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [semantic-memory, knowledge-base, embeddings, vector-search, knowledge-graph]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-semantic-memory.json)
+
 # Semantic Memory
 
 ### Description

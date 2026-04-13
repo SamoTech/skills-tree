@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-handwriting-recognition.json)
+
 # Handwriting Recognition
 
 **Category:** `perception`  

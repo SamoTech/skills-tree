@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-README.json)
+
 # 🌐 Web Skills
 
 Web skills enable agents to **browse, navigate, scrape, and interact with the internet**.

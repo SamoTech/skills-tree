@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [long-term-memory, persistent-storage, user-preferences, knowledge-distillation]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-long-term-memory.json)
+
 # Long-Term Memory
 
 ### Description

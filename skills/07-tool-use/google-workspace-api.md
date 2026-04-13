@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-google-workspace-api.json)
+
 # Google Workspace API
 
 **Category:** `tool-use`  

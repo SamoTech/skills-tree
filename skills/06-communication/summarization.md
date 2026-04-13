@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [summarization, abstractive, extractive, hierarchical, multi-document]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-summarization.json)
+
 # Summarization
 
 ### Description

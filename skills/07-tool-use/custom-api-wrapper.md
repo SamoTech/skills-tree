@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-custom-api-wrapper.json)
+
 # Custom API Wrapper
 
 **Category:** `tool-use`  

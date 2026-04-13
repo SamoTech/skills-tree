@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [short-term-memory, context-window, sliding-window, summarization-buffer]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-short-term-memory.json)
+
 # Short-Term Memory
 
 ### Description

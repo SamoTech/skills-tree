@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-multi-monitor.json)
+
 # Multi-Monitor Support
 
 **Category:** `computer-use`

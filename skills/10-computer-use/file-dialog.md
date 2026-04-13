@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-file-dialog.json)
+
 # File Dialog Interaction
 
 **Category:** `computer-use`

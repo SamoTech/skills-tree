@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [api, json, xml, grpc, parsing, schema-validation]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-api-response-parsing.json)
+
 # API Response Parsing
 
 ### Description

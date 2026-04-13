@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-README.json)
+
 # ⚡ Action Execution Skills
 
 Action execution skills enable agents to **take concrete actions** in the world — sending messages, writing files, calling APIs, and interacting with environments.

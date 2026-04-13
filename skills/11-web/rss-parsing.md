@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-rss-parsing.json)
+
 # RSS/Atom Feed Parsing
 
 **Category:** `web`

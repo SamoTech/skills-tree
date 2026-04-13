@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-huggingface-api.json)
+
 # HuggingFace API
 
 **Category:** `tool-use`  

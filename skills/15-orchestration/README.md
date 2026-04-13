@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-README.json)
+
 # 🎼 Orchestration Skills
 
 Orchestration skills enable agents to **coordinate, delegate, and manage multi-agent workflows** at scale.

@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-README.json)
+
 # 🧠 Reasoning Skills
 
 Reasoning skills enable agents to **think, plan, decide, and solve problems** — the cognitive core of any intelligent agent.

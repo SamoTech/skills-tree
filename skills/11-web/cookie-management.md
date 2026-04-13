@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-cookie-management.json)
+
 # Cookie / Session Management
 
 **Category:** `web`

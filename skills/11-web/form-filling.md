@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-form-filling.json)
+
 # Form Filling
 
 **Category:** `web`

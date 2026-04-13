@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-cot.json)
+
 # Chain of Thought (CoT)
 
 **Category:** `agentic-patterns`

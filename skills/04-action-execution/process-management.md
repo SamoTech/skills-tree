@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-process-management.json)
+
 # Process Management
 
 **Category:** `action-execution`  

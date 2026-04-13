@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [rag, retrieval-augmented-generation, embeddings, chunking, reranking]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-rag.json)
+
 # Retrieval-Augmented Generation (RAG)
 
 ### Description

@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-README.json)
+
 # 🔧 Tool Use Skills
 
 Tool use skills enable agents to **call, integrate, and chain external tools** — APIs, databases, search engines, calculators, and more.

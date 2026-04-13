@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-linear-api.json)
+
 # Linear API
 
 **Category:** `tool-use`  

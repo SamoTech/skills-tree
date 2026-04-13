@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-parallel-execution.json)
+
 # Parallel Task Execution
 
 **Category:** `orchestration`  

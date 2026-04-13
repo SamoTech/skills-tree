@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-compliance-checking.json)
+
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable

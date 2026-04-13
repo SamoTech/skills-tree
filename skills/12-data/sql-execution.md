@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-sql-execution.json)
+
 # SQL Query Execution
 
 **Category:** `data`  

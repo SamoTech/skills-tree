@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [code-generation, llm, structured-output, test-driven, multi-file]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-generation.json)
+
 # Code Generation
 
 ### Description

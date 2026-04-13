@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-README.json)
+
 # 👁️ Perception Skills
 
 Perception skills enable agents to **sense, read, and interpret inputs** from their environment — text, images, files, screens, sensors, and more.

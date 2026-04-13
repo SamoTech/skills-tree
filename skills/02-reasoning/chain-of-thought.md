@@ -8,6 +8,8 @@ tags: [reasoning, prompting, decomposition]
 updated: 2026-04
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-chain-of-thought.json)
+
 # Chain of Thought (CoT)
 
 ## What It Does

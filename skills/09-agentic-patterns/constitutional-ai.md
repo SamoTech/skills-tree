@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-constitutional-ai.json)
+
 # Constitutional AI
 
 **Category:** `agentic-patterns`

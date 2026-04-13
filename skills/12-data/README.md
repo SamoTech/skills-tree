@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-README.json)
+
 # 📊 Data Skills
 
 Data skills enable agents to **process, transform, analyze, and visualize data** from any source.

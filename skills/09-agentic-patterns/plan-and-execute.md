@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [plan-execute, planner, executor, replanning, task-graph]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-plan-and-execute.json)
+
 # Plan-and-Execute Pattern
 
 ### Description

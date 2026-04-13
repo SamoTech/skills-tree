@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-tone-adjustment.json)
+
 # Tone Adjustment
 
 **Category:** `communication`  

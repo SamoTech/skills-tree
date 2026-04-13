@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-tool-use-loop.json)
+
 # Tool-Use Loop
 
 **Category:** `agentic-patterns`

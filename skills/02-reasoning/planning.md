@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [planning, task-graph, goal-decomposition, replanning, htns]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-planning.json)
+
 # Planning
 
 ### Description

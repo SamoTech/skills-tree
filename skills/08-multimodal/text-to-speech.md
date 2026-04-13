@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-text-to-speech.json)
+
 # Text to Speech
 
 **Category:** `multimodal`  

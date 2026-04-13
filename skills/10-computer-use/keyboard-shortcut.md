@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-keyboard-shortcut.json)
+
 # Keyboard Shortcut
 
 **Category:** `computer-use`

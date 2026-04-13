@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-a2a-tool.json)
+
 # Agent-to-Agent Tool (A2A)
 
 **Category:** `tool-use`  

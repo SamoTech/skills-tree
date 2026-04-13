@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-contract-reading.json)
+
 # Contract Reading
 Category: perception | Level: advanced | Stability: stable | Version: v1
 

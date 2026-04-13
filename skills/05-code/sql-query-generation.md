@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-sql-query-generation.json)
+
 # SQL Query Generation
 
 **Category:** `code`  

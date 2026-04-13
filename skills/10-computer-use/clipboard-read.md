@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-clipboard-read.json)
+
 # Clipboard Read
 
 **Category:** `computer-use`

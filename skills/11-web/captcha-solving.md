@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-captcha-solving.json)
+
 # CAPTCHA Solving
 
 **Category:** `web`

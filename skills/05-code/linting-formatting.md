@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-linting-formatting.json)
+
 # Linting & Formatting
 
 **Category:** `code`  

@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-systems-thinking.json)
+
 # Systems Thinking
 Category: reasoning | Level: advanced | Stability: stable | Version: v1
 

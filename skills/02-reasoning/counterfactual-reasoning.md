@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-counterfactual-reasoning.json)
+
 # Counterfactual Reasoning
 
 **Category:** `reasoning`  

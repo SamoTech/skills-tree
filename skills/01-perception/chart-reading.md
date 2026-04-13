@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-chart-reading.json)
+
 # Chart Reading
 
 **Category:** `perception`  

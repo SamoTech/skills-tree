@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [mcp, model-context-protocol, tool-calling, server, anthropic]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-mcp-tool.json)
+
 # MCP Tool Use
 
 ### Description

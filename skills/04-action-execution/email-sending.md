@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-email-sending.json)
+
 # Email Sending
 
 **Category:** `action-execution`  

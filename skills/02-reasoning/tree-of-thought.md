@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-tree-of-thought.json)
+
 # Tree of Thought (ToT)
 
 **Category:** `reasoning`  

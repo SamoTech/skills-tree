@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-keyboard-type.json)
+
 # Keyboard Type
 
 **Category:** `computer-use`  

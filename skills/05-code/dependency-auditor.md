@@ -8,6 +8,8 @@ tags: [code, dependencies, auditing, sbom, verification, dogfooding]
 updated: 2026-04
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dependency-auditor.json)
+
 # Dependency Auditor
 
 ## What It Does

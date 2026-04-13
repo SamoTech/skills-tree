@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [episodic-memory, conversation-history, event-recall, temporal-context]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-episodic-memory.json)
+
 # Episodic Memory
 
 ### Description

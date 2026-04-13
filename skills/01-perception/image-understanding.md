@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [vision, multimodal, object-detection, vqa, grounding, ocr]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-image-understanding.json)
+
 # Image Understanding
 
 ### Description

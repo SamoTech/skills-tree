@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-input-sanitization.json)
+
 **Category:** Security
 **Skill Level:** `advanced`
 **Stability:** stable

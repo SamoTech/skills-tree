@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mcts.json)
+
 # MCTS (Monte Carlo Tree Search)
 
 **Category:** `agentic-patterns`

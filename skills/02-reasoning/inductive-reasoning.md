@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-inductive-reasoning.json)
+
 # Inductive Reasoning
 
 **Category:** `reasoning`  

@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-README.json)
+
 # 🎭 Multimodal Skills
 
 Multimodal skills enable agents to **process and generate content across multiple modalities** — images, audio, video, and documents.

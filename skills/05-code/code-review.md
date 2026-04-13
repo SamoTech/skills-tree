@@ -8,6 +8,8 @@ tags: [code, review, quality, automation]
 updated: 2026-04
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-review.json)
+
 # Code Review
 
 ## What It Does

@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-analogy-generation.json)
+
 # Analogy Generation
 Category: reasoning | Level: basic | Stability: stable | Version: v1
 

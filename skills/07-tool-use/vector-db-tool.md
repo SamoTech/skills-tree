@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-vector-db-tool.json)
+
 # Vector DB Tool
 
 **Category:** `tool-use`  

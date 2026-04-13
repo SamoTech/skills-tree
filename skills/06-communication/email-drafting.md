@@ -1,3 +1,5 @@
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-email-drafting.json)
+
 # Email Drafting
 
 **Category:** `communication`  

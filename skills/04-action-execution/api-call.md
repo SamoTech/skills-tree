@@ -5,6 +5,8 @@ Stability: Stable
 Tags: [api, http, rest, graphql, authentication, retry, rate-limiting]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-api-call.json)
+
 # API Call
 
 ### Description
