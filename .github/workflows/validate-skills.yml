@@ -11,11 +11,14 @@ on:
       - 'skills/**'
       - 'meta/**'
 
+env:
+  # Opt into Node.js 24 now to silence the Node 20 deprecation warning
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   validate:
     name: Validate skill files
     runs-on: ubuntu-latest
-    # Allow read + write so the backfill step can commit missing Added: fields
     permissions:
       contents: write
 
@@ -23,15 +26,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Full history needed so we can commit backfilled fields on push
           fetch-depth: 0
 
       # ── Step 1: Backfill missing "Added:" field ──────────────────────────
       # Skill files were created before the Added field was introduced.
-      # On push to main we auto-insert "Added: 2025-03" after the last **bold
-      # metadata line** (the Stability line) if the field is absent.
-      # On PRs this step is skipped (read-only token), the warn step below
-      # catches it instead.
+      # On push to main we auto-insert "**Added:** 2025-03" after the
+      # Stability line if the field is absent.
       - name: Backfill missing Added field (push to main only)
         if: github.event_name == 'push'
         run: |
@@ -41,7 +41,6 @@ jobs:
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
             if ! grep -q '^\*\*Added:\*\*' "$f" && ! grep -q '^Added:' "$f"; then
-              # Insert "**Added:** 2025-03" after the **Stability:** line
               sed -i '/^\*\*Stability:\*\*/a **Added:** 2025-03' "$f"
               echo "Backfilled Added field: $f"
               CHANGED=1
@@ -58,7 +57,10 @@ jobs:
           fi
 
       # ── Step 2: Hard validation — structural sections ────────────────────
-      # These must exist in EVERY skill file. Missing any = build fails.
+      # Skill files use ## (h2) headings for Description and Related sections.
+      # The validator accepts both the inline-metadata format (single-line
+      # "Category: … | Level: …") and the bold-field format (**Category:**).
+      # Missing Description or Related section = build fails.
       - name: Check required sections (hard fail)
         run: |
           echo "Checking skill .md files for required sections..."
@@ -66,19 +68,21 @@ jobs:
           FAIL=0
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            for field in "### Description" "### Related Skills"; do
-              if ! grep -q "$field" "$f"; then
-                echo "::error file=$f::MISSING '$field'"
-                FAIL=1
-              fi
-            done
+            # Accept ## Description OR ### Description (both heading levels)
+            if ! grep -qE '^#{1,3} Description' "$f"; then
+              echo "::error file=$f::MISSING 'Description' section (## Description or ### Description)"
+              FAIL=1
+            fi
+            # Accept ## Related OR ### Related Skills OR ## Related Skills
+            if ! grep -qE '^#{1,3} Related' "$f"; then
+              echo "::error file=$f::MISSING 'Related' section (## Related or ### Related Skills)"
+              FAIL=1
+            fi
           done
           [ $FAIL -eq 0 ] && echo "All skill files have required sections."
           exit $FAIL
 
       # ── Step 3: Soft validation — frontmatter fields (warn only) ─────────
-      # Missing Category / Skill Level / Stability / Added = warning, not failure.
-      # This lets existing files pass CI while contributors know what to add.
       - name: Check frontmatter fields (warn only)
         run: |
           echo "Checking frontmatter fields (warnings only)..."
@@ -86,32 +90,35 @@ jobs:
           WARN=0
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            for field in "**Category:**" "**Skill Level:**" "**Stability:**"; do
-              if ! grep -q "$field" "$f"; then
-                echo "::warning file=$f::MISSING '$field' (frontmatter)"
-                WARN=1
-              fi
-            done
-            # Added is backfilled automatically on push; warn on PRs
-            if ! grep -qE '^(Added:|\*\*Added:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'Added:' field — will be auto-backfilled on merge"
+            # Accept both inline (Category: foo) and bold (**Category:**) formats
+            if ! grep -qE '(Category:|^\*\*Category:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'Category' field"
+              WARN=1
+            fi
+            if ! grep -qE '(Level:|^\*\*Skill Level:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'Level' or 'Skill Level' field"
+              WARN=1
+            fi
+            if ! grep -qE '(Stability:|^\*\*Stability:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'Stability' field"
+              WARN=1
+            fi
+            if ! grep -qE '^(Added:|^\*\*Added:\*\*)' "$f"; then
+              echo "::warning file=$f::MISSING 'Added' field — will be auto-backfilled on merge"
               WARN=1
             fi
           done
           [ $WARN -eq 0 ] && echo "All frontmatter fields present."
-          # Warnings never fail the build
           exit 0
 
       # ── Step 4: Check for Example section (warn only) ────────────────────
-      # Some skills legitimately have no code example (e.g. conceptual skills).
-      # We warn but do not fail.
       - name: Check for Example section (warn only)
         run: |
           shopt -s globstar
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            if ! grep -qE '^### (Example|Pattern|Usage)' "$f"; then
-              echo "::warning file=$f::No '### Example' / '### Pattern' / '### Usage' section found"
+            if ! grep -qE '^#{1,3} (Example|Pattern|Usage)' "$f"; then
+              echo "::warning file=$f::No 'Example' / 'Pattern' / 'Usage' section found"
             fi
           done
           exit 0
@@ -124,7 +131,7 @@ jobs:
           FAIL=0
           for f in skills/**/*.md; do
             dir=$(dirname "$f")
-            links=$(grep -oP '\(\.\.?/[^)]+\.md\)' "$f" | tr -d '()')
+            links=$(grep -oP '\(\.\./[^)]+\.md\)' "$f" | tr -d '()')
             for link in $links; do
               target="$dir/$link"
               resolved=$(realpath --relative-to=. "$target" 2>/dev/null)
