@@ -18,6 +18,7 @@ import re
 import glob
 import json
 import datetime
+from datetime import timezone
 
 try:
     import yaml
@@ -26,6 +27,19 @@ except ImportError:
 
 BASE_URL = "https://samotech.github.io/skills-tree"
 REPO_URL = "https://github.com/SamoTech/skills-tree"
+
+# ---------------------------------------------------------------------------
+# Time helpers
+# ---------------------------------------------------------------------------
+
+def _utc_now_iso() -> str:
+    """Return the current UTC time as an ISO-8601 string with Z suffix.
+
+    Uses datetime.now(timezone.utc) instead of the deprecated
+    datetime.utcnow(), which was removed in Python 3.13.
+    """
+    return datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -158,7 +172,7 @@ def build_skill_jsonld(skill: dict) -> dict:
       - schema:about        — points to schema:Thing describing the AI skill topic
       - ai-skill:*          — custom properties under the skills-tree context extension
     """
-    now = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    now = _utc_now_iso()
     url = skill_url(skill)
     cat = skill.get("category_dir") or "uncategorized"
 
@@ -238,7 +252,7 @@ def build_jsonld_index(skills: list) -> dict:
     Build a schema.org/ItemList JSON-LD index over all skills.
     Used by search engines for sitelinks / rich results.
     """
-    now = datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")
+    now = _utc_now_iso()
     items = [
         {
             "@type": "ListItem",
@@ -308,7 +322,7 @@ def main():
     print(f"[export] Found {len(skills)} skills.")
 
     envelope = {
-        "generated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated": _utc_now_iso(),
         "count": len(skills),
         "skills": skills,
     }
