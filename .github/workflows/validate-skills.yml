@@ -80,11 +80,9 @@ jobs:
           FAIL=0
 
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            # PR mode: only validate files touched by this PR
             FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' | grep -v README || true)
             echo "PR mode — checking $(echo "$FILES" | grep -c '\.md' || echo 0) changed skill file(s)."
           else
-            # Push mode: full repository scan
             FILES=$(find skills -name '*.md' | grep -v README)
             echo "Push mode — full scan of all skill files."
           fi
@@ -145,12 +143,25 @@ jobs:
           exit 0
 
       # ── Step 5: Broken relative link check ──────────────────────────────
+      # On PRs: only check links in files changed by this PR.
+      # On push to main: check all files (catches dangling links repo-wide).
       - name: Check for broken relative links
         run: |
           echo "Checking for broken relative links..."
-          shopt -s globstar
           FAIL=0
-          for f in skills/**/*.md; do
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' | grep -v README || true)
+            echo "PR mode — checking links in $(echo "$FILES" | grep -c '\.md' || echo 0) changed file(s)."
+          else
+            shopt -s globstar
+            FILES=$(find skills -name '*.md' | grep -v README)
+            echo "Push mode — full link scan."
+          fi
+
+          for f in $FILES; do
+            [ -f "$f" ] || continue
+            [[ "$f" == *README* ]] && continue
             dir=$(dirname "$f")
             links=$(grep -oP '\(\.\./[^)]+\.md\)' "$f" | tr -d '()')
             for link in $links; do
@@ -162,5 +173,5 @@ jobs:
               fi
             done
           done
-          [ $FAIL -eq 0 ] && echo "No broken links found."
+          [ $FAIL -eq 0 ] && echo "No broken links found in checked files."
           exit $FAIL
