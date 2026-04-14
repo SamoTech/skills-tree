@@ -6,7 +6,7 @@ on:
     paths:
       - 'skills/**/*.md'
   schedule:
-    - cron: '30 4 * * 1'  # Monday 04:30 UTC (after leaderboard)
+    - cron: '30 4 * * 1'  # Monday 04:30 UTC (after version-stats)
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # full history needed so rebase never hits a shallow boundary
           fetch-depth: 0
 
       - name: Set up Python
@@ -35,14 +34,20 @@ jobs:
       - name: Commit exported artifacts
         run: |
           git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/api/
           git diff --cached --quiet && echo "No changes to export" && exit 0
           SKILL_COUNT=$(python3 -c "import json; d=json.load(open('docs/api/skills.json')); print(d['count'])")
           git commit -m "chore(export): regenerate skills API — ${SKILL_COUNT} skills [skip ci]"
-          # Rebase on top of any commits that landed since our checkout
-          # (race window: another workflow pushed between our fetch and this push)
-          git pull --rebase origin main
-          git push
+          for attempt in 1 2 3 4 5; do
+            git push origin main && {
+              echo "✅ Pushed (attempt ${attempt})."
+              exit 0
+            }
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 5 attempts."
+          exit 1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

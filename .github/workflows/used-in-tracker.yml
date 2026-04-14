@@ -44,7 +44,6 @@ jobs:
               with urllib.request.urlopen(req) as resp:
                   return json.loads(resp.read())
 
-          # Find issues labelled 'used-in' or titled 'Used In: '
           issues_url = (f"https://api.github.com/repos/{repo}/issues"
                         f"?state=open&labels=used-in&per_page=50")
           try:
@@ -55,7 +54,6 @@ jobs:
           entries = []
           for issue in used_in_issues:
               body = issue.get("body") or ""
-              # Extract project URL from body
               url_m = re.search(r'https?://\S+', body)
               if url_m:
                   project_url = url_m.group(0).rstrip(')')
@@ -67,7 +65,7 @@ jobs:
           else:
               block = (
                   "<!-- USED_IN_START -->\n"
-                  "## 🌐 Used In\n\n"
+                  "## \U0001f310 Used In\n\n"
                   "These projects use Skills Tree skills in production. "
                   "[Submit yours](../../issues/new?labels=used-in&title=Used+In:+Your+Project+Name)\n\n"
                   + "\n".join(entries) + "\n"
@@ -93,8 +91,14 @@ jobs:
       - name: Commit README changes
         run: |
           git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
           git diff --cached --quiet && echo "No change" && exit 0
           git commit -m "chore(used-in): update Used-In tracker in README [skip ci]"
-          git push
+          for attempt in 1 2 3; do
+            git push origin main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 3 attempts."
+          exit 1

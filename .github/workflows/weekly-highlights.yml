@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # full history for commit analysis
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -54,7 +54,6 @@ jobs:
               with urllib.request.urlopen(req) as resp:
                   return json.loads(resp.read())
 
-          # Merged PRs in last 7 days
           prs_url = (f"https://api.github.com/repos/{repo}/pulls"
                      f"?state=closed&base=main&per_page=50&sort=updated&direction=desc")
           prs = gh_get(prs_url)
@@ -63,7 +62,6 @@ jobs:
               if pr.get("merged_at") and pr["merged_at"] >= week_ago + "T00:00:00Z"
           ]
 
-          # Most-touched skill files
           skill_counts = {}
           for pr in recent_prs:
               files_url = f"https://api.github.com/repos/{repo}/pulls/{pr['number']}/files"
@@ -78,41 +76,38 @@ jobs:
 
           top_skills = sorted(skill_counts.items(), key=lambda x: -x[1])[:5]
 
-          # v2/v3 upgrades
           upgrades = [
               pr for pr in recent_prs
               if re.search(r'v1.*v2|v2.*v3|v\d.*v\d', pr.get("title", ""), re.IGNORECASE)
           ]
 
-          # New skills added
           new_skills = [
               pr for pr in recent_prs
               if re.search(r'^feat.*skill|^add.*skill|new skill', pr.get("title", ""), re.IGNORECASE)
           ]
 
-          # Build the highlights block
           week_str = today.strftime("%B %-d, %Y")
           lines = [
               f"<!-- HIGHLIGHTS_START -->",
-              f"## 📆 This Week's Highlights — {week_str}",
+              f"## \U0001f4c6 This Week's Highlights \u2014 {week_str}",
               "",
           ]
 
           if top_skills:
-              lines.append("### 🔥 Most Active Skills")
+              lines.append("### \U0001f525 Most Active Skills")
               for path, count in top_skills:
                   skill_name = os.path.splitext(os.path.basename(path))[0].replace("-", " ").title()
-                  lines.append(f"- **{skill_name}** — {count} PR{'' if count==1 else 's'}")
+                  lines.append(f"- **{skill_name}** \u2014 {count} PR{'' if count==1 else 's'}")
               lines.append("")
 
           if upgrades:
-              lines.append("### ⬆️ Skill Upgrades")
+              lines.append("### \u2b06\ufe0f Skill Upgrades")
               for pr in upgrades[:5]:
                   lines.append(f"- [{pr['title']}]({pr['html_url']})")
               lines.append("")
 
           if new_skills:
-              lines.append("### ✨ New Skills")
+              lines.append("### \u2728 New Skills")
               for pr in new_skills[:5]:
                   lines.append(f"- [{pr['title']}]({pr['html_url']})")
               lines.append("")
@@ -137,7 +132,6 @@ jobs:
                       block, readme, flags=re.DOTALL
                   )
               else:
-                  # Insert after the first H1
                   new_readme = re.sub(
                       r'(^# .+\n)', r'\1\n' + block + '\n\n', readme, count=1, flags=re.MULTILINE
                   )
@@ -151,8 +145,14 @@ jobs:
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
           git diff --cached --quiet && echo "No change" && exit 0
           git commit -m "chore(highlights): weekly README highlights update [skip ci]"
-          git push
+          for attempt in 1 2 3; do
+            git push origin main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 3 attempts."
+          exit 1

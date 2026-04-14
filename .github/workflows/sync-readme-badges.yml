@@ -1,62 +1,18 @@
-# ============================================================
 # sync-readme-badges.yml
-# Counts total skills across all skills/**/*.md files and
-# updates the skill count badge in README.md weekly and on
-# any push to skills/. Commits the updated README automatically.
-# ============================================================
-name: 🔢 Sync Skill Count Badges
+# DEPRECATED — superseded by update-skill-count.yml which has a proper
+# retry-rebase loop.  This file is intentionally disabled to eliminate
+# the duplicate push-conflict race.  Do not re-enable without removing
+# update-skill-count.yml first.
+name: 🔢 Sync Skill Count Badges (DISABLED)
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'skills/**'
-  schedule:
-    - cron: '0 4 * * 1'
-  workflow_dispatch:
+  workflow_dispatch:   # manual only — no automatic triggers
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  count-and-update:
-    name: Count skills & update README
+  disabled:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Count skill files
-        id: count
-        run: |
-          COUNT=$(find skills/ -name '*.md' | wc -l | tr -d ' ')
-          echo "count=$COUNT" >> $GITHUB_OUTPUT
-          echo "Found $COUNT skill files"
-
-      - name: Count categories
-        id: cats
-        run: |
-          CATS=$(find skills/ -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
-          echo "count=$CATS" >> $GITHUB_OUTPUT
-
-      - name: Update README badge line
-        run: |
-          SKILLS=${{ steps.count.outputs.count }}
-          CATS=${{ steps.cats.outputs.count }}
-          # Update shields.io badge URLs for skills count
-          sed -i "s|skills-[0-9]*%2B-|skills-${SKILLS}%2B-|g" README.md
-          sed -i "s|Skills-[0-9]*%2B|Skills-${SKILLS}%2B|g" README.md
-          # Update categories count badge
-          sed -i "s|categories-[0-9]*-|categories-${CATS}-|g" README.md
-          echo "Updated README: $SKILLS skills, $CATS categories"
-
-      - name: Commit if changed
-        run: |
-          git config user.name  'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git diff --quiet README.md || (
-            git add README.md
-            git commit -m "chore: sync skill count badges → ${{ steps.count.outputs.count }} skills"
-            git push
-          )
+      - run: echo "This workflow is disabled. Use update-skill-count.yml instead."
