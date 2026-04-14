@@ -70,12 +70,27 @@ jobs:
           fi
 
       # ── Step 2: Hard validation — structural sections ────────────────────
+      # On PRs: only check files changed in this PR (prevents pre-existing stubs
+      # from blocking new contributions; stubs are fixed progressively).
+      # On push to main: full scan to catch anything that slipped through.
       - name: Check required sections (hard fail)
         run: |
           echo "Checking skill .md files for required sections..."
           shopt -s globstar
           FAIL=0
-          for f in skills/**/*.md; do
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            # PR mode: only validate files touched by this PR
+            FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' | grep -v README || true)
+            echo "PR mode — checking $(echo "$FILES" | grep -c '\.md' || echo 0) changed skill file(s)."
+          else
+            # Push mode: full repository scan
+            FILES=$(find skills -name '*.md' | grep -v README)
+            echo "Push mode — full scan of all skill files."
+          fi
+
+          for f in $FILES; do
+            [ -f "$f" ] || continue
             [[ "$f" == *README* ]] && continue
             if ! grep -qE '^#{1,3} Description' "$f"; then
               echo "::error file=$f::MISSING 'Description' section (## Description or ### Description)"
@@ -86,7 +101,7 @@ jobs:
               FAIL=1
             fi
           done
-          [ $FAIL -eq 0 ] && echo "All skill files have required sections."
+          [ $FAIL -eq 0 ] && echo "All checked skill files have required sections."
           exit $FAIL
 
       # ── Step 3: Soft validation — frontmatter fields (warn only) ─────────
@@ -97,19 +112,19 @@ jobs:
           WARN=0
           for f in skills/**/*.md; do
             [[ "$f" == *README* ]] && continue
-            if ! grep -qE '(^category:|^\*\*Category:\*\*)' "$f"; then
+            if ! grep -qE '(^category:|\*\*Category:\*\*)' "$f"; then
               echo "::warning file=$f::MISSING 'category' field"
               WARN=1
             fi
-            if ! grep -qE '(^level:|^\*\*Skill Level:\*\*)' "$f"; then
+            if ! grep -qE '(^level:|\*\*Skill Level:\*\*)' "$f"; then
               echo "::warning file=$f::MISSING 'level' or 'Skill Level' field"
               WARN=1
             fi
-            if ! grep -qE '(^stability:|^\*\*Stability:\*\*)' "$f"; then
+            if ! grep -qE '(^stability:|\*\*Stability:\*\*)' "$f"; then
               echo "::warning file=$f::MISSING 'stability' field"
               WARN=1
             fi
-            if ! grep -qE '(^added:|^\*\*Added:\*\*)' "$f"; then
+            if ! grep -qE '(^added:|\*\*Added:\*\*)' "$f"; then
               echo "::warning file=$f::MISSING 'added' field — will be auto-backfilled on merge"
               WARN=1
             fi
