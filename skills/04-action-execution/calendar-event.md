@@ -5,6 +5,19 @@ level: intermediate
 stability: stable
 description: "Apply calendar event creation in AI agent workflows."
 added: "2025-03"
+dependencies:
+  - package: google-api-python-client
+    min_version: "2.100.0"
+    tested_version: "2.130.0"
+    confidence: verified
+  - package: google-auth
+    min_version: "2.23.0"
+    tested_version: "2.29.0"
+    confidence: verified
+code_blocks:
+  - id: "example-calendar"
+    type: illustrative
+    note: "Requires OAuth2 credentials setup — illustrative only"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-calendar-event.json)
