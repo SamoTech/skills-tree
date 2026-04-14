@@ -22,9 +22,7 @@
 #     the audit workflow is triggered (see: pull_request_target note below)
 #   - See SECURITY.md#phase-3-execution-gap--network-constraints for escalation
 
-
 name: Dependency Auditor (Phase 3)
-
 
 on:
   pull_request:
@@ -45,7 +43,6 @@ on:
         default: 'false'
         type: boolean
 
-
 jobs:
   audit:
     name: Run Dependency Auditor
@@ -54,21 +51,18 @@ jobs:
       contents: write
       pull-requests: write
 
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          # No cache: this repo has no requirements.txt / pyproject.toml.
-          # httpx + packaging install in <5s — caching adds no value here.
-
+          # NOTE: cache: pip intentionally omitted — no requirements.txt in repo.
+          # Dependencies are installed inline via pip in the next step.
 
       - name: Install auditor dependencies
         run: |
@@ -156,7 +150,6 @@ jobs:
           git commit -m "$COMMIT_MSG"
           git push origin "$BRANCH"
           echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
-
 
       - name: Open verification PR
         if: steps.check_promotions.outputs.has_promotions == 'true' && github.event.inputs.dry_run != 'true'
