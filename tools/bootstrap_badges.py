@@ -19,9 +19,16 @@ Usage:
 """
 
 import json
-import os
 import argparse
+import sys
 from pathlib import Path
+
+# Import shared key utility — single source of truth
+try:
+    from common import skill_path_to_badge_key
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from common import skill_path_to_badge_key
 
 UNSCANNED_BADGE = {
     "schemaVersion": 1,
@@ -32,17 +39,6 @@ UNSCANNED_BADGE = {
     "namedLogo": "dependabot",
     "logoColor": "white",
 }
-
-
-def skill_path_to_badge_key(skill_path: Path) -> str:
-    """
-    Convert a skill file path to its badge JSON key.
-
-    skills/03-memory/memory-injection.md
-      -> skills-03-memory-memory-injection
-    """
-    relative = str(skill_path).replace("\\", "/")
-    return relative.replace("/", "-").replace(".md", "")
 
 
 def main():
