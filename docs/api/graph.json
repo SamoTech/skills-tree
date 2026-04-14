@@ -1,0 +1,6551 @@
+{
+  "generated": "2026-04-14T12:46:22Z",
+  "stats": {
+    "nodes": 350,
+    "links": 725,
+    "isolated": 57,
+    "top_connected": [
+      {
+        "id": "document-parsing",
+        "name": "Document Parsing",
+        "degree": 18
+      },
+      {
+        "id": "rag",
+        "name": "RAG — Retrieval-Augmented Generation",
+        "degree": 16
+      },
+      {
+        "id": "screenshot-capture",
+        "name": "Screenshot Capture",
+        "degree": 15
+      },
+      {
+        "id": "browser-navigation",
+        "name": "Browser Navigation",
+        "degree": 15
+      },
+      {
+        "id": "structured-data-reading",
+        "name": "Structured Data Reading",
+        "degree": 14
+      },
+      {
+        "id": "web-scraping",
+        "name": "Web Scraping",
+        "degree": 14
+      },
+      {
+        "id": "ocr",
+        "name": "OCR (Optical Character Recognition)",
+        "degree": 12
+      },
+      {
+        "id": "mouse-click",
+        "name": "Mouse Click",
+        "degree": 12
+      },
+      {
+        "id": "code-generation",
+        "name": "Code Generation",
+        "degree": 12
+      },
+      {
+        "id": "image-understanding",
+        "name": "Image Understanding",
+        "degree": 11
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "01-perception",
+      "label": "Perception",
+      "color": "#4f98a3"
+    },
+    {
+      "id": "02-reasoning",
+      "label": "Reasoning",
+      "color": "#6daa45"
+    },
+    {
+      "id": "03-memory",
+      "label": "Memory",
+      "color": "#a86fdf"
+    },
+    {
+      "id": "04-action-execution",
+      "label": "Action Execution",
+      "color": "#fdab43"
+    },
+    {
+      "id": "05-code",
+      "label": "Code",
+      "color": "#5591c7"
+    },
+    {
+      "id": "06-communication",
+      "label": "Communication",
+      "color": "#dd6974"
+    },
+    {
+      "id": "07-tool-use",
+      "label": "Tool Use",
+      "color": "#e8af34"
+    },
+    {
+      "id": "08-multimodal",
+      "label": "Multimodal",
+      "color": "#bb653b"
+    },
+    {
+      "id": "09-agentic-patterns",
+      "label": "Agentic Patterns",
+      "color": "#d163a7"
+    },
+    {
+      "id": "10-computer-use",
+      "label": "Computer Use",
+      "color": "#01696f"
+    },
+    {
+      "id": "11-web",
+      "label": "Web",
+      "color": "#437a22"
+    },
+    {
+      "id": "12-data",
+      "label": "Data",
+      "color": "#006494"
+    },
+    {
+      "id": "13-creative",
+      "label": "Creative",
+      "color": "#964219"
+    },
+    {
+      "id": "14-security",
+      "label": "Security",
+      "color": "#a12c7b"
+    },
+    {
+      "id": "15-orchestration",
+      "label": "Orchestration",
+      "color": "#a13544"
+    },
+    {
+      "id": "16-domain-specific",
+      "label": "Domain-Specific",
+      "color": "#7a39bb"
+    },
+    {
+      "id": "16-infrastructure",
+      "label": "Infrastructure",
+      "color": "#da7101"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "README",
+      "name": "🏗️ Infrastructure Skills",
+      "path": "skills/16-infrastructure/README.md",
+      "category": "16-infrastructure",
+      "catLabel": "Infrastructure",
+      "color": "#da7101",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "api-response-parsing",
+      "name": "API Response Parsing",
+      "path": "skills/01-perception/api-response-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "audio-transcription",
+      "name": "Audio Transcription",
+      "path": "skills/08-multimodal/audio-transcription.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "binary-file-reading",
+      "name": "Binary File Reading",
+      "path": "skills/01-perception/binary-file-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "calendar-parsing",
+      "name": "Calendar Parsing",
+      "path": "skills/01-perception/calendar-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "chart-reading",
+      "name": "Chart Reading",
+      "path": "skills/01-perception/chart-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "code-reading",
+      "name": "Code Reading",
+      "path": "skills/01-perception/code-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "contract-reading",
+      "name": "Contract Reading",
+      "path": "skills/01-perception/contract-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "conversation-history-reading",
+      "name": "Conversation History Reading",
+      "path": "skills/01-perception/conversation-history-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "database-reading",
+      "name": "Database Reading",
+      "path": "skills/01-perception/database-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "document-parsing",
+      "name": "Document Parsing",
+      "path": "skills/01-perception/document-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v2"
+    },
+    {
+      "id": "email-parsing",
+      "name": "Email Parsing",
+      "path": "skills/01-perception/email-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "file-system-reading",
+      "name": "File System Reading",
+      "path": "skills/01-perception/file-system-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "geospatial-reading",
+      "name": "Geospatial Reading",
+      "path": "skills/01-perception/geospatial-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "git-diff-reading",
+      "name": "Git Diff Reading",
+      "path": "skills/01-perception/git-diff-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "handwriting-recognition",
+      "name": "Handwriting Recognition",
+      "path": "skills/01-perception/handwriting-recognition.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "html-reading",
+      "name": "HTML Reading",
+      "path": "skills/01-perception/html-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "image-understanding",
+      "name": "Image Understanding",
+      "path": "skills/01-perception/image-understanding.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "json-schema-validation",
+      "name": "JSON Schema Validation",
+      "path": "skills/01-perception/json-schema-validation.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "knowledge-graph-reading",
+      "name": "Knowledge Graph Reading",
+      "path": "skills/01-perception/knowledge-graph-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "log-parsing",
+      "name": "Log Parsing",
+      "path": "skills/01-perception/log-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "markdown-parsing",
+      "name": "Markdown Parsing",
+      "path": "skills/01-perception/markdown-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "multimodal-document-reading",
+      "name": "Multimodal Document Reading",
+      "path": "skills/01-perception/multimodal-document-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "network-traffic-reading",
+      "name": "Network Traffic Reading",
+      "path": "skills/01-perception/network-traffic-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "ocr",
+      "name": "OCR (Optical Character Recognition)",
+      "path": "skills/01-perception/ocr.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v2"
+    },
+    {
+      "id": "pdf-parsing",
+      "name": "PDF Parsing",
+      "path": "skills/01-perception/pdf-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "screen-reading",
+      "name": "Screen Reading",
+      "path": "skills/01-perception/screen-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "sensor-reading",
+      "name": "Sensor Reading",
+      "path": "skills/01-perception/sensor-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "social-media-reading",
+      "name": "Social Media Reading",
+      "path": "skills/01-perception/social-media-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "spreadsheet-reading",
+      "name": "Spreadsheet Reading",
+      "path": "skills/01-perception/spreadsheet-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "structured-data-reading",
+      "name": "Structured Data Reading",
+      "path": "skills/01-perception/structured-data-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "table-extraction",
+      "name": "Table Extraction",
+      "path": "skills/01-perception/table-extraction.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "text-reading",
+      "name": "Text Reading",
+      "path": "skills/01-perception/text-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "basic",
+      "version": "v2"
+    },
+    {
+      "id": "time-series-reading",
+      "name": "Time Series Reading",
+      "path": "skills/01-perception/time-series-reading.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "url-dom-inspection",
+      "name": "URL / DOM Inspection",
+      "path": "skills/01-perception/url-dom-inspection.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "video-understanding",
+      "name": "Video Understanding",
+      "path": "skills/01-perception/video-understanding.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "xml-parsing",
+      "name": "XML Parsing",
+      "path": "skills/01-perception/xml-parsing.md",
+      "category": "01-perception",
+      "catLabel": "Perception",
+      "color": "#4f98a3",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "abductive",
+      "name": "Abductive Reasoning",
+      "path": "skills/02-reasoning/abductive.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "analogical",
+      "name": "Analogical Reasoning",
+      "path": "skills/02-reasoning/analogical.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "analogy-generation",
+      "name": "Analogy Generation",
+      "path": "skills/02-reasoning/analogy-generation.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "argument-structure-analysis",
+      "name": "Argument Structure Analysis",
+      "path": "skills/02-reasoning/argument-structure-analysis.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "bayesian-reasoning",
+      "name": "Bayesian Reasoning",
+      "path": "skills/02-reasoning/bayesian-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "causal",
+      "name": "Causal Reasoning",
+      "path": "skills/02-reasoning/causal.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "chain-of-thought",
+      "name": "Chain of Thought (CoT)",
+      "path": "skills/02-reasoning/chain-of-thought.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "commonsense",
+      "name": "Commonsense Reasoning",
+      "path": "skills/02-reasoning/commonsense.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "constraint-satisfaction",
+      "name": "Constraint Satisfaction",
+      "path": "skills/02-reasoning/constraint-satisfaction.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "advanced",
+      "version": "v2"
+    },
+    {
+      "id": "counterfactual-reasoning",
+      "name": "Counterfactual Reasoning",
+      "path": "skills/02-reasoning/counterfactual-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "advanced",
+      "version": "v2"
+    },
+    {
+      "id": "decision-making",
+      "name": "Decision Making",
+      "path": "skills/02-reasoning/decision-making.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "deductive-reasoning",
+      "name": "Deductive Reasoning",
+      "path": "skills/02-reasoning/deductive-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "basic",
+      "version": "v2"
+    },
+    {
+      "id": "ethical-reasoning",
+      "name": "Ethical Reasoning",
+      "path": "skills/02-reasoning/ethical-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "goal-setting",
+      "name": "Goal Setting",
+      "path": "skills/02-reasoning/goal-setting.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v2"
+    },
+    {
+      "id": "hypothesis-generation",
+      "name": "hypothesis-generation",
+      "path": "skills/16-domain-specific/hypothesis-generation.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "inductive-reasoning",
+      "name": "Inductive Reasoning",
+      "path": "skills/02-reasoning/inductive-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "mathematical-reasoning",
+      "name": "Mathematical Reasoning",
+      "path": "skills/02-reasoning/mathematical-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "meta-cognition",
+      "name": "Meta-Cognition",
+      "path": "skills/02-reasoning/meta-cognition.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "multi-step-planning",
+      "name": "Multi-Step Planning",
+      "path": "skills/02-reasoning/multi-step-planning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "numerical-estimation",
+      "name": "Numerical Estimation",
+      "path": "skills/02-reasoning/numerical-estimation.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "planning",
+      "name": "Planning",
+      "path": "skills/02-reasoning/planning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "prioritization",
+      "name": "Prioritization",
+      "path": "skills/02-reasoning/prioritization.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "probabilistic-reasoning",
+      "name": "Probabilistic Reasoning",
+      "path": "skills/02-reasoning/probabilistic-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "problem-decomposition",
+      "name": "Problem Decomposition",
+      "path": "skills/02-reasoning/problem-decomposition.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "react",
+      "name": "ReAct (Reasoning + Acting)",
+      "path": "skills/09-agentic-patterns/react.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "risk-assessment",
+      "name": "Risk Assessment",
+      "path": "skills/02-reasoning/risk-assessment.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "root-cause-analysis",
+      "name": "Root Cause Analysis",
+      "path": "skills/02-reasoning/root-cause-analysis.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "scenario-planning",
+      "name": "Scenario Planning",
+      "path": "skills/02-reasoning/scenario-planning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "self-correction",
+      "name": "Self-Correction",
+      "path": "skills/02-reasoning/self-correction.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "self-reflection",
+      "name": "Self-Reflection",
+      "path": "skills/02-reasoning/self-reflection.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "socratic-questioning",
+      "name": "Socratic Questioning",
+      "path": "skills/02-reasoning/socratic-questioning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "spatial-reasoning",
+      "name": "Spatial Reasoning",
+      "path": "skills/02-reasoning/spatial-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "systems-thinking",
+      "name": "Systems Thinking",
+      "path": "skills/02-reasoning/systems-thinking.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "task-decomposition",
+      "name": "Task Decomposition",
+      "path": "skills/02-reasoning/task-decomposition.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "temporal-reasoning",
+      "name": "Temporal Reasoning",
+      "path": "skills/02-reasoning/temporal-reasoning.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "trade-off-analysis",
+      "name": "Trade-off Analysis",
+      "path": "skills/02-reasoning/trade-off-analysis.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "tree-of-thought",
+      "name": "Tree of Thought (ToT)",
+      "path": "skills/02-reasoning/tree-of-thought.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "uncertainty-quantification",
+      "name": "Uncertainty Quantification",
+      "path": "skills/02-reasoning/uncertainty-quantification.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "agent-sessions",
+      "name": "Agent Sessions",
+      "path": "skills/03-memory/agent-sessions.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "cross-session-persistence",
+      "name": "Cross-Session Persistence",
+      "path": "skills/03-memory/cross-session-persistence.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "cross-thread-memory",
+      "name": "Cross-Thread Memory",
+      "path": "skills/03-memory/cross-thread-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "episodic-memory",
+      "name": "Episodic Memory",
+      "path": "skills/03-memory/episodic-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "fact-verification-memory",
+      "name": "Fact Verification Memory",
+      "path": "skills/03-memory/fact-verification-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "fact-verification",
+      "name": "Fact Verification",
+      "path": "skills/03-memory/fact-verification.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "forgetting",
+      "name": "Forgetting",
+      "path": "skills/03-memory/forgetting.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "long-term-memory",
+      "name": "Long-Term Memory",
+      "path": "skills/03-memory/long-term-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "memory-injection",
+      "name": "Memory Injection",
+      "path": "skills/03-memory/memory-injection.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "memory-summarization",
+      "name": "Memory Summarization",
+      "path": "skills/03-memory/memory-summarization.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "procedural-memory",
+      "name": "Procedural Memory",
+      "path": "skills/03-memory/procedural-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "procedural",
+      "name": "Procedural Memory",
+      "path": "skills/03-memory/procedural.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "rag",
+      "name": "RAG — Retrieval-Augmented Generation",
+      "path": "skills/09-agentic-patterns/rag.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "semantic-memory",
+      "name": "Semantic Memory",
+      "path": "skills/03-memory/semantic-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "short-term-memory",
+      "name": "Short-Term Memory",
+      "path": "skills/03-memory/short-term-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "user-profile-memory",
+      "name": "User Profile Memory",
+      "path": "skills/03-memory/user-profile-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "user-profile",
+      "name": "User Profile",
+      "path": "skills/03-memory/user-profile.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "vector-store-retrieval",
+      "name": "Vector Store Retrieval",
+      "path": "skills/03-memory/vector-store-retrieval.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "working-memory",
+      "name": "Working Memory",
+      "path": "skills/03-memory/working-memory.md",
+      "category": "03-memory",
+      "catLabel": "Memory",
+      "color": "#a86fdf",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "api-call",
+      "name": "API Call",
+      "path": "skills/04-action-execution/api-call.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "assertion",
+      "name": "Assertion / Verification",
+      "path": "skills/04-action-execution/assertion.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "calendar-event",
+      "name": "Calendar Event Creation",
+      "path": "skills/04-action-execution/calendar-event.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "clipboard-ops",
+      "name": "Clipboard Operations",
+      "path": "skills/04-action-execution/clipboard-ops.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "database-write",
+      "name": "Database Write",
+      "path": "skills/04-action-execution/database-write.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "drag-drop",
+      "name": "Drag and Drop",
+      "path": "skills/10-computer-use/drag-drop.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "email-sending",
+      "name": "Email Sending",
+      "path": "skills/04-action-execution/email-sending.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "env-vars",
+      "name": "Environment Variable Management",
+      "path": "skills/04-action-execution/env-vars.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "file-append",
+      "name": "File Append",
+      "path": "skills/04-action-execution/file-append.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "file-delete",
+      "name": "File Delete",
+      "path": "skills/04-action-execution/file-delete.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "file-write",
+      "name": "File Write",
+      "path": "skills/04-action-execution/file-write.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "form-submission",
+      "name": "Form Submission",
+      "path": "skills/04-action-execution/form-submission.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "http-request",
+      "name": "HTTP Request",
+      "path": "skills/04-action-execution/http-request.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "keyboard-input",
+      "name": "Keyboard Input",
+      "path": "skills/04-action-execution/keyboard-input.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "mouse-input",
+      "name": "Mouse Input",
+      "path": "skills/04-action-execution/mouse-input.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "notification-sending",
+      "name": "Notification Sending",
+      "path": "skills/04-action-execution/notification-sending.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "process-management",
+      "name": "Process Management",
+      "path": "skills/04-action-execution/process-management.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "screenshot-capture",
+      "name": "Screenshot Capture",
+      "path": "skills/10-computer-use/screenshot-capture.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "scroll",
+      "name": "Scroll",
+      "path": "skills/10-computer-use/scroll.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "shell-command",
+      "name": "Shell Command Execution",
+      "path": "skills/04-action-execution/shell-command.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "wait-sleep",
+      "name": "Wait / Sleep",
+      "path": "skills/04-action-execution/wait-sleep.md",
+      "category": "04-action-execution",
+      "catLabel": "Action Execution",
+      "color": "#fdab43",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "algorithm-design",
+      "name": "Algorithm Design",
+      "path": "skills/05-code/algorithm-design.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "api-client-generation",
+      "name": "API Client Generation",
+      "path": "skills/05-code/api-client-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "bug-fixing",
+      "name": "Bug Fixing",
+      "path": "skills/05-code/bug-fixing.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "cicd-generation",
+      "name": "CI/CD Pipeline Generation",
+      "path": "skills/05-code/cicd-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "code-execution-sandbox",
+      "name": "Code Execution (Sandbox)",
+      "path": "skills/05-code/code-execution-sandbox.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "code-explanation",
+      "name": "Code Explanation",
+      "path": "skills/05-code/code-explanation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "code-generation",
+      "name": "Code Generation",
+      "path": "skills/05-code/code-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "code-interpreter-agent",
+      "name": "Code Interpreter Agent",
+      "path": "skills/05-code/code-interpreter-agent.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "code-review",
+      "name": "Code Review",
+      "path": "skills/05-code/code-review.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "code-search",
+      "name": "Code Search",
+      "path": "skills/05-code/code-search.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "code-translation",
+      "name": "Code Translation",
+      "path": "skills/05-code/code-translation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "db-schema-design",
+      "name": "Database Schema Design",
+      "path": "skills/05-code/db-schema-design.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "debugging",
+      "name": "Debugging",
+      "path": "skills/05-code/debugging.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "dependency-auditor",
+      "name": "Dependency Auditor",
+      "path": "skills/16-infrastructure/dependency-auditor.md",
+      "category": "16-infrastructure",
+      "catLabel": "Infrastructure",
+      "color": "#da7101",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "dependency-management",
+      "name": "Dependency Management",
+      "path": "skills/05-code/dependency-management.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "dockerfile-generation",
+      "name": "Dockerfile Generation",
+      "path": "skills/05-code/dockerfile-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "documentation-generation",
+      "name": "Documentation Generation",
+      "path": "skills/05-code/documentation-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "git-operations",
+      "name": "Git Operations",
+      "path": "skills/05-code/git-operations.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "github-api",
+      "name": "GitHub API",
+      "path": "skills/07-tool-use/github-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "integration-test-writing",
+      "name": "Integration Test Writing",
+      "path": "skills/05-code/integration-test-writing.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "linting-formatting",
+      "name": "Linting & Formatting",
+      "path": "skills/05-code/linting-formatting.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "performance-profiling",
+      "name": "Performance Profiling",
+      "path": "skills/05-code/performance-profiling.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "refactoring",
+      "name": "Refactoring",
+      "path": "skills/05-code/refactoring.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "regex-generation",
+      "name": "Regex Generation",
+      "path": "skills/05-code/regex-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "repl-interaction",
+      "name": "REPL Interaction",
+      "path": "skills/05-code/repl-interaction.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "security-scanning",
+      "name": "Security Scanning",
+      "path": "skills/05-code/security-scanning.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "sql-query-generation",
+      "name": "SQL Query Generation",
+      "path": "skills/05-code/sql-query-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "unit-test-generation",
+      "name": "Unit Test Generation",
+      "path": "skills/05-code/unit-test-generation.md",
+      "category": "05-code",
+      "catLabel": "Code",
+      "color": "#5591c7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "argument-construction",
+      "name": "Argument Construction",
+      "path": "skills/06-communication/argument-construction.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "citation-attribution",
+      "name": "Citation & Attribution",
+      "path": "skills/06-communication/citation-attribution.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "clarification-seeking",
+      "name": "Clarification Seeking",
+      "path": "skills/06-communication/clarification-seeking.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "debate",
+      "name": "Debate",
+      "path": "skills/06-communication/debate.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "email-drafting",
+      "name": "Email Drafting",
+      "path": "skills/06-communication/email-drafting.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "instruction-following",
+      "name": "Instruction Following",
+      "path": "skills/06-communication/instruction-following.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "multilingual-output",
+      "name": "Multilingual Output",
+      "path": "skills/06-communication/multilingual-output.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "paraphrasing",
+      "name": "Paraphrasing",
+      "path": "skills/06-communication/paraphrasing.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "persona-adoption",
+      "name": "Persona Adoption",
+      "path": "skills/06-communication/persona-adoption.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "question-answering",
+      "name": "Question Answering",
+      "path": "skills/06-communication/question-answering.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "report-writing",
+      "name": "Report Writing",
+      "path": "skills/06-communication/report-writing.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "structured-output",
+      "name": "Structured Output",
+      "path": "skills/06-communication/structured-output.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "summarization",
+      "name": "Summarization",
+      "path": "skills/06-communication/summarization.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "tone-adjustment",
+      "name": "Tone Adjustment",
+      "path": "skills/06-communication/tone-adjustment.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "translation",
+      "name": "Translation",
+      "path": "skills/06-communication/translation.md",
+      "category": "06-communication",
+      "catLabel": "Communication",
+      "color": "#dd6974",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "a2a-tool",
+      "name": "Agent-to-Agent Tool (A2A)",
+      "path": "skills/07-tool-use/a2a-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "anthropic-api",
+      "name": "Anthropic API",
+      "path": "skills/07-tool-use/anthropic-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "browser-tool",
+      "name": "Browser Tool",
+      "path": "skills/07-tool-use/browser-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "calculator",
+      "name": "Calculator",
+      "path": "skills/07-tool-use/calculator.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "code-exec-tool",
+      "name": "Code Execution Tool",
+      "path": "skills/07-tool-use/code-exec-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "custom-api-wrapper",
+      "name": "Custom API Wrapper",
+      "path": "skills/07-tool-use/custom-api-wrapper.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "file-system-tool",
+      "name": "File System Tool",
+      "path": "skills/07-tool-use/file-system-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "function-calling",
+      "name": "Function / Tool Calling",
+      "path": "skills/07-tool-use/function-calling.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "google-workspace-api",
+      "name": "Google Workspace API",
+      "path": "skills/07-tool-use/google-workspace-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "huggingface-api",
+      "name": "HuggingFace API",
+      "path": "skills/07-tool-use/huggingface-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "image-gen-tool",
+      "name": "Image Generation Tool",
+      "path": "skills/07-tool-use/image-gen-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "jira-api",
+      "name": "Jira API",
+      "path": "skills/07-tool-use/jira-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "linear-api",
+      "name": "Linear API",
+      "path": "skills/07-tool-use/linear-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "maps-geolocation",
+      "name": "Maps & Geolocation",
+      "path": "skills/07-tool-use/maps-geolocation.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "mcp-tool",
+      "name": "MCP Tool Use",
+      "path": "skills/07-tool-use/mcp-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "news-api",
+      "name": "News API",
+      "path": "skills/07-tool-use/news-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "notion-api",
+      "name": "Notion API",
+      "path": "skills/07-tool-use/notion-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "openai-api",
+      "name": "OpenAI API",
+      "path": "skills/07-tool-use/openai-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "pdf-tool",
+      "name": "PDF Tool",
+      "path": "skills/07-tool-use/pdf-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "sendgrid-api",
+      "name": "SendGrid API",
+      "path": "skills/07-tool-use/sendgrid-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "slack-api",
+      "name": "Slack API",
+      "path": "skills/07-tool-use/slack-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "sql-tool",
+      "name": "SQL Tool",
+      "path": "skills/07-tool-use/sql-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "stripe-api",
+      "name": "Stripe API",
+      "path": "skills/07-tool-use/stripe-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "tool-guardrails",
+      "name": "Tool Guardrails",
+      "path": "skills/07-tool-use/tool-guardrails.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "tool-review-loops",
+      "name": "Tool Review Loops",
+      "path": "skills/07-tool-use/tool-review-loops.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "twilio-api",
+      "name": "Twilio API",
+      "path": "skills/07-tool-use/twilio-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "vector-db-tool",
+      "name": "Vector DB Tool",
+      "path": "skills/07-tool-use/vector-db-tool.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "weather-api",
+      "name": "Weather API",
+      "path": "skills/07-tool-use/weather-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "web-search",
+      "name": "Web Search",
+      "path": "skills/11-web/web-search.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "wikipedia-api",
+      "name": "Wikipedia API",
+      "path": "skills/07-tool-use/wikipedia-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "wolfram-api",
+      "name": "Wolfram Alpha API",
+      "path": "skills/07-tool-use/wolfram-api.md",
+      "category": "07-tool-use",
+      "catLabel": "Tool Use",
+      "color": "#e8af34",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "3d-scene-understanding",
+      "name": "3D Scene Understanding",
+      "path": "skills/08-multimodal/3d-scene-understanding.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "audio-classification",
+      "name": "Audio Classification",
+      "path": "skills/08-multimodal/audio-classification.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "chart-generation",
+      "name": "Chart / Diagram Generation",
+      "path": "skills/08-multimodal/chart-generation.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "document-layout-analysis",
+      "name": "Document Layout Analysis",
+      "path": "skills/08-multimodal/document-layout-analysis.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "image-captioning",
+      "name": "Image Captioning",
+      "path": "skills/08-multimodal/image-captioning.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "image-classification",
+      "name": "Image Classification",
+      "path": "skills/08-multimodal/image-classification.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "image-editing",
+      "name": "Image Editing",
+      "path": "skills/08-multimodal/image-editing.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "image-generation",
+      "name": "Image Generation",
+      "path": "skills/08-multimodal/image-generation.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "object-detection",
+      "name": "Object Detection",
+      "path": "skills/08-multimodal/object-detection.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "text-to-speech",
+      "name": "Text to Speech",
+      "path": "skills/08-multimodal/text-to-speech.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "video-description",
+      "name": "Video Description",
+      "path": "skills/08-multimodal/video-description.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "video-frame-extraction",
+      "name": "Video Frame Extraction",
+      "path": "skills/08-multimodal/video-frame-extraction.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "vqa",
+      "name": "Visual Question Answering (VQA)",
+      "path": "skills/08-multimodal/vqa.md",
+      "category": "08-multimodal",
+      "catLabel": "Multimodal",
+      "color": "#bb653b",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "agent-as-tool",
+      "name": "Agent as Tool",
+      "path": "skills/09-agentic-patterns/agent-as-tool.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "agent-handoffs",
+      "name": "Agent Handoffs",
+      "path": "skills/09-agentic-patterns/agent-handoffs.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "agentic-rag",
+      "name": "Agentic RAG",
+      "path": "skills/09-agentic-patterns/agentic-rag.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "bootstrapping",
+      "name": "Bootstrapping",
+      "path": "skills/09-agentic-patterns/bootstrapping.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "constitutional-ai",
+      "name": "Constitutional AI",
+      "path": "skills/09-agentic-patterns/constitutional-ai.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "cot",
+      "name": "Chain of Thought (CoT)",
+      "path": "skills/09-agentic-patterns/cot.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "critic-agent",
+      "name": "Critic Agent",
+      "path": "skills/09-agentic-patterns/critic-agent.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "debate-pattern",
+      "name": "Debate Pattern",
+      "path": "skills/09-agentic-patterns/debate-pattern.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "interruptible-agent-flows",
+      "name": "Interruptible Agent Flows",
+      "path": "skills/09-agentic-patterns/interruptible-agent-flows.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "lats",
+      "name": "LATS (Language Agent Tree Search)",
+      "path": "skills/09-agentic-patterns/lats.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "mcts",
+      "name": "MCTS (Monte Carlo Tree Search)",
+      "path": "skills/09-agentic-patterns/mcts.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "memory-augmented",
+      "name": "Memory-Augmented Agent",
+      "path": "skills/09-agentic-patterns/memory-augmented.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "mixture-of-agents",
+      "name": "Mixture of Agents (MoA)",
+      "path": "skills/09-agentic-patterns/mixture-of-agents.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "plan-and-execute",
+      "name": "Plan-and-Execute Pattern",
+      "path": "skills/09-agentic-patterns/plan-and-execute.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "rag-pipeline",
+      "name": "RAG Pipeline",
+      "path": "skills/09-agentic-patterns/rag-pipeline.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "reflection",
+      "name": "Reflection / Reflexion",
+      "path": "skills/09-agentic-patterns/reflection.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "self-play",
+      "name": "Self-Play",
+      "path": "skills/09-agentic-patterns/self-play.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "subagent-delegation",
+      "name": "Subagent Delegation",
+      "path": "skills/09-agentic-patterns/subagent-delegation.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "time-travel-debugging",
+      "name": "Time-Travel Debugging",
+      "path": "skills/09-agentic-patterns/time-travel-debugging.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "tool-use-loop",
+      "name": "Tool-Use Loop",
+      "path": "skills/09-agentic-patterns/tool-use-loop.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "tot",
+      "name": "Tree of Thought (ToT)",
+      "path": "skills/09-agentic-patterns/tot.md",
+      "category": "09-agentic-patterns",
+      "catLabel": "Agentic Patterns",
+      "color": "#d163a7",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "accessibility-tree",
+      "name": "Accessibility Tree Navigation",
+      "path": "skills/10-computer-use/accessibility-tree.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "app-launch",
+      "name": "Application Launch",
+      "path": "skills/10-computer-use/app-launch.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "clipboard-read",
+      "name": "Clipboard Read",
+      "path": "skills/10-computer-use/clipboard-read.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "clipboard-write",
+      "name": "Clipboard Write",
+      "path": "skills/10-computer-use/clipboard-write.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "double-click",
+      "name": "Double Click",
+      "path": "skills/10-computer-use/double-click.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "file-dialog",
+      "name": "File Dialog Interaction",
+      "path": "skills/10-computer-use/file-dialog.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "keyboard-shortcut",
+      "name": "Keyboard Shortcut",
+      "path": "skills/10-computer-use/keyboard-shortcut.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "keyboard-type",
+      "name": "Keyboard Type",
+      "path": "skills/10-computer-use/keyboard-type.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "mouse-click",
+      "name": "Mouse Click",
+      "path": "skills/10-computer-use/mouse-click.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "mouse-move",
+      "name": "Mouse Move",
+      "path": "skills/10-computer-use/mouse-move.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "multi-monitor",
+      "name": "Multi-Monitor Support",
+      "path": "skills/10-computer-use/multi-monitor.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "right-click",
+      "name": "Right Click / Context Menu",
+      "path": "skills/10-computer-use/right-click.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "screen-ocr",
+      "name": "Screen Region OCR",
+      "path": "skills/10-computer-use/screen-ocr.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "terminal-interaction",
+      "name": "Terminal / Shell Interaction",
+      "path": "skills/10-computer-use/terminal-interaction.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "visual-element-detection",
+      "name": "Visual Element Detection",
+      "path": "skills/10-computer-use/visual-element-detection.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "vm-interaction",
+      "name": "Virtual Machine Interaction",
+      "path": "skills/10-computer-use/vm-interaction.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "window-management",
+      "name": "Window Management",
+      "path": "skills/10-computer-use/window-management.md",
+      "category": "10-computer-use",
+      "catLabel": "Computer Use",
+      "color": "#01696f",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "api-discovery",
+      "name": "API Endpoint Discovery",
+      "path": "skills/11-web/api-discovery.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "browser-navigation",
+      "name": "Browser Navigation",
+      "path": "skills/11-web/browser-navigation.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "captcha-solving",
+      "name": "CAPTCHA Solving",
+      "path": "skills/11-web/captcha-solving.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "cookie-management",
+      "name": "Cookie / Session Management",
+      "path": "skills/11-web/cookie-management.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "dom-inspection",
+      "name": "DOM Inspection",
+      "path": "skills/11-web/dom-inspection.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "form-filling",
+      "name": "Form Filling",
+      "path": "skills/11-web/form-filling.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "js-execution",
+      "name": "JavaScript Execution",
+      "path": "skills/11-web/js-execution.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "link-extraction",
+      "name": "Link Extraction",
+      "path": "skills/11-web/link-extraction.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "rss-parsing",
+      "name": "RSS/Atom Feed Parsing",
+      "path": "skills/11-web/rss-parsing.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "sitemap-parsing",
+      "name": "Sitemap Parsing",
+      "path": "skills/11-web/sitemap-parsing.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "url-fetching",
+      "name": "URL Fetching",
+      "path": "skills/11-web/url-fetching.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "url-screenshot",
+      "name": "Screenshot of URL",
+      "path": "skills/11-web/url-screenshot.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "web-crawling",
+      "name": "Web Crawling",
+      "path": "skills/11-web/web-crawling.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "web-login",
+      "name": "Login / Authentication",
+      "path": "skills/11-web/web-login.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "web-scraping",
+      "name": "Web Scraping",
+      "path": "skills/11-web/web-scraping.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "web-search-tool-agents",
+      "name": "Web Search Tool Agents",
+      "path": "skills/11-web/web-search-tool-agents.md",
+      "category": "11-web",
+      "catLabel": "Web",
+      "color": "#437a22",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "anomaly-detection",
+      "name": "Anomaly Detection",
+      "path": "skills/12-data/anomaly-detection.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "csv-processing",
+      "name": "CSV Processing",
+      "path": "skills/12-data/csv-processing.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "data-aggregation",
+      "name": "Data Aggregation",
+      "path": "skills/12-data/data-aggregation.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "data-cleaning",
+      "name": "Data Cleaning",
+      "path": "skills/12-data/data-cleaning.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "data-filtering",
+      "name": "Data Filtering",
+      "path": "skills/12-data/data-filtering.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "data-joining",
+      "name": "Data Joining",
+      "path": "skills/12-data/data-joining.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "data-summarization",
+      "name": "Data Summarization",
+      "path": "skills/12-data/data-summarization.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "data-visualization",
+      "name": "Data Visualization",
+      "path": "skills/12-data/data-visualization.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "embedding-generation",
+      "name": "Embedding Generation",
+      "path": "skills/12-data/embedding-generation.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "etl-pipeline",
+      "name": "ETL Pipeline",
+      "path": "skills/12-data/etl-pipeline.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "json-transformation",
+      "name": "JSON Transformation",
+      "path": "skills/12-data/json-transformation.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "basic",
+      "version": "v1"
+    },
+    {
+      "id": "nosql-query",
+      "name": "NoSQL Query",
+      "path": "skills/12-data/nosql-query.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "pandas-operations",
+      "name": "Pandas Operations",
+      "path": "skills/12-data/pandas-operations.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "schema-inference",
+      "name": "Data Schema Inference",
+      "path": "skills/12-data/schema-inference.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "similarity-search",
+      "name": "Similarity Search",
+      "path": "skills/12-data/similarity-search.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "sql-execution",
+      "name": "SQL Query Execution",
+      "path": "skills/12-data/sql-execution.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "statistical-analysis",
+      "name": "Statistical Analysis",
+      "path": "skills/12-data/statistical-analysis.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "intermediate",
+      "version": "v1"
+    },
+    {
+      "id": "time-series",
+      "name": "Time Series Analysis",
+      "path": "skills/12-data/time-series.md",
+      "category": "12-data",
+      "catLabel": "Data",
+      "color": "#006494",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "avatar-design",
+      "name": "avatar-design",
+      "path": "skills/13-creative/avatar-design.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "blog-writing",
+      "name": "blog-writing",
+      "path": "skills/13-creative/blog-writing.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "copywriting",
+      "name": "copywriting",
+      "path": "skills/13-creative/copywriting.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "creative-writing",
+      "name": "creative-writing",
+      "path": "skills/13-creative/creative-writing.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "game-level-design",
+      "name": "game-level-design",
+      "path": "skills/13-creative/game-level-design.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "image-gen-prompt",
+      "name": "image-gen-prompt",
+      "path": "skills/13-creative/image-gen-prompt.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "logo-design",
+      "name": "logo-design",
+      "path": "skills/13-creative/logo-design.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "lyrics-writing",
+      "name": "lyrics-writing",
+      "path": "skills/13-creative/lyrics-writing.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "meme-generation",
+      "name": "meme-generation",
+      "path": "skills/13-creative/meme-generation.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "music-composition",
+      "name": "Pipe to abc2midi or abcjs for playback",
+      "path": "skills/13-creative/music-composition.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "presentation-gen",
+      "name": "presentation-gen",
+      "path": "skills/13-creative/presentation-gen.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "social-media-post",
+      "name": "social-media-post",
+      "path": "skills/13-creative/social-media-post.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "svg-generation",
+      "name": "svg-generation",
+      "path": "skills/13-creative/svg-generation.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "video-script",
+      "name": "video-script",
+      "path": "skills/13-creative/video-script.md",
+      "category": "13-creative",
+      "catLabel": "Creative",
+      "color": "#964219",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "approval-before-destructive-tools",
+      "name": "Approval Before Destructive Tools",
+      "path": "skills/14-security/approval-before-destructive-tools.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "audit-logging",
+      "name": "audit-logging",
+      "path": "skills/14-security/audit-logging.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "harm-detection",
+      "name": "harm-detection",
+      "path": "skills/14-security/harm-detection.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "human-in-loop",
+      "name": "human-in-loop",
+      "path": "skills/14-security/human-in-loop.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "input-guardrails",
+      "name": "Input Guardrails",
+      "path": "skills/14-security/input-guardrails.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "input-sanitization",
+      "name": "input-sanitization",
+      "path": "skills/14-security/input-sanitization.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "output-guardrails",
+      "name": "Output Guardrails",
+      "path": "skills/14-security/output-guardrails.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "permission-checking",
+      "name": "permission-checking",
+      "path": "skills/14-security/permission-checking.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "privacy-preservation",
+      "name": "Contact John at [REDACTED] or [REDACTED] (SSN: [REDACTED])",
+      "path": "skills/14-security/privacy-preservation.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "rate-limiting",
+      "name": "rate-limiting",
+      "path": "skills/14-security/rate-limiting.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "rollback-undo",
+      "name": "Usage",
+      "path": "skills/14-security/rollback-undo.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "sandboxed-execution",
+      "name": "sandboxed-execution",
+      "path": "skills/14-security/sandboxed-execution.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "secret-scanning",
+      "name": "secret-scanning",
+      "path": "skills/14-security/secret-scanning.md",
+      "category": "14-security",
+      "catLabel": "Security",
+      "color": "#a12c7b",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "agent-communication",
+      "name": "agent-communication",
+      "path": "skills/15-orchestration/agent-communication.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "agent-handoff",
+      "name": "Agent Handoff",
+      "path": "skills/15-orchestration/agent-handoff.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "budget-management",
+      "name": "budget-management",
+      "path": "skills/15-orchestration/budget-management.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "conditional-branching",
+      "name": "conditional-branching",
+      "path": "skills/15-orchestration/conditional-branching.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "consensus-voting",
+      "name": "consensus-voting",
+      "path": "skills/15-orchestration/consensus-voting.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "event-triggers",
+      "name": "event-triggers",
+      "path": "skills/15-orchestration/event-triggers.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "hierarchical-tree",
+      "name": "hierarchical-tree",
+      "path": "skills/15-orchestration/hierarchical-tree.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "human-approval-gates",
+      "name": "Human Approval Gates",
+      "path": "skills/15-orchestration/human-approval-gates.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "langgraph-checkpointing",
+      "name": "LangGraph Checkpointing",
+      "path": "skills/15-orchestration/langgraph-checkpointing.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "logging-observability",
+      "name": "logging-observability",
+      "path": "skills/15-orchestration/logging-observability.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "multi-agent-run-config",
+      "name": "Multi-Agent Run Config",
+      "path": "skills/15-orchestration/multi-agent-run-config.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "parallel-execution",
+      "name": "Parallel Task Execution",
+      "path": "skills/15-orchestration/parallel-execution.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "retry-backoff",
+      "name": "retry-backoff",
+      "path": "skills/15-orchestration/retry-backoff.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "role-assignment",
+      "name": "role-assignment",
+      "path": "skills/15-orchestration/role-assignment.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "sequential-workflow",
+      "name": "sequential-workflow",
+      "path": "skills/15-orchestration/sequential-workflow.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "shared-memory",
+      "name": "Usage",
+      "path": "skills/15-orchestration/shared-memory.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "specialist-agent-routing",
+      "name": "Specialist Agent Routing",
+      "path": "skills/15-orchestration/specialist-agent-routing.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "state-machine",
+      "name": "state-machine",
+      "path": "skills/15-orchestration/state-machine.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "stateful-agent-graphs",
+      "name": "Stateful Agent Graphs",
+      "path": "skills/15-orchestration/stateful-agent-graphs.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "subagent-spawning",
+      "name": "Subagent Spawning",
+      "path": "skills/15-orchestration/subagent-spawning.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "task-queue",
+      "name": "task-queue",
+      "path": "skills/15-orchestration/task-queue.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": "Advanced",
+      "version": "v1"
+    },
+    {
+      "id": "thread-based-resume",
+      "name": "Thread-Based Resume",
+      "path": "skills/15-orchestration/thread-based-resume.md",
+      "category": "15-orchestration",
+      "catLabel": "Orchestration",
+      "color": "#a13544",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "ad-copy",
+      "name": "ad-copy",
+      "path": "skills/16-domain-specific/ad-copy.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "alert-triage",
+      "name": "alert-triage",
+      "path": "skills/16-domain-specific/alert-triage.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "clinical-note-summarization",
+      "name": "clinical-note-summarization",
+      "path": "skills/16-domain-specific/clinical-note-summarization.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "compliance-checking",
+      "name": "compliance-checking",
+      "path": "skills/16-domain-specific/compliance-checking.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "compliance-review-workflows",
+      "name": "Compliance Review Workflows",
+      "path": "skills/16-domain-specific/compliance-review-workflows.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": null,
+      "version": "v1"
+    },
+    {
+      "id": "contract-review",
+      "name": "contract-review",
+      "path": "skills/16-domain-specific/contract-review.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "data-labeling",
+      "name": "data-labeling",
+      "path": "skills/16-domain-specific/data-labeling.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "drug-interaction",
+      "name": "drug-interaction",
+      "path": "skills/16-domain-specific/drug-interaction.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "essay-grading",
+      "name": "essay-grading",
+      "path": "skills/16-domain-specific/essay-grading.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "financial-statement",
+      "name": "financial-statement",
+      "path": "skills/16-domain-specific/financial-statement.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "flashcard-creation",
+      "name": "flashcard-creation",
+      "path": "skills/16-domain-specific/flashcard-creation.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "iac-generation",
+      "name": "iac-generation",
+      "path": "skills/16-domain-specific/iac-generation.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "incident-response",
+      "name": "incident-response",
+      "path": "skills/16-domain-specific/incident-response.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "invoice-processing",
+      "name": "invoice-processing",
+      "path": "skills/16-domain-specific/invoice-processing.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "legal-research",
+      "name": "legal-research",
+      "path": "skills/16-domain-specific/legal-research.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "lesson-plan",
+      "name": "lesson-plan",
+      "path": "skills/16-domain-specific/lesson-plan.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "literature-review",
+      "name": "literature-review",
+      "path": "skills/16-domain-specific/literature-review.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "log-analysis",
+      "name": "log-analysis",
+      "path": "skills/16-domain-specific/log-analysis.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "medical-literature-search",
+      "name": "medical-literature-search",
+      "path": "skills/16-domain-specific/medical-literature-search.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "paper-summarization",
+      "name": "paper-summarization",
+      "path": "skills/16-domain-specific/paper-summarization.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "portfolio-analysis",
+      "name": "portfolio-analysis",
+      "path": "skills/16-domain-specific/portfolio-analysis.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "product-description",
+      "name": "product-description",
+      "path": "skills/16-domain-specific/product-description.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "quiz-generation",
+      "name": "quiz-generation",
+      "path": "skills/16-domain-specific/quiz-generation.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "review-analysis",
+      "name": "review-analysis",
+      "path": "skills/16-domain-specific/review-analysis.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "seo-optimization",
+      "name": "seo-optimization",
+      "path": "skills/16-domain-specific/seo-optimization.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "stock-lookup",
+      "name": "stock-lookup",
+      "path": "skills/16-domain-specific/stock-lookup.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    },
+    {
+      "id": "symptom-analysis",
+      "name": "symptom-analysis",
+      "path": "skills/16-domain-specific/symptom-analysis.md",
+      "category": "16-domain-specific",
+      "catLabel": "Domain-Specific",
+      "color": "#7a39bb",
+      "level": "advanced",
+      "version": "v1"
+    }
+  ],
+  "links": [
+    {
+      "source": "README",
+      "target": "dependency-auditor"
+    },
+    {
+      "source": "audio-transcription",
+      "target": "audio-classification"
+    },
+    {
+      "source": "audio-transcription",
+      "target": "text-to-speech"
+    },
+    {
+      "source": "chart-reading",
+      "target": "image-understanding"
+    },
+    {
+      "source": "chart-reading",
+      "target": "ocr"
+    },
+    {
+      "source": "chart-reading",
+      "target": "document-parsing"
+    },
+    {
+      "source": "chart-reading",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "code-reading",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "code-reading",
+      "target": "text-reading"
+    },
+    {
+      "source": "code-reading",
+      "target": "document-parsing"
+    },
+    {
+      "source": "code-reading",
+      "target": "file-system-reading"
+    },
+    {
+      "source": "database-reading",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "database-reading",
+      "target": "api-response-parsing"
+    },
+    {
+      "source": "database-reading",
+      "target": "text-reading"
+    },
+    {
+      "source": "document-parsing",
+      "target": "pdf-parsing"
+    },
+    {
+      "source": "document-parsing",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "document-parsing",
+      "target": "ocr"
+    },
+    {
+      "source": "document-parsing",
+      "target": "email-parsing"
+    },
+    {
+      "source": "email-parsing",
+      "target": "document-parsing"
+    },
+    {
+      "source": "email-parsing",
+      "target": "pdf-parsing"
+    },
+    {
+      "source": "email-parsing",
+      "target": "text-reading"
+    },
+    {
+      "source": "file-system-reading",
+      "target": "document-parsing"
+    },
+    {
+      "source": "file-system-reading",
+      "target": "code-reading"
+    },
+    {
+      "source": "file-system-reading",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "handwriting-recognition",
+      "target": "ocr"
+    },
+    {
+      "source": "handwriting-recognition",
+      "target": "image-understanding"
+    },
+    {
+      "source": "handwriting-recognition",
+      "target": "document-parsing"
+    },
+    {
+      "source": "ocr",
+      "target": "document-parsing"
+    },
+    {
+      "source": "ocr",
+      "target": "pdf-parsing"
+    },
+    {
+      "source": "ocr",
+      "target": "handwriting-recognition"
+    },
+    {
+      "source": "ocr",
+      "target": "image-understanding"
+    },
+    {
+      "source": "pdf-parsing",
+      "target": "document-parsing"
+    },
+    {
+      "source": "pdf-parsing",
+      "target": "ocr"
+    },
+    {
+      "source": "pdf-parsing",
+      "target": "image-understanding"
+    },
+    {
+      "source": "screen-reading",
+      "target": "url-dom-inspection"
+    },
+    {
+      "source": "screen-reading",
+      "target": "ocr"
+    },
+    {
+      "source": "screen-reading",
+      "target": "image-understanding"
+    },
+    {
+      "source": "sensor-reading",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "sensor-reading",
+      "target": "api-response-parsing"
+    },
+    {
+      "source": "structured-data-reading",
+      "target": "api-response-parsing"
+    },
+    {
+      "source": "structured-data-reading",
+      "target": "document-parsing"
+    },
+    {
+      "source": "structured-data-reading",
+      "target": "database-reading"
+    },
+    {
+      "source": "text-reading",
+      "target": "document-parsing"
+    },
+    {
+      "source": "text-reading",
+      "target": "pdf-parsing"
+    },
+    {
+      "source": "text-reading",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "url-dom-inspection",
+      "target": "screen-reading"
+    },
+    {
+      "source": "url-dom-inspection",
+      "target": "text-reading"
+    },
+    {
+      "source": "url-dom-inspection",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "abductive",
+      "target": "causal"
+    },
+    {
+      "source": "abductive",
+      "target": "commonsense"
+    },
+    {
+      "source": "abductive",
+      "target": "fact-verification"
+    },
+    {
+      "source": "analogical",
+      "target": "causal"
+    },
+    {
+      "source": "analogical",
+      "target": "commonsense"
+    },
+    {
+      "source": "analogical",
+      "target": "abductive"
+    },
+    {
+      "source": "causal",
+      "target": "abductive"
+    },
+    {
+      "source": "causal",
+      "target": "analogical"
+    },
+    {
+      "source": "causal",
+      "target": "commonsense"
+    },
+    {
+      "source": "chain-of-thought",
+      "target": "react"
+    },
+    {
+      "source": "chain-of-thought",
+      "target": "tree-of-thought"
+    },
+    {
+      "source": "commonsense",
+      "target": "fact-verification"
+    },
+    {
+      "source": "commonsense",
+      "target": "abductive"
+    },
+    {
+      "source": "commonsense",
+      "target": "causal"
+    },
+    {
+      "source": "commonsense",
+      "target": "analogical"
+    },
+    {
+      "source": "constraint-satisfaction",
+      "target": "planning"
+    },
+    {
+      "source": "constraint-satisfaction",
+      "target": "mathematical-reasoning"
+    },
+    {
+      "source": "constraint-satisfaction",
+      "target": "decision-making"
+    },
+    {
+      "source": "constraint-satisfaction",
+      "target": "task-decomposition"
+    },
+    {
+      "source": "counterfactual-reasoning",
+      "target": "causal"
+    },
+    {
+      "source": "counterfactual-reasoning",
+      "target": "hypothesis-generation"
+    },
+    {
+      "source": "counterfactual-reasoning",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "counterfactual-reasoning",
+      "target": "self-correction"
+    },
+    {
+      "source": "decision-making",
+      "target": "planning"
+    },
+    {
+      "source": "decision-making",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "decision-making",
+      "target": "prioritization"
+    },
+    {
+      "source": "deductive-reasoning",
+      "target": "inductive-reasoning"
+    },
+    {
+      "source": "deductive-reasoning",
+      "target": "abductive"
+    },
+    {
+      "source": "deductive-reasoning",
+      "target": "mathematical-reasoning"
+    },
+    {
+      "source": "deductive-reasoning",
+      "target": "constraint-satisfaction"
+    },
+    {
+      "source": "goal-setting",
+      "target": "planning"
+    },
+    {
+      "source": "goal-setting",
+      "target": "task-decomposition"
+    },
+    {
+      "source": "goal-setting",
+      "target": "prioritization"
+    },
+    {
+      "source": "goal-setting",
+      "target": "self-reflection"
+    },
+    {
+      "source": "hypothesis-generation",
+      "target": "literature-review"
+    },
+    {
+      "source": "hypothesis-generation",
+      "target": "inductive-reasoning"
+    },
+    {
+      "source": "inductive-reasoning",
+      "target": "deductive-reasoning"
+    },
+    {
+      "source": "inductive-reasoning",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "mathematical-reasoning",
+      "target": "chain-of-thought"
+    },
+    {
+      "source": "mathematical-reasoning",
+      "target": "calculator"
+    },
+    {
+      "source": "prioritization",
+      "target": "goal-setting"
+    },
+    {
+      "source": "prioritization",
+      "target": "decision-making"
+    },
+    {
+      "source": "prioritization",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "react",
+      "target": "cot"
+    },
+    {
+      "source": "react",
+      "target": "tool-use-loop"
+    },
+    {
+      "source": "react",
+      "target": "planning"
+    },
+    {
+      "source": "self-correction",
+      "target": "self-reflection"
+    },
+    {
+      "source": "self-correction",
+      "target": "debugging"
+    },
+    {
+      "source": "task-decomposition",
+      "target": "planning"
+    },
+    {
+      "source": "task-decomposition",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "tree-of-thought",
+      "target": "chain-of-thought"
+    },
+    {
+      "source": "tree-of-thought",
+      "target": "mcts"
+    },
+    {
+      "source": "tree-of-thought",
+      "target": "planning"
+    },
+    {
+      "source": "cross-session-persistence",
+      "target": "user-profile-memory"
+    },
+    {
+      "source": "cross-session-persistence",
+      "target": "episodic-memory"
+    },
+    {
+      "source": "cross-session-persistence",
+      "target": "rag"
+    },
+    {
+      "source": "fact-verification-memory",
+      "target": "semantic-memory"
+    },
+    {
+      "source": "fact-verification-memory",
+      "target": "self-correction"
+    },
+    {
+      "source": "fact-verification",
+      "target": "memory-summarization"
+    },
+    {
+      "source": "fact-verification",
+      "target": "procedural"
+    },
+    {
+      "source": "fact-verification",
+      "target": "abductive"
+    },
+    {
+      "source": "forgetting",
+      "target": "memory-summarization"
+    },
+    {
+      "source": "forgetting",
+      "target": "memory-injection"
+    },
+    {
+      "source": "forgetting",
+      "target": "user-profile"
+    },
+    {
+      "source": "memory-injection",
+      "target": "working-memory"
+    },
+    {
+      "source": "memory-injection",
+      "target": "rag"
+    },
+    {
+      "source": "memory-injection",
+      "target": "vector-store-retrieval"
+    },
+    {
+      "source": "memory-summarization",
+      "target": "memory-injection"
+    },
+    {
+      "source": "memory-summarization",
+      "target": "forgetting"
+    },
+    {
+      "source": "memory-summarization",
+      "target": "user-profile"
+    },
+    {
+      "source": "procedural-memory",
+      "target": "semantic-memory"
+    },
+    {
+      "source": "procedural-memory",
+      "target": "planning"
+    },
+    {
+      "source": "procedural",
+      "target": "memory-injection"
+    },
+    {
+      "source": "procedural",
+      "target": "memory-summarization"
+    },
+    {
+      "source": "procedural",
+      "target": "fact-verification"
+    },
+    {
+      "source": "rag",
+      "target": "memory-injection"
+    },
+    {
+      "source": "rag",
+      "target": "react"
+    },
+    {
+      "source": "rag",
+      "target": "web-search"
+    },
+    {
+      "source": "user-profile-memory",
+      "target": "cross-session-persistence"
+    },
+    {
+      "source": "user-profile-memory",
+      "target": "episodic-memory"
+    },
+    {
+      "source": "user-profile",
+      "target": "forgetting"
+    },
+    {
+      "source": "user-profile",
+      "target": "memory-injection"
+    },
+    {
+      "source": "user-profile",
+      "target": "memory-summarization"
+    },
+    {
+      "source": "vector-store-retrieval",
+      "target": "rag"
+    },
+    {
+      "source": "vector-store-retrieval",
+      "target": "similarity-search"
+    },
+    {
+      "source": "vector-store-retrieval",
+      "target": "embedding-generation"
+    },
+    {
+      "source": "assertion",
+      "target": "unit-test-generation"
+    },
+    {
+      "source": "assertion",
+      "target": "self-correction"
+    },
+    {
+      "source": "calendar-event",
+      "target": "email-sending"
+    },
+    {
+      "source": "calendar-event",
+      "target": "notification-sending"
+    },
+    {
+      "source": "clipboard-ops",
+      "target": "keyboard-input"
+    },
+    {
+      "source": "clipboard-ops",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "database-write",
+      "target": "database-reading"
+    },
+    {
+      "source": "database-write",
+      "target": "sql-query-generation"
+    },
+    {
+      "source": "drag-drop",
+      "target": "mouse-move"
+    },
+    {
+      "source": "drag-drop",
+      "target": "mouse-click"
+    },
+    {
+      "source": "drag-drop",
+      "target": "visual-element-detection"
+    },
+    {
+      "source": "email-sending",
+      "target": "email-parsing"
+    },
+    {
+      "source": "email-sending",
+      "target": "notification-sending"
+    },
+    {
+      "source": "email-sending",
+      "target": "sendgrid-api"
+    },
+    {
+      "source": "env-vars",
+      "target": "shell-command"
+    },
+    {
+      "source": "env-vars",
+      "target": "secret-scanning"
+    },
+    {
+      "source": "file-append",
+      "target": "file-write"
+    },
+    {
+      "source": "file-append",
+      "target": "file-delete"
+    },
+    {
+      "source": "file-delete",
+      "target": "file-write"
+    },
+    {
+      "source": "file-delete",
+      "target": "file-append"
+    },
+    {
+      "source": "file-delete",
+      "target": "rollback-undo"
+    },
+    {
+      "source": "file-write",
+      "target": "file-append"
+    },
+    {
+      "source": "file-write",
+      "target": "file-delete"
+    },
+    {
+      "source": "file-write",
+      "target": "shell-command"
+    },
+    {
+      "source": "form-submission",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "form-submission",
+      "target": "form-filling"
+    },
+    {
+      "source": "http-request",
+      "target": "api-response-parsing"
+    },
+    {
+      "source": "http-request",
+      "target": "custom-api-wrapper"
+    },
+    {
+      "source": "keyboard-input",
+      "target": "mouse-input"
+    },
+    {
+      "source": "keyboard-input",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "mouse-input",
+      "target": "keyboard-input"
+    },
+    {
+      "source": "mouse-input",
+      "target": "mouse-click"
+    },
+    {
+      "source": "notification-sending",
+      "target": "email-sending"
+    },
+    {
+      "source": "notification-sending",
+      "target": "slack-api"
+    },
+    {
+      "source": "process-management",
+      "target": "shell-command"
+    },
+    {
+      "source": "process-management",
+      "target": "terminal-interaction"
+    },
+    {
+      "source": "screenshot-capture",
+      "target": "screen-reading"
+    },
+    {
+      "source": "screenshot-capture",
+      "target": "ocr"
+    },
+    {
+      "source": "screenshot-capture",
+      "target": "mouse-click"
+    },
+    {
+      "source": "scroll",
+      "target": "mouse-move"
+    },
+    {
+      "source": "scroll",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "scroll",
+      "target": "visual-element-detection"
+    },
+    {
+      "source": "shell-command",
+      "target": "code-execution-sandbox"
+    },
+    {
+      "source": "shell-command",
+      "target": "process-management"
+    },
+    {
+      "source": "wait-sleep",
+      "target": "retry-backoff"
+    },
+    {
+      "source": "wait-sleep",
+      "target": "process-management"
+    },
+    {
+      "source": "algorithm-design",
+      "target": "code-generation"
+    },
+    {
+      "source": "algorithm-design",
+      "target": "performance-profiling"
+    },
+    {
+      "source": "api-client-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "api-client-generation",
+      "target": "http-request"
+    },
+    {
+      "source": "cicd-generation",
+      "target": "dockerfile-generation"
+    },
+    {
+      "source": "cicd-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "code-execution-sandbox",
+      "target": "shell-command"
+    },
+    {
+      "source": "code-execution-sandbox",
+      "target": "repl-interaction"
+    },
+    {
+      "source": "code-explanation",
+      "target": "code-review"
+    },
+    {
+      "source": "code-explanation",
+      "target": "documentation-generation"
+    },
+    {
+      "source": "code-explanation",
+      "target": "debugging"
+    },
+    {
+      "source": "code-review",
+      "target": "code-generation"
+    },
+    {
+      "source": "code-review",
+      "target": "security-scanning"
+    },
+    {
+      "source": "code-search",
+      "target": "code-reading"
+    },
+    {
+      "source": "code-search",
+      "target": "refactoring"
+    },
+    {
+      "source": "code-translation",
+      "target": "code-generation"
+    },
+    {
+      "source": "code-translation",
+      "target": "code-explanation"
+    },
+    {
+      "source": "db-schema-design",
+      "target": "sql-query-generation"
+    },
+    {
+      "source": "db-schema-design",
+      "target": "database-write"
+    },
+    {
+      "source": "debugging",
+      "target": "code-generation"
+    },
+    {
+      "source": "debugging",
+      "target": "self-correction"
+    },
+    {
+      "source": "debugging",
+      "target": "code-execution-sandbox"
+    },
+    {
+      "source": "dependency-management",
+      "target": "dockerfile-generation"
+    },
+    {
+      "source": "dependency-management",
+      "target": "cicd-generation"
+    },
+    {
+      "source": "dependency-management",
+      "target": "security-scanning"
+    },
+    {
+      "source": "dockerfile-generation",
+      "target": "cicd-generation"
+    },
+    {
+      "source": "dockerfile-generation",
+      "target": "dependency-management"
+    },
+    {
+      "source": "documentation-generation",
+      "target": "code-explanation"
+    },
+    {
+      "source": "documentation-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "git-operations",
+      "target": "github-api"
+    },
+    {
+      "source": "git-operations",
+      "target": "shell-command"
+    },
+    {
+      "source": "github-api",
+      "target": "git-operations"
+    },
+    {
+      "source": "github-api",
+      "target": "mcp-tool"
+    },
+    {
+      "source": "integration-test-writing",
+      "target": "unit-test-generation"
+    },
+    {
+      "source": "integration-test-writing",
+      "target": "code-generation"
+    },
+    {
+      "source": "linting-formatting",
+      "target": "code-review"
+    },
+    {
+      "source": "linting-formatting",
+      "target": "cicd-generation"
+    },
+    {
+      "source": "performance-profiling",
+      "target": "algorithm-design"
+    },
+    {
+      "source": "performance-profiling",
+      "target": "debugging"
+    },
+    {
+      "source": "refactoring",
+      "target": "code-review"
+    },
+    {
+      "source": "refactoring",
+      "target": "linting-formatting"
+    },
+    {
+      "source": "regex-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "regex-generation",
+      "target": "text-reading"
+    },
+    {
+      "source": "repl-interaction",
+      "target": "code-execution-sandbox"
+    },
+    {
+      "source": "repl-interaction",
+      "target": "debugging"
+    },
+    {
+      "source": "security-scanning",
+      "target": "secret-scanning"
+    },
+    {
+      "source": "security-scanning",
+      "target": "dependency-management"
+    },
+    {
+      "source": "security-scanning",
+      "target": "linting-formatting"
+    },
+    {
+      "source": "sql-query-generation",
+      "target": "sql-execution"
+    },
+    {
+      "source": "sql-query-generation",
+      "target": "db-schema-design"
+    },
+    {
+      "source": "unit-test-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "unit-test-generation",
+      "target": "debugging"
+    },
+    {
+      "source": "unit-test-generation",
+      "target": "code-review"
+    },
+    {
+      "source": "argument-construction",
+      "target": "debate"
+    },
+    {
+      "source": "argument-construction",
+      "target": "report-writing"
+    },
+    {
+      "source": "citation-attribution",
+      "target": "report-writing"
+    },
+    {
+      "source": "citation-attribution",
+      "target": "summarization"
+    },
+    {
+      "source": "clarification-seeking",
+      "target": "question-answering"
+    },
+    {
+      "source": "clarification-seeking",
+      "target": "instruction-following"
+    },
+    {
+      "source": "debate",
+      "target": "argument-construction"
+    },
+    {
+      "source": "debate",
+      "target": "debate-pattern"
+    },
+    {
+      "source": "email-drafting",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "email-drafting",
+      "target": "email-sending"
+    },
+    {
+      "source": "instruction-following",
+      "target": "clarification-seeking"
+    },
+    {
+      "source": "instruction-following",
+      "target": "structured-output"
+    },
+    {
+      "source": "multilingual-output",
+      "target": "translation"
+    },
+    {
+      "source": "multilingual-output",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "paraphrasing",
+      "target": "translation"
+    },
+    {
+      "source": "paraphrasing",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "persona-adoption",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "persona-adoption",
+      "target": "instruction-following"
+    },
+    {
+      "source": "question-answering",
+      "target": "summarization"
+    },
+    {
+      "source": "question-answering",
+      "target": "rag"
+    },
+    {
+      "source": "report-writing",
+      "target": "summarization"
+    },
+    {
+      "source": "report-writing",
+      "target": "argument-construction"
+    },
+    {
+      "source": "structured-output",
+      "target": "instruction-following"
+    },
+    {
+      "source": "structured-output",
+      "target": "json-transformation"
+    },
+    {
+      "source": "tone-adjustment",
+      "target": "paraphrasing"
+    },
+    {
+      "source": "tone-adjustment",
+      "target": "persona-adoption"
+    },
+    {
+      "source": "tone-adjustment",
+      "target": "email-drafting"
+    },
+    {
+      "source": "translation",
+      "target": "multilingual-output"
+    },
+    {
+      "source": "translation",
+      "target": "paraphrasing"
+    },
+    {
+      "source": "a2a-tool",
+      "target": "mcp-tool"
+    },
+    {
+      "source": "a2a-tool",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "a2a-tool",
+      "target": "agent-handoff"
+    },
+    {
+      "source": "anthropic-api",
+      "target": "openai-api"
+    },
+    {
+      "source": "anthropic-api",
+      "target": "function-calling"
+    },
+    {
+      "source": "browser-tool",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "browser-tool",
+      "target": "web-scraping"
+    },
+    {
+      "source": "calculator",
+      "target": "wolfram-api"
+    },
+    {
+      "source": "calculator",
+      "target": "mathematical-reasoning"
+    },
+    {
+      "source": "code-exec-tool",
+      "target": "code-execution-sandbox"
+    },
+    {
+      "source": "code-exec-tool",
+      "target": "sandboxed-execution"
+    },
+    {
+      "source": "custom-api-wrapper",
+      "target": "function-calling"
+    },
+    {
+      "source": "custom-api-wrapper",
+      "target": "http-request"
+    },
+    {
+      "source": "custom-api-wrapper",
+      "target": "mcp-tool"
+    },
+    {
+      "source": "file-system-tool",
+      "target": "file-system-reading"
+    },
+    {
+      "source": "file-system-tool",
+      "target": "file-write"
+    },
+    {
+      "source": "function-calling",
+      "target": "mcp-tool"
+    },
+    {
+      "source": "function-calling",
+      "target": "react"
+    },
+    {
+      "source": "google-workspace-api",
+      "target": "calendar-event"
+    },
+    {
+      "source": "google-workspace-api",
+      "target": "email-sending"
+    },
+    {
+      "source": "huggingface-api",
+      "target": "embedding-generation"
+    },
+    {
+      "source": "huggingface-api",
+      "target": "openai-api"
+    },
+    {
+      "source": "image-gen-tool",
+      "target": "image-generation"
+    },
+    {
+      "source": "image-gen-tool",
+      "target": "openai-api"
+    },
+    {
+      "source": "jira-api",
+      "target": "linear-api"
+    },
+    {
+      "source": "jira-api",
+      "target": "github-api"
+    },
+    {
+      "source": "linear-api",
+      "target": "jira-api"
+    },
+    {
+      "source": "linear-api",
+      "target": "github-api"
+    },
+    {
+      "source": "maps-geolocation",
+      "target": "custom-api-wrapper"
+    },
+    {
+      "source": "news-api",
+      "target": "web-search"
+    },
+    {
+      "source": "news-api",
+      "target": "rss-parsing"
+    },
+    {
+      "source": "notion-api",
+      "target": "google-workspace-api"
+    },
+    {
+      "source": "notion-api",
+      "target": "structured-output"
+    },
+    {
+      "source": "openai-api",
+      "target": "anthropic-api"
+    },
+    {
+      "source": "openai-api",
+      "target": "function-calling"
+    },
+    {
+      "source": "openai-api",
+      "target": "embedding-generation"
+    },
+    {
+      "source": "pdf-tool",
+      "target": "pdf-parsing"
+    },
+    {
+      "source": "pdf-tool",
+      "target": "document-parsing"
+    },
+    {
+      "source": "sendgrid-api",
+      "target": "email-sending"
+    },
+    {
+      "source": "sendgrid-api",
+      "target": "twilio-api"
+    },
+    {
+      "source": "slack-api",
+      "target": "notification-sending"
+    },
+    {
+      "source": "slack-api",
+      "target": "twilio-api"
+    },
+    {
+      "source": "sql-tool",
+      "target": "sql-query-generation"
+    },
+    {
+      "source": "sql-tool",
+      "target": "database-reading"
+    },
+    {
+      "source": "stripe-api",
+      "target": "custom-api-wrapper"
+    },
+    {
+      "source": "stripe-api",
+      "target": "notification-sending"
+    },
+    {
+      "source": "twilio-api",
+      "target": "sendgrid-api"
+    },
+    {
+      "source": "twilio-api",
+      "target": "notification-sending"
+    },
+    {
+      "source": "vector-db-tool",
+      "target": "similarity-search"
+    },
+    {
+      "source": "vector-db-tool",
+      "target": "embedding-generation"
+    },
+    {
+      "source": "vector-db-tool",
+      "target": "rag"
+    },
+    {
+      "source": "weather-api",
+      "target": "custom-api-wrapper"
+    },
+    {
+      "source": "weather-api",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "web-search",
+      "target": "web-scraping"
+    },
+    {
+      "source": "web-search",
+      "target": "react"
+    },
+    {
+      "source": "web-search",
+      "target": "rag"
+    },
+    {
+      "source": "wikipedia-api",
+      "target": "web-search"
+    },
+    {
+      "source": "wikipedia-api",
+      "target": "wolfram-api"
+    },
+    {
+      "source": "wolfram-api",
+      "target": "calculator"
+    },
+    {
+      "source": "wolfram-api",
+      "target": "mathematical-reasoning"
+    },
+    {
+      "source": "3d-scene-understanding",
+      "target": "image-understanding"
+    },
+    {
+      "source": "3d-scene-understanding",
+      "target": "object-detection"
+    },
+    {
+      "source": "3d-scene-understanding",
+      "target": "video-frame-extraction"
+    },
+    {
+      "source": "3d-scene-understanding",
+      "target": "sensor-reading"
+    },
+    {
+      "source": "audio-classification",
+      "target": "audio-transcription"
+    },
+    {
+      "source": "audio-classification",
+      "target": "text-to-speech"
+    },
+    {
+      "source": "chart-generation",
+      "target": "data-visualization"
+    },
+    {
+      "source": "chart-generation",
+      "target": "chart-reading"
+    },
+    {
+      "source": "chart-generation",
+      "target": "image-generation"
+    },
+    {
+      "source": "document-layout-analysis",
+      "target": "document-parsing"
+    },
+    {
+      "source": "document-layout-analysis",
+      "target": "ocr"
+    },
+    {
+      "source": "document-layout-analysis",
+      "target": "table-extraction"
+    },
+    {
+      "source": "document-layout-analysis",
+      "target": "pdf-parsing"
+    },
+    {
+      "source": "image-captioning",
+      "target": "image-understanding"
+    },
+    {
+      "source": "image-captioning",
+      "target": "vqa"
+    },
+    {
+      "source": "image-classification",
+      "target": "image-understanding"
+    },
+    {
+      "source": "image-classification",
+      "target": "image-captioning"
+    },
+    {
+      "source": "image-classification",
+      "target": "object-detection"
+    },
+    {
+      "source": "image-editing",
+      "target": "image-generation"
+    },
+    {
+      "source": "image-editing",
+      "target": "image-captioning"
+    },
+    {
+      "source": "image-editing",
+      "target": "object-detection"
+    },
+    {
+      "source": "image-generation",
+      "target": "image-captioning"
+    },
+    {
+      "source": "image-generation",
+      "target": "image-editing"
+    },
+    {
+      "source": "object-detection",
+      "target": "image-classification"
+    },
+    {
+      "source": "object-detection",
+      "target": "image-understanding"
+    },
+    {
+      "source": "object-detection",
+      "target": "vqa"
+    },
+    {
+      "source": "text-to-speech",
+      "target": "audio-transcription"
+    },
+    {
+      "source": "video-description",
+      "target": "video-frame-extraction"
+    },
+    {
+      "source": "video-description",
+      "target": "image-captioning"
+    },
+    {
+      "source": "video-description",
+      "target": "video-understanding"
+    },
+    {
+      "source": "video-frame-extraction",
+      "target": "video-description"
+    },
+    {
+      "source": "video-frame-extraction",
+      "target": "image-understanding"
+    },
+    {
+      "source": "video-frame-extraction",
+      "target": "video-understanding"
+    },
+    {
+      "source": "vqa",
+      "target": "image-captioning"
+    },
+    {
+      "source": "vqa",
+      "target": "image-understanding"
+    },
+    {
+      "source": "vqa",
+      "target": "object-detection"
+    },
+    {
+      "source": "agentic-rag",
+      "target": "rag-pipeline"
+    },
+    {
+      "source": "agentic-rag",
+      "target": "rag"
+    },
+    {
+      "source": "agentic-rag",
+      "target": "react"
+    },
+    {
+      "source": "bootstrapping",
+      "target": "self-play"
+    },
+    {
+      "source": "bootstrapping",
+      "target": "constitutional-ai"
+    },
+    {
+      "source": "bootstrapping",
+      "target": "reflection"
+    },
+    {
+      "source": "constitutional-ai",
+      "target": "reflection"
+    },
+    {
+      "source": "constitutional-ai",
+      "target": "critic-agent"
+    },
+    {
+      "source": "constitutional-ai",
+      "target": "debate-pattern"
+    },
+    {
+      "source": "cot",
+      "target": "react"
+    },
+    {
+      "source": "cot",
+      "target": "tot"
+    },
+    {
+      "source": "critic-agent",
+      "target": "reflection"
+    },
+    {
+      "source": "critic-agent",
+      "target": "constitutional-ai"
+    },
+    {
+      "source": "critic-agent",
+      "target": "debate-pattern"
+    },
+    {
+      "source": "debate-pattern",
+      "target": "mixture-of-agents"
+    },
+    {
+      "source": "debate-pattern",
+      "target": "critic-agent"
+    },
+    {
+      "source": "debate-pattern",
+      "target": "constitutional-ai"
+    },
+    {
+      "source": "lats",
+      "target": "mcts"
+    },
+    {
+      "source": "lats",
+      "target": "tot"
+    },
+    {
+      "source": "lats",
+      "target": "reflection"
+    },
+    {
+      "source": "mcts",
+      "target": "tot"
+    },
+    {
+      "source": "mcts",
+      "target": "lats"
+    },
+    {
+      "source": "mcts",
+      "target": "self-play"
+    },
+    {
+      "source": "memory-augmented",
+      "target": "rag-pipeline"
+    },
+    {
+      "source": "memory-augmented",
+      "target": "long-term-memory"
+    },
+    {
+      "source": "memory-augmented",
+      "target": "vector-db-tool"
+    },
+    {
+      "source": "mixture-of-agents",
+      "target": "debate-pattern"
+    },
+    {
+      "source": "mixture-of-agents",
+      "target": "subagent-delegation"
+    },
+    {
+      "source": "mixture-of-agents",
+      "target": "critic-agent"
+    },
+    {
+      "source": "rag-pipeline",
+      "target": "agentic-rag"
+    },
+    {
+      "source": "rag-pipeline",
+      "target": "rag"
+    },
+    {
+      "source": "rag-pipeline",
+      "target": "vector-db-tool"
+    },
+    {
+      "source": "reflection",
+      "target": "critic-agent"
+    },
+    {
+      "source": "reflection",
+      "target": "cot"
+    },
+    {
+      "source": "reflection",
+      "target": "constitutional-ai"
+    },
+    {
+      "source": "self-play",
+      "target": "debate-pattern"
+    },
+    {
+      "source": "self-play",
+      "target": "bootstrapping"
+    },
+    {
+      "source": "self-play",
+      "target": "reflection"
+    },
+    {
+      "source": "subagent-delegation",
+      "target": "plan-and-execute"
+    },
+    {
+      "source": "subagent-delegation",
+      "target": "a2a-tool"
+    },
+    {
+      "source": "subagent-delegation",
+      "target": "agent-handoff"
+    },
+    {
+      "source": "tool-use-loop",
+      "target": "react"
+    },
+    {
+      "source": "tool-use-loop",
+      "target": "mcp-tool"
+    },
+    {
+      "source": "tool-use-loop",
+      "target": "plan-and-execute"
+    },
+    {
+      "source": "tot",
+      "target": "cot"
+    },
+    {
+      "source": "tot",
+      "target": "mcts"
+    },
+    {
+      "source": "tot",
+      "target": "react"
+    },
+    {
+      "source": "accessibility-tree",
+      "target": "visual-element-detection"
+    },
+    {
+      "source": "accessibility-tree",
+      "target": "mouse-click"
+    },
+    {
+      "source": "accessibility-tree",
+      "target": "screen-ocr"
+    },
+    {
+      "source": "app-launch",
+      "target": "window-management"
+    },
+    {
+      "source": "app-launch",
+      "target": "terminal-interaction"
+    },
+    {
+      "source": "app-launch",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "clipboard-read",
+      "target": "clipboard-write"
+    },
+    {
+      "source": "clipboard-read",
+      "target": "keyboard-shortcut"
+    },
+    {
+      "source": "clipboard-read",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "clipboard-write",
+      "target": "clipboard-read"
+    },
+    {
+      "source": "clipboard-write",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "clipboard-write",
+      "target": "keyboard-shortcut"
+    },
+    {
+      "source": "double-click",
+      "target": "mouse-click"
+    },
+    {
+      "source": "double-click",
+      "target": "app-launch"
+    },
+    {
+      "source": "double-click",
+      "target": "visual-element-detection"
+    },
+    {
+      "source": "file-dialog",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "file-dialog",
+      "target": "keyboard-shortcut"
+    },
+    {
+      "source": "file-dialog",
+      "target": "terminal-interaction"
+    },
+    {
+      "source": "keyboard-shortcut",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "keyboard-shortcut",
+      "target": "clipboard-read"
+    },
+    {
+      "source": "keyboard-shortcut",
+      "target": "clipboard-write"
+    },
+    {
+      "source": "keyboard-type",
+      "target": "mouse-click"
+    },
+    {
+      "source": "keyboard-type",
+      "target": "keyboard-shortcut"
+    },
+    {
+      "source": "mouse-click",
+      "target": "mouse-move"
+    },
+    {
+      "source": "mouse-click",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "mouse-click",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "mouse-move",
+      "target": "mouse-click"
+    },
+    {
+      "source": "mouse-move",
+      "target": "drag-drop"
+    },
+    {
+      "source": "mouse-move",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "multi-monitor",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "multi-monitor",
+      "target": "window-management"
+    },
+    {
+      "source": "multi-monitor",
+      "target": "mouse-move"
+    },
+    {
+      "source": "right-click",
+      "target": "mouse-click"
+    },
+    {
+      "source": "right-click",
+      "target": "accessibility-tree"
+    },
+    {
+      "source": "right-click",
+      "target": "visual-element-detection"
+    },
+    {
+      "source": "screen-ocr",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "screen-ocr",
+      "target": "visual-element-detection"
+    },
+    {
+      "source": "screen-ocr",
+      "target": "accessibility-tree"
+    },
+    {
+      "source": "terminal-interaction",
+      "target": "screen-ocr"
+    },
+    {
+      "source": "terminal-interaction",
+      "target": "keyboard-type"
+    },
+    {
+      "source": "terminal-interaction",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "visual-element-detection",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "visual-element-detection",
+      "target": "screen-ocr"
+    },
+    {
+      "source": "visual-element-detection",
+      "target": "mouse-click"
+    },
+    {
+      "source": "vm-interaction",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "vm-interaction",
+      "target": "terminal-interaction"
+    },
+    {
+      "source": "vm-interaction",
+      "target": "window-management"
+    },
+    {
+      "source": "window-management",
+      "target": "app-launch"
+    },
+    {
+      "source": "window-management",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "window-management",
+      "target": "multi-monitor"
+    },
+    {
+      "source": "api-discovery",
+      "target": "web-scraping"
+    },
+    {
+      "source": "api-discovery",
+      "target": "dom-inspection"
+    },
+    {
+      "source": "api-discovery",
+      "target": "js-execution"
+    },
+    {
+      "source": "browser-navigation",
+      "target": "form-filling"
+    },
+    {
+      "source": "browser-navigation",
+      "target": "web-scraping"
+    },
+    {
+      "source": "browser-navigation",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "captcha-solving",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "captcha-solving",
+      "target": "form-filling"
+    },
+    {
+      "source": "captcha-solving",
+      "target": "web-login"
+    },
+    {
+      "source": "cookie-management",
+      "target": "web-login"
+    },
+    {
+      "source": "cookie-management",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "cookie-management",
+      "target": "js-execution"
+    },
+    {
+      "source": "dom-inspection",
+      "target": "js-execution"
+    },
+    {
+      "source": "dom-inspection",
+      "target": "web-scraping"
+    },
+    {
+      "source": "dom-inspection",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "form-filling",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "form-filling",
+      "target": "web-login"
+    },
+    {
+      "source": "form-filling",
+      "target": "dom-inspection"
+    },
+    {
+      "source": "js-execution",
+      "target": "dom-inspection"
+    },
+    {
+      "source": "js-execution",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "js-execution",
+      "target": "web-scraping"
+    },
+    {
+      "source": "link-extraction",
+      "target": "web-scraping"
+    },
+    {
+      "source": "link-extraction",
+      "target": "web-crawling"
+    },
+    {
+      "source": "link-extraction",
+      "target": "sitemap-parsing"
+    },
+    {
+      "source": "rss-parsing",
+      "target": "url-fetching"
+    },
+    {
+      "source": "rss-parsing",
+      "target": "web-scraping"
+    },
+    {
+      "source": "rss-parsing",
+      "target": "sitemap-parsing"
+    },
+    {
+      "source": "sitemap-parsing",
+      "target": "url-fetching"
+    },
+    {
+      "source": "sitemap-parsing",
+      "target": "rss-parsing"
+    },
+    {
+      "source": "sitemap-parsing",
+      "target": "web-crawling"
+    },
+    {
+      "source": "url-fetching",
+      "target": "web-scraping"
+    },
+    {
+      "source": "url-fetching",
+      "target": "dom-inspection"
+    },
+    {
+      "source": "url-fetching",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "url-screenshot",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "url-screenshot",
+      "target": "screenshot-capture"
+    },
+    {
+      "source": "url-screenshot",
+      "target": "dom-inspection"
+    },
+    {
+      "source": "web-crawling",
+      "target": "link-extraction"
+    },
+    {
+      "source": "web-crawling",
+      "target": "web-scraping"
+    },
+    {
+      "source": "web-crawling",
+      "target": "sitemap-parsing"
+    },
+    {
+      "source": "web-login",
+      "target": "form-filling"
+    },
+    {
+      "source": "web-login",
+      "target": "cookie-management"
+    },
+    {
+      "source": "web-login",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "web-scraping",
+      "target": "url-fetching"
+    },
+    {
+      "source": "web-scraping",
+      "target": "browser-navigation"
+    },
+    {
+      "source": "web-scraping",
+      "target": "web-crawling"
+    },
+    {
+      "source": "anomaly-detection",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "anomaly-detection",
+      "target": "time-series"
+    },
+    {
+      "source": "csv-processing",
+      "target": "data-cleaning"
+    },
+    {
+      "source": "csv-processing",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "csv-processing",
+      "target": "json-transformation"
+    },
+    {
+      "source": "data-aggregation",
+      "target": "data-filtering"
+    },
+    {
+      "source": "data-aggregation",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "data-aggregation",
+      "target": "sql-execution"
+    },
+    {
+      "source": "data-cleaning",
+      "target": "csv-processing"
+    },
+    {
+      "source": "data-cleaning",
+      "target": "anomaly-detection"
+    },
+    {
+      "source": "data-cleaning",
+      "target": "schema-inference"
+    },
+    {
+      "source": "data-filtering",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "data-filtering",
+      "target": "sql-execution"
+    },
+    {
+      "source": "data-joining",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "data-joining",
+      "target": "sql-execution"
+    },
+    {
+      "source": "data-summarization",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "data-summarization",
+      "target": "data-visualization"
+    },
+    {
+      "source": "data-visualization",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "data-visualization",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "embedding-generation",
+      "target": "similarity-search"
+    },
+    {
+      "source": "embedding-generation",
+      "target": "vector-db-tool"
+    },
+    {
+      "source": "embedding-generation",
+      "target": "rag"
+    },
+    {
+      "source": "etl-pipeline",
+      "target": "data-cleaning"
+    },
+    {
+      "source": "etl-pipeline",
+      "target": "data-joining"
+    },
+    {
+      "source": "etl-pipeline",
+      "target": "sql-execution"
+    },
+    {
+      "source": "json-transformation",
+      "target": "csv-processing"
+    },
+    {
+      "source": "json-transformation",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "nosql-query",
+      "target": "sql-execution"
+    },
+    {
+      "source": "nosql-query",
+      "target": "vector-db-tool"
+    },
+    {
+      "source": "pandas-operations",
+      "target": "csv-processing"
+    },
+    {
+      "source": "pandas-operations",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "pandas-operations",
+      "target": "data-cleaning"
+    },
+    {
+      "source": "schema-inference",
+      "target": "data-cleaning"
+    },
+    {
+      "source": "schema-inference",
+      "target": "csv-processing"
+    },
+    {
+      "source": "similarity-search",
+      "target": "embedding-generation"
+    },
+    {
+      "source": "similarity-search",
+      "target": "rag"
+    },
+    {
+      "source": "similarity-search",
+      "target": "vector-db-tool"
+    },
+    {
+      "source": "sql-execution",
+      "target": "sql-query-generation"
+    },
+    {
+      "source": "sql-execution",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "sql-execution",
+      "target": "nosql-query"
+    },
+    {
+      "source": "statistical-analysis",
+      "target": "data-aggregation"
+    },
+    {
+      "source": "statistical-analysis",
+      "target": "time-series"
+    },
+    {
+      "source": "statistical-analysis",
+      "target": "anomaly-detection"
+    },
+    {
+      "source": "time-series",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "time-series",
+      "target": "anomaly-detection"
+    },
+    {
+      "source": "time-series",
+      "target": "data-visualization"
+    },
+    {
+      "source": "avatar-design",
+      "target": "creative-writing"
+    },
+    {
+      "source": "avatar-design",
+      "target": "image-gen-prompt"
+    },
+    {
+      "source": "avatar-design",
+      "target": "persona-adoption"
+    },
+    {
+      "source": "blog-writing",
+      "target": "creative-writing"
+    },
+    {
+      "source": "blog-writing",
+      "target": "summarization"
+    },
+    {
+      "source": "blog-writing",
+      "target": "structured-output"
+    },
+    {
+      "source": "copywriting",
+      "target": "blog-writing"
+    },
+    {
+      "source": "copywriting",
+      "target": "ad-copy"
+    },
+    {
+      "source": "copywriting",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "creative-writing",
+      "target": "copywriting"
+    },
+    {
+      "source": "creative-writing",
+      "target": "persona-adoption"
+    },
+    {
+      "source": "creative-writing",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "game-level-design",
+      "target": "svg-generation"
+    },
+    {
+      "source": "game-level-design",
+      "target": "structured-output"
+    },
+    {
+      "source": "game-level-design",
+      "target": "algorithm-design"
+    },
+    {
+      "source": "image-gen-prompt",
+      "target": "image-generation"
+    },
+    {
+      "source": "image-gen-prompt",
+      "target": "creative-writing"
+    },
+    {
+      "source": "logo-design",
+      "target": "svg-generation"
+    },
+    {
+      "source": "logo-design",
+      "target": "avatar-design"
+    },
+    {
+      "source": "logo-design",
+      "target": "image-gen-prompt"
+    },
+    {
+      "source": "lyrics-writing",
+      "target": "creative-writing"
+    },
+    {
+      "source": "lyrics-writing",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "meme-generation",
+      "target": "creative-writing"
+    },
+    {
+      "source": "meme-generation",
+      "target": "image-gen-prompt"
+    },
+    {
+      "source": "music-composition",
+      "target": "lyrics-writing"
+    },
+    {
+      "source": "music-composition",
+      "target": "creative-writing"
+    },
+    {
+      "source": "music-composition",
+      "target": "structured-output"
+    },
+    {
+      "source": "presentation-gen",
+      "target": "blog-writing"
+    },
+    {
+      "source": "presentation-gen",
+      "target": "structured-output"
+    },
+    {
+      "source": "social-media-post",
+      "target": "copywriting"
+    },
+    {
+      "source": "social-media-post",
+      "target": "tone-adjustment"
+    },
+    {
+      "source": "svg-generation",
+      "target": "image-generation"
+    },
+    {
+      "source": "svg-generation",
+      "target": "logo-design"
+    },
+    {
+      "source": "svg-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "video-script",
+      "target": "blog-writing"
+    },
+    {
+      "source": "video-script",
+      "target": "presentation-gen"
+    },
+    {
+      "source": "audit-logging",
+      "target": "human-in-loop"
+    },
+    {
+      "source": "audit-logging",
+      "target": "logging-observability"
+    },
+    {
+      "source": "harm-detection",
+      "target": "input-sanitization"
+    },
+    {
+      "source": "harm-detection",
+      "target": "privacy-preservation"
+    },
+    {
+      "source": "harm-detection",
+      "target": "human-in-loop"
+    },
+    {
+      "source": "human-in-loop",
+      "target": "permission-checking"
+    },
+    {
+      "source": "human-in-loop",
+      "target": "audit-logging"
+    },
+    {
+      "source": "human-in-loop",
+      "target": "harm-detection"
+    },
+    {
+      "source": "input-sanitization",
+      "target": "permission-checking"
+    },
+    {
+      "source": "input-sanitization",
+      "target": "sandboxed-execution"
+    },
+    {
+      "source": "permission-checking",
+      "target": "input-sanitization"
+    },
+    {
+      "source": "permission-checking",
+      "target": "audit-logging"
+    },
+    {
+      "source": "permission-checking",
+      "target": "human-in-loop"
+    },
+    {
+      "source": "privacy-preservation",
+      "target": "harm-detection"
+    },
+    {
+      "source": "privacy-preservation",
+      "target": "audit-logging"
+    },
+    {
+      "source": "privacy-preservation",
+      "target": "input-sanitization"
+    },
+    {
+      "source": "rate-limiting",
+      "target": "budget-management"
+    },
+    {
+      "source": "rate-limiting",
+      "target": "retry-backoff"
+    },
+    {
+      "source": "rollback-undo",
+      "target": "audit-logging"
+    },
+    {
+      "source": "rollback-undo",
+      "target": "permission-checking"
+    },
+    {
+      "source": "rollback-undo",
+      "target": "human-in-loop"
+    },
+    {
+      "source": "sandboxed-execution",
+      "target": "input-sanitization"
+    },
+    {
+      "source": "sandboxed-execution",
+      "target": "code-execution-sandbox"
+    },
+    {
+      "source": "secret-scanning",
+      "target": "audit-logging"
+    },
+    {
+      "source": "secret-scanning",
+      "target": "input-sanitization"
+    },
+    {
+      "source": "agent-communication",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "agent-communication",
+      "target": "agent-handoff"
+    },
+    {
+      "source": "agent-communication",
+      "target": "shared-memory"
+    },
+    {
+      "source": "agent-handoff",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "agent-handoff",
+      "target": "role-assignment"
+    },
+    {
+      "source": "budget-management",
+      "target": "rate-limiting"
+    },
+    {
+      "source": "budget-management",
+      "target": "logging-observability"
+    },
+    {
+      "source": "conditional-branching",
+      "target": "sequential-workflow"
+    },
+    {
+      "source": "conditional-branching",
+      "target": "state-machine"
+    },
+    {
+      "source": "conditional-branching",
+      "target": "decision-making"
+    },
+    {
+      "source": "consensus-voting",
+      "target": "mixture-of-agents"
+    },
+    {
+      "source": "consensus-voting",
+      "target": "debate-pattern"
+    },
+    {
+      "source": "consensus-voting",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "event-triggers",
+      "target": "agent-communication"
+    },
+    {
+      "source": "event-triggers",
+      "target": "task-queue"
+    },
+    {
+      "source": "event-triggers",
+      "target": "sequential-workflow"
+    },
+    {
+      "source": "hierarchical-tree",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "hierarchical-tree",
+      "target": "role-assignment"
+    },
+    {
+      "source": "hierarchical-tree",
+      "target": "agent-handoff"
+    },
+    {
+      "source": "logging-observability",
+      "target": "audit-logging"
+    },
+    {
+      "source": "logging-observability",
+      "target": "budget-management"
+    },
+    {
+      "source": "parallel-execution",
+      "target": "subagent-spawning"
+    },
+    {
+      "source": "parallel-execution",
+      "target": "sequential-workflow"
+    },
+    {
+      "source": "retry-backoff",
+      "target": "budget-management"
+    },
+    {
+      "source": "retry-backoff",
+      "target": "rate-limiting"
+    },
+    {
+      "source": "role-assignment",
+      "target": "subagent-delegation"
+    },
+    {
+      "source": "role-assignment",
+      "target": "sequential-workflow"
+    },
+    {
+      "source": "sequential-workflow",
+      "target": "conditional-branching"
+    },
+    {
+      "source": "sequential-workflow",
+      "target": "retry-backoff"
+    },
+    {
+      "source": "sequential-workflow",
+      "target": "logging-observability"
+    },
+    {
+      "source": "shared-memory",
+      "target": "agent-communication"
+    },
+    {
+      "source": "shared-memory",
+      "target": "memory-augmented"
+    },
+    {
+      "source": "shared-memory",
+      "target": "parallel-execution"
+    },
+    {
+      "source": "state-machine",
+      "target": "sequential-workflow"
+    },
+    {
+      "source": "state-machine",
+      "target": "conditional-branching"
+    },
+    {
+      "source": "state-machine",
+      "target": "logging-observability"
+    },
+    {
+      "source": "subagent-spawning",
+      "target": "parallel-execution"
+    },
+    {
+      "source": "subagent-spawning",
+      "target": "agent-handoff"
+    },
+    {
+      "source": "subagent-spawning",
+      "target": "role-assignment"
+    },
+    {
+      "source": "task-queue",
+      "target": "parallel-execution"
+    },
+    {
+      "source": "task-queue",
+      "target": "sequential-workflow"
+    },
+    {
+      "source": "task-queue",
+      "target": "retry-backoff"
+    },
+    {
+      "source": "ad-copy",
+      "target": "product-description"
+    },
+    {
+      "source": "ad-copy",
+      "target": "copywriting"
+    },
+    {
+      "source": "alert-triage",
+      "target": "incident-response"
+    },
+    {
+      "source": "alert-triage",
+      "target": "log-analysis"
+    },
+    {
+      "source": "alert-triage",
+      "target": "prioritization"
+    },
+    {
+      "source": "clinical-note-summarization",
+      "target": "summarization"
+    },
+    {
+      "source": "clinical-note-summarization",
+      "target": "document-parsing"
+    },
+    {
+      "source": "clinical-note-summarization",
+      "target": "structured-output"
+    },
+    {
+      "source": "compliance-checking",
+      "target": "contract-review"
+    },
+    {
+      "source": "compliance-checking",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "compliance-checking",
+      "target": "assertion"
+    },
+    {
+      "source": "contract-review",
+      "target": "legal-research"
+    },
+    {
+      "source": "contract-review",
+      "target": "compliance-checking"
+    },
+    {
+      "source": "contract-review",
+      "target": "document-parsing"
+    },
+    {
+      "source": "data-labeling",
+      "target": "data-cleaning"
+    },
+    {
+      "source": "data-labeling",
+      "target": "structured-output"
+    },
+    {
+      "source": "data-labeling",
+      "target": "embedding-generation"
+    },
+    {
+      "source": "drug-interaction",
+      "target": "symptom-analysis"
+    },
+    {
+      "source": "drug-interaction",
+      "target": "medical-literature-search"
+    },
+    {
+      "source": "drug-interaction",
+      "target": "fact-verification-memory"
+    },
+    {
+      "source": "essay-grading",
+      "target": "lesson-plan"
+    },
+    {
+      "source": "essay-grading",
+      "target": "report-writing"
+    },
+    {
+      "source": "essay-grading",
+      "target": "argument-construction"
+    },
+    {
+      "source": "financial-statement",
+      "target": "portfolio-analysis"
+    },
+    {
+      "source": "financial-statement",
+      "target": "statistical-analysis"
+    },
+    {
+      "source": "financial-statement",
+      "target": "structured-data-reading"
+    },
+    {
+      "source": "flashcard-creation",
+      "target": "quiz-generation"
+    },
+    {
+      "source": "flashcard-creation",
+      "target": "summarization"
+    },
+    {
+      "source": "iac-generation",
+      "target": "code-generation"
+    },
+    {
+      "source": "iac-generation",
+      "target": "cicd-generation"
+    },
+    {
+      "source": "iac-generation",
+      "target": "incident-response"
+    },
+    {
+      "source": "incident-response",
+      "target": "log-analysis"
+    },
+    {
+      "source": "incident-response",
+      "target": "alert-triage"
+    },
+    {
+      "source": "incident-response",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "invoice-processing",
+      "target": "ocr"
+    },
+    {
+      "source": "invoice-processing",
+      "target": "document-parsing"
+    },
+    {
+      "source": "invoice-processing",
+      "target": "data-cleaning"
+    },
+    {
+      "source": "legal-research",
+      "target": "contract-review"
+    },
+    {
+      "source": "legal-research",
+      "target": "citation-attribution"
+    },
+    {
+      "source": "legal-research",
+      "target": "web-search"
+    },
+    {
+      "source": "lesson-plan",
+      "target": "quiz-generation"
+    },
+    {
+      "source": "lesson-plan",
+      "target": "essay-grading"
+    },
+    {
+      "source": "lesson-plan",
+      "target": "planning"
+    },
+    {
+      "source": "literature-review",
+      "target": "paper-summarization"
+    },
+    {
+      "source": "literature-review",
+      "target": "hypothesis-generation"
+    },
+    {
+      "source": "literature-review",
+      "target": "rag"
+    },
+    {
+      "source": "log-analysis",
+      "target": "incident-response"
+    },
+    {
+      "source": "log-analysis",
+      "target": "anomaly-detection"
+    },
+    {
+      "source": "log-analysis",
+      "target": "alert-triage"
+    },
+    {
+      "source": "medical-literature-search",
+      "target": "paper-summarization"
+    },
+    {
+      "source": "medical-literature-search",
+      "target": "web-search"
+    },
+    {
+      "source": "medical-literature-search",
+      "target": "rag"
+    },
+    {
+      "source": "medical-literature-search",
+      "target": "citation-attribution"
+    },
+    {
+      "source": "paper-summarization",
+      "target": "literature-review"
+    },
+    {
+      "source": "paper-summarization",
+      "target": "rag"
+    },
+    {
+      "source": "paper-summarization",
+      "target": "summarization"
+    },
+    {
+      "source": "portfolio-analysis",
+      "target": "financial-statement"
+    },
+    {
+      "source": "portfolio-analysis",
+      "target": "stock-lookup"
+    },
+    {
+      "source": "portfolio-analysis",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "product-description",
+      "target": "seo-optimization"
+    },
+    {
+      "source": "product-description",
+      "target": "copywriting"
+    },
+    {
+      "source": "product-description",
+      "target": "ad-copy"
+    },
+    {
+      "source": "quiz-generation",
+      "target": "lesson-plan"
+    },
+    {
+      "source": "quiz-generation",
+      "target": "flashcard-creation"
+    },
+    {
+      "source": "quiz-generation",
+      "target": "structured-output"
+    },
+    {
+      "source": "review-analysis",
+      "target": "data-summarization"
+    },
+    {
+      "source": "review-analysis",
+      "target": "seo-optimization"
+    },
+    {
+      "source": "seo-optimization",
+      "target": "product-description"
+    },
+    {
+      "source": "seo-optimization",
+      "target": "web-scraping"
+    },
+    {
+      "source": "stock-lookup",
+      "target": "portfolio-analysis"
+    },
+    {
+      "source": "stock-lookup",
+      "target": "financial-statement"
+    },
+    {
+      "source": "stock-lookup",
+      "target": "time-series"
+    },
+    {
+      "source": "symptom-analysis",
+      "target": "decision-making"
+    },
+    {
+      "source": "symptom-analysis",
+      "target": "risk-assessment"
+    },
+    {
+      "source": "symptom-analysis",
+      "target": "drug-interaction"
+    },
+    {
+      "source": "symptom-analysis",
+      "target": "clinical-note-summarization"
+    }
+  ]
+}
