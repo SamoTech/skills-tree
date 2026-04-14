@@ -7,6 +7,8 @@
 
 # Skills Tree
 
+![Banner](docs/assets/banner.svg)
+
 <!-- HIGHLIGHTS_START -->
 ## 📆 This Week's Highlights — April 14, 2026
 
