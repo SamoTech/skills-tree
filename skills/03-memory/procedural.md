@@ -5,6 +5,19 @@ level: intermediate
 stability: stable
 description: "Apply procedural memory in AI agent workflows."
 added: "2025-03"
+dependencies:
+  - package: mem0ai
+    min_version: "0.1.0"
+    tested_version: "0.1.19"
+    confidence: verified
+  - package: anthropic
+    min_version: "0.25.0"
+    tested_version: "0.28.0"
+    confidence: verified
+code_blocks:
+  - id: "example-store-retrieve"
+    type: illustrative
+    note: "Requires Mem0 API key — illustrative only"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural.json)
@@ -138,6 +151,7 @@ store_procedure(
 
 | Date | Change |
 |---|---|
+| `2026-04` | Promoted deps to confidence: verified (batch-1 verification PR) |
 | `2026-04` | Annotated code block as type:illustrative to clarify mem0 import name |
 | `2026-04` | Fixed PyPI package name: mem0 → mem0ai |
 | `2026-04` | Expanded from stub: store+retrieve pattern, versioning note, mem0 example |

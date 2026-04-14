@@ -5,6 +5,19 @@ level: intermediate
 stability: stable
 added: "2025-03"
 description: "Apply audio transcription in AI agent workflows."
+dependencies:
+  - package: openai-whisper
+    min_version: "20231117"
+    tested_version: "20231117"
+    confidence: verified
+  - package: torch
+    min_version: "2.1.0"
+    tested_version: "2.3.0"
+    confidence: verified
+code_blocks:
+  - id: "example-diarization"
+    type: illustrative
+    note: "pyannote.audio requires HuggingFace token and model download — illustrative only"
 ---
 
 
