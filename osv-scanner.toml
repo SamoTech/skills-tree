@@ -1,0 +1,29 @@
+# osv-scanner.toml
+# https://google.github.io/osv-scanner/configuration/
+#
+# Skills Tree is a documentation-only repository.
+# Package names appearing in skills/**/*.md are illustrative code examples,
+# NOT installed or runtime dependencies of this repo.
+# This config restricts scanning to actual code/tooling directories only.
+
+[scanner]
+# Only scan directories that contain real executable code or tooling.
+# Explicitly exclude skill Markdown files and the generated docs site.
+include-paths = [
+  "tools",
+  ".github",
+]
+exclude-paths = [
+  "skills",
+  "docs",
+  "benchmarks",
+  "blueprints",
+  "labs",
+  "systems",
+  "meta",
+]
+
+[[IgnoredVulns]]
+reason = """Skills Tree has no runtime dependencies. Package names in skills/**/*.md 
+are documentation examples only, not installed packages. All advisories 
+originating from Markdown skill files are false positives."""
