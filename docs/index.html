@@ -699,23 +699,24 @@ const heroStats = document.querySelector('.hero-stats');
 if(heroStats) observer.observe(heroStats);
 
 // ---- Data ----
+// githubPath maps each category to its actual folder in skills/
 const CATEGORIES = [
-  {id:1,icon:'🧠',title:'Reasoning & Planning',desc:'Chain-of-thought, tree-of-thought, step-back prompting, self-critique, and advanced multi-step planning strategies.',tags:['cot','tot','planning','self-critique'],count:36,levels:['basic','intermediate','advanced']},
-  {id:2,icon:'🔧',title:'Tool Use & Function Calling',desc:'Structured tool invocation, JSON schema binding, parallel tool calls, tool selection heuristics, and fallback patterns.',tags:['function-calling','json','parallel','fallback'],count:55,levels:['intermediate','advanced']},
-  {id:3,icon:'🖥️',title:'Computer Use',desc:'GUI automation, browser control, screenshot interpretation, click/type actions, and desktop agent loops.',tags:['gui','browser','screenshot','automation'],count:37,levels:['advanced','experimental']},
-  {id:4,icon:'🗣️',title:'Conversation & Dialogue',desc:'Multi-turn memory, persona management, tone calibration, clarification seeking, and conversation repair.',tags:['memory','persona','tone','multi-turn'],count:41,levels:['basic','intermediate']},
-  {id:5,icon:'📝',title:'Code Generation',desc:'Syntax-aware completion, test generation, refactoring, debugging, documentation, and multi-language synthesis.',tags:['codegen','tests','refactor','debug'],count:48,levels:['intermediate','advanced']},
-  {id:6,icon:'📊',title:'Data Analysis',desc:'Tabular reasoning, statistical interpretation, chart reading, SQL generation, and structured data extraction.',tags:['sql','statistics','tabular','charts'],count:33,levels:['intermediate','advanced']},
-  {id:7,icon:'🏺',title:'Domain-Specific Skills',desc:'Medical, legal, finance, science, and engineering domain adaptations with specialist vocabulary and reasoning patterns.',tags:['medical','legal','finance','science'],count:52,levels:['advanced','experimental']},
-  {id:8,icon:'🌐',title:'Web & API Interaction',desc:'REST/GraphQL calls, authentication flows, pagination handling, rate limiting, and webhook processing.',tags:['rest','graphql','auth','webhooks'],count:29,levels:['intermediate','advanced']},
-  {id:9,icon:'📦',title:'Memory & Context',desc:'Long-context management, retrieval augmentation, episodic memory, summarisation buffers, and context window strategies.',tags:['rag','retrieval','summarisation','context'],count:38,levels:['intermediate','advanced']},
-  {id:10,icon:'🤖',title:'Multi-Agent Coordination',desc:'Agent spawning, task delegation, result aggregation, conflict resolution, and orchestrator/worker patterns.',tags:['orchestration','delegation','swarm','aggregation'],count:31,levels:['advanced','experimental']},
-  {id:11,icon:'🔒',title:'Safety & Alignment',desc:'Refusal strategies, jailbreak resistance, output validation, harm detection, and constitutional AI techniques.',tags:['safety','refusal','validation','alignment'],count:27,levels:['intermediate','advanced']},
-  {id:12,icon:'🎨',title:'Multimodal Skills',desc:'Image understanding, audio transcription, video description, cross-modal reasoning, and visual grounding.',tags:['vision','audio','video','grounding'],count:34,levels:['intermediate','advanced','experimental']},
-  {id:13,icon:'📖',title:'Knowledge & Research',desc:'Fact verification, citation generation, knowledge graph traversal, entity resolution, and evidence synthesis.',tags:['fact-check','citations','kg','entities'],count:26,levels:['intermediate','advanced']},
-  {id:14,icon:'⚙️',title:'System Integration',desc:'OS command execution, file system ops, environment variables, process management, and shell scripting patterns.',tags:['shell','fs','os','processes'],count:22,levels:['advanced','experimental']},
-  {id:15,icon:'📢',title:'Communication & Output',desc:'Report writing, email drafting, slide generation, executive summaries, and format-specific rendering.',tags:['writing','email','slides','summaries'],count:30,levels:['basic','intermediate']},
-  {id:16,icon:'🔬',title:'Evaluation & Testing',desc:'Model benchmarking, output scoring, regression suites, A/B evaluation, and quality metric design.',tags:['benchmarks','scoring','qa','metrics'],count:16,levels:['intermediate','advanced','experimental']},
+  {id:1,icon:'🧠',title:'Reasoning & Planning',desc:'Chain-of-thought, tree-of-thought, step-back prompting, self-critique, and advanced multi-step planning strategies.',tags:['cot','tot','planning','self-critique'],count:36,levels:['basic','intermediate','advanced'],githubPath:'02-reasoning'},
+  {id:2,icon:'🔧',title:'Tool Use & Function Calling',desc:'Structured tool invocation, JSON schema binding, parallel tool calls, tool selection heuristics, and fallback patterns.',tags:['function-calling','json','parallel','fallback'],count:55,levels:['intermediate','advanced'],githubPath:'07-tool-use'},
+  {id:3,icon:'🖥️',title:'Computer Use',desc:'GUI automation, browser control, screenshot interpretation, click/type actions, and desktop agent loops.',tags:['gui','browser','screenshot','automation'],count:37,levels:['advanced','experimental'],githubPath:'10-computer-use'},
+  {id:4,icon:'🗣️',title:'Conversation & Dialogue',desc:'Multi-turn memory, persona management, tone calibration, clarification seeking, and conversation repair.',tags:['memory','persona','tone','multi-turn'],count:41,levels:['basic','intermediate'],githubPath:'06-communication'},
+  {id:5,icon:'📝',title:'Code Generation',desc:'Syntax-aware completion, test generation, refactoring, debugging, documentation, and multi-language synthesis.',tags:['codegen','tests','refactor','debug'],count:48,levels:['intermediate','advanced'],githubPath:'05-code'},
+  {id:6,icon:'📊',title:'Data Analysis',desc:'Tabular reasoning, statistical interpretation, chart reading, SQL generation, and structured data extraction.',tags:['sql','statistics','tabular','charts'],count:33,levels:['intermediate','advanced'],githubPath:'12-data'},
+  {id:7,icon:'🏺',title:'Domain-Specific Skills',desc:'Medical, legal, finance, science, and engineering domain adaptations with specialist vocabulary and reasoning patterns.',tags:['medical','legal','finance','science'],count:52,levels:['advanced','experimental'],githubPath:'16-domain-specific'},
+  {id:8,icon:'🌐',title:'Web & API Interaction',desc:'REST/GraphQL calls, authentication flows, pagination handling, rate limiting, and webhook processing.',tags:['rest','graphql','auth','webhooks'],count:29,levels:['intermediate','advanced'],githubPath:'11-web'},
+  {id:9,icon:'📦',title:'Memory & Context',desc:'Long-context management, retrieval augmentation, episodic memory, summarisation buffers, and context window strategies.',tags:['rag','retrieval','summarisation','context'],count:38,levels:['intermediate','advanced'],githubPath:'03-memory'},
+  {id:10,icon:'🤖',title:'Multi-Agent Coordination',desc:'Agent spawning, task delegation, result aggregation, conflict resolution, and orchestrator/worker patterns.',tags:['orchestration','delegation','swarm','aggregation'],count:31,levels:['advanced','experimental'],githubPath:'15-orchestration'},
+  {id:11,icon:'🔒',title:'Safety & Alignment',desc:'Refusal strategies, jailbreak resistance, output validation, harm detection, and constitutional AI techniques.',tags:['safety','refusal','validation','alignment'],count:27,levels:['intermediate','advanced'],githubPath:'14-security'},
+  {id:12,icon:'🎨',title:'Multimodal Skills',desc:'Image understanding, audio transcription, video description, cross-modal reasoning, and visual grounding.',tags:['vision','audio','video','grounding'],count:34,levels:['intermediate','advanced','experimental'],githubPath:'08-multimodal'},
+  {id:13,icon:'📖',title:'Knowledge & Research',desc:'Fact verification, citation generation, knowledge graph traversal, entity resolution, and evidence synthesis.',tags:['fact-check','citations','kg','entities'],count:26,levels:['intermediate','advanced'],githubPath:'01-perception'},
+  {id:14,icon:'⚙️',title:'System Integration',desc:'OS command execution, file system ops, environment variables, process management, and shell scripting patterns.',tags:['shell','fs','os','processes'],count:22,levels:['advanced','experimental'],githubPath:'04-action-execution'},
+  {id:15,icon:'📢',title:'Communication & Output',desc:'Report writing, email drafting, slide generation, executive summaries, and format-specific rendering.',tags:['writing','email','slides','summaries'],count:30,levels:['basic','intermediate'],githubPath:'06-communication'},
+  {id:16,icon:'🔬',title:'Evaluation & Testing',desc:'Model benchmarking, output scoring, regression suites, A/B evaluation, and quality metric design.',tags:['benchmarks','scoring','qa','metrics'],count:16,levels:['intermediate','advanced','experimental'],githubPath:'09-agentic-patterns'},
 ];
 
 const TOTAL = CATEGORIES.reduce((s,c)=>s+c.count,0);
@@ -756,7 +757,8 @@ function renderCards(){
 
   grid.innerHTML = filtered.map((c,i)=>{
     const levelBadges = c.levels.map(l=>`<span class="tag" style="color:${levelColor(l)};border-color:${levelColor(l)}44">${l}</span>`).join('');
-    return `<a href="https://github.com/SamoTech/skills-tree/tree/main/skills/${c.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}" target="_blank" rel="noopener noreferrer" class="category-card" role="listitem" aria-label="${c.title} — ${c.count} skills">
+    const href = `https://github.com/SamoTech/skills-tree/tree/main/skills/${c.githubPath}`;
+    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="category-card" role="listitem" aria-label="${c.title} — ${c.count} skills">
       <div class="card-header">
         <div class="card-icon" aria-hidden="true">${c.icon}</div>
         <div class="card-meta">
