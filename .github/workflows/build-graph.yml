@@ -1,0 +1,38 @@
+name: Build Skill Dependency Graph
+
+on:
+  push:
+    paths:
+      - "skills/**/*.md"
+  schedule:
+    # Every Monday at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  build-graph:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build graph.json
+        run: python3 tools/build_graph.py
+
+      - name: Commit graph.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(graph): regenerate docs/api/graph.json [skip ci]"
+          file_pattern: "docs/api/graph.json"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"

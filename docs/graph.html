@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Tree — Dependency Graph</title>
+<style>
+/* ── Tokens ─────────────────────────────────────────────────────── */
+:root,[data-theme="light"]{
+  --bg:#f7f6f2;--surface:#f9f8f5;--surface2:#fbfbf9;
+  --border:#d4d1ca;--divider:#dcd9d5;
+  --text:#28251d;--muted:#7a7974;--faint:#bab9b4;
+  --primary:#01696f;--primary-hi:#cedcd8;
+  --shadow:0 4px 16px oklch(.2 .01 80/.1);
+  --r:0.5rem;--tr:180ms cubic-bezier(.16,1,.3,1);
+}
+[data-theme="dark"]{
+  --bg:#171614;--surface:#1c1b19;--surface2:#201f1d;
+  --border:#393836;--divider:#262523;
+  --text:#cdccca;--muted:#797876;--faint:#5a5957;
+  --primary:#4f98a3;--primary-hi:#313b3b;
+  --shadow:0 4px 16px oklch(0 0 0/.35);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:'Inter',system-ui,sans-serif;font-size:14px;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+
+/* ── Toolbar ────────────────────────────────────────────────────── */
+#toolbar{
+  display:flex;align-items:center;gap:.75rem;padding:.6rem 1rem;
+  background:var(--surface);border-bottom:1px solid var(--divider);
+  flex-shrink:0;flex-wrap:wrap;
+}
+#toolbar svg{display:block}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1rem;color:var(--primary);text-decoration:none}
+.toolbar-sep{width:1px;height:20px;background:var(--divider);flex-shrink:0}
+#search{
+  flex:1;min-width:160px;max-width:280px;
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r);padding:.35rem .7rem;color:var(--text);
+  font-size:.85rem;outline:none;transition:border-color var(--tr);
+}
+#search:focus{border-color:var(--primary)}
+#search::placeholder{color:var(--faint)}
+#cat-filter{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r);padding:.3rem .6rem;color:var(--text);
+  font-size:.82rem;cursor:pointer;outline:none;
+}
+.btn{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r);padding:.3rem .65rem;color:var(--text);
+  font-size:.8rem;cursor:pointer;transition:background var(--tr),border-color var(--tr);
+  white-space:nowrap;
+}
+.btn:hover{background:var(--primary-hi);border-color:var(--primary)}
+#stats-bar{margin-left:auto;color:var(--muted);font-size:.78rem;white-space:nowrap}
+
+/* ── Main layout ────────────────────────────────────────────────── */
+#main{flex:1;display:flex;overflow:hidden;position:relative}
+#graph-wrap{flex:1;position:relative;overflow:hidden}
+canvas,svg#graph-svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* ── Side panel ─────────────────────────────────────────────────── */
+#panel{
+  width:0;overflow:hidden;transition:width .25s cubic-bezier(.16,1,.3,1);
+  background:var(--surface);border-left:1px solid var(--divider);
+  flex-shrink:0;display:flex;flex-direction:column;
+}
+#panel.open{width:280px}
+#panel-inner{padding:1rem;overflow-y:auto;flex:1}
+#panel h2{font-size:.9rem;font-weight:700;margin-bottom:.5rem;color:var(--primary)}
+#panel .meta{font-size:.78rem;color:var(--muted);margin-bottom:.85rem;line-height:1.6}
+#panel .badge{
+  display:inline-block;font-size:.7rem;padding:.15rem .45rem;
+  border-radius:9999px;background:var(--primary-hi);color:var(--primary);
+  margin:.1rem .1rem 0 0;font-weight:600;
+}
+#panel h3{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);margin:.75rem 0 .35rem}
+#related-list{list-style:none}
+#related-list li{margin-bottom:.3rem}
+#related-list a{
+  font-size:.82rem;color:var(--primary);text-decoration:none;
+  display:flex;align-items:center;gap:.3rem;
+  padding:.2rem .35rem;border-radius:var(--r);
+  transition:background var(--tr);
+}
+#related-list a:hover{background:var(--primary-hi)}
+#panel-close{
+  position:absolute;top:.6rem;right:.6rem;
+  background:none;border:none;cursor:pointer;color:var(--muted);
+  padding:.25rem;border-radius:var(--r);transition:color var(--tr);
+}
+#panel-close:hover{color:var(--text)}
+
+/* ── Legend ─────────────────────────────────────────────────────── */
+#legend{
+  position:absolute;bottom:1rem;left:1rem;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:.6rem .85rem;
+  font-size:.72rem;color:var(--muted);max-height:220px;
+  overflow-y:auto;box-shadow:var(--shadow);z-index:10;
+  display:none;
+}
+#legend.visible{display:block}
+#legend h4{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem}
+.leg-item{display:flex;align-items:center;gap:.45rem;margin-bottom:.25rem}
+.leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* ── Tooltip ────────────────────────────────────────────────────── */
+#tooltip{
+  position:absolute;pointer-events:none;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:.4rem .6rem;
+  font-size:.78rem;color:var(--text);box-shadow:var(--shadow);
+  max-width:200px;display:none;z-index:20;line-height:1.45;
+}
+
+/* ── Loading ─────────────────────────────────────────────────────── */
+#loading{
+  position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;flex-direction:column;gap:.75rem;
+  background:var(--bg);z-index:30;
+}
+#loading p{color:var(--muted);font-size:.85rem}
+.spinner{
+  width:32px;height:32px;border:3px solid var(--divider);
+  border-top-color:var(--primary);border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media(max-width:600px){
+  #panel.open{width:100%;position:absolute;inset:0;z-index:25;border:none}
+  #stats-bar{display:none}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Toolbar -->
+<div id="toolbar">
+  <a class="logo" href="index.html">
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="none" aria-label="Skills Tree">
+      <rect x="13" y="2" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="2" y="13" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="24" y="13" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="7" y="24" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="19" y="24" width="6" height="6" rx="3" fill="currentColor"/>
+      <line x1="16" y1="8" x2="5" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="16" y1="8" x2="27" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="5" y1="16" x2="10" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="27" y1="16" x2="22" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Skills Tree
+  </a>
+  <div class="toolbar-sep"></div>
+  <input id="search" type="search" placeholder="Search skills…" autocomplete="off">
+  <select id="cat-filter"><option value="">All categories</option></select>
+  <button class="btn" id="btn-legend">Legend</button>
+  <button class="btn" id="btn-reset">Reset view</button>
+  <button class="btn" id="btn-theme" aria-label="Toggle theme">☀︎</button>
+  <span id="stats-bar"></span>
+</div>
+
+<!-- Main -->
+<div id="main">
+  <div id="graph-wrap">
+    <div id="loading"><div class="spinner"></div><p>Building graph…</p></div>
+    <svg id="graph-svg"></svg>
+    <div id="tooltip"></div>
+    <div id="legend">
+      <h4>Categories</h4>
+      <div id="legend-items"></div>
+    </div>
+  </div>
+
+  <!-- Side panel -->
+  <div id="panel">
+    <button id="panel-close" aria-label="Close panel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="panel-inner">
+      <h2 id="panel-title">—</h2>
+      <div class="meta" id="panel-meta"></div>
+      <div id="panel-badges"></div>
+      <h3>Related Skills</h3>
+      <ul id="related-list"></ul>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+const GRAPH_URL = "./api/graph.json";
+const GH_BASE  = "https://github.com/SamoTech/skills-tree/blob/main/";
+
+// ── State ──────────────────────────────────────────────────────────
+let graphData = null;
+let simulation = null;
+let nodeById   = {};
+let highlighted = new Set();
+
+// ── DOM refs ───────────────────────────────────────────────────────
+const svg       = d3.select("#graph-svg");
+const wrap      = document.getElementById("graph-wrap");
+const loading   = document.getElementById("loading");
+const tooltip   = document.getElementById("tooltip");
+const panel     = document.getElementById("panel");
+const statsBar  = document.getElementById("stats-bar");
+const searchEl  = document.getElementById("search");
+const catFilter = document.getElementById("cat-filter");
+const legendBox = document.getElementById("legend");
+const legendItems = document.getElementById("legend-items");
+
+// ── Theme toggle ───────────────────────────────────────────────────
+const btnTheme = document.getElementById("btn-theme");
+btnTheme.addEventListener("click", () => {
+  const isDark = document.documentElement.dataset.theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "light" : "dark";
+  btnTheme.textContent = isDark ? "☾" : "☀︎";
+});
+
+// ── Legend toggle ──────────────────────────────────────────────────
+document.getElementById("btn-legend").addEventListener("click", () =>
+  legendBox.classList.toggle("visible"));
+
+// ── Fetch graph data ───────────────────────────────────────────────
+async function loadGraph() {
+  try {
+    const res = await fetch(GRAPH_URL);
+    if (!res.ok) throw new Error(res.statusText);
+    graphData = await res.json();
+  } catch {
+    // Fallback: generate a minimal demo graph from category structure
+    graphData = buildDemoGraph();
+  }
+  init();
+}
+
+function buildDemoGraph() {
+  const cats = [
+    {id:"01-perception",label:"Perception",color:"#4f98a3"},
+    {id:"02-reasoning",label:"Reasoning",color:"#6daa45"},
+    {id:"03-memory",label:"Memory",color:"#a86fdf"},
+    {id:"04-action-execution",label:"Action Execution",color:"#fdab43"},
+    {id:"05-code",label:"Code",color:"#5591c7"},
+    {id:"06-communication",label:"Communication",color:"#dd6974"},
+    {id:"07-tool-use",label:"Tool Use",color:"#e8af34"},
+    {id:"08-multimodal",label:"Multimodal",color:"#bb653b"},
+    {id:"09-agentic-patterns",label:"Agentic Patterns",color:"#d163a7"},
+    {id:"10-computer-use",label:"Computer Use",color:"#01696f"},
+    {id:"11-web",label:"Web",color:"#437a22"},
+    {id:"12-data",label:"Data",color:"#006494"},
+    {id:"13-creative",label:"Creative",color:"#964219"},
+    {id:"14-security",label:"Security",color:"#a12c7b"},
+    {id:"15-orchestration",label:"Orchestration",color:"#a13544"},
+    {id:"16-domain-specific",label:"Domain-Specific",color:"#7a39bb"},
+  ];
+  // Represent each category as a hub node + a few spokes
+  const nodes = [], links = [];
+  cats.forEach(c => {
+    nodes.push({id:c.id, name:c.label, category:c.id, catLabel:c.label, color:c.color, level:null, version:"v1", path:""});
+    for(let i=1;i<=4;i++){
+      const nid = `${c.id}-skill-${i}`;
+      nodes.push({id:nid, name:`${c.label} Skill ${i}`, category:c.id, catLabel:c.label, color:c.color, level:"basic", version:"v1", path:""});
+      links.push({source:c.id, target:nid});
+    }
+  });
+  // Cross-category links
+  const cross = [["01-perception","02-reasoning"],["02-reasoning","03-memory"],["03-memory","09-agentic-patterns"],["07-tool-use","04-action-execution"],["05-code","11-web"],["09-agentic-patterns","15-orchestration"],["08-multimodal","01-perception"],["12-data","02-reasoning"],["14-security","09-agentic-patterns"],["06-communication","03-memory"]];
+  cross.forEach(([s,t]) => links.push({source:s,target:t}));
+  return {
+    generated: new Date().toISOString(),
+    stats:{nodes:nodes.length,links:links.length,isolated:0,top_connected:[]},
+    categories:cats, nodes, links
+  };
+}
+
+// ── Init ───────────────────────────────────────────────────────────
+function init() {
+  const { nodes, links, categories, stats } = graphData;
+
+  nodeById = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+  // Stats bar
+  statsBar.textContent = `${stats.nodes.toLocaleString()} skills · ${stats.links.toLocaleString()} connections`;
+
+  // Category filter dropdown
+  categories.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c.id; opt.textContent = c.label;
+    catFilter.appendChild(opt);
+  });
+
+  // Legend
+  categories.forEach(c => {
+    legendItems.insertAdjacentHTML("beforeend",
+      `<div class="leg-item"><div class="leg-dot" style="background:${c.color}"></div><span>${c.label}</span></div>`);
+  });
+
+  loading.style.display = "none";
+  renderGraph(nodes, links);
+}
+
+// ── Render (D3 force-directed) ─────────────────────────────────────
+function renderGraph(nodes, links) {
+  svg.selectAll("*").remove();
+
+  const W = wrap.clientWidth;
+  const H = wrap.clientHeight;
+
+  // Build adjacency for highlighting
+  const adjMap = {};
+  links.forEach(l => {
+    const s = typeof l.source === "object" ? l.source.id : l.source;
+    const t = typeof l.target === "object" ? l.target.id : l.target;
+    if (!adjMap[s]) adjMap[s] = new Set();
+    if (!adjMap[t]) adjMap[t] = new Set();
+    adjMap[s].add(t);
+    adjMap[t].add(s);
+  });
+
+  // Deep-clone nodes/links so simulation doesn't mutate the originals
+  const simNodes = nodes.map(n => ({...n}));
+  const simLinks = links.map(l => ({
+    source: typeof l.source==="object" ? l.source.id : l.source,
+    target: typeof l.target==="object" ? l.target.id : l.target,
+  }));
+
+  // Node radius by connection count
+  const degree = {};
+  simLinks.forEach(l => {
+    degree[l.source] = (degree[l.source]||0)+1;
+    degree[l.target] = (degree[l.target]||0)+1;
+  });
+  const rScale = d3.scaleSqrt().domain([0, d3.max(Object.values(degree))||1]).range([4, 16]);
+
+  simulation = d3.forceSimulation(simNodes)
+    .force("link", d3.forceLink(simLinks).id(d=>d.id).distance(60).strength(0.4))
+    .force("charge", d3.forceManyBody().strength(-120))
+    .force("center", d3.forceCenter(W/2, H/2))
+    .force("collision", d3.forceCollide().radius(d => rScale(degree[d.id]||0)+4))
+    .alphaDecay(0.025);
+
+  const g = svg.append("g");
+
+  // Zoom
+  const zoom = d3.zoom().scaleExtent([0.08,6]).on("zoom", e => g.attr("transform", e.transform));
+  svg.call(zoom);
+  document.getElementById("btn-reset").onclick = () =>
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(W/2, H/2).scale(0.85));
+
+  // Links
+  const link = g.append("g").attr("class","links")
+    .selectAll("line").data(simLinks).join("line")
+    .attr("stroke", "var(--divider)")
+    .attr("stroke-width", 1)
+    .attr("stroke-opacity", 0.6);
+
+  // Nodes
+  const node = g.append("g").attr("class","nodes")
+    .selectAll("circle").data(simNodes).join("circle")
+    .attr("r", d => rScale(degree[d.id]||0))
+    .attr("fill", d => d.color)
+    .attr("stroke", "var(--bg)")
+    .attr("stroke-width", 1.5)
+    .attr("cursor", "pointer")
+    .call(d3.drag()
+      .on("start", (e,d) => { if(!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on("drag",  (e,d) => { d.fx=e.x; d.fy=e.y; })
+      .on("end",   (e,d) => { if(!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; }))
+    .on("mouseover", (e, d) => showTooltip(e, d))
+    .on("mousemove", (e)   => moveTooltip(e))
+    .on("mouseout",  ()    => hideTooltip())
+    .on("click",     (e,d) => { e.stopPropagation(); openPanel(d, adjMap); });
+
+  svg.on("click", () => closePanel());
+
+  simulation.on("tick", () => {
+    link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+        .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+    node.attr("cx",d=>d.x).attr("cy",d=>d.y);
+  });
+
+  // ── Highlight helpers ──
+  function applyHighlight(ids) {
+    if (!ids || ids.size === 0) {
+      node.attr("opacity",1);
+      link.attr("stroke-opacity",0.6);
+      return;
+    }
+    node.attr("opacity", d => ids.has(d.id) ? 1 : 0.12);
+    link.attr("stroke-opacity", l => {
+      const s = typeof l.source==="object"?l.source.id:l.source;
+      const t = typeof l.target==="object"?l.target.id:l.target;
+      return (ids.has(s) && ids.has(t)) ? 0.8 : 0.06;
+    });
+  }
+
+  // ── Search ──
+  searchEl.addEventListener("input", () => {
+    const q = searchEl.value.trim().toLowerCase();
+    if (!q) { applyHighlight(null); return; }
+    const matched = new Set();
+    simNodes.forEach(n => {
+      if (n.id.includes(q) || n.name.toLowerCase().includes(q)) {
+        matched.add(n.id);
+        (adjMap[n.id]||new Set()).forEach(nb => matched.add(nb));
+      }
+    });
+    applyHighlight(matched);
+  });
+
+  // ── Category filter ──
+  catFilter.addEventListener("change", () => {
+    const cat = catFilter.value;
+    if (!cat) { applyHighlight(null); return; }
+    const matched = new Set();
+    simNodes.forEach(n => { if(n.category===cat) matched.add(n.id); });
+    applyHighlight(matched);
+  });
+
+  // ── Panel ──
+  function openPanel(d, adj) {
+    const nbIds = adj[d.id] ? [...adj[d.id]] : [];
+    document.getElementById("panel-title").textContent = d.name;
+    document.getElementById("panel-meta").innerHTML =
+      `<b>Category:</b> ${d.catLabel}<br>
+       <b>Level:</b> ${d.level||"—"}<br>
+       <b>Version:</b> ${d.version||"v1"}`;
+    const badges = document.getElementById("panel-badges");
+    badges.innerHTML = "";
+    if (d.version) badges.insertAdjacentHTML("beforeend",`<span class="badge">${d.version}</span>`);
+    if (d.level)   badges.insertAdjacentHTML("beforeend",`<span class="badge">${d.level}</span>`);
+    const rl = document.getElementById("related-list");
+    rl.innerHTML = "";
+    if (nbIds.length === 0) {
+      rl.innerHTML = "<li style='color:var(--muted);font-size:.8rem'>No direct connections</li>";
+    } else {
+      nbIds.slice(0,20).forEach(nid => {
+        const nb = nodeById[nid]; if(!nb) return;
+        const href = nb.path ? `${GH_BASE}${nb.path}` : "#";
+        rl.insertAdjacentHTML("beforeend",
+          `<li><a href="${href}" target="_blank" rel="noopener">
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="${nb.color}"/></svg>
+            ${nb.name}
+          </a></li>`);
+      });
+    }
+    panel.classList.add("open");
+    // Highlight this node + neighbours
+    const hi = new Set([d.id, ...nbIds]);
+    applyHighlight(hi);
+  }
+
+  function closePanel() {
+    panel.classList.remove("open");
+    applyHighlight(null);
+  }
+  document.getElementById("panel-close").onclick = closePanel;
+
+  // ── Tooltip ──
+  function showTooltip(e, d) {
+    tooltip.style.display = "block";
+    tooltip.innerHTML = `<strong>${d.name}</strong><br><span style="color:var(--muted)">${d.catLabel} · ${d.level||"basic"} · ${d.version||"v1"}</span>`;
+    moveTooltip(e);
+  }
+  function moveTooltip(e) {
+    const bx = wrap.getBoundingClientRect();
+    let x = e.clientX - bx.left + 12;
+    let y = e.clientY - bx.top + 12;
+    if (x + 210 > bx.width)  x -= 220;
+    if (y + 60  > bx.height) y -= 65;
+    tooltip.style.left = x + "px";
+    tooltip.style.top  = y + "px";
+  }
+  function hideTooltip() { tooltip.style.display = "none"; }
+}
+
+loadGraph();
+</script>
+</body>
+</html>
