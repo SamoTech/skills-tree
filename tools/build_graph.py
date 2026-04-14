@@ -19,6 +19,7 @@ import re
 import glob
 import json
 import datetime
+from datetime import timezone
 
 # ---------------------------------------------------------------------------
 # Category metadata (colour palette used by the HTML UI)
@@ -45,6 +46,20 @@ CATEGORY_META = {
 }
 
 DEFAULT_COLOR = "#7a7974"
+
+
+# ---------------------------------------------------------------------------
+# Time helpers
+# ---------------------------------------------------------------------------
+
+def _utc_now_iso() -> str:
+    """Return the current UTC time as an ISO-8601 string with Z suffix.
+
+    Uses datetime.now(timezone.utc) — compatible with Python 3.2+.
+    datetime.UTC (an alias for timezone.utc) was only added in 3.11
+    and raises AttributeError on 3.9/3.10 runners.
+    """
+    return datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 # ---------------------------------------------------------------------------
@@ -140,18 +155,17 @@ def build_graph() -> dict:
     node_count = len(nodes)
     link_count = len(links)
 
-    # Use a set-based check for performance with large graphs
     linked_ids: set[str] = set()
-    for l in links:
-        linked_ids.add(l["source"])
-        linked_ids.add(l["target"])
+    for lnk in links:
+        linked_ids.add(lnk["source"])
+        linked_ids.add(lnk["target"])
     isolated = sum(1 for n in nodes if n["id"] not in linked_ids)
 
     # Top connected nodes
     degree: dict[str, int] = {}
-    for l in links:
-        degree[l["source"]] = degree.get(l["source"], 0) + 1
-        degree[l["target"]] = degree.get(l["target"], 0) + 1
+    for lnk in links:
+        degree[lnk["source"]] = degree.get(lnk["source"], 0) + 1
+        degree[lnk["target"]] = degree.get(lnk["target"], 0) + 1
     top_nodes = sorted(degree.items(), key=lambda x: x[1], reverse=True)[:10]
     top_connected = [
         {"id": nid, "name": skills_by_id[nid]["name"], "degree": deg}
@@ -159,7 +173,7 @@ def build_graph() -> dict:
     ]
 
     return {
-        "generated": datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated": _utc_now_iso(),
         "stats": {
             "nodes": node_count,
             "links": link_count,
