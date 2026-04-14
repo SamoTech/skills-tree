@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-14T13:48:28Z",
+  "generated": "2026-04-14T15:10:25Z",
   "stats": {
     "nodes": 350,
-    "links": 693,
-    "isolated": 58,
+    "links": 692,
+    "isolated": 59,
     "top_connected": [
       {
         "id": "document-parsing",
@@ -13,7 +13,7 @@
       {
         "id": "rag",
         "name": "RAG — Retrieval-Augmented Generation",
-        "degree": 16
+        "degree": 15
       },
       {
         "id": "structured-data-reading",
@@ -4088,18 +4088,6 @@
       "target": "user-profile"
     },
     {
-      "source": "memory-injection",
-      "target": "working-memory"
-    },
-    {
-      "source": "memory-injection",
-      "target": "rag"
-    },
-    {
-      "source": "memory-injection",
-      "target": "vector-store-retrieval"
-    },
-    {
       "source": "memory-summarization",
       "target": "memory-injection"
     },
@@ -4397,7 +4385,15 @@
     },
     {
       "source": "code-review",
+      "target": "debugging"
+    },
+    {
+      "source": "code-review",
       "target": "security-scanning"
+    },
+    {
+      "source": "code-review",
+      "target": "dependency-auditor"
     },
     {
       "source": "code-search",
