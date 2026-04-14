@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "game-level-design",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, game, design, level, LLM skill, creative, AI agent",
+  "keywords": "LLM skill, design, creative, skills tree, level, AI agent, game",
   "about": {
     "@type": "Thing",
     "name": "game-level-design",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "a2a-tool",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, use, LLM skill, tool, AI agent, a2a",
+  "keywords": "LLM skill, use, skills tree, a2a, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "Agent-to-Agent Tool (A2A)",

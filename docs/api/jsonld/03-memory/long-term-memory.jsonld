@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "long-term-memory",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "03-memory",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "skills tree, term, LLM skill, long, AI agent, memory",
+  "keywords": "LLM skill, long, memory, skills tree, AI agent, term",
   "about": {
     "@type": "Thing",
     "name": "Long-Term Memory",

@@ -1,4 +1,4 @@
-generated: '2026-04-14T14:24:03Z'
+generated: '2026-04-14T14:25:53Z'
 count: 376
 skills:
 - id: README
@@ -2253,6 +2253,7 @@ skills:
   added: null
   last_updated: null
   sections:
+  - Description
   - What It Does
   - When to Use
   - Inputs / Outputs

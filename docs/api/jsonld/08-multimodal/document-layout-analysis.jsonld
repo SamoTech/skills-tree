@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "document-layout-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -67,7 +67,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, layout, document, analysis, LLM skill, multimodal, AI agent",
+  "keywords": "LLM skill, analysis, multimodal, skills tree, AI agent, layout, document",
   "about": {
     "@type": "Thing",
     "name": "Document Layout Analysis",

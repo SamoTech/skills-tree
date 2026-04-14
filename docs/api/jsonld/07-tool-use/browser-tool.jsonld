@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "browser-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, browser, use, LLM skill, tool, AI agent",
+  "keywords": "LLM skill, browser, use, skills tree, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "Browser Tool",

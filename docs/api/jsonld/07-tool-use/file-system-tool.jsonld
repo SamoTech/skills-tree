@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "file-system-tool",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Basic",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, system, use, file, LLM skill, tool, AI agent",
+  "keywords": "LLM skill, file, use, skills tree, AI agent, tool, system",
   "about": {
     "@type": "Thing",
     "name": "File System Tool",

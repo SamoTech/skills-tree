@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
@@ -63,7 +63,7 @@
     "Skills in This Category"
   ],
   "relatedSkills": [],
-  "keywords": "skills tree, README, LLM skill, AI agent, memory",
+  "keywords": "LLM skill, memory, README, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "🧠 Memory Skills",

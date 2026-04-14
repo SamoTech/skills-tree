@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:24:03Z",
+  "dateModified": "2026-04-14T14:25:53Z",
   "skillId": "svg-generation",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, svg, creative, LLM skill, generation, AI agent",
+  "keywords": "LLM skill, creative, svg, skills tree, generation, AI agent",
   "about": {
     "@type": "Thing",
     "name": "svg-generation",
