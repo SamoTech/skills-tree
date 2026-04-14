@@ -7,6 +7,14 @@
 
 # Skills Tree
 
+<!-- HIGHLIGHTS_START -->
+## 📆 This Week's Highlights — April 14, 2026
+
+> No skill changes this week. Open a PR to get started!
+
+<!-- HIGHLIGHTS_END -->
+
+
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
 > **515+ production-ready skills. 16 categories. Versioned, benchmarked, and evolving.**  
