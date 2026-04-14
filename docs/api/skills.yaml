@@ -1,5 +1,5 @@
-generated: '2026-04-14T00:16:09Z'
-count: 356
+generated: '2026-04-14T11:30:42Z'
+count: 376
 skills:
 - id: README
   path: skills/01-perception/README.md
@@ -1434,6 +1434,28 @@ skills:
   - Skills in This Category
   related: []
   category_dir: 03-memory
+- id: agent-sessions
+  path: skills/03-memory/agent-sessions.md
+  name: Agent Sessions
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 03-memory
 - id: cross-session-persistence
   path: skills/03-memory/cross-session-persistence.md
   name: Cross-Session Persistence
@@ -1445,6 +1467,28 @@ skills:
   added: 2025-03
   last_updated: null
   sections: []
+  related: []
+  category_dir: 03-memory
+- id: cross-thread-memory
+  path: skills/03-memory/cross-thread-memory.md
+  name: Cross-Thread Memory
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
   related: []
   category_dir: 03-memory
 - id: episodic-memory
@@ -2125,6 +2169,28 @@ skills:
   added: null
   last_updated: null
   sections: []
+  related: []
+  category_dir: 05-code
+- id: code-interpreter-agent
+  path: skills/05-code/code-interpreter-agent.md
+  name: Code Interpreter Agent
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
   related: []
   category_dir: 05-code
 - id: code-review
@@ -2979,6 +3045,50 @@ skills:
   related:
   - ../04-action-execution/notification-sending.md
   category_dir: 07-tool-use
+- id: tool-guardrails
+  path: skills/07-tool-use/tool-guardrails.md
+  name: Tool Guardrails
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 07-tool-use
+- id: tool-review-loops
+  path: skills/07-tool-use/tool-review-loops.md
+  name: Tool Review Loops
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 07-tool-use
 - id: twilio-api
   path: skills/07-tool-use/twilio-api.md
   name: Twilio API
@@ -3292,6 +3402,50 @@ skills:
   - Skills in This Category
   related: []
   category_dir: 09-agentic-patterns
+- id: agent-as-tool
+  path: skills/09-agentic-patterns/agent-as-tool.md
+  name: Agent as Tool
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 09-agentic-patterns
+- id: agent-handoffs
+  path: skills/09-agentic-patterns/agent-handoffs.md
+  name: Agent Handoffs
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 09-agentic-patterns
 - id: agentic-rag
   path: skills/09-agentic-patterns/agentic-rag.md
   name: Agentic RAG
@@ -3370,6 +3524,28 @@ skills:
   added: 2025-03
   last_updated: null
   sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: interruptible-agent-flows
+  path: skills/09-agentic-patterns/interruptible-agent-flows.md
+  name: Interruptible Agent Flows
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: lats
@@ -3534,6 +3710,28 @@ skills:
   related:
   - ../07-tool-use/a2a-tool.md
   - ../15-orchestration/agent-handoff.md
+  category_dir: 09-agentic-patterns
+- id: time-travel-debugging
+  path: skills/09-agentic-patterns/time-travel-debugging.md
+  name: Time-Travel Debugging
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
   category_dir: 09-agentic-patterns
 - id: tool-use-loop
   path: skills/09-agentic-patterns/tool-use-loop.md
@@ -4050,6 +4248,28 @@ skills:
   sections: []
   related: []
   category_dir: 11-web
+- id: web-search-tool-agents
+  path: skills/11-web/web-search-tool-agents.md
+  name: Web Search Tool Agents
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 11-web
 - id: web-search
   path: skills/11-web/web-search.md
   name: Web Search
@@ -4554,6 +4774,28 @@ skills:
   - Skills in This Category
   related: []
   category_dir: 14-security
+- id: approval-before-destructive-tools
+  path: skills/14-security/approval-before-destructive-tools.md
+  name: Approval Before Destructive Tools
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 14-security
 - id: audit-logging
   path: skills/14-security/audit-logging.md
   name: audit-logging
@@ -4594,6 +4836,28 @@ skills:
   sections: []
   related: []
   category_dir: 14-security
+- id: input-guardrails
+  path: skills/14-security/input-guardrails.md
+  name: Input Guardrails
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 14-security
 - id: input-sanitization
   path: skills/14-security/input-sanitization.md
   name: input-sanitization
@@ -4605,6 +4869,28 @@ skills:
   added: 2026-04
   last_updated: null
   sections: []
+  related: []
+  category_dir: 14-security
+- id: output-guardrails
+  path: skills/14-security/output-guardrails.md
+  name: Output Guardrails
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
   related: []
   category_dir: 14-security
 - id: permission-checking
@@ -4797,6 +5083,50 @@ skills:
   sections: []
   related: []
   category_dir: 15-orchestration
+- id: human-approval-gates
+  path: skills/15-orchestration/human-approval-gates.md
+  name: Human Approval Gates
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 15-orchestration
+- id: langgraph-checkpointing
+  path: skills/15-orchestration/langgraph-checkpointing.md
+  name: LangGraph Checkpointing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 15-orchestration
 - id: logging-observability
   path: skills/15-orchestration/logging-observability.md
   name: logging-observability
@@ -4810,6 +5140,28 @@ skills:
   sections: []
   related:
   - ../14-security/audit-logging.md
+  category_dir: 15-orchestration
+- id: multi-agent-run-config
+  path: skills/15-orchestration/multi-agent-run-config.md
+  name: Multi-Agent Run Config
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
   category_dir: 15-orchestration
 - id: parallel-execution
   path: skills/15-orchestration/parallel-execution.md
@@ -4879,6 +5231,28 @@ skills:
   related:
   - ../09-agentic-patterns/memory-augmented.md
   category_dir: 15-orchestration
+- id: specialist-agent-routing
+  path: skills/15-orchestration/specialist-agent-routing.md
+  name: Specialist Agent Routing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
+  category_dir: 15-orchestration
 - id: state-machine
   path: skills/15-orchestration/state-machine.md
   name: state-machine
@@ -4890,6 +5264,28 @@ skills:
   added: 2025-03
   last_updated: null
   sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: stateful-agent-graphs
+  path: skills/15-orchestration/stateful-agent-graphs.md
+  name: Stateful Agent Graphs
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
   related: []
   category_dir: 15-orchestration
 - id: subagent-spawning
@@ -4916,6 +5312,28 @@ skills:
   added: 2025-03
   last_updated: null
   sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: thread-based-resume
+  path: skills/15-orchestration/thread-based-resume.md
+  name: Thread-Based Resume
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
   related: []
   category_dir: 15-orchestration
 - id: README
@@ -4996,6 +5414,28 @@ skills:
   related:
   - ../02-reasoning/risk-assessment.md
   - ../04-action-execution/assertion.md
+  category_dir: 16-domain-specific
+- id: compliance-review-workflows
+  path: skills/16-domain-specific/compliance-review-workflows.md
+  name: Compliance Review Workflows
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Failure Modes
+  - Prompt Patterns
+  - Model Comparison
+  - Related
+  - Changelog
+  related: []
   category_dir: 16-domain-specific
 - id: contract-review
   path: skills/16-domain-specific/contract-review.md
