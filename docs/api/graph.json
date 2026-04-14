@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-14T13:34:21Z",
+  "generated": "2026-04-14T13:48:28Z",
   "stats": {
     "nodes": 350,
-    "links": 725,
-    "isolated": 57,
+    "links": 693,
+    "isolated": 58,
     "top_connected": [
       {
         "id": "document-parsing",
@@ -16,16 +16,6 @@
         "degree": 16
       },
       {
-        "id": "screenshot-capture",
-        "name": "Screenshot Capture",
-        "degree": 15
-      },
-      {
-        "id": "browser-navigation",
-        "name": "Browser Navigation",
-        "degree": 15
-      },
-      {
         "id": "structured-data-reading",
         "name": "Structured Data Reading",
         "degree": 14
@@ -33,17 +23,7 @@
       {
         "id": "web-scraping",
         "name": "Web Scraping",
-        "degree": 14
-      },
-      {
-        "id": "ocr",
-        "name": "OCR (Optical Character Recognition)",
-        "degree": 12
-      },
-      {
-        "id": "mouse-click",
-        "name": "Mouse Click",
-        "degree": 12
+        "degree": 13
       },
       {
         "id": "code-generation",
@@ -54,6 +34,26 @@
         "id": "image-understanding",
         "name": "Image Understanding",
         "degree": 11
+      },
+      {
+        "id": "ocr",
+        "name": "OCR (Optical Character Recognition)",
+        "degree": 11
+      },
+      {
+        "id": "tone-adjustment",
+        "name": "Tone Adjustment",
+        "degree": 11
+      },
+      {
+        "id": "structured-output",
+        "name": "Structured Output",
+        "degree": 11
+      },
+      {
+        "id": "react",
+        "name": "ReAct (Reasoning + Acting)",
+        "degree": 10
       }
     ]
   },
@@ -577,12 +577,12 @@
     },
     {
       "id": "chain-of-thought",
-      "name": "Chain of Thought (CoT)",
+      "name": "Chain of Thought",
       "path": "skills/02-reasoning/chain-of-thought.md",
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -722,7 +722,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1262,7 +1262,7 @@
       "category": "10-computer-use",
       "catLabel": "Computer Use",
       "color": "#01696f",
-      "level": "basic",
+      "level": "beginner",
       "version": "v1"
     },
     {
@@ -1867,12 +1867,12 @@
     },
     {
       "id": "mcp-tool",
-      "name": "MCP Tool Use",
+      "name": "MCP Tool",
       "path": "skills/07-tool-use/mcp-tool.md",
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1952,7 +1952,7 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": "advanced",
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -2297,12 +2297,12 @@
     },
     {
       "id": "plan-and-execute",
-      "name": "Plan-and-Execute Pattern",
+      "name": "Plan-and-Execute",
       "path": "skills/09-agentic-patterns/plan-and-execute.md",
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -2452,7 +2452,7 @@
       "category": "10-computer-use",
       "catLabel": "Computer Use",
       "color": "#01696f",
-      "level": "basic",
+      "level": "beginner",
       "version": "v1"
     },
     {
@@ -2462,7 +2462,7 @@
       "category": "10-computer-use",
       "catLabel": "Computer Use",
       "color": "#01696f",
-      "level": "basic",
+      "level": "beginner",
       "version": "v1"
     },
     {
@@ -2677,7 +2677,7 @@
     },
     {
       "id": "web-login",
-      "name": "Login / Authentication",
+      "name": "Web Login",
       "path": "skills/11-web/web-login.md",
       "category": "11-web",
       "catLabel": "Web",
@@ -2712,7 +2712,7 @@
       "category": "12-data",
       "catLabel": "Data",
       "color": "#006494",
-      "level": "advanced",
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -2722,7 +2722,7 @@
       "category": "12-data",
       "catLabel": "Data",
       "color": "#006494",
-      "level": "basic",
+      "level": "beginner",
       "version": "v1"
     },
     {
@@ -2782,7 +2782,7 @@
       "category": "12-data",
       "catLabel": "Data",
       "color": "#006494",
-      "level": "intermediate",
+      "level": "beginner",
       "version": "v1"
     },
     {
@@ -3876,14 +3876,6 @@
       "target": "commonsense"
     },
     {
-      "source": "chain-of-thought",
-      "target": "react"
-    },
-    {
-      "source": "chain-of-thought",
-      "target": "tree-of-thought"
-    },
-    {
       "source": "commonsense",
       "target": "fact-verification"
     },
@@ -4326,18 +4318,6 @@
     {
       "source": "process-management",
       "target": "terminal-interaction"
-    },
-    {
-      "source": "screenshot-capture",
-      "target": "screen-reading"
-    },
-    {
-      "source": "screenshot-capture",
-      "target": "ocr"
-    },
-    {
-      "source": "screenshot-capture",
-      "target": "mouse-click"
     },
     {
       "source": "scroll",
@@ -4856,36 +4836,12 @@
       "target": "twilio-api"
     },
     {
-      "source": "slack-api",
-      "target": "notification-sending"
-    },
-    {
-      "source": "slack-api",
-      "target": "twilio-api"
-    },
-    {
       "source": "sql-tool",
       "target": "sql-query-generation"
     },
     {
       "source": "sql-tool",
       "target": "database-reading"
-    },
-    {
-      "source": "stripe-api",
-      "target": "custom-api-wrapper"
-    },
-    {
-      "source": "stripe-api",
-      "target": "notification-sending"
-    },
-    {
-      "source": "twilio-api",
-      "target": "sendgrid-api"
-    },
-    {
-      "source": "twilio-api",
-      "target": "notification-sending"
     },
     {
       "source": "vector-db-tool",
@@ -5352,26 +5308,6 @@
       "target": "clipboard-write"
     },
     {
-      "source": "keyboard-type",
-      "target": "mouse-click"
-    },
-    {
-      "source": "keyboard-type",
-      "target": "keyboard-shortcut"
-    },
-    {
-      "source": "mouse-click",
-      "target": "mouse-move"
-    },
-    {
-      "source": "mouse-click",
-      "target": "screenshot-capture"
-    },
-    {
-      "source": "mouse-click",
-      "target": "keyboard-type"
-    },
-    {
       "source": "mouse-move",
       "target": "mouse-click"
     },
@@ -5480,18 +5416,6 @@
       "target": "js-execution"
     },
     {
-      "source": "browser-navigation",
-      "target": "form-filling"
-    },
-    {
-      "source": "browser-navigation",
-      "target": "web-scraping"
-    },
-    {
-      "source": "browser-navigation",
-      "target": "screenshot-capture"
-    },
-    {
       "source": "captcha-solving",
       "target": "browser-navigation"
     },
@@ -5526,18 +5450,6 @@
     {
       "source": "dom-inspection",
       "target": "browser-navigation"
-    },
-    {
-      "source": "form-filling",
-      "target": "browser-navigation"
-    },
-    {
-      "source": "form-filling",
-      "target": "web-login"
-    },
-    {
-      "source": "form-filling",
-      "target": "dom-inspection"
     },
     {
       "source": "js-execution",
@@ -5624,18 +5536,6 @@
       "target": "sitemap-parsing"
     },
     {
-      "source": "web-login",
-      "target": "form-filling"
-    },
-    {
-      "source": "web-login",
-      "target": "cookie-management"
-    },
-    {
-      "source": "web-login",
-      "target": "browser-navigation"
-    },
-    {
       "source": "web-scraping",
       "target": "url-fetching"
     },
@@ -5646,26 +5546,6 @@
     {
       "source": "web-scraping",
       "target": "web-crawling"
-    },
-    {
-      "source": "anomaly-detection",
-      "target": "statistical-analysis"
-    },
-    {
-      "source": "anomaly-detection",
-      "target": "time-series"
-    },
-    {
-      "source": "csv-processing",
-      "target": "data-cleaning"
-    },
-    {
-      "source": "csv-processing",
-      "target": "data-aggregation"
-    },
-    {
-      "source": "csv-processing",
-      "target": "json-transformation"
     },
     {
       "source": "data-aggregation",
@@ -5714,14 +5594,6 @@
     {
       "source": "data-summarization",
       "target": "data-visualization"
-    },
-    {
-      "source": "data-visualization",
-      "target": "data-aggregation"
-    },
-    {
-      "source": "data-visualization",
-      "target": "statistical-analysis"
     },
     {
       "source": "embedding-generation",
