@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "react",
   "skillVersion": null,
   "skillLevel": null,
@@ -74,7 +74,7 @@
     "../07-tool-use/tool-calling.md",
     "../03-memory/memory-injection.md"
   ],
-  "keywords": "AI agent, reasoning, LLM skill, react, skills tree",
+  "keywords": "LLM skill, skills tree, react, reasoning, AI agent",
   "about": {
     "@type": "Thing",
     "name": "ReAct — Reasoning + Acting",

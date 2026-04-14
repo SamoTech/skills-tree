@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "goal-setting",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
   "relatedSkills": [],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, setting, reasoning, LLM skill, goal, skills tree",
+  "keywords": "LLM skill, skills tree, reasoning, goal, setting, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Goal Setting",

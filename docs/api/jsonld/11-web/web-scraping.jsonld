@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "web-scraping",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "scraping, AI agent, LLM skill, skills tree, web",
+  "keywords": "web, LLM skill, AI agent, scraping, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Web Scraping",

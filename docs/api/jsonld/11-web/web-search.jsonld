@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "web-search",
   "skillVersion": null,
   "skillLevel": null,
@@ -72,7 +72,7 @@
     "../02-reasoning/react.md",
     "../09-agentic-patterns/rag.md"
   ],
-  "keywords": "search, AI agent, LLM skill, skills tree, web",
+  "keywords": "web, LLM skill, AI agent, search, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Web Search",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
@@ -62,7 +62,7 @@
     "Skills in This Category"
   ],
   "relatedSkills": [],
-  "keywords": "AI agent, README, LLM skill, skills tree, patterns, agentic",
+  "keywords": "LLM skill, skills tree, README, agentic, patterns, AI agent",
   "about": {
     "@type": "Thing",
     "name": "🤖 Agentic Patterns",

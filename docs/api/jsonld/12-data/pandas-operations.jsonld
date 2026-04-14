@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "pandas-operations",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, data, LLM skill, pandas, skills tree, operations",
+  "keywords": "LLM skill, skills tree, operations, data, pandas, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Pandas Operations",

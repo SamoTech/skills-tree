@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "cookie-management",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, cookie, management, skills tree, web",
+  "keywords": "web, LLM skill, cookie, skills tree, management, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Cookie / Session Management",

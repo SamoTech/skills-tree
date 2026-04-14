@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "schema-inference",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, schema, data, LLM skill, inference, skills tree",
+  "keywords": "LLM skill, skills tree, data, inference, schema, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Data Schema Inference",

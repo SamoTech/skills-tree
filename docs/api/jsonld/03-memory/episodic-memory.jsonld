@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "episodic-memory",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "03-memory",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "episodic, AI agent, LLM skill, memory, skills tree",
+  "keywords": "LLM skill, memory, AI agent, episodic, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Episodic Memory",

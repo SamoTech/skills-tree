@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "permission-checking",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Advanced",
   "datePublished": "2026-04-01",
-  "keywords": "checking, AI agent, security, LLM skill, permission, skills tree",
+  "keywords": "LLM skill, skills tree, checking, security, permission, AI agent",
   "about": {
     "@type": "Thing",
     "name": "permission-checking",

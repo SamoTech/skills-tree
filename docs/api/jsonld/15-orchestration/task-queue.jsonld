@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:27:29Z",
+  "dateModified": "2026-04-14T13:43:51Z",
   "skillId": "task-queue",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, task, LLM skill, queue, orchestration, skills tree",
+  "keywords": "LLM skill, skills tree, queue, orchestration, AI agent, task",
   "about": {
     "@type": "Thing",
     "name": "task-queue",
