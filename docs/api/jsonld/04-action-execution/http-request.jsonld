@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "http-request",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, action, request, skills tree, AI agent, execution, http",
+  "keywords": "request, action, execution, http, skills tree, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "HTTP Request",

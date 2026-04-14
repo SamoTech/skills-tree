@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "social-media-reading",
   "skillVersion": null,
   "skillLevel": null,
@@ -69,7 +69,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "LLM skill, reading, perception, skills tree, AI agent, social, media",
+  "keywords": "media, reading, perception, skills tree, social, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Social Media Reading",

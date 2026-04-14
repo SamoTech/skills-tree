@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "email-parsing",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -71,7 +71,7 @@
   "relatedSkills": [],
   "educationalLevel": "Basic",
   "datePublished": "2025-03-01",
-  "keywords": "email, LLM skill, perception, skills tree, parsing, AI agent",
+  "keywords": "perception, skills tree, AI agent, email, parsing, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Email Parsing",

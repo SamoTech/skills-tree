@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "specialist-agent-routing",
   "skillVersion": null,
   "skillLevel": null,
@@ -70,7 +70,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "LLM skill, specialist, skills tree, AI agent, orchestration, agent, routing",
+  "keywords": "routing, specialist, skills tree, orchestration, agent, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Specialist Agent Routing",

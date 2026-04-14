@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "task-decomposition",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "reasoning, LLM skill, skills tree, task, decomposition, AI agent",
+  "keywords": "decomposition, reasoning, skills tree, AI agent, LLM skill, task",
   "about": {
     "@type": "Thing",
     "name": "Task Decomposition",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "api-response-parsing",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "01-perception",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "LLM skill, api, perception, skills tree, parsing, AI agent, response",
+  "keywords": "response, perception, skills tree, api, AI agent, parsing, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "API Response Parsing",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "shared-memory",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, memory, skills tree, AI agent, orchestration, shared",
+  "keywords": "shared, memory, skills tree, orchestration, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Usage",

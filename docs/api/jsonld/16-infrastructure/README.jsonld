@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T14:25:53Z",
+  "dateModified": "2026-04-14T15:10:30Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
@@ -62,7 +62,7 @@
     "Skills in This Category"
   ],
   "relatedSkills": [],
-  "keywords": "LLM skill, infrastructure, README, skills tree, AI agent",
+  "keywords": "infrastructure, skills tree, AI agent, README, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "🏗️ Infrastructure Skills",
