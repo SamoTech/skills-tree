@@ -48,8 +48,9 @@ Store, retrieve, and execute step-by-step procedures — how-to knowledge for re
 
 ## Example
 
-```python
+```python type:illustrative
 # pip install mem0ai anthropic
+# Note: `mem0` is the import name for PyPI package `mem0ai`
 import anthropic
 from mem0 import MemoryClient
 import json
@@ -137,6 +138,7 @@ store_procedure(
 
 | Date | Change |
 |---|---|
+| `2026-04` | Annotated code block as type:illustrative to clarify mem0 import name |
 | `2026-04` | Fixed PyPI package name: mem0 → mem0ai |
 | `2026-04` | Expanded from stub: store+retrieve pattern, versioning note, mem0 example |
 | `2025-03` | Initial stub entry |

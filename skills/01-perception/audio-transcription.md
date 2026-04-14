@@ -22,8 +22,9 @@ Converts spoken audio into structured text with word-level timestamps, speaker d
 - Real-time transcription via streaming WebSocket APIs
 
 ### Example
-```python
+```python type:illustrative
 # pip install openai-whisper torch pyannote.audio
+# Note: `pyannote` is the import name for PyPI package `pyannote.audio`
 import whisper, torch
 from pyannote.audio import Pipeline
 

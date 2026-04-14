@@ -42,10 +42,15 @@ def vqa(image_url: str, question: str) -> str:
         max_tokens=512
     )
     return response.choices[0].message.content
+```
 
-# Advanced: grounding via Grounding DINO
+### Advanced Example — Grounding DINO
+
+```python type:illustrative
 # pip install groundingdino-py
+# Note: `groundingdino` is the import name for PyPI package `groundingdino-py`
 from groundingdino.util.inference import load_model, predict
+
 def ground_objects(image_path: str, caption: str) -> list[dict]:
     model = load_model("groundingdino_swint_ogc.py", "groundingdino_swint_ogc.pth")
     boxes, logits, phrases = predict(model, image_path, caption, box_threshold=0.35, text_threshold=0.25)
