@@ -4,42 +4,56 @@ category: 05-code
 level: advanced
 stability: experimental
 added: "2025-03"
-description: "Apply dependency auditor in AI agent workflows."
-version: v1
-tags: [code, dependencies, auditing, sbom, verification, dogfooding]
+description: "Installs, imports, and executes a skill's declared dependencies in an isolated venv — returning a pass/fail verdict and tested version map used to promote Yellow badges to Green."
+version: v2
+tags: [code, dependencies, auditing, sbom, verification, dogfooding, venv]
 updated: 2026-04
+dependencies:
+  - package: subprocess
+    note: stdlib
+    confidence: verified
+  - package: venv
+    note: stdlib
+    confidence: verified
+  - package: re
+    note: stdlib
+    confidence: verified
+  - package: pathlib
+    note: stdlib
+    confidence: verified
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dependency-auditor.json)
 
 # Dependency Auditor
 
+## Description
+
+Reads a skill file’s `dependencies` frontmatter block, installs each listed package into an isolated virtual environment, executes the skill’s **Runnable Example** code block, and returns a structured verdict: whether the snippet runs cleanly, which packages failed to import, and whether stdout matches expected output patterns. This is the execution layer that bridges a Yellow badge (package exists on PyPI) to a Green badge (package runs correctly).
+
 ## What It Does
 
-Reads a skill file's `dependencies` frontmatter block, installs each listed
-package into an isolated virtual environment, executes the skill's **Runnable
-Example** code block, and returns a structured verdict: whether the snippet
-runs cleanly, which packages failed to import, and whether stdout matches
-expected output patterns.
-
-This is the execution layer that sits above PyPI existence checks. A Yellow
-badge proves a package *exists*. A Green badge — produced by this auditor —
-proves the snippet *runs*.
+1. Parses `dependencies:` from the skill’s YAML frontmatter
+2. Extracts the first `## Runnable Example` Python block
+3. Creates a fresh `venv`, installs each package with `pip`
+4. Runs an import check per package
+5. Executes the snippet with a configurable timeout
+6. Returns a structured `AuditResult` with per-package status, stdout, and tested versions
+7. Optionally generates a frontmatter patch to promote the skill from Yellow → Green
 
 ## When to Use
 
-- Phase 3 verification sprints: promote a cohort of Yellow badges to Green
-- CI gate before merging a new skill: block if the example raises `ImportError`
-- Regression detection: catch a dependency update that breaks an existing example
-- Generating the `tested_version` field automatically from the installed package
+- **Phase 3 verification sprints** — promote a cohort of Yellow badges to Green
+- **CI gate before merging a new skill** — block if the example raises `ImportError`
+- **Regression detection** — catch a dependency update that breaks an existing example
+- **Version backfill** — populate `tested_version` fields automatically from installed packages
 
 ## Inputs / Outputs
 
 | Field | Type | Description |
 |---|---|---|
 | `skill_path` | `str` | Path to the `.md` skill file to audit |
-| `sbom_path` | `str` | Path to `meta/skills-sbom.cdx.json` for cross-referencing |
+| `sbom_path` | `str \| None` | Path to `meta/skills-sbom.cdx.json` for cross-referencing |
 | `timeout` | `int` | Max seconds to allow the snippet to run (default: `30`) |
 | `capture_stdout` | `bool` | Whether to capture and return stdout (default: `true`) |
 | → `verdict` | `str` | `"pass"` \| `"fail"` \| `"skip"` |
@@ -47,6 +61,14 @@ proves the snippet *runs*.
 | → `stdout` | `str` | Captured output from the snippet execution |
 | → `error` | `str \| None` | Exception message if execution failed |
 | → `tested_versions` | `dict[str, str]` | `{package: installed_version}` for frontmatter backfill |
+
+### Verdict Meanings
+
+| Verdict | Meaning |
+|---|---|
+| `pass` | All packages installed + imported; snippet exited 0 |
+| `fail` | At least one package failed to install/import, or snippet raised an exception |
+| `skip` | No `dependencies` block declared, or no `## Runnable Example` block found |
 
 ## Runnable Example
 
@@ -73,13 +95,13 @@ class PackageResult:
 
 @dataclass
 class AuditResult:
-    verdict: str                          # "pass" | "fail" | "skip"
+    verdict: str                              # "pass" | "fail" | "skip"
     packages: list[PackageResult] = field(default_factory=list)
     stdout: str = ""
     error: Optional[str] = None
     tested_versions: dict[str, str] = field(default_factory=dict)
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# ── Parsers ──────────────────────────────────────────────────────────────────
 
 def extract_frontmatter_deps(skill_text: str) -> list[str]:
     """Pull package names from the YAML dependencies block."""
@@ -92,16 +114,29 @@ def extract_frontmatter_deps(skill_text: str) -> list[str]:
     return re.findall(r'^\s+-\s+package:\s*(\S+)', block, re.MULTILINE)
 
 def extract_runnable_snippet(skill_text: str) -> Optional[str]:
-    """Extract the first ```python code block after '## Runnable Example'."""
+    """Extract the first ```python block after '## Runnable Example'."""
     m = re.search(
         r'## Runnable Example.*?```python\n(.*?)```',
         skill_text,
-        re.DOTALL
+        re.DOTALL,
     )
     return m.group(1) if m else None
 
+def is_stdlib(package: str) -> bool:
+    """Heuristic: packages with a 'note: stdlib' annotation are skipped from pip install."""
+    # The caller should handle this; here we just detect known stdlib names.
+    stdlib = {
+        "subprocess", "sys", "os", "re", "json", "pathlib", "venv",
+        "tempfile", "dataclasses", "typing", "hashlib", "datetime",
+        "collections", "itertools", "functools", "math", "random",
+        "time", "threading", "concurrent", "asyncio", "socket",
+    }
+    return package.split("[")[0].lower() in stdlib
+
+# ── Venv helpers ──────────────────────────────────────────────────────────────
+
 def create_venv(venv_dir: Path) -> Path:
-    """Create a fresh venv and return path to its python binary."""
+    """Create a fresh venv and return its python binary path."""
     venv.create(str(venv_dir), with_pip=True, clear=True)
     python = venv_dir / ("Scripts/python.exe" if sys.platform == "win32" else "bin/python")
     return python
@@ -110,26 +145,25 @@ def pip_install(python: Path, package: str) -> tuple[bool, Optional[str], Option
     """Install a package; return (success, version, error_msg)."""
     r = subprocess.run(
         [str(python), "-m", "pip", "install", "--quiet", package],
-        capture_output=True, text=True, timeout=60
+        capture_output=True, text=True, timeout=60,
     )
     if r.returncode != 0:
         return False, None, r.stderr.strip()
-    # Resolve installed version
     ver_r = subprocess.run(
         [str(python), "-m", "pip", "show", package.split("[")[0]],
-        capture_output=True, text=True
+        capture_output=True, text=True,
     )
     ver_match = re.search(r'^Version:\s*(.+)', ver_r.stdout, re.MULTILINE)
-    return True, ver_match.group(1).strip() if ver_match else None, None
+    return True, (ver_match.group(1).strip() if ver_match else None), None
 
 def test_import(python: Path, package: str) -> tuple[bool, Optional[str]]:
-    """Try to import the package's top-level module."""
+    """Try to import the package’s top-level module."""
     import_name = package.split("[")[0].replace("-", "_")
     r = subprocess.run(
         [str(python), "-c", f"import {import_name}"],
-        capture_output=True, text=True, timeout=10
+        capture_output=True, text=True, timeout=10,
     )
-    return r.returncode == 0, r.stderr.strip() or None
+    return r.returncode == 0, (r.stderr.strip() or None)
 
 # ── Core auditor ──────────────────────────────────────────────────────────────
 
@@ -143,17 +177,14 @@ def audit_skill(
     packages   = extract_frontmatter_deps(skill_text)
     snippet    = extract_runnable_snippet(skill_text)
 
-    # No dependencies declared — nothing to audit
     if not packages:
         return AuditResult(verdict="skip", error="No dependencies declared in frontmatter")
-
-    # No runnable snippet — can't execute
     if snippet is None:
         return AuditResult(
             verdict="skip",
             error="No ## Runnable Example code block found",
             packages=[PackageResult(name=p, installed=False, version=None, import_ok=False)
-                      for p in packages]
+                      for p in packages],
         )
 
     result = AuditResult(verdict="fail")
@@ -162,14 +193,24 @@ def audit_skill(
         venv_dir = Path(tmp) / "audit_venv"
         python   = create_venv(venv_dir)
 
-        # Install + import test for each package
         all_ok = True
         for pkg in packages:
+            # Skip stdlib packages — they need no install
+            if is_stdlib(pkg):
+                import_ok, import_err = test_import(python, pkg)
+                result.packages.append(PackageResult(
+                    name=pkg, installed=True, version="stdlib",
+                    import_ok=import_ok, error=import_err,
+                ))
+                if not import_ok:
+                    all_ok = False
+                continue
+
             installed, version, install_err = pip_install(python, pkg)
             if not installed:
                 result.packages.append(PackageResult(
                     name=pkg, installed=False, version=None,
-                    import_ok=False, error=install_err
+                    import_ok=False, error=install_err,
                 ))
                 all_ok = False
                 continue
@@ -177,7 +218,7 @@ def audit_skill(
             import_ok, import_err = test_import(python, pkg)
             result.packages.append(PackageResult(
                 name=pkg, installed=True, version=version,
-                import_ok=import_ok, error=import_err
+                import_ok=import_ok, error=import_err,
             ))
             if version:
                 result.tested_versions[pkg] = version
@@ -195,62 +236,81 @@ def audit_skill(
         run_r = subprocess.run(
             [str(python), str(snippet_file)],
             capture_output=True, text=True,
-            timeout=timeout, cwd=tmp
+            timeout=timeout, cwd=tmp,
         )
 
         if capture_stdout:
             result.stdout = run_r.stdout
 
-        if run_r.returncode == 0:
-            result.verdict = "pass"
-        else:
+        result.verdict = "pass" if run_r.returncode == 0 else "fail"
+        if run_r.returncode != 0:
             result.error = run_r.stderr.strip()
-            result.verdict = "fail"
 
     return result
 
+# ── SBOM cross-reference ─────────────────────────────────────────────────────────
 
-# ── Badge backfill helper ─────────────────────────────────────────────────────
+def check_sbom_versions(
+    result: AuditResult,
+    sbom_path: str,
+) -> dict[str, dict]:
+    """
+    Cross-reference tested versions against the SBOM.
+    Returns a dict of {package: {sbom_version, installed_version, match}}.
+    """
+    sbom = json.loads(Path(sbom_path).read_text(encoding="utf-8"))
+    sbom_index = {
+        c["name"]: c.get("version", "unknown")
+        for c in sbom.get("components", [])
+    }
+    report = {}
+    for pkg, installed_ver in result.tested_versions.items():
+        sbom_ver = sbom_index.get(pkg, "not-in-sbom")
+        report[pkg] = {
+            "sbom_version": sbom_ver,
+            "installed_version": installed_ver,
+            "match": sbom_ver == installed_ver,
+        }
+    return report
+
+# ── Badge promotion helper ─────────────────────────────────────────────────────────
 
 def generate_verified_frontmatter_patch(
     result: AuditResult,
     skill_path: str,
 ) -> Optional[str]:
     """
-    If the audit passed, return the YAML patch to write into the skill's
+    If the audit passed, return the YAML patch to write into the skill’s
     frontmatter to promote it from Yellow → Green.
-
     Caller is responsible for writing this back to the file.
     """
     if result.verdict != "pass":
         return None
-
     lines = ["dependencies:"]
     for pkg in result.packages:
-        ver = result.tested_versions.get(pkg.name, "unknown")
+        ver = result.tested_versions.get(pkg.name, pkg.version or "unknown")
         lines.append(f"  - package: {pkg.name}")
         lines.append(f"    tested_version: \"{ver}\"")
         lines.append(f"    confidence: verified")
     return "\n".join(lines)
 
-
-# ── CLI entry ─────────────────────────────────────────────────────────────────
+# ── CLI ────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Audit a skill's runnable dependencies")
+    parser = argparse.ArgumentParser(description="Audit a skill’s runnable dependencies")
     parser.add_argument("skill",  help="Path to skill .md file")
-    parser.add_argument("--sbom", help="Path to skills-sbom.cdx.json (optional)")
+    parser.add_argument("--sbom",    help="Path to skills-sbom.cdx.json (optional)")
     parser.add_argument("--timeout", type=int, default=30)
-    parser.add_argument("--patch", action="store_true",
+    parser.add_argument("--patch",   action="store_true",
                         help="Print the frontmatter patch for verified skills")
     args = parser.parse_args()
 
     res = audit_skill(args.skill, sbom_path=args.sbom, timeout=args.timeout)
 
     print(f"\n{'='*60}")
-    print(f"Audit: {args.skill}")
+    print(f"Audit : {args.skill}")
     print(f"Verdict: {res.verdict.upper()}")
     print(f"{'='*60}")
 
@@ -266,6 +326,13 @@ if __name__ == "__main__":
     if res.error:
         print(f"\n── error ──\n{res.error}")
 
+    if args.sbom:
+        sbom_report = check_sbom_versions(res, args.sbom)
+        print("\n── SBOM cross-reference ──")
+        for pkg, info in sbom_report.items():
+            match = "✅" if info["match"] else "⚠️"
+            print(f"  {match} {pkg}: SBOM={info['sbom_version']}  installed={info['installed_version']}")
+
     if args.patch and res.verdict == "pass":
         patch = generate_verified_frontmatter_patch(res, args.skill)
         print(f"\n── frontmatter patch ──\n{patch}")
@@ -273,10 +340,7 @@ if __name__ == "__main__":
 
 ## GitHub Actions Integration
 
-Runs the auditor across all Yellow-badged skills as a batch verification sprint.
-On pass, writes the `tested_version` + `confidence: verified` patch back to the
-skill file and opens a draft PR — which triggers `sync-badges.yml` on merge to
-promote the badge to Green.
+Runs the auditor across all Yellow-badged skills as a batch verification sprint. On pass, writes the `tested_version` + `confidence: verified` patch back to the skill file and opens a draft PR — which triggers `sync-badges.yml` on merge to promote the badge to Green.
 
 ```yaml
 # .github/workflows/verify-sprint.yml
@@ -319,18 +383,19 @@ jobs:
             if (!fs.existsSync('verified-patches.json')) return;
             const patches = JSON.parse(fs.readFileSync('verified-patches.json', 'utf8'));
             console.log(`${patches.length} skills verified. Opening draft PR.`);
-            // ... write patches, commit to branch, open draft PR
+            // Write patches, commit to branch, open draft PR
 ```
 
 ## Failure Modes
 
 | Failure | Cause | Fix |
 |---|---|---|
-| `ModuleNotFoundError` on import | Package name ≠ import name (e.g., `Pillow` → `PIL`) | Add `import_name` field to SBOM `components` or maintain a known-alias map |
+| `ModuleNotFoundError` on import | Package name ≠ import name (e.g., `Pillow` → `PIL`) | Add `import_name` field to SBOM components or maintain a known-alias map |
 | Snippet hangs | Network call or blocking input in example | Set `timeout=30`; mark skill with `type: requires-network` in frontmatter |
-| `pip install` fails in CI | Package requires system libs (e.g., `psycopg2`, `torch`) | Add `install_extras` list to frontmatter: `extras: [libpq-dev]` |
-| False `fail` on interactive examples | Example uses `input()` or opens a GUI | Detect `input(` in snippet pre-flight; auto-skip and return `verdict: "skip"` |
-| Version mismatch vs. SBOM | SBOM records a pinned version; latest is different | Record both: `sbom_version` (from SBOM) and `installed_version` (from pip) |
+| `pip install` fails in CI | Package requires system libs (e.g., `psycopg2`, `torch`) | Add `install_extras` to frontmatter: `extras: [libpq-dev]` |
+| False `fail` on interactive examples | Example uses `input()` or opens a GUI | Detect `input(` pre-flight; auto-skip and return `verdict: "skip"` |
+| Version mismatch vs. SBOM | SBOM records a pinned version; latest differs | Record both: `sbom_version` (from SBOM) and `installed_version` (from pip) |
+| stdlib skipped but fails import | Corrupted Python install | `is_stdlib()` still runs import test; surfaces the error clearly |
 
 ## Pipeline Position
 
@@ -339,27 +404,20 @@ ast-sweep.yml          →  SBOM updated + Yellow badge pushed  (existence proof
         ↓
 verify-sprint.yml      →  dependency-auditor runs snippet     (execution proof)
         ↓
-sync-badges.yml        →  Green badge on merge                 (verified)
+sync-badges.yml        →  Green badge on merge                (verified)
         ↓
-osv-watch.yml          →  Red advisory if CVE detected         (security signal)
+osv-watch.yml          →  Red advisory if CVE detected        (security signal)
         ↓
 revoke-phantom-badges  →  Grey reset if PR abandoned          (self-healing)
 ```
 
-This skill sits at the second step — it is the bridge between "we know it
-exists" and "we know it works."
+This skill sits at the second step — it is the bridge between “we know it exists” and “we know it works.”
 
 ## Dogfooding Note
 
-This skill file is itself tracked by the badge pipeline it describes.
-When `ast-sweep.yml` next runs, it will detect the `subprocess`, `venv`,
-and `re` imports in the snippet, cross-reference them against PyPI, and
-push a Yellow badge. The first time `verify-sprint.yml` runs this auditor
-against its own skill file, it will verify those stdlib modules import
-cleanly and promote itself to Green.
+This skill file is itself tracked by the badge pipeline it describes. When `ast-sweep.yml` next runs, it will detect the `subprocess`, `venv`, and `re` imports in the snippet, cross-reference them against PyPI, and push a Yellow badge. The first time `verify-sprint.yml` runs this auditor against its own skill file, it will verify those stdlib modules import cleanly and promote itself to Green.
 
-That is recursive dogfooding: the pipeline auditing the skill that
-describes the pipeline.
+That is recursive dogfooding: the pipeline auditing the skill that describes the pipeline.
 
 ## Related Skills
 
@@ -367,9 +425,11 @@ describes the pipeline.
 - [`code-execution-sandbox.md`](code-execution-sandbox.md) — Isolated execution environments
 - [`security-scanning.md`](security-scanning.md) — CVE detection after deps are verified
 - [`cicd-generation.md`](cicd-generation.md) — Build the verification sprint workflow
+- [`code-review.md`](code-review.md) — Analyze code quality alongside dependency health
 
 ## Changelog
 
 | Version | Date | Change |
 |---|---|---|
 | v1 | 2026-04 | Initial entry — Phase 3 dogfooding skill, execution verification layer |
+| v2 | 2026-04 | Added `dependencies` frontmatter block (stdlib), SBOM cross-ref helper, `is_stdlib()` guard, richer failure modes, bidirectional link to `code-review.md` |
