@@ -7,6 +7,7 @@
 **Category:** `category-slug`  
 **Skill Level:** `basic` | `intermediate` | `advanced`  
 **Stability:** `stable` | `experimental` | `deprecated`  
+**Version:** `v1` | `v2` | `v3`  
 **Added:** `YYYY-MM`  
 **Last Updated:** `YYYY-MM`
 
@@ -75,6 +76,75 @@ List every framework, library, or model that implements or supports this skill:
 
 ---
 
+## Model Comparison
+
+> How does this skill perform across frontier models? Rate 1–5 (5 = best). Remove this block if data is unavailable.
+
+| Capability | GPT-4o | Claude 3.7 Sonnet | Gemini 2.0 Flash | Notes |
+|---|---|---|---|---|
+| Accuracy | — | — | — | |
+| Latency | — | — | — | |
+| Cost efficiency | — | — | — | |
+| Instruction following | — | — | — | |
+| Edge case handling | — | — | — | |
+
+---
+
+## Failure Modes
+
+> Common ways this skill breaks or produces poor results. Each entry should include a cause and a mitigation.
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Hallucinated output | Insufficient grounding context | Inject verified facts via RAG or system prompt |
+| Prompt injection | Untrusted user input passed directly | Sanitize inputs; use a separate validation layer |
+| Timeout / truncation | Long inputs exceeding context window | Chunk input; stream or paginate results |
+
+> Add rows specific to this skill. Remove placeholder rows that don't apply.
+
+---
+
+## Prompt Patterns
+
+> Reusable prompt templates that reliably activate this skill. Use `{variable}` for dynamic slots.
+
+### Pattern 1 — Basic Invocation
+```
+{task_instruction}
+
+Input: {input}
+Format: {output_format}
+```
+
+### Pattern 2 — Chain-of-Thought
+```
+Think step-by-step.
+
+{task_instruction}
+
+Input: {input}
+
+Reasoning:
+```
+
+### Pattern 3 — Constrained Output
+```
+{task_instruction}
+
+Input: {input}
+
+Constraints:
+- {constraint_1}
+- {constraint_2}
+
+Respond with a JSON object matching this schema:
+{json_schema}
+```
+
+> Add or remove patterns based on what works for this skill. Test each pattern before including it.
+
+---
+
 ## Notes
 
 - List any caveats, rate limits, token costs, or known edge cases.
@@ -92,6 +162,6 @@ List every framework, library, or model that implements or supports this skill:
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `YYYY-MM` | Initial entry |
+| Date | Version | Change |
+|---|---|---|
+| `YYYY-MM` | v1 | Initial entry |
