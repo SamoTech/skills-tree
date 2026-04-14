@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import tempfile
 
 CAT_MAP = {
@@ -14,15 +15,34 @@ CAT_MAP = {
 }
 REQUIRED = ["title", "category", "level", "stability", "description"]
 
+# Ordered list of known frontmatter keys used when rebuilding.
+# Keys found in the original file but absent from this list are appended
+# verbatim at the end so they are never silently discarded.
+ORDER = [
+    "title", "category", "level", "stability", "description",
+    "added", "version", "tags", "updated", "dependencies",
+    "phase", "badge", "badge_key", "author",
+]
+
 
 def slug_to_title(slug):
-    CAPS = {"API", "SQL", "OCR", "RAG", "PDF", "HTML", "XML", "JSON", "HTTP", "CSV", "ETL", "LLM", "DOM", "RSS", "VM", "OS", "TTS", "ASR", "RPC", "VQA", "SBOM"}
-    return " ".join(w.upper() if w.upper() in CAPS else w.capitalize() for w in slug.replace("-", " ").split())
+    CAPS = {
+        "API", "SQL", "OCR", "RAG", "PDF", "HTML", "XML", "JSON",
+        "HTTP", "CSV", "ETL", "LLM", "DOM", "RSS", "VM", "OS",
+        "TTS", "ASR", "RPC", "VQA", "SBOM",
+    }
+    return " ".join(
+        w.upper() if w.upper() in CAPS else w.capitalize()
+        for w in slug.replace("-", " ").split()
+    )
 
 
 def extract_section(content, *headings):
     for h in headings:
-        m = re.search(rf"#{{{2,3}}}\s+{re.escape(h)}\s*\n+(.*?)(?=\n#|\Z)", content, re.DOTALL | re.IGNORECASE)
+        m = re.search(
+            rf"#{{{2,3}}}\s+{re.escape(h)}\s*\n+(.*?)(?=\n#|\Z)",
+            content, re.DOTALL | re.IGNORECASE,
+        )
         if m:
             txt = re.sub(r"\s+", " ", m.group(1).strip())
             if len(txt) > 200:
@@ -42,6 +62,113 @@ def parse_stability(raw):
     return "experimental" if "exp" in r else "deprecated" if "dep" in r else "stable"
 
 
+def _parse_frontmatter(fm_raw):
+    """Parse a raw frontmatter string into two parallel structures.
+
+    Returns:
+        scalars  : dict[str, str]   – key → single-line value (for comparison/overwrite)
+        segments : list[(str, str)] – ordered (key, raw_block) pairs preserving
+                                      multiline values verbatim
+
+    A "raw_block" is the complete original text for that key, e.g.:
+        dependencies:\n  - package: anthropic\n    tested_version: "0.49.0"\n
+
+    Keys whose value is a block (indented continuation lines, YAML list `- …`
+    entries, or literal/folded block scalars `|`/`>`) are stored in `segments`
+    with their full text but are absent from `scalars` — they must be written
+    back verbatim and must NOT be overwritten by the scalar rewriter.
+    """
+    scalars = {}
+    segments = []  # list of (key, raw_block_text)
+
+    lines = fm_raw.split("\n")
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        # Top-level key: no leading whitespace
+        if line and not line[0].isspace():
+            m = re.match(r"^([a-z][\w-]*):\s*(.*)$", line)
+            if m:
+                key = m.group(1)
+                first_val = m.group(2).strip()
+                # Collect any indented continuation lines that belong to this key
+                block_lines = [line]
+                j = i + 1
+                while j < len(lines) and lines[j] and lines[j][0].isspace():
+                    block_lines.append(lines[j])
+                    j += 1
+                raw_block = "\n".join(block_lines)
+                segments.append((key, raw_block))
+                # Only populate scalars for genuinely single-line values
+                # (no continuation lines, not a block scalar indicator)
+                is_multiline = j > i + 1
+                is_block_scalar = first_val in ("|", ">", "|+", "|-", ">+", ">-")
+                is_empty = first_val == ""
+                if not is_multiline and not is_block_scalar and not is_empty:
+                    if first_val != ">":  # legacy guard kept from original
+                        scalars[key] = first_val
+                i = j
+                continue
+        i += 1
+
+    return scalars, segments
+
+
+def _rebuild_frontmatter(segments, scalars, overrides, path):
+    """Rebuild frontmatter lines in ORDER, then append any extra keys.
+
+    Parameters:
+        segments  : original (key, raw_block) pairs from _parse_frontmatter
+        scalars   : original scalar values (read-only reference for unchanged fields)
+        overrides : dict[str, str] of scalar key→value lines that must be updated
+                    (e.g. category correction, newly synthesised REQUIRED fields)
+        path      : file path — used only for [WARN] messages
+
+    Returns a list of strings (one per frontmatter line) ready to join with \n.
+
+    Preservation guarantee: every key that was present in *segments* will appear
+    in the output.  If a key would be dropped, a [WARN] is printed to stderr.
+    """
+    # Build lookup: key → raw_block (original text) for quick access
+    seg_map = dict(segments)       # last writer wins for duplicates (shouldn't happen)
+    all_original_keys = [k for k, _ in segments]
+
+    output_lines = []
+    emitted = set()
+
+    # 1. Emit ORDER keys first (preserves canonical ordering)
+    for key in ORDER:
+        if key in overrides:
+            # Scalar override (category fix or newly synthesised field)
+            output_lines.append(f"{key}: {overrides[key]}")
+            emitted.add(key)
+        elif key in seg_map:
+            # Preserve original raw block (handles multiline values)
+            output_lines.append(seg_map[key])
+            emitted.add(key)
+        # Keys in ORDER but absent from the file are simply skipped (not added)
+
+    # 2. Emit extra keys not in ORDER — verbatim from original
+    for key in all_original_keys:
+        if key not in emitted:
+            if key in overrides:
+                output_lines.append(f"{key}: {overrides[key]}")
+            else:
+                output_lines.append(seg_map[key])
+            emitted.add(key)
+
+    # 3. Safety check: warn about any original key that ended up missing
+    for key in all_original_keys:
+        if key not in emitted:
+            print(
+                f"[WARN] {path}: frontmatter key '{key}' could not be preserved "
+                f"and was dropped — manual review required.",
+                file=sys.stderr,
+            )
+
+    return output_lines
+
+
 def _atomic_write(path, content):
     """Write *content* to *path* atomically using a sibling temp file + os.replace().
 
@@ -49,9 +176,7 @@ def _atomic_write(path, content):
     On Windows it replaces the destination in a single syscall (best-effort atomic).
     The temp file lives in the same directory as the target so os.replace() never
     crosses a filesystem boundary (which would make it non-atomic on Linux).
-
-    The finally block guarantees the .tmp file is removed even on error,
-    so no stale partial files accumulate under skills/.
+    The except block guarantees the .tmp file is removed even on error.
     """
     dir_ = os.path.dirname(os.path.abspath(path))
     fd, tmp_path = tempfile.mkstemp(dir=dir_, suffix=".tmp", prefix=".fix-")
@@ -60,7 +185,6 @@ def _atomic_write(path, content):
             fh.write(content)
         os.replace(tmp_path, path)
     except Exception:
-        # Clean up the temp file on any error; re-raise so the caller sees the failure.
         try:
             os.unlink(tmp_path)
         except OSError:
@@ -70,10 +194,11 @@ def _atomic_write(path, content):
 
 def fix_file(path, cat):
     try:
-        # Normalise CRLF → LF on read so frontmatter regex works on Windows-authored files.
+        # Normalise CRLF → LF so frontmatter regex works on Windows-authored files.
         content = open(path, encoding="utf-8").read().replace("\r\n", "\n")
     except Exception:
         return False
+
     slug = os.path.basename(path)[:-3]
     correct_cat = CAT_MAP[cat]
     has_fm = content.startswith("---\n")
@@ -84,50 +209,48 @@ def fix_file(path, cat):
             return False
         fm_raw = content[4:end]
         body = content[end + 4:]
-        fields, field_order = {}, []
-        for line in fm_raw.split("\n"):
-            # Only match top-level keys (no leading whitespace) to avoid
-            # mis-capturing indented sub-keys (e.g. `package:` under `dependencies:`).
-            if line and not line[0].isspace():
-                m = re.match(r"^([a-z][\w-]*):\s*(.*)$", line)
-                if m:
-                    val = m.group(2).strip()
-                    if val and val != ">":
-                        fields[m.group(1)] = val
-                        field_order.append(m.group(1))
+
+        scalars, segments = _parse_frontmatter(fm_raw)
+        # overrides: scalar replacements/additions that will supersede the original
+        overrides = {}
         changed = False
-        if fields.get("category") != correct_cat:
-            fields["category"] = correct_cat
+
+        # ── Category correction ──────────────────────────────────────────────
+        if scalars.get("category") != correct_cat:
+            overrides["category"] = correct_cat
             changed = True
+
+        # ── Synthesise any missing REQUIRED fields ───────────────────────────
+        existing_keys = {k for k, _ in segments}
         for field in REQUIRED:
-            if field not in fields:
+            if field not in existing_keys and field not in scalars:
                 changed = True
                 if field == "title":
                     h1 = re.search(r"^#\s+(.+)$", body, re.M)
                     t = re.sub(r"!\[.*?\]\(.*?\)", "", h1.group(1)).strip() if h1 else ""
-                    fields["title"] = f'"{t or slug_to_title(slug)}"'
+                    overrides["title"] = f'"{t or slug_to_title(slug)}"'
                 elif field == "level":
                     raw = re.search(r"Skill\s*Level[:\*`\s]+(\w+)", body, re.I)
-                    fields["level"] = parse_level(raw.group(1) if raw else "")
+                    overrides["level"] = parse_level(raw.group(1) if raw else "")
                 elif field == "stability":
                     raw = re.search(r"Stability[:\*`\s]+(\w+)", body, re.I)
-                    fields["stability"] = parse_stability(raw.group(1) if raw else "")
+                    overrides["stability"] = parse_stability(raw.group(1) if raw else "")
                 elif field == "description":
                     desc = extract_section(body, "Description", "What It Does", "Overview", "Summary")
                     if not desc:
                         desc = f"Apply {slug_to_title(slug).lower()} in AI agent workflows."
-                    fields["description"] = f'"{desc.replace(chr(34), chr(39))}"'
+                    overrides["description"] = f'"{desc.replace(chr(34), chr(39))}"'
+
         if not changed:
             return False
-        ORDER = ["title", "category", "level", "stability", "description", "added", "version", "tags", "updated", "dependencies", "phase", "badge", "badge_key", "author"]
-        extra = [k for k in field_order if k not in ORDER]
-        lines = [f"{k}: {fields[k]}" for k in ORDER + extra if k in fields]
-        # Only strip `added:` lines from the body (not frontmatter) — they are
-        # legacy inline metadata from old-format files.  Scoping to `has_fm=True`
-        # here is intentional: when has_fm is False the else-branch handles it.
+
+        fm_lines = _rebuild_frontmatter(segments, scalars, overrides, path)
+        # Strip legacy `added:` lines from the *body* only (old-format artefact).
         body = re.sub(r'^added:\s*"[\d-]+"[\r\n]+', "", body, flags=re.M)
-        new = "---\n" + "\n".join(lines) + "\n---\n" + body
+        new = "---\n" + "\n".join(fm_lines) + "\n---\n" + body
+
     else:
+        # No frontmatter at all — synthesise a minimal block from body content.
         clean = re.sub(r'^added:\s*"[\d-]+"[\r\n]*', "", content, flags=re.M)
         h1 = re.search(r"^#\s+(.+)$", clean, re.M)
         title = re.sub(r"!\[.*?\]\(.*?\)", "", h1.group(1)).strip() if h1 else ""
@@ -141,12 +264,13 @@ def fix_file(path, cat):
         if not desc:
             desc = f"Apply {title.lower()} in AI agent workflows."
         desc = desc.replace('"', "'")[:200]
-        fm = f'---\ntitle: "{title}"\ncategory: {correct_cat}\nlevel: {level}\nstability: {stability}\ndescription: "{desc}"\nadded: "2025-03"\n---\n\n'
+        fm = (
+            f'---\ntitle: "{title}"\ncategory: {correct_cat}\n'
+            f'level: {level}\nstability: {stability}\n'
+            f'description: "{desc}"\nadded: "2025-03"\n---\n\n'
+        )
         new = fm + clean
 
-    # ── Atomic write ──────────────────────────────────────────────────────────
-    # Replaces the old direct open(path,"w").write(new) which left the file
-    # truncated and corrupt if the process was killed mid-write in CI.
     _atomic_write(path, new)
     return True
 
