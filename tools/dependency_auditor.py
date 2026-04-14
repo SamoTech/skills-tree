@@ -13,15 +13,15 @@ For each skill file with Yellow (machine-inferred) badge status, this tool:
 
 Usage:
   # Audit changed files from a PR
-  python tools/dependency_auditor.py \
-      --skills-file /tmp/changed_skills.txt \
-      --badge-output badge-data-output \
+  python tools/dependency_auditor.py \\
+      --skills-file /tmp/changed_skills.txt \\
+      --badge-output badge-data-output \\
       --pr-body verification-pr-body.md
 
   # Full sweep of all skills under a directory
-  python tools/dependency_auditor.py \
-      --skills-root skills \
-      --badge-output badge-data-output \
+  python tools/dependency_auditor.py \\
+      --skills-root skills \\
+      --badge-output badge-data-output \\
       --pr-body verification-pr-body.md
 
   # Dry run (print only, no files written)
@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -59,6 +60,8 @@ CRITICAL_COLOR = "critical"
 
 # Snippet execution timeout in seconds per skill
 SNIPPET_TIMEOUT = 30
+# pip install timeout in seconds
+PIP_INSTALL_TIMEOUT = 120
 
 # ---------------------------------------------------------------------------
 # Data classes
@@ -89,6 +92,59 @@ class AuditResult:
 
 
 # ---------------------------------------------------------------------------
+# Environment isolation
+# ---------------------------------------------------------------------------
+
+# Variables that the Python runtime needs to function correctly.
+# Everything else (CI secrets, cloud credentials, tokens) is excluded.
+_RUNTIME_PASSTHROUGH = {
+    "LANG", "LC_ALL", "LC_CTYPE",
+    "PYTHONIOENCODING", "PYTHONDONTWRITEBYTECODE",
+    # Windows-specific runtime vars
+    "SYSTEMROOT", "COMSPEC", "PATHEXT",
+}
+
+
+def _safe_env(venv_dir: Path, tmp_dir: str) -> dict[str, str]:
+    """Return a minimal environment for snippet subprocess execution.
+
+    The returned dict contains ONLY:
+    - PATH   : venv bin/Scripts directory prepended, then /usr/bin:/bin
+    - HOME   : set to the audit tmpdir so ~/.config etc. land there
+    - TMPDIR / TEMP / TMP : the audit tmpdir
+    - A small allowlist of runtime-essential variables (_RUNTIME_PASSTHROUGH)
+
+    Critically absent: ANTHROPIC_API_KEY, GITHUB_TOKEN, AWS_*, GCP_*,
+    AZURE_*, SSH_AUTH_SOCK, and any other secrets present on the runner.
+    """
+    # Prefer venv bin over system Python so installed packages resolve correctly.
+    if sys.platform == "win32":
+        venv_bin = str(venv_dir / "Scripts")
+        path_sep = ";"
+        system_path = os.environ.get("SystemRoot", "C:\\Windows") + "\\System32"
+    else:
+        venv_bin = str(venv_dir / "bin")
+        path_sep = ":"
+        system_path = "/usr/bin:/bin"
+
+    env: dict[str, str] = {
+        "PATH": path_sep.join([venv_bin, system_path]),
+        "HOME": tmp_dir,
+        "TMPDIR": tmp_dir,
+        "TEMP": tmp_dir,
+        "TMP": tmp_dir,
+    }
+
+    # Pass through only the explicit runtime allowlist.
+    for key in _RUNTIME_PASSTHROUGH:
+        val = os.environ.get(key)
+        if val is not None:
+            env[key] = val
+
+    return env
+
+
+# ---------------------------------------------------------------------------
 # Frontmatter parsing
 # ---------------------------------------------------------------------------
 
@@ -100,7 +156,11 @@ DEP_BLOCK_RE = re.compile(
 
 
 def parse_frontmatter(text: str) -> dict:
-    """Return the raw key-value dict from YAML-ish frontmatter."""
+    """Return the raw key-value dict from YAML-ish frontmatter.
+
+    Note: only captures simple scalar values on a single line.
+    Structured fields (dependencies, tags) are handled by dedicated parsers.
+    """
     m = FRONTMATTER_RE.match(text)
     if not m:
         return {}
@@ -121,7 +181,6 @@ def parse_dependencies(text: str) -> list[Dependency]:
     block = m.group(1)
 
     deps: list[Dependency] = []
-    # Iterate over each `- package:` entry in the frontmatter block
     lines = block.splitlines()
     i = 0
     while i < len(lines):
@@ -152,7 +211,6 @@ def parse_dependencies(text: str) -> list[Dependency]:
 
 def extract_first_snippet(text: str) -> Optional[str]:
     """Return the first Python code block from the skill body."""
-    # Skip frontmatter
     body_start = 0
     if text.startswith("---"):
         end = text.find("---", 3)
@@ -176,6 +234,11 @@ def skill_key(path: Path) -> str:
 # ---------------------------------------------------------------------------
 
 
+def _venv_bin(venv_dir: Path) -> Path:
+    """Return the platform-correct venv binary directory."""
+    return venv_dir / ("Scripts" if sys.platform == "win32" else "bin")
+
+
 def build_pip_specs(deps: list[Dependency]) -> list[str]:
     specs = []
     for dep in deps:
@@ -194,7 +257,7 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
     result.deps = parse_dependencies(text)
     if not result.deps:
         result.snippet_skipped = True
-        result.install_ok = True  # nothing to install
+        result.install_ok = True
         print(f"  [SKIP] {skill_path}: no dependencies declared")
         return result
 
@@ -223,8 +286,8 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
             print(f"    ERROR: {result.error}")
             return result
 
-        pip = venv_dir / "bin" / "pip"
-        python = venv_dir / "bin" / "python"
+        pip = _venv_bin(venv_dir) / "pip"
+        python = _venv_bin(venv_dir) / "python"
 
         # Install packages
         try:
@@ -232,7 +295,7 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
                 [str(pip), "install", "--quiet", "--timeout", "30"] + specs,
                 capture_output=True,
                 text=True,
-                timeout=120,
+                timeout=PIP_INSTALL_TIMEOUT,
             )
             if proc.returncode != 0:
                 result.error = f"pip install failed:\n{proc.stderr[:500]}"
@@ -241,7 +304,7 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
             result.install_ok = True
             print(f"    OK   (install): {specs}")
         except subprocess.TimeoutExpired:
-            result.error = "pip install timed out after 120s"
+            result.error = f"pip install timed out after {PIP_INSTALL_TIMEOUT}s"
             print(f"    TIMEOUT: {result.error}")
             return result
         except Exception as exc:
@@ -253,15 +316,17 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
         snippet = extract_first_snippet(text)
         if snippet is None:
             result.snippet_skipped = True
-            print(f"    OK   (no snippet to run)")
+            print("    OK   (no snippet to run)")
             return result
 
-        # Write snippet to temp file
+        # Write snippet to temp file and execute in a locked-down environment.
         snippet_file = Path(tmpdir) / "snippet.py"
-        snippet_file.write_text(
-            textwrap.dedent(snippet),
-            encoding="utf-8",
-        )
+        snippet_file.write_text(textwrap.dedent(snippet), encoding="utf-8")
+
+        # Build minimal env: venv Python on PATH, tmpdir as HOME, NO CI secrets.
+        # This prevents a malicious snippet from reading ANTHROPIC_API_KEY,
+        # GITHUB_TOKEN, AWS_* or any other credential present on the runner.
+        safe_environment = _safe_env(venv_dir, tmpdir)
 
         try:
             proc = subprocess.run(
@@ -269,13 +334,15 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
                 capture_output=True,
                 text=True,
                 timeout=SNIPPET_TIMEOUT,
+                env=safe_environment,          # <── isolated: no CI secrets
+                cwd=tmpdir,                    # <── working dir inside tmpdir only
             )
             if proc.returncode != 0:
                 result.error = f"snippet failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
                 print(f"    FAIL (snippet): {result.error}")
                 return result
             result.snippet_ok = True
-            print(f"    OK   (snippet ran successfully)")
+            print("    OK   (snippet ran successfully)")
         except subprocess.TimeoutExpired:
             # Timeout is not a hard failure for snippets that block on I/O
             result.snippet_skipped = True
@@ -322,8 +389,8 @@ def write_pr_body(
         "> Auto-generated by `dependency-auditor.yml`. "
         "**Do not merge without reviewing each skill.**",
         "",
-        f"| Metric | Count |",
-        f"|---|---|",
+        "| Metric | Count |",
+        "|---|---|",
         f"| Skills audited | {len(results)} |",
         f"| Passed (proposed Green) | {len(passed)} |",
         f"| Failed | {len(failed)} |",
@@ -392,19 +459,19 @@ def should_audit(skill_path: Path, badge_output: Path) -> bool:
     """
     Only audit skills whose existing badge is Yellow (machine-inferred).
     Skip Green, CVE/critical, and unscanned badges — nothing to promote.
+
+    Note: newly added skills have no badge yet (ast-sweep must run first
+    to generate the initial Yellow badge before this tool can promote them).
     """
     key = skill_key(skill_path)
     badge_file = badge_output / f"{key}.json"
     if not badge_file.exists():
-        # No badge yet — skip, wait for ast-sweep to generate Yellow first
         return False
     try:
         badge = json.loads(badge_file.read_text())
     except Exception:
         return False
-    color = badge.get("color", "")
-    # Only promote Yellow badges
-    return color == YELLOW_BADGE_COLOR
+    return badge.get("color", "") == YELLOW_BADGE_COLOR
 
 
 # ---------------------------------------------------------------------------
@@ -446,7 +513,6 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    # Collect skill paths
     if args.skills_root:
         if not args.skills_root.exists():
             print(f"ERROR: skills-root '{args.skills_root}' does not exist.")
@@ -460,13 +526,11 @@ def main() -> int:
 
     print(f"Found {len(skills)} skill file(s) to consider.")
 
-    # Filter to only Yellow-badged skills (eligible for Green promotion)
     eligible = [s for s in skills if should_audit(s, args.badge_output)]
     print(f"{len(eligible)} skill(s) have Yellow badges eligible for audit.")
 
     if not eligible:
         print("Nothing to audit. Exiting.")
-        # Write an empty PR body so the workflow file check doesn't crash
         if not args.dry_run:
             args.badge_output.mkdir(parents=True, exist_ok=True)
             args.pr_body.write_text(
@@ -475,16 +539,14 @@ def main() -> int:
             )
         return 0
 
-    # Run audits
     results: list[AuditResult] = []
     for skill_path in eligible:
         print(f"\nAuditing: {skill_path}")
         result = audit_skill(skill_path, dry_run=args.dry_run)
         results.append(result)
 
-    # Write outputs
     passed = [r for r in results if r.passed]
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"Audit complete: {len(passed)}/{len(results)} passed.")
 
     if not args.dry_run:
