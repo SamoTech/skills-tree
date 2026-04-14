@@ -3,7 +3,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-04-13T21:30:54.718146+00:00",
+    "timestamp": "2026-04-14T00:14:55.179368+00:00",
     "tools": [
       {
         "name": "skills-tree/ast_sweep",
@@ -22,28 +22,29 @@
       "purl": "pkg:pypi/httpx",
       "version": "0.28.1",
       "usedIn": [
-        "skills\\01-perception\\api-response-parsing.md",
-        "skills\\01-perception\\html-reading.md",
-        "skills\\01-perception\\image-understanding.md",
-        "skills\\01-perception\\url-dom-inspection.md",
-        "skills\\04-action-execution\\api-call.md",
-        "skills\\04-action-execution\\http-request.md",
-        "skills\\04-action-execution\\notification-sending.md",
-        "skills\\05-code\\github-api.md",
-        "skills\\05-code\\integration-test-writing.md",
-        "skills\\07-tool-use\\custom-api-wrapper.md",
-        "skills\\07-tool-use\\github-api.md",
-        "skills\\07-tool-use\\huggingface-api.md",
-        "skills\\07-tool-use\\jira-api.md",
-        "skills\\07-tool-use\\linear-api.md",
-        "skills\\07-tool-use\\maps-geolocation.md",
-        "skills\\07-tool-use\\news-api.md",
-        "skills\\07-tool-use\\notion-api.md",
-        "skills\\07-tool-use\\weather-api.md",
-        "skills\\07-tool-use\\wolfram-api.md",
-        "skills\\11-web\\url-fetching.md",
-        "skills\\11-web\\web-scraping.md",
-        "skills\\11-web\\web-search.md"
+        "skills/01-perception/api-response-parsing.md",
+        "skills/01-perception/html-reading.md",
+        "skills/01-perception/image-understanding.md",
+        "skills/01-perception/url-dom-inspection.md",
+        "skills/04-action-execution/api-call.md",
+        "skills/04-action-execution/http-request.md",
+        "skills/04-action-execution/notification-sending.md",
+        "skills/05-code/github-api.md",
+        "skills/05-code/integration-test-writing.md",
+        "skills/07-tool-use/custom-api-wrapper.md",
+        "skills/07-tool-use/github-api.md",
+        "skills/07-tool-use/huggingface-api.md",
+        "skills/07-tool-use/jira-api.md",
+        "skills/07-tool-use/linear-api.md",
+        "skills/07-tool-use/maps-geolocation.md",
+        "skills/07-tool-use/news-api.md",
+        "skills/07-tool-use/notion-api.md",
+        "skills/07-tool-use/weather-api.md",
+        "skills/07-tool-use/wolfram-api.md",
+        "skills/08-multimodal/object-detection.md",
+        "skills/11-web/url-fetching.md",
+        "skills/11-web/web-scraping.md",
+        "skills/11-web/web-search.md"
       ],
       "pypiConfirmed": true
     },
@@ -53,7 +54,7 @@
       "purl": "pkg:pypi/jsonpath-ng",
       "version": "1.8.0",
       "usedIn": [
-        "skills\\01-perception\\api-response-parsing.md"
+        "skills/01-perception/api-response-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -63,8 +64,8 @@
       "purl": "pkg:pypi/jsonschema",
       "version": "4.26.0",
       "usedIn": [
-        "skills\\01-perception\\api-response-parsing.md",
-        "skills\\01-perception\\json-schema-validation.md"
+        "skills/01-perception/api-response-parsing.md",
+        "skills/01-perception/json-schema-validation.md"
       ],
       "pypiConfirmed": true
     },
@@ -74,7 +75,10 @@
       "purl": "pkg:pypi/torch",
       "version": "2.11.0",
       "usedIn": [
-        "skills\\01-perception\\audio-transcription.md"
+        "skills/01-perception/audio-transcription.md",
+        "skills/08-multimodal/3d-scene-understanding.md",
+        "skills/08-multimodal/document-layout-analysis.md",
+        "skills/08-multimodal/image-editing.md"
       ],
       "pypiConfirmed": true
     },
@@ -84,7 +88,7 @@
       "purl": "pkg:pypi/whisper",
       "version": "1.1.10",
       "usedIn": [
-        "skills\\01-perception\\audio-transcription.md"
+        "skills/01-perception/audio-transcription.md"
       ],
       "pypiConfirmed": true
     },
@@ -94,11 +98,14 @@
       "purl": "pkg:pypi/Pillow",
       "version": "12.2.0",
       "usedIn": [
-        "skills\\01-perception\\binary-file-reading.md",
-        "skills\\01-perception\\ocr.md",
-        "skills\\10-computer-use\\multi-monitor.md",
-        "skills\\10-computer-use\\screen-ocr.md",
-        "skills\\10-computer-use\\terminal-interaction.md"
+        "skills/01-perception/binary-file-reading.md",
+        "skills/01-perception/ocr.md",
+        "skills/08-multimodal/document-layout-analysis.md",
+        "skills/08-multimodal/image-classification.md",
+        "skills/08-multimodal/image-editing.md",
+        "skills/10-computer-use/multi-monitor.md",
+        "skills/10-computer-use/screen-ocr.md",
+        "skills/10-computer-use/terminal-interaction.md"
       ],
       "pypiConfirmed": true
     },
@@ -108,7 +115,7 @@
       "purl": "pkg:pypi/magic",
       "version": "0.1",
       "usedIn": [
-        "skills\\01-perception\\binary-file-reading.md"
+        "skills/01-perception/binary-file-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -118,7 +125,7 @@
       "purl": "pkg:pypi/icalendar",
       "version": "7.0.3",
       "usedIn": [
-        "skills\\01-perception\\calendar-parsing.md"
+        "skills/01-perception/calendar-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -128,82 +135,82 @@
       "purl": "pkg:pypi/anthropic",
       "version": "0.94.1",
       "usedIn": [
-        "skills\\01-perception\\chart-reading.md",
-        "skills\\01-perception\\contract-reading.md",
-        "skills\\01-perception\\email-parsing.md",
-        "skills\\01-perception\\file-system-reading.md",
-        "skills\\01-perception\\handwriting-recognition.md",
-        "skills\\01-perception\\ocr.md",
-        "skills\\01-perception\\pdf-parsing.md",
-        "skills\\01-perception\\screen-reading.md",
-        "skills\\01-perception\\sensor-reading.md",
-        "skills\\01-perception\\structured-data-reading.md",
-        "skills\\01-perception\\table-extraction.md",
-        "skills\\01-perception\\url-dom-inspection.md",
-        "skills\\02-reasoning\\abductive.md",
-        "skills\\02-reasoning\\analogical.md",
-        "skills\\02-reasoning\\analogy-generation.md",
-        "skills\\02-reasoning\\argument-structure-analysis.md",
-        "skills\\02-reasoning\\causal.md",
-        "skills\\02-reasoning\\chain-of-thought.md",
-        "skills\\02-reasoning\\commonsense.md",
-        "skills\\02-reasoning\\ethical-reasoning.md",
-        "skills\\02-reasoning\\meta-cognition.md",
-        "skills\\02-reasoning\\multi-step-planning.md",
-        "skills\\02-reasoning\\numerical-estimation.md",
-        "skills\\02-reasoning\\problem-decomposition.md",
-        "skills\\02-reasoning\\react.md",
-        "skills\\02-reasoning\\risk-assessment.md",
-        "skills\\02-reasoning\\root-cause-analysis.md",
-        "skills\\02-reasoning\\scenario-planning.md",
-        "skills\\02-reasoning\\self-reflection.md",
-        "skills\\02-reasoning\\socratic-questioning.md",
-        "skills\\02-reasoning\\spatial-reasoning.md",
-        "skills\\02-reasoning\\systems-thinking.md",
-        "skills\\02-reasoning\\temporal-reasoning.md",
-        "skills\\02-reasoning\\trade-off-analysis.md",
-        "skills\\02-reasoning\\uncertainty-quantification.md",
-        "skills\\03-memory\\fact-verification.md",
-        "skills\\03-memory\\forgetting.md",
-        "skills\\03-memory\\memory-injection.md",
-        "skills\\03-memory\\memory-summarization.md",
-        "skills\\03-memory\\procedural.md",
-        "skills\\03-memory\\user-profile.md",
-        "skills\\07-tool-use\\anthropic-api.md",
-        "skills\\09-agentic-patterns\\rag.md",
-        "skills\\11-web\\web-search.md",
-        "skills\\13-creative\\avatar-design.md",
-        "skills\\13-creative\\blog-writing.md",
-        "skills\\13-creative\\copywriting.md",
-        "skills\\13-creative\\creative-writing.md",
-        "skills\\13-creative\\image-gen-prompt.md",
-        "skills\\13-creative\\logo-design.md",
-        "skills\\13-creative\\lyrics-writing.md",
-        "skills\\13-creative\\meme-generation.md",
-        "skills\\13-creative\\music-composition.md",
-        "skills\\13-creative\\presentation-gen.md",
-        "skills\\13-creative\\social-media-post.md",
-        "skills\\13-creative\\svg-generation.md",
-        "skills\\13-creative\\video-script.md",
-        "skills\\14-security\\harm-detection.md",
-        "skills\\14-security\\human-in-loop.md",
-        "skills\\15-orchestration\\consensus-voting.md",
-        "skills\\15-orchestration\\hierarchical-tree.md",
-        "skills\\16-domain-specific\\ad-copy.md",
-        "skills\\16-domain-specific\\clinical-note-summarization.md",
-        "skills\\16-domain-specific\\data-labeling.md",
-        "skills\\16-domain-specific\\essay-grading.md",
-        "skills\\16-domain-specific\\flashcard-creation.md",
-        "skills\\16-domain-specific\\hypothesis-generation.md",
-        "skills\\16-domain-specific\\iac-generation.md",
-        "skills\\16-domain-specific\\invoice-processing.md",
-        "skills\\16-domain-specific\\legal-research.md",
-        "skills\\16-domain-specific\\lesson-plan.md",
-        "skills\\16-domain-specific\\literature-review.md",
-        "skills\\16-domain-specific\\paper-summarization.md",
-        "skills\\16-domain-specific\\product-description.md",
-        "skills\\16-domain-specific\\quiz-generation.md",
-        "skills\\16-domain-specific\\review-analysis.md"
+        "skills/01-perception/chart-reading.md",
+        "skills/01-perception/contract-reading.md",
+        "skills/01-perception/email-parsing.md",
+        "skills/01-perception/file-system-reading.md",
+        "skills/01-perception/handwriting-recognition.md",
+        "skills/01-perception/ocr.md",
+        "skills/01-perception/pdf-parsing.md",
+        "skills/01-perception/screen-reading.md",
+        "skills/01-perception/sensor-reading.md",
+        "skills/01-perception/structured-data-reading.md",
+        "skills/01-perception/table-extraction.md",
+        "skills/01-perception/url-dom-inspection.md",
+        "skills/02-reasoning/abductive.md",
+        "skills/02-reasoning/analogical.md",
+        "skills/02-reasoning/analogy-generation.md",
+        "skills/02-reasoning/argument-structure-analysis.md",
+        "skills/02-reasoning/causal.md",
+        "skills/02-reasoning/chain-of-thought.md",
+        "skills/02-reasoning/commonsense.md",
+        "skills/02-reasoning/ethical-reasoning.md",
+        "skills/02-reasoning/meta-cognition.md",
+        "skills/02-reasoning/multi-step-planning.md",
+        "skills/02-reasoning/numerical-estimation.md",
+        "skills/02-reasoning/problem-decomposition.md",
+        "skills/02-reasoning/react.md",
+        "skills/02-reasoning/risk-assessment.md",
+        "skills/02-reasoning/root-cause-analysis.md",
+        "skills/02-reasoning/scenario-planning.md",
+        "skills/02-reasoning/self-reflection.md",
+        "skills/02-reasoning/socratic-questioning.md",
+        "skills/02-reasoning/spatial-reasoning.md",
+        "skills/02-reasoning/systems-thinking.md",
+        "skills/02-reasoning/temporal-reasoning.md",
+        "skills/02-reasoning/trade-off-analysis.md",
+        "skills/02-reasoning/uncertainty-quantification.md",
+        "skills/03-memory/fact-verification.md",
+        "skills/03-memory/forgetting.md",
+        "skills/03-memory/memory-injection.md",
+        "skills/03-memory/memory-summarization.md",
+        "skills/03-memory/procedural.md",
+        "skills/03-memory/user-profile.md",
+        "skills/07-tool-use/anthropic-api.md",
+        "skills/09-agentic-patterns/rag.md",
+        "skills/11-web/web-search.md",
+        "skills/13-creative/avatar-design.md",
+        "skills/13-creative/blog-writing.md",
+        "skills/13-creative/copywriting.md",
+        "skills/13-creative/creative-writing.md",
+        "skills/13-creative/image-gen-prompt.md",
+        "skills/13-creative/logo-design.md",
+        "skills/13-creative/lyrics-writing.md",
+        "skills/13-creative/meme-generation.md",
+        "skills/13-creative/music-composition.md",
+        "skills/13-creative/presentation-gen.md",
+        "skills/13-creative/social-media-post.md",
+        "skills/13-creative/svg-generation.md",
+        "skills/13-creative/video-script.md",
+        "skills/14-security/harm-detection.md",
+        "skills/14-security/human-in-loop.md",
+        "skills/15-orchestration/consensus-voting.md",
+        "skills/15-orchestration/hierarchical-tree.md",
+        "skills/16-domain-specific/ad-copy.md",
+        "skills/16-domain-specific/clinical-note-summarization.md",
+        "skills/16-domain-specific/data-labeling.md",
+        "skills/16-domain-specific/essay-grading.md",
+        "skills/16-domain-specific/flashcard-creation.md",
+        "skills/16-domain-specific/hypothesis-generation.md",
+        "skills/16-domain-specific/iac-generation.md",
+        "skills/16-domain-specific/invoice-processing.md",
+        "skills/16-domain-specific/legal-research.md",
+        "skills/16-domain-specific/lesson-plan.md",
+        "skills/16-domain-specific/literature-review.md",
+        "skills/16-domain-specific/paper-summarization.md",
+        "skills/16-domain-specific/product-description.md",
+        "skills/16-domain-specific/quiz-generation.md",
+        "skills/16-domain-specific/review-analysis.md"
       ],
       "pypiConfirmed": true
     },
@@ -213,7 +220,7 @@
       "purl": "pkg:pypi/docx",
       "version": "0.2.4",
       "usedIn": [
-        "skills\\01-perception\\document-parsing.md"
+        "skills/01-perception/document-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -223,10 +230,10 @@
       "purl": "pkg:pypi/langchain-community",
       "version": "0.4.1",
       "usedIn": [
-        "skills\\01-perception\\document-parsing.md",
-        "skills\\03-memory\\rag.md",
-        "skills\\03-memory\\vector-store-retrieval.md",
-        "skills\\12-data\\similarity-search.md"
+        "skills/01-perception/document-parsing.md",
+        "skills/03-memory/rag.md",
+        "skills/03-memory/vector-store-retrieval.md",
+        "skills/12-data/similarity-search.md"
       ],
       "pypiConfirmed": true
     },
@@ -236,7 +243,7 @@
       "purl": "pkg:pypi/openpyxl",
       "version": "3.1.5",
       "usedIn": [
-        "skills\\01-perception\\document-parsing.md"
+        "skills/01-perception/document-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -246,7 +253,7 @@
       "purl": "pkg:pypi/geopandas",
       "version": "1.1.3",
       "usedIn": [
-        "skills\\01-perception\\geospatial-reading.md"
+        "skills/01-perception/geospatial-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -256,7 +263,7 @@
       "purl": "pkg:pypi/unidiff",
       "version": "0.7.5",
       "usedIn": [
-        "skills\\01-perception\\git-diff-reading.md"
+        "skills/01-perception/git-diff-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -266,10 +273,10 @@
       "purl": "pkg:pypi/beautifulsoup4",
       "version": "4.14.3",
       "usedIn": [
-        "skills\\01-perception\\html-reading.md",
-        "skills\\01-perception\\url-dom-inspection.md",
-        "skills\\11-web\\link-extraction.md",
-        "skills\\11-web\\web-scraping.md"
+        "skills/01-perception/html-reading.md",
+        "skills/01-perception/url-dom-inspection.md",
+        "skills/11-web/link-extraction.md",
+        "skills/11-web/web-scraping.md"
       ],
       "pypiConfirmed": true
     },
@@ -279,16 +286,22 @@
       "purl": "pkg:pypi/openai",
       "version": "2.31.0",
       "usedIn": [
-        "skills\\01-perception\\image-understanding.md",
-        "skills\\01-perception\\video-understanding.md",
-        "skills\\02-reasoning\\planning.md",
-        "skills\\03-memory\\episodic-memory.md",
-        "skills\\06-communication\\structured-output.md",
-        "skills\\07-tool-use\\image-gen-tool.md",
-        "skills\\07-tool-use\\openai-api.md",
-        "skills\\08-multimodal\\image-generation.md",
-        "skills\\08-multimodal\\text-to-speech.md",
-        "skills\\12-data\\embedding-generation.md"
+        "skills/01-perception/image-understanding.md",
+        "skills/01-perception/video-understanding.md",
+        "skills/02-reasoning/planning.md",
+        "skills/03-memory/episodic-memory.md",
+        "skills/06-communication/structured-output.md",
+        "skills/07-tool-use/image-gen-tool.md",
+        "skills/07-tool-use/openai-api.md",
+        "skills/08-multimodal/audio-transcription.md",
+        "skills/08-multimodal/chart-generation.md",
+        "skills/08-multimodal/image-editing.md",
+        "skills/08-multimodal/image-generation.md",
+        "skills/08-multimodal/object-detection.md",
+        "skills/08-multimodal/text-to-speech.md",
+        "skills/08-multimodal/video-description.md",
+        "skills/08-multimodal/vqa.md",
+        "skills/12-data/embedding-generation.md"
       ],
       "pypiConfirmed": true
     },
@@ -298,7 +311,7 @@
       "purl": "pkg:pypi/SPARQLWrapper",
       "version": "2.0.0",
       "usedIn": [
-        "skills\\01-perception\\knowledge-graph-reading.md"
+        "skills/01-perception/knowledge-graph-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -308,7 +321,7 @@
       "purl": "pkg:pypi/PyYAML",
       "version": "6.0.3",
       "usedIn": [
-        "skills\\01-perception\\markdown-parsing.md"
+        "skills/01-perception/markdown-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -318,7 +331,7 @@
       "purl": "pkg:pypi/mistune",
       "version": "3.2.0",
       "usedIn": [
-        "skills\\01-perception\\markdown-parsing.md"
+        "skills/01-perception/markdown-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -328,7 +341,7 @@
       "purl": "pkg:pypi/unstructured",
       "version": "0.22.18",
       "usedIn": [
-        "skills\\01-perception\\multimodal-document-reading.md"
+        "skills/01-perception/multimodal-document-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -338,7 +351,7 @@
       "purl": "pkg:pypi/scapy",
       "version": "2.7.0",
       "usedIn": [
-        "skills\\01-perception\\network-traffic-reading.md"
+        "skills/01-perception/network-traffic-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -348,9 +361,11 @@
       "purl": "pkg:pypi/numpy",
       "version": "2.4.4",
       "usedIn": [
-        "skills\\01-perception\\ocr.md",
-        "skills\\09-agentic-patterns\\rag.md",
-        "skills\\16-domain-specific\\portfolio-analysis.md"
+        "skills/01-perception/ocr.md",
+        "skills/08-multimodal/3d-scene-understanding.md",
+        "skills/08-multimodal/video-frame-extraction.md",
+        "skills/09-agentic-patterns/rag.md",
+        "skills/16-domain-specific/portfolio-analysis.md"
       ],
       "pypiConfirmed": true
     },
@@ -360,8 +375,10 @@
       "purl": "pkg:pypi/opencv-python",
       "version": "4.13.0.92",
       "usedIn": [
-        "skills\\01-perception\\ocr.md",
-        "skills\\01-perception\\video-understanding.md"
+        "skills/01-perception/ocr.md",
+        "skills/01-perception/video-understanding.md",
+        "skills/08-multimodal/video-description.md",
+        "skills/08-multimodal/video-frame-extraction.md"
       ],
       "pypiConfirmed": true
     },
@@ -371,9 +388,9 @@
       "purl": "pkg:pypi/pytesseract",
       "version": "0.3.13",
       "usedIn": [
-        "skills\\01-perception\\ocr.md",
-        "skills\\10-computer-use\\screen-ocr.md",
-        "skills\\10-computer-use\\terminal-interaction.md"
+        "skills/01-perception/ocr.md",
+        "skills/10-computer-use/screen-ocr.md",
+        "skills/10-computer-use/terminal-interaction.md"
       ],
       "pypiConfirmed": true
     },
@@ -383,7 +400,7 @@
       "purl": "pkg:pypi/pypdf",
       "version": "6.10.0",
       "usedIn": [
-        "skills\\01-perception\\pdf-parsing.md"
+        "skills/01-perception/pdf-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -393,11 +410,11 @@
       "purl": "pkg:pypi/pandas",
       "version": "3.0.2",
       "usedIn": [
-        "skills\\01-perception\\spreadsheet-reading.md",
-        "skills\\01-perception\\time-series-reading.md",
-        "skills\\12-data\\csv-processing.md",
-        "skills\\12-data\\pandas-operations.md",
-        "skills\\12-data\\schema-inference.md"
+        "skills/01-perception/spreadsheet-reading.md",
+        "skills/01-perception/time-series-reading.md",
+        "skills/12-data/csv-processing.md",
+        "skills/12-data/pandas-operations.md",
+        "skills/12-data/schema-inference.md"
       ],
       "pypiConfirmed": true
     },
@@ -405,9 +422,9 @@
       "type": "library",
       "name": "chardet",
       "purl": "pkg:pypi/chardet",
-      "version": "7.4.2",
+      "version": "7.4.3",
       "usedIn": [
-        "skills\\01-perception\\text-reading.md"
+        "skills/01-perception/text-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -417,7 +434,7 @@
       "purl": "pkg:pypi/langchain-text-splitters",
       "version": "1.1.1",
       "usedIn": [
-        "skills\\01-perception\\text-reading.md"
+        "skills/01-perception/text-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -427,7 +444,7 @@
       "purl": "pkg:pypi/tiktoken",
       "version": "0.12.0",
       "usedIn": [
-        "skills\\01-perception\\text-reading.md"
+        "skills/01-perception/text-reading.md"
       ],
       "pypiConfirmed": true
     },
@@ -437,7 +454,7 @@
       "purl": "pkg:pypi/lxml",
       "version": "6.0.4",
       "usedIn": [
-        "skills\\01-perception\\xml-parsing.md"
+        "skills/01-perception/xml-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -447,7 +464,7 @@
       "purl": "pkg:pypi/constraint",
       "version": "0.4.1",
       "usedIn": [
-        "skills\\02-reasoning\\constraint-satisfaction.md"
+        "skills/02-reasoning/constraint-satisfaction.md"
       ],
       "pypiConfirmed": true
     },
@@ -457,9 +474,9 @@
       "purl": "pkg:pypi/pydantic",
       "version": "2.13.0",
       "usedIn": [
-        "skills\\02-reasoning\\planning.md",
-        "skills\\06-communication\\structured-output.md",
-        "skills\\09-agentic-patterns\\plan-and-execute.md"
+        "skills/02-reasoning/planning.md",
+        "skills/06-communication/structured-output.md",
+        "skills/09-agentic-patterns/plan-and-execute.md"
       ],
       "pypiConfirmed": true
     },
@@ -469,7 +486,7 @@
       "purl": "pkg:pypi/pgmpy",
       "version": "1.1.0",
       "usedIn": [
-        "skills\\02-reasoning\\probabilistic-reasoning.md"
+        "skills/02-reasoning/probabilistic-reasoning.md"
       ],
       "pypiConfirmed": true
     },
@@ -479,8 +496,8 @@
       "purl": "pkg:pypi/qdrant-client",
       "version": "1.17.1",
       "usedIn": [
-        "skills\\03-memory\\episodic-memory.md",
-        "skills\\03-memory\\semantic-memory.md"
+        "skills/03-memory/episodic-memory.md",
+        "skills/03-memory/semantic-memory.md"
       ],
       "pypiConfirmed": true
     },
@@ -490,9 +507,9 @@
       "purl": "pkg:pypi/langchain",
       "version": "1.2.15",
       "usedIn": [
-        "skills\\03-memory\\rag.md",
-        "skills\\03-memory\\short-term-memory.md",
-        "skills\\06-communication\\summarization.md"
+        "skills/03-memory/rag.md",
+        "skills/03-memory/short-term-memory.md",
+        "skills/06-communication/summarization.md"
       ],
       "pypiConfirmed": true
     },
@@ -502,12 +519,12 @@
       "purl": "pkg:pypi/langchain-openai",
       "version": "1.1.12",
       "usedIn": [
-        "skills\\03-memory\\rag.md",
-        "skills\\03-memory\\short-term-memory.md",
-        "skills\\03-memory\\vector-store-retrieval.md",
-        "skills\\06-communication\\summarization.md",
-        "skills\\09-agentic-patterns\\plan-and-execute.md",
-        "skills\\12-data\\similarity-search.md"
+        "skills/03-memory/rag.md",
+        "skills/03-memory/short-term-memory.md",
+        "skills/03-memory/vector-store-retrieval.md",
+        "skills/06-communication/summarization.md",
+        "skills/09-agentic-patterns/plan-and-execute.md",
+        "skills/12-data/similarity-search.md"
       ],
       "pypiConfirmed": true
     },
@@ -517,7 +534,7 @@
       "purl": "pkg:pypi/llama-index",
       "version": "0.14.20",
       "usedIn": [
-        "skills\\03-memory\\semantic-memory.md"
+        "skills/03-memory/semantic-memory.md"
       ],
       "pypiConfirmed": true
     },
@@ -527,7 +544,7 @@
       "purl": "pkg:pypi/tenacity",
       "version": "9.1.4",
       "usedIn": [
-        "skills\\04-action-execution\\api-call.md"
+        "skills/04-action-execution/api-call.md"
       ],
       "pypiConfirmed": true
     },
@@ -537,9 +554,9 @@
       "purl": "pkg:pypi/pyperclip",
       "version": "1.11.0",
       "usedIn": [
-        "skills\\04-action-execution\\clipboard-ops.md",
-        "skills\\10-computer-use\\clipboard-read.md",
-        "skills\\10-computer-use\\clipboard-write.md"
+        "skills/04-action-execution/clipboard-ops.md",
+        "skills/10-computer-use/clipboard-read.md",
+        "skills/10-computer-use/clipboard-write.md"
       ],
       "pypiConfirmed": true
     },
@@ -549,26 +566,26 @@
       "purl": "pkg:pypi/pyautogui",
       "version": "0.9.54",
       "usedIn": [
-        "skills\\04-action-execution\\drag-drop.md",
-        "skills\\04-action-execution\\keyboard-input.md",
-        "skills\\04-action-execution\\mouse-input.md",
-        "skills\\04-action-execution\\screenshot-capture.md",
-        "skills\\04-action-execution\\scroll.md",
-        "skills\\10-computer-use\\clipboard-read.md",
-        "skills\\10-computer-use\\clipboard-write.md",
-        "skills\\10-computer-use\\double-click.md",
-        "skills\\10-computer-use\\drag-drop.md",
-        "skills\\10-computer-use\\file-dialog.md",
-        "skills\\10-computer-use\\keyboard-shortcut.md",
-        "skills\\10-computer-use\\keyboard-type.md",
-        "skills\\10-computer-use\\mouse-click.md",
-        "skills\\10-computer-use\\mouse-move.md",
-        "skills\\10-computer-use\\multi-monitor.md",
-        "skills\\10-computer-use\\right-click.md",
-        "skills\\10-computer-use\\screenshot-capture.md",
-        "skills\\10-computer-use\\scroll.md",
-        "skills\\10-computer-use\\terminal-interaction.md",
-        "skills\\10-computer-use\\visual-element-detection.md"
+        "skills/04-action-execution/drag-drop.md",
+        "skills/04-action-execution/keyboard-input.md",
+        "skills/04-action-execution/mouse-input.md",
+        "skills/04-action-execution/screenshot-capture.md",
+        "skills/04-action-execution/scroll.md",
+        "skills/10-computer-use/clipboard-read.md",
+        "skills/10-computer-use/clipboard-write.md",
+        "skills/10-computer-use/double-click.md",
+        "skills/10-computer-use/drag-drop.md",
+        "skills/10-computer-use/file-dialog.md",
+        "skills/10-computer-use/keyboard-shortcut.md",
+        "skills/10-computer-use/keyboard-type.md",
+        "skills/10-computer-use/mouse-click.md",
+        "skills/10-computer-use/mouse-move.md",
+        "skills/10-computer-use/multi-monitor.md",
+        "skills/10-computer-use/right-click.md",
+        "skills/10-computer-use/screenshot-capture.md",
+        "skills/10-computer-use/scroll.md",
+        "skills/10-computer-use/terminal-interaction.md",
+        "skills/10-computer-use/visual-element-detection.md"
       ],
       "pypiConfirmed": true
     },
@@ -578,7 +595,7 @@
       "purl": "pkg:pypi/python-dotenv",
       "version": "1.2.2",
       "usedIn": [
-        "skills\\04-action-execution\\env-vars.md"
+        "skills/04-action-execution/env-vars.md"
       ],
       "pypiConfirmed": true
     },
@@ -588,14 +605,14 @@
       "purl": "pkg:pypi/playwright",
       "version": "1.58.0",
       "usedIn": [
-        "skills\\04-action-execution\\form-submission.md",
-        "skills\\11-web\\api-discovery.md",
-        "skills\\11-web\\browser-navigation.md",
-        "skills\\11-web\\cookie-management.md",
-        "skills\\11-web\\dom-inspection.md",
-        "skills\\11-web\\form-filling.md",
-        "skills\\11-web\\url-screenshot.md",
-        "skills\\11-web\\web-login.md"
+        "skills/04-action-execution/form-submission.md",
+        "skills/11-web/api-discovery.md",
+        "skills/11-web/browser-navigation.md",
+        "skills/11-web/cookie-management.md",
+        "skills/11-web/dom-inspection.md",
+        "skills/11-web/form-filling.md",
+        "skills/11-web/url-screenshot.md",
+        "skills/11-web/web-login.md"
       ],
       "pypiConfirmed": true
     },
@@ -605,7 +622,7 @@
       "purl": "pkg:pypi/e2b-code-interpreter",
       "version": "2.6.0",
       "usedIn": [
-        "skills\\05-code\\code-execution-sandbox.md"
+        "skills/05-code/code-execution-sandbox.md"
       ],
       "pypiConfirmed": true
     },
@@ -615,7 +632,7 @@
       "purl": "pkg:pypi/pytest",
       "version": "9.0.3",
       "usedIn": [
-        "skills\\05-code\\integration-test-writing.md"
+        "skills/05-code/integration-test-writing.md"
       ],
       "pypiConfirmed": true
     },
@@ -625,7 +642,7 @@
       "purl": "pkg:pypi/langchain-core",
       "version": "1.2.28",
       "usedIn": [
-        "skills\\06-communication\\summarization.md"
+        "skills/06-communication/summarization.md"
       ],
       "pypiConfirmed": true
     },
@@ -635,7 +652,7 @@
       "purl": "pkg:pypi/browser-use",
       "version": "0.12.6",
       "usedIn": [
-        "skills\\07-tool-use\\browser-tool.md"
+        "skills/07-tool-use/browser-tool.md"
       ],
       "pypiConfirmed": true
     },
@@ -645,7 +662,7 @@
       "purl": "pkg:pypi/mcp",
       "version": "1.27.0",
       "usedIn": [
-        "skills\\07-tool-use\\mcp-tool.md"
+        "skills/07-tool-use/mcp-tool.md"
       ],
       "pypiConfirmed": true
     },
@@ -655,7 +672,7 @@
       "purl": "pkg:pypi/pdfplumber",
       "version": "0.11.9",
       "usedIn": [
-        "skills\\07-tool-use\\pdf-tool.md"
+        "skills/07-tool-use/pdf-tool.md"
       ],
       "pypiConfirmed": true
     },
@@ -665,7 +682,7 @@
       "purl": "pkg:pypi/sendgrid",
       "version": "6.12.5",
       "usedIn": [
-        "skills\\07-tool-use\\sendgrid-api.md"
+        "skills/07-tool-use/sendgrid-api.md"
       ],
       "pypiConfirmed": true
     },
@@ -675,7 +692,7 @@
       "purl": "pkg:pypi/slack-sdk",
       "version": "3.41.0",
       "usedIn": [
-        "skills\\07-tool-use\\slack-api.md"
+        "skills/07-tool-use/slack-api.md"
       ],
       "pypiConfirmed": true
     },
@@ -685,7 +702,7 @@
       "purl": "pkg:pypi/stripe",
       "version": "15.0.1",
       "usedIn": [
-        "skills\\07-tool-use\\stripe-api.md"
+        "skills/07-tool-use/stripe-api.md"
       ],
       "pypiConfirmed": true
     },
@@ -695,7 +712,7 @@
       "purl": "pkg:pypi/twilio",
       "version": "9.10.4",
       "usedIn": [
-        "skills\\07-tool-use\\twilio-api.md"
+        "skills/07-tool-use/twilio-api.md"
       ],
       "pypiConfirmed": true
     },
@@ -705,7 +722,7 @@
       "purl": "pkg:pypi/chromadb",
       "version": "1.5.7",
       "usedIn": [
-        "skills\\07-tool-use\\vector-db-tool.md"
+        "skills/07-tool-use/vector-db-tool.md"
       ],
       "pypiConfirmed": true
     },
@@ -715,10 +732,11 @@
       "purl": "pkg:pypi/requests",
       "version": "2.33.1",
       "usedIn": [
-        "skills\\07-tool-use\\web-search.md",
-        "skills\\11-web\\captcha-solving.md",
-        "skills\\11-web\\link-extraction.md",
-        "skills\\11-web\\sitemap-parsing.md"
+        "skills/07-tool-use/web-search.md",
+        "skills/08-multimodal/image-classification.md",
+        "skills/11-web/captcha-solving.md",
+        "skills/11-web/link-extraction.md",
+        "skills/11-web/sitemap-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -728,7 +746,71 @@
       "purl": "pkg:pypi/wikipedia",
       "version": "1.4.0",
       "usedIn": [
-        "skills\\07-tool-use\\wikipedia-api.md"
+        "skills/07-tool-use/wikipedia-api.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "open3d",
+      "purl": "pkg:pypi/open3d",
+      "version": "0.19.0",
+      "usedIn": [
+        "skills/08-multimodal/3d-scene-understanding.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "transformers",
+      "purl": "pkg:pypi/transformers",
+      "version": "5.5.4",
+      "usedIn": [
+        "skills/08-multimodal/3d-scene-understanding.md",
+        "skills/08-multimodal/audio-classification.md",
+        "skills/08-multimodal/document-layout-analysis.md",
+        "skills/08-multimodal/image-classification.md",
+        "skills/08-multimodal/object-detection.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "whisperx",
+      "purl": "pkg:pypi/whisperx",
+      "version": "3.8.5",
+      "usedIn": [
+        "skills/08-multimodal/audio-transcription.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "matplotlib",
+      "purl": "pkg:pypi/matplotlib",
+      "version": "3.10.8",
+      "usedIn": [
+        "skills/08-multimodal/chart-generation.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "doctr",
+      "purl": "pkg:pypi/doctr",
+      "version": "1.9.0",
+      "usedIn": [
+        "skills/08-multimodal/document-layout-analysis.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "diffusers",
+      "purl": "pkg:pypi/diffusers",
+      "version": "0.37.1",
+      "usedIn": [
+        "skills/08-multimodal/image-editing.md"
       ],
       "pypiConfirmed": true
     },
@@ -738,7 +820,7 @@
       "purl": "pkg:pypi/langgraph",
       "version": "1.1.6",
       "usedIn": [
-        "skills\\09-agentic-patterns\\plan-and-execute.md"
+        "skills/09-agentic-patterns/plan-and-execute.md"
       ],
       "pypiConfirmed": true
     },
@@ -748,7 +830,7 @@
       "purl": "pkg:pypi/pywinauto",
       "version": "0.6.9",
       "usedIn": [
-        "skills\\10-computer-use\\accessibility-tree.md"
+        "skills/10-computer-use/accessibility-tree.md"
       ],
       "pypiConfirmed": true
     },
@@ -758,8 +840,8 @@
       "purl": "pkg:pypi/pygetwindow",
       "version": "0.0.9",
       "usedIn": [
-        "skills\\10-computer-use\\app-launch.md",
-        "skills\\10-computer-use\\window-management.md"
+        "skills/10-computer-use/app-launch.md",
+        "skills/10-computer-use/window-management.md"
       ],
       "pypiConfirmed": true
     },
@@ -769,7 +851,7 @@
       "purl": "pkg:pypi/screeninfo",
       "version": "0.8.1",
       "usedIn": [
-        "skills\\10-computer-use\\multi-monitor.md"
+        "skills/10-computer-use/multi-monitor.md"
       ],
       "pypiConfirmed": true
     },
@@ -779,7 +861,7 @@
       "purl": "pkg:pypi/e2b-desktop",
       "version": "2.3.0",
       "usedIn": [
-        "skills\\10-computer-use\\vm-interaction.md"
+        "skills/10-computer-use/vm-interaction.md"
       ],
       "pypiConfirmed": true
     },
@@ -789,7 +871,7 @@
       "purl": "pkg:pypi/feedparser",
       "version": "6.0.12",
       "usedIn": [
-        "skills\\11-web\\rss-parsing.md"
+        "skills/11-web/rss-parsing.md"
       ],
       "pypiConfirmed": true
     },
@@ -799,7 +881,7 @@
       "purl": "pkg:pypi/markdownify",
       "version": "1.2.2",
       "usedIn": [
-        "skills\\11-web\\url-fetching.md"
+        "skills/11-web/url-fetching.md"
       ],
       "pypiConfirmed": true
     },
@@ -809,7 +891,7 @@
       "purl": "pkg:pypi/scrapy",
       "version": "2.15.0",
       "usedIn": [
-        "skills\\11-web\\web-crawling.md"
+        "skills/11-web/web-crawling.md"
       ],
       "pypiConfirmed": true
     },
@@ -819,7 +901,7 @@
       "purl": "pkg:pypi/scikit-learn",
       "version": "1.8.0",
       "usedIn": [
-        "skills\\12-data\\anomaly-detection.md"
+        "skills/12-data/anomaly-detection.md"
       ],
       "pypiConfirmed": true
     },
@@ -829,7 +911,7 @@
       "purl": "pkg:pypi/plotly",
       "version": "6.7.0",
       "usedIn": [
-        "skills\\12-data\\data-visualization.md"
+        "skills/12-data/data-visualization.md"
       ],
       "pypiConfirmed": true
     },
@@ -839,7 +921,7 @@
       "purl": "pkg:pypi/jq",
       "version": "1.11.0",
       "usedIn": [
-        "skills\\12-data\\json-transformation.md"
+        "skills/12-data/json-transformation.md"
       ],
       "pypiConfirmed": true
     },
@@ -849,7 +931,7 @@
       "purl": "pkg:pypi/pymongo",
       "version": "4.16.0",
       "usedIn": [
-        "skills\\12-data\\nosql-query.md"
+        "skills/12-data/nosql-query.md"
       ],
       "pypiConfirmed": true
     },
@@ -859,7 +941,7 @@
       "purl": "pkg:pypi/psycopg2",
       "version": "2.9.11",
       "usedIn": [
-        "skills\\12-data\\sql-execution.md"
+        "skills/12-data/sql-execution.md"
       ],
       "pypiConfirmed": true
     },
@@ -869,7 +951,7 @@
       "purl": "pkg:pypi/scipy",
       "version": "1.17.1",
       "usedIn": [
-        "skills\\12-data\\statistical-analysis.md"
+        "skills/12-data/statistical-analysis.md"
       ],
       "pypiConfirmed": true
     },
@@ -879,7 +961,7 @@
       "purl": "pkg:pypi/prophet",
       "version": "1.3.0",
       "usedIn": [
-        "skills\\12-data\\time-series.md"
+        "skills/12-data/time-series.md"
       ],
       "pypiConfirmed": true
     },
@@ -889,7 +971,7 @@
       "purl": "pkg:pypi/yfinance",
       "version": "1.2.2",
       "usedIn": [
-        "skills\\16-domain-specific\\stock-lookup.md"
+        "skills/16-domain-specific/stock-lookup.md"
       ],
       "pypiConfirmed": true
     }
