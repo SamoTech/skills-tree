@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:48:28Z",
+  "dateModified": "2026-04-14T14:24:03Z",
   "skillId": "geospatial-reading",
   "skillVersion": null,
   "skillLevel": null,
@@ -69,7 +69,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "AI agent, LLM skill, perception, geospatial, reading, skills tree",
+  "keywords": "skills tree, geospatial, LLM skill, perception, reading, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Geospatial Reading",

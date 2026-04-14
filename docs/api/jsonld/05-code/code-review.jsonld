@@ -52,26 +52,27 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:48:28Z",
+  "dateModified": "2026-04-14T14:24:03Z",
   "skillId": "code-review",
   "skillVersion": null,
   "skillLevel": null,
   "skillStability": null,
   "categoryDir": "05-code",
   "sections": [
+    "Description",
     "What It Does",
     "When to Use",
     "Inputs / Outputs",
     "Runnable Example",
+    "Diff-Mode Example",
+    "Batch Review (Multiple Files)",
     "CI/CD Integration",
     "Failure Modes",
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [
-    "../14-security/security-scanning.md"
-  ],
-  "keywords": "AI agent, LLM skill, review, skills tree, code",
+  "relatedSkills": [],
+  "keywords": "review, skills tree, code, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Code Review",

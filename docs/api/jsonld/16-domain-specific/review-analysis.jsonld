@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:48:28Z",
+  "dateModified": "2026-04-14T14:24:03Z",
   "skillId": "review-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2026-04-01",
-  "keywords": "analysis, AI agent, LLM skill, skills tree, review, domain, specific",
+  "keywords": "review, skills tree, analysis, domain, LLM skill, AI agent, specific",
   "about": {
     "@type": "Thing",
     "name": "review-analysis",

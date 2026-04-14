@@ -1,4 +1,4 @@
-generated: '2026-04-14T13:48:28Z'
+generated: '2026-04-14T14:24:03Z'
 count: 376
 skills:
 - id: README
@@ -1565,19 +1565,9 @@ skills:
   added: null
   last_updated: null
   sections:
+  - Description
   - What It Does
-  - When to Use
-  - Inputs / Outputs
-  - Runnable Example
-  - Production Upgrade Path
-  - Framework Support
-  - Failure Modes
-  - Benchmarks
-  - Related Skills
-  - Changelog
-  related:
-  - ../../benchmarks/memory/injection-strategies.md
-  - ../09-agentic-patterns/rag.md
+  related: []
   category_dir: 03-memory
 - id: memory-summarization
   path: skills/03-memory/memory-summarization.md
@@ -2184,16 +2174,18 @@ skills:
   added: null
   last_updated: null
   sections:
+  - Description
   - What It Does
   - When to Use
   - Inputs / Outputs
   - Runnable Example
+  - Diff-Mode Example
+  - Batch Review (Multiple Files)
   - CI/CD Integration
   - Failure Modes
   - Related Skills
   - Changelog
-  related:
-  - ../14-security/security-scanning.md
+  related: []
   category_dir: 05-code
 - id: code-search
   path: skills/05-code/code-search.md

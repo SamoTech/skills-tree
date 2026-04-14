@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:48:28Z",
+  "dateModified": "2026-04-14T14:24:03Z",
   "skillId": "product-description",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2026-04-01",
-  "keywords": "product, AI agent, LLM skill, skills tree, description, domain, specific",
+  "keywords": "skills tree, domain, product, LLM skill, description, AI agent, specific",
   "about": {
     "@type": "Thing",
     "name": "product-description",

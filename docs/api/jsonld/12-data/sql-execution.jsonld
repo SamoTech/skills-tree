@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:48:28Z",
+  "dateModified": "2026-04-14T14:24:03Z",
   "skillId": "sql-execution",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, sql, data, skills tree, execution",
+  "keywords": "sql, skills tree, data, LLM skill, execution, AI agent",
   "about": {
     "@type": "Thing",
     "name": "SQL Query Execution",

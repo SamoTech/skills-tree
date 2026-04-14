@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:48:28Z",
+  "dateModified": "2026-04-14T14:24:03Z",
   "skillId": "code-generation",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "05-code",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "AI agent, LLM skill, generation, skills tree, code",
+  "keywords": "skills tree, code, LLM skill, generation, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Code Generation",
