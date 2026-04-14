@@ -36,7 +36,6 @@ except ImportError:
     print("httpx required: pip install httpx")
     sys.exit(1)
 
-# Import shared key utility — single source of truth
 try:
     from common import skill_path_to_badge_key
 except ImportError:
@@ -65,9 +64,6 @@ def query_osv(components: list[dict]) -> list[dict]:
         to index-based matching with bounds checking.
       - If a result contains a 'package' field that doesn't match the queried
         PURL, log a mismatch warning for that index.
-
-    This guard is cheap and makes the security-critical CVE-to-skill mapping
-    robust against any future OSV API changes.
     """
     if not components:
         return []
@@ -87,7 +83,6 @@ def query_osv(components: list[dict]) -> list[dict]:
 
     results = response.json().get("results", [])
 
-    # ── Sanity check: length invariant ────────────────────────────────────────
     if len(results) != len(components):
         print(
             f"WARNING: OSV returned {len(results)} results for {len(components)} queries. "
@@ -96,28 +91,18 @@ def query_osv(components: list[dict]) -> list[dict]:
             f"Some packages may be unscanned this cycle.",
             file=sys.stderr,
         )
-        # Truncate to safe length — never read past the shorter list
         n = min(len(results), len(components))
         components = components[:n]
         results    = results[:n]
 
     hits = []
     for i, (component, result) in enumerate(zip(components, results)):
-        # ── Per-entry sanity check: PURL match ────────────────────────────────
-        # OSV results don't echo back the queried package, so we can only
-        # verify by position. We log a structural warning if the result
-        # is unexpectedly empty AND the previous result had vulnerabilities
-        # (which could indicate a shift/skip in the response array).
         vulns = result.get("vulns", [])
 
         if i > 0 and not vulns and hits:
-            # Heuristic check: if the previous component had hits but this
-            # result is empty and its neighbour in queries also had hits,
-            # the mismatch is plausible. We log but do NOT skip — a clean
-            # result is still a valid (and common) outcome.
             prev_purl = components[i - 1]["purl"]
             if any(h["purl"] == prev_purl for h in hits):
-                pass  # Intentional: previous was a hit, this is clean — normal.
+                pass  # Previous was a hit, this is clean — normal.
 
         if vulns:
             hits.append({
@@ -125,7 +110,7 @@ def query_osv(components: list[dict]) -> list[dict]:
                 "purl": component["purl"],
                 "version": component.get("version", "unknown"),
                 "usedIn": component.get("usedIn", []),
-                "osv_result_index": i,  # Retained for audit/debug traceability
+                "osv_result_index": i,
                 "vulns": [
                     {
                         "id": v["id"],
@@ -154,14 +139,27 @@ def build_advisory_badge(hit: dict) -> dict:
     }
 
 
-def write_github_output(key: str, value: str):
-    """Write a GitHub Actions output variable."""
+def write_github_output(key: str, value: str) -> None:
+    """Write a key=value pair to the GitHub Actions output file.
+
+    GITHUB_OUTPUT (a runner-managed append-only file) has been the
+    required mechanism since September 2022. The legacy ::set-output
+    workflow command was disabled on all GitHub-hosted runners in
+    June 2023 — any job still using it silently drops the output
+    variable.
+
+    When GITHUB_OUTPUT is unset (local dev run outside Actions) we
+    log to stderr with a [local] prefix instead of emitting a now-
+    broken workflow command.
+    """
     github_output = os.environ.get("GITHUB_OUTPUT")
     if github_output:
-        with open(github_output, "a") as f:
-            f.write(f"{key}={value}\n")
+        with open(github_output, "a") as fh:
+            fh.write(f"{key}={value}\n")
     else:
-        print(f"::set-output name={key}::{value}")
+        # Running outside GitHub Actions (local dev / unit tests).
+        # Log informationally — do NOT emit ::set-output.
+        print(f"[local] output: {key}={value}", file=sys.stderr)
 
 
 def main() -> int:
@@ -178,7 +176,6 @@ def main() -> int:
     if not components:
         print("No components in SBOM. Nothing to scan.")
         write_github_output("has_hits", "false")
-        # Not a script error — SBOM may legitimately be empty before AST sweep.
         return 0
 
     print(f"Querying OSV for {len(components)} packages...")
@@ -189,7 +186,6 @@ def main() -> int:
         write_github_output("has_hits", "false")
         return 0
 
-    # ── Summarize findings ────────────────────────────────────────────────────
     affected_skills: set[str] = set()
     for hit in hits:
         for skill in hit["usedIn"]:
@@ -204,10 +200,8 @@ def main() -> int:
     if args.dry_run:
         print("[DRY RUN] Skipping file writes.")
         write_github_output("has_hits", "true")
-        # Dry-run is a preview, not an error.
         return 0
 
-    # ── Write advisory badge JSONs ────────────────────────────────────────────
     badge_output = Path(args.badge_output)
     badge_output.mkdir(parents=True, exist_ok=True)
     badges_written = 0
@@ -218,7 +212,6 @@ def main() -> int:
             (badge_output / f"{key}.json").write_text(json.dumps(badge, indent=2))
             badges_written += 1
 
-    # ── Write full advisory file for the Action to post as a comment ─────────
     advisory_data = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "sla": "15-minute OSV polling",
@@ -235,8 +228,6 @@ def main() -> int:
     print(f"Wrote advisory data to {args.advisory_file}")
 
     write_github_output("has_hits", "true")
-    # Advisories found and written — scan succeeded. Exit 0.
-    # Downstream steps use has_hits=true to decide whether to commit badge data.
     return 0
 
 
