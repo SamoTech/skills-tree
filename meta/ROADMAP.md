@@ -86,30 +86,41 @@ Milestones:
 
 | Status | Item |
 |--------|------|
+| 🟢 | Updated `skill-template.md` with Failure Modes, Prompt Patterns, Model Comparison sections |
+| 🟢 | `meta/VERSIONING.md` — v1/v2/v3 spec with upgrade checklists |
+| 🟢 | `skill-version-badge.yml` — auto-applies Battle-Tested label when skill reaches v3 |
+| 🟢 | `version-stats.yml` — auto-updates version distribution table in VERSIONING.md weekly |
 | ⚪ | Expand ALL 515+ stubs: add description, I/O table, working code example |
-| ⚪ | Add "Failure Modes" section to every skill |
-| ⚪ | Add "Prompt Patterns" section to every skill |
-| ⚪ | Model comparison table per skill (Claude vs GPT-4o vs Gemini 2.0) |
-| ⚪ | JSON/YAML export of all skill metadata for programmatic consumption |
-| ⚪ | OpenAPI-style schema for skills |
+| ⚪ | Model comparison table per skill (Claude vs GPT-4o vs Gemini 2.0) — use AST sweep + v2 template |
+| ⚪ | JSON/YAML export of all skill metadata — `tools/export_skills.py` created; first run needed |
 
 ### Skill Versioning System
 
 | Status | Item |
 |--------|------|
-| ⚪ | Define v1/v2/v3 versioning spec and enforce in template |
-| ⚪ | Track version per skill in frontmatter (`version: v1`) |
-| ⚪ | PR title convention: `improve: [skill] — v1→v2` |
-| ⚪ | Auto-badge: skills that reach v3 get "Battle-Tested" label |
+| 🟢 | v1/v2/v3 versioning spec defined in `meta/VERSIONING.md` |
+| 🟢 | `Version:` frontmatter field added to `skill-template.md` |
+| 🟢 | PR title convention: `improve: [skill] — v1→v2` |
+| 🟢 | Auto-badge: skills that reach v3 get "Battle-Tested" label via `skill-version-badge.yml` |
 
 ### "This Week's Highlights"
 
 | Status | Item |
 |--------|------|
-| ⚪ | "This Week's Highlights" section in README (manual until automated) |
-| ⚪ | "Most Active Skills" badge driven by PR activity |
+| 🟢 | `weekly-highlights.yml` — auto-generates This Week's Highlights in README every Monday |
+| 🟢 | "Most Active Skills" derived from PR activity, inserted into Highlights block |
+| 🟢 | `used-in-tracker.yml` — collects `used-in` issues, builds Used-In section in README |
+| 🟢 | `used-in` issue template created for project submissions |
 | ⚪ | "Trending Systems" section updated with each new system added |
-| ⚪ | "Used In" tracker — link public projects that reference Skills Tree skills |
+
+### Export & Programmatic Access
+
+| Status | Item |
+|--------|------|
+| 🟢 | `tools/export_skills.py` — generates `docs/api/skills.json`, `docs/api/skills.yaml` |
+| 🟢 | `docs/api/skills-schema.json` — OpenAPI-style JSON Schema for a skill object |
+| 🟢 | `export-skills.yml` — CI runs export on every skills push + weekly |
+| ⚪ | JSON-LD metadata per skill for SEO |
 
 ---
 
@@ -172,7 +183,8 @@ Milestones:
 
 | Status | Item |
 |--------|------|
-| ⚪ | Static JSON API: `https://samotech.github.io/skills-tree/api/skills.json` |
+| 🟢 | `tools/export_skills.py` generates `docs/api/skills.json` + `docs/api/skills.yaml` |
+| 🟢 | `docs/api/skills-schema.json` — OpenAPI-style JSON Schema |
 | ⚪ | Skills metadata in JSON-LD format for SEO |
 | ⚪ | GitHub Release: packaged skill index (JSON + Markdown zip) |
 
@@ -261,5 +273,6 @@ Milestones:
 | v1.1 UI & Docs | 🟢 Complete | 2025-04 |
 | v1.2 Skill Expansion | 🟢 Complete | 2026-04 |
 | v2.0 Systems + Viral Mechanics | 🟢 Complete | 2026-04 |
+| v2.0 Quality Uplift + Versioning + Export | 🟢 Complete | 2026-04 |
 | v2.x Community Engine | ⚪ Planned | 2026 Q3 |
 | v3.0 Platform + CLI | ⚪ Planned | 2026 Q4 |
