@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "stripe-api",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, stripe, use, tool, AI agent, LLM skill, api",
+  "keywords": "AI agent, api, LLM skill, skills tree, stripe, use, tool",
   "about": {
     "@type": "Thing",
     "name": "Stripe API",

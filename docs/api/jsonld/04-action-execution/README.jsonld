@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
@@ -62,7 +62,7 @@
     "Skills in This Category"
   ],
   "relatedSkills": [],
-  "keywords": "skills tree, action, README, execution, AI agent, LLM skill",
+  "keywords": "AI agent, action, README, LLM skill, execution, skills tree",
   "about": {
     "@type": "Thing",
     "name": "⚡ Action Execution Skills",

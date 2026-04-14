@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "approval-before-destructive-tools",
   "skillVersion": null,
   "skillLevel": null,
@@ -70,7 +70,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "skills tree, security, AI agent, before, approval, LLM skill, destructive, tools",
+  "keywords": "approval, AI agent, tools, before, security, LLM skill, destructive, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Approval Before Destructive Tools",

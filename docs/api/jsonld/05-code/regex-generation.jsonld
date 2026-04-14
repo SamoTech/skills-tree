@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "regex-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, code, AI agent, regex, LLM skill, generation",
+  "keywords": "AI agent, LLM skill, code, generation, regex, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Regex Generation",

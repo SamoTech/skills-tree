@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "logging-observability",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2026-04-01",
-  "keywords": "skills tree, observability, AI agent, logging, orchestration, LLM skill",
+  "keywords": "AI agent, LLM skill, orchestration, observability, logging, skills tree",
   "about": {
     "@type": "Thing",
     "name": "logging-observability",

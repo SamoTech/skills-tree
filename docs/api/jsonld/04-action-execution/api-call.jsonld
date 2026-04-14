@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "api-call",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "04-action-execution",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "skills tree, action, call, execution, AI agent, LLM skill, api",
+  "keywords": "AI agent, action, api, LLM skill, execution, skills tree, call",
   "about": {
     "@type": "Thing",
     "name": "API Call",

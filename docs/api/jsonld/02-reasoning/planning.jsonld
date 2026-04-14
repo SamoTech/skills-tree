@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "planning",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "02-reasoning",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "skills tree, reasoning, AI agent, LLM skill, planning",
+  "keywords": "AI agent, reasoning, LLM skill, skills tree, planning",
   "about": {
     "@type": "Thing",
     "name": "Planning",

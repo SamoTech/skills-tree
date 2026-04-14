@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "deductive-reasoning",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
   "relatedSkills": [],
   "educationalLevel": "Basic",
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, reasoning, deductive, AI agent, LLM skill",
+  "keywords": "AI agent, reasoning, LLM skill, deductive, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Deductive Reasoning",

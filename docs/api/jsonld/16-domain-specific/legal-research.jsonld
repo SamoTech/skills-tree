@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:17:35Z",
+  "dateModified": "2026-04-14T13:27:29Z",
   "skillId": "legal-research",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -65,7 +65,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2026-04-01",
-  "keywords": "domain, skills tree, legal, specific, AI agent, LLM skill, research",
+  "keywords": "AI agent, legal, LLM skill, research, domain, skills tree, specific",
   "about": {
     "@type": "Thing",
     "name": "legal-research",
