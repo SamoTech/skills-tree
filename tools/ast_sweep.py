@@ -20,13 +20,13 @@ This script is also run by .github/workflows/ast-sweep.yml
 """
 
 import ast
+import asyncio
+import argparse
 import json
 import re
 import sys
-import asyncio
-import argparse
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 
 try:
     import httpx
@@ -34,15 +34,15 @@ except ImportError:
     print("httpx required: pip install httpx")
     sys.exit(1)
 
-# Import shared utilities — single source of truth for key generation
 try:
     from common import skill_path_to_badge_key, get_stdlib_modules
 except ImportError:
-    # Fallback when run from repo root (tools/ not on sys.path)
     sys.path.insert(0, str(Path(__file__).parent))
     from common import skill_path_to_badge_key, get_stdlib_modules
 
-# ─── Constants ─────────────────────────────────────────────────────────────────────────────────
+# ─── Constants ────────────────────────────────────────────────────────────────────────────────────
+
+PYPI_BASE_URL = "https://pypi.org/pypi"
 
 PYPI_ALIASES = {
     "langchain_core": "langchain-core",
@@ -59,22 +59,17 @@ PYPI_ALIASES = {
     "usaddress": "usaddress",
 }
 
-# Packages that are almost certainly pseudo-code if seen in docs
 PSEUDO_CODE_SIGNALS = {
     "magic_", "your_", "custom_", "example_", "placeholder_",
     "coming_soon", "future_", "todo_",
 }
 
-# Resolved once at module load — no per-call overhead
-STDBOST_MODULES: set[str] = set()
+# Resolved once at module load — no per-call overhead.
+# Note: STDLIB_MODULES is used; STDBOST_MODULES was a typo and has been removed.
 STDLIB_MODULES: frozenset[str] = get_stdlib_modules()
 
-print(f"[ast_sweep] STDLIB_MODULES loaded: {len(STDLIB_MODULES)} names "
-      f"({'sys.stdlib_module_names' if hasattr(sys, 'stdlib_module_names') else 'fallback'})",
-      file=sys.stderr)
 
-
-# ─── Code Block Extraction ─────────────────────────────────────────────────────────────────────────
+# ─── Code Block Extraction ────────────────────────────────────────────────────────────────────────────
 
 def assess_block_confidence(block: str) -> float:
     """Return 0.0–1.0 confidence that this is real, executable Python code."""
@@ -103,7 +98,7 @@ def extract_imports_from_block(code: str) -> list[str]:
     try:
         tree = ast.parse(code)
     except SyntaxError:
-        return []  # Incomplete snippet — never hallucinate, just skip
+        return []
 
     packages = set()
     for node in ast.walk(tree):
@@ -116,7 +111,6 @@ def extract_imports_from_block(code: str) -> list[str]:
                 name = node.module.split(".")[0]
                 packages.add(name)
 
-    # Filter stdlib, builtins, local/relative imports
     result = []
     for pkg in packages:
         if not pkg:
@@ -125,9 +119,7 @@ def extract_imports_from_block(code: str) -> list[str]:
             continue
         if pkg.startswith("_"):
             continue
-        # Normalize aliases
         normalized = PYPI_ALIASES.get(pkg, pkg.replace("_", "-"))
-        # Flag likely pseudo-code package names
         is_pseudo = any(normalized.lower().startswith(s) for s in PSEUDO_CODE_SIGNALS)
         if not is_pseudo:
             result.append(normalized)
@@ -138,12 +130,10 @@ def extract_imports_from_block(code: str) -> list[str]:
 def parse_skill_file(skill_path: Path) -> dict:
     """Extract imports from a skill Markdown file."""
     content = skill_path.read_text(encoding="utf-8", errors="ignore")
-
-    # Find all Python code blocks
     code_blocks = re.findall(r"```python\n(.*?)```", content, re.DOTALL)
 
-    all_packages = set()
-    low_confidence_packages = set()
+    all_packages: set[str] = set()
+    low_confidence_packages: set[str] = set()
 
     for block in code_blocks:
         confidence = assess_block_confidence(block)
@@ -153,7 +143,6 @@ def parse_skill_file(skill_path: Path) -> dict:
             all_packages.update(imports)
         elif confidence >= 0.2:
             low_confidence_packages.update(imports)
-        # < 0.2: skip entirely (pseudo-code)
 
     return {
         "path": str(skill_path),
@@ -163,17 +152,36 @@ def parse_skill_file(skill_path: Path) -> dict:
     }
 
 
-# ─── PyPI Validation ─────────────────────────────────────────────────────────────────────────────────
+# ─── PyPI Validation ───────────────────────────────────────────────────────────────────────────────────────
 
 async def check_pypi_package(client: "httpx.AsyncClient", package: str) -> dict:
-    """Query PyPI API to check if a package exists and get its latest version."""
+    """Query PyPI JSON API to check if a package exists and get its latest version.
+
+    Security notes:
+    - follow_redirects=False: PyPI's JSON API never legitimately redirects.
+      Following redirects blindly opens SSRF vectors — a compromised mirror,
+      DNS-rebinding, or a malicious /etc/hosts entry could redirect to the
+      cloud IMDS endpoint (169.254.169.254) or an internal service.
+      A redirect response is treated as exists=None (transient error).
+    - Content-Type check: validates the response is actually JSON before
+      calling r.json(), preventing parse errors from leaking HTML bodies
+      (e.g. from a redirect landing on a login page).
+    """
+    url = f"{PYPI_BASE_URL}/{package}/json"
     try:
-        r = await client.get(
-            f"https://pypi.org/pypi/{package}/json",
-            timeout=8.0,
-            follow_redirects=True,
-        )
+        r = await client.get(url, timeout=8.0, follow_redirects=False)
+
         if r.status_code == 200:
+            # Validate Content-Type before deserialising to avoid leaking
+            # HTML error pages or internal service responses in error fields.
+            ct = r.headers.get("content-type", "")
+            if not ct.startswith("application/json"):
+                return {
+                    "package": package,
+                    "exists": None,
+                    "latest": None,
+                    "error": f"unexpected content-type: {ct[:80]}",
+                }
             data = r.json()
             return {
                 "package": package,
@@ -183,29 +191,39 @@ async def check_pypi_package(client: "httpx.AsyncClient", package: str) -> dict:
             }
         elif r.status_code == 404:
             return {"package": package, "exists": False, "latest": None}
+        elif r.is_redirect:
+            # Redirects are unexpected from pypi.org — treat as transient.
+            return {
+                "package": package,
+                "exists": None,
+                "latest": None,
+                "error": f"unexpected redirect to {r.headers.get('location', '?')[:120]}",
+            }
         else:
-            return {"package": package, "exists": None, "latest": None, "error": f"HTTP {r.status_code}"}
+            return {
+                "package": package,
+                "exists": None,
+                "latest": None,
+                "error": f"HTTP {r.status_code}",
+            }
     except httpx.TimeoutException:
         return {"package": package, "exists": None, "latest": None, "error": "timeout"}
-    except Exception as e:
-        return {"package": package, "exists": None, "latest": None, "error": str(e)}
+    except Exception as exc:
+        return {"package": package, "exists": None, "latest": None, "error": str(exc)}
 
 
 async def validate_packages(packages: list[str]) -> dict[str, dict]:
     """
     Validate all unique packages against PyPI with bounded concurrency.
 
-    Semaphore(20): limits active in-flight requests to 20 at any time.
-    httpx.Limits(max_connections=20): matches semaphore so the connection
-    pool never becomes the bottleneck. This keeps memory flat even when
-    len(packages) > 200.
+    Semaphore(20) limits concurrent coroutines to 20 at a time.
+    httpx.Limits(max_connections=20) matches the semaphore so the
+    connection pool never becomes the bottleneck.
     """
     unique = list(set(packages))
     semaphore = asyncio.Semaphore(20)
 
-    async def check_safe(
-        client: "httpx.AsyncClient", pkg: str
-    ) -> dict:
+    async def check_safe(client: "httpx.AsyncClient", pkg: str) -> dict:
         async with semaphore:
             return await check_pypi_package(client, pkg)
 
@@ -217,7 +235,7 @@ async def validate_packages(packages: list[str]) -> dict[str, dict]:
     return {r["package"]: r for r in results}
 
 
-# ─── Badge State Computation ──────────────────────────────────────────────────────────────────────────
+# ─── Badge State Computation ────────────────────────────────────────────────────────────────────────────
 
 def compute_badge_state(skill_result: dict, pypi_results: dict) -> dict:
     """Determine the badge JSON for a skill based on its packages and PyPI results."""
@@ -253,28 +271,23 @@ def compute_badge_state(skill_result: dict, pypi_results: dict) -> dict:
         }
 
 
-# ─── SBOM Generation ──────────────────────────────────────────────────────────────────────────────────
+# ─── SBOM Generation ─────────────────────────────────────────────────────────────────────────────────────────
 
 def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
     """
     Generate a CycloneDX-format SBOM from sweep results.
 
     Only includes packages where pypi_results[pkg]["exists"] is True.
-    Unknown packages (Orange badges) are excluded:
-      - They cannot have CVEs (they don't exist on PyPI)
-      - Including them would cause osv_check.py to waste API calls
-      - They would pollute the SBOM with unverifiable package identifiers
+    Unknown packages (Orange badges) are excluded — they don't exist on
+    PyPI and including them would pollute the SBOM and waste osv_check calls.
     """
     components: dict[str, dict] = {}
 
     for skill in all_skill_results:
         for pkg in skill["packages"]:
             pypi_info = pypi_results.get(pkg, {})
-
-            # SBOM pollution guard: confirmed packages only
             if pypi_info.get("exists") is not True:
                 continue
-
             purl = f"pkg:pypi/{pkg}"
             if purl not in components:
                 components[purl] = {
@@ -283,7 +296,7 @@ def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
                     "purl": purl,
                     "version": pypi_info.get("latest", "unknown"),
                     "usedIn": [],
-                    "pypiConfirmed": True,  # Always True here by construction
+                    "pypiConfirmed": True,
                 }
             components[purl]["usedIn"].append(skill["path"])
 
@@ -300,7 +313,7 @@ def generate_sbom(all_skill_results: list[dict], pypi_results: dict) -> dict:
     }
 
 
-# ─── Report Generation ─────────────────────────────────────────────────────────────────────────────────
+# ─── Report Generation ─────────────────────────────────────────────────────────────────────────────────────
 
 def generate_report(all_skill_results, pypi_results, badge_states) -> str:
     total  = len(all_skill_results)
@@ -367,7 +380,7 @@ def generate_report(all_skill_results, pypi_results, badge_states) -> str:
     return "\n".join(lines)
 
 
-# ─── Main ───────────────────────────────────────────────────────────────────────────────────────
+# ─── Main ────────────────────────────────────────────────────────────────────────────────────────────
 
 async def async_main(args):
     skills_root = Path(args.skills_root)
@@ -375,10 +388,17 @@ async def async_main(args):
         print(f"ERROR: '{skills_root}' not found. Run from repo root.")
         return 1
 
+    # Log stdlib source here (inside async_main) rather than at module load
+    # so it doesn't fire on every import in test environments.
+    print(
+        f"[ast_sweep] STDLIB_MODULES loaded: {len(STDLIB_MODULES)} names "
+        f"({'sys.stdlib_module_names' if hasattr(sys, 'stdlib_module_names') else 'fallback'})",
+        file=sys.stderr,
+    )
+
     skill_files = sorted(skills_root.rglob("*.md"))
     print(f"Scanning {len(skill_files)} skill files...")
 
-    # Step 1: Extract imports
     all_results = []
     for f in skill_files:
         result = parse_skill_file(f)
@@ -386,7 +406,6 @@ async def async_main(args):
         if result["packages"]:
             print(f"  {f}: {result['packages']}")
 
-    # Step 2: Validate against PyPI
     all_packages = list({p for r in all_results for p in r["packages"]})
     print(f"\nValidating {len(all_packages)} unique packages against PyPI...")
     pypi_results = await validate_packages(all_packages)
@@ -399,28 +418,23 @@ async def async_main(args):
         print("\n[DRY RUN] Skipping file writes.")
         return 0
 
-    # Step 3: Compute badge states
-    badge_states = {}
+    badge_states: dict[str, dict] = {}
     for result in all_results:
         key = skill_path_to_badge_key(result["path"])
         badge_states[key] = compute_badge_state(result, pypi_results)
 
-    # Step 4: Write badge JSONs to badges/ (served by GitHub Pages on main)
     badge_output = Path(args.badge_output)
     badge_output.mkdir(parents=True, exist_ok=True)
     for key, badge in badge_states.items():
         (badge_output / f"{key}.json").write_text(json.dumps(badge, indent=2), encoding="utf-8")
     print(f"\nWrote {len(badge_states)} badge JSONs to {badge_output}/")
 
-    # Step 5: Write SBOM (confirmed packages only — no unknown pollution)
     sbom = generate_sbom(all_results, pypi_results)
     sbom_path = Path(args.sbom_output)
     sbom_path.parent.mkdir(parents=True, exist_ok=True)
     sbom_path.write_text(json.dumps(sbom, indent=2), encoding="utf-8")
-    sbom_pkg_count = len(sbom["components"])
-    print(f"Wrote SBOM to {sbom_path} ({sbom_pkg_count} confirmed packages)")
+    print(f"Wrote SBOM to {sbom_path} ({len(sbom['components'])} confirmed packages)")
 
-    # Step 6: Write report
     report = generate_report(all_results, pypi_results, badge_states)
     Path("sweep-report.md").write_text(report, encoding="utf-8")
     print("Wrote sweep-report.md")
@@ -431,7 +445,7 @@ async def async_main(args):
 def main():
     parser = argparse.ArgumentParser(description="AST dependency sweep for Skills Tree.")
     parser.add_argument("--skills-root", default="skills", help="Path to skills/ directory")
-    parser.add_argument("--badge-output", default="badges", help="Output dir for badge JSONs (served via GitHub Pages on main)")
+    parser.add_argument("--badge-output", default="badges", help="Output dir for badge JSONs")
     parser.add_argument("--sbom-output", default="meta/skills-sbom.cdx.json", help="Output path for SBOM")
     parser.add_argument("--dry-run", action="store_true", help="Print results only, don't write files")
     args = parser.parse_args()
