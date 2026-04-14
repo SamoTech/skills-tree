@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills Tree — Skill Paths</title>
+<style>
+:root,[data-theme="light"]{
+  --bg:#f7f6f2;--surface:#f9f8f5;--surface2:#fbfbf9;
+  --border:#d4d1ca;--divider:#dcd9d5;
+  --text:#28251d;--muted:#7a7974;--faint:#bab9b4;
+  --primary:#01696f;--primary-hi:#cedcd8;
+  --shadow:0 4px 16px oklch(.2 .01 80/.08);
+  --r:.5rem;--tr:180ms cubic-bezier(.16,1,.3,1);
+}
+[data-theme="dark"]{
+  --bg:#171614;--surface:#1c1b19;--surface2:#201f1d;
+  --border:#393836;--divider:#262523;
+  --text:#cdccca;--muted:#797876;--faint:#5a5957;
+  --primary:#4f98a3;--primary-hi:#313b3b;
+  --shadow:0 4px 16px oklch(0 0 0/.3);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);min-height:100dvh}
+
+/* Nav */
+nav{
+  display:flex;align-items:center;gap:.75rem;padding:.6rem 1.5rem;
+  background:var(--surface);border-bottom:1px solid var(--divider);
+  position:sticky;top:0;z-index:20;
+}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1rem;
+  color:var(--primary);text-decoration:none}
+.nav-links{display:flex;gap:1.25rem;margin-left:1rem}
+.nav-links a{font-size:.82rem;color:var(--muted);text-decoration:none;
+  transition:color var(--tr)}
+.nav-links a:hover,.nav-links a.active{color:var(--primary)}
+.nav-right{margin-left:auto;display:flex;gap:.5rem;align-items:center}
+.btn{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);
+  padding:.3rem .7rem;color:var(--text);font-size:.8rem;cursor:pointer;
+  transition:background var(--tr),border-color var(--tr)}
+.btn:hover{background:var(--primary-hi);border-color:var(--primary)}
+
+/* Hero */
+.hero{padding:3rem 1.5rem 2rem;max-width:900px;margin:0 auto;text-align:center}
+.hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;margin-bottom:.75rem;
+  letter-spacing:-.03em}
+.hero p{color:var(--muted);font-size:1rem;max-width:56ch;margin:0 auto 1.5rem}
+.progress-bar{background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r);padding:.6rem 1rem;font-size:.82rem;color:var(--muted);
+  display:inline-flex;align-items:center;gap:.75rem}
+.progress-track{width:140px;height:6px;background:var(--divider);border-radius:9999px;overflow:hidden}
+.progress-fill{height:100%;background:var(--primary);border-radius:9999px;
+  transition:width .5s cubic-bezier(.16,1,.3,1)}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));
+  gap:1.25rem;padding:0 1.5rem 3rem;max-width:1200px;margin:0 auto}
+
+/* Path card */
+.card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:.75rem;overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:box-shadow var(--tr),border-color var(--tr);
+}
+.card:hover{border-color:var(--primary);box-shadow:0 8px 28px oklch(0 0 0/.14)}
+.card-header{
+  padding:1.1rem 1.25rem .85rem;
+  border-bottom:1px solid var(--divider);
+  cursor:pointer;user-select:none;
+}
+.card-top{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.5rem}
+.path-icon{font-size:1.6rem;line-height:1;flex-shrink:0}
+.card-title-wrap{flex:1}
+.card-title{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+.card-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
+.card-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+.badge{
+  display:inline-flex;align-items:center;gap:.25rem;
+  font-size:.7rem;font-weight:600;padding:.2rem .55rem;
+  border-radius:9999px;background:var(--surface2);
+  border:1px solid var(--border);color:var(--muted);
+}
+.badge.diff-1{background:oklch(from var(--primary) l c h/.12);color:var(--primary);border-color:oklch(from var(--primary) l c h/.25)}
+.badge.diff-2{background:oklch(.65 .12 55/.12);color:#e8af34;border-color:oklch(.65 .12 55/.3)}
+.badge.diff-3{background:oklch(.55 .15 15/.12);color:#dd6974;border-color:oklch(.55 .15 15/.3)}
+.expand-icon{margin-left:auto;color:var(--faint);transition:transform .25s;flex-shrink:0;margin-top:.1rem}
+.card.open .expand-icon{transform:rotate(180deg)}
+
+/* Steps */
+.steps{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1);
+}
+.card.open .steps{max-height:2000px}
+.steps-inner{padding:1rem 1.25rem 1.25rem}
+.step{
+  display:flex;gap:.75rem;padding:.6rem 0;
+  border-bottom:1px solid var(--divider);
+}
+.step:last-child{border-bottom:none;padding-bottom:0}
+.step-num{
+  width:22px;height:22px;border-radius:50%;flex-shrink:0;
+  background:var(--surface2);border:1px solid var(--border);
+  font-size:.7rem;font-weight:700;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:.1rem;transition:background var(--tr),border-color var(--tr),color var(--tr);
+}
+.step.done .step-num{background:var(--primary);border-color:var(--primary);color:#fff}
+.step-body{flex:1}
+.step-title{font-size:.85rem;font-weight:600;margin-bottom:.2rem}
+.step-skill{font-size:.74rem;color:var(--primary);font-family:monospace;margin-bottom:.25rem}
+.step-why{font-size:.78rem;color:var(--muted);line-height:1.5}
+.step-check{cursor:pointer;background:none;border:none;color:var(--faint);
+  padding:.15rem;margin-top:.05rem;flex-shrink:0;transition:color var(--tr)}
+.step-check:hover{color:var(--primary)}
+.step.done .step-check{color:var(--primary)}
+
+/* Complete button */
+.card-footer{padding:.75rem 1.25rem;border-top:1px solid var(--divider);
+  display:flex;justify-content:space-between;align-items:center;font-size:.78rem;
+  color:var(--muted)}
+.btn-gh{font-size:.75rem;color:var(--primary);text-decoration:none;
+  padding:.25rem .5rem;border-radius:var(--r);
+  transition:background var(--tr)}
+.btn-gh:hover{background:var(--primary-hi)}
+
+@media(max-width:500px){
+  nav .nav-links{display:none}
+  .hero{padding:2rem 1rem 1.5rem}
+  .grid{padding:0 1rem 2rem;gap:1rem}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="index.html">
+    <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+      <rect x="13" y="2" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="2" y="13" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="24" y="13" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="7" y="24" width="6" height="6" rx="3" fill="currentColor"/>
+      <rect x="19" y="24" width="6" height="6" rx="3" fill="currentColor"/>
+      <line x1="16" y1="8" x2="5" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="16" y1="8" x2="27" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="5" y1="16" x2="10" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="27" y1="16" x2="22" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Skills Tree
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Browse</a>
+    <a href="graph.html">Graph</a>
+    <a href="paths.html" class="active">Paths</a>
+  </div>
+  <div class="nav-right">
+    <button class="btn" id="btn-theme">☀︎</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Skill Paths</h1>
+  <p>Curated learning tracks that guide you through building a specific type of AI agent — step by step, skill by skill.</p>
+  <div class="progress-bar">
+    <span id="progress-text">0 of 22 steps complete</span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+</div>
+
+<div class="grid" id="paths-grid"></div>
+
+<script>
+const PATHS = [
+  {
+    id: "research-agent",
+    icon: "🔍",
+    title: "Build a Research Agent",
+    desc: "Agent that searches, retrieves, and synthesises information with citations.",
+    diff: 2, diffLabel: "Intermediate",
+    skills: 5, time: "~3 hours",
+    gh: "https://github.com/SamoTech/skills-tree/blob/main/paths/research-agent.md",
+    steps: [
+      { title: "Web Search",        skill: "skills/11-web/web-search.md",                   why: "The agent\u2019s information intake \u2014 structured queries, rate limits, source metadata." },
+      { title: "Document Retrieval", skill: "skills/01-perception/document-retrieval.md",   why: "Fetch full content from URLs returned by search, chunk for downstream use." },
+      { title: "Semantic Search / RAG", skill: "skills/03-memory/semantic-search.md",       why: "Rank retrieved chunks by relevance to the question using vector similarity." },
+      { title: "Causal Reasoning",   skill: "skills/02-reasoning/causal-reasoning.md",      why: "Reason over evidence, distinguish correlation from causation, cite sources." },
+      { title: "Report Generation", skill: "skills/06-communication/report-generation.md", why: "Synthesise reasoning into a structured, cited report with inline references." },
+    ]
+  },
+  {
+    id: "memory-first-agent",
+    icon: "🧠",
+    title: "Memory-First Agent",
+    desc: "Agent with persistent, queryable, multi-layer memory across sessions.",
+    diff: 2, diffLabel: "Intermediate",
+    skills: 5, time: "~3 hours",
+    gh: "https://github.com/SamoTech/skills-tree/blob/main/paths/memory-first-agent.md",
+    steps: [
+      { title: "Working Memory",  skill: "skills/03-memory/working-memory.md",   why: "Transient scratchpad that holds current turn state and intermediate results." },
+      { title: "Memory Injection", skill: "skills/03-memory/memory-injection.md", why: "Pull relevant memories and inject them at the right prompt position." },
+      { title: "Semantic Search", skill: "skills/03-memory/semantic-search.md",   why: "Embed + retrieve relevant memories from the long-term vector store." },
+      { title: "User Profile",    skill: "skills/03-memory/user-profile.md",      why: "Structured storage of user facts, preferences, and goals." },
+      { title: "Forgetting / Decay", skill: "skills/03-memory/forgetting.md",     why: "TTL-based expiry and relevance decay to keep retrieval quality high." },
+    ]
+  },
+  {
+    id: "computer-use-agent",
+    icon: "🖥️",
+    title: "Computer Use Agent",
+    desc: "Agent that controls a desktop UI \u2014 screen parsing, planning, clicking, verifying.",
+    diff: 3, diffLabel: "Advanced",
+    skills: 5, time: "~4 hours",
+    gh: "https://github.com/SamoTech/skills-tree/blob/main/paths/computer-use-agent.md",
+    steps: [
+      { title: "Screen Parsing",    skill: "skills/10-computer-use/screen-parsing.md",        why: "The agent\u2019s eyes \u2014 accessibility tree + vision-based element location." },
+      { title: "Action Planning",   skill: "skills/09-agentic-patterns/action-planning.md",    why: "Decompose goal into atomic UI actions with preconditions and expected states." },
+      { title: "Action Execution",  skill: "skills/04-action-execution/ui-interaction.md",     why: "OS-level mouse, keyboard, scroll, clipboard across platforms." },
+      { title: "State Verification", skill: "skills/10-computer-use/state-verification.md",   why: "Screenshot diff after each action to confirm expected UI state." },
+      { title: "Error Recovery",    skill: "skills/09-agentic-patterns/error-recovery.md",     why: "Detect interruptions, maintain undo stack, recover without crashing." },
+    ]
+  },
+  {
+    id: "zero-to-production",
+    icon: "🚀",
+    title: "From Zero to Production",
+    desc: "Full agent dev lifecycle \u2014 first prompt to deployed API service.",
+    diff: 1, diffLabel: "Beginner",
+    skills: 7, time: "~5 hours",
+    gh: "https://github.com/SamoTech/skills-tree/blob/main/paths/zero-to-production.md",
+    steps: [
+      { title: "Instruction Following", skill: "skills/06-communication/instruction-following.md", why: "Understand how models interpret prompts before adding any complexity." },
+      { title: "Tool Use / Function Calling", skill: "skills/07-tool-use/function-calling.md",     why: "The most important agent primitive \u2014 define, call, and handle tools." },
+      { title: "Working Memory",         skill: "skills/03-memory/working-memory.md",              why: "State dict pattern to carry data between tool calls within a session." },
+      { title: "ReAct Loop",             skill: "skills/09-agentic-patterns/react-loop.md",        why: "Core agentic loop: Reason \u2192 Act \u2192 Observe \u2192 Repeat." },
+      { title: "Error Handling",         skill: "skills/09-agentic-patterns/error-recovery.md",    why: "Retry logic, graceful degradation, runaway-loop prevention." },
+      { title: "Structured Output",      skill: "skills/06-communication/structured-output.md",    why: "JSON mode + Pydantic validation for predictable API responses." },
+      { title: "Agent Deployment",       skill: "skills/15-orchestration/agent-deployment.md",     why: "FastAPI wrapper, background tasks, structured logging, cloud deploy." },
+    ]
+  },
+];
+
+const TOTAL_STEPS = PATHS.reduce((s,p) => s + p.steps.length, 0);
+
+// Progress stored in memory (no localStorage in sandboxed pages)
+const progress = {};
+
+function getKey(pathId, stepIdx) { return `${pathId}-${stepIdx}`; }
+
+function countDone() {
+  return Object.values(progress).filter(Boolean).length;
+}
+
+function updateProgress() {
+  const done = countDone();
+  document.getElementById("progress-text").textContent = `${done} of ${TOTAL_STEPS} steps complete`;
+  document.getElementById("progress-fill").style.width = `${(done/TOTAL_STEPS)*100}%`;
+}
+
+function renderPaths() {
+  const grid = document.getElementById("paths-grid");
+  grid.innerHTML = "";
+  PATHS.forEach(path => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.id = `card-${path.id}`;
+
+    const stepsHTML = path.steps.map((step, i) => {
+      const key = getKey(path.id, i);
+      const done = progress[key] ? "done" : "";
+      return `
+        <div class="step ${done}" id="step-${path.id}-${i}">
+          <div class="step-num">${i+1}</div>
+          <div class="step-body">
+            <div class="step-title">${step.title}</div>
+            <div class="step-skill">${step.skill}</div>
+            <div class="step-why">${step.why}</div>
+          </div>
+          <button class="step-check" onclick="toggleStep('${path.id}',${i})" aria-label="Toggle step complete">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </button>
+        </div>`;
+    }).join("");
+
+    const donePath = path.steps.filter((_,i) => progress[getKey(path.id,i)]).length;
+
+    card.innerHTML = `
+      <div class="card-header" onclick="toggleCard('${path.id}')">
+        <div class="card-top">
+          <div class="path-icon">${path.icon}</div>
+          <div class="card-title-wrap">
+            <div class="card-title">${path.title}</div>
+            <div class="card-desc">${path.desc}</div>
+          </div>
+          <svg class="expand-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="card-meta">
+          <span class="badge diff-${path.diff}">${["⭐","⭐","⭐⭐","⭐⭐⭐"][path.diff]} ${path.diffLabel}</span>
+          <span class="badge">${path.skills} skills</span>
+          <span class="badge">${path.time}</span>
+          <span class="badge" id="badge-done-${path.id}">${donePath}/${path.steps.length} done</span>
+        </div>
+      </div>
+      <div class="steps"><div class="steps-inner">${stepsHTML}</div></div>
+      <div class="card-footer">
+        <span id="footer-pct-${path.id}">${Math.round((donePath/path.steps.length)*100)}% complete</span>
+        <a class="btn-gh" href="${path.gh}" target="_blank" rel="noopener">View full path →</a>
+      </div>`;
+
+    grid.appendChild(card);
+  });
+}
+
+function toggleCard(pathId) {
+  document.getElementById(`card-${pathId}`).classList.toggle("open");
+}
+
+function toggleStep(pathId, stepIdx) {
+  const key = getKey(pathId, stepIdx);
+  progress[key] = !progress[key];
+  // Update step visual
+  const stepEl = document.getElementById(`step-${pathId}-${stepIdx}`);
+  stepEl.classList.toggle("done", progress[key]);
+  // Update badge + footer
+  const path = PATHS.find(p => p.id === pathId);
+  const donePath = path.steps.filter((_,i) => progress[getKey(pathId,i)]).length;
+  document.getElementById(`badge-done-${pathId}`).textContent = `${donePath}/${path.steps.length} done`;
+  document.getElementById(`footer-pct-${pathId}`).textContent = `${Math.round((donePath/path.steps.length)*100)}% complete`;
+  updateProgress();
+}
+
+// Theme toggle
+const btnTheme = document.getElementById("btn-theme");
+btnTheme.addEventListener("click", () => {
+  const isDark = document.documentElement.dataset.theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "light" : "dark";
+  btnTheme.textContent = isDark ? "☾" : "☀︎";
+});
+
+renderPaths();
+updateProgress();
+</script>
+</body>
+</html>
