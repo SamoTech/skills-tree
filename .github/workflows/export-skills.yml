@@ -1,0 +1,42 @@
+name: Export Skills API
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/*.md'
+  schedule:
+    - cron: '30 4 * * 1'  # Monday 04:30 UTC (after leaderboard)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Run export
+        run: python3 tools/export_skills.py
+
+      - name: Commit exported artifacts
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/api/
+          git diff --cached --quiet && echo "No changes to export" && exit 0
+          SKILL_COUNT=$(python3 -c "import json; d=json.load(open('docs/api/skills.json')); print(d['count'])")
+          git commit -m "chore(export): regenerate skills API — ${SKILL_COUNT} skills [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
