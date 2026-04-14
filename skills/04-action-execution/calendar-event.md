@@ -22,8 +22,9 @@ Create, update, or delete calendar events via calendar APIs (Google Calendar, Ou
 
 ### Example
 
-```python
+```python type:illustrative
 # pip install google-api-python-client google-auth
+# Note: `googleapiclient` is the import name for PyPI package `google-api-python-client`
 from googleapiclient.discovery import build
 
 service = build('calendar', 'v3', credentials=creds)

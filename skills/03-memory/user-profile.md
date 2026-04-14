@@ -47,8 +47,9 @@ Build, maintain, and query a structured user profile derived from conversations 
 
 ## Example
 
-```python
+```python type:illustrative
 # pip install mem0ai anthropic
+# Note: `mem0` is the import name for PyPI package `mem0ai`
 import anthropic
 from mem0 import MemoryClient
 import json
@@ -140,6 +141,7 @@ extract_and_update_profile(
 
 | Date | Change |
 |---|---|
+| `2026-04` | Annotated code block as type:illustrative to clarify mem0 import name |
 | `2026-04` | Fixed PyPI package name: mem0 → mem0ai |
 | `2026-04` | Expanded from stub: signal extraction + mem0 storage example, confidence threshold |
 | `2025-03` | Initial stub entry |

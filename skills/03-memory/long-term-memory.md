@@ -22,8 +22,9 @@ Persists agent knowledge, learned preferences, and distilled insights across ses
 - Cross-agent knowledge sharing in multi-agent systems
 
 ### Example
-```python
+```python type:illustrative
 # pip install mem0ai
+# Note: `mem0` is the import name for PyPI package `mem0ai`
 from mem0 import Memory
 
 m = Memory()
