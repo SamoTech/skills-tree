@@ -1,10 +1,18 @@
 ---
 title: "CSV Processing"
 category: 12-data
-level: basic
+level: beginner
 stability: stable
-description: "Apply csv processing in AI agent workflows."
 added: "2025-03"
+description: "Apply CSV processing in AI agent workflows."
+dependencies:
+  - package: pandas
+    min_version: "2.0.0"
+    tested_version: "3.0.2"
+    confidence: verified
+code_blocks:
+  - id: "example-csv"
+    type: executable
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-csv-processing.json)
@@ -12,45 +20,41 @@ added: "2025-03"
 # CSV Processing
 
 **Category:** `data`  
-**Skill Level:** `basic`  
+**Skill Level:** `beginner`  
 **Stability:** `stable`
 **Added:** 2025-03
 
 ### Description
 
-Read, parse, and transform CSV files into structured data for downstream processing or analysis.
-
-### Inputs
-
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `file_path` | `string` | ✅ | Path or URL to the CSV file |
-| `delimiter` | `string` | ❌ | Column delimiter (default: `,`) |
-| `encoding` | `string` | ❌ | File encoding (default: `utf-8`) |
-
-### Outputs
-
-| Output | Type | Description |
-|---|---|---|
-| `rows` | `list[dict]` | Parsed rows as list of dicts |
-| `columns` | `list[str]` | Column names |
+Load, filter, transform, and export CSV data using pandas for structured analysis in agent pipelines.
 
 ### Example
 
 ```python
+# pip install pandas
 import pandas as pd
-df = pd.read_csv('data.csv')
+from io import StringIO
+
+# Load
+df = pd.read_csv("data.csv")
+
+# Inspect
 print(df.head())
+print(df.dtypes)
+print(df.describe())
+
+# Filter
+high_value = df[df["revenue"] > 10000]
+
+# Transform
+df["profit_margin"] = (df["profit"] / df["revenue"] * 100).round(2)
+
+# Aggregate
+by_region = df.groupby("region")["revenue"].sum().reset_index()
+
+# Export
+by_region.to_csv("output.csv", index=False)
 ```
 
-### Frameworks
-
-- Python `pandas` — `read_csv()`
-- LangChain CSVLoader
-- OpenAI Code Interpreter
-
 ### Related Skills
-
-- [Data Cleaning](data-cleaning.md)
-- [Data Aggregation](data-aggregation.md)
-- [JSON Transformation](json-transformation.md)
+- `pandas-operations`, `schema-inference`, `data-visualization`, `sql-execution`

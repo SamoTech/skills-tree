@@ -3,8 +3,16 @@ title: "Browser Navigation"
 category: 11-web
 level: intermediate
 stability: stable
-description: "Apply browser navigation in AI agent workflows."
 added: "2025-03"
+description: "Apply browser navigation in AI agent workflows."
+dependencies:
+  - package: playwright
+    min_version: "1.40.0"
+    tested_version: "1.58.0"
+    confidence: verified
+code_blocks:
+  - id: "example-navigation"
+    type: executable
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-browser-navigation.json)
@@ -18,29 +26,32 @@ added: "2025-03"
 
 ### Description
 
-Launch a real browser, navigate to URLs, click elements, fill forms, and interact with dynamic JavaScript-rendered pages.
+Control a real browser to navigate URLs, interact with pages, and handle dynamic JavaScript-rendered content.
 
 ### Example
 
 ```python
-from playwright.async_api import async_playwright
-async with async_playwright() as p:
-    browser = await p.chromium.launch()
-    page = await browser.new_page()
-    await page.goto('https://github.com')
-    await page.click('text=Sign in')
-    await browser.close()
+# pip install playwright && playwright install chromium
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+
+    page.goto("https://example.com")
+    print(page.title())
+
+    # Click a link
+    page.click("a[href='/about']")
+    page.wait_for_load_state("networkidle")
+
+    # Go back
+    page.go_back()
+
+    # Get full page HTML
+    html = page.content()
+    browser.close()
 ```
 
-### Frameworks
-
-- Playwright (preferred)
-- Selenium, Puppeteer
-- Browser Use (LLM-native browser)
-- Playwright MCP
-
 ### Related Skills
-
-- [Form Filling](form-filling.md)
-- [Web Scraping](web-scraping.md)
-- [Screenshot Capture](../10-computer-use/screenshot-capture.md)
+- `web-login`, `form-filling`, `dom-inspection`, `url-screenshot`, `web-scraping`

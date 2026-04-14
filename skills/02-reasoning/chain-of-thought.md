@@ -1,105 +1,59 @@
 ---
-title: Chain of Thought (CoT)
+title: "Chain of Thought"
 category: 02-reasoning
-level: basic
+level: intermediate
 stability: stable
 added: "2025-03"
 description: "Apply chain of thought in AI agent workflows."
-version: v2
-tags: [reasoning, prompting, decomposition]
-updated: 2026-04
+dependencies:
+  - package: anthropic
+    min_version: "0.25.0"
+    tested_version: "0.94.1"
+    confidence: verified
+code_blocks:
+  - id: "example-cot"
+    type: executable
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-chain-of-thought.json)
 
-# Chain of Thought (CoT)
+# Chain of Thought
 
-## What It Does
+**Category:** `reasoning`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+**Added:** 2025-03
 
-Chain of Thought prompting instructs the model to write out its reasoning step-by-step before giving a final answer. Adding "think step by step" or providing a few worked examples with reasoning traces dramatically improves accuracy on math, logic, and multi-step problems.
+### Description
 
-## When to Use
+Prompt a model to reason step-by-step before producing a final answer, improving accuracy on multi-step and arithmetic tasks.
 
-- Math and arithmetic problems
-- Multi-step logical deductions
-- Tasks where showing work improves answer quality
-- Any case where the model is making errors on seemingly easy tasks
-
-## Inputs / Outputs
-
-| Field | Type | Description |
-|---|---|---|
-| `problem` | `str` | The question or task |
-| `cot_style` | `str` | `zero-shot` ("think step by step") or `few-shot` (examples) |
-| → `reasoning` | `str` | The step-by-step trace |
-| → `answer` | `str` | Final answer extracted from trace |
-
-## Runnable Example
+### Example
 
 ```python
-import anthropic
+# pip install anthropic
+from anthropic import Anthropic
 
-client = anthropic.Anthropic()
+client = Anthropic()
 
-def chain_of_thought(problem: str, few_shot: bool = False) -> dict:
-    if few_shot:
-        system = """Solve problems step by step, showing your reasoning.
-
-Example:
-Q: A store has 48 apples. They sell 1/3 in the morning and 1/4 of the rest in the afternoon. How many remain?
-A: Step 1: Morning sales = 48 × 1/3 = 16 apples
-   Step 2: Remaining after morning = 48 - 16 = 32 apples  
-   Step 3: Afternoon sales = 32 × 1/4 = 8 apples
-   Step 4: Final remaining = 32 - 8 = 24 apples
-   Answer: 24 apples"""
-    else:
-        system = "Think step by step before giving your final answer. End with 'Answer: <answer>'"
-
+def chain_of_thought(question: str) -> str:
     response = client.messages.create(
         model="claude-opus-4-5",
         max_tokens=1024,
-        system=system,
-        messages=[{"role": "user", "content": problem}]
+        messages=[{
+            "role": "user",
+            "content": f"Think step by step, then answer.\n\nQuestion: {question}\n\nReasoning:"
+        }]
     )
+    return response.content[0].text
 
-    text = response.content[0].text
-    answer = text.split("Answer:")[-1].strip() if "Answer:" in text else text
-    return {"reasoning": text, "answer": answer}
-
-result = chain_of_thought(
-    "If a train travels 120km in 1.5 hours, then slows to 60km/h for 45 minutes, what is the total distance?"
-)
-print(result["answer"])
+print(chain_of_thought("If a train travels 60 mph for 2.5 hours, how far does it go?"))
 ```
 
-## Variants
+### Advanced Techniques
+- **Zero-shot CoT**: append "Let's think step by step" to any prompt
+- **Self-consistency**: sample multiple CoT paths and majority-vote the final answer
+- **Least-to-most prompting**: decompose into sub-problems, solve sequentially
 
-| Variant | Description | Best For |
-|---|---|---|
-| **Zero-shot CoT** | "Think step by step" suffix | Quick, no examples needed |
-| **Few-shot CoT** | Provide 2-3 worked examples | Higher accuracy, domain-specific |
-| **Self-consistency** | Sample N traces, majority vote | Maximum accuracy, higher cost |
-| **Program of Thought** | Write code instead of prose | Math, computation |
-| **Step-Back** | Ask a general principle first | Abstract reasoning |
-
-## Failure Modes
-
-| Failure | Cause | Fix |
-|---|---|---|
-| Confident wrong reasoning | Model commits to early error | Use self-consistency (sample 5, vote) |
-| Verbose but wrong | Long trace ≠ correct trace | Add "verify each step" instruction |
-| Skips steps on easy problems | Model shortcuts | Enforce step count in prompt |
-
-## Related Skills
-
-- [`react.md`](react.md) — CoT + tool calls
-- [`tree-of-thought.md`](tree-of-thought.md) — Branching reasoning
-- [`self-consistency.md`](self-consistency.md) — Majority-vote sampling
-
-## Changelog
-
-| Version | Date | Change |
-|---|---|---|
-| v1 | 2025-02 | Initial entry |
-| v2 | 2026-04 | Added variants table, runnable example, failure modes |
+### Related Skills
+- `tree-of-thought`, `react`, `self-reflection`, `planning`
