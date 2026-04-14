@@ -23,6 +23,7 @@ Persists agent knowledge, learned preferences, and distilled insights across ses
 
 ### Example
 ```python
+# pip install mem0ai
 from mem0 import Memory
 
 m = Memory()

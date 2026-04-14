@@ -48,6 +48,7 @@ Build, maintain, and query a structured user profile derived from conversations 
 ## Example
 
 ```python
+# pip install mem0ai anthropic
 import anthropic
 from mem0 import MemoryClient
 import json
@@ -79,7 +80,6 @@ def extract_and_update_profile(messages: list[dict], user_id: str) -> dict:
     )
     signals = json.loads(response.content[0].text)["signals"]
 
-    # Store signals as user memories
     for signal in signals:
         if signal["confidence"] >= 0.7:
             mem_client.add(
@@ -113,7 +113,7 @@ extract_and_update_profile(
 
 | Framework / Model | Implementation | Since |
 |---|---|---|
-| mem0 | `add()` with `user_profile` metadata | v1.0 |
+| mem0ai | `add()` with `user_profile` metadata | v1.0 |
 | LangChain | `ConversationEntityMemory` | v0.1 |
 | LangGraph | Profile extraction node | v0.1 |
 
@@ -140,5 +140,6 @@ extract_and_update_profile(
 
 | Date | Change |
 |---|---|
+| `2026-04` | Fixed PyPI package name: mem0 → mem0ai |
 | `2026-04` | Expanded from stub: signal extraction + mem0 storage example, confidence threshold |
 | `2025-03` | Initial stub entry |
