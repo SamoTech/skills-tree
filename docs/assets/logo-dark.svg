@@ -1,42 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 48" fill="none" role="img" aria-label="Skills Tree">
-  <!-- Geometric tree icon: hexagonal node grid -->
-  <!-- Root trunk -->
-  <rect x="22" y="36" width="4" height="8" rx="2" fill="#3fb950"/>
-  <!-- Level 3 base platform -->
-  <rect x="16" y="33" width="16" height="3" rx="1.5" fill="#3fb950" opacity="0.4"/>
-  <!-- Level 2: left branch -->
-  <line x1="18" y1="33" x2="10" y2="24" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  <!-- Level 2: right branch -->
-  <line x1="30" y1="33" x2="38" y2="24" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-  <!-- Level 2: center branch -->
-  <line x1="24" y1="33" x2="24" y2="22" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Node: center top -->
-  <circle cx="24" cy="18" r="5" fill="#3fb950"/>
-  <circle cx="24" cy="18" r="2.5" fill="#0d1117"/>
-  <!-- Node: left -->
-  <circle cx="8" cy="21" r="4" fill="#58a6ff" opacity="0.9"/>
-  <circle cx="8" cy="21" r="2" fill="#0d1117"/>
-  <!-- Node: right -->
-  <circle cx="40" cy="21" r="4" fill="#58a6ff" opacity="0.9"/>
-  <circle cx="40" cy="21" r="2" fill="#0d1117"/>
-  <!-- Sub-nodes level 1 -->
-  <line x1="8" y1="17" x2="4" y2="11" stroke="#58a6ff" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <circle cx="3" cy="9" r="2.5" fill="#a371f7" opacity="0.8"/>
-  <line x1="8" y1="17" x2="12" y2="11" stroke="#58a6ff" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <circle cx="13" cy="9" r="2.5" fill="#a371f7" opacity="0.8"/>
-  <line x1="40" y1="17" x2="36" y2="11" stroke="#58a6ff" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <circle cx="35" cy="9" r="2.5" fill="#a371f7" opacity="0.8"/>
-  <line x1="40" y1="17" x2="44" y2="11" stroke="#58a6ff" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <circle cx="45" cy="9" r="2.5" fill="#a371f7" opacity="0.8"/>
-  <!-- Center top sub-nodes -->
-  <line x1="22" y1="14" x2="18" y2="8" stroke="#3fb950" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <circle cx="17" cy="6" r="2" fill="#3fb950" opacity="0.6"/>
-  <line x1="26" y1="14" x2="30" y2="8" stroke="#3fb950" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
-  <circle cx="31" cy="6" r="2" fill="#3fb950" opacity="0.6"/>
-
-  <!-- Wordmark -->
-  <text x="58" y="32" font-family="'Segoe UI', Inter, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#e6edf3" letter-spacing="-0.5">Skills</text>
-  <text x="115" y="32" font-family="'Segoe UI', Inter, -apple-system, sans-serif" font-size="20" font-weight="300" fill="#58a6ff" letter-spacing="-0.3">Tree</text>
-  <!-- Underline accent -->
-  <line x1="58" y1="36" x2="155" y2="36" stroke="#3fb950" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="42" viewBox="0 0 160 42" aria-label="Skills Tree">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+  </defs>
+  <!-- sapling icon -->
+  <rect x="2" y="22" width="5" height="14" rx="2" fill="url(#lg)"/>
+  <polygon points="5,4 16,21 -6,21" fill="url(#lg)" opacity="0.95"/>
+  <polygon points="5,11 14,23 -4,23" fill="url(#lg)" opacity="0.65"/>
+  <!-- wordmark -->
+  <text x="22" y="28" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="#e8fdf0">Skills</text>
+  <text x="82" y="28" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="url(#lg)">Tree</text>
 </svg>
