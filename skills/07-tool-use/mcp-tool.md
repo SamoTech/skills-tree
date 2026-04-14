@@ -1,61 +1,62 @@
 ---
-title: "MCP Tool Use"
+title: "MCP Tool"
 category: 07-tool-use
 level: intermediate
 stability: stable
 added: "2025-03"
-description: "Apply mcp tool in AI agent workflows."
+description: "Apply MCP (Model Context Protocol) tools in AI agent workflows."
+dependencies:
+  - package: mcp
+    min_version: "1.0.0"
+    tested_version: "1.27.0"
+    confidence: verified
+code_blocks:
+  - id: "example-mcp"
+    type: executable
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-mcp-tool.json)
 
-# MCP Tool Use
+# MCP Tool
+
+**Category:** `tool-use`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+**Added:** 2025-03
 
 ### Description
-Interacts with Model Context Protocol (MCP) servers to access tools, resources, and prompts exposed by external services. MCP provides a standardized JSON-RPC interface for LLM tool integration, enabling agents to discover available tools at runtime, invoke them with typed parameters, and handle streaming responses.
 
-### When to Use
-- Integrating with MCP-compatible services (GitHub MCP, filesystem MCP, browser MCP, etc.)
-- Building agents that discover and use tools dynamically without hardcoded wrappers
-- Exposing custom tools to Claude via MCP server implementations
-- Multi-tool orchestration where tools are discovered from multiple MCP servers
+Expose tools via the Model Context Protocol (MCP), enabling any MCP-compatible client (Claude Desktop, Cursor, custom agents) to call your tools.
 
 ### Example
+
 ```python
-# MCP Client using the official Python SDK
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
-import asyncio
+# pip install mcp
+from mcp.server.fastmcp import FastMCP
 
-async def use_mcp_tools(server_command: list[str], tool_name: str, args: dict):
-    server_params = StdioServerParameters(command=server_command[0], args=server_command[1:])
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
+mcp = FastMCP("my-tools")
 
-            # Discover available tools
-            tools = await session.list_tools()
-            print(f"Available tools: {[t.name for t in tools.tools]}")
+@mcp.tool()
+def get_weather(city: str) -> dict:
+    """Get current weather for a city."""
+    # Replace with real API call
+    return {"city": city, "temp_c": 22, "condition": "sunny"}
 
-            # Call a specific tool
-            result = await session.call_tool(tool_name, arguments=args)
-            return result.content
+@mcp.tool()
+def calculate(expression: str) -> float:
+    """Safely evaluate a mathematical expression."""
+    import ast, operator
+    ops = {ast.Add: operator.add, ast.Sub: operator.sub,
+           ast.Mult: operator.mul, ast.Div: operator.truediv}
+    def eval_expr(node):
+        if isinstance(node, ast.Num): return node.n
+        elif isinstance(node, ast.BinOp): return ops[type(node.op)](eval_expr(node.left), eval_expr(node.right))
+        raise ValueError("Unsupported expression")
+    return eval_expr(ast.parse(expression, mode="eval").body)
 
-# Example: use filesystem MCP server
-result = asyncio.run(use_mcp_tools(
-    ["npx", "-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
-    "read_file",
-    {"path": "/tmp/example.txt"}
-))
-print(result)
+if __name__ == "__main__":
+    mcp.run()
 ```
 
-### Advanced Techniques
-- **Multi-server orchestration**: initialize multiple MCP sessions and route tool calls based on tool name prefix
-- **Dynamic tool discovery**: call `list_tools()` at agent startup and inject schema into the system prompt automatically
-- **Resource streaming**: use `read_resource()` with URI templates to stream large files from MCP servers
-- **Custom MCP server**: implement `@server.call_tool()` handlers with `mcp.server.fastmcp.FastMCP`
-
 ### Related Skills
-- `api-tool`, `tool-use-loop`, `a2a-tool`, `subagent-delegation`, `bash-tool`
+- `custom-api-wrapper`, `tool-selection`, `tool-guardrails`, `openai-api`

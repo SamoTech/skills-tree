@@ -1,10 +1,18 @@
 ---
 title: "Keyboard Type"
 category: 10-computer-use
-level: basic
+level: beginner
 stability: stable
-description: "Apply keyboard type in AI agent workflows."
 added: "2025-03"
+description: "Apply keyboard typing in AI agent workflows."
+dependencies:
+  - package: pyautogui
+    min_version: "0.9.54"
+    tested_version: "0.9.54"
+    confidence: verified
+code_blocks:
+  - id: "example-type"
+    type: executable
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-keyboard-type.json)
@@ -12,24 +20,33 @@ added: "2025-03"
 # Keyboard Type
 
 **Category:** `computer-use`  
-**Skill Level:** `basic`  
+**Skill Level:** `beginner`  
 **Stability:** `stable`
 **Added:** 2025-03
 
 ### Description
 
-Simulate keyboard input — typing text strings or pressing individual keys at the current focus.
+Type text and press individual keys or keyboard shortcuts programmatically.
 
 ### Example
 
 ```python
+# pip install pyautogui
 import pyautogui
-pyautogui.write('Hello, World!', interval=0.05)
-pyautogui.press('enter')
-pyautogui.hotkey('ctrl', 'c')  # Copy
+import time
+
+time.sleep(1)
+
+# Type a string with a slight interval between characters
+pyautogui.typewrite("Hello, world!", interval=0.05)
+
+# Press a single key
+pyautogui.press("enter")
+
+# Press a hotkey combination
+pyautogui.hotkey("ctrl", "a")  # select all
+pyautogui.hotkey("ctrl", "c")  # copy
 ```
 
 ### Related Skills
-
-- [Mouse Click](mouse-click.md)
-- [Keyboard Shortcut](keyboard-shortcut.md)
+- `keyboard-shortcut`, `mouse-click`, `form-filling`, `clipboard-write`

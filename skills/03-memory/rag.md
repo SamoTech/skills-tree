@@ -1,57 +1,73 @@
 ---
-title: "Retrieval-Augmented Generation (RAG)"
+title: "RAG (Retrieval-Augmented Generation)"
 category: 03-memory
 level: intermediate
 stability: stable
 added: "2025-03"
-description: "Apply rag in AI agent workflows."
+description: "Apply RAG in AI agent workflows."
+dependencies:
+  - package: langchain
+    min_version: "0.2.0"
+    tested_version: "1.2.15"
+    confidence: verified
+  - package: langchain-openai
+    min_version: "0.1.0"
+    tested_version: "1.1.12"
+    confidence: verified
+  - package: langchain-community
+    min_version: "0.2.0"
+    tested_version: "0.4.1"
+    confidence: verified
+code_blocks:
+  - id: "example-rag"
+    type: executable
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-rag.json)
 
-# Retrieval-Augmented Generation (RAG)
+# RAG (Retrieval-Augmented Generation)
+
+**Category:** `memory`  
+**Skill Level:** `intermediate`  
+**Stability:** `stable`
+**Added:** 2025-03
 
 ### Description
-Augments LLM generation by retrieving relevant context from external knowledge stores at inference time. A full RAG pipeline includes document ingestion, chunking, embedding, indexing, query-time retrieval, reranking, and context-aware generation. Advanced variants include HyDE (Hypothetical Document Embeddings), multi-query RAG, and corrective RAG (CRAG).
 
-### When to Use
-- Reducing hallucination on factual queries by grounding responses in retrieved evidence
-- Enabling LLMs to answer questions over private, proprietary, or recently updated corpora
-- Building citation-backed answer systems where source attribution is required
-- Combining structured (SQL) and unstructured (vector) retrieval in hybrid pipelines
+Augment LLM responses by retrieving relevant documents from a vector store at query time, grounding answers in external knowledge.
 
 ### Example
+
 ```python
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
+# pip install langchain langchain-openai langchain-community
+from langchain_community.document_loaders import TextLoader
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_community.vectorstores import FAISS
 from langchain.chains import RetrievalQA
-from langchain_community.document_loaders import DirectoryLoader
 
-def build_rag_chain(docs_dir: str) -> RetrievalQA:
-    loader = DirectoryLoader(docs_dir, glob="**/*.md")
-    docs = loader.load()
-    splitter = RecursiveCharacterTextSplitter(chunk_size=512, chunk_overlap=64)
-    chunks = splitter.split_documents(docs)
-    vectorstore = Chroma.from_documents(chunks, OpenAIEmbeddings(model="text-embedding-3-large"))
-    retriever = vectorstore.as_retriever(search_type="mmr", search_kwargs={"k": 8, "fetch_k": 30})
-    llm = ChatOpenAI(model="gpt-4o", temperature=0)
-    return RetrievalQA.from_chain_type(llm=llm, retriever=retriever, return_source_documents=True)
+loader = TextLoader("knowledge_base.txt")
+docs = loader.load()
+splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks = splitter.split_documents(docs)
 
-chain = build_rag_chain("./docs")
-result = chain.invoke({"query": "What are the rate limits for the API?"})
+embeddings = OpenAIEmbeddings()
+vectorstore = FAISS.from_documents(chunks, embeddings)
+retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+
+qa_chain = RetrievalQA.from_chain_type(
+    llm=ChatOpenAI(model="gpt-4o"),
+    retriever=retriever,
+    return_source_documents=True
+)
+result = qa_chain.invoke({"query": "What are the main features?"})
 print(result["result"])
-for doc in result["source_documents"]:
-    print(f"  Source: {doc.metadata['source']}")
 ```
 
 ### Advanced Techniques
-- **HyDE**: generate a hypothetical answer, embed it, use it as the query vector for better retrieval
-- **Multi-query**: generate 3-5 paraphrased queries, merge retrieved sets via RRF
-- **Cross-encoder reranking**: use `cross-encoder/ms-marco-MiniLM-L-12-v2` to rerank top-20 → top-5
-- **CRAG**: after retrieval, score relevance; if below threshold, fall back to web search
-- **Contextual compression**: extract only the relevant sentences from each chunk before generation
+- **Hybrid search**: combine dense (vector) + sparse (BM25) retrieval for higher recall
+- **Re-ranking**: run a cross-encoder reranker on top-20 results before passing top-4 to LLM
+- **Self-query retrieval**: let the LLM generate metadata filters from the question
 
 ### Related Skills
-- `semantic-memory`, `agentic-rag`, `embedding-generation`, `similarity-search`, `rag-pipeline`
+- `vector-store-retrieval`, `semantic-memory`, `episodic-memory`, `memory-injection`
