@@ -52,19 +52,17 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "slack-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
   "sections": [],
-  "relatedSkills": [
-    "../04-action-execution/notification-sending.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "slack, LLM skill, skills tree, use, tool, AI agent, api",
+  "keywords": "AI agent, LLM skill, tool, slack, use, skills tree, api",
   "about": {
     "@type": "Thing",
     "name": "Slack API",

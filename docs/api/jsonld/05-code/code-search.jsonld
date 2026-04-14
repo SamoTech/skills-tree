@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "code-search",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, code, AI agent, search, skills tree",
+  "keywords": "AI agent, LLM skill, search, skills tree, code",
   "about": {
     "@type": "Thing",
     "name": "Code Search",

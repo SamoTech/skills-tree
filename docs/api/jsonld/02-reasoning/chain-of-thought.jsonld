@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
-  "name": "Chain of Thought (CoT)",
-  "headline": "Chain of Thought (CoT)",
+  "name": "Chain of Thought",
+  "headline": "Chain of Thought",
   "description": "",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
   "isPartOf": {
@@ -52,27 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "chain-of-thought",
   "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [
-    "What It Does",
-    "When to Use",
-    "Inputs / Outputs",
-    "Runnable Example",
-    "Variants",
-    "Failure Modes",
-    "Related Skills",
-    "Changelog"
-  ],
+  "sections": [],
   "relatedSkills": [],
-  "keywords": "LLM skill, skills tree, of, chain, reasoning, AI agent, thought",
+  "educationalLevel": "Intermediate",
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, LLM skill, of, thought, chain, skills tree, reasoning",
   "about": {
     "@type": "Thing",
-    "name": "Chain of Thought (CoT)",
-    "description": "An AI agent skill for chain of thought (cot)."
+    "name": "Chain of Thought",
+    "description": "An AI agent skill for chain of thought."
   }
 }

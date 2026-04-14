@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "literature-review",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2026-04-01",
-  "keywords": "LLM skill, skills tree, domain, specific, literature, AI agent, review",
+  "keywords": "AI agent, LLM skill, skills tree, domain, review, literature, specific",
   "about": {
     "@type": "Thing",
     "name": "literature-review",

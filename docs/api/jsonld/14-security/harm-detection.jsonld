@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "harm-detection",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "harm, LLM skill, skills tree, detection, security, AI agent",
+  "keywords": "AI agent, LLM skill, harm, detection, security, skills tree",
   "about": {
     "@type": "Thing",
     "name": "harm-detection",

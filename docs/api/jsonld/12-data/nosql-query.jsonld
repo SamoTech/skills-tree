@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "nosql-query",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, data, nosql, query, AI agent",
+  "keywords": "nosql, LLM skill, AI agent, data, query, skills tree",
   "about": {
     "@type": "Thing",
     "name": "NoSQL Query",

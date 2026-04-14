@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "github-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, code, github, AI agent, api",
+  "keywords": "AI agent, LLM skill, github, skills tree, api, code",
   "about": {
     "@type": "Thing",
     "name": "GitHub API (Code)",

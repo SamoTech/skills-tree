@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "db-schema-design",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -64,7 +64,7 @@
   ],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, code, design, db, schema, AI agent",
+  "keywords": "AI agent, db, LLM skill, schema, design, skills tree, code",
   "about": {
     "@type": "Thing",
     "name": "Database Schema Design",

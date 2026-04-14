@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "rss-parsing",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Basic",
   "datePublished": "2025-03-01",
-  "keywords": "web, LLM skill, skills tree, parsing, AI agent, rss",
+  "keywords": "AI agent, LLM skill, skills tree, parsing, web, rss",
   "about": {
     "@type": "Thing",
     "name": "RSS/Atom Feed Parsing",

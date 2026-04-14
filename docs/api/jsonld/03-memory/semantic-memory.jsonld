@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "semantic-memory",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "03-memory",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "LLM skill, memory, semantic, AI agent, skills tree",
+  "keywords": "AI agent, LLM skill, skills tree, memory, semantic",
   "about": {
     "@type": "Thing",
     "name": "Semantic Memory",

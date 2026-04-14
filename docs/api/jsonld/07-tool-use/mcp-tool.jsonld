@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/mcp-tool.md",
-  "name": "MCP Tool Use",
-  "headline": "MCP Tool Use",
+  "name": "MCP Tool",
+  "headline": "MCP Tool",
   "description": "",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/mcp-tool.md",
   "isPartOf": {
@@ -52,18 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "mcp-tool",
   "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
   "categoryDir": "07-tool-use",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "mcp, LLM skill, skills tree, tool, use, AI agent",
+  "educationalLevel": "Intermediate",
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, LLM skill, tool, use, skills tree, mcp",
   "about": {
     "@type": "Thing",
-    "name": "MCP Tool Use",
-    "description": "An AI agent skill for mcp tool use."
+    "name": "MCP Tool",
+    "description": "An AI agent skill for mcp tool."
   }
 }

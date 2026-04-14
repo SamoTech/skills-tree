@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "web-crawling",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -62,7 +62,7 @@
   "relatedSkills": [],
   "educationalLevel": "Advanced",
   "datePublished": "2025-03-01",
-  "keywords": "web, LLM skill, crawling, AI agent, skills tree",
+  "keywords": "AI agent, crawling, LLM skill, web, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Web Crawling",

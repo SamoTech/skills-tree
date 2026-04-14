@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/react.md",
-  "name": "ReAct — Reasoning + Acting",
-  "headline": "ReAct — Reasoning + Acting",
+  "name": "ReAct (Reason + Act)",
+  "headline": "ReAct (Reason + Act)",
   "description": "",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/react.md",
   "isPartOf": {
@@ -52,32 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "react",
   "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [
-    "What It Does",
-    "When to Use",
-    "Inputs / Outputs",
-    "Runnable Example",
-    "Framework Support",
-    "Failure Modes",
-    "Benchmarks",
-    "Related Skills",
-    "Changelog"
-  ],
-  "relatedSkills": [
-    "../../benchmarks/reasoning/react-vs-lats.md",
-    "../07-tool-use/tool-calling.md",
-    "../03-memory/memory-injection.md"
-  ],
-  "keywords": "LLM skill, skills tree, react, reasoning, AI agent",
+  "sections": [],
+  "relatedSkills": [],
+  "educationalLevel": "Intermediate",
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, LLM skill, react, skills tree, reasoning",
   "about": {
     "@type": "Thing",
-    "name": "ReAct — Reasoning + Acting",
-    "description": "An AI agent skill for react — reasoning + acting."
+    "name": "ReAct (Reason + Act)",
+    "description": "An AI agent skill for react (reason + act)."
   }
 }

@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-login.md",
-  "name": "Login / Authentication",
-  "headline": "Login / Authentication",
+  "name": "Web Login",
+  "headline": "Web Login",
   "description": "",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-login.md",
   "isPartOf": {
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "web-login",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -62,10 +62,10 @@
   "relatedSkills": [],
   "educationalLevel": "Intermediate",
   "datePublished": "2025-03-01",
-  "keywords": "web, LLM skill, login, AI agent, skills tree",
+  "keywords": "AI agent, LLM skill, web, login, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "Login / Authentication",
-    "description": "An AI agent skill for login / authentication."
+    "name": "Web Login",
+    "description": "An AI agent skill for web login."
   }
 }

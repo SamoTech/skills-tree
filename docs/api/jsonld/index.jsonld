@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 376,
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -281,7 +281,7 @@
       "@type": "ListItem",
       "position": 45,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
-      "name": "Chain of Thought (CoT)"
+      "name": "Chain of Thought"
     },
     {
       "@type": "ListItem",
@@ -389,7 +389,7 @@
       "@type": "ListItem",
       "position": 63,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/react.md",
-      "name": "ReAct — Reasoning + Acting"
+      "name": "ReAct (Reason + Act)"
     },
     {
       "@type": "ListItem",
@@ -551,7 +551,7 @@
       "@type": "ListItem",
       "position": 90,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/rag.md",
-      "name": "Retrieval-Augmented Generation (RAG)"
+      "name": "RAG (Retrieval-Augmented Generation)"
     },
     {
       "@type": "ListItem",
@@ -1091,7 +1091,7 @@
       "@type": "ListItem",
       "position": 180,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/mcp-tool.md",
-      "name": "MCP Tool Use"
+      "name": "MCP Tool"
     },
     {
       "@type": "ListItem",
@@ -1367,7 +1367,7 @@
       "@type": "ListItem",
       "position": 226,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/plan-and-execute.md",
-      "name": "Plan-and-Execute Pattern"
+      "name": "Plan-and-Execute"
     },
     {
       "@type": "ListItem",
@@ -1637,7 +1637,7 @@
       "@type": "ListItem",
       "position": 271,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-login.md",
-      "name": "Login / Authentication"
+      "name": "Web Login"
     },
     {
       "@type": "ListItem",

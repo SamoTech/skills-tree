@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "thread-based-resume",
   "skillVersion": null,
   "skillLevel": null,
@@ -70,7 +70,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "LLM skill, skills tree, based, resume, thread, orchestration, AI agent",
+  "keywords": "AI agent, LLM skill, resume, thread, based, skills tree, orchestration",
   "about": {
     "@type": "Thing",
     "name": "Thread-Based Resume",

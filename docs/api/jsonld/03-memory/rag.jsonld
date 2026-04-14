@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/rag.md",
-  "name": "Retrieval-Augmented Generation (RAG)",
-  "headline": "Retrieval-Augmented Generation (RAG)",
+  "name": "RAG (Retrieval-Augmented Generation)",
+  "headline": "RAG (Retrieval-Augmented Generation)",
   "description": "",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/rag.md",
   "isPartOf": {
@@ -52,18 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T13:43:51Z",
+  "dateModified": "2026-04-14T13:48:28Z",
   "skillId": "rag",
   "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
   "categoryDir": "03-memory",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "LLM skill, memory, AI agent, rag, skills tree",
+  "educationalLevel": "Intermediate",
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, LLM skill, rag, skills tree, memory",
   "about": {
     "@type": "Thing",
-    "name": "Retrieval-Augmented Generation (RAG)",
-    "description": "An AI agent skill for retrieval-augmented generation (rag)."
+    "name": "RAG (Retrieval-Augmented Generation)",
+    "description": "An AI agent skill for rag (retrieval-augmented generation)."
   }
 }

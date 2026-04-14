@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-14T13:43:51Z",
+  "generated": "2026-04-14T13:48:28Z",
   "count": 376,
   "skills": [
     {
@@ -997,24 +997,15 @@
     {
       "id": "chain-of-thought",
       "path": "skills/02-reasoning/chain-of-thought.md",
-      "name": "Chain of Thought (CoT)",
+      "name": "Chain of Thought",
       "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
+      "category": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
       "version": null,
-      "added": null,
+      "added": "2025-03",
       "last_updated": null,
-      "sections": [
-        "What It Does",
-        "When to Use",
-        "Inputs / Outputs",
-        "Runnable Example",
-        "Variants",
-        "Failure Modes",
-        "Related Skills",
-        "Changelog"
-      ],
+      "sections": [],
       "related": [],
       "category_dir": "02-reasoning"
     },
@@ -1286,11 +1277,11 @@
       "path": "skills/02-reasoning/planning.md",
       "name": "Planning",
       "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
+      "category": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
       "version": null,
-      "added": null,
+      "added": "2025-03",
       "last_updated": null,
       "sections": [],
       "related": [],
@@ -1356,30 +1347,16 @@
     {
       "id": "react",
       "path": "skills/02-reasoning/react.md",
-      "name": "ReAct — Reasoning + Acting",
+      "name": "ReAct (Reason + Act)",
       "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
+      "category": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
       "version": null,
-      "added": null,
+      "added": "2025-03",
       "last_updated": null,
-      "sections": [
-        "What It Does",
-        "When to Use",
-        "Inputs / Outputs",
-        "Runnable Example",
-        "Framework Support",
-        "Failure Modes",
-        "Benchmarks",
-        "Related Skills",
-        "Changelog"
-      ],
-      "related": [
-        "../../benchmarks/reasoning/react-vs-lats.md",
-        "../07-tool-use/tool-calling.md",
-        "../03-memory/memory-injection.md"
-      ],
+      "sections": [],
+      "related": [],
       "category_dir": "02-reasoning"
     },
     {
@@ -1920,13 +1897,13 @@
     {
       "id": "rag",
       "path": "skills/03-memory/rag.md",
-      "name": "Retrieval-Augmented Generation (RAG)",
+      "name": "RAG (Retrieval-Augmented Generation)",
       "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
+      "category": "memory",
+      "level": "intermediate",
+      "stability": "stable",
       "version": null,
-      "added": null,
+      "added": "2025-03",
       "last_updated": null,
       "sections": [],
       "related": [],
@@ -3413,13 +3390,13 @@
     {
       "id": "mcp-tool",
       "path": "skills/07-tool-use/mcp-tool.md",
-      "name": "MCP Tool Use",
+      "name": "MCP Tool",
       "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
+      "category": "tool-use",
+      "level": "intermediate",
+      "stability": "stable",
       "version": null,
-      "added": null,
+      "added": "2025-03",
       "last_updated": null,
       "sections": [],
       "related": [],
@@ -3523,9 +3500,7 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [],
-      "related": [
-        "../04-action-execution/notification-sending.md"
-      ],
+      "related": [],
       "category_dir": "07-tool-use"
     },
     {
@@ -3552,15 +3527,13 @@
       "name": "Stripe API",
       "description": "",
       "category": "tool-use",
-      "level": "advanced",
+      "level": "intermediate",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
       "last_updated": null,
       "sections": [],
-      "related": [
-        "../04-action-execution/notification-sending.md"
-      ],
+      "related": [],
       "category_dir": "07-tool-use"
     },
     {
@@ -3625,9 +3598,7 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [],
-      "related": [
-        "../04-action-execution/notification-sending.md"
-      ],
+      "related": [],
       "category_dir": "07-tool-use"
     },
     {
@@ -4223,13 +4194,13 @@
     {
       "id": "plan-and-execute",
       "path": "skills/09-agentic-patterns/plan-and-execute.md",
-      "name": "Plan-and-Execute Pattern",
+      "name": "Plan-and-Execute",
       "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
+      "category": "agentic-patterns",
+      "level": "intermediate",
+      "stability": "stable",
       "version": null,
-      "added": null,
+      "added": "2025-03",
       "last_updated": null,
       "sections": [],
       "related": [],
@@ -4548,7 +4519,7 @@
       "name": "Keyboard Type",
       "description": "",
       "category": "computer-use",
-      "level": "basic",
+      "level": "beginner",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
@@ -4563,7 +4534,7 @@
       "name": "Mouse Click",
       "description": "",
       "category": "computer-use",
-      "level": "basic",
+      "level": "beginner",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
@@ -4638,16 +4609,13 @@
       "name": "Screenshot Capture",
       "description": "",
       "category": "computer-use",
-      "level": "basic",
+      "level": "beginner",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
       "last_updated": null,
       "sections": [],
-      "related": [
-        "../01-perception/screen-reading.md",
-        "../01-perception/ocr.md"
-      ],
+      "related": [],
       "category_dir": "10-computer-use"
     },
     {
@@ -4771,9 +4739,7 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [],
-      "related": [
-        "../10-computer-use/screenshot-capture.md"
-      ],
+      "related": [],
       "category_dir": "11-web"
     },
     {
@@ -4946,7 +4912,7 @@
     {
       "id": "web-login",
       "path": "skills/11-web/web-login.md",
-      "name": "Login / Authentication",
+      "name": "Web Login",
       "description": "",
       "category": "web",
       "level": "intermediate",
@@ -5048,7 +5014,7 @@
       "name": "Anomaly Detection",
       "description": "",
       "category": "data",
-      "level": "advanced",
+      "level": "intermediate",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
@@ -5063,7 +5029,7 @@
       "name": "CSV Processing",
       "description": "",
       "category": "data",
-      "level": "basic",
+      "level": "beginner",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
@@ -5153,7 +5119,7 @@
       "name": "Data Visualization",
       "description": "",
       "category": "data",
-      "level": "intermediate",
+      "level": "beginner",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
