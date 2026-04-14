@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   count-and-update:
-    name: Recount skills & sync README badge
+    name: Count skills & update README
     runs-on: ubuntu-latest
 
     steps:
@@ -25,35 +25,51 @@ jobs:
       - name: Count skill files
         id: count
         run: |
-          # Count all .md files under skills/ excluding README files
           COUNT=$(find skills/ -name '*.md' ! -name 'README.md' | wc -l | tr -d ' ')
           echo "count=$COUNT" >> $GITHUB_OUTPUT
-          echo "Skill count: $COUNT"
+          echo "Found $COUNT skill files"
 
-      - name: Update skill count in README
+      - name: Count categories
+        id: cats
         run: |
-          COUNT=${{ steps.count.outputs.count }}
-          # Update the shields.io badge label in README
-          # Matches pattern: label=515%2B%20Skills or similar
-          sed -i "s|label=[0-9]*%2B%20Skills|label=${COUNT}%2B%20Skills|g" README.md
-          # Also update any plain-text skill count mentions like "515+"
-          # Only replace standalone count in the stats/badges area
-          sed -i "s|\(Skills\).*\([0-9]\{3,\}+\)|\1 ${COUNT}+|g" README.md || true
+          CATS=$(find skills/ -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          echo "count=$CATS" >> $GITHUB_OUTPUT
 
-      - name: Update skill count in docs/index.html
+      - name: Patch README & docs
         run: |
-          COUNT=${{ steps.count.outputs.count }}
-          # Update the hero stat in the docs site
-          sed -i "s|data-target=\"[0-9]*\"|data-target=\"${COUNT}\"|1" docs/index.html || true
+          SKILLS=${{ steps.count.outputs.count }}
+          CATS=${{ steps.cats.outputs.count }}
 
-      - name: Commit if changed
+          # Update shields.io badge URLs for skills count
+          sed -i "s|skills-[0-9]*%2B-|skills-${SKILLS}%2B-|g" README.md
+          sed -i "s|Skills-[0-9]*%2B|Skills-${SKILLS}%2B|g" README.md
+
+          # Update categories count badge
+          sed -i "s|categories-[0-9]*-|categories-${CATS}-|g" README.md
+
+          # Update docs hero counter
+          sed -i "s|data-target=\"[0-9]*\"|data-target=\"${SKILLS}\"|1" docs/index.html || true
+
+          echo "Updated README: $SKILLS skills, $CATS categories"
+
+      - name: Commit & push with rebase retry
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md docs/index.html
           if git diff --cached --quiet; then
-            echo 'Skill count unchanged — no commit needed.'
-          else
-            git commit -m "chore: sync skill count badge → ${{ steps.count.outputs.count }}+"
-            git push
+            echo "Skill count unchanged — no commit needed."
+            exit 0
           fi
+          git commit -m "chore: sync skill count badges → ${{ steps.count.outputs.count }} skills"
+          for attempt in 1 2 3 4 5; do
+            git push origin main && {
+              echo "✅ Pushed (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push rejected (attempt ${attempt}/5) — rebasing..."
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: All push attempts failed."
+          exit 1
