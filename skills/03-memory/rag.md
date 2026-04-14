@@ -8,7 +8,7 @@ description: "Apply RAG in AI agent workflows."
 dependencies:
   - package: langchain
     min_version: "0.2.0"
-    tested_version: "1.2.15"
+    tested_version: "0.4.1"
     confidence: verified
   - package: langchain-openai
     min_version: "0.1.0"
