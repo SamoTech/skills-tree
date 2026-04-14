@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/knowledge-graph-reading.md",
+  "name": "Knowledge Graph Reading",
+  "headline": "Knowledge Graph Reading",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/knowledge-graph-reading.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "knowledge-graph-reading",
+  "skillVersion": null,
+  "skillLevel": null,
+  "skillStability": null,
+  "categoryDir": "01-perception",
+  "sections": [
+    "Description",
+    "Inputs",
+    "Outputs",
+    "Example",
+    "Frameworks",
+    "Failure Modes",
+    "Related",
+    "Changelog"
+  ],
+  "relatedSkills": [],
+  "keywords": "skills tree, knowledge, perception, graph, AI agent, reading, LLM skill",
+  "about": {
+    "@type": "Thing",
+    "name": "Knowledge Graph Reading",
+    "description": "An AI agent skill for knowledge graph reading."
+  }
+}

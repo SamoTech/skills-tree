@@ -1,0 +1,69 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-generation.md",
+  "name": "Code Generation",
+  "headline": "Code Generation",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-generation.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "code-generation",
+  "skillVersion": null,
+  "skillLevel": null,
+  "skillStability": null,
+  "categoryDir": "05-code",
+  "sections": [],
+  "relatedSkills": [],
+  "keywords": "skills tree, code, AI agent, LLM skill, generation",
+  "about": {
+    "@type": "Thing",
+    "name": "Code Generation",
+    "description": "An AI agent skill for code generation."
+  }
+}

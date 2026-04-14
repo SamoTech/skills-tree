@@ -1,0 +1,73 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/drug-interaction.md",
+  "name": "drug-interaction",
+  "headline": "drug-interaction",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/drug-interaction.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "drug-interaction",
+  "skillVersion": null,
+  "skillLevel": "advanced",
+  "skillStability": "stable",
+  "categoryDir": "16-domain-specific",
+  "sections": [],
+  "relatedSkills": [
+    "../03-memory/fact-verification-memory.md"
+  ],
+  "educationalLevel": "Advanced",
+  "datePublished": "2026-04-01",
+  "keywords": "interaction, domain, skills tree, drug, specific, AI agent, LLM skill",
+  "about": {
+    "@type": "Thing",
+    "name": "drug-interaction",
+    "description": "An AI agent skill for drug-interaction."
+  }
+}

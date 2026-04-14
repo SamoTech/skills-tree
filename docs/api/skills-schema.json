@@ -33,15 +33,13 @@
       "type": [
         "string",
         "null"
-      ],
-      "description": "Skill category slug from frontmatter"
+      ]
     },
     "category_dir": {
       "type": [
         "string",
         "null"
-      ],
-      "description": "Top-level category directory (e.g. 01-perception)"
+      ]
     },
     "level": {
       "type": [
@@ -97,15 +95,13 @@
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "H2 section headings present in the file"
+      }
     },
     "related": {
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "description": "Relative paths of related skill files"
+      }
     }
   },
   "additionalProperties": false

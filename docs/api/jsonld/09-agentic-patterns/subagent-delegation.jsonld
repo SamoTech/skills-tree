@@ -1,0 +1,74 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/subagent-delegation.md",
+  "name": "Subagent Delegation",
+  "headline": "Subagent Delegation",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/subagent-delegation.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "subagent-delegation",
+  "skillVersion": null,
+  "skillLevel": "advanced",
+  "skillStability": "stable",
+  "categoryDir": "09-agentic-patterns",
+  "sections": [],
+  "relatedSkills": [
+    "../07-tool-use/a2a-tool.md",
+    "../15-orchestration/agent-handoff.md"
+  ],
+  "educationalLevel": "Advanced",
+  "datePublished": "2025-03-01",
+  "keywords": "skills tree, patterns, AI agent, agentic, LLM skill, delegation, subagent",
+  "about": {
+    "@type": "Thing",
+    "name": "Subagent Delegation",
+    "description": "An AI agent skill for subagent delegation."
+  }
+}

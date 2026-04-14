@@ -1,0 +1,79 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
+  "name": "Time-Travel Debugging",
+  "headline": "Time-Travel Debugging",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "time-travel-debugging",
+  "skillVersion": null,
+  "skillLevel": null,
+  "skillStability": null,
+  "categoryDir": "09-agentic-patterns",
+  "sections": [
+    "Description",
+    "Inputs",
+    "Outputs",
+    "Example",
+    "Failure Modes",
+    "Prompt Patterns",
+    "Model Comparison",
+    "Related",
+    "Changelog"
+  ],
+  "relatedSkills": [],
+  "keywords": "skills tree, patterns, agentic, travel, time, AI agent, debugging, LLM skill",
+  "about": {
+    "@type": "Thing",
+    "name": "Time-Travel Debugging",
+    "description": "An AI agent skill for time-travel debugging."
+  }
+}

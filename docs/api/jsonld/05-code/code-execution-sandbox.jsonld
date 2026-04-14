@@ -1,0 +1,73 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-execution-sandbox.md",
+  "name": "Code Execution (Sandbox)",
+  "headline": "Code Execution (Sandbox)",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-execution-sandbox.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "code-execution-sandbox",
+  "skillVersion": null,
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
+  "categoryDir": "05-code",
+  "sections": [],
+  "relatedSkills": [
+    "../04-action-execution/shell-command.md"
+  ],
+  "educationalLevel": "Intermediate",
+  "datePublished": "2025-03-01",
+  "keywords": "skills tree, code, execution, sandbox, AI agent, LLM skill",
+  "about": {
+    "@type": "Thing",
+    "name": "Code Execution (Sandbox)",
+    "description": "An AI agent skill for code execution (sandbox)."
+  }
+}

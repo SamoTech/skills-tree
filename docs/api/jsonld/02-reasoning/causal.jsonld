@@ -1,0 +1,80 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/causal.md",
+  "name": "Causal Reasoning",
+  "headline": "Causal Reasoning",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-causal.json)",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/causal.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "causal",
+  "skillVersion": null,
+  "skillLevel": "advanced",
+  "skillStability": "stable",
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "Inputs",
+    "Outputs",
+    "Example",
+    "Frameworks & Models",
+    "Notes",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": "Advanced",
+  "datePublished": "2025-03-01",
+  "keywords": "skills tree, reasoning, AI agent, causal, LLM skill",
+  "about": {
+    "@type": "Thing",
+    "name": "Causal Reasoning",
+    "description": "An AI agent skill for causal reasoning."
+  }
+}

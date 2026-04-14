@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
+  "name": "Chain of Thought (CoT)",
+  "headline": "Chain of Thought (CoT)",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "chain-of-thought",
+  "skillVersion": null,
+  "skillLevel": null,
+  "skillStability": null,
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "What It Does",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Variants",
+    "Failure Modes",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [],
+  "keywords": "skills tree, reasoning, of, AI agent, LLM skill, thought, chain",
+  "about": {
+    "@type": "Thing",
+    "name": "Chain of Thought (CoT)",
+    "description": "An AI agent skill for chain of thought (cot)."
+  }
+}

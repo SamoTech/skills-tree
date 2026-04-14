@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/goal-setting.md",
+  "name": "Goal Setting",
+  "headline": "Goal Setting",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-goal-setting.json)",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/goal-setting.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "goal-setting",
+  "skillVersion": "v2",
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "SMART Goal Framework",
+    "Goal Hierarchy",
+    "Prompt Pattern",
+    "Agentic Goal Tracking",
+    "Related Skills"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": "Intermediate",
+  "datePublished": "2025-03-01",
+  "keywords": "skills tree, reasoning, setting, AI agent, LLM skill, goal",
+  "about": {
+    "@type": "Thing",
+    "name": "Goal Setting",
+    "description": "An AI agent skill for goal setting."
+  }
+}

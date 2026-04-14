@@ -1,0 +1,75 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
+  "name": "invoice-processing",
+  "headline": "invoice-processing",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-04-14T13:17:35Z",
+  "skillId": "invoice-processing",
+  "skillVersion": null,
+  "skillLevel": "advanced",
+  "skillStability": "stable",
+  "categoryDir": "16-domain-specific",
+  "sections": [],
+  "relatedSkills": [
+    "../01-perception/ocr.md",
+    "../01-perception/document-parsing.md",
+    "../12-data/data-cleaning.md"
+  ],
+  "educationalLevel": "Advanced",
+  "datePublished": "2026-04-01",
+  "keywords": "domain, skills tree, processing, specific, AI agent, LLM skill, invoice",
+  "about": {
+    "@type": "Thing",
+    "name": "invoice-processing",
+    "description": "An AI agent skill for invoice-processing."
+  }
+}
