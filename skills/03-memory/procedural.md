@@ -49,6 +49,7 @@ Store, retrieve, and execute step-by-step procedures — how-to knowledge for re
 ## Example
 
 ```python
+# pip install mem0ai anthropic
 import anthropic
 from mem0 import MemoryClient
 import json
@@ -74,8 +75,7 @@ def retrieve_procedure(task: str, user_id: str) -> dict:
     if not procs:
         return {"applicable": False, "steps": []}
 
-    # Let LLM pick the best match
-    response = lm_client.messages.create(
+    response = llm_client.messages.create(
         model="claude-opus-4-5",
         max_tokens=1024,
         messages=[{
@@ -111,7 +111,7 @@ store_procedure(
 
 | Framework / Model | Implementation | Since |
 |---|---|---|
-| mem0 | `add()` + `search()` with type metadata | v1.0 |
+| mem0ai | `add()` + `search()` with type metadata | v1.0 |
 | LangChain | `VectorStore` with procedure schema | v0.1 |
 | LangGraph | Procedure retrieval node | v0.1 |
 
@@ -137,5 +137,6 @@ store_procedure(
 
 | Date | Change |
 |---|---|
+| `2026-04` | Fixed PyPI package name: mem0 → mem0ai |
 | `2026-04` | Expanded from stub: store+retrieve pattern, versioning note, mem0 example |
 | `2025-03` | Initial stub entry |

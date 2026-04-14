@@ -23,6 +23,7 @@ Converts spoken audio into structured text with word-level timestamps, speaker d
 
 ### Example
 ```python
+# pip install openai-whisper torch pyannote.audio
 import whisper, torch
 from pyannote.audio import Pipeline
 

@@ -23,12 +23,12 @@ Extracts semantic meaning, spatial relationships, objects, text, and contextual 
 
 ### Example
 ```python
+# pip install openai httpx
 from openai import OpenAI
 import base64, httpx
 
 def vqa(image_url: str, question: str) -> str:
     client = OpenAI()
-    # Download and encode if local path
     img_b64 = base64.b64encode(httpx.get(image_url).content).decode()
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -44,6 +44,7 @@ def vqa(image_url: str, question: str) -> str:
     return response.choices[0].message.content
 
 # Advanced: grounding via Grounding DINO
+# pip install groundingdino-py
 from groundingdino.util.inference import load_model, predict
 def ground_objects(image_path: str, caption: str) -> list[dict]:
     model = load_model("groundingdino_swint_ogc.py", "groundingdino_swint_ogc.pth")

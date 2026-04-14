@@ -23,6 +23,7 @@ Interact with Google Docs, Sheets, Drive, Gmail, and Calendar programmatically v
 ### Example
 
 ```python
+# pip install google-api-python-client google-auth
 from googleapiclient.discovery import build
 
 # Read a Google Sheet
