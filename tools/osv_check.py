@@ -15,6 +15,10 @@ badge-data branch commit step.
 SLA: badges updated within 15 minutes of CVE appearing in OSV database.
 This SLA is documented in meta/badge-states.md.
 
+Exit codes:
+  0 — scan completed successfully (advisories found or not — both are success)
+  1 — scan could not complete (missing SBOM, network error, etc.)
+
 Usage:
     python tools/osv_check.py [--sbom meta/skills-sbom.cdx.json] [--dry-run]
 """
@@ -160,7 +164,7 @@ def write_github_output(key: str, value: str):
         print(f"::set-output name={key}::{value}")
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="OSV CVE watchdog for Skills Tree.")
     parser.add_argument("--sbom", default="meta/skills-sbom.cdx.json", help="Path to CycloneDX SBOM")
     parser.add_argument("--badge-output", default="badge-data-output", help="Output dir for badge JSONs")
@@ -174,6 +178,7 @@ def main():
     if not components:
         print("No components in SBOM. Nothing to scan.")
         write_github_output("has_hits", "false")
+        # Not a script error — SBOM may legitimately be empty before AST sweep.
         return 0
 
     print(f"Querying OSV for {len(components)} packages...")
@@ -184,7 +189,7 @@ def main():
         write_github_output("has_hits", "false")
         return 0
 
-    # Summarize
+    # ── Summarize findings ────────────────────────────────────────────────────
     affected_skills: set[str] = set()
     for hit in hits:
         for skill in hit["usedIn"]:
@@ -199,9 +204,10 @@ def main():
     if args.dry_run:
         print("[DRY RUN] Skipping file writes.")
         write_github_output("has_hits", "true")
-        return 1
+        # Dry-run is a preview, not an error.
+        return 0
 
-    # Write advisory badge JSONs
+    # ── Write advisory badge JSONs ────────────────────────────────────────────
     badge_output = Path(args.badge_output)
     badge_output.mkdir(parents=True, exist_ok=True)
     badges_written = 0
@@ -212,7 +218,7 @@ def main():
             (badge_output / f"{key}.json").write_text(json.dumps(badge, indent=2))
             badges_written += 1
 
-    # Write full advisory file for the Action to post as a comment
+    # ── Write full advisory file for the Action to post as a comment ─────────
     advisory_data = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "sla": "15-minute OSV polling",
@@ -229,8 +235,10 @@ def main():
     print(f"Wrote advisory data to {args.advisory_file}")
 
     write_github_output("has_hits", "true")
-    return 1
+    # Advisories found and written — scan succeeded. Exit 0.
+    # Downstream steps use has_hits=true to decide whether to commit badge data.
+    return 0
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())
