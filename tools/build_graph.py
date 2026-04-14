@@ -8,7 +8,7 @@ Parses every skill file under skills/**/*.md, extracts cross-skill
 The JSON format is consumed by docs/graph.html (D3 force-directed graph).
 
 Usage:
-    python3 tools/build_graph.py
+    python tools/build_graph.py
 
 Output:
     docs/api/graph.json
@@ -139,9 +139,13 @@ def build_graph() -> dict:
     # ---- Stats ----
     node_count = len(nodes)
     link_count = len(links)
-    isolated = sum(1 for n in nodes if not any(
-        l["source"] == n["id"] or l["target"] == n["id"] for l in links
-    ))
+
+    # Use a set-based check for performance with large graphs
+    linked_ids: set[str] = set()
+    for l in links:
+        linked_ids.add(l["source"])
+        linked_ids.add(l["target"])
+    isolated = sum(1 for n in nodes if n["id"] not in linked_ids)
 
     # Top connected nodes
     degree: dict[str, int] = {}
@@ -155,7 +159,7 @@ def build_graph() -> dict:
     ]
 
     return {
-        "generated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "generated": datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "stats": {
             "nodes": node_count,
             "links": link_count,
