@@ -1,0 +1,5369 @@
+generated: '2026-04-14T00:16:09Z'
+count: 356
+skills:
+- id: README
+  path: skills/01-perception/README.md
+  name: 👁️ Perception Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 01-perception
+- id: api-response-parsing
+  path: skills/01-perception/api-response-parsing.md
+  name: API Response Parsing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 01-perception
+- id: audio-transcription
+  path: skills/01-perception/audio-transcription.md
+  name: Audio Transcription
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 01-perception
+- id: binary-file-reading
+  path: skills/01-perception/binary-file-reading.md
+  name: Binary File Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: calendar-parsing
+  path: skills/01-perception/calendar-parsing.md
+  name: Calendar Parsing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: chart-reading
+  path: skills/01-perception/chart-reading.md
+  name: Chart Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-chart-reading.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: code-reading
+  path: skills/01-perception/code-reading.md
+  name: Code Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-code-reading.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: contract-reading
+  path: skills/01-perception/contract-reading.md
+  name: Contract Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: conversation-history-reading
+  path: skills/01-perception/conversation-history-reading.md
+  name: Conversation History Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: database-reading
+  path: skills/01-perception/database-reading.md
+  name: Database Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-database-reading.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: document-parsing
+  path: skills/01-perception/document-parsing.md
+  name: Document Parsing
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - Input / Output
+  - Implementation
+  - Frameworks
+  - Edge Cases
+  - Related Skills
+  related: []
+  category_dir: 01-perception
+- id: email-parsing
+  path: skills/01-perception/email-parsing.md
+  name: Email Parsing
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-email-parsing.json)'
+  category: perception
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: file-system-reading
+  path: skills/01-perception/file-system-reading.md
+  name: File System Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-file-system-reading.json)'
+  category: perception
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: geospatial-reading
+  path: skills/01-perception/geospatial-reading.md
+  name: Geospatial Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: git-diff-reading
+  path: skills/01-perception/git-diff-reading.md
+  name: Git Diff Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: handwriting-recognition
+  path: skills/01-perception/handwriting-recognition.md
+  name: Handwriting Recognition
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-handwriting-recognition.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: html-reading
+  path: skills/01-perception/html-reading.md
+  name: HTML Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: image-understanding
+  path: skills/01-perception/image-understanding.md
+  name: Image Understanding
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 01-perception
+- id: json-schema-validation
+  path: skills/01-perception/json-schema-validation.md
+  name: JSON Schema Validation
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: knowledge-graph-reading
+  path: skills/01-perception/knowledge-graph-reading.md
+  name: Knowledge Graph Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: log-parsing
+  path: skills/01-perception/log-parsing.md
+  name: Log Parsing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: markdown-parsing
+  path: skills/01-perception/markdown-parsing.md
+  name: Markdown Parsing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: multimodal-document-reading
+  path: skills/01-perception/multimodal-document-reading.md
+  name: Multimodal Document Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: network-traffic-reading
+  path: skills/01-perception/network-traffic-reading.md
+  name: Network Traffic Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: ocr
+  path: skills/01-perception/ocr.md
+  name: OCR (Optical Character Recognition)
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-ocr.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - Approaches
+  - Implementation
+  - Preprocessing Best Practices
+  - Related Skills
+  related: []
+  category_dir: 01-perception
+- id: pdf-parsing
+  path: skills/01-perception/pdf-parsing.md
+  name: PDF Parsing
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-pdf-parsing.json)'
+  category: perception
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: screen-reading
+  path: skills/01-perception/screen-reading.md
+  name: Screen Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-screen-reading.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: sensor-reading
+  path: skills/01-perception/sensor-reading.md
+  name: Sensor Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-sensor-reading.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: social-media-reading
+  path: skills/01-perception/social-media-reading.md
+  name: Social Media Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: spreadsheet-reading
+  path: skills/01-perception/spreadsheet-reading.md
+  name: Spreadsheet Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: structured-data-reading
+  path: skills/01-perception/structured-data-reading.md
+  name: Structured Data Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-structured-data-reading.json)'
+  category: perception
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: table-extraction
+  path: skills/01-perception/table-extraction.md
+  name: Table Extraction
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: text-reading
+  path: skills/01-perception/text-reading.md
+  name: Text Reading
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-text-reading.json)'
+  category: perception
+  level: basic
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - Core Operations
+  - Implementation
+  - Chunking Strategy Guide
+  - Related Skills
+  related: []
+  category_dir: 01-perception
+- id: time-series-reading
+  path: skills/01-perception/time-series-reading.md
+  name: Time Series Reading
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: url-dom-inspection
+  path: skills/01-perception/url-dom-inspection.md
+  name: URL / DOM Inspection
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-url-dom-inspection.json)'
+  category: perception
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: video-understanding
+  path: skills/01-perception/video-understanding.md
+  name: Video Understanding
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 01-perception
+- id: xml-parsing
+  path: skills/01-perception/xml-parsing.md
+  name: XML Parsing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: README
+  path: skills/02-reasoning/README.md
+  name: 🧠 Reasoning Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 02-reasoning
+- id: abductive
+  path: skills/02-reasoning/abductive.md
+  name: Abductive Reasoning
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-abductive.json)'
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related:
+  - ../03-memory/fact-verification.md
+  category_dir: 02-reasoning
+- id: analogical
+  path: skills/02-reasoning/analogical.md
+  name: Analogical Reasoning
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-analogical.json)'
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: analogy-generation
+  path: skills/02-reasoning/analogy-generation.md
+  name: Analogy Generation
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: argument-structure-analysis
+  path: skills/02-reasoning/argument-structure-analysis.md
+  name: Argument Structure Analysis
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: bayesian-reasoning
+  path: skills/02-reasoning/bayesian-reasoning.md
+  name: Bayesian Reasoning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Frameworks
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: causal
+  path: skills/02-reasoning/causal.md
+  name: Causal Reasoning
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-causal.json)'
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: chain-of-thought
+  path: skills/02-reasoning/chain-of-thought.md
+  name: Chain of Thought (CoT)
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Variants
+  - Failure Modes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: commonsense
+  path: skills/02-reasoning/commonsense.md
+  name: Commonsense Reasoning
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-commonsense.json)'
+  category: reasoning
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related:
+  - ../03-memory/fact-verification.md
+  category_dir: 02-reasoning
+- id: constraint-satisfaction
+  path: skills/02-reasoning/constraint-satisfaction.md
+  name: Constraint Satisfaction
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-constraint-satisfaction.json)'
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - Formal Definition
+  - Example — Meeting Scheduler
+  - Solving Strategies
+  - Python Example (python-constraint)
+  - LLM Prompt Pattern
+  - Related Skills
+  related: []
+  category_dir: 02-reasoning
+- id: counterfactual-reasoning
+  path: skills/02-reasoning/counterfactual-reasoning.md
+  name: Counterfactual Reasoning
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-counterfactual-reasoning.json)'
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - Counterfactual vs. Hypothetical
+  - Reasoning Steps
+  - Example — Root Cause Analysis
+  - Prompt Pattern
+  - Failure Modes
+  - Related Skills
+  related: []
+  category_dir: 02-reasoning
+- id: decision-making
+  path: skills/02-reasoning/decision-making.md
+  name: Decision Making
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 02-reasoning
+- id: deductive-reasoning
+  path: skills/02-reasoning/deductive-reasoning.md
+  name: Deductive Reasoning
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-deductive-reasoning.json)'
+  category: reasoning
+  level: basic
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - Core Forms
+  - Prompt Pattern
+  - Common Fallacies to Avoid
+  - Related Skills
+  related: []
+  category_dir: 02-reasoning
+- id: ethical-reasoning
+  path: skills/02-reasoning/ethical-reasoning.md
+  name: Ethical Reasoning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: goal-setting
+  path: skills/02-reasoning/goal-setting.md
+  name: Goal Setting
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-goal-setting.json)'
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: null
+  sections:
+  - Description
+  - SMART Goal Framework
+  - Goal Hierarchy
+  - Prompt Pattern
+  - Agentic Goal Tracking
+  - Related Skills
+  related: []
+  category_dir: 02-reasoning
+- id: hypothesis-generation
+  path: skills/02-reasoning/hypothesis-generation.md
+  name: Hypothesis Generation
+  description: ''
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 02-reasoning
+- id: inductive-reasoning
+  path: skills/02-reasoning/inductive-reasoning.md
+  name: Inductive Reasoning
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/statistical-analysis.md
+  category_dir: 02-reasoning
+- id: mathematical-reasoning
+  path: skills/02-reasoning/mathematical-reasoning.md
+  name: Mathematical Reasoning
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/calculator.md
+  category_dir: 02-reasoning
+- id: meta-cognition
+  path: skills/02-reasoning/meta-cognition.md
+  name: Meta-Cognition
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: multi-step-planning
+  path: skills/02-reasoning/multi-step-planning.md
+  name: Multi-Step Planning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: numerical-estimation
+  path: skills/02-reasoning/numerical-estimation.md
+  name: Numerical Estimation
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: planning
+  path: skills/02-reasoning/planning.md
+  name: Planning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 02-reasoning
+- id: prioritization
+  path: skills/02-reasoning/prioritization.md
+  name: Prioritization
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 02-reasoning
+- id: probabilistic-reasoning
+  path: skills/02-reasoning/probabilistic-reasoning.md
+  name: Probabilistic Reasoning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: problem-decomposition
+  path: skills/02-reasoning/problem-decomposition.md
+  name: Problem Decomposition
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: react
+  path: skills/02-reasoning/react.md
+  name: ReAct — Reasoning + Acting
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Framework Support
+  - Failure Modes
+  - Benchmarks
+  - Related Skills
+  - Changelog
+  related:
+  - ../../benchmarks/reasoning/react-vs-lats.md
+  - ../07-tool-use/tool-calling.md
+  - ../03-memory/memory-injection.md
+  category_dir: 02-reasoning
+- id: risk-assessment
+  path: skills/02-reasoning/risk-assessment.md
+  name: Risk Assessment
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: root-cause-analysis
+  path: skills/02-reasoning/root-cause-analysis.md
+  name: Root Cause Analysis
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: scenario-planning
+  path: skills/02-reasoning/scenario-planning.md
+  name: Scenario Planning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: self-correction
+  path: skills/02-reasoning/self-correction.md
+  name: Self-Correction
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/debugging.md
+  category_dir: 02-reasoning
+- id: self-reflection
+  path: skills/02-reasoning/self-reflection.md
+  name: Self-Reflection
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: socratic-questioning
+  path: skills/02-reasoning/socratic-questioning.md
+  name: Socratic Questioning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: spatial-reasoning
+  path: skills/02-reasoning/spatial-reasoning.md
+  name: Spatial Reasoning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: systems-thinking
+  path: skills/02-reasoning/systems-thinking.md
+  name: Systems Thinking
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: task-decomposition
+  path: skills/02-reasoning/task-decomposition.md
+  name: Task Decomposition
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../15-orchestration/subagent-spawning.md
+  category_dir: 02-reasoning
+- id: temporal-reasoning
+  path: skills/02-reasoning/temporal-reasoning.md
+  name: Temporal Reasoning
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: trade-off-analysis
+  path: skills/02-reasoning/trade-off-analysis.md
+  name: Trade-off Analysis
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: tree-of-thought
+  path: skills/02-reasoning/tree-of-thought.md
+  name: Tree of Thought (ToT)
+  description: ''
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../09-agentic-patterns/mcts.md
+  category_dir: 02-reasoning
+- id: uncertainty-quantification
+  path: skills/02-reasoning/uncertainty-quantification.md
+  name: Uncertainty Quantification
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Description
+  - Example
+  - Failure Modes
+  - Related
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: README
+  path: skills/03-memory/README.md
+  name: 🧠 Memory Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Memory Types
+  - Skills in This Category
+  related: []
+  category_dir: 03-memory
+- id: cross-session-persistence
+  path: skills/03-memory/cross-session-persistence.md
+  name: Cross-Session Persistence
+  description: ''
+  category: memory
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: episodic-memory
+  path: skills/03-memory/episodic-memory.md
+  name: Episodic Memory
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: fact-verification-memory
+  path: skills/03-memory/fact-verification-memory.md
+  name: Fact Verification Memory
+  description: ''
+  category: memory
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/self-correction.md
+  category_dir: 03-memory
+- id: fact-verification
+  path: skills/03-memory/fact-verification.md
+  name: Fact Verification
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-fact-verification.json)'
+  category: memory
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related:
+  - ../02-reasoning/abductive.md
+  category_dir: 03-memory
+- id: forgetting
+  path: skills/03-memory/forgetting.md
+  name: Forgetting
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-forgetting.json)'
+  category: memory
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
+- id: long-term-memory
+  path: skills/03-memory/long-term-memory.md
+  name: Long-Term Memory
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: memory-injection
+  path: skills/03-memory/memory-injection.md
+  name: Memory Injection
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Production Upgrade Path
+  - Framework Support
+  - Failure Modes
+  - Benchmarks
+  - Related Skills
+  - Changelog
+  related:
+  - ../../benchmarks/memory/injection-strategies.md
+  - ../09-agentic-patterns/rag.md
+  category_dir: 03-memory
+- id: memory-summarization
+  path: skills/03-memory/memory-summarization.md
+  name: Memory Summarization
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-memory-summarization.json)'
+  category: memory
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
+- id: procedural-memory
+  path: skills/03-memory/procedural-memory.md
+  name: Procedural Memory
+  description: ''
+  category: memory
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/planning.md
+  category_dir: 03-memory
+- id: procedural
+  path: skills/03-memory/procedural.md
+  name: Procedural Memory
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural.json)'
+  category: memory
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
+- id: rag
+  path: skills/03-memory/rag.md
+  name: Retrieval-Augmented Generation (RAG)
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: semantic-memory
+  path: skills/03-memory/semantic-memory.md
+  name: Semantic Memory
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: short-term-memory
+  path: skills/03-memory/short-term-memory.md
+  name: Short-Term Memory
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: user-profile-memory
+  path: skills/03-memory/user-profile-memory.md
+  name: User Profile Memory
+  description: ''
+  category: memory
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: user-profile
+  path: skills/03-memory/user-profile.md
+  name: User Profile
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-user-profile.json)'
+  category: memory
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Notes
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
+- id: vector-store-retrieval
+  path: skills/03-memory/vector-store-retrieval.md
+  name: Vector Store Retrieval
+  description: ''
+  category: memory
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/similarity-search.md
+  - ../12-data/embedding-generation.md
+  category_dir: 03-memory
+- id: working-memory
+  path: skills/03-memory/working-memory.md
+  name: Working Memory
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 03-memory
+- id: README
+  path: skills/04-action-execution/README.md
+  name: ⚡ Action Execution Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 04-action-execution
+- id: api-call
+  path: skills/04-action-execution/api-call.md
+  name: API Call
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 04-action-execution
+- id: assertion
+  path: skills/04-action-execution/assertion.md
+  name: Assertion / Verification
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/unit-test-generation.md
+  - ../02-reasoning/self-correction.md
+  category_dir: 04-action-execution
+- id: calendar-event
+  path: skills/04-action-execution/calendar-event.md
+  name: Calendar Event Creation
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 04-action-execution
+- id: clipboard-ops
+  path: skills/04-action-execution/clipboard-ops.md
+  name: Clipboard Operations
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 04-action-execution
+- id: database-write
+  path: skills/04-action-execution/database-write.md
+  name: Database Write
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/database-reading.md
+  - ../05-code/sql-query-generation.md
+  category_dir: 04-action-execution
+- id: drag-drop
+  path: skills/04-action-execution/drag-drop.md
+  name: Drag and Drop
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 04-action-execution
+- id: email-sending
+  path: skills/04-action-execution/email-sending.md
+  name: Email Sending
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/email-parsing.md
+  - ../07-tool-use/sendgrid-api.md
+  category_dir: 04-action-execution
+- id: env-vars
+  path: skills/04-action-execution/env-vars.md
+  name: Environment Variable Management
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../14-security/secret-scanning.md
+  category_dir: 04-action-execution
+- id: file-append
+  path: skills/04-action-execution/file-append.md
+  name: File Append
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 04-action-execution
+- id: file-delete
+  path: skills/04-action-execution/file-delete.md
+  name: File Delete
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../14-security/rollback-undo.md
+  category_dir: 04-action-execution
+- id: file-write
+  path: skills/04-action-execution/file-write.md
+  name: File Write
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 04-action-execution
+- id: form-submission
+  path: skills/04-action-execution/form-submission.md
+  name: Form Submission
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/browser-navigation.md
+  - ../11-web/form-filling.md
+  category_dir: 04-action-execution
+- id: http-request
+  path: skills/04-action-execution/http-request.md
+  name: HTTP Request
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/api-response-parsing.md
+  - ../07-tool-use/custom-api-wrapper.md
+  category_dir: 04-action-execution
+- id: keyboard-input
+  path: skills/04-action-execution/keyboard-input.md
+  name: Keyboard Input
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../10-computer-use/keyboard-type.md
+  category_dir: 04-action-execution
+- id: mouse-input
+  path: skills/04-action-execution/mouse-input.md
+  name: Mouse Input
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../10-computer-use/mouse-click.md
+  category_dir: 04-action-execution
+- id: notification-sending
+  path: skills/04-action-execution/notification-sending.md
+  name: Notification Sending
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/slack-api.md
+  category_dir: 04-action-execution
+- id: process-management
+  path: skills/04-action-execution/process-management.md
+  name: Process Management
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../10-computer-use/terminal-interaction.md
+  category_dir: 04-action-execution
+- id: screenshot-capture
+  path: skills/04-action-execution/screenshot-capture.md
+  name: Screenshot Capture (Action)
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../10-computer-use/screenshot-capture.md
+  - ../10-computer-use/screen-ocr.md
+  category_dir: 04-action-execution
+- id: scroll
+  path: skills/04-action-execution/scroll.md
+  name: Scroll
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/browser-navigation.md
+  category_dir: 04-action-execution
+- id: shell-command
+  path: skills/04-action-execution/shell-command.md
+  name: Shell Command Execution
+  description: ''
+  category: action-execution
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/code-execution-sandbox.md
+  category_dir: 04-action-execution
+- id: wait-sleep
+  path: skills/04-action-execution/wait-sleep.md
+  name: Wait / Sleep
+  description: ''
+  category: action-execution
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../15-orchestration/retry-backoff.md
+  category_dir: 04-action-execution
+- id: README
+  path: skills/05-code/README.md
+  name: 💻 Code Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 05-code
+- id: algorithm-design
+  path: skills/05-code/algorithm-design.md
+  name: Algorithm Design
+  description: ''
+  category: code
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: api-client-generation
+  path: skills/05-code/api-client-generation.md
+  name: API Client Generation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/http-request.md
+  category_dir: 05-code
+- id: bug-fixing
+  path: skills/05-code/bug-fixing.md
+  name: Bug Fixing
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: cicd-generation
+  path: skills/05-code/cicd-generation.md
+  name: CI/CD Pipeline Generation
+  description: ''
+  category: code
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: code-execution-sandbox
+  path: skills/05-code/code-execution-sandbox.md
+  name: Code Execution (Sandbox)
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/shell-command.md
+  category_dir: 05-code
+- id: code-explanation
+  path: skills/05-code/code-explanation.md
+  name: Code Explanation
+  description: ''
+  category: code
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: code-generation
+  path: skills/05-code/code-generation.md
+  name: Code Generation
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: code-review
+  path: skills/05-code/code-review.md
+  name: Code Review
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - CI/CD Integration
+  - Failure Modes
+  - Related Skills
+  - Changelog
+  related:
+  - ../14-security/security-scanning.md
+  category_dir: 05-code
+- id: code-search
+  path: skills/05-code/code-search.md
+  name: Code Search
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/code-reading.md
+  category_dir: 05-code
+- id: code-translation
+  path: skills/05-code/code-translation.md
+  name: Code Translation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: db-schema-design
+  path: skills/05-code/db-schema-design.md
+  name: Database Schema Design
+  description: ''
+  category: code
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/database-write.md
+  category_dir: 05-code
+- id: debugging
+  path: skills/05-code/debugging.md
+  name: Debugging
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/self-correction.md
+  category_dir: 05-code
+- id: dependency-auditor
+  path: skills/05-code/dependency-auditor.md
+  name: Dependency Auditor
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - GitHub Actions Integration
+  - Failure Modes
+  - Pipeline Position
+  - Dogfooding Note
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 05-code
+- id: dependency-management
+  path: skills/05-code/dependency-management.md
+  name: Dependency Management
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: dockerfile-generation
+  path: skills/05-code/dockerfile-generation.md
+  name: Dockerfile Generation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: documentation-generation
+  path: skills/05-code/documentation-generation.md
+  name: Documentation Generation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: git-operations
+  path: skills/05-code/git-operations.md
+  name: Git Operations
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/shell-command.md
+  category_dir: 05-code
+- id: github-api
+  path: skills/05-code/github-api.md
+  name: GitHub API (Code)
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/github-api.md
+  category_dir: 05-code
+- id: integration-test-writing
+  path: skills/05-code/integration-test-writing.md
+  name: Integration Test Writing
+  description: ''
+  category: code
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: linting-formatting
+  path: skills/05-code/linting-formatting.md
+  name: Linting & Formatting
+  description: ''
+  category: code
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: performance-profiling
+  path: skills/05-code/performance-profiling.md
+  name: Performance Profiling
+  description: ''
+  category: code
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: refactoring
+  path: skills/05-code/refactoring.md
+  name: Refactoring
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: regex-generation
+  path: skills/05-code/regex-generation.md
+  name: Regex Generation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/text-reading.md
+  category_dir: 05-code
+- id: repl-interaction
+  path: skills/05-code/repl-interaction.md
+  name: REPL Interaction
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: security-scanning
+  path: skills/05-code/security-scanning.md
+  name: Security Scanning
+  description: ''
+  category: code
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../14-security/secret-scanning.md
+  category_dir: 05-code
+- id: sql-query-generation
+  path: skills/05-code/sql-query-generation.md
+  name: SQL Query Generation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/sql-execution.md
+  category_dir: 05-code
+- id: unit-test-generation
+  path: skills/05-code/unit-test-generation.md
+  name: Unit Test Generation
+  description: ''
+  category: code
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 05-code
+- id: README
+  path: skills/06-communication/README.md
+  name: 💬 Communication Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 06-communication
+- id: argument-construction
+  path: skills/06-communication/argument-construction.md
+  name: Argument Construction
+  description: ''
+  category: communication
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: citation-attribution
+  path: skills/06-communication/citation-attribution.md
+  name: Citation & Attribution
+  description: ''
+  category: communication
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: clarification-seeking
+  path: skills/06-communication/clarification-seeking.md
+  name: Clarification Seeking
+  description: ''
+  category: communication
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: debate
+  path: skills/06-communication/debate.md
+  name: Debate
+  description: ''
+  category: communication
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../09-agentic-patterns/debate-pattern.md
+  category_dir: 06-communication
+- id: email-drafting
+  path: skills/06-communication/email-drafting.md
+  name: Email Drafting
+  description: ''
+  category: communication
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/email-sending.md
+  category_dir: 06-communication
+- id: instruction-following
+  path: skills/06-communication/instruction-following.md
+  name: Instruction Following
+  description: ''
+  category: communication
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: multilingual-output
+  path: skills/06-communication/multilingual-output.md
+  name: Multilingual Output
+  description: ''
+  category: communication
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: paraphrasing
+  path: skills/06-communication/paraphrasing.md
+  name: Paraphrasing
+  description: ''
+  category: communication
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: persona-adoption
+  path: skills/06-communication/persona-adoption.md
+  name: Persona Adoption
+  description: ''
+  category: communication
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: question-answering
+  path: skills/06-communication/question-answering.md
+  name: Question Answering
+  description: ''
+  category: communication
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/rag.md
+  category_dir: 06-communication
+- id: report-writing
+  path: skills/06-communication/report-writing.md
+  name: Report Writing
+  description: ''
+  category: communication
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: structured-output
+  path: skills/06-communication/structured-output.md
+  name: Structured Output
+  description: ''
+  category: communication
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/json-transformation.md
+  category_dir: 06-communication
+- id: summarization
+  path: skills/06-communication/summarization.md
+  name: Summarization
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: tone-adjustment
+  path: skills/06-communication/tone-adjustment.md
+  name: Tone Adjustment
+  description: ''
+  category: communication
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: translation
+  path: skills/06-communication/translation.md
+  name: Translation
+  description: ''
+  category: communication
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 06-communication
+- id: README
+  path: skills/07-tool-use/README.md
+  name: 🔧 Tool Use Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 07-tool-use
+- id: a2a-tool
+  path: skills/07-tool-use/a2a-tool.md
+  name: Agent-to-Agent Tool (A2A)
+  description: ''
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../15-orchestration/subagent-spawning.md
+  - ../15-orchestration/agent-handoff.md
+  category_dir: 07-tool-use
+- id: anthropic-api
+  path: skills/07-tool-use/anthropic-api.md
+  name: Anthropic API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 07-tool-use
+- id: browser-tool
+  path: skills/07-tool-use/browser-tool.md
+  name: Browser Tool
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/browser-navigation.md
+  - ../11-web/web-scraping.md
+  category_dir: 07-tool-use
+- id: calculator
+  path: skills/07-tool-use/calculator.md
+  name: Calculator
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/mathematical-reasoning.md
+  category_dir: 07-tool-use
+- id: code-exec-tool
+  path: skills/07-tool-use/code-exec-tool.md
+  name: Code Execution Tool
+  description: ''
+  category: tool-use
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/code-execution-sandbox.md
+  - ../14-security/sandboxed-execution.md
+  category_dir: 07-tool-use
+- id: custom-api-wrapper
+  path: skills/07-tool-use/custom-api-wrapper.md
+  name: Custom API Wrapper
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/http-request.md
+  category_dir: 07-tool-use
+- id: file-system-tool
+  path: skills/07-tool-use/file-system-tool.md
+  name: File System Tool
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/file-system-reading.md
+  - ../04-action-execution/file-write.md
+  category_dir: 07-tool-use
+- id: function-calling
+  path: skills/07-tool-use/function-calling.md
+  name: Function / Tool Calling
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/react.md
+  category_dir: 07-tool-use
+- id: github-api
+  path: skills/07-tool-use/github-api.md
+  name: GitHub API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/git-operations.md
+  category_dir: 07-tool-use
+- id: google-workspace-api
+  path: skills/07-tool-use/google-workspace-api.md
+  name: Google Workspace API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/calendar-event.md
+  - ../04-action-execution/email-sending.md
+  category_dir: 07-tool-use
+- id: huggingface-api
+  path: skills/07-tool-use/huggingface-api.md
+  name: HuggingFace API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/embedding-generation.md
+  category_dir: 07-tool-use
+- id: image-gen-tool
+  path: skills/07-tool-use/image-gen-tool.md
+  name: Image Generation Tool
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../08-multimodal/image-generation.md
+  category_dir: 07-tool-use
+- id: jira-api
+  path: skills/07-tool-use/jira-api.md
+  name: Jira API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 07-tool-use
+- id: linear-api
+  path: skills/07-tool-use/linear-api.md
+  name: Linear API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 07-tool-use
+- id: maps-geolocation
+  path: skills/07-tool-use/maps-geolocation.md
+  name: Maps & Geolocation
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 07-tool-use
+- id: mcp-tool
+  path: skills/07-tool-use/mcp-tool.md
+  name: MCP Tool Use
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 07-tool-use
+- id: news-api
+  path: skills/07-tool-use/news-api.md
+  name: News API
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/rss-parsing.md
+  category_dir: 07-tool-use
+- id: notion-api
+  path: skills/07-tool-use/notion-api.md
+  name: Notion API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/structured-output.md
+  category_dir: 07-tool-use
+- id: openai-api
+  path: skills/07-tool-use/openai-api.md
+  name: OpenAI API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/embedding-generation.md
+  category_dir: 07-tool-use
+- id: pdf-tool
+  path: skills/07-tool-use/pdf-tool.md
+  name: PDF Tool
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/pdf-parsing.md
+  - ../01-perception/document-parsing.md
+  category_dir: 07-tool-use
+- id: sendgrid-api
+  path: skills/07-tool-use/sendgrid-api.md
+  name: SendGrid API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/email-sending.md
+  category_dir: 07-tool-use
+- id: slack-api
+  path: skills/07-tool-use/slack-api.md
+  name: Slack API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/notification-sending.md
+  category_dir: 07-tool-use
+- id: sql-tool
+  path: skills/07-tool-use/sql-tool.md
+  name: SQL Tool
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/sql-query-generation.md
+  - ../01-perception/database-reading.md
+  category_dir: 07-tool-use
+- id: stripe-api
+  path: skills/07-tool-use/stripe-api.md
+  name: Stripe API
+  description: ''
+  category: tool-use
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/notification-sending.md
+  category_dir: 07-tool-use
+- id: twilio-api
+  path: skills/07-tool-use/twilio-api.md
+  name: Twilio API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../04-action-execution/notification-sending.md
+  category_dir: 07-tool-use
+- id: vector-db-tool
+  path: skills/07-tool-use/vector-db-tool.md
+  name: Vector DB Tool
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/similarity-search.md
+  - ../12-data/embedding-generation.md
+  - ../03-memory/rag.md
+  category_dir: 07-tool-use
+- id: weather-api
+  path: skills/07-tool-use/weather-api.md
+  name: Weather API
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/structured-data-reading.md
+  category_dir: 07-tool-use
+- id: web-search
+  path: skills/07-tool-use/web-search.md
+  name: Web Search
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/url-fetching.md
+  - ../11-web/web-scraping.md
+  category_dir: 07-tool-use
+- id: wikipedia-api
+  path: skills/07-tool-use/wikipedia-api.md
+  name: Wikipedia API
+  description: ''
+  category: tool-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 07-tool-use
+- id: wolfram-api
+  path: skills/07-tool-use/wolfram-api.md
+  name: Wolfram Alpha API
+  description: ''
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/mathematical-reasoning.md
+  category_dir: 07-tool-use
+- id: 3d-scene-understanding
+  path: skills/08-multimodal/3d-scene-understanding.md
+  name: 3D Scene Understanding
+  description: ''
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/image-understanding.md
+  - ../01-perception/sensor-reading.md
+  category_dir: 08-multimodal
+- id: README
+  path: skills/08-multimodal/README.md
+  name: 🎭 Multimodal Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 08-multimodal
+- id: audio-classification
+  path: skills/08-multimodal/audio-classification.md
+  name: Audio Classification
+  description: ''
+  category: multimodal
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 08-multimodal
+- id: audio-transcription
+  path: skills/08-multimodal/audio-transcription.md
+  name: Audio Transcription
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/audio-transcription.md
+  category_dir: 08-multimodal
+- id: chart-generation
+  path: skills/08-multimodal/chart-generation.md
+  name: Chart / Diagram Generation
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/data-visualization.md
+  - ../01-perception/chart-reading.md
+  category_dir: 08-multimodal
+- id: document-layout-analysis
+  path: skills/08-multimodal/document-layout-analysis.md
+  name: Document Layout Analysis
+  description: ''
+  category: multimodal
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/document-parsing.md
+  - ../01-perception/ocr.md
+  - ../01-perception/table-extraction.md
+  - ../01-perception/pdf-parsing.md
+  category_dir: 08-multimodal
+- id: image-captioning
+  path: skills/08-multimodal/image-captioning.md
+  name: Image Captioning
+  description: ''
+  category: multimodal
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/image-understanding.md
+  category_dir: 08-multimodal
+- id: image-classification
+  path: skills/08-multimodal/image-classification.md
+  name: Image Classification
+  description: ''
+  category: multimodal
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/image-understanding.md
+  category_dir: 08-multimodal
+- id: image-editing
+  path: skills/08-multimodal/image-editing.md
+  name: Image Editing
+  description: ''
+  category: multimodal
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 08-multimodal
+- id: image-generation
+  path: skills/08-multimodal/image-generation.md
+  name: Image Generation
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 08-multimodal
+- id: object-detection
+  path: skills/08-multimodal/object-detection.md
+  name: Object Detection
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/image-understanding.md
+  category_dir: 08-multimodal
+- id: text-to-speech
+  path: skills/08-multimodal/text-to-speech.md
+  name: Text to Speech
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/audio-transcription.md
+  category_dir: 08-multimodal
+- id: video-description
+  path: skills/08-multimodal/video-description.md
+  name: Video Description
+  description: ''
+  category: multimodal
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/video-understanding.md
+  category_dir: 08-multimodal
+- id: video-frame-extraction
+  path: skills/08-multimodal/video-frame-extraction.md
+  name: Video Frame Extraction
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/image-understanding.md
+  - ../01-perception/video-understanding.md
+  category_dir: 08-multimodal
+- id: vqa
+  path: skills/08-multimodal/vqa.md
+  name: Visual Question Answering (VQA)
+  description: ''
+  category: multimodal
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/image-understanding.md
+  category_dir: 08-multimodal
+- id: README
+  path: skills/09-agentic-patterns/README.md
+  name: 🤖 Agentic Patterns
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 09-agentic-patterns
+- id: agentic-rag
+  path: skills/09-agentic-patterns/agentic-rag.md
+  name: Agentic RAG
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/rag.md
+  category_dir: 09-agentic-patterns
+- id: bootstrapping
+  path: skills/09-agentic-patterns/bootstrapping.md
+  name: Bootstrapping
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: constitutional-ai
+  path: skills/09-agentic-patterns/constitutional-ai.md
+  name: Constitutional AI
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: cot
+  path: skills/09-agentic-patterns/cot.md
+  name: Chain of Thought (CoT)
+  description: ''
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/self-consistency.md
+  category_dir: 09-agentic-patterns
+- id: critic-agent
+  path: skills/09-agentic-patterns/critic-agent.md
+  name: Critic Agent
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: debate-pattern
+  path: skills/09-agentic-patterns/debate-pattern.md
+  name: Debate Pattern
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: lats
+  path: skills/09-agentic-patterns/lats.md
+  name: LATS (Language Agent Tree Search)
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: mcts
+  path: skills/09-agentic-patterns/mcts.md
+  name: MCTS (Monte Carlo Tree Search)
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: memory-augmented
+  path: skills/09-agentic-patterns/memory-augmented.md
+  name: Memory-Augmented Agent
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/long-term-memory.md
+  - ../07-tool-use/vector-db-tool.md
+  category_dir: 09-agentic-patterns
+- id: mixture-of-agents
+  path: skills/09-agentic-patterns/mixture-of-agents.md
+  name: Mixture of Agents (MoA)
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: plan-and-execute
+  path: skills/09-agentic-patterns/plan-and-execute.md
+  name: Plan-and-Execute Pattern
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: rag-pipeline
+  path: skills/09-agentic-patterns/rag-pipeline.md
+  name: RAG Pipeline
+  description: ''
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/rag.md
+  - ../07-tool-use/vector-db-tool.md
+  category_dir: 09-agentic-patterns
+- id: rag
+  path: skills/09-agentic-patterns/rag.md
+  name: RAG — Retrieval-Augmented Generation
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - RAG Variants
+  - Failure Modes
+  - Blueprint
+  - Related Skills
+  - Changelog
+  related:
+  - ../../blueprints/rag-stack.md
+  - ../03-memory/memory-injection.md
+  - ../02-reasoning/react.md
+  - ../11-web/web-search.md
+  category_dir: 09-agentic-patterns
+- id: react
+  path: skills/09-agentic-patterns/react.md
+  name: ReAct (Reasoning + Acting)
+  description: ''
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/planning.md
+  category_dir: 09-agentic-patterns
+- id: reflection
+  path: skills/09-agentic-patterns/reflection.md
+  name: Reflection / Reflexion
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: self-play
+  path: skills/09-agentic-patterns/self-play.md
+  name: Self-Play
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: subagent-delegation
+  path: skills/09-agentic-patterns/subagent-delegation.md
+  name: Subagent Delegation
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/a2a-tool.md
+  - ../15-orchestration/agent-handoff.md
+  category_dir: 09-agentic-patterns
+- id: tool-use-loop
+  path: skills/09-agentic-patterns/tool-use-loop.md
+  name: Tool-Use Loop
+  description: ''
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/mcp-tool.md
+  category_dir: 09-agentic-patterns
+- id: tot
+  path: skills/09-agentic-patterns/tot.md
+  name: Tree of Thought (ToT)
+  description: ''
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 09-agentic-patterns
+- id: README
+  path: skills/10-computer-use/README.md
+  name: 🖥️ Computer Use Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 10-computer-use
+- id: accessibility-tree
+  path: skills/10-computer-use/accessibility-tree.md
+  name: Accessibility Tree Navigation
+  description: ''
+  category: computer-use
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: app-launch
+  path: skills/10-computer-use/app-launch.md
+  name: Application Launch
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: clipboard-read
+  path: skills/10-computer-use/clipboard-read.md
+  name: Clipboard Read
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: clipboard-write
+  path: skills/10-computer-use/clipboard-write.md
+  name: Clipboard Write
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: double-click
+  path: skills/10-computer-use/double-click.md
+  name: Double Click
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: drag-drop
+  path: skills/10-computer-use/drag-drop.md
+  name: Drag and Drop
+  description: ''
+  category: computer-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: file-dialog
+  path: skills/10-computer-use/file-dialog.md
+  name: File Dialog Interaction
+  description: ''
+  category: computer-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: keyboard-shortcut
+  path: skills/10-computer-use/keyboard-shortcut.md
+  name: Keyboard Shortcut
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: keyboard-type
+  path: skills/10-computer-use/keyboard-type.md
+  name: Keyboard Type
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: mouse-click
+  path: skills/10-computer-use/mouse-click.md
+  name: Mouse Click
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: mouse-move
+  path: skills/10-computer-use/mouse-move.md
+  name: Mouse Move
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: multi-monitor
+  path: skills/10-computer-use/multi-monitor.md
+  name: Multi-Monitor Support
+  description: ''
+  category: computer-use
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: right-click
+  path: skills/10-computer-use/right-click.md
+  name: Right Click / Context Menu
+  description: ''
+  category: computer-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: screen-ocr
+  path: skills/10-computer-use/screen-ocr.md
+  name: Screen Region OCR
+  description: ''
+  category: computer-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: screenshot-capture
+  path: skills/10-computer-use/screenshot-capture.md
+  name: Screenshot Capture
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/screen-reading.md
+  - ../01-perception/ocr.md
+  category_dir: 10-computer-use
+- id: scroll
+  path: skills/10-computer-use/scroll.md
+  name: Scroll
+  description: ''
+  category: computer-use
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/browser-navigation.md
+  category_dir: 10-computer-use
+- id: terminal-interaction
+  path: skills/10-computer-use/terminal-interaction.md
+  name: Terminal / Shell Interaction
+  description: ''
+  category: computer-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: visual-element-detection
+  path: skills/10-computer-use/visual-element-detection.md
+  name: Visual Element Detection
+  description: ''
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: vm-interaction
+  path: skills/10-computer-use/vm-interaction.md
+  name: Virtual Machine Interaction
+  description: ''
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: window-management
+  path: skills/10-computer-use/window-management.md
+  name: Window Management
+  description: ''
+  category: computer-use
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 10-computer-use
+- id: README
+  path: skills/11-web/README.md
+  name: 🌐 Web Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 11-web
+- id: api-discovery
+  path: skills/11-web/api-discovery.md
+  name: API Endpoint Discovery
+  description: ''
+  category: web
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: browser-navigation
+  path: skills/11-web/browser-navigation.md
+  name: Browser Navigation
+  description: ''
+  category: web
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../10-computer-use/screenshot-capture.md
+  category_dir: 11-web
+- id: captcha-solving
+  path: skills/11-web/captcha-solving.md
+  name: CAPTCHA Solving
+  description: ''
+  category: web
+  level: advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: cookie-management
+  path: skills/11-web/cookie-management.md
+  name: Cookie / Session Management
+  description: ''
+  category: web
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: dom-inspection
+  path: skills/11-web/dom-inspection.md
+  name: DOM Inspection
+  description: ''
+  category: web
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: form-filling
+  path: skills/11-web/form-filling.md
+  name: Form Filling
+  description: ''
+  category: web
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: js-execution
+  path: skills/11-web/js-execution.md
+  name: JavaScript Execution
+  description: ''
+  category: web
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: link-extraction
+  path: skills/11-web/link-extraction.md
+  name: Link Extraction
+  description: ''
+  category: web
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: rss-parsing
+  path: skills/11-web/rss-parsing.md
+  name: RSS/Atom Feed Parsing
+  description: ''
+  category: web
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: sitemap-parsing
+  path: skills/11-web/sitemap-parsing.md
+  name: Sitemap Parsing
+  description: ''
+  category: web
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: url-fetching
+  path: skills/11-web/url-fetching.md
+  name: URL Fetching
+  description: ''
+  category: web
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: url-screenshot
+  path: skills/11-web/url-screenshot.md
+  name: Screenshot of URL
+  description: ''
+  category: web
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../10-computer-use/screenshot-capture.md
+  category_dir: 11-web
+- id: web-crawling
+  path: skills/11-web/web-crawling.md
+  name: Web Crawling
+  description: ''
+  category: web
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: web-login
+  path: skills/11-web/web-login.md
+  name: Login / Authentication
+  description: ''
+  category: web
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: web-scraping
+  path: skills/11-web/web-scraping.md
+  name: Web Scraping
+  description: ''
+  category: web
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 11-web
+- id: web-search
+  path: skills/11-web/web-search.md
+  name: Web Search
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - What It Does
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Provider Comparison
+  - Failure Modes
+  - Related Skills
+  - Changelog
+  related:
+  - ../02-reasoning/react.md
+  - ../09-agentic-patterns/rag.md
+  category_dir: 11-web
+- id: README
+  path: skills/12-data/README.md
+  name: 📊 Data Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 12-data
+- id: anomaly-detection
+  path: skills/12-data/anomaly-detection.md
+  name: Anomaly Detection
+  description: ''
+  category: data
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: csv-processing
+  path: skills/12-data/csv-processing.md
+  name: CSV Processing
+  description: ''
+  category: data
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: data-aggregation
+  path: skills/12-data/data-aggregation.md
+  name: Data Aggregation
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: data-cleaning
+  path: skills/12-data/data-cleaning.md
+  name: Data Cleaning
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: data-filtering
+  path: skills/12-data/data-filtering.md
+  name: Data Filtering
+  description: ''
+  category: data
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: data-joining
+  path: skills/12-data/data-joining.md
+  name: Data Joining
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: data-summarization
+  path: skills/12-data/data-summarization.md
+  name: Data Summarization
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: data-visualization
+  path: skills/12-data/data-visualization.md
+  name: Data Visualization
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: embedding-generation
+  path: skills/12-data/embedding-generation.md
+  name: Embedding Generation
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/vector-db-tool.md
+  - ../03-memory/rag.md
+  category_dir: 12-data
+- id: etl-pipeline
+  path: skills/12-data/etl-pipeline.md
+  name: ETL Pipeline
+  description: ''
+  category: data
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: json-transformation
+  path: skills/12-data/json-transformation.md
+  name: JSON Transformation
+  description: ''
+  category: data
+  level: basic
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/structured-data-reading.md
+  category_dir: 12-data
+- id: nosql-query
+  path: skills/12-data/nosql-query.md
+  name: NoSQL Query
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../07-tool-use/vector-db-tool.md
+  category_dir: 12-data
+- id: pandas-operations
+  path: skills/12-data/pandas-operations.md
+  name: Pandas Operations
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: schema-inference
+  path: skills/12-data/schema-inference.md
+  name: Data Schema Inference
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: similarity-search
+  path: skills/12-data/similarity-search.md
+  name: Similarity Search
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/rag.md
+  - ../07-tool-use/vector-db-tool.md
+  category_dir: 12-data
+- id: sql-execution
+  path: skills/12-data/sql-execution.md
+  name: SQL Query Execution
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/sql-query-generation.md
+  category_dir: 12-data
+- id: statistical-analysis
+  path: skills/12-data/statistical-analysis.md
+  name: Statistical Analysis
+  description: ''
+  category: data
+  level: intermediate
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: time-series
+  path: skills/12-data/time-series.md
+  name: Time Series Analysis
+  description: ''
+  category: data
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 12-data
+- id: README
+  path: skills/13-creative/README.md
+  name: 🎨 Creative Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 13-creative
+- id: avatar-design
+  path: skills/13-creative/avatar-design.md
+  name: avatar-design
+  description: ''
+  category: Creative
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/persona-adoption.md
+  category_dir: 13-creative
+- id: blog-writing
+  path: skills/13-creative/blog-writing.md
+  name: blog-writing
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/summarization.md
+  - ../06-communication/structured-output.md
+  category_dir: 13-creative
+- id: copywriting
+  path: skills/13-creative/copywriting.md
+  name: copywriting
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../16-domain-specific/ad-copy.md
+  - ../06-communication/tone-adjustment.md
+  category_dir: 13-creative
+- id: creative-writing
+  path: skills/13-creative/creative-writing.md
+  name: creative-writing
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/persona-adoption.md
+  - ../06-communication/tone-adjustment.md
+  category_dir: 13-creative
+- id: game-level-design
+  path: skills/13-creative/game-level-design.md
+  name: game-level-design
+  description: ''
+  category: Creative
+  level: Advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/structured-output.md
+  - ../05-code/algorithm-design.md
+  category_dir: 13-creative
+- id: image-gen-prompt
+  path: skills/13-creative/image-gen-prompt.md
+  name: image-gen-prompt
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../08-multimodal/image-generation.md
+  category_dir: 13-creative
+- id: logo-design
+  path: skills/13-creative/logo-design.md
+  name: logo-design
+  description: ''
+  category: Creative
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 13-creative
+- id: lyrics-writing
+  path: skills/13-creative/lyrics-writing.md
+  name: lyrics-writing
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/tone-adjustment.md
+  category_dir: 13-creative
+- id: meme-generation
+  path: skills/13-creative/meme-generation.md
+  name: meme-generation
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 13-creative
+- id: music-composition
+  path: skills/13-creative/music-composition.md
+  name: Pipe to abc2midi or abcjs for playback
+  description: ''
+  category: Creative
+  level: Advanced
+  stability: experimental
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/structured-output.md
+  category_dir: 13-creative
+- id: presentation-gen
+  path: skills/13-creative/presentation-gen.md
+  name: presentation-gen
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/structured-output.md
+  category_dir: 13-creative
+- id: social-media-post
+  path: skills/13-creative/social-media-post.md
+  name: social-media-post
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/tone-adjustment.md
+  category_dir: 13-creative
+- id: svg-generation
+  path: skills/13-creative/svg-generation.md
+  name: svg-generation
+  description: ''
+  category: Creative
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../08-multimodal/image-generation.md
+  - ../05-code/code-generation.md
+  category_dir: 13-creative
+- id: video-script
+  path: skills/13-creative/video-script.md
+  name: video-script
+  description: ''
+  category: Creative
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 13-creative
+- id: README
+  path: skills/14-security/README.md
+  name: 🔒 Security & Safety Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 14-security
+- id: audit-logging
+  path: skills/14-security/audit-logging.md
+  name: audit-logging
+  description: ''
+  category: Security
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../15-orchestration/logging-observability.md
+  category_dir: 14-security
+- id: harm-detection
+  path: skills/14-security/harm-detection.md
+  name: harm-detection
+  description: ''
+  category: Security & Safety
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: human-in-loop
+  path: skills/14-security/human-in-loop.md
+  name: human-in-loop
+  description: ''
+  category: Security & Safety
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: input-sanitization
+  path: skills/14-security/input-sanitization.md
+  name: input-sanitization
+  description: ''
+  category: Security
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: permission-checking
+  path: skills/14-security/permission-checking.md
+  name: permission-checking
+  description: ''
+  category: Security
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: privacy-preservation
+  path: skills/14-security/privacy-preservation.md
+  name: 'Contact John at [REDACTED] or [REDACTED] (SSN: [REDACTED])'
+  description: ''
+  category: Security & Safety
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: rate-limiting
+  path: skills/14-security/rate-limiting.md
+  name: rate-limiting
+  description: ''
+  category: Security
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../15-orchestration/budget-management.md
+  - ../15-orchestration/retry-backoff.md
+  category_dir: 14-security
+- id: rollback-undo
+  path: skills/14-security/rollback-undo.md
+  name: Usage
+  description: ''
+  category: Security & Safety
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: sandboxed-execution
+  path: skills/14-security/sandboxed-execution.md
+  name: sandboxed-execution
+  description: ''
+  category: Security
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/code-execution-sandbox.md
+  category_dir: 14-security
+- id: secret-scanning
+  path: skills/14-security/secret-scanning.md
+  name: secret-scanning
+  description: ''
+  category: Security
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 14-security
+- id: README
+  path: skills/15-orchestration/README.md
+  name: 🎼 Orchestration Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 15-orchestration
+- id: agent-communication
+  path: skills/15-orchestration/agent-communication.md
+  name: agent-communication
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: agent-handoff
+  path: skills/15-orchestration/agent-handoff.md
+  name: Agent Handoff
+  description: ''
+  category: orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: budget-management
+  path: skills/15-orchestration/budget-management.md
+  name: budget-management
+  description: ''
+  category: Orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../14-security/rate-limiting.md
+  category_dir: 15-orchestration
+- id: conditional-branching
+  path: skills/15-orchestration/conditional-branching.md
+  name: conditional-branching
+  description: ''
+  category: Orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/decision-making.md
+  category_dir: 15-orchestration
+- id: consensus-voting
+  path: skills/15-orchestration/consensus-voting.md
+  name: consensus-voting
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../09-agentic-patterns/mixture-of-agents.md
+  - ../09-agentic-patterns/debate-pattern.md
+  category_dir: 15-orchestration
+- id: event-triggers
+  path: skills/15-orchestration/event-triggers.md
+  name: event-triggers
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: hierarchical-tree
+  path: skills/15-orchestration/hierarchical-tree.md
+  name: hierarchical-tree
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: logging-observability
+  path: skills/15-orchestration/logging-observability.md
+  name: logging-observability
+  description: ''
+  category: Orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../14-security/audit-logging.md
+  category_dir: 15-orchestration
+- id: parallel-execution
+  path: skills/15-orchestration/parallel-execution.md
+  name: Parallel Task Execution
+  description: ''
+  category: orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: retry-backoff
+  path: skills/15-orchestration/retry-backoff.md
+  name: retry-backoff
+  description: ''
+  category: Orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../14-security/rate-limiting.md
+  category_dir: 15-orchestration
+- id: role-assignment
+  path: skills/15-orchestration/role-assignment.md
+  name: role-assignment
+  description: ''
+  category: Orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../09-agentic-patterns/subagent-delegation.md
+  category_dir: 15-orchestration
+- id: sequential-workflow
+  path: skills/15-orchestration/sequential-workflow.md
+  name: sequential-workflow
+  description: ''
+  category: Orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: shared-memory
+  path: skills/15-orchestration/shared-memory.md
+  name: Usage
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related:
+  - ../09-agentic-patterns/memory-augmented.md
+  category_dir: 15-orchestration
+- id: state-machine
+  path: skills/15-orchestration/state-machine.md
+  name: state-machine
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: subagent-spawning
+  path: skills/15-orchestration/subagent-spawning.md
+  name: Subagent Spawning
+  description: ''
+  category: orchestration
+  level: advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: task-queue
+  path: skills/15-orchestration/task-queue.md
+  name: task-queue
+  description: ''
+  category: Orchestration
+  level: Advanced
+  stability: stable
+  version: null
+  added: 2025-03
+  last_updated: null
+  sections: []
+  related: []
+  category_dir: 15-orchestration
+- id: README
+  path: skills/16-domain-specific/README.md
+  name: 🏺 Domain-Specific Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Medical / Healthcare
+  - Legal
+  - Finance
+  - Education
+  - DevOps / Infrastructure
+  - E-commerce / Marketing
+  - Science & Research
+  related: []
+  category_dir: 16-domain-specific
+- id: ad-copy
+  path: skills/16-domain-specific/ad-copy.md
+  name: ad-copy
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../13-creative/copywriting.md
+  category_dir: 16-domain-specific
+- id: alert-triage
+  path: skills/16-domain-specific/alert-triage.md
+  name: alert-triage
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/prioritization.md
+  category_dir: 16-domain-specific
+- id: clinical-note-summarization
+  path: skills/16-domain-specific/clinical-note-summarization.md
+  name: clinical-note-summarization
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/summarization.md
+  - ../01-perception/document-parsing.md
+  - ../06-communication/structured-output.md
+  category_dir: 16-domain-specific
+- id: compliance-checking
+  path: skills/16-domain-specific/compliance-checking.md
+  name: compliance-checking
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/risk-assessment.md
+  - ../04-action-execution/assertion.md
+  category_dir: 16-domain-specific
+- id: contract-review
+  path: skills/16-domain-specific/contract-review.md
+  name: contract-review
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/document-parsing.md
+  category_dir: 16-domain-specific
+- id: data-labeling
+  path: skills/16-domain-specific/data-labeling.md
+  name: data-labeling
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/data-cleaning.md
+  - ../06-communication/structured-output.md
+  - ../12-data/embedding-generation.md
+  category_dir: 16-domain-specific
+- id: drug-interaction
+  path: skills/16-domain-specific/drug-interaction.md
+  name: drug-interaction
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/fact-verification-memory.md
+  category_dir: 16-domain-specific
+- id: essay-grading
+  path: skills/16-domain-specific/essay-grading.md
+  name: essay-grading
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/report-writing.md
+  - ../06-communication/argument-construction.md
+  category_dir: 16-domain-specific
+- id: financial-statement
+  path: skills/16-domain-specific/financial-statement.md
+  name: financial-statement
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/statistical-analysis.md
+  - ../01-perception/structured-data-reading.md
+  category_dir: 16-domain-specific
+- id: flashcard-creation
+  path: skills/16-domain-specific/flashcard-creation.md
+  name: flashcard-creation
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/summarization.md
+  category_dir: 16-domain-specific
+- id: hypothesis-generation
+  path: skills/16-domain-specific/hypothesis-generation.md
+  name: hypothesis-generation
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/inductive-reasoning.md
+  category_dir: 16-domain-specific
+- id: iac-generation
+  path: skills/16-domain-specific/iac-generation.md
+  name: iac-generation
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../05-code/code-generation.md
+  - ../05-code/cicd-generation.md
+  category_dir: 16-domain-specific
+- id: incident-response
+  path: skills/16-domain-specific/incident-response.md
+  name: incident-response
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/risk-assessment.md
+  category_dir: 16-domain-specific
+- id: invoice-processing
+  path: skills/16-domain-specific/invoice-processing.md
+  name: invoice-processing
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../01-perception/ocr.md
+  - ../01-perception/document-parsing.md
+  - ../12-data/data-cleaning.md
+  category_dir: 16-domain-specific
+- id: legal-research
+  path: skills/16-domain-specific/legal-research.md
+  name: legal-research
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/citation-attribution.md
+  - ../11-web/web-search.md
+  category_dir: 16-domain-specific
+- id: lesson-plan
+  path: skills/16-domain-specific/lesson-plan.md
+  name: lesson-plan
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/planning.md
+  category_dir: 16-domain-specific
+- id: literature-review
+  path: skills/16-domain-specific/literature-review.md
+  name: literature-review
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/rag.md
+  category_dir: 16-domain-specific
+- id: log-analysis
+  path: skills/16-domain-specific/log-analysis.md
+  name: log-analysis
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/anomaly-detection.md
+  category_dir: 16-domain-specific
+- id: medical-literature-search
+  path: skills/16-domain-specific/medical-literature-search.md
+  name: medical-literature-search
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/web-search.md
+  - ../03-memory/rag.md
+  - ../06-communication/citation-attribution.md
+  category_dir: 16-domain-specific
+- id: paper-summarization
+  path: skills/16-domain-specific/paper-summarization.md
+  name: paper-summarization
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../03-memory/rag.md
+  - ../06-communication/summarization.md
+  category_dir: 16-domain-specific
+- id: portfolio-analysis
+  path: skills/16-domain-specific/portfolio-analysis.md
+  name: portfolio-analysis
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/risk-assessment.md
+  category_dir: 16-domain-specific
+- id: product-description
+  path: skills/16-domain-specific/product-description.md
+  name: product-description
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../13-creative/copywriting.md
+  category_dir: 16-domain-specific
+- id: quiz-generation
+  path: skills/16-domain-specific/quiz-generation.md
+  name: quiz-generation
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../06-communication/structured-output.md
+  category_dir: 16-domain-specific
+- id: review-analysis
+  path: skills/16-domain-specific/review-analysis.md
+  name: review-analysis
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/data-summarization.md
+  category_dir: 16-domain-specific
+- id: seo-optimization
+  path: skills/16-domain-specific/seo-optimization.md
+  name: seo-optimization
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../11-web/web-scraping.md
+  category_dir: 16-domain-specific
+- id: stock-lookup
+  path: skills/16-domain-specific/stock-lookup.md
+  name: stock-lookup
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../12-data/time-series.md
+  category_dir: 16-domain-specific
+- id: symptom-analysis
+  path: skills/16-domain-specific/symptom-analysis.md
+  name: symptom-analysis
+  description: ''
+  category: Domain-Specific
+  level: advanced
+  stability: stable
+  version: null
+  added: 2026-04
+  last_updated: null
+  sections: []
+  related:
+  - ../02-reasoning/decision-making.md
+  - ../02-reasoning/risk-assessment.md
+  category_dir: 16-domain-specific
+- id: README
+  path: skills/16-infrastructure/README.md
+  name: 🏗️ Infrastructure Skills
+  description: ''
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - Skills in This Category
+  related: []
+  category_dir: 16-infrastructure
+- id: dependency-auditor
+  path: skills/16-infrastructure/dependency-auditor.md
+  name: Dependency Auditor
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-infrastructure-dependency-auditor.json)'
+  category: null
+  level: null
+  stability: null
+  version: null
+  added: null
+  last_updated: null
+  sections:
+  - The Execution Gap
+  - Architecture
+  - Isolation Strategy
+  - Verdict Logic
+  - The Human-in-the-Loop Contract
+  - Recursive Dogfooding
+  - 'Security: Network Constraint Model'
+  - Related Infrastructure
+  related:
+  - ../../meta/badge-states.md
+  category_dir: 16-infrastructure

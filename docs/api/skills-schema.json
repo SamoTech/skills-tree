@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://samotech.github.io/skills-tree/api/skills-schema.json",
+  "title": "Skill",
+  "description": "A single AI agent skill entry in the Skills Tree index",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "path"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "kebab-case filename without extension"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable skill title (first H1)"
+    },
+    "path": {
+      "type": "string",
+      "description": "Relative path from repo root"
+    },
+    "description": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Short description (max 400 chars)"
+    },
+    "category": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Skill category slug from frontmatter"
+    },
+    "category_dir": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Top-level category directory (e.g. 01-perception)"
+    },
+    "level": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced",
+        null
+      ]
+    },
+    "stability": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "stable",
+        "experimental",
+        "deprecated",
+        null
+      ]
+    },
+    "version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "v1",
+        "v2",
+        "v3",
+        null
+      ]
+    },
+    "added": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "last_updated": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "H2 section headings present in the file"
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Relative paths of related skill files"
+    }
+  },
+  "additionalProperties": false
+}
