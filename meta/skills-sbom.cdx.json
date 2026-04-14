@@ -3,7 +3,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-04-14T00:14:55.179368+00:00",
+    "timestamp": "2026-04-14T13:17:59.501815+00:00",
     "tools": [
       {
         "name": "skills-tree/ast_sweep",
@@ -339,7 +339,7 @@
       "type": "library",
       "name": "unstructured",
       "purl": "pkg:pypi/unstructured",
-      "version": "0.22.18",
+      "version": "0.22.20",
       "usedIn": [
         "skills/01-perception/multimodal-document-reading.md"
       ],
@@ -398,7 +398,7 @@
       "type": "library",
       "name": "pypdf",
       "purl": "pkg:pypi/pypdf",
-      "version": "6.10.0",
+      "version": "6.10.1",
       "usedIn": [
         "skills/01-perception/pdf-parsing.md"
       ],
@@ -476,7 +476,9 @@
       "usedIn": [
         "skills/02-reasoning/planning.md",
         "skills/06-communication/structured-output.md",
-        "skills/09-agentic-patterns/plan-and-execute.md"
+        "skills/07-tool-use/tool-guardrails.md",
+        "skills/09-agentic-patterns/plan-and-execute.md",
+        "skills/14-security/output-guardrails.md"
       ],
       "pypiConfirmed": true
     },
@@ -487,6 +489,38 @@
       "version": "1.1.0",
       "usedIn": [
         "skills/02-reasoning/probabilistic-reasoning.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "agents",
+      "purl": "pkg:pypi/agents",
+      "version": "1.4.0",
+      "usedIn": [
+        "skills/03-memory/agent-sessions.md",
+        "skills/05-code/code-interpreter-agent.md",
+        "skills/07-tool-use/tool-guardrails.md",
+        "skills/09-agentic-patterns/agent-handoffs.md",
+        "skills/11-web/web-search-tool-agents.md",
+        "skills/14-security/input-guardrails.md",
+        "skills/14-security/output-guardrails.md",
+        "skills/15-orchestration/multi-agent-run-config.md",
+        "skills/15-orchestration/specialist-agent-routing.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "langgraph",
+      "purl": "pkg:pypi/langgraph",
+      "version": "1.1.6",
+      "usedIn": [
+        "skills/03-memory/cross-thread-memory.md",
+        "skills/09-agentic-patterns/interruptible-agent-flows.md",
+        "skills/09-agentic-patterns/plan-and-execute.md",
+        "skills/15-orchestration/langgraph-checkpointing.md",
+        "skills/15-orchestration/stateful-agent-graphs.md"
       ],
       "pypiConfirmed": true
     },
@@ -710,7 +744,7 @@
       "type": "library",
       "name": "twilio",
       "purl": "pkg:pypi/twilio",
-      "version": "9.10.4",
+      "version": "9.10.5",
       "usedIn": [
         "skills/07-tool-use/twilio-api.md"
       ],
@@ -811,16 +845,6 @@
       "version": "0.37.1",
       "usedIn": [
         "skills/08-multimodal/image-editing.md"
-      ],
-      "pypiConfirmed": true
-    },
-    {
-      "type": "library",
-      "name": "langgraph",
-      "purl": "pkg:pypi/langgraph",
-      "version": "1.1.6",
-      "usedIn": [
-        "skills/09-agentic-patterns/plan-and-execute.md"
       ],
       "pypiConfirmed": true
     },
