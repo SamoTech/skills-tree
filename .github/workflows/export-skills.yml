@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # full history needed so rebase never hits a shallow boundary
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -37,6 +40,9 @@ jobs:
           git diff --cached --quiet && echo "No changes to export" && exit 0
           SKILL_COUNT=$(python3 -c "import json; d=json.load(open('docs/api/skills.json')); print(d['count'])")
           git commit -m "chore(export): regenerate skills API — ${SKILL_COUNT} skills [skip ci]"
+          # Rebase on top of any commits that landed since our checkout
+          # (race window: another workflow pushed between our fetch and this push)
+          git pull --rebase origin main
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
