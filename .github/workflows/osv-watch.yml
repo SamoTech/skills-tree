@@ -43,7 +43,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: pip
+          # cache: pip removed — no requirements.txt in repo root causes
+          # "No file matched to [**/requirements.txt or **/pyproject.toml]" error.
+          # pip install is a single package; caching adds no meaningful benefit.
 
       - name: Install dependencies
         run: pip install httpx
