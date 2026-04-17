@@ -3,7 +3,7 @@
   "specVersion": "1.5",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-04-14T13:17:59.501815+00:00",
+    "timestamp": "2026-04-17T02:04:42.715467+00:00",
     "tools": [
       {
         "name": "skills-tree/ast_sweep",
@@ -71,29 +71,6 @@
     },
     {
       "type": "library",
-      "name": "torch",
-      "purl": "pkg:pypi/torch",
-      "version": "2.11.0",
-      "usedIn": [
-        "skills/01-perception/audio-transcription.md",
-        "skills/08-multimodal/3d-scene-understanding.md",
-        "skills/08-multimodal/document-layout-analysis.md",
-        "skills/08-multimodal/image-editing.md"
-      ],
-      "pypiConfirmed": true
-    },
-    {
-      "type": "library",
-      "name": "whisper",
-      "purl": "pkg:pypi/whisper",
-      "version": "1.1.10",
-      "usedIn": [
-        "skills/01-perception/audio-transcription.md"
-      ],
-      "pypiConfirmed": true
-    },
-    {
-      "type": "library",
       "name": "Pillow",
       "purl": "pkg:pypi/Pillow",
       "version": "12.2.0",
@@ -105,6 +82,7 @@
         "skills/08-multimodal/image-editing.md",
         "skills/10-computer-use/multi-monitor.md",
         "skills/10-computer-use/screen-ocr.md",
+        "skills/10-computer-use/screenshot-capture.md",
         "skills/10-computer-use/terminal-interaction.md"
       ],
       "pypiConfirmed": true
@@ -133,7 +111,7 @@
       "type": "library",
       "name": "anthropic",
       "purl": "pkg:pypi/anthropic",
-      "version": "0.94.1",
+      "version": "0.96.0",
       "usedIn": [
         "skills/01-perception/chart-reading.md",
         "skills/01-perception/contract-reading.md",
@@ -172,10 +150,7 @@
         "skills/02-reasoning/uncertainty-quantification.md",
         "skills/03-memory/fact-verification.md",
         "skills/03-memory/forgetting.md",
-        "skills/03-memory/memory-injection.md",
         "skills/03-memory/memory-summarization.md",
-        "skills/03-memory/procedural.md",
-        "skills/03-memory/user-profile.md",
         "skills/07-tool-use/anthropic-api.md",
         "skills/09-agentic-patterns/rag.md",
         "skills/11-web/web-search.md",
@@ -284,7 +259,7 @@
       "type": "library",
       "name": "openai",
       "purl": "pkg:pypi/openai",
-      "version": "2.31.0",
+      "version": "2.32.0",
       "usedIn": [
         "skills/01-perception/image-understanding.md",
         "skills/01-perception/video-understanding.md",
@@ -339,7 +314,7 @@
       "type": "library",
       "name": "unstructured",
       "purl": "pkg:pypi/unstructured",
-      "version": "0.22.20",
+      "version": "0.22.21",
       "usedIn": [
         "skills/01-perception/multimodal-document-reading.md"
       ],
@@ -398,7 +373,7 @@
       "type": "library",
       "name": "pypdf",
       "purl": "pkg:pypi/pypdf",
-      "version": "6.10.1",
+      "version": "6.10.2",
       "usedIn": [
         "skills/01-perception/pdf-parsing.md"
       ],
@@ -412,7 +387,9 @@
       "usedIn": [
         "skills/01-perception/spreadsheet-reading.md",
         "skills/01-perception/time-series-reading.md",
+        "skills/12-data/anomaly-detection.md",
         "skills/12-data/csv-processing.md",
+        "skills/12-data/data-visualization.md",
         "skills/12-data/pandas-operations.md",
         "skills/12-data/schema-inference.md"
       ],
@@ -432,7 +409,7 @@
       "type": "library",
       "name": "langchain-text-splitters",
       "purl": "pkg:pypi/langchain-text-splitters",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "usedIn": [
         "skills/01-perception/text-reading.md"
       ],
@@ -472,7 +449,7 @@
       "type": "library",
       "name": "pydantic",
       "purl": "pkg:pypi/pydantic",
-      "version": "2.13.0",
+      "version": "2.13.1",
       "usedIn": [
         "skills/02-reasoning/planning.md",
         "skills/06-communication/structured-output.md",
@@ -551,7 +528,7 @@
       "type": "library",
       "name": "langchain-openai",
       "purl": "pkg:pypi/langchain-openai",
-      "version": "1.1.12",
+      "version": "1.1.14",
       "usedIn": [
         "skills/03-memory/rag.md",
         "skills/03-memory/short-term-memory.md",
@@ -674,7 +651,7 @@
       "type": "library",
       "name": "langchain-core",
       "purl": "pkg:pypi/langchain-core",
-      "version": "1.2.28",
+      "version": "1.2.31",
       "usedIn": [
         "skills/06-communication/summarization.md"
       ],
@@ -754,7 +731,7 @@
       "type": "library",
       "name": "chromadb",
       "purl": "pkg:pypi/chromadb",
-      "version": "1.5.7",
+      "version": "1.5.8",
       "usedIn": [
         "skills/07-tool-use/vector-db-tool.md"
       ],
@@ -791,6 +768,18 @@
       "version": "0.19.0",
       "usedIn": [
         "skills/08-multimodal/3d-scene-understanding.md"
+      ],
+      "pypiConfirmed": true
+    },
+    {
+      "type": "library",
+      "name": "torch",
+      "purl": "pkg:pypi/torch",
+      "version": "2.11.0",
+      "usedIn": [
+        "skills/08-multimodal/3d-scene-understanding.md",
+        "skills/08-multimodal/document-layout-analysis.md",
+        "skills/08-multimodal/image-editing.md"
       ],
       "pypiConfirmed": true
     },
@@ -993,7 +982,7 @@
       "type": "library",
       "name": "yfinance",
       "purl": "pkg:pypi/yfinance",
-      "version": "1.2.2",
+      "version": "1.3.0",
       "usedIn": [
         "skills/16-domain-specific/stock-lookup.md"
       ],
