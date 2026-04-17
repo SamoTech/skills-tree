@@ -35,7 +35,7 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           python3 << 'EOF'
-          import os, json, re
+          import os, json, re, glob
           from datetime import datetime, timedelta, timezone
           from github import Github
           from collections import defaultdict
@@ -46,26 +46,29 @@ jobs:
           week_ago = now - timedelta(days=7)
           week_str = now.strftime('%Y-%m-%d')
 
-          # --- Collect PR data ---
+          # --- Collect PR data (FIX: stop iterating once PRs are older than 30 days) ---
+          cutoff_alltime = now - timedelta(days=365)
           contributor_stats = defaultdict(lambda: {'added': 0, 'improved': 0, 'prs': 0})
           skill_activity = defaultdict(int)
           upgraded_skills = []
 
           for pr in repo.get_pulls(state='closed', sort='updated', direction='desc'):
-              if pr.merged_at and pr.merged_at > week_ago:
-                  author = pr.user.login
-                  contributor_stats[author]['prs'] += 1
+              if pr.updated_at and pr.updated_at < cutoff_alltime:
+                  break  # FIX: PRs sorted by updated desc — stop once we're past 1 year
+              if not pr.merged_at:
+                  continue
+              author = pr.user.login
+              contributor_stats[author]['prs'] += 1
+              if pr.merged_at > week_ago:
                   title = pr.title.lower()
                   if title.startswith('feat:') or 'new skill' in title:
                       contributor_stats[author]['added'] += 1
                   if title.startswith('improve:') or 'v1→v2' in title or 'v2→v3' in title:
                       contributor_stats[author]['improved'] += 1
-                      # Extract skill name from title pattern: improve: [skill] — v1→v2
                       m = re.search(r'improve:\s*\[?([\w-]+)\]?', pr.title, re.IGNORECASE)
                       if m:
                           skill_name = m.group(1)
                           skill_activity[skill_name] += 2
-                          # Detect version upgrade
                           vm = re.search(r'v(\d)→v(\d)', pr.title)
                           if vm:
                               upgraded_skills.append({
@@ -74,21 +77,16 @@ jobs:
                                   'to': f"v{vm.group(2)}",
                                   'contributor': f"@{author}"
                               })
-                  # Count file-level skill activity
                   for f in pr.get_files():
                       if f.filename.startswith('skills/'):
                           parts = f.filename.split('/')
                           if len(parts) >= 3:
                               skill_activity[parts[2].replace('.md', '')] += 1
-              elif pr.merged_at and pr.merged_at <= week_ago:
-                  # Still count for all-time stats
-                  author = pr.user.login
-                  contributor_stats[author]['prs'] += 1
 
           # Top 5 skills this week
           top_skills = sorted(skill_activity.items(), key=lambda x: x[1], reverse=True)[:5]
 
-          # Battle-tested (v3) skills — scan skill files for version: v3
+          # Battle-tested (v3) skills
           battle_tested = []
           try:
               contents = repo.get_contents('skills')
@@ -115,6 +113,9 @@ jobs:
               key=lambda x: (x[1]['added'] + x[1]['improved'], x[1]['prs']),
               reverse=True
           )
+
+          # FIX: Count total skills dynamically from the filesystem
+          total_skills = len(glob.glob('skills/**/*.md', recursive=True))
 
           # Count expanded skills (v2+)
           v2_count = 0
@@ -217,7 +218,7 @@ jobs:
               '',
               '| Metric | Count |',
               '|--------|-------|',
-              f'| Total skills | 515+ |',
+              f'| Total skills | {total_skills} |',  # FIX: dynamic count
               f'| Expanded skills (v2+) | {v2_count} |',
               f'| Battle-Tested skills (v3) | {len(battle_tested)} |',
               f'| Contributors | {len(sorted_contributors)} |',
@@ -234,8 +235,8 @@ jobs:
 
       - name: Commit leaderboard update
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add meta/LEADERBOARD.md
           if git diff --cached --quiet; then
             echo 'No changes to commit.'
