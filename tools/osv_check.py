@@ -58,6 +58,13 @@ def query_osv(components: list[dict]) -> list[dict]:
     """
     Query OSV.dev batch API for advisories on all components.
 
+    Each query includes the package PURL *and* the pinned version from
+    the SBOM so that OSV only returns vulnerabilities whose affected
+    version ranges include the specific installed version.  Omitting
+    the version causes OSV to return every historical CVE ever filed
+    against the package name, producing false-positive advisory badges
+    for packages that are fully patched at their current pinned version.
+
     OSV /v1/querybatch guarantees order preservation (results[i] corresponds
     to queries[i]). We verify this invariant explicitly:
       - If len(results) != len(queries): log a critical warning and fall back
@@ -68,7 +75,28 @@ def query_osv(components: list[dict]) -> list[dict]:
     if not components:
         return []
 
-    queries = [{"package": {"purl": c["purl"]}} for c in components]
+    queries = [
+        {
+            "package": {"purl": c["purl"]},
+            "version": c["version"],
+        }
+        for c in components
+        if c.get("version")
+    ]
+
+    # Track components that actually have a version (parallel list for zip)
+    versioned_components = [c for c in components if c.get("version")]
+
+    unversioned = [c["name"] for c in components if not c.get("version")]
+    if unversioned:
+        print(
+            f"WARNING: {len(unversioned)} component(s) have no version in SBOM and will be "
+            f"skipped by OSV scan: {', '.join(unversioned)}",
+            file=sys.stderr,
+        )
+
+    if not queries:
+        return []
 
     try:
         response = httpx.post(
@@ -83,26 +111,21 @@ def query_osv(components: list[dict]) -> list[dict]:
 
     results = response.json().get("results", [])
 
-    if len(results) != len(components):
+    if len(results) != len(versioned_components):
         print(
-            f"WARNING: OSV returned {len(results)} results for {len(components)} queries. "
+            f"WARNING: OSV returned {len(results)} results for {len(versioned_components)} queries. "
             f"This violates the expected order-preservation contract. "
-            f"Processing only the first min({len(results)}, {len(components)}) entries. "
+            f"Processing only the first min({len(results)}, {len(versioned_components)}) entries. "
             f"Some packages may be unscanned this cycle.",
             file=sys.stderr,
         )
-        n = min(len(results), len(components))
-        components = components[:n]
-        results    = results[:n]
+        n = min(len(results), len(versioned_components))
+        versioned_components = versioned_components[:n]
+        results = results[:n]
 
     hits = []
-    for i, (component, result) in enumerate(zip(components, results)):
+    for i, (component, result) in enumerate(zip(versioned_components, results)):
         vulns = result.get("vulns", [])
-
-        if i > 0 and not vulns and hits:
-            prev_purl = components[i - 1]["purl"]
-            if any(h["purl"] == prev_purl for h in hits):
-                pass  # Previous was a hit, this is clean — normal.
 
         if vulns:
             hits.append({
@@ -117,6 +140,13 @@ def query_osv(components: list[dict]) -> list[dict]:
                         "summary": v.get("summary", "")[:120],
                         "severity": v.get("database_specific", {}).get("severity", "unknown"),
                         "published": v.get("published", ""),
+                        "affected_version_ranges": [
+                            event.get("introduced", "") + " → " + event.get("fixed", "(unfixed)")
+                            for affected in v.get("affected", [])
+                            for r in affected.get("ranges", [])
+                            for event in r.get("events", [])
+                            if "introduced" in event
+                        ],
                     }
                     for v in vulns
                 ],
@@ -178,11 +208,11 @@ def main() -> int:
         write_github_output("has_hits", "false")
         return 0
 
-    print(f"Querying OSV for {len(components)} packages...")
+    print(f"Querying OSV for {len(components)} packages (version-aware)...")
     hits = query_osv(components)
 
     if not hits:
-        print("\u2705 No active advisories found.")
+        print("\u2705 No active advisories found for pinned versions.")
         write_github_output("has_hits", "false")
         return 0
 
@@ -191,7 +221,7 @@ def main() -> int:
         for skill in hit["usedIn"]:
             affected_skills.add(skill)
         vuln_summary = ", ".join(v["id"] for v in hit["vulns"])
-        print(f"\U0001f6a8 {hit['package']} ({hit['purl']}): {vuln_summary}")
+        print(f"\U0001f6a8 {hit['package']} {hit['version']} ({hit['purl']}): {vuln_summary}")
         for skill in hit["usedIn"]:
             print(f"   \u2514\u2500 affects: {skill}")
 
