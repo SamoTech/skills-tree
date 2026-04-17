@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "label": "deps",
+  "message": "\u26a0\ufe0f GHSA-h7wm-ph43-c39p, PYSEC-2017-83",
+  "color": "critical",
+  "style": "flat-square",
+  "namedLogo": "dependabot"
+}
