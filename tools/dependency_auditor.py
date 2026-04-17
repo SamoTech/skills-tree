@@ -42,6 +42,16 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
+# Import shared key utility — single source of truth for badge key generation.
+# This replaces the former local skill_key() function which was a duplicate
+# with subtly different behaviour (missing lstrip('./') and '//' collapse),
+# causing badge key mismatches on paths with a ./ prefix or double-slashes.
+try:
+    from common import skill_path_to_badge_key
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from common import skill_path_to_badge_key
+
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
@@ -224,11 +234,6 @@ def extract_first_snippet(text: str) -> Optional[str]:
     return None
 
 
-def skill_key(path: Path) -> str:
-    rel = str(path).replace("\\", "/")
-    return rel.replace("/", "-").replace(".md", "")
-
-
 # ---------------------------------------------------------------------------
 # Audit logic
 # ---------------------------------------------------------------------------
@@ -251,7 +256,7 @@ def build_pip_specs(deps: list[Dependency]) -> list[str]:
 
 def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
     text = skill_path.read_text(encoding="utf-8", errors="ignore")
-    key = skill_key(skill_path)
+    key = skill_path_to_badge_key(skill_path)
     result = AuditResult(skill_path=skill_path, skill_key=key)
 
     result.deps = parse_dependencies(text)
@@ -463,7 +468,7 @@ def should_audit(skill_path: Path, badge_output: Path) -> bool:
     Note: newly added skills have no badge yet (ast-sweep must run first
     to generate the initial Yellow badge before this tool can promote them).
     """
-    key = skill_key(skill_path)
+    key = skill_path_to_badge_key(skill_path)
     badge_file = badge_output / f"{key}.json"
     if not badge_file.exists():
         return False

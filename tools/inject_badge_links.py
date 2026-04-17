@@ -10,18 +10,22 @@ Usage:
 """
 
 import argparse
-import glob
+import sys
 from pathlib import Path
+
+# Import shared key utility — single source of truth for badge key generation.
+# Replaces the former local make_key() function which was a duplicate with
+# subtly different behaviour (missing lstrip('./') and '//' collapse), causing
+# injected badge URLs to point to the wrong key when paths had a ./ prefix.
+try:
+    from common import skill_path_to_badge_key
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from common import skill_path_to_badge_key
 
 BADGE_BASE_URL = "https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/{key}.json"
 BADGE_ALT = "Dependency Status"
 DRY_RUN_TAG = "[DRY RUN]"
-
-
-def make_key(file_path: Path) -> str:
-    """Convert a file path like skills/02-reasoning/chain-of-thought.md
-    into a badge key like skills-02-reasoning-chain-of-thought."""
-    return str(file_path).replace("\\", "/").replace("/", "-").replace(".md", "")
 
 
 def inject_badge(path: Path, dry_run: bool = False) -> bool:
@@ -33,7 +37,7 @@ def inject_badge(path: Path, dry_run: bool = False) -> bool:
     if f"![{BADGE_ALT}]" in content:
         return False
 
-    key = make_key(path)
+    key = skill_path_to_badge_key(path)
     badge_url = BADGE_BASE_URL.format(key=key)
     badge_md = f"![{BADGE_ALT}]({badge_url})\n\n"
 
