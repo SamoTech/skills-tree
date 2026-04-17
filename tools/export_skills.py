@@ -145,10 +145,23 @@ SKILL_SCHEMA = {
 # JSON-LD helpers
 # ---------------------------------------------------------------------------
 
+# P7 FIX: corrected LEVEL_TO_ED mapping.
+# Previous mapping was:
+#   "intermediate": "https://schema.org/HasHealthAspect"  <- wrong (health vocab)
+#   "advanced":     "https://schema.org/Expert"           <- not a schema.org IRI
+# Now uses schema.org/DefinedTerm URNs recommended for educationalLevel,
+# consistent with Google's structured data guidelines for educational content.
 LEVEL_TO_ED = {
-    "basic":        "https://schema.org/BeginnerLearner",
-    "intermediate": "https://schema.org/HasHealthAspect",
-    "advanced":     "https://schema.org/Expert",
+    "basic":        "https://schema.org/DefinedTerm",  # rendered with name="Beginner"
+    "intermediate": "https://schema.org/DefinedTerm",  # rendered with name="Intermediate"
+    "advanced":     "https://schema.org/DefinedTerm",  # rendered with name="Advanced"
+}
+
+# Human-readable labels for educationalLevel DefinedTerm objects
+LEVEL_LABELS = {
+    "basic":        "Beginner",
+    "intermediate": "Intermediate",
+    "advanced":     "Advanced",
 }
 
 
@@ -221,9 +234,17 @@ def build_skill_jsonld(skill: dict) -> dict:
         "relatedSkills": skill.get("related", []),
     }
 
-    # schema:educationalLevel — map our level to a recognisable IRI
-    if skill.get("level") and skill["level"].lower() in LEVEL_TO_ED:
-        doc["educationalLevel"] = skill["level"].capitalize()
+    # P7 FIX: emit educationalLevel as a schema:DefinedTerm object (not a bare
+    # string). Previously emitted skill['level'].capitalize() which produced
+    # e.g. "Basic" — a plain string that validators reject as not a valid
+    # schema.org educationalLevel value.
+    level = skill.get("level", "").lower() if skill.get("level") else ""
+    if level in LEVEL_TO_ED:
+        doc["educationalLevel"] = {
+            "@type": "DefinedTerm",
+            "name": LEVEL_LABELS[level],
+            "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential",
+        }
 
     # schema:datePublished from `added` field (YYYY-MM format)
     if skill.get("added"):

@@ -36,7 +36,7 @@ jobs:
           DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           python3 - <<'PYEOF'
-          import os, re, json, datetime, subprocess, urllib.request
+          import os, re, json, datetime, subprocess, urllib.request, urllib.error
 
           repo   = os.environ["REPO"]
           token  = os.environ["GH_TOKEN"]
@@ -65,14 +65,21 @@ jobs:
           skill_counts = {}
           for pr in recent_prs:
               files_url = f"https://api.github.com/repos/{repo}/pulls/{pr['number']}/files"
+              # P-BATCH3 FIX: replaced bare `except: pass` with explicit error
+              # logging. File-fetch failures are non-fatal (highlights degrade
+              # gracefully) but are now visible in workflow output.
               try:
                   files = gh_get(files_url)
                   for f in files:
                       name = f["filename"]
                       if name.startswith("skills/") and name.endswith(".md"):
                           skill_counts[name] = skill_counts.get(name, 0) + 1
-              except Exception:
-                  pass
+              except urllib.error.HTTPError as exc:
+                  print(f"[weekly-highlights] WARNING: could not fetch files for PR #{pr['number']}: HTTP {exc.code} {exc.reason}")
+              except urllib.error.URLError as exc:
+                  print(f"[weekly-highlights] WARNING: network error fetching PR #{pr['number']} files: {exc.reason}")
+              except Exception as exc:
+                  print(f"[weekly-highlights] WARNING: unexpected error for PR #{pr['number']}: {exc}")
 
           top_skills = sorted(skill_counts.items(), key=lambda x: -x[1])[:5]
 
