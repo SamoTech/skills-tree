@@ -35,4 +35,4 @@ jobs:
           commit_message: "chore(graph): regenerate docs/api/graph.json [skip ci]"
           file_pattern: "docs/api/graph.json"
           commit_user_name: "github-actions[bot]"
-          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"

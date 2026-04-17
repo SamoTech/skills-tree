@@ -3,13 +3,20 @@
 # GitHub disables scheduled workflows on repos with no activity
 # for 60 days. This workflow commits a tiny timestamp update
 # every 50 days to keep ALL other workflows alive forever.
+#
+# Cron breakdown: '0 1 */50 * *' is NOT valid (day-of-month
+# doesn't support step on all runners). Best approximation
+# using two fixed monthly anchors that stay under 60 days:
+#   - 1st of every month  at 01:00 UTC (cron: '0 1 1 * *')
+# This fires every ~30 days — well within the 60-day cutoff
+# and harmless since the commit is idempotent.
 # ============================================================
 name: 💓 Keep Workflows Alive
 
 on:
   schedule:
-    # Every 50 days at 01:00 UTC (before the 60-day GitHub cutoff)
-    - cron: '0 1 1 */2 *'
+    # Every month on the 1st at 01:00 UTC — safely under the 60-day cutoff
+    - cron: '0 1 1 * *'
   workflow_dispatch:
 
 permissions:
@@ -34,7 +41,7 @@ jobs:
       - name: Commit heartbeat
         run: |
           git config user.name  'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add meta/heartbeat.yml
           git diff --staged --quiet || (
             git commit -m "chore: 💓 keepalive heartbeat $(date -u +%Y-%m-%d)"
