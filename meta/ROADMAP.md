@@ -150,10 +150,11 @@ Milestones:
 
 | Status | Item |
 |--------|------|
-| 🟡 | Arabic README translation (`README.ar.md`) |
-| 🟡 | Chinese README translation (`README.zh.md`) |
-| 🟡 | Spanish README translation (`README.es.md`) |
-| 🟡 | Category READMEs in Arabic, Chinese, Spanish |
+| 🟢 | Arabic README translation (`i18n/README.ar.md`) |
+| 🟢 | Chinese README translation (`i18n/README.zh.md`) |
+| 🟢 | Spanish README translation (`i18n/README.es.md`) |
+| 🟢 | German, French, Hindi, Japanese, Korean, Portuguese, Russian READMEs |
+| ⚪ | Category READMEs in Arabic, Chinese, Spanish |
 
 ---
 
@@ -245,13 +246,12 @@ Milestones:
 
 > Pick one and open a PR. See [CONTRIBUTING.md](../CONTRIBUTING.md) for the template.
 
-- [ ] **Reasoning**: Probabilistic reasoning, Bayesian inference, constraint satisfaction
 - [ ] **Memory**: Hierarchical memory management, cache eviction strategies, forgetting curves
 - [ ] **Code**: IDE integration patterns, pair-programming protocols, polyglot agents
 - [ ] **Security**: Red-teaming, jailbreak resistance, adversarial robustness, prompt injection defense
 - [ ] **Domain-Specific**: Healthcare NLP, legal document analysis, scientific literature review, financial modeling
 - [ ] **Orchestration**: Multi-modal pipelines, cross-agent authentication, consensus mechanisms
-- [ ] **Agentic Patterns**: Monte Carlo Tree Search, Reflexion, self-consistency sampling
+- [ ] **Agentic Patterns**: Reflexion, self-consistency sampling
 - [ ] **Computer Use**: Accessibility tree parsing, game automation, industrial HMI control
 
 ---
@@ -274,5 +274,6 @@ Milestones:
 | v1.2 Skill Expansion | 🟢 Complete | 2026-04 |
 | v2.0 Systems + Viral Mechanics | 🟢 Complete | 2026-04 |
 | v2.0 Quality Uplift + Versioning + Export | 🟢 Complete | 2026-04 |
+| v2.1 Localization | 🟢 Complete | 2026-04 |
 | v2.x Community Engine | ⚪ Planned | 2026 Q3 |
 | v3.0 Platform + CLI | ⚪ Planned | 2026 Q4 |
