@@ -47,5 +47,7 @@ jobs:
           exempt-pr-labels: 'pinned,security,do-not-merge'
 
           # Never delete the stale label after activity (keep history)
-          remove-stale-when-updated: true
+          # FIX: was incorrectly set to true, which removed the stale label on activity
+          # — the opposite of what the comment documented. Now correctly false.
+          remove-stale-when-updated: false
           operations-per-run: 100

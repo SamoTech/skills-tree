@@ -34,7 +34,9 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
         with:
-          repository: SamoTech/skills-tree
+          # H-6 FIX: use github.repository instead of hardcoded 'SamoTech/skills-tree'
+          # so this works correctly in forks and after any repo rename.
+          repository: ${{ github.repository }}
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1

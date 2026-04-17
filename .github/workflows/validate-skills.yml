@@ -33,12 +33,13 @@ jobs:
       - name: Backfill missing Added field (push to main only)
         if: github.event_name == 'push'
         run: |
-          set +e
+          # H-1 FIX: set +e removed. Each sed/grep uses explicit || true only
+          # where the command is intentionally allowed to produce no output.
+          # Real failures (git push, git commit) are NOT suppressed.
           CHANGED=0
           shopt -s globstar
           for f in skills/**/*.md; do
-            [[  "$f" == *README* ]] && continue
-            # Accept YAML frontmatter "added:" OR bold "**Added:**"
+            [[ "$f" == *README* ]] && continue
             if ! grep -qE '^added:' "$f" && ! grep -qE '^\*\*Added:\*\*' "$f"; then
               if grep -q '^stability:' "$f"; then
                 sed -i '/^stability:/a added: "2025-03"' "$f"
@@ -70,16 +71,6 @@ jobs:
           fi
 
       # ── Step 2: Hard validation — structural sections ────────────────────
-      # Accepts EITHER a Markdown heading (## Description / ### Description)
-      # OR a bold-field style (**Description** / **Description:**) as generated
-      # by ast-sweep stubs. Both are valid stub formats.
-      #
-      # "Related" heading is matched with a word-boundary so that
-      # "### Related Skills", "## Related", "### Related:" etc. all pass.
-      #
-      # On PRs: only check files changed in this PR (prevents pre-existing stubs
-      # from blocking new contributions; stubs are fixed progressively).
-      # On push to main: full scan to catch anything that slipped through.
       - name: Check required sections (hard fail)
         run: |
           echo "Checking skill .md files for required sections..."
@@ -101,7 +92,6 @@ jobs:
               echo "::error file=$f::MISSING 'Description' section (## Description, ### Description, or **Description**)"
               FAIL=1
             fi
-            # Match "Related" at start of heading word — covers "Related", "Related Skills", "Related:", etc.
             if ! grep -qE '(^#{1,3} Related\b|^\*\*Related)' "$f"; then
               echo "::error file=$f::MISSING 'Related' section (## Related, ### Related Skills, **Related**, etc.)"
               FAIL=1
@@ -151,8 +141,6 @@ jobs:
           exit 0
 
       # ── Step 5: Broken relative link check ──────────────────────────────
-      # On PRs: only check links in files changed by this PR.
-      # On push to main: check all files (catches dangling links repo-wide).
       - name: Check for broken relative links
         run: |
           echo "Checking for broken relative links..."
@@ -171,7 +159,7 @@ jobs:
             [ -f "$f" ] || continue
             [[ "$f" == *README* ]] && continue
             dir=$(dirname "$f")
-            links=$(grep -oP '\(\.\./[^)]+\.md\)' "$f" | tr -d '()')
+            links=$(grep -oP '\(\.\./[^)]+\.md\)' "$f" | tr -d '()' || true)
             for link in $links; do
               target="$dir/$link"
               resolved=$(realpath --relative-to=. "$target" 2>/dev/null)

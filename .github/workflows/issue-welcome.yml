@@ -23,7 +23,6 @@ jobs:
         with:
           script: |
             const isIssue = context.eventName === 'issues';
-            const isPR    = context.eventName === 'pull_request_target';
             const author  = isIssue
               ? context.payload.issue.user.login
               : context.payload.pull_request.user.login;
@@ -43,19 +42,11 @@ jobs:
               ? `👋 Thanks for opening your first issue, @${author}!\n\nA maintainer will review it soon. In the meantime:\n- 📖 Check [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) for guidelines\n- 🔍 Search existing issues to avoid duplicates\n- 📋 Use the [glossary](../blob/main/meta/glossary.md) for skill terminology`
               : `👋 Thanks for your first PR, @${author}! 🎉\n\nWe'll review it shortly. Please make sure:\n- [ ] Skill files follow the naming convention \`NN-skill-name.md\`\n- [ ] Each skill has a clear H1 heading and description\n- [ ] Related skills reference each other with links\n\nSee [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) for the full checklist.`;
 
-            if (isIssue) {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner, repo: context.repo.repo,
-                issue_number: number, body
-              });
-            } else {
-              await github.rest.pulls.createReviewComment === undefined
-                ? await github.rest.issues.createComment({
-                    owner: context.repo.owner, repo: context.repo.repo,
-                    issue_number: number, body
-                  })
-                : await github.rest.issues.createComment({
-                    owner: context.repo.owner, repo: context.repo.repo,
-                    issue_number: number, body
-                  });
-            }
+            // FIX: removed dead-code ternary that always resolved to the same branch.
+            // Both issue and PR welcome messages use issues.createComment (correct for both).
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: number,
+              body
+            });
