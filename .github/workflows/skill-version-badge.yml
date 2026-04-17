@@ -35,7 +35,7 @@ jobs:
           python3 - <<'PYEOF'
           import subprocess, os, re, json
 
-          repo = os.environ["REPO"]
+          repo  = os.environ["REPO"]
           token = os.environ["GH_TOKEN"]
 
           # Get changed skill files in this push
@@ -45,6 +45,28 @@ jobs:
           )
           changed = [f for f in result.stdout.strip().splitlines() if f.startswith("skills/") and f.endswith(".md")]
 
+          def parse_version(content: str) -> str | None:
+              """
+              FIX: detect version from YAML frontmatter (canonical format used by
+              validate-skills.yml and export_skills.py), e.g.:
+                  ---
+                  version: v3
+                  ---
+              Previously used a markdown-bold regex that never matched frontmatter files.
+              """
+              # 1. YAML frontmatter (canonical) — must be at top of file
+              fm_match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+              if fm_match:
+                  fm_block = fm_match.group(1)
+                  m = re.search(r'^version:\s*(v\d+)', fm_block, re.MULTILINE | re.IGNORECASE)
+                  if m:
+                      return m.group(1).lower()
+              # 2. Markdown bold fallback — legacy files not yet migrated to frontmatter
+              m = re.search(r'\*\*Version:\*\*\s*`?(v\d+)`?', content, re.IGNORECASE)
+              if m:
+                  return m.group(1).lower()
+              return None
+
           v3_upgrades = []
 
           for filepath in changed:
@@ -52,8 +74,8 @@ jobs:
                   continue
               with open(filepath) as fh:
                   content = fh.read()
-              m = re.search(r'\*\*Version:\*\*\s*`?(v\d+)`?', content, re.IGNORECASE)
-              if m and m.group(1).lower() == "v3":
+              ver = parse_version(content)
+              if ver == "v3":
                   skill_name = os.path.splitext(os.path.basename(filepath))[0]
                   v3_upgrades.append(skill_name)
 
