@@ -17,15 +17,18 @@
 #   A maintainer must review and merge the verification PR.
 #
 # Security model:
+#   - Uses pull_request_target so the workflow always runs on BASE branch code.
+#     Untrusted PR code is NEVER checked out or executed.
+#   - Changed skill file paths are read from the GitHub API (not the PR branch).
 #   - Snippets run inside ephemeral GitHub Actions runners (discarded after job)
-#   - PRs from external contributors require maintainer approval before
-#     the audit workflow is triggered (see: pull_request_target note below)
 #   - See SECURITY.md#phase-3-execution-gap--network-constraints for escalation
 
 name: Dependency Auditor (Phase 3)
 
 on:
-  pull_request:
+  # SECURITY: pull_request_target runs workflow code from BASE (main), not the
+  # contributor's fork/branch. The PR head is never checked out here.
+  pull_request_target:
     paths:
       - 'skills/**/*.md'
   schedule:
@@ -52,17 +55,18 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout repository
+      # SECURITY: Always checkout BASE branch (main), never the PR head.
+      # This ensures only reviewed code runs in this workflow.
+      - name: Checkout BASE branch (main)
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          # NOTE: cache: pip intentionally omitted — no requirements.txt in repo.
-          # Dependencies are installed inline via pip in the next step.
 
       - name: Install auditor dependencies
         run: |
@@ -74,15 +78,19 @@ jobs:
 
       - name: Determine skills to audit
         id: scope
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           SKILLS_ROOT="${{ github.event.inputs.skills_root || 'skills' }}"
           echo "skills_root=${SKILLS_ROOT}" >> $GITHUB_OUTPUT
 
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            # Audit only changed skill files in this PR
-            CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD \
+          if [ "${{ github.event_name }}" = "pull_request_target" ]; then
+            # Fetch changed files from the GitHub API — never from the PR branch
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+            CHANGED=$(gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files" \
+              --jq '.[].filename' \
               | grep '^skills/.*\.md$' | head -50)
-            echo "Changed skill files:"
+            echo "Changed skill files (from API):"
             echo "$CHANGED"
             echo "changed_files<<EOF" >> $GITHUB_OUTPUT
             echo "$CHANGED" >> $GITHUB_OUTPUT
@@ -106,7 +114,6 @@ jobs:
           fi
 
           if [ "$MODE" = "pr" ] && [ -n "${{ steps.scope.outputs.changed_files }}" ]; then
-            # FIX: use printf to safely write multiline output to file
             printf '%s\n' "${{ steps.scope.outputs.changed_files }}" > /tmp/changed_skills.txt
             python tools/dependency_auditor.py \
               --skills-file /tmp/changed_skills.txt \
@@ -138,7 +145,7 @@ jobs:
         run: |
           BRANCH="auditor/green-proposals-$(date +%Y%m%d-%H%M%S)"
           git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git checkout -b "$BRANCH"
           git add badge-data-output/

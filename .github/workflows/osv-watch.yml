@@ -43,9 +43,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          # cache: pip removed — no requirements.txt in repo root causes
-          # "No file matched to [**/requirements.txt or **/pyproject.toml]" error.
-          # pip install is a single package; caching adds no meaningful benefit.
 
       - name: Install dependencies
         run: pip install httpx
@@ -107,21 +104,28 @@ jobs:
           print(f"Rehydrated {rehydrated} Yellow badge(s) for SBOM-tracked skills.")
           PYEOF
 
-      - name: Clone badge-data branch for update
+      # SECURITY (C-3): badge-data branch is now cloned via actions/checkout
+      # using the token parameter. The GITHUB_TOKEN never appears in a git
+      # remote URL, preventing leakage through process listings or git errors.
+      - name: Checkout badge-data branch
         if: inputs.dry_run != 'true'
+        id: checkout_badge_data
+        uses: actions/checkout@v4
+        with:
+          ref: badge-data
+          path: badge-data-branch
+          token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Skip if badge-data branch is missing
+        if: inputs.dry_run != 'true' && steps.checkout_badge_data.outcome == 'failure'
         run: |
-          git clone --branch badge-data --depth 1 \
-            https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git \
-            badge-data-branch 2>/dev/null || (
-              echo "badge-data branch missing. Skipping."
-              exit 0
-            )
+          echo "badge-data branch does not exist yet. Skipping badge push."
+          echo "Create it with: git checkout --orphan badge-data && git commit --allow-empty -m 'init'"
 
       - name: Push updated badges to badge-data branch (with retry-rebase)
-        if: inputs.dry_run != 'true'
+        if: inputs.dry_run != 'true' && steps.checkout_badge_data.outcome == 'success'
         run: |
-          [ ! -d badge-data-branch/.git ] && echo "badge-data branch not ready, skipping." && exit 0
-
           HAS_JSON=$(find badge-data-output -name '*.json' 2>/dev/null | wc -l | tr -d ' ')
           [ "$HAS_JSON" = "0" ] && echo "No badge JSONs to push." && exit 0
 
@@ -130,7 +134,6 @@ jobs:
           cd badge-data-branch
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git add -A
           git diff --staged --quiet && echo "No badge changes to commit." && exit 0
 
@@ -153,7 +156,6 @@ jobs:
             echo "Push rejected (attempt ${attempt}/3). Fetching and rebasing..."
             git fetch origin badge-data
             git rebase origin/badge-data || {
-              # On JSON conflicts, advisory badges win (ours = OSV data)
               git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --ours {}
               git add -A
               git rebase --continue

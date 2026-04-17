@@ -35,7 +35,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-        continue-on-error: true
+        # SECURITY (C-2): continue-on-error removed. Gitleaks failures now
+        # fail the workflow, making secret detection actually effective.
 
       - name: Scan HTML for exposed tokens
         run: |
