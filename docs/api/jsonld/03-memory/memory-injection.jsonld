@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "memory-injection",
   "skillVersion": null,
   "skillLevel": null,
@@ -63,7 +63,7 @@
     "What It Does"
   ],
   "relatedSkills": [],
-  "keywords": "memory, skills tree, injection, AI agent, LLM skill",
+  "keywords": "AI agent, injection, memory, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Memory Injection",

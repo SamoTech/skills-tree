@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 376,
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -2087,7 +2087,7 @@
       "@type": "ListItem",
       "position": 346,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/README.md",
-      "name": "🏺 Domain-Specific Skills"
+      "name": "🌐 Domain-Specific Skills"
     },
     {
       "@type": "ListItem",

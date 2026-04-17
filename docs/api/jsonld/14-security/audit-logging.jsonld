@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "audit-logging",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../15-orchestration/logging-observability.md"
   ],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2026-04-01",
-  "keywords": "logging, audit, skills tree, security, AI agent, LLM skill",
+  "keywords": "AI agent, audit, skills tree, LLM skill, security, logging",
   "about": {
     "@type": "Thing",
     "name": "audit-logging",

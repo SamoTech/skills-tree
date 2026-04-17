@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "inductive-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../12-data/statistical-analysis.md"
   ],
-  "educationalLevel": "Intermediate",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "inductive, reasoning, skills tree, AI agent, LLM skill",
+  "keywords": "AI agent, reasoning, skills tree, LLM skill, inductive",
   "about": {
     "@type": "Thing",
     "name": "Inductive Reasoning",

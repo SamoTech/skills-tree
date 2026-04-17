@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "image-understanding",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "01-perception",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "perception, skills tree, AI agent, image, understanding, LLM skill",
+  "keywords": "AI agent, understanding, image, perception, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Image Understanding",

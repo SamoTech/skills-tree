@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "copywriting",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -63,9 +63,13 @@
     "../16-domain-specific/ad-copy.md",
     "../06-communication/tone-adjustment.md"
   ],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, creative, AI agent, copywriting, LLM skill",
+  "keywords": "AI agent, skills tree, LLM skill, creative, copywriting",
   "about": {
     "@type": "Thing",
     "name": "copywriting",

@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/README.md",
-  "name": "🏺 Domain-Specific Skills",
-  "headline": "🏺 Domain-Specific Skills",
+  "name": "🌐 Domain-Specific Skills",
+  "headline": "🌐 Domain-Specific Skills",
   "description": "",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/README.md",
   "isPartOf": {
@@ -52,26 +52,25 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
   "skillStability": null,
   "categoryDir": "16-domain-specific",
   "sections": [
-    "Medical / Healthcare",
-    "Legal",
-    "Finance",
-    "Education",
-    "DevOps / Infrastructure",
-    "E-commerce / Marketing",
-    "Science & Research"
+    "Skills in This Category",
+    "Related Categories"
   ],
-  "relatedSkills": [],
-  "keywords": "domain, skills tree, AI agent, README, LLM skill, specific",
+  "relatedSkills": [
+    "../../CONTRIBUTING.md",
+    "../15-orchestration/README.md",
+    "../16-infrastructure/README.md"
+  ],
+  "keywords": "AI agent, README, specific, skills tree, LLM skill, domain",
   "about": {
     "@type": "Thing",
-    "name": "🏺 Domain-Specific Skills",
-    "description": "An AI agent skill for 🏺 domain-specific skills."
+    "name": "🌐 Domain-Specific Skills",
+    "description": "An AI agent skill for 🌐 domain-specific skills."
   }
 }

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "regex-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../01-perception/text-reading.md"
   ],
-  "educationalLevel": "Intermediate",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "regex, generation, skills tree, code, AI agent, LLM skill",
+  "keywords": "AI agent, regex, skills tree, LLM skill, code, generation",
   "about": {
     "@type": "Thing",
     "name": "Regex Generation",

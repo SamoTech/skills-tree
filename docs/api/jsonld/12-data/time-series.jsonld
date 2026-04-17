@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "time-series",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -60,9 +60,13 @@
   "categoryDir": "12-data",
   "sections": [],
   "relatedSkills": [],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "time, data, skills tree, series, AI agent, LLM skill",
+  "keywords": "AI agent, skills tree, LLM skill, series, time, data",
   "about": {
     "@type": "Thing",
     "name": "Time Series Analysis",

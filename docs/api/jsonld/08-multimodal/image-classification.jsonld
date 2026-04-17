@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "image-classification",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../01-perception/image-understanding.md"
   ],
-  "educationalLevel": "Basic",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Beginner",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "multimodal, skills tree, classification, AI agent, image, LLM skill",
+  "keywords": "AI agent, image, skills tree, LLM skill, multimodal, classification",
   "about": {
     "@type": "Thing",
     "name": "Image Classification",

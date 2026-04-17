@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "right-click",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -60,9 +60,13 @@
   "categoryDir": "10-computer-use",
   "sections": [],
   "relatedSkills": [],
-  "educationalLevel": "Intermediate",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "right, use, computer, skills tree, click, AI agent, LLM skill",
+  "keywords": "AI agent, computer, LLM skill, skills tree, right, click, use",
   "about": {
     "@type": "Thing",
     "name": "Right Click / Context Menu",

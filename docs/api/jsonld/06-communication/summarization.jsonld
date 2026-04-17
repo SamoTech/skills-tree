@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "summarization",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "06-communication",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "summarization, communication, skills tree, AI agent, LLM skill",
+  "keywords": "AI agent, skills tree, LLM skill, communication, summarization",
   "about": {
     "@type": "Thing",
     "name": "Summarization",

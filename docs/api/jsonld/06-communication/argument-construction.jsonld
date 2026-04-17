@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "argument-construction",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -60,9 +60,13 @@
   "categoryDir": "06-communication",
   "sections": [],
   "relatedSkills": [],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "communication, skills tree, construction, AI agent, LLM skill, argument",
+  "keywords": "AI agent, construction, skills tree, LLM skill, argument, communication",
   "about": {
     "@type": "Thing",
     "name": "Argument Construction",

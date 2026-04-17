@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "email-drafting",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../04-action-execution/email-sending.md"
   ],
-  "educationalLevel": "Basic",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Beginner",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "communication, skills tree, drafting, AI agent, email, LLM skill",
+  "keywords": "AI agent, drafting, skills tree, LLM skill, email, communication",
   "about": {
     "@type": "Thing",
     "name": "Email Drafting",

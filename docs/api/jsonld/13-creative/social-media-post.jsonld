@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "social-media-post",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../06-communication/tone-adjustment.md"
   ],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "post, media, skills tree, creative, social, AI agent, LLM skill",
+  "keywords": "AI agent, social, post, skills tree, LLM skill, media, creative",
   "about": {
     "@type": "Thing",
     "name": "social-media-post",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "env-vars",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -62,9 +62,13 @@
   "relatedSkills": [
     "../14-security/secret-scanning.md"
   ],
-  "educationalLevel": "Basic",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Beginner",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "vars, action, execution, skills tree, env, AI agent, LLM skill",
+  "keywords": "AI agent, skills tree, LLM skill, vars, env, execution, action",
   "about": {
     "@type": "Thing",
     "name": "Environment Variable Management",

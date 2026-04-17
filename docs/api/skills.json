@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-14T15:10:30Z",
+  "generated": "2026-04-17T00:44:35Z",
   "count": 376,
   "skills": [
     {
@@ -6209,7 +6209,7 @@
     {
       "id": "README",
       "path": "skills/16-domain-specific/README.md",
-      "name": "🏺 Domain-Specific Skills",
+      "name": "🌐 Domain-Specific Skills",
       "description": "",
       "category": null,
       "level": null,
@@ -6218,15 +6218,14 @@
       "added": null,
       "last_updated": null,
       "sections": [
-        "Medical / Healthcare",
-        "Legal",
-        "Finance",
-        "Education",
-        "DevOps / Infrastructure",
-        "E-commerce / Marketing",
-        "Science & Research"
+        "Skills in This Category",
+        "Related Categories"
       ],
-      "related": [],
+      "related": [
+        "../../CONTRIBUTING.md",
+        "../15-orchestration/README.md",
+        "../16-infrastructure/README.md"
+      ],
       "category_dir": "16-domain-specific"
     },
     {

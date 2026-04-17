@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "rag-pipeline",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -63,9 +63,13 @@
     "../03-memory/rag.md",
     "../07-tool-use/vector-db-tool.md"
   ],
-  "educationalLevel": "Intermediate",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "pipeline, skills tree, agentic, rag, AI agent, patterns, LLM skill",
+  "keywords": "pipeline, AI agent, agentic, skills tree, LLM skill, rag, patterns",
   "about": {
     "@type": "Thing",
     "name": "RAG Pipeline",

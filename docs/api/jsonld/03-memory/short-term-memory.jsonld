@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "short-term-memory",
   "skillVersion": null,
   "skillLevel": null,
@@ -60,7 +60,7 @@
   "categoryDir": "03-memory",
   "sections": [],
   "relatedSkills": [],
-  "keywords": "term, memory, skills tree, short, AI agent, LLM skill",
+  "keywords": "term, AI agent, memory, skills tree, LLM skill, short",
   "about": {
     "@type": "Thing",
     "name": "Short-Term Memory",

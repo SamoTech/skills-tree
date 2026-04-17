@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "analogy-generation",
   "skillVersion": null,
   "skillLevel": null,
@@ -66,7 +66,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "analogy, generation, reasoning, skills tree, AI agent, LLM skill",
+  "keywords": "AI agent, reasoning, skills tree, LLM skill, analogy, generation",
   "about": {
     "@type": "Thing",
     "name": "Analogy Generation",

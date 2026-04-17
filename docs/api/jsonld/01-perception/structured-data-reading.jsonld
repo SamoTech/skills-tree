@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "structured-data-reading",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -69,9 +69,13 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "educationalLevel": "Basic",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Beginner",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "data, reading, structured, perception, skills tree, AI agent, LLM skill",
+  "keywords": "AI agent, reading, perception, structured, LLM skill, skills tree, data",
   "about": {
     "@type": "Thing",
     "name": "Structured Data Reading",

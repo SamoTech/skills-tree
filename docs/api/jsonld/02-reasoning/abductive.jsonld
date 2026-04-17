@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "abductive",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -71,9 +71,13 @@
   "relatedSkills": [
     "../03-memory/fact-verification.md"
   ],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "reasoning, skills tree, abductive, AI agent, LLM skill",
+  "keywords": "AI agent, reasoning, skills tree, LLM skill, abductive",
   "about": {
     "@type": "Thing",
     "name": "Abductive Reasoning",

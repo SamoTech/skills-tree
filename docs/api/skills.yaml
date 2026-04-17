@@ -1,4 +1,4 @@
-generated: '2026-04-14T15:10:30Z'
+generated: '2026-04-17T00:44:35Z'
 count: 376
 skills:
 - id: README
@@ -5305,7 +5305,7 @@ skills:
   category_dir: 15-orchestration
 - id: README
   path: skills/16-domain-specific/README.md
-  name: 🏺 Domain-Specific Skills
+  name: 🌐 Domain-Specific Skills
   description: ''
   category: null
   level: null
@@ -5314,14 +5314,12 @@ skills:
   added: null
   last_updated: null
   sections:
-  - Medical / Healthcare
-  - Legal
-  - Finance
-  - Education
-  - DevOps / Infrastructure
-  - E-commerce / Marketing
-  - Science & Research
-  related: []
+  - Skills in This Category
+  - Related Categories
+  related:
+  - ../../CONTRIBUTING.md
+  - ../15-orchestration/README.md
+  - ../16-infrastructure/README.md
   category_dir: 16-domain-specific
 - id: ad-copy
   path: skills/16-domain-specific/ad-copy.md

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "a2a-tool",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -63,9 +63,13 @@
     "../15-orchestration/subagent-spawning.md",
     "../15-orchestration/agent-handoff.md"
   ],
-  "educationalLevel": "Advanced",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "use, a2a, skills tree, tool, AI agent, LLM skill",
+  "keywords": "AI agent, a2a, tool, skills tree, LLM skill, use",
   "about": {
     "@type": "Thing",
     "name": "Agent-to-Agent Tool (A2A)",

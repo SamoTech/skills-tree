@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T15:10:30Z",
+  "dateModified": "2026-04-17T00:44:35Z",
   "skillId": "input-guardrails",
   "skillVersion": null,
   "skillLevel": null,
@@ -70,7 +70,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "guardrails, skills tree, input, security, AI agent, LLM skill",
+  "keywords": "AI agent, input, skills tree, LLM skill, security, guardrails",
   "about": {
     "@type": "Thing",
     "name": "Input Guardrails",
