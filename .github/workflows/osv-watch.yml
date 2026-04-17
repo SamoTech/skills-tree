@@ -166,7 +166,7 @@ jobs:
           echo "ERROR: All 3 push attempts failed. Next 15-min cron will recover."
           exit 1
 
-      - name: Post advisory summary as GitHub Issue
+      - name: Post advisory summary as GitHub Issue (deduplicated)
         if: steps.osv.outputs.has_hits == 'true' && inputs.dry_run != 'true'
         uses: actions/github-script@v7
         with:
@@ -175,6 +175,27 @@ jobs:
             if (!fs.existsSync('osv-hits.json')) { console.log('No hits file.'); return; }
             const hits = JSON.parse(fs.readFileSync('osv-hits.json', 'utf8'));
             if (!hits.hits || hits.hits.length === 0) return;
+
+            const packageList = hits.hits.map(h => h.package).join(', ');
+            const issueTitle = `\ud83d\udea8 Dependency Advisory: ${packageList}`;
+
+            // --- DEDUPLICATION GUARD ---
+            // Search for any open issue with the same title. If one exists,
+            // skip creation entirely — the existing issue is still actionable.
+            const existingIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'dependency-advisory',
+              per_page: 50,
+            });
+
+            const duplicate = existingIssues.data.find(issue => issue.title === issueTitle);
+            if (duplicate) {
+              console.log(`Skipping: open issue #${duplicate.number} already exists with this title.`);
+              return;
+            }
+            // --- END DEDUPLICATION GUARD ---
 
             let body = `## \ud83d\udea8 Dependency Advisory \u2014 ${new Date().toISOString().slice(0,10)}\n\n`;
             body += `> Detected by 15-minute OSV polling. SLA: badge states are updated within 15 minutes.\n\n`;
@@ -197,7 +218,7 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `\ud83d\udea8 Dependency Advisory: ${hits.hits.map(h => h.package).join(', ')}`,
+              title: issueTitle,
               body,
               labels: ['security', 'dependency-advisory'],
             });
