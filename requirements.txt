@@ -1,3 +1,5 @@
 # Runtime dependencies for GitHub Actions workflows
-# Pinned for reproducibility; bump versions when upstream releases security patches.
-httpx>=0.27,<1.0
+# Pinned to exact versions for reproducibility; bump when upstream releases security patches.
+# Versions sourced from meta/skills-sbom.cdx.json (last updated 2026-04-14).
+httpx==0.28.1
+PyYAML==6.0.2
