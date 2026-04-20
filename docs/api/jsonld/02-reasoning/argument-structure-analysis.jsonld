@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-17T00:44:35Z",
+  "dateModified": "2026-04-20T06:14:45Z",
   "skillId": "argument-structure-analysis",
   "skillVersion": null,
   "skillLevel": null,
@@ -66,7 +66,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "AI agent, structure, reasoning, analysis, LLM skill, skills tree, argument",
+  "keywords": "argument, AI agent, structure, LLM skill, analysis, reasoning, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Argument Structure Analysis",

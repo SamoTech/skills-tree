@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-17T00:44:35Z",
+  "dateModified": "2026-04-20T06:14:45Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
@@ -67,7 +67,7 @@
     "../15-orchestration/README.md",
     "../16-infrastructure/README.md"
   ],
-  "keywords": "AI agent, README, specific, skills tree, LLM skill, domain",
+  "keywords": "AI agent, README, specific, LLM skill, domain, skills tree",
   "about": {
     "@type": "Thing",
     "name": "🌐 Domain-Specific Skills",

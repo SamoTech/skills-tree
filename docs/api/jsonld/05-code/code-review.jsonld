@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-17T00:44:35Z",
+  "dateModified": "2026-04-20T06:14:45Z",
   "skillId": "code-review",
   "skillVersion": null,
   "skillLevel": null,
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "AI agent, skills tree, LLM skill, code, review",
+  "keywords": "code, review, AI agent, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Code Review",

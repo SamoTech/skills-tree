@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-17T00:44:35Z",
+  "dateModified": "2026-04-20T06:14:45Z",
   "skillId": "accessibility-tree",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, tree, computer, LLM skill, skills tree, use, accessibility",
+  "keywords": "use, skills tree, AI agent, LLM skill, computer, tree, accessibility",
   "about": {
     "@type": "Thing",
     "name": "Accessibility Tree Navigation",

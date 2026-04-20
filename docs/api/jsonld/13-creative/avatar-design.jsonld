@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-17T00:44:35Z",
+  "dateModified": "2026-04-20T06:14:45Z",
   "skillId": "avatar-design",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, avatar, skills tree, LLM skill, design, creative",
+  "keywords": "creative, avatar, AI agent, design, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "avatar-design",
