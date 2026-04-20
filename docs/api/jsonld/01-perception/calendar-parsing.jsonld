@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:14:45Z",
+  "dateModified": "2026-04-20T06:32:33Z",
   "skillId": "calendar-parsing",
   "skillVersion": null,
   "skillLevel": null,
@@ -69,7 +69,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "calendar, perception, AI agent, parsing, LLM skill, skills tree",
+  "keywords": "AI agent, skills tree, perception, parsing, calendar, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Calendar Parsing",

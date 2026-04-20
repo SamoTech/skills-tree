@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:14:45Z",
+  "dateModified": "2026-04-20T06:32:33Z",
   "skillId": "video-description",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "video, AI agent, description, LLM skill, multimodal, skills tree",
+  "keywords": "multimodal, AI agent, description, skills tree, video, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Video Description",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:14:45Z",
+  "dateModified": "2026-04-20T06:32:33Z",
   "skillId": "tool-review-loops",
   "skillVersion": null,
   "skillLevel": null,
@@ -70,7 +70,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "use, loops, review, AI agent, LLM skill, tool, skills tree",
+  "keywords": "tool, LLM skill, AI agent, use, skills tree, loops, review",
   "about": {
     "@type": "Thing",
     "name": "Tool Review Loops",

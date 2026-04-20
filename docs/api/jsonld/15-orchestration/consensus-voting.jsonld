@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:14:45Z",
+  "dateModified": "2026-04-20T06:32:33Z",
   "skillId": "consensus-voting",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, consensus, voting, orchestration, LLM skill, skills tree",
+  "keywords": "AI agent, skills tree, consensus, orchestration, voting, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "consensus-voting",
