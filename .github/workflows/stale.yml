@@ -3,12 +3,14 @@
 # Marks issues/PRs stale after 60 days of inactivity.
 # Closes them after 14 more days unless there's activity.
 # Never marks enhancement, pinned, or security issues.
+# Runs weekly (Sunday 06:00 UTC) — daily was unnecessary
+# since stale thresholds are measured in days/weeks.
 # ============================================================
 name: 🗃️ Stale Issues & PRs
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * 0'  # Every Sunday at 06:00 UTC
   workflow_dispatch:
 
 permissions:
