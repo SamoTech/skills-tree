@@ -1,7 +1,7 @@
 name: OSV Dependency Watchdog
 
-# Polls OSV.dev every 15 minutes for CVEs affecting packages in the SBOM.
-# SLA: badge states updated within 15 minutes of CVE appearing in OSV database.
+# Polls OSV.dev once daily for CVEs affecting packages in the SBOM.
+# SLA: badge states updated within 24 hours of CVE appearing in OSV database.
 # Documented in meta/badge-states.md
 #
 # ALSO handles badge rehydration:
@@ -11,7 +11,7 @@ name: OSV Dependency Watchdog
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 2 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -163,7 +163,7 @@ jobs:
             sleep $((attempt * 2))
           done
 
-          echo "ERROR: All 3 push attempts failed. Next 15-min cron will recover."
+          echo "ERROR: All 3 push attempts failed. Next daily cron will recover."
           exit 1
 
       - name: Post advisory summary as GitHub Issue (deduplicated)
@@ -180,8 +180,6 @@ jobs:
             const issueTitle = `\ud83d\udea8 Dependency Advisory: ${packageList}`;
 
             // --- DEDUPLICATION GUARD ---
-            // Search for any open issue with the same title. If one exists,
-            // skip creation entirely — the existing issue is still actionable.
             const existingIssues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -198,7 +196,7 @@ jobs:
             // --- END DEDUPLICATION GUARD ---
 
             let body = `## \ud83d\udea8 Dependency Advisory \u2014 ${new Date().toISOString().slice(0,10)}\n\n`;
-            body += `> Detected by 15-minute OSV polling. SLA: badge states are updated within 15 minutes.\n\n`;
+            body += `> Detected by daily OSV polling.\n\n`;
             body += `### Affected Packages\n\n`;
 
             for (const hit of hits.hits) {
