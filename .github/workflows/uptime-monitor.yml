@@ -1,6 +1,6 @@
 # ============================================================
 # uptime-monitor.yml
-# Pings the live GitHub Pages site every 30 minutes.
+# Pings the live GitHub Pages site every 6 hours.
 # Opens an issue automatically if the site is down.
 # Closes it automatically when the site recovers.
 # ============================================================
@@ -8,7 +8,7 @@ name: 🔍 Uptime Monitor
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 permissions:
