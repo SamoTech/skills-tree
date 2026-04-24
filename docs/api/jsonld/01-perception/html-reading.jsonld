@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "html-reading",
   "skillVersion": null,
   "skillLevel": null,
@@ -69,7 +69,7 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "reading, html, AI agent, skills tree, perception, LLM skill",
+  "keywords": "html, LLM skill, skills tree, reading, perception, AI agent",
   "about": {
     "@type": "Thing",
     "name": "HTML Reading",

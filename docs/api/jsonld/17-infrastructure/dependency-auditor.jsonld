@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-infrastructure/dependency-auditor.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/dependency-auditor.md",
   "name": "Dependency Auditor",
   "headline": "Dependency Auditor",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-infrastructure-dependency-auditor.json)",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-infrastructure/dependency-auditor.md",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/dependency-auditor.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -52,12 +52,12 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "dependency-auditor",
   "skillVersion": null,
   "skillLevel": null,
   "skillStability": null,
-  "categoryDir": "16-infrastructure",
+  "categoryDir": "17-infrastructure",
   "sections": [
     "The Execution Gap",
     "Architecture",
@@ -71,7 +71,7 @@
   "relatedSkills": [
     "../../meta/badge-states.md"
   ],
-  "keywords": "dependency, AI agent, skills tree, infrastructure, LLM skill, auditor",
+  "keywords": "dependency, LLM skill, infrastructure, skills tree, auditor, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Dependency Auditor",

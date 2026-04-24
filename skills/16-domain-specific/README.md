@@ -1,7 +1,7 @@
 <!-- CATEGORY NOTE (P8 — duplicate prefix fix)
-     This directory is 16-domain-specific. A second category, 16-infrastructure,
+     This directory is 16-domain-specific. A second category, 17-infrastructure,
      also uses the prefix 16. This is a known schema collision.
-     Resolution: 16-infrastructure will be renumbered to 17-infrastructure in the
+     Resolution: 17-infrastructure will be renumbered to 17-infrastructure in the
      next schema revision (tracked in meta/glossary.md).
      This directory (16-domain-specific) keeps its number unchanged.
 -->
@@ -19,4 +19,4 @@ _No skills added yet. See [CONTRIBUTING.md](../../CONTRIBUTING.md) to add the fi
 ## Related Categories
 
 - [15-orchestration](../15-orchestration/README.md) — Multi-agent and workflow orchestration
-- [16-infrastructure](../16-infrastructure/README.md) — Infrastructure audit and dependency management *(note: shares prefix 16, pending renumber)*
+- [17-infrastructure](../17-infrastructure/README.md) — Infrastructure audit and dependency management *(note: shares prefix 16, pending renumber)*

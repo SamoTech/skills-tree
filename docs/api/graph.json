@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-20T08:10:11Z",
+  "generated": "2026-04-24T23:30:40Z",
   "stats": {
     "nodes": 350,
-    "links": 692,
-    "isolated": 59,
+    "links": 707,
+    "isolated": 58,
     "top_connected": [
       {
         "id": "document-parsing",
@@ -13,7 +13,7 @@
       {
         "id": "rag",
         "name": "RAG — Retrieval-Augmented Generation",
-        "degree": 15
+        "degree": 16
       },
       {
         "id": "structured-data-reading",
@@ -26,34 +26,34 @@
         "degree": 13
       },
       {
+        "id": "image-understanding",
+        "name": "Image Understanding",
+        "degree": 12
+      },
+      {
+        "id": "planning",
+        "name": "Planning",
+        "degree": 12
+      },
+      {
+        "id": "react",
+        "name": "ReAct (Reasoning + Acting)",
+        "degree": 12
+      },
+      {
         "id": "code-generation",
         "name": "Code Generation",
         "degree": 12
       },
       {
-        "id": "image-understanding",
-        "name": "Image Understanding",
-        "degree": 11
+        "id": "tone-adjustment",
+        "name": "Tone Adjustment",
+        "degree": 12
       },
       {
         "id": "ocr",
         "name": "OCR (Optical Character Recognition)",
         "degree": 11
-      },
-      {
-        "id": "tone-adjustment",
-        "name": "Tone Adjustment",
-        "degree": 11
-      },
-      {
-        "id": "structured-output",
-        "name": "Structured Output",
-        "degree": 11
-      },
-      {
-        "id": "react",
-        "name": "ReAct (Reasoning + Acting)",
-        "degree": 10
       }
     ]
   },
@@ -139,7 +139,7 @@
       "color": "#7a39bb"
     },
     {
-      "id": "16-infrastructure",
+      "id": "17-infrastructure",
       "label": "Infrastructure",
       "color": "#da7101"
     }
@@ -147,9 +147,9 @@
   "nodes": [
     {
       "id": "README",
-      "name": "🏗️ Infrastructure Skills",
-      "path": "skills/16-infrastructure/README.md",
-      "category": "16-infrastructure",
+      "name": "🛠️ Infrastructure Skills",
+      "path": "skills/17-infrastructure/README.md",
+      "category": "17-infrastructure",
       "catLabel": "Infrastructure",
       "color": "#da7101",
       "level": null,
@@ -722,7 +722,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": "intermediate",
+      "level": null,
       "version": "v1"
     },
     {
@@ -762,7 +762,7 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": "intermediate",
+      "level": null,
       "version": "v1"
     },
     {
@@ -1192,7 +1192,7 @@
       "category": "04-action-execution",
       "catLabel": "Action Execution",
       "color": "#fdab43",
-      "level": "basic",
+      "level": null,
       "version": "v1"
     },
     {
@@ -1428,8 +1428,8 @@
     {
       "id": "dependency-auditor",
       "name": "Dependency Auditor",
-      "path": "skills/16-infrastructure/dependency-auditor.md",
-      "category": "16-infrastructure",
+      "path": "skills/17-infrastructure/dependency-auditor.md",
+      "category": "17-infrastructure",
       "catLabel": "Infrastructure",
       "color": "#da7101",
       "level": null,
@@ -1652,7 +1652,7 @@
       "category": "06-communication",
       "catLabel": "Communication",
       "color": "#dd6974",
-      "level": "basic",
+      "level": null,
       "version": "v1"
     },
     {
@@ -1722,7 +1722,7 @@
       "category": "06-communication",
       "catLabel": "Communication",
       "color": "#dd6974",
-      "level": "basic",
+      "level": null,
       "version": "v1"
     },
     {
@@ -1742,7 +1742,7 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": "intermediate",
+      "level": null,
       "version": "v1"
     },
     {
@@ -1902,7 +1902,7 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": "intermediate",
+      "level": null,
       "version": "v1"
     },
     {
@@ -2222,7 +2222,7 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": "intermediate",
+      "level": null,
       "version": "v1"
     },
     {
@@ -2372,7 +2372,7 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": "advanced",
+      "level": null,
       "version": "v1"
     },
     {
@@ -3992,6 +3992,22 @@
       "target": "calculator"
     },
     {
+      "source": "planning",
+      "target": "reflection"
+    },
+    {
+      "source": "planning",
+      "target": "task-decomposition"
+    },
+    {
+      "source": "planning",
+      "target": "react"
+    },
+    {
+      "source": "planning",
+      "target": "goal-setting"
+    },
+    {
       "source": "prioritization",
       "target": "goal-setting"
     },
@@ -4010,6 +4026,10 @@
     {
       "source": "react",
       "target": "tool-use-loop"
+    },
+    {
+      "source": "react",
+      "target": "reflection"
     },
     {
       "source": "react",
@@ -4086,6 +4106,22 @@
     {
       "source": "forgetting",
       "target": "user-profile"
+    },
+    {
+      "source": "memory-injection",
+      "target": "working-memory"
+    },
+    {
+      "source": "memory-injection",
+      "target": "long-term-memory"
+    },
+    {
+      "source": "memory-injection",
+      "target": "rag"
+    },
+    {
+      "source": "memory-injection",
+      "target": "forgetting"
     },
     {
       "source": "memory-summarization",
@@ -4620,6 +4656,14 @@
       "target": "tone-adjustment"
     },
     {
+      "source": "paraphrasing",
+      "target": "summarization"
+    },
+    {
+      "source": "paraphrasing",
+      "target": "multilingual-output"
+    },
+    {
       "source": "persona-adoption",
       "target": "tone-adjustment"
     },
@@ -4672,6 +4716,10 @@
       "target": "paraphrasing"
     },
     {
+      "source": "translation",
+      "target": "tone-adjustment"
+    },
+    {
       "source": "a2a-tool",
       "target": "mcp-tool"
     },
@@ -4690,6 +4738,14 @@
     {
       "source": "anthropic-api",
       "target": "function-calling"
+    },
+    {
+      "source": "anthropic-api",
+      "target": "react"
+    },
+    {
+      "source": "anthropic-api",
+      "target": "image-understanding"
     },
     {
       "source": "browser-tool",
@@ -5209,15 +5265,19 @@
     },
     {
       "source": "tot",
-      "target": "cot"
-    },
-    {
-      "source": "tot",
       "target": "mcts"
     },
     {
       "source": "tot",
-      "target": "react"
+      "target": "cot"
+    },
+    {
+      "source": "tot",
+      "target": "lats"
+    },
+    {
+      "source": "tot",
+      "target": "reflection"
     },
     {
       "source": "accessibility-tree",

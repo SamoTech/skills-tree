@@ -28,8 +28,10 @@
 
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
-> **515+ production-ready skills. 16 categories. Versioned, benchmarked, and evolving.**  
+> **359 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > **Stop rediscovering. Start building on what the community has already proven.**
+>
+> **33 skills are battle-tested today.** **326 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
@@ -47,6 +49,8 @@
 [![GitHub Pages](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
 
 **[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
+
+[🐦 **Share Skills Tree on X / Twitter →**](https://twitter.com/intent/tweet?text=Skills%20Tree%20%E2%80%94%20the%20shared%20operating%20system%20for%20AI%20agent%20capabilities.%20Working%20code,%20real%20benchmarks,%20failure%20modes,%20and%20evolution%20history.&url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&hashtags=AI,Agents,LLM,OpenSource)
 
 🌐 **Read in your language:**
 🇬🇧 English
@@ -81,9 +85,41 @@ Skills Tree fixes that.
 
 **Skills Tree is the shared operating system for AI agent capabilities.**
 
-A living, versioned, community-powered index of everything an agent can do — documented with working code, real benchmarks, failure modes, and evolution history. Every skill is production-ready. Every system shows how skills combine. Every benchmark is reproducible.
+A living, versioned, community-powered index of everything an agent can do — at its best, documented with working code, real benchmarks, failure modes, and evolution history.
 
-It's not a list. It's infrastructure.
+We don't pretend every entry is finished. **Battle-tested skills (badged 🟢 verified) are production-ready and copy-paste safe.** Yellow / unscanned skills are the community's TODO list — open files, real problem space, and the clearest signal of where contributions are most useful.
+
+It's not a list. It's infrastructure being built in public.
+
+---
+
+## 🚀 Start Here — Battle-Tested Skills
+
+If you're new, **read these first**. Each one ships with runnable code, typed I/O, failure modes, and a model-comparison table.
+
+### Agent reasoning loops
+- [**ReAct**](skills/09-agentic-patterns/react.md) — Thought → Action → Observation, the foundation of tool-using agents
+- [**Chain of Thought**](skills/09-agentic-patterns/cot.md) — explicit step-by-step reasoning + self-consistency
+- [**Tree of Thought**](skills/09-agentic-patterns/tot.md) — branched reasoning with scoring + beam search
+- [**Planning**](skills/02-reasoning/planning.md) — typed, DAG-validated plans your executor can run
+
+### Retrieval & memory
+- [**RAG**](skills/09-agentic-patterns/rag.md) — production retrieval augmented generation
+- [**Memory Injection**](skills/03-memory/memory-injection.md) — top-K user memories per turn
+
+### Calling LLMs in production
+- [**OpenAI API**](skills/07-tool-use/openai-api.md) — chat, structured outputs, tools, embeddings, streaming, retry
+- [**Anthropic API**](skills/07-tool-use/anthropic-api.md) — Claude with tool loop, prompt caching, streaming
+
+### Working with text
+- [**Translation**](skills/06-communication/translation.md) — placeholder-safe MT with glossary + tone
+- [**Paraphrasing**](skills/06-communication/paraphrasing.md) — simplify / formalize / diversify
+
+### Action execution
+- [**File Write**](skills/04-action-execution/file-write.md) — atomic, crash-safe file writes for agents
+- [**Dependency Auditor**](skills/17-infrastructure/dependency-auditor.md) — vulnerability + license + freshness audit
+
+> **The full battle-tested set is auto-listed in [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md). The same report names every stub that needs upgrading — those are the highest-impact PRs you can submit.**
 
 ---
 
@@ -92,7 +128,7 @@ It's not a list. It's infrastructure.
 ```
 skills-tree/
 │
-├── skills/          → 515+ atomic, production-ready skill files
+├── skills/          → 359 atomic skill files (33 battle-tested, 326 stubs awaiting upgrade)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
@@ -106,26 +142,29 @@ skills-tree/
 
 ---
 
-## 🗂️ The 16 Skill Categories
+## 🗂️ The 17 Skill Categories
 
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
 | 01 | 👁️ **Perception** | 36 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 41 | Planning, deduction, abduction, causal chains, commonsense |
-| 03 | 🗄️ **Memory** | 26 | Working, episodic, semantic, vector, injection, forgetting |
-| 04 | ⚡ **Action Execution** | 37 | File I/O, HTTP, email, shell, database writes |
-| 05 | 💻 **Code** | 42 | Write, run, debug, review, refactor, test, deploy |
-| 06 | 💬 **Communication** | 28 | Summarize, translate, draft, argue, adapt tone |
-| 07 | 🔧 **Tool Use** | 55 | 55+ APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
-| 08 | 🎭 **Multimodal** | 25 | Images, audio, video, VQA, 3D, charts |
-| 09 | 🤖 **Agentic Patterns** | 36 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
-| 10 | 🖥️ **Computer Use** | 37 | Click, type, scroll, OCR, terminal, VM, a11y tree |
-| 11 | 🌐 **Web** | 28 | Search, scrape, crawl, login, fill forms, parse RSS |
+| 02 | 🧠 **Reasoning** | 38 | Planning, deduction, abduction, causal chains, commonsense |
+| 03 | 🗄️ **Memory** | 19 | Working, episodic, semantic, vector, injection, forgetting |
+| 04 | ⚡ **Action Execution** | 21 | File I/O, HTTP, email, shell, database writes |
+| 05 | 💻 **Code** | 28 | Write, run, debug, review, refactor, test, deploy |
+| 06 | 💬 **Communication** | 15 | Summarize, translate, draft, argue, adapt tone |
+| 07 | 🔧 **Tool Use** | 32 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
+| 08 | 🎭 **Multimodal** | 14 | Images, audio, video, VQA, 3D, charts |
+| 09 | 🤖 **Agentic Patterns** | 23 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
+| 10 | 🖥️ **Computer Use** | 20 | Click, type, scroll, OCR, terminal, VM, a11y tree |
+| 11 | 🌐 **Web** | 17 | Search, scrape, crawl, login, fill forms, parse RSS |
 | 12 | 📊 **Data** | 18 | ETL, SQL, embeddings, time series, anomaly detection |
-| 13 | 🎨 **Creative** | 27 | Copywriting, image prompts, SVG, music, scripts |
-| 14 | 🔒 **Security** | 20 | Sandboxing, secret scanning, audit logs, rollback |
-| 15 | 🎼 **Orchestration** | 29 | Multi-agent, state machines, retry, consensus |
-| 16 | 🏺 **Domain-Specific** | 52 | Medical, legal, finance, DevOps, education, science |
+| 13 | 🎨 **Creative** | 14 | Copywriting, image prompts, SVG, music, scripts |
+| 14 | 🔒 **Security** | 13 | Sandboxing, secret scanning, audit logs, rollback |
+| 15 | 🎼 **Orchestration** | 22 | Multi-agent, state machines, retry, consensus |
+| 16 | 🏺 **Domain-Specific** | 28 | Medical, legal, finance, DevOps, education, science |
+| 17 | 🛠️ **Infrastructure** | 1 | Dependency auditing & supply-chain tooling (early) |
+
+> Counts above reflect skill files on disk and are auto-synced by `tools/update_readme_counts.py` (run nightly via [`update-skill-count.yml`](.github/workflows/update-skill-count.yml)). If you spot a drift, open an issue.
 
 ---
 

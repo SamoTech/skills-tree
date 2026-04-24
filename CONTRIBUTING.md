@@ -31,6 +31,8 @@ Thank you for helping grow the most comprehensive AI agent skills resource on th
 | **Benchmark** | Head-to-head with real numbers | `benchmarks/category/` | `benchmark: [skill-a] vs [skill-b]` |
 | **System / Blueprint** | Multi-skill workflow or architecture | `systems/` or `blueprints/` | `system: add [name]` / `blueprint: add [name]` |
 
+> 🟢 **The single highest-impact contribution today is upgrading a stub to battle-tested.** [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) lists every stub with a direct link — pick one, follow [`meta/skill-template.md`](meta/skill-template.md), open a PR. Stubs become battle-tested when they have a real description, a runnable example (≥3 lines of code), and at least one comparison/spec table — see *Skill Quality Bar* below. CI blocks new stubs on every PR via [`.github/workflows/quality-report.yml`](.github/workflows/quality-report.yml).
+
 ---
 
 ## How to Add a New Skill

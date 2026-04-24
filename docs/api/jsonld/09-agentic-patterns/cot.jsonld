@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "cot",
   "skillVersion": null,
-  "skillLevel": "intermediate",
-  "skillStability": "stable",
+  "skillLevel": null,
+  "skillStability": null,
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/self-consistency.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Variants",
+    "Failure Modes",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
   ],
-  "educationalLevel": {
-    "@type": "DefinedTerm",
-    "name": "Intermediate",
-    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
-  },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, agentic, patterns, skills tree, cot, LLM skill",
+  "relatedSkills": [
+    "../02-reasoning/self-consistency.md",
+    "../02-reasoning/least-to-most.md"
+  ],
+  "keywords": "cot, agentic, LLM skill, skills tree, patterns, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Chain of Thought (CoT)",

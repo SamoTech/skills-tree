@@ -37,14 +37,21 @@ jobs:
           CATS=$(find skills/ -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
           echo "count=$CATS" >> $GITHUB_OUTPUT
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Patch README & docs
         run: |
           SKILLS=${{ steps.count.outputs.count }}
           CATS=${{ steps.cats.outputs.count }}
           sed -i "s|skills-[0-9]*%2B-|skills-${SKILLS}%2B-|g" README.md
-          sed -i "s|Skills-[0-9]*%2B|Skills-${SKILLS}%2B|g" README.md
           sed -i "s|categories-[0-9]*-|categories-${CATS}-|g" README.md
           sed -i "s|data-target=\"[0-9]*\"|data-target=\"${SKILLS}\"|1" docs/index.html || true
+          # Source-of-truth pass: rewrites Skills badge, hero blockquote,
+          # battle-tested / stub counts, and the per-category table.
+          python3 tools/update_readme_counts.py
           echo "Updated README: $SKILLS skills, $CATS categories"
 
       - name: Commit & push with rebase retry

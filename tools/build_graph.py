@@ -42,7 +42,7 @@ CATEGORY_META = {
     "14-security":         {"label": "Security",          "color": "#a12c7b"},
     "15-orchestration":    {"label": "Orchestration",     "color": "#a13544"},
     "16-domain-specific":  {"label": "Domain-Specific",   "color": "#7a39bb"},
-    "16-infrastructure":   {"label": "Infrastructure",    "color": "#da7101"},
+    "17-infrastructure":   {"label": "Infrastructure",    "color": "#da7101"},
 }
 
 DEFAULT_COLOR = "#7a7974"
