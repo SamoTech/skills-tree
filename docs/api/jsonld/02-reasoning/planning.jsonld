@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-24T23:42:00Z",
   "skillId": "planning",
   "skillVersion": null,
   "skillLevel": null,
@@ -72,10 +72,9 @@
   ],
   "relatedSkills": [
     "../09-agentic-patterns/reflection.md",
-    "../09-agentic-patterns/react.md",
-    "../09-agentic-patterns/reflection.md"
+    "../09-agentic-patterns/react.md"
   ],
-  "keywords": "LLM skill, planning, skills tree, reasoning, AI agent",
+  "keywords": "reasoning, AI agent, skills tree, planning, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Planning",

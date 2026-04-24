@@ -118,7 +118,7 @@ if __name__ == "__main__":
 - [File Append](file-append.md)
 - [File Delete](file-delete.md)
 - [Shell Command Execution](shell-command.md)
-- [File Read](../01-perception/file-reading.md)
+- [File System Reading](../01-perception/file-system-reading.md)
 
 ## Changelog
 
