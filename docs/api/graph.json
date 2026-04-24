@@ -1,8 +1,8 @@
 {
-  "generated": "2026-04-24T23:30:40Z",
+  "generated": "2026-04-24T23:42:48Z",
   "stats": {
     "nodes": 350,
-    "links": 707,
+    "links": 708,
     "isolated": 58,
     "top_connected": [
       {
@@ -4294,6 +4294,10 @@
     {
       "source": "file-write",
       "target": "shell-command"
+    },
+    {
+      "source": "file-write",
+      "target": "file-system-reading"
     },
     {
       "source": "form-submission",
