@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/csv-processing.md",
   "name": "CSV Processing",
   "headline": "CSV Processing",
-  "description": "",
+  "description": "Apply CSV processing in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/csv-processing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "csv-processing",
   "skillVersion": null,
   "skillLevel": "beginner",
@@ -61,7 +61,7 @@
   "sections": [],
   "relatedSkills": [],
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, csv, skills tree, processing, data",
+  "keywords": "processing, skills tree, csv, LLM skill, AI agent, data",
   "about": {
     "@type": "Thing",
     "name": "CSV Processing",

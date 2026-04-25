@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/planning.md",
   "name": "Planning",
   "headline": "Planning",
-  "description": "",
+  "description": "Generate a typed, ordered plan from a goal — each step has an action, expected outcome, and a contingency, ready for an executor agent to consume.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/planning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "planning",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -80,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "planning, AI agent, reasoning, LLM skill, skills tree",
+  "keywords": "skills tree, planning, LLM skill, AI agent, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Planning",

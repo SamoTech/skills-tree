@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/memory-injection.md",
   "name": "Memory Injection",
   "headline": "Memory Injection",
-  "description": "",
+  "description": "Retrieve the K most relevant memories for a turn and inject them into the system prompt — long-term user context without filling the context window with raw history.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/memory-injection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "memory-injection",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, AI agent, LLM skill, skills tree, injection",
+  "keywords": "skills tree, injection, memory, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Memory Injection",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/logo-design.md",
   "name": "logo-design",
   "headline": "logo-design",
-  "description": "",
+  "description": "Apply logo design in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/logo-design.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "logo-design",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "logo, design, AI agent, LLM skill, skills tree, creative",
+  "keywords": "skills tree, LLM skill, design, AI agent, creative, logo",
   "about": {
     "@type": "Thing",
     "name": "logo-design",

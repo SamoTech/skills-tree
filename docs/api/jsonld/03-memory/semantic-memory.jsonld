@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/semantic-memory.md",
   "name": "Semantic Memory",
   "headline": "Semantic Memory",
-  "description": "",
+  "description": "Apply semantic memory in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/semantic-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "semantic-memory",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, semantic, AI agent, LLM skill, skills tree",
+  "keywords": "skills tree, semantic, memory, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Semantic Memory",

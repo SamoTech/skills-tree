@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-consistency.md",
   "name": "Self-Consistency",
   "headline": "Self-Consistency",
-  "description": "",
+  "description": "Sample N independent reasoning chains for the same question and majority-vote the final answer. Trades cost for accuracy — robust on math and logic, surprisingly cheap with smaller-than-frontier models.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-consistency.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "self-consistency",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -81,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, reasoning, consistency, self, LLM skill, skills tree",
+  "keywords": "skills tree, consistency, LLM skill, AI agent, self, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Self-Consistency",

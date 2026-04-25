@@ -31,7 +31,7 @@
 > **360 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > **Stop rediscovering. Start building on what the community has already proven.**
 >
-> **38 skills are battle-tested today.** **322 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
+> **48 skills are battle-tested today.** **312 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
@@ -107,7 +107,9 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 - [**Task Decomposition**](skills/02-reasoning/task-decomposition.md) — break a goal into atomic, runnable subtasks
 
 ### Retrieval & memory
-- [**RAG**](skills/09-agentic-patterns/rag.md) — production retrieval augmented generation
+- [**RAG**](skills/03-memory/rag.md) — chunk → embed → retrieve → cite, end-to-end with confidence + threshold
+- [**Vector Store Retrieval**](skills/03-memory/vector-store-retrieval.md) — typed top-k cosine search with metadata filtering
+- [**Embedding Generation**](skills/12-data/embedding-generation.md) — batched, content-hash-cached, Matryoshka-truncatable
 - [**Memory Injection**](skills/03-memory/memory-injection.md) — top-K user memories per turn
 - [**Short-Term Memory**](skills/03-memory/short-term-memory.md) — token-budgeted rolling window (the foundation for everything else)
 
@@ -119,9 +121,23 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 ### Working with text
 - [**Translation**](skills/06-communication/translation.md) — placeholder-safe MT with glossary + tone
 - [**Paraphrasing**](skills/06-communication/paraphrasing.md) — simplify / formalize / diversify
+- [**OCR**](skills/01-perception/ocr.md) — VLM + classical OCR with confidence-based human-review routing
+
+### Code
+- [**Code Generation**](skills/05-code/code-generation.md) — spec → AST-validated source with self-repair on failure
+- [**Bug Fixing**](skills/05-code/bug-fixing.md) — agentic loop: read → patch → test → repeat until green
+- [**Code Review**](skills/05-code/code-review.md) — automated critique with severity tiers
+
+### Web
+- [**Web Search**](skills/11-web/web-search.md) — Tavily/Serper/Brave with recency + host allowlist + TTL cache
+- [**Web Scraping**](skills/11-web/web-scraping.md) — trafilatura + BS4 fallback, metadata, redirect-safe
+
+### Security
+- [**Input Sanitization**](skills/14-security/input-sanitization.md) — 4-layer defense: structural + boundary + content + isolation
 
 ### Action execution
 - [**File Write**](skills/04-action-execution/file-write.md) — atomic, crash-safe file writes for agents
+- [**HTTP Request**](skills/04-action-execution/http-request.md) — production HTTP with idempotency, retry-on-idempotent-only, header redaction
 - [**Dependency Auditor**](skills/17-infrastructure/dependency-auditor.md) — vulnerability + license + freshness audit
 
 > **The full battle-tested set is auto-listed in [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md). The same report names every stub that needs upgrading — those are the highest-impact PRs you can submit.**
@@ -133,7 +149,8 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 ```
 skills-tree/
 │
-├── skills/          → 360 atomic skill files (38 battle-tested, 322 stubs awaiting upgrade)
+├── skills/          → 360 atomic skill files (48 battle-tested, 312 stubs awaiting upgrade)
+│                     run `python3 tools/check_skill_quality.py` for the live count
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons

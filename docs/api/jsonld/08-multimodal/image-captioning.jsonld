@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-captioning.md",
   "name": "Image Captioning",
   "headline": "Image Captioning",
-  "description": "",
+  "description": "Apply image captioning in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-captioning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "image-captioning",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "captioning, AI agent, multimodal, image, LLM skill, skills tree",
+  "keywords": "multimodal, skills tree, captioning, LLM skill, AI agent, image",
   "about": {
     "@type": "Thing",
     "name": "Image Captioning",

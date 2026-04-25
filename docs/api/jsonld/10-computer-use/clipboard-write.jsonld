@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-write.md",
   "name": "Clipboard Write",
   "headline": "Clipboard Write",
-  "description": "",
+  "description": "Apply clipboard write in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-write.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "clipboard-write",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, use, write, LLM skill, clipboard, skills tree, computer",
+  "keywords": "skills tree, use, computer, write, clipboard, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Clipboard Write",

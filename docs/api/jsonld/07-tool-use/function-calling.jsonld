@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/function-calling.md",
   "name": "Function / Tool Calling",
   "headline": "Function / Tool Calling",
-  "description": "",
+  "description": "Let the model emit a structured request to call one of your functions, with type-checked arguments — the foundation of every tool-using agent.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/function-calling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "function-calling",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "function, use, AI agent, tool, LLM skill, skills tree, calling",
+  "keywords": "skills tree, use, calling, LLM skill, AI agent, tool, function",
   "about": {
     "@type": "Thing",
     "name": "Function / Tool Calling",

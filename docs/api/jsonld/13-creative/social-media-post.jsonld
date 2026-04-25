@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/social-media-post.md",
   "name": "social-media-post",
   "headline": "social-media-post",
-  "description": "",
+  "description": "Apply social media post in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/social-media-post.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "social-media-post",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "media, AI agent, social, LLM skill, skills tree, creative, post",
+  "keywords": "skills tree, media, LLM skill, social, AI agent, creative, post",
   "about": {
     "@type": "Thing",
     "name": "social-media-post",

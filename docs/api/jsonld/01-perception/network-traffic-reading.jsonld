@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/network-traffic-reading.md",
   "name": "Network Traffic Reading",
   "headline": "Network Traffic Reading",
-  "description": "",
+  "description": "Apply network traffic reading in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/network-traffic-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "network-traffic-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, reading, traffic, network, skills tree, perception",
+  "keywords": "traffic, network, reading, skills tree, LLM skill, perception, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Network Traffic Reading",

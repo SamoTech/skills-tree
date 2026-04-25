@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/api-discovery.md",
   "name": "API Endpoint Discovery",
   "headline": "API Endpoint Discovery",
-  "description": "",
+  "description": "Apply api endpoint discovery in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/api-discovery.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "api-discovery",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, api, LLM skill, skills tree, discovery",
+  "keywords": "skills tree, discovery, web, LLM skill, AI agent, api",
   "about": {
     "@type": "Thing",
     "name": "API Endpoint Discovery",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/specialist-agent-routing.md",
   "name": "Specialist Agent Routing",
   "headline": "Specialist Agent Routing",
-  "description": "",
+  "description": "Route incoming requests to the correct specialist agent based on intent classification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/specialist-agent-routing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "specialist-agent-routing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, agent, specialist, routing, LLM skill, orchestration, skills tree",
+  "keywords": "routing, skills tree, orchestration, specialist, LLM skill, AI agent, agent",
   "about": {
     "@type": "Thing",
     "name": "Specialist Agent Routing",

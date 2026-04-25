@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/task-decomposition.md",
   "name": "Task Decomposition",
   "headline": "Task Decomposition",
-  "description": "",
+  "description": "Split a complex task into a structured, ordered list of subtasks small enough that a single LLM call (or tool call) reliably solves each one.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/task-decomposition.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "task-decomposition",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -80,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, decomposition, reasoning, LLM skill, skills tree, task",
+  "keywords": "skills tree, decomposition, LLM skill, task, AI agent, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Task Decomposition",

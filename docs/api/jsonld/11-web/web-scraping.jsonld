@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-scraping.md",
   "name": "Web Scraping",
   "headline": "Web Scraping",
-  "description": "",
+  "description": "Fetch a URL and extract its main readable content + metadata. Pairs with web-search to follow promising hits, with HTML→Markdown conversion + boilerplate stripping so the output is LLM-friendly.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-scraping.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,35 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "web-scraping",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
-  "relatedSkills": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../01-perception/html-reading.md",
+    "../04-action-execution/http-request.md",
+    "../14-security/rate-limiting.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, LLM skill, scraping, skills tree",
+  "keywords": "skills tree, scraping, web, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Web Scraping",

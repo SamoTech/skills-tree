@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/procedural-memory.md",
   "name": "Procedural Memory",
   "headline": "Procedural Memory",
-  "description": "",
+  "description": "Apply procedural memory in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/procedural-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "procedural-memory",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, procedural, AI agent, LLM skill, skills tree",
+  "keywords": "skills tree, procedural, memory, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Procedural Memory",

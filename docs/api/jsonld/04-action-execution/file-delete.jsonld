@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-delete.md",
   "name": "File Delete",
   "headline": "File Delete",
-  "description": "",
+  "description": "Apply file delete in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-delete.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "file-delete",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, delete, action, skills tree, file, execution",
+  "keywords": "skills tree, execution, LLM skill, AI agent, file, action, delete",
   "about": {
     "@type": "Thing",
     "name": "File Delete",

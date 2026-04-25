@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
   "name": "Keyboard Type",
   "headline": "Keyboard Type",
-  "description": "",
+  "description": "Apply keyboard typing in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "keyboard-type",
   "skillVersion": null,
   "skillLevel": "beginner",
@@ -61,7 +61,7 @@
   "sections": [],
   "relatedSkills": [],
   "datePublished": "2025-03-01",
-  "keywords": "type, AI agent, use, keyboard, LLM skill, skills tree, computer",
+  "keywords": "type, skills tree, use, computer, keyboard, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Keyboard Type",

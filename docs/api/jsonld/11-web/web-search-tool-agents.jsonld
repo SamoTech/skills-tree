@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-search-tool-agents.md",
   "name": "Web Search Tool Agents",
   "headline": "Web Search Tool Agents",
-  "description": "",
+  "description": "Equip agents with web search capabilities using hosted or custom search tools.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-search-tool-agents.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "web-search-tool-agents",
   "skillVersion": "v2",
   "skillLevel": "beginner",
@@ -71,7 +71,7 @@
   ],
   "relatedSkills": [],
   "datePublished": "2026-04-01",
-  "keywords": "search, AI agent, tool, web, agents, LLM skill, skills tree",
+  "keywords": "agents, skills tree, web, LLM skill, AI agent, search, tool",
   "about": {
     "@type": "Thing",
     "name": "Web Search Tool Agents",

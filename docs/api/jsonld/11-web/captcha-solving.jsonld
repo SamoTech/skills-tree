@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/captcha-solving.md",
   "name": "CAPTCHA Solving",
   "headline": "CAPTCHA Solving",
-  "description": "",
+  "description": "Apply captcha solving in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/captcha-solving.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "captcha-solving",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, solving, web, LLM skill, captcha, skills tree",
+  "keywords": "skills tree, captcha, web, solving, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "CAPTCHA Solving",

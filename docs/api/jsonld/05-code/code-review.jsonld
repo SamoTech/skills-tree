@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-review.md",
   "name": "Code Review",
   "headline": "Code Review",
-  "description": "",
+  "description": "Automates structured code review — bugs, security, performance, style — returning severity-graded findings, a quality score, and suggested fixes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-review.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "code-review",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, code, LLM skill, skills tree, review",
+  "keywords": "skills tree, LLM skill, AI agent, code, review",
   "about": {
     "@type": "Thing",
     "name": "Code Review",

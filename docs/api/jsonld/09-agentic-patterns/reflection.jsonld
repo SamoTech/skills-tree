@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
   "name": "Reflection / Reflexion",
   "headline": "Reflection / Reflexion",
-  "description": "",
+  "description": "After producing an answer or executing a step, the agent critiques its own output and revises. Closes the loop on first-try mistakes that no amount of better prompting can fix.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "reflection",
   "skillVersion": "v3",
   "skillLevel": "advanced",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "reflection, AI agent, agentic, LLM skill, skills tree, patterns",
+  "keywords": "skills tree, reflection, patterns, LLM skill, AI agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "Reflection / Reflexion",

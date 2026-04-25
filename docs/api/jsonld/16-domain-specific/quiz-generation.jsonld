@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/quiz-generation.md",
   "name": "quiz-generation",
   "headline": "quiz-generation",
-  "description": "",
+  "description": "Apply quiz generation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/quiz-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "quiz-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, LLM skill, generation, quiz, specific, skills tree, domain",
+  "keywords": "skills tree, specific, generation, domain, LLM skill, quiz, AI agent",
   "about": {
     "@type": "Thing",
     "name": "quiz-generation",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/tool-guardrails.md",
   "name": "Tool Guardrails",
   "headline": "Tool Guardrails",
-  "description": "",
+  "description": "Validate agent inputs and outputs with lightweight guardrail agents before executing or returning tool results.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/tool-guardrails.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "tool-guardrails",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "use, AI agent, tool, guardrails, LLM skill, skills tree",
+  "keywords": "guardrails, skills tree, use, LLM skill, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "Tool Guardrails",

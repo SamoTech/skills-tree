@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/browser-navigation.md",
   "name": "Browser Navigation",
   "headline": "Browser Navigation",
-  "description": "",
+  "description": "Apply browser navigation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/browser-navigation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "browser-navigation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, browser, navigation, LLM skill, skills tree",
+  "keywords": "navigation, skills tree, browser, web, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Browser Navigation",

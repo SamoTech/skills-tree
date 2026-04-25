@@ -5,43 +5,49 @@
 ## Summary
 
 - **Total skill files:** 360
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 38
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 48
 - 🟡 **Enriched** (real description + runnable code): 0
-- ⚪ **Stub** (placeholder description or no runnable code): 322
+- ⚪ **Stub** (placeholder description or no runnable code): 312
 - ❌ **Invalid** (frontmatter problems): 0
 
 ## Per-category breakdown
 
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
-| `01-perception` | 36 | 0 | 0 | 36 | 0 |
+| `01-perception` | 36 | 1 | 0 | 35 | 0 |
 | `02-reasoning` | 39 | 3 | 0 | 36 | 0 |
-| `03-memory` | 19 | 4 | 0 | 15 | 0 |
-| `04-action-execution` | 21 | 1 | 0 | 20 | 0 |
-| `05-code` | 28 | 3 | 0 | 25 | 0 |
+| `03-memory` | 19 | 6 | 0 | 13 | 0 |
+| `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
+| `05-code` | 28 | 5 | 0 | 23 | 0 |
 | `06-communication` | 15 | 2 | 0 | 13 | 0 |
 | `07-tool-use` | 32 | 5 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
 | `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
-| `11-web` | 17 | 1 | 0 | 16 | 0 |
-| `12-data` | 18 | 0 | 0 | 18 | 0 |
+| `11-web` | 17 | 3 | 0 | 14 | 0 |
+| `12-data` | 18 | 1 | 0 | 17 | 0 |
 | `13-creative` | 14 | 0 | 0 | 14 | 0 |
-| `14-security` | 13 | 3 | 0 | 10 | 0 |
+| `14-security` | 13 | 4 | 0 | 9 | 0 |
 | `15-orchestration` | 22 | 6 | 0 | 16 | 0 |
 | `16-domain-specific` | 28 | 1 | 0 | 27 | 0 |
 | `17-infrastructure` | 1 | 1 | 0 | 0 | 0 |
 
 ## 🟢 Battle-tested skills (start here as a user)
 
+- [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/02-reasoning/planning.md`](skills/02-reasoning/planning.md) — Planning
 - [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
 - [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
 - [`skills/03-memory/agent-sessions.md`](skills/03-memory/agent-sessions.md) — Agent Sessions
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
 - [`skills/03-memory/memory-injection.md`](skills/03-memory/memory-injection.md) — Memory Injection
+- [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
 - [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
+- [`skills/03-memory/vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — Vector Store Retrieval
 - [`skills/04-action-execution/file-write.md`](skills/04-action-execution/file-write.md) — File Write
+- [`skills/04-action-execution/http-request.md`](skills/04-action-execution/http-request.md) — HTTP Request
+- [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
+- [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
 - [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — Code Review
 - [`skills/05-code/dependency-auditor.md`](skills/05-code/dependency-auditor.md) — Dependency Auditor
@@ -60,9 +66,13 @@
 - [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — Reflection / Reflexion
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-Travel Debugging
 - [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — Tree of Thought (ToT)
+- [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
+- [`skills/11-web/web-search.md`](skills/11-web/web-search.md) — Web Search
+- [`skills/12-data/embedding-generation.md`](skills/12-data/embedding-generation.md) — Embedding Generation
 - [`skills/14-security/approval-before-destructive-tools.md`](skills/14-security/approval-before-destructive-tools.md) — Approval Before Destructive Tools
 - [`skills/14-security/input-guardrails.md`](skills/14-security/input-guardrails.md) — Input Guardrails
+- [`skills/14-security/input-sanitization.md`](skills/14-security/input-sanitization.md) — Input Sanitization
 - [`skills/14-security/output-guardrails.md`](skills/14-security/output-guardrails.md) — Output Guardrails
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
 - [`skills/15-orchestration/langgraph-checkpointing.md`](skills/15-orchestration/langgraph-checkpointing.md) — LangGraph Checkpointing
@@ -80,7 +90,7 @@ _None — every skill is either a stub or fully battle-tested._
 
 Each entry below is a real, claimed skill that currently has no runnable example or a placeholder description. Pick one, follow [`meta/skill-template.md`](skill-template.md), and open a PR titled `improve: <skill-name> — v1→v2`.
 
-### `01-perception` (36)
+### `01-perception` (35)
 
 - [`api-response-parsing.md`](skills/01-perception/api-response-parsing.md) — description matches placeholder pattern: 'Apply api response parsing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`audio-transcription.md`](skills/01-perception/audio-transcription.md) — description matches placeholder pattern: 'Apply audio transcription in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
@@ -105,7 +115,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — description matches placeholder pattern: 'Apply markdown parsing in AI agent workflows'
 - [`multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — description matches placeholder pattern: 'Apply multimodal document reading in AI agent workflows'
 - [`network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — description matches placeholder pattern: 'Apply network traffic reading in AI agent workflows'
-- [`ocr.md`](skills/01-perception/ocr.md) — description matches placeholder pattern: 'Apply ocr (optical character recognition) in AI agent workflows'
 - [`pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — description matches placeholder pattern: 'Apply pdf parsing in AI agent workflows'
 - [`screen-reading.md`](skills/01-perception/screen-reading.md) — description matches placeholder pattern: 'Apply screen reading in AI agent workflows'
 - [`sensor-reading.md`](skills/01-perception/sensor-reading.md) — description matches placeholder pattern: 'Apply sensor reading in AI agent workflows'
@@ -158,7 +167,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`tree-of-thought.md`](skills/02-reasoning/tree-of-thought.md) — description matches placeholder pattern: 'Apply tree of thought (tot) in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`uncertainty-quantification.md`](skills/02-reasoning/uncertainty-quantification.md) — description matches placeholder pattern: 'Apply uncertainty quantification in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `03-memory` (15)
+### `03-memory` (13)
 
 - [`cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — description matches placeholder pattern: 'Apply cross-session persistence in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`episodic-memory.md`](skills/03-memory/episodic-memory.md) — description matches placeholder pattern: 'Apply episodic memory in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -169,14 +178,12 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`memory-summarization.md`](skills/03-memory/memory-summarization.md) — description matches placeholder pattern: 'Apply memory summarization in AI agent workflows'
 - [`procedural-memory.md`](skills/03-memory/procedural-memory.md) — description matches placeholder pattern: 'Apply procedural memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`procedural.md`](skills/03-memory/procedural.md) — description matches placeholder pattern: 'Apply procedural memory in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
-- [`rag.md`](skills/03-memory/rag.md) — description matches placeholder pattern: 'Apply RAG in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`semantic-memory.md`](skills/03-memory/semantic-memory.md) — description matches placeholder pattern: 'Apply semantic memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — description matches placeholder pattern: 'Apply user profile memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`user-profile.md`](skills/03-memory/user-profile.md) — description matches placeholder pattern: 'Apply user profile in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
-- [`vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — description matches placeholder pattern: 'Apply vector store retrieval in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`working-memory.md`](skills/03-memory/working-memory.md) — description matches placeholder pattern: 'Apply working memory in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `04-action-execution` (20)
+### `04-action-execution` (19)
 
 - [`api-call.md`](skills/04-action-execution/api-call.md) — description matches placeholder pattern: 'Apply api call in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`assertion.md`](skills/04-action-execution/assertion.md) — description matches placeholder pattern: 'Apply assertion / verification in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -189,7 +196,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`file-append.md`](skills/04-action-execution/file-append.md) — description matches placeholder pattern: 'Apply file append in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`file-delete.md`](skills/04-action-execution/file-delete.md) — description matches placeholder pattern: 'Apply file delete in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`form-submission.md`](skills/04-action-execution/form-submission.md) — description matches placeholder pattern: 'Apply form submission in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`http-request.md`](skills/04-action-execution/http-request.md) — description matches placeholder pattern: 'Apply http request in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`keyboard-input.md`](skills/04-action-execution/keyboard-input.md) — description matches placeholder pattern: 'Apply keyboard input in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`mouse-input.md`](skills/04-action-execution/mouse-input.md) — description matches placeholder pattern: 'Apply mouse input in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`notification-sending.md`](skills/04-action-execution/notification-sending.md) — description matches placeholder pattern: 'Apply notification sending in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -199,15 +205,13 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`shell-command.md`](skills/04-action-execution/shell-command.md) — description matches placeholder pattern: 'Apply shell command execution in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — description matches placeholder pattern: 'Apply wait / sleep in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `05-code` (25)
+### `05-code` (23)
 
 - [`algorithm-design.md`](skills/05-code/algorithm-design.md) — description matches placeholder pattern: 'Apply algorithm design in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`api-client-generation.md`](skills/05-code/api-client-generation.md) — description matches placeholder pattern: 'Apply api client generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`bug-fixing.md`](skills/05-code/bug-fixing.md) — description matches placeholder pattern: 'Apply bug fixing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`cicd-generation.md`](skills/05-code/cicd-generation.md) — description matches placeholder pattern: 'Apply ci/cd pipeline generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — description matches placeholder pattern: 'Apply code execution (sandbox) in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`code-explanation.md`](skills/05-code/code-explanation.md) — description matches placeholder pattern: 'Apply code explanation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`code-generation.md`](skills/05-code/code-generation.md) — description matches placeholder pattern: 'Apply code generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`code-search.md`](skills/05-code/code-search.md) — description matches placeholder pattern: 'Apply code search in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`code-translation.md`](skills/05-code/code-translation.md) — description matches placeholder pattern: 'Apply code translation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`db-schema-design.md`](skills/05-code/db-schema-design.md) — description matches placeholder pattern: 'Apply database schema design in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -331,7 +335,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — description matches placeholder pattern: 'Apply virtual machine interaction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`window-management.md`](skills/10-computer-use/window-management.md) — description matches placeholder pattern: 'Apply window management in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `11-web` (16)
+### `11-web` (14)
 
 - [`api-discovery.md`](skills/11-web/api-discovery.md) — description matches placeholder pattern: 'Apply api endpoint discovery in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`browser-navigation.md`](skills/11-web/browser-navigation.md) — description matches placeholder pattern: 'Apply browser navigation in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -347,10 +351,8 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`url-screenshot.md`](skills/11-web/url-screenshot.md) — description matches placeholder pattern: 'Apply screenshot of url in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`web-crawling.md`](skills/11-web/web-crawling.md) — description matches placeholder pattern: 'Apply web crawling in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`web-login.md`](skills/11-web/web-login.md) — description matches placeholder pattern: 'Apply web login in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`web-scraping.md`](skills/11-web/web-scraping.md) — description matches placeholder pattern: 'Apply web scraping in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`web-search.md`](skills/11-web/web-search.md) — description matches placeholder pattern: 'Apply web search in AI agent workflows'
 
-### `12-data` (18)
+### `12-data` (17)
 
 - [`anomaly-detection.md`](skills/12-data/anomaly-detection.md) — description matches placeholder pattern: 'Apply anomaly detection in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`csv-processing.md`](skills/12-data/csv-processing.md) — description matches placeholder pattern: 'Apply CSV processing in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -360,7 +362,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`data-joining.md`](skills/12-data/data-joining.md) — description matches placeholder pattern: 'Apply data joining in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`data-summarization.md`](skills/12-data/data-summarization.md) — description matches placeholder pattern: 'Apply data summarization in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`data-visualization.md`](skills/12-data/data-visualization.md) — description matches placeholder pattern: 'Apply data visualization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`embedding-generation.md`](skills/12-data/embedding-generation.md) — description matches placeholder pattern: 'Apply embedding generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`etl-pipeline.md`](skills/12-data/etl-pipeline.md) — description matches placeholder pattern: 'Apply etl pipeline in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`json-transformation.md`](skills/12-data/json-transformation.md) — description matches placeholder pattern: 'Apply json transformation in AI agent workflows'
 - [`nosql-query.md`](skills/12-data/nosql-query.md) — description matches placeholder pattern: 'Apply nosql query in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -388,12 +389,11 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`svg-generation.md`](skills/13-creative/svg-generation.md) — description matches placeholder pattern: 'Apply svg generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`video-script.md`](skills/13-creative/video-script.md) — description matches placeholder pattern: 'Apply video script in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `14-security` (10)
+### `14-security` (9)
 
 - [`audit-logging.md`](skills/14-security/audit-logging.md) — description matches placeholder pattern: 'Apply audit logging in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`harm-detection.md`](skills/14-security/harm-detection.md) — description matches placeholder pattern: 'Apply harm detection in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`human-in-loop.md`](skills/14-security/human-in-loop.md) — description matches placeholder pattern: 'Apply human in loop in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`input-sanitization.md`](skills/14-security/input-sanitization.md) — description matches placeholder pattern: 'Apply input sanitization in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`permission-checking.md`](skills/14-security/permission-checking.md) — description matches placeholder pattern: 'Apply permission checking in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`privacy-preservation.md`](skills/14-security/privacy-preservation.md) — description matches placeholder pattern: 'Apply contact john at [redacted] or [redacted] (ssn: [redacted]) in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`rate-limiting.md`](skills/14-security/rate-limiting.md) — description matches placeholder pattern: 'Apply rate limiting in AI agent workflows'; no inputs/outputs/failure-modes table

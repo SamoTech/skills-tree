@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/paraphrasing.md",
   "name": "Paraphrasing",
   "headline": "Paraphrasing",
-  "description": "",
+  "description": "Restate text in different words while preserving meaning. Used to simplify, vary, dedup near-duplicate corpora, or augment training data.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/paraphrasing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "paraphrasing",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, paraphrasing, LLM skill, skills tree, communication",
+  "keywords": "skills tree, communication, paraphrasing, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Paraphrasing",

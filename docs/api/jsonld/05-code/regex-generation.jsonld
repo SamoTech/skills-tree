@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/regex-generation.md",
   "name": "Regex Generation",
   "headline": "Regex Generation",
-  "description": "",
+  "description": "Apply regex generation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/regex-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "regex-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, code, LLM skill, generation, skills tree, regex",
+  "keywords": "skills tree, generation, regex, LLM skill, AI agent, code",
   "about": {
     "@type": "Thing",
     "name": "Regex Generation",

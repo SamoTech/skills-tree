@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/seo-optimization.md",
   "name": "seo-optimization",
   "headline": "seo-optimization",
-  "description": "",
+  "description": "Apply seo optimization in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/seo-optimization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "seo-optimization",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, LLM skill, specific, skills tree, seo, optimization, domain",
+  "keywords": "optimization, skills tree, specific, seo, domain, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "seo-optimization",

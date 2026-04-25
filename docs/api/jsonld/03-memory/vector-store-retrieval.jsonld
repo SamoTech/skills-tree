@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/vector-store-retrieval.md",
   "name": "Vector Store Retrieval",
   "headline": "Vector Store Retrieval",
-  "description": "",
+  "description": "Look up the top-k items in a vector store by cosine similarity to a query embedding. The retrieval primitive that powers RAG, semantic search, deduplication, recommendation, and clustering.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/vector-store-retrieval.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,15 +52,25 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "vector-store-retrieval",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [
-    "../12-data/similarity-search.md",
     "../12-data/embedding-generation.md"
   ],
   "educationalLevel": {
@@ -69,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, AI agent, store, vector, LLM skill, skills tree, retrieval",
+  "keywords": "vector, skills tree, memory, LLM skill, AI agent, retrieval, store",
   "about": {
     "@type": "Thing",
     "name": "Vector Store Retrieval",

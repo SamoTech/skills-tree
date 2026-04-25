@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/document-layout-analysis.md",
   "name": "Document Layout Analysis",
   "headline": "Document Layout Analysis",
-  "description": "",
+  "description": "Apply document layout analysis in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/document-layout-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "document-layout-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -71,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "analysis, AI agent, multimodal, LLM skill, document, skills tree, layout",
+  "keywords": "document, multimodal, skills tree, LLM skill, AI agent, analysis, layout",
   "about": {
     "@type": "Thing",
     "name": "Document Layout Analysis",

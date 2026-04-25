@@ -1,19 +1,34 @@
 {
-  "generated": "2026-04-25T04:55:02Z",
+  "generated": "2026-04-25T05:10:16Z",
   "stats": {
     "nodes": 350,
-    "links": 719,
-    "isolated": 57,
+    "links": 735,
+    "isolated": 54,
     "top_connected": [
+      {
+        "id": "code-generation",
+        "name": "Code Generation",
+        "degree": 18
+      },
       {
         "id": "document-parsing",
         "name": "Document Parsing",
-        "degree": 18
+        "degree": 17
       },
       {
         "id": "rag",
         "name": "RAG — Retrieval-Augmented Generation",
         "degree": 16
+      },
+      {
+        "id": "reflection",
+        "name": "Reflection / Reflexion",
+        "degree": 15
+      },
+      {
+        "id": "web-scraping",
+        "name": "Web Scraping",
+        "degree": 15
       },
       {
         "id": "structured-data-reading",
@@ -26,28 +41,13 @@
         "degree": 14
       },
       {
-        "id": "reflection",
-        "name": "Reflection / Reflexion",
-        "degree": 14
-      },
-      {
-        "id": "web-scraping",
-        "name": "Web Scraping",
-        "degree": 13
-      },
-      {
         "id": "image-understanding",
         "name": "Image Understanding",
         "degree": 12
       },
       {
-        "id": "react",
-        "name": "ReAct (Reasoning + Acting)",
-        "degree": 12
-      },
-      {
-        "id": "code-generation",
-        "name": "Code Generation",
+        "id": "ocr",
+        "name": "OCR (Optical Character Recognition)",
         "degree": 12
       },
       {
@@ -383,7 +383,7 @@
       "catLabel": "Perception",
       "color": "#4f98a3",
       "level": "intermediate",
-      "version": "v2"
+      "version": "v3"
     },
     {
       "id": "pdf-parsing",
@@ -1073,7 +1073,7 @@
       "catLabel": "Memory",
       "color": "#a86fdf",
       "level": "intermediate",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "working-memory",
@@ -1212,8 +1212,8 @@
       "category": "04-action-execution",
       "catLabel": "Action Execution",
       "color": "#fdab43",
-      "level": "intermediate",
-      "version": "v1"
+      "level": "beginner",
+      "version": "v3"
     },
     {
       "id": "keyboard-input",
@@ -1323,7 +1323,7 @@
       "catLabel": "Code",
       "color": "#5591c7",
       "level": "intermediate",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "cicd-generation",
@@ -1363,7 +1363,7 @@
       "catLabel": "Code",
       "color": "#5591c7",
       "level": "intermediate",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "code-interpreter-agent",
@@ -2012,8 +2012,8 @@
       "category": "11-web",
       "catLabel": "Web",
       "color": "#437a22",
-      "level": "basic",
-      "version": "v2"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "wikipedia-api",
@@ -2693,7 +2693,7 @@
       "catLabel": "Web",
       "color": "#437a22",
       "level": "intermediate",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "web-search-tool-agents",
@@ -2793,7 +2793,7 @@
       "catLabel": "Data",
       "color": "#006494",
       "level": "intermediate",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "etl-pipeline",
@@ -3077,13 +3077,13 @@
     },
     {
       "id": "input-sanitization",
-      "name": "input-sanitization",
+      "name": "Input Sanitization",
       "path": "skills/14-security/input-sanitization.md",
       "category": "14-security",
       "catLabel": "Security",
       "color": "#a12c7b",
       "level": "advanced",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "output-guardrails",
@@ -3753,11 +3753,15 @@
     },
     {
       "source": "ocr",
-      "target": "document-parsing"
+      "target": "pdf-parsing"
     },
     {
       "source": "ocr",
-      "target": "pdf-parsing"
+      "target": "html-reading"
+    },
+    {
+      "source": "ocr",
+      "target": "image-understanding"
     },
     {
       "source": "ocr",
@@ -3765,7 +3769,7 @@
     },
     {
       "source": "ocr",
-      "target": "image-understanding"
+      "target": "table-extraction"
     },
     {
       "source": "pdf-parsing",
@@ -4217,11 +4221,11 @@
     },
     {
       "source": "vector-store-retrieval",
-      "target": "similarity-search"
+      "target": "embedding-generation"
     },
     {
       "source": "vector-store-retrieval",
-      "target": "embedding-generation"
+      "target": "memory-injection"
     },
     {
       "source": "assertion",
@@ -4333,11 +4337,23 @@
     },
     {
       "source": "http-request",
-      "target": "api-response-parsing"
+      "target": "web-search"
     },
     {
       "source": "http-request",
-      "target": "custom-api-wrapper"
+      "target": "web-scraping"
+    },
+    {
+      "source": "http-request",
+      "target": "retry-backoff"
+    },
+    {
+      "source": "http-request",
+      "target": "rate-limiting"
+    },
+    {
+      "source": "http-request",
+      "target": "audit-logging"
     },
     {
       "source": "keyboard-input",
@@ -4416,6 +4432,22 @@
       "target": "http-request"
     },
     {
+      "source": "bug-fixing",
+      "target": "debugging"
+    },
+    {
+      "source": "bug-fixing",
+      "target": "code-generation"
+    },
+    {
+      "source": "bug-fixing",
+      "target": "code-review"
+    },
+    {
+      "source": "bug-fixing",
+      "target": "reflection"
+    },
+    {
       "source": "cicd-generation",
       "target": "dockerfile-generation"
     },
@@ -4442,6 +4474,26 @@
     {
       "source": "code-explanation",
       "target": "debugging"
+    },
+    {
+      "source": "code-generation",
+      "target": "algorithm-design"
+    },
+    {
+      "source": "code-generation",
+      "target": "refactoring"
+    },
+    {
+      "source": "code-generation",
+      "target": "bug-fixing"
+    },
+    {
+      "source": "code-generation",
+      "target": "code-review"
+    },
+    {
+      "source": "code-generation",
+      "target": "function-calling"
     },
     {
       "source": "code-review",
@@ -4953,15 +5005,15 @@
     },
     {
       "source": "web-search",
+      "target": "rag"
+    },
+    {
+      "source": "web-search",
       "target": "web-scraping"
     },
     {
       "source": "web-search",
-      "target": "react"
-    },
-    {
-      "source": "web-search",
-      "target": "rag"
+      "target": "http-request"
     },
     {
       "source": "wikipedia-api",
@@ -5641,15 +5693,19 @@
     },
     {
       "source": "web-scraping",
-      "target": "url-fetching"
+      "target": "web-search"
     },
     {
       "source": "web-scraping",
-      "target": "browser-navigation"
+      "target": "html-reading"
     },
     {
       "source": "web-scraping",
-      "target": "web-crawling"
+      "target": "http-request"
+    },
+    {
+      "source": "web-scraping",
+      "target": "rate-limiting"
     },
     {
       "source": "data-aggregation",
@@ -5701,15 +5757,15 @@
     },
     {
       "source": "embedding-generation",
-      "target": "similarity-search"
-    },
-    {
-      "source": "embedding-generation",
-      "target": "vector-db-tool"
+      "target": "vector-store-retrieval"
     },
     {
       "source": "embedding-generation",
       "target": "rag"
+    },
+    {
+      "source": "embedding-generation",
+      "target": "similarity-search"
     },
     {
       "source": "etl-pipeline",
@@ -5985,11 +6041,19 @@
     },
     {
       "source": "input-sanitization",
+      "target": "output-guardrails"
+    },
+    {
+      "source": "input-sanitization",
       "target": "permission-checking"
     },
     {
       "source": "input-sanitization",
       "target": "sandboxed-execution"
+    },
+    {
+      "source": "input-sanitization",
+      "target": "audit-logging"
     },
     {
       "source": "permission-checking",

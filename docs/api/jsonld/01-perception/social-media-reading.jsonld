@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/social-media-reading.md",
   "name": "Social Media Reading",
   "headline": "Social Media Reading",
-  "description": "",
+  "description": "Apply social media reading in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/social-media-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "social-media-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "media, AI agent, social, LLM skill, reading, skills tree, perception",
+  "keywords": "skills tree, reading, media, LLM skill, social, AI agent, perception",
   "about": {
     "@type": "Thing",
     "name": "Social Media Reading",

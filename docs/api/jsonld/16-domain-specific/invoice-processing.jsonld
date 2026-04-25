@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
   "name": "invoice-processing",
   "headline": "invoice-processing",
-  "description": "",
+  "description": "Apply invoice processing in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "invoice-processing",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "invoice, AI agent, LLM skill, specific, skills tree, processing, domain",
+  "keywords": "processing, skills tree, specific, domain, LLM skill, AI agent, invoice",
   "about": {
     "@type": "Thing",
     "name": "invoice-processing",

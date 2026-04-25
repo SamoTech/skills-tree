@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/3d-scene-understanding.md",
   "name": "3D Scene Understanding",
   "headline": "3D Scene Understanding",
-  "description": "",
+  "description": "Apply 3D scene understanding in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/3d-scene-understanding.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "3d-scene-understanding",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "understanding, AI agent, multimodal, LLM skill, skills tree, scene, 3d",
+  "keywords": "multimodal, understanding, skills tree, 3d, LLM skill, AI agent, scene",
   "about": {
     "@type": "Thing",
     "name": "3D Scene Understanding",

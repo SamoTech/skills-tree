@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-communication.md",
   "name": "agent-communication",
   "headline": "agent-communication",
-  "description": "",
+  "description": "Apply agent communication in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-communication.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "agent-communication",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, agent, LLM skill, orchestration, skills tree, communication",
+  "keywords": "skills tree, orchestration, communication, LLM skill, AI agent, agent",
   "about": {
     "@type": "Thing",
     "name": "agent-communication",

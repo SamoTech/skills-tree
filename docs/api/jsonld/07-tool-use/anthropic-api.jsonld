@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/anthropic-api.md",
   "name": "Anthropic API",
   "headline": "Anthropic API",
-  "description": "",
+  "description": "Call Anthropic's Claude Messages API for chat, vision, tool use, and prompt-cached long context — with retry, streaming, and a typed tool dispatcher.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/anthropic-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "anthropic-api",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, tool, anthropic, api, LLM skill, skills tree",
+  "keywords": "skills tree, use, LLM skill, AI agent, tool, api, anthropic",
   "about": {
     "@type": "Thing",
     "name": "Anthropic API",

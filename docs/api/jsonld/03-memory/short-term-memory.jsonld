@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/short-term-memory.md",
   "name": "Short-Term Memory",
   "headline": "Short-Term Memory",
-  "description": "",
+  "description": "The bounded conversational scratchpad — recent turns + tool outputs the model can see this turn. Trims under a token budget so the agent never crashes on context overflow.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/short-term-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "short-term-memory",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, term, short, AI agent, LLM skill, skills tree",
+  "keywords": "short, skills tree, memory, LLM skill, AI agent, term",
   "about": {
     "@type": "Thing",
     "name": "Short-Term Memory",

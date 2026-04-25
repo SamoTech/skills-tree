@@ -90,8 +90,13 @@ def parse_skill(filepath: str) -> dict:
     yaml_block_m = re.match(r'\A---\s*\n(.*?)\n---', content, re.DOTALL)
     if yaml_block_m:
         yaml_text = yaml_block_m.group(1)
-        # Map: YAML key -> SkillReport key
+        # Map: YAML key -> SkillReport key.
+        # `description` is intentionally first: the regex-based body extractor
+        # above only matches files with TWO `---` delimiter pairs (a separate
+        # body block); skills using a single YAML frontmatter block end up with
+        # an empty description, so we backfill from the YAML key here.
         YAML_KEYS = {
+            "description":  "description",
             "category":     "category",
             "level":        "level",
             "stability":    "stability",

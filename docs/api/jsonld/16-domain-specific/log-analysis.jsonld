@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/log-analysis.md",
   "name": "log-analysis",
   "headline": "log-analysis",
-  "description": "",
+  "description": "Apply log analysis in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/log-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "log-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "analysis, AI agent, log, LLM skill, specific, skills tree, domain",
+  "keywords": "skills tree, specific, domain, LLM skill, AI agent, log, analysis",
   "about": {
     "@type": "Thing",
     "name": "log-analysis",

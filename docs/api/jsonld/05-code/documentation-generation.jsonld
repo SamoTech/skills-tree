@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/documentation-generation.md",
   "name": "Documentation Generation",
   "headline": "Documentation Generation",
-  "description": "",
+  "description": "Apply documentation generation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/documentation-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "documentation-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, code, LLM skill, generation, documentation, skills tree",
+  "keywords": "skills tree, generation, documentation, LLM skill, AI agent, code",
   "about": {
     "@type": "Thing",
     "name": "Documentation Generation",

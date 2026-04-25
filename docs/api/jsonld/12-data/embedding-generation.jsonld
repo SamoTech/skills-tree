@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/embedding-generation.md",
   "name": "Embedding Generation",
   "headline": "Embedding Generation",
-  "description": "",
+  "description": "Turn text (or images, audio) into dense unit-normalised vectors with a hosted embedding model. Batch the API calls, cache by content hash, and handle the per-token / per-input limits explicitly.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/embedding-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,15 +52,26 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "embedding-generation",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [
-    "../07-tool-use/vector-db-tool.md",
+    "../03-memory/vector-store-retrieval.md",
     "../03-memory/rag.md"
   ],
   "educationalLevel": {
@@ -69,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, generation, skills tree, data, embedding",
+  "keywords": "skills tree, generation, embedding, LLM skill, AI agent, data",
   "about": {
     "@type": "Thing",
     "name": "Embedding Generation",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/mcp-tool.md",
   "name": "MCP Tool",
   "headline": "MCP Tool",
-  "description": "",
+  "description": "Apply MCP (Model Context Protocol) tools in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/mcp-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "mcp-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, use, tool, LLM skill, skills tree, mcp",
+  "keywords": "skills tree, use, mcp, LLM skill, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "MCP Tool",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/sql-query-generation.md",
   "name": "SQL Query Generation",
   "headline": "SQL Query Generation",
-  "description": "",
+  "description": "Apply sql query generation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/sql-query-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "sql-query-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, code, query, sql, generation, LLM skill, skills tree",
+  "keywords": "skills tree, generation, sql, LLM skill, AI agent, code, query",
   "about": {
     "@type": "Thing",
     "name": "SQL Query Generation",

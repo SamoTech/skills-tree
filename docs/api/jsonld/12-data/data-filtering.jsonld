@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-filtering.md",
   "name": "Data Filtering",
   "headline": "Data Filtering",
-  "description": "",
+  "description": "Apply data filtering in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-filtering.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "data-filtering",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "filtering, AI agent, LLM skill, skills tree, data",
+  "keywords": "skills tree, LLM skill, AI agent, data, filtering",
   "about": {
     "@type": "Thing",
     "name": "Data Filtering",

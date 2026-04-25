@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/tool-review-loops.md",
   "name": "Tool Review Loops",
   "headline": "Tool Review Loops",
-  "description": "",
+  "description": "Intercept tool calls before execution to allow human review, modification, or rejection.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/tool-review-loops.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "tool-review-loops",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "loops, AI agent, use, tool, LLM skill, skills tree, review",
+  "keywords": "skills tree, use, LLM skill, loops, AI agent, tool, review",
   "about": {
     "@type": "Thing",
     "name": "Tool Review Loops",

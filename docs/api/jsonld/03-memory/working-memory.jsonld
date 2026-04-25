@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/working-memory.md",
   "name": "Working Memory",
   "headline": "Working Memory",
-  "description": "",
+  "description": "Apply working memory in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/working-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "working-memory",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, AI agent, LLM skill, skills tree, working",
+  "keywords": "skills tree, memory, LLM skill, AI agent, working",
   "about": {
     "@type": "Thing",
     "name": "Working Memory",

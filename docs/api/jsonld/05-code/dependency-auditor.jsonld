@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
   "name": "Dependency Auditor",
   "headline": "Dependency Auditor",
-  "description": "",
+  "description": "Installs, imports, and executes a skill's declared dependencies in an isolated venv — returning a pass/fail verdict and tested version map used to promote Yellow badges to Green.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "dependency-auditor",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, code, LLM skill, skills tree, dependency, auditor",
+  "keywords": "skills tree, auditor, dependency, LLM skill, AI agent, code",
   "about": {
     "@type": "Thing",
     "name": "Dependency Auditor",
