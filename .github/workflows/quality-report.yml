@@ -1,0 +1,78 @@
+name: Skill Quality Report
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**/*.md'
+      - 'tools/check_skill_quality.py'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/*.md'
+      - 'tools/check_skill_quality.py'
+  schedule:
+    - cron: '0 4 * * 1'   # Monday 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  enforce:
+    name: Block new stubs in PRs
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject newly-added stub skills
+        run: |
+          # Diff against the PR base, not origin/main, so we only look at
+          # files this PR actually added.
+          BASE_REF="${{ github.event.pull_request.base.ref }}"
+          git fetch origin "$BASE_REF" --depth=1
+          python3 tools/check_skill_quality.py \
+            --no-write \
+            --enforce-new-stubs \
+            --base "origin/$BASE_REF"
+
+  publish:
+    name: Regenerate QUALITY-REPORT.md
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run quality auditor
+        run: python3 tools/check_skill_quality.py
+      - name: Commit & push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add meta/QUALITY-REPORT.md
+          if git diff --cached --quiet; then
+            echo "No changes to QUALITY-REPORT.md."
+            exit 0
+          fi
+          git commit -m "chore(quality): regenerate QUALITY-REPORT.md [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            git push origin HEAD && exit 0
+            echo "Push rejected (attempt ${attempt}/5) — rebasing..."
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: All push attempts failed."
+          exit 1

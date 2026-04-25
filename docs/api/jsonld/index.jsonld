@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 376,
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -2260,13 +2260,13 @@
     {
       "@type": "ListItem",
       "position": 375,
-      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-infrastructure/README.md",
-      "name": "🏗️ Infrastructure Skills"
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/README.md",
+      "name": "🛠️ Infrastructure Skills"
     },
     {
       "@type": "ListItem",
       "position": 376,
-      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-infrastructure/dependency-auditor.md",
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/dependency-auditor.md",
       "name": "Dependency Auditor"
     }
   ]

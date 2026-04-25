@@ -89,9 +89,10 @@ def parse_skill(filepath: str) -> dict:
     sections = re.findall(r'^## (.+)$', content, re.MULTILINE)
     skill["sections"] = sections
 
-    # Related skills (extract link targets)
-    related = re.findall(r'\[.*?\]\((\.\..*?\.md)\)', content)
-    skill["related"] = related
+    # Related skills (extract link targets, dedup while preserving order)
+    related_raw = re.findall(r'\[.*?\]\((\.\..*?\.md)\)', content)
+    seen: set[str] = set()
+    skill["related"] = [r for r in related_raw if not (r in seen or seen.add(r))]
 
     # Tags derived from category path
     parts = filepath.replace("\\", "/").split("/")

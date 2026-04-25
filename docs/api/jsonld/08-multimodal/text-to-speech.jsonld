@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "text-to-speech",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "text, multimodal, AI agent, skills tree, speech, to, LLM skill",
+  "keywords": "text, LLM skill, to, speech, skills tree, multimodal, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Text to Speech",

@@ -1,4 +1,4 @@
-generated: '2026-04-20T06:32:33Z'
+generated: '2026-04-24T23:41:59Z'
 count: 376
 skills:
 - id: README
@@ -1106,14 +1106,26 @@ skills:
   path: skills/02-reasoning/planning.md
   name: Planning
   description: ''
-  category: reasoning
-  level: intermediate
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
-  related: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Variants
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/reflection.md
+  - ../09-agentic-patterns/react.md
   category_dir: 02-reasoning
 - id: prioritization
   path: skills/02-reasoning/prioritization.md
@@ -1566,8 +1578,17 @@ skills:
   last_updated: null
   sections:
   - Description
-  - What It Does
-  related: []
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Retrieval Strategies
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/rag.md
   category_dir: 03-memory
 - id: memory-summarization
   path: skills/03-memory/memory-summarization.md
@@ -1882,14 +1903,23 @@ skills:
   path: skills/04-action-execution/file-write.md
   name: File Write
   description: ''
-  category: action-execution
-  level: basic
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
-  related: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Related Skills
+  - Changelog
+  related:
+  - ../01-perception/file-system-reading.md
   category_dir: 04-action-execution
 - id: form-submission
   path: skills/04-action-execution/form-submission.md
@@ -2564,13 +2594,22 @@ skills:
   path: skills/06-communication/paraphrasing.md
   name: Paraphrasing
   description: ''
-  category: communication
-  level: basic
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 06-communication
 - id: persona-adoption
@@ -2657,13 +2696,22 @@ skills:
   path: skills/06-communication/translation.md
   name: Translation
   description: ''
-  category: communication
-  level: basic
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 06-communication
 - id: README
@@ -2699,14 +2747,25 @@ skills:
   path: skills/07-tool-use/anthropic-api.md
   name: Anthropic API
   description: ''
-  category: tool-use
-  level: intermediate
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
-  related: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/react.md
+  - ../08-multimodal/image-understanding.md
   category_dir: 07-tool-use
 - id: browser-tool
   path: skills/07-tool-use/browser-tool.md
@@ -2936,13 +2995,22 @@ skills:
   path: skills/07-tool-use/openai-api.md
   name: OpenAI API
   description: ''
-  category: tool-use
-  level: intermediate
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related:
   - ../12-data/embedding-generation.md
   category_dir: 07-tool-use
@@ -3460,15 +3528,26 @@ skills:
   path: skills/09-agentic-patterns/cot.md
   name: Chain of Thought (CoT)
   description: ''
-  category: agentic-patterns
-  level: intermediate
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Variants
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related:
   - ../02-reasoning/self-consistency.md
+  - ../02-reasoning/least-to-most.md
   category_dir: 09-agentic-patterns
 - id: critic-agent
   path: skills/09-agentic-patterns/critic-agent.md
@@ -3630,13 +3709,23 @@ skills:
   path: skills/09-agentic-patterns/react.md
   name: ReAct (Reasoning + Acting)
   description: ''
-  category: agentic-patterns
-  level: intermediate
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Variants
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related:
   - ../02-reasoning/planning.md
   category_dir: 09-agentic-patterns
@@ -3721,13 +3810,23 @@ skills:
   path: skills/09-agentic-patterns/tot.md
   name: Tree of Thought (ToT)
   description: ''
-  category: agentic-patterns
-  level: advanced
-  stability: stable
+  category: null
+  level: null
+  stability: null
   version: null
-  added: 2025-03
+  added: null
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Variants
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: README
@@ -5319,7 +5418,7 @@ skills:
   related:
   - ../../CONTRIBUTING.md
   - ../15-orchestration/README.md
-  - ../16-infrastructure/README.md
+  - ../17-infrastructure/README.md
   category_dir: 16-domain-specific
 - id: ad-copy
   path: skills/16-domain-specific/ad-copy.md
@@ -5737,8 +5836,8 @@ skills:
   - ../02-reasoning/risk-assessment.md
   category_dir: 16-domain-specific
 - id: README
-  path: skills/16-infrastructure/README.md
-  name: 🏗️ Infrastructure Skills
+  path: skills/17-infrastructure/README.md
+  name: 🛠️ Infrastructure Skills
   description: ''
   category: null
   level: null
@@ -5748,12 +5847,15 @@ skills:
   last_updated: null
   sections:
   - Skills in This Category
-  related: []
-  category_dir: 16-infrastructure
+  - Wishlist (great first PRs)
+  related:
+  - ../../meta/skill-template.md
+  - ../../meta/QUALITY-REPORT.md
+  category_dir: 17-infrastructure
 - id: dependency-auditor
-  path: skills/16-infrastructure/dependency-auditor.md
+  path: skills/17-infrastructure/dependency-auditor.md
   name: Dependency Auditor
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-infrastructure-dependency-auditor.json)'
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)'
   category: null
   level: null
   stability: null
@@ -5771,4 +5873,4 @@ skills:
   - Related Infrastructure
   related:
   - ../../meta/badge-states.md
-  category_dir: 16-infrastructure
+  category_dir: 17-infrastructure

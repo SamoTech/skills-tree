@@ -52,21 +52,28 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "anthropic-api",
   "skillVersion": null,
-  "skillLevel": "intermediate",
-  "skillStability": "stable",
+  "skillLevel": null,
+  "skillStability": null,
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [],
-  "educationalLevel": {
-    "@type": "DefinedTerm",
-    "name": "Intermediate",
-    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
-  },
-  "datePublished": "2025-03-01",
-  "keywords": "tool, AI agent, api, use, skills tree, LLM skill, anthropic",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../09-agentic-patterns/react.md",
+    "../08-multimodal/image-understanding.md"
+  ],
+  "keywords": "use, anthropic, api, LLM skill, skills tree, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "Anthropic API",

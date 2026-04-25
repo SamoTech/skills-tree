@@ -52,21 +52,26 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "tot",
   "skillVersion": null,
-  "skillLevel": "advanced",
-  "skillStability": "stable",
+  "skillLevel": null,
+  "skillStability": null,
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
-  "educationalLevel": {
-    "@type": "DefinedTerm",
-    "name": "Advanced",
-    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
-  },
-  "datePublished": "2025-03-01",
-  "keywords": "tot, AI agent, agentic, patterns, skills tree, LLM skill",
+  "keywords": "agentic, LLM skill, skills tree, patterns, tot, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Tree of Thought (ToT)",

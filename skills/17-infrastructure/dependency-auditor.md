@@ -18,7 +18,7 @@ deps:
   - httpx
   - packaging
 badge: machine-inferred · 2 pkgs
-badge_key: skills-16-infrastructure-dependency-auditor
+badge_key: skills-17-infrastructure-dependency-auditor
 description: >
   Closes the Execution Gap between "package exists on PyPI" (Yellow badge)
   and "code actually runs" (Green badge). Spins up an isolated venv per skill,
@@ -29,7 +29,7 @@ author: "@SamoTech"
 updated: "2026-04-13"
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-infrastructure-dependency-auditor.json)
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)
 
 # Dependency Auditor
 

@@ -52,21 +52,25 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "translation",
   "skillVersion": null,
-  "skillLevel": "basic",
-  "skillStability": "stable",
+  "skillLevel": null,
+  "skillStability": null,
   "categoryDir": "06-communication",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
-  "educationalLevel": {
-    "@type": "DefinedTerm",
-    "name": "Beginner",
-    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
-  },
-  "datePublished": "2025-03-01",
-  "keywords": "translation, AI agent, communication, skills tree, LLM skill",
+  "keywords": "LLM skill, skills tree, translation, communication, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Translation",

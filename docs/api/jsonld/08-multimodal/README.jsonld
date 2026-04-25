@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-20T06:32:33Z",
+  "dateModified": "2026-04-24T23:33:41Z",
   "skillId": "README",
   "skillVersion": null,
   "skillLevel": null,
@@ -62,7 +62,7 @@
     "Skills in This Category"
   ],
   "relatedSkills": [],
-  "keywords": "README, multimodal, AI agent, skills tree, LLM skill",
+  "keywords": "README, LLM skill, skills tree, multimodal, AI agent",
   "about": {
     "@type": "Thing",
     "name": "🎭 Multimodal Skills",
