@@ -52,10 +52,10 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:10:16Z",
+  "dateModified": "2026-04-25T05:22:22Z",
   "skillId": "state-machine",
   "skillVersion": null,
-  "skillLevel": "Advanced",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
   "sections": [],
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, orchestration, machine, LLM skill, AI agent, state",
+  "keywords": "state, orchestration, AI agent, machine, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "state-machine",

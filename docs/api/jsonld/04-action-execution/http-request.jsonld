@@ -52,10 +52,10 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:10:16Z",
+  "dateModified": "2026-04-25T05:22:22Z",
   "skillId": "http-request",
   "skillVersion": "v3",
-  "skillLevel": "beginner",
+  "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
@@ -76,8 +76,13 @@
     "../14-security/rate-limiting.md",
     "../14-security/audit-logging.md"
   ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Beginner",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
   "datePublished": "2025-03-01",
-  "keywords": "http, skills tree, execution, LLM skill, request, AI agent, action",
+  "keywords": "request, http, execution, action, AI agent, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "HTTP Request",

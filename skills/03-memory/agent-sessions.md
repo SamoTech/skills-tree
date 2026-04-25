@@ -1,7 +1,7 @@
 ---
 title: "Agent Sessions"
 category: 03-memory
-level: beginner
+level: basic
 stability: stable
 description: "Maintain automatic conversation history across multiple turns using OpenAI Agents SDK sessions."
 added: "2026-04"

@@ -57,6 +57,14 @@ STUB_DESCRIPTION_PATTERNS = [
 ]
 MIN_DESCRIPTION_CHARS = 30
 
+# Allowed frontmatter enum values. Mirrored from `tools/export_skills.py`'s
+# JSON Schema and CONTRIBUTING.md. Values outside these sets are silently
+# dropped from the JSON-LD export (`educationalLevel` etc.), so the quality
+# auditor classifies them as `invalid` to surface the regression in CI.
+ALLOWED_LEVEL = {"basic", "intermediate", "advanced"}
+ALLOWED_STABILITY = {"stable", "experimental", "deprecated"}
+ALLOWED_VERSION = {"v1", "v2", "v3"}
+
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 CODE_BLOCK_RE = re.compile(r"```[a-zA-Z0-9_-]*\n.*?\n```", re.DOTALL)
 TABLE_RE = re.compile(r"^\|.+\|.+\n\|[-: |]+\|", re.MULTILINE)
@@ -158,6 +166,22 @@ def classify(path: Path) -> SkillReport:
 
     if "title" not in fm or "category" not in fm:
         reasons.append("missing required frontmatter (title/category)")
+        return SkillReport(path, category, title, "invalid", reasons, line_count)
+
+    # Enum-validate the metadata fields whose JSON-LD output silently degrades
+    # when the value is out of range.
+    for fkey, allowed in (
+        ("level", ALLOWED_LEVEL),
+        ("stability", ALLOWED_STABILITY),
+        ("version", ALLOWED_VERSION),
+    ):
+        val = fm.get(fkey)
+        if isinstance(val, str) and val not in allowed:
+            reasons.append(
+                f"frontmatter `{fkey}: {val}` not in {sorted(allowed)} "
+                f"— will be dropped from JSON-LD export"
+            )
+    if any("not in" in r for r in reasons):
         return SkillReport(path, category, title, "invalid", reasons, line_count)
 
     description = _description_value(fm, text)
@@ -347,6 +371,14 @@ def _classify_at_revision(rev: str, rel_path: str) -> str | None:
     fm = parse_frontmatter(text)
     if "title" not in fm or "category" not in fm:
         return "invalid"
+    for fkey, allowed in (
+        ("level", ALLOWED_LEVEL),
+        ("stability", ALLOWED_STABILITY),
+        ("version", ALLOWED_VERSION),
+    ):
+        val = fm.get(fkey)
+        if isinstance(val, str) and val not in allowed:
+            return "invalid"
     description = _description_value(fm, text)
     title = fm.get("title") if isinstance(fm.get("title"), str) else ""
     stub_reason = stub_description_reason(description, title)
@@ -392,19 +424,25 @@ def main() -> int:
 
     if args.enforce_new_stubs:
         # Audit finding #4: also check modified files, but only fail if the
-        # modification *introduces* stub status (regressed from the base ref).
+        # modification *introduces* stub or invalid status (regressed from the
+        # base ref). `invalid` here covers bad enum values for level /
+        # stability / version that would otherwise silently degrade the
+        # JSON-LD export.
         changed = changed_skill_files_against(args.base, diff_filter="AM")
         offenders: list[tuple[SkillReport, str]] = []
         for p in changed:
             r = classify(p)
-            if r.classification != "stub":
+            if r.classification not in {"stub", "invalid"}:
                 continue
             rel = str(p.relative_to(REPO_ROOT))
             base_class = _classify_at_revision(args.base, rel)
-            if base_class == "stub":
-                continue  # already a stub on base; not this PR's regression
-            kind = "new stub added" if base_class is None else \
-                f"regression: was '{base_class}' on {args.base}, now 'stub'"
+            if base_class == r.classification:
+                continue  # already in this state on base; not this PR's regression
+            label = "stub" if r.classification == "stub" else "invalid"
+            if base_class is None:
+                kind = f"new {label} added"
+            else:
+                kind = f"regression: was '{base_class}' on {args.base}, now '{label}'"
             offenders.append((r, kind))
         if offenders:
             print(

@@ -1,7 +1,7 @@
 ---
 title: "Web Search Tool Agents"
 category: 11-web
-level: beginner
+level: basic
 stability: stable
 description: "Equip agents with web search capabilities using hosted or custom search tools."
 added: "2026-04"

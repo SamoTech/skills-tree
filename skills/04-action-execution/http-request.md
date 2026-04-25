@@ -1,7 +1,7 @@
 ---
 title: "HTTP Request"
 category: 04-action-execution
-level: beginner
+level: basic
 stability: stable
 added: "2025-03"
 updated: "2026-04"

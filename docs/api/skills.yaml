@@ -1,4 +1,4 @@
-generated: '2026-04-25T05:10:16Z'
+generated: '2026-04-25T05:22:22Z'
 count: 360
 skills:
 - id: api-response-parsing
@@ -1437,7 +1437,7 @@ skills:
   description: Maintain automatic conversation history across multiple turns using
     OpenAI Agents SDK sessions.
   category: memory
-  level: beginner
+  level: basic
   stability: stable
   version: v2
   added: 2026-04
@@ -1975,7 +1975,7 @@ skills:
     idempotency keys, and a strict response contract. The fundamental tool every agent
     needs to talk to anything beyond itself.
   category: action-execution
-  level: beginner
+  level: basic
   stability: stable
   version: v3
   added: 2025-03
@@ -3982,7 +3982,7 @@ skills:
   name: Keyboard Type
   description: Apply keyboard typing in AI agent workflows.
   category: computer-use
-  level: beginner
+  level: basic
   stability: stable
   version: null
   added: 2025-03
@@ -3995,7 +3995,7 @@ skills:
   name: Mouse Click
   description: Apply mouse click in AI agent workflows.
   category: computer-use
-  level: beginner
+  level: basic
   stability: stable
   version: null
   added: 2025-03
@@ -4060,7 +4060,7 @@ skills:
   name: Screenshot Capture
   description: Apply screenshot capture in AI agent workflows.
   category: computer-use
-  level: beginner
+  level: basic
   stability: stable
   version: null
   added: 2025-03
@@ -4350,7 +4350,7 @@ skills:
   description: Equip agents with web search capabilities using hosted or custom search
     tools.
   category: web
-  level: beginner
+  level: basic
   stability: stable
   version: v2
   added: 2026-04
@@ -4412,7 +4412,7 @@ skills:
   name: CSV Processing
   description: Apply CSV processing in AI agent workflows.
   category: data
-  level: beginner
+  level: basic
   stability: stable
   version: null
   added: 2025-03
@@ -4490,7 +4490,7 @@ skills:
   name: Data Visualization
   description: Apply data visualization in AI agent workflows.
   category: data
-  level: beginner
+  level: basic
   stability: stable
   version: null
   added: 2025-03
@@ -4652,7 +4652,7 @@ skills:
   name: avatar-design
   description: Apply avatar design in AI agent workflows.
   category: Creative
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -4711,7 +4711,7 @@ skills:
   name: game-level-design
   description: Apply game level design in AI agent workflows.
   category: Creative
-  level: Advanced
+  level: advanced
   stability: experimental
   version: null
   added: 2025-03
@@ -4740,7 +4740,7 @@ skills:
   name: logo-design
   description: Apply logo design in AI agent workflows.
   category: Creative
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -4780,7 +4780,7 @@ skills:
   name: Pipe to abc2midi or abcjs for playback
   description: Apply pipe to abc2midi or abcjs for playback in AI agent workflows.
   category: Creative
-  level: Advanced
+  level: advanced
   stability: experimental
   version: null
   added: 2025-03
@@ -4822,7 +4822,7 @@ skills:
   name: svg-generation
   description: Apply svg generation in AI agent workflows.
   category: Creative
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -4887,7 +4887,7 @@ skills:
   name: harm-detection
   description: Apply harm detection in AI agent workflows.
   category: Security & Safety
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -4900,7 +4900,7 @@ skills:
   name: human-in-loop
   description: Apply human in loop in AI agent workflows.
   category: Security & Safety
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -4997,7 +4997,7 @@ skills:
   description: 'Apply contact john at [redacted] or [redacted] (ssn: [redacted]) in
     AI agent workflows.'
   category: Security & Safety
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5025,7 +5025,7 @@ skills:
   name: Usage
   description: Apply usage in AI agent workflows.
   category: Security & Safety
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5065,7 +5065,7 @@ skills:
   name: agent-communication
   description: Apply agent communication in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5119,7 +5119,7 @@ skills:
   name: consensus-voting
   description: Apply consensus voting in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5134,7 +5134,7 @@ skills:
   name: event-triggers
   description: Apply event triggers in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5147,7 +5147,7 @@ skills:
   name: hierarchical-tree
   description: Apply hierarchical tree in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5297,7 +5297,7 @@ skills:
   name: Usage
   description: Apply usage in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5334,7 +5334,7 @@ skills:
   name: state-machine
   description: Apply state machine in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
@@ -5383,7 +5383,7 @@ skills:
   name: task-queue
   description: Apply task queue in AI agent workflows.
   category: Orchestration
-  level: Advanced
+  level: advanced
   stability: stable
   version: null
   added: 2025-03
