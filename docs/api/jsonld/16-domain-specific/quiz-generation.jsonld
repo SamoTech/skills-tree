@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "quiz-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "generation, quiz, domain, LLM skill, skills tree, specific, AI agent",
+  "keywords": "AI agent, LLM skill, generation, quiz, specific, skills tree, domain",
   "about": {
     "@type": "Thing",
     "name": "quiz-generation",

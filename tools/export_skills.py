@@ -80,10 +80,37 @@ def parse_skill(filepath: str) -> dict:
     else:
         skill["description"] = ""
 
-    # Frontmatter fields
+    # Frontmatter fields — first try the legacy bold-markdown patterns
+    # (e.g. "**Category:** `reasoning`"). For files that use a YAML
+    # frontmatter block instead, fall back to parsing the YAML.
     for key, pattern in FRONTMATTER_FIELDS:
         m = re.search(pattern, content, re.IGNORECASE)
         skill[key] = m.group(1).strip().strip('`') if m else None
+
+    yaml_block_m = re.match(r'\A---\s*\n(.*?)\n---', content, re.DOTALL)
+    if yaml_block_m:
+        yaml_text = yaml_block_m.group(1)
+        # Map: YAML key -> SkillReport key
+        YAML_KEYS = {
+            "category":     "category",
+            "level":        "level",
+            "stability":    "stability",
+            "version":      "version",
+            "added":        "added",
+            "last_updated": "last_updated",
+            "updated":      "last_updated",
+        }
+        for yk, sk in YAML_KEYS.items():
+            if skill.get(sk):
+                continue
+            # match `key: value` or `key: "value"` at line start
+            ym = re.search(rf'^{yk}:\s*"?([^"\n]+?)"?\s*$', yaml_text, re.MULTILINE)
+            if ym:
+                val = ym.group(1).strip().strip('`')
+                # Normalise category: "02-reasoning" -> "reasoning"
+                if sk == "category":
+                    val = re.sub(r'^\d+-', '', val)
+                skill[sk] = val
 
     # Sections present
     sections = re.findall(r'^## (.+)$', content, re.MULTILINE)
@@ -102,9 +129,16 @@ def parse_skill(filepath: str) -> dict:
 
 
 def build_index() -> list:
-    """Walk skills/** and return a sorted list of skill dicts."""
+    """Walk skills/** and return a sorted list of skill dicts.
+
+    Category README.md files (e.g. skills/01-perception/README.md) are
+    intentionally excluded — they describe the category, not a skill, and
+    when included they pollute the public API with null-everywhere entries.
+    """
     skills = []
     for filepath in sorted(glob.glob("skills/**/*.md", recursive=True)):
+        if os.path.basename(filepath).lower() == "readme.md":
+            continue
         try:
             skills.append(parse_skill(filepath))
         except Exception as exc:  # noqa: BLE001

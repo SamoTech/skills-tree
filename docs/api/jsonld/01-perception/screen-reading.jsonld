@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "screen-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, reading, screen, perception, AI agent",
+  "keywords": "screen, AI agent, LLM skill, reading, skills tree, perception",
   "about": {
     "@type": "Thing",
     "name": "Screen Reading",

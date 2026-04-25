@@ -1,29 +1,15 @@
-generated: '2026-04-24T23:41:59Z'
-count: 376
+generated: '2026-04-25T04:55:02Z'
+count: 360
 skills:
-- id: README
-  path: skills/01-perception/README.md
-  name: 👁️ Perception Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 01-perception
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
   name: API Response Parsing
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -32,11 +18,11 @@ skills:
   path: skills/01-perception/audio-transcription.md
   name: Audio Transcription
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -45,11 +31,11 @@ skills:
   path: skills/01-perception/binary-file-reading.md
   name: Binary File Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -66,11 +52,11 @@ skills:
   path: skills/01-perception/calendar-parsing.md
   name: Calendar Parsing
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -129,11 +115,11 @@ skills:
   path: skills/01-perception/contract-reading.md
   name: Contract Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -150,11 +136,11 @@ skills:
   path: skills/01-perception/conversation-history-reading.md
   name: Conversation History Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -253,11 +239,11 @@ skills:
   path: skills/01-perception/geospatial-reading.md
   name: Geospatial Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -274,11 +260,11 @@ skills:
   path: skills/01-perception/git-diff-reading.md
   name: Git Diff Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -316,11 +302,11 @@ skills:
   path: skills/01-perception/html-reading.md
   name: HTML Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -337,11 +323,11 @@ skills:
   path: skills/01-perception/image-understanding.md
   name: Image Understanding
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -350,11 +336,11 @@ skills:
   path: skills/01-perception/json-schema-validation.md
   name: JSON Schema Validation
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -371,11 +357,11 @@ skills:
   path: skills/01-perception/knowledge-graph-reading.md
   name: Knowledge Graph Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -392,11 +378,11 @@ skills:
   path: skills/01-perception/log-parsing.md
   name: Log Parsing
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -413,11 +399,11 @@ skills:
   path: skills/01-perception/markdown-parsing.md
   name: Markdown Parsing
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -434,11 +420,11 @@ skills:
   path: skills/01-perception/multimodal-document-reading.md
   name: Multimodal Document Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -455,11 +441,11 @@ skills:
   path: skills/01-perception/network-traffic-reading.md
   name: Network Traffic Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -557,11 +543,11 @@ skills:
   path: skills/01-perception/social-media-reading.md
   name: Social Media Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -578,11 +564,11 @@ skills:
   path: skills/01-perception/spreadsheet-reading.md
   name: Spreadsheet Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -620,11 +606,11 @@ skills:
   path: skills/01-perception/table-extraction.md
   name: Table Extraction
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -659,11 +645,11 @@ skills:
   path: skills/01-perception/time-series-reading.md
   name: Time Series Reading
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -701,11 +687,11 @@ skills:
   path: skills/01-perception/video-understanding.md
   name: Video Understanding
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -714,11 +700,11 @@ skills:
   path: skills/01-perception/xml-parsing.md
   name: XML Parsing
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: perception
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -731,20 +717,6 @@ skills:
   - Changelog
   related: []
   category_dir: 01-perception
-- id: README
-  path: skills/02-reasoning/README.md
-  name: 🧠 Reasoning Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 02-reasoning
 - id: abductive
   path: skills/02-reasoning/abductive.md
   name: Abductive Reasoning
@@ -792,11 +764,11 @@ skills:
   path: skills/02-reasoning/analogy-generation.md
   name: Analogy Generation
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -810,11 +782,11 @@ skills:
   path: skills/02-reasoning/argument-structure-analysis.md
   name: Argument Structure Analysis
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -828,11 +800,11 @@ skills:
   path: skills/02-reasoning/bayesian-reasoning.md
   name: Bayesian Reasoning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -974,11 +946,11 @@ skills:
   path: skills/02-reasoning/ethical-reasoning.md
   name: Ethical Reasoning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1052,11 +1024,11 @@ skills:
   path: skills/02-reasoning/meta-cognition.md
   name: Meta-Cognition
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1070,11 +1042,11 @@ skills:
   path: skills/02-reasoning/multi-step-planning.md
   name: Multi-Step Planning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1088,11 +1060,11 @@ skills:
   path: skills/02-reasoning/numerical-estimation.md
   name: Numerical Estimation
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1106,12 +1078,12 @@ skills:
   path: skills/02-reasoning/planning.md
   name: Planning
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -1144,11 +1116,11 @@ skills:
   path: skills/02-reasoning/probabilistic-reasoning.md
   name: Probabilistic Reasoning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1162,11 +1134,11 @@ skills:
   path: skills/02-reasoning/problem-decomposition.md
   name: Problem Decomposition
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1193,11 +1165,11 @@ skills:
   path: skills/02-reasoning/risk-assessment.md
   name: Risk Assessment
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1211,11 +1183,11 @@ skills:
   path: skills/02-reasoning/root-cause-analysis.md
   name: Root Cause Analysis
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1229,11 +1201,11 @@ skills:
   path: skills/02-reasoning/scenario-planning.md
   name: Scenario Planning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1242,6 +1214,32 @@ skills:
   - Related
   - Changelog
   related: []
+  category_dir: 02-reasoning
+- id: self-consistency
+  path: skills/02-reasoning/self-consistency.md
+  name: Self-Consistency
+  description: ''
+  category: reasoning
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Variants
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/cot.md
+  - ../09-agentic-patterns/reflection.md
+  - ../09-agentic-patterns/tot.md
   category_dir: 02-reasoning
 - id: self-correction
   path: skills/02-reasoning/self-correction.md
@@ -1261,11 +1259,11 @@ skills:
   path: skills/02-reasoning/self-reflection.md
   name: Self-Reflection
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1279,11 +1277,11 @@ skills:
   path: skills/02-reasoning/socratic-questioning.md
   name: Socratic Questioning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1297,11 +1295,11 @@ skills:
   path: skills/02-reasoning/spatial-reasoning.md
   name: Spatial Reasoning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1315,11 +1313,11 @@ skills:
   path: skills/02-reasoning/systems-thinking.md
   name: Systems Thinking
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1336,22 +1334,33 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: null
+  version: v3
   added: 2025-03
-  last_updated: null
-  sections: []
+  last_updated: 2026-04
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Variants
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related:
-  - ../15-orchestration/subagent-spawning.md
+  - ../09-agentic-patterns/reflection.md
+  - ../09-agentic-patterns/tot.md
   category_dir: 02-reasoning
 - id: temporal-reasoning
   path: skills/02-reasoning/temporal-reasoning.md
   name: Temporal Reasoning
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1365,11 +1374,11 @@ skills:
   path: skills/02-reasoning/trade-off-analysis.md
   name: Trade-off Analysis
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1397,11 +1406,11 @@ skills:
   path: skills/02-reasoning/uncertainty-quantification.md
   name: Uncertainty Quantification
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: reasoning
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections:
   - Description
@@ -1411,30 +1420,15 @@ skills:
   - Changelog
   related: []
   category_dir: 02-reasoning
-- id: README
-  path: skills/03-memory/README.md
-  name: 🧠 Memory Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Memory Types
-  - Skills in This Category
-  related: []
-  category_dir: 03-memory
 - id: agent-sessions
   path: skills/03-memory/agent-sessions.md
   name: Agent Sessions
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: memory
+  level: beginner
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -1465,11 +1459,11 @@ skills:
   path: skills/03-memory/cross-thread-memory.md
   name: Cross-Thread Memory
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: memory
+  level: advanced
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -1487,11 +1481,11 @@ skills:
   path: skills/03-memory/episodic-memory.md
   name: Episodic Memory
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: memory
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -1557,11 +1551,11 @@ skills:
   path: skills/03-memory/long-term-memory.md
   name: Long-Term Memory
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: memory
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -1570,12 +1564,12 @@ skills:
   path: skills/03-memory/memory-injection.md
   name: Memory Injection
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: memory
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -1663,11 +1657,11 @@ skills:
   path: skills/03-memory/semantic-memory.md
   name: Semantic Memory
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: memory
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -1676,13 +1670,22 @@ skills:
   path: skills/03-memory/short-term-memory.md
   name: Short-Term Memory
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections: []
+  category: memory
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Variants
+  - Frameworks & Models
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 03-memory
 - id: user-profile-memory
@@ -1738,38 +1741,24 @@ skills:
   path: skills/03-memory/working-memory.md
   name: Working Memory
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: memory
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
   category_dir: 03-memory
-- id: README
-  path: skills/04-action-execution/README.md
-  name: ⚡ Action Execution Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 04-action-execution
 - id: api-call
   path: skills/04-action-execution/api-call.md
   name: API Call
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: action-execution
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -1903,12 +1892,12 @@ skills:
   path: skills/04-action-execution/file-write.md
   name: File Write
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: action-execution
+  level: basic
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -2064,20 +2053,6 @@ skills:
   related:
   - ../15-orchestration/retry-backoff.md
   category_dir: 04-action-execution
-- id: README
-  path: skills/05-code/README.md
-  name: 💻 Code Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 05-code
 - id: algorithm-design
   path: skills/05-code/algorithm-design.md
   name: Algorithm Design
@@ -2109,11 +2084,11 @@ skills:
   path: skills/05-code/bug-fixing.md
   name: Bug Fixing
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: code
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -2162,11 +2137,11 @@ skills:
   path: skills/05-code/code-generation.md
   name: Code Generation
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: code
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -2175,11 +2150,11 @@ skills:
   path: skills/05-code/code-interpreter-agent.md
   name: Code Interpreter Agent
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: code
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -2197,12 +2172,12 @@ skills:
   path: skills/05-code/code-review.md
   name: Code Review
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: code
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - What It Does
@@ -2276,12 +2251,12 @@ skills:
   path: skills/05-code/dependency-auditor.md
   name: Dependency Auditor
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: code
+  level: advanced
+  stability: experimental
+  version: v2
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - What It Does
@@ -2483,20 +2458,6 @@ skills:
   sections: []
   related: []
   category_dir: 05-code
-- id: README
-  path: skills/06-communication/README.md
-  name: 💬 Communication Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 06-communication
 - id: argument-construction
   path: skills/06-communication/argument-construction.md
   name: Argument Construction
@@ -2594,12 +2555,12 @@ skills:
   path: skills/06-communication/paraphrasing.md
   name: Paraphrasing
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: communication
+  level: basic
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -2670,11 +2631,11 @@ skills:
   path: skills/06-communication/summarization.md
   name: Summarization
   description: ''
-  category: null
-  level: null
-  stability: null
+  category: communication
+  level: intermediate
+  stability: stable
   version: null
-  added: null
+  added: 2025-03
   last_updated: null
   sections: []
   related: []
@@ -2696,12 +2657,12 @@ skills:
   path: skills/06-communication/translation.md
   name: Translation
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: communication
+  level: basic
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -2714,20 +2675,6 @@ skills:
   - Changelog
   related: []
   category_dir: 06-communication
-- id: README
-  path: skills/07-tool-use/README.md
-  name: 🔧 Tool Use Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 07-tool-use
 - id: a2a-tool
   path: skills/07-tool-use/a2a-tool.md
   name: Agent-to-Agent Tool (A2A)
@@ -2747,12 +2694,12 @@ skills:
   path: skills/07-tool-use/anthropic-api.md
   name: Anthropic API
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -2765,7 +2712,7 @@ skills:
   - Changelog
   related:
   - ../09-agentic-patterns/react.md
-  - ../08-multimodal/image-understanding.md
+  - ../01-perception/image-understanding.md
   category_dir: 07-tool-use
 - id: browser-tool
   path: skills/07-tool-use/browser-tool.md
@@ -2847,12 +2794,22 @@ skills:
   category: tool-use
   level: basic
   stability: stable
-  version: null
+  version: v3
   added: 2025-03
-  last_updated: null
-  sections: []
+  last_updated: 2026-04
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
   related:
-  - ../02-reasoning/react.md
+  - ../09-agentic-patterns/react.md
+  - ../06-communication/structured-output.md
   category_dir: 07-tool-use
 - id: github-api
   path: skills/07-tool-use/github-api.md
@@ -2995,12 +2952,12 @@ skills:
   path: skills/07-tool-use/openai-api.md
   name: OpenAI API
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -3088,11 +3045,11 @@ skills:
   path: skills/07-tool-use/tool-guardrails.md
   name: Tool Guardrails
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -3110,11 +3067,11 @@ skills:
   path: skills/07-tool-use/tool-review-loops.md
   name: Tool Review Loops
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -3227,20 +3184,6 @@ skills:
   related:
   - ../01-perception/image-understanding.md
   - ../01-perception/sensor-reading.md
-  category_dir: 08-multimodal
-- id: README
-  path: skills/08-multimodal/README.md
-  name: 🎭 Multimodal Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
   category_dir: 08-multimodal
 - id: audio-classification
   path: skills/08-multimodal/audio-classification.md
@@ -3426,29 +3369,15 @@ skills:
   related:
   - ../01-perception/image-understanding.md
   category_dir: 08-multimodal
-- id: README
-  path: skills/09-agentic-patterns/README.md
-  name: 🤖 Agentic Patterns
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 09-agentic-patterns
 - id: agent-as-tool
   path: skills/09-agentic-patterns/agent-as-tool.md
   name: Agent as Tool
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -3466,11 +3395,11 @@ skills:
   path: skills/09-agentic-patterns/agent-handoffs.md
   name: Agent Handoffs
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -3528,12 +3457,12 @@ skills:
   path: skills/09-agentic-patterns/cot.md
   name: Chain of Thought (CoT)
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -3546,8 +3475,8 @@ skills:
   - Related Skills
   - Changelog
   related:
+  - ../02-reasoning/planning.md
   - ../02-reasoning/self-consistency.md
-  - ../02-reasoning/least-to-most.md
   category_dir: 09-agentic-patterns
 - id: critic-agent
   path: skills/09-agentic-patterns/critic-agent.md
@@ -3579,11 +3508,11 @@ skills:
   path: skills/09-agentic-patterns/interruptible-agent-flows.md
   name: Interruptible Agent Flows
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -3683,12 +3612,12 @@ skills:
   path: skills/09-agentic-patterns/rag.md
   name: RAG — Retrieval-Augmented Generation
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - What It Does
   - When to Use
@@ -3709,12 +3638,12 @@ skills:
   path: skills/09-agentic-patterns/react.md
   name: ReAct (Reasoning + Acting)
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: agentic-patterns
+  level: intermediate
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -3736,11 +3665,22 @@ skills:
   category: agentic-patterns
   level: advanced
   stability: stable
-  version: null
+  version: v3
   added: 2025-03
-  last_updated: null
-  sections: []
-  related: []
+  last_updated: 2026-04
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Frameworks & Models
+  - Model Comparison
+  - Related Skills
+  - Changelog
+  related:
+  - ../02-reasoning/planning.md
+  - ../02-reasoning/self-consistency.md
   category_dir: 09-agentic-patterns
 - id: self-play
   path: skills/09-agentic-patterns/self-play.md
@@ -3774,11 +3714,11 @@ skills:
   path: skills/09-agentic-patterns/time-travel-debugging.md
   name: Time-Travel Debugging
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -3810,12 +3750,12 @@ skills:
   path: skills/09-agentic-patterns/tot.md
   name: Tree of Thought (ToT)
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: agentic-patterns
+  level: advanced
+  stability: stable
+  version: v3
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - Description
   - When to Use
@@ -3829,20 +3769,6 @@ skills:
   - Changelog
   related: []
   category_dir: 09-agentic-patterns
-- id: README
-  path: skills/10-computer-use/README.md
-  name: 🖥️ Computer Use Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 10-computer-use
 - id: accessibility-tree
   path: skills/10-computer-use/accessibility-tree.md
   name: Accessibility Tree Navigation
@@ -4104,20 +4030,6 @@ skills:
   sections: []
   related: []
   category_dir: 10-computer-use
-- id: README
-  path: skills/11-web/README.md
-  name: 🌐 Web Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 11-web
 - id: api-discovery
   path: skills/11-web/api-discovery.md
   name: API Endpoint Discovery
@@ -4318,11 +4230,11 @@ skills:
   path: skills/11-web/web-search-tool-agents.md
   name: Web Search Tool Agents
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: web
+  level: beginner
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -4340,12 +4252,12 @@ skills:
   path: skills/11-web/web-search.md
   name: Web Search
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
+  category: web
+  level: basic
+  stability: stable
+  version: v2
+  added: 2025-03
+  last_updated: 2026-04
   sections:
   - What It Does
   - When to Use
@@ -4359,20 +4271,6 @@ skills:
   - ../02-reasoning/react.md
   - ../09-agentic-patterns/rag.md
   category_dir: 11-web
-- id: README
-  path: skills/12-data/README.md
-  name: 📊 Data Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 12-data
 - id: anomaly-detection
   path: skills/12-data/anomaly-detection.md
   name: Anomaly Detection
@@ -4614,20 +4512,6 @@ skills:
   sections: []
   related: []
   category_dir: 12-data
-- id: README
-  path: skills/13-creative/README.md
-  name: 🎨 Creative Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 13-creative
 - id: avatar-design
   path: skills/13-creative/avatar-design.md
   name: avatar-design
@@ -4826,29 +4710,15 @@ skills:
   sections: []
   related: []
   category_dir: 13-creative
-- id: README
-  path: skills/14-security/README.md
-  name: 🔒 Security & Safety Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 14-security
 - id: approval-before-destructive-tools
   path: skills/14-security/approval-before-destructive-tools.md
   name: Approval Before Destructive Tools
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: security
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -4906,11 +4776,11 @@ skills:
   path: skills/14-security/input-guardrails.md
   name: Input Guardrails
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: security
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -4941,11 +4811,11 @@ skills:
   path: skills/14-security/output-guardrails.md
   name: Output Guardrails
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: security
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5040,20 +4910,6 @@ skills:
   sections: []
   related: []
   category_dir: 14-security
-- id: README
-  path: skills/15-orchestration/README.md
-  name: 🎼 Orchestration Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  related: []
-  category_dir: 15-orchestration
 - id: agent-communication
   path: skills/15-orchestration/agent-communication.md
   name: agent-communication
@@ -5153,11 +5009,11 @@ skills:
   path: skills/15-orchestration/human-approval-gates.md
   name: Human Approval Gates
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: orchestration
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5175,11 +5031,11 @@ skills:
   path: skills/15-orchestration/langgraph-checkpointing.md
   name: LangGraph Checkpointing
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: orchestration
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5211,11 +5067,11 @@ skills:
   path: skills/15-orchestration/multi-agent-run-config.md
   name: Multi-Agent Run Config
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: orchestration
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5301,11 +5157,11 @@ skills:
   path: skills/15-orchestration/specialist-agent-routing.md
   name: Specialist Agent Routing
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: orchestration
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5336,11 +5192,11 @@ skills:
   path: skills/15-orchestration/stateful-agent-graphs.md
   name: Stateful Agent Graphs
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: orchestration
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5384,11 +5240,11 @@ skills:
   path: skills/15-orchestration/thread-based-resume.md
   name: Thread-Based Resume
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: orchestration
+  level: intermediate
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5402,24 +5258,6 @@ skills:
   - Changelog
   related: []
   category_dir: 15-orchestration
-- id: README
-  path: skills/16-domain-specific/README.md
-  name: 🌐 Domain-Specific Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  - Related Categories
-  related:
-  - ../../CONTRIBUTING.md
-  - ../15-orchestration/README.md
-  - ../17-infrastructure/README.md
-  category_dir: 16-domain-specific
 - id: ad-copy
   path: skills/16-domain-specific/ad-copy.md
   name: ad-copy
@@ -5483,11 +5321,11 @@ skills:
   path: skills/16-domain-specific/compliance-review-workflows.md
   name: Compliance Review Workflows
   description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
+  category: domain-specific
+  level: advanced
+  stability: stable
+  version: v2
+  added: 2026-04
   last_updated: null
   sections:
   - Description
@@ -5835,33 +5673,16 @@ skills:
   - ../02-reasoning/decision-making.md
   - ../02-reasoning/risk-assessment.md
   category_dir: 16-domain-specific
-- id: README
-  path: skills/17-infrastructure/README.md
-  name: 🛠️ Infrastructure Skills
-  description: ''
-  category: null
-  level: null
-  stability: null
-  version: null
-  added: null
-  last_updated: null
-  sections:
-  - Skills in This Category
-  - Wishlist (great first PRs)
-  related:
-  - ../../meta/skill-template.md
-  - ../../meta/QUALITY-REPORT.md
-  category_dir: 17-infrastructure
 - id: dependency-auditor
   path: skills/17-infrastructure/dependency-auditor.md
   name: Dependency Auditor
   description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)'
-  category: null
-  level: null
-  stability: null
+  category: infrastructure
+  level: advanced
+  stability: stable
   version: null
-  added: null
-  last_updated: null
+  added: 2025-03
+  last_updated: '2026-04-13'
   sections:
   - The Execution Gap
   - Architecture

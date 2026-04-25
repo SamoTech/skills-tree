@@ -52,11 +52,11 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "time-series-reading",
   "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Description",
@@ -69,7 +69,13 @@
     "Changelog"
   ],
   "relatedSkills": [],
-  "keywords": "time, LLM skill, series, skills tree, reading, perception, AI agent",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, LLM skill, reading, series, skills tree, perception, time",
   "about": {
     "@type": "Thing",
     "name": "Time Series Reading",

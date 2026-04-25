@@ -52,11 +52,11 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "openai-api",
-  "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillVersion": "v3",
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
   "categoryDir": "07-tool-use",
   "sections": [
     "Description",
@@ -72,7 +72,13 @@
   "relatedSkills": [
     "../12-data/embedding-generation.md"
   ],
-  "keywords": "use, openai, api, LLM skill, skills tree, AI agent, tool",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2025-03-01",
+  "keywords": "openai, AI agent, use, tool, api, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "OpenAI API",

@@ -52,11 +52,11 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "dependency-auditor",
   "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillLevel": "advanced",
+  "skillStability": "stable",
   "categoryDir": "17-infrastructure",
   "sections": [
     "The Execution Gap",
@@ -71,7 +71,13 @@
   "relatedSkills": [
     "../../meta/badge-states.md"
   ],
-  "keywords": "dependency, LLM skill, infrastructure, skills tree, auditor, AI agent",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, infrastructure, LLM skill, skills tree, dependency, auditor",
   "about": {
     "@type": "Thing",
     "name": "Dependency Auditor",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "linear-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, linear, api, LLM skill, skills tree, AI agent, tool",
+  "keywords": "use, AI agent, tool, api, LLM skill, skills tree, linear",
   "about": {
     "@type": "Thing",
     "name": "Linear API",

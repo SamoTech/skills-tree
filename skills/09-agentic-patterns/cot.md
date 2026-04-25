@@ -125,7 +125,7 @@ if __name__ == "__main__":
 | Failure | Cause | Mitigation |
 |---|---|---|
 | Plausible-sounding wrong reasoning | Model commits to a flawed first step | Use self-consistency (vote across samples) |
-| "Trace" matches a template, answer doesn't follow | Model copied few-shot pattern without solving | Inject a verifier step or run least-to-most |
+| "Trace" matches a template, answer doesn't follow | Model copied few-shot pattern without solving | Inject a verifier step or decompose with [Planning](../02-reasoning/planning.md) (least-to-most) |
 | Cost / latency blow-up | CoT roughly doubles output tokens | Cap output; turn off CoT for trivial classification |
 | Final answer hard to parse | Free-form output | Force "Answer: <X>" suffix or structured output |
 | Model leaks chain-of-thought in production | Reasoning shown to end users | Strip everything before "Answer:" before display |
@@ -153,7 +153,7 @@ if __name__ == "__main__":
 - [ReAct](react.md) — CoT + tools
 - [Tree of Thought](tot.md) — branched reasoning
 - [Self-Consistency](../02-reasoning/self-consistency.md)
-- [Least-to-Most](../02-reasoning/least-to-most.md)
+- [Planning](../02-reasoning/planning.md) — least-to-most variant lives here
 
 ## Changelog
 

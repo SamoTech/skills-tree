@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "lesson-plan",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "lesson, domain, plan, LLM skill, skills tree, specific, AI agent",
+  "keywords": "AI agent, LLM skill, plan, specific, skills tree, lesson, domain",
   "about": {
     "@type": "Thing",
     "name": "lesson-plan",

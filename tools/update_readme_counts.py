@@ -93,28 +93,46 @@ def patch_text(text: str, counts: dict) -> str:
         text,
     )
 
-    # Patch the per-category table. We look for rows of the shape
-    # `| 01 | ...Perception... | <num> | ... |`
-    # and rewrite the count column based on directory prefix.
-    def repl_row(m: re.Match) -> str:
-        prefix = m.group("prefix")
-        # Find directory whose name starts with this prefix.
-        target_dir = None
-        for cat in counts["by_cat"]:
-            if cat.startswith(prefix + "-"):
-                target_dir = cat
-                break
-        if target_dir is None:
-            return m.group(0)
-        n = counts["by_cat"][target_dir]
-        return f"{m.group('head')} {n} {m.group('tail')}"
-
-    text = re.sub(
-        r"(?P<head>\|\s*(?P<prefix>\d{2})\s*\|[^|]+\|)\s*\d+\s*(?P<tail>\|[^\n]*)",
-        repl_row,
-        text,
-    )
+    # Patch the per-category table line-by-line. Each row of the form
+    #   | 01 | <category> | <count> | <description> |
+    # gets its third cell rewritten to match the live count for the
+    # `01-*` directory. Failures here are loud (raises) so we don't
+    # silently accept a drifted README. (Audit finding #9.)
+    text = _patch_category_table(text, counts["by_cat"])
     return text
+
+
+_ROW_RE = re.compile(
+    r"^(?P<head>\|\s*(?P<prefix>\d{2})\s*\|[^|]+\|)\s*(?P<count>\d+)\s*(?P<tail>\|.*)$"
+)
+
+
+def _patch_category_table(text: str, by_cat: dict[str, int]) -> str:
+    out_lines: list[str] = []
+    seen_prefixes: set[str] = set()
+    for line in text.splitlines(keepends=True):
+        m = _ROW_RE.match(line.rstrip("\n"))
+        if not m:
+            out_lines.append(line)
+            continue
+        prefix = m.group("prefix")
+        target_dir = next((c for c in by_cat if c.startswith(prefix + "-")), None)
+        if target_dir is None:
+            out_lines.append(line)
+            continue
+        seen_prefixes.add(prefix)
+        n = by_cat[target_dir]
+        new_line = f"{m.group('head')} {n} {m.group('tail')}\n"
+        out_lines.append(new_line)
+    # Sanity check: every skill-bearing category must have been seen in the table.
+    expected = {c.split("-", 1)[0] for c in by_cat}
+    missing = sorted(expected - seen_prefixes)
+    if missing:
+        raise RuntimeError(
+            f"per-category table in README.md is missing rows for: "
+            f"{missing}. Update the table or update_readme_counts.py."
+        )
+    return "".join(out_lines)
 
 
 def main() -> int:

@@ -33,5 +33,7 @@ Next: Check deploy logs and provider status page.
 
 ### Related Skills
 
-- [Abductive Reasoning](abductive-reasoning.md)
-- [Causal Reasoning](causal-reasoning.md)
+- [Abductive Reasoning](abductive.md)
+- [Causal Reasoning](causal.md)
+- [Inductive Reasoning](inductive-reasoning.md)
+- [Deductive Reasoning](deductive-reasoning.md)

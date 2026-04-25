@@ -21,6 +21,15 @@ permissions:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+
+# Serialize runs of THIS workflow on the same ref so concurrent
+# scheduled triggers do not race when pushing back to main.
+# Distinct workflow classes (graph, exports, badges, …) intentionally
+# use different groups so they can still run in parallel.
+concurrency:
+  group: inject-badge-links-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   inject:
     name: Inject Badge Links into Skill Files

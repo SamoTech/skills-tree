@@ -52,11 +52,11 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:42:00Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "file-write",
-  "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
+  "skillVersion": "v3",
+  "skillLevel": "basic",
+  "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
     "Description",
@@ -71,7 +71,13 @@
   "relatedSkills": [
     "../01-perception/file-system-reading.md"
   ],
-  "keywords": "execution, write, AI agent, file, skills tree, LLM skill, action",
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Beginner",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, write, LLM skill, action, skills tree, file, execution",
   "about": {
     "@type": "Thing",
     "name": "File Write",

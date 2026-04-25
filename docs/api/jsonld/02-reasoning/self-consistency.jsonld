@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/README.md",
-  "name": "💬 Communication Skills",
-  "headline": "💬 Communication Skills",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-consistency.md",
+  "name": "Self-Consistency",
+  "headline": "Self-Consistency",
   "description": "",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/README.md",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-consistency.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -52,20 +52,39 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
-  "skillId": "README",
-  "skillVersion": null,
-  "skillLevel": null,
-  "skillStability": null,
-  "categoryDir": "06-communication",
+  "dateModified": "2026-04-25T04:55:02Z",
+  "skillId": "self-consistency",
+  "skillVersion": "v3",
+  "skillLevel": "intermediate",
+  "skillStability": "stable",
+  "categoryDir": "02-reasoning",
   "sections": [
-    "Skills in This Category"
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
   ],
-  "relatedSkills": [],
-  "keywords": "README, LLM skill, skills tree, communication, AI agent",
+  "relatedSkills": [
+    "../09-agentic-patterns/cot.md",
+    "../09-agentic-patterns/reflection.md",
+    "../09-agentic-patterns/tot.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2025-03-01",
+  "keywords": "AI agent, reasoning, consistency, self, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "💬 Communication Skills",
-    "description": "An AI agent skill for 💬 communication skills."
+    "name": "Self-Consistency",
+    "description": "An AI agent skill for self-consistency."
   }
 }
