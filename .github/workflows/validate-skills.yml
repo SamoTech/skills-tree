@@ -14,6 +14,15 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+
+# Serialize runs of THIS workflow on the same ref so concurrent
+# scheduled triggers do not race when pushing back to main.
+# Distinct workflow classes (graph, exports, badges, …) intentionally
+# use different groups so they can still run in parallel.
+concurrency:
+  group: validate-skills-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   validate:
     name: Validate skill files
@@ -141,33 +150,14 @@ jobs:
           exit 0
 
       # ── Step 5: Broken relative link check ──────────────────────────────
+      # Audit fix: the previous shell loop only matched `(../...md)` links and
+      # missed same-directory relative links (e.g. `(least-to-most.md)`),
+      # which is how the cot.md / hypothesis-generation.md broken links
+      # slipped past CI. Replaced with tools/check_broken_links.py which
+      # walks every `.md` link target.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Check for broken relative links
-        run: |
-          echo "Checking for broken relative links..."
-          FAIL=0
-
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' | grep -v README || true)
-            echo "PR mode — checking links in $(echo "$FILES" | grep -c '\.md' || echo 0) changed file(s)."
-          else
-            shopt -s globstar
-            FILES=$(find skills -name '*.md' | grep -v README)
-            echo "Push mode — full link scan."
-          fi
-
-          for f in $FILES; do
-            [ -f "$f" ] || continue
-            [[ "$f" == *README* ]] && continue
-            dir=$(dirname "$f")
-            links=$(grep -oP '\(\.\./[^)]+\.md\)' "$f" | tr -d '()' || true)
-            for link in $links; do
-              target="$dir/$link"
-              resolved=$(realpath --relative-to=. "$target" 2>/dev/null)
-              if [ ! -f "$resolved" ]; then
-                echo "::error file=$f::Broken link → $link"
-                FAIL=1
-              fi
-            done
-          done
-          [ $FAIL -eq 0 ] && echo "No broken links found in checked files."
-          exit $FAIL
+        run: python3 tools/check_broken_links.py

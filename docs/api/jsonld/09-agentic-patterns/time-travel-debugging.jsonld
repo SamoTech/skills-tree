@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:38:28Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "time-travel-debugging",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agentic, time, AI agent, patterns, skills tree, debugging, LLM skill, travel",
+  "keywords": "travel, agentic, debugging, AI agent, time, LLM skill, skills tree, patterns",
   "about": {
     "@type": "Thing",
     "name": "Time-Travel Debugging",

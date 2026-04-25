@@ -1,24 +1,7 @@
 {
-  "generated": "2026-04-25T04:38:28Z",
-  "count": 377,
+  "generated": "2026-04-25T04:55:02Z",
+  "count": 360,
   "skills": [
-    {
-      "id": "README",
-      "path": "skills/01-perception/README.md",
-      "name": "👁️ Perception Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "01-perception"
-    },
     {
       "id": "api-response-parsing",
       "path": "skills/01-perception/api-response-parsing.md",
@@ -838,23 +821,6 @@
       ],
       "related": [],
       "category_dir": "01-perception"
-    },
-    {
-      "id": "README",
-      "path": "skills/02-reasoning/README.md",
-      "name": "🧠 Reasoning Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "02-reasoning"
     },
     {
       "id": "abductive",
@@ -1677,24 +1643,6 @@
       "category_dir": "02-reasoning"
     },
     {
-      "id": "README",
-      "path": "skills/03-memory/README.md",
-      "name": "🧠 Memory Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Memory Types",
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "03-memory"
-    },
-    {
       "id": "agent-sessions",
       "path": "skills/03-memory/agent-sessions.md",
       "name": "Agent Sessions",
@@ -2077,23 +2025,6 @@
       "category_dir": "03-memory"
     },
     {
-      "id": "README",
-      "path": "skills/04-action-execution/README.md",
-      "name": "⚡ Action Execution Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "04-action-execution"
-    },
-    {
       "id": "api-call",
       "path": "skills/04-action-execution/api-call.md",
       "name": "API Call",
@@ -2454,23 +2385,6 @@
         "../15-orchestration/retry-backoff.md"
       ],
       "category_dir": "04-action-execution"
-    },
-    {
-      "id": "README",
-      "path": "skills/05-code/README.md",
-      "name": "💻 Code Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "05-code"
     },
     {
       "id": "algorithm-design",
@@ -2947,23 +2861,6 @@
       "category_dir": "05-code"
     },
     {
-      "id": "README",
-      "path": "skills/06-communication/README.md",
-      "name": "💬 Communication Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "06-communication"
-    },
-    {
       "id": "argument-construction",
       "path": "skills/06-communication/argument-construction.md",
       "name": "Argument Construction",
@@ -3215,23 +3112,6 @@
       ],
       "related": [],
       "category_dir": "06-communication"
-    },
-    {
-      "id": "README",
-      "path": "skills/07-tool-use/README.md",
-      "name": "🔧 Tool Use Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "07-tool-use"
     },
     {
       "id": "a2a-tool",
@@ -3838,23 +3718,6 @@
       "category_dir": "08-multimodal"
     },
     {
-      "id": "README",
-      "path": "skills/08-multimodal/README.md",
-      "name": "🎭 Multimodal Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "08-multimodal"
-    },
-    {
       "id": "audio-classification",
       "path": "skills/08-multimodal/audio-classification.md",
       "name": "Audio Classification",
@@ -4073,23 +3936,6 @@
         "../01-perception/image-understanding.md"
       ],
       "category_dir": "08-multimodal"
-    },
-    {
-      "id": "README",
-      "path": "skills/09-agentic-patterns/README.md",
-      "name": "🤖 Agentic Patterns",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "09-agentic-patterns"
     },
     {
       "id": "agent-as-tool",
@@ -4556,23 +4402,6 @@
       "category_dir": "09-agentic-patterns"
     },
     {
-      "id": "README",
-      "path": "skills/10-computer-use/README.md",
-      "name": "🖥️ Computer Use Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "10-computer-use"
-    },
-    {
       "id": "accessibility-tree",
       "path": "skills/10-computer-use/accessibility-tree.md",
       "name": "Accessibility Tree Navigation",
@@ -4875,23 +4704,6 @@
       "category_dir": "10-computer-use"
     },
     {
-      "id": "README",
-      "path": "skills/11-web/README.md",
-      "name": "🌐 Web Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "11-web"
-    },
-    {
       "id": "api-discovery",
       "path": "skills/11-web/api-discovery.md",
       "name": "API Endpoint Discovery",
@@ -5169,23 +4981,6 @@
         "../09-agentic-patterns/rag.md"
       ],
       "category_dir": "11-web"
-    },
-    {
-      "id": "README",
-      "path": "skills/12-data/README.md",
-      "name": "📊 Data Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "12-data"
     },
     {
       "id": "anomaly-detection",
@@ -5470,23 +5265,6 @@
       "category_dir": "12-data"
     },
     {
-      "id": "README",
-      "path": "skills/13-creative/README.md",
-      "name": "🎨 Creative Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "13-creative"
-    },
-    {
       "id": "avatar-design",
       "path": "skills/13-creative/avatar-design.md",
       "name": "avatar-design",
@@ -5724,23 +5502,6 @@
       "category_dir": "13-creative"
     },
     {
-      "id": "README",
-      "path": "skills/14-security/README.md",
-      "name": "🔒 Security & Safety Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "14-security"
-    },
-    {
       "id": "approval-before-destructive-tools",
       "path": "skills/14-security/approval-before-destructive-tools.md",
       "name": "Approval Before Destructive Tools",
@@ -5971,23 +5732,6 @@
       "sections": [],
       "related": [],
       "category_dir": "14-security"
-    },
-    {
-      "id": "README",
-      "path": "skills/15-orchestration/README.md",
-      "name": "🎼 Orchestration Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category"
-      ],
-      "related": [],
-      "category_dir": "15-orchestration"
     },
     {
       "id": "agent-communication",
@@ -6393,28 +6137,6 @@
       ],
       "related": [],
       "category_dir": "15-orchestration"
-    },
-    {
-      "id": "README",
-      "path": "skills/16-domain-specific/README.md",
-      "name": "🌐 Domain-Specific Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category",
-        "Related Categories"
-      ],
-      "related": [
-        "../../CONTRIBUTING.md",
-        "../15-orchestration/README.md",
-        "../17-infrastructure/README.md"
-      ],
-      "category_dir": "16-domain-specific"
     },
     {
       "id": "ad-copy",
@@ -6914,27 +6636,6 @@
         "../02-reasoning/risk-assessment.md"
       ],
       "category_dir": "16-domain-specific"
-    },
-    {
-      "id": "README",
-      "path": "skills/17-infrastructure/README.md",
-      "name": "🛠️ Infrastructure Skills",
-      "description": "",
-      "category": null,
-      "level": null,
-      "stability": null,
-      "version": null,
-      "added": null,
-      "last_updated": null,
-      "sections": [
-        "Skills in This Category",
-        "Wishlist (great first PRs)"
-      ],
-      "related": [
-        "../../meta/skill-template.md",
-        "../../meta/QUALITY-REPORT.md"
-      ],
-      "category_dir": "17-infrastructure"
     },
     {
       "id": "dependency-auditor",

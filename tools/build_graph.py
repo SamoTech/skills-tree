@@ -128,6 +128,9 @@ def build_graph() -> dict:
     skills_by_id: dict[str, dict] = {}
 
     for filepath in sorted(glob.glob("skills/**/*.md", recursive=True)):
+        # Skip category README.md files; they describe the directory, not a skill.
+        if os.path.basename(filepath).lower() == "readme.md":
+            continue
         try:
             s = parse_skill(filepath)
             skills_by_id[s["id"]] = s

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:38:28Z",
+  "dateModified": "2026-04-25T04:55:02Z",
   "skillId": "cross-session-persistence",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "session, AI agent, cross, persistence, skills tree, LLM skill, memory",
+  "keywords": "memory, session, AI agent, cross, persistence, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Cross-Session Persistence",

@@ -13,6 +13,15 @@ on:
 permissions:
   contents: write
 
+
+# Serialize runs of THIS workflow on the same ref so concurrent
+# scheduled triggers do not race when pushing back to main.
+# Distinct workflow classes (graph, exports, badges, …) intentionally
+# use different groups so they can still run in parallel.
+concurrency:
+  group: weekly-highlights-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   weekly-highlights:
     runs-on: ubuntu-latest

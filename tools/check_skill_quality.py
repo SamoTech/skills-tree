@@ -35,14 +35,28 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
 
+try:
+    import yaml  # type: ignore
+except ImportError:  # pragma: no cover
+    yaml = None  # type: ignore
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = REPO_ROOT / "skills"
 REPORT_PATH = REPO_ROOT / "meta" / "QUALITY-REPORT.md"
 
-STUB_DESCRIPTION_RE = re.compile(
-    r'description\s*:\s*"?Apply [^"]*? in AI agent workflows\.?"?\s*$',
-    re.IGNORECASE | re.MULTILINE,
-)
+# Patterns whose presence in `description` makes a skill a stub regardless of
+# everything else. The historical placeholder was "Apply X in AI agent
+# workflows." — we also catch obvious near-clones so swapping a synonym
+# doesn't silently bypass the gate (audit finding #10).
+STUB_DESCRIPTION_PATTERNS = [
+    re.compile(r'^\s*Apply\s.+?\s(?:in\s)?AI\s+agent\s+workflows?\.?\s*$', re.IGNORECASE),
+    re.compile(r'^\s*Apply\s.+?\sin\s+agentic\s+(?:pipelines?|workflows?)\.?\s*$', re.IGNORECASE),
+    re.compile(r'^\s*Use\s.+?\sin\s+AI\s+(?:agent|agentic)\s+(?:workflows?|pipelines?)\.?\s*$', re.IGNORECASE),
+    re.compile(r'^\s*TODO\.?\s*$', re.IGNORECASE),
+    re.compile(r'^\s*WIP\.?\s*$', re.IGNORECASE),
+]
+MIN_DESCRIPTION_CHARS = 30
+
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 CODE_BLOCK_RE = re.compile(r"```[a-zA-Z0-9_-]*\n.*?\n```", re.DOTALL)
 TABLE_RE = re.compile(r"^\|.+\|.+\n\|[-: |]+\|", re.MULTILINE)
@@ -58,21 +72,66 @@ class SkillReport:
     line_count: int = 0
 
 
-def parse_frontmatter(text: str) -> dict[str, str]:
+def parse_frontmatter(text: str) -> dict:
+    """Parse the YAML frontmatter block at the top of a skill file.
+
+    Uses ``yaml.safe_load`` when PyYAML is available so multi-line lists,
+    nested mappings and quoted values with colons are handled correctly.
+    Falls back to a tiny line parser (top-level scalar keys only) if PyYAML
+    is not installed in the runtime — sufficient for the title/category
+    checks this script makes today.
+    """
     m = FRONTMATTER_RE.match(text)
     if not m:
         return {}
+    block = m.group(1)
+    if yaml is not None:
+        try:
+            data = yaml.safe_load(block)
+            if isinstance(data, dict):
+                return data
+        except yaml.YAMLError:
+            pass  # fall through to line parser
     fm: dict[str, str] = {}
-    for line in m.group(1).splitlines():
-        if ":" not in line:
+    for line in block.splitlines():
+        if not line or line.startswith((" ", "\t", "-")) or ":" not in line:
             continue
         k, _, v = line.partition(":")
         fm[k.strip()] = v.strip().strip('"').strip("'")
     return fm
 
 
-def is_stub_description(text: str) -> bool:
-    return bool(STUB_DESCRIPTION_RE.search(text))
+def _description_value(fm: dict, text: str) -> str:
+    """Best-effort fetch the `description` field from the frontmatter."""
+    desc = fm.get("description")
+    if isinstance(desc, str):
+        return desc.strip()
+    # Frontmatter may not parse cleanly — grep the raw block for description.
+    m = re.search(r'^description:\s*"?([^"\n]+?)"?\s*$', text, re.MULTILINE)
+    return m.group(1).strip() if m else ""
+
+
+def stub_description_reason(description: str, title: str) -> str | None:
+    """Return a human-readable reason if `description` is a stub, else None.
+
+    Rules (audit finding #10):
+    1. matches a known placeholder template (Apply X in AI agent workflows, …)
+    2. shorter than MIN_DESCRIPTION_CHARS — too thin to be useful
+    3. equals the skill title (with case/punctuation normalised)
+    """
+    desc = (description or "").strip().rstrip(".")
+    if not desc:
+        return "description is empty"
+    for pat in STUB_DESCRIPTION_PATTERNS:
+        if pat.match(desc):
+            return f'description matches placeholder pattern: {desc!r}'
+    if len(desc) < MIN_DESCRIPTION_CHARS:
+        return f"description too short ({len(desc)} < {MIN_DESCRIPTION_CHARS} chars)"
+    norm_desc = re.sub(r"[^a-z0-9]+", "", desc.lower())
+    norm_title = re.sub(r"[^a-z0-9]+", "", (title or "").lower())
+    if norm_title and norm_desc == norm_title:
+        return "description is identical to the title"
+    return None
 
 
 def has_runnable_example(text: str) -> bool:
@@ -92,7 +151,8 @@ def classify(path: Path) -> SkillReport:
     text = path.read_text(encoding="utf-8")
     fm = parse_frontmatter(text)
     category = path.parent.name
-    title = fm.get("title") or path.stem.replace("-", " ").title()
+    title = (fm.get("title") if isinstance(fm.get("title"), str) else None) \
+        or path.stem.replace("-", " ").title()
     line_count = text.count("\n")
     reasons: list[str] = []
 
@@ -100,18 +160,19 @@ def classify(path: Path) -> SkillReport:
         reasons.append("missing required frontmatter (title/category)")
         return SkillReport(path, category, title, "invalid", reasons, line_count)
 
-    stub_desc = is_stub_description(text)
+    description = _description_value(fm, text)
+    stub_desc_reason = stub_description_reason(description, title)
     runnable = has_runnable_example(text)
     tabled = has_table(text)
 
-    if stub_desc:
-        reasons.append('description is the placeholder "Apply X in AI agent workflows."')
+    if stub_desc_reason:
+        reasons.append(stub_desc_reason)
     if not runnable:
         reasons.append("no fenced runnable code example (>=3 non-blank lines)")
     if not tabled:
         reasons.append("no inputs/outputs/failure-modes table")
 
-    if stub_desc or not runnable:
+    if stub_desc_reason or not runnable:
         return SkillReport(path, category, title, "stub", reasons, line_count)
     if line_count >= 60 and tabled:
         return SkillReport(path, category, title, "battle_tested", reasons, line_count)
@@ -180,6 +241,30 @@ def render_report(reports: list[SkillReport]) -> str:
             lines.append(f"- [`{rel}`]({rel}) — {r.title}")
     lines.append("")
 
+    lines.append("## 🟡 Enriched skills (almost there — add a table or +60 lines of context)")
+    lines.append("")
+    if not by_class["enriched"]:
+        lines.append("_None — every skill is either a stub or fully battle-tested._")
+    else:
+        lines.append(
+            "These skills have a real description and a runnable code example, "
+            "but are missing one of: an inputs/outputs/failure-modes **table**, "
+            "or **>=60 lines** of total content. The smallest possible PR "
+            "upgrades them to battle-tested."
+        )
+        lines.append("")
+        by_cat_e: dict[str, list[SkillReport]] = defaultdict(list)
+        for r in by_class["enriched"]:
+            by_cat_e[r.category].append(r)
+        for cat in sorted(by_cat_e):
+            lines.append(f"### `{cat}` ({len(by_cat_e[cat])})")
+            lines.append("")
+            for r in sorted(by_cat_e[cat], key=lambda x: x.path.name):
+                rel = r.path.relative_to(REPO_ROOT)
+                why = "; ".join(r.reasons) or "missing table or <60 lines"
+                lines.append(f"- [`{rel.name}`]({rel}) — {why}")
+            lines.append("")
+
     lines.append("## ⚪ Stubs (good first PRs)")
     lines.append("")
     lines.append(
@@ -226,10 +311,16 @@ def render_report(reports: list[SkillReport]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def changed_skill_files_against(base: str) -> list[Path]:
+def changed_skill_files_against(base: str, *, diff_filter: str = "AM") -> list[Path]:
+    """Return added or modified skill files since ``base``.
+
+    ``diff_filter='A'`` -> only newly-added files (legacy behaviour).
+    ``diff_filter='AM'`` -> added + modified files (default; lets the gate
+    catch regressions — audit finding #4).
+    """
     try:
         out = subprocess.check_output(
-            ["git", "diff", "--name-only", "--diff-filter=A", f"{base}...HEAD"],
+            ["git", "diff", "--name-only", f"--diff-filter={diff_filter}", f"{base}...HEAD"],
             cwd=REPO_ROOT,
             text=True,
         )
@@ -242,6 +333,30 @@ def changed_skill_files_against(base: str) -> list[Path]:
             if p.exists():
                 paths.append(p)
     return paths
+
+
+def _classify_at_revision(rev: str, rel_path: str) -> str | None:
+    """Classify the skill at a git revision. Returns None if file didn't exist."""
+    try:
+        text = subprocess.check_output(
+            ["git", "show", f"{rev}:{rel_path}"],
+            cwd=REPO_ROOT, text=True, stderr=subprocess.DEVNULL,
+        )
+    except subprocess.CalledProcessError:
+        return None
+    fm = parse_frontmatter(text)
+    if "title" not in fm or "category" not in fm:
+        return "invalid"
+    description = _description_value(fm, text)
+    title = fm.get("title") if isinstance(fm.get("title"), str) else ""
+    stub_reason = stub_description_reason(description, title)
+    runnable = has_runnable_example(text)
+    tabled = has_table(text)
+    if stub_reason or not runnable:
+        return "stub"
+    if text.count("\n") >= 60 and tabled:
+        return "battle_tested"
+    return "enriched"
 
 
 def main() -> int:
@@ -276,21 +391,33 @@ def main() -> int:
     print("Summary:", summary)
 
     if args.enforce_new_stubs:
-        added = changed_skill_files_against(args.base)
-        added_stubs = []
-        for p in added:
+        # Audit finding #4: also check modified files, but only fail if the
+        # modification *introduces* stub status (regressed from the base ref).
+        changed = changed_skill_files_against(args.base, diff_filter="AM")
+        offenders: list[tuple[SkillReport, str]] = []
+        for p in changed:
             r = classify(p)
-            if r.classification == "stub":
-                added_stubs.append(r)
-        if added_stubs:
+            if r.classification != "stub":
+                continue
+            rel = str(p.relative_to(REPO_ROOT))
+            base_class = _classify_at_revision(args.base, rel)
+            if base_class == "stub":
+                continue  # already a stub on base; not this PR's regression
+            kind = "new stub added" if base_class is None else \
+                f"regression: was '{base_class}' on {args.base}, now 'stub'"
+            offenders.append((r, kind))
+        if offenders:
             print(
-                f"\nERROR: {len(added_stubs)} new skill file(s) added as stubs. "
-                f"New skills must include a real description and a runnable code "
-                f"example before merging:",
+                f"\nERROR: {len(offenders)} skill file(s) failed the quality gate. "
+                f"Either keep them out of stub status or restore them to their previous "
+                f"classification before merging:",
                 file=sys.stderr,
             )
-            for r in added_stubs:
-                print(f"  - {r.path.relative_to(REPO_ROOT)}: {'; '.join(r.reasons)}", file=sys.stderr)
+            for r, kind in offenders:
+                print(
+                    f"  - {r.path.relative_to(REPO_ROOT)} [{kind}]: {'; '.join(r.reasons)}",
+                    file=sys.stderr,
+                )
             return 1
 
     return 0

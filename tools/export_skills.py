@@ -129,9 +129,16 @@ def parse_skill(filepath: str) -> dict:
 
 
 def build_index() -> list:
-    """Walk skills/** and return a sorted list of skill dicts."""
+    """Walk skills/** and return a sorted list of skill dicts.
+
+    Category README.md files (e.g. skills/01-perception/README.md) are
+    intentionally excluded — they describe the category, not a skill, and
+    when included they pollute the public API with null-everywhere entries.
+    """
     skills = []
     for filepath in sorted(glob.glob("skills/**/*.md", recursive=True)):
+        if os.path.basename(filepath).lower() == "readme.md":
+            continue
         try:
             skills.append(parse_skill(filepath))
         except Exception as exc:  # noqa: BLE001

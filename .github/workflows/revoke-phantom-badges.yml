@@ -21,6 +21,15 @@ on:
   pull_request:
     types: [closed]
 
+
+# Serialize runs of THIS workflow on the same ref so concurrent
+# scheduled triggers do not race when pushing back to main.
+# Distinct workflow classes (graph, exports, badges, …) intentionally
+# use different groups so they can still run in parallel.
+concurrency:
+  group: revoke-phantom-badges-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   revoke:
     if: github.event.pull_request.merged == false

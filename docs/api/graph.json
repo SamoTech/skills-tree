@@ -1,8 +1,8 @@
 {
-  "generated": "2026-04-25T04:38:28Z",
+  "generated": "2026-04-25T04:55:02Z",
   "stats": {
-    "nodes": 351,
-    "links": 720,
+    "nodes": 350,
+    "links": 719,
     "isolated": 57,
     "top_connected": [
       {
@@ -145,16 +145,6 @@
     }
   ],
   "nodes": [
-    {
-      "id": "README",
-      "name": "🛠️ Infrastructure Skills",
-      "path": "skills/17-infrastructure/README.md",
-      "category": "17-infrastructure",
-      "catLabel": "Infrastructure",
-      "color": "#da7101",
-      "level": null,
-      "version": "v1"
-    },
     {
       "id": "api-response-parsing",
       "name": "API Response Parsing",
@@ -3657,10 +3647,6 @@
     }
   ],
   "links": [
-    {
-      "source": "README",
-      "target": "dependency-auditor"
-    },
     {
       "source": "audio-transcription",
       "target": "audio-classification"
