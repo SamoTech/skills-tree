@@ -28,10 +28,10 @@
 
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
-> **359 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
+> **360 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > **Stop rediscovering. Start building on what the community has already proven.**
 >
-> **33 skills are battle-tested today.** **326 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
+> **38 skills are battle-tested today.** **322 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
@@ -44,7 +44,7 @@
 [![Repo Size](https://img.shields.io/github/repo-size/SamoTech/skills-tree?style=for-the-badge&color=8b5cf6&logo=github)](https://github.com/SamoTech/skills-tree)
 [![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-359%2B-8b5cf6?style=for-the-badge)](skills/)
+[![Skills](https://img.shields.io/badge/Skills-360%2B-8b5cf6?style=for-the-badge)](skills/)
 [![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
 [![GitHub Pages](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
 
@@ -101,13 +101,18 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 - [**ReAct**](skills/09-agentic-patterns/react.md) — Thought → Action → Observation, the foundation of tool-using agents
 - [**Chain of Thought**](skills/09-agentic-patterns/cot.md) — explicit step-by-step reasoning + self-consistency
 - [**Tree of Thought**](skills/09-agentic-patterns/tot.md) — branched reasoning with scoring + beam search
+- [**Reflection / Reflexion**](skills/09-agentic-patterns/reflection.md) — critique → revise loop on top of any output
+- [**Self-Consistency**](skills/02-reasoning/self-consistency.md) — sample N chains, majority-vote
 - [**Planning**](skills/02-reasoning/planning.md) — typed, DAG-validated plans your executor can run
+- [**Task Decomposition**](skills/02-reasoning/task-decomposition.md) — break a goal into atomic, runnable subtasks
 
 ### Retrieval & memory
 - [**RAG**](skills/09-agentic-patterns/rag.md) — production retrieval augmented generation
 - [**Memory Injection**](skills/03-memory/memory-injection.md) — top-K user memories per turn
+- [**Short-Term Memory**](skills/03-memory/short-term-memory.md) — token-budgeted rolling window (the foundation for everything else)
 
 ### Calling LLMs in production
+- [**Function / Tool Calling**](skills/07-tool-use/function-calling.md) — the primitive that turns an LLM into an agent
 - [**OpenAI API**](skills/07-tool-use/openai-api.md) — chat, structured outputs, tools, embeddings, streaming, retry
 - [**Anthropic API**](skills/07-tool-use/anthropic-api.md) — Claude with tool loop, prompt caching, streaming
 
@@ -128,7 +133,7 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 ```
 skills-tree/
 │
-├── skills/          → 359 atomic skill files (33 battle-tested, 326 stubs awaiting upgrade)
+├── skills/          → 360 atomic skill files (38 battle-tested, 322 stubs awaiting upgrade)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
@@ -147,7 +152,7 @@ skills-tree/
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
 | 01 | 👁️ **Perception** | 36 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 38 | Planning, deduction, abduction, causal chains, commonsense |
+| 02 | 🧠 **Reasoning** | 39 | Planning, deduction, abduction, causal chains, commonsense |
 | 03 | 🗄️ **Memory** | 19 | Working, episodic, semantic, vector, injection, forgetting |
 | 04 | ⚡ **Action Execution** | 21 | File I/O, HTTP, email, shell, database writes |
 | 05 | 💻 **Code** | 28 | Write, run, debug, review, refactor, test, deploy |

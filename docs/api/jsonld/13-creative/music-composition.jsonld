@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:38:28Z",
   "skillId": "music-composition",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "music, LLM skill, skills tree, composition, creative, AI agent",
+  "keywords": "composition, AI agent, creative, skills tree, LLM skill, music",
   "about": {
     "@type": "Thing",
     "name": "Pipe to abc2midi or abcjs for playback",

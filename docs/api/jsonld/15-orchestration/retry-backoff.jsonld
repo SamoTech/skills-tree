@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:38:28Z",
   "skillId": "retry-backoff",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "retry, orchestration, LLM skill, backoff, skills tree, AI agent",
+  "keywords": "retry, AI agent, orchestration, backoff, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "retry-backoff",

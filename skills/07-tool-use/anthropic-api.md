@@ -173,7 +173,7 @@ if __name__ == "__main__":
 - [OpenAI API](openai-api.md) — peer LLM provider
 - [Function Calling](function-calling.md) — pattern this builds on
 - [ReAct](../09-agentic-patterns/react.md) — uses tool-loop above
-- [Vision](../08-multimodal/image-understanding.md)
+- [Image Understanding](../01-perception/image-understanding.md) — vision input
 
 ## Changelog
 

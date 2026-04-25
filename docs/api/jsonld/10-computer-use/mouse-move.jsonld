@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:38:28Z",
   "skillId": "mouse-move",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, computer, move, LLM skill, skills tree, mouse, AI agent",
+  "keywords": "use, mouse, AI agent, computer, move, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Mouse Move",
