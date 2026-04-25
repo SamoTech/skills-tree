@@ -52,15 +52,26 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:38:28Z",
   "skillId": "function-calling",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [
-    "../02-reasoning/react.md"
+    "../09-agentic-patterns/react.md",
+    "../06-communication/structured-output.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -68,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, function, LLM skill, skills tree, calling, AI agent, tool",
+  "keywords": "use, AI agent, tool, LLM skill, skills tree, function, calling",
   "about": {
     "@type": "Thing",
     "name": "Function / Tool Calling",

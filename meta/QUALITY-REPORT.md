@@ -4,10 +4,10 @@
 
 ## Summary
 
-- **Total skill files:** 359
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 33
+- **Total skill files:** 360
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 38
 - 🟡 **Enriched** (real description + runnable code): 0
-- ⚪ **Stub** (placeholder description or no runnable code): 326
+- ⚪ **Stub** (placeholder description or no runnable code): 322
 - ❌ **Invalid** (frontmatter problems): 0
 
 ## Per-category breakdown
@@ -15,14 +15,14 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `01-perception` | 36 | 0 | 0 | 36 | 0 |
-| `02-reasoning` | 38 | 1 | 0 | 37 | 0 |
-| `03-memory` | 19 | 3 | 0 | 16 | 0 |
+| `02-reasoning` | 39 | 3 | 0 | 36 | 0 |
+| `03-memory` | 19 | 4 | 0 | 15 | 0 |
 | `04-action-execution` | 21 | 1 | 0 | 20 | 0 |
 | `05-code` | 28 | 3 | 0 | 25 | 0 |
 | `06-communication` | 15 | 2 | 0 | 13 | 0 |
-| `07-tool-use` | 32 | 4 | 0 | 28 | 0 |
+| `07-tool-use` | 32 | 5 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 7 | 0 | 16 | 0 |
+| `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
 | `11-web` | 17 | 1 | 0 | 16 | 0 |
 | `12-data` | 18 | 0 | 0 | 18 | 0 |
@@ -35,9 +35,12 @@
 ## 🟢 Battle-tested skills (start here as a user)
 
 - [`skills/02-reasoning/planning.md`](skills/02-reasoning/planning.md) — Planning
+- [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
+- [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
 - [`skills/03-memory/agent-sessions.md`](skills/03-memory/agent-sessions.md) — Agent Sessions
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
 - [`skills/03-memory/memory-injection.md`](skills/03-memory/memory-injection.md) — Memory Injection
+- [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
 - [`skills/04-action-execution/file-write.md`](skills/04-action-execution/file-write.md) — File Write
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
 - [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — Code Review
@@ -45,6 +48,7 @@
 - [`skills/06-communication/paraphrasing.md`](skills/06-communication/paraphrasing.md) — Paraphrasing
 - [`skills/06-communication/translation.md`](skills/06-communication/translation.md) — Translation
 - [`skills/07-tool-use/anthropic-api.md`](skills/07-tool-use/anthropic-api.md) — Anthropic API
+- [`skills/07-tool-use/function-calling.md`](skills/07-tool-use/function-calling.md) — Function / Tool Calling
 - [`skills/07-tool-use/openai-api.md`](skills/07-tool-use/openai-api.md) — OpenAI API
 - [`skills/07-tool-use/tool-guardrails.md`](skills/07-tool-use/tool-guardrails.md) — Tool Guardrails
 - [`skills/07-tool-use/tool-review-loops.md`](skills/07-tool-use/tool-review-loops.md) — Tool Review Loops
@@ -53,6 +57,7 @@
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — Reflection / Reflexion
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-Travel Debugging
 - [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — Tree of Thought (ToT)
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
@@ -111,7 +116,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`video-understanding.md`](skills/01-perception/video-understanding.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`xml-parsing.md`](skills/01-perception/xml-parsing.md) — description is the placeholder "Apply X in AI agent workflows."
 
-### `02-reasoning` (37)
+### `02-reasoning` (36)
 
 - [`abductive.md`](skills/02-reasoning/abductive.md) — description is the placeholder "Apply X in AI agent workflows."
 - [`analogical.md`](skills/02-reasoning/analogical.md) — description is the placeholder "Apply X in AI agent workflows."
@@ -145,13 +150,12 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`socratic-questioning.md`](skills/02-reasoning/socratic-questioning.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`spatial-reasoning.md`](skills/02-reasoning/spatial-reasoning.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`systems-thinking.md`](skills/02-reasoning/systems-thinking.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
-- [`task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`temporal-reasoning.md`](skills/02-reasoning/temporal-reasoning.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`trade-off-analysis.md`](skills/02-reasoning/trade-off-analysis.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`tree-of-thought.md`](skills/02-reasoning/tree-of-thought.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`uncertainty-quantification.md`](skills/02-reasoning/uncertainty-quantification.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 
-### `03-memory` (16)
+### `03-memory` (15)
 
 - [`cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`episodic-memory.md`](skills/03-memory/episodic-memory.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
@@ -164,7 +168,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`procedural.md`](skills/03-memory/procedural.md) — description is the placeholder "Apply X in AI agent workflows."; no fenced runnable code example (>=3 non-blank lines)
 - [`rag.md`](skills/03-memory/rag.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`semantic-memory.md`](skills/03-memory/semantic-memory.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
-- [`short-term-memory.md`](skills/03-memory/short-term-memory.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`user-profile.md`](skills/03-memory/user-profile.md) — description is the placeholder "Apply X in AI agent workflows."; no fenced runnable code example (>=3 non-blank lines)
 - [`vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
@@ -237,7 +240,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`summarization.md`](skills/06-communication/summarization.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 
-### `07-tool-use` (28)
+### `07-tool-use` (27)
 
 - [`a2a-tool.md`](skills/07-tool-use/a2a-tool.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`browser-tool.md`](skills/07-tool-use/browser-tool.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
@@ -245,7 +248,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
-- [`function-calling.md`](skills/07-tool-use/function-calling.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`github-api.md`](skills/07-tool-use/github-api.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — description is the placeholder "Apply X in AI agent workflows."; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
@@ -285,7 +287,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`video-frame-extraction.md`](skills/08-multimodal/video-frame-extraction.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`vqa.md`](skills/08-multimodal/vqa.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 
-### `09-agentic-patterns` (16)
+### `09-agentic-patterns` (15)
 
 - [`agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`bootstrapping.md`](skills/09-agentic-patterns/bootstrapping.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
@@ -299,7 +301,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`rag.md`](skills/09-agentic-patterns/rag.md) — description is the placeholder "Apply X in AI agent workflows."
-- [`reflection.md`](skills/09-agentic-patterns/reflection.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`self-play.md`](skills/09-agentic-patterns/self-play.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table
 - [`tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — description is the placeholder "Apply X in AI agent workflows."; no inputs/outputs/failure-modes table

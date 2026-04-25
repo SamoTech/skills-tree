@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/agent-sessions.md",
-  "name": "Agent Sessions",
-  "headline": "Agent Sessions",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-consistency.md",
+  "name": "Self-Consistency",
+  "headline": "Self-Consistency",
   "description": "",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/agent-sessions.md",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-consistency.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,28 +53,38 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-04-25T04:38:28Z",
-  "skillId": "agent-sessions",
-  "skillVersion": "v2",
-  "skillLevel": "beginner",
+  "skillId": "self-consistency",
+  "skillVersion": "v3",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
-  "categoryDir": "03-memory",
+  "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
     "Failure Modes",
-    "Prompt Patterns",
+    "Variants",
+    "Frameworks & Models",
     "Model Comparison",
-    "Related",
+    "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
-  "datePublished": "2026-04-01",
-  "keywords": "sessions, AI agent, skills tree, LLM skill, agent, memory",
+  "relatedSkills": [
+    "../09-agentic-patterns/cot.md",
+    "../09-agentic-patterns/reflection.md",
+    "../09-agentic-patterns/tot.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2025-03-01",
+  "keywords": "self, reasoning, consistency, AI agent, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
-    "name": "Agent Sessions",
-    "description": "An AI agent skill for agent sessions."
+    "name": "Self-Consistency",
+    "description": "An AI agent skill for self-consistency."
   }
 }

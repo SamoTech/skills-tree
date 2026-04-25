@@ -52,21 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:33:41Z",
+  "dateModified": "2026-04-25T04:38:28Z",
   "skillId": "reflection",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
-  "relatedSkills": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../02-reasoning/planning.md",
+    "../02-reasoning/self-consistency.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agentic, LLM skill, skills tree, patterns, reflection, AI agent",
+  "keywords": "agentic, AI agent, reflection, patterns, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Reflection / Reflexion",

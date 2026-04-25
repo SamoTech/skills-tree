@@ -81,13 +81,28 @@ def parse_skill(filepath: str) -> dict:
     parts = filepath.replace("\\", "/").split("/")
     category_dir = parts[1] if len(parts) > 2 else "unknown"
 
-    # Level
+    # Level — try bold-markdown first, fall back to YAML frontmatter
     lm = re.search(r'\*\*Skill Level:\*\*\s*`?([^`\n]+)`?', content, re.IGNORECASE)
     level = lm.group(1).strip() if lm else None
 
-    # Version
+    # Version — same fallback
     vm = re.search(r'\*\*Version:\*\*\s*`?([^`\n]+)`?', content, re.IGNORECASE)
-    version = vm.group(1).strip() if vm else "v1"
+    version = vm.group(1).strip() if vm else None
+
+    yaml_block_m = re.match(r'\A---\s*\n(.*?)\n---', content, re.DOTALL)
+    if yaml_block_m:
+        yaml_text = yaml_block_m.group(1)
+        if not level:
+            ym = re.search(r'^level:\s*"?([^"\n]+?)"?\s*$', yaml_text, re.MULTILINE)
+            if ym:
+                level = ym.group(1).strip().strip('`')
+        if not version:
+            ym = re.search(r'^version:\s*"?([^"\n]+?)"?\s*$', yaml_text, re.MULTILINE)
+            if ym:
+                version = ym.group(1).strip().strip('`')
+
+    if not version:
+        version = "v1"
 
     # Related skill links — extract filenames from markdown links
     related_raw = re.findall(r'\[.*?\]\(([^)]+\.md)\)', content)

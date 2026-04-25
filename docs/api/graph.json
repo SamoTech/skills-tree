@@ -1,9 +1,9 @@
 {
-  "generated": "2026-04-24T23:42:48Z",
+  "generated": "2026-04-25T04:38:28Z",
   "stats": {
-    "nodes": 350,
-    "links": 708,
-    "isolated": 58,
+    "nodes": 351,
+    "links": 720,
+    "isolated": 57,
     "top_connected": [
       {
         "id": "document-parsing",
@@ -21,6 +21,16 @@
         "degree": 14
       },
       {
+        "id": "planning",
+        "name": "Planning",
+        "degree": 14
+      },
+      {
+        "id": "reflection",
+        "name": "Reflection / Reflexion",
+        "degree": 14
+      },
+      {
         "id": "web-scraping",
         "name": "Web Scraping",
         "degree": 13
@@ -28,11 +38,6 @@
       {
         "id": "image-understanding",
         "name": "Image Understanding",
-        "degree": 12
-      },
-      {
-        "id": "planning",
-        "name": "Planning",
         "degree": 12
       },
       {
@@ -49,11 +54,6 @@
         "id": "tone-adjustment",
         "name": "Tone Adjustment",
         "degree": 12
-      },
-      {
-        "id": "ocr",
-        "name": "OCR (Optical Character Recognition)",
-        "degree": 11
       }
     ]
   },
@@ -162,7 +162,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -182,7 +182,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -192,7 +192,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -222,7 +222,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -232,7 +232,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -282,7 +282,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -292,7 +292,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -312,7 +312,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -322,7 +322,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -332,7 +332,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -342,7 +342,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -352,7 +352,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -362,7 +362,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -372,7 +372,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -382,7 +382,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -432,7 +432,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -442,7 +442,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -462,7 +462,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -482,7 +482,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -502,7 +502,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -512,7 +512,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -542,7 +542,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -552,7 +552,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -562,7 +562,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -642,7 +642,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -692,7 +692,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -702,7 +702,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -712,7 +712,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -722,8 +722,8 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "prioritization",
@@ -742,7 +742,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -752,7 +752,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -762,8 +762,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "risk-assessment",
@@ -772,7 +772,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -782,7 +782,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -792,8 +792,18 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
+    },
+    {
+      "id": "self-consistency",
+      "name": "Self-Consistency",
+      "path": "skills/02-reasoning/self-consistency.md",
+      "category": "02-reasoning",
+      "catLabel": "Reasoning",
+      "color": "#6daa45",
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "self-correction",
@@ -812,7 +822,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -822,7 +832,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -832,7 +842,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -842,7 +852,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -853,7 +863,7 @@
       "catLabel": "Reasoning",
       "color": "#6daa45",
       "level": "intermediate",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "temporal-reasoning",
@@ -862,7 +872,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -872,7 +882,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -892,7 +902,7 @@
       "category": "02-reasoning",
       "catLabel": "Reasoning",
       "color": "#6daa45",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -902,8 +912,8 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
-      "version": "v1"
+      "level": "beginner",
+      "version": "v2"
     },
     {
       "id": "cross-session-persistence",
@@ -922,8 +932,8 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
-      "version": "v1"
+      "level": "advanced",
+      "version": "v2"
     },
     {
       "id": "episodic-memory",
@@ -932,7 +942,7 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -972,7 +982,7 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -982,8 +992,8 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "memory-summarization",
@@ -1022,8 +1032,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "semantic-memory",
@@ -1032,7 +1042,7 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1042,8 +1052,8 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "user-profile-memory",
@@ -1082,7 +1092,7 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1092,7 +1102,7 @@
       "category": "04-action-execution",
       "catLabel": "Action Execution",
       "color": "#fdab43",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1192,8 +1202,8 @@
       "category": "04-action-execution",
       "catLabel": "Action Execution",
       "color": "#fdab43",
-      "level": null,
-      "version": "v1"
+      "level": "basic",
+      "version": "v3"
     },
     {
       "id": "form-submission",
@@ -1322,7 +1332,7 @@
       "category": "05-code",
       "catLabel": "Code",
       "color": "#5591c7",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1362,7 +1372,7 @@
       "category": "05-code",
       "catLabel": "Code",
       "color": "#5591c7",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1372,8 +1382,8 @@
       "category": "05-code",
       "catLabel": "Code",
       "color": "#5591c7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "code-review",
@@ -1382,8 +1392,8 @@
       "category": "05-code",
       "catLabel": "Code",
       "color": "#5591c7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "code-search",
@@ -1432,7 +1442,7 @@
       "category": "17-infrastructure",
       "catLabel": "Infrastructure",
       "color": "#da7101",
-      "level": null,
+      "level": "advanced",
       "version": "v1"
     },
     {
@@ -1652,8 +1662,8 @@
       "category": "06-communication",
       "catLabel": "Communication",
       "color": "#dd6974",
-      "level": null,
-      "version": "v1"
+      "level": "basic",
+      "version": "v3"
     },
     {
       "id": "persona-adoption",
@@ -1702,7 +1712,7 @@
       "category": "06-communication",
       "catLabel": "Communication",
       "color": "#dd6974",
-      "level": null,
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -1722,8 +1732,8 @@
       "category": "06-communication",
       "catLabel": "Communication",
       "color": "#dd6974",
-      "level": null,
-      "version": "v1"
+      "level": "basic",
+      "version": "v3"
     },
     {
       "id": "a2a-tool",
@@ -1742,8 +1752,8 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "browser-tool",
@@ -1803,7 +1813,7 @@
       "catLabel": "Tool Use",
       "color": "#e8af34",
       "level": "basic",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "google-workspace-api",
@@ -1902,8 +1912,8 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "pdf-tool",
@@ -1962,8 +1972,8 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "tool-review-loops",
@@ -1972,8 +1982,8 @@
       "category": "07-tool-use",
       "catLabel": "Tool Use",
       "color": "#e8af34",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "twilio-api",
@@ -2012,8 +2022,8 @@
       "category": "11-web",
       "catLabel": "Web",
       "color": "#437a22",
-      "level": null,
-      "version": "v1"
+      "level": "basic",
+      "version": "v2"
     },
     {
       "id": "wikipedia-api",
@@ -2172,8 +2182,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "agent-handoffs",
@@ -2182,8 +2192,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "agentic-rag",
@@ -2222,8 +2232,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v3"
     },
     {
       "id": "critic-agent",
@@ -2252,8 +2262,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "lats",
@@ -2323,7 +2333,7 @@
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
       "level": "advanced",
-      "version": "v1"
+      "version": "v3"
     },
     {
       "id": "self-play",
@@ -2352,8 +2362,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "advanced",
+      "version": "v2"
     },
     {
       "id": "tool-use-loop",
@@ -2372,8 +2382,8 @@
       "category": "09-agentic-patterns",
       "catLabel": "Agentic Patterns",
       "color": "#d163a7",
-      "level": null,
-      "version": "v1"
+      "level": "advanced",
+      "version": "v3"
     },
     {
       "id": "accessibility-tree",
@@ -2702,8 +2712,8 @@
       "category": "11-web",
       "catLabel": "Web",
       "color": "#437a22",
-      "level": null,
-      "version": "v1"
+      "level": "beginner",
+      "version": "v2"
     },
     {
       "id": "anomaly-detection",
@@ -3032,8 +3042,8 @@
       "category": "14-security",
       "catLabel": "Security",
       "color": "#a12c7b",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "audit-logging",
@@ -3072,8 +3082,8 @@
       "category": "14-security",
       "catLabel": "Security",
       "color": "#a12c7b",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "input-sanitization",
@@ -3092,8 +3102,8 @@
       "category": "14-security",
       "catLabel": "Security",
       "color": "#a12c7b",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "permission-checking",
@@ -3232,8 +3242,8 @@
       "category": "15-orchestration",
       "catLabel": "Orchestration",
       "color": "#a13544",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "langgraph-checkpointing",
@@ -3242,8 +3252,8 @@
       "category": "15-orchestration",
       "catLabel": "Orchestration",
       "color": "#a13544",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "logging-observability",
@@ -3262,8 +3272,8 @@
       "category": "15-orchestration",
       "catLabel": "Orchestration",
       "color": "#a13544",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "parallel-execution",
@@ -3322,8 +3332,8 @@
       "category": "15-orchestration",
       "catLabel": "Orchestration",
       "color": "#a13544",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "state-machine",
@@ -3342,8 +3352,8 @@
       "category": "15-orchestration",
       "catLabel": "Orchestration",
       "color": "#a13544",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "subagent-spawning",
@@ -3372,8 +3382,8 @@
       "category": "15-orchestration",
       "catLabel": "Orchestration",
       "color": "#a13544",
-      "level": null,
-      "version": "v1"
+      "level": "intermediate",
+      "version": "v2"
     },
     {
       "id": "ad-copy",
@@ -3422,8 +3432,8 @@
       "category": "16-domain-specific",
       "catLabel": "Domain-Specific",
       "color": "#7a39bb",
-      "level": null,
-      "version": "v1"
+      "level": "advanced",
+      "version": "v2"
     },
     {
       "id": "contract-review",
@@ -4036,6 +4046,18 @@
       "target": "planning"
     },
     {
+      "source": "self-consistency",
+      "target": "cot"
+    },
+    {
+      "source": "self-consistency",
+      "target": "reflection"
+    },
+    {
+      "source": "self-consistency",
+      "target": "tot"
+    },
+    {
       "source": "self-correction",
       "target": "self-reflection"
     },
@@ -4049,7 +4071,11 @@
     },
     {
       "source": "task-decomposition",
-      "target": "subagent-spawning"
+      "target": "reflection"
+    },
+    {
+      "source": "task-decomposition",
+      "target": "tot"
     },
     {
       "source": "tree-of-thought",
@@ -4166,6 +4192,18 @@
     {
       "source": "rag",
       "target": "web-search"
+    },
+    {
+      "source": "short-term-memory",
+      "target": "long-term-memory"
+    },
+    {
+      "source": "short-term-memory",
+      "target": "episodic-memory"
+    },
+    {
+      "source": "short-term-memory",
+      "target": "memory-injection"
     },
     {
       "source": "user-profile-memory",
@@ -4797,11 +4835,19 @@
     },
     {
       "source": "function-calling",
-      "target": "mcp-tool"
+      "target": "react"
     },
     {
       "source": "function-calling",
-      "target": "react"
+      "target": "anthropic-api"
+    },
+    {
+      "source": "function-calling",
+      "target": "openai-api"
+    },
+    {
+      "source": "function-calling",
+      "target": "structured-output"
     },
     {
       "source": "google-workspace-api",
@@ -5133,7 +5179,15 @@
     },
     {
       "source": "cot",
+      "target": "planning"
+    },
+    {
+      "source": "cot",
       "target": "tot"
+    },
+    {
+      "source": "cot",
+      "target": "self-consistency"
     },
     {
       "source": "critic-agent",
@@ -5221,15 +5275,19 @@
     },
     {
       "source": "reflection",
-      "target": "critic-agent"
-    },
-    {
-      "source": "reflection",
       "target": "cot"
     },
     {
       "source": "reflection",
-      "target": "constitutional-ai"
+      "target": "tot"
+    },
+    {
+      "source": "reflection",
+      "target": "planning"
+    },
+    {
+      "source": "reflection",
+      "target": "self-consistency"
     },
     {
       "source": "self-play",
