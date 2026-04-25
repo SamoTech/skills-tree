@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/video-script.md",
   "name": "video-script",
   "headline": "video-script",
-  "description": "",
+  "description": "Apply video script in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/video-script.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "video-script",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "video, AI agent, script, LLM skill, skills tree, creative",
+  "keywords": "skills tree, video, LLM skill, AI agent, creative, script",
   "about": {
     "@type": "Thing",
     "name": "video-script",

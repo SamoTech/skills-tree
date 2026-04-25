@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/json-transformation.md",
   "name": "JSON Transformation",
   "headline": "JSON Transformation",
-  "description": "",
+  "description": "Apply json transformation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/json-transformation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "json-transformation",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, transformation, LLM skill, json, skills tree, data",
+  "keywords": "skills tree, json, transformation, LLM skill, AI agent, data",
   "about": {
     "@type": "Thing",
     "name": "JSON Transformation",

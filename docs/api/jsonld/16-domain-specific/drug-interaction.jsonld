@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/drug-interaction.md",
   "name": "drug-interaction",
   "headline": "drug-interaction",
-  "description": "",
+  "description": "Apply drug interaction in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/drug-interaction.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "drug-interaction",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "interaction, AI agent, LLM skill, specific, skills tree, drug, domain",
+  "keywords": "skills tree, specific, interaction, domain, LLM skill, AI agent, drug",
   "about": {
     "@type": "Thing",
     "name": "drug-interaction",

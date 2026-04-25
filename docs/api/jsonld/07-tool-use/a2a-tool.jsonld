@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/a2a-tool.md",
   "name": "Agent-to-Agent Tool (A2A)",
   "headline": "Agent-to-Agent Tool (A2A)",
-  "description": "",
+  "description": "Apply agent-to-agent tool (a2a) in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/a2a-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "a2a-tool",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, a2a, tool, LLM skill, skills tree",
+  "keywords": "skills tree, use, LLM skill, AI agent, tool, a2a",
   "about": {
     "@type": "Thing",
     "name": "Agent-to-Agent Tool (A2A)",

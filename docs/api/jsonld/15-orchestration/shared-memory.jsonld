@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/shared-memory.md",
   "name": "Usage",
   "headline": "Usage",
-  "description": "",
+  "description": "Apply usage in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/shared-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "shared-memory",
   "skillVersion": null,
   "skillLevel": "Advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, AI agent, shared, LLM skill, orchestration, skills tree",
+  "keywords": "skills tree, orchestration, memory, LLM skill, AI agent, shared",
   "about": {
     "@type": "Thing",
     "name": "Usage",

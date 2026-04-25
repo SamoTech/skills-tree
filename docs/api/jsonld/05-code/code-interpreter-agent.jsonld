@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-interpreter-agent.md",
   "name": "Code Interpreter Agent",
   "headline": "Code Interpreter Agent",
-  "description": "",
+  "description": "Use a sandboxed code execution tool to run Python, analyse data, and produce charts inside an agent workflow.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-interpreter-agent.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "code-interpreter-agent",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "interpreter, AI agent, agent, code, LLM skill, skills tree",
+  "keywords": "skills tree, LLM skill, AI agent, agent, code, interpreter",
   "about": {
     "@type": "Thing",
     "name": "Code Interpreter Agent",

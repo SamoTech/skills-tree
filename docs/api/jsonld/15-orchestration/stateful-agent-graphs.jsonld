@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/stateful-agent-graphs.md",
   "name": "Stateful Agent Graphs",
   "headline": "Stateful Agent Graphs",
-  "description": "",
+  "description": "Model multi-step agent workflows as directed graphs with typed shared state using LangGraph StateGraph.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/stateful-agent-graphs.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "stateful-agent-graphs",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, agent, stateful, LLM skill, orchestration, skills tree, graphs",
+  "keywords": "skills tree, orchestration, graphs, LLM skill, AI agent, agent, stateful",
   "about": {
     "@type": "Thing",
     "name": "Stateful Agent Graphs",

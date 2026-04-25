@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/ocr.md",
   "name": "OCR (Optical Character Recognition)",
   "headline": "OCR (Optical Character Recognition)",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-ocr.json)",
+  "description": "Extract text from images and scanned documents. Modern stack: a vision-language model (Claude / GPT-4o) for layout-aware OCR, with Tesseract as the open-source fallback for high-volume / offline runs.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/ocr.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,18 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "ocr",
-  "skillVersion": "v2",
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Description",
-    "Approaches",
-    "Implementation",
-    "Preprocessing Best Practices",
-    "Related Skills"
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -72,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, ocr, LLM skill, skills tree, perception",
+  "keywords": "skills tree, ocr, LLM skill, perception, AI agent",
   "about": {
     "@type": "Thing",
     "name": "OCR (Optical Character Recognition)",

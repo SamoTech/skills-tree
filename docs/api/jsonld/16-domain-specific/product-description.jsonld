@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/product-description.md",
   "name": "product-description",
   "headline": "product-description",
-  "description": "",
+  "description": "Apply product description in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/product-description.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "product-description",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, description, LLM skill, product, specific, skills tree, domain",
+  "keywords": "skills tree, specific, product, description, domain, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "product-description",

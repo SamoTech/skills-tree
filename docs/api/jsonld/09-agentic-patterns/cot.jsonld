@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/cot.md",
   "name": "Chain of Thought (CoT)",
   "headline": "Chain of Thought (CoT)",
-  "description": "",
+  "description": "Prompt the model to produce explicit step-by-step reasoning before its answer. Reliably lifts accuracy on multi-step problems with no extra tools.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/cot.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "cot",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -80,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, agentic, cot, LLM skill, skills tree, patterns",
+  "keywords": "skills tree, patterns, LLM skill, AI agent, agentic, cot",
   "about": {
     "@type": "Thing",
     "name": "Chain of Thought (CoT)",

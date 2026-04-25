@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-write.md",
   "name": "File Write",
   "headline": "File Write",
-  "description": "",
+  "description": "Atomically write text or bytes to a file on disk — with directory creation, encoding control, and crash-safe rename semantics.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-write.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "file-write",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, write, LLM skill, action, skills tree, file, execution",
+  "keywords": "skills tree, execution, write, LLM skill, AI agent, file, action",
   "about": {
     "@type": "Thing",
     "name": "File Write",

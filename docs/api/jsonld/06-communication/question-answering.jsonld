@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/question-answering.md",
   "name": "Question Answering",
   "headline": "Question Answering",
-  "description": "",
+  "description": "Apply question answering in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/question-answering.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "question-answering",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "answering, AI agent, LLM skill, skills tree, question, communication",
+  "keywords": "skills tree, question, communication, LLM skill, AI agent, answering",
   "about": {
     "@type": "Thing",
     "name": "Question Answering",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/retry-backoff.md",
   "name": "retry-backoff",
   "headline": "retry-backoff",
-  "description": "",
+  "description": "Apply retry backoff in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/retry-backoff.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "retry-backoff",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "backoff, AI agent, LLM skill, orchestration, skills tree, retry",
+  "keywords": "skills tree, retry, orchestration, backoff, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "retry-backoff",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/approval-before-destructive-tools.md",
   "name": "Approval Before Destructive Tools",
   "headline": "Approval Before Destructive Tools",
-  "description": "",
+  "description": "Require explicit human or automated approval before any agent executes an irreversible tool action.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/approval-before-destructive-tools.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "approval-before-destructive-tools",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "tools, security, approval, before, AI agent, destructive, LLM skill, skills tree",
+  "keywords": "skills tree, before, destructive, tools, LLM skill, AI agent, security, approval",
   "about": {
     "@type": "Thing",
     "name": "Approval Before Destructive Tools",

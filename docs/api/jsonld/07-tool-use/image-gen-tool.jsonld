@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/image-gen-tool.md",
   "name": "Image Generation Tool",
   "headline": "Image Generation Tool",
-  "description": "",
+  "description": "Apply image generation tool in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/image-gen-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "image-gen-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, use, tool, image, LLM skill, skills tree, gen",
+  "keywords": "skills tree, use, LLM skill, AI agent, gen, tool, image",
   "about": {
     "@type": "Thing",
     "name": "Image Generation Tool",

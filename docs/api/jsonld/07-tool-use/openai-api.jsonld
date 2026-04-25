@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/openai-api.md",
   "name": "OpenAI API",
   "headline": "OpenAI API",
-  "description": "",
+  "description": "Call OpenAI Chat, Embeddings, Images, and Audio endpoints from Python — with structured outputs, function calling, retry, and streaming.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/openai-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "openai-api",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "openai, AI agent, use, tool, api, LLM skill, skills tree",
+  "keywords": "skills tree, use, openai, LLM skill, AI agent, tool, api",
   "about": {
     "@type": "Thing",
     "name": "OpenAI API",

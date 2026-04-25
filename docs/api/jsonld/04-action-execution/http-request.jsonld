@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/http-request.md",
   "name": "HTTP Request",
   "headline": "HTTP Request",
-  "description": "",
+  "description": "Make an outbound HTTP call with authentication, retries, timeouts, idempotency keys, and a strict response contract. The fundamental tool every agent needs to talk to anything beyond itself.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/http-request.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "http-request",
-  "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillVersion": "v3",
+  "skillLevel": "beginner",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/api-response-parsing.md",
-    "../07-tool-use/custom-api-wrapper.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Related Skills",
+    "Changelog"
   ],
-  "educationalLevel": {
-    "@type": "DefinedTerm",
-    "name": "Intermediate",
-    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
-  },
+  "relatedSkills": [
+    "../11-web/web-search.md",
+    "../11-web/web-scraping.md",
+    "../15-orchestration/retry-backoff.md",
+    "../14-security/rate-limiting.md",
+    "../14-security/audit-logging.md"
+  ],
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, request, http, LLM skill, action, skills tree, execution",
+  "keywords": "http, skills tree, execution, LLM skill, request, AI agent, action",
   "about": {
     "@type": "Thing",
     "name": "HTTP Request",

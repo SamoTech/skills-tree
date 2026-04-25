@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/medical-literature-search.md",
   "name": "medical-literature-search",
   "headline": "medical-literature-search",
-  "description": "",
+  "description": "Apply medical literature search in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/medical-literature-search.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "medical-literature-search",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "search, AI agent, literature, LLM skill, specific, skills tree, domain, medical",
+  "keywords": "skills tree, specific, medical, domain, LLM skill, search, AI agent, literature",
   "about": {
     "@type": "Thing",
     "name": "medical-literature-search",

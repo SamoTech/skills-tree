@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/input-sanitization.md",
-  "name": "input-sanitization",
-  "headline": "input-sanitization",
-  "description": "",
+  "name": "Input Sanitization",
+  "headline": "Input Sanitization",
+  "description": "Validate and clean every untrusted string before it reaches an LLM, a tool call, or a filesystem/SQL/HTTP boundary. Layered defense against prompt injection, SQL injection, path traversal, command injection, and PII leakage.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/input-sanitization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,35 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "input-sanitization",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "14-security",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "sanitization, security, AI agent, LLM skill, skills tree, input",
+  "datePublished": "2025-03-01",
+  "keywords": "skills tree, input, sanitization, LLM skill, AI agent, security",
   "about": {
     "@type": "Thing",
-    "name": "input-sanitization",
-    "description": "An AI agent skill for input-sanitization."
+    "name": "Input Sanitization",
+    "description": "An AI agent skill for input sanitization."
   }
 }

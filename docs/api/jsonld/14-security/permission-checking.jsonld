@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/permission-checking.md",
   "name": "permission-checking",
   "headline": "permission-checking",
-  "description": "",
+  "description": "Apply permission checking in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/permission-checking.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "permission-checking",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "security, AI agent, LLM skill, permission, skills tree, checking",
+  "keywords": "skills tree, permission, LLM skill, AI agent, security, checking",
   "about": {
     "@type": "Thing",
     "name": "permission-checking",

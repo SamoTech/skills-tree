@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/react.md",
   "name": "ReAct (Reasoning + Acting)",
   "headline": "ReAct (Reasoning + Acting)",
-  "description": "",
+  "description": "Interleave Thought → Action → Observation steps in a tool-calling loop until the agent declares Final Answer. The most-used reasoning-with-tools pattern.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/react.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "react",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, agentic, react, LLM skill, skills tree, patterns",
+  "keywords": "skills tree, react, patterns, LLM skill, AI agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "ReAct (Reasoning + Acting)",

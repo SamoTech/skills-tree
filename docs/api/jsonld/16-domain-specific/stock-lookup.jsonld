@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/stock-lookup.md",
   "name": "stock-lookup",
   "headline": "stock-lookup",
-  "description": "",
+  "description": "Apply stock lookup in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/stock-lookup.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "stock-lookup",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, lookup, LLM skill, specific, skills tree, domain, stock",
+  "keywords": "skills tree, specific, domain, lookup, LLM skill, AI agent, stock",
   "about": {
     "@type": "Thing",
     "name": "stock-lookup",

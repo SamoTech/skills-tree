@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-visualization.md",
   "name": "Data Visualization",
   "headline": "Data Visualization",
-  "description": "",
+  "description": "Apply data visualization in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-visualization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "data-visualization",
   "skillVersion": null,
   "skillLevel": "beginner",
@@ -61,7 +61,7 @@
   "sections": [],
   "relatedSkills": [],
   "datePublished": "2025-03-01",
-  "keywords": "visualization, AI agent, LLM skill, skills tree, data",
+  "keywords": "skills tree, LLM skill, AI agent, data, visualization",
   "about": {
     "@type": "Thing",
     "name": "Data Visualization",

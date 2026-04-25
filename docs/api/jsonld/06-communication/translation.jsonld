@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/translation.md",
   "name": "Translation",
   "headline": "Translation",
-  "description": "",
+  "description": "Translate text between languages with an LLM while preserving meaning, tone, and inline placeholders (URLs, code, ICU variables).",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/translation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "translation",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, skills tree, translation, communication",
+  "keywords": "skills tree, translation, communication, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Translation",

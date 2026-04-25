@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mixture-of-agents.md",
   "name": "Mixture of Agents (MoA)",
   "headline": "Mixture of Agents (MoA)",
-  "description": "",
+  "description": "Apply mixture of agents (moa) in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mixture-of-agents.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "mixture-of-agents",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agentic, AI agent, agents, LLM skill, skills tree, of, mixture, patterns",
+  "keywords": "agents, skills tree, patterns, LLM skill, AI agent, agentic, mixture, of",
   "about": {
     "@type": "Thing",
     "name": "Mixture of Agents (MoA)",

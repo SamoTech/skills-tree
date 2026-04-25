@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/incident-response.md",
   "name": "incident-response",
   "headline": "incident-response",
-  "description": "",
+  "description": "Apply incident response in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/incident-response.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "incident-response",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, response, incident, LLM skill, specific, skills tree, domain",
+  "keywords": "skills tree, specific, response, domain, LLM skill, AI agent, incident",
   "about": {
     "@type": "Thing",
     "name": "incident-response",

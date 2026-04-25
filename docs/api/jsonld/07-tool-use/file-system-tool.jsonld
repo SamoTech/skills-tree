@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/file-system-tool.md",
   "name": "File System Tool",
   "headline": "File System Tool",
-  "description": "",
+  "description": "Apply file system tool in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/file-system-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "file-system-tool",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "system, use, AI agent, tool, LLM skill, skills tree, file",
+  "keywords": "system, skills tree, use, LLM skill, AI agent, tool, file",
   "about": {
     "@type": "Thing",
     "name": "File System Tool",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/knowledge-graph-reading.md",
   "name": "Knowledge Graph Reading",
   "headline": "Knowledge Graph Reading",
-  "description": "",
+  "description": "Apply knowledge graph reading in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/knowledge-graph-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "knowledge-graph-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, reading, graph, knowledge, skills tree, perception",
+  "keywords": "skills tree, reading, knowledge, LLM skill, perception, AI agent, graph",
   "about": {
     "@type": "Thing",
     "name": "Knowledge Graph Reading",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/conversation-history-reading.md",
   "name": "Conversation History Reading",
   "headline": "Conversation History Reading",
-  "description": "",
+  "description": "Apply conversation history reading in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/conversation-history-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "conversation-history-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, reading, conversation, history, skills tree, perception",
+  "keywords": "skills tree, reading, history, LLM skill, perception, AI agent, conversation",
   "about": {
     "@type": "Thing",
     "name": "Conversation History Reading",

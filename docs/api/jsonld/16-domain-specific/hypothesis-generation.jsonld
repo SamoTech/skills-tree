@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/hypothesis-generation.md",
   "name": "hypothesis-generation",
   "headline": "hypothesis-generation",
-  "description": "",
+  "description": "Apply hypothesis generation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/hypothesis-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "hypothesis-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, hypothesis, LLM skill, generation, specific, skills tree, domain",
+  "keywords": "skills tree, specific, generation, domain, hypothesis, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "hypothesis-generation",

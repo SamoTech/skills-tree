@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/keyboard-input.md",
   "name": "Keyboard Input",
   "headline": "Keyboard Input",
-  "description": "",
+  "description": "Apply keyboard input in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/keyboard-input.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "keyboard-input",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, keyboard, LLM skill, action, skills tree, input, execution",
+  "keywords": "skills tree, execution, keyboard, input, LLM skill, AI agent, action",
   "about": {
     "@type": "Thing",
     "name": "Keyboard Input",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/audit-logging.md",
   "name": "audit-logging",
   "headline": "audit-logging",
-  "description": "",
+  "description": "Apply audit logging in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/audit-logging.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "audit-logging",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "logging, AI agent, security, LLM skill, skills tree, audit",
+  "keywords": "audit, skills tree, LLM skill, AI agent, security, logging",
   "about": {
     "@type": "Thing",
     "name": "audit-logging",

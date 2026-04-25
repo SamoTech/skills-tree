@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/agent-handoffs.md",
   "name": "Agent Handoffs",
   "headline": "Agent Handoffs",
-  "description": "",
+  "description": "Transfer control between specialised agents within a single OpenAI Agents SDK run.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/agent-handoffs.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "agent-handoffs",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agentic, AI agent, agent, LLM skill, skills tree, handoffs, patterns",
+  "keywords": "skills tree, patterns, LLM skill, AI agent, agent, agentic, handoffs",
   "about": {
     "@type": "Thing",
     "name": "Agent Handoffs",

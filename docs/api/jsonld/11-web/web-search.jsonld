@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-search.md",
   "name": "Web Search",
   "headline": "Web Search",
-  "description": "",
+  "description": "Query a search API (Tavily, Serper, Bing, Brave, Exa) and return ranked URLs + snippets. The agent's bridge to fresh, open-web information when its training cutoff or private corpus isn't enough.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-search.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,33 +52,35 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "web-search",
-  "skillVersion": "v2",
-  "skillLevel": "basic",
+  "skillVersion": "v3",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "11-web",
   "sections": [
-    "What It Does",
+    "Description",
     "When to Use",
     "Inputs / Outputs",
     "Runnable Example",
-    "Provider Comparison",
     "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
     "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [
-    "../02-reasoning/react.md",
-    "../09-agentic-patterns/rag.md"
+    "../03-memory/rag.md",
+    "../04-action-execution/http-request.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "search, AI agent, web, LLM skill, skills tree",
+  "keywords": "skills tree, web, LLM skill, AI agent, search",
   "about": {
     "@type": "Thing",
     "name": "Web Search",

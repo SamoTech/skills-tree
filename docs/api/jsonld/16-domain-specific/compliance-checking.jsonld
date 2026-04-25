@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/compliance-checking.md",
   "name": "compliance-checking",
   "headline": "compliance-checking",
-  "description": "",
+  "description": "Apply compliance checking in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/compliance-checking.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "compliance-checking",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "compliance, AI agent, LLM skill, specific, skills tree, checking, domain",
+  "keywords": "skills tree, specific, domain, LLM skill, AI agent, checking, compliance",
   "about": {
     "@type": "Thing",
     "name": "compliance-checking",

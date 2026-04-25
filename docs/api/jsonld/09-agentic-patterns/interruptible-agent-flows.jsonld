@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/interruptible-agent-flows.md",
   "name": "Interruptible Agent Flows",
   "headline": "Interruptible Agent Flows",
-  "description": "",
+  "description": "Design agent graphs that can pause, wait for external signals, and resume cleanly.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/interruptible-agent-flows.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "interruptible-agent-flows",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agentic, AI agent, agent, LLM skill, skills tree, interruptible, flows, patterns",
+  "keywords": "interruptible, skills tree, patterns, flows, LLM skill, agent, AI agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "Interruptible Agent Flows",

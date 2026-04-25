@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/weather-api.md",
   "name": "Weather API",
   "headline": "Weather API",
-  "description": "",
+  "description": "Apply weather api in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/weather-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "weather-api",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, weather, tool, api, LLM skill, skills tree",
+  "keywords": "skills tree, use, weather, LLM skill, AI agent, tool, api",
   "about": {
     "@type": "Thing",
     "name": "Weather API",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screenshot-capture.md",
   "name": "Screenshot Capture",
   "headline": "Screenshot Capture",
-  "description": "",
+  "description": "Apply screenshot capture in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screenshot-capture.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "screenshot-capture",
   "skillVersion": null,
   "skillLevel": "beginner",
@@ -61,7 +61,7 @@
   "sections": [],
   "relatedSkills": [],
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, screenshot, LLM skill, skills tree, computer, capture",
+  "keywords": "screenshot, capture, skills tree, use, computer, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Screenshot Capture",

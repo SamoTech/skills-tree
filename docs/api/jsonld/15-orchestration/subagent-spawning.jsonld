@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/subagent-spawning.md",
   "name": "Subagent Spawning",
   "headline": "Subagent Spawning",
-  "description": "",
+  "description": "Apply subagent spawning in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/subagent-spawning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "subagent-spawning",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, spawning, subagent, LLM skill, orchestration, skills tree",
+  "keywords": "skills tree, orchestration, spawning, LLM skill, AI agent, subagent",
   "about": {
     "@type": "Thing",
     "name": "Subagent Spawning",

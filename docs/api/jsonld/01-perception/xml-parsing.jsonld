@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/xml-parsing.md",
   "name": "XML Parsing",
   "headline": "XML Parsing",
-  "description": "",
+  "description": "Apply xml parsing in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/xml-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "xml-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, xml, LLM skill, parsing, skills tree, perception",
+  "keywords": "xml, skills tree, LLM skill, perception, AI agent, parsing",
   "about": {
     "@type": "Thing",
     "name": "XML Parsing",

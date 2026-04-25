@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/output-guardrails.md",
   "name": "Output Guardrails",
   "headline": "Output Guardrails",
-  "description": "",
+  "description": "Validate an agent's final response before returning it to the user.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/output-guardrails.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "output-guardrails",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "security, AI agent, guardrails, output, LLM skill, skills tree",
+  "keywords": "guardrails, skills tree, output, LLM skill, AI agent, security",
   "about": {
     "@type": "Thing",
     "name": "Output Guardrails",

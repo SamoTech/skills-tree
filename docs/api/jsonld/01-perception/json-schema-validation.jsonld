@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/json-schema-validation.md",
   "name": "JSON Schema Validation",
   "headline": "JSON Schema Validation",
-  "description": "",
+  "description": "Apply json schema validation in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/json-schema-validation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "json-schema-validation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, validation, LLM skill, json, skills tree, schema, perception",
+  "keywords": "skills tree, validation, json, LLM skill, perception, AI agent, schema",
   "about": {
     "@type": "Thing",
     "name": "JSON Schema Validation",

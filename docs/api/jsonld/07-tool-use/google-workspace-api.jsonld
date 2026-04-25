@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/google-workspace-api.md",
   "name": "Google Workspace API",
   "headline": "Google Workspace API",
-  "description": "",
+  "description": "Apply google workspace api in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/google-workspace-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "google-workspace-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "google, use, AI agent, tool, api, LLM skill, skills tree, workspace",
+  "keywords": "google, skills tree, use, workspace, LLM skill, AI agent, tool, api",
   "about": {
     "@type": "Thing",
     "name": "Google Workspace API",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
   "name": "Time-Travel Debugging",
   "headline": "Time-Travel Debugging",
-  "description": "",
+  "description": "Replay and fork a LangGraph agent run from any prior checkpoint to diagnose and fix failures.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "time-travel-debugging",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "travel, agentic, debugging, AI agent, time, LLM skill, skills tree, patterns",
+  "keywords": "skills tree, time, patterns, debugging, LLM skill, AI agent, agentic, travel",
   "about": {
     "@type": "Thing",
     "name": "Time-Travel Debugging",

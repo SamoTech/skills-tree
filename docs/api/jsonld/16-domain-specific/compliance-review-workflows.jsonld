@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/compliance-review-workflows.md",
   "name": "Compliance Review Workflows",
   "headline": "Compliance Review Workflows",
-  "description": "",
+  "description": "Design agent workflows that enforce multi-step regulatory and policy review before finalising outputs.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/compliance-review-workflows.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "compliance-review-workflows",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "compliance, AI agent, LLM skill, specific, skills tree, workflows, domain, review",
+  "keywords": "skills tree, specific, domain, LLM skill, AI agent, workflows, review, compliance",
   "about": {
     "@type": "Thing",
     "name": "Compliance Review Workflows",

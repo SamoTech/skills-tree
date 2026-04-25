@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/agent-as-tool.md",
   "name": "Agent as Tool",
   "headline": "Agent as Tool",
-  "description": "",
+  "description": "Expose a specialised agent as a callable tool inside a parent agent's tool loop.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/agent-as-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "agent-as-tool",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agentic, AI agent, agent, tool, LLM skill, skills tree, as, patterns",
+  "keywords": "tool, skills tree, as, patterns, LLM skill, agent, AI agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "Agent as Tool",

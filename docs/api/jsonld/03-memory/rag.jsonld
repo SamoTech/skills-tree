@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/rag.md",
   "name": "RAG (Retrieval-Augmented Generation)",
   "headline": "RAG (Retrieval-Augmented Generation)",
-  "description": "",
+  "description": "Augment an LLM call with the top-k most relevant chunks from a private corpus, retrieved by embedding similarity. The standard recipe for grounding answers, citing sources, and shrinking hallucinations on a known knowledge base.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/rag.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,35 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "rag",
-  "skillVersion": null,
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
-  "relatedSkills": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Variants",
+    "Frameworks & Models",
+    "Model Comparison",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../11-web/web-search.md",
+    "../12-data/embedding-generation.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "memory, AI agent, LLM skill, skills tree, rag",
+  "keywords": "skills tree, rag, memory, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "RAG (Retrieval-Augmented Generation)",

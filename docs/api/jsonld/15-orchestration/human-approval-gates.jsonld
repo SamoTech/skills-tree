@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/human-approval-gates.md",
   "name": "Human Approval Gates",
   "headline": "Human Approval Gates",
-  "description": "",
+  "description": "Pause an agent graph before a sensitive node and wait for human approval before continuing.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/human-approval-gates.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "human-approval-gates",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "approval, human, AI agent, LLM skill, orchestration, gates, skills tree",
+  "keywords": "skills tree, orchestration, human, LLM skill, AI agent, approval, gates",
   "about": {
     "@type": "Thing",
     "name": "Human Approval Gates",

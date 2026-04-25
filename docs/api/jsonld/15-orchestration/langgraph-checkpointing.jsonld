@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/langgraph-checkpointing.md",
   "name": "LangGraph Checkpointing",
   "headline": "LangGraph Checkpointing",
-  "description": "",
+  "description": "Persist agent graph state at every step using LangGraph checkpointers for fault tolerance and resumability.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/langgraph-checkpointing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "langgraph-checkpointing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, checkpointing, LLM skill, orchestration, skills tree, langgraph",
+  "keywords": "langgraph, skills tree, orchestration, LLM skill, checkpointing, AI agent",
   "about": {
     "@type": "Thing",
     "name": "LangGraph Checkpointing",

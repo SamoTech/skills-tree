@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/bootstrapping.md",
   "name": "Bootstrapping",
   "headline": "Bootstrapping",
-  "description": "",
+  "description": "Apply bootstrapping in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/bootstrapping.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "bootstrapping",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, agentic, bootstrapping, LLM skill, skills tree, patterns",
+  "keywords": "skills tree, patterns, bootstrapping, LLM skill, AI agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "Bootstrapping",

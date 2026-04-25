@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/tree-of-thought.md",
   "name": "Tree of Thought (ToT)",
   "headline": "Tree of Thought (ToT)",
-  "description": "",
+  "description": "Apply tree of thought (tot) in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/tree-of-thought.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "tree-of-thought",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, reasoning, tree, LLM skill, thought, skills tree, of",
+  "keywords": "skills tree, tree, thought, LLM skill, AI agent, reasoning, of",
   "about": {
     "@type": "Thing",
     "name": "Tree of Thought (ToT)",

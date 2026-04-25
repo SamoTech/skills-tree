@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/lesson-plan.md",
   "name": "lesson-plan",
   "headline": "lesson-plan",
-  "description": "",
+  "description": "Apply lesson plan in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/lesson-plan.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "lesson-plan",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, LLM skill, plan, specific, skills tree, lesson, domain",
+  "keywords": "skills tree, specific, domain, plan, LLM skill, AI agent, lesson",
   "about": {
     "@type": "Thing",
     "name": "lesson-plan",

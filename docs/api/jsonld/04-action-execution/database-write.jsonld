@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/database-write.md",
   "name": "Database Write",
   "headline": "Database Write",
-  "description": "",
+  "description": "Apply database write in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/database-write.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "database-write",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, write, database, LLM skill, action, skills tree, execution",
+  "keywords": "skills tree, execution, database, write, LLM skill, AI agent, action",
   "about": {
     "@type": "Thing",
     "name": "Database Write",

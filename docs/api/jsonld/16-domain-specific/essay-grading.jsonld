@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/essay-grading.md",
   "name": "essay-grading",
   "headline": "essay-grading",
-  "description": "",
+  "description": "Apply essay grading in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/essay-grading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "essay-grading",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, grading, essay, LLM skill, specific, skills tree, domain",
+  "keywords": "skills tree, specific, domain, grading, LLM skill, AI agent, essay",
   "about": {
     "@type": "Thing",
     "name": "essay-grading",

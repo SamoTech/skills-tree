@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/cross-thread-memory.md",
   "name": "Cross-Thread Memory",
   "headline": "Cross-Thread Memory",
-  "description": "",
+  "description": "Share and recall information across separate LangGraph threads using an external memory store.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/cross-thread-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "cross-thread-memory",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "memory, AI agent, cross, LLM skill, skills tree, thread",
+  "keywords": "skills tree, thread, memory, LLM skill, AI agent, cross",
   "about": {
     "@type": "Thing",
     "name": "Cross-Thread Memory",

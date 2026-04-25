@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/github-api.md",
   "name": "GitHub API (Code)",
   "headline": "GitHub API (Code)",
-  "description": "",
+  "description": "Apply github api (code) in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/github-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:55:02Z",
+  "dateModified": "2026-04-25T05:10:16Z",
   "skillId": "github-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, github, code, api, LLM skill, skills tree",
+  "keywords": "skills tree, github, LLM skill, AI agent, api, code",
   "about": {
     "@type": "Thing",
     "name": "GitHub API (Code)",
