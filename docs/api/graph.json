@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-25T05:10:16Z",
+  "generated": "2026-04-25T05:22:22Z",
   "stats": {
     "nodes": 350,
     "links": 735,
@@ -902,7 +902,7 @@
       "category": "03-memory",
       "catLabel": "Memory",
       "color": "#a86fdf",
-      "level": "beginner",
+      "level": "basic",
       "version": "v2"
     },
     {
@@ -1212,7 +1212,7 @@
       "category": "04-action-execution",
       "catLabel": "Action Execution",
       "color": "#fdab43",
-      "level": "beginner",
+      "level": "basic",
       "version": "v3"
     },
     {
@@ -1262,7 +1262,7 @@
       "category": "10-computer-use",
       "catLabel": "Computer Use",
       "color": "#01696f",
-      "level": "beginner",
+      "level": "basic",
       "version": "v1"
     },
     {
@@ -2452,7 +2452,7 @@
       "category": "10-computer-use",
       "catLabel": "Computer Use",
       "color": "#01696f",
-      "level": "beginner",
+      "level": "basic",
       "version": "v1"
     },
     {
@@ -2462,7 +2462,7 @@
       "category": "10-computer-use",
       "catLabel": "Computer Use",
       "color": "#01696f",
-      "level": "beginner",
+      "level": "basic",
       "version": "v1"
     },
     {
@@ -2702,7 +2702,7 @@
       "category": "11-web",
       "catLabel": "Web",
       "color": "#437a22",
-      "level": "beginner",
+      "level": "basic",
       "version": "v2"
     },
     {
@@ -2722,7 +2722,7 @@
       "category": "12-data",
       "catLabel": "Data",
       "color": "#006494",
-      "level": "beginner",
+      "level": "basic",
       "version": "v1"
     },
     {
@@ -2782,7 +2782,7 @@
       "category": "12-data",
       "catLabel": "Data",
       "color": "#006494",
-      "level": "beginner",
+      "level": "basic",
       "version": "v1"
     },
     {

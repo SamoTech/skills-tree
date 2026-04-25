@@ -1,7 +1,7 @@
 ---
 title: "Mouse Click"
 category: 10-computer-use
-level: beginner
+level: basic
 stability: stable
 added: "2025-03"
 description: "Apply mouse click in AI agent workflows."
@@ -20,7 +20,7 @@ code_blocks:
 # Mouse Click
 
 **Category:** `computer-use`  
-**Skill Level:** `beginner`  
+**Skill Level:** `basic`  
 **Stability:** `stable`
 **Added:** 2025-03
 

@@ -1,7 +1,7 @@
 ---
 title: "CSV Processing"
 category: 12-data
-level: beginner
+level: basic
 stability: stable
 added: "2025-03"
 description: "Apply CSV processing in AI agent workflows."
@@ -20,7 +20,7 @@ code_blocks:
 # CSV Processing
 
 **Category:** `data`  
-**Skill Level:** `beginner`  
+**Skill Level:** `basic`  
 **Stability:** `stable`
 **Added:** 2025-03
 

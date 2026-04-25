@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:10:16Z",
+  "dateModified": "2026-04-25T05:22:22Z",
   "skillId": "mcts",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, patterns, LLM skill, AI agent, agentic, mcts",
+  "keywords": "skills tree, patterns, AI agent, agentic, LLM skill, mcts",
   "about": {
     "@type": "Thing",
     "name": "MCTS (Monte Carlo Tree Search)",

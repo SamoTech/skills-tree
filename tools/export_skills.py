@@ -83,9 +83,17 @@ def parse_skill(filepath: str) -> dict:
     # Frontmatter fields — first try the legacy bold-markdown patterns
     # (e.g. "**Category:** `reasoning`"). For files that use a YAML
     # frontmatter block instead, fall back to parsing the YAML.
+    # Enum-valued fields are normalised to lowercase so that body-style
+    # `**Skill Level:** Advanced` and YAML-style `level: advanced` produce
+    # the same JSON output (and the schema enum check holds).
+    LCASE_KEYS = {"level", "stability"}
     for key, pattern in FRONTMATTER_FIELDS:
         m = re.search(pattern, content, re.IGNORECASE)
-        skill[key] = m.group(1).strip().strip('`') if m else None
+        if m:
+            v = m.group(1).strip().strip('`')
+            skill[key] = v.lower() if key in LCASE_KEYS else v
+        else:
+            skill[key] = None
 
     yaml_block_m = re.match(r'\A---\s*\n(.*?)\n---', content, re.DOTALL)
     if yaml_block_m:
@@ -115,6 +123,10 @@ def parse_skill(filepath: str) -> dict:
                 # Normalise category: "02-reasoning" -> "reasoning"
                 if sk == "category":
                     val = re.sub(r'^\d+-', '', val)
+                # Normalise enum-valued fields to lowercase (same rationale
+                # as the body-style branch above).
+                if sk in LCASE_KEYS:
+                    val = val.lower()
                 skill[sk] = val
 
     # Sections present
