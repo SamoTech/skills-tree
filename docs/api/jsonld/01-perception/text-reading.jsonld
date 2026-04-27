@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:22:22Z",
+  "dateModified": "2026-04-27T06:27:31Z",
   "skillId": "text-reading",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, perception, text, AI agent, reading, LLM skill",
+  "keywords": "AI agent, text, skills tree, perception, reading, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Text Reading",

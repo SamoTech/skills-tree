@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:22:22Z",
+  "dateModified": "2026-04-27T06:27:31Z",
   "skillId": "web-search-tool-agents",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "web, tool, AI agent, agents, search, skills tree, LLM skill",
+  "keywords": "AI agent, agents, search, skills tree, tool, web, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Web Search Tool Agents",

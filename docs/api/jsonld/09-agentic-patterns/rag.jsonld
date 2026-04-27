@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:22:22Z",
+  "dateModified": "2026-04-27T06:27:31Z",
   "skillId": "rag",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -81,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, rag, patterns, AI agent, agentic, LLM skill",
+  "keywords": "AI agent, agentic, patterns, skills tree, rag, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "RAG — Retrieval-Augmented Generation",
