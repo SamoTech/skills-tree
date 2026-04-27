@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 360
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 48
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 47
 - 🟡 **Enriched** (real description + runnable code): 0
-- ⚪ **Stub** (placeholder description or no runnable code): 312
+- ⚪ **Stub** (placeholder description or no runnable code): 313
 - ❌ **Invalid** (frontmatter problems): 0
 
 ## Per-category breakdown
@@ -30,7 +30,7 @@
 | `14-security` | 13 | 4 | 0 | 9 | 0 |
 | `15-orchestration` | 22 | 6 | 0 | 16 | 0 |
 | `16-domain-specific` | 28 | 1 | 0 | 27 | 0 |
-| `17-infrastructure` | 1 | 1 | 0 | 0 | 0 |
+| `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
 
 ## 🟢 Battle-tested skills (start here as a user)
 
@@ -81,7 +81,6 @@
 - [`skills/15-orchestration/stateful-agent-graphs.md`](skills/15-orchestration/stateful-agent-graphs.md) — Stateful Agent Graphs
 - [`skills/15-orchestration/thread-based-resume.md`](skills/15-orchestration/thread-based-resume.md) — Thread-Based Resume
 - [`skills/16-domain-specific/compliance-review-workflows.md`](skills/16-domain-specific/compliance-review-workflows.md) — Compliance Review Workflows
-- [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — Dependency Auditor
 
 ## 🟡 Enriched skills (almost there — add a table or +60 lines of context)
 
@@ -449,6 +448,10 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`seo-optimization.md`](skills/16-domain-specific/seo-optimization.md) — description matches placeholder pattern: 'Apply seo optimization in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`stock-lookup.md`](skills/16-domain-specific/stock-lookup.md) — description matches placeholder pattern: 'Apply stock lookup in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`symptom-analysis.md`](skills/16-domain-specific/symptom-analysis.md) — description matches placeholder pattern: 'Apply symptom analysis in AI agent workflows'; no inputs/outputs/failure-modes table
+
+### `17-infrastructure` (1)
+
+- [`dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
 
 ## Definitions
 
