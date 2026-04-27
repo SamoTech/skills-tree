@@ -31,7 +31,7 @@
 > **360 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > **Stop rediscovering. Start building on what the community has already proven.**
 >
-> **48 skills are battle-tested today.** **312 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
+> **47 skills are battle-tested today.** **313 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
@@ -149,7 +149,7 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 ```
 skills-tree/
 │
-├── skills/          → 360 atomic skill files (48 battle-tested, 312 stubs awaiting upgrade)
+├── skills/          → 360 atomic skill files (47 battle-tested, 313 stubs awaiting upgrade)
 │                     run `python3 tools/check_skill_quality.py` for the live count
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
