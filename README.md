@@ -10,18 +10,11 @@
 ![Banner](docs/assets/banner.svg)
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — April 20, 2026
-
-### 🔥 Most Active Skills
-- **Audio Transcription** — 3 PRs
-- **Image Understanding** — 3 PRs
-- **Procedural** — 3 PRs
-- **Calendar Event** — 3 PRs
-- **Google Workspace Api** — 3 PRs
+## 📆 This Week's Highlights — April 27, 2026
 
 ### ✨ New Skills
-- [feat(verify): badge promotion batch 2 — 18 skills yellow → green](https://github.com/SamoTech/skills-tree/pull/7)
-- [feat(verify): batch-1 human verification — promote 5 skills yellow → green 🟢](https://github.com/SamoTech/skills-tree/pull/6)
+- [feat: 10 more battle-tested skills (RAG, embeddings, codegen, web, security) + fix Devin Review on #61](https://github.com/SamoTech/skills-tree/pull/62)
+- [feat: real-skills audit — accuracy fixes, 10 production rewrites, quality CI](https://github.com/SamoTech/skills-tree/pull/60)
 
 <!-- HIGHLIGHTS_END -->
 
