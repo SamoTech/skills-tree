@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-27T06:27:31Z",
+  "dateModified": "2026-04-27T07:16:42Z",
   "skillId": "bayesian-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -73,7 +73,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, bayesian, skills tree, LLM skill, reasoning",
+  "keywords": "bayesian, reasoning, LLM skill, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Bayesian Reasoning",

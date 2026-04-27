@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-27T06:27:31Z",
+  "dateModified": "2026-04-27T07:16:42Z",
   "skillId": "constraint-satisfaction",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, satisfaction, skills tree, constraint, LLM skill, reasoning",
+  "keywords": "AI agent, reasoning, constraint, LLM skill, satisfaction, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Constraint Satisfaction",

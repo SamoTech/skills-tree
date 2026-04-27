@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-27T06:27:31Z",
+  "dateModified": "2026-04-27T07:16:42Z",
   "skillId": "iac-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, generation, skills tree, iac, specific, domain, LLM skill",
+  "keywords": "skills tree, LLM skill, specific, generation, AI agent, iac, domain",
   "about": {
     "@type": "Thing",
     "name": "iac-generation",

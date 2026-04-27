@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-27T06:27:31Z",
+  "dateModified": "2026-04-27T07:16:42Z",
   "skillId": "meta-cognition",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "meta, AI agent, cognition, skills tree, LLM skill, reasoning",
+  "keywords": "reasoning, LLM skill, cognition, meta, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Meta-Cognition",
