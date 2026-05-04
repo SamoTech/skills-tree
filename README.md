@@ -10,11 +10,9 @@
 ![Banner](docs/assets/banner.svg)
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — April 27, 2026
+## 📆 This Week's Highlights — May 4, 2026
 
-### ✨ New Skills
-- [feat: 10 more battle-tested skills (RAG, embeddings, codegen, web, security) + fix Devin Review on #61](https://github.com/SamoTech/skills-tree/pull/62)
-- [feat: real-skills audit — accuracy fixes, 10 production rewrites, quality CI](https://github.com/SamoTech/skills-tree/pull/60)
+> No skill changes this week. Open a PR to get started!
 
 <!-- HIGHLIGHTS_END -->
 
