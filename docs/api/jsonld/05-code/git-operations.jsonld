@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-27T07:16:42Z",
+  "dateModified": "2026-05-04T06:38:06Z",
   "skillId": "git-operations",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "code, git, operations, LLM skill, AI agent, skills tree",
+  "keywords": "LLM skill, git, AI agent, operations, skills tree, code",
   "about": {
     "@type": "Thing",
     "name": "Git Operations",
