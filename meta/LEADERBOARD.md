@@ -5,7 +5,7 @@
 
 ---
 
-## 📅 Week of 2026-04-27
+## 📅 Week of 2026-05-04
 
 ### 🔥 Top Skills This Week
 
@@ -13,11 +13,7 @@
 
 | Rank | Skill | Activity |
 |------|-------|----------|
-| 🥇 1 | `README` | 3 PR file touches |
-| 🥈 2 | `http-request` | 2 PR file touches |
-| 🥉 3 | `anthropic-api` | 2 PR file touches |
-| 4 | `cot` | 2 PR file touches |
-| 5 | `agent-sessions` | 1 PR file touches |
+| — | *(no activity this week)* | — |
 
 ---
 
@@ -71,7 +67,7 @@
 
 | Rank | Contributor | Skills Added | Skills Improved | Total PRs |
 |------|-------------|-------------|-----------------|----------|
-| 🥇 1 | @devin-ai-integration[bot] | 2 | 0 | 4 |
+| 🥇 1 | @devin-ai-integration[bot] | 0 | 0 | 4 |
 | 🥈 2 | @github-actions[bot] | 0 | 0 | 4 |
 | 🥉 3 | @SamoTech | 0 | 0 | 3 |
 
@@ -88,4 +84,4 @@
 
 ---
 
-*Auto-generated 2026-04-27 01:58 UTC · [Contribute a skill](../CONTRIBUTING.md)*
+*Auto-generated 2026-05-04 02:01 UTC · [Contribute a skill](../CONTRIBUTING.md)*
