@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-04T06:38:06Z",
+  "dateModified": "2026-05-04T07:36:14Z",
   "skillId": "weather-api",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, api, skills tree, weather, use, tool",
+  "keywords": "LLM skill, api, skills tree, use, tool, AI agent, weather",
   "about": {
     "@type": "Thing",
     "name": "Weather API",

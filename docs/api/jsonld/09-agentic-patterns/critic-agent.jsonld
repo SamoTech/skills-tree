@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-04T06:38:06Z",
+  "dateModified": "2026-05-04T07:36:14Z",
   "skillId": "critic-agent",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agent, LLM skill, AI agent, critic, patterns, skills tree, agentic",
+  "keywords": "critic, LLM skill, patterns, skills tree, AI agent, agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "Critic Agent",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-04T06:38:06Z",
+  "dateModified": "2026-05-04T07:36:14Z",
   "skillId": "ad-copy",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "ad, LLM skill, specific, copy, AI agent, skills tree, domain",
+  "keywords": "copy, LLM skill, ad, skills tree, AI agent, domain, specific",
   "about": {
     "@type": "Thing",
     "name": "ad-copy",
