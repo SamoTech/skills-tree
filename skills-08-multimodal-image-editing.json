@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "label": "deps",
-  "message": "machine-inferred \u00b7 4 pkgs",
-  "color": "yellow",
-  "style": "flat-square"
+  "message": "\u26a0\ufe0f GHSA-98h9-4798-4q5v",
+  "color": "critical",
+  "style": "flat-square",
+  "namedLogo": "dependabot"
 }
