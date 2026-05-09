@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "deps",
-  "message": "\u26a0\ufe0f GHSA-8mp2-v27r-99xp",
+  "message": "\u26a0\ufe0f GHSA-58cw-g322-p94v, GHSA-8g87-j6q8-g93x +2",
   "color": "critical",
   "style": "flat-square",
   "namedLogo": "dependabot"
