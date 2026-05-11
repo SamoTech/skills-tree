@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "window-management",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "computer, management, skills tree, use, window, LLM skill, AI agent",
+  "keywords": "computer, LLM skill, skills tree, management, AI agent, window, use",
   "about": {
     "@type": "Thing",
     "name": "Window Management",

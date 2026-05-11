@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "paper-summarization",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "specific, skills tree, domain, paper, summarization, LLM skill, AI agent",
+  "keywords": "summarization, LLM skill, paper, domain, AI agent, skills tree, specific",
   "about": {
     "@type": "Thing",
     "name": "paper-summarization",

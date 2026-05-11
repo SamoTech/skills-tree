@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "constitutional-ai",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "patterns, agentic, skills tree, constitutional, ai, LLM skill, AI agent",
+  "keywords": "ai, LLM skill, agentic, AI agent, constitutional, patterns, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Constitutional AI",

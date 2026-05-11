@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "contract-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "contract, reading, skills tree, perception, LLM skill, AI agent",
+  "keywords": "LLM skill, reading, AI agent, perception, contract, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Contract Reading",

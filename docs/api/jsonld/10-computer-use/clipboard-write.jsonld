@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "clipboard-write",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "computer, skills tree, write, use, clipboard, LLM skill, AI agent",
+  "keywords": "computer, LLM skill, write, clipboard, AI agent, skills tree, use",
   "about": {
     "@type": "Thing",
     "name": "Clipboard Write",

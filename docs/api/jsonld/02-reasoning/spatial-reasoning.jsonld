@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "spatial-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "reasoning, skills tree, spatial, LLM skill, AI agent",
+  "keywords": "LLM skill, AI agent, spatial, reasoning, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Spatial Reasoning",

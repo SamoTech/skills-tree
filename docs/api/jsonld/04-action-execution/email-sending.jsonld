@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-11T07:40:41Z",
+  "dateModified": "2026-05-11T08:02:05Z",
   "skillId": "email-sending",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "action, skills tree, email, execution, sending, LLM skill, AI agent",
+  "keywords": "LLM skill, execution, email, sending, AI agent, action, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Email Sending",
