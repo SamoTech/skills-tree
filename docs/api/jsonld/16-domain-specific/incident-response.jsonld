@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-04T07:36:14Z",
+  "dateModified": "2026-05-11T07:40:41Z",
   "skillId": "incident-response",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "LLM skill, response, skills tree, incident, AI agent, domain, specific",
+  "keywords": "specific, response, incident, skills tree, domain, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "incident-response",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-04T07:36:14Z",
+  "dateModified": "2026-05-11T07:40:41Z",
   "skillId": "temporal-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, temporal, skills tree, reasoning, AI agent",
+  "keywords": "reasoning, temporal, skills tree, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Temporal Reasoning",
