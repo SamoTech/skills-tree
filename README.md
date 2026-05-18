@@ -10,7 +10,7 @@
 ![Banner](docs/assets/banner.svg)
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — May 11, 2026
+## 📆 This Week's Highlights — May 18, 2026
 
 > No skill changes this week. Open a PR to get started!
 
