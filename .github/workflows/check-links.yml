@@ -24,8 +24,7 @@ jobs:
       - name: Install markdown-link-check
         run: npm install -g markdown-link-check
 
-      # H-3 FIX: removed || true so broken links actually fail the workflow.
-      # --retry 3 handles transient network timeouts without false failures.
+      # --retry is a boolean flag; retry count is set via retryCount in mlc-config.json.
       # Results are collected per-file; final exit code reflects any failures.
       - name: Check links in all Markdown files
         run: |
@@ -34,6 +33,6 @@ jobs:
             markdown-link-check "$file" \
               --config .github/mlc-config.json \
               --quiet \
-              --retry 3 || FAIL=1
+              --retry || FAIL=1
           done < <(find . -name '*.md' ! -path './node_modules/*' -print0)
           exit $FAIL
