@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T08:03:54Z",
+  "dateModified": "2026-05-18T08:32:15Z",
   "skillId": "specialist-agent-routing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agent, orchestration, skills tree, AI agent, routing, LLM skill, specialist",
+  "keywords": "agent, routing, specialist, skills tree, AI agent, LLM skill, orchestration",
   "about": {
     "@type": "Thing",
     "name": "Specialist Agent Routing",
