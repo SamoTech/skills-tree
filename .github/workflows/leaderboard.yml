@@ -27,7 +27,9 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install requests PyGithub python-dateutil
+        # FIX: removed unused 'requests' (PyGithub depends on it internally;
+        #      no need to install it explicitly).
+        run: pip install PyGithub python-dateutil
 
       - name: Generate leaderboard
         env:
@@ -46,15 +48,18 @@ jobs:
           week_ago = now - timedelta(days=7)
           week_str = now.strftime('%Y-%m-%d')
 
-          # --- Collect PR data (FIX: stop iterating once PRs are older than 30 days) ---
+          # FIX: Use sort='created' + direction='desc' so the cutoff break
+          # condition is reliable. With sort='updated', a reopened/updated PR
+          # can appear out-of-chronological-order and trigger a premature break
+          # before all PRs in the 365-day window have been processed.
           cutoff_alltime = now - timedelta(days=365)
           contributor_stats = defaultdict(lambda: {'added': 0, 'improved': 0, 'prs': 0})
           skill_activity = defaultdict(int)
           upgraded_skills = []
 
-          for pr in repo.get_pulls(state='closed', sort='updated', direction='desc'):
-              if pr.updated_at and pr.updated_at < cutoff_alltime:
-                  break  # FIX: PRs sorted by updated desc — stop once we're past 1 year
+          for pr in repo.get_pulls(state='closed', sort='created', direction='desc'):
+              if pr.created_at and pr.created_at < cutoff_alltime:
+                  break
               if not pr.merged_at:
                   continue
               author = pr.user.login
@@ -63,13 +68,13 @@ jobs:
                   title = pr.title.lower()
                   if title.startswith('feat:') or 'new skill' in title:
                       contributor_stats[author]['added'] += 1
-                  if title.startswith('improve:') or 'v1→v2' in title or 'v2→v3' in title:
+                  if title.startswith('improve:') or 'v1\u2192v2' in title or 'v2\u2192v3' in title:
                       contributor_stats[author]['improved'] += 1
                       m = re.search(r'improve:\s*\[?([\w-]+)\]?', pr.title, re.IGNORECASE)
                       if m:
                           skill_name = m.group(1)
                           skill_activity[skill_name] += 2
-                          vm = re.search(r'v(\d)→v(\d)', pr.title)
+                          vm = re.search(r'v(\d)\u2192v(\d)', pr.title)
                           if vm:
                               upgraded_skills.append({
                                   'skill': skill_name,
@@ -83,10 +88,8 @@ jobs:
                           if len(parts) >= 3:
                               skill_activity[parts[2].replace('.md', '')] += 1
 
-          # Top 5 skills this week
           top_skills = sorted(skill_activity.items(), key=lambda x: x[1], reverse=True)[:5]
 
-          # Battle-tested (v3) skills
           battle_tested = []
           try:
               contents = repo.get_contents('skills')
@@ -107,17 +110,14 @@ jobs:
           except Exception:
               pass
 
-          # Sort contributors
           sorted_contributors = sorted(
               contributor_stats.items(),
               key=lambda x: (x[1]['added'] + x[1]['improved'], x[1]['prs']),
               reverse=True
           )
 
-          # FIX: Count total skills dynamically from the filesystem
           total_skills = len(glob.glob('skills/**/*.md', recursive=True))
 
-          # Count expanded skills (v2+)
           v2_count = 0
           try:
               contents = repo.get_contents('skills')
@@ -135,46 +135,45 @@ jobs:
           except Exception:
               pass
 
-          # --- Build markdown ---
           lines = [
-              '# 🏆 Skills Tree Leaderboard',
+              '# \U0001f3c6 Skills Tree Leaderboard',
               '',
               '> Auto-updated every Monday at 00:00 UTC by the [leaderboard workflow](../.github/workflows/leaderboard.yml).',
               '> Rankings are derived from merged PR activity, skill version upgrades, and contribution volume.',
               '',
               '---',
               '',
-              f'## 📅 Week of {week_str}',
+              f'## \U0001f4c5 Week of {week_str}',
               '',
-              '### 🔥 Top Skills This Week',
+              '### \U0001f525 Top Skills This Week',
               '',
               '> Skills with the most PR activity and recent improvements.',
               '',
               '| Rank | Skill | Activity |',
               '|------|-------|----------|',
           ]
-          medals = ['🥇 1', '🥈 2', '🥉 3', '4', '5']
+          medals = ['\U0001f947 1', '\U0001f948 2', '\U0001f949 3', '4', '5']
           if top_skills:
               for i, (skill, count) in enumerate(top_skills):
                   rank = medals[i] if i < len(medals) else str(i + 1)
                   lines.append(f'| {rank} | `{skill}` | {count} PR file touches |')
           else:
-              lines.append('| — | *(no activity this week)* | — |')
+              lines.append('| \u2014 | *(no activity this week)* | \u2014 |')
 
           lines += [
               '',
               '---',
               '',
-              '### 🚀 Most Improved This Week',
+              '### \U0001f680 Most Improved This Week',
               '',
-              '> Skills that jumped from v1 → v2 or v2 → v3 this week.',
+              '> Skills that jumped from v1 \u2192 v2 or v2 \u2192 v3 this week.',
               '',
               '| Skill | Upgrade | Contributor |',
               '|-------|---------|-------------|',
           ]
           if upgraded_skills:
               for u in upgraded_skills:
-                  lines.append(f'| `{u["skill"]}` | {u["from"]} → {u["to"]} | {u["contributor"]} |')
+                  lines.append(f'| `{u["skill"]}` | {u["from"]} \u2192 {u["to"]} | {u["contributor"]} |')
           else:
               lines.append('| *(no upgrades this week)* | | |')
 
@@ -182,9 +181,9 @@ jobs:
               '',
               '---',
               '',
-              '### ⚔️ Battle-Tested Skills',
+              '### \u2694\ufe0f Battle-Tested Skills',
               '',
-              '> Skills that have reached **v3** — fully expanded with all sections.',
+              '> Skills that have reached **v3** \u2014 fully expanded with all sections.',
               '',
               '| Skill | Category |',
               '|-------|----------|',
@@ -193,13 +192,13 @@ jobs:
               for bt in battle_tested:
                   lines.append(f'| `{bt["skill"]}` | {bt["category"]} |')
           else:
-              lines.append('| *(none yet — first skill to hit v3 earns this badge!)* | |')
+              lines.append('| *(none yet \u2014 first skill to hit v3 earns this badge!)* | |')
 
           lines += [
               '',
               '---',
               '',
-              '### 👥 Top Contributors — All Time',
+              '### \U0001f465 Top Contributors \u2014 All Time',
               '',
               '| Rank | Contributor | Skills Added | Skills Improved | Total PRs |',
               '|------|-------------|-------------|-----------------|----------|',
@@ -208,24 +207,24 @@ jobs:
               rank = medals[i] if i < len(medals) else str(i + 1)
               lines.append(f'| {rank} | @{user} | {stats["added"]} | {stats["improved"]} | {stats["prs"]} |')
           if not sorted_contributors:
-              lines.append('| — | *(no contributors yet)* | 0 | 0 | 0 |')
+              lines.append('| \u2014 | *(no contributors yet)* | 0 | 0 | 0 |')
 
           lines += [
               '',
               '---',
               '',
-              f'## 📊 All-Time Stats',
+              f'## \U0001f4ca All-Time Stats',
               '',
               '| Metric | Count |',
               '|--------|-------|',
-              f'| Total skills | {total_skills} |',  # FIX: dynamic count
+              f'| Total skills | {total_skills} |',
               f'| Expanded skills (v2+) | {v2_count} |',
               f'| Battle-Tested skills (v3) | {len(battle_tested)} |',
               f'| Contributors | {len(sorted_contributors)} |',
               '',
               '---',
               '',
-              f'*Auto-generated {now.strftime("%Y-%m-%d %H:%M UTC")} · [Contribute a skill](../CONTRIBUTING.md)*',
+              f'*Auto-generated {now.strftime("%Y-%m-%d %H:%M UTC")} \u00b7 [Contribute a skill](../CONTRIBUTING.md)*',
           ]
 
           with open('meta/LEADERBOARD.md', 'w') as fh:
@@ -234,13 +233,27 @@ jobs:
           EOF
 
       - name: Commit leaderboard update
+        # FIX: Added retry-rebase loop to match the pattern used by all other
+        #      write-to-main workflows. Without this, a concurrent sync-badges
+        #      or validate-skills push can silently drop the leaderboard commit.
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add meta/LEADERBOARD.md
           if git diff --cached --quiet; then
             echo 'No changes to commit.'
-          else
-            git commit -m 'chore(leaderboard): auto-update for week of '$(date +%Y-%m-%d)
-            git push
+            exit 0
           fi
+          git commit -m 'chore(leaderboard): auto-update for week of '$(date +%Y-%m-%d)
+
+          for attempt in 1 2 3; do
+            git push origin main && {
+              echo "\u2705 Leaderboard pushed (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push rejected (attempt ${attempt}/3). Rebasing..."
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: All 3 push attempts failed."
+          exit 1

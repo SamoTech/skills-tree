@@ -14,11 +14,6 @@ on:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
-
-# Serialize runs of THIS workflow on the same ref so concurrent
-# scheduled triggers do not race when pushing back to main.
-# Distinct workflow classes (graph, exports, badges, …) intentionally
-# use different groups so they can still run in parallel.
 concurrency:
   group: validate-skills-${{ github.ref }}
   cancel-in-progress: false
@@ -36,48 +31,75 @@ jobs:
         with:
           fetch-depth: 0
 
+      # ── Step 0: Compute today's date (used by backfill step) ─────────────
+      - name: Compute backfill date
+        id: date
+        if: github.event_name == 'push'
+        run: echo "date=$(date '+%Y-%m')" >> $GITHUB_OUTPUT
+
       # ── Step 1: Backfill missing "added:" field ──────────────────────────
-      # Accepts both YAML frontmatter (added:) and bold-field (**Added:**).
-      # Uses retry-rebase loop to avoid race conditions with concurrent workflows.
+      # FIX: Use dynamic date (date +%Y-%m) instead of hardcoded "2025-03".
+      # FIX: Use Python pathlib for frontmatter editing to eliminate the shell
+      #      injection risk that came from passing untrusted filenames to sed.
       - name: Backfill missing Added field (push to main only)
         if: github.event_name == 'push'
+        env:
+          ADDED_DATE: ${{ steps.date.outputs.date }}
         run: |
-          # H-1 FIX: set +e removed. Each sed/grep uses explicit || true only
-          # where the command is intentionally allowed to produce no output.
-          # Real failures (git push, git commit) are NOT suppressed.
-          CHANGED=0
-          shopt -s globstar
-          for f in skills/**/*.md; do
-            [[ "$f" == *README* ]] && continue
-            if ! grep -qE '^added:' "$f" && ! grep -qE '^\*\*Added:\*\*' "$f"; then
-              if grep -q '^stability:' "$f"; then
-                sed -i '/^stability:/a added: "2025-03"' "$f"
-              else
-                sed -i '/^---$/a added: "2025-03"' "$f"
-              fi
-              echo "Backfilled added field: $f"
-              CHANGED=1
-            fi
+          python3 - <<'PYEOF'
+          import re, subprocess, os
+          from pathlib import Path
+
+          added_date = os.environ["ADDED_DATE"]
+          changed = 0
+
+          for f in sorted(Path("skills").rglob("*.md")):
+              if "README" in f.name:
+                  continue
+              text = f.read_text(encoding="utf-8", errors="ignore")
+              if re.search(r'^added:', text, re.MULTILINE):
+                  continue
+              if re.search(r'^\*\*Added:\*\*', text, re.MULTILINE):
+                  continue
+              if re.search(r'^stability:', text, re.MULTILINE):
+                  new_text = re.sub(
+                      r'(^stability:.*$)',
+                      r'\1\nadded: "' + added_date + '"',
+                      text, count=1, flags=re.MULTILINE
+                  )
+              elif text.startswith("---"):
+                  new_text = text.replace("---\n", '---\nadded: "' + added_date + '"\n', 1)
+              else:
+                  continue
+              f.write_text(new_text, encoding="utf-8")
+              print(f"Backfilled added field: {f}")
+              changed += 1
+
+          if changed == 0:
+              print("No backfill needed.")
+              exit(0)
+
+          subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+          subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=True)
+          subprocess.run(["git", "add", "skills/"], check=True)
+          result = subprocess.run(["git", "diff", "--staged", "--quiet"])
+          if result.returncode == 0:
+              print("Nothing staged after add.")
+              exit(0)
+          subprocess.run(["git", "commit", "-m", "chore(skills): backfill missing added field [skip ci]"], check=True)
+          PYEOF
+
+          for attempt in 1 2 3; do
+            git push origin main && {
+              echo "\u2705 Backfill pushed (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push failed (attempt ${attempt}/3). Rebasing..."
+            git pull --rebase origin main
+            sleep $((attempt * 2))
           done
-          if [ $CHANGED -eq 1 ]; then
-            git config user.name  "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add skills/
-            git commit -m "chore(skills): backfill missing added field [skip ci]"
-            for attempt in 1 2 3; do
-              git push origin main && {
-                echo "✅ Backfill pushed (attempt ${attempt})."
-                exit 0
-              }
-              echo "Push failed (attempt ${attempt}/3). Rebasing..."
-              git pull --rebase origin main
-              sleep $((attempt * 2))
-            done
-            echo "ERROR: All 3 push attempts failed."
-            exit 1
-          else
-            echo "No backfill needed."
-          fi
+          echo "ERROR: All 3 push attempts failed."
+          exit 1
 
       # ── Step 2: Hard validation — structural sections ────────────────────
       - name: Check required sections (hard fail)
@@ -150,11 +172,6 @@ jobs:
           exit 0
 
       # ── Step 5: Broken relative link check ──────────────────────────────
-      # Audit fix: the previous shell loop only matched `(../...md)` links and
-      # missed same-directory relative links (e.g. `(least-to-most.md)`),
-      # which is how the cot.md / hypothesis-generation.md broken links
-      # slipped past CI. Replaced with tools/check_broken_links.py which
-      # walks every `.md` link target.
       - name: Set up Python
         uses: actions/setup-python@v5
         with:

@@ -89,7 +89,7 @@ jobs:
               dest = BADGE_OUT / f"{key}.json"
               if dest.exists():
                   existing = json.loads(dest.read_text())
-                  if existing.get("color") in ("critical", "22c55e"):
+                  if existing.get("color") in ("critical", "22c55e") or "CVE" in existing.get("message", ""):
                       continue
                   if "machine-inferred" in existing.get("message", "") or "verified" in existing.get("message", ""):
                       continue
@@ -148,15 +148,19 @@ jobs:
           fi
 
           # --- RETRY-REBASE LOOP ---
+          # FIX: During a rebase, --theirs refers to the INCOMING local commits
+          # (the changes being replayed), NOT the upstream. This is the inverse
+          # of merge-conflict semantics. Using --theirs here correctly preserves
+          # the OSV badge updates over the already-pushed remote state.
           for attempt in 1 2 3; do
             git push origin badge-data && {
-              echo "✅ Badge-data push succeeded (attempt ${attempt})."
+              echo "\u2705 Badge-data push succeeded (attempt ${attempt})."
               exit 0
             }
             echo "Push rejected (attempt ${attempt}/3). Fetching and rebasing..."
             git fetch origin badge-data
             git rebase origin/badge-data || {
-              git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --ours {}
+              git diff --name-only --diff-filter=U | grep '\.json$' | xargs -I{} git checkout --theirs {}
               git add -A
               git rebase --continue
             }
@@ -179,7 +183,6 @@ jobs:
             const packageList = hits.hits.map(h => h.package).join(', ');
             const issueTitle = `\ud83d\udea8 Dependency Advisory: ${packageList}`;
 
-            // --- DEDUPLICATION GUARD ---
             const existingIssues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -193,7 +196,6 @@ jobs:
               console.log(`Skipping: open issue #${duplicate.number} already exists with this title.`);
               return;
             }
-            // --- END DEDUPLICATION GUARD ---
 
             let body = `## \ud83d\udea8 Dependency Advisory \u2014 ${new Date().toISOString().slice(0,10)}\n\n`;
             body += `> Detected by daily OSV polling.\n\n`;
@@ -223,4 +225,4 @@ jobs:
 
       - name: No advisories found
         if: steps.osv.outputs.has_hits != 'true'
-        run: echo "✅ All packages clean. No advisories in OSV database."
+        run: echo "\u2705 All packages clean. No advisories in OSV database."

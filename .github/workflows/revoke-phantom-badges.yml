@@ -16,16 +16,17 @@ name: Revoke Phantom Badges
 #      b. If NOT in SBOM: reverts badge to `unscanned` (grey).
 #      c. If YES in SBOM: badge stays (a merged sweep already claimed it).
 #   3. Commits revocations directly to `docs/badges/` on `main`.
+#
+# FIX: Added paths filter so the workflow only fires when skill files
+#      were actually touched, avoiding wasted runner minutes on
+#      docs/README/config-only PRs.
 
 on:
   pull_request:
     types: [closed]
+    paths:
+      - 'skills/**/*.md'
 
-
-# Serialize runs of THIS workflow on the same ref so concurrent
-# scheduled triggers do not race when pushing back to main.
-# Distinct workflow classes (graph, exports, badges, …) intentionally
-# use different groups so they can still run in parallel.
 concurrency:
   group: revoke-phantom-badges-${{ github.ref }}
   cancel-in-progress: false
@@ -155,7 +156,7 @@ jobs:
 
           for attempt in 1 2 3; do
             git push origin main && {
-              echo "✅ Phantom revocation pushed to main (attempt ${attempt})."
+              echo "\u2705 Phantom revocation pushed to main (attempt ${attempt})."
               exit 0
             }
             echo "Push failed (attempt ${attempt}/3). Rebasing and retrying..."
