@@ -29,7 +29,8 @@
         "13-creative",
         "14-security",
         "15-orchestration",
-        "16-domain-specific"
+        "16-domain-specific",
+        "17-infrastructure"
       ]
     },
     "level": {
@@ -41,6 +42,11 @@
       "type": "string",
       "description": "How stable/mature this skill is",
       "enum": ["stable", "experimental", "deprecated"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Skill document version, e.g. 'v1', 'v2', 'v3'",
+      "pattern": "^v[0-9]+$"
     },
     "added": {
       "type": "string",

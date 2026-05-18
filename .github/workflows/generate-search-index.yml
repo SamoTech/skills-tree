@@ -1,0 +1,110 @@
+name: Generate Search Index
+
+# Builds meta/search-index.json after every push to main that touches skill files.
+# The index is a flat JSON array of objects, one per skill, containing all
+# frontmatter fields plus a path field. Enables fast client-side search on the
+# docs site without a server.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/*.md'
+  workflow_dispatch:
+
+concurrency:
+  group: generate-search-index
+  cancel-in-progress: false
+
+jobs:
+  build-index:
+    name: Build meta/search-index.json
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install PyYAML==6.0.2
+
+      - name: Build search index
+        run: |
+          python3 - <<'PYEOF'
+          import yaml, json
+          from pathlib import Path
+
+          index = []
+
+          for f in sorted(Path("skills").rglob("*.md")):
+              if "README" in f.name:
+                  continue
+              text = f.read_text(encoding="utf-8", errors="ignore")
+              if not text.startswith("---"):
+                  continue
+              parts = text.split("---", 2)
+              if len(parts) < 3:
+                  continue
+              try:
+                  fm = yaml.safe_load(parts[1]) or {}
+              except Exception:
+                  continue
+              if not isinstance(fm, dict):
+                  continue
+
+              # Extract a short text snippet from the body (first non-empty paragraph)
+              body = parts[2].strip()
+              snippet = ""
+              for line in body.splitlines():
+                  line = line.strip()
+                  if line and not line.startswith("#") and not line.startswith("|") and len(line) > 20:
+                      snippet = line[:200]
+                      break
+
+              index.append({
+                  "path": str(f).replace("\\", "/"),
+                  "title": fm.get("title", f.stem),
+                  "category": fm.get("category", ""),
+                  "level": fm.get("level", ""),
+                  "stability": fm.get("stability", ""),
+                  "version": fm.get("version", "v1"),
+                  "added": fm.get("added", ""),
+                  "last_updated": fm.get("last_updated", ""),
+                  "description": fm.get("description", ""),
+                  "snippet": snippet,
+                  "related_skills": fm.get("related_skills", []),
+                  "tags": fm.get("tags", []),
+              })
+
+          out = Path("meta/search-index.json")
+          out.write_text(json.dumps(index, indent=2, ensure_ascii=False))
+          print(f"Search index built: {len(index)} skills -> {out}")
+          PYEOF
+
+      - name: Commit search index (with retry-rebase)
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add meta/search-index.json
+          git diff --staged --quiet && echo "Index unchanged." && exit 0
+          git commit -m "chore(search-index): rebuild from skills/ [skip ci]"
+
+          for attempt in 1 2 3; do
+            git push origin main && {
+              echo "Search index pushed (attempt ${attempt})."
+              exit 0
+            }
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: All 3 push attempts failed."
+          exit 1

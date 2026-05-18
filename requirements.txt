@@ -1,5 +1,9 @@
-# Runtime dependencies for GitHub Actions workflows
-# Pinned to exact versions for reproducibility; bump when upstream releases security patches.
-# Versions sourced from meta/skills-sbom.cdx.json (last updated 2026-04-14).
+# Runtime dependencies for GitHub Actions workflows.
+# ALL packages pinned to exact versions for reproducibility.
+# Bump via Dependabot (weekly) or manually after testing.
+# Last verified: 2026-05-18
 httpx==0.28.1
 PyYAML==6.0.2
+PyGithub==2.4.0
+python-dateutil==2.9.0
+jsonschema==4.23.0

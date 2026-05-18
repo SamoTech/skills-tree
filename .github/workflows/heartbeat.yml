@@ -1,0 +1,36 @@
+# Heartbeat — minimal weekly ping to confirm the repository and its workflows
+# are still operational. Posts a single GitHub Actions annotation. If this
+# workflow ever stops appearing in the Actions tab, something is broken.
+#
+# Previously lived in meta/heartbeat.yml (wrong location — GitHub Actions only
+# reads workflows from .github/workflows/). Moved here so it actually runs.
+
+name: Heartbeat
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Every Monday at 06:00 UTC
+  workflow_dispatch:        # Allow manual trigger
+
+jobs:
+  ping:
+    name: Repository heartbeat
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Count skills
+        run: |
+          TOTAL=$(find skills -name '*.md' | grep -v README | wc -l | tr -d ' ')
+          CATS=$(find skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
+          echo "\u2665 Heartbeat OK"
+          echo "  Skills : ${TOTAL}"
+          echo "  Categories: ${CATS}"
+          echo "  Commit : ${{ github.sha }}"
+          echo "  Run    : ${{ github.run_number }}"
