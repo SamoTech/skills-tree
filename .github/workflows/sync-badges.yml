@@ -13,6 +13,13 @@ name: Sync Badge Metadata
 #   3. Generates badge JSONs and commits them to docs/badges/ on `main`.
 #   4. GitHub Pages (served from /docs on main) picks them up automatically.
 #
+# FORCE_FULL_SYNC behaviour:
+#   When force_full_sync is true, ALL badge JSONs are regenerated from
+#   scratch — including badges that would normally be protected (CVE/critical
+#   and Green/verified). This is intentional: use it only after a manual
+#   audit confirms the SBOM and frontmatter are correct.
+#   It does NOT skip any badge, regardless of existing color or message.
+#
 # COLLISION SAFETY: push step uses retry-rebase loop (max 3 attempts).
 
 on:
@@ -24,15 +31,12 @@ on:
   workflow_dispatch:
     inputs:
       force_full_sync:
-        description: 'Regenerate ALL badge JSONs (ignore Green/CVE protection — use with care)'
+        description: 'Regenerate ALL badge JSONs including CVE/Green protected ones (use only after manual SBOM audit)'
         type: boolean
         default: false
 
-
 # Serialize runs of THIS workflow on the same ref so concurrent
 # scheduled triggers do not race when pushing back to main.
-# Distinct workflow classes (graph, exports, badges, …) intentionally
-# use different groups so they can still run in parallel.
 concurrency:
   group: sync-badges-${{ github.ref }}
   cancel-in-progress: false
@@ -58,12 +62,15 @@ jobs:
           python-version: '3.12'
 
       - name: Generate updated badge JSONs from main state
+        env:
+          FORCE_FULL: ${{ inputs.force_full_sync == true && 'true' || 'false' }}
         run: |
-          FORCE_FULL="${{ inputs.force_full_sync || 'false' }}"
           python3 - <<PYEOF
           import json, re, os
           from pathlib import Path
 
+          # force_full_sync == true means: regenerate ALL badges, including
+          # CVE/critical and Green/verified ones. No badge is protected.
           FORCE_FULL   = os.environ.get("FORCE_FULL", "false") == "true"
           BADGE_DIR    = Path("docs/badges")
           BADGE_DIR.mkdir(parents=True, exist_ok=True)
@@ -125,7 +132,7 @@ jobs:
                   if "CVE" in existing.get("message", "") or existing.get("color") == "critical":
                       skipped += 1
                       continue
-                  # FIX: Never downgrade Green (verified) badges to Yellow/grey
+                  # Never downgrade Green (verified) badges to yellow/grey
                   if existing.get("color") == "22c55e":
                       skipped += 1
                       continue
@@ -151,10 +158,9 @@ jobs:
               badge_file.write_text(json.dumps(badge, indent=2))
               updated += 1
 
-          print(f"Generated {updated} badge JSON updates in docs/badges/. Skipped {skipped} protected.")
+          mode = "FORCE (all badges regenerated)" if FORCE_FULL else "normal (protected badges skipped)"
+          print(f"[{mode}] Generated {updated} badge JSON updates. Skipped {skipped} protected.")
           PYEOF
-        env:
-          FORCE_FULL: ${{ inputs.force_full_sync || 'false' }}
 
       - name: Commit changed badges to main (with retry-rebase)
         run: |
@@ -172,7 +178,12 @@ jobs:
               exit 0
             }
             echo "Push failed (attempt ${attempt}/3). Rebasing..."
-            git pull --rebase origin main
+            git fetch origin main
+            git rebase origin/main
+            # During rebase, keep OUR local badge changes (theirs = already-pushed commits)
+            git diff --name-only --diff-filter=U | xargs -r git checkout --theirs
+            git add docs/badges/ || true
+            git rebase --continue --no-edit || true
             sleep $((attempt * 2))
           done
 

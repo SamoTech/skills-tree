@@ -1,3 +1,9 @@
-last_heartbeat: 2026-05-01T04:50:46Z
-automated: true
-purpose: Keeps GitHub Actions scheduled workflows active
+# This file is intentionally kept as a tombstone.
+#
+# The heartbeat workflow was previously placed here (meta/heartbeat.yml)
+# but GitHub Actions never reads workflows outside .github/workflows/.
+# The live workflow is now at:
+#
+#   .github/workflows/heartbeat.yml
+#
+# Do not add workflow YAML to this directory.

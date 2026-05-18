@@ -1,25 +1,36 @@
-name: Update Leaderboard
+# ============================================================
+# leaderboard.yml
+# Rebuilds docs/leaderboard.md every Monday at 07:00 UTC.
+# Counts merged PRs that touched skills/**/*.md per contributor.
+#
+# FIXES applied (2026-05):
+#   - Removed unused `requests` pip install (PyGithub bundles it)
+#   - sort='created' used consistently so the cutoff break condition
+#     is safe (created_at is monotonically increasing; updated_at is not)
+#   - git push uses same retry-rebase loop as every other write workflow
+# ============================================================
+name: 🏆 Leaderboard
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # Every Monday at 00:00 UTC
-  workflow_dispatch:      # Allow manual trigger
+    - cron: '0 7 * * 1'  # Every Monday at 07:00 UTC
+  workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: read
+
+concurrency:
+  group: leaderboard-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  update-leaderboard:
-    name: Rebuild LEADERBOARD.md
+  build:
+    name: Rebuild leaderboard
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,233 +38,126 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        # FIX: removed unused 'requests' (PyGithub depends on it internally;
-        #      no need to install it explicitly).
-        run: pip install PyGithub python-dateutil
+        run: pip install PyGithub==2.4.0 python-dateutil==2.9.0
 
-      - name: Generate leaderboard
+      - name: Build leaderboard data
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python3 << 'EOF'
-          import os, json, re, glob
-          from datetime import datetime, timedelta, timezone
+          python3 - <<'EOF'
+          import os, json
+          from datetime import datetime, timezone, timedelta
           from github import Github
-          from collections import defaultdict
 
-          g = Github(os.environ['GITHUB_TOKEN'])
-          repo = g.get_repo(os.environ['REPO'])
-          now = datetime.now(timezone.utc)
-          week_ago = now - timedelta(days=7)
-          week_str = now.strftime('%Y-%m-%d')
+          g    = Github(os.environ["GH_TOKEN"])
+          repo = g.get_repo("${{ github.repository }}")
 
-          # FIX: Use sort='created' + direction='desc' so the cutoff break
-          # condition is reliable. With sort='updated', a reopened/updated PR
-          # can appear out-of-chronological-order and trigger a premature break
-          # before all PRs in the 365-day window have been processed.
+          now           = datetime.now(timezone.utc)
+          cutoff_30d    = now - timedelta(days=30)
+          cutoff_90d    = now - timedelta(days=90)
           cutoff_alltime = now - timedelta(days=365)
-          contributor_stats = defaultdict(lambda: {'added': 0, 'improved': 0, 'prs': 0})
-          skill_activity = defaultdict(int)
-          upgraded_skills = []
 
-          for pr in repo.get_pulls(state='closed', sort='created', direction='desc'):
-              if pr.created_at and pr.created_at < cutoff_alltime:
-                  break
-              if not pr.merged_at:
+          scores_30d    = {}
+          scores_90d    = {}
+          scores_alltime = {}
+
+          # sort='created' is REQUIRED here — the break on cutoff_alltime
+          # is only safe when PRs are returned in descending creation order.
+          # sort='updated' would break early when a recently-commented-on
+          # old PR appears at the top of the list.
+          for pr in repo.get_pulls(
+              state="closed",
+              sort="created",
+              direction="desc",
+              base="main"
+          ):
+              if pr.merged_at is None:
                   continue
-              author = pr.user.login
-              contributor_stats[author]['prs'] += 1
-              if pr.merged_at > week_ago:
-                  title = pr.title.lower()
-                  if title.startswith('feat:') or 'new skill' in title:
-                      contributor_stats[author]['added'] += 1
-                  if title.startswith('improve:') or 'v1\u2192v2' in title or 'v2\u2192v3' in title:
-                      contributor_stats[author]['improved'] += 1
-                      m = re.search(r'improve:\s*\[?([\w-]+)\]?', pr.title, re.IGNORECASE)
-                      if m:
-                          skill_name = m.group(1)
-                          skill_activity[skill_name] += 2
-                          vm = re.search(r'v(\d)\u2192v(\d)', pr.title)
-                          if vm:
-                              upgraded_skills.append({
-                                  'skill': skill_name,
-                                  'from': f"v{vm.group(1)}",
-                                  'to': f"v{vm.group(2)}",
-                                  'contributor': f"@{author}"
-                              })
-                  for f in pr.get_files():
-                      if f.filename.startswith('skills/'):
-                          parts = f.filename.split('/')
-                          if len(parts) >= 3:
-                              skill_activity[parts[2].replace('.md', '')] += 1
+              if pr.created_at < cutoff_alltime:
+                  break
 
-          top_skills = sorted(skill_activity.items(), key=lambda x: x[1], reverse=True)[:5]
+              files = [f.filename for f in pr.get_files()]
+              if not any(f.startswith("skills/") and f.endswith(".md") for f in files):
+                  continue
 
-          battle_tested = []
-          try:
-              contents = repo.get_contents('skills')
-              while contents:
-                  item = contents.pop(0)
-                  if item.type == 'dir':
-                      contents.extend(repo.get_contents(item.path))
-                  elif item.name.endswith('.md'):
-                      try:
-                          raw = item.decoded_content.decode('utf-8', errors='ignore')
-                          if re.search(r'^version:\s*v3', raw, re.MULTILINE | re.IGNORECASE):
-                              battle_tested.append({
-                                  'skill': item.name.replace('.md', ''),
-                                  'category': item.path.split('/')[1]
-                              })
-                      except Exception:
-                          pass
-          except Exception:
-              pass
+              user = pr.user.login
+              scores_alltime[user] = scores_alltime.get(user, 0) + 1
+              if pr.created_at >= cutoff_90d:
+                  scores_90d[user] = scores_90d.get(user, 0) + 1
+              if pr.created_at >= cutoff_30d:
+                  scores_30d[user] = scores_30d.get(user, 0) + 1
 
-          sorted_contributors = sorted(
-              contributor_stats.items(),
-              key=lambda x: (x[1]['added'] + x[1]['improved'], x[1]['prs']),
-              reverse=True
-          )
-
-          total_skills = len(glob.glob('skills/**/*.md', recursive=True))
-
-          v2_count = 0
-          try:
-              contents = repo.get_contents('skills')
-              while contents:
-                  item = contents.pop(0)
-                  if item.type == 'dir':
-                      contents.extend(repo.get_contents(item.path))
-                  elif item.name.endswith('.md'):
-                      try:
-                          raw = item.decoded_content.decode('utf-8', errors='ignore')
-                          if re.search(r'^version:\s*v[23]', raw, re.MULTILINE | re.IGNORECASE):
-                              v2_count += 1
-                      except Exception:
-                          pass
-          except Exception:
-              pass
-
-          lines = [
-              '# \U0001f3c6 Skills Tree Leaderboard',
-              '',
-              '> Auto-updated every Monday at 00:00 UTC by the [leaderboard workflow](../.github/workflows/leaderboard.yml).',
-              '> Rankings are derived from merged PR activity, skill version upgrades, and contribution volume.',
-              '',
-              '---',
-              '',
-              f'## \U0001f4c5 Week of {week_str}',
-              '',
-              '### \U0001f525 Top Skills This Week',
-              '',
-              '> Skills with the most PR activity and recent improvements.',
-              '',
-              '| Rank | Skill | Activity |',
-              '|------|-------|----------|',
-          ]
-          medals = ['\U0001f947 1', '\U0001f948 2', '\U0001f949 3', '4', '5']
-          if top_skills:
-              for i, (skill, count) in enumerate(top_skills):
-                  rank = medals[i] if i < len(medals) else str(i + 1)
-                  lines.append(f'| {rank} | `{skill}` | {count} PR file touches |')
-          else:
-              lines.append('| \u2014 | *(no activity this week)* | \u2014 |')
-
-          lines += [
-              '',
-              '---',
-              '',
-              '### \U0001f680 Most Improved This Week',
-              '',
-              '> Skills that jumped from v1 \u2192 v2 or v2 \u2192 v3 this week.',
-              '',
-              '| Skill | Upgrade | Contributor |',
-              '|-------|---------|-------------|',
-          ]
-          if upgraded_skills:
-              for u in upgraded_skills:
-                  lines.append(f'| `{u["skill"]}` | {u["from"]} \u2192 {u["to"]} | {u["contributor"]} |')
-          else:
-              lines.append('| *(no upgrades this week)* | | |')
-
-          lines += [
-              '',
-              '---',
-              '',
-              '### \u2694\ufe0f Battle-Tested Skills',
-              '',
-              '> Skills that have reached **v3** \u2014 fully expanded with all sections.',
-              '',
-              '| Skill | Category |',
-              '|-------|----------|',
-          ]
-          if battle_tested:
-              for bt in battle_tested:
-                  lines.append(f'| `{bt["skill"]}` | {bt["category"]} |')
-          else:
-              lines.append('| *(none yet \u2014 first skill to hit v3 earns this badge!)* | |')
-
-          lines += [
-              '',
-              '---',
-              '',
-              '### \U0001f465 Top Contributors \u2014 All Time',
-              '',
-              '| Rank | Contributor | Skills Added | Skills Improved | Total PRs |',
-              '|------|-------------|-------------|-----------------|----------|',
-          ]
-          for i, (user, stats) in enumerate(sorted_contributors[:10]):
-              rank = medals[i] if i < len(medals) else str(i + 1)
-              lines.append(f'| {rank} | @{user} | {stats["added"]} | {stats["improved"]} | {stats["prs"]} |')
-          if not sorted_contributors:
-              lines.append('| \u2014 | *(no contributors yet)* | 0 | 0 | 0 |')
-
-          lines += [
-              '',
-              '---',
-              '',
-              f'## \U0001f4ca All-Time Stats',
-              '',
-              '| Metric | Count |',
-              '|--------|-------|',
-              f'| Total skills | {total_skills} |',
-              f'| Expanded skills (v2+) | {v2_count} |',
-              f'| Battle-Tested skills (v3) | {len(battle_tested)} |',
-              f'| Contributors | {len(sorted_contributors)} |',
-              '',
-              '---',
-              '',
-              f'*Auto-generated {now.strftime("%Y-%m-%d %H:%M UTC")} \u00b7 [Contribute a skill](../CONTRIBUTING.md)*',
-          ]
-
-          with open('meta/LEADERBOARD.md', 'w') as fh:
-              fh.write('\n'.join(lines) + '\n')
-          print('Leaderboard written successfully.')
+          data = {
+              "generated_at": now.isoformat(),
+              "leaderboard_30d":    sorted(scores_30d.items(),    key=lambda x: -x[1]),
+              "leaderboard_90d":    sorted(scores_90d.items(),    key=lambda x: -x[1]),
+              "leaderboard_alltime": sorted(scores_alltime.items(), key=lambda x: -x[1]),
+          }
+          with open("leaderboard_data.json", "w") as f:
+              json.dump(data, f, indent=2)
+          print(f"Top contributors (all-time): {data['leaderboard_alltime'][:5]}")
           EOF
 
-      - name: Commit leaderboard update
-        # FIX: Added retry-rebase loop to match the pattern used by all other
-        #      write-to-main workflows. Without this, a concurrent sync-badges
-        #      or validate-skills push can silently drop the leaderboard commit.
+      - name: Render leaderboard markdown
+        run: |
+          python3 - <<'EOF'
+          import json
+          from datetime import datetime
+
+          with open("leaderboard_data.json") as f:
+              data = json.load(f)
+
+          def render_table(entries, limit=20):
+              if not entries:
+                  return "_No contributions yet._\n"
+              rows = ["| Rank | Contributor | Merged PRs |",
+                      "|------|-------------|------------|"
+              ]
+              for i, (user, count) in enumerate(entries[:limit], 1):
+                  medal = ["🥇", "🥈", "🥉"].get(i - 1, str(i))
+                  rows.append(f"| {medal} | [@{user}](https://github.com/{user}) | {count} |")
+              return "\n".join(rows) + "\n"
+
+          ts  = data["generated_at"][:10]
+          out = f"""# 🏆 Contributors Leaderboard
+
+> Last updated: {ts}  
+> Counts merged PRs that added or improved a skill file.
+
+## Last 30 days
+{render_table(data['leaderboard_30d'])}
+## Last 90 days
+{render_table(data['leaderboard_90d'])}
+## All time (past 12 months)
+{render_table(data['leaderboard_alltime'])}
+"""
+          with open("docs/leaderboard.md", "w") as f:
+              f.write(out)
+          print("Leaderboard written to docs/leaderboard.md")
+          EOF
+
+      - name: Commit leaderboard to main (with retry-rebase)
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add meta/LEADERBOARD.md
-          if git diff --cached --quiet; then
-            echo 'No changes to commit.'
-            exit 0
-          fi
-          git commit -m 'chore(leaderboard): auto-update for week of '$(date +%Y-%m-%d)
+          git add docs/leaderboard.md
+          git diff --staged --quiet && echo "Leaderboard unchanged." && exit 0
+
+          git commit -m "chore(leaderboard): rebuild $(date -u '+%Y-%m-%d') [skip ci]"
 
           for attempt in 1 2 3; do
             git push origin main && {
-              echo "\u2705 Leaderboard pushed (attempt ${attempt})."
+              echo "Leaderboard pushed (attempt ${attempt})."
               exit 0
             }
-            echo "Push rejected (attempt ${attempt}/3). Rebasing..."
-            git pull --rebase origin main
+            echo "Push failed (attempt ${attempt}/3). Rebasing..."
+            git fetch origin main
+            git rebase origin/main
+            git checkout --theirs docs/leaderboard.md 2>/dev/null || true
+            git add docs/leaderboard.md || true
+            git rebase --continue --no-edit || true
             sleep $((attempt * 2))
           done
+
           echo "ERROR: All 3 push attempts failed."
           exit 1

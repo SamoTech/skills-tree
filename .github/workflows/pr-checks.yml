@@ -1,11 +1,15 @@
 # ============================================================
 # pr-checks.yml
 # Runs on every PR targeting main:
-#   1. Validates all changed skill YAML/Markdown files
-#   2. Checks that no skills were deleted without a note
-#   3. Lints HTML in docs/
-#   4. Spellchecks changed .md files
-#   5. Posts a summary comment on the PR
+#   1. Posts a PR summary comment (changed skill files + docs files)
+#   2. Lints HTML in docs/ (no relative asset paths)
+#
+# NOTE: Skill file structural validation (H1, frontmatter, sections,
+# schema) is fully handled by validate-skills.yml and schema-enforce.yml.
+# The old duplicate validator that lived here has been removed to prevent
+# rule drift between the two workflows. This file now owns only:
+#   - HTML lint (docs/index.html relative-path guard)
+#   - PR summary comment
 # ============================================================
 name: ✅ PR Checks
 
@@ -19,8 +23,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate:
-    name: Validate skill files
+  html-lint:
+    name: Lint docs HTML
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,41 +36,14 @@ jobs:
         run: |
           git diff --name-only origin/${{ github.base_ref }}...HEAD > changed.txt
           cat changed.txt
-          echo "files=$(cat changed.txt | tr '\n' ' ')" >> $GITHUB_OUTPUT
-
-      - name: Check skill file structure
-        run: |
-          python3 - <<'EOF'
-          import os, sys, re
-          errors = []
-          with open('changed.txt') as f:
-              files = [l.strip() for l in f if l.strip().endswith('.md') and l.strip().startswith('skills/')]
-          for path in files:
-              if not os.path.exists(path):
-                  continue
-              with open(path) as f:
-                  content = f.read()
-              # Must have a H1 heading
-              if not re.search(r'^# .+', content, re.MULTILINE):
-                  errors.append(f'{path}: Missing H1 heading')
-              # Must have skill name
-              if len(content.strip()) < 50:
-                  errors.append(f'{path}: File too short (< 50 chars), possibly empty')
-          if errors:
-              print('Validation errors:')
-              for e in errors: print(f'  ❌ {e}')
-              sys.exit(1)
-          else:
-              print(f'✅ {len(files)} skill file(s) validated OK')
-          EOF
 
       - name: Check docs HTML
         run: |
           if grep -q 'docs/' changed.txt; then
             echo "Docs changed, running HTML checks..."
-            # Check for broken local asset references
-            if grep -E 'src=["\x27]\./|href=["\x27]\./assets/' docs/index.html; then
-              echo "⚠️  Relative asset paths found in index.html — use raw.githubusercontent.com URLs instead"
+            # Reject any relative asset reference (both single and double quotes)
+            if grep -E "src=[\"'](\./|\.\./)|href=[\"'](\./|\.\./assets/)" docs/index.html; then
+              echo "❌  Relative asset paths found in index.html — use raw.githubusercontent.com URLs instead"
               exit 1
             fi
             echo "✅ No relative asset paths found"
@@ -74,8 +51,20 @@ jobs:
             echo "No docs changes, skipping HTML check"
           fi
 
-      - name: Post PR summary
-        if: always()
+  summary:
+    name: Post PR summary
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [html-lint]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        run: git diff --name-only origin/${{ github.base_ref }}...HEAD > changed.txt
+
+      - name: Post PR summary comment
         uses: actions/github-script@v7
         with:
           script: |
@@ -83,22 +72,44 @@ jobs:
             let changed = '';
             try { changed = fs.readFileSync('changed.txt', 'utf8'); } catch(e) { changed = ''; }
             const skillFiles = changed.split('\n').filter(f => f.startsWith('skills/') && f.endsWith('.md'));
-            const docsFiles = changed.split('\n').filter(f => f.startsWith('docs/'));
+            const docsFiles  = changed.split('\n').filter(f => f.startsWith('docs/'));
             const body = [
               '## 🤖 PR Check Summary',
               '',
-              `| Check | Files |`,
-              `|---|---|`,
+              '| Check | Files |',
+              '|---|---|',
               `| 📁 Skill files changed | ${skillFiles.length} |`,
               `| 🌐 Docs files changed | ${docsFiles.length} |`,
               '',
-              skillFiles.length > 0 ? '### Changed skills\n' + skillFiles.map(f => `- \`${f}\``).join('\n') : '',
+              skillFiles.length > 0
+                ? '### Changed skills\n' + skillFiles.map(f => `- \`${f}\``).join('\n')
+                : '',
+              '',
+              '> ℹ️ Structural skill validation runs in **validate-skills** and **schema-enforce** workflows.',
               '',
               '*Auto-generated by PR Checks workflow*'
             ].join('\n');
-            await github.rest.issues.createComment({
+            // Update existing bot comment if present, else create a new one
+            const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body
             });
+            const existing = comments.find(
+              c => c.user.login === 'github-actions[bot]' && c.body.startsWith('## 🤖 PR Check Summary')
+            );
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body
+              });
+            }

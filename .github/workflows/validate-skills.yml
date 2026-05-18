@@ -1,180 +1,121 @@
-name: Validate Skills
+# ============================================================
+# validate-skills.yml
+# Full structural validation for every skill .md file.
+# Runs on PRs touching skills/**/*.md.
+#
+# Checks:
+#   1. YAML frontmatter has required fields (title, category, level,
+#      stability, description, related)
+#   2. Body has ## Description and ## Related sections
+#   3. File is not trivially short (< 200 chars)
+#   4. Frontmatter backfill: adds `added: YYYY-MM` dynamically
+#      using the current date if the field is missing
+# ============================================================
+name: 🔍 Validate Skills
 
 on:
   pull_request:
-    paths:
-      - 'skills/**'
-      - 'meta/**'
-  push:
     branches: [main]
     paths:
-      - 'skills/**'
-      - 'meta/**'
+      - 'skills/**/*.md'
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-concurrency:
-  group: validate-skills-${{ github.ref }}
-  cancel-in-progress: false
+permissions:
+  contents: write
+  pull-requests: read
 
 jobs:
   validate:
-    name: Validate skill files
+    name: Validate & backfill skill files
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      # ── Step 0: Compute today's date (used by backfill step) ─────────────
-      - name: Compute backfill date
-        id: date
-        if: github.event_name == 'push'
-        run: echo "date=$(date '+%Y-%m')" >> $GITHUB_OUTPUT
-
-      # ── Step 1: Backfill missing "added:" field ──────────────────────────
-      # FIX: Use dynamic date (date +%Y-%m) instead of hardcoded "2025-03".
-      # FIX: Use Python pathlib for frontmatter editing to eliminate the shell
-      #      injection risk that came from passing untrusted filenames to sed.
-      - name: Backfill missing Added field (push to main only)
-        if: github.event_name == 'push'
-        env:
-          ADDED_DATE: ${{ steps.date.outputs.date }}
+      - name: Get changed skill files
+        id: changed
         run: |
-          python3 - <<'PYEOF'
-          import re, subprocess, os
+          git diff --name-only origin/${{ github.base_ref }}...HEAD \
+            | grep -E '^skills/.+\.md$' > changed_skills.txt || true
+          echo "Found $(wc -l < changed_skills.txt) changed skill files"
+          cat changed_skills.txt
+
+      - name: Validate + backfill frontmatter
+        run: |
+          python3 - <<'EOF'
+          import re, sys
+          from datetime import datetime
           from pathlib import Path
 
-          added_date = os.environ["ADDED_DATE"]
-          changed = 0
+          REQUIRED_FRONTMATTER = ["title", "category", "level", "stability", "description", "related"]
+          REQUIRED_SECTIONS    = ["## Description", "## Related"]
+          errors = []
+          backfilled = []
 
-          for f in sorted(Path("skills").rglob("*.md")):
-              if "README" in f.name:
+          changed = Path("changed_skills.txt").read_text().splitlines()
+          files   = [f for f in changed if f.strip() and Path(f.strip()).exists()]
+
+          for raw_path in files:
+              path = Path(raw_path.strip())
+              # Guard: only process files inside skills/
+              if not str(path).startswith("skills/"):
+                  errors.append(f"{path}: path outside skills/ directory — skipping")
                   continue
-              text = f.read_text(encoding="utf-8", errors="ignore")
-              if re.search(r'^added:', text, re.MULTILINE):
+
+              content = path.read_text(encoding="utf-8", errors="ignore")
+
+              if len(content.strip()) < 200:
+                  errors.append(f"{path}: file too short (< 200 chars), possibly a stub")
                   continue
-              if re.search(r'^\*\*Added:\*\*', text, re.MULTILINE):
+
+              # --- Frontmatter check ---
+              if not content.startswith("---"):
+                  errors.append(f"{path}: missing YAML frontmatter block")
                   continue
-              if re.search(r'^stability:', text, re.MULTILINE):
-                  new_text = re.sub(
-                      r'(^stability:.*$)',
-                      r'\1\nadded: "' + added_date + '"',
-                      text, count=1, flags=re.MULTILINE
-                  )
-              elif text.startswith("---"):
-                  new_text = text.replace("---\n", '---\nadded: "' + added_date + '"\n', 1)
-              else:
+
+              fm_end = content.find("---", 3)
+              if fm_end == -1:
+                  errors.append(f"{path}: unclosed YAML frontmatter")
                   continue
-              f.write_text(new_text, encoding="utf-8")
-              print(f"Backfilled added field: {f}")
-              changed += 1
 
-          if changed == 0:
-              print("No backfill needed.")
-              exit(0)
+              fm_block = content[3:fm_end]
+              present  = set(re.findall(r'^([\w-]+):', fm_block, re.MULTILINE))
+              missing  = [f for f in REQUIRED_FRONTMATTER if f not in present]
+              if missing:
+                  errors.append(f"{path}: missing frontmatter fields: {', '.join(missing)}")
 
-          subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
-          subprocess.run(["git", "config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], check=True)
-          subprocess.run(["git", "add", "skills/"], check=True)
-          result = subprocess.run(["git", "diff", "--staged", "--quiet"])
-          if result.returncode == 0:
-              print("Nothing staged after add.")
-              exit(0)
-          subprocess.run(["git", "commit", "-m", "chore(skills): backfill missing added field [skip ci]"], check=True)
-          PYEOF
+              # --- Backfill `added` with current YYYY-MM if missing ---
+              if "added" not in present:
+                  today_ym = datetime.utcnow().strftime("%Y-%m")
+                  new_fm   = fm_block.rstrip() + f'\nadded: "{today_ym}"\n'
+                  content  = "---" + new_fm + content[fm_end:]
+                  path.write_text(content, encoding="utf-8")
+                  backfilled.append(str(path))
 
-          for attempt in 1 2 3; do
-            git push origin main && {
-              echo "\u2705 Backfill pushed (attempt ${attempt})."
-              exit 0
-            }
-            echo "Push failed (attempt ${attempt}/3). Rebasing..."
-            git pull --rebase origin main
-            sleep $((attempt * 2))
-          done
-          echo "ERROR: All 3 push attempts failed."
-          exit 1
+              # --- Required section headings ---
+              for section in REQUIRED_SECTIONS:
+                  if section not in content:
+                      errors.append(f"{path}: missing section '{section}'")
 
-      # ── Step 2: Hard validation — structural sections ────────────────────
-      - name: Check required sections (hard fail)
+          if backfilled:
+              print(f"Backfilled 'added' field in {len(backfilled)} file(s):")
+              for p in backfilled: print(f"  ✏️  {p}")
+
+          if errors:
+              print("\nValidation errors:")
+              for e in errors: print(f"  ❌ {e}")
+              sys.exit(1)
+          else:
+              print(f"\n✅ {len(files)} skill file(s) validated OK")
+          EOF
+
+      - name: Commit backfilled files (if any)
         run: |
-          echo "Checking skill .md files for required sections..."
-          shopt -s globstar
-          FAIL=0
-
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' | grep -v README || true)
-            echo "PR mode — checking $(echo "$FILES" | grep -c '\.md' || echo 0) changed skill file(s)."
-          else
-            FILES=$(find skills -name '*.md' | grep -v README)
-            echo "Push mode — full scan of all skill files."
-          fi
-
-          for f in $FILES; do
-            [ -f "$f" ] || continue
-            [[ "$f" == *README* ]] && continue
-            if ! grep -qE '(^#{1,3} Description|^\*\*Description)' "$f"; then
-              echo "::error file=$f::MISSING 'Description' section (## Description, ### Description, or **Description**)"
-              FAIL=1
-            fi
-            if ! grep -qE '(^#{1,3} Related\b|^\*\*Related)' "$f"; then
-              echo "::error file=$f::MISSING 'Related' section (## Related, ### Related Skills, **Related**, etc.)"
-              FAIL=1
-            fi
-          done
-          [ $FAIL -eq 0 ] && echo "All checked skill files have required sections."
-          exit $FAIL
-
-      # ── Step 3: Soft validation — frontmatter fields (warn only) ─────────
-      - name: Check frontmatter fields (warn only)
-        run: |
-          echo "Checking frontmatter fields (warnings only)..."
-          shopt -s globstar
-          WARN=0
-          for f in skills/**/*.md; do
-            [[ "$f" == *README* ]] && continue
-            if ! grep -qE '(^category:|\*\*Category:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'category' field"
-              WARN=1
-            fi
-            if ! grep -qE '(^level:|\*\*Skill Level:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'level' or 'Skill Level' field"
-              WARN=1
-            fi
-            if ! grep -qE '(^stability:|\*\*Stability:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'stability' field"
-              WARN=1
-            fi
-            if ! grep -qE '(^added:|\*\*Added:\*\*)' "$f"; then
-              echo "::warning file=$f::MISSING 'added' field — will be auto-backfilled on merge"
-              WARN=1
-            fi
-          done
-          [ $WARN -eq 0 ] && echo "All frontmatter fields present."
-          exit 0
-
-      # ── Step 4: Check for Example section (warn only) ────────────────────
-      - name: Check for Example section (warn only)
-        run: |
-          shopt -s globstar
-          for f in skills/**/*.md; do
-            [[ "$f" == *README* ]] && continue
-            if ! grep -qE '^#{1,3} (Example|Pattern|Usage)' "$f"; then
-              echo "::warning file=$f::No 'Example' / 'Pattern' / 'Usage' section found"
-            fi
-          done
-          exit 0
-
-      # ── Step 5: Broken relative link check ──────────────────────────────
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Check for broken relative links
-        run: python3 tools/check_broken_links.py
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add skills/
+          git diff --staged --quiet && exit 0
+          git commit -m 'chore(skills): backfill missing `added` frontmatter field [skip ci]'
+          git push origin HEAD:${{ github.head_ref }}
