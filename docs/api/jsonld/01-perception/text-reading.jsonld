@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/text-reading.md",
   "name": "Text Reading",
   "headline": "Text Reading",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-text-reading.json)",
+  "description": "Read and pre-process plain text inputs for AI agent consumption.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/text-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,18 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T08:32:15Z",
+  "dateModified": "2026-05-18T12:28:56Z",
   "skillId": "text-reading",
-  "skillVersion": "v2",
+  "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Description",
-    "Core Operations",
-    "Implementation",
-    "Chunking Strategy Guide",
-    "Related Skills"
+    "Inputs",
+    "Outputs",
+    "Example",
+    "Frameworks",
+    "Dependencies",
+    "Failure Modes",
+    "Related",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "text, reading, skills tree, perception, AI agent, LLM skill",
+  "keywords": "skills tree, AI agent, LLM skill, perception, reading, text",
   "about": {
     "@type": "Thing",
     "name": "Text Reading",

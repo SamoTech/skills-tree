@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/pdf-parsing.md",
   "name": "PDF Parsing",
   "headline": "PDF Parsing",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-pdf-parsing.json)",
+  "description": "Extract text, tables, and metadata from PDF files in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/pdf-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,10 +52,10 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T08:32:15Z",
+  "dateModified": "2026-05-18T12:28:56Z",
   "skillId": "pdf-parsing",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
@@ -63,19 +63,20 @@
     "Inputs",
     "Outputs",
     "Example",
-    "Frameworks & Models",
-    "Notes",
-    "Related Skills",
+    "Frameworks",
+    "Dependencies",
+    "Failure Modes",
+    "Related",
     "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "parsing, pdf, skills tree, perception, AI agent, LLM skill",
+  "keywords": "skills tree, pdf, parsing, AI agent, LLM skill, perception",
   "about": {
     "@type": "Thing",
     "name": "PDF Parsing",

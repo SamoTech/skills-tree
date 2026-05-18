@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-crawling.md",
   "name": "Web Crawling",
   "headline": "Web Crawling",
-  "description": "Apply web crawling in AI agent workflows.",
+  "description": "Crawl and scrape web pages systematically in AI agent workflows.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-crawling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,27 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T08:32:15Z",
+  "dateModified": "2026-05-18T12:28:56Z",
   "skillId": "web-crawling",
   "skillVersion": null,
-  "skillLevel": "advanced",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs",
+    "Outputs",
+    "Example",
+    "Frameworks",
+    "Dependencies",
+    "Failure Modes",
+    "Related",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Advanced",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
