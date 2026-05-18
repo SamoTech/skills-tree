@@ -5,7 +5,7 @@
 
 ---
 
-## 📅 Week of 2026-05-11
+## 📅 Week of 2026-05-18
 
 ### 🔥 Top Skills This Week
 
@@ -84,4 +84,4 @@
 
 ---
 
-*Auto-generated 2026-05-11 02:14 UTC · [Contribute a skill](../CONTRIBUTING.md)*
+*Auto-generated 2026-05-18 02:32 UTC · [Contribute a skill](../CONTRIBUTING.md)*
