@@ -5,26 +5,26 @@
 ## Summary
 
 - **Total skill files:** 360
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 47
-- 🟡 **Enriched** (real description + runnable code): 0
-- ⚪ **Stub** (placeholder description or no runnable code): 313
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 50
+- 🟡 **Enriched** (real description + runnable code): 2
+- ⚪ **Stub** (placeholder description or no runnable code): 308
 - ❌ **Invalid** (frontmatter problems): 0
 
 ## Per-category breakdown
 
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
-| `01-perception` | 36 | 1 | 0 | 35 | 0 |
+| `01-perception` | 36 | 2 | 2 | 32 | 0 |
 | `02-reasoning` | 39 | 3 | 0 | 36 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
-| `06-communication` | 15 | 2 | 0 | 13 | 0 |
+| `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 32 | 5 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
 | `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
-| `11-web` | 17 | 3 | 0 | 14 | 0 |
+| `11-web` | 17 | 4 | 0 | 13 | 0 |
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
 | `13-creative` | 14 | 0 | 0 | 14 | 0 |
 | `14-security` | 13 | 4 | 0 | 9 | 0 |
@@ -35,6 +35,7 @@
 ## 🟢 Battle-tested skills (start here as a user)
 
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
+- [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
 - [`skills/02-reasoning/planning.md`](skills/02-reasoning/planning.md) — Planning
 - [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
 - [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
@@ -52,6 +53,7 @@
 - [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — Code Review
 - [`skills/05-code/dependency-auditor.md`](skills/05-code/dependency-auditor.md) — Dependency Auditor
 - [`skills/06-communication/paraphrasing.md`](skills/06-communication/paraphrasing.md) — Paraphrasing
+- [`skills/06-communication/summarization.md`](skills/06-communication/summarization.md) — Summarization
 - [`skills/06-communication/translation.md`](skills/06-communication/translation.md) — Translation
 - [`skills/07-tool-use/anthropic-api.md`](skills/07-tool-use/anthropic-api.md) — Anthropic API
 - [`skills/07-tool-use/function-calling.md`](skills/07-tool-use/function-calling.md) — Function / Tool Calling
@@ -66,6 +68,7 @@
 - [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — Reflection / Reflexion
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-Travel Debugging
 - [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — Tree of Thought (ToT)
+- [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
 - [`skills/11-web/web-search.md`](skills/11-web/web-search.md) — Web Search
@@ -84,12 +87,18 @@
 
 ## 🟡 Enriched skills (almost there — add a table or +60 lines of context)
 
-_None — every skill is either a stub or fully battle-tested._
+These skills have a real description and a runnable code example, but are missing one of: an inputs/outputs/failure-modes **table**, or **>=60 lines** of total content. The smallest possible PR upgrades them to battle-tested.
+
+### `01-perception` (2)
+
+- [`text-reading.md`](skills/01-perception/text-reading.md) — missing table or <60 lines
+- [`xml-parsing.md`](skills/01-perception/xml-parsing.md) — missing table or <60 lines
+
 ## ⚪ Stubs (good first PRs)
 
 Each entry below is a real, claimed skill that currently has no runnable example or a placeholder description. Pick one, follow [`meta/skill-template.md`](skill-template.md), and open a PR titled `improve: <skill-name> — v1→v2`.
 
-### `01-perception` (35)
+### `01-perception` (32)
 
 - [`api-response-parsing.md`](skills/01-perception/api-response-parsing.md) — description matches placeholder pattern: 'Apply api response parsing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`audio-transcription.md`](skills/01-perception/audio-transcription.md) — description matches placeholder pattern: 'Apply audio transcription in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
@@ -114,18 +123,15 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — description matches placeholder pattern: 'Apply markdown parsing in AI agent workflows'
 - [`multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — description matches placeholder pattern: 'Apply multimodal document reading in AI agent workflows'
 - [`network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — description matches placeholder pattern: 'Apply network traffic reading in AI agent workflows'
-- [`pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — description matches placeholder pattern: 'Apply pdf parsing in AI agent workflows'
 - [`screen-reading.md`](skills/01-perception/screen-reading.md) — description matches placeholder pattern: 'Apply screen reading in AI agent workflows'
 - [`sensor-reading.md`](skills/01-perception/sensor-reading.md) — description matches placeholder pattern: 'Apply sensor reading in AI agent workflows'
 - [`social-media-reading.md`](skills/01-perception/social-media-reading.md) — description matches placeholder pattern: 'Apply social media reading in AI agent workflows'
 - [`spreadsheet-reading.md`](skills/01-perception/spreadsheet-reading.md) — description matches placeholder pattern: 'Apply spreadsheet reading in AI agent workflows'
 - [`structured-data-reading.md`](skills/01-perception/structured-data-reading.md) — description matches placeholder pattern: 'Apply structured data reading in AI agent workflows'
 - [`table-extraction.md`](skills/01-perception/table-extraction.md) — description matches placeholder pattern: 'Apply table extraction in AI agent workflows'
-- [`text-reading.md`](skills/01-perception/text-reading.md) — description matches placeholder pattern: 'Apply text reading in AI agent workflows'
 - [`time-series-reading.md`](skills/01-perception/time-series-reading.md) — description matches placeholder pattern: 'Apply time series reading in AI agent workflows'
 - [`url-dom-inspection.md`](skills/01-perception/url-dom-inspection.md) — description matches placeholder pattern: 'Apply url / dom inspection in AI agent workflows'
 - [`video-understanding.md`](skills/01-perception/video-understanding.md) — description matches placeholder pattern: 'Apply video understanding in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`xml-parsing.md`](skills/01-perception/xml-parsing.md) — description matches placeholder pattern: 'Apply xml parsing in AI agent workflows'
 
 ### `02-reasoning` (36)
 
@@ -230,7 +236,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`sql-query-generation.md`](skills/05-code/sql-query-generation.md) — description matches placeholder pattern: 'Apply sql query generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`unit-test-generation.md`](skills/05-code/unit-test-generation.md) — description matches placeholder pattern: 'Apply unit test generation in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 
-### `06-communication` (13)
+### `06-communication` (12)
 
 - [`argument-construction.md`](skills/06-communication/argument-construction.md) — description matches placeholder pattern: 'Apply argument construction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`citation-attribution.md`](skills/06-communication/citation-attribution.md) — description matches placeholder pattern: 'Apply citation & attribution in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
@@ -243,7 +249,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`question-answering.md`](skills/06-communication/question-answering.md) — description matches placeholder pattern: 'Apply question answering in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`report-writing.md`](skills/06-communication/report-writing.md) — description matches placeholder pattern: 'Apply report writing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`structured-output.md`](skills/06-communication/structured-output.md) — description matches placeholder pattern: 'Apply structured output in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`summarization.md`](skills/06-communication/summarization.md) — description matches placeholder pattern: 'Apply summarization in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — description matches placeholder pattern: 'Apply tone adjustment in AI agent workflows'; no inputs/outputs/failure-modes table
 
 ### `07-tool-use` (27)
@@ -285,7 +290,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`document-layout-analysis.md`](skills/08-multimodal/document-layout-analysis.md) — description matches placeholder pattern: 'Apply document layout analysis in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`image-captioning.md`](skills/08-multimodal/image-captioning.md) — description matches placeholder pattern: 'Apply image captioning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`image-classification.md`](skills/08-multimodal/image-classification.md) — description matches placeholder pattern: 'Apply image classification in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`image-editing.md`](skills/08-multimodal/image-editing.md) — description matches placeholder pattern: 'Apply image editing in AI agent workflows'; no inputs/outputs/failure-modes table
+- [`image-editing.md`](skills/08-multimodal/image-editing.md) — description matches placeholder pattern: 'Apply image editing and generation operations in AI agent workflows'
 - [`image-generation.md`](skills/08-multimodal/image-generation.md) — description matches placeholder pattern: 'Apply image generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`object-detection.md`](skills/08-multimodal/object-detection.md) — description matches placeholder pattern: 'Apply object detection in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`text-to-speech.md`](skills/08-multimodal/text-to-speech.md) — description matches placeholder pattern: 'Apply text to speech in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -334,7 +339,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — description matches placeholder pattern: 'Apply virtual machine interaction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`window-management.md`](skills/10-computer-use/window-management.md) — description matches placeholder pattern: 'Apply window management in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `11-web` (14)
+### `11-web` (13)
 
 - [`api-discovery.md`](skills/11-web/api-discovery.md) — description matches placeholder pattern: 'Apply api endpoint discovery in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`browser-navigation.md`](skills/11-web/browser-navigation.md) — description matches placeholder pattern: 'Apply browser navigation in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -348,7 +353,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`sitemap-parsing.md`](skills/11-web/sitemap-parsing.md) — description matches placeholder pattern: 'Apply sitemap parsing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`url-fetching.md`](skills/11-web/url-fetching.md) — description matches placeholder pattern: 'Apply url fetching in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`url-screenshot.md`](skills/11-web/url-screenshot.md) — description matches placeholder pattern: 'Apply screenshot of url in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`web-crawling.md`](skills/11-web/web-crawling.md) — description matches placeholder pattern: 'Apply web crawling in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`web-login.md`](skills/11-web/web-login.md) — description matches placeholder pattern: 'Apply web login in AI agent workflows'; no inputs/outputs/failure-modes table
 
 ### `12-data` (17)
