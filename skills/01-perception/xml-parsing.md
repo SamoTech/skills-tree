@@ -3,46 +3,55 @@ title: "XML Parsing"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply xml parsing in AI agent workflows."
+description: "Parse and query XML documents in AI agent workflows."
 added: "2025-03"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-xml-parsing.json)
 
 # XML Parsing
-Category: perception | Level: basic | Stability: stable | Version: v1
+Category: perception | Level: intermediate | Stability: stable | Version: v1
 
 ## Description
-Parse XML/HTML documents into navigable trees, extracting elements, attributes, and text nodes.
+Parse XML documents into tree structures, extract elements via XPath, and transform data for downstream agent consumption.
 
 ## Inputs
-- `source`: XML string, file path, or URL
-- `query`: XPath or CSS selector
+- `xml_content`: raw XML string or file path
+- `xpath_query`: optional XPath expression to filter nodes
 
 ## Outputs
-- Matched elements as list of dicts
+- Parsed element tree or list of matching nodes as dicts
 
 ## Example
 ```python
 from lxml import etree
-tree = etree.parse("data.xml")
-results = tree.xpath("//product[@active='true']/name/text()")
-print(results)  # ['Widget A', 'Widget B']
+def parse_xml(content, xpath=None):
+    root = etree.fromstring(content.encode())
+    if xpath:
+        return [{"tag": el.tag, "text": el.text, "attrib": dict(el.attrib)}
+                for el in root.xpath(xpath)]
+    return etree.tostring(root, pretty_print=True).decode()
 ```
 
 ## Frameworks
 | Framework | Method |
 |---|---|
 | Python | `lxml`, `xml.etree.ElementTree` |
-| LangChain | `BSHTMLLoader` |
-| BeautifulSoup | `find_all()` with CSS selectors |
+| LangChain | custom loader via `lxml` |
+
+## Dependencies
+- package: lxml
+  tested_version: "5.4.0"
+  confidence: verified
+  notes: "Patched GHSA-vfmq-68hx-4jfw (arbitrary attribute injection via XSLT). Use lxml>=5.4.0."
 
 ## Failure Modes
-- Malformed XML breaks strict parsers (use `recover=True` in lxml)
-- Namespace prefixes in XPath require explicit registration
+- Malformed or namespace-heavy XML
+- XXE (external entity) attacks — disable with `resolve_entities=False`
 
 ## Related
-- `document-parsing.md` · `api-response-parsing.md`
+- `structured-data-reading.md` · `document-parsing.md` · `api-response-parsing.md`
 
 ## Changelog
-- v1 (2026-04): Initial entry
+- v1 (2026-03): Initial entry
+- v1.1 (2026-05): Bump lxml to 5.4.0 (CVE patch)

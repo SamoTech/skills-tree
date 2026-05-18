@@ -3,100 +3,56 @@ title: "Text Reading"
 category: 01-perception
 level: basic
 stability: stable
-description: "Apply text reading in AI agent workflows."
+description: "Read and pre-process plain text inputs for AI agent consumption."
 added: "2025-03"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-text-reading.json)
 
 # Text Reading
-
-**Category:** `perception`  
-**Skill Level:** `basic`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Version:** v2
-
----
+Category: perception | Level: basic | Stability: stable | Version: v1
 
 ## Description
+Load, chunk, and normalize plain text documents or strings for downstream agent tasks. Handles encoding detection, whitespace normalization, and optional splitting via LangChain text splitters.
 
-Read, chunk, and pre-process raw text inputs for downstream tasks. Covers encoding detection, normalisation, sentence boundary detection, and token-aware chunking — the foundation for every text-based agent pipeline.
+## Inputs
+- `source`: file path, URL, or raw string
+- `chunk_size`: optional int (tokens or characters per chunk)
+- `overlap`: optional int (overlap between consecutive chunks)
 
----
+## Outputs
+- List of text chunks as strings
 
-## Core Operations
-
-| Operation | Tool | Notes |
-|---|---|---|
-| Encoding detection | `chardet` / `charset-normalizer` | Always detect before decode |
-| Normalisation | `unicodedata.normalize('NFC', text)` | Collapse composed/decomposed chars |
-| Sentence splitting | `nltk.sent_tokenize` / `spacy` | Language-aware |
-| Token counting | `tiktoken` | Match target model's tokenizer |
-| Chunking | LangChain `RecursiveCharacterTextSplitter` | Respects sentence boundaries |
-| Language detection | `langdetect` / `lingua` | Route multilingual text |
-
----
-
-## Implementation
-
-### Encoding-safe read
-
-```python
-import chardet
-
-def safe_read(path: str) -> str:
-    raw = open(path, "rb").read()
-    enc = chardet.detect(raw)["encoding"] or "utf-8"
-    return raw.decode(enc, errors="replace")
-```
-
-### Token-aware chunking
-
+## Example
 ```python
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-import tiktoken
-
-def chunk_text(text: str, model: str = "gpt-4o",
-               chunk_tokens: int = 512, overlap: int = 64) -> list[str]:
-    enc = tiktoken.encoding_for_model(model)
+def read_and_chunk(text, chunk_size=1000, overlap=100):
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_tokens,
-        chunk_overlap=overlap,
-        length_function=lambda t: len(enc.encode(t)),
-        separators=["\n\n", "\n", ". ", " ", ""]
+        chunk_size=chunk_size, chunk_overlap=overlap
     )
     return splitter.split_text(text)
 ```
 
-### Normalisation pipeline
+## Frameworks
+| Framework | Method |
+|---|---|
+| LangChain | `RecursiveCharacterTextSplitter`, `CharacterTextSplitter` |
+| LlamaIndex | `SentenceSplitter`, `TokenTextSplitter` |
+| Python | `tiktoken` for token-aware splitting |
 
-```python
-import unicodedata, re
+## Dependencies
+- package: langchain-text-splitters
+  tested_version: "0.3.8"
+  confidence: verified
+  notes: "Patched GHSA-fv5p-p927-qmxr (prompt injection via malicious document content). Use langchain-text-splitters>=0.3.8."
 
-def normalize(text: str) -> str:
-    text = unicodedata.normalize("NFC", text)   # Unicode normalise
-    text = re.sub(r"\r\n|\r", "\n", text)       # Unify line endings
-    text = re.sub(r"[ \t]+", " ", text)          # Collapse whitespace
-    text = re.sub(r"\n{3,}", "\n\n", text)      # Max 2 blank lines
-    return text.strip()
-```
+## Failure Modes
+- Binary or non-UTF-8 files cause decode errors — use `errors='replace'`
+- Very large files should be streamed, not loaded into memory at once
 
----
+## Related
+- `document-parsing.md` · `markdown-parsing.md` · `structured-data-reading.md`
 
-## Chunking Strategy Guide
-
-| Use Case | Strategy | Chunk Size |
-|---|---|---|
-| RAG retrieval | Recursive character | 256–512 tokens, 10% overlap |
-| Summarisation | Sentence-level | 1000–2000 tokens, 0 overlap |
-| Code files | By function/class | Variable, keep function intact |
-| Tabular data | By row batches | 50–200 rows |
-
----
-
-## Related Skills
-
-- [Document Parsing](document-parsing.md)
-- [PDF Parsing](pdf-parsing.md)
-- [Structured Data Reading](structured-data-reading.md)
+## Changelog
+- v1 (2026-02): Initial entry
+- v1.1 (2026-05): Bump langchain-text-splitters to 0.3.8 (CVE patch)

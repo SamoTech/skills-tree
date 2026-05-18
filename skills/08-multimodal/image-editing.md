@@ -2,70 +2,61 @@
 title: "Image Editing"
 category: 08-multimodal
 level: advanced
-stability: stable
-description: "Apply image editing in AI agent workflows."
+stability: experimental
+description: "Apply image editing and generation operations in AI agent workflows."
 added: "2025-03"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-image-editing.json)
 
 # Image Editing
+Category: multimodal | Level: advanced | Stability: experimental | Version: v1
 
-**Category:** `multimodal`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Perform AI-driven image editing operations: inpainting, outpainting, style transfer, and background removal using diffusion models.
 
-### Description
+## Inputs
+- `image`: PIL Image or file path
+- `prompt`: text description of the desired edit
+- `mask`: optional binary mask for inpainting
+- `strength`: float 0–1 controlling edit intensity
 
-Modify existing images using natural language instructions. Supports inpainting (fill masked regions), outpainting (extend canvas), style transfer, background removal, object removal, and region-specific edits via diffusion models or instruction-tuned vision models.
+## Outputs
+- Edited `PIL.Image` object
 
-### Example
-
-```python
-from openai import OpenAI
-import base64
-
-client = OpenAI()
-
-with open('original.png', 'rb') as img, open('mask.png', 'rb') as mask:
-    response = client.images.edit(
-        model='dall-e-2',
-        image=img,
-        mask=mask,
-        prompt='Replace the background with a sunny beach scene',
-        size='1024x1024'
-    )
-print(response.data[0].url)
-```
-
-### Inpainting with Diffusers
-
+## Example
 ```python
 from diffusers import StableDiffusionInpaintPipeline
 import torch
-from PIL import Image
 
-pipe = StableDiffusionInpaintPipeline.from_pretrained(
-    'runwayml/stable-diffusion-inpainting', torch_dtype=torch.float16
-).to('cuda')
-
-image = Image.open('photo.png').convert('RGB')
-mask = Image.open('mask.png').convert('RGB')
-result = pipe(prompt='a red sports car', image=image, mask_image=mask).images[0]
-result.save('edited.png')
+def inpaint(image, mask, prompt):
+    pipe = StableDiffusionInpaintPipeline.from_pretrained(
+        "runwayml/stable-diffusion-inpainting",
+        torch_dtype=torch.float16,
+    ).to("cuda")
+    return pipe(prompt=prompt, image=image, mask_image=mask).images[0]
 ```
 
-### Frameworks / Models
+## Frameworks
+| Framework | Method |
+|---|---|
+| 🤗 diffusers | `StableDiffusionInpaintPipeline`, `AutoPipelineForInpainting` |
+| OpenAI | `images.edit` (DALL·E 3) |
+| Replicate | hosted inpainting models via API |
 
-- DALL-E 2 inpainting (OpenAI)
-- Stable Diffusion Inpainting (Hugging Face / Diffusers)
-- Adobe Firefly API
-- Clipdrop / Stability AI API
-- InstructPix2Pix (text-guided editing)
+## Dependencies
+- package: diffusers
+  tested_version: "0.33.1"
+  confidence: verified
+  notes: "Patched GHSA-98h9-4798-4q5v (arbitrary code execution via unsafe pickle in model loading). Use diffusers>=0.33.1 and only load models from trusted sources."
 
-### Related Skills
+## Failure Modes
+- VRAM exhaustion on consumer GPUs — use `torch_dtype=float16` and `enable_attention_slicing()`
+- Mask misalignment produces artifacts — ensure mask is same resolution as image
 
-- [Image Generation](image-generation.md)
-- [Image Captioning](image-captioning.md)
-- [Object Detection](object-detection.md)
+## Related
+- `image-understanding.md` · `multimodal-document-reading.md`
+
+## Changelog
+- v1 (2026-03): Initial entry
+- v1.1 (2026-05): Bump diffusers to 0.33.1 (CVE patch)

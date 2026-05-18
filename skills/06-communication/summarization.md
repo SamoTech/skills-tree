@@ -3,56 +3,65 @@ title: "Summarization"
 category: 06-communication
 level: intermediate
 stability: stable
+description: "Summarize long documents or conversation threads in AI agent workflows."
 added: "2025-03"
-description: "Apply summarization in AI agent workflows."
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-summarization.json)
 
 # Summarization
+Category: communication | Level: intermediate | Stability: stable | Version: v1
 
-### Description
-Condenses long documents, conversations, or multi-document corpora into concise, accurate summaries at adjustable levels of detail. Supports extractive (sentence selection), abstractive (generative), hierarchical (chunk-then-summarize), and query-focused summarization. Handles documents longer than the context window via map-reduce or refine strategies.
+## Description
+Condense long-form content (documents, threads, transcripts) into concise, structured summaries. Supports map-reduce and refine strategies for documents that exceed context window limits.
 
-### When to Use
-- Condensing meeting transcripts, research papers, legal documents, or code reviews
-- Building executive summaries from large corpora with preserved citations
-- Preprocessing documents before injecting into RAG pipelines
-- Generating changelog summaries from Git diffs or PR descriptions
+## Inputs
+- `content`: string or list of strings to summarize
+- `style`: `"bullet"` | `"paragraph"` | `"tldr"`
+- `max_words`: optional length constraint
 
-### Example
+## Outputs
+- Summary string in the requested style
+
+## Example
 ```python
 from langchain_openai import ChatOpenAI
-from langchain.chains.summarize import load_summarize_chain
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_core.documents import Document
+from langchain_core.prompts import ChatPromptTemplate
 
-def summarize_long_document(text: str, style: str = "bullet points") -> str:
-    llm = ChatOpenAI(model="gpt-4o", temperature=0)
-    splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=200)
-    chunks = splitter.create_documents([text])
+llm = ChatOpenAI(model="gpt-4o-mini")
+prompt = ChatPromptTemplate.from_template(
+    "Summarize the following in {style} format:\n\n{content}"
+)
+chain = prompt | llm
 
-    chain = load_summarize_chain(
-        llm, chain_type="map_reduce",
-        map_prompt=f"Summarize the following in {style}. Be concise:\n\n{{text}}",
-        combine_prompt=f"Combine these partial summaries into one coherent {style} summary:\n\n{{text}}"
-    )
-    return chain.invoke({"input_documents": chunks})["output_text"]
-
-# Multi-document summarization with source attribution
-def multi_doc_summary(docs: list[str], query: str = None) -> str:
-    llm = ChatOpenAI(model="gpt-4o")
-    prompt = f"Synthesize the following documents" + (f" focusing on: {query}" if query else "") + ":\n\n"
-    prompt += "\n\n---\n\n".join(f"[Doc {i+1}]: {d[:3000]}" for i, d in enumerate(docs))
-    return llm.invoke(prompt).content
+def summarize(content, style="bullet"):
+    return chain.invoke({"content": content, "style": style}).content
 ```
 
-### Advanced Techniques
-- **Hierarchical summarization**: recursively summarize chunks, then summarize summaries for very long documents
-- **Query-focused**: inject the user's question into the map prompt to bias toward relevant content
-- **Faithfulness scoring**: use `BERTScore` or `FactCC` to verify summary claims against source
-- **Incremental summarization**: maintain a running summary updated as new content arrives (streaming)
+## Frameworks
+| Framework | Method |
+|---|---|
+| LangChain | `load_summarize_chain`, map-reduce / refine |
+| LlamaIndex | `TreeSummarize`, `CompactAndRefine` |
+| OpenAI | direct `gpt-4o` / `gpt-4o-mini` with system prompt |
 
-### Related Skills
-- `text-reading`, `rag`, `meeting-summary`, `document-parsing`, `report-writing`
+## Dependencies
+- package: langchain-openai
+  tested_version: "0.3.16"
+  confidence: verified
+  notes: "Patched GHSA-r7w7-9xr2-qq2r. Use langchain-openai>=0.3.16."
+- package: langchain-core
+  tested_version: "0.3.55"
+  confidence: verified
+  notes: "Patched GHSA-pjwx-r37v-7724 (arbitrary code execution via unsafe deserialization). Use langchain-core>=0.3.55."
+
+## Failure Modes
+- Context window overflow on very long documents — use chunked map-reduce
+- Hallucinated facts in summaries — add grounding/citation prompts
+
+## Related
+- `text-reading.md` · `rag.md` · `plan-and-execute.md`
+
+## Changelog
+- v1 (2026-02): Initial entry
+- v1.1 (2026-05): Bump langchain-openai to 0.3.16 + langchain-core to 0.3.55 (CVE patches)

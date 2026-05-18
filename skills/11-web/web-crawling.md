@@ -1,49 +1,67 @@
 ---
 title: "Web Crawling"
 category: 11-web
-level: advanced
+level: intermediate
 stability: stable
-description: "Apply web crawling in AI agent workflows."
+description: "Crawl and scrape web pages systematically in AI agent workflows."
 added: "2025-03"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-crawling.json)
 
 # Web Crawling
+Category: web | Level: intermediate | Stability: stable | Version: v1
 
-**Category:** `web`
-**Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Crawl web pages, follow links, and extract structured content for agent ingestion. Handles pagination, rate limiting, and robots.txt compliance.
 
-### Description
+## Inputs
+- `start_url`: seed URL string
+- `max_pages`: int — maximum pages to crawl
+- `allowed_domains`: optional list to restrict crawl scope
+- `extract_css`: CSS selector for content extraction
 
-Recursively follow hyperlinks from a seed URL, fetching and processing multiple pages to build a structured dataset or search index. Respects `robots.txt` and rate limits.
+## Outputs
+- List of dicts with `url`, `title`, `content`, `links`
 
-### Example
-
+## Example
 ```python
 import scrapy
+from scrapy.crawler import CrawlerProcess
 
-class DocsSpider(scrapy.Spider):
-    name = 'docs'
-    start_urls = ['https://docs.example.com']
-    allowed_domains = ['docs.example.com']
-
+class AgentSpider(scrapy.Spider):
+    name = "agent"
     def parse(self, response):
-        # Extract content from this page
         yield {
-            'url': response.url,
-            'title': response.css('h1::text').get(),
-            'content': ' '.join(response.css('p::text').getall())
+            "url": response.url,
+            "title": response.css("title::text").get(),
+            "content": " ".join(response.css("p::text").getall()),
         }
-        # Follow all internal links
-        for href in response.css('a::attr(href)').getall():
+        for href in response.css("a::attr(href)").getall():
             yield response.follow(href, self.parse)
 ```
 
-### Related Skills
+## Frameworks
+| Framework | Method |
+|---|---|
+| Python | `scrapy`, `crawlee`, `playwright` |
+| LangChain | `AsyncChromiumLoader`, `WebBaseLoader` |
+| LlamaIndex | `SimpleWebPageReader` |
 
-- [Link Extraction](link-extraction.md)
-- [Web Scraping](web-scraping.md)
-- [Sitemap Parsing](sitemap-parsing.md)
+## Dependencies
+- package: scrapy
+  tested_version: "2.12.0"
+  confidence: verified
+  notes: "Patched GHSA-h7wm-ph43-c39p (open redirect via spider middleware) and PYSEC-2017-83 (DNS rebinding). Use scrapy>=2.12.0 and pin DNS resolver to prevent rebinding attacks."
+
+## Failure Modes
+- JavaScript-rendered pages require Playwright/Splash integration
+- IP bans from aggressive crawling — implement polite delays and rotate user-agents
+- Robots.txt violations — always set `ROBOTSTXT_OBEY = True`
+
+## Related
+- `url-dom-inspection.md` · `html-reading.md` · `structured-data-reading.md`
+
+## Changelog
+- v1 (2026-02): Initial entry
+- v1.1 (2026-05): Bump scrapy to 2.12.0 (CVE patch)

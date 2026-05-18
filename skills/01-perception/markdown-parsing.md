@@ -42,6 +42,12 @@ def parse_md(text):
 | LlamaIndex | `MarkdownReader` |
 | LangChain | `UnstructuredMarkdownLoader` |
 
+## Dependencies
+- package: mistune
+  tested_version: "3.1.3"
+  confidence: verified
+  notes: "Patched GHSA-58cw-g322-p94v, GHSA-8g87-j6q8-g93x, GHSA-8mp2-v27r-99xp, GHSA-v87v-83h2-53w7 (XSS via unsafe HTML renderer). Use mistune>=3.1.3."
+
 ## Failure Modes
 - Non-standard frontmatter delimiters
 - Nested code blocks with backtick collisions
@@ -51,3 +57,4 @@ def parse_md(text):
 
 ## Changelog
 - v1 (2026-04): Initial entry
+- v1.1 (2026-05): Bump mistune to 3.1.3 (CVE patch)
