@@ -3,7 +3,7 @@
 # Bump via Dependabot (weekly) or manually after testing.
 # Last verified: 2026-05-18
 httpx==0.28.1
-PyYAML==6.0.2
+PyYAML==6.0.3
 PyGithub==2.9.1
 python-dateutil==2.9.0.post0
 jsonschema==4.23.0
