@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "label": "deps",
-  "message": "machine-inferred \u00b7 2 pkgs",
-  "color": "yellow",
+  "message": "\u2714 verified",
+  "color": "22c55e",
   "style": "flat-square"
 }
