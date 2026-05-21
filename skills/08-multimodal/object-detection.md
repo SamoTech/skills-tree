@@ -5,6 +5,12 @@ level: intermediate
 stability: stable
 description: "Apply object detection in AI agent workflows."
 added: "2025-03"
+dependencies:
+  - package: transformers
+    min_version: "4.40.0"
+    tested_version: "5.9.0"
+    confidence: verified
+    notes: "Patched PYSEC-2025-211 through PYSEC-2025-218. Use transformers>=4.51.0."
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-object-detection.json)
