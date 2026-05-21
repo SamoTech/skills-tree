@@ -1,14 +1,170 @@
 name: Revoke Phantom Badges
 
+# Fires when a pull request is CLOSED WITHOUT MERGING.
+#
+# The problem it solves (Phantom Badge race condition):
+#   ast-sweep.yml commits Yellow badge JSONs to `docs/badges/` on `main`
+#   BEFORE the draft PR is merged, for immediate site visibility.
+#   But if the PR is later closed without merging, those Yellow badges become
+#   phantoms: the skill on `main` has no `dependencies` field, but the badge
+#   shows "machine-inferred".
+#
+# How this workflow fixes it:
+#   1. Detects PRs closed without merging.
+#   2. For each skill file changed in the PR:
+#      a. Checks whether that skill exists in the CURRENT `main` SBOM.
+#      b. If NOT in SBOM: reverts badge to `unscanned` (grey).
+#      c. If YES in SBOM: badge stays (a merged sweep already claimed it).
+#   3. Commits revocations directly to `docs/badges/` on `main`.
+#
+# FIX: Added paths filter so the workflow only fires when skill files
+#      were actually touched, avoiding wasted runner minutes on
+#      docs/README/config-only PRs.
+
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 4 * * 0'
+  pull_request:
+    types: [closed]
+    paths:
+      - 'skills/**/*.md'
+
+concurrency:
+  group: revoke-phantom-badges-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions: {}
 
 jobs:
   revoke:
+    if: github.event.pull_request.merged == false
+    name: Revoke phantom badges for abandoned PR
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: read
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
+
+      - name: Get changed skill files in closed PR
+        id: changed
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              { owner: context.repo.owner, repo: context.repo.repo, pull_number: pr.number }
+            );
+            const skillFiles = files
+              .map(f => f.filename)
+              .filter(f => f.startsWith('skills/') && f.endsWith('.md'));
+            console.log(`PR #${pr.number} closed unmerged. Changed skill files: ${skillFiles.length}`);
+            skillFiles.forEach(f => console.log(`  ${f}`));
+            core.setOutput('skill_files', JSON.stringify(skillFiles));
+            core.setOutput('pr_number', pr.number);
+            core.setOutput('has_skills', skillFiles.length > 0 ? 'true' : 'false');
+
+      - name: Skip if no skill files were touched
+        if: steps.changed.outputs.has_skills != 'true'
+        run: echo "PR #${{ steps.changed.outputs.pr_number }} had no skill file changes. No phantom badges to revoke."
+
+      - name: Identify phantom badges to revoke
+        if: steps.changed.outputs.has_skills == 'true'
+        id: phantoms
+        run: |
+          python3 - <<PYEOF
+          import json, os
+          from pathlib import Path
+
+          SBOM_PATH = Path("meta/skills-sbom.cdx.json")
+          skill_files = json.loads(os.environ["SKILL_FILES"])
+
+          sbom_skills = set()
+          if SBOM_PATH.exists():
+              sbom = json.loads(SBOM_PATH.read_text())
+              for component in sbom.get("components", []):
+                  for skill_path in component.get("usedIn", []):
+                      sbom_skills.add(skill_path)
+
+          phantoms = [sf for sf in skill_files if sf not in sbom_skills]
+          safe     = [sf for sf in skill_files if sf in sbom_skills]
+
+          print(f"Phantoms to revoke: {len(phantoms)}")
+          print(f"Safe (in SBOM)    : {len(safe)}")
+          for p in phantoms: print(f"  REVOKE: {p}")
+          for s in safe:     print(f"  KEEP  : {s}")
+
+          Path("phantoms.json").write_text(json.dumps(phantoms))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"count={len(phantoms)}\n")
+          PYEOF
+        env:
+          SKILL_FILES: ${{ steps.changed.outputs.skill_files }}
+
+      - name: Skip if no phantom badges found
+        if: steps.changed.outputs.has_skills == 'true' && steps.phantoms.outputs.count == '0'
+        run: echo "All changed skills are already in the SBOM. No phantom badges to revoke."
+
+      - name: Write unscanned (grey) badges for phantom skills
+        if: steps.changed.outputs.has_skills == 'true' && steps.phantoms.outputs.count != '0'
+        run: |
+          python3 - <<PYEOF
+          import json
+          from pathlib import Path
+
+          phantoms   = json.loads(Path("phantoms.json").read_text())
+          badge_dir  = Path("docs/badges")
+          badge_dir.mkdir(parents=True, exist_ok=True)
+
+          UNSCANNED = {
+              "schemaVersion": 1, "label": "deps",
+              "message": "unscanned",
+              "color": "lightgrey", "style": "flat-square",
+              "_note": "revoked: PR closed without merge",
+          }
+
+          revoked = 0
+          for skill_path in phantoms:
+              key  = skill_path.replace("\\\\", "/").replace("/", "-").replace(".md", "")
+              dest = badge_dir / f"{key}.json"
+              if not dest.exists():
+                  continue
+              existing = json.loads(dest.read_text())
+              if existing.get("color") in ("critical", "22c55e"):
+                  print(f"  SKIP (protected): {key}")
+                  continue
+              dest.write_text(json.dumps(UNSCANNED, indent=2))
+              revoked += 1
+              print(f"  REVOKED -> unscanned: {key}")
+
+          print(f"\nRevoked {revoked} phantom badge(s).")
+          PYEOF
+
+      - name: Commit revocations to main (with retry-rebase)
+        if: steps.changed.outputs.has_skills == 'true' && steps.phantoms.outputs.count != '0'
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/badges/
+          git diff --staged --quiet && echo "No badge changes to commit." && exit 0
+
+          PR_NUM="${{ steps.changed.outputs.pr_number }}"
+          git commit -m "revoke(phantom): unscanned badges for PR #${PR_NUM} (closed unmerged)"
+
+          for attempt in 1 2 3; do
+            git push origin main && {
+              echo "\u2705 Phantom revocation pushed to main (attempt ${attempt})."
+              exit 0
+            }
+            echo "Push failed (attempt ${attempt}/3). Rebasing and retrying..."
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+
+          echo "ERROR: All 3 push attempts failed."
+          exit 1

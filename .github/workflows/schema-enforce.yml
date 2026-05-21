@@ -1,15 +1,113 @@
-name: Schema Enforce
+name: Schema Enforcement
+
+# Validates every changed skill .md file's YAML frontmatter against
+# meta/skill-schema.json using the jsonschema Python library.
+# This turns the schema from documentation into a hard CI gate.
+#
+# Also enforces the filename convention: lowercase, hyphenated, .md only.
+# Valid:   chain-of-thought.md
+# Invalid: Chain_Of_Thought.md, My New Skill.md, RAG_pipeline.md
 
 on:
   pull_request:
     paths:
       - 'skills/**/*.md'
-      - 'meta/schema/**'
+      - 'meta/skill-schema.json'
+
+concurrency:
+  group: schema-enforce-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions: {}
 
 jobs:
-  validate:
+  validate-schema:
+    name: Validate frontmatter against skill-schema.json
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       pull-requests: write
+
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install PyYAML==6.0.2 jsonschema==4.23.0
+
+      - name: Get changed skill files
+        id: changed
+        run: |
+          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' | grep -v README || true)
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Validate filenames and frontmatter
+        run: |
+          python3 - <<'PYEOF'
+          import re, sys, json
+          from pathlib import Path
+          import yaml
+          from jsonschema import validate, ValidationError
+
+          SCHEMA = json.loads(Path("meta/skill-schema.json").read_text())
+
+          FILES_RAW = """${{ steps.changed.outputs.files }}"""
+          files = [f.strip() for f in FILES_RAW.strip().splitlines() if f.strip()]
+
+          if not files:
+              print("No skill files changed.")
+              sys.exit(0)
+
+          FILENAME_RE = re.compile(r'^[a-z0-9][a-z0-9-]*\.md$')
+          errors = []
+
+          for path_str in files:
+              p = Path(path_str)
+              if not p.exists():
+                  continue  # deleted file
+
+              # 1. Filename convention
+              if not FILENAME_RE.match(p.name):
+                  errors.append(
+                      f"::error file={path_str}::Invalid filename '{p.name}'. "
+                      f"Must be lowercase, hyphenated, no spaces/underscores."
+                  )
+
+              # 2. Frontmatter schema
+              text = p.read_text(encoding="utf-8")
+              if not text.startswith("---"):
+                  errors.append(f"::error file={path_str}::Missing YAML frontmatter.")
+                  continue
+              parts = text.split("---", 2)
+              if len(parts) < 3:
+                  errors.append(f"::error file={path_str}::Malformed frontmatter (missing closing ---).") 
+                  continue
+              try:
+                  fm = yaml.safe_load(parts[1])
+              except yaml.YAMLError as e:
+                  errors.append(f"::error file={path_str}::YAML parse error: {e}")
+                  continue
+              if not isinstance(fm, dict):
+                  errors.append(f"::error file={path_str}::Frontmatter must be a YAML mapping.")
+                  continue
+              try:
+                  validate(instance=fm, schema=SCHEMA)
+              except ValidationError as e:
+                  errors.append(f"::error file={path_str}::Schema validation failed: {e.message}")
+
+          if errors:
+              for err in errors:
+                  print(err)
+              sys.exit(1)
+          else:
+              print(f"All {len(files)} file(s) passed schema validation.")
+          PYEOF
