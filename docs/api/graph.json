@@ -1,8 +1,8 @@
 {
-  "generated": "2026-05-18T10:06:40Z",
+  "generated": "2026-05-21T09:35:34Z",
   "stats": {
     "nodes": 350,
-    "links": 735,
+    "links": 723,
     "isolated": 54,
     "top_connected": [
       {
@@ -11,14 +11,14 @@
         "degree": 18
       },
       {
-        "id": "document-parsing",
-        "name": "Document Parsing",
-        "degree": 17
-      },
-      {
         "id": "rag",
         "name": "RAG — Retrieval-Augmented Generation",
         "degree": 16
+      },
+      {
+        "id": "document-parsing",
+        "name": "Document Parsing",
+        "degree": 15
       },
       {
         "id": "reflection",
@@ -26,34 +26,34 @@
         "degree": 15
       },
       {
-        "id": "web-scraping",
-        "name": "Web Scraping",
-        "degree": 15
-      },
-      {
-        "id": "structured-data-reading",
-        "name": "Structured Data Reading",
-        "degree": 14
-      },
-      {
         "id": "planning",
         "name": "Planning",
         "degree": 14
       },
       {
-        "id": "image-understanding",
-        "name": "Image Understanding",
-        "degree": 12
+        "id": "web-scraping",
+        "name": "Web Scraping",
+        "degree": 14
       },
       {
-        "id": "ocr",
-        "name": "OCR (Optical Character Recognition)",
-        "degree": 12
+        "id": "structured-data-reading",
+        "name": "Structured Data Reading",
+        "degree": 13
       },
       {
         "id": "tone-adjustment",
         "name": "Tone Adjustment",
         "degree": 12
+      },
+      {
+        "id": "structured-output",
+        "name": "Structured Output",
+        "degree": 12
+      },
+      {
+        "id": "image-understanding",
+        "name": "Image Understanding",
+        "degree": 11
       }
     ]
   },
@@ -392,7 +392,7 @@
       "category": "01-perception",
       "catLabel": "Perception",
       "color": "#4f98a3",
-      "level": "basic",
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -463,7 +463,7 @@
       "catLabel": "Perception",
       "color": "#4f98a3",
       "level": "basic",
-      "version": "v2"
+      "version": "v1"
     },
     {
       "id": "time-series-reading",
@@ -2672,7 +2672,7 @@
       "category": "11-web",
       "catLabel": "Web",
       "color": "#437a22",
-      "level": "advanced",
+      "level": "intermediate",
       "version": "v1"
     },
     {
@@ -3772,18 +3772,6 @@
       "target": "table-extraction"
     },
     {
-      "source": "pdf-parsing",
-      "target": "document-parsing"
-    },
-    {
-      "source": "pdf-parsing",
-      "target": "ocr"
-    },
-    {
-      "source": "pdf-parsing",
-      "target": "image-understanding"
-    },
-    {
       "source": "screen-reading",
       "target": "url-dom-inspection"
     },
@@ -3814,18 +3802,6 @@
     {
       "source": "structured-data-reading",
       "target": "database-reading"
-    },
-    {
-      "source": "text-reading",
-      "target": "document-parsing"
-    },
-    {
-      "source": "text-reading",
-      "target": "pdf-parsing"
-    },
-    {
-      "source": "text-reading",
-      "target": "structured-data-reading"
     },
     {
       "source": "url-dom-inspection",
@@ -5104,18 +5080,6 @@
       "target": "object-detection"
     },
     {
-      "source": "image-editing",
-      "target": "image-generation"
-    },
-    {
-      "source": "image-editing",
-      "target": "image-captioning"
-    },
-    {
-      "source": "image-editing",
-      "target": "object-detection"
-    },
-    {
       "source": "image-generation",
       "target": "image-captioning"
     },
@@ -5678,18 +5642,6 @@
     {
       "source": "url-screenshot",
       "target": "dom-inspection"
-    },
-    {
-      "source": "web-crawling",
-      "target": "link-extraction"
-    },
-    {
-      "source": "web-crawling",
-      "target": "web-scraping"
-    },
-    {
-      "source": "web-crawling",
-      "target": "sitemap-parsing"
     },
     {
       "source": "web-scraping",
