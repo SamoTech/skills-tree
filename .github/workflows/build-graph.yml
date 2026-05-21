@@ -1,38 +1,74 @@
-name: Build Skill Dependency Graph
+name: Build Dependency Graph
+
+# Rebuilds the full skill dependency graph after merges to main.
+# Outputs: docs/graph/skills-graph.json
+#
+# Security: gitleaks is pinned to an immutable SHA to prevent
+# supply-chain attacks via tag force-push.
 
 on:
   push:
+    branches: [main]
     paths:
-      - "skills/**/*.md"
-  schedule:
-    # Every Monday at 06:00 UTC
-    - cron: "0 6 * * 1"
+      - 'skills/**/*.md'
+      - 'docs/sbom/**'
   workflow_dispatch:
 
+concurrency:
+  group: build-graph-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
-  build-graph:
+  build:
+    name: Build skills graph
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.11'
 
-      - name: Build graph.json
-        run: python3 tools/build_graph.py
+      - name: Install graph builder dependencies
+        run: pip install --quiet PyYAML==6.0.2 networkx==3.4.2
 
-      - name: Commit graph.json
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Build graph
+        run: |
+          python tools/build_graph.py \
+            --skills-root skills/ \
+            --sbom-root docs/sbom/ \
+            --output docs/graph/skills-graph.json
+
+      - name: Commit graph
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/graph/skills-graph.json
+          git diff --staged --quiet && echo "No graph changes." && exit 0
+          git commit -m "chore(graph): rebuild skills dependency graph [skip ci]"
+          git push origin main
+
+  secret-scan:
+    name: Gitleaks secret scan
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
         with:
-          commit_message: "chore(graph): regenerate docs/api/graph.json [skip ci]"
-          file_pattern: "docs/api/graph.json"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          fetch-depth: 0
+      # Pinned to immutable SHA (v2.3.9) — do not change to a floating tag.
+      # To update: look up the new tag SHA at
+      # https://api.github.com/repos/gitleaks/gitleaks-action/tags
+      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7  # v2.3.9
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

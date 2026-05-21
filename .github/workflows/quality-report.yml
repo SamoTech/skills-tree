@@ -32,10 +32,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Reject newly-added stub skills
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
         run: |
           # Diff against the PR base, not origin/main, so we only look at
           # files this PR actually added.
-          BASE_REF="${{ github.event.pull_request.base.ref }}"
           git fetch origin "$BASE_REF" --depth=1
           python3 tools/check_skill_quality.py \
             --no-write \

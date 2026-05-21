@@ -14,6 +14,8 @@ on:
     paths:
       - 'skills/**/*.md'
 
+permissions: {}
+
 jobs:
   append-changelog:
     if: github.event.pull_request.merged == true
@@ -41,7 +43,6 @@ jobs:
           python3 - <<'PYEOF'
           import re, os
           from pathlib import Path
-          from datetime import datetime, timezone
 
           title    = os.environ["PR_TITLE"]
           number   = os.environ["PR_NUMBER"]
@@ -86,12 +87,14 @@ jobs:
           PYEOF
 
       - name: Commit changelog (with retry-rebase)
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add meta/CHANGELOG.md
           git diff --staged --quiet && echo "No changelog change." && exit 0
-          git commit -m "chore(changelog): auto-append entry for PR #${{ github.event.pull_request.number }} [skip ci]"
+          git commit -m "chore(changelog): auto-append entry for PR #${PR_NUMBER} [skip ci]"
 
           for attempt in 1 2 3; do
             git push origin main && {

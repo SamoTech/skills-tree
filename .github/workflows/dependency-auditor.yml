@@ -46,6 +46,8 @@ on:
         default: 'false'
         type: boolean
 
+permissions: {}
+
 jobs:
   audit:
     name: Run Dependency Auditor

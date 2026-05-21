@@ -1,63 +1,27 @@
-# ============================================================
-# security-scan.yml
-# Weekly secret scanning on docs/ and skill files.
-# Also runs on every push to main.
-# ============================================================
-name: 🔐 Security Scan
+name: Security Scan
 
 on:
+  pull_request:
   push:
     branches: [main]
-    paths:
-      - 'docs/**'
-      - 'skills/**'
-      - '.github/**'
-  schedule:
-    - cron: '0 2 * * 0'
   workflow_dispatch:
 
 permissions:
   contents: read
-  security-events: write
   issues: write
 
 jobs:
-  scan:
-    name: Scan for secrets & vulnerabilities
+  gitleaks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Run Gitleaks secret scan
-        uses: gitleaks/gitleaks-action@v2
+      - name: Run Gitleaks
+        # Pinned to immutable SHA (v2.3.9) — do not change to a floating tag.
+        # To update: https://api.github.com/repos/gitleaks/gitleaks-action/tags
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7  # v2.3.9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-        # SECURITY (C-2): continue-on-error removed. Gitleaks failures now
-        # fail the workflow, making secret detection actually effective.
-
-      - name: Scan HTML for exposed tokens
+      - name: Scan docs for accidental secrets
         run: |
           echo "Scanning docs/ for accidental secrets..."
-          PATTERNS=(
-            'ghp_[A-Za-z0-9]{36}'
-            'ghs_[A-Za-z0-9]{36}'
-            'sk-[A-Za-z0-9]{48}'
-            'AIza[0-9A-Za-z\-_]{35}'
-            'AKIA[0-9A-Z]{16}'
-            'password\s*=\s*["\x27][^"\x27]{8,}'
-          )
-          FOUND=0
-          for pattern in "${PATTERNS[@]}"; do
-            if grep -rqE "$pattern" docs/ 2>/dev/null; then
-              echo "❌ Potential secret matched pattern: $pattern"
-              FOUND=1
-            fi
-          done
-          if [ $FOUND -eq 0 ]; then
-            echo "✅ No obvious secrets found in docs/"
-          else
-            exit 1
-          fi

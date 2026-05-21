@@ -18,6 +18,8 @@ concurrency:
   group: schema-enforce-${{ github.ref }}
   cancel-in-progress: true
 
+permissions: {}
+
 jobs:
   validate-schema:
     name: Validate frontmatter against skill-schema.json
@@ -77,41 +79,35 @@ jobs:
               if not FILENAME_RE.match(p.name):
                   errors.append(
                       f"::error file={path_str}::Invalid filename '{p.name}'. "
-                      f"Must be lowercase, hyphenated, no spaces/underscores (e.g. chain-of-thought.md)"
+                      f"Must be lowercase, hyphenated, no spaces/underscores."
                   )
 
-              # 2. Frontmatter YAML extraction
-              text = p.read_text(encoding="utf-8", errors="ignore")
+              # 2. Frontmatter schema
+              text = p.read_text(encoding="utf-8")
               if not text.startswith("---"):
-                  errors.append(f"::error file={path_str}::No YAML frontmatter found (file must start with ---)")
+                  errors.append(f"::error file={path_str}::Missing YAML frontmatter.")
                   continue
-
               parts = text.split("---", 2)
               if len(parts) < 3:
-                  errors.append(f"::error file={path_str}::Malformed frontmatter (missing closing ---)")
+                  errors.append(f"::error file={path_str}::Malformed frontmatter (missing closing ---).") 
                   continue
-
               try:
                   fm = yaml.safe_load(parts[1])
               except yaml.YAMLError as e:
-                  errors.append(f"::error file={path_str}::YAML parse error in frontmatter: {e}")
+                  errors.append(f"::error file={path_str}::YAML parse error: {e}")
                   continue
-
               if not isinstance(fm, dict):
-                  errors.append(f"::error file={path_str}::Frontmatter parsed but is not a mapping")
+                  errors.append(f"::error file={path_str}::Frontmatter must be a YAML mapping.")
                   continue
-
-              # 3. JSON Schema validation
               try:
                   validate(instance=fm, schema=SCHEMA)
-                  print(f"  OK: {path_str}")
               except ValidationError as e:
-                  errors.append(f"::error file={path_str}::Schema violation: {e.message} (path: {' > '.join(str(p) for p in e.absolute_path) or 'root'})")
+                  errors.append(f"::error file={path_str}::Schema validation failed: {e.message}")
 
           if errors:
               for err in errors:
                   print(err)
               sys.exit(1)
           else:
-              print(f"\nAll {len(files)} file(s) passed schema validation.")
+              print(f"All {len(files)} file(s) passed schema validation.")
           PYEOF

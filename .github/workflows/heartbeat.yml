@@ -1,36 +1,51 @@
-# Heartbeat — minimal weekly ping to confirm the repository and its workflows
-# are still operational. Posts a single GitHub Actions annotation. If this
-# workflow ever stops appearing in the Actions tab, something is broken.
-#
-# Previously lived in meta/heartbeat.yml (wrong location — GitHub Actions only
-# reads workflows from .github/workflows/). Moved here so it actually runs.
-
 name: Heartbeat
+
+# Synthetic uptime monitor. Runs every 30 minutes and posts a
+# timestamp to docs/heartbeat.json so the status page can detect
+# if CI has gone silent.
+#
+# Separate from uptime-monitor.yml which checks external URLs.
 
 on:
   schedule:
-    - cron: '0 6 * * 1'   # Every Monday at 06:00 UTC
-  workflow_dispatch:        # Allow manual trigger
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions: {}
 
 jobs:
   ping:
-    name: Repository heartbeat
+    name: Write heartbeat timestamp
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
 
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - name: Count skills
+      - name: Write timestamp
         run: |
-          TOTAL=$(find skills -name '*.md' | grep -v README | wc -l | tr -d ' ')
-          CATS=$(find skills -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
-          echo "\u2665 Heartbeat OK"
-          echo "  Skills : ${TOTAL}"
-          echo "  Categories: ${CATS}"
-          echo "  Commit : ${{ github.sha }}"
-          echo "  Run    : ${{ github.run_number }}"
+          python3 - <<'PYEOF'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          out = {
+              "timestamp": datetime.now(timezone.utc).isoformat(),
+              "status": "ok"
+          }
+          Path("docs/heartbeat.json").write_text(json.dumps(out, indent=2))
+          print(f"Heartbeat: {out['timestamp']}")
+          PYEOF
+
+      - name: Commit heartbeat
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/heartbeat.json
+          git diff --staged --quiet && echo "No change." && exit 0
+          git commit -m "chore(heartbeat): $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git push origin main

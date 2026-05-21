@@ -31,6 +31,8 @@ concurrency:
   group: revoke-phantom-badges-${{ github.ref }}
   cancel-in-progress: false
 
+permissions: {}
+
 jobs:
   revoke:
     if: github.event.pull_request.merged == false
@@ -128,7 +130,7 @@ jobs:
 
           revoked = 0
           for skill_path in phantoms:
-              key  = skill_path.replace("\\", "/").replace("/", "-").replace(".md", "")
+              key  = skill_path.replace("\\\\", "/").replace("/", "-").replace(".md", "")
               dest = badge_dir / f"{key}.json"
               if not dest.exists():
                   continue
