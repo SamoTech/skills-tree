@@ -1,1 +1,108 @@
-__STALE_SKILLS__
+name: Stale Skills
+
+# Marks skills as stale when their dependencies have not been reviewed
+# for more than 6 months. Opens issues for maintainer action.
+#
+# Stale criteria:
+#   - Skill has dependencies in frontmatter
+#   - `last_reviewed` date in frontmatter is > 180 days ago
+#   - No open stale issue already exists for that skill
+#
+# Runs weekly (Monday 07:00 UTC) and on workflow_dispatch.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run — report without opening issues'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions: {}
+
+jobs:
+  detect-stale:
+    name: Detect and report stale skills
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install --quiet PyYAML==6.0.2
+
+      - name: Detect stale skills
+        id: stale
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          python tools/stale_skills.py \
+            --skills-root skills/ \
+            --stale-days 180 \
+            --output stale-report.json \
+            $([ "$DRY_RUN" = 'true' ] && echo '--dry-run')
+
+      - name: Open stale issues
+        if: steps.stale.outputs.stale_count != '0' && github.event.inputs.dry_run != 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('stale-report.json', 'utf8'));
+
+            for (const skill of report.stale_skills) {
+              // Check for existing open stale issue
+              const existing = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: 'stale-skill',
+                state: 'open',
+              });
+              const alreadyOpen = existing.data.some(i => i.title.includes(skill.key));
+              if (alreadyOpen) continue;
+
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `\u{1F9F9} Stale skill: ${skill.key}`,
+                body: [
+                  `## Stale Skill Review Required`,
+                  ``,
+                  `**Skill:** \`${skill.path}\``,
+                  `**Last reviewed:** ${skill.last_reviewed || 'never'}`,
+                  `**Days since review:** ${skill.days_stale}`,
+                  ``,
+                  `The dependencies in this skill have not been reviewed for over 180 days.`,
+                  `Please review, update \`last_reviewed\` in the frontmatter, and close this issue.`,
+                ].join('\n'),
+                labels: ['stale-skill'],
+              });
+              console.log(`Opened stale issue for: ${skill.key}`);
+            }
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### \U0001F9F9 Stale Skills Summary" >> $GITHUB_STEP_SUMMARY
+          if [ -f stale-report.json ]; then
+            python3 -c "
+          import json; r=json.load(open('stale-report.json'))
+          print(f\"| Stale skills found | {len(r.get('stale_skills',[]))} |\")
+          print(f\"|---|---|\")
+          " >> $GITHUB_STEP_SUMMARY
+          fi

@@ -1,1 +1,51 @@
-__HEARTBEAT__
+name: Heartbeat
+
+# Synthetic uptime monitor. Runs every 30 minutes and posts a
+# timestamp to docs/heartbeat.json so the status page can detect
+# if CI has gone silent.
+#
+# Separate from uptime-monitor.yml which checks external URLs.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    name: Write heartbeat timestamp
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Write timestamp
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          out = {
+              "timestamp": datetime.now(timezone.utc).isoformat(),
+              "status": "ok"
+          }
+          Path("docs/heartbeat.json").write_text(json.dumps(out, indent=2))
+          print(f"Heartbeat: {out['timestamp']}")
+          PYEOF
+
+      - name: Commit heartbeat
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/heartbeat.json
+          git diff --staged --quiet && echo "No change." && exit 0
+          git commit -m "chore(heartbeat): $(date -u +%Y-%m-%dT%H:%M:%SZ) [skip ci]"
+          git push origin main

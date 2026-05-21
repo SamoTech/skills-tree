@@ -1,1 +1,48 @@
-__CHECK_LINKS__
+name: Check Links
+
+# Validates all external URLs in skill .md files on every PR.
+# Fails the PR if any link returns a non-2xx response.
+#
+# Uses lychee (fast Rust-based link checker) via the official action.
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**/*.md'
+  schedule:
+    # Weekly full link scan: Monday 06:00 UTC
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+concurrency:
+  group: check-links-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  linkcheck:
+    name: Check external links in skill files
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --exclude 'localhost'
+            --exclude '127\.0\.0\.1'
+            --exclude 'example\.com'
+            --timeout 30
+            --max-retries 3
+            'skills/**/*.md'
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,1 +1,106 @@
-__SYNC_BADGES__
+name: Sync Badges
+
+# Ensures every skill .md file has a corresponding badge JSON in
+# docs/badges/. Creates missing badge files with `unscanned` state.
+# Removes orphan badge files for deleted skills.
+#
+# Runs:
+#   - On push to main (skill files changed)
+#   - Weekly Sunday 01:00 UTC (full reconciliation)
+#   - On workflow_dispatch
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**/*.md'
+  schedule:
+    - cron: '0 1 * * 0'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-badges-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  sync:
+    name: Sync badge files to skill inventory
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Reconcile badge files
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          SKILLS_ROOT = Path("skills")
+          BADGE_DIR   = Path("docs/badges")
+          BADGE_DIR.mkdir(parents=True, exist_ok=True)
+
+          UNSCANNED = {
+              "schemaVersion": 1, "label": "deps",
+              "message": "unscanned", "color": "lightgrey",
+              "style": "flat-square",
+          }
+
+          # Build expected badge key set from all skill files
+          skill_keys = set()
+          for md in SKILLS_ROOT.rglob("*.md"):
+              key = str(md).replace("\\", "/").replace("/", "-").replace(".md", "")
+              skill_keys.add(key)
+
+          # Create missing badge files
+          created = 0
+          for key in skill_keys:
+              badge_path = BADGE_DIR / f"{key}.json"
+              if not badge_path.exists():
+                  badge_path.write_text(json.dumps(UNSCANNED, indent=2))
+                  created += 1
+                  print(f"  CREATED: {badge_path.name}")
+
+          # Remove orphan badge files
+          removed = 0
+          for badge_file in BADGE_DIR.glob("*.json"):
+              key = badge_file.stem
+              if key not in skill_keys:
+                  badge_file.unlink()
+                  removed += 1
+                  print(f"  REMOVED: {badge_file.name}")
+
+          print(f"\nSync complete. Created: {created}, Removed: {removed}")
+          PYEOF
+
+      - name: Commit badge sync
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/badges/
+          git diff --staged --quiet && echo "Badges already in sync." && exit 0
+          git commit -m "chore(badges): sync badge files to skill inventory [skip ci]"
+
+          for attempt in 1 2 3; do
+            git push origin main && {
+              echo "Badge sync pushed (attempt ${attempt})."
+              exit 0
+            }
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 3 attempts."
+          exit 1
+
+      - name: Summary
+        run: |
+          BADGE_COUNT=$(ls docs/badges/*.json 2>/dev/null | wc -l || echo 0)
+          echo "### \U0001F3F7\uFE0F Badge Sync" >> $GITHUB_STEP_SUMMARY
+          echo "Total badge files: ${BADGE_COUNT}" >> $GITHUB_STEP_SUMMARY

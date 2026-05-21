@@ -1,1 +1,78 @@
-__AST_SWEEP__
+# ast-sweep.yml
+#
+# Phase 1 of the Dependency Watchdog pipeline.
+# Runs on every PR that touches a skill .md file.
+# Extracts package names from code fences and writes them to
+# docs/sbom/<skill-key>.json for downstream pipeline stages.
+#
+# Security model:
+#   - Runs on pull_request (not pull_request_target).
+#     The diff is read from the GitHub API via GH_TOKEN — the PR head
+#     is checked out only to read skill files, never to execute code.
+#   - No secrets beyond GITHUB_TOKEN are used.
+#   - Writes only to docs/sbom/ on main via a separate commit.
+
+name: AST Sweep (Phase 1)
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**/*.md'
+  workflow_dispatch:
+
+concurrency:
+  group: ast-sweep-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  sweep:
+    name: Extract dependencies from skill files
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
+
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install sweep dependencies
+        run: pip install --quiet PyYAML==6.0.2
+
+      - name: Get changed skill files
+        id: changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FILES=$(gh pr view ${{ github.event.pull_request.number }} \
+            --json files --jq '.files.[].path' \
+            | grep '^skills/.*\.md$' || true)
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Run AST sweep
+        if: steps.changed.outputs.files != ''
+        run: |
+          python tools/ast_sweep.py \
+            --files "${{ steps.changed.outputs.files }}" \
+            --output docs/sbom/
+
+      - name: Commit SBOM fragments
+        if: steps.changed.outputs.files != ''
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/sbom/
+          git diff --staged --quiet && echo "No SBOM changes." && exit 0
+          git commit -m "chore(sbom): ast-sweep for PR #${{ github.event.pull_request.number }} [skip ci]"
+          git push origin HEAD:main

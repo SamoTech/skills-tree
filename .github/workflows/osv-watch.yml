@@ -1,1 +1,111 @@
-__OSV_WATCH__
+# osv-watch.yml
+#
+# Phase 2 of the Dependency Watchdog pipeline.
+# Queries the OSV (Open Source Vulnerabilities) database for every
+# package referenced in the skills SBOM and updates badge JSON files.
+#
+# Badge states:
+#   Green  (verified)  — package version in frontmatter has no known CVEs
+#   Yellow (advisory)  — CVE exists but skill pins a patched version
+#   Red    (critical)  — skill pins a version with an active CVE
+#   Grey   (unscanned) — no dependency data in frontmatter
+#
+# Runs:
+#   - On push to main (skill SBOM changed)
+#   - Weekly Sunday 03:00 UTC (catch newly published CVEs)
+#   - On workflow_dispatch
+
+name: OSV Vulnerability Watch (Phase 2)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'meta/skills-sbom.cdx.json'
+      - 'skills/**/*.md'
+  schedule:
+    - cron: '0 3 * * 0'
+  workflow_dispatch:
+
+concurrency:
+  group: osv-watch-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  scan:
+    name: Scan SBOM against OSV database
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install OSV scanner dependencies
+        run: pip install --quiet httpx==0.28.1 PyYAML==6.0.2
+
+      - name: Run OSV scan
+        run: |
+          python tools/osv_watch.py \
+            --sbom meta/skills-sbom.cdx.json \
+            --skills-root skills/ \
+            --badge-output docs/badges/ \
+            --report osv-report.json
+
+      - name: Commit badge updates
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/badges/
+          git diff --staged --quiet && echo "No badge changes." && exit 0
+          git commit -m "chore(badges): osv-watch badge update [skip ci]"
+
+          for attempt in 1 2 3; do
+            git push origin main && {
+              echo "Badge push succeeded (attempt ${attempt})."
+              exit 0
+            }
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 3 attempts."
+          exit 1
+
+      - name: Upload OSV report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: osv-report
+          path: osv-report.json
+          retention-days: 14
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### \U0001F50D OSV Watch Summary" >> $GITHUB_STEP_SUMMARY
+          if [ -f osv-report.json ]; then
+            python3 - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path("osv-report.json").read_text())
+          counts = report.get("counts", {})
+          print(f"""| State | Count |
+|---|---|
+| \u{1F7E2} verified | {counts.get('verified', 0)} |
+| \u{1F7E1} advisory | {counts.get('advisory', 0)} |
+| \U0001F534 critical | {counts.get('critical', 0)} |
+| \u26AA unscanned | {counts.get('unscanned', 0)} |""")
+          PYEOF
+          fi >> $GITHUB_STEP_SUMMARY
