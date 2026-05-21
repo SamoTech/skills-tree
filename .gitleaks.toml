@@ -1,0 +1,21 @@
+[allowlist]
+  description = "Allowlist for pinned GitHub Action commit SHAs and other known-safe patterns."
+
+  # Pinned third-party action SHAs added in fix/workflow-audit-hardening.
+  # These are immutable commit SHAs used for supply-chain security, not secrets.
+  regexes = [
+    # gitleaks/gitleaks-action SHA pin in security-scan.yml
+    "b6c5bf31b84b54c65d9cb4f4c46b4d9765c10a4f",
+    # stefanzweifel/git-auto-commit-action SHA pin in build-graph.yml
+    "3f65f6fb5f2acb7d13f4f495facac4ac7b1f3b65",
+  ]
+
+  # Paths that are documentation-only and may contain illustrative tokens/keys.
+  # Skills Markdown files are example code, not live credentials.
+  paths = [
+    "skills",
+    "benchmarks",
+    "labs",
+    "blueprints",
+    "docs",
+  ]
