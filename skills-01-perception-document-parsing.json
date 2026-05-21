@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "label": "deps",
-  "message": "machine-inferred \u00b7 3 pkgs",
-  "color": "yellow",
-  "style": "flat-square"
+  "message": "\u26a0\ufe0f PYSEC-2024-278",
+  "color": "critical",
+  "style": "flat-square",
+  "namedLogo": "dependabot"
 }
