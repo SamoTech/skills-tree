@@ -12,14 +12,24 @@
     "ff98106e4c7b2bc287b24eaf42907196329070c4",
     # stefanzweifel/git-auto-commit-action SHA pin
     "3f65f6fb5f2acb7d13f4f495facac4ac7b1f3b65",
+    # GitHub token regex patterns used as grep/scan examples in workflow files.
+    # These are detection patterns, not live credentials.
+    "ghp_[A-Za-z0-9]{36}",
+    "ghs_[A-Za-z0-9]{36}",
+    "sk-[A-Za-z0-9]{48}",
+    "AIza[0-9A-Za-z\\-_]{35}",
+    "AKIA[0-9A-Z]{16}",
   ]
 
-  # Paths that are documentation-only and may contain illustrative tokens/keys.
+  # Paths that are documentation-only or tooling and may contain illustrative
+  # tokens/keys or regex patterns that match secret shapes.
   # Skills Markdown files are example code, not live credentials.
+  # Workflow files may contain detection regex patterns for secret scanning.
   paths = [
     "skills",
     "benchmarks",
     "labs",
     "blueprints",
     "docs",
+    ".github/workflows",
   ]
