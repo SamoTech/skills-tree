@@ -16,7 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run Gitleaks
-        uses: gitleaks/gitleaks-action@b6c5bf31b84b54c65d9cb4f4c46b4d9765c10a4f
+        # Pinned to immutable SHA (v2.3.9) — do not change to a floating tag.
+        # To update: https://api.github.com/repos/gitleaks/gitleaks-action/tags
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7  # v2.3.9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
