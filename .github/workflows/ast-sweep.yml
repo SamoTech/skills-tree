@@ -155,7 +155,7 @@ jobs:
       - name: Open draft PR with sweep results
         # FIX: boolean inputs are strings
         if: inputs.dry_run != 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');
