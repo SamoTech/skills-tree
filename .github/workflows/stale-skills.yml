@@ -1,14 +1,1 @@
-name: Stale Skills
-
-on:
-  schedule:
-    - cron: '0 7 * * 1'
-  workflow_dispatch:
-
-permissions: {}
-
-jobs:
-  stale:
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
+__STALE_SKILLS__

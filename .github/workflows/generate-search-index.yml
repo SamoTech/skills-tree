@@ -1,14 +1,1 @@
-name: Generate Search Index
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 3 * * 2'
-
-permissions: {}
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+__GENERATE_SEARCH_INDEX__

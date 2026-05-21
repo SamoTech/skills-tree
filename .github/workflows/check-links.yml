@@ -1,14 +1,1 @@
-name: Check Links
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 5 * * 1'
-
-permissions: {}
-
-jobs:
-  links:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
+__CHECK_LINKS__

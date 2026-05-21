@@ -1,15 +1,1 @@
-name: AST Import Extraction + PyPI Validation
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 2 * * 1'
-
-permissions: {}
-
-jobs:
-  sweep:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+__AST_SWEEP__

@@ -1,14 +1,1 @@
-name: Sync Badges
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 3 * * *'
-
-permissions: {}
-
-jobs:
-  sync:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
+__SYNC_BADGES__
