@@ -5,6 +5,12 @@ level: intermediate
 stability: stable
 description: "Apply document parsing in AI agent workflows."
 added: "2025-03"
+dependencies:
+  - package: langchain-community
+    min_version: "0.3.0"
+    tested_version: "0.4.1"
+    confidence: verified
+    notes: "Patched PYSEC-2024-278. Use langchain-community>=0.4.1."
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)
