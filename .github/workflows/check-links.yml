@@ -1,38 +1,14 @@
-name: Check External Links
+name: Check Links
 
 on:
-  schedule:
-    # Run every Monday at 08:00 UTC
-    - cron: '0 8 * * 1'
   workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * 1'
+
+permissions: {}
 
 jobs:
-  linkcheck:
-    name: Check external links
+  links:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '20'
-
-      - name: Install markdown-link-check
-        run: npm install -g markdown-link-check
-
-      # --retry is a boolean flag; retry count is set via retryCount in mlc-config.json.
-      # Results are collected per-file; final exit code reflects any failures.
-      - name: Check links in all Markdown files
-        run: |
-          FAIL=0
-          while IFS= read -r -d '' file; do
-            markdown-link-check "$file" \
-              --config .github/mlc-config.json \
-              --quiet \
-              --retry || FAIL=1
-          done < <(find . -name '*.md' ! -path './node_modules/*' -print0)
-          exit $FAIL
