@@ -42,7 +42,7 @@ jobs:
 
       - name: Open downtime issue
         if: steps.check.outputs.result == 'down'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const label = 'uptime-alert';
@@ -81,7 +81,7 @@ jobs:
 
       - name: Close recovery issue
         if: steps.check.outputs.result == 'up'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const label = 'uptime-alert';
