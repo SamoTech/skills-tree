@@ -38,3 +38,47 @@ jobs:
     if: >
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Inject badge links
+        run: |
+          DRY_RUN_FLAG=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+          python tools/inject_badge_links.py \
+            --skills-root skills/ \
+            $DRY_RUN_FLAG
+
+      - name: Commit injected badges (skipped on dry run)
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add skills/
+          git diff --staged --quiet && echo "No badge links to inject." && exit 0
+          INJECTED=$(git diff --staged --name-only | wc -l | tr -d ' ')
+          git commit -m "chore(badges): inject live badge links into ${INJECTED} skill file(s) [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            git push origin main && {
+              echo "✅ Pushed (attempt ${attempt})."
+              exit 0
+            }
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 5 attempts."
+          exit 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
