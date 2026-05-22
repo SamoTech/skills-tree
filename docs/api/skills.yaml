@@ -1,4 +1,4 @@
-generated: '2026-05-18T12:28:56Z'
+generated: '2026-05-22T20:57:03Z'
 count: 360
 skills:
 - id: api-response-parsing
@@ -1464,14 +1464,21 @@ skills:
 - id: cross-session-persistence
   path: skills/03-memory/cross-session-persistence.md
   name: Cross-Session Persistence
-  description: Apply cross-session persistence in AI agent workflows.
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-cross-session-persistence.json)'
   category: memory
   level: advanced
   stability: stable
   version: null
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Storage Backend Options
+  - Implementation Pattern
+  - What to Persist
+  - Pitfalls
+  - Related Skills
   related: []
   category_dir: 03-memory
 - id: cross-thread-memory
@@ -1513,14 +1520,21 @@ skills:
 - id: fact-verification-memory
   path: skills/03-memory/fact-verification-memory.md
   name: Fact Verification Memory
-  description: Apply fact verification memory in AI agent workflows.
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-fact-verification-memory.json)'
   category: memory
   level: advanced
   stability: stable
   version: null
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Data Model
+  - Implementation Pattern
+  - Claim Normalisation
+  - Pitfalls
+  - Related Skills
   related:
   - ../02-reasoning/self-correction.md
   category_dir: 03-memory
@@ -1630,14 +1644,21 @@ skills:
 - id: procedural-memory
   path: skills/03-memory/procedural-memory.md
   name: Procedural Memory
-  description: Apply procedural memory in AI agent workflows.
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural-memory.json)'
   category: memory
   level: intermediate
   stability: stable
   version: null
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Data Model
+  - Implementation Pattern
+  - Learning New Procedures
+  - Pitfalls
+  - Related Skills
   related:
   - ../02-reasoning/planning.md
   category_dir: 03-memory
@@ -1729,14 +1750,22 @@ skills:
 - id: user-profile-memory
   path: skills/03-memory/user-profile-memory.md
   name: User Profile Memory
-  description: Apply user profile memory in AI agent workflows.
+  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-user-profile-memory.json)'
   category: memory
   level: intermediate
   stability: stable
   version: null
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Data Model
+  - Implementation Pattern
+  - Profile Update Strategies
+  - Privacy Considerations
+  - Pitfalls
+  - Related Skills
   related: []
   category_dir: 03-memory
 - id: user-profile

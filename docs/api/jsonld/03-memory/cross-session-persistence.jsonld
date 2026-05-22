@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/cross-session-persistence.md",
   "name": "Cross-Session Persistence",
   "headline": "Cross-Session Persistence",
-  "description": "Apply cross-session persistence in AI agent workflows.",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-cross-session-persistence.json)",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/cross-session-persistence.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T12:28:56Z",
+  "dateModified": "2026-05-22T20:57:03Z",
   "skillId": "cross-session-persistence",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Storage Backend Options",
+    "Implementation Pattern",
+    "What to Persist",
+    "Pitfalls",
+    "Related Skills"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, cross, AI agent, persistence, session, LLM skill, memory",
+  "keywords": "cross, skills tree, session, AI agent, LLM skill, persistence, memory",
   "about": {
     "@type": "Thing",
     "name": "Cross-Session Persistence",

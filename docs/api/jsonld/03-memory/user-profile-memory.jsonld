@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/user-profile-memory.md",
   "name": "User Profile Memory",
   "headline": "User Profile Memory",
-  "description": "Apply user profile memory in AI agent workflows.",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-user-profile-memory.json)",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/user-profile-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T12:28:56Z",
+  "dateModified": "2026-05-22T20:57:03Z",
   "skillId": "user-profile-memory",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Data Model",
+    "Implementation Pattern",
+    "Profile Update Strategies",
+    "Privacy Considerations",
+    "Pitfalls",
+    "Related Skills"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, user, profile, AI agent, LLM skill, memory",
+  "keywords": "skills tree, profile, AI agent, memory, LLM skill, user",
   "about": {
     "@type": "Thing",
     "name": "User Profile Memory",

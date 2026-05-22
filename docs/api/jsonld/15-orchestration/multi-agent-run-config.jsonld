@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T12:28:56Z",
+  "dateModified": "2026-05-22T20:57:03Z",
   "skillId": "multi-agent-run-config",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "LLM skill, orchestration, skills tree, config, AI agent, multi, agent, run",
+  "keywords": "skills tree, multi, config, run, AI agent, agent, LLM skill, orchestration",
   "about": {
     "@type": "Thing",
     "name": "Multi-Agent Run Config",
