@@ -23,9 +23,9 @@
 
   # Paths that are documentation-only or tooling and may contain illustrative
   # tokens/keys or regex patterns that match secret shapes.
-  # Skills Markdown files are example code, not live credentials.
-  # Workflow files may contain detection regex patterns for secret scanning.
-  # Tool scripts may contain hardcoded public URLs that trip generic-api-key rules.
+  # Note: `paths` only applies to `detect` (full-repo) mode, not `protect`
+  # (diff) mode used by the gitleaks Action on PRs. Rule-level allowlists
+  # (see [[rules]] below) are required to suppress false positives in diff mode.
   paths = [
     "skills",
     "benchmarks",
@@ -35,3 +35,21 @@
     ".github/workflows",
     "tools",
   ]
+
+# ---------------------------------------------------------------------------
+# Rule-level allowlists
+# These fire in BOTH detect and protect (diff) modes, making them the correct
+# mechanism for suppressing PR-scan false positives.
+# ---------------------------------------------------------------------------
+
+[[rules]]
+  # Extend the built-in generic-api-key rule to allowlist the shields.io
+  # endpoint URL in tools/inject_badge_links.py. The high-entropy query
+  # parameter `?url=https://samotech.github.io/...` trips the rule even
+  # though this is a hardcoded public URL, not a credential.
+  id = "generic-api-key"
+  [rules.allowlist]
+    regexes = [
+      # shields.io endpoint base URL constant — public URL, not a secret.
+      "img\\.shields\\.io/endpoint\\?url=https://samotech\\.github\\.io/skills-tree/badges/",
+    ]
