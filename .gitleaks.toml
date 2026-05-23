@@ -25,6 +25,7 @@
   # tokens/keys or regex patterns that match secret shapes.
   # Skills Markdown files are example code, not live credentials.
   # Workflow files may contain detection regex patterns for secret scanning.
+  # Tool scripts may contain hardcoded public URLs that trip generic-api-key rules.
   paths = [
     "skills",
     "benchmarks",
@@ -32,4 +33,5 @@
     "blueprints",
     "docs",
     ".github/workflows",
+    "tools",
   ]
