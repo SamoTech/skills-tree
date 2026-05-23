@@ -36,7 +36,7 @@ import sys
 from pathlib import Path
 
 try:
-    import yaml  # PyYAML — installed in CI via: pip install PyYAML==6.0.2
+    import yaml  # PyYAML — installed in CI via: pip install PyYAML==6.0.3
 except ImportError:  # pragma: no cover
     print("ERROR: PyYAML is required. Run: pip install pyyaml", file=sys.stderr)
     sys.exit(1)
@@ -169,7 +169,12 @@ def main() -> None:
     documents = build_index(skills_root)
 
     if not documents:
-        print("WARNING: No skill documents found — index will be empty.", file=sys.stderr)
+        print(
+            f"ERROR: No skill documents found under '{skills_root}' — "
+            "refusing to overwrite the index with an empty file.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)

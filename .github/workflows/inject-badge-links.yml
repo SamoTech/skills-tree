@@ -20,6 +20,9 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Promote the input to an env var here so the shell step never interpolates
+  # a ${{ }} expression directly inside a `run:` block (script-injection guard).
+  DRY_RUN_INPUT: ${{ github.event.inputs.dry_run }}
 
 # SECURITY NOTE:
 # This workflow is intentionally safe because it only runs on main,
@@ -54,7 +57,7 @@ jobs:
       - name: Inject badge links
         run: |
           DRY_RUN_FLAG=""
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+          if [ "$DRY_RUN_INPUT" = "true" ]; then
             DRY_RUN_FLAG="--dry-run"
           fi
           python tools/inject_badge_links.py \
@@ -62,7 +65,7 @@ jobs:
             $DRY_RUN_FLAG
 
       - name: Commit injected badges (skipped on dry run)
-        if: github.event.inputs.dry_run != 'true'
+        if: env.DRY_RUN_INPUT != 'true'
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

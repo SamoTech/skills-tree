@@ -65,13 +65,13 @@ def main():
 
     skills_root = Path(args.skills_root)
     if not skills_root.exists():
-        print(f"ERROR: skills root '{skills_root}' does not exist.")
-        return
+        print(f"ERROR: skills root '{skills_root}' does not exist.", file=sys.stderr)
+        sys.exit(1)
 
     md_files = sorted(skills_root.rglob("*.md"))
     if not md_files:
-        print(f"No Markdown files found under '{skills_root}'.")
-        return
+        print(f"No Markdown files found under '{skills_root}'.", file=sys.stderr)
+        sys.exit(1)
 
     print(f"{'[DRY RUN] ' if args.dry_run else ''}Scanning {len(md_files)} Markdown files in '{skills_root}'...\n")
 
@@ -82,12 +82,12 @@ def main():
         modified = inject_badge(file_path, dry_run=args.dry_run)
         if modified:
             prefix = DRY_RUN_TAG + " " if args.dry_run else ""
-            print(f"  {prefix}Injected → {file_path}")
+            print(f"  {prefix}Injected \u2192 {file_path}")
             injected += 1
         else:
             skipped += 1
 
-    print(f"\n{'─' * 50}")
+    print(f"\n{'\u2500' * 50}")
     print(f"{'[DRY RUN] ' if args.dry_run else ''}Done.")
     print(f"  Injected : {injected} file(s)")
     print(f"  Skipped  : {skipped} file(s) (badge already present or no .md files)")

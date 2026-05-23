@@ -19,6 +19,9 @@ concurrency:
 
 permissions: {}
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   index:
     name: Rebuild search index
@@ -38,7 +41,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install indexer dependencies
-        run: pip install --quiet PyYAML==6.0.2
+        run: pip install --quiet PyYAML==6.0.3
 
       - name: Build search index
         run: |
@@ -53,4 +56,15 @@ jobs:
           git add docs/search-index.json
           git diff --staged --quiet && echo "Index unchanged." && exit 0
           git commit -m "chore(search): rebuild search index [skip ci]"
-          git push origin main
+          for attempt in 1 2 3 4 5; do
+            git push origin main && {
+              echo "✅ Pushed (attempt ${attempt})."
+              exit 0
+            }
+            git pull --rebase origin main
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Push failed after 5 attempts."
+          exit 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
