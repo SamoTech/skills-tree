@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-25T08:20:42Z",
+  "dateModified": "2026-05-25T08:45:49Z",
   "skillId": "huggingface-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, use, api, huggingface, AI agent, LLM skill, tool",
+  "keywords": "api, AI agent, tool, skills tree, LLM skill, use, huggingface",
   "about": {
     "@type": "Thing",
     "name": "HuggingFace API",
