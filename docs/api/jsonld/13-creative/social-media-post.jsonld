@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T12:28:56Z",
+  "dateModified": "2026-05-25T08:20:42Z",
   "skillId": "social-media-post",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "media, skills tree, post, AI agent, creative, social, LLM skill",
+  "keywords": "creative, media, skills tree, post, AI agent, LLM skill, social",
   "about": {
     "@type": "Thing",
     "name": "social-media-post",

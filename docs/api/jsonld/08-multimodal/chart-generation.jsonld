@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-18T12:28:56Z",
+  "dateModified": "2026-05-25T08:20:42Z",
   "skillId": "chart-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, generation, AI agent, chart, LLM skill, multimodal",
+  "keywords": "skills tree, multimodal, AI agent, generation, LLM skill, chart",
   "about": {
     "@type": "Thing",
     "name": "Chart / Diagram Generation",
