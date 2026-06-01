@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-05-25T08:45:49Z",
+  "dateModified": "2026-06-01T09:26:08Z",
   "skillId": "assertion",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "assertion, execution, AI agent, skills tree, LLM skill, action",
+  "keywords": "LLM skill, AI agent, skills tree, execution, action, assertion",
   "about": {
     "@type": "Thing",
     "name": "Assertion / Verification",
