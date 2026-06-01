@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-01T09:26:08Z",
+  "dateModified": "2026-06-01T09:41:40Z",
   "skillId": "mouse-click",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, mouse, skills tree, click, computer, AI agent, use",
+  "keywords": "skills tree, use, LLM skill, computer, mouse, click, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Mouse Click",
