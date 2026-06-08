@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-01T09:41:40Z",
+  "dateModified": "2026-06-08T08:54:44Z",
   "skillId": "code-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, perception, code, LLM skill, AI agent, reading",
+  "keywords": "code, perception, skills tree, reading, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Code Reading",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-01T09:41:40Z",
+  "dateModified": "2026-06-08T08:54:44Z",
   "skillId": "bug-fixing",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "bug, skills tree, code, LLM skill, fixing, AI agent",
+  "keywords": "code, skills tree, fixing, AI agent, bug, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Bug Fixing",

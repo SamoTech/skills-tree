@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-01T09:41:40Z",
+  "dateModified": "2026-06-08T08:54:44Z",
   "skillId": "instruction-following",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "communication, skills tree, following, LLM skill, instruction, AI agent",
+  "keywords": "skills tree, following, AI agent, LLM skill, communication, instruction",
   "about": {
     "@type": "Thing",
     "name": "Instruction Following",

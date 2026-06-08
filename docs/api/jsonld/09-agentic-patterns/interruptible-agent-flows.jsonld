@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-01T09:41:40Z",
+  "dateModified": "2026-06-08T08:54:44Z",
   "skillId": "interruptible-agent-flows",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "patterns, agentic, skills tree, interruptible, LLM skill, agent, flows, AI agent",
+  "keywords": "agent, skills tree, interruptible, agentic, AI agent, LLM skill, patterns, flows",
   "about": {
     "@type": "Thing",
     "name": "Interruptible Agent Flows",

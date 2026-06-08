@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-01T09:41:40Z",
+  "dateModified": "2026-06-08T08:54:44Z",
   "skillId": "keyboard-shortcut",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "shortcut, skills tree, use, LLM skill, computer, keyboard, AI agent",
+  "keywords": "shortcut, keyboard, skills tree, use, computer, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Keyboard Shortcut",
