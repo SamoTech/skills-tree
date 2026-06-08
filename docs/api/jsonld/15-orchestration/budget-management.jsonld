@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T08:54:44Z",
+  "dateModified": "2026-06-08T09:12:32Z",
   "skillId": "budget-management",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "skills tree, AI agent, management, budget, LLM skill, orchestration",
+  "keywords": "budget, LLM skill, skills tree, orchestration, management, AI agent",
   "about": {
     "@type": "Thing",
     "name": "budget-management",

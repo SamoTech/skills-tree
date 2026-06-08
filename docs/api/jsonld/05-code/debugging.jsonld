@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T08:54:44Z",
+  "dateModified": "2026-06-08T09:12:32Z",
   "skillId": "debugging",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "code, skills tree, AI agent, debugging, LLM skill",
+  "keywords": "debugging, code, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Debugging",

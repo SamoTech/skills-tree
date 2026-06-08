@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T08:54:44Z",
+  "dateModified": "2026-06-08T09:12:32Z",
   "skillId": "stateful-agent-graphs",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agent, skills tree, graphs, AI agent, LLM skill, stateful, orchestration",
+  "keywords": "graphs, agent, LLM skill, stateful, skills tree, orchestration, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Stateful Agent Graphs",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T08:54:44Z",
+  "dateModified": "2026-06-08T09:12:32Z",
   "skillId": "binary-file-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "binary, perception, skills tree, reading, AI agent, file, LLM skill",
+  "keywords": "LLM skill, reading, AI agent, skills tree, file, binary, perception",
   "about": {
     "@type": "Thing",
     "name": "Binary File Reading",
