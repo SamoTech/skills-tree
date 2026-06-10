@@ -19,12 +19,17 @@
     "sk-[A-Za-z0-9]{48}",
     "AIza[0-9A-Za-z\\-_]{35}",
     "AKIA[0-9A-Z]{16}",
+    # GitHub Actions context expressions used in workflow env: blocks.
+    # These are runtime substitution placeholders, not live credentials.
+    # e.g. DRY_RUN_INPUT: ${{ github.event.inputs.dry_run }}
+    "\\$\\{\\{\\s*github\\.event\\.inputs\\.[a-z_]+\\s*\\}\\}",
   ]
 
   # Paths that are documentation-only or tooling and may contain illustrative
   # tokens/keys or regex patterns that match secret shapes.
-  # Skills Markdown files are example code, not live credentials.
-  # Workflow files may contain detection regex patterns for secret scanning.
+  # Note: `paths` only applies to `detect` (full-repo) mode, not `protect`
+  # (diff) mode used by the gitleaks Action on PRs. Top-level `regexes`
+  # (above) are required to suppress false positives in diff mode.
   paths = [
     "skills",
     "benchmarks",
@@ -32,4 +37,5 @@
     "blueprints",
     "docs",
     ".github/workflows",
+    "tools",
   ]
