@@ -15,62 +15,148 @@
 #   - Weekly Sunday 03:00 UTC (catch newly published CVEs)
 #   - On workflow_dispatch
 
-name: OSV Vulnerability Watch (Phase 2)
+name: OSV Watch
 
 on:
   push:
     branches: [main]
     paths:
-      - 'meta/skills-sbom.cdx.json'
-      - 'skills/**/*.md'
+      - 'skills/**'
+      - '.github/workflows/osv-watch.yml'
   schedule:
     - cron: '0 3 * * 0'
   workflow_dispatch:
 
-concurrency:
-  group: osv-watch-${{ github.ref }}
-  cancel-in-progress: true
-
-permissions: {}
+permissions:
+  contents: write
 
 jobs:
-  scan:
-    name: Scan SBOM against OSV database
+  osv-watch:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-
     steps:
-      - name: Checkout main
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
-      - name: Install OSV scanner dependencies
-        run: pip install --quiet httpx==0.28.1 PyYAML==6.0.2
+      - name: Install dependencies
+        run: pip install requests
 
       - name: Run OSV scan
+        id: osv-scan
         run: |
-          python tools/osv_watch.py \
-            --sbom meta/skills-sbom.cdx.json \
-            --skills-root skills/ \
-            --badge-output docs/badges/ \
-            --report osv-report.json
+          python3 - <<'PYEOF'
+import json
+import os
+import re
+import requests
+from pathlib import Path
+
+SKILLS_DIR = Path("skills")
+BADGES_DIR = Path("docs/badges")
+BADGES_DIR.mkdir(parents=True, exist_ok=True)
+
+OSV_BATCH_URL = "https://api.osv.dev/v1/querybatch"
+
+def parse_frontmatter(text):
+    m = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
+    if not m:
+        return {}
+    fm = {}
+    for line in m.group(1).splitlines():
+        if ':' in line:
+            k, _, v = line.partition(':')
+            fm[k.strip()] = v.strip()
+    return fm
+
+def get_deps(fm):
+    deps = []
+    for key in ('dependencies', 'requires', 'packages'):
+        val = fm.get(key, '')
+        if val:
+            for item in re.split(r'[,\s]+', val):
+                item = item.strip().strip('[]')
+                if item:
+                    deps.append(item)
+    return deps
+
+def parse_dep(dep):
+    m = re.match(r'^([A-Za-z0-9_.\-]+)(?:[>=<!]+(.+))?$', dep)
+    if m:
+        return m.group(1), (m.group(2) or '').strip()
+    return dep, ''
+
+skill_files = list(SKILLS_DIR.rglob('*.md'))
+queries = []
+skill_map = []  # (skill_path, package, version)
+
+for sf in skill_files:
+    text = sf.read_text(encoding='utf-8')
+    fm = parse_frontmatter(text)
+    deps = get_deps(fm)
+    for dep in deps:
+        pkg, ver = parse_dep(dep)
+        q = {"package": {"name": pkg, "ecosystem": "PyPI"}}
+        if ver:
+            q["version"] = ver
+        queries.append(q)
+        skill_map.append((sf, pkg, ver))
+
+counts = {"verified": 0, "advisory": 0, "critical": 0, "unscanned": 0}
+badge_data = {}
+report_vulns = []
+
+if queries:
+    resp = requests.post(OSV_BATCH_URL, json={"queries": queries}, timeout=60)
+    resp.raise_for_status()
+    results = resp.json().get("results", [])
+
+    for i, (sf, pkg, ver) in enumerate(skill_map):
+        vulns = results[i].get("vulns", []) if i < len(results) else []
+        skill_name = sf.stem
+        if not vulns:
+            state = "verified"
+        else:
+            ids = [v.get("id", "") for v in vulns]
+            # Check if pinned version is affected
+            state = "critical" if ver else "advisory"
+            for v in vulns:
+                for affected in v.get("affected", []):
+                    for rng in affected.get("ranges", []):
+                        for ev in rng.get("events", []):
+                            fixed = ev.get("fixed", "")
+                            if fixed and ver and ver >= fixed:
+                                state = "advisory"
+            report_vulns.append({"skill": skill_name, "package": pkg, "version": ver, "state": state, "vulns": ids})
+        counts[state] += 1
+        badge_data.setdefault(skill_name, {})[pkg] = {"state": state, "version": ver}
+else:
+    for sf in skill_files:
+        skill_name = sf.stem
+        badge_data[skill_name] = {}
+        counts["unscanned"] += 1
+
+for skill_name, pkgs in badge_data.items():
+    badge_file = BADGES_DIR / f"{skill_name}.json"
+    badge_file.write_text(json.dumps({"skill": skill_name, "packages": pkgs}, indent=2))
+
+report = {"counts": counts, "vulnerabilities": report_vulns}
+Path("osv-report.json").write_text(json.dumps(report, indent=2))
+print(json.dumps(counts))
+PYEOF
 
       - name: Commit badge updates
         run: |
-          git config user.name  'github-actions[bot]'
+          git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add docs/badges/
           git diff --staged --quiet && echo "No badge changes." && exit 0
           git commit -m "chore(badges): osv-watch badge update [skip ci]"
-
           for attempt in 1 2 3; do
             git push origin main && {
               echo "Badge push succeeded (attempt ${attempt})."
@@ -95,17 +181,17 @@ jobs:
         run: |
           echo "### \U0001F50D OSV Watch Summary" >> $GITHUB_STEP_SUMMARY
           if [ -f osv-report.json ]; then
-            python3 - <<'PYEOF'
-          import json
-          from pathlib import Path
-
-          report = json.loads(Path("osv-report.json").read_text())
-          counts = report.get("counts", {})
-          print(f"""| State | Count |
+            python3 - <<'PYEOF' >> $GITHUB_STEP_SUMMARY
+import json
+from pathlib import Path
+report = json.loads(Path("osv-report.json").read_text())
+counts = report.get("counts", {})
+print(f"""| State | Count |
 |---|---|
-| \u{1F7E2} verified | {counts.get('verified', 0)} |
-| \u{1F7E1} advisory | {counts.get('advisory', 0)} |
+| \U0001F7E2 verified | {counts.get('verified', 0)} |
+| \U0001F7E1 advisory | {counts.get('advisory', 0)} |
 | \U0001F534 critical | {counts.get('critical', 0)} |
-| \u26AA unscanned | {counts.get('unscanned', 0)} |""")
-          PYEOF
-          fi >> $GITHUB_STEP_SUMMARY
+| \u26AA unscanned | {counts.get('unscanned', 0)} |
+""")
+PYEOF
+          fi
