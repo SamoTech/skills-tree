@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 360
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 50
+- **Total skill files:** 361
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 51
 - 🟡 **Enriched** (real description + runnable code): 2
 - ⚪ **Stub** (placeholder description or no runnable code): 308
 - ❌ **Invalid** (frontmatter problems): 0
@@ -20,7 +20,7 @@
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
-| `07-tool-use` | 32 | 5 | 0 | 27 | 0 |
+| `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
 | `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
@@ -60,6 +60,7 @@
 - [`skills/07-tool-use/openai-api.md`](skills/07-tool-use/openai-api.md) — OpenAI API
 - [`skills/07-tool-use/tool-guardrails.md`](skills/07-tool-use/tool-guardrails.md) — Tool Guardrails
 - [`skills/07-tool-use/tool-review-loops.md`](skills/07-tool-use/tool-review-loops.md) — Tool Review Loops
+- [`skills/07-tool-use/xquik-api.md`](skills/07-tool-use/xquik-api.md) — Xquik API
 - [`skills/09-agentic-patterns/agent-as-tool.md`](skills/09-agentic-patterns/agent-as-tool.md) — Agent as Tool
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
