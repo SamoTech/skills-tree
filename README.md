@@ -19,10 +19,10 @@
 
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
-> **360 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
+> **361 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > **Stop rediscovering. Start building on what the community has already proven.**
 >
-> **50 skills are battle-tested today.** **308 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
+> **51 skills are battle-tested today.** **308 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
@@ -35,7 +35,7 @@
 [![Repo Size](https://img.shields.io/github/repo-size/SamoTech/skills-tree?style=for-the-badge&color=8b5cf6&logo=github)](https://github.com/SamoTech/skills-tree)
 [![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-360%2B-8b5cf6?style=for-the-badge)](skills/)
+[![Skills](https://img.shields.io/badge/Skills-361%2B-8b5cf6?style=for-the-badge)](skills/)
 [![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
 [![GitHub Pages](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
 
@@ -140,7 +140,7 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 ```
 skills-tree/
 │
-├── skills/          → 360 atomic skill files (50 battle-tested, 308 stubs awaiting upgrade)
+├── skills/          → 361 atomic skill files (51 battle-tested, 308 stubs awaiting upgrade)
 │                     run `python3 tools/check_skill_quality.py` for the live count
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
@@ -165,7 +165,7 @@ skills-tree/
 | 04 | ⚡ **Action Execution** | 21 | File I/O, HTTP, email, shell, database writes |
 | 05 | 💻 **Code** | 28 | Write, run, debug, review, refactor, test, deploy |
 | 06 | 💬 **Communication** | 15 | Summarize, translate, draft, argue, adapt tone |
-| 07 | 🔧 **Tool Use** | 32 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
+| 07 | 🔧 **Tool Use** | 33 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
 | 08 | 🎭 **Multimodal** | 14 | Images, audio, video, VQA, 3D, charts |
 | 09 | 🤖 **Agentic Patterns** | 23 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
 | 10 | 🖥️ **Computer Use** | 20 | Click, type, scroll, OCR, terminal, VM, a11y tree |
