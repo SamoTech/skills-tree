@@ -23,6 +23,7 @@ Tool use skills enable agents to **call, integrate, and chain external tools** â
 | [Linear API](linear-api.md) | Intermediate | Manage Linear issues and projects |
 | [Stripe API](stripe-api.md) | Advanced | Handle payments and billing |
 | [Twilio API](twilio-api.md) | Intermediate | Send SMS and voice calls |
+| [Xquik API](xquik-api.md) | Intermediate | Search X posts, run extractions, monitor accounts, and send webhooks |
 | [SendGrid / Email API](sendgrid-api.md) | Intermediate | Send transactional emails |
 | [OpenAI API](openai-api.md) | Intermediate | Call OpenAI models and embeddings |
 | [Anthropic API](anthropic-api.md) | Intermediate | Call Claude models |
