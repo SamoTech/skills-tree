@@ -5,10 +5,10 @@
 # package referenced in the skills SBOM and updates badge JSON files.
 #
 # Badge states:
-#   Green  (verified)  — package version in frontmatter has no known CVEs
-#   Yellow (advisory)  — CVE exists but skill pins a patched version
-#   Red    (critical)  — skill pins a version with an active CVE
-#   Grey   (unscanned) — no dependency data in frontmatter
+#   Green  (verified)  - package version in frontmatter has no known CVEs
+#   Yellow (advisory)  - CVE exists but skill pins a patched version
+#   Red    (critical)  - skill pins a version with an active CVE
+#   Grey   (unscanned) - no dependency data in frontmatter
 #
 # Runs:
 #   - On push to main (skill SBOM changed)
@@ -49,106 +49,7 @@ jobs:
 
       - name: Run OSV scan
         id: osv-scan
-        run: |
-          python3 - << 'PYEOF'
-import json
-import os
-import re
-import requests
-from pathlib import Path
-
-SKILLS_DIR = Path("skills")
-BADGES_DIR = Path("docs/badges")
-BADGES_DIR.mkdir(parents=True, exist_ok=True)
-
-OSV_BATCH_URL = "https://api.osv.dev/v1/querybatch"
-
-def parse_frontmatter(text):
-    m = re.match(r'^---\s*\n(.*?)\n---', text, re.DOTALL)
-    if not m:
-        return {}
-    fm = {}
-    for line in m.group(1).splitlines():
-        if ':' in line:
-            k, _, v = line.partition(':')
-            fm[k.strip()] = v.strip()
-    return fm
-
-def get_deps(fm):
-    deps = []
-    for key in ('dependencies', 'requires', 'packages'):
-        val = fm.get(key, '')
-        if val:
-            for item in re.split(r'[,\s]+', val):
-                item = item.strip().strip('[]')
-                if item:
-                    deps.append(item)
-    return deps
-
-def parse_dep(dep):
-    m = re.match(r'^([A-Za-z0-9_.\-]+)(?:[>=<!]+(.+))?$', dep)
-    if m:
-        return m.group(1), (m.group(2) or '').strip()
-    return dep, ''
-
-skill_files = list(SKILLS_DIR.rglob('*.md'))
-queries = []
-skill_map = []  # (skill_path, package, version)
-
-for sf in skill_files:
-    text = sf.read_text(encoding='utf-8')
-    fm = parse_frontmatter(text)
-    deps = get_deps(fm)
-    for dep in deps:
-        pkg, ver = parse_dep(dep)
-        q = {"package": {"name": pkg, "ecosystem": "PyPI"}}
-        if ver:
-            q["version"] = ver
-        queries.append(q)
-        skill_map.append((sf, pkg, ver))
-
-counts = {"verified": 0, "advisory": 0, "critical": 0, "unscanned": 0}
-badge_data = {}
-report_vulns = []
-
-if queries:
-    resp = requests.post(OSV_BATCH_URL, json={"queries": queries}, timeout=60)
-    resp.raise_for_status()
-    results = resp.json().get("results", [])
-
-    for i, (sf, pkg, ver) in enumerate(skill_map):
-        vulns = results[i].get("vulns", []) if i < len(results) else []
-        skill_name = sf.stem
-        if not vulns:
-            state = "verified"
-        else:
-            ids = [v.get("id", "") for v in vulns]
-            # Check if pinned version is affected
-            state = "critical" if ver else "advisory"
-            for v in vulns:
-                for affected in v.get("affected", []):
-                    for rng in affected.get("ranges", []):
-                        for ev in rng.get("events", []):
-                            fixed = ev.get("fixed", "")
-                            if fixed and ver and ver >= fixed:
-                                state = "advisory"
-            report_vulns.append({"skill": skill_name, "package": pkg, "version": ver, "state": state, "vulns": ids})
-        counts[state] += 1
-        badge_data.setdefault(skill_name, {})[pkg] = {"state": state, "version": ver}
-else:
-    for sf in skill_files:
-        skill_name = sf.stem
-        badge_data[skill_name] = {}
-        counts["unscanned"] += 1
-
-for skill_name, pkgs in badge_data.items():
-    badge_file = BADGES_DIR / f"{skill_name}.json"
-    badge_file.write_text(json.dumps({"skill": skill_name, "packages": pkgs}, indent=2))
-
-report = {"counts": counts, "vulnerabilities": report_vulns}
-Path("osv-report.json").write_text(json.dumps(report, indent=2))
-print(json.dumps(counts))
-PYEOF
+        run: python3 tools/osv_watch_scan.py
 
       - name: Commit badge updates
         run: |
@@ -169,29 +70,14 @@ PYEOF
           exit 1
 
       - name: Upload OSV report
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: osv-report
           path: osv-report.json
-          retention-days: 14
 
       - name: Summary
-        if: always()
         run: |
-          echo "### \U0001F50D OSV Watch Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### OSV Watch Summary" >> $GITHUB_STEP_SUMMARY
           if [ -f osv-report.json ]; then
-            python3 - << 'PYEOF' >> $GITHUB_STEP_SUMMARY
-import json
-from pathlib import Path
-report = json.loads(Path("osv-report.json").read_text())
-counts = report.get("counts", {})
-print(f"""| State | Count |
-|---|---|
-| \U0001F7E2 verified | {counts.get('verified', 0)} |
-| \U0001F7E1 advisory | {counts.get('advisory', 0)} |
-| \U0001F534 critical | {counts.get('critical', 0)} |
-| \u26AA unscanned | {counts.get('unscanned', 0)} |
-""")
-PYEOF
+            python3 tools/osv_watch_summary.py >> $GITHUB_STEP_SUMMARY
           fi
