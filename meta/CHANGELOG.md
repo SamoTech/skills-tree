@@ -5,6 +5,28 @@ Format: [Semantic Versioning](https://semver.org) · [Keep a Changelog](https://
 
 ---
 
+## [v2.3.0] — 2026-06-14
+
+### Added
+- **`meta/EXECUTION_PRIORITY_MATRIX.md`** — Impact-scored, ROI-ordered execution backlog for all 25 remaining tasks. Scores every task across 5 dimensions (Product Value, User Value, Adoption Impact, Technical Leverage, Sponsor Attractiveness). Reorders roadmap into 6 capability-first waves. Rejects 4 marketing/community tasks below the 25/50 threshold. Product capability work: 95.5% of total effort.
+- **`meta/CONTRIBUTING.md` — 5-minute quickstart** (T-17 ✅) — New "⚡ 5-Minute First Contribution" section with step-by-step fork → branch → edit → PR flow. Table of contents, PR template, commit convention, and full PR checklist added.
+- **`meta/START-HERE-DISCUSSION.md`** — Pinned community onboarding post ready for GitHub Discussions, with directory tour, contribution priorities table, and labels guide.
+- **`meta/LAUNCH-ANNOUNCEMENT.md`** — Three ready-to-post announcement drafts: Show HN, Reddit r/MachineLearning, LinkedIn.
+- **`.github/workflows/release-package.yml`** (T-16 ✅) — New workflow triggered on `v*.*.*` tag pushes. Produces `skills-tree-{version}.zip` + `MANIFEST.json` and attaches them to the GitHub Release as downloadable assets. ZIP contains: `skills/`, `systems/`, `blueprints/`, `benchmarks/`, `labs/`, `api/skills.json`, `api/skills.yaml`, `api/skills-schema.json`.
+- **`tools/package_release.py`** (T-16 ✅) — Python packaging script. Computes SHA-256 checksum, writes `MANIFEST.json` with skill counts (total, v1, v2, v3), category count, file count, zip size, commit SHA, and download URL. Runnable standalone: `python3 tools/package_release.py --tag v2.3.0`.
+
+### Changed
+- `meta/ROADMAP.md` — T-16 and T-17 marked ✅ Done in the Phase 2 table. Wave 0 release packaging row updated.
+- `PROJECT_MEMORY.md` — Section 2 (Existing Functionality) updated to reflect new workflows and scripts; Section 3 (Technical Debt) updated; Section 5 (Master Feature Backlog) P2-5 marked complete.
+
+### Measurable Outcomes (T-16)
+- **GitHub Release assets count:** was `0` per release → now `2` per tag push (`skills-tree-{version}.zip` + `MANIFEST.json`)
+- **Offline usability:** researchers can cite a specific tagged artifact with SHA-256 checksum
+- **CLI prerequisite:** release zip satisfies the bundled-data requirement for `pip install skills-tree` (T-19)
+- **Download count:** visible in GitHub Releases UI, tracked passively
+
+---
+
 ## [v2.2.0] — 2026-04-13
 
 ### Added
