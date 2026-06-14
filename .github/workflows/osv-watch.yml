@@ -50,7 +50,7 @@ jobs:
       - name: Run OSV scan
         id: osv-scan
         run: |
-          python3 - <<'PYEOF'
+          python3 - << 'PYEOF'
 import json
 import os
 import re
@@ -181,7 +181,7 @@ PYEOF
         run: |
           echo "### \U0001F50D OSV Watch Summary" >> $GITHUB_STEP_SUMMARY
           if [ -f osv-report.json ]; then
-            python3 - <<'PYEOF' >> $GITHUB_STEP_SUMMARY
+            python3 - << 'PYEOF' >> $GITHUB_STEP_SUMMARY
 import json
 from pathlib import Path
 report = json.loads(Path("osv-report.json").read_text())
