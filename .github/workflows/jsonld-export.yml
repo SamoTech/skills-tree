@@ -40,5 +40,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore(api): auto-update JSON, YAML, JSON-LD exports [skip ci]"
-            git push
+                        git pull --rebase
+                              git push
           fi
