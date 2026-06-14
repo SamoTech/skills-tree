@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schemas/agent-pattern.schema.json",
+  "title": "AgentPattern",
+  "description": "An agent architecture or engineering pattern",
+  "type": "object",
+  "required": ["id", "name", "pattern_type", "description"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "pattern_type": {
+      "type": "string",
+      "enum": ["reasoning", "memory", "tool-use", "multi-agent", "evaluation", "planning", "reflection", "autonomous", "rag", "mcp"]
+    },
+    "description": { "type": "string" },
+    "difficulty": { "type": "string", "enum": ["beginner", "intermediate", "advanced", "expert"] },
+    "required_skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill IDs required to implement this pattern"
+    },
+    "architecture_diagram": { "type": "string", "description": "Mermaid diagram source" },
+    "frameworks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "use_cases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tradeoffs": {
+      "type": "object",
+      "properties": {
+        "pros": { "type": "array", "items": { "type": "string" } },
+        "cons": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "benchmark_ref": { "type": "string" },
+    "blueprint_ref": { "type": "string" }
+  }
+}

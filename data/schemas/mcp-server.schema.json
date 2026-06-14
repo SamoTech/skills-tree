@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schemas/mcp-server.schema.json",
+  "title": "MCPServer",
+  "description": "A Model Context Protocol server entry in the Skills Tree registry",
+  "type": "object",
+  "required": ["id", "name", "description", "github_url", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "github_url": { "type": "string", "format": "uri" },
+    "npm_package": { "type": "string" },
+    "pypi_package": { "type": "string" },
+    "author": { "type": "string" },
+    "license": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": ["filesystem", "web", "code", "data", "communication", "search", "ai", "devtools", "database", "cloud", "productivity", "other"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["official", "community", "experimental", "deprecated"]
+    },
+    "quality": {
+      "type": "string",
+      "enum": ["verified", "unverified"]
+    },
+    "stars": { "type": "integer" },
+    "tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tool IDs exposed by this server"
+    },
+    "transport": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["stdio", "sse", "websocket"] }
+    },
+    "clients_tested": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "MCP client IDs that have been tested with this server"
+    },
+    "install_command": { "type": "string" },
+    "docs_url": { "type": "string", "format": "uri" },
+    "added_date": { "type": "string", "format": "date" },
+    "last_verified": { "type": "string", "format": "date" }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schemas/skill.schema.json",
+  "title": "Skill",
+  "description": "A single atomic AI agent capability entry in the Skills Tree registry",
+  "type": "object",
+  "required": ["id", "name", "category", "version", "status", "description"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique slug identifier (kebab-case)",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable skill name"
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary category slug",
+      "enum": [
+        "perception", "reasoning", "memory", "action-execution",
+        "code", "communication", "tool-use", "multimodal",
+        "agentic-patterns", "computer-use", "web", "data",
+        "creative", "security", "orchestration", "domain-specific", "infrastructure"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version string",
+      "pattern": "^v[0-9]+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["stub", "draft", "reviewed", "battle-tested"],
+      "description": "Quality tier of this skill entry"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced", "expert"]
+    },
+    "description": {
+      "type": "string",
+      "description": "One-paragraph summary of what this skill does"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Searchable tags for this skill"
+    },
+    "frameworks": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Frameworks that implement or support this skill"
+    },
+    "related": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "IDs of related skills (knowledge graph edges)"
+    },
+    "use_cases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Real-world use cases this skill enables"
+    },
+    "agent_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["research", "coding", "computer-use", "data", "customer-support", "autonomous", "multi-agent", "voice", "creative"]
+      },
+      "description": "Agent types that commonly use this skill"
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "TypeScript-like typed input specification"
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "TypeScript-like typed output specification"
+    },
+    "code_example": {
+      "type": "object",
+      "properties": {
+        "language": { "type": "string" },
+        "runtime": { "type": "string" },
+        "code": { "type": "string" }
+      }
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "mitigation": { "type": "string" }
+        }
+      }
+    },
+    "benchmark_ref": {
+      "type": "string",
+      "description": "Path to benchmark file for this skill"
+    },
+    "authors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "GitHub usernames of primary contributors"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 date of last significant update"
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "summary": { "type": "string" }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

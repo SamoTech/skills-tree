@@ -1,0 +1,46 @@
+{
+  "$schema": "../schemas/mcp-server.schema.json",
+  "version": "1.0.0",
+  "generated": "2026-06-14",
+  "description": "The Skills Tree MCP Server Registry — canonical index of Model Context Protocol servers",
+  "total": 24,
+  "servers": [
+    {
+      "id": "filesystem",
+      "name": "Filesystem MCP Server",
+      "description": "Read and write files on the local filesystem with path-controlled access",
+      "github_url": "https://github.com/modelcontextprotocol/servers",
+      "npm_package": "@modelcontextprotocol/server-filesystem",
+      "author": "Anthropic",
+      "license": "MIT",
+      "category": "filesystem",
+      "status": "official",
+      "quality": "verified",
+      "transport": ["stdio"],
+      "install_command": "npx @modelcontextprotocol/server-filesystem <path>",
+      "tools": ["read_file", "write_file", "list_directory", "create_directory", "move_file", "search_files", "get_file_info"]
+    },
+    {
+      "id": "github",
+      "name": "GitHub MCP Server",
+      "description": "Full GitHub API access — repos, issues, PRs, code search, commits",
+      "github_url": "https://github.com/github/github-mcp-server",
+      "author": "GitHub",
+      "license": "MIT",
+      "category": "devtools",
+      "status": "official",
+      "quality": "verified",
+      "transport": ["stdio"],
+      "install_command": "npx @github/github-mcp-server",
+      "tools": ["search_repositories", "create_issue", "list_pull_requests", "get_file_contents", "push_files"]
+    },
+    {
+      "id": "brave-search",
+      "name": "Brave Search MCP Server",
+      "description": "Real-time web search via Brave Search API with privacy focus",
+      "github_url": "https://github.com/modelcontextprotocol/servers",
+      "npm_package": "@modelcontextprotocol/server-brave-search",
+      "author": "Anthropic",
+      "license": "MIT",
+      "category": "search",
+      

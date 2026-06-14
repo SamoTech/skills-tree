@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schemas/learning-path.schema.json",
+  "title": "LearningPath",
+  "description": "A curated sequence of skills and resources forming a learning journey",
+  "type": "object",
+  "required": ["id", "title", "difficulty", "estimated_hours", "steps"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "difficulty": { "type": "string", "enum": ["beginner", "intermediate", "advanced"] },
+    "estimated_hours": { "type": "integer" },
+    "outcome": { "type": "string", "description": "What the learner will be able to build" },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill IDs or path IDs required before starting"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["order", "title", "type", "ref"],
+        "properties": {
+          "order": { "type": "integer" },
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["skill", "system", "blueprint", "benchmark", "exercise"] },
+          "ref": { "type": "string" },
+          "estimated_minutes": { "type": "integer" },
+          "checkpoint": { "type": "string", "description": "What to verify before moving on" }
+        }
+      }
+    },
+    "authors": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } }
+  }
+}

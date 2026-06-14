@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schemas/mcp-tool.schema.json",
+  "title": "MCPTool",
+  "description": "A single MCP tool definition in the Skills Tree MCP registry",
+  "type": "object",
+  "required": ["id", "name", "server_id", "description", "input_schema"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-_]+$",
+      "description": "Unique tool identifier within its server namespace"
+    },
+    "name": {
+      "type": "string",
+      "description": "Tool name as exposed via MCP protocol"
+    },
+    "server_id": {
+      "type": "string",
+      "description": "ID of the parent MCP server"
+    },
+    "description": {
+      "type": "string",
+      "description": "What this tool does"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["filesystem", "web", "code", "data", "communication", "search", "ai", "devtools", "database", "cloud", "other"]
+    },
+    "input_schema": {
+      "type": "object",
+      "description": "JSON Schema for tool inputs"
+    },
+    "output_schema": {
+      "type": "object",
+      "description": "JSON Schema for tool outputs"
+    },
+    "example_call": {
+      "type": "object",
+      "description": "Example invocation with real input/output"
+    },
+    "related_skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skills Tree skill IDs that this tool enables"
+    }
+  }
+}
