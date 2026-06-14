@@ -9,12 +9,19 @@ on:
     - cron: "0 4 * * 1"
   workflow_dispatch:
 
+# CRITICAL-2 fix: shared concurrency group serialises all bot-commit workflows
+# that push to main. cancel-in-progress: false ensures no push is silently
+# dropped — each run queues and executes in order.
+concurrency:
+  group: auto-commit-main
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   export:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
         with:
@@ -40,6 +47,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore(api): auto-update JSON, YAML, JSON-LD exports [skip ci]"
-                        git pull --rebase
-                              git push
+            git pull --rebase origin main
+            git push
           fi

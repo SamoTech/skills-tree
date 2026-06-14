@@ -18,16 +18,17 @@ on:
     - cron: '0 1 * * 0'
   workflow_dispatch:
 
+# CRITICAL-2 fix: shared group with all other auto-commit workflows.
 concurrency:
-  group: sync-badges-${{ github.ref }}
-  cancel-in-progress: true
+  group: auto-commit-main
+  cancel-in-progress: false
 
 permissions: {}
 
 jobs:
   sync:
     name: Sync badge files to skill inventory
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
 
@@ -37,48 +38,18 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # CRITICAL-1 fix: inline Python heredoc replaced with external script.
+      # CRITICAL-3 fix: script uses docs/badges/ as canonical badge directory.
       - name: Reconcile badge files
-        run: |
-          python3 - <<'PYEOF'
-          import json
-          from pathlib import Path
-
-          SKILLS_ROOT = Path("skills")
-          BADGE_DIR   = Path("docs/badges")
-          BADGE_DIR.mkdir(parents=True, exist_ok=True)
-
-          UNSCANNED = {
-              "schemaVersion": 1, "label": "deps",
-              "message": "unscanned", "color": "lightgrey",
-              "style": "flat-square",
-          }
-
-          # Build expected badge key set from all skill files
-          skill_keys = set()
-          for md in SKILLS_ROOT.rglob("*.md"):
-              key = str(md).replace("\\", "/").replace("/", "-").replace(".md", "")
-              skill_keys.add(key)
-
-          # Create missing badge files
-          created = 0
-          for key in skill_keys:
-              badge_path = BADGE_DIR / f"{key}.json"
-              if not badge_path.exists():
-                  badge_path.write_text(json.dumps(UNSCANNED, indent=2))
-                  created += 1
-                  print(f"  CREATED: {badge_path.name}")
-
-          # Remove orphan badge files
-          removed = 0
-          for badge_file in BADGE_DIR.glob("*.json"):
-              key = badge_file.stem
-              if key not in skill_keys:
-                  badge_file.unlink()
-                  removed += 1
-                  print(f"  REMOVED: {badge_file.name}")
-
-          print(f"\nSync complete. Created: {created}, Removed: {removed}")
-          PYEOF
+        run: python3 tools/sync_badges.py
 
       - name: Commit badge sync
         run: |
@@ -102,5 +73,5 @@ jobs:
       - name: Summary
         run: |
           BADGE_COUNT=$(ls docs/badges/*.json 2>/dev/null | wc -l || echo 0)
-          echo "### \U0001F3F7\uFE0F Badge Sync" >> $GITHUB_STEP_SUMMARY
+          echo "### 🏷️ Badge Sync" >> $GITHUB_STEP_SUMMARY
           echo "Total badge files: ${BADGE_COUNT}" >> $GITHUB_STEP_SUMMARY
