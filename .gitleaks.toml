@@ -25,11 +25,15 @@
     "\\$\\{\\{\\s*github\\.event\\.inputs\\.[a-z_]+\\s*\\}\\}",
   ]
 
-  # Paths that are documentation-only or tooling and may contain illustrative
-  # tokens/keys or regex patterns that match secret shapes.
+  # SEC-1 FIX (2026-06-14): 'tools' intentionally REMOVED from this list.
+  # tools/ contains executable Python scripts that call external APIs
+  # (httpx, PyGithub, GitHub REST). Secrets accidentally hardcoded there
+  # must be caught by Gitleaks. The per-pattern regexes above handle all
+  # known-safe false positives without exempting the entire directory.
+  #
   # Note: `paths` only applies to `detect` (full-repo) mode, not `protect`
   # (diff) mode used by the gitleaks Action on PRs. Top-level `regexes`
-  # (above) are required to suppress false positives in diff mode.
+  # (above) suppress false positives in diff mode.
   paths = [
     "skills",
     "benchmarks",
@@ -37,5 +41,4 @@
     "blueprints",
     "docs",
     ".github/workflows",
-    "tools",
   ]
