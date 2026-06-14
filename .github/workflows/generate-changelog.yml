@@ -14,11 +14,12 @@ on:
     paths:
       - 'skills/**/*.md'
 
-permissions: {}
 
 jobs:
   append-changelog:
-    if: github.event.pull_request.merged == true
+    permissions:
+      contents: write
+        pull-requests: read
     name: Append changelog entry
     runs-on: ubuntu-latest
     permissions:
