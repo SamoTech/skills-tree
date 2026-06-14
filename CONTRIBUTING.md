@@ -8,6 +8,7 @@ Thank you for helping grow the most comprehensive AI agent skills resource on th
 
 ## Table of Contents
 
+- [⚡ 5-Minute First Contribution](#-5-minute-first-contribution)
 - [4 Ways to Contribute](#4-ways-to-contribute)
 - [How to Add a New Skill](#how-to-add-a-new-skill)
 - [How to Upgrade a Skill (v1→v2)](#how-to-upgrade-a-skill-v1v2)
@@ -19,6 +20,49 @@ Thank you for helping grow the most comprehensive AI agent skills resource on th
 - [Commit Convention](#commit-convention)
 - [PR Checklist](#pr-checklist)
 - [Code of Conduct](#code-of-conduct)
+
+---
+
+## ⚡ 5-Minute First Contribution
+
+New here? This is the fastest path to your first merged PR.
+
+**Step 1 — Find a stub to upgrade (30 seconds)**
+
+Open [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) and pick any skill listed under **v1 Stubs**. Each entry links directly to the file. Or browse the [`good first issue`](https://github.com/SamoTech/skills-tree/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) label — 30 pre-selected stubs ready for upgrading.
+
+**Step 2 — Fork and clone (1 minute)**
+
+```bash
+git clone https://github.com/YOUR_USERNAME/skills-tree.git
+cd skills-tree
+git checkout -b improve/skill-name-v1-to-v2
+```
+
+**Step 3 — Open the stub and add three things (3 minutes)**
+
+Look at [`meta/skill-template.md`](meta/skill-template.md) to see the full format. For a v1→v2 upgrade, you only need to add:
+
+1. **A real, runnable code example** — actual Python (or the skill's native language), ≥3 lines, no pseudocode
+2. **A Failure Modes section** — 2–3 bullet points describing what goes wrong and why
+3. **`related_skills` links** — add at least 2 relative paths to related skill files
+
+Also bump the frontmatter: `version: v2`
+
+**Step 4 — Commit and push (30 seconds)**
+
+```bash
+git add skills/XX-category/your-skill.md
+git commit -m "improve: your-skill-name — v1→v2"
+git push origin improve/skill-name-v1-to-v2
+```
+
+**Step 5 — Open a PR**
+
+PR title: `improve: [skill-name] — v1→v2`  
+CI runs automatically and validates your frontmatter. A maintainer reviews within 48 hours.
+
+> 🏆 That's it — you're now a Skills Tree contributor. Your upgrade makes every AI agent builder who finds that skill faster.
 
 ---
 
