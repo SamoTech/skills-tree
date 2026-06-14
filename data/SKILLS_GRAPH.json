@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-06-14T15:00:00Z",
+  "nodes": [
+    {
+      "id": "skill:code-generation",
+      "type": "Skill",
+      "name": "Code Generation",
+      "category": "05-code",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:prompt-engineering",
+      "type": "Skill",
+      "name": "Prompt Engineering",
+      "category": "02-reasoning",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:function-calling",
+      "type": "Skill",
+      "name": "Function Calling",
+      "category": "07-tool-use",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:web-scraping",
+      "type": "Skill",
+      "name": "Web Scraping",
+      "category": "11-web",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:browser-automation",
+      "type": "Skill",
+      "name": "Browser Automation",
+      "category": "10-computer-use",
+      "level": "advanced",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:vector-search",
+      "type": "Skill",
+      "name": "Vector Search",
+      "category": "03-memory",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:rag-retrieval",
+      "type": "Skill",
+      "name": "RAG Retrieval",
+      "category": "03-memory",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:embedding-generation",
+      "type": "Skill",
+      "name": "Embedding Generation",
+      "category": "03-memory",
+      "level": "beginner",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:llm-orchestration",
+      "type": "Skill",
+      "name": "LLM Orchestration",
+      "category": "15-orchestration",
+      "level": "advanced",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:multi-agent-coordination",
+      "type": "Skill",
+      "name": "Multi-Agent Coordination",
+      "category": "15-orchestration",
+      "level": "expert",
+      "stability": "experimental"
+    },
+    {
+      "id": "skill:workflow-automation",
+      "type": "Skill",
+      "name": "Workflow Automation",
+      "category": "09-agentic-patterns",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:error-recovery",
+      "type": "Skill",
+      "name": "Error Recovery",
+      "category": "04-action-execution",
+      "level": "advanced",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:context-management",
+      "type": "Skill",
+      "name": "Context Management",
+      "category": "03-memory",
+      "level": "intermediate",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:api-integration",
+      "type": "Skill",
+      "name": "API Integration",
+      "category": "07-tool-use",
+      "level": "beginner",
+      "stability": "stable"
+    },
+    {
+      "id": "skill:data-extraction",
+      "type": "Skill",
+      "name": "Data Extraction",
+      "category": "12-data",
+      "level": "intermediate",
+      "stability": "stable"
+    }
+  ],
+  "edges": [
+    {
+      "source": "skill:code-generation",
+      "target": "skill:prompt-engineering",
+      "type": "REQUIRES",
+      "confidence": 0.95
+    },
+    {
+      "source": "skill:code-generation",
+      "target": "skill:function-calling",
+      "type": "RECOMMENDED_WITH",
+      "confidence": 0.85
+    },
+    {
+      "source": "skill:browser-automation",
+      "target": "skill:web-scraping",
+      "type": "SUPPORTS",
+      "confidence": 0.9
+    },
+    {
+      "source": "skill:browser-automation",
+      "target": "skill:error-recovery",
+      "type": "REQUIRES",
+      "confidence": 0.88
+    },
+    {
+      "source": "skill:rag-retrieval",
+      "target": "skill:vector-search",
+      "type": "REQUIRES",
+      "confidence": 0.98
+    },
+    {
+      "source": "skill:rag-retrieval",
+      "target": "skill:embedding-generation",
+      "type": "REQUIRES",
+      "confidence": 0.97
+    },
+    {
+      "source": "skill:embedding-generation",
+      "target": "skill:vector-search",
+      "type": "LEARN_BEFORE",
+      "confidence": 0.9
+    },
+    {
+      "source": "skill:multi-agent-coordination",
+      "target": "skill:llm-orchestration",
+      "type": "REQUIRES",
+      "confidence": 0.93
+    },
+    {
+      "source": "skill:multi-agent-coordination",
+      "target": "skill:context-management",
+      "type": "REQUIRES",
+      "confidence": 0.91
+    },
+    {
+      "source": "skill:workflow-automation",
+      "target": "skill:error-recovery",
+      "type": "RECOMMENDED_WITH",
+      "confidence": 0.87
+    },
+    {
+      "source": "skill:function-calling",
+      "target": "skill:api-integration",
+      "type": "SUPPORTS",
+      "confidence": 0.89
+    },
+    {
+      "source": "skill:web-scraping",
+      "target": "skill:data-extraction",
+      "type": "SUPPORTS",
+      "confidence": 0.86
+    },
+    {
+      "source": "skill:prompt-engineering",
+      "target": "skill:llm-orchestration",
+      "type": "LEARN_BEFORE",
+      "confidence": 0.85
+    }
+  ],
+  "statistics": {
+    "total_nodes": 15,
+    "total_edges": 13,
+    "node_types": {
+      "Skill": 15
+    },
+    "edge_types": {
+      "REQUIRES": 6,
+      "SUPPORTS": 3,
+      "RECOMMENDED_WITH": 2,
+      "LEARN_BEFORE": 2
+    },
+    "avg_confidence": 0.906
+  }
+}
