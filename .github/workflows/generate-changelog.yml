@@ -2,10 +2,10 @@ name: Auto-generate Changelog
 
 # Appends an entry to meta/CHANGELOG.md whenever a skill PR is merged.
 # Detects the skill name and type from the PR title:
-#   feat: [skill-name] description   -> Added
-#   improve: [skill-name] vX->vY     -> Improved
-#   fix: [skill-name] description    -> Fixed
-#   deprecate: [skill-name]          -> Deprecated
+#   feat: [skill-name] description    -> Added
+#   improve: [skill-name] vX->vY      -> Improved
+#   fix: [skill-name] description     -> Fixed
+#   deprecate: [skill-name]           -> Deprecated
 # If the title doesn't match any pattern, no entry is written.
 
 on:
@@ -14,17 +14,15 @@ on:
     paths:
       - 'skills/**/*.md'
 
+permissions:
+  contents: write
+  pull-requests: read
 
 jobs:
   append-changelog:
-    permissions:
-      contents: write
-        pull-requests: read
     name: Append changelog entry
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -41,69 +39,14 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
           MERGED_AT: ${{ github.event.pull_request.merged_at }}
         run: |
-          python3 - <<'PYEOF'
-          import re, os
-          from pathlib import Path
+          python3 tools/generate_changelog.py
 
-          title    = os.environ["PR_TITLE"]
-          number   = os.environ["PR_NUMBER"]
-          author   = os.environ["PR_AUTHOR"]
-          url      = os.environ["PR_URL"]
-          merged   = os.environ["MERGED_AT"][:7]  # YYYY-MM
-
-          PATTERNS = [
-              (r'^feat(?:ure)?\s*[:\[]',  "Added",      "\u2728"),
-              (r'^improve[:\[]',           "Improved",   "\U0001F4C8"),
-              (r'^fix[:\[]',               "Fixed",      "\U0001F41B"),
-              (r'^deprecate[:\[]',         "Deprecated", "\U0001F6AB"),
-              (r'^chore[:\[]',             None,         None),  # skip
-          ]
-
-          kind, icon = None, None
-          for pat, k, i in PATTERNS:
-              if re.search(pat, title, re.IGNORECASE):
-                  kind, icon = k, i
-                  break
-
-          if kind is None:
-              print(f"PR title '{title}' does not match a changelog pattern. Skipping.")
-              exit(0)
-
-          changelog_path = Path("meta/CHANGELOG.md")
-          existing = changelog_path.read_text(encoding="utf-8") if changelog_path.exists() else ""
-
-          entry = f"- {icon} **{kind}** [{title}]({url}) by @{author} (#{number}) — {merged}\n"
-
-          # Find or create the ## Unreleased section
-          if "## Unreleased" in existing:
-              new_text = existing.replace(
-                  "## Unreleased\n",
-                  f"## Unreleased\n\n{entry}"
-              )
-          else:
-              new_text = f"# Changelog\n\n## Unreleased\n\n{entry}\n" + existing.lstrip("# Changelog\n")
-
-          changelog_path.write_text(new_text, encoding="utf-8")
-          print(f"Appended to changelog: {entry.strip()}")
-          PYEOF
-
-      - name: Commit changelog (with retry-rebase)
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+      - name: Commit changelog
         run: |
-          git config user.name  'github-actions[bot]'
+          git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add meta/CHANGELOG.md
-          git diff --staged --quiet && echo "No changelog change." && exit 0
-          git commit -m "chore(changelog): auto-append entry for PR #${PR_NUMBER} [skip ci]"
-
-          for attempt in 1 2 3; do
-            git push origin main && {
-              echo "Changelog pushed (attempt ${attempt})."
-              exit 0
-            }
-            git pull --rebase origin main
-            sleep $((attempt * 2))
-          done
-          echo "ERROR: All 3 push attempts failed."
-          exit 1
+          git diff --staged --quiet && echo 'No changelog changes.' && exit 0
+          git commit -m 'chore(changelog): auto-update CHANGELOG.md [skip ci]'
+          git pull --rebase
+          git push
