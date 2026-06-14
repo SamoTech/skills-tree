@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T09:12:32Z",
+  "dateModified": "2026-06-14T08:07:45Z",
   "skillId": "agent-handoffs",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agentic, agent, LLM skill, skills tree, handoffs, patterns, AI agent",
+  "keywords": "agent, LLM skill, handoffs, skills tree, agentic, AI agent, patterns",
   "about": {
     "@type": "Thing",
     "name": "Agent Handoffs",

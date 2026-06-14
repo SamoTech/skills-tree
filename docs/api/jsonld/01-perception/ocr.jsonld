@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T09:12:32Z",
+  "dateModified": "2026-06-14T08:07:45Z",
   "skillId": "ocr",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, AI agent, ocr, perception",
+  "keywords": "LLM skill, perception, skills tree, ocr, AI agent",
   "about": {
     "@type": "Thing",
     "name": "OCR (Optical Character Recognition)",

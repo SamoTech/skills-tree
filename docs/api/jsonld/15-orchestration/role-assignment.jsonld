@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-08T09:12:32Z",
+  "dateModified": "2026-06-14T08:07:45Z",
   "skillId": "role-assignment",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "role, assignment, LLM skill, skills tree, orchestration, AI agent",
+  "keywords": "LLM skill, role, skills tree, orchestration, AI agent, assignment",
   "about": {
     "@type": "Thing",
     "name": "role-assignment",

@@ -1,5 +1,5 @@
-generated: '2026-06-08T09:12:31Z'
-count: 360
+generated: '2026-06-14T08:07:45Z'
+count: 361
 skills:
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
@@ -3279,6 +3279,32 @@ skills:
   sections: []
   related:
   - ../02-reasoning/mathematical-reasoning.md
+  category_dir: 07-tool-use
+- id: xquik-api
+  path: skills/07-tool-use/xquik-api.md
+  name: Xquik API
+  description: Call Xquik from AI agents to search X posts, read follower data, run
+    extractions, manage monitors, and receive webhook events through one authenticated
+    REST API.
+  category: tool-use
+  level: intermediate
+  stability: stable
+  version: v1
+  added: 2026-06
+  last_updated: 2026-06
+  sections:
+  - Description
+  - Inputs
+  - Outputs
+  - Example
+  - Frameworks & Models
+  - Failure Modes
+  - Prompt Patterns
+  - Notes
+  - Related Skills
+  - Changelog
+  related:
+  - ../01-perception/social-media-reading.md
   category_dir: 07-tool-use
 - id: 3d-scene-understanding
   path: skills/08-multimodal/3d-scene-understanding.md
