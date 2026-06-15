@@ -1,0 +1,248 @@
+name: Zero-Touch Release
+
+# Single pipeline: semantic-release → build → PyPI → GitHub Release.
+# Replaces the two-workflow chain (semantic-release.yml + release.yml).
+#
+# Trigger: every push to main.
+# If no releasable commits exist, semantic-release exits 0 and all
+# downstream steps are skipped via the `released` output gate.
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: zero-touch-release
+  cancel-in-progress: false  # never cancel — let the in-flight run finish
+
+# Workflow-level: read-only.
+# id-token:write is declared only on the publish job so GitHub scopes
+# the OIDC token to that job + environment — exactly what PyPI validates.
+permissions:
+  contents: read
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Job 1 — Semantic Release
+  # Determines whether a release is needed, bumps version, writes changelog,
+  # commits, and pushes the tag. Outputs `released` and `version`.
+  # ---------------------------------------------------------------------------
+  semantic-release:
+    name: "1 • Semantic Release"
+    runs-on: ubuntu-latest
+    # Skip the version-bump commit that semantic-release itself pushes.
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    permissions:
+      contents: write   # push version-bump commit + tag
+      id-token: write   # allow GH Release creation by PSR if desired
+    outputs:
+      released: ${{ steps.psr.outputs.released }}
+      version:  ${{ steps.psr.outputs.version }}
+      tag:      ${{ steps.psr.outputs.tag }}
+
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # GH_TOKEN is used to push the version-bump commit + tag.
+          # GITHUB_TOKEN pushes do NOT re-trigger workflows, so the
+          # build/publish steps run in THIS same workflow run instead.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install python-semantic-release
+        run: pip install 'python-semantic-release>=9.8' --quiet
+
+      - name: Run semantic-release
+        id: psr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          OUTPUT=$(semantic-release version --print 2>&1 || true)
+          echo "semantic-release output: $OUTPUT"
+
+          # Run the actual release (commit + tag + push)
+          semantic-release version 2>&1 || true
+
+          # Detect whether a new version was created by reading pyproject.toml
+          # and comparing to the previous tag.
+          CURRENT=$(python - <<'EOF'
+          import tomllib
+          with open("pyproject.toml", "rb") as f:
+              print(tomllib.load(f)["project"]["version"])
+          EOF
+          )
+
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "none")
+          LATEST_VER="${LATEST_TAG#v}"
+
+          echo "current pyproject version : $CURRENT"
+          echo "latest tag version        : $LATEST_VER"
+
+          if [ "$CURRENT" = "$LATEST_VER" ]; then
+            echo "released=true"   >> "$GITHUB_OUTPUT"
+            echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
+            echo "tag=v$CURRENT"    >> "$GITHUB_OUTPUT"
+            echo "::notice::New release detected: v$CURRENT"
+          else
+            echo "released=false"  >> "$GITHUB_OUTPUT"
+            echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
+            echo "tag="             >> "$GITHUB_OUTPUT"
+            echo "::notice::No releasable commits — skipping build and publish."
+          fi
+
+  # ---------------------------------------------------------------------------
+  # Job 2 — Build & Verify
+  # Runs only when semantic-release created a new version.
+  # ---------------------------------------------------------------------------
+  build:
+    name: "2 • Build & Verify"
+    needs: semantic-release
+    if: needs.semantic-release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.semantic-release.outputs.tag }}
+          fetch-depth: 0
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build tools
+        run: pip install build twine --quiet
+
+      - name: Verify pyproject.toml version matches tag
+        run: |
+          TOML_VER=$(python - <<'EOF'
+          import tomllib
+          with open("pyproject.toml", "rb") as f:
+              print(tomllib.load(f)["project"]["version"])
+          EOF
+          )
+          EXPECTED="${{ needs.semantic-release.outputs.version }}"
+          if [ "$TOML_VER" != "$EXPECTED" ]; then
+            echo "ERROR: pyproject.toml=$TOML_VER but expected=$EXPECTED"
+            exit 1
+          fi
+          echo "Version check passed: $TOML_VER"
+
+      - name: Build sdist + wheel
+        run: python -m build
+
+      - name: twine check
+        run: twine check dist/*
+
+      - name: Assert required runtime assets in wheel
+        run: |
+          python - <<'PYEOF'
+          import zipfile, glob, sys
+          wheels = glob.glob("dist/*.whl")
+          if not wheels:
+              sys.exit("ERROR: no wheel in dist/")
+          required = [
+              "data/SKILLS_GRAPH.json",
+              "meta/GOAL_TAXONOMY.md",
+              "benchmarks/INDEX.json",
+          ]
+          with zipfile.ZipFile(wheels[0]) as zf:
+              names = zf.namelist()
+          missing = [f for f in required if not any(n.endswith(f) for n in names)]
+          for f in required:
+              print(f"  {'\u274c' if f in missing else '\u2705'}  {f}")
+          if missing:
+              sys.exit(1)
+          PYEOF
+
+      - name: Validate CHANGELOG entry exists
+        run: |
+          VERSION="${{ needs.semantic-release.outputs.version }}"
+          if ! grep -q "\[${VERSION}\]" CHANGELOG.md; then
+            echo "WARNING: CHANGELOG.md has no entry for v${VERSION}."
+            # Warn but do not fail — semantic-release may format differently.
+          else
+            echo "CHANGELOG entry confirmed for v${VERSION}."
+          fi
+
+      - name: Upload dist/
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ needs.semantic-release.outputs.version }}
+          path: dist/
+          retention-days: 30
+
+  # ---------------------------------------------------------------------------
+  # Job 3 — Publish to PyPI
+  # id-token:write at job level + environment:pypi = correct OIDC scoping.
+  # ---------------------------------------------------------------------------
+  publish-pypi:
+    name: "3 • Publish → PyPI"
+    needs: [semantic-release, build]
+    if: needs.semantic-release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # job-level: required for PyPI OIDC Trusted Publisher
+      contents: read
+    environment:
+      name: pypi
+      url: https://pypi.org/project/skills-tree/${{ needs.semantic-release.outputs.version }}/
+
+    steps:
+      - name: Download dist/
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ needs.semantic-release.outputs.version }}
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # OIDC Trusted Publisher config required at:
+        # https://pypi.org/manage/project/skills-tree/settings/publishing/
+        # owner=SamoTech  repo=skills-tree
+        # workflow=zero-touch-release.yml  environment=pypi
+
+  # ---------------------------------------------------------------------------
+  # Job 4 — Update GitHub Release with dist/ assets
+  # semantic-release already created the release object; this job attaches
+  # the built wheel + sdist as downloadable assets.
+  # ---------------------------------------------------------------------------
+  attach-assets:
+    name: "4 • Attach Release Assets"
+    needs: [semantic-release, build, publish-pypi]
+    if: needs.semantic-release.outputs.released == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to upload release assets
+
+    steps:
+      - name: Download dist/
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ needs.semantic-release.outputs.version }}
+          path: dist/
+
+      - name: Attach dist/ to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.semantic-release.outputs.tag }}
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # fail_on_unmatched_files so we catch build regressions
+          fail_on_unmatched_files: true

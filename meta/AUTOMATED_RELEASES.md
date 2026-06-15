@@ -1,138 +1,149 @@
 # Automated Release Process
 
-Repository: **SamoTech/skills-tree** | Mode: **Zero-touch**
+Repository: **SamoTech/skills-tree** | Mode: **Zero-touch, single pipeline**
 
 ---
 
-## The New Workflow (zero-touch)
+## Architecture
+
+### Before (two-workflow chain)
 
 ```
-Write code with Conventional Commits
+push to main
+  │
+  ▼
+semantic-release.yml
+  └─ creates tag
         │
-        ▼
-git push / merge PR to main
-        │
-        ▼
-semantic-release.yml (on every push to main)
-        ├── Scan commits since last tag
-        ├── No releasable commits? → STOP (nothing happens)
-        └── Releasable commits found:
-                ├── Bump version in pyproject.toml
-                ├── Update CHANGELOG.md
-                ├── Commit "chore(release): vX.Y.Z [skip ci]"
-                └── Push tag vX.Y.Z
-                        │
-                        ▼
-                release.yml (triggered by tag push)
-                        ├── python -m build
-                        ├── twine check dist/*
-                        ├── Assert wheel assets present
-                        ├── Publish → PyPI (OIDC)
-                        └── Create GitHub Release + attach dist/
+        ▼  (tag push event)
+      release.yml
+        └─ build → PyPI → GitHub Release
 ```
 
-**No manual version edits. No manual tags. No manual changelog.**
+**Problem:** GitHub Actions does not re-trigger workflows from pushes made
+by `GITHUB_TOKEN`. The tag created by `semantic-release.yml` never fired
+`release.yml`, so PyPI never received v1.1.0 or v1.1.1.
+
+### After (single pipeline)
+
+```
+push to main
+  │
+  ▼
+zero-touch-release.yml
+  ├─ Job 1: semantic-release
+  │       ├─ scan commits since last tag
+  │       ├─ no releasable commits? → STOP (jobs 2–4 skipped)
+  │       └─ releasable commits found:
+  │               ├─ bump version in pyproject.toml
+  │               ├─ update CHANGELOG.md
+  │               ├─ commit "chore(release): vX.Y.Z [skip ci]"
+  │               └─ push tag vX.Y.Z
+  │
+  ├─ Job 2: Build & Verify  (only if released=true)
+  │       ├─ checkout tag
+  │       ├─ assert pyproject version == tag
+  │       ├─ python -m build
+  │       ├─ twine check dist/*
+  │       ├─ assert wheel assets present
+  │       └─ upload dist/ artifact
+  │
+  ├─ Job 3: Publish → PyPI  (only if released=true)
+  │       ├─ id-token:write at job level (OIDC scoping correct)
+  │       ├─ environment: pypi
+  │       └─ pypa/gh-action-pypi-publish (OIDC, no token)
+  │
+  └─ Job 4: Attach Release Assets  (only if released=true)
+          ├─ softprops/action-gh-release
+          └─ attach .whl + .tar.gz to GitHub Release
+```
 
 ---
 
-## Bump Rules (Conventional Commits)
+## Active Workflows
 
-| Commit type | Bump | Example |
+| Workflow | Trigger | Purpose |
 |---|---|---|
-| `feat:` | **minor** | `feat: add blueprint caching` |
-| `fix:` / `perf:` / `refactor:` | **patch** | `fix: handle empty graph` |
-| `feat!:` or `BREAKING CHANGE:` | **major** | `feat!: redesign API` |
-| `docs:` / `chore:` / `ci:` / `test:` | none | `docs: update README` |
+| `zero-touch-release.yml` | push to `main` | **Active** — full release pipeline |
+| `release.yml` | `workflow_dispatch` only | Manual recovery for pre-existing tags |
+| `semantic-release.yml` | `workflow_dispatch` only | Debug / manual override |
+| `build-and-verify.yml` | push to `main` + PRs | Packaging sanity check (independent) |
+| `clean-install-test.yml` | push to `main` + PRs | Clean environment test |
 
 ---
 
-## One-Time Setup
+## PyPI Trusted Publisher — IMPORTANT UPDATE
 
-### 1. Create a Personal Access Token (PAT)
+Because the active workflow is now `zero-touch-release.yml`, you must update
+the PyPI Trusted Publisher configuration to match the new workflow filename.
 
-The default `GITHUB_TOKEN` cannot trigger other workflows. You need a PAT so that
-the tag pushed by `semantic-release.yml` fires `release.yml`.
-
-- Go to: **GitHub → Settings → Developer settings → Fine-grained tokens**
-- Create a token with these permissions on `SamoTech/skills-tree`:
-  - **Contents:** Read and write
-  - **Metadata:** Read-only
-- Copy the token value.
-
-### 2. Store the PAT as a repository secret
-
-- Go to: **Repository → Settings → Secrets and variables → Actions**
-- Click **New repository secret**
-- Name: `RELEASE_PAT`
-- Value: (paste the PAT)
-
-### 3. Configure PyPI Trusted Publisher
-
-See the PyPI section in the original release docs or go directly to:
-https://pypi.org/manage/project/skills-tree/settings/publishing/
-
-Settings:
+Go to: https://pypi.org/manage/project/skills-tree/settings/publishing/
 
 | Field | Value |
 |---|---|
 | PyPI Project Name | `skills-tree` |
 | Owner | `SamoTech` |
 | Repository name | `skills-tree` |
-| Workflow filename | `release.yml` |
+| Workflow filename | **`zero-touch-release.yml`** |
 | Environment name | `pypi` |
 
-### 4. Create the `pypi` GitHub Environment
-
-**Repository → Settings → Environments → New environment**
-
-- Name: `pypi`
-- Deployment protection rules: restrict to tags matching `v*.*.*`
+The old entry with `release.yml` should be **kept** for manual recovery runs.
+Add a second entry for `zero-touch-release.yml`.
 
 ---
 
-## Developer Workflow (daily use)
+## One-Time Setup
+
+1. **Update PyPI Trusted Publisher** (above) — add entry for `zero-touch-release.yml`.
+2. **GitHub Environment** — `pypi` environment must exist:
+   Repository → Settings → Environments → `pypi`.
+   Optional: restrict to tags `v*.*.*`.
+3. **No PAT required** — `GITHUB_TOKEN` is sufficient because build/publish
+   runs in the same workflow run as semantic-release (not a separate triggered workflow).
+
+---
+
+## Developer Daily Workflow
 
 ```bash
-# Just write code and commit with Conventional Commits.
-# Versioning, changelog, tagging, PyPI publish, and GitHub Release
-# all happen automatically.
-
-git commit -m "fix(engine): handle missing benchmarks directory"
+# Write code. Use Conventional Commits. Push.
+git commit -m "fix(api): improve ranking"
 git push origin main
-# ↑ if this is the first fix since the last release, 1.0.3 → 1.0.4 happens automatically
-
-git commit -m "feat(cli): add --dry-run flag"
-git push origin main
-# ↑ 1.0.4 → 1.1.0 happens automatically
-
-git commit -m "docs: update README"
-git push origin main
-# ↑ no release triggered (docs: is not releasable)
 ```
 
----
+That is the complete developer action. The pipeline does the rest:
 
-## Bypassing Zero-Touch (emergency manual release)
+1. Scans commits → detects `fix:` → patch bump
+2. Bumps `pyproject.toml` version (e.g. 1.1.1 → 1.1.2)
+3. Updates `CHANGELOG.md`
+4. Commits `chore(release): v1.1.2 [skip ci]`
+5. Pushes tag `v1.1.2`
+6. Builds wheel + sdist
+7. Publishes to PyPI
+8. Attaches assets to GitHub Release
 
-If you need to release immediately without waiting for CI:
-
-```bash
-pip install python-semantic-release
-semantic-release version   # bumps version + creates tag locally
-git push origin main --follow-tags
-# tag push triggers release.yml as normal
-```
-
----
-
-## Configuration Location
-
-All semantic-release config lives in `pyproject.toml` under `[tool.semantic_release]`.
-No separate `.releaserc` or `release.config.js` file is needed.
+**No manual version edit. No manual tag. No manual changelog.**
 
 ---
 
-## Commit Convention Reference
+## Bump Rules
 
-See [`.github/COMMIT_CONVENTION.md`](./../.github/COMMIT_CONVENTION.md) for the full
-Conventional Commits reference, scope list, and PR title guidance.
+| Commit prefix | Bump | Example |
+|---|---|---|
+| `fix:` / `perf:` / `refactor:` | patch | `fix(api): improve ranking` |
+| `feat:` | minor | `feat(cli): add dry-run flag` |
+| `feat!:` / `BREAKING CHANGE` | major | `feat!: redesign API` |
+| `docs:` / `chore:` / `ci:` / `test:` | none | `docs: update README` |
+
+---
+
+## Manual Recovery (v1.1.0, v1.1.1)
+
+To publish tags that were created before this pipeline existed:
+
+1. Go to Actions → **"Release → PyPI (manual recovery only)"**
+2. Click **Run workflow**
+3. Enter tag: `v1.1.0` → Run
+4. Repeat with `v1.1.1`
+
+Expected PyPI state after recovery: latest = `1.1.1`.

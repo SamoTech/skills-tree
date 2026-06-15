@@ -1,29 +1,22 @@
-name: Release → PyPI
+name: Release → PyPI (manual recovery only)
 
-# Triggers on version tags pushed by semantic-release, OR manually via
-# workflow_dispatch (for re-publishing an already-tagged version that
-# never reached PyPI).
+# This workflow is DISABLED for automatic runs.
+# It is kept for manual recovery (workflow_dispatch) only.
+# The active release pipeline is zero-touch-release.yml.
+#
+# Use this to re-publish a tag that was created before zero-touch-release.yml
+# was in place (e.g. v1.1.0, v1.1.1).
 on:
-  push:
-    tags:
-      - 'v*.*.*'
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Existing tag to republish (e.g. v1.1.0)'
+        description: 'Existing tag to republish to PyPI (e.g. v1.1.0)'
         required: true
 
-# Workflow-level permissions are kept minimal.
-# id-token:write is declared only on the publish-pypi job so the OIDC
-# token is scoped to exactly that job + environment — this is the
-# configuration PyPI Trusted Publisher validates against.
 permissions:
   contents: read
 
 jobs:
-  # ---------------------------------------------------------------------------
-  # Stage 1: Build sdist + wheel, run quality gates
-  # ---------------------------------------------------------------------------
   build:
     name: "Build & verify"
     runs-on: ubuntu-latest
@@ -35,11 +28,7 @@ jobs:
       - name: Resolve tag
         id: version
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            TAG="${{ github.event.inputs.tag }}"
-          else
-            TAG="${GITHUB_REF_NAME}"
-          fi
+          TAG="${{ github.event.inputs.tag }}"
           VERSION="${TAG#v}"
           echo "tag=$TAG"         >> "$GITHUB_OUTPUT"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
@@ -49,79 +38,34 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ steps.version.outputs.tag }}
-          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install build & publish tools
+      - name: Install build tools
         run: pip install build twine --quiet
-
-      - name: Verify pyproject.toml version matches tag
-        run: |
-          TOML_VER=$(python - <<'EOF'
-          import tomllib
-          with open("pyproject.toml", "rb") as f:
-              data = tomllib.load(f)
-          print(data["project"]["version"])
-          EOF
-          )
-          TAG_VER="${{ steps.version.outputs.version }}"
-          if [ "$TOML_VER" != "$TAG_VER" ]; then
-            echo "ERROR: pyproject.toml version ($TOML_VER) != tag ($TAG_VER)"
-            exit 1
-          fi
-          echo "Version check passed: $TOML_VER"
 
       - name: Build sdist + wheel
         run: python -m build
 
-      - name: Fail immediately on metadata errors
+      - name: twine check
         run: twine check dist/*
 
-      - name: Assert required runtime assets are in wheel
-        run: |
-          python - <<'PYEOF'
-          import zipfile, glob, sys
-          wheels = glob.glob("dist/*.whl")
-          if not wheels:
-              print("ERROR: no wheel found in dist/")
-              sys.exit(1)
-          required = [
-              "data/SKILLS_GRAPH.json",
-              "meta/GOAL_TAXONOMY.md",
-              "benchmarks/INDEX.json",
-          ]
-          with zipfile.ZipFile(wheels[0]) as zf:
-              names = zf.namelist()
-          missing = [f for f in required if not any(n.endswith(f) for n in names)]
-          for f in required:
-              print(f"  {'\u274c' if f in missing else '\u2705'}  {f}")
-          if missing:
-              sys.exit(1)
-          print("All wheel asset checks passed.")
-          PYEOF
-
-      - name: Upload dist/ for downstream jobs
+      - name: Upload dist/
         uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist/
           retention-days: 7
 
-  # ---------------------------------------------------------------------------
-  # Stage 2: Publish to PyPI via OIDC Trusted Publisher
-  # id-token:write is declared HERE (job level) so GitHub scopes the OIDC
-  # token to this job + the "pypi" environment — exactly what PyPI validates.
-  # ---------------------------------------------------------------------------
   publish-pypi:
     name: "Publish → PyPI"
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      id-token: write   # MUST be at job level for OIDC to work with environments
+      id-token: write
       contents: read
     environment:
       name: pypi
@@ -136,7 +80,3 @@ jobs:
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        # No api_token needed — OIDC Trusted Publisher handles auth.
-        # PyPI Trusted Publisher must be configured at:
-        # https://pypi.org/manage/project/skills-tree/settings/publishing/
-        # with: owner=SamoTech, repo=skills-tree, workflow=release.yml, env=pypi

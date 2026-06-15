@@ -1,81 +1,31 @@
-name: Semantic Release (zero-touch)
+name: Semantic Release (superseded — disabled)
 
-# Runs on every push to main.
-# If commits since the last release contain releasable types (feat/fix/perf/refactor
-# or a BREAKING CHANGE), semantic-release will:
-#   1. Bump the version in pyproject.toml
-#   2. Generate/update CHANGELOG.md
-#   3. Commit both files with "chore(release): vX.Y.Z [skip ci]"
-#   4. Create and push the git tag vX.Y.Z
-# The tag push triggers .github/workflows/release.yml which builds,
-# publishes to PyPI (OIDC), and creates the GitHub Release.
-
+# THIS WORKFLOW IS DISABLED.
+# It has been superseded by zero-touch-release.yml which runs
+# semantic-release as its first step in a single consolidated pipeline.
+# Kept here as a reference; only runs on manual dispatch.
 on:
-  push:
-    branches: [main]
-
-# Prevent two semantic-release runs colliding on rapid pushes.
-concurrency:
-  group: semantic-release
-  cancel-in-progress: false   # never cancel — let the first run finish cleanly
+  workflow_dispatch:
 
 permissions:
-  # Needed to push the version-bump commit + tag back to the repo.
   contents: write
-  # Needed by python-semantic-release to create the GitHub Release object
-  # (release.yml handles the actual publish; this covers the GH release creation
-  # fallback if release.yml is disabled).
   id-token: write
 
 jobs:
   release:
-    name: "Determine version → tag → trigger release.yml"
+    name: "Manual semantic-release (debug only)"
     runs-on: ubuntu-latest
-    # Skip if this push is itself the version-bump commit from semantic-release.
-    # The commit message contains "[skip ci]" but GitHub Actions evaluates that
-    # only for the push event — this if-guard provides an explicit second check.
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
-
     steps:
-      - name: Checkout main (full history)
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # Use a PAT or the default GITHUB_TOKEN.
-          # GITHUB_TOKEN pushes do NOT re-trigger other workflows by default.
-          # To allow the tag push to trigger release.yml you must either:
-          #   (a) use a PAT stored as secret RELEASE_PAT, or
-          #   (b) enable "Allow GitHub Actions to create and approve pull requests"
-          #       AND set the token below to a fine-grained PAT with contents:write.
-          # Option (a) is recommended for production:
-          token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
-
-      - name: Configure git identity
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: git config user.name "github-actions[bot]"
+      - run: git config user.email "github-actions[bot]@users.noreply.github.com"
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-
-      - name: Install python-semantic-release
-        run: pip install 'python-semantic-release>=9.8' --quiet
-
-      - name: Run semantic-release
-        env:
-          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+      - run: pip install 'python-semantic-release>=9.8' --quiet
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: semantic-release version
-        # If there are no releasable commits, semantic-release exits 0 and does nothing.
-        # The tag push (when a release IS created) triggers release.yml automatically.
-
-      - name: Report outcome
-        run: |
-          CURRENT=$(python - <<'EOF'
-          import tomllib
-          with open("pyproject.toml", "rb") as f:
-              print(tomllib.load(f)["project"]["version"])
-          EOF
-          )
-          echo "Version after semantic-release: $CURRENT"
