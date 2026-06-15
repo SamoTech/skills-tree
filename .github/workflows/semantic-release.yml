@@ -61,17 +61,12 @@ jobs:
           python-version: '3.12'
 
       - name: Install python-semantic-release
-        run: pip install python-semantic-release>=9.8 --quiet
+        run: pip install 'python-semantic-release>=9.8' --quiet
 
       - name: Run semantic-release
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
-        run: |
-          semantic-release version \
-            --no-push=false \
-            --no-commit=false \
-            --no-tag=false \
-            --no-changelog=false
+        run: semantic-release version
         # If there are no releasable commits, semantic-release exits 0 and does nothing.
         # The tag push (when a release IS created) triggers release.yml automatically.
 
