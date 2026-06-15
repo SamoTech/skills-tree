@@ -16,7 +16,7 @@ jsonschema==4.26.0
 requests==2.34.2
 
 # Test dependencies — used by pytest in CI (test.yml) and locally.
-pytest==8.3.5
+pytest==9.1.0
 pytest-asyncio==0.25.3
 pytest-cov==6.0.0
 pytest-xdist==3.6.1
