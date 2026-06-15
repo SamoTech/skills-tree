@@ -1,0 +1,36 @@
+name: Taxonomy Integration Verification
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/verify-taxonomy.yml'
+      - 'tools/verify_taxonomy.py'
+
+jobs:
+  verify:
+    name: Runtime Taxonomy Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Run verification script
+        run: python tools/verify_taxonomy.py
+
+      - name: Upload verification results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: taxonomy-verification-results
+          path: |
+            verify_before.json
+            verify_after.json
+            verify_diff.txt
+            verify_result.txt
