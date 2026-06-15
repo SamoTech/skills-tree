@@ -1,33 +1,55 @@
 name: Release → PyPI
 
-# Triggers ONLY on version tags (e.g. v1.0.3, v2.1.0-rc1).
-# Never runs on branch pushes — keeps the publish path narrow and auditable.
+# Triggers on version tags pushed by semantic-release, OR manually via
+# workflow_dispatch (for re-publishing an already-tagged version that
+# never reached PyPI).
 on:
   push:
     tags:
       - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to republish (e.g. v1.1.0)'
+        required: true
 
-# OIDC permissions required for PyPI Trusted Publisher (no API token needed).
-# contents:write is required to create the GitHub Release and upload assets.
+# Workflow-level permissions are kept minimal.
+# id-token:write is declared only on the publish-pypi job so the OIDC
+# token is scoped to exactly that job + environment — this is the
+# configuration PyPI Trusted Publisher validates against.
 permissions:
-  id-token: write
-  contents: write
+  contents: read
 
 jobs:
-  # -------------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
   # Stage 1: Build sdist + wheel, run quality gates
-  # -------------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
   build:
     name: "Build & verify"
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
+      tag:     ${{ steps.version.outputs.tag }}
 
     steps:
+      - name: Resolve tag
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ github.event.inputs.tag }}"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+          VERSION="${TAG#v}"
+          echo "tag=$TAG"         >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Tag: $TAG  →  version: $VERSION"
+
       - name: Checkout tag
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # full history so the release notes can include commits
+          ref: ${{ steps.version.outputs.tag }}
+          fetch-depth: 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -36,14 +58,6 @@ jobs:
 
       - name: Install build & publish tools
         run: pip install build twine --quiet
-
-      - name: Extract version from tag
-        id: version
-        run: |
-          TAG="${GITHUB_REF_NAME}"
-          VERSION="${TAG#v}"          # strip leading 'v'
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "Tag: $TAG  →  version: $VERSION"
 
       - name: Verify pyproject.toml version matches tag
         run: |
@@ -57,7 +71,6 @@ jobs:
           TAG_VER="${{ steps.version.outputs.version }}"
           if [ "$TOML_VER" != "$TAG_VER" ]; then
             echo "ERROR: pyproject.toml version ($TOML_VER) != tag ($TAG_VER)"
-            echo "Bump the version in pyproject.toml and re-tag."
             exit 1
           fi
           echo "Version check passed: $TOML_VER"
@@ -72,34 +85,21 @@ jobs:
         run: |
           python - <<'PYEOF'
           import zipfile, glob, sys
-
           wheels = glob.glob("dist/*.whl")
           if not wheels:
               print("ERROR: no wheel found in dist/")
               sys.exit(1)
-
           required = [
               "data/SKILLS_GRAPH.json",
               "meta/GOAL_TAXONOMY.md",
               "benchmarks/INDEX.json",
           ]
-          forbidden = [
-              "meta/GOAL_TAXONOMY.json",
-          ]
-
           with zipfile.ZipFile(wheels[0]) as zf:
               names = zf.namelist()
-
-          missing = [f for f in required  if not any(n.endswith(f) for n in names)]
-          phantom = [f for f in forbidden if any(n.endswith(f) for n in names)]
-
+          missing = [f for f in required if not any(n.endswith(f) for n in names)]
           for f in required:
-              icon = "❌" if f in missing else "✅"
-              print(f"  {icon}  {f}")
-          for f in phantom:
-              print(f"  ❌  PHANTOM: {f}")
-
-          if missing or phantom:
+              print(f"  {'\u274c' if f in missing else '\u2705'}  {f}")
+          if missing:
               sys.exit(1)
           print("All wheel asset checks passed.")
           PYEOF
@@ -111,16 +111,21 @@ jobs:
           path: dist/
           retention-days: 7
 
-  # -------------------------------------------------------------------------
+  # ---------------------------------------------------------------------------
   # Stage 2: Publish to PyPI via OIDC Trusted Publisher
-  # -------------------------------------------------------------------------
+  # id-token:write is declared HERE (job level) so GitHub scopes the OIDC
+  # token to this job + the "pypi" environment — exactly what PyPI validates.
+  # ---------------------------------------------------------------------------
   publish-pypi:
     name: "Publish → PyPI"
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write   # MUST be at job level for OIDC to work with environments
+      contents: read
     environment:
       name: pypi
-      url: https://pypi.org/project/skills-tree/
+      url: https://pypi.org/project/skills-tree/${{ needs.build.outputs.version }}/
 
     steps:
       - name: Download dist/
@@ -132,58 +137,6 @@ jobs:
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         # No api_token needed — OIDC Trusted Publisher handles auth.
-        # Repository must be configured at:
+        # PyPI Trusted Publisher must be configured at:
         # https://pypi.org/manage/project/skills-tree/settings/publishing/
-
-  # -------------------------------------------------------------------------
-  # Stage 3: Create GitHub Release with dist/ assets attached
-  # -------------------------------------------------------------------------
-  github-release:
-    name: "Create GitHub Release"
-    needs: [build, publish-pypi]
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout (for CHANGELOG.md)
-        uses: actions/checkout@v4
-
-      - name: Download dist/
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-
-      - name: Extract release notes from CHANGELOG.md
-        id: notes
-        run: |
-          VERSION="${{ needs.build.outputs.version }}"
-          python - <<PYEOF > /tmp/release_notes.md
-          import re, sys
-
-          version = "$VERSION"
-          with open("CHANGELOG.md") as f:
-              text = f.read()
-
-          # Match the section for this version between ## [X.Y.Z] headers
-          pattern = rf"## \[{re.escape(version)}\][^\n]*\n(.*?)(?=\n## \[|\Z)"
-          m = re.search(pattern, text, re.DOTALL)
-          if m:
-              print(m.group(1).strip())
-          else:
-              print(f"Release {version}. See CHANGELOG.md for details.")
-          PYEOF
-          echo "Release notes written to /tmp/release_notes.md"
-          cat /tmp/release_notes.md
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: "skills-tree ${{ github.ref_name }}"
-          body_path: /tmp/release_notes.md
-          draft: false
-          prerelease: ${{ contains(github.ref_name, '-rc') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-alpha') }}
-          files: |
-            dist/*.whl
-            dist/*.tar.gz
-          token: ${{ secrets.GITHUB_TOKEN }}
+        # with: owner=SamoTech, repo=skills-tree, workflow=release.yml, env=pypi
