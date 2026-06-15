@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "description": "Benchmark index: maps skill ids to the benchmark documents that reference them. Used by EvidenceDeriver at runtime.",
+  "entries": [
+    {"skill_id": "skill:rag-retrieval",            "documents": ["memory/rag-benchmark-2024.md",  "memory/retrieval-eval-2025.md",   "reasoning/llm-eval-2025.md",    "tool-use/agent-bench-2024.md",  "memory/vector-db-shootout-2025.md"]},
+    {"skill_id": "skill:llm-orchestration",        "documents": ["reasoning/llm-eval-2025.md",    "reasoning/chain-of-thought-2024.md", "tool-use/agent-bench-2024.md", "memory/vector-db-shootout-2025.md"]},
+    {"skill_id": "skill:vector-search",            "documents": ["memory/vector-db-shootout-2025.md", "memory/rag-benchmark-2024.md",  "memory/retrieval-eval-2025.md", "tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:code-generation",          "documents": ["reasoning/llm-eval-2025.md",    "reasoning/chain-of-thought-2024.md", "tool-use/agent-bench-2024.md", "reasoning/humaneval-analysis-2024.md"]},
+    {"skill_id": "skill:prompt-engineering",       "documents": ["reasoning/chain-of-thought-2024.md", "reasoning/llm-eval-2025.md",   "tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:embedding-generation",     "documents": ["memory/vector-db-shootout-2025.md", "memory/rag-benchmark-2024.md",  "memory/retrieval-eval-2025.md"]},
+    {"skill_id": "skill:multi-agent-coordination", "documents": ["reasoning/llm-eval-2025.md",    "tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:error-recovery",           "documents": ["tool-use/agent-bench-2024.md",   "tool-use/function-calling-eval-2025.md"]},
+    {"skill_id": "skill:function-calling",         "documents": ["tool-use/function-calling-eval-2025.md", "tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:context-management",       "documents": ["memory/retrieval-eval-2025.md"]},
+    {"skill_id": "skill:web-scraping",             "documents": ["tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:browser-automation",       "documents": ["tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:api-integration",          "documents": ["tool-use/function-calling-eval-2025.md"]},
+    {"skill_id": "skill:workflow-automation",      "documents": ["tool-use/agent-bench-2024.md"]},
+    {"skill_id": "skill:data-extraction",          "documents": ["tool-use/agent-bench-2024.md"]}
+  ]
+}

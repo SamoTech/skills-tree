@@ -7,30 +7,26 @@ Single source of truth: meta/GOAL_TAXONOMY.md
 No hardcoded goal lists, skill mappings, or recommendation rules.
 
 Sprint C-01: per-skill numeric scoring engine.
-  score = priority_weight + centrality_bonus + framework_bonus - learn_time_penalty
-
 Sprint C-02: real graph-aware ranking.
-  Centrality metrics pre-computed at graph load time and embedded per-node.
-
 Sprint C-03: Explanation Engine.
-  Every skill carries score_breakdown and a human-readable explanation list.
-
-Sprint C-04: Confidence Engine.
-  Every skill carries confidence and confidence_breakdown from five signals.
-
-Sprint C-05: Evidence Engine.
-  Replaces heuristic confidence with evidence-based confidence derived from
-  four empirical counts: benchmarks, goals, dependencies, framework_strength.
-  Evidence counts are read from the graph node's ``evidence`` block
-  (schema_version 1.2+). Explanation lines are also evidence-driven.
+Sprint C-04: Confidence Engine (static weights).
+Sprint C-05: Evidence Engine (stored evidence counts).
+Sprint C-06: EvidenceDeriver — all evidence counts are derived at runtime.
+  - Goals   : counted from GOAL_TAXONOMY.md skill mappings.
+  - Deps    : counted from SKILLS_GRAPH.json edge list.
+  - BM      : counted from benchmarks/INDEX.json.
+  - Framework: computed from taxonomy framework star ratings.
+  - SKILLS_GRAPH.json no longer stores benchmarks/goals/dependencies.
+  - Validation: mismatch report compares stored (C-05) vs derived (C-06) counts.
 """
 
 import json
 import os
 import re
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Set, Tuple
 
 
 # ---------------------------------------------------------------------------
@@ -187,7 +183,7 @@ class GoalTaxonomyParser:
 class SkillsGraph:
     """
     Load and query the skills knowledge graph.
-    schema_version 1.2: nodes carry an ``evidence`` block used by EvidenceEngine.
+    schema_version 1.3: evidence block removed; EvidenceDeriver computes all counts.
     """
 
     def __init__(self, graph_path: str = "../data/SKILLS_GRAPH.json"):
@@ -212,7 +208,6 @@ class SkillsGraph:
                 self._out_degree[nid]        = c.get("out_degree",        0)
                 self._degree_centrality[nid] = c.get("degree_centrality", 0.0)
         else:
-            from collections import defaultdict
             ind, outd = defaultdict(int), defaultdict(int)
             for edge in self.edges:
                 ind[edge["target"]]  += 1
@@ -280,7 +275,275 @@ class SkillsGraph:
 
 
 # ---------------------------------------------------------------------------
-# Sprint C-01/C-02: Skill Scoring Engine
+# Sprint C-06: Evidence Deriver
+# ---------------------------------------------------------------------------
+
+class EvidenceDeriver:
+    """
+    Derive all evidence counts at runtime from three live sources.
+    No manual counts are stored or read from SKILLS_GRAPH.json.
+
+    Sources:
+        1. Goals evidence
+           Scan every goal in GOAL_TAXONOMY.md and count how many reference
+           each skill id. Provided via ``goal_coverage`` dict built by
+           RecommendationEngine from the live taxonomy.
+
+        2. Dependency evidence
+           Count all edge appearances (source + target) per skill in the
+           graph edge list at load time.
+
+        3. Benchmark evidence
+           Parse benchmarks/INDEX.json and count document entries per skill.
+           Falls back to zero if index is absent.
+
+        4. Framework evidence
+           Read the maximum star rating from the taxonomy framework table
+           for the current goal context. Provided as ``top_fw_stars``.
+
+    Evidence formula (same weights as C-05 — only derivation changes):
+        conf_bm  = min(benchmarks        / 5,  1.0) * 0.25
+        conf_g   = min(goals             / 10, 1.0) * 0.30
+        conf_dep = min(dependencies      / 6,  1.0) * 0.25
+        conf_fw  = min(framework_strength/ 5,  1.0) * 0.20
+        confidence = clamp(sum, 0.0, 1.0)
+    """
+
+    BM_CAP:   int   = 5
+    GOAL_CAP: int   = 10
+    DEP_CAP:  int   = 6
+    FW_CAP:   int   = 5
+    W_BM:   float = 0.25
+    W_GOAL: float = 0.30
+    W_DEP:  float = 0.25
+    W_FW:   float = 0.20
+
+    def __init__(
+        self,
+        graph: Any,
+        goal_coverage: Dict[str, int],
+        benchmark_index_path: Optional[str] = None,
+    ):
+        self._graph        = graph
+        self._goal_coverage = goal_coverage
+        self._bm_index: Dict[str, int] = {}
+        self._dep_counts: Dict[str, int] = {}
+        self._build_dep_counts()
+        self._load_benchmark_index(benchmark_index_path)
+
+    # ------------------------------------------------------------------
+    # Internal builders (called once at construction)
+    # ------------------------------------------------------------------
+
+    def _build_dep_counts(self) -> None:
+        """Count total edge appearances per node from the live graph."""
+        counts: Dict[str, int] = defaultdict(int)
+        for edge in getattr(self._graph, "edges", []):
+            counts[edge.get("source", "")] += 1
+            counts[edge.get("target", "")] += 1
+        self._dep_counts = dict(counts)
+
+    def _load_benchmark_index(self, index_path: Optional[str]) -> None:
+        """
+        Load benchmarks/INDEX.json and build {skill_id: doc_count} map.
+        Gracefully handles missing file (all counts default to 0).
+        """
+        if index_path is None:
+            return
+        try:
+            with open(index_path, "r") as f:
+                data = json.load(f)
+            for entry in data.get("entries", []):
+                sid = entry.get("skill_id", "")
+                self._bm_index[sid] = len(entry.get("documents", []))
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def derive(self, skill_id: str, top_fw_stars: int = 0) -> Dict[str, Any]:
+        """
+        Return runtime-derived evidence counts + confidence for one skill.
+        """
+        bm  = self._bm_index.get(skill_id, 0)
+        g   = self._goal_coverage.get(skill_id, 0)
+        dep = self._dep_counts.get(skill_id, 0)
+        fw  = top_fw_stars
+
+        conf_bm  = round(min(bm  / self.BM_CAP,   1.0) * self.W_BM,   4)
+        conf_g   = round(min(g   / self.GOAL_CAP, 1.0) * self.W_GOAL, 4)
+        conf_dep = round(min(dep / self.DEP_CAP,  1.0) * self.W_DEP,  4)
+        conf_fw  = round(min(fw  / self.FW_CAP,   1.0) * self.W_FW,   4)
+        total    = round(min(conf_bm + conf_g + conf_dep + conf_fw, 1.0), 4)
+
+        return {
+            "evidence": {
+                "benchmarks":         bm,
+                "goals":              g,
+                "dependencies":       dep,
+                "framework_strength": fw,
+            },
+            "confidence": total,
+            "confidence_breakdown": {
+                "benchmarks":   conf_bm,
+                "goals":        conf_g,
+                "dependencies": conf_dep,
+                "framework":    conf_fw,
+            },
+        }
+
+    def enrich_all(self, skills: List[Dict], top_fw_stars: int = 0) -> List[Dict]:
+        """Inject runtime-derived evidence + confidence into every skill dict."""
+        for skill in skills:
+            result = self.derive(skill.get("id", ""), top_fw_stars)
+            skill["evidence"]             = result["evidence"]
+            skill["confidence"]           = result["confidence"]
+            skill["confidence_breakdown"] = result["confidence_breakdown"]
+        return skills
+
+    def mismatch_report(
+        self, all_skill_ids: List[str], top_fw_stars: int = 0
+    ) -> List[Dict]:
+        """
+        Compare runtime-derived counts against any stored evidence block
+        still present in graph nodes (legacy C-05 data or user-supplied).
+        Returns list of {skill_id, field, derived, stored} dicts for mismatches.
+        """
+        report = []
+        for sid in all_skill_ids:
+            derived = self.derive(sid, top_fw_stars)["evidence"]
+            node = getattr(self._graph, "get_node", lambda x: None)(sid) or {}
+            stored = node.get("evidence", {})
+            if not stored:
+                continue  # schema 1.3: no stored evidence — nothing to compare
+            for field in ("benchmarks", "goals", "dependencies", "framework_strength"):
+                d_val = derived.get(field, 0)
+                s_val = stored.get(field, 0)
+                if d_val != s_val:
+                    report.append({
+                        "skill_id": sid, "field": field,
+                        "derived": d_val, "stored": s_val,
+                    })
+        return report
+
+    @staticmethod
+    def label(confidence: float) -> str:
+        if confidence >= 0.70:
+            return "High"
+        if confidence >= 0.50:
+            return "Medium"
+        if confidence >= 0.30:
+            return "Low"
+        return "Very Low"
+
+    # kept for backward compat
+    @staticmethod
+    def confidence_label(c: float) -> str:
+        return EvidenceDeriver.label(c)
+
+
+# Alias so older imports survive
+EvidenceEngine = EvidenceDeriver
+
+
+# ---------------------------------------------------------------------------
+# Sprint C-03 / C-04 / C-05 / C-06: Explanation Engine
+# ---------------------------------------------------------------------------
+
+class ExplanationEngine:
+    """
+    Generate human-readable explanations from score + evidence signals.
+    C-06: all evidence lines are derived at runtime via EvidenceDeriver.
+    """
+
+    @staticmethod
+    def explain(skill: Dict, taxonomy_entry: Dict) -> Dict:
+        comps     = skill.get("_score_components", {})
+        priority  = taxonomy_entry.get("priority", "unknown")
+        learn_hrs = taxonomy_entry.get("learn_time_hrs", 0)
+        ind       = int(round(comps.get("centrality", 0) / 5))
+        fw_bonus  = comps.get("framework", 0.0)
+        lp_abs    = abs(comps.get("learn_time", 0.0))
+        ev        = skill.get("evidence", {})
+
+        skill["score_breakdown"] = {
+            "priority":   comps.get("priority",   0.0),
+            "centrality": comps.get("centrality", 0.0),
+            "framework":  comps.get("framework",  0.0),
+            "learn_time": comps.get("learn_time", 0.0),
+        }
+
+        sentences: List[str] = []
+
+        p = priority.lower()
+        if p == "critical":
+            sentences.append("Critical priority — must-have for this goal")
+        elif p == "high":
+            sentences.append("High priority skill")
+        elif p == "medium":
+            sentences.append("Medium priority — recommended but optional")
+        else:
+            sentences.append("Low priority — nice to have")
+
+        if ind == 0:
+            sentences.append("No other skills depend on this — standalone capability")
+        elif ind == 1:
+            sentences.append(f"Referenced by 1 dependent skill (+{int(comps['centrality'])} centrality bonus)")
+        else:
+            sentences.append(f"Referenced by {ind} dependent skills (+{int(comps['centrality'])} centrality bonus)")
+
+        if fw_bonus > 0:
+            stars = int(fw_bonus / 2)
+            sentences.append(
+                f"Preferred framework has {stars}-star alignment with this goal (+{int(fw_bonus)} framework bonus)"
+            )
+        else:
+            sentences.append("No framework preference boost for this goal")
+
+        if lp_abs == 0:
+            sentences.append("Zero estimated learning time — no penalty")
+        elif lp_abs <= 5:
+            sentences.append(f"Low learning effort ({learn_hrs}h, -{lp_abs} penalty)")
+        elif lp_abs <= 10:
+            sentences.append(f"Moderate learning effort ({learn_hrs}h, -{lp_abs} penalty)")
+        else:
+            sentences.append(f"High learning effort ({learn_hrs}h, -{lp_abs} penalty)")
+
+        # C-06 runtime evidence lines
+        if ev:
+            bm  = ev.get("benchmarks",   0)
+            g   = ev.get("goals",        0)
+            dep = ev.get("dependencies", 0)
+            if bm >= 3:
+                sentences.append(f"Supported by {bm} benchmark{'s' if bm != 1 else ''} (high external validation)")
+            elif bm > 0:
+                sentences.append(f"Supported by {bm} benchmark{'s' if bm != 1 else ''}")
+            if g > 0:
+                sentences.append(f"Referenced across {g} goal{'s' if g != 1 else ''}")
+            if dep >= 4:
+                sentences.append(f"Dependency hub used by {dep} skills")
+
+        conf = skill.get("confidence")
+        if conf is not None:
+            label = EvidenceDeriver.label(conf)
+            sentences.append(f"Confidence: {label} ({conf:.2f})")
+
+        skill["explanation"] = sentences
+        skill.pop("_score_components", None)
+        return skill
+
+    @classmethod
+    def explain_all(cls, skills: List[Dict], taxonomy_map: Dict[str, Dict]) -> List[Dict]:
+        for skill in skills:
+            tax = taxonomy_map.get(skill.get("id", ""), {})
+            cls.explain(skill, tax)
+        return skills
+
+
+# ---------------------------------------------------------------------------
+# Sprint C-01 / C-02: Skill Scoring Engine
 # ---------------------------------------------------------------------------
 
 class SkillScorer:
@@ -320,8 +583,8 @@ class SkillScorer:
     ) -> List[Dict]:
         scored = []
         for skill in skills:
-            sid = skill.get("id", "")
-            tax = taxonomy_map.get(sid, {})
+            sid   = skill.get("id", "")
+            tax   = taxonomy_map.get(sid, {})
             comps = self.score_components(sid, tax.get("priority", "low"), tax.get("learn_time_hrs", 0))
             scored.append({**skill, "score": comps["total"], "_score_components": comps})
         scored.sort(key=lambda x: x["score"], reverse=True)
@@ -331,227 +594,15 @@ class SkillScorer:
 
 
 # ---------------------------------------------------------------------------
-# Sprint C-05: Evidence Engine  (replaces C-04 ConfidenceEngine)
-# ---------------------------------------------------------------------------
-
-class EvidenceEngine:
-    """
-    Compute per-skill evidence counts and evidence-based confidence.
-
-    Evidence sources (all read from the graph node's ``evidence`` block):
-        benchmarks        — number of benchmark documents mentioning the skill
-        goals             — number of taxonomy goals that reference the skill
-        dependencies      — total edge connections (in + out)
-        framework_strength— max star rating from framework mapping
-
-    Confidence formula (each signal saturates at its cap):
-
-        conf_bm  = min(benchmarks        / BM_CAP,   1.0) × W_BM    (max 0.25)
-        conf_g   = min(goals             / GOAL_CAP, 1.0) × W_GOAL  (max 0.30)
-        conf_dep = min(dependencies      / DEP_CAP,  1.0) × W_DEP   (max 0.25)
-        conf_fw  = min(framework_strength/ FW_CAP,   1.0) × W_FW    (max 0.20)
-
-        confidence = clamp(conf_bm + conf_g + conf_dep + conf_fw, 0.0, 1.0)
-
-    Saturation caps:
-        BM_CAP=5  GOAL_CAP=10  DEP_CAP=6  FW_CAP=5
-
-    Weights sum to 1.0:
-        W_BM=0.25  W_GOAL=0.30  W_DEP=0.25  W_FW=0.20
-    """
-
-    BM_CAP:   int   = 5
-    GOAL_CAP: int   = 10
-    DEP_CAP:  int   = 6
-    FW_CAP:   int   = 5
-
-    W_BM:   float = 0.25
-    W_GOAL: float = 0.30
-    W_DEP:  float = 0.25
-    W_FW:   float = 0.20
-
-    def __init__(self, graph: Any, goal_coverage: Dict[str, int]):
-        """
-        graph         — SkillsGraph instance
-        goal_coverage — {skill_id: number_of_goals_referencing_it}
-                         built by RecommendationEngine from the taxonomy
-        """
-        self._graph         = graph
-        self._goal_coverage = goal_coverage
-
-    # ------------------------------------------------------------------
-    # Evidence extraction
-    # ------------------------------------------------------------------
-
-    def _raw_evidence(self, skill_id: str, top_fw_stars: int) -> Dict[str, int]:
-        """Return raw evidence counts for one skill."""
-        node = getattr(self._graph, "get_node", lambda x: None)(skill_id)
-        node_ev = (node or {}).get("evidence", {})
-
-        bm  = node_ev.get("benchmarks",   0)
-        g   = node_ev.get("goals",        self._goal_coverage.get(skill_id, 0))
-        dep = node_ev.get("dependencies", (
-            getattr(self._graph, "in_degree",  lambda x: 0)(skill_id) +
-            getattr(self._graph, "out_degree", lambda x: 0)(skill_id)
-        ))
-        fw  = node_ev.get("framework_strength", top_fw_stars)
-        return {"benchmarks": bm, "goals": g, "dependencies": dep, "framework_strength": fw}
-
-    # ------------------------------------------------------------------
-    # Confidence computation
-    # ------------------------------------------------------------------
-
-    def compute(self, skill_id: str, top_fw_stars: int = 0) -> Dict[str, Any]:
-        """Return evidence counts + confidence float for one skill."""
-        ev = self._raw_evidence(skill_id, top_fw_stars)
-
-        conf_bm  = round(min(ev["benchmarks"]         / self.BM_CAP,   1.0) * self.W_BM,   4)
-        conf_g   = round(min(ev["goals"]              / self.GOAL_CAP, 1.0) * self.W_GOAL, 4)
-        conf_dep = round(min(ev["dependencies"]       / self.DEP_CAP,  1.0) * self.W_DEP,  4)
-        conf_fw  = round(min(ev["framework_strength"] / self.FW_CAP,   1.0) * self.W_FW,   4)
-        total    = round(min(conf_bm + conf_g + conf_dep + conf_fw, 1.0), 4)
-
-        return {
-            "evidence": ev,
-            "confidence": total,
-            "confidence_breakdown": {
-                "benchmarks":   conf_bm,
-                "goals":        conf_g,
-                "dependencies": conf_dep,
-                "framework":    conf_fw,
-            },
-        }
-
-    def enrich_all(self, skills: List[Dict], top_fw_stars: int = 0) -> List[Dict]:
-        """Inject evidence + confidence + confidence_breakdown into every skill dict."""
-        for skill in skills:
-            result = self.compute(skill.get("id", ""), top_fw_stars)
-            skill["evidence"]              = result["evidence"]
-            skill["confidence"]            = result["confidence"]
-            skill["confidence_breakdown"]  = result["confidence_breakdown"]
-        return skills
-
-    @staticmethod
-    def label(confidence: float) -> str:
-        if confidence >= 0.70:
-            return "High"
-        if confidence >= 0.50:
-            return "Medium"
-        if confidence >= 0.30:
-            return "Low"
-        return "Very Low"
-
-    # kept so C-04 callers still resolve
-    @staticmethod
-    def confidence_label(confidence: float) -> str:
-        return EvidenceEngine.label(confidence)
-
-
-# ---------------------------------------------------------------------------
-# Sprint C-03 / C-04 / C-05: Explanation Engine
-# ---------------------------------------------------------------------------
-
-class ExplanationEngine:
-    """
-    Generate human-readable explanations from score + evidence signals.
-    C-05: explanation lines are evidence-driven (count-based, not static).
-    """
-
-    @staticmethod
-    def explain(skill: Dict, taxonomy_entry: Dict) -> Dict:
-        comps     = skill.get("_score_components", {})
-        priority  = taxonomy_entry.get("priority", "unknown")
-        learn_hrs = taxonomy_entry.get("learn_time_hrs", 0)
-        ind       = int(round(comps.get("centrality", 0) / 5))
-        fw_bonus  = comps.get("framework", 0.0)
-        lp_abs    = abs(comps.get("learn_time", 0.0))
-        ev        = skill.get("evidence", {})
-
-        skill["score_breakdown"] = {
-            "priority":   comps.get("priority",   0.0),
-            "centrality": comps.get("centrality", 0.0),
-            "framework":  comps.get("framework",  0.0),
-            "learn_time": comps.get("learn_time", 0.0),
-        }
-
-        sentences: List[str] = []
-
-        # 1. Priority
-        p = priority.lower()
-        if p == "critical":
-            sentences.append("Critical priority — must-have for this goal")
-        elif p == "high":
-            sentences.append("High priority skill")
-        elif p == "medium":
-            sentences.append("Medium priority — recommended but optional")
-        else:
-            sentences.append("Low priority — nice to have")
-
-        # 2. Graph centrality
-        if ind == 0:
-            sentences.append("No other skills depend on this — standalone capability")
-        elif ind == 1:
-            sentences.append(f"Referenced by 1 dependent skill (+{int(comps['centrality'])} centrality bonus)")
-        else:
-            sentences.append(f"Referenced by {ind} dependent skills (+{int(comps['centrality'])} centrality bonus)")
-
-        # 3. Framework
-        if fw_bonus > 0:
-            stars = int(fw_bonus / 2)
-            sentences.append(
-                f"Preferred framework has {stars}-star alignment with this goal (+{int(fw_bonus)} framework bonus)"
-            )
-        else:
-            sentences.append("No framework preference boost for this goal")
-
-        # 4. Learn-time
-        if lp_abs == 0:
-            sentences.append("Zero estimated learning time — no penalty")
-        elif lp_abs <= 5:
-            sentences.append(f"Low learning effort ({learn_hrs}h, -{lp_abs} penalty)")
-        elif lp_abs <= 10:
-            sentences.append(f"Moderate learning effort ({learn_hrs}h, -{lp_abs} penalty)")
-        else:
-            sentences.append(f"High learning effort ({learn_hrs}h, -{lp_abs} penalty)")
-
-        # 5–7. C-05 evidence lines (only when evidence block is present)
-        if ev:
-            bm  = ev.get("benchmarks",   0)
-            g   = ev.get("goals",        0)
-            dep = ev.get("dependencies", 0)
-            if bm > 0:
-                sentences.append(f"Supported by {bm} benchmark{'s' if bm != 1 else ''}")
-            if g > 0:
-                sentences.append(f"Referenced across {g} goal{'s' if g != 1 else ''}")
-            if dep >= 4:
-                sentences.append(f"Dependency hub used by {dep} skills")
-
-        # 8. Confidence summary
-        conf = skill.get("confidence")
-        if conf is not None:
-            label = EvidenceEngine.label(conf)
-            sentences.append(f"Confidence: {label} ({conf:.2f})")
-
-        skill["explanation"] = sentences
-        skill.pop("_score_components", None)
-        return skill
-
-    @classmethod
-    def explain_all(cls, skills: List[Dict], taxonomy_map: Dict[str, Dict]) -> List[Dict]:
-        for skill in skills:
-            tax = taxonomy_map.get(skill.get("id", ""), {})
-            cls.explain(skill, tax)
-        return skills
-
-
-# ---------------------------------------------------------------------------
 # Recommendation Engine
 # ---------------------------------------------------------------------------
 
 class RecommendationEngine:
-    def __init__(self, graph: Any, taxonomy: GoalTaxonomyParser):
-        self.graph    = graph
-        self.taxonomy = taxonomy
+    def __init__(self, graph: Any, taxonomy: GoalTaxonomyParser,
+                 benchmark_index_path: Optional[str] = None):
+        self.graph                = graph
+        self.taxonomy             = taxonomy
+        self._bm_index_path       = benchmark_index_path
 
     def recommend(self, goal_query: str) -> Dict[str, Any]:
         goal_id = self.taxonomy.resolve(goal_query)
@@ -565,11 +616,11 @@ class RecommendationEngine:
         difficulty = meta.get("difficulty", "Unknown")
         taxonomy_map: Dict[str, Dict] = {s["id"]: s for s in taxonomy_skills}
 
-        # Build goal-coverage index from taxonomy
-        goal_coverage: Dict[str, int] = {}
+        # C-06: build full cross-goal coverage from live taxonomy
+        goal_coverage: Dict[str, int] = defaultdict(int)
         for gid in self.taxonomy.goals:
             for s in self.taxonomy.skills_for(gid):
-                goal_coverage[s["id"]] = goal_coverage.get(s["id"], 0) + 1
+                goal_coverage[s["id"]] += 1
 
         required_ids   = [s["id"] for s in taxonomy_skills if s["priority"].lower() in ("critical", "high")]
         optional_ids   = [s["id"] for s in taxonomy_skills if s["priority"].lower() in ("medium", "low")]
@@ -579,16 +630,15 @@ class RecommendationEngine:
         frameworks   = self.taxonomy.frameworks_for(goal_name)
         top_fw_stars = max(frameworks.values()) if frameworks else 0
         scorer       = SkillScorer(self.graph, frameworks)
-        ev_engine    = EvidenceEngine(self.graph, goal_coverage)
+        deriver      = EvidenceDeriver(self.graph, goal_coverage, self._bm_index_path)
 
         required_skills = scorer.rank_skills(required_nodes, taxonomy_map, rank_offset=1)
         optional_skills = scorer.rank_skills(optional_nodes, taxonomy_map, rank_offset=len(required_skills) + 1)
 
-        # C-05: inject evidence + confidence before ExplanationEngine
-        ev_engine.enrich_all(required_skills, top_fw_stars)
-        ev_engine.enrich_all(optional_skills, top_fw_stars)
+        # C-06: inject runtime-derived evidence + confidence
+        deriver.enrich_all(required_skills, top_fw_stars)
+        deriver.enrich_all(optional_skills, top_fw_stars)
 
-        # Explanation (includes evidence lines + confidence sentence)
         ExplanationEngine.explain_all(required_skills, taxonomy_map)
         ExplanationEngine.explain_all(optional_skills, taxonomy_map)
 
@@ -603,6 +653,9 @@ class RecommendationEngine:
         rec_confidence = self._aggregate_confidence(required_skills, all_dependencies)
         deployment     = "local" if "beginner" in difficulty.lower() else "cloud"
 
+        # C-06 mismatch report (will be empty for schema 1.3 nodes)
+        mismatch = deriver.mismatch_report(list(self.graph.nodes.keys()), top_fw_stars)
+
         return {
             "goal_id": goal_id, "goal_name": goal_name,
             "taxonomy_skills":  taxonomy_skills,
@@ -613,6 +666,7 @@ class RecommendationEngine:
             "confidence_score": rec_confidence,
             "deployment":  deployment,
             "complexity":  difficulty,
+            "mismatch_report": mismatch,
         }
 
     def _stub(self, skill_id: str) -> Dict:
@@ -671,6 +725,7 @@ class BlueprintGenerator:
             "deployment_type":    recommendation.get("deployment", "cloud"),
             "complexity":         recommendation.get("complexity", "Unknown"),
             "maturity":           "Beta",
+            "evidence_mode":      "runtime-derived",
             "estimated_learn_hours": total_hrs,
             "recommended_framework": top_framework,
             "required_skills": [
@@ -705,7 +760,8 @@ class BlueprintGenerator:
                 for d in recommendation["dependencies"]
             ],
             "learning_path": [s["name"] for s in recommendation["learning_path"]],
-            "risks": risks,
+            "risks":             risks,
+            "mismatch_report":   recommendation.get("mismatch_report", []),
         }
 
     def _collect_risks(self, required_skills):
@@ -734,60 +790,33 @@ def print_blueprint(blueprint: Dict[str, Any]):
     print(f"Goal ID:           {blueprint['goal_id']}")
     print(f"Confidence:        {blueprint['confidence_score']:.4f}")
     print(f"Architecture Type: {blueprint['architecture_type']}")
-    print(f"Deployment:        {blueprint['deployment_type']}")
-    print(f"Complexity:        {blueprint['complexity']}")
+    print(f"Evidence Mode:     {blueprint.get('evidence_mode','?')}")
     print(f"Maturity:          {blueprint['maturity']}")
-    print(f"Est. Learn Time:   {blueprint['estimated_learn_hours']} hours")
-    print(f"Top Framework:     {blueprint['recommended_framework']}")
 
     print(f"\n{'\u2500'*70}\nREQUIRED SKILLS (sorted by score \u2193):")
     for skill in blueprint["required_skills"]:
         bd  = skill.get("score_breakdown", {})
-        cbd = skill.get("confidence_breakdown", {})
         ev  = skill.get("evidence", {})
-        lbl = EvidenceEngine.label(skill.get("confidence", 0.0))
+        lbl = EvidenceDeriver.label(skill.get("confidence", 0.0))
         print(
             f"  #{skill['rank']:>2}  {skill['name']:<32}  "
             f"score={skill['score']:>7.2f}  conf={skill.get('confidence', 0.0):.4f} ({lbl})"
         )
         print(
-            f"       Evidence:   bm={ev.get('benchmarks',0)}  goals={ev.get('goals',0)}  "
-            f"deps={ev.get('dependencies',0)}  fw={ev.get('framework_strength',0)}"
-        )
-        print(
-            f"       Score:      priority={bd.get('priority',0):>6}  "
-            f"centrality={bd.get('centrality',0):>5}  "
-            f"framework={bd.get('framework',0):>5}  "
-            f"learn_time={bd.get('learn_time',0):>6}"
+            f"       Evidence (derived): bm={ev.get('benchmarks',0)}  "
+            f"goals={ev.get('goals',0)}  deps={ev.get('dependencies',0)}  "
+            f"fw={ev.get('framework_strength',0)}"
         )
         for line in skill.get("explanation", []):
             print(f"       \u2022 {line}")
 
-    if blueprint["optional_skills"]:
-        print(f"\n{'\u2500'*70}\nOPTIONAL SKILLS (sorted by score \u2193):")
-        for skill in blueprint["optional_skills"]:
-            lbl = EvidenceEngine.label(skill.get("confidence", 0.0))
-            print(
-                f"  #{skill['rank']:>2}  {skill['name']:<32}  "
-                f"score={skill['score']:>7.2f}  conf={skill.get('confidence', 0.0):.4f} ({lbl})"
-            )
-            for line in skill.get("explanation", []):
-                print(f"       \u2022 {line}")
-
-    if blueprint["dependencies"]:
-        print(f"\n{'\u2500'*70}\nDEPENDENCIES:")
-        for dep in blueprint["dependencies"]:
-            print(f"  \u2022 {dep['name']} (Confidence: {dep['confidence']:.2f})")
-
-    print(f"\n{'\u2500'*70}\nLEARNING PATH:")
-    for i, skill in enumerate(blueprint["learning_path"], 1):
-        print(f"  {i}. {skill}")
-
-    if blueprint["risks"]:
-        print(f"\n{'\u2500'*70}\nRISKS:")
-        for risk in blueprint["risks"]:
-            print(f"  \u26a0\ufe0f  [{risk['severity']}] Probability: {risk['probability']}")
-            print(f"      Mitigation: {risk['mitigation']}")
+    mm = blueprint.get("mismatch_report", [])
+    if mm:
+        print(f"\n{'\u2500'*70}\nMISMATCH REPORT ({len(mm)} fields differ stored vs derived):")
+        for r in mm:
+            print(f"  \u26a0\ufe0f  {r['skill_id']}  [{r['field']}]  derived={r['derived']}  stored={r['stored']}")
+    else:
+        print(f"\n\u2705 Mismatch report: 0 fields differ (schema 1.3 — no stored evidence)")
 
     print(f"\n{'='*70}\n")
 
@@ -804,7 +833,7 @@ TEST_GOALS = [
 
 def run_validation(engine, generator, taxonomy):
     print("\n" + "="*70)
-    print("VALIDATION RUN (C-01 through C-05)")
+    print("VALIDATION RUN (C-01 through C-06)")
     print("="*70)
     results = []
     for goal in TEST_GOALS:
@@ -816,28 +845,27 @@ def run_validation(engine, generator, taxonomy):
         bp  = generator.generate(goal, rec, taxonomy)
         req = bp["required_skills"]
 
-        scores_sorted  = all(req[i]["score"] >= req[i+1]["score"] for i in range(len(req)-1))
-        has_breakdown  = all("score_breakdown" in s for s in req)
-        has_conf       = all("confidence" in s and 0.0 <= s["confidence"] <= 1.0 for s in req)
-        has_conf_bd    = all("confidence_breakdown" in s for s in req)
-        has_evidence   = all("evidence" in s for s in req)
-        has_expl       = all(
-            "explanation" in s
-            and any("Confidence:" in e for e in s["explanation"])
+        scores_sorted = all(req[i]["score"] >= req[i+1]["score"] for i in range(len(req)-1))
+        has_breakdown = all("score_breakdown" in s for s in req)
+        has_conf      = all("confidence" in s and 0.0 <= s["confidence"] <= 1.0 for s in req)
+        has_conf_bd   = all("confidence_breakdown" in s for s in req)
+        has_evidence  = all("evidence" in s for s in req)
+        has_expl      = all(
+            "explanation" in s and any("Confidence:" in e for e in s["explanation"])
+            for s in req
+        )
+        no_stored_ev  = all(
+            "evidence" not in (getattr(engine.graph, "get_node", lambda x: {})(s["id"]) or {})
             for s in req
         )
 
-        ok = len(req) > 0 and scores_sorted and has_breakdown and has_conf and has_conf_bd and has_evidence and has_expl
+        ok = len(req) > 0 and scores_sorted and has_breakdown and has_conf and has_conf_bd and has_evidence and has_expl and no_stored_ev
         status = "PASS" if ok else "FAIL"
-        results.append({
-            "goal": goal, "goal_id": rec["goal_id"], "status": status,
-            "required": len(req), "has_evidence": has_evidence,
-            "has_conf": has_conf, "has_conf_bd": has_conf_bd,
-        })
+        results.append({"goal": goal, "goal_id": rec["goal_id"], "status": status})
         icon = "\u2713" if ok else "\u2717"
         print(
             f"  {icon} {goal} [{rec['goal_id']}]  sorted={scores_sorted}  "
-            f"evidence={has_evidence}  conf={has_conf}  conf_bd={has_conf_bd}  expl={has_expl}"
+            f"evidence={has_evidence}  no_stored={no_stored_ev}  conf={has_conf}  expl={has_expl}"
         )
     print("="*70)
     passed = sum(1 for r in results if r["status"] == "PASS")
@@ -856,6 +884,7 @@ def main():
     script_dir    = Path(os.path.abspath(__file__)).parent
     graph_path    = script_dir / ".." / "data" / "SKILLS_GRAPH.json"
     taxonomy_path = script_dir / ".." / "meta" / "GOAL_TAXONOMY.md"
+    bm_index_path = script_dir / ".." / "benchmarks" / "INDEX.json"
 
     if not taxonomy_path.exists():
         print(f"\u274c Taxonomy not found: {taxonomy_path}")
@@ -863,19 +892,18 @@ def main():
     taxonomy = GoalTaxonomyParser(str(taxonomy_path))
     print(f"\u2705 Taxonomy loaded: {len(taxonomy.goals)} goal categories, {len(taxonomy.subgoals)} sub-goals")
 
+    bm_path_arg = str(bm_index_path) if bm_index_path.exists() else None
+    if bm_path_arg:
+        print(f"\u2705 Benchmark index: {bm_index_path}")
+    else:
+        print("\u26a0\ufe0f  Benchmark index not found — benchmark evidence will be 0")
+
     try:
-        graph  = SkillsGraph(str(graph_path))
-        report = graph.centrality_report()
-        print(f"\u2705 Graph loaded: {len(graph.nodes)} nodes, {len(graph.edges)} edges (schema_version {graph.data.get('schema_version','?')})")
-        print("\nTop-10 Centrality (in-degree):")
-        for i, r in enumerate(report[:10], 1):
-            print(
-                f"  #{i:<2} {r['name']:<30}  in={r['in_degree']}  out={r['out_degree']}  "
-                f"dc={r['degree_centrality']:.4f}  bonus=+{r['centrality_bonus']}"
-            )
+        graph = SkillsGraph(str(graph_path))
+        print(f"\u2705 Graph loaded: {len(graph.nodes)} nodes, {len(graph.edges)} edges "
+              f"(schema_version {graph.data.get('schema_version','?')})")
     except FileNotFoundError:
-        print(f"\u26a0\ufe0f  SKILLS_GRAPH.json not found at {graph_path}")
-        print("   Running in taxonomy-only mode (no graph edges).")
+        print(f"\u26a0\ufe0f  SKILLS_GRAPH.json not found — taxonomy-only mode")
         graph = type("_EmptyGraph", (), {
             "get_node":            lambda self, x: None,
             "get_dependencies":    lambda self, x, t="REQUIRES": [],
@@ -889,7 +917,7 @@ def main():
             "nodes": {}, "edges": [],
         })()
 
-    engine    = RecommendationEngine(graph, taxonomy)
+    engine    = RecommendationEngine(graph, taxonomy, bm_path_arg)
     generator = BlueprintGenerator()
 
     import sys
