@@ -1,0 +1,133 @@
+name: Build & Verify Wheel
+
+# Runs on every push to main and every PR.
+# Fails the build if:
+#   1. python -m build exits non-zero
+#   2. Any required runtime asset is absent from the wheel
+#   3. Any forbidden phantom file (e.g. GOAL_TAXONOMY.json) is present in the wheel
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pyproject.toml'
+      - 'MANIFEST.in'
+      - 'data/**'
+      - 'meta/**'
+      - 'benchmarks/**'
+      - 'cli/**'
+      - 'api/**'
+      - 'tools/**'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-verify:
+    name: "python -m build + wheel content check"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build tools
+        run: pip install build twine --quiet
+
+      - name: Build sdist + wheel
+        run: python -m build
+
+      - name: Verify wheel exists
+        run: |
+          WHL=$(ls dist/*.whl 2>/dev/null | head -1)
+          if [ -z "$WHL" ]; then
+            echo "ERROR: No wheel produced in dist/"
+            exit 1
+          fi
+          echo "Wheel: $WHL"
+          echo "WHL=$WHL" >> $GITHUB_ENV
+
+      - name: List all wheel contents
+        run: python -m zipfile -l "$WHL"
+
+      - name: Assert required runtime assets are present in wheel
+        run: |
+          python - <<'PYEOF'
+          import zipfile, sys, os
+
+          whl = os.environ["WHL"]
+          required = [
+              "data/SKILLS_GRAPH.json",
+              "meta/GOAL_TAXONOMY.md",
+              "benchmarks/INDEX.json",
+          ]
+          forbidden = [
+              "meta/GOAL_TAXONOMY.json",   # was accidentally listed in earlier version; must stay absent
+          ]
+
+          with zipfile.ZipFile(whl) as zf:
+              names = zf.namelist()
+
+          missing  = [f for f in required  if not any(n.endswith(f) for n in names)]
+          phantom  = [f for f in forbidden if any(n.endswith(f) for n in names)]
+
+          if missing:
+              print(f"FAIL — required files missing from wheel:")
+              for f in missing:
+                  print(f"  ❌  {f}")
+          else:
+              print("PASS — all required runtime assets present:")
+              for f in required:
+                  print(f"  ✅  {f}")
+
+          if phantom:
+              print(f"FAIL — forbidden phantom files found in wheel:")
+              for f in phantom:
+                  print(f"  ❌  {f}")
+          else:
+              print("PASS — no forbidden phantom files in wheel.")
+
+          if missing or phantom:
+              sys.exit(1)
+          PYEOF
+
+      - name: twine check (metadata validation)
+        run: twine check dist/*
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dist-${{ github.run_number }}
+          path: dist/
+          retention-days: 30
+
+      - name: Job summary
+        if: always()
+        run: |
+          echo "## Build & Verify Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| File | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          python - <<'PYEOF' >> $GITHUB_STEP_SUMMARY
+          import zipfile, os
+          whl = os.environ.get("WHL", "")
+          if not whl or not os.path.exists(whl):
+              print("| wheel | ❌ not produced |")
+          else:
+              check = [
+                  "data/SKILLS_GRAPH.json",
+                  "meta/GOAL_TAXONOMY.md",
+                  "benchmarks/INDEX.json",
+              ]
+              with zipfile.ZipFile(whl) as zf:
+                  names = zf.namelist()
+              for f in check:
+                  icon = "✅" if any(n.endswith(f) for n in names) else "❌"
+                  print(f"| `{f}` | {icon} |")
+          PYEOF
