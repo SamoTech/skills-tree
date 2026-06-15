@@ -1,0 +1,38 @@
+# MANIFEST.in — controls which files go into the sdist (.tar.gz)
+# The wheel picks up everything matched by [tool.setuptools.package-data]
+# and [tool.setuptools.data-files] in pyproject.toml.
+# This file ensures the sdist is complete so `pip install` from source also works.
+
+# Project-level docs
+include README.md
+include LICENSE
+include CONTRIBUTING.md
+include QUICKSTART.md
+include SECURITY.md
+include pyproject.toml
+
+# Runtime data — engine reads these at startup
+recursive-include data *.json *.md *.yml *.yaml
+
+# Benchmarks — used by ranking_calibrator.py
+recursive-include benchmarks *.json *.md
+
+# Meta docs / release plans (non-critical but useful for audits)
+recursive-include meta *.md *.json *.yml *.yaml
+
+# GitHub Pages portal
+recursive-include docs *.html *.css *.js *.png *.svg
+
+# CLI evaluation scenarios
+recursive-include evaluation *.json
+
+# Test fixtures
+recursive-include tests *.json *.md
+
+# Exclude compiled bytecode and caches
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__
+global-exclude *.egg-info
+global-exclude .DS_Store
+global-exclude .env

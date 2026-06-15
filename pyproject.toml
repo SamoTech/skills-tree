@@ -32,33 +32,59 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev  = ["pytest>=8.2", "pytest-asyncio>=0.23", "httpx>=0.27.0"]
+dev    = ["pytest>=8.2", "pytest-asyncio>=0.23", "httpx>=0.27.0"]
 server = ["uvicorn[standard]>=0.29.0"]
 
 [project.urls]
-Homepage       = "https://github.com/SamoTech/skills-tree"
-Documentation  = "https://github.com/SamoTech/skills-tree#readme"
-Repository     = "https://github.com/SamoTech/skills-tree"
-"Bug Tracker"  = "https://github.com/SamoTech/skills-tree/issues"
+Homepage      = "https://github.com/SamoTech/skills-tree"
+Documentation = "https://github.com/SamoTech/skills-tree#readme"
+Repository    = "https://github.com/SamoTech/skills-tree"
+"Bug Tracker" = "https://github.com/SamoTech/skills-tree/issues"
 
 [project.scripts]
 skills-tree = "cli.main:app"
 
+# ---------------------------------------------------------------------------
+# Package discovery
+# ---------------------------------------------------------------------------
 [tool.setuptools]
-packages = [
-    "api",
-    "api.routes",
-    "cli",
-    "mcp",
-    "tools",
-]
+# include_package_data=true tells setuptools to honour MANIFEST.in and
+# package-data globs for every discovered package.
+include-package-data = true
 
+[tool.setuptools.packages.find]
+# Auto-discover all Python packages (directories with __init__.py).
+# This replaces the hand-maintained package list and catches new sub-packages.
+where   = ["."]          # root of the repo
+exclude = ["tests*", "evaluation*", "docs*", "meta*", "benchmarks*", "assets*", "badges*"]
+
+# ---------------------------------------------------------------------------
+# Package data — files shipped INSIDE Python packages (importlib-accessible)
+# ---------------------------------------------------------------------------
 [tool.setuptools.package-data]
-"*" = ["*.md", "*.json", "*.toml"]
+# Include data files that live inside each Python package directory.
+# Pattern applied to every package unless overridden below.
+"*"          = ["*.md", "*.json", "*.toml", "*.yml", "*.yaml"]
+"tools"      = ["*.py"]     # all tool scripts (already Python, explicit for clarity)
+
+# ---------------------------------------------------------------------------
+# Data files — top-level non-package directories copied into the wheel/sdist
+# These are the runtime files the engine reads at startup.
+# dest="" means they land at the root of the installed package tree,
+# which for an editable install is the repo root — exactly where the
+# engine already expects them via relative paths.
+# ---------------------------------------------------------------------------
+[tool.setuptools.data-files]
+"data"            = ["data/SKILLS_GRAPH.json"]
+"meta"            = [
+    "meta/GOAL_TAXONOMY.md",
+    "meta/GOAL_TAXONOMY.json",
+]
+"benchmarks"      = ["benchmarks/INDEX.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
 [tool.ruff]
-line-length = 100
+line-length    = 100
 target-version = "py311"
