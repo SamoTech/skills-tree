@@ -5,6 +5,10 @@ Skills Tree OS - Agent Skill Architect
 Taxonomy-driven recommendation engine.
 Single source of truth: meta/GOAL_TAXONOMY.md
 No hardcoded goal lists, skill mappings, or recommendation rules.
+
+Sprint C-01: per-skill numeric scoring engine.
+  score = priority_weight + centrality_bonus + framework_bonus - learn_time_penalty
+  Skills sorted descending by score; rank injected into every skill dict.
 """
 
 import json
@@ -68,15 +72,12 @@ class GoalTaxonomyParser:
         Matches against IDs and display names (case-insensitive).
         """
         q = query.strip().lower()
-        # Exact ID match (e.g. "G01.4")
         for sid, meta in {**self._goals, **self._subgoals}.items():
             if sid.lower() == q:
                 return sid
-        # Name match
         for sid, meta in {**self._goals, **self._subgoals}.items():
             if meta["name"].lower() == q:
                 return sid
-        # Partial name match
         for sid, meta in {**self._goals, **self._subgoals}.items():
             if q in meta["name"].lower():
                 return sid
@@ -97,75 +98,40 @@ class GoalTaxonomyParser:
         self._parse_framework_preferences()
 
     def _parse_goal_categories(self):
-        """
-        Parse the Level 1 Category table (Section 2.1).
-        Pattern: | `Gxx` | **Name** | Description | Difficulty | Skills Count |
-        """
         pattern = re.compile(
             r"\|\s*`(G\d{2})`\s*\|\s*\*\*([^*]+)\*\*\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*(\d+)\s*\|"
         )
         for m in pattern.finditer(self._raw):
             gid, name, desc, diff, count = (
-                m.group(1).strip(),
-                m.group(2).strip(),
-                m.group(3).strip(),
-                m.group(4).strip(),
+                m.group(1).strip(), m.group(2).strip(),
+                m.group(3).strip(), m.group(4).strip(),
                 int(m.group(5).strip()),
             )
             self._goals[gid] = {
-                "id": gid,
-                "name": name,
-                "description": desc,
-                "difficulty": diff,
-                "skills_count": count,
+                "id": gid, "name": name, "description": desc,
+                "difficulty": diff, "skills_count": count,
             }
 
     def _parse_subgoals(self):
-        """
-        Parse Level 2 sub-goal tables.
-        Pattern: | `Gxx.y` | **Name** | Description | Difficulty |
-        """
         pattern = re.compile(
             r"\|\s*`(G\d{2}\.\d+)`\s*\|\s*\*\*([^*]+)\*\*\s*\|\s*([^|]+)\|\s*([^|\n]+)\|"
         )
         for m in pattern.finditer(self._raw):
             sid, name, desc, diff = (
-                m.group(1).strip(),
-                m.group(2).strip(),
-                m.group(3).strip(),
-                m.group(4).strip(),
+                m.group(1).strip(), m.group(2).strip(),
+                m.group(3).strip(), m.group(4).strip(),
             )
             parent_id = sid.split(".")[0]
             parent_name = self._goals.get(parent_id, {}).get("name", parent_id)
             self._subgoals[sid] = {
-                "id": sid,
-                "name": name,
-                "description": desc,
-                "difficulty": diff,
-                "parent_id": parent_id,
-                "parent_name": parent_name,
+                "id": sid, "name": name, "description": desc,
+                "difficulty": diff, "parent_id": parent_id, "parent_name": parent_name,
             }
 
     def _parse_skill_mappings(self):
-        """
-        Parse Sections 5 & 8 skill tables.
-        Pattern after a "### Gxx.y:" heading:
-          1. `skill-id` (Priority, Nhrs)
-          OR
-          | skill-id | Skill Name | Category | Priority | Learn Time |
-        """
-        # --- Tabular form (Section 5 / Level 4) ---
-        table_section = re.compile(
-            r"### (?:Skill Mapping|G\d{2}(?:\.\d+)?)[^\n]*\n"
-            r"(?:.*?\n)*?"
-            r"(?:\| Skill ID[^\n]+\n\|[-| ]+\n)((?:\|[^\n]+\n)+)",
-            re.DOTALL,
-        )
         row_re = re.compile(
             r"\|\s*`?([\w-]+)`?\s*\|\s*([^|]+)\|\s*([^|]+)\|\s*([^|]+)\|\s*(\d+)\s*hrs?\s*\|"
         )
-
-        # Walk every "Skill Mapping" / "Gxx" section heading
         heading_re = re.compile(
             r"###\s+(Skill Mapping: .+?|G\d{2}(?:\.\d+)?: .+?)\n(.*?)(?=###|\Z)",
             re.DOTALL,
@@ -173,16 +139,11 @@ class GoalTaxonomyParser:
         for hm in heading_re.finditer(self._raw):
             section_title = hm.group(1).strip()
             section_body = hm.group(2)
-
-            # Try to infer the sub-goal ID from the heading
             gid_match = re.search(r"(G\d{2}(?:\.\d+)?)", section_title)
             if not gid_match:
                 continue
             gid = gid_match.group(1)
-
             skills = []
-
-            # Attempt table-form first
             for rm in row_re.finditer(section_body):
                 skills.append({
                     "id": rm.group(1).strip(),
@@ -191,8 +152,6 @@ class GoalTaxonomyParser:
                     "priority": rm.group(4).strip(),
                     "learn_time_hrs": int(rm.group(5)),
                 })
-
-            # Attempt numbered list form: `1. \`skill-id\` (Priority, Nhrs)`
             if not skills:
                 list_re = re.compile(
                     r"^\d+\.\s+`([\w-]+)`\s+\(([^,]+),\s*(\d+)hrs?\)",
@@ -206,26 +165,17 @@ class GoalTaxonomyParser:
                         "priority": lm.group(2).strip(),
                         "learn_time_hrs": int(lm.group(3)),
                     })
-
             if skills:
                 self._skill_maps[gid] = skills
 
     def _parse_framework_preferences(self):
-        """
-        Parse the Framework Mapping table (Section 6).
-        Pattern: | **Goal Name** | stars | stars | … |
-        """
         headers = ["OpenAI SDK", "LangChain", "LlamaIndex", "MCP", "Mastra", "Custom"]
-
-        # Locate the framework table block
         fw_block = re.search(
             r"### Framework Mapping by Goal\n(\|.+?\n)((?:\|[^\n]+\n)+)",
-            self._raw,
-            re.DOTALL,
+            self._raw, re.DOTALL,
         )
         if not fw_block:
             return
-
         row_re = re.compile(r"\|\s*\*\*([^*]+)\*\*\s*\|(.+)")
         for line in fw_block.group(2).splitlines():
             m = row_re.match(line)
@@ -236,8 +186,7 @@ class GoalTaxonomyParser:
             ratings = {}
             for i, fw in enumerate(headers):
                 if i < len(cells):
-                    stars = cells[i].count("⭐")
-                    ratings[fw] = stars
+                    ratings[fw] = cells[i].count("⭐")
             self._framework_prefs[goal_name] = ratings
 
 
@@ -253,6 +202,19 @@ class SkillsGraph:
             self.data = json.load(f)
         self.nodes = {n["id"]: n for n in self.data["nodes"]}
         self.edges = self.data["edges"]
+        self._centrality: Dict[str, int] = self._compute_in_degree()
+
+    def _compute_in_degree(self) -> Dict[str, int]:
+        """Compute in-degree centrality (number of times a node is depended on)."""
+        counts: Dict[str, int] = {}
+        for edge in self.edges:
+            target = edge["target"]
+            counts[target] = counts.get(target, 0) + 1
+        return counts
+
+    def centrality(self, node_id: str) -> int:
+        """Return in-degree centrality score for a node (0 if unknown)."""
+        return self._centrality.get(node_id, 0)
 
     def get_node(self, node_id: str) -> Optional[Dict]:
         return self.nodes.get(node_id)
@@ -288,22 +250,109 @@ class SkillsGraph:
 
 
 # ---------------------------------------------------------------------------
+# Sprint C-01: Skill Scoring Engine
+# ---------------------------------------------------------------------------
+
+class SkillScorer:
+    """
+    Assign a numeric score to every skill.
+
+    Formula:
+        score = priority_weight
+                + centrality_bonus
+                + framework_bonus
+                - learn_time_penalty
+
+    Components:
+        priority_weight    : Critical=100, High=70, Medium=40, Low=10
+        centrality_bonus   : min(in_degree * 5, 30)   [graph-signal, max 30]
+        framework_bonus    : top_framework_stars * 2  [taxonomy-signal, max 10]
+        learn_time_penalty : min(learn_time_hrs * 0.5, 20)  [cost signal, max -20]
+
+    Scores are floats; ties broken by original taxonomy order (stable sort).
+    """
+
+    PRIORITY_WEIGHTS: Dict[str, float] = {
+        "critical": 100.0,
+        "high":     70.0,
+        "medium":   40.0,
+        "low":      10.0,
+    }
+
+    CENTRALITY_BONUS_PER_EDGE: float = 5.0
+    CENTRALITY_BONUS_CAP: float = 30.0
+
+    FRAMEWORK_BONUS_PER_STAR: float = 2.0
+    FRAMEWORK_BONUS_CAP: float = 10.0
+
+    LEARN_TIME_PENALTY_PER_HOUR: float = 0.5
+    LEARN_TIME_PENALTY_CAP: float = 20.0
+
+    def __init__(self, graph: Any, frameworks: Dict[str, int]):
+        """
+        :param graph:      SkillsGraph instance (or EmptyGraph stub).
+        :param frameworks: {framework_name: star_count} for the current goal.
+        """
+        self._graph = graph
+        self._top_fw_stars: int = max(frameworks.values()) if frameworks else 0
+
+    def score(self, skill_id: str, priority: str, learn_time_hrs: int) -> float:
+        """Compute and return the numeric score for a single skill."""
+        pw = self.PRIORITY_WEIGHTS.get(priority.strip().lower(), 0.0)
+
+        centrality = getattr(self._graph, "centrality", lambda x: 0)(skill_id)
+        cb = min(centrality * self.CENTRALITY_BONUS_PER_EDGE, self.CENTRALITY_BONUS_CAP)
+
+        fb = min(self._top_fw_stars * self.FRAMEWORK_BONUS_PER_STAR, self.FRAMEWORK_BONUS_CAP)
+
+        lp = min(learn_time_hrs * self.LEARN_TIME_PENALTY_PER_HOUR, self.LEARN_TIME_PENALTY_CAP)
+
+        return round(pw + cb + fb - lp, 2)
+
+    def rank_skills(
+        self,
+        skills: List[Dict],
+        taxonomy_map: Dict[str, Dict],
+        rank_offset: int = 1,
+    ) -> List[Dict]:
+        """
+        Score every skill, inject ``score`` and ``rank`` fields, sort
+        descending by score (stable — preserves taxonomy order on ties).
+
+        :param skills:       List of skill node dicts (from graph or stub).
+        :param taxonomy_map: {skill_id: taxonomy_skill_dict} for priority/learn_time lookup.
+        :param rank_offset:  Starting rank number (default 1).
+        :returns:            New list sorted by score desc with score+rank injected.
+        """
+        scored = []
+        for skill in skills:
+            sid = skill.get("id", "")
+            tax = taxonomy_map.get(sid, {})
+            priority = tax.get("priority", "low")
+            learn_time_hrs = tax.get("learn_time_hrs", 0)
+            s = self.score(sid, priority, learn_time_hrs)
+            scored.append({**skill, "score": s})
+
+        scored.sort(key=lambda x: x["score"], reverse=True)
+
+        for i, skill in enumerate(scored):
+            skill["rank"] = rank_offset + i
+
+        return scored
+
+
+# ---------------------------------------------------------------------------
 # Recommendation Engine — taxonomy-driven, zero hardcoded goals
 # ---------------------------------------------------------------------------
 
 class RecommendationEngine:
     """Generate skill recommendations from meta/GOAL_TAXONOMY.md."""
 
-    def __init__(self, graph: SkillsGraph, taxonomy: GoalTaxonomyParser):
+    def __init__(self, graph: Any, taxonomy: GoalTaxonomyParser):
         self.graph = graph
         self.taxonomy = taxonomy
 
     def recommend(self, goal_query: str) -> Dict[str, Any]:
-        """
-        Accept a free-text goal or goal ID, resolve it via the taxonomy,
-        then build a recommendation from the parsed skill mappings.
-        Returns an error dict if the goal cannot be resolved.
-        """
         goal_id = self.taxonomy.resolve(goal_query)
         if not goal_id:
             available = [f"{g['id']}: {g['name']}" for g in self.taxonomy.list_goals()]
@@ -314,7 +363,6 @@ class RecommendationEngine:
 
         taxonomy_skills = self.taxonomy.skills_for(goal_id)
 
-        # Determine goal metadata
         meta = (
             self.taxonomy.subgoals.get(goal_id)
             or self.taxonomy.goals.get(goal_id)
@@ -323,7 +371,9 @@ class RecommendationEngine:
         goal_name = meta.get("name", goal_query)
         difficulty = meta.get("difficulty", "Unknown")
 
-        # Split required (Critical/High) vs optional (Medium/Low)
+        # Build taxonomy lookup {skill_id -> taxonomy_dict}
+        taxonomy_map: Dict[str, Dict] = {s["id"]: s for s in taxonomy_skills}
+
         required_ids = [
             s["id"] for s in taxonomy_skills
             if s["priority"].lower() in ("critical", "high")
@@ -333,22 +383,32 @@ class RecommendationEngine:
             if s["priority"].lower() in ("medium", "low")
         ]
 
-        required_skills = [self.graph.get_node(sid) or self._stub(sid) for sid in required_ids]
-        optional_skills = [self.graph.get_node(sid) or self._stub(sid) for sid in optional_ids]
+        required_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in required_ids]
+        optional_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in optional_ids]
+
+        # -----------------------------------------------------------------
+        # C-01: Score and rank both lists
+        # -----------------------------------------------------------------
+        frameworks = self.taxonomy.frameworks_for(goal_name)
+        scorer = SkillScorer(self.graph, frameworks)
+
+        required_skills = scorer.rank_skills(required_nodes, taxonomy_map, rank_offset=1)
+        # Optional ranks continue from where required left off
+        optional_skills = scorer.rank_skills(
+            optional_nodes, taxonomy_map, rank_offset=len(required_skills) + 1
+        )
 
         all_dependencies: List[Dict] = []
         for skill in required_skills:
             all_dependencies.extend(self.graph.get_dependencies(skill["id"]))
 
-        all_skill_ids = required_ids + optional_ids
+        all_skill_ids = [s["id"] for s in required_skills + optional_skills]
         learning_path = self.graph.get_learning_path(all_skill_ids)
         learning_path_nodes = [
             self.graph.get_node(sid) or self._stub(sid) for sid in learning_path
         ]
 
         confidence = self._calculate_confidence(required_skills, all_dependencies)
-
-        # Deployment heuristic from difficulty
         deployment = "local" if "beginner" in difficulty.lower() else "cloud"
 
         return {
@@ -388,7 +448,6 @@ class RecommendationEngine:
 class BlueprintGenerator:
     """Generate architecture blueprints from taxonomy-driven recommendations."""
 
-    # Risk patterns keyed by skill-id substring (not goal name)
     _RISK_PATTERNS = {
         "code-generation": [
             {"severity": "Major", "probability": "Medium",
@@ -416,20 +475,11 @@ class BlueprintGenerator:
         ],
     }
 
-    # Architecture type inferred from goal category ID (taxonomy-driven)
     _ARCH_BY_CATEGORY = {
-        "G01": "Single-Agent",
-        "G02": "Single-Agent",
-        "G03": "Single-Agent",
-        "G04": "RAG",
-        "G05": "Knowledge-Graph",
-        "G06": "Workflow",
-        "G07": "Single-Agent",
-        "G08": "Multi-Agent",
-        "G09": "Single-Agent",
-        "G10": "Data-Pipeline",
-        "G11": "Evaluation",
-        "G12": "Single-Agent",
+        "G01": "Single-Agent", "G02": "Single-Agent", "G03": "Single-Agent",
+        "G04": "RAG",          "G05": "Knowledge-Graph", "G06": "Workflow",
+        "G07": "Single-Agent", "G08": "Multi-Agent",   "G09": "Single-Agent",
+        "G10": "Data-Pipeline","G11": "Evaluation",    "G12": "Single-Agent",
     }
 
     def generate(
@@ -438,15 +488,12 @@ class BlueprintGenerator:
         goal_id: str = recommendation.get("goal_id", "")
         goal_name: str = recommendation.get("goal_name", goal_query)
         taxonomy_skills: List[Dict] = recommendation.get("taxonomy_skills", [])
+        taxonomy_map: Dict[str, Dict] = {s["id"]: s for s in taxonomy_skills}
 
         risks = self._collect_risks(recommendation["required_skills"])
         arch_type = self._infer_arch(goal_id)
         frameworks = taxonomy.frameworks_for(goal_name)
-        top_framework = (
-            max(frameworks, key=frameworks.get) if frameworks else "Custom"
-        )
-
-        # Compute total estimated learn time from taxonomy
+        top_framework = (max(frameworks, key=frameworks.get) if frameworks else "Custom")
         total_hrs = sum(s.get("learn_time_hrs", 0) for s in taxonomy_skills)
 
         blueprint = {
@@ -468,14 +515,26 @@ class BlueprintGenerator:
                 {
                     "id": s["id"],
                     "name": s["name"],
-                    "priority": "Critical" if i < 2 else "High",
-                    "rationale": f"Core capability for {goal_name}",
-                    "learn_time": f"{next((t['learn_time_hrs'] for t in taxonomy_skills if t['id'] == s['id']), 0)} hours",
+                    "rank": s["rank"],
+                    "score": s["score"],
+                    "priority": taxonomy_map.get(s["id"], {}).get("priority", "Unknown"),
+                    "rationale": (
+                        f"Rank #{s['rank']} (score {s['score']}) — "
+                        f"{taxonomy_map.get(s['id'], {}).get('priority', 'Unknown')} priority, "
+                        f"{taxonomy_map.get(s['id'], {}).get('learn_time_hrs', 0)}h to learn"
+                    ),
+                    "learn_time": f"{taxonomy_map.get(s['id'], {}).get('learn_time_hrs', 0)} hours",
                 }
-                for i, s in enumerate(recommendation["required_skills"])
+                for s in recommendation["required_skills"]
             ],
             "optional_skills": [
-                {"id": s["id"], "name": s["name"]}
+                {
+                    "id": s["id"],
+                    "name": s["name"],
+                    "rank": s["rank"],
+                    "score": s["score"],
+                    "priority": taxonomy_map.get(s["id"], {}).get("priority", "Unknown"),
+                }
                 for s in recommendation["optional_skills"]
             ],
             "dependencies": [
@@ -521,29 +580,38 @@ def print_blueprint(blueprint: Dict[str, Any]):
     print(f"Est. Learn Time:   {blueprint['estimated_learn_hours']} hours")
     print(f"Top Framework:     {blueprint['recommended_framework']}")
 
-    print(f"\n{'─'*70}\nREQUIRED SKILLS:")
+    print(f"\n{'\u2500'*70}\nREQUIRED SKILLS (sorted by score ↓):")
     for skill in blueprint["required_skills"]:
-        print(f"  • {skill['name']} (Priority: {skill['priority']}, Learn Time: {skill['learn_time']})")
-        print(f"    Rationale: {skill['rationale']}")
+        print(
+            f"  #{skill['rank']:>2}  {skill['name']:<30}  "
+            f"score={skill['score']:>7.2f}  "
+            f"priority={skill['priority']:<8}  "
+            f"learn={skill['learn_time']}"
+        )
+        print(f"       Rationale: {skill['rationale']}")
 
     if blueprint["optional_skills"]:
-        print(f"\n{'─'*70}\nOPTIONAL SKILLS:")
+        print(f"\n{'\u2500'*70}\nOPTIONAL SKILLS (sorted by score ↓):")
         for skill in blueprint["optional_skills"]:
-            print(f"  • {skill['name']}")
+            print(
+                f"  #{skill['rank']:>2}  {skill['name']:<30}  "
+                f"score={skill['score']:>7.2f}  "
+                f"priority={skill['priority']}"
+            )
 
     if blueprint["dependencies"]:
-        print(f"\n{'─'*70}\nDEPENDENCIES:")
+        print(f"\n{'\u2500'*70}\nDEPENDENCIES:")
         for dep in blueprint["dependencies"]:
-            print(f"  • {dep['name']} (Confidence: {dep['confidence']:.2f})")
+            print(f"  \u2022 {dep['name']} (Confidence: {dep['confidence']:.2f})")
 
-    print(f"\n{'─'*70}\nLEARNING PATH:")
+    print(f"\n{'\u2500'*70}\nLEARNING PATH:")
     for i, skill in enumerate(blueprint["learning_path"], 1):
         print(f"  {i}. {skill}")
 
     if blueprint["risks"]:
-        print(f"\n{'─'*70}\nRISKS:")
+        print(f"\n{'\u2500'*70}\nRISKS:")
         for risk in blueprint["risks"]:
-            print(f"  ⚠️  [{risk['severity']}] Probability: {risk['probability']}")
+            print(f"  \u26a0\ufe0f  [{risk['severity']}] Probability: {risk['probability']}")
             print(f"      Mitigation: {risk['mitigation']}")
 
     print(f"\n{'='*70}\n")
@@ -575,13 +643,19 @@ def run_validation(
         rec = engine.recommend(goal)
         if "error" in rec:
             results.append({"goal": goal, "status": "FAIL", "reason": rec["error"]})
-            print(f"  ✗ {goal}: {rec['error']}")
+            print(f"  \u2717 {goal}: {rec['error']}")
             continue
         bp = generator.generate(goal, rec, taxonomy)
-        ok = (
-            len(rec["required_skills"]) > 0
-            and len(bp["learning_path"]) >= 0
+
+        # C-01 validation: verify score/rank present and sorted
+        req = bp["required_skills"]
+        scores_present = all("score" in s and "rank" in s for s in req)
+        scores_sorted = all(
+            req[i]["score"] >= req[i + 1]["score"] for i in range(len(req) - 1)
         )
+        ranks_sequential = [s["rank"] for s in req] == list(range(1, len(req) + 1))
+
+        ok = len(req) > 0 and scores_present and scores_sorted
         status = "PASS" if ok else "FAIL"
         results.append({
             "goal": goal,
@@ -589,18 +663,18 @@ def run_validation(
             "status": status,
             "required_skills": len(rec["required_skills"]),
             "optional_skills": len(rec["optional_skills"]),
-            "dependencies": len(rec["dependencies"]),
-            "learning_path_steps": len(bp["learning_path"]),
+            "scores_present": scores_present,
+            "scores_sorted_desc": scores_sorted,
+            "ranks_sequential": ranks_sequential,
+            "top_skill": f"{req[0]['name']} (score={req[0]['score']}, rank=#{req[0]['rank']})" if req else "n/a",
             "confidence": round(rec["confidence_score"], 2),
             "arch_type": bp["architecture_type"],
         })
-        icon = "✓" if ok else "✗"
+        icon = "\u2713" if ok else "\u2717"
         print(
-            f"  {icon} {goal} [{rec['goal_id']}] "
-            f"required={len(rec['required_skills'])} "
-            f"optional={len(rec['optional_skills'])} "
-            f"deps={len(rec['dependencies'])} "
-            f"confidence={rec['confidence_score']:.2f}"
+            f"  {icon} {goal} [{rec['goal_id']}]  "
+            f"sorted={scores_sorted}  "
+            f"top='{req[0]['name'] if req else 'n/a'}' score={req[0]['score'] if req else 0}"
         )
     print("="*70)
     passed = sum(1 for r in results if r["status"] == "PASS")
@@ -613,32 +687,31 @@ def run_validation(
 # ---------------------------------------------------------------------------
 
 def main():
-    print("\n🌳 Skills Tree OS - Agent Skill Architect")
-    print("Taxonomy-driven · Single source of truth: meta/GOAL_TAXONOMY.md\n")
+    print("\n\U0001f333 Skills Tree OS - Agent Skill Architect")
+    print("Taxonomy-driven \u00b7 Single source of truth: meta/GOAL_TAXONOMY.md\n")
 
     script_dir = Path(os.path.abspath(__file__)).parent
     graph_path = script_dir / ".." / "data" / "SKILLS_GRAPH.json"
     taxonomy_path = script_dir / ".." / "meta" / "GOAL_TAXONOMY.md"
 
-    # Load taxonomy
     if not taxonomy_path.exists():
-        print(f"❌ Taxonomy not found: {taxonomy_path}")
+        print(f"\u274c Taxonomy not found: {taxonomy_path}")
         return
     taxonomy = GoalTaxonomyParser(str(taxonomy_path))
-    print(f"✅ Taxonomy loaded: {len(taxonomy.goals)} goal categories, "
+    print(f"\u2705 Taxonomy loaded: {len(taxonomy.goals)} goal categories, "
           f"{len(taxonomy.subgoals)} sub-goals")
 
-    # Load graph
     try:
         graph = SkillsGraph(str(graph_path))
     except FileNotFoundError:
-        print(f"⚠️  SKILLS_GRAPH.json not found at {graph_path}")
+        print(f"\u26a0\ufe0f  SKILLS_GRAPH.json not found at {graph_path}")
         print("   Running in taxonomy-only mode (no graph edges).")
         graph = type("_EmptyGraph", (), {
             "get_node": lambda self, x: None,
             "get_dependencies": lambda self, x, t="REQUIRES": [],
             "get_recommendations": lambda self, x: [],
             "get_learning_path": lambda self, x: [],
+            "centrality": lambda self, x: 0,
             "nodes": {},
             "edges": [],
         })()
@@ -646,13 +719,11 @@ def main():
     engine = RecommendationEngine(graph, taxonomy)
     generator = BlueprintGenerator()
 
-    # --- mode selection ---
     import sys
     if "--validate" in sys.argv:
         run_validation(engine, generator, taxonomy)
         return
 
-    # --- interactive ---
     print("Available Goal Categories (from taxonomy):")
     for g in taxonomy.list_goals():
         print(f"  {g['id']}: {g['name']} ({g['skills_count']} skills)")
@@ -663,11 +734,11 @@ def main():
         print("No goal provided. Exiting.")
         return
 
-    print(f"\n⚙️  Resolving: {user_goal}...")
+    print(f"\n\u2699\ufe0f  Resolving: {user_goal}...")
     recommendation = engine.recommend(user_goal)
 
     if "error" in recommendation:
-        print(f"❌ {recommendation['error']}")
+        print(f"\u274c {recommendation['error']}")
         return
 
     blueprint = generator.generate(user_goal, recommendation, taxonomy)
@@ -676,7 +747,7 @@ def main():
     output_path = f"blueprint_{blueprint['id']}.json"
     with open(output_path, "w") as f:
         json.dump(blueprint, f, indent=2)
-    print(f"✅ Blueprint saved to: {output_path}")
+    print(f"\u2705 Blueprint saved to: {output_path}")
 
 
 if __name__ == "__main__":
