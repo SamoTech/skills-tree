@@ -1,0 +1,189 @@
+name: Release → PyPI
+
+# Triggers ONLY on version tags (e.g. v1.0.3, v2.1.0-rc1).
+# Never runs on branch pushes — keeps the publish path narrow and auditable.
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+# OIDC permissions required for PyPI Trusted Publisher (no API token needed).
+# contents:write is required to create the GitHub Release and upload assets.
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  # -------------------------------------------------------------------------
+  # Stage 1: Build sdist + wheel, run quality gates
+  # -------------------------------------------------------------------------
+  build:
+    name: "Build & verify"
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout tag
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so the release notes can include commits
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build & publish tools
+        run: pip install build twine --quiet
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#v}"          # strip leading 'v'
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Tag: $TAG  →  version: $VERSION"
+
+      - name: Verify pyproject.toml version matches tag
+        run: |
+          TOML_VER=$(python - <<'EOF'
+          import tomllib
+          with open("pyproject.toml", "rb") as f:
+              data = tomllib.load(f)
+          print(data["project"]["version"])
+          EOF
+          )
+          TAG_VER="${{ steps.version.outputs.version }}"
+          if [ "$TOML_VER" != "$TAG_VER" ]; then
+            echo "ERROR: pyproject.toml version ($TOML_VER) != tag ($TAG_VER)"
+            echo "Bump the version in pyproject.toml and re-tag."
+            exit 1
+          fi
+          echo "Version check passed: $TOML_VER"
+
+      - name: Build sdist + wheel
+        run: python -m build
+
+      - name: Fail immediately on metadata errors
+        run: twine check dist/*
+
+      - name: Assert required runtime assets are in wheel
+        run: |
+          python - <<'PYEOF'
+          import zipfile, glob, sys
+
+          wheels = glob.glob("dist/*.whl")
+          if not wheels:
+              print("ERROR: no wheel found in dist/")
+              sys.exit(1)
+
+          required = [
+              "data/SKILLS_GRAPH.json",
+              "meta/GOAL_TAXONOMY.md",
+              "benchmarks/INDEX.json",
+          ]
+          forbidden = [
+              "meta/GOAL_TAXONOMY.json",
+          ]
+
+          with zipfile.ZipFile(wheels[0]) as zf:
+              names = zf.namelist()
+
+          missing = [f for f in required  if not any(n.endswith(f) for n in names)]
+          phantom = [f for f in forbidden if any(n.endswith(f) for n in names)]
+
+          for f in required:
+              icon = "❌" if f in missing else "✅"
+              print(f"  {icon}  {f}")
+          for f in phantom:
+              print(f"  ❌  PHANTOM: {f}")
+
+          if missing or phantom:
+              sys.exit(1)
+          print("All wheel asset checks passed.")
+          PYEOF
+
+      - name: Upload dist/ for downstream jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  # -------------------------------------------------------------------------
+  # Stage 2: Publish to PyPI via OIDC Trusted Publisher
+  # -------------------------------------------------------------------------
+  publish-pypi:
+    name: "Publish → PyPI"
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/skills-tree/
+
+    steps:
+      - name: Download dist/
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # No api_token needed — OIDC Trusted Publisher handles auth.
+        # Repository must be configured at:
+        # https://pypi.org/manage/project/skills-tree/settings/publishing/
+
+  # -------------------------------------------------------------------------
+  # Stage 3: Create GitHub Release with dist/ assets attached
+  # -------------------------------------------------------------------------
+  github-release:
+    name: "Create GitHub Release"
+    needs: [build, publish-pypi]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (for CHANGELOG.md)
+        uses: actions/checkout@v4
+
+      - name: Download dist/
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Extract release notes from CHANGELOG.md
+        id: notes
+        run: |
+          VERSION="${{ needs.build.outputs.version }}"
+          python - <<PYEOF > /tmp/release_notes.md
+          import re, sys
+
+          version = "$VERSION"
+          with open("CHANGELOG.md") as f:
+              text = f.read()
+
+          # Match the section for this version between ## [X.Y.Z] headers
+          pattern = rf"## \[{re.escape(version)}\][^\n]*\n(.*?)(?=\n## \[|\Z)"
+          m = re.search(pattern, text, re.DOTALL)
+          if m:
+              print(m.group(1).strip())
+          else:
+              print(f"Release {version}. See CHANGELOG.md for details.")
+          PYEOF
+          echo "Release notes written to /tmp/release_notes.md"
+          cat /tmp/release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "skills-tree ${{ github.ref_name }}"
+          body_path: /tmp/release_notes.md
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-rc') || contains(github.ref_name, '-beta') || contains(github.ref_name, '-alpha') }}
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+          token: ${{ secrets.GITHUB_TOKEN }}
