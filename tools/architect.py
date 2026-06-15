@@ -15,9 +15,12 @@ Sprint C-02: real graph-aware ranking.
   SkillScorer reads node-level centrality; live edge-scan fallback retained.
 
 Sprint C-03: Explanation Engine.
-  Every skill carries:
-    score_breakdown  — {priority, centrality, framework, learn_time} components
-    explanation      — human-readable list of sentences, one per signal
+  Every skill carries score_breakdown and a human-readable explanation list.
+
+Sprint C-04: Confidence Engine.
+  Every skill carries confidence (0.0–1.0) and confidence_breakdown from
+  five independent signals: taxonomy, graph, stability, framework, benchmark.
+  ExplanationEngine extended to append a confidence summary sentence.
 """
 
 import json
@@ -127,7 +130,7 @@ class GoalTaxonomyParser:
         )
         for hm in heading_re.finditer(self._raw):
             section_title = hm.group(1).strip()
-            section_body = hm.group(2)
+            section_body  = hm.group(2)
             gid_match = re.search(r"(G\d{2}(?:\.\d+)?)", section_title)
             if not gid_match:
                 continue
@@ -190,9 +193,9 @@ class SkillsGraph:
             self.data = json.load(f)
         self.nodes: Dict[str, Dict] = {n["id"]: n for n in self.data["nodes"]}
         self.edges: List[Dict] = self.data["edges"]
-        self._in_degree: Dict[str, int] = {}
-        self._out_degree: Dict[str, int] = {}
-        self._degree_centrality: Dict[str, float] = {}
+        self._in_degree:          Dict[str, int]   = {}
+        self._out_degree:         Dict[str, int]   = {}
+        self._degree_centrality:  Dict[str, float] = {}
         self._build_centrality()
 
     def _build_centrality(self) -> None:
@@ -203,18 +206,18 @@ class SkillsGraph:
         if "centrality" in sample:
             for nid, node in self.nodes.items():
                 c = node.get("centrality", {})
-                self._in_degree[nid] = c.get("in_degree", 0)
-                self._out_degree[nid] = c.get("out_degree", 0)
+                self._in_degree[nid]         = c.get("in_degree",         0)
+                self._out_degree[nid]        = c.get("out_degree",        0)
                 self._degree_centrality[nid] = c.get("degree_centrality", 0.0)
         else:
             from collections import defaultdict
             ind, outd = defaultdict(int), defaultdict(int)
             for edge in self.edges:
-                ind[edge["target"]] += 1
+                ind[edge["target"]]  += 1
                 outd[edge["source"]] += 1
             for nid in self.nodes:
-                self._in_degree[nid] = ind[nid]
-                self._out_degree[nid] = outd[nid]
+                self._in_degree[nid]         = ind[nid]
+                self._out_degree[nid]        = outd[nid]
                 self._degree_centrality[nid] = round((ind[nid] + outd[nid]) / (n_nodes - 1), 4)
 
     def in_degree(self, node_id: str) -> int:
@@ -267,8 +270,8 @@ class SkillsGraph:
         for nid, node in self.nodes.items():
             rows.append({
                 "id": nid, "name": node.get("name", nid),
-                "in_degree": self._in_degree.get(nid, 0),
-                "out_degree": self._out_degree.get(nid, 0),
+                "in_degree":        self._in_degree.get(nid, 0),
+                "out_degree":       self._out_degree.get(nid, 0),
                 "degree_centrality": self._degree_centrality.get(nid, 0.0),
                 "centrality_bonus": min(self._in_degree.get(nid, 0) * 5, 30),
             })
@@ -306,18 +309,18 @@ class SkillScorer:
     def score_components(
         self, skill_id: str, priority: str, learn_time_hrs: int
     ) -> Dict[str, float]:
-        """Return all four components as a dict (used by ExplanationEngine)."""
+        """Return all four score components (used by ExplanationEngine)."""
         pw  = self.PRIORITY_WEIGHTS.get(priority.strip().lower(), 0.0)
         ind = getattr(self._graph, "centrality", lambda x: 0)(skill_id)
-        cb  = min(ind * self.CENTRALITY_BONUS_PER_EDGE, self.CENTRALITY_BONUS_CAP)
+        cb  = min(ind  * self.CENTRALITY_BONUS_PER_EDGE,   self.CENTRALITY_BONUS_CAP)
         fb  = min(self._top_fw_stars * self.FRAMEWORK_BONUS_PER_STAR, self.FRAMEWORK_BONUS_CAP)
         lp  = min(learn_time_hrs * self.LEARN_TIME_PENALTY_PER_HOUR, self.LEARN_TIME_PENALTY_CAP)
         return {
-            "priority":    round(pw, 2),
-            "centrality":  round(cb, 2),
-            "framework":   round(fb, 2),
-            "learn_time":  round(-lp, 2),
-            "total":       round(pw + cb + fb - lp, 2),
+            "priority":   round(pw,  2),
+            "centrality": round(cb,  2),
+            "framework":  round(fb,  2),
+            "learn_time": round(-lp, 2),
+            "total":      round(pw + cb + fb - lp, 2),
         }
 
     def score(self, skill_id: str, priority: str, learn_time_hrs: int) -> float:
@@ -344,47 +347,160 @@ class SkillScorer:
 
 
 # ---------------------------------------------------------------------------
-# Sprint C-03: Explanation Engine
+# Sprint C-04: Confidence Engine
+# ---------------------------------------------------------------------------
+
+class ConfidenceEngine:
+    """
+    Compute a per-skill confidence score in [0.0, 1.0] from five independent
+    signals, each capped at 0.20.
+
+    Formula:
+        confidence = taxonomy_presence
+                   + graph_connectivity
+                   + stability_signal
+                   + framework_alignment
+                   + benchmark_evidence
+        clamped to [0.0, 1.0]
+
+    Signals:
+        taxonomy_presence  (0.00 | 0.20)
+            Full 0.20 when the skill id appears in GOAL_TAXONOMY.md.
+
+        graph_connectivity (0.00 – 0.20)
+            Scales with total edges (in + out) up to MAX_EDGES_FOR_FULL_GRAPH.
+            score = min(total_edges / MAX_EDGES, 1.0) * 0.20
+
+        stability_signal   (0.05 | 0.10 | 0.15 | 0.20)
+            Derived from the node's ``stability`` field:
+              stable       → 0.20
+              beta         → 0.15
+              alpha        → 0.10
+              experimental → 0.05   (default)
+
+        framework_alignment (0.00 – 0.20)
+            Scales with the top-framework star rating (0–5).
+            score = min(top_fw_stars / MAX_FW_STARS, 1.0) * 0.20
+
+        benchmark_evidence  (0.00 | 0.20)
+            Full 0.20 when the graph node carries a ``benchmark_refs`` field
+            (non-empty list) or when the node id contains a known benchmark
+            keyword.
+    """
+
+    MAX_EDGES_FOR_FULL_GRAPH: int   = 4
+    MAX_FW_STARS:             int   = 5
+    SIGNAL_CAP:               float = 0.20
+
+    # Node ids whose names appear in public benchmark literature
+    _BENCHMARK_KEYWORDS = {
+        "code-generation", "vector", "embedding", "llm", "orchestration",
+        "retrieval", "rag", "reasoning", "eval",
+    }
+
+    def __init__(self, graph: Any, top_fw_stars: int, taxonomy_skill_ids: set):
+        self._graph             = graph
+        self._top_fw_stars      = top_fw_stars
+        self._taxonomy_ids      = taxonomy_skill_ids
+
+    # ------------------------------------------------------------------
+    # Individual signal methods
+    # ------------------------------------------------------------------
+
+    def _taxonomy_signal(self, skill_id: str) -> float:
+        return self.SIGNAL_CAP if skill_id in self._taxonomy_ids else 0.0
+
+    def _graph_signal(self, skill_id: str, node: Optional[Dict]) -> float:
+        ind  = getattr(self._graph, "in_degree",  lambda x: 0)(skill_id)
+        outd = getattr(self._graph, "out_degree", lambda x: 0)(skill_id)
+        total = ind + outd
+        return round(min(total / self.MAX_EDGES_FOR_FULL_GRAPH, 1.0) * self.SIGNAL_CAP, 4)
+
+    def _stability_signal(self, node: Optional[Dict]) -> float:
+        stability = (node or {}).get("stability", "experimental").lower()
+        mapping = {"stable": 1.0, "beta": 0.75, "alpha": 0.50, "experimental": 0.25}
+        factor = mapping.get(stability, 0.25)
+        return round(factor * self.SIGNAL_CAP, 4)
+
+    def _framework_signal(self) -> float:
+        return round(min(self._top_fw_stars / self.MAX_FW_STARS, 1.0) * self.SIGNAL_CAP, 4)
+
+    def _benchmark_signal(self, skill_id: str, node: Optional[Dict]) -> float:
+        if node and node.get("benchmark_refs"):
+            return self.SIGNAL_CAP
+        sid_lower = skill_id.lower()
+        for kw in self._BENCHMARK_KEYWORDS:
+            if kw in sid_lower:
+                return self.SIGNAL_CAP
+        return 0.0
+
+    # ------------------------------------------------------------------
+    # Public API
+    # ------------------------------------------------------------------
+
+    def compute(self, skill_id: str) -> Dict[str, Any]:
+        """
+        Return {"confidence": float, "confidence_breakdown": {...}} for one skill.
+        """
+        node = getattr(self._graph, "get_node", lambda x: None)(skill_id)
+
+        t  = self._taxonomy_signal(skill_id)
+        g  = self._graph_signal(skill_id, node)
+        st = self._stability_signal(node)
+        fw = self._framework_signal()
+        bm = self._benchmark_signal(skill_id, node)
+
+        total = round(min(t + g + st + fw + bm, 1.0), 4)
+        return {
+            "confidence": total,
+            "confidence_breakdown": {
+                "taxonomy":   t,
+                "graph":      g,
+                "stability":  st,
+                "framework":  fw,
+                "benchmark":  bm,
+            },
+        }
+
+    def enrich_all(self, skills: List[Dict]) -> List[Dict]:
+        """Inject confidence + confidence_breakdown into every skill dict."""
+        for skill in skills:
+            result = self.compute(skill.get("id", ""))
+            skill["confidence"]           = result["confidence"]
+            skill["confidence_breakdown"] = result["confidence_breakdown"]
+        return skills
+
+    @staticmethod
+    def label(confidence: float) -> str:
+        if confidence >= 0.80:
+            return "High"
+        if confidence >= 0.60:
+            return "Medium"
+        if confidence >= 0.40:
+            return "Low"
+        return "Very Low"
+
+
+# ---------------------------------------------------------------------------
+# Sprint C-03: Explanation Engine  (extended in C-04)
 # ---------------------------------------------------------------------------
 
 class ExplanationEngine:
     """
-    Generate human-readable explanations and structured score_breakdown
-    for every scored skill.
-
-    Input  : skill dict produced by SkillScorer.rank_skills()  (carries
-             ``score``, ``rank``, ``_score_components``).
-    Output : same dict enriched with ``score_breakdown`` and ``explanation``.
-
-    score_breakdown mirrors the four signal components:
-        {
-          "priority":   <float>,   # raw priority weight
-          "centrality": <float>,   # centrality bonus
-          "framework":  <float>,   # framework bonus
-          "learn_time": <float>,   # penalty (negative number)
-        }
-
-    explanation is a list of 3–4 plain-English sentences, one per signal,
-    derived solely from computed values — no hardcoded text per skill.
+    Generate human-readable explanations and structured score_breakdown.
+    C-04 extension: appends a confidence summary sentence when confidence data
+    is present on the skill dict.
     """
 
     @staticmethod
-    def explain(
-        skill: Dict,
-        taxonomy_entry: Dict,
-    ) -> Dict:
-        """
-        Enrich ``skill`` in-place with ``score_breakdown`` and ``explanation``.
-        Returns the mutated dict.
-        """
-        comps    = skill.get("_score_components", {})
-        priority = taxonomy_entry.get("priority", "unknown")
+    def explain(skill: Dict, taxonomy_entry: Dict) -> Dict:
+        comps     = skill.get("_score_components", {})
+        priority  = taxonomy_entry.get("priority", "unknown")
         learn_hrs = taxonomy_entry.get("learn_time_hrs", 0)
-        ind       = int(round(comps.get("centrality", 0) / 5))  # reverse-compute in_degree
+        ind       = int(round(comps.get("centrality", 0) / 5))
         fw_bonus  = comps.get("framework", 0.0)
         lp_abs    = abs(comps.get("learn_time", 0.0))
 
-        # --- score_breakdown (external contract) ---
         skill["score_breakdown"] = {
             "priority":   comps.get("priority",   0.0),
             "centrality": comps.get("centrality", 0.0),
@@ -392,10 +508,8 @@ class ExplanationEngine:
             "learn_time": comps.get("learn_time", 0.0),
         }
 
-        # --- explanation sentences ---
         sentences: List[str] = []
 
-        # 1. Priority signal
         p = priority.lower()
         if p == "critical":
             sentences.append("Critical priority — must-have for this goal")
@@ -406,17 +520,13 @@ class ExplanationEngine:
         else:
             sentences.append("Low priority — nice to have")
 
-        # 2. Centrality signal
         if ind == 0:
             sentences.append("No other skills depend on this — standalone capability")
         elif ind == 1:
             sentences.append(f"Referenced by 1 dependent skill (+{int(comps['centrality'])} centrality bonus)")
         else:
-            sentences.append(
-                f"Referenced by {ind} dependent skills (+{int(comps['centrality'])} centrality bonus)"
-            )
+            sentences.append(f"Referenced by {ind} dependent skills (+{int(comps['centrality'])} centrality bonus)")
 
-        # 3. Framework signal
         if fw_bonus > 0:
             stars = int(fw_bonus / 2)
             sentences.append(
@@ -425,7 +535,6 @@ class ExplanationEngine:
         else:
             sentences.append("No framework preference boost for this goal")
 
-        # 4. Learn-time signal
         if lp_abs == 0:
             sentences.append("Zero estimated learning time — no penalty")
         elif lp_abs <= 5:
@@ -435,19 +544,18 @@ class ExplanationEngine:
         else:
             sentences.append(f"High learning effort ({learn_hrs}h, -{lp_abs} penalty)")
 
-        skill["explanation"] = sentences
+        # C-04: confidence summary sentence (appended after scoring signals)
+        conf = skill.get("confidence")
+        if conf is not None:
+            label = ConfidenceEngine.label(conf)
+            sentences.append(f"Confidence: {label} ({conf:.2f})")
 
-        # Clean up internal key not part of the public contract
+        skill["explanation"] = sentences
         skill.pop("_score_components", None)
         return skill
 
     @classmethod
-    def explain_all(
-        cls,
-        skills: List[Dict],
-        taxonomy_map: Dict[str, Dict],
-    ) -> List[Dict]:
-        """Apply explain() to every skill in the list; returns the list."""
+    def explain_all(cls, skills: List[Dict], taxonomy_map: Dict[str, Dict]) -> List[Dict]:
         for skill in skills:
             tax = taxonomy_map.get(skill.get("id", ""), {})
             cls.explain(skill, tax)
@@ -460,7 +568,7 @@ class ExplanationEngine:
 
 class RecommendationEngine:
     def __init__(self, graph: Any, taxonomy: GoalTaxonomyParser):
-        self.graph = graph
+        self.graph    = graph
         self.taxonomy = taxonomy
 
     def recommend(self, goal_query: str) -> Dict[str, Any]:
@@ -474,19 +582,26 @@ class RecommendationEngine:
         goal_name  = meta.get("name", goal_query)
         difficulty = meta.get("difficulty", "Unknown")
         taxonomy_map: Dict[str, Dict] = {s["id"]: s for s in taxonomy_skills}
+        taxonomy_ids: set             = set(taxonomy_map.keys())
 
         required_ids   = [s["id"] for s in taxonomy_skills if s["priority"].lower() in ("critical", "high")]
         optional_ids   = [s["id"] for s in taxonomy_skills if s["priority"].lower() in ("medium", "low")]
         required_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in required_ids]
         optional_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in optional_ids]
 
-        frameworks = self.taxonomy.frameworks_for(goal_name)
-        scorer     = SkillScorer(self.graph, frameworks)
+        frameworks     = self.taxonomy.frameworks_for(goal_name)
+        top_fw_stars   = max(frameworks.values()) if frameworks else 0
+        scorer         = SkillScorer(self.graph, frameworks)
+        conf_engine    = ConfidenceEngine(self.graph, top_fw_stars, taxonomy_ids)
 
         required_skills = scorer.rank_skills(required_nodes, taxonomy_map, rank_offset=1)
         optional_skills = scorer.rank_skills(optional_nodes, taxonomy_map, rank_offset=len(required_skills) + 1)
 
-        # C-03: inject explanation + score_breakdown into every skill
+        # C-04: inject confidence before ExplanationEngine (so explain() sees it)
+        conf_engine.enrich_all(required_skills)
+        conf_engine.enrich_all(optional_skills)
+
+        # C-03 + C-04: inject score_breakdown + explanation (with confidence sentence)
         ExplanationEngine.explain_all(required_skills, taxonomy_map)
         ExplanationEngine.explain_all(optional_skills, taxonomy_map)
 
@@ -498,19 +613,19 @@ class RecommendationEngine:
         learning_path       = self.graph.get_learning_path(all_skill_ids)
         learning_path_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in learning_path]
 
-        confidence = self._calculate_confidence(required_skills, all_dependencies)
-        deployment = "local" if "beginner" in difficulty.lower() else "cloud"
+        rec_confidence = self._calculate_confidence(required_skills, all_dependencies)
+        deployment     = "local" if "beginner" in difficulty.lower() else "cloud"
 
         return {
             "goal_id": goal_id, "goal_name": goal_name,
             "taxonomy_skills": taxonomy_skills,
             "required_skills": required_skills,
             "optional_skills": optional_skills,
-            "dependencies": all_dependencies,
-            "learning_path": learning_path_nodes,
-            "confidence_score": confidence,
-            "deployment": deployment,
-            "complexity": difficulty,
+            "dependencies":    all_dependencies,
+            "learning_path":   learning_path_nodes,
+            "confidence_score": rec_confidence,
+            "deployment":  deployment,
+            "complexity":  difficulty,
         }
 
     def _stub(self, skill_id: str) -> Dict:
@@ -519,10 +634,11 @@ class RecommendationEngine:
     def _calculate_confidence(self, skills: List[Dict], dependencies: List[Dict]) -> float:
         if not skills:
             return 0.0
-        stable_count = sum(1 for s in skills if s.get("stability") == "stable")
-        base      = stable_count / len(skills)
-        dep_boost = min(len(dependencies) * 0.05, 0.2)
-        return min(base + dep_boost, 1.0)
+        # Use per-skill confidence mean as the recommendation-level score
+        skill_confs = [s.get("confidence", 0.0) for s in skills]
+        base      = sum(skill_confs) / len(skill_confs)
+        dep_boost = min(len(dependencies) * 0.02, 0.10)
+        return round(min(base + dep_boost, 1.0), 4)
 
 
 # ---------------------------------------------------------------------------
@@ -531,19 +647,19 @@ class RecommendationEngine:
 
 class BlueprintGenerator:
     _RISK_PATTERNS = {
-        "code-generation":     [{"severity": "Major",    "probability": "Medium", "mitigation": "Implement code review and testing"}],
-        "browser-automation":  [{"severity": "Major",    "probability": "High",   "mitigation": "Add retry logic and error handling"},
-                                {"severity": "Minor",    "probability": "High",   "mitigation": "Handle dynamic UI changes"}],
-        "screen-parsing":      [{"severity": "Major",    "probability": "High",   "mitigation": "Add retry logic and error handling"}],
-        "vector-store-retrieval": [{"severity": "Major", "probability": "Medium", "mitigation": "Validate retrieval accuracy"},
-                                   {"severity": "Critical", "probability": "Low", "mitigation": "Monitor for hallucinations"}],
-        "multi-agent":         [{"severity": "Critical",  "probability": "Medium", "mitigation": "Implement agent communication protocol and conflict resolution"}],
+        "code-generation":        [{"severity": "Major",    "probability": "Medium", "mitigation": "Implement code review and testing"}],
+        "browser-automation":     [{"severity": "Major",    "probability": "High",   "mitigation": "Add retry logic and error handling"},
+                                   {"severity": "Minor",    "probability": "High",   "mitigation": "Handle dynamic UI changes"}],
+        "screen-parsing":         [{"severity": "Major",    "probability": "High",   "mitigation": "Add retry logic and error handling"}],
+        "vector-store-retrieval": [{"severity": "Major",    "probability": "Medium", "mitigation": "Validate retrieval accuracy"},
+                                   {"severity": "Critical", "probability": "Low",    "mitigation": "Monitor for hallucinations"}],
+        "multi-agent":            [{"severity": "Critical", "probability": "Medium", "mitigation": "Implement agent communication protocol and conflict resolution"}],
     }
     _ARCH_BY_CATEGORY = {
         "G01": "Single-Agent", "G02": "Single-Agent", "G03": "Single-Agent",
         "G04": "RAG",          "G05": "Knowledge-Graph", "G06": "Workflow",
-        "G07": "Single-Agent", "G08": "Multi-Agent",   "G09": "Single-Agent",
-        "G10": "Data-Pipeline","G11": "Evaluation",    "G12": "Single-Agent",
+        "G07": "Single-Agent", "G08": "Multi-Agent",    "G09": "Single-Agent",
+        "G10": "Data-Pipeline","G11": "Evaluation",     "G12": "Single-Agent",
     }
 
     def generate(
@@ -561,23 +677,25 @@ class BlueprintGenerator:
 
         return {
             "$schema": "https://skillstree.os/schemas/v1/blueprint.json",
-            "id": f"blueprint-{datetime.now().strftime('%Y%m%d%H%M%S')}",
+            "id":   f"blueprint-{datetime.now().strftime('%Y%m%d%H%M%S')}",
             "title": goal_name, "goal": goal_name, "goal_id": goal_id,
             "description": f"Architecture blueprint for {goal_name}",
-            "confidence_score": recommendation["confidence_score"],
-            "generated_at": datetime.now().isoformat(),
-            "architecture_type": arch_type,
-            "deployment_type": recommendation.get("deployment", "cloud"),
-            "complexity": recommendation.get("complexity", "Unknown"),
-            "maturity": "Alpha",
+            "confidence_score":   recommendation["confidence_score"],
+            "generated_at":       datetime.now().isoformat(),
+            "architecture_type":  arch_type,
+            "deployment_type":    recommendation.get("deployment", "cloud"),
+            "complexity":         recommendation.get("complexity", "Unknown"),
+            "maturity":           "Beta",   # promoted from Alpha in C-04
             "estimated_learn_hours": total_hrs,
             "recommended_framework": top_framework,
             "required_skills": [
                 {
                     "id": s["id"], "name": s["name"],
                     "rank": s["rank"], "score": s["score"],
-                    "score_breakdown": s.get("score_breakdown", {}),
-                    "explanation": s.get("explanation", []),
+                    "confidence":           s.get("confidence", 0.0),
+                    "confidence_breakdown": s.get("confidence_breakdown", {}),
+                    "score_breakdown":      s.get("score_breakdown", {}),
+                    "explanation":          s.get("explanation", []),
                     "priority": taxonomy_map.get(s["id"], {}).get("priority", "Unknown"),
                     "learn_time": f"{taxonomy_map.get(s['id'], {}).get('learn_time_hrs', 0)} hours",
                 }
@@ -587,8 +705,10 @@ class BlueprintGenerator:
                 {
                     "id": s["id"], "name": s["name"],
                     "rank": s["rank"], "score": s["score"],
-                    "score_breakdown": s.get("score_breakdown", {}),
-                    "explanation": s.get("explanation", []),
+                    "confidence":           s.get("confidence", 0.0),
+                    "confidence_breakdown": s.get("confidence_breakdown", {}),
+                    "score_breakdown":      s.get("score_breakdown", {}),
+                    "explanation":          s.get("explanation", []),
                     "priority": taxonomy_map.get(s["id"], {}).get("priority", "Unknown"),
                 }
                 for s in recommendation["optional_skills"]
@@ -625,7 +745,7 @@ def print_blueprint(blueprint: Dict[str, Any]):
     print(f"{'='*70}")
     print(f"\nID:                {blueprint['id']}")
     print(f"Goal ID:           {blueprint['goal_id']}")
-    print(f"Confidence:        {blueprint['confidence_score']:.2f}")
+    print(f"Confidence:        {blueprint['confidence_score']:.4f}")
     print(f"Architecture Type: {blueprint['architecture_type']}")
     print(f"Deployment:        {blueprint['deployment_type']}")
     print(f"Complexity:        {blueprint['complexity']}")
@@ -635,30 +755,39 @@ def print_blueprint(blueprint: Dict[str, Any]):
 
     print(f"\n{'\u2500'*70}\nREQUIRED SKILLS (sorted by score \u2193):")
     for skill in blueprint["required_skills"]:
-        bd = skill.get("score_breakdown", {})
+        bd  = skill.get("score_breakdown", {})
+        cbd = skill.get("confidence_breakdown", {})
+        conf_label = ConfidenceEngine.label(skill.get("confidence", 0.0))
         print(
             f"  #{skill['rank']:>2}  {skill['name']:<32}  "
-            f"score={skill['score']:>7.2f}  priority={skill['priority']:<8}  learn={skill['learn_time']}"
+            f"score={skill['score']:>7.2f}  conf={skill.get('confidence', 0.0):.2f} ({conf_label})"
         )
         print(
-            f"       Breakdown: priority={bd.get('priority',0):>6}  "
+            f"       Score:      priority={bd.get('priority',0):>6}  "
             f"centrality={bd.get('centrality',0):>5}  "
             f"framework={bd.get('framework',0):>5}  "
             f"learn_time={bd.get('learn_time',0):>6}"
         )
+        print(
+            f"       Confidence: taxonomy={cbd.get('taxonomy',0):.2f}  "
+            f"graph={cbd.get('graph',0):.4f}  "
+            f"stability={cbd.get('stability',0):.2f}  "
+            f"framework={cbd.get('framework',0):.4f}  "
+            f"benchmark={cbd.get('benchmark',0):.2f}"
+        )
         for line in skill.get("explanation", []):
-            print(f"       • {line}")
+            print(f"       \u2022 {line}")
 
     if blueprint["optional_skills"]:
         print(f"\n{'\u2500'*70}\nOPTIONAL SKILLS (sorted by score \u2193):")
         for skill in blueprint["optional_skills"]:
-            bd = skill.get("score_breakdown", {})
+            conf_label = ConfidenceEngine.label(skill.get("confidence", 0.0))
             print(
                 f"  #{skill['rank']:>2}  {skill['name']:<32}  "
-                f"score={skill['score']:>7.2f}  priority={skill['priority']}"
+                f"score={skill['score']:>7.2f}  conf={skill.get('confidence', 0.0):.2f} ({conf_label})"
             )
             for line in skill.get("explanation", []):
-                print(f"       • {line}")
+                print(f"       \u2022 {line}")
 
     if blueprint["dependencies"]:
         print(f"\n{'\u2500'*70}\nDEPENDENCIES:")
@@ -690,7 +819,7 @@ TEST_GOALS = [
 
 def run_validation(engine, generator, taxonomy):
     print("\n" + "="*70)
-    print("VALIDATION RUN (C-01 + C-02 + C-03)")
+    print("VALIDATION RUN (C-01 + C-02 + C-03 + C-04)")
     print("="*70)
     results = []
     for goal in TEST_GOALS:
@@ -702,25 +831,33 @@ def run_validation(engine, generator, taxonomy):
         bp  = generator.generate(goal, rec, taxonomy)
         req = bp["required_skills"]
 
-        scores_present   = all("score" in s and "rank" in s for s in req)
-        scores_sorted    = all(req[i]["score"] >= req[i+1]["score"] for i in range(len(req)-1))
-        has_breakdown    = all("score_breakdown" in s for s in req)
-        has_explanation  = all("explanation" in s and len(s["explanation"]) >= 3 for s in req)
+        scores_present  = all("score" in s and "rank" in s for s in req)
+        scores_sorted   = all(req[i]["score"] >= req[i+1]["score"] for i in range(len(req)-1))
+        has_breakdown   = all("score_breakdown" in s for s in req)
+        has_conf        = all("confidence" in s and 0.0 <= s["confidence"] <= 1.0 for s in req)
+        has_conf_bd     = all("confidence_breakdown" in s for s in req)
+        has_explanation = all(
+            "explanation" in s and len(s["explanation"]) >= 4
+            and any("Confidence:" in e for e in s["explanation"])
+            for s in req
+        )
 
-        ok     = len(req) > 0 and scores_present and scores_sorted and has_breakdown and has_explanation
+        ok     = len(req) > 0 and scores_present and scores_sorted and has_breakdown and has_conf and has_conf_bd and has_explanation
         status = "PASS" if ok else "FAIL"
         results.append({
             "goal": goal, "goal_id": rec["goal_id"], "status": status,
             "required": len(req), "optional": len(bp["optional_skills"]),
-            "scores_sorted": scores_sorted,
-            "has_breakdown": has_breakdown, "has_explanation": has_explanation,
-            "top_skill": f"{req[0]['name']} score={req[0]['score']} rank=#{req[0]['rank']}" if req else "n/a",
+            "scores_sorted":  scores_sorted,
+            "has_breakdown":  has_breakdown,
+            "has_conf":       has_conf,
+            "has_conf_bd":    has_conf_bd,
+            "has_explanation": has_explanation,
         })
         icon = "\u2713" if ok else "\u2717"
         print(
-            f"  {icon} {goal} [{rec['goal_id']}]  sorted={scores_sorted}  "
-            f"breakdown={has_breakdown}  explanation={has_explanation}  "
-            f"top='{req[0]['name'] if req else 'n/a'}'"
+            f"  {icon} {goal} [{rec['goal_id']}]  "
+            f"sorted={scores_sorted}  conf={has_conf}  conf_bd={has_conf_bd}  "
+            f"expl={has_explanation}"
         )
     print("="*70)
     passed = sum(1 for r in results if r["status"] == "PASS")
@@ -760,12 +897,14 @@ def main():
         print(f"\u26a0\ufe0f  SKILLS_GRAPH.json not found at {graph_path}")
         print("   Running in taxonomy-only mode (no graph edges).")
         graph = type("_EmptyGraph", (), {
-            "get_node": lambda self, x: None,
-            "get_dependencies": lambda self, x, t="REQUIRES": [],
-            "get_recommendations": lambda self, x: [],
-            "get_learning_path": lambda self, x: [],
-            "centrality": lambda self, x: 0,
-            "centrality_report": lambda self: [],
+            "get_node":           lambda self, x: None,
+            "get_dependencies":   lambda self, x, t="REQUIRES": [],
+            "get_recommendations":lambda self, x: [],
+            "get_learning_path":  lambda self, x: [],
+            "centrality":         lambda self, x: 0,
+            "in_degree":          lambda self, x: 0,
+            "out_degree":         lambda self, x: 0,
+            "centrality_report":  lambda self: [],
             "nodes": {}, "edges": [],
         })()
 
