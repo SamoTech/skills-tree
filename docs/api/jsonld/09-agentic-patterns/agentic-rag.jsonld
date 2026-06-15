@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-15T10:23:10Z",
+  "dateModified": "2026-06-15T10:43:44Z",
   "skillId": "agentic-rag",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agentic, patterns, rag, LLM skill, skills tree, AI agent",
+  "keywords": "skills tree, patterns, rag, agentic, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Agentic RAG",

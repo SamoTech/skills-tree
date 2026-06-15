@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-15T10:23:10Z",
+  "dateModified": "2026-06-15T10:43:44Z",
   "skillId": "ethical-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "ethical, LLM skill, skills tree, reasoning, AI agent",
+  "keywords": "skills tree, ethical, reasoning, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Ethical Reasoning",
