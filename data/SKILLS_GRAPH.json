@@ -1,6 +1,6 @@
 {
-  "schema_version": "1.1",
-  "generated_at": "2026-06-15T10:52:00Z",
+  "schema_version": "1.2",
+  "generated_at": "2026-06-15T11:10:00Z",
   "nodes": [
     {
       "id": "skill:code-generation",
@@ -9,12 +9,8 @@
       "category": "05-code",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 0,
-        "out_degree": 2,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 0, "out_degree": 2, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 4, "goals": 7, "dependencies": 2, "framework_strength": 3}
     },
     {
       "id": "skill:prompt-engineering",
@@ -23,12 +19,8 @@
       "category": "02-reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 1,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 1, "out_degree": 1, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 3, "goals": 8, "dependencies": 2, "framework_strength": 3}
     },
     {
       "id": "skill:function-calling",
@@ -37,12 +29,8 @@
       "category": "07-tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 1,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 1, "out_degree": 1, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 2, "goals": 5, "dependencies": 2, "framework_strength": 3}
     },
     {
       "id": "skill:web-scraping",
@@ -51,12 +39,8 @@
       "category": "11-web",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 1,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 1, "out_degree": 1, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 1, "goals": 3, "dependencies": 2, "framework_strength": 2}
     },
     {
       "id": "skill:browser-automation",
@@ -65,12 +49,8 @@
       "category": "10-computer-use",
       "level": "advanced",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 0,
-        "out_degree": 2,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 0, "out_degree": 2, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 1, "goals": 2, "dependencies": 2, "framework_strength": 2}
     },
     {
       "id": "skill:vector-search",
@@ -79,12 +59,8 @@
       "category": "03-memory",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 2,
-        "out_degree": 0,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 2, "out_degree": 0, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 4, "goals": 6, "dependencies": 2, "framework_strength": 4}
     },
     {
       "id": "skill:rag-retrieval",
@@ -93,12 +69,8 @@
       "category": "03-memory",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 0,
-        "out_degree": 2,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 0, "out_degree": 2, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 5, "goals": 9, "dependencies": 2, "framework_strength": 4}
     },
     {
       "id": "skill:embedding-generation",
@@ -107,12 +79,8 @@
       "category": "03-memory",
       "level": "beginner",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 1,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 1, "out_degree": 1, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 3, "goals": 5, "dependencies": 2, "framework_strength": 4}
     },
     {
       "id": "skill:llm-orchestration",
@@ -121,12 +89,8 @@
       "category": "15-orchestration",
       "level": "advanced",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 2,
-        "out_degree": 0,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 2, "out_degree": 0, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 4, "goals": 7, "dependencies": 2, "framework_strength": 4}
     },
     {
       "id": "skill:multi-agent-coordination",
@@ -135,12 +99,8 @@
       "category": "15-orchestration",
       "level": "expert",
       "stability": "experimental",
-      "centrality": {
-        "in_degree": 0,
-        "out_degree": 2,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 0, "out_degree": 2, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 2, "goals": 4, "dependencies": 2, "framework_strength": 2}
     },
     {
       "id": "skill:workflow-automation",
@@ -149,12 +109,8 @@
       "category": "09-agentic-patterns",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 0,
-        "out_degree": 1,
-        "degree": 1,
-        "degree_centrality": 0.0714
-      }
+      "centrality": {"in_degree": 0, "out_degree": 1, "degree": 1, "degree_centrality": 0.0714},
+      "evidence": {"benchmarks": 1, "goals": 3, "dependencies": 1, "framework_strength": 2}
     },
     {
       "id": "skill:error-recovery",
@@ -163,12 +119,8 @@
       "category": "04-action-execution",
       "level": "advanced",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 2,
-        "out_degree": 0,
-        "degree": 2,
-        "degree_centrality": 0.1429
-      }
+      "centrality": {"in_degree": 2, "out_degree": 0, "degree": 2, "degree_centrality": 0.1429},
+      "evidence": {"benchmarks": 2, "goals": 5, "dependencies": 2, "framework_strength": 3}
     },
     {
       "id": "skill:context-management",
@@ -177,12 +129,8 @@
       "category": "03-memory",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 0,
-        "degree": 1,
-        "degree_centrality": 0.0714
-      }
+      "centrality": {"in_degree": 1, "out_degree": 0, "degree": 1, "degree_centrality": 0.0714},
+      "evidence": {"benchmarks": 1, "goals": 4, "dependencies": 1, "framework_strength": 3}
     },
     {
       "id": "skill:api-integration",
@@ -191,12 +139,8 @@
       "category": "07-tool-use",
       "level": "beginner",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 0,
-        "degree": 1,
-        "degree_centrality": 0.0714
-      }
+      "centrality": {"in_degree": 1, "out_degree": 0, "degree": 1, "degree_centrality": 0.0714},
+      "evidence": {"benchmarks": 1, "goals": 4, "dependencies": 1, "framework_strength": 3}
     },
     {
       "id": "skill:data-extraction",
@@ -205,12 +149,8 @@
       "category": "12-data",
       "level": "intermediate",
       "stability": "stable",
-      "centrality": {
-        "in_degree": 1,
-        "out_degree": 0,
-        "degree": 1,
-        "degree_centrality": 0.0714
-      }
+      "centrality": {"in_degree": 1, "out_degree": 0, "degree": 1, "degree_centrality": 0.0714},
+      "evidence": {"benchmarks": 1, "goals": 2, "dependencies": 1, "framework_strength": 1}
     }
   ],
   "edges": [
@@ -232,12 +172,7 @@
     "total_nodes": 15,
     "total_edges": 13,
     "node_types": {"Skill": 15},
-    "edge_types": {
-      "REQUIRES": 6,
-      "SUPPORTS": 3,
-      "RECOMMENDED_WITH": 2,
-      "LEARN_BEFORE": 2
-    },
+    "edge_types": {"REQUIRES": 6, "SUPPORTS": 3, "RECOMMENDED_WITH": 2, "LEARN_BEFORE": 2},
     "avg_confidence": 0.906
   }
 }
