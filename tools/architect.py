@@ -9,6 +9,12 @@ No hardcoded goal lists, skill mappings, or recommendation rules.
 Sprint C-01: per-skill numeric scoring engine.
   score = priority_weight + centrality_bonus + framework_bonus - learn_time_penalty
   Skills sorted descending by score; rank injected into every skill dict.
+
+Sprint C-02: real graph-aware ranking.
+  Centrality metrics (in_degree, out_degree, degree_centrality) pre-computed
+  at graph load time AND embedded per-node in SKILLS_GRAPH.json.
+  SkillScorer reads node-level centrality; _compute_in_degree() is the
+  live fallback if JSON nodes lack the centrality block.
 """
 
 import json
@@ -38,39 +44,24 @@ class GoalTaxonomyParser:
         self._framework_prefs: Dict[str, Dict] = {}
         self._parse()
 
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
-
     @property
     def goals(self) -> Dict[str, Dict]:
-        """Return all Level-1 goal categories keyed by ID (G01…G12)."""
         return self._goals
 
     @property
     def subgoals(self) -> Dict[str, Dict]:
-        """Return all Level-2 sub-goals keyed by ID (G01.1…G12.5)."""
         return self._subgoals
 
     def skills_for(self, goal_id: str) -> List[Dict]:
-        """
-        Return ordered skill list for a goal or sub-goal ID.
-        Falls back to parent goal skills when sub-goal has no dedicated mapping.
-        """
         if goal_id in self._skill_maps:
             return self._skill_maps[goal_id]
         parent = goal_id.split(".")[0] if "." in goal_id else goal_id
         return self._skill_maps.get(parent, [])
 
     def frameworks_for(self, goal_name: str) -> Dict[str, int]:
-        """Return framework star-ratings for a goal (by display name)."""
         return self._framework_prefs.get(goal_name, {})
 
     def resolve(self, query: str) -> Optional[str]:
-        """
-        Resolve a free-text query to a goal/sub-goal ID.
-        Matches against IDs and display names (case-insensitive).
-        """
         q = query.strip().lower()
         for sid, meta in {**self._goals, **self._subgoals}.items():
             if sid.lower() == q:
@@ -84,12 +75,7 @@ class GoalTaxonomyParser:
         return None
 
     def list_goals(self) -> List[Dict]:
-        """Return all Level-1 goals as a list, sorted by ID."""
         return sorted(self._goals.values(), key=lambda g: g["id"])
-
-    # ------------------------------------------------------------------
-    # Internal parsing
-    # ------------------------------------------------------------------
 
     def _parse(self):
         self._parse_goal_categories()
@@ -195,26 +181,85 @@ class GoalTaxonomyParser:
 # ---------------------------------------------------------------------------
 
 class SkillsGraph:
-    """Load and query the skills knowledge graph."""
+    """
+    Load and query the skills knowledge graph.
+
+    C-02: centrality metrics are read from the embedded ``centrality`` block
+    on each node (populated by the enrichment pipeline).  If a node lacks
+    the block, in-degree is re-computed live from edges as fallback.
+    """
 
     def __init__(self, graph_path: str = "../data/SKILLS_GRAPH.json"):
         with open(graph_path, "r") as f:
             self.data = json.load(f)
-        self.nodes = {n["id"]: n for n in self.data["nodes"]}
-        self.edges = self.data["edges"]
-        self._centrality: Dict[str, int] = self._compute_in_degree()
+        self.nodes: Dict[str, Dict] = {n["id"]: n for n in self.data["nodes"]}
+        self.edges: List[Dict] = self.data["edges"]
 
-    def _compute_in_degree(self) -> Dict[str, int]:
-        """Compute in-degree centrality (number of times a node is depended on)."""
-        counts: Dict[str, int] = {}
-        for edge in self.edges:
-            target = edge["target"]
-            counts[target] = counts.get(target, 0) + 1
-        return counts
+        # C-02: build centrality index
+        self._in_degree: Dict[str, int]            = {}
+        self._out_degree: Dict[str, int]           = {}
+        self._degree_centrality: Dict[str, float]  = {}
+        self._build_centrality()
 
+    # ------------------------------------------------------------------
+    # C-02: centrality computation
+    # ------------------------------------------------------------------
+
+    def _build_centrality(self) -> None:
+        """
+        Prefer the pre-computed ``centrality`` block embedded in each node
+        (schema_version 1.1+).  Fall back to live edge scan for older graphs.
+        """
+        n_nodes = len(self.nodes)
+        if n_nodes < 2:
+            return
+
+        # Check if nodes carry pre-computed centrality
+        sample = next(iter(self.nodes.values()))
+        if "centrality" in sample:
+            for nid, node in self.nodes.items():
+                c = node.get("centrality", {})
+                self._in_degree[nid]           = c.get("in_degree", 0)
+                self._out_degree[nid]          = c.get("out_degree", 0)
+                self._degree_centrality[nid]   = c.get("degree_centrality", 0.0)
+        else:
+            # Live fallback: scan edges
+            from collections import defaultdict
+            ind  = defaultdict(int)
+            outd = defaultdict(int)
+            for edge in self.edges:
+                ind[edge["target"]]  += 1
+                outd[edge["source"]] += 1
+            for nid in self.nodes:
+                self._in_degree[nid]          = ind[nid]
+                self._out_degree[nid]         = outd[nid]
+                deg = ind[nid] + outd[nid]
+                self._degree_centrality[nid]  = round(deg / (n_nodes - 1), 4)
+
+    # ------------------------------------------------------------------
+    # Public centrality API
+    # ------------------------------------------------------------------
+
+    def in_degree(self, node_id: str) -> int:
+        """Return the in-degree of a node (number of edges pointing TO it)."""
+        return self._in_degree.get(node_id, 0)
+
+    def out_degree(self, node_id: str) -> int:
+        """Return the out-degree of a node (number of edges FROM it)."""
+        return self._out_degree.get(node_id, 0)
+
+    def degree_centrality(self, node_id: str) -> float:
+        """Return the normalised degree centrality of a node."""
+        return self._degree_centrality.get(node_id, 0.0)
+
+    # kept for SkillScorer backward-compat (C-01 called graph.centrality())
     def centrality(self, node_id: str) -> int:
-        """Return in-degree centrality score for a node (0 if unknown)."""
-        return self._centrality.get(node_id, 0)
+        """Alias for in_degree — used by SkillScorer.score()."""
+        return self.in_degree(node_id)
+
+    # ------------------------------------------------------------------
+    # Graph query API
+    # ------------------------------------------------------------------
 
     def get_node(self, node_id: str) -> Optional[Dict]:
         return self.nodes.get(node_id)
@@ -248,9 +293,23 @@ class SkillsGraph:
             traverse(skill)
         return path
 
+    def centrality_report(self) -> List[Dict]:
+        """Return all nodes sorted by in-degree descending — for C-02 reporting."""
+        rows = []
+        for nid, node in self.nodes.items():
+            rows.append({
+                "id": nid,
+                "name": node.get("name", nid),
+                "in_degree": self._in_degree.get(nid, 0),
+                "out_degree": self._out_degree.get(nid, 0),
+                "degree_centrality": self._degree_centrality.get(nid, 0.0),
+                "centrality_bonus": min(self._in_degree.get(nid, 0) * 5, 30),
+            })
+        return sorted(rows, key=lambda x: x["in_degree"], reverse=True)
+
 
 # ---------------------------------------------------------------------------
-# Sprint C-01: Skill Scoring Engine
+# Sprint C-01/C-02: Skill Scoring Engine
 # ---------------------------------------------------------------------------
 
 class SkillScorer:
@@ -268,45 +327,31 @@ class SkillScorer:
         centrality_bonus   : min(in_degree * 5, 30)   [graph-signal, max 30]
         framework_bonus    : top_framework_stars * 2  [taxonomy-signal, max 10]
         learn_time_penalty : min(learn_time_hrs * 0.5, 20)  [cost signal, max -20]
-
-    Scores are floats; ties broken by original taxonomy order (stable sort).
     """
 
     PRIORITY_WEIGHTS: Dict[str, float] = {
         "critical": 100.0,
-        "high":     70.0,
-        "medium":   40.0,
-        "low":      10.0,
+        "high":      70.0,
+        "medium":    40.0,
+        "low":       10.0,
     }
-
     CENTRALITY_BONUS_PER_EDGE: float = 5.0
-    CENTRALITY_BONUS_CAP: float = 30.0
-
-    FRAMEWORK_BONUS_PER_STAR: float = 2.0
-    FRAMEWORK_BONUS_CAP: float = 10.0
-
+    CENTRALITY_BONUS_CAP:      float = 30.0
+    FRAMEWORK_BONUS_PER_STAR:  float = 2.0
+    FRAMEWORK_BONUS_CAP:       float = 10.0
     LEARN_TIME_PENALTY_PER_HOUR: float = 0.5
-    LEARN_TIME_PENALTY_CAP: float = 20.0
+    LEARN_TIME_PENALTY_CAP:      float = 20.0
 
     def __init__(self, graph: Any, frameworks: Dict[str, int]):
-        """
-        :param graph:      SkillsGraph instance (or EmptyGraph stub).
-        :param frameworks: {framework_name: star_count} for the current goal.
-        """
         self._graph = graph
         self._top_fw_stars: int = max(frameworks.values()) if frameworks else 0
 
     def score(self, skill_id: str, priority: str, learn_time_hrs: int) -> float:
-        """Compute and return the numeric score for a single skill."""
         pw = self.PRIORITY_WEIGHTS.get(priority.strip().lower(), 0.0)
-
         centrality = getattr(self._graph, "centrality", lambda x: 0)(skill_id)
         cb = min(centrality * self.CENTRALITY_BONUS_PER_EDGE, self.CENTRALITY_BONUS_CAP)
-
         fb = min(self._top_fw_stars * self.FRAMEWORK_BONUS_PER_STAR, self.FRAMEWORK_BONUS_CAP)
-
         lp = min(learn_time_hrs * self.LEARN_TIME_PENALTY_PER_HOUR, self.LEARN_TIME_PENALTY_CAP)
-
         return round(pw + cb + fb - lp, 2)
 
     def rank_skills(
@@ -315,15 +360,6 @@ class SkillScorer:
         taxonomy_map: Dict[str, Dict],
         rank_offset: int = 1,
     ) -> List[Dict]:
-        """
-        Score every skill, inject ``score`` and ``rank`` fields, sort
-        descending by score (stable — preserves taxonomy order on ties).
-
-        :param skills:       List of skill node dicts (from graph or stub).
-        :param taxonomy_map: {skill_id: taxonomy_skill_dict} for priority/learn_time lookup.
-        :param rank_offset:  Starting rank number (default 1).
-        :returns:            New list sorted by score desc with score+rank injected.
-        """
         scored = []
         for skill in skills:
             sid = skill.get("id", "")
@@ -332,22 +368,17 @@ class SkillScorer:
             learn_time_hrs = tax.get("learn_time_hrs", 0)
             s = self.score(sid, priority, learn_time_hrs)
             scored.append({**skill, "score": s})
-
         scored.sort(key=lambda x: x["score"], reverse=True)
-
         for i, skill in enumerate(scored):
             skill["rank"] = rank_offset + i
-
         return scored
 
 
 # ---------------------------------------------------------------------------
-# Recommendation Engine — taxonomy-driven, zero hardcoded goals
+# Recommendation Engine
 # ---------------------------------------------------------------------------
 
 class RecommendationEngine:
-    """Generate skill recommendations from meta/GOAL_TAXONOMY.md."""
-
     def __init__(self, graph: Any, taxonomy: GoalTaxonomyParser):
         self.graph = graph
         self.taxonomy = taxonomy
@@ -356,57 +387,34 @@ class RecommendationEngine:
         goal_id = self.taxonomy.resolve(goal_query)
         if not goal_id:
             available = [f"{g['id']}: {g['name']}" for g in self.taxonomy.list_goals()]
-            return {
-                "error": f"Unknown goal: '{goal_query}'. "
-                         f"Available categories: {available}"
-            }
+            return {"error": f"Unknown goal: '{goal_query}'. Available categories: {available}"}
 
         taxonomy_skills = self.taxonomy.skills_for(goal_id)
-
-        meta = (
-            self.taxonomy.subgoals.get(goal_id)
-            or self.taxonomy.goals.get(goal_id)
-            or {}
-        )
-        goal_name = meta.get("name", goal_query)
+        meta = self.taxonomy.subgoals.get(goal_id) or self.taxonomy.goals.get(goal_id) or {}
+        goal_name  = meta.get("name", goal_query)
         difficulty = meta.get("difficulty", "Unknown")
 
-        # Build taxonomy lookup {skill_id -> taxonomy_dict}
         taxonomy_map: Dict[str, Dict] = {s["id"]: s for s in taxonomy_skills}
 
-        required_ids = [
-            s["id"] for s in taxonomy_skills
-            if s["priority"].lower() in ("critical", "high")
-        ]
-        optional_ids = [
-            s["id"] for s in taxonomy_skills
-            if s["priority"].lower() in ("medium", "low")
-        ]
+        required_ids = [s["id"] for s in taxonomy_skills if s["priority"].lower() in ("critical", "high")]
+        optional_ids = [s["id"] for s in taxonomy_skills if s["priority"].lower() in ("medium", "low")]
 
         required_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in required_ids]
         optional_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in optional_ids]
 
-        # -----------------------------------------------------------------
-        # C-01: Score and rank both lists
-        # -----------------------------------------------------------------
         frameworks = self.taxonomy.frameworks_for(goal_name)
         scorer = SkillScorer(self.graph, frameworks)
 
         required_skills = scorer.rank_skills(required_nodes, taxonomy_map, rank_offset=1)
-        # Optional ranks continue from where required left off
-        optional_skills = scorer.rank_skills(
-            optional_nodes, taxonomy_map, rank_offset=len(required_skills) + 1
-        )
+        optional_skills = scorer.rank_skills(optional_nodes, taxonomy_map, rank_offset=len(required_skills) + 1)
 
         all_dependencies: List[Dict] = []
         for skill in required_skills:
             all_dependencies.extend(self.graph.get_dependencies(skill["id"]))
 
-        all_skill_ids = [s["id"] for s in required_skills + optional_skills]
-        learning_path = self.graph.get_learning_path(all_skill_ids)
-        learning_path_nodes = [
-            self.graph.get_node(sid) or self._stub(sid) for sid in learning_path
-        ]
+        all_skill_ids  = [s["id"] for s in required_skills + optional_skills]
+        learning_path  = self.graph.get_learning_path(all_skill_ids)
+        learning_path_nodes = [self.graph.get_node(sid) or self._stub(sid) for sid in learning_path]
 
         confidence = self._calculate_confidence(required_skills, all_dependencies)
         deployment = "local" if "beginner" in difficulty.lower() else "cloud"
@@ -425,56 +433,31 @@ class RecommendationEngine:
         }
 
     def _stub(self, skill_id: str) -> Dict:
-        """Fallback node when skill_id is not yet in the graph."""
-        return {
-            "id": skill_id,
-            "name": skill_id.replace("-", " ").title(),
-            "stability": "experimental",
-        }
+        return {"id": skill_id, "name": skill_id.replace("-", " ").title(), "stability": "experimental"}
 
     def _calculate_confidence(self, skills: List[Dict], dependencies: List[Dict]) -> float:
         if not skills:
             return 0.0
         stable_count = sum(1 for s in skills if s.get("stability") == "stable")
-        base = stable_count / len(skills)
+        base      = stable_count / len(skills)
         dep_boost = min(len(dependencies) * 0.05, 0.2)
         return min(base + dep_boost, 1.0)
 
 
 # ---------------------------------------------------------------------------
-# Blueprint Generator — taxonomy-driven architecture type inference
+# Blueprint Generator
 # ---------------------------------------------------------------------------
 
 class BlueprintGenerator:
-    """Generate architecture blueprints from taxonomy-driven recommendations."""
-
     _RISK_PATTERNS = {
-        "code-generation": [
-            {"severity": "Major", "probability": "Medium",
-             "mitigation": "Implement code review and testing"}
-        ],
-        "browser-automation": [
-            {"severity": "Major", "probability": "High",
-             "mitigation": "Add retry logic and error handling"},
-            {"severity": "Minor", "probability": "High",
-             "mitigation": "Handle dynamic UI changes"},
-        ],
-        "screen-parsing": [
-            {"severity": "Major", "probability": "High",
-             "mitigation": "Add retry logic and error handling"},
-        ],
-        "vector-store-retrieval": [
-            {"severity": "Major", "probability": "Medium",
-             "mitigation": "Validate retrieval accuracy"},
-            {"severity": "Critical", "probability": "Low",
-             "mitigation": "Monitor for hallucinations"},
-        ],
-        "multi-agent": [
-            {"severity": "Critical", "probability": "Medium",
-             "mitigation": "Implement agent communication protocol and conflict resolution"},
-        ],
+        "code-generation":     [{"severity": "Major",    "probability": "Medium", "mitigation": "Implement code review and testing"}],
+        "browser-automation":  [{"severity": "Major",    "probability": "High",   "mitigation": "Add retry logic and error handling"},
+                                {"severity": "Minor",    "probability": "High",   "mitigation": "Handle dynamic UI changes"}],
+        "screen-parsing":      [{"severity": "Major",    "probability": "High",   "mitigation": "Add retry logic and error handling"}],
+        "vector-store-retrieval": [{"severity": "Major", "probability": "Medium", "mitigation": "Validate retrieval accuracy"},
+                                   {"severity": "Critical", "probability": "Low", "mitigation": "Monitor for hallucinations"}],
+        "multi-agent":         [{"severity": "Critical",  "probability": "Medium", "mitigation": "Implement agent communication protocol and conflict resolution"}],
     }
-
     _ARCH_BY_CATEGORY = {
         "G01": "Single-Agent", "G02": "Single-Agent", "G03": "Single-Agent",
         "G04": "RAG",          "G05": "Knowledge-Graph", "G06": "Workflow",
@@ -482,26 +465,21 @@ class BlueprintGenerator:
         "G10": "Data-Pipeline","G11": "Evaluation",    "G12": "Single-Agent",
     }
 
-    def generate(
-        self, goal_query: str, recommendation: Dict[str, Any], taxonomy: GoalTaxonomyParser
-    ) -> Dict[str, Any]:
-        goal_id: str = recommendation.get("goal_id", "")
-        goal_name: str = recommendation.get("goal_name", goal_query)
-        taxonomy_skills: List[Dict] = recommendation.get("taxonomy_skills", [])
-        taxonomy_map: Dict[str, Dict] = {s["id"]: s for s in taxonomy_skills}
+    def generate(self, goal_query: str, recommendation: Dict[str, Any], taxonomy: GoalTaxonomyParser) -> Dict[str, Any]:
+        goal_id        = recommendation.get("goal_id", "")
+        goal_name      = recommendation.get("goal_name", goal_query)
+        taxonomy_skills = recommendation.get("taxonomy_skills", [])
+        taxonomy_map   = {s["id"]: s for s in taxonomy_skills}
+        risks          = self._collect_risks(recommendation["required_skills"])
+        arch_type      = self._infer_arch(goal_id)
+        frameworks     = taxonomy.frameworks_for(goal_name)
+        top_framework  = max(frameworks, key=frameworks.get) if frameworks else "Custom"
+        total_hrs      = sum(s.get("learn_time_hrs", 0) for s in taxonomy_skills)
 
-        risks = self._collect_risks(recommendation["required_skills"])
-        arch_type = self._infer_arch(goal_id)
-        frameworks = taxonomy.frameworks_for(goal_name)
-        top_framework = (max(frameworks, key=frameworks.get) if frameworks else "Custom")
-        total_hrs = sum(s.get("learn_time_hrs", 0) for s in taxonomy_skills)
-
-        blueprint = {
+        return {
             "$schema": "https://skillstree.os/schemas/v1/blueprint.json",
             "id": f"blueprint-{datetime.now().strftime('%Y%m%d%H%M%S')}",
-            "title": goal_name,
-            "goal": goal_name,
-            "goal_id": goal_id,
+            "title": goal_name, "goal": goal_name, "goal_id": goal_id,
             "description": f"Architecture blueprint for {goal_name}",
             "confidence_score": recommendation["confidence_score"],
             "generated_at": datetime.now().isoformat(),
@@ -513,10 +491,8 @@ class BlueprintGenerator:
             "recommended_framework": top_framework,
             "required_skills": [
                 {
-                    "id": s["id"],
-                    "name": s["name"],
-                    "rank": s["rank"],
-                    "score": s["score"],
+                    "id": s["id"], "name": s["name"],
+                    "rank": s["rank"], "score": s["score"],
                     "priority": taxonomy_map.get(s["id"], {}).get("priority", "Unknown"),
                     "rationale": (
                         f"Rank #{s['rank']} (score {s['score']}) — "
@@ -529,10 +505,8 @@ class BlueprintGenerator:
             ],
             "optional_skills": [
                 {
-                    "id": s["id"],
-                    "name": s["name"],
-                    "rank": s["rank"],
-                    "score": s["score"],
+                    "id": s["id"], "name": s["name"],
+                    "rank": s["rank"], "score": s["score"],
                     "priority": taxonomy_map.get(s["id"], {}).get("priority", "Unknown"),
                 }
                 for s in recommendation["optional_skills"]
@@ -544,11 +518,9 @@ class BlueprintGenerator:
             "learning_path": [s["name"] for s in recommendation["learning_path"]],
             "risks": risks,
         }
-        return blueprint
 
-    def _collect_risks(self, required_skills: List[Dict]) -> List[Dict]:
-        risks = []
-        seen = set()
+    def _collect_risks(self, required_skills):
+        risks, seen = [], set()
         for skill in required_skills:
             sid = skill.get("id", "")
             for key, risk_list in self._RISK_PATTERNS.items():
@@ -557,9 +529,8 @@ class BlueprintGenerator:
                     seen.add(key)
         return risks
 
-    def _infer_arch(self, goal_id: str) -> str:
-        category = goal_id.split(".")[0] if goal_id else ""
-        return self._ARCH_BY_CATEGORY.get(category, "Single-Agent")
+    def _infer_arch(self, goal_id):
+        return self._ARCH_BY_CATEGORY.get(goal_id.split(".")[0] if goal_id else "", "Single-Agent")
 
 
 # ---------------------------------------------------------------------------
@@ -580,10 +551,10 @@ def print_blueprint(blueprint: Dict[str, Any]):
     print(f"Est. Learn Time:   {blueprint['estimated_learn_hours']} hours")
     print(f"Top Framework:     {blueprint['recommended_framework']}")
 
-    print(f"\n{'\u2500'*70}\nREQUIRED SKILLS (sorted by score ↓):")
+    print(f"\n{'\u2500'*70}\nREQUIRED SKILLS (sorted by score \u2193):")
     for skill in blueprint["required_skills"]:
         print(
-            f"  #{skill['rank']:>2}  {skill['name']:<30}  "
+            f"  #{skill['rank']:>2}  {skill['name']:<32}  "
             f"score={skill['score']:>7.2f}  "
             f"priority={skill['priority']:<8}  "
             f"learn={skill['learn_time']}"
@@ -591,10 +562,10 @@ def print_blueprint(blueprint: Dict[str, Any]):
         print(f"       Rationale: {skill['rationale']}")
 
     if blueprint["optional_skills"]:
-        print(f"\n{'\u2500'*70}\nOPTIONAL SKILLS (sorted by score ↓):")
+        print(f"\n{'\u2500'*70}\nOPTIONAL SKILLS (sorted by score \u2193):")
         for skill in blueprint["optional_skills"]:
             print(
-                f"  #{skill['rank']:>2}  {skill['name']:<30}  "
+                f"  #{skill['rank']:>2}  {skill['name']:<32}  "
                 f"score={skill['score']:>7.2f}  "
                 f"priority={skill['priority']}"
             )
@@ -622,19 +593,12 @@ def print_blueprint(blueprint: Dict[str, Any]):
 # ---------------------------------------------------------------------------
 
 TEST_GOALS = [
-    "Coding Agent",
-    "Browser Agent",
-    "Research Agent",
-    "RAG Assistant",
-    "Multi-Agent Systems",
+    "Coding Agent", "Browser Agent", "Research Agent",
+    "RAG Assistant", "Multi-Agent Systems",
 ]
 
 
-def run_validation(
-    engine: RecommendationEngine,
-    generator: BlueprintGenerator,
-    taxonomy: GoalTaxonomyParser,
-):
+def run_validation(engine, generator, taxonomy):
     print("\n" + "="*70)
     print("VALIDATION RUN")
     print("="*70)
@@ -645,35 +609,26 @@ def run_validation(
             results.append({"goal": goal, "status": "FAIL", "reason": rec["error"]})
             print(f"  \u2717 {goal}: {rec['error']}")
             continue
-        bp = generator.generate(goal, rec, taxonomy)
-
-        # C-01 validation: verify score/rank present and sorted
+        bp  = generator.generate(goal, rec, taxonomy)
         req = bp["required_skills"]
-        scores_present = all("score" in s and "rank" in s for s in req)
-        scores_sorted = all(
-            req[i]["score"] >= req[i + 1]["score"] for i in range(len(req) - 1)
-        )
-        ranks_sequential = [s["rank"] for s in req] == list(range(1, len(req) + 1))
-
-        ok = len(req) > 0 and scores_present and scores_sorted
+        scores_present  = all("score" in s and "rank" in s for s in req)
+        scores_sorted   = all(req[i]["score"] >= req[i+1]["score"] for i in range(len(req)-1))
+        ranks_seq       = [s["rank"] for s in req] == list(range(1, len(req)+1))
+        ok     = len(req) > 0 and scores_present and scores_sorted
         status = "PASS" if ok else "FAIL"
         results.append({
-            "goal": goal,
-            "goal_id": rec["goal_id"],
-            "status": status,
+            "goal": goal, "goal_id": rec["goal_id"], "status": status,
             "required_skills": len(rec["required_skills"]),
-            "optional_skills": len(rec["optional_skills"]),
-            "scores_present": scores_present,
-            "scores_sorted_desc": scores_sorted,
-            "ranks_sequential": ranks_sequential,
+            "optional_skills":  len(rec["optional_skills"]),
+            "scores_present": scores_present, "scores_sorted_desc": scores_sorted,
+            "ranks_sequential": ranks_seq,
             "top_skill": f"{req[0]['name']} (score={req[0]['score']}, rank=#{req[0]['rank']})" if req else "n/a",
             "confidence": round(rec["confidence_score"], 2),
             "arch_type": bp["architecture_type"],
         })
         icon = "\u2713" if ok else "\u2717"
         print(
-            f"  {icon} {goal} [{rec['goal_id']}]  "
-            f"sorted={scores_sorted}  "
+            f"  {icon} {goal} [{rec['goal_id']}]  sorted={scores_sorted}  "
             f"top='{req[0]['name'] if req else 'n/a'}' score={req[0]['score'] if req else 0}"
         )
     print("="*70)
@@ -690,19 +645,26 @@ def main():
     print("\n\U0001f333 Skills Tree OS - Agent Skill Architect")
     print("Taxonomy-driven \u00b7 Single source of truth: meta/GOAL_TAXONOMY.md\n")
 
-    script_dir = Path(os.path.abspath(__file__)).parent
-    graph_path = script_dir / ".." / "data" / "SKILLS_GRAPH.json"
+    script_dir    = Path(os.path.abspath(__file__)).parent
+    graph_path    = script_dir / ".." / "data" / "SKILLS_GRAPH.json"
     taxonomy_path = script_dir / ".." / "meta" / "GOAL_TAXONOMY.md"
 
     if not taxonomy_path.exists():
         print(f"\u274c Taxonomy not found: {taxonomy_path}")
         return
     taxonomy = GoalTaxonomyParser(str(taxonomy_path))
-    print(f"\u2705 Taxonomy loaded: {len(taxonomy.goals)} goal categories, "
-          f"{len(taxonomy.subgoals)} sub-goals")
+    print(f"\u2705 Taxonomy loaded: {len(taxonomy.goals)} goal categories, {len(taxonomy.subgoals)} sub-goals")
 
     try:
         graph = SkillsGraph(str(graph_path))
+        report = graph.centrality_report()
+        print(f"\u2705 Graph loaded: {len(graph.nodes)} nodes, {len(graph.edges)} edges")
+        print("\nTop-10 Centrality (in-degree):")
+        for i, r in enumerate(report[:10], 1):
+            print(
+                f"  #{i:<2} {r['name']:<30}  in={r['in_degree']}  out={r['out_degree']}  "
+                f"dc={r['degree_centrality']:.4f}  bonus=+{r['centrality_bonus']}"
+            )
     except FileNotFoundError:
         print(f"\u26a0\ufe0f  SKILLS_GRAPH.json not found at {graph_path}")
         print("   Running in taxonomy-only mode (no graph edges).")
@@ -712,11 +674,11 @@ def main():
             "get_recommendations": lambda self, x: [],
             "get_learning_path": lambda self, x: [],
             "centrality": lambda self, x: 0,
-            "nodes": {},
-            "edges": [],
+            "centrality_report": lambda self: [],
+            "nodes": {}, "edges": [],
         })()
 
-    engine = RecommendationEngine(graph, taxonomy)
+    engine    = RecommendationEngine(graph, taxonomy)
     generator = BlueprintGenerator()
 
     import sys
@@ -724,7 +686,7 @@ def main():
         run_validation(engine, generator, taxonomy)
         return
 
-    print("Available Goal Categories (from taxonomy):")
+    print("\nAvailable Goal Categories (from taxonomy):")
     for g in taxonomy.list_goals():
         print(f"  {g['id']}: {g['name']} ({g['skills_count']} skills)")
 
@@ -736,7 +698,6 @@ def main():
 
     print(f"\n\u2699\ufe0f  Resolving: {user_goal}...")
     recommendation = engine.recommend(user_goal)
-
     if "error" in recommendation:
         print(f"\u274c {recommendation['error']}")
         return
