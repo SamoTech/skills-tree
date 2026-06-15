@@ -48,39 +48,26 @@ skills-tree = "cli.main:app"
 # Package discovery
 # ---------------------------------------------------------------------------
 [tool.setuptools]
-# include_package_data=true tells setuptools to honour MANIFEST.in and
-# package-data globs for every discovered package.
 include-package-data = true
 
 [tool.setuptools.packages.find]
-# Auto-discover all Python packages (directories with __init__.py).
-# This replaces the hand-maintained package list and catches new sub-packages.
-where   = ["."]          # root of the repo
+where   = ["."]
 exclude = ["tests*", "evaluation*", "docs*", "meta*", "benchmarks*", "assets*", "badges*"]
 
 # ---------------------------------------------------------------------------
 # Package data — files shipped INSIDE Python packages (importlib-accessible)
 # ---------------------------------------------------------------------------
 [tool.setuptools.package-data]
-# Include data files that live inside each Python package directory.
-# Pattern applied to every package unless overridden below.
-"*"          = ["*.md", "*.json", "*.toml", "*.yml", "*.yaml"]
-"tools"      = ["*.py"]     # all tool scripts (already Python, explicit for clarity)
+"*" = ["*.md", "*.json", "*.toml", "*.yml", "*.yaml"]
 
 # ---------------------------------------------------------------------------
 # Data files — top-level non-package directories copied into the wheel/sdist
-# These are the runtime files the engine reads at startup.
-# dest="" means they land at the root of the installed package tree,
-# which for an editable install is the repo root — exactly where the
-# engine already expects them via relative paths.
+# Only list files that actually exist in the repository.
 # ---------------------------------------------------------------------------
 [tool.setuptools.data-files]
-"data"            = ["data/SKILLS_GRAPH.json"]
-"meta"            = [
-    "meta/GOAL_TAXONOMY.md",
-    "meta/GOAL_TAXONOMY.json",
-]
-"benchmarks"      = ["benchmarks/INDEX.json"]
+"data"       = ["data/SKILLS_GRAPH.json"]
+"meta"       = ["meta/GOAL_TAXONOMY.md"]
+"benchmarks" = ["benchmarks/INDEX.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
