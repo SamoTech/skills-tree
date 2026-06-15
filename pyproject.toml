@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name            = "skills-tree"
-version         = "1.2.0"
+version         = "1.3.0"
 description     = "Architect — taxonomy-driven skill recommendation engine for AI agent builders"
 readme          = "README.md"
 license         = { file = "LICENSE" }
