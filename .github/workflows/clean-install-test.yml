@@ -1,0 +1,151 @@
+name: C-12.75 Clean Install Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'pyproject.toml'
+      - 'cli/**'
+      - 'api/**'
+      - 'tools/architect.py'
+
+jobs:
+  clean-install:
+    name: "Clean Install + Full Stack Validation"
+    runs-on: ubuntu-latest
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+
+    steps:
+      - name: Checkout (simulates fresh clone)
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12 (clean environment)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          # No cache — proves install works from scratch
+
+      - name: Record baseline timestamp
+        run: echo "INSTALL_START=$(date +%s%3N)" >> $GITHUB_ENV
+
+      - name: pip install -e .
+        run: pip install -e . 2>&1 | tee /tmp/install.log
+
+      - name: Record install duration
+        run: |
+          END=$(date +%s%3N)
+          DURATION=$(( END - INSTALL_START ))
+          echo "INSTALL_DURATION_MS=$DURATION" >> $GITHUB_ENV
+          echo "pip install -e . completed in ${DURATION}ms"
+
+      - name: Verify CLI entry point exists
+        run: which skills-tree
+
+      - name: skills-tree validate
+        run: |
+          START=$(date +%s%3N)
+          skills-tree validate | tee /tmp/validate.json
+          END=$(date +%s%3N)
+          echo "VALIDATE_MS=$(( END - START ))" >> $GITHUB_ENV
+
+      - name: skills-tree goals
+        run: skills-tree goals | tee /tmp/goals.json
+
+      - name: skills-tree skills
+        run: skills-tree skills | tee /tmp/skills.json
+
+      - name: skills-tree recommend
+        run: skills-tree recommend --goal "Coding Agent" | tee /tmp/recommend.json
+
+      - name: skills-tree blueprint
+        run: skills-tree blueprint --goal "Coding Agent" | tee /tmp/blueprint.json
+
+      - name: skills-tree recommend (RAG Assistant + budget)
+        run: skills-tree recommend --goal "RAG Assistant" --experience intermediate --time-budget 80
+
+      - name: Run test suite
+        run: |
+          pip install pytest httpx --quiet
+          pytest tests/ -v --tb=short 2>&1 | tee /tmp/test_results.txt
+
+      - name: API smoke tests
+        run: |
+          python - <<'EOF'
+          import time, json
+          from fastapi.testclient import TestClient
+          from api.main import app
+          client = TestClient(app)
+
+          results = []
+          endpoints = [
+              ("GET",  "/health",    None),
+              ("GET",  "/goals",     None),
+              ("GET",  "/skills",    None),
+              ("POST", "/recommend", {"goal": "Coding Agent", "experience": "intermediate"}),
+              ("POST", "/blueprint", {"goal": "Coding Agent"}),
+              ("POST", "/recommend", {"goal": "RAG Assistant", "experience": "beginner"}),
+              ("POST", "/blueprint", {"goal": "RAG Assistant"}),
+          ]
+
+          for method, path, body in endpoints:
+              t0 = time.perf_counter()
+              if method == "GET":
+                  r = client.get(path)
+              else:
+                  r = client.post(path, json=body)
+              latency_ms = (time.perf_counter() - t0) * 1000
+              results.append({
+                  "method": method, "path": path,
+                  "status": r.status_code,
+                  "latency_ms": round(latency_ms, 2),
+                  "size_bytes": len(r.content),
+                  "pass": r.status_code == 200
+              })
+              print(f"  {method:4s} {path:<15s}  {r.status_code}  {latency_ms:6.1f}ms  {len(r.content)}B")
+
+          with open("/tmp/api_results.json", "w") as f:
+              json.dump(results, f, indent=2)
+
+          failures = [r for r in results if not r["pass"]]
+          if failures:
+              print(f"\nFAILED: {failures}")
+              raise SystemExit(1)
+          print(f"\nAll {len(results)} API endpoints passed.")
+          EOF
+
+      - name: Generate step summary
+        run: |
+          echo "## C-12.75 Clean Install Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          echo "| pip install duration | ${INSTALL_DURATION_MS}ms |" >> $GITHUB_STEP_SUMMARY
+          echo "| skills-tree validate | ${VALIDATE_MS}ms |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### validate output" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat /tmp/validate.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### API results" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat /tmp/api_results.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload all evidence artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: clean-install-evidence-${{ github.run_number }}
+          retention-days: 90
+          path: |
+            /tmp/install.log
+            /tmp/validate.json
+            /tmp/goals.json
+            /tmp/skills.json
+            /tmp/recommend.json
+            /tmp/blueprint.json
+            /tmp/test_results.txt
+            /tmp/api_results.json

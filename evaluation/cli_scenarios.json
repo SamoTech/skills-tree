@@ -1,0 +1,165 @@
+[
+  {
+    "id": "S01",
+    "command": "skills-tree recommend --goal \"Coding Agent\"",
+    "description": "Basic recommend, default experience",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "required_skills", "confidence_score", "calibration_applied"],
+    "category": "recommend"
+  },
+  {
+    "id": "S02",
+    "command": "skills-tree recommend --goal \"RAG Assistant\" --experience intermediate --time-budget 80",
+    "description": "Recommend with all optional flags",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "required_skills", "learning_path"],
+    "category": "recommend"
+  },
+  {
+    "id": "S03",
+    "command": "skills-tree recommend --goal \"Browser Agent\" --experience beginner",
+    "description": "Recommend for beginner experience",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "required_skills"],
+    "category": "recommend"
+  },
+  {
+    "id": "S04",
+    "command": "skills-tree recommend --goal \"Analytics Agent\" --experience advanced",
+    "description": "Recommend for advanced experience",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "required_skills"],
+    "category": "recommend"
+  },
+  {
+    "id": "S05",
+    "command": "skills-tree recommend --goal \"Coding Agent\" --format table",
+    "description": "Recommend with table output format",
+    "expected_exit_code": 0,
+    "expected_output_contains": ["goal_id"],
+    "category": "recommend"
+  },
+  {
+    "id": "S06",
+    "command": "skills-tree recommend --goal \"Coding Agent\" --format pretty",
+    "description": "Recommend with pretty output format",
+    "expected_exit_code": 0,
+    "expected_output_contains": ["goal_id", "Coding"],
+    "category": "recommend"
+  },
+  {
+    "id": "S07",
+    "command": "skills-tree recommend --goal \"DOESNOTEXIST_XYZ999\"",
+    "description": "Recommend for unknown goal — must fail gracefully",
+    "expected_exit_code": 1,
+    "expected_output_contains": ["not found"],
+    "category": "error_handling"
+  },
+  {
+    "id": "S08",
+    "command": "skills-tree recommend -g \"Coding Agent\" -e intermediate",
+    "description": "Recommend using short flags",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id"],
+    "category": "recommend"
+  },
+  {
+    "id": "S09",
+    "command": "skills-tree blueprint --goal \"Coding Agent\"",
+    "description": "Blueprint for Coding Agent",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "architecture_type", "confidence_score", "required_skills"],
+    "category": "blueprint"
+  },
+  {
+    "id": "S10",
+    "command": "skills-tree blueprint --goal \"RAG Assistant\"",
+    "description": "Blueprint for RAG Assistant",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "architecture_type"],
+    "category": "blueprint"
+  },
+  {
+    "id": "S11",
+    "command": "skills-tree blueprint --goal \"Multi-Agent Systems\"",
+    "description": "Blueprint for multi-agent goal",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "architecture_type"],
+    "category": "blueprint"
+  },
+  {
+    "id": "S12",
+    "command": "skills-tree blueprint --goal \"NOTAREAL_GOAL_ABC\" ",
+    "description": "Blueprint for unknown goal — must fail gracefully",
+    "expected_exit_code": 1,
+    "expected_output_contains": ["not found"],
+    "category": "error_handling"
+  },
+  {
+    "id": "S13",
+    "command": "skills-tree goals",
+    "description": "List all goals (JSON)",
+    "expected_exit_code": 0,
+    "expected_output_is_list": true,
+    "min_items": 5,
+    "category": "goals"
+  },
+  {
+    "id": "S14",
+    "command": "skills-tree goals --format table",
+    "description": "List all goals (table)",
+    "expected_exit_code": 0,
+    "expected_output_contains": ["id", "name"],
+    "category": "goals"
+  },
+  {
+    "id": "S15",
+    "command": "skills-tree skills",
+    "description": "List all skills (JSON)",
+    "expected_exit_code": 0,
+    "expected_output_is_list": true,
+    "min_items": 5,
+    "category": "skills"
+  },
+  {
+    "id": "S16",
+    "command": "skills-tree skills --format table",
+    "description": "List all skills (table)",
+    "expected_exit_code": 0,
+    "expected_output_contains": ["id", "name"],
+    "category": "skills"
+  },
+  {
+    "id": "S17",
+    "command": "skills-tree validate",
+    "description": "Full stack validation, no goal",
+    "expected_exit_code": 0,
+    "expected_fields": ["all_pass", "checks", "status"],
+    "category": "validate"
+  },
+  {
+    "id": "S18",
+    "command": "skills-tree validate --goal \"Coding Agent\"",
+    "description": "Full stack validation with goal-specific checks",
+    "expected_exit_code": 0,
+    "expected_fields": ["all_pass", "checks"],
+    "expected_nested": {"checks.recommend.pass": true, "checks.blueprint.pass": true},
+    "category": "validate"
+  },
+  {
+    "id": "S19",
+    "command": "skills-tree --help",
+    "description": "Top-level help",
+    "expected_exit_code": 0,
+    "expected_output_contains": ["recommend", "blueprint", "goals", "skills", "validate"],
+    "category": "meta"
+  },
+  {
+    "id": "S20",
+    "command": "skills-tree recommend --goal \"Memory Agent\" --time-budget 40 --experience beginner --format json",
+    "description": "Recommend with all flags, JSON output, low budget",
+    "expected_exit_code": 0,
+    "expected_fields": ["goal_id", "required_skills", "confidence_score"],
+    "category": "recommend"
+  }
+]
