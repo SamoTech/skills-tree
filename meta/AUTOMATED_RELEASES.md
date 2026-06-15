@@ -1,77 +1,77 @@
 # Automated Release Process
 
-Repository: **SamoTech/skills-tree**
+Repository: **SamoTech/skills-tree** | Mode: **Zero-touch**
 
 ---
 
-## How to Release
-
-The entire release process is four commands:
-
-```bash
-# 1. Bump the version in pyproject.toml
-vim pyproject.toml   # change version = "1.0.3" to "1.0.4" (or whatever)
-
-# 2. Commit
-git add pyproject.toml CHANGELOG.md
-git commit -m "chore(release): v1.0.4"
-
-# 3. Tag
-git tag v1.0.4
-
-# 4. Push the tag
-git push origin v1.0.4
-```
-
-Everything else is automatic.
-
----
-
-## What Happens Automatically
+## The New Workflow (zero-touch)
 
 ```
-git push origin vX.Y.Z
+Write code with Conventional Commits
         │
         ▼
-.github/workflows/release.yml triggered
+git push / merge PR to main
         │
-        ├── Stage 1: Build & verify
-        │       ├── pip install build twine
-        │       ├── Assert pyproject.toml version == tag
-        │       ├── python -m build
-        │       ├── twine check dist/*           ← fails here if metadata broken
-        │       ├── Assert wheel contains:
-        │       │       data/SKILLS_GRAPH.json
-        │       │       meta/GOAL_TAXONOMY.md
-        │       │       benchmarks/INDEX.json
-        │       └── Upload dist/ artifact
-        │
-        ├── Stage 2: Publish → PyPI  (needs Stage 1 to pass)
-        │       └── pypa/gh-action-pypi-publish (OIDC, no token)
-        │
-        └── Stage 3: GitHub Release  (needs Stage 1 + Stage 2)
-                ├── Extract release notes from CHANGELOG.md
-                ├── Create GitHub Release (draft=false)
-                └── Attach .whl + .tar.gz as release assets
+        ▼
+semantic-release.yml (on every push to main)
+        ├── Scan commits since last tag
+        ├── No releasable commits? → STOP (nothing happens)
+        └── Releasable commits found:
+                ├── Bump version in pyproject.toml
+                ├── Update CHANGELOG.md
+                ├── Commit "chore(release): vX.Y.Z [skip ci]"
+                └── Push tag vX.Y.Z
+                        │
+                        ▼
+                release.yml (triggered by tag push)
+                        ├── python -m build
+                        ├── twine check dist/*
+                        ├── Assert wheel assets present
+                        ├── Publish → PyPI (OIDC)
+                        └── Create GitHub Release + attach dist/
 ```
 
-If any stage fails, all downstream stages are skipped. The PyPI publish never runs if the build or quality gates fail.
+**No manual version edits. No manual tags. No manual changelog.**
 
 ---
 
-## One-Time Setup: PyPI Trusted Publisher
+## Bump Rules (Conventional Commits)
 
-This workflow uses **OIDC Trusted Publisher** — no API token or secret is needed. You must configure it once on PyPI.
+| Commit type | Bump | Example |
+|---|---|---|
+| `feat:` | **minor** | `feat: add blueprint caching` |
+| `fix:` / `perf:` / `refactor:` | **patch** | `fix: handle empty graph` |
+| `feat!:` or `BREAKING CHANGE:` | **major** | `feat!: redesign API` |
+| `docs:` / `chore:` / `ci:` / `test:` | none | `docs: update README` |
 
-### Step 1 — Log in to PyPI
+---
 
-Go to: https://pypi.org/manage/project/skills-tree/settings/publishing/
+## One-Time Setup
 
-(If the project does not exist yet, create it first with a manual upload or `twine upload`.)
+### 1. Create a Personal Access Token (PAT)
 
-### Step 2 — Add a Trusted Publisher
+The default `GITHUB_TOKEN` cannot trigger other workflows. You need a PAT so that
+the tag pushed by `semantic-release.yml` fires `release.yml`.
 
-Click **"Add a new publisher"** and fill in:
+- Go to: **GitHub → Settings → Developer settings → Fine-grained tokens**
+- Create a token with these permissions on `SamoTech/skills-tree`:
+  - **Contents:** Read and write
+  - **Metadata:** Read-only
+- Copy the token value.
+
+### 2. Store the PAT as a repository secret
+
+- Go to: **Repository → Settings → Secrets and variables → Actions**
+- Click **New repository secret**
+- Name: `RELEASE_PAT`
+- Value: (paste the PAT)
+
+### 3. Configure PyPI Trusted Publisher
+
+See the PyPI section in the original release docs or go directly to:
+https://pypi.org/manage/project/skills-tree/settings/publishing/
+
+Settings:
 
 | Field | Value |
 |---|---|
@@ -81,74 +81,58 @@ Click **"Add a new publisher"** and fill in:
 | Workflow filename | `release.yml` |
 | Environment name | `pypi` |
 
-### Step 3 — Create the GitHub Environment
+### 4. Create the `pypi` GitHub Environment
 
-In the repository: **Settings → Environments → New environment**
+**Repository → Settings → Environments → New environment**
 
 - Name: `pypi`
-- Optional: add a required reviewer (e.g. yourself) for extra protection
-- Optional: restrict to tag patterns `v*.*.*`
-
-### Step 4 — Verify
-
-Push a test tag (e.g. `v1.0.4-rc1`) and watch the workflow at:
-https://github.com/SamoTech/skills-tree/actions/workflows/release.yml
+- Deployment protection rules: restrict to tags matching `v*.*.*`
 
 ---
 
-## Workflow Permissions
+## Developer Workflow (daily use)
 
-```yaml
-permissions:
-  id-token: write   # required for OIDC token exchange with PyPI
-  contents: write   # required to create GitHub Release and attach assets
+```bash
+# Just write code and commit with Conventional Commits.
+# Versioning, changelog, tagging, PyPI publish, and GitHub Release
+# all happen automatically.
+
+git commit -m "fix(engine): handle missing benchmarks directory"
+git push origin main
+# ↑ if this is the first fix since the last release, 1.0.3 → 1.0.4 happens automatically
+
+git commit -m "feat(cli): add --dry-run flag"
+git push origin main
+# ↑ 1.0.4 → 1.1.0 happens automatically
+
+git commit -m "docs: update README"
+git push origin main
+# ↑ no release triggered (docs: is not releasable)
 ```
-
-These are declared at the top of `release.yml` and apply only to the release workflow. No repository-wide permission changes are needed.
 
 ---
 
-## Version Mismatch Guard
+## Bypassing Zero-Touch (emergency manual release)
 
-The workflow asserts that `pyproject.toml version` == `git tag` before building. If they differ, the build fails immediately with a clear error:
+If you need to release immediately without waiting for CI:
 
+```bash
+pip install python-semantic-release
+semantic-release version   # bumps version + creates tag locally
+git push origin main --follow-tags
+# tag push triggers release.yml as normal
 ```
-ERROR: pyproject.toml version (1.0.3) != tag (1.0.4)
-Bump the version in pyproject.toml and re-tag.
-```
-
-This prevents accidentally publishing the wrong version.
 
 ---
 
-## Pre-release Tags
+## Configuration Location
 
-Tags containing `-rc`, `-beta`, or `-alpha` are automatically marked as **pre-release** on GitHub. They are still published to PyPI normally.
-
-Examples:
-- `v1.1.0-rc1` → GitHub pre-release, PyPI release
-- `v1.1.0` → GitHub stable release, PyPI release
+All semantic-release config lives in `pyproject.toml` under `[tool.semantic_release]`.
+No separate `.releaserc` or `release.config.js` file is needed.
 
 ---
 
-## Failure Modes
+## Commit Convention Reference
 
-| Failure | Stage | Effect |
-|---|---|---|
-| `pyproject.toml` version ≠ tag | Build | Immediate exit 1; no publish |
-| `python -m build` error | Build | Immediate exit 1; no publish |
-| `twine check` fails | Build | Immediate exit 1; no publish |
-| Required wheel asset missing | Build | Immediate exit 1; no publish |
-| PyPI OIDC misconfigured | Publish | Build artifacts available, but not published |
-| GitHub token issue | Release | Published to PyPI but no GitHub Release |
-
----
-
-## Artifacts
-
-Even if the GitHub Release step fails, the built `dist/` folder is available as a GitHub Actions artifact for 7 days under the name `dist`.
-
-Download at:
-```
-https://github.com/SamoTech/skills-tree/actions/workflows/release.yml
-```
+See [`.github/COMMIT_CONVENTION.md`](./../.github/COMMIT_CONVENTION.md) for the full
+Conventional Commits reference, scope list, and PR title guidance.

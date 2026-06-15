@@ -32,7 +32,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev    = ["pytest>=8.2", "pytest-asyncio>=0.23", "httpx>=0.27.0"]
+dev    = ["pytest>=8.2", "pytest-asyncio>=0.23", "httpx>=0.27.0", "python-semantic-release>=9.8"]
 server = ["uvicorn[standard]>=0.29.0"]
 
 [project.urls]
@@ -76,3 +76,42 @@ testpaths = ["tests"]
 [tool.ruff]
 line-length    = 100
 target-version = "py311"
+
+# ---------------------------------------------------------------------------
+# python-semantic-release configuration
+# Docs: https://python-semantic-release.readthedocs.io/en/latest/
+# ---------------------------------------------------------------------------
+[tool.semantic_release]
+# The single source of truth for the version number.
+version_toml               = ["pyproject.toml:project.version"]
+branch                     = "main"
+build_command              = "pip install build && python -m build"
+dist_path                  = "dist/"
+upload_to_pypi             = false    # PyPI publish is handled by release.yml (OIDC)
+upload_to_release          = true     # attach dist/ artifacts to GitHub Release
+changelog_file             = "CHANGELOG.md"
+commit_message             = "chore(release): v{version} [skip ci]"
+tag_format                 = "v{version}"
+
+[tool.semantic_release.commit_parser_options]
+# Bump rules (Conventional Commits):
+#   feat:           minor bump
+#   fix/perf/refactor: patch bump
+#   BREAKING CHANGE or feat!: major bump
+# All other types (docs, chore, ci, test, style) cause NO release.
+allowed_tags   = ["feat", "fix", "perf", "refactor", "docs", "chore", "ci", "test", "style", "build", "revert"]
+minor_tags     = ["feat"]
+patch_tags     = ["fix", "perf", "refactor"]
+
+[tool.semantic_release.changelog]
+# Auto-generate changelog sections from commit types.
+exclude_commit_patterns = [
+    "^chore\\(release\\):",     # skip the version-bump commit itself
+    "^Merge ",
+    "^Initial commit",
+]
+
+[tool.semantic_release.remote]
+name  = "origin"
+type  = "github"
+token = { env = "GH_TOKEN" }
