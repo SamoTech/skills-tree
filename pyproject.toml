@@ -51,7 +51,6 @@ skills-tree = "cli.main:app"
 include-package-data = true
 
 [tool.setuptools.packages.find]
-# Auto-discover all Python packages; exclude non-package top-level dirs.
 where   = ["."]
 exclude = ["tests*", "evaluation*", "docs*", "meta*", "benchmarks*", "assets*", "badges*"]
 
@@ -64,9 +63,7 @@ exclude = ["tests*", "evaluation*", "docs*", "meta*", "benchmarks*", "assets*", 
 # ---------------------------------------------------------------------------
 # Data files — top-level non-package runtime assets.
 # Rule: only list files that EXIST in the repository.
-# Adding a non-existent path here causes `python -m build` to fail.
-# Verified present: data/SKILLS_GRAPH.json, meta/GOAL_TAXONOMY.md, benchmarks/INDEX.json
-# Intentionally absent: meta/GOAL_TAXONOMY.json (does not exist, not referenced by code)
+# meta/GOAL_TAXONOMY.json intentionally absent — file does not exist.
 # ---------------------------------------------------------------------------
 [tool.setuptools.data-files]
 "data"       = ["data/SKILLS_GRAPH.json"]
