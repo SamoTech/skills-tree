@@ -4,146 +4,206 @@ Repository: **SamoTech/skills-tree** | Mode: **Zero-touch, single pipeline**
 
 ---
 
-## Architecture
+## Is Any Manual Action Required?
 
-### Before (two-workflow chain)
+### One-time setup (humans required once, never again after)
+
+| Action | Where | When |
+|---|---|---|
+| Add PyPI Trusted Publisher entry | pypi.org | Once, before first release |
+| Create `pypi` GitHub Environment | GitHub repo settings | Once |
+
+### Per-release actions (humans required: zero)
+
+| Action | Automated by |
+|---|---|
+| Version bump | semantic-release |
+| CHANGELOG update | semantic-release |
+| Git tag creation | semantic-release |
+| Build sdist + wheel | zero-touch-release.yml Job 2 |
+| PyPI publish | zero-touch-release.yml Job 3 |
+| GitHub Release creation | semantic-release |
+| Release asset attachment | zero-touch-release.yml Job 4 |
+
+**After one-time setup: git commit + git push = full release. Nothing else.**
+
+---
+
+## Final Architecture
 
 ```
-push to main
-  │
-  ▼
-semantic-release.yml
-  └─ creates tag
+git commit -m "fix(api): improve ranking"
+git push origin main
         │
-        ▼  (tag push event)
-      release.yml
-        └─ build → PyPI → GitHub Release
-```
-
-**Problem:** GitHub Actions does not re-trigger workflows from pushes made
-by `GITHUB_TOKEN`. The tag created by `semantic-release.yml` never fired
-`release.yml`, so PyPI never received v1.1.0 or v1.1.1.
-
-### After (single pipeline)
-
-```
-push to main
-  │
-  ▼
-zero-touch-release.yml
-  ├─ Job 1: semantic-release
-  │       ├─ scan commits since last tag
-  │       ├─ no releasable commits? → STOP (jobs 2–4 skipped)
-  │       └─ releasable commits found:
-  │               ├─ bump version in pyproject.toml
-  │               ├─ update CHANGELOG.md
-  │               ├─ commit "chore(release): vX.Y.Z [skip ci]"
-  │               └─ push tag vX.Y.Z
-  │
-  ├─ Job 2: Build & Verify  (only if released=true)
-  │       ├─ checkout tag
-  │       ├─ assert pyproject version == tag
-  │       ├─ python -m build
-  │       ├─ twine check dist/*
-  │       ├─ assert wheel assets present
-  │       └─ upload dist/ artifact
-  │
-  ├─ Job 3: Publish → PyPI  (only if released=true)
-  │       ├─ id-token:write at job level (OIDC scoping correct)
-  │       ├─ environment: pypi
-  │       └─ pypa/gh-action-pypi-publish (OIDC, no token)
-  │
-  └─ Job 4: Attach Release Assets  (only if released=true)
-          ├─ softprops/action-gh-release
-          └─ attach .whl + .tar.gz to GitHub Release
+        ▼
+zero-touch-release.yml  (triggered by push to main)
+        │
+        ├─── Job 1: Semantic Release
+        │         ├─ scan commits since last tag
+        │         ├─ no releasable commits? → STOP (jobs 2–4 skipped via if-gate)
+        │         └─ releasable commits found:
+        │                 ├─ bump version in pyproject.toml
+        │                 ├─ update CHANGELOG.md
+        │                 ├─ commit "chore(release): vX.Y.Z [skip ci]"
+        │                 └─ push tag vX.Y.Z
+        │                   outputs: released=true, version=X.Y.Z, tag=vX.Y.Z
+        │
+        ├─── Job 2: Build & Verify          (skipped if released=false)
+        │         ├─ checkout tag vX.Y.Z
+        │         ├─ assert pyproject version == tag
+        │         ├─ python -m build
+        │         ├─ twine check dist/*
+        │         ├─ assert data/SKILLS_GRAPH.json in wheel
+        │         ├─ assert meta/GOAL_TAXONOMY.md in wheel
+        │         ├─ assert benchmarks/INDEX.json in wheel
+        │         └─ upload dist/ artifact
+        │
+        ├─── Job 3: Publish → PyPI          (skipped if released=false)
+        │         ├─ id-token:write at job level
+        │         ├─ environment: pypi
+        │         ├─ OIDC pre-flight check:
+        │         │     ├─ print repository, workflow, environment
+        │         │     └─ fail with actionable error if mismatch
+        │         └─ pypa/gh-action-pypi-publish (OIDC, no token, no secret)
+        │
+        └─── Job 4: Attach Release Assets   (skipped if released=false)
+                  ├─ softprops/action-gh-release
+                  └─ attach .whl + .tar.gz to GitHub Release
 ```
 
 ---
 
 ## Active Workflows
 
-| Workflow | Trigger | Purpose |
+| Workflow | Trigger | Role |
 |---|---|---|
-| `zero-touch-release.yml` | push to `main` | **Active** — full release pipeline |
-| `release.yml` | `workflow_dispatch` only | Manual recovery for pre-existing tags |
-| `semantic-release.yml` | `workflow_dispatch` only | Debug / manual override |
-| `build-and-verify.yml` | push to `main` + PRs | Packaging sanity check (independent) |
-| `clean-install-test.yml` | push to `main` + PRs | Clean environment test |
+| `zero-touch-release.yml` | push to `main` | ✅ **Production release pipeline** |
+| `build-and-verify.yml` | push to `main` + PRs | ✅ Packaging sanity check |
+| `clean-install-test.yml` | push to `main` + PRs | ✅ Environment test |
+| `release.yml` | `workflow_dispatch` only | 🔧 Manual recovery for old tags |
+| `semantic-release.yml` | `workflow_dispatch` only | 🔧 Debug override |
 
 ---
 
-## PyPI Trusted Publisher — IMPORTANT UPDATE
+## One-Time Setup (do once, never repeat)
 
-Because the active workflow is now `zero-touch-release.yml`, you must update
-the PyPI Trusted Publisher configuration to match the new workflow filename.
+### 1. PyPI Trusted Publisher
 
-Go to: https://pypi.org/manage/project/skills-tree/settings/publishing/
+URL: https://pypi.org/manage/project/skills-tree/settings/publishing/
+
+Add entry:
 
 | Field | Value |
 |---|---|
-| PyPI Project Name | `skills-tree` |
+| PyPI project name | `skills-tree` |
 | Owner | `SamoTech` |
 | Repository name | `skills-tree` |
-| Workflow filename | **`zero-touch-release.yml`** |
-| Environment name | `pypi` |
+| **Workflow filename** | **`zero-touch-release.yml`** |
+| **Environment name** | **`pypi`** |
 
-The old entry with `release.yml` should be **kept** for manual recovery runs.
-Add a second entry for `zero-touch-release.yml`.
+Also keep the existing `release.yml` entry for manual recovery.
+
+### 2. GitHub Environment
+
+Repository → Settings → Environments → New environment
+
+- Name: `pypi`
+- Optional deployment protection: restrict to tags `v*.*.*`
+
+### 3. No secrets required
+
+`GITHUB_TOKEN` is sufficient. No `RELEASE_PAT`, no `PYPI_API_TOKEN`.
 
 ---
 
-## One-Time Setup
+## OIDC Pre-flight Validation
 
-1. **Update PyPI Trusted Publisher** (above) — add entry for `zero-touch-release.yml`.
-2. **GitHub Environment** — `pypi` environment must exist:
-   Repository → Settings → Environments → `pypi`.
-   Optional: restrict to tags `v*.*.*`.
-3. **No PAT required** — `GITHUB_TOKEN` is sufficient because build/publish
-   runs in the same workflow run as semantic-release (not a separate triggered workflow).
+The `publish-pypi` job runs a shell validation step before calling
+`pypa/gh-action-pypi-publish`. It prints the three values PyPI
+validates and fails with a clear error if they do not match:
+
+```
+=== OIDC Trusted Publisher pre-flight ===
+
+  Repository : SamoTech/skills-tree
+  Workflow   : zero-touch-release.yml
+  Environment: pypi
+
+  ✅ repository matches
+  ✅ workflow filename matches
+  ✅ environment: pypi
+
+=== OIDC pre-flight PASSED — proceeding to publish ===
+```
+
+If there is a mismatch (e.g. workflow was renamed), the step fails with:
+
+```
+  ERROR: workflow filename mismatch
+         got      : new-name.yml
+         expected : zero-touch-release.yml
+  Fix: update the Workflow filename field in the Trusted Publisher.
+
+Required PyPI Trusted Publisher settings:
+  PyPI project name : skills-tree
+  Owner             : SamoTech
+  Repository        : skills-tree
+  Workflow filename : zero-touch-release.yml
+  Environment       : pypi
+```
 
 ---
 
 ## Developer Daily Workflow
 
 ```bash
-# Write code. Use Conventional Commits. Push.
 git commit -m "fix(api): improve ranking"
 git push origin main
+# Done. PyPI release in ~3 minutes.
 ```
 
-That is the complete developer action. The pipeline does the rest:
+### What happens automatically
 
-1. Scans commits → detects `fix:` → patch bump
-2. Bumps `pyproject.toml` version (e.g. 1.1.1 → 1.1.2)
-3. Updates `CHANGELOG.md`
-4. Commits `chore(release): v1.1.2 [skip ci]`
-5. Pushes tag `v1.1.2`
-6. Builds wheel + sdist
-7. Publishes to PyPI
-8. Attaches assets to GitHub Release
-
-**No manual version edit. No manual tag. No manual changelog.**
+1. `fix:` prefix → patch bump (e.g. 1.1.1 → 1.1.2)
+2. `pyproject.toml` version updated
+3. `CHANGELOG.md` updated
+4. Commit `chore(release): v1.1.2 [skip ci]` pushed
+5. Tag `v1.1.2` pushed
+6. Wheel + sdist built and verified
+7. Published to PyPI (`pip install skills-tree` returns `1.1.2`)
+8. `.whl` + `.tar.gz` attached to GitHub Release
 
 ---
 
-## Bump Rules
+## Bump Rules (Conventional Commits)
 
-| Commit prefix | Bump | Example |
+| Prefix | Bump | Example |
 |---|---|---|
 | `fix:` / `perf:` / `refactor:` | patch | `fix(api): improve ranking` |
-| `feat:` | minor | `feat(cli): add dry-run flag` |
-| `feat!:` / `BREAKING CHANGE` | major | `feat!: redesign API` |
-| `docs:` / `chore:` / `ci:` / `test:` | none | `docs: update README` |
+| `feat:` | minor | `feat(cli): add dry-run` |
+| `feat!:` or `BREAKING CHANGE` | major | `feat!: redesign API` |
+| `docs:` / `chore:` / `ci:` / `test:` | none (no release) | `docs: update README` |
 
 ---
 
 ## Manual Recovery (v1.1.0, v1.1.1)
 
-To publish tags that were created before this pipeline existed:
+For tags created before zero-touch-release.yml existed:
 
-1. Go to Actions → **"Release → PyPI (manual recovery only)"**
-2. Click **Run workflow**
-3. Enter tag: `v1.1.0` → Run
-4. Repeat with `v1.1.1`
+1. Actions → **"Release → PyPI (manual recovery only)"**
+2. Run workflow → enter tag `v1.1.0` → Run
+3. Repeat with `v1.1.1`
 
 Expected PyPI state after recovery: latest = `1.1.1`.
+
+---
+
+## Human Actions Required Per Timeframe
+
+| Timeframe | Required human action |
+|---|---|
+| Per release | **Zero** |
+| Per month | **Zero** |
+| Per year | **Zero** |
+| On repo creation | One-time PyPI Trusted Publisher + GitHub Environment setup |
+| On workflow rename | Update PyPI Trusted Publisher workflow filename field |

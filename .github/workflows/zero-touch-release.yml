@@ -1,8 +1,6 @@
 name: Zero-Touch Release
 
 # Single pipeline: semantic-release → build → PyPI → GitHub Release.
-# Replaces the two-workflow chain (semantic-release.yml + release.yml).
-#
 # Trigger: every push to main.
 # If no releasable commits exist, semantic-release exits 0 and all
 # downstream steps are skipped via the `released` output gate.
@@ -12,28 +10,25 @@ on:
 
 concurrency:
   group: zero-touch-release
-  cancel-in-progress: false  # never cancel — let the in-flight run finish
+  cancel-in-progress: false
 
 # Workflow-level: read-only.
-# id-token:write is declared only on the publish job so GitHub scopes
-# the OIDC token to that job + environment — exactly what PyPI validates.
+# id-token:write is declared only on the publish job (job level)
+# so GitHub scopes the OIDC token to that job + environment.
 permissions:
   contents: read
 
 jobs:
   # ---------------------------------------------------------------------------
   # Job 1 — Semantic Release
-  # Determines whether a release is needed, bumps version, writes changelog,
-  # commits, and pushes the tag. Outputs `released` and `version`.
   # ---------------------------------------------------------------------------
   semantic-release:
     name: "1 • Semantic Release"
     runs-on: ubuntu-latest
-    # Skip the version-bump commit that semantic-release itself pushes.
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     permissions:
-      contents: write   # push version-bump commit + tag
-      id-token: write   # allow GH Release creation by PSR if desired
+      contents: write
+      id-token: write
     outputs:
       released: ${{ steps.psr.outputs.released }}
       version:  ${{ steps.psr.outputs.version }}
@@ -44,9 +39,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # GH_TOKEN is used to push the version-bump commit + tag.
-          # GITHUB_TOKEN pushes do NOT re-trigger workflows, so the
-          # build/publish steps run in THIS same workflow run instead.
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure git identity
@@ -67,14 +59,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          OUTPUT=$(semantic-release version --print 2>&1 || true)
-          echo "semantic-release output: $OUTPUT"
-
-          # Run the actual release (commit + tag + push)
           semantic-release version 2>&1 || true
 
-          # Detect whether a new version was created by reading pyproject.toml
-          # and comparing to the previous tag.
           CURRENT=$(python - <<'EOF'
           import tomllib
           with open("pyproject.toml", "rb") as f:
@@ -89,12 +75,12 @@ jobs:
           echo "latest tag version        : $LATEST_VER"
 
           if [ "$CURRENT" = "$LATEST_VER" ]; then
-            echo "released=true"   >> "$GITHUB_OUTPUT"
+            echo "released=true"    >> "$GITHUB_OUTPUT"
             echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
             echo "tag=v$CURRENT"    >> "$GITHUB_OUTPUT"
             echo "::notice::New release detected: v$CURRENT"
           else
-            echo "released=false"  >> "$GITHUB_OUTPUT"
+            echo "released=false"   >> "$GITHUB_OUTPUT"
             echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
             echo "tag="             >> "$GITHUB_OUTPUT"
             echo "::notice::No releasable commits — skipping build and publish."
@@ -102,7 +88,6 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Job 2 — Build & Verify
-  # Runs only when semantic-release created a new version.
   # ---------------------------------------------------------------------------
   build:
     name: "2 • Build & Verify"
@@ -173,8 +158,7 @@ jobs:
         run: |
           VERSION="${{ needs.semantic-release.outputs.version }}"
           if ! grep -q "\[${VERSION}\]" CHANGELOG.md; then
-            echo "WARNING: CHANGELOG.md has no entry for v${VERSION}."
-            # Warn but do not fail — semantic-release may format differently.
+            echo "WARNING: no CHANGELOG entry for v${VERSION}."
           else
             echo "CHANGELOG entry confirmed for v${VERSION}."
           fi
@@ -188,7 +172,8 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Job 3 — Publish to PyPI
-  # id-token:write at job level + environment:pypi = correct OIDC scoping.
+  # id-token:write at JOB level is required for OIDC scoping to work
+  # when an environment: block is present.
   # ---------------------------------------------------------------------------
   publish-pypi:
     name: "3 • Publish → PyPI"
@@ -196,7 +181,7 @@ jobs:
     if: needs.semantic-release.outputs.released == 'true'
     runs-on: ubuntu-latest
     permissions:
-      id-token: write   # job-level: required for PyPI OIDC Trusted Publisher
+      id-token: write   # job-level: OIDC token scoped to this job + environment
       contents: read
     environment:
       name: pypi
@@ -209,17 +194,73 @@ jobs:
           name: dist-${{ needs.semantic-release.outputs.version }}
           path: dist/
 
+      # -----------------------------------------------------------------------
+      # OIDC pre-flight check.
+      # Prints the exact values PyPI will validate against.
+      # Fails with a clear, actionable error if they do not match.
+      # -----------------------------------------------------------------------
+      - name: OIDC pre-flight — verify Trusted Publisher configuration
+        run: |
+          echo "=== OIDC Trusted Publisher pre-flight ==="
+          echo ""
+          REPO="${GITHUB_REPOSITORY}"
+          WORKFLOW=$(basename "${GITHUB_WORKFLOW_REF%%@*}")
+          ENV="pypi"
+
+          echo "  Repository : $REPO"
+          echo "  Workflow   : $WORKFLOW"
+          echo "  Environment: $ENV"
+          echo ""
+
+          EXPECTED_REPO="SamoTech/skills-tree"
+          EXPECTED_WF="zero-touch-release.yml"
+
+          FAILED=0
+          if [ "$REPO" != "$EXPECTED_REPO" ]; then
+            echo "  ERROR: repository mismatch"
+            echo "         got      : $REPO"
+            echo "         expected : $EXPECTED_REPO"
+            echo "  Fix: update the Trusted Publisher entry at"
+            echo "       https://pypi.org/manage/project/skills-tree/settings/publishing/"
+            FAILED=1
+          else
+            echo "  ✅ repository matches"
+          fi
+
+          if [ "$WORKFLOW" != "$EXPECTED_WF" ]; then
+            echo "  ERROR: workflow filename mismatch"
+            echo "         got      : $WORKFLOW"
+            echo "         expected : $EXPECTED_WF"
+            echo "  Fix: update the Workflow filename field in the Trusted Publisher."
+            FAILED=1
+          else
+            echo "  ✅ workflow filename matches"
+          fi
+
+          echo "  ✅ environment: $ENV"
+          echo ""
+
+          if [ "$FAILED" = "1" ]; then
+            echo "=== OIDC pre-flight FAILED ==="
+            echo ""
+            echo "Required PyPI Trusted Publisher settings:"
+            echo "  PyPI project name : skills-tree"
+            echo "  Owner             : SamoTech"
+            echo "  Repository        : skills-tree"
+            echo "  Workflow filename : zero-touch-release.yml"
+            echo "  Environment       : pypi"
+            echo ""
+            echo "Configure at: https://pypi.org/manage/project/skills-tree/settings/publishing/"
+            exit 1
+          fi
+
+          echo "=== OIDC pre-flight PASSED — proceeding to publish ==="
+
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        # OIDC Trusted Publisher config required at:
-        # https://pypi.org/manage/project/skills-tree/settings/publishing/
-        # owner=SamoTech  repo=skills-tree
-        # workflow=zero-touch-release.yml  environment=pypi
 
   # ---------------------------------------------------------------------------
-  # Job 4 — Update GitHub Release with dist/ assets
-  # semantic-release already created the release object; this job attaches
-  # the built wheel + sdist as downloadable assets.
+  # Job 4 — Attach dist/ to GitHub Release
   # ---------------------------------------------------------------------------
   attach-assets:
     name: "4 • Attach Release Assets"
@@ -227,7 +268,7 @@ jobs:
     if: needs.semantic-release.outputs.released == 'true'
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # needed to upload release assets
+      contents: write
 
     steps:
       - name: Download dist/
@@ -244,5 +285,4 @@ jobs:
             dist/*.whl
             dist/*.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
-          # fail_on_unmatched_files so we catch build regressions
           fail_on_unmatched_files: true
