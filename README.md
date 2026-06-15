@@ -10,9 +10,11 @@
 ![Banner](docs/assets/banner.svg)
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — June 8, 2026
+## 📆 This Week's Highlights — June 15, 2026
 
-> No skill changes this week. Open a PR to get started!
+### 🔥 Most Active Skills
+- **Readme** — 1 PR
+- **Xquik Api** — 1 PR
 
 <!-- HIGHLIGHTS_END -->
 
