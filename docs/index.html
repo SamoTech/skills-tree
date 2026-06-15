@@ -1,806 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skills Tree — AI Agent Capability Browser</title>
-<meta name="description" content="Browse 515+ AI agent skills across 16 categories. The complete capability reference for AI agents, LLMs, and agentic frameworks.">
-<meta property="og:title" content="Skills Tree — AI Agent Capability Browser">
-<meta property="og:description" content="515+ skills for AI agents across 16 categories.">
-<meta property="og:url" content="https://samotech.github.io/skills-tree">
-<meta property="og:image" content="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/banner.svg">
-<meta property="og:image:alt" content="Skills Tree — AI Agent Skill OS banner">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/assets/banner.svg">
-<!-- Inline SVG favicon -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233fb950'/><circle cx='16' cy='8' r='3.5' fill='white'/><circle cx='8' cy='23' r='3' fill='white'/><circle cx='24' cy='23' r='3' fill='white'/><line x1='16' y1='11.5' x2='8' y2='20' stroke='white' stroke-width='2' stroke-linecap='round'/><line x1='16' y1='11.5' x2='24' y2='20' stroke='white' stroke-width='2' stroke-linecap='round'/><line x1='16' y1='11.5' x2='16' y2='26' stroke='white' stroke-width='2' stroke-linecap='round' stroke-dasharray='3 2.5'/></svg>" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* ==============================================
-   DESIGN TOKENS — Skills Tree
-   Art direction: AI/dev tool → clean, dark-first
-   Palette: dark slate surfaces + green accent
-   Typography: Inter (body/UI) + JetBrains Mono
-   ============================================== */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills Tree Architect — AI Agent Skill Navigator</title>
+  <meta name="description" content="Taxonomy-driven skill recommendation engine for AI agent builders. Get calibrated learning paths, blueprints, and skill graphs for any agent goal." />
+  <style>
+    :root {
+      --bg: #0d1117; --surface: #161b22; --border: #30363d;
+      --accent: #58a6ff; --accent2: #3fb950; --accent3: #d2a8ff;
+      --text: #e6edf3; --muted: #8b949e; --code-bg: #1c2128;
+      --radius: 10px; --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, pre { font-family: 'SFMono-Regular', Consolas, monospace; }
+    pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; overflow-x: auto; font-size: 0.88rem; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;scroll-behavior:smooth;scroll-padding-top:4.5rem}
-body{min-height:100dvh;line-height:1.6}
-img,picture,svg{display:block;max-width:100%}
-button{cursor:pointer;font:inherit;color:inherit;border:none;background:none}
-a{color:inherit;text-decoration:none}
-ul[role="list"],ol[role="list"]{list-style:none}
-input{font:inherit;color:inherit}
-h1,h2,h3,h4{text-wrap:balance;line-height:1.15}
-p{text-wrap:pretty}
+    /* NAV */
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0.9rem 0; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 1.1rem; color: var(--text); }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 0.92rem; color: var(--muted); }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-}
+    /* HERO */
+    .hero { padding: 5rem 0 4rem; text-align: center; }
+    .badge { display: inline-block; background: var(--code-bg); border: 1px solid var(--border); border-radius: 20px; padding: 0.3rem 0.9rem; font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 auto 2rem; }
+    .btn-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 0.65rem 1.5rem; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn:hover { opacity: 0.88; text-decoration: none; }
 
-:root{
-  --text-xs:  clamp(.75rem,  .7rem  + .25vw, .875rem);
-  --text-sm:  clamp(.875rem, .8rem  + .35vw, 1rem);
-  --text-base:clamp(1rem,    .95rem + .25vw, 1.125rem);
-  --text-lg:  clamp(1.125rem,1rem   + .75vw, 1.5rem);
-  --text-xl:  clamp(1.5rem,  1.2rem + 1.25vw,2.25rem);
-  --text-2xl: clamp(2rem,    1.2rem + 2.5vw, 3.5rem);
+    /* SECTION */
+    section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
+    h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 1.2rem; }
+    h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--accent3); }
+    p { margin-bottom: 1rem; color: var(--muted); }
+    ul { padding-left: 1.4rem; color: var(--muted); }
+    ul li { margin-bottom: 0.4rem; }
 
-  --sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;
-  --sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;--sp16:4rem;--sp20:5rem;
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; }
+    .card-icon { font-size: 1.6rem; margin-bottom: 0.7rem; }
+    .card h3 { color: var(--text); margin-bottom: 0.4rem; font-size: 1rem; }
+    .card p { font-size: 0.9rem; color: var(--muted); margin: 0; }
 
-  --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-full:9999px;
+    /* TABS */
+    .tab-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .tab { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.9rem; font-size: 0.85rem; cursor: pointer; color: var(--muted); }
+    .tab.active { background: var(--accent); color: #0d1117; border-color: var(--accent); font-weight: 600; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
-  --ease-out:cubic-bezier(.16,1,.3,1);
-  --dur-fast:150ms;--dur-base:220ms;
+    /* ARCH */
+    .arch-box { background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 2rem; font-size: 0.87rem; line-height: 2; }
+    .arch-layer { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; }
+    .arch-label { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.3rem 0.8rem; min-width: 180px; text-align: center; font-weight: 600; font-size: 0.82rem; }
+    .arch-label.cli { border-color: var(--accent2); color: var(--accent2); }
+    .arch-label.api { border-color: var(--accent); color: var(--accent); }
+    .arch-label.mcp { border-color: var(--accent3); color: var(--accent3); }
+    .arch-label.engine { border-color: #f0883e; color: #f0883e; }
+    .arch-arrow { color: var(--muted); font-size: 1.2rem; }
 
-  --font-body:'Inter','Helvetica Neue',sans-serif;
-  --font-mono:'JetBrains Mono','Fira Code',monospace;
+    /* FOOTER */
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 4rem; text-align: center; color: var(--muted); font-size: 0.88rem; }
+    footer a { color: var(--muted); }
 
-  --content-narrow:640px;--content-default:960px;--content-wide:1200px;
-}
-
-:root,[data-theme="dark"]{
-  --bg:#0d1117;
-  --surface:#161b22;
-  --surface-2:#1c2128;
-  --surface-3:#21262d;
-  --border:rgba(255,255,255,.08);
-  --border-hover:rgba(255,255,255,.18);
-  --text:#e6edf3;
-  --text-muted:#8b949e;
-  --text-faint:#484f58;
-  --text-inverse:#0d1117;
-  --primary:#3fb950;
-  --primary-hover:#52d65f;
-  --primary-active:#2ea043;
-  --primary-dim:rgba(63,185,80,.12);
-  --primary-border:rgba(63,185,80,.3);
-  --accent:#58a6ff;
-  --accent-dim:rgba(88,166,255,.12);
-  --accent-border:rgba(88,166,255,.3);
-  --purple:#bc8cff;
-  --orange:#f0883e;
-  --red:#f85149;
-  --shadow-sm:0 1px 3px rgba(0,0,0,.4);
-  --shadow-md:0 4px 16px rgba(0,0,0,.5);
-  --shadow-lg:0 12px 40px rgba(0,0,0,.6);
-}
-
-[data-theme="light"]{
-  --bg:#f6f8fa;
-  --surface:#ffffff;
-  --surface-2:#f0f2f5;
-  --surface-3:#e8ecf0;
-  --border:rgba(0,0,0,.1);
-  --border-hover:rgba(0,0,0,.25);
-  --text:#1f2328;
-  --text-muted:#636c76;
-  --text-faint:#9da6b0;
-  --text-inverse:#ffffff;
-  --primary:#1a7f37;
-  --primary-hover:#196f2e;
-  --primary-active:#145624;
-  --primary-dim:rgba(26,127,55,.1);
-  --primary-border:rgba(26,127,55,.3);
-  --accent:#0969da;
-  --accent-dim:rgba(9,105,218,.1);
-  --accent-border:rgba(9,105,218,.3);
-  --purple:#8250df;
-  --orange:#bc4c00;
-  --red:#cf222e;
-  --shadow-sm:0 1px 3px rgba(0,0,0,.12);
-  --shadow-md:0 4px 16px rgba(0,0,0,.08);
-  --shadow-lg:0 12px 40px rgba(0,0,0,.12);
-}
-
-body{
-  font-family:var(--font-body);
-  font-size:var(--text-base);
-  color:var(--text);
-  background:var(--bg);
-  transition:background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out);
-}
-
-.skip-link{
-  position:absolute;left:var(--sp4);top:var(--sp4);
-  padding:var(--sp2) var(--sp4);
-  background:var(--primary);color:var(--text-inverse);
-  border-radius:var(--r-md);font-size:var(--text-sm);font-weight:600;
-  z-index:999;transform:translateY(-120%);transition:transform var(--dur-fast);
-}
-.skip-link:focus{transform:translateY(0)}
-
-/* ===== NAV ===== */
-nav{
-  position:sticky;top:0;z-index:100;
-  background:color-mix(in oklch,var(--bg) 88%,transparent);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:var(--sp3) var(--sp6);gap:var(--sp4);
-  transition:background var(--dur-base),border-color var(--dur-base);
-}
-
-.nav-logo{
-  display:flex;align-items:center;gap:var(--sp2);
-  transition:opacity var(--dur-fast);flex-shrink:0;
-}
-.nav-logo:hover{opacity:.8}
-
-.nav-logo-svg{height:28px;width:auto;}
-
-.nav-center{
-  flex:1;display:flex;justify-content:center;
-  max-width:400px;margin:0 auto;
-}
-.nav-search{
-  width:100%;padding:var(--sp2) var(--sp4) var(--sp2) 2.4rem;
-  background:var(--surface-2);border:1px solid var(--border);
-  border-radius:var(--r-full);font-size:var(--text-sm);color:var(--text);
-  transition:border-color var(--dur-fast),box-shadow var(--dur-fast),background var(--dur-fast);
-}
-.nav-search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim);background:var(--surface);}
-.nav-search-wrap{position:relative;width:100%}
-.nav-search-wrap svg{position:absolute;left:var(--sp3);top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;width:16px;height:16px;}
-
-.nav-right{display:flex;align-items:center;gap:var(--sp3)}
-.nav-link{font-size:var(--text-sm);color:var(--text-muted);transition:color var(--dur-fast);white-space:nowrap;}
-.nav-link:hover{color:var(--text)}
-.nav-link.active{color:var(--primary);font-weight:600;}
-
-.theme-toggle{
-  width:36px;height:36px;border-radius:var(--r-md);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--text-muted);border:1px solid var(--border);
-  transition:color var(--dur-fast),border-color var(--dur-fast),background var(--dur-fast);
-}
-.theme-toggle:hover{color:var(--text);border-color:var(--border-hover);background:var(--surface-2)}
-
-.btn{
-  display:inline-flex;align-items:center;gap:var(--sp2);
-  padding:var(--sp2) var(--sp4);
-  border-radius:var(--r-md);font-size:var(--text-sm);font-weight:600;
-  transition:all var(--dur-fast) var(--ease-out);white-space:nowrap;
-}
-.btn-primary{background:var(--primary);color:var(--text-inverse);border:1px solid transparent;}
-.btn-primary:hover{background:var(--primary-hover)}
-.btn-primary:active{background:var(--primary-active)}
-.btn-ghost{border:1px solid var(--border);color:var(--text-muted);}
-.btn-ghost:hover{border-color:var(--border-hover);color:var(--text)}
-
-/* ===== HERO ===== */
-.hero{
-  padding:clamp(var(--sp12),8vw,var(--sp20)) var(--sp6) clamp(var(--sp8),5vw,var(--sp16));
-  text-align:center;position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 50% -5%,var(--primary-dim),transparent 70%);
-  pointer-events:none;
-}
-.hero::after{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 40% 40% at 80% 80%,var(--accent-dim),transparent 60%);
-  pointer-events:none;
-}
-
-.hero-logo-wrap{
-  display:flex;align-items:center;justify-content:center;gap:var(--sp4);
-  margin-bottom:var(--sp6);position:relative;
-}
-.hero-logo-mark{
-  width:72px;height:72px;
-  filter:drop-shadow(0 0 24px rgba(63,185,80,.35));
-}
-
-.hero-badge{
-  display:inline-flex;align-items:center;gap:var(--sp2);
-  background:var(--primary-dim);color:var(--primary);
-  border:1px solid var(--primary-border);border-radius:var(--r-full);
-  padding:.3rem var(--sp4);font-size:var(--text-xs);font-weight:600;
-  margin-bottom:var(--sp6);letter-spacing:.03em;text-transform:uppercase;
-  position:relative;
-}
-.hero-badge::before{
-  content:'';width:6px;height:6px;border-radius:50%;
-  background:var(--primary);animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-
-.hero h1{
-  font-size:var(--text-2xl);font-weight:800;
-  letter-spacing:-.03em;line-height:1.08;
-  margin-bottom:var(--sp5);position:relative;
-}
-.hero h1 .gradient-text{
-  background:linear-gradient(135deg,var(--text) 30%,var(--primary) 75%,var(--accent));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero p{
-  font-size:var(--text-lg);color:var(--text-muted);
-  max-width:52ch;margin:0 auto var(--sp8);
-  line-height:1.6;position:relative;
-}
-
-/* Badges row */
-.hero-badges-row{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp2);
-  margin-bottom:var(--sp6);position:relative;
-}
-.hero-badges-row img{height:20px;border-radius:3px;}
-
-.hero-actions{display:flex;gap:var(--sp3);justify-content:center;flex-wrap:wrap;position:relative;}
-
-.hero-stats{
-  display:flex;justify-content:center;gap:clamp(var(--sp8),5vw,var(--sp16));
-  flex-wrap:wrap;
-  margin-top:clamp(var(--sp8),5vw,var(--sp16));
-  padding-top:var(--sp8);
-  border-top:1px solid var(--border);
-  position:relative;
-}
-.stat{text-align:center}
-.stat-num{font-size:var(--text-xl);font-weight:800;color:var(--primary);font-variant-numeric:tabular-nums;}
-.stat-label{font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:var(--sp1);}
-
-/* ===== MAIN ===== */
-.container{max-width:var(--content-wide);margin:0 auto;padding:0 var(--sp6)}
-.section{padding:clamp(var(--sp8),4vw,var(--sp12)) 0}
-
-/* ===== SEARCH + FILTERS ===== */
-.search-area{max-width:680px;margin:0 auto var(--sp6);display:flex;flex-direction:column;gap:var(--sp4);}
-.search-wrap{position:relative}
-.search-wrap svg{position:absolute;left:var(--sp4);top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;}
-#search{
-  width:100%;padding:var(--sp3) var(--sp4) var(--sp3) 3rem;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r-lg);color:var(--text);font-size:var(--text-base);
-  transition:border-color var(--dur-fast),box-shadow var(--dur-fast);
-}
-#search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-dim);}
-#search::placeholder{color:var(--text-faint)}
-
-.filter-row{display:flex;flex-wrap:wrap;gap:var(--sp2);justify-content:center;align-items:center;}
-.filter-group-label{font-size:var(--text-xs);color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em;margin-right:var(--sp1);}
-.filter-btn{
-  padding:.3rem var(--sp3);border-radius:var(--r-full);
-  font-size:var(--text-xs);font-weight:600;letter-spacing:.02em;
-  border:1px solid var(--border);color:var(--text-muted);
-  transition:all var(--dur-fast);font-family:var(--font-mono);
-}
-.filter-btn:hover{border-color:var(--border-hover);color:var(--text)}
-.filter-btn.active{border-color:var(--primary-border);color:var(--primary);background:var(--primary-dim);}
-.filter-btn[data-level="intermediate"].active{border-color:var(--accent-border);color:var(--accent);background:var(--accent-dim);}
-.filter-btn[data-level="advanced"].active{border-color:rgba(240,136,62,.4);color:var(--orange);background:rgba(240,136,62,.1);}
-.filter-btn[data-level="experimental"].active{border-color:rgba(248,81,73,.4);color:var(--red);background:rgba(248,81,73,.1);}
-
-.result-info{text-align:center;font-size:var(--text-xs);color:var(--text-faint);font-family:var(--font-mono);margin-bottom:var(--sp6);letter-spacing:.03em;}
-
-/* ===== CATEGORY GRID ===== */
-.category-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));
-  gap:var(--sp4);
-}
-
-.category-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r-xl);padding:var(--sp5);
-  cursor:pointer;display:block;
-  transition:border-color var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),background var(--dur-fast);
-  position:relative;overflow:hidden;
-}
-.category-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--primary),var(--accent));
-  transform:scaleX(0);transform-origin:left;
-  transition:transform var(--dur-base) var(--ease-out);
-}
-.category-card:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:var(--shadow-md);background:var(--surface-2);}
-.category-card:hover::before{transform:scaleX(1)}
-
-.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:var(--sp3);gap:var(--sp3);}
-.card-icon{font-size:1.75rem;line-height:1;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--surface-3);border-radius:var(--r-lg);flex-shrink:0;transition:background var(--dur-fast);}
-.category-card:hover .card-icon{background:var(--primary-dim)}
-
-.card-meta{display:flex;flex-direction:column;align-items:flex-end;gap:var(--sp1);}
-.card-badge{font-size:var(--text-xs);font-weight:700;padding:.25rem var(--sp3);border-radius:var(--r-full);background:var(--primary-dim);color:var(--primary);border:1px solid var(--primary-border);font-family:var(--font-mono);letter-spacing:.02em;}
-.card-id{font-size:var(--text-xs);color:var(--text-faint);font-family:var(--font-mono);}
-
-.card-title{font-size:var(--text-base);font-weight:700;margin-bottom:var(--sp2);color:var(--text);}
-.card-desc{font-size:var(--text-sm);color:var(--text-muted);line-height:1.55;margin-bottom:var(--sp4);}
-
-.card-tags{display:flex;flex-wrap:wrap;gap:var(--sp1)}
-.tag{font-size:var(--text-xs);padding:.15rem var(--sp2);border-radius:var(--r-full);border:1px solid var(--border);color:var(--text-faint);font-family:var(--font-mono);transition:border-color var(--dur-fast),color var(--dur-fast);}
-.category-card:hover .tag{border-color:var(--border-hover);color:var(--text-muted)}
-
-.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:var(--sp4);padding-top:var(--sp3);border-top:1px solid var(--border);}
-.card-action{font-size:var(--text-xs);color:var(--accent);font-weight:500;display:flex;align-items:center;gap:var(--sp1);transition:gap var(--dur-fast);}
-.category-card:hover .card-action{gap:var(--sp2)}
-
-/* ===== EMPTY STATE ===== */
-.empty-state{display:flex;flex-direction:column;align-items:center;text-align:center;padding:var(--sp20) var(--sp8);color:var(--text-muted);grid-column:1/-1;}
-.empty-state-icon{width:56px;height:56px;margin-bottom:var(--sp4);color:var(--text-faint);}
-.empty-state h3{color:var(--text);margin-bottom:var(--sp2);font-size:var(--text-lg)}
-.empty-state p{max-width:34ch;color:var(--text-muted);font-size:var(--text-sm)}
-
-/* ===== STATS BAR ===== */
-.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--sp4);margin-bottom:var(--sp8);}
-.stats-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp4) var(--sp5);display:flex;align-items:center;gap:var(--sp4);}
-.stats-card-icon{width:40px;height:40px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0;}
-.stats-card-icon.green{background:var(--primary-dim)}
-.stats-card-icon.blue{background:var(--accent-dim)}
-.stats-card-icon.orange{background:rgba(240,136,62,.1)}
-.stats-card-icon.purple{background:rgba(188,140,255,.1)}
-.stats-card-num{font-size:var(--text-lg);font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
-.stats-card-label{font-size:var(--text-xs);color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:var(--sp1)}
-
-/* ===== SPONSOR ===== */
-.sponsor-section{
-  background:linear-gradient(135deg,var(--surface),color-mix(in oklch,var(--purple) 6%,var(--surface)));
-  border:1px solid rgba(188,140,255,.2);
-  border-radius:var(--r-xl);padding:clamp(var(--sp8),4vw,var(--sp12));
-  text-align:center;margin:var(--sp12) 0;
-}
-.sponsor-section h2{font-size:var(--text-xl);font-weight:800;margin-bottom:var(--sp3)}
-.sponsor-section>p{color:var(--text-muted);margin-bottom:var(--sp8);max-width:52ch;margin-left:auto;margin-right:auto}
-.sponsor-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--sp4);margin:var(--sp6) 0;}
-.tier-card{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp5) var(--sp4);text-align:center;transition:border-color var(--dur-fast),transform var(--dur-fast);}
-.tier-card:hover{border-color:var(--border-hover);transform:translateY(-2px)}
-.tier-icon{font-size:1.75rem;margin-bottom:var(--sp3)}
-.tier-name{font-weight:700;margin-bottom:var(--sp1);font-size:var(--text-sm)}
-.tier-price{font-size:var(--text-sm);color:var(--primary);font-weight:700;margin-bottom:var(--sp2)}
-.tier-desc{font-size:var(--text-xs);color:var(--text-muted);line-height:1.5}
-
-/* ===== TOAST ===== */
-.toast{position:fixed;bottom:var(--sp6);left:50%;transform:translateX(-50%) translateY(120%);background:var(--surface-3);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp3) var(--sp5);font-size:var(--text-sm);color:var(--text);box-shadow:var(--shadow-lg);z-index:200;transition:transform var(--dur-base) var(--ease-out);white-space:nowrap;}
-.toast.show{transform:translateX(-50%) translateY(0)}
-
-/* ===== FOOTER ===== */
-footer{border-top:1px solid var(--border);padding:var(--sp8) var(--sp6);text-align:center;color:var(--text-muted);font-size:var(--text-sm);}
-footer a{color:var(--accent);transition:color var(--dur-fast)}
-footer a:hover{color:var(--text)}
-.footer-links{display:flex;gap:var(--sp4);justify-content:center;flex-wrap:wrap;margin-top:var(--sp3)}
-.footer-logo{display:flex;align-items:center;justify-content:center;gap:var(--sp2);margin-bottom:var(--sp4);opacity:.6;}
-
-/* ===== SCROLL REVEALS ===== */
-@supports(animation-timeline:scroll()){
-  .fade-in{opacity:0;animation:reveal-fade linear both;animation-timeline:view();animation-range:entry 0% entry 60%;}
-  @keyframes reveal-fade{to{opacity:1}}
-}
-
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r-sm);}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  nav{padding:var(--sp3) var(--sp4)}
-  .nav-links-desktop{display:none}
-  .nav-center{max-width:none;flex:1}
-  .hero{padding:var(--sp10) var(--sp4) var(--sp8)}
-  .container{padding:0 var(--sp4)}
-  .stats-bar{grid-template-columns:1fr 1fr}
-  .sponsor-tiers{grid-template-columns:1fr 1fr}
-  .hero-stats{gap:var(--sp6)}
-  .hero-logo-mark{width:56px;height:56px;}
-}
-@media(max-width:480px){
-  .stats-bar{grid-template-columns:1fr}
-  .sponsor-tiers{grid-template-columns:1fr 1fr}
-  .hero p{font-size:var(--text-base)}
-  .category-grid{gap:var(--sp3)}
-  .hero-badges-row{gap:var(--sp1)}
-}
-</style>
+    /* STAT ROW */
+    .stat-row { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.82rem; color: var(--muted); }
+  </style>
 </head>
 <body>
 
-<a href="#main" class="skip-link">Skip to content</a>
-
-<!-- NAV -->
-<nav role="navigation" aria-label="Primary navigation">
-  <a href="https://samotech.github.io/skills-tree/" class="nav-logo" aria-label="Skills Tree home">
-    <svg class="nav-logo-svg" viewBox="0 0 148 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <rect width="32" height="32" rx="7" fill="#3fb950"/>
-      <circle cx="16" cy="8" r="3.5" fill="white"/>
-      <circle cx="8" cy="23" r="2.8" fill="white"/>
-      <circle cx="24" cy="23" r="2.8" fill="white"/>
-      <line x1="16" y1="11.5" x2="8" y2="20.2" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="16" y1="11.5" x2="24" y2="20.2" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="16" y1="11.5" x2="16" y2="27" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3 2.5"/>
-      <text x="42" y="13" font-family="Inter,-apple-system,sans-serif" font-size="10" font-weight="700" fill="currentColor" letter-spacing="-.2" opacity=".5">SKILLS</text>
-      <text x="42" y="26" font-family="Inter,-apple-system,sans-serif" font-size="13" font-weight="800" fill="currentColor" letter-spacing="-.4">Tree</text>
-    </svg>
-  </a>
-
-  <div class="nav-center nav-links-desktop">
-    <div class="nav-search-wrap" role="search">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input class="nav-search" id="nav-search" type="search" placeholder="Search skills…" autocomplete="off" aria-label="Quick search skills">
+<nav>
+  <div class="container nav-inner">
+    <span class="nav-logo">🌳 Skills<span>Tree</span></span>
+    <div class="nav-links">
+      <a href="#quickstart">Quick Start</a>
+      <a href="#cli">CLI</a>
+      <a href="#mcp">MCP</a>
+      <a href="#api">API</a>
+      <a href="#architecture">Architecture</a>
+      <a href="https://github.com/SamoTech/skills-tree" target="_blank">GitHub</a>
     </div>
-  </div>
-
-  <div class="nav-right">
-    <nav class="nav-links nav-links-desktop" aria-label="Secondary">
-      <a href="graph.html" class="nav-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-.15em;margin-right:.25rem" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="11.2" x2="17" y2="6.3"/><line x1="7" y1="12.8" x2="17" y2="17.7"/></svg>Graph
-      </a>
-      <a href="paths.html" class="nav-link">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-.15em;margin-right:.25rem" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Paths
-      </a>
-      <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="nav-link">Contribute</a>
-      <a href="https://github.com/SamoTech/skills-tree/blob/main/meta/glossary.md" target="_blank" rel="noopener noreferrer" class="nav-link">Glossary</a>
-    </nav>
-    <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer" class="btn btn-ghost nav-links-desktop">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a href="https://github.com/sponsors/SamoTech" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.593c-.425-.439-6.775-6.651-8.717-8.828C1.718 11.048 1 9.577 1 8.005c0-3.309 2.691-6 6-6 1.751 0 3.392.771 4.5 2.032C12.608 2.776 14.249 2.005 16 2.005c3.309 0 6 2.691 6 6 0 1.572-.718 3.043-2.283 4.76-1.942 2.177-8.292 8.389-8.717 8.828z"/></svg>
-      Sponsor
-    </a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero" role="banner">
-  <div class="hero-logo-wrap" aria-hidden="true">
-    <svg class="hero-logo-mark" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="72" height="72" rx="16" fill="#3fb950" opacity=".15"/>
-      <rect x="6" y="6" width="60" height="60" rx="13" fill="#3fb950"/>
-      <circle cx="36" cy="17" r="6" fill="white"/>
-      <circle cx="19" cy="38" r="4.5" fill="rgba(255,255,255,.85)"/>
-      <circle cx="53" cy="38" r="4.5" fill="rgba(255,255,255,.85)"/>
-      <circle cx="13" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <circle cx="25" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <circle cx="47" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <circle cx="59" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <line x1="36" y1="23" x2="36" y2="60" stroke="white" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3" opacity=".4"/>
-      <line x1="36" y1="23" x2="19" y2="33.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <line x1="36" y1="23" x2="53" y2="33.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <line x1="19" y1="42.5" x2="13" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-      <line x1="19" y1="42.5" x2="25" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-      <line x1="53" y1="42.5" x2="47" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-      <line x1="53" y1="42.5" x2="59" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-    </svg>
-  </div>
+<div class="container">
 
-  <div class="hero-badge">Open Source &bull; MIT License</div>
-  <h1><span class="gradient-text">AI Agent Skills Tree</span></h1>
-  <p>The complete capability reference for AI agents, LLMs, computer-use models, and agentic frameworks.</p>
-
-  <div class="hero-badges-row" aria-label="Repository badges">
-    <a href="https://github.com/SamoTech/skills-tree/stargazers" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/github/stars/SamoTech/skills-tree?style=flat&label=Stars&color=3fb950&labelColor=161b22&cacheSeconds=3600" alt="GitHub stars" width="auto" height="20" loading="lazy">
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/forks" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/github/forks/SamoTech/skills-tree?style=flat&label=Forks&color=58a6ff&labelColor=161b22&cacheSeconds=3600" alt="GitHub forks" width="auto" height="20" loading="lazy">
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/watchers" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/github/watchers/SamoTech/skills-tree?style=flat&label=Watchers&color=bc8cff&labelColor=161b22&cacheSeconds=3600" alt="GitHub watchers" width="auto" height="20" loading="lazy">
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/issues" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/github/issues/SamoTech/skills-tree?style=flat&label=Issues&color=f0883e&labelColor=161b22&cacheSeconds=3600" alt="Open issues" width="auto" height="20" loading="lazy">
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/pulls" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/github/issues-pr/SamoTech/skills-tree?style=flat&label=PRs&color=f0883e&labelColor=161b22&cacheSeconds=3600" alt="Open PRs" width="auto" height="20" loading="lazy">
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/github/license/SamoTech/skills-tree?style=flat&label=License&color=3fb950&labelColor=161b22" alt="MIT License" width="auto" height="20" loading="lazy">
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/badge/PRs-Welcome-3fb950?style=flat&labelColor=161b22" alt="PRs welcome" width="auto" height="20" loading="lazy">
-    </a>
-    <img src="https://img.shields.io/github/last-commit/SamoTech/skills-tree?style=flat&label=Last+Commit&color=58a6ff&labelColor=161b22&cacheSeconds=3600" alt="Last commit" width="auto" height="20" loading="lazy">
-    <img src="https://img.shields.io/badge/Skills-515%2B-bc8cff?style=flat&labelColor=161b22" alt="515+ skills" width="auto" height="20" loading="lazy">
-    <img src="https://img.shields.io/badge/Categories-16-f0883e?style=flat&labelColor=161b22" alt="16 categories" width="auto" height="20" loading="lazy">
-    <a href="https://samotech.github.io/skills-tree" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.shields.io/badge/Docs-GitHub%20Pages-blue?style=flat&logo=github&labelColor=161b22" alt="GitHub Pages docs" width="auto" height="20" loading="lazy">
-    </a>
-  </div>
-
-  <div class="hero-actions">
-    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      View on GitHub
-    </a>
-    <a href="graph.html" class="btn btn-ghost">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><line x1="7" y1="11.2" x2="17" y2="6.3"/><line x1="7" y1="12.8" x2="17" y2="17.7"/></svg>
-      Skill Graph
-    </a>
-    <a href="paths.html" class="btn btn-ghost">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      Skill Paths
-    </a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Contribute
-    </a>
-    <a href="https://github.com/sponsors/SamoTech" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.593c-.425-.439-6.775-6.651-8.717-8.828C1.718 11.048 1 9.577 1 8.005c0-3.309 2.691-6 6-6 1.751 0 3.392.771 4.5 2.032C12.608 2.776 14.249 2.005 16 2.005c3.309 0 6 2.691 6 6 0 1.572-.718 3.043-2.283 4.76-1.942 2.177-8.292 8.389-8.717 8.828z"/></svg>
-      Sponsor
-    </a>
-  </div>
-
-  <div class="hero-stats" role="list" aria-label="Repository statistics">
-    <div class="stat" role="listitem"><div class="stat-num" data-count="515" data-suffix="+">515+</div><div class="stat-label">Skills</div></div>
-    <div class="stat" role="listitem"><div class="stat-num" data-count="16">16</div><div class="stat-label">Categories</div></div>
-    <div class="stat" role="listitem"><div class="stat-num" data-count="25" data-suffix="+">25+</div><div class="stat-label">Frameworks</div></div>
-    <div class="stat" role="listitem"><div class="stat-num" data-text="MIT">MIT</div><div class="stat-label">License</div></div>
-  </div>
-</header>
-
-<!-- MAIN -->
-<main id="main" class="container">
-  <!-- Stats bar: counts synced with README category table -->
-  <div class="stats-bar section fade-in" aria-label="Category highlights">
-    <div class="stats-card"><div class="stats-card-icon green">🧠</div><div><div class="stats-card-num">41</div><div class="stats-card-label">Reasoning skills</div></div></div>
-    <div class="stats-card"><div class="stats-card-icon blue">🔧</div><div><div class="stats-card-num">55</div><div class="stats-card-label">Tool integrations</div></div></div>
-    <div class="stats-card"><div class="stats-card-icon orange">🖥️</div><div><div class="stats-card-num">37</div><div class="stats-card-label">Computer-use skills</div></div></div>
-    <div class="stats-card"><div class="stats-card-icon purple">🏺</div><div><div class="stats-card-num">52</div><div class="stats-card-label">Domain-specific</div></div></div>
-  </div>
-
-  <div class="search-area fade-in" role="search" aria-label="Search and filter skills">
-    <div class="search-wrap">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input id="search" type="search" placeholder="Search categories, tags, descriptions…" autocomplete="off" aria-label="Search all skills">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">✨ v1.0.0 — Sprint C-12</div>
+    <h1>The <span>AI Agent Skill</span><br>Navigator</h1>
+    <p>Taxonomy-driven skill recommendations, calibrated learning paths, and architecture blueprints for every AI agent goal. Install in seconds. Works with Claude Desktop, Cursor, and VS Code.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="#quickstart">Get Started →</a>
+      <a class="btn btn-secondary" href="https://github.com/SamoTech/skills-tree" target="_blank">⭐ Star on GitHub</a>
     </div>
-    <div class="filter-row" id="filters" role="group" aria-label="Filter by skill level">
-      <span class="filter-group-label" aria-hidden="true">Level:</span>
-      <button class="filter-btn active" data-level="all" aria-pressed="true">All</button>
-      <button class="filter-btn" data-level="basic" aria-pressed="false">Basic</button>
-      <button class="filter-btn" data-level="intermediate" aria-pressed="false">Intermediate</button>
-      <button class="filter-btn" data-level="advanced" aria-pressed="false">Advanced</button>
-      <button class="filter-btn" data-level="experimental" aria-pressed="false">Experimental</button>
+    <div class="stat-row" style="justify-content:center; margin-top:2.5rem;">
+      <div class="stat"><div class="stat-num">11</div><div class="stat-label">Goal Clusters</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">CLI Commands</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">MCP Tools</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">REST Endpoints</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Layer Parity</div></div>
     </div>
   </div>
 
-  <p class="result-info" id="result-info" aria-live="polite" aria-atomic="true">Showing all 16 categories — 515+ skills</p>
-
-  <section class="section" aria-label="Skill categories">
-    <div class="category-grid" id="category-grid" role="list"></div>
+  <!-- WHAT IS -->
+  <section id="what">
+    <h2>What is Skills Tree?</h2>
+    <p>Skills Tree is an open-source engine that answers one question: <strong style="color:var(--text)">“What do I need to learn to build a [goal]?”</strong></p>
+    <p>It combines a hand-curated goal taxonomy, a calibrated skill graph, and a recommendation engine to produce ranked, confidence-scored learning paths for AI agent builders.</p>
+    <div class="card-grid">
+      <div class="card"><div class="card-icon">🎯</div><h3>Goal Taxonomy</h3><p>11 goal clusters mapping every major AI agent archetype to its required skill set.</p></div>
+      <div class="card"><div class="card-icon">🕷️</div><h3>Skill Graph</h3><p>Weighted, directed graph of skills with learning-time estimates and dependency edges.</p></div>
+      <div class="card"><div class="card-icon">🧠</div><h3>Recommendation Engine</h3><p>C-08 calibrated ranker achieving 81.2% precision@5 and 99.6% recall@10.</p></div>
+      <div class="card"><div class="card-icon">📍</div><h3>Blueprint Generator</h3><p>Full architecture blueprints with deployment type, risk analysis, and ordered learning path.</p></div>
+    </div>
   </section>
 
-  <section class="sponsor-section fade-in" aria-labelledby="sponsor-heading">
-    <h2 id="sponsor-heading">💖 Support Skills Tree</h2>
-    <p>Skills Tree is free and open source. Sponsoring helps keep it maintained, expanded, and free for everyone.</p>
-    <div class="sponsor-tiers" role="list">
-      <div class="tier-card" role="listitem"><div class="tier-icon">☕</div><div class="tier-name">Coffee</div><div class="tier-price">$5/mo</div><div class="tier-desc">Supporter badge + name in SPONSORS.md</div></div>
-      <div class="tier-card" role="listitem"><div class="tier-icon">🔧</div><div class="tier-name">Builder</div><div class="tier-price">$15/mo</div><div class="tier-desc">Priority responses + early previews</div></div>
-      <div class="tier-card" role="listitem"><div class="tier-icon">🚀</div><div class="tier-name">Pro</div><div class="tier-price">$49/mo</div><div class="tier-desc">Custom skill category on request</div></div>
-      <div class="tier-card" role="listitem"><div class="tier-icon">🏢</div><div class="tier-name">Teams</div><div class="tier-price">$199/mo</div><div class="tier-desc">Private Slack + consulting hour/month</div></div>
-    </div>
-    <a href="https://github.com/sponsors/SamoTech" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top:1rem">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21.593c-.425-.439-6.775-6.651-8.717-8.828C1.718 11.048 1 9.577 1 8.005c0-3.309 2.691-6 6-6 1.751 0 3.392.771 4.5 2.032C12.608 2.776 14.249 2.005 16 2.005c3.309 0 6 2.691 6 6 0 1.572-.718 3.043-2.283 4.76-1.942 2.177-8.292 8.389-8.717 8.828z"/></svg>
-      Become a Sponsor
-    </a>
-  </section>
-</main>
+  <!-- QUICKSTART -->
+  <section id="quickstart">
+    <h2>Quick Start</h2>
+    <p>From zero to your first recommendation in under 60 seconds.</p>
+    <pre><code># 1. Install
+pip install skills-tree
 
-<footer role="contentinfo">
-  <div class="footer-logo" aria-hidden="true">
-    <svg width="20" height="20" viewBox="0 0 72 72" fill="none">
-      <rect x="6" y="6" width="60" height="60" rx="13" fill="#3fb950"/>
-      <circle cx="36" cy="17" r="6" fill="white"/>
-      <circle cx="19" cy="38" r="4.5" fill="rgba(255,255,255,.85)"/>
-      <circle cx="53" cy="38" r="4.5" fill="rgba(255,255,255,.85)"/>
-      <circle cx="13" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <circle cx="25" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <circle cx="47" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <circle cx="59" cy="56" r="3.5" fill="rgba(255,255,255,.65)"/>
-      <line x1="36" y1="23" x2="19" y2="33.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <line x1="36" y1="23" x2="53" y2="33.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <line x1="19" y1="42.5" x2="13" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-      <line x1="19" y1="42.5" x2="25" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-      <line x1="53" y1="42.5" x2="47" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-      <line x1="53" y1="42.5" x2="59" y2="52.5" stroke="white" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-    </svg>
-    <span style="font-size:var(--text-sm);font-weight:700;color:var(--text-muted)">Skills Tree</span>
+# 2. Validate stack
+skills-tree validate
+
+# 3. Get recommendations
+skills-tree recommend --goal "Coding Agent"
+
+# 4. Generate a blueprint
+skills-tree blueprint --goal "Coding Agent"</code></pre>
+    <p style="margin-top:1rem;">Or launch a ready-to-use environment instantly:</p>
+    <a class="btn btn-secondary" style="display:inline-block;margin-top:0.5rem;" href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=SamoTech/skills-tree" target="_blank">☁️ Open in Codespaces</a>
+  </section>
+
+  <!-- CLI -->
+  <section id="cli">
+    <h2>Install CLI</h2>
+    <p>The <code>skills-tree</code> command exposes all engine capabilities from your terminal.</p>
+    <div class="tab-row">
+      <button class="tab active" onclick="showTab('cli', 'recommend')">recommend</button>
+      <button class="tab" onclick="showTab('cli', 'blueprint')">blueprint</button>
+      <button class="tab" onclick="showTab('cli', 'goals')">goals</button>
+      <button class="tab" onclick="showTab('cli', 'skills')">skills</button>
+      <button class="tab" onclick="showTab('cli', 'validate')">validate</button>
+    </div>
+    <div id="cli-recommend" class="tab-content active">
+<pre><code>skills-tree recommend --goal "Coding Agent"
+skills-tree recommend --goal "RAG Assistant" --experience intermediate --time-budget 80
+skills-tree recommend --goal "Coding Agent" --format table</code></pre>
+    </div>
+    <div id="cli-blueprint" class="tab-content">
+<pre><code>skills-tree blueprint --goal "Coding Agent"
+skills-tree blueprint --goal "RAG Assistant" --format pretty</code></pre>
+    </div>
+    <div id="cli-goals" class="tab-content">
+<pre><code>skills-tree goals
+skills-tree goals --format table</code></pre>
+    </div>
+    <div id="cli-skills" class="tab-content">
+<pre><code>skills-tree skills
+skills-tree skills --format table</code></pre>
+    </div>
+    <div id="cli-validate" class="tab-content">
+<pre><code>skills-tree validate
+skills-tree validate --goal "Coding Agent"</code></pre>
+    </div>
+  </section>
+
+  <!-- MCP -->
+  <section id="mcp">
+    <h2>MCP Integration</h2>
+    <p>Skills Tree ships an MCP server exposing 4 tools so Claude Desktop, Cursor, and VS Code can call live Architect recommendations.</p>
+    <div class="tab-row">
+      <button class="tab active" onclick="showTab('mcp', 'claude')">Claude Desktop</button>
+      <button class="tab" onclick="showTab('mcp', 'cursor')">Cursor</button>
+      <button class="tab" onclick="showTab('mcp', 'vscode')">VS Code</button>
+    </div>
+    <div id="mcp-claude" class="tab-content active">
+<pre><code>{
+  "mcpServers": {
+    "skills-tree-architect": {
+      "command": "python",
+      "args": ["-m", "mcp.server"],
+      "cwd": "/path/to/skills-tree"
+    }
+  }
+}</code></pre>
+    </div>
+    <div id="mcp-cursor" class="tab-content">
+<pre><code>{
+  "mcpServers": {
+    "skills-tree-architect": {
+      "command": "python",
+      "args": ["-m", "mcp.server"],
+      "cwd": "/path/to/skills-tree"
+    }
+  }
+}</code></pre>
+    </div>
+    <div id="mcp-vscode" class="tab-content">
+<pre><code>{
+  "servers": {
+    "skills-tree-architect": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp.server"],
+      "cwd": "/path/to/skills-tree"
+    }
+  }
+}</code></pre>
+    </div>
+    <p style="margin-top:1rem;">See <a href="https://github.com/SamoTech/skills-tree/blob/main/meta/MCP_QUICKSTART.md">MCP Quickstart</a> for full setup instructions.</p>
+  </section>
+
+  <!-- API -->
+  <section id="api">
+    <h2>API Documentation</h2>
+    <p>The Architect REST API (FastAPI) serves all engine capabilities over HTTP. Swagger UI and ReDoc are built-in.</p>
+    <pre><code># Start the API server
+uvicorn api.main:app --reload --port 8000
+
+# Swagger UI:  http://localhost:8000/docs
+# ReDoc:       http://localhost:8000/redoc
+# OpenAPI:     http://localhost:8000/openapi.json</code></pre>
+    <div class="card-grid" style="margin-top:1.2rem;">
+      <div class="card"><code style="color:var(--accent2)">GET  /health</code><p style="margin-top:0.5rem;">Liveness probe</p></div>
+      <div class="card"><code style="color:var(--accent2)">GET  /goals</code><p style="margin-top:0.5rem;">All taxonomy goals</p></div>
+      <div class="card"><code style="color:var(--accent2)">GET  /skills</code><p style="margin-top:0.5rem;">All graph skills</p></div>
+      <div class="card"><code style="color:var(--accent)">POST /recommend</code><p style="margin-top:0.5rem;">Calibrated recommendations</p></div>
+      <div class="card"><code style="color:var(--accent)">POST /blueprint</code><p style="margin-top:0.5rem;">Full architecture blueprint</p></div>
+    </div>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section id="examples">
+    <h2>Example Recommendations</h2>
+    <p>Recommendations for <strong style="color:var(--text)">Coding Agent</strong> (intermediate, no budget):</p>
+    <pre><code>{
+  "goal": "Coding Agent",
+  "goal_id": "G01",
+  "confidence_score": 0.86,
+  "required_skills": [
+    { "id": "skill:prompt-engineering",  "name": "Prompt Engineering",  "rank": 1 },
+    { "id": "skill:code-generation",      "name": "Code Generation",      "rank": 2 },
+    { "id": "skill:function-calling",     "name": "Function Calling",     "rank": 3 },
+    { "id": "skill:error-recovery",       "name": "Error Recovery",       "rank": 4 },
+    { "id": "skill:context-management",   "name": "Context Management",   "rank": 5 }
+  ],
+  "calibration_applied": true
+}</code></pre>
+
+    <h2 style="margin-top:2rem;" id="blueprints">Example Blueprint</h2>
+    <pre><code>{
+  "id": "blueprint-20260615143000",
+  "title": "Coding Agent",
+  "goal_id": "G01",
+  "architecture_type": "Single-Agent",
+  "confidence_score": 0.86,
+  "required_skills": [...],
+  "learning_path": ["Prompt Engineering", "Code Generation", "Function Calling"],
+  "risks": ["LLM hallucination in code output", "Tool call error handling"]
+}</code></pre>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section id="architecture">
+    <h2>Architecture Diagram</h2>
+    <p>All four layers share a single execution path — no duplicated logic.</p>
+    <div class="arch-box">
+      <div class="arch-layer"><div class="arch-label cli">💻  CLI (skills-tree)</div><div class="arch-arrow">↓</div></div>
+      <div class="arch-layer"><div class="arch-label mcp">🤖  MCP Server (stdio)</div><div class="arch-arrow">↓</div></div>
+      <div class="arch-layer"><div class="arch-label api">🌐  FastAPI Service (/recommend, /blueprint, /goals, /skills)</div><div class="arch-arrow">↓</div></div>
+      <div class="arch-layer"><div class="arch-label engine">⚙️  Engine (GoalTaxonomyParser · SkillsGraph · RecommendationEngine · RankingCalibrator · BlueprintGenerator)</div></div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community">
+    <h2>GitHub Repository &amp; Community</h2>
+    <div class="card-grid">
+      <div class="card"><div class="card-icon">🐛</div><h3><a href="https://github.com/SamoTech/skills-tree/issues">Issues</a></h3><p>Report bugs or request features.</p></div>
+      <div class="card"><div class="card-icon">💬</div><h3><a href="https://github.com/SamoTech/skills-tree/discussions">Discussions</a></h3><p>Ask questions and share use cases.</p></div>
+      <div class="card"><div class="card-icon">🔀</div><h3><a href="https://github.com/SamoTech/skills-tree/pulls">Pull Requests</a></h3><p>Contribute to the engine or taxonomy.</p></div>
+      <div class="card"><div class="card-icon">☁️</div><h3><a href="https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=SamoTech/skills-tree">Codespaces</a></h3><p>Launch a working dev environment instantly.</p></div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <p>Built by <a href="https://github.com/SamoTech" target="_blank">SamoTech</a> · MIT License · <a href="https://github.com/SamoTech/skills-tree" target="_blank">View on GitHub</a></p>
   </div>
-  <p>Built with ❤️ by <a href="https://github.com/SamoTech" target="_blank" rel="noopener noreferrer">Ossama Hashim</a></p>
-  <nav class="footer-links" aria-label="Footer links">
-    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer">GitHub</a>
-    <a href="graph.html">Graph</a>
-    <a href="paths.html">Paths</a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contributing</a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/meta/glossary.md" target="_blank" rel="noopener noreferrer">Glossary</a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">Security</a>
-    <a href="https://github.com/SamoTech/skills-tree/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>
-  </nav>
 </footer>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-
 <script>
-// ---- Theme toggle — reads prefers-color-scheme on first load ----
-(function(){
-  const root = document.documentElement;
-  const btn  = document.querySelector('[data-theme-toggle]');
-  let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  root.setAttribute('data-theme', theme);
-
-  function syncBtn(){
-    if(!btn) return;
-    const isDark = theme === 'dark';
-    btn.setAttribute('aria-label','Switch to '+(isDark?'light':'dark')+' mode');
-    btn.innerHTML = isDark
-      ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-      : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-  }
-  syncBtn();
-  if(btn) btn.addEventListener('click',()=>{
-    theme = theme==='dark'?'light':'dark';
-    root.setAttribute('data-theme',theme);
-    syncBtn();
-  });
-})();
-
-// ---- Count-up animation ----
-function countUp(el){
-  const target = parseInt(el.dataset.count,10);
-  const suffix = el.dataset.suffix||'';
-  if(isNaN(target)){return;}
-  const dur = 1200, steps = 40;
-  let i=0;
-  const timer = setInterval(()=>{
-    i++;
-    el.textContent = Math.round(target*(i/steps)) + (i>=steps?suffix:'');
-    if(i>=steps){clearInterval(timer);el.textContent=target+suffix;}
-  }, dur/steps);
-}
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const nums = e.target.querySelectorAll('.stat-num[data-count]');
-      nums.forEach(countUp);
-      observer.unobserve(e.target);
-    }
-  });
-},{threshold:.6});
-const heroStats = document.querySelector('.hero-stats');
-if(heroStats) observer.observe(heroStats);
-
-// ---- Data ----
-// Counts and githubPaths synced with README category table (source of truth)
-const CATEGORIES = [
-  {id:1, icon:'👁️', title:'Perception',                  desc:'Text, image, PDF, code, sensor, database, and screen reading. The input layer for every agent.',                                              tags:['ocr','pdf','vision','sensors'],          count:36, levels:['basic','intermediate'],              githubPath:'01-perception'},
-  {id:2, icon:'🧠', title:'Reasoning & Planning',         desc:'Chain-of-thought, tree-of-thought, step-back prompting, self-critique, and advanced multi-step planning strategies.',                       tags:['cot','tot','planning','self-critique'],  count:41, levels:['basic','intermediate','advanced'],    githubPath:'02-reasoning'},
-  {id:3, icon:'🗄️', title:'Memory',                       desc:'Working, episodic, semantic, vector memory, injection strategies, and controlled forgetting.',                                              tags:['rag','retrieval','episodic','vector'],   count:26, levels:['intermediate','advanced'],            githubPath:'03-memory'},
-  {id:4, icon:'⚡', title:'Action Execution',              desc:'File I/O, HTTP calls, email, shell commands, database writes, and OS-level operations.',                                                    tags:['shell','fs','http','os'],               count:37, levels:['intermediate','advanced'],            githubPath:'04-action-execution'},
-  {id:5, icon:'💻', title:'Code',                          desc:'Syntax-aware completion, test generation, refactoring, debugging, documentation, and multi-language synthesis.',                           tags:['codegen','tests','refactor','debug'],   count:42, levels:['intermediate','advanced'],            githubPath:'05-code'},
-  {id:6, icon:'💬', title:'Communication',                 desc:'Summarize, translate, draft, argue, adapt tone, report writing, email, and format-specific rendering.',                                    tags:['writing','translate','tone','email'],   count:28, levels:['basic','intermediate'],              githubPath:'06-communication'},
-  {id:7, icon:'🔧', title:'Tool Use & Function Calling',  desc:'Structured tool invocation, JSON schema binding, parallel tool calls, tool selection heuristics, and fallback patterns.',                  tags:['function-calling','json','parallel','fallback'], count:55, levels:['intermediate','advanced'],   githubPath:'07-tool-use'},
-  {id:8, icon:'🎭', title:'Multimodal',                    desc:'Image understanding, audio transcription, video description, cross-modal reasoning, and visual grounding.',                               tags:['vision','audio','video','grounding'],   count:25, levels:['intermediate','advanced','experimental'], githubPath:'08-multimodal'},
-  {id:9, icon:'🤖', title:'Agentic Patterns',              desc:'ReAct, CoT, ToT, MCTS, LATS, RAG pipeline, Debate — the meta-patterns that orchestrate skill execution.',                                 tags:['react','lats','mcts','debate'],         count:36, levels:['intermediate','advanced','experimental'], githubPath:'09-agentic-patterns'},
-  {id:10,icon:'🖥️', title:'Computer Use',                  desc:'GUI automation, browser control, screenshot interpretation, click/type actions, OCR, terminal, and desktop agent loops.',                tags:['gui','browser','screenshot','automation'], count:37, levels:['advanced','experimental'],         githubPath:'10-computer-use'},
-  {id:11,icon:'🌐', title:'Web',                           desc:'Search, scrape, crawl, login, fill forms, parse RSS — full-spectrum web interaction for agents.',                                          tags:['search','scrape','forms','rss'],        count:28, levels:['intermediate','advanced'],            githubPath:'11-web'},
-  {id:12,icon:'📊', title:'Data',                          desc:'ETL, SQL generation, embeddings, time series analysis, and anomaly detection for data-driven agents.',                                    tags:['sql','etl','embeddings','timeseries'],  count:18, levels:['intermediate','advanced'],            githubPath:'12-data'},
-  {id:13,icon:'🎨', title:'Creative',                      desc:'Copywriting, image prompts, SVG generation, music, and scriptwriting for generative agents.',                                             tags:['copywriting','prompts','svg','music'],  count:27, levels:['basic','intermediate'],              githubPath:'13-creative'},
-  {id:14,icon:'🔒', title:'Security',                      desc:'Sandboxing, secret scanning, audit logs, rollback, jailbreak resistance, and output validation.',                                         tags:['safety','sandboxing','audit','refusal'],count:20, levels:['intermediate','advanced'],            githubPath:'14-security'},
-  {id:15,icon:'🎼', title:'Orchestration',                 desc:'Multi-agent coordination, state machines, retry logic, consensus mechanisms, and orchestrator/worker patterns.',                         tags:['multi-agent','state','retry','consensus'],count:29,levels:['advanced','experimental'],           githubPath:'15-orchestration'},
-  {id:16,icon:'🏺', title:'Domain-Specific',               desc:'Medical, legal, finance, DevOps, education, and science domain adaptations with specialist vocabulary and reasoning.',                   tags:['medical','legal','finance','devops'],   count:52, levels:['advanced','experimental'],            githubPath:'16-domain-specific'},
-];
-
-const TOTAL = CATEGORIES.reduce((s,c)=>s+c.count,0);
-
-// ---- Render ----
-const grid  = document.getElementById('category-grid');
-const info  = document.getElementById('result-info');
-const input = document.getElementById('search');
-const navInput = document.getElementById('nav-search');
-let activeLevel = 'all';
-let searchVal   = '';
-
-function levelColor(l){
-  if(l==='basic') return 'var(--primary)';
-  if(l==='intermediate') return 'var(--accent)';
-  if(l==='advanced') return 'var(--orange)';
-  if(l==='experimental') return 'var(--red)';
-  return 'var(--text-muted)';
-}
-
-function renderCards(){
-  const q = searchVal.toLowerCase();
-  const filtered = CATEGORIES.filter(c=>{
-    const matchSearch = !q || c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q) || c.tags.some(t=>t.includes(q));
-    const matchLevel  = activeLevel==='all' || c.levels.includes(activeLevel);
-    return matchSearch && matchLevel;
-  });
-
-  if(!filtered.length){
-    grid.innerHTML = `<div class="empty-state">
-      <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M8 11h6M11 8v6"/></svg>
-      <h3>No categories found</h3>
-      <p>Try adjusting your search or clearing the level filter.</p>
-    </div>`;
-    info.textContent = 'No results';
-    return;
-  }
-
-  grid.innerHTML = filtered.map((c,i)=>{
-    const levelBadges = c.levels.map(l=>`<span class="tag" style="color:${levelColor(l)};border-color:${levelColor(l)}44">${l}</span>`).join('');
-    const href = `https://github.com/SamoTech/skills-tree/tree/main/skills/${c.githubPath}`;
-    return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="category-card" role="listitem" aria-label="${c.title} — ${c.count} skills">
-      <div class="card-header">
-        <div class="card-icon" aria-hidden="true">${c.icon}</div>
-        <div class="card-meta">
-          <span class="card-badge">${c.count} skills</span>
-          <span class="card-id">${i+1} / ${CATEGORIES.length}</span>
-        </div>
-      </div>
-      <div class="card-title">${c.title}</div>
-      <div class="card-desc">${c.desc}</div>
-      <div class="card-tags">${levelBadges}</div>
-      <div class="card-footer">
-        <div class="card-tags">${c.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-        <span class="card-action">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </div>
-    </a>`;
-  }).join('');
-
-  const total = filtered.reduce((s,c)=>s+c.count,0);
-  info.textContent = filtered.length===CATEGORIES.length
-    ? `Showing all ${CATEGORIES.length} categories — ${TOTAL}+ skills`
-    : `Showing ${filtered.length} of ${CATEGORIES.length} categories — ${total} skills`;
-}
-
-// search sync
-function onSearch(val){
-  searchVal = val;
-  if(input.value!==val) input.value=val;
-  if(navInput && navInput.value!==val) navInput.value=val;
-  renderCards();
-  if(val) document.getElementById('main').scrollIntoView({behavior:'smooth'});
-}
-
-if(input) input.addEventListener('input',e=>onSearch(e.target.value));
-if(navInput) navInput.addEventListener('input',e=>onSearch(e.target.value));
-
-// filter buttons
-document.getElementById('filters').addEventListener('click',e=>{
-  const btn = e.target.closest('.filter-btn');
-  if(!btn) return;
-  activeLevel = btn.dataset.level;
-  document.querySelectorAll('.filter-btn').forEach(b=>{
-    b.classList.toggle('active',b===btn);
-    b.setAttribute('aria-pressed', b===btn ? 'true':'false');
-  });
-  renderCards();
-});
-
-renderCards();
-
-// ---- Toast ----
-function showToast(msg){
-  const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2800);
+function showTab(group, name) {
+  document.querySelectorAll('[id^="' + group + '-"]').forEach(el => el.classList.remove('active'));
+  document.getElementById(group + '-' + name).classList.add('active');
+  event.target.closest('.tab-row').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
 }
 </script>
+
 </body>
 </html>

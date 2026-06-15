@@ -1,0 +1,90 @@
+name: Generate Blueprint
+
+on:
+  workflow_dispatch:
+    inputs:
+      goal:
+        description: 'Goal name (e.g. "Coding Agent", "RAG Assistant", "Analytics Agent")'
+        required: true
+        default: 'Coding Agent'
+        type: string
+      experience:
+        description: 'Experience level'
+        required: false
+        default: 'intermediate'
+        type: choice
+        options:
+          - beginner
+          - intermediate
+          - advanced
+      time_budget:
+        description: 'Time budget in hours (optional, e.g. 80)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  generate-blueprint:
+    name: "🌳 Generate Blueprint for ${{ inputs.goal }}"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install package
+        run: pip install -e '.[dev]' --quiet
+
+      - name: Validate stack
+        run: skills-tree validate
+
+      - name: Generate recommendation
+        run: |
+          GOAL="${{ inputs.goal }}"
+          EXPERIENCE="${{ inputs.experience }}"
+          BUDGET="${{ inputs.time_budget }}"
+
+          CMD=("skills-tree" "recommend" "--goal" "$GOAL" "--experience" "$EXPERIENCE")
+          if [ -n "$BUDGET" ]; then
+            CMD+=("--time-budget" "$BUDGET")
+          fi
+
+          echo "## Recommendation for: $GOAL" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          "${CMD[@]}" | tee recommendation.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate blueprint
+        run: |
+          GOAL="${{ inputs.goal }}"
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Blueprint for: $GOAL" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          skills-tree blueprint --goal "$GOAL" | tee blueprint.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload blueprint artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: blueprint-${{ github.run_number }}
+          path: |
+            blueprint.json
+            recommendation.json
+          retention-days: 30
+
+      - name: Summary
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "**Goal:** ${{ inputs.goal }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Experience:** ${{ inputs.experience }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Time Budget:** ${{ inputs.time_budget || 'none' }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Artifacts:** blueprint.json + recommendation.json" >> $GITHUB_STEP_SUMMARY
