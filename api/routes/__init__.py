@@ -1,0 +1,1 @@
+"""Architect API route modules."""

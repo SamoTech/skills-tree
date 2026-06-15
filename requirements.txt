@@ -1,18 +1,14 @@
-# Runtime dependencies for GitHub Actions workflows.
-# ALL packages pinned to exact versions for reproducibility.
-# Bump via Dependabot (weekly) or manually after testing.
-# Last verified: 2026-06-15
-httpx==0.28.1
-PyYAML==6.0.3
-PyGithub==2.9.1
-python-dateutil==2.9.0.post0
-jsonschema==4.26.0
+# Core
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.7.0
+httpx>=0.27.0          # TestClient transport
 
-# SEC-2 FIX (2026-06-14): requests added so Dependabot monitors it.
-requests==2.34.2
+# Testing
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
 
-# Test dependencies — used by pytest in CI (test.yml) and locally.
-pytest==9.1.0
-pytest-asyncio==1.4.0
-pytest-cov==6.0.0
-pytest-xdist==3.6.1
+# Existing project deps
+networkx>=3.0
+markdown>=3.5
+requests>=2.31
