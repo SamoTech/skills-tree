@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/form-submission.md",
-  "name": "Form Submission",
-  "headline": "Form Submission",
-  "description": "Apply form submission in AI agent workflows.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/form-submission.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/step-back-prompting.md",
+  "name": "Step-Back Prompting",
+  "headline": "Step-Back Prompting",
+  "description": "Prompt the LLM to first answer a high-level abstraction (the 'step-back' question) before solving the original task. Improves performance on multi-step reasoning by grounding the answer in principles before details.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/step-back-prompting.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,26 +53,35 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-06-16T12:43:22Z",
-  "skillId": "form-submission",
-  "skillVersion": null,
+  "skillId": "step-back-prompting",
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
-  "categoryDir": "04-action-execution",
-  "sections": [],
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Production Applications",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [
-    "../11-web/browser-navigation.md",
-    "../11-web/form-filling.md"
+    "../09-agentic-patterns/cot.md",
+    "../09-agentic-patterns/rag-pattern.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "skills tree, LLM skill, execution, submission, AI agent, form, action",
+  "datePublished": "2025-06-01",
+  "keywords": "skills tree, step, back, LLM skill, AI agent, prompting, reasoning",
   "about": {
     "@type": "Thing",
-    "name": "Form Submission",
-    "description": "An AI agent skill for form submission."
+    "name": "Step-Back Prompting",
+    "description": "An AI agent skill for step-back prompting."
   }
 }

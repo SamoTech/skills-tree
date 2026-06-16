@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-15T10:43:44Z",
+  "dateModified": "2026-06-16T12:43:22Z",
   "skillId": "file-delete",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "file, skills tree, execution, delete, action, AI agent, LLM skill",
+  "keywords": "file, skills tree, LLM skill, execution, AI agent, delete, action",
   "about": {
     "@type": "Thing",
     "name": "File Delete",

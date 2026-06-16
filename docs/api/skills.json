@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-15T10:43:44Z",
-  "count": 361,
+  "generated": "2026-06-16T12:43:22Z",
+  "count": 362,
   "skills": [
     {
       "id": "api-response-parsing",
@@ -1522,6 +1522,33 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "step-back-prompting",
+      "path": "skills/02-reasoning/step-back-prompting.md",
+      "name": "Step-Back Prompting",
+      "description": "Prompt the LLM to first answer a high-level abstraction (the 'step-back' question) before solving the original task. Improves performance on multi-step reasoning by grounding the answer in principles before details.",
+      "category": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
+      "version": "v2",
+      "added": "2025-06",
+      "last_updated": "2026-06",
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Production Applications",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/cot.md",
+        "../09-agentic-patterns/rag-pattern.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
