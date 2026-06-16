@@ -85,4 +85,24 @@
 
 ---
 
-*Decision Log initialized: 2026-06-16*
+### 2026-06-16 GOVERNANCE — Project Constitution v1.0.0 ratified
+
+**Decision:** Created and committed `meta/PROJECT_CONSTITUTION.md` as the supreme governance document for the repository.
+
+**Reasoning:** The SamoTech Architect provided a Mission, 10 Principles, Non-Goals, and 5 Success Metrics. These needed to be encoded as binding, operational rules — not just aspirational text. The constitution translates each principle into an enforceable operational rule (with enforcement clauses), defines a conflict resolution priority order (Article VII), and establishes an amendment process (Article VI).
+
+**Impact:**
+- All 10 principles now have binding Operational Rules
+- Conflict resolution follows P-06 > P-07 > P-02 > P-05 > P-03 priority
+- Success metrics M-01 through M-05 have measurable definitions and current baselines
+- The constitution supersedes ROADMAP.md and ROADMAP_V2.md where they conflict
+- Current M-04 (production relevance) is already met: 84.2% of nodes are stable/evolving
+- Current M-05 partially met: Remember (5 nodes ✓) and Coordinate (26 nodes ✓); Perceive and Reason are blockers
+
+**Alternatives Rejected:**
+- Adding principles to AGENT_SKILLS_MASTER_PLAN.md: rejected (plans change; constitutions constrain plans)
+- Encoding rules in CI only: rejected (CI cannot capture reasoning-level constraints on agent behavior)
+
+---
+
+*Decision Log initialized: 2026-06-16 | Last updated: 2026-06-16*
