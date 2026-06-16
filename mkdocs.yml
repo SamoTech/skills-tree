@@ -1,0 +1,113 @@
+site_name: Skills Tree
+site_description: The AI Agent Skill OS — 360+ skills, versioned, benchmarked, and openly evolving.
+site_url: https://samotech.github.io/skills-tree
+repo_url: https://github.com/SamoTech/skills-tree
+repo_name: SamoTech/skills-tree
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2024-2026 SamoTech — MIT License
+
+theme:
+  name: material
+  logo: assets/logo-light.svg
+  favicon: assets/logo-light.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: installation.md
+    - Quick Start: quickstart.md
+  - Concepts:
+    - Architecture: architecture.md
+    - Why Skills Tree: WHY_SKILLS_TREE.md
+    - Use Cases: USE_CASES.md
+  - Reference:
+    - CLI Reference: cli.md
+    - Python API: api.md
+  - Performance:
+    - Benchmarks: benchmarks.md
+  - Community:
+    - Contributing: contributing.md
+    - Roadmap: roadmap.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SamoTech/skills-tree
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/skills-tree/
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+
+extra_css:
+  - stylesheets/extra.css

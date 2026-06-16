@@ -1,0 +1,21 @@
+/* Skills Tree — MkDocs Material custom styles */
+
+.hero {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Badge row spacing */
+.hero img {
+  margin: 0.2rem;
+}
+
+/* Card grid */
+.grid.cards > ul {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
