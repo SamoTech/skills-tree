@@ -705,6 +705,21 @@
     "body": "Spatial Reasoning Category: reasoning | Level: intermediate | Stability: stable | Version: v1 Description Reason about positions, directions, distances, and spatial relationships in 2D and 3D environments. Example Failure Modes - Relative vs absolute directions confused - 3D reasoning degrades without visual grounding Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
+    "id": "02-reasoning/step-back-prompting",
+    "title": "Step-Back Prompting",
+    "category": "02-reasoning",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [
+      "reasoning",
+      "prompting",
+      "abstraction",
+      "principles"
+    ],
+    "description": "Prompt the LLM to first answer a high-level abstraction (the 'step-back' question) before solving the original task. Improves performance on multi-step reasoning by grounding the answer in principles before details.",
+    "body": "Step-Back Prompting Description Step-Back Prompting (Zheng et al., 2023) instructs the model to first retrieve a high-level principle or concept relevant to the question before attempting a solution. The two-step structure is: 1. Step-back question: \"What is the general principle or concept behind this problem?\" 2. Grounded answer: Use the retrieved principle as context for the original answer. On MMLU (physics, chemistry) and TimeQA benchmarks, Step-Back Prompting improved accuracy by 7-27% over direct prompting and 1-11% over Chain-of-Thought. When to Use - Multi-hop questions requiring domain knowledge before specific calculation. - Research agents that need to ground answers in principles before synthesis. - RAG pipelines where the retrieval query benefits from abstraction before specifics. - Don't use for simple factual lookups or purely procedural tasks with no principles. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | The original user question | | | | Optional domain hint for better step-back generation | | → | | The generated high-level question | | → | | The retrieved principle or concept | | → | | Final grounded answer | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Generic step-back question | Model doesn't understand domain | Provide domain hint in prompt | | Principle contradicts answer | Model ignores grounding context | Explicitly reference principle in answer prompt | | Extra latency not justified | Simple questions don't need abstraction | Gate on question complexity score | Production Applications - G02 Research Agent: Abstract research questions before RAG retrieval - G04 RAG Assistant: Improve retrieval query quality via abstraction layer - G01 Coding Agent: Retrieve architectural principles before generating code Related Skills - Chain of Thought — linear reasoning; Step-Back adds principled grounding - Prompt Engineering — prerequisite skill - Least-to-Most Prompting — complementary decomposition approach - RAG Pattern — Step-Back improves RAG query formulation Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Added runnable example, failure modes, production applications |"
+  },
+  {
     "id": "02-reasoning/systems-thinking",
     "title": "Systems Thinking",
     "category": "02-reasoning",
