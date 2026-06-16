@@ -9,7 +9,7 @@
 
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
-> **360 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
+> **362 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > The shared operating system for AI agent capabilities — stop rediscovering, start building on what the community has already proven.
 
 <!-- BADGES_START -->
@@ -199,12 +199,12 @@ skills-tree/
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
 | 01 | 👁️ **Perception** | 36 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 39 | Planning, deduction, abduction, causal chains, commonsense |
+| 02 | 🧠 **Reasoning** | 40 | Planning, deduction, abduction, causal chains, commonsense |
 | 03 | 🗄️ **Memory** | 19 | Working, episodic, semantic, vector, injection, forgetting |
 | 04 | ⚡ **Action Execution** | 21 | File I/O, HTTP, email, shell, database writes |
 | 05 | 💻 **Code** | 28 | Write, run, debug, review, refactor, test, deploy |
 | 06 | 💬 **Communication** | 15 | Summarize, translate, draft, argue, adapt tone |
-| 07 | 🔧 **Tool Use** | 32 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
+| 07 | 🔧 **Tool Use** | 33 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
 | 08 | 🎭 **Multimodal** | 14 | Images, audio, video, VQA, 3D, charts |
 | 09 | 🤖 **Agentic Patterns** | 23 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
 | 10 | 🖥️ **Computer Use** | 20 | Click, type, scroll, OCR, terminal, VM, a11y tree |
