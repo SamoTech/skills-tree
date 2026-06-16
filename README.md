@@ -9,7 +9,7 @@
 
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
-> **364 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
+> **365 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
 > The shared operating system for AI agent capabilities — stop rediscovering, start building on what the community has already proven.
 
 <!-- BADGES_START -->
@@ -199,7 +199,7 @@ skills-tree/
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
 | 01 | 👁️ **Perception** | 36 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 42 | Planning, deduction, abduction, causal chains, commonsense |
+| 02 | 🧠 **Reasoning** | 43 | Planning, deduction, abduction, causal chains, commonsense |
 | 03 | 🗄️ **Memory** | 19 | Working, episodic, semantic, vector, injection, forgetting |
 | 04 | ⚡ **Action Execution** | 21 | File I/O, HTTP, email, shell, database writes |
 | 05 | 💻 **Code** | 28 | Write, run, debug, review, refactor, test, deploy |
