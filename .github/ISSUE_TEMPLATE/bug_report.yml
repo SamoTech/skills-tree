@@ -1,0 +1,66 @@
+name: 🐛 Bug Report
+description: Report a broken skill example, incorrect information, or tool malfunction
+title: "[bug]: "
+labels: ["bug", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill in as much detail as possible.
+
+  - type: input
+    id: skill-or-file
+    attributes:
+      label: Affected skill or file
+      description: Which skill file, workflow, or tool is affected?
+      placeholder: e.g. skills/03-memory/rag.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly.
+      placeholder: "The code example in rag.md throws a TypeError on line 42..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What should happen instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps to reproduce the issue.
+      placeholder: |
+        1. pip install skills-tree
+        2. skills-tree show rag
+        3. Run the example code
+        4. See error
+    validations:
+      required: false
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: e.g. 3.11.2
+    validations:
+      required: false
+
+  - type: input
+    id: skills-tree-version
+    attributes:
+      label: skills-tree version
+      placeholder: e.g. 2.1.0
+    validations:
+      required: false

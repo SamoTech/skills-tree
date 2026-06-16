@@ -1,39 +1,46 @@
-# Dependabot — keep GitHub Actions and pip dependencies up to date.
-# PRs are raised weekly; auto-merge is intentionally disabled so a human
-# reviews each bump before it lands on main.
 version: 2
-updates:
-  # ── GitHub Actions ──────────────────────────────────────────────────────
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "UTC"
-    labels:
-      - "dependencies"
-      - "github-actions"
-    commit-message:
-      prefix: "chore(deps)"
-    reviewers:
-      - "SamoTech"
 
-  # ── Python (requirements.txt) ────────────────────────────────────────────
-  - package-ecosystem: "pip"
-    directory: "/"
+updates:
+  # GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-      timezone: "UTC"
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Africa/Cairo
+    groups:
+      github-actions:
+        patterns:
+          - "*"
     labels:
-      - "dependencies"
-      - "python"
+      - dependabot
+      - github-actions
     commit-message:
       prefix: "chore(deps)"
-    reviewers:
-      - "SamoTech"
-    # Only open PRs for direct dependencies, not transitive ones
-    allow:
-      - dependency-type: "direct"
+
+  # Python dependencies
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: Africa/Cairo
+    groups:
+      python-minor-patch:
+        update-types:
+          - minor
+          - patch
+      python-major:
+        update-types:
+          - major
+    labels:
+      - dependabot
+      - python
+    ignore:
+      # Never auto-upgrade major versions without manual review
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    commit-message:
+      prefix: "chore(deps)"

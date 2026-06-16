@@ -1,0 +1,60 @@
+name: ✨ Feature Request
+description: Propose a new skill, system, blueprint, or project feature
+title: "[feat]: "
+labels: ["enhancement", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a new feature! Skills Tree grows through community contributions.
+
+  - type: dropdown
+    id: contribution-type
+    attributes:
+      label: Type of contribution
+      options:
+        - New skill
+        - Skill upgrade (v1 → v2 or v2 → v3)
+        - New system (multi-skill workflow)
+        - New blueprint (production architecture)
+        - New benchmark
+        - CLI / API feature
+        - Documentation improvement
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: skill-id
+    attributes:
+      label: Proposed skill ID or feature name
+      placeholder: e.g. episodic-memory or skills-tree recommend command
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the feature
+      description: What problem does it solve? Who benefits from it?
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example usage or code
+      description: If applicable, show how the feature would be used.
+      render: python
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: willing-to-contribute
+    attributes:
+      label: Are you willing to submit a PR?
+      options:
+        - label: Yes, I\'d like to implement this myself
+        - label: No, I\'m requesting it for the community

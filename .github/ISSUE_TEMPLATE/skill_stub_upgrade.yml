@@ -1,0 +1,50 @@
+name: 🟡 Skill Stub Upgrade
+description: Claim and upgrade a stub skill to v2 or v3
+title: "[improve]: [skill-name] — v1 → v2"
+labels: ["skill-upgrade", "good first issue"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Upgrading a stub is the highest-impact contribution you can make.
+        See `meta/QUALITY-REPORT.md` for the full list of stubs needing upgrade.
+
+  - type: input
+    id: skill-path
+    attributes:
+      label: Skill file path
+      placeholder: e.g. skills/02-reasoning/causal.md
+    validations:
+      required: true
+
+  - type: dropdown
+    id: upgrade-target
+    attributes:
+      label: Upgrading from → to
+      options:
+        - v1 → v2
+        - v2 → v3
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvements
+    attributes:
+      label: What improvements will you add?
+      description: "v2 requires: failure modes + typed I/O + frameworks table. v3 requires: benchmarks + model comparison + production notes."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: PR checklist
+      options:
+        - label: Runnable Python code example
+        - label: Typed inputs and outputs
+        - label: Failure modes section
+        - label: Frameworks table (LangChain, LangGraph, CrewAI, etc.)
+        - label: Related skills cross-links
+        - label: Version bump in frontmatter
