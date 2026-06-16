@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:44:36Z",
+  "dateModified": "2026-06-16T12:45:37Z",
   "skillId": "self-correction",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, correction, AI agent, skills tree, reasoning, self",
+  "keywords": "AI agent, correction, LLM skill, reasoning, self, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Self-Correction",

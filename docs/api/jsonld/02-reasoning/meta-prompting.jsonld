@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/refactoring.md",
-  "name": "Refactoring",
-  "headline": "Refactoring",
-  "description": "Apply refactoring in AI agent workflows.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/refactoring.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/meta-prompting.md",
+  "name": "Meta-Prompting",
+  "headline": "Meta-Prompting",
+  "description": "Use a meta-model (or meta-prompt) to dynamically generate, select, or refine prompts for a task-specific model. Enables automated prompt engineering and zero-shot task specialisation at runtime.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/meta-prompting.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,23 +53,35 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-06-16T12:45:37Z",
-  "skillId": "refactoring",
-  "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillId": "meta-prompting",
+  "skillVersion": "v2",
+  "skillLevel": "advanced",
   "skillStability": "stable",
-  "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [],
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Production Applications",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../09-agentic-patterns/react-pattern.md",
+    "../09-agentic-patterns/reflection-pattern.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "refactoring, AI agent, code, LLM skill, skills tree",
+  "datePublished": "2025-06-01",
+  "keywords": "AI agent, meta, prompting, reasoning, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "Refactoring",
-    "description": "An AI agent skill for refactoring."
+    "name": "Meta-Prompting",
+    "description": "An AI agent skill for meta-prompting."
   }
 }

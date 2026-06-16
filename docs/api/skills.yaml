@@ -1,5 +1,5 @@
-generated: '2026-06-16T12:44:35Z'
-count: 363
+generated: '2026-06-16T12:45:37Z'
+count: 364
 skills:
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
@@ -1076,6 +1076,31 @@ skills:
   - Related
   - Changelog
   related: []
+  category_dir: 02-reasoning
+- id: meta-prompting
+  path: skills/02-reasoning/meta-prompting.md
+  name: Meta-Prompting
+  description: Use a meta-model (or meta-prompt) to dynamically generate, select,
+    or refine prompts for a task-specific model. Enables automated prompt engineering
+    and zero-shot task specialisation at runtime.
+  category: reasoning
+  level: advanced
+  stability: stable
+  version: v2
+  added: 2025-06
+  last_updated: 2026-06
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Production Applications
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/react-pattern.md
+  - ../09-agentic-patterns/reflection-pattern.md
   category_dir: 02-reasoning
 - id: multi-step-planning
   path: skills/02-reasoning/multi-step-planning.md

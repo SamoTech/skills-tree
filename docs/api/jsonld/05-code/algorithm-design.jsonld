@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:44:36Z",
+  "dateModified": "2026-06-16T12:45:37Z",
   "skillId": "algorithm-design",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "algorithm, LLM skill, code, AI agent, skills tree, design",
+  "keywords": "AI agent, code, algorithm, LLM skill, skills tree, design",
   "about": {
     "@type": "Thing",
     "name": "Algorithm Design",
