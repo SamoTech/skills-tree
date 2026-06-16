@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:47:36Z",
+  "dateModified": "2026-06-16T12:48:49Z",
   "skillId": "clipboard-ops",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, ops, clipboard, skills tree, AI agent, LLM skill, action",
+  "keywords": "action, skills tree, clipboard, execution, LLM skill, AI agent, ops",
   "about": {
     "@type": "Thing",
     "name": "Clipboard Operations",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:47:36Z",
+  "dateModified": "2026-06-16T12:48:49Z",
   "skillId": "etl-pipeline",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "data, skills tree, etl, AI agent, LLM skill, pipeline",
+  "keywords": "etl, skills tree, LLM skill, data, AI agent, pipeline",
   "about": {
     "@type": "Thing",
     "name": "ETL Pipeline",

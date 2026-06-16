@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:47:36Z",
+  "dateModified": "2026-06-16T12:48:49Z",
   "skillId": "vm-interaction",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "interaction, skills tree, computer, AI agent, vm, LLM skill, use",
+  "keywords": "interaction, skills tree, computer, LLM skill, use, AI agent, vm",
   "about": {
     "@type": "Thing",
     "name": "Virtual Machine Interaction",

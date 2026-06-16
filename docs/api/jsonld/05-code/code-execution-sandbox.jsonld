@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:47:36Z",
+  "dateModified": "2026-06-16T12:48:49Z",
   "skillId": "code-execution-sandbox",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, skills tree, AI agent, code, LLM skill, sandbox",
+  "keywords": "skills tree, execution, LLM skill, code, AI agent, sandbox",
   "about": {
     "@type": "Thing",
     "name": "Code Execution (Sandbox)",

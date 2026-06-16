@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/mouse-input.md",
-  "name": "Mouse Input",
-  "headline": "Mouse Input",
-  "description": "Apply mouse input in AI agent workflows.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/mouse-input.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/reasoning-under-uncertainty.md",
+  "name": "Reasoning Under Uncertainty",
+  "headline": "Reasoning Under Uncertainty",
+  "description": "Reason and make decisions when information is incomplete, ambiguous, or contradictory. Combines confidence calibration, hedged reasoning, and explicit uncertainty representation to produce reliable agent decisions under incomplete knowledge.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/reasoning-under-uncertainty.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,25 +53,35 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-06-16T12:48:49Z",
-  "skillId": "mouse-input",
-  "skillVersion": null,
-  "skillLevel": "basic",
-  "skillStability": "stable",
-  "categoryDir": "04-action-execution",
-  "sections": [],
+  "skillId": "reasoning-under-uncertainty",
+  "skillVersion": "v2",
+  "skillLevel": "advanced",
+  "skillStability": "evolving",
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Production Applications",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [
-    "../10-computer-use/mouse-click.md"
+    "../09-agentic-patterns/reflection-pattern.md",
+    "../03-memory/rag-retrieval.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "action, mouse, skills tree, execution, LLM skill, AI agent, input",
+  "datePublished": "2025-06-01",
+  "keywords": "reasoning, skills tree, uncertainty, LLM skill, AI agent, under",
   "about": {
     "@type": "Thing",
-    "name": "Mouse Input",
-    "description": "An AI agent skill for mouse input."
+    "name": "Reasoning Under Uncertainty",
+    "description": "An AI agent skill for reasoning under uncertainty."
   }
 }

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:47:36Z",
+  "dateModified": "2026-06-16T12:48:49Z",
   "skillId": "agent-as-tool",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "agentic, skills tree, patterns, AI agent, as, agent, LLM skill, tool",
+  "keywords": "as, agentic, skills tree, LLM skill, patterns, tool, AI agent, agent",
   "about": {
     "@type": "Thing",
     "name": "Agent as Tool",

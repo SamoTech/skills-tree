@@ -1,5 +1,5 @@
-generated: '2026-06-16T12:47:36Z'
-count: 366
+generated: '2026-06-16T12:48:48Z'
+count: 367
 skills:
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
@@ -1276,6 +1276,32 @@ skills:
   last_updated: null
   sections: []
   related: []
+  category_dir: 02-reasoning
+- id: reasoning-under-uncertainty
+  path: skills/02-reasoning/reasoning-under-uncertainty.md
+  name: Reasoning Under Uncertainty
+  description: Reason and make decisions when information is incomplete, ambiguous,
+    or contradictory. Combines confidence calibration, hedged reasoning, and explicit
+    uncertainty representation to produce reliable agent decisions under incomplete
+    knowledge.
+  category: reasoning
+  level: advanced
+  stability: evolving
+  version: v2
+  added: 2025-06
+  last_updated: 2026-06
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Production Applications
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/reflection-pattern.md
+  - ../03-memory/rag-retrieval.md
   category_dir: 02-reasoning
 - id: risk-assessment
   path: skills/02-reasoning/risk-assessment.md
