@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:43:22Z",
+  "dateModified": "2026-06-16T12:44:36Z",
   "skillId": "mouse-input",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, mouse, LLM skill, input, execution, AI agent, action",
+  "keywords": "LLM skill, input, action, AI agent, skills tree, mouse, execution",
   "about": {
     "@type": "Thing",
     "name": "Mouse Input",

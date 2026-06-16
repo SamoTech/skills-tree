@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-16T12:43:22Z",
-  "count": 362,
+  "generated": "2026-06-16T12:44:35Z",
+  "count": 363,
   "skills": [
     {
       "id": "api-response-parsing",
@@ -1167,6 +1167,33 @@
       "sections": [],
       "related": [
         "../12-data/statistical-analysis.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "least-to-most",
+      "path": "skills/02-reasoning/least-to-most.md",
+      "name": "Least-to-Most Prompting",
+      "description": "Decompose a complex problem into a sequence of simpler sub-problems and solve them in order, feeding each solution as context for the next. Achieves generalisation on problems that defeat standard Chain-of-Thought.",
+      "category": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
+      "version": "v2",
+      "added": "2025-06",
+      "last_updated": "2026-06",
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Production Applications",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/cot.md",
+        "../09-agentic-patterns/plan-and-execute.md"
       ],
       "category_dir": "02-reasoning"
     },

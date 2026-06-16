@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:43:22Z",
+  "dateModified": "2026-06-16T12:44:36Z",
   "skillId": "wikipedia-api",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "tool, skills tree, LLM skill, api, AI agent, wikipedia, use",
+  "keywords": "LLM skill, AI agent, wikipedia, api, skills tree, use, tool",
   "about": {
     "@type": "Thing",
     "name": "Wikipedia API",
