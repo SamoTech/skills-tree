@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:45:37Z",
+  "dateModified": "2026-06-16T12:46:44Z",
   "skillId": "network-traffic-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "network, reading, traffic, AI agent, LLM skill, perception, skills tree",
+  "keywords": "LLM skill, AI agent, reading, network, perception, skills tree, traffic",
   "about": {
     "@type": "Thing",
     "name": "Network Traffic Reading",

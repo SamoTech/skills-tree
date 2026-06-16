@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-16T12:45:37Z",
-  "count": 364,
+  "generated": "2026-06-16T12:46:44Z",
+  "count": 365,
   "skills": [
     {
       "id": "api-response-parsing",
@@ -1302,6 +1302,34 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "planning-decomposition",
+      "path": "skills/02-reasoning/planning-decomposition.md",
+      "name": "Planning Decomposition",
+      "description": "Break a complex agent goal into an ordered sequence of actionable sub-tasks, each with clear inputs, outputs, and success criteria. The cognitive foundation for plan-and-execute, LangGraph pipelines, and CrewAI task breakdown.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "stable",
+      "version": "v2",
+      "added": "2025-06",
+      "last_updated": "2026-06",
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Production Applications",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/plan-and-execute.md",
+        "../09-agentic-patterns/react-pattern.md",
+        "../09-agentic-patterns/subagent-delegation.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {

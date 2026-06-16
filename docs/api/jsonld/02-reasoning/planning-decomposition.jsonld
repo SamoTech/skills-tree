@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/chart-generation.md",
-  "name": "Chart / Diagram Generation",
-  "headline": "Chart / Diagram Generation",
-  "description": "Apply chart and diagram generation in AI agent workflows.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/chart-generation.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/planning-decomposition.md",
+  "name": "Planning Decomposition",
+  "headline": "Planning Decomposition",
+  "description": "Break a complex agent goal into an ordered sequence of actionable sub-tasks, each with clear inputs, outputs, and success criteria. The cognitive foundation for plan-and-execute, LangGraph pipelines, and CrewAI task breakdown.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/planning-decomposition.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,26 +53,36 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-06-16T12:46:44Z",
-  "skillId": "chart-generation",
-  "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillId": "planning-decomposition",
+  "skillVersion": "v2",
+  "skillLevel": "advanced",
   "skillStability": "stable",
-  "categoryDir": "08-multimodal",
-  "sections": [],
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Production Applications",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [
-    "../12-data/data-visualization.md",
-    "../01-perception/chart-reading.md"
+    "../09-agentic-patterns/plan-and-execute.md",
+    "../09-agentic-patterns/react-pattern.md",
+    "../09-agentic-patterns/subagent-delegation.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "LLM skill, multimodal, AI agent, generation, skills tree, chart",
+  "datePublished": "2025-06-01",
+  "keywords": "LLM skill, AI agent, skills tree, decomposition, reasoning, planning",
   "about": {
     "@type": "Thing",
-    "name": "Chart / Diagram Generation",
-    "description": "An AI agent skill for chart / diagram generation."
+    "name": "Planning Decomposition",
+    "description": "An AI agent skill for planning decomposition."
   }
 }
