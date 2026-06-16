@@ -7,43 +7,30 @@
 
 # Skills Tree
 
-![Banner](docs/assets/banner.svg)
-
-<!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — June 15, 2026
-
-### 🔥 Most Active Skills
-- **Readme** — 1 PR
-- **Xquik Api** — 1 PR
-
-<!-- HIGHLIGHTS_END -->
-
-
 ### The AI Agent Skill OS — Build Smarter Agents, Faster
 
 > **360 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
-> **Stop rediscovering. Start building on what the community has already proven.**
->
-> **50 skills are battle-tested today.** **308 are stubs** waiting for a real example, real I/O, and real failure modes — see [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md) for the full list. PRs that turn a stub into a production-ready entry are the highest-impact contribution you can make.
+> The shared operating system for AI agent capabilities — stop rediscovering, start building on what the community has already proven.
+
+<!-- BADGES_START -->
+[![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white&label=PyPI)](https://pypi.org/project/skills-tree/)
+[![Python versions](https://img.shields.io/pypi/pyversions/skills-tree?style=for-the-badge&logo=python&logoColor=white)](https://pypi.org/project/skills-tree/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/skills-tree?style=for-the-badge&color=3b82f6&logo=pypi&logoColor=white&label=Downloads%2Fmonth)](https://pypi.org/project/skills-tree/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
+[![GitHub Release](https://img.shields.io/github/v/release/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/releases)
+[![Coverage](https://img.shields.io/badge/Coverage-report-orange?style=for-the-badge)](meta/COVERAGE_STRATEGY.md)
+[![Docs](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
+<!-- BADGES_END -->
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
-[![Watchers](https://img.shields.io/github/watchers/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/watchers)
-[![Views](https://visitor-badge.laobi.icu/badge?page_id=SamoTech.skills-tree&style=for-the-badge&color=0e75b6&label=Views)](https://github.com/SamoTech/skills-tree)
-[![Issues](https://img.shields.io/github/issues/SamoTech/skills-tree?style=for-the-badge&color=ef4444&logo=github)](https://github.com/SamoTech/skills-tree/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 [![Contributors](https://img.shields.io/github/contributors/SamoTech/skills-tree?style=for-the-badge&color=f59e0b&logo=github)](https://github.com/SamoTech/skills-tree/graphs/contributors)
-[![Last Commit](https://img.shields.io/github/last-commit/SamoTech/skills-tree?style=for-the-badge&color=06b6d4&logo=github)](https://github.com/SamoTech/skills-tree/commits/main)
-[![Repo Size](https://img.shields.io/github/repo-size/SamoTech/skills-tree?style=for-the-badge&color=8b5cf6&logo=github)](https://github.com/SamoTech/skills-tree)
-[![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
-[![Skills](https://img.shields.io/badge/Skills-360%2B-8b5cf6?style=for-the-badge)](skills/)
-[![Version](https://img.shields.io/badge/Version-2.0-orange?style=for-the-badge)](meta/CHANGELOG.md)
-[![GitHub Pages](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
 
-**[🌐 Browse Live UI](https://samotech.github.io/skills-tree) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🔬 Labs](labs/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
+**[🌐 Live Docs](https://samotech.github.io/skills-tree) · [📦 PyPI](https://pypi.org/project/skills-tree/) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
-[🐦 **Share Skills Tree on X / Twitter →**](https://twitter.com/intent/tweet?text=Skills%20Tree%20%E2%80%94%20the%20shared%20operating%20system%20for%20AI%20agent%20capabilities.%20Working%20code,%20real%20benchmarks,%20failure%20modes,%20and%20evolution%20history.&url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&hashtags=AI,Agents,LLM,OpenSource)
+[🐦 **Share Skills Tree on X →**](https://twitter.com/intent/tweet?text=Skills%20Tree%20%E2%80%94%20the%20shared%20operating%20system%20for%20AI%20agent%20capabilities.&url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&hashtags=AI,Agents,LLM,OpenSource)
 
 🌐 **Read in your language:**
 🇬🇧 English
@@ -62,6 +49,34 @@
 
 ---
 
+## ⚡ Quick Install
+
+```bash
+pip install skills-tree
+```
+
+```python
+# Query the skills taxonomy programmatically
+from skills_tree import SkillsTree
+
+st = SkillsTree()
+skill = st.get("rag")           # fetch a skill by ID
+results = st.search("memory")   # full-text search across 360+ skills
+cats = st.categories()          # list all 17 categories
+```
+
+Or use the CLI:
+
+```bash
+skills-tree search "memory injection"
+skills-tree show rag
+skills-tree list --category reasoning
+```
+
+→ Full install guide: **[docs/installation.md](docs/installation.md)** · Quick start: **[docs/quickstart.md](docs/quickstart.md)**
+
+---
+
 ## The Problem
 
 Every AI agent builder rediscovers the same skills from scratch.
@@ -70,7 +85,7 @@ Someone learns RAG the hard way. Someone else figures out memory injection at 2a
 
 **That collective knowledge is disappearing into Slack threads, private repos, and Twitter bookmarks.**
 
-Skills Tree fixes that.
+Skills Tree fixes that. → [Read the full problem statement](docs/WHY_SKILLS_TREE.md)
 
 ---
 
@@ -80,15 +95,54 @@ Skills Tree fixes that.
 
 A living, versioned, community-powered index of everything an agent can do — at its best, documented with working code, real benchmarks, failure modes, and evolution history.
 
-We don't pretend every entry is finished. **Battle-tested skills (badged 🟢 verified) are production-ready and copy-paste safe.** Yellow / unscanned skills are the community's TODO list — open files, real problem space, and the clearest signal of where contributions are most useful.
+Battle-tested skills (🟢 verified) are production-ready and copy-paste safe. Yellow/unscanned skills are the community's TODO list — open files, real problem space, and the clearest signal of where contributions are most useful.
 
-It's not a list. It's infrastructure being built in public.
+→ [Real-world use cases](docs/USE_CASES.md) · [Why Skills Tree vs alternatives](docs/WHY_SKILLS_TREE.md#competitive-positioning)
+
+---
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                     skills-tree                         │
+│                   (Python package)                      │
+├─────────────┬───────────────────┬───────────────────────┤
+│   CLI       │   Python API      │   MCP Server          │
+│ (Typer)     │ (SkillsTree class)│ (tools/mcp/)          │
+├─────────────┴───────────────────┴───────────────────────┤
+│              Skills Data Layer (Markdown + YAML)        │
+│  skills/  │  systems/  │  blueprints/  │  benchmarks/   │
+├─────────────────────────────────────────────────────────┤
+│  Validation Engine  │  Search Index  │  Quality Reports │
+│  (tools/)           │  (Lunr.js)     │  (meta/)         │
+└─────────────────────────────────────────────────────────┘
+```
+
+→ Full architecture deep-dive: **[docs/architecture.md](docs/architecture.md)**
+
+---
+
+## Comparison vs Alternatives
+
+| Feature | **Skills Tree** | LangChain Hub | Hugging Face Hub | Custom YAML files |
+|---|---|---|---|---|
+| AI agent skill taxonomy | ✅ 360+ skills | ⚠️ Prompt-focused | ❌ Model-focused | ❌ None |
+| Versioned skill evolution | ✅ v1→v2→v3 | ❌ | ❌ | ❌ |
+| Runnable code examples | ✅ Every skill | ⚠️ Some | ⚠️ Some | ❌ |
+| Benchmarks included | ✅ Head-to-head | ❌ | ⚠️ Leaderboards | ❌ |
+| MCP server integration | ✅ Built-in | ❌ | ❌ | ❌ |
+| Multi-agent blueprints | ✅ 7+ blueprints | ⚠️ Templates | ❌ | ❌ |
+| CLI + Python API | ✅ Both | ⚠️ Python only | ✅ Both | ❌ |
+| Community-governed | ✅ Open PRs | ⚠️ Curated | ✅ Open | ✅ (yours only) |
+| Failure modes documented | ✅ Every skill | ❌ | ❌ | ❌ |
+| Free & open source (MIT) | ✅ | ⚠️ Mixed | ✅ | ✅ |
 
 ---
 
 ## 🚀 Start Here — Battle-Tested Skills
 
-If you're new, **read these first**. Each one ships with runnable code, typed I/O, failure modes, and a model-comparison table.
+If you're new, **read these first**. Each ships with runnable code, typed I/O, failure modes, and a model-comparison table.
 
 ### Agent reasoning loops
 - [**ReAct**](skills/09-agentic-patterns/react.md) — Thought → Action → Observation, the foundation of tool-using agents
@@ -104,36 +158,19 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 - [**Vector Store Retrieval**](skills/03-memory/vector-store-retrieval.md) — typed top-k cosine search with metadata filtering
 - [**Embedding Generation**](skills/12-data/embedding-generation.md) — batched, content-hash-cached, Matryoshka-truncatable
 - [**Memory Injection**](skills/03-memory/memory-injection.md) — top-K user memories per turn
-- [**Short-Term Memory**](skills/03-memory/short-term-memory.md) — token-budgeted rolling window (the foundation for everything else)
+- [**Short-Term Memory**](skills/03-memory/short-term-memory.md) — token-budgeted rolling window
 
 ### Calling LLMs in production
 - [**Function / Tool Calling**](skills/07-tool-use/function-calling.md) — the primitive that turns an LLM into an agent
 - [**OpenAI API**](skills/07-tool-use/openai-api.md) — chat, structured outputs, tools, embeddings, streaming, retry
 - [**Anthropic API**](skills/07-tool-use/anthropic-api.md) — Claude with tool loop, prompt caching, streaming
 
-### Working with text
-- [**Translation**](skills/06-communication/translation.md) — placeholder-safe MT with glossary + tone
-- [**Paraphrasing**](skills/06-communication/paraphrasing.md) — simplify / formalize / diversify
-- [**OCR**](skills/01-perception/ocr.md) — VLM + classical OCR with confidence-based human-review routing
-
-### Code
-- [**Code Generation**](skills/05-code/code-generation.md) — spec → AST-validated source with self-repair on failure
-- [**Bug Fixing**](skills/05-code/bug-fixing.md) — agentic loop: read → patch → test → repeat until green
-- [**Code Review**](skills/05-code/code-review.md) — automated critique with severity tiers
-
-### Web
-- [**Web Search**](skills/11-web/web-search.md) — Tavily/Serper/Brave with recency + host allowlist + TTL cache
-- [**Web Scraping**](skills/11-web/web-scraping.md) — trafilatura + BS4 fallback, metadata, redirect-safe
-
-### Security
+### Code, Web & Security
+- [**Code Generation**](skills/05-code/code-generation.md) — spec → AST-validated source with self-repair
+- [**Web Search**](skills/11-web/web-search.md) — Tavily/Serper/Brave with recency + TTL cache
 - [**Input Sanitization**](skills/14-security/input-sanitization.md) — 4-layer defense: structural + boundary + content + isolation
 
-### Action execution
-- [**File Write**](skills/04-action-execution/file-write.md) — atomic, crash-safe file writes for agents
-- [**HTTP Request**](skills/04-action-execution/http-request.md) — production HTTP with idempotency, retry-on-idempotent-only, header redaction
-- [**Dependency Auditor**](skills/17-infrastructure/dependency-auditor.md) — vulnerability + license + freshness audit
-
-> **The full battle-tested set is auto-listed in [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md). The same report names every stub that needs upgrading — those are the highest-impact PRs you can submit.**
+> **The full battle-tested set is auto-listed in [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md).**
 
 ---
 
@@ -142,17 +179,17 @@ If you're new, **read these first**. Each one ships with runnable code, typed I/
 ```
 skills-tree/
 │
-├── skills/          → 360 atomic skill files (50 battle-tested, 308 stubs awaiting upgrade)
-│                     run `python3 tools/check_skill_quality.py` for the live count
+├── skills/          → 360 atomic skill files (50 battle-tested, 308 stubs)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
 ├── labs/            → Experimental & bleeding-edge capabilities
 │
-├── docs/            → Interactive web UI (GitHub Pages)
-├── i18n/            → Localized READMEs (Arabic, Chinese, Spanish, German, French, Hindi, Japanese, Korean, Portuguese, Russian)
+├── docs/            → Interactive web UI (GitHub Pages) + MkDocs docs site
+├── i18n/            → Localized READMEs (10 languages)
 ├── meta/            → Schema, glossary, frameworks, roadmap, changelog
-└── requirements.txt → Pinned Python deps for CI workflows
+├── mcp/             → MCP server integration
+└── tests/           → pytest test suite
 ```
 
 ---
@@ -177,9 +214,7 @@ skills-tree/
 | 14 | 🔒 **Security** | 13 | Sandboxing, secret scanning, audit logs, rollback |
 | 15 | 🎼 **Orchestration** | 22 | Multi-agent, state machines, retry, consensus |
 | 16 | 🏺 **Domain-Specific** | 28 | Medical, legal, finance, DevOps, education, science |
-| 17 | 🛠️ **Infrastructure** | 1 | Dependency auditing & supply-chain tooling (early) |
-
-> Counts above reflect skill files on disk and are auto-synced by `tools/update_readme_counts.py` (run nightly via [`update-skill-count.yml`](.github/workflows/update-skill-count.yml)). If you spot a drift, open an issue.
+| 17 | 🛠️ **Infrastructure** | 1 | Dependency auditing & supply-chain tooling |
 
 ---
 
@@ -202,112 +237,50 @@ client.messages.create(
     messages=[{"role": "user", "content": user_message}]
 )
 ```
-
-## Benchmarks  → benchmarks/memory/injection-strategies.md
-## Related     → working-memory.md · rag.md · vector-store-retrieval.md
-## Changelog   → v1 (2025-03) · v2 (2026-04, added retrieval scoring)
 ````
 
-Every skill includes:
-- ✅ What it does and why it matters
-- ✅ Typed inputs/outputs
-- ✅ Runnable Python code (`claude-opus-4-5` / `gpt-4o`)
-- ✅ Frameworks table (LangChain, LangGraph, CrewAI, mem0...)
-- ✅ Failure modes and edge cases
-- ✅ Related skills cross-links
-- ✅ Version history
-
----
-
-## Skill Versioning — How Evolution Works
-
-Skills are not static files. They evolve as the community learns:
-
-```
-v1 — Initial entry: description + minimal example
-v2 — Enriched: better example + failure modes + related skills
-v3 — Battle-tested: benchmarks + model comparison + production notes
-```
-
-**To upgrade a skill:**
-1. Bump the version in frontmatter
-2. Add a changelog entry explaining what improved
-3. Open a PR titled `improve: skill-name — v1 → v2`
-
-The best versions surface naturally — through PR merge frequency and inclusion in Systems + Blueprints.
+Every skill includes: ✅ typed inputs/outputs · ✅ runnable Python code · ✅ frameworks table · ✅ failure modes · ✅ version history
 
 ---
 
 ## 🗺️ Systems — Multi-Skill Workflows
 
-See how skills combine into real, working agent pipelines:
-
 | System | Skills Used | Use Case |
 |---|---|---|
-| [Research Agent](systems/research-agent.md) | Web search + RAG + Summarize + Cite | Deep research automation |
-| [Coding Agent](systems/coding-agent.md) | Code reading + Write + Debug + Test | End-to-end code generation |
+| [Research Agent](systems/research-agent.md) | Web search + RAG + Summarize | Deep research automation |
+| [Coding Agent](systems/coding-agent.md) | Code reading + Write + Debug | End-to-end code generation |
 | [Code Reviewer](systems/code-reviewer.md) | Code reading + Reasoning + Comment gen | Automated PR reviews |
 | [Data Pipeline Agent](systems/data-pipeline-agent.md) | DB reading + ETL + Anomaly detection | Automated data ops |
 | [Customer Support Bot](systems/customer-support-bot.md) | Memory injection + Intent + Response gen | Personalized support |
-| [Computer Use Agent](systems/computer-use-agent.md) | Screen reading + OCR + Click + Type | Full GUI automation |
-| [Data Analyst](systems/data-analyst.md) | SQL + Charts + Summarize + Insight gen | Automated data analysis |
-| [Voice Agent](systems/voice-agent.md) | Audio transcription + NLU + TTS | Real-time voice interaction |
+| [Computer Use Agent](systems/computer-use-agent.md) | Screen reading + OCR + Click | Full GUI automation |
 
 ---
 
 ## 🏗️ Blueprints — Production Architectures
-
-Copy-paste architectures for the most common agent patterns:
 
 | Blueprint | Description |
 |---|---|
 | [RAG Stack](blueprints/rag-stack.md) | Embed → store → retrieve → generate, fully wired |
 | [Multi-Agent Workflow](blueprints/multi-agent-workflow.md) | Sequential orchestration with handoffs |
 | [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialists + orchestrator, parallel execution |
-| [Computer Use Browser](blueprints/computer-use-browser.md) | Browser automation via Playwright + vision |
 | [Human-in-the-Loop](blueprints/human-in-the-loop.md) | Approval gates, escalation, audit trails |
 | [Self-Healing Agent](blueprints/self-healing-agent.md) | Error detection, retry logic, rollback |
 | [Memory-First Agent](blueprints/memory-first-agent.md) | Profile + episodic + vector memory combined |
 
 ---
 
-## 📊 Benchmarks — Real Numbers, Reproducible
-
-We test so you don't have to:
+## 📊 Benchmarks
 
 | Benchmark | Winner | Margin | Link |
 |---|---|---|---|
 | ReAct vs LATS (HotpotQA) | LATS | +8.3% accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
 | RAG retrieval strategies | HyDE | +12% recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
-| Memory injection methods | Top-K semantic | Best cost/quality ratio | [→](benchmarks/memory/injection-strategies.md) |
-| Function calling comparison | Claude 3.7 | +6% on tool accuracy | [→](benchmarks/tool-use/function-calling-comparison.md) |
-
-> Every benchmark includes methodology, dataset, and reproducible test scripts.
-
----
-
-## 🏆 This Week's Highlights
-
-> Auto-updated weekly · [Full leaderboard →](meta/LEADERBOARD.md)
-
-**🔥 Most Active Skills**
-- `skills/09-agentic-patterns/react.md` — 12 community improvements this month
-- `skills/03-memory/memory-injection.md` — v2 with retrieval scoring
-- `skills/02-reasoning/causal.md` — new benchmark comparison added
-
-**⚡ Battle-Tested** *(used in 10+ public projects)*
-`ReAct` · `Chain of Thought` · `RAG Pipeline` · `Memory Injection` · `Tool Use`
-
-**🔬 Hot in Labs**
-- `labs/reasoning/tree-of-agents.md` — multi-agent tree search
-- `labs/memory/episodic-compression.md` — lossy-but-useful memory compression
-- `labs/tool-use/adaptive-tool-selection.md` — dynamic tool filtering for large registries
+| Memory injection methods | Top-K semantic | Best cost/quality | [→](benchmarks/memory/injection-strategies.md) |
+| Function calling comparison | Claude 3.7 | +6% tool accuracy | [→](benchmarks/tool-use/function-calling-comparison.md) |
 
 ---
 
 ## 🤝 How to Contribute
-
-Four types of contributions — all valued:
 
 | Type | What It Is | PR Title Format |
 |---|---|---|
@@ -322,47 +295,7 @@ cp meta/skill-template.md skills/05-code/my-new-skill.md
 # Fill in every section → open a PR
 ```
 
-### Quality Rules
-
-- ❌ No generic prompts or vague descriptions
-- ❌ No skills without a working code example
-- ✅ Must solve a real, specific problem
-- ✅ Must be structured and reusable
-- ✅ Must include inputs, outputs, and at least one runnable example
-
 Full guide: **[CONTRIBUTING.md](CONTRIBUTING.md)**
-
----
-
-## Quick Start
-
-```bash
-# Clone
-git clone https://github.com/SamoTech/skills-tree.git
-
-# Find a skill by keyword
-grep -r "memory injection" skills/ --include="*.md" -l
-
-# Read a full system end-to-end
-cat systems/research-agent.md
-
-# See benchmark results
-cat benchmarks/tool-use/function-calling-comparison.md
-```
-
-Or **[browse the live UI →](https://samotech.github.io/skills-tree)**
-
----
-
-## Who This Is For
-
-```
-🏗️  Agent Builders       → Production skill patterns, ready to use today
-🔬  AI Researchers        → Benchmarks, taxonomy, and full capability coverage
-📐  System Architects     → Blueprints for multi-agent production systems
-🎓  Learners              → Structured path from basic skills → advanced systems
-🤝  Contributors          → A community that improves everything together
-```
 
 ---
 
@@ -370,23 +303,9 @@ Or **[browse the live UI →](https://samotech.github.io/skills-tree)**
 
 See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 
-**Near-term (v2.x):**
-- Skill dependency graph — visual map of how skills relate
-- Skill Paths — curated learning tracks (e.g., "Build a Research Agent in 5 skills")
-- JSON/YAML export of all skill metadata for programmatic use
-- Community skill ratings and upvotes
-- Auto-leaderboard: Top Skills This Week, Most Improved, Battle-Tested
-
-**Medium-term (v3.0):**
-- CLI: `skills-tree search "memory injection"` → returns ranked results
-- LangChain Hub / MCP registry integration
-- ✅ ~~Localization: Arabic, Chinese, Spanish READMEs~~ — **shipped in v2.1**
-- Automated changelog generation on PR merge
-
-**Long-term vision:**
-- Skills Tree becomes the canonical reference for AI agent capabilities
-- Every major agent framework links here as the skill index
-- 1000+ skills, all battle-tested, all benchmarked
+**Near-term (v2.x):** Skill dependency graph · Skill Paths · JSON/YAML export · Community ratings  
+**Medium-term (v3.0):** LangChain Hub / MCP registry integration · 500+ skills  
+**Long-term:** Skills Tree becomes the canonical reference for AI agent capabilities
 
 ---
 
@@ -398,16 +317,12 @@ See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 > that the community builds, tests, and evolves together.
 >
 > Every skill added here saves every agent builder who comes after you.
-> Every benchmark run here prevents someone else from wasting a week.
-> Every system documented here becomes a launchpad for the next builder.
->
-> This is not a repo. It's infrastructure for the AI-native era.
 
 ---
 
 <div align="center">
 
-**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [🌐 Browse Skills](https://samotech.github.io/skills-tree) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
+**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [📦 Install from PyPI](https://pypi.org/project/skills-tree/) · [🌐 Browse Skills](https://samotech.github.io/skills-tree) · [🤝 Contribute](CONTRIBUTING.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
 
 *The AI Agent Skill OS — built by the community, for the community.*
 
