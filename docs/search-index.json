@@ -561,6 +561,21 @@
     "body": "Meta-Cognition Category: reasoning | Level: advanced | Stability: stable | Version: v1 Description Monitor and regulate the reasoning process itself — detect when the agent is stuck, hallucinating, or needs more information. Example Failure Modes - Overconfidence masking actual ignorance - Excessive hedging slowing response time Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
+    "id": "02-reasoning/meta-prompting",
+    "title": "Meta-Prompting",
+    "category": "02-reasoning",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [
+      "reasoning",
+      "meta-learning",
+      "prompt-generation",
+      "orchestration"
+    ],
+    "description": "Use a meta-model (or meta-prompt) to dynamically generate, select, or refine prompts for a task-specific model. Enables automated prompt engineering and zero-shot task specialisation at runtime.",
+    "body": "Meta-Prompting Description Meta-Prompting (Zhang et al., 2024) operates at the prompt-construction level rather than the answer level. A meta-model receives a task description and generates the optimal prompt (or a set of candidate prompts) for a task model to execute. This creates a two-level hierarchy: 1. Meta-level: \"Given this task, what is the best prompt to give a model to solve it?\" 2. Task-level: The generated prompt is executed by the task model. In production, meta-prompting is used in AutoGen's system message generation, Semantic Kernel's planner, and DSPy's optimizer. When to Use - You have a diverse set of task types and can't hand-craft prompts for each. - You want automatic prompt adaptation to user intent at runtime. - Building multi-agent systems where agent prompts should specialise per task. - Don't use when task distribution is narrow and fixed prompts are optimal. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Description of the task to solve | | | | Optional constraints (format, length, tone) | | → | | The meta-generated prompt | | → | | Result of running generated prompt on task | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Generated prompt is too generic | Meta-model under-specified | Provide richer task description with examples | | Task model ignores generated prompt | Weak system prompt influence | Use stronger instruction verbs; test with multiple models | | Meta-prompt latency doubles cost | Two LLM calls | Cache generated prompts per task type | Production Applications - G08 Multi-Agent Systems: Dynamically assign system prompts to specialised sub-agents - G01 Coding Agent: Generate task-specific coding guidelines per request type - G02 Research Agent: Adapt search and synthesis prompts per research domain Related Skills - Prompt Engineering — prerequisite; meta-prompting automates this skill - ReAct Pattern — meta-prompting can generate ReAct system prompts - Planning Decomposition — meta-prompting supports plan generation - Reflection — meta-prompting + reflection creates self-improving prompt loops Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Full runnable example, production applications, failure modes |"
+  },
+  {
     "id": "02-reasoning/multi-step-planning",
     "title": "Multi-Step Planning",
     "category": "02-reasoning",
