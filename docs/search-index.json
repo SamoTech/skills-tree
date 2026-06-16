@@ -596,6 +596,21 @@
     "body": "Numerical Estimation Category: reasoning | Level: basic | Stability: stable | Version: v1 Description Estimate quantities using Fermi decomposition: break unknown into known sub-components and multiply. Example Failure Modes - Errors compound multiplicatively across steps - Anchoring bias on initial estimates Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
+    "id": "02-reasoning/planning-decomposition",
+    "title": "Planning Decomposition",
+    "category": "02-reasoning",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [
+      "reasoning",
+      "planning",
+      "decomposition",
+      "agent-design"
+    ],
+    "description": "Break a complex agent goal into an ordered sequence of actionable sub-tasks, each with clear inputs, outputs, and success criteria. The cognitive foundation for plan-and-execute, LangGraph pipelines, and CrewAI task breakdown.",
+    "body": "Planning Decomposition Description Planning Decomposition is the cognitive skill of converting a high-level objective into an explicit, ordered plan of sub-tasks that an agent (or multi-agent system) can execute sequentially or in parallel. It is the reasoning backbone behind: - LangGraph state graphs where each node is a decomposed task - CrewAI task sequences with explicit agent assignments - AutoGen conversation-driven planning where a Planner agent decomposes before Executors act - BabyAGI task-creation loops Planning Decomposition differs from Goal Decomposition (which operates at the intent/objective level) by producing actionable, executable steps with tool bindings, not just sub-goals. When to Use - The agent goal requires more than 3 sequential tool calls. - Sub-tasks can be independently validated (each has a clear done condition). - Different sub-tasks may be parallelisable across sub-agents. - Don't use for single-shot tasks; the planning overhead is not justified. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | High-level objective | | | | Tool names the agent can use | | → | | Ordered sub-tasks with tool bindings | | → | | Task dependency graph | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Over-decomposition (20+ tasks) | Model is too granular | Set max tasks constraint in prompt | | Tasks have circular dependencies | Weak dependency reasoning | Post-process with cycle detection | | Tool hallucination (uses unavailable tools) | Model invents tools | Strictly enumerate available tools | | Missing success criteria | Vague task descriptions | Require field in JSON schema | Production Applications - G01 Coding Agent: Decompose feature requests into: research, design, implement, test steps - G08 Multi-Agent Systems: Assign decomposed tasks to specialised sub-agents via CrewAI/AutoGen - G02 Research Agent: Structure multi-source research into search, read, synthesise, report tasks Related Skills - Plan-and-Execute — the agentic pattern that executes decomposed plans - Goal Decomposition — operates at intent level; precedes planning decomposition - Least-to-Most Prompting — reasoning-level analogue - ReAct Pattern — executes individual plan steps - Subagent Delegation — assigns plan tasks to sub-agents Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Full runnable example, failure modes, production applications |"
+  },
+  {
     "id": "02-reasoning/planning",
     "title": "Planning",
     "category": "02-reasoning",
