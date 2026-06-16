@@ -496,6 +496,21 @@
     "body": "Ethical Reasoning Category: reasoning | Level: advanced | Stability: stable | Version: v1 Description Evaluate actions and decisions against ethical frameworks (utilitarian, deontological, virtue ethics) and stakeholder impacts. Example Failure Modes - Framework selection bias - Missing affected stakeholder groups Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
+    "id": "02-reasoning/goal-decomposition",
+    "title": "Goal Decomposition",
+    "category": "02-reasoning",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [
+      "reasoning",
+      "planning",
+      "goals",
+      "decomposition"
+    ],
+    "description": "Break a high-level user intent or agent objective into a hierarchy of sub-goals, clarifying ambiguities and establishing measurable success criteria at each level before execution begins.",
+    "body": "Goal Decomposition Description Goal Decomposition operates at the intent level: before any tool is called or plan is generated, the agent clarifies and breaks down the user's objective into a hierarchy of sub-goals. This is distinct from Planning Decomposition (which produces executable tasks) and from Task Decomposition (which operates on already-specified tasks). Used in: - BabyAGI: The task-creation agent generates sub-goals from a primary objective - LangGraph SubGraph: Nested graphs representing decomposed goal trees - AutoGen: Nested chat patterns where a UserProxyAgent sends sub-goals to specialised agents - GPT-Researcher: Research question decomposition before search When to Use - The user's request is ambiguous or multi-dimensional. - Achieving the main goal requires achieving prerequisite sub-goals first. - You want explicit success criteria at each level (not just the final answer). - Don't use for simple, well-specified requests where goal is already clear. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Raw user objective | | | | Available context about the domain | | → | | Hierarchical goal decomposition | | → | | Measurable criteria per sub-goal | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Goals too abstract | Model doesn't add measurability | Require in schema | | Infinite goal recursion | Model decomposes sub-goals again | Limit decomposition to 2 levels | | Missing dependency edges | Model skips prerequisite relationships | Post-validate: all non-leaf goals have at least one dependency | Production Applications - G01 Coding Agent: Decompose \"build a REST API\" into: design, implement endpoints, add auth, add tests - G02 Research Agent: Decompose research question into information needs before retrieval - G08 Multi-Agent Systems: Root goal tree drives agent specialisation decisions Related Skills - Planning Decomposition — converts sub-goals into executable tasks - Least-to-Most Prompting — reasoning technique for decomposition - Plan-and-Execute — executes the resulting plan - Memory-Augmented Agent — tracks progress against goal tree Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Full runnable example, structured output, failure modes |"
+  },
+  {
     "id": "02-reasoning/goal-setting",
     "title": "Goal Setting",
     "category": "02-reasoning",
