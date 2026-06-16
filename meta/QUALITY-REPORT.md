@@ -4,18 +4,18 @@
 
 ## Summary
 
-- **Total skill files:** 366
+- **Total skill files:** 367
 - 🟢 **Battle-tested** (rich content + tables + >=60 lines): 56
 - 🟡 **Enriched** (real description + runnable code): 2
 - ⚪ **Stub** (placeholder description or no runnable code): 308
-- ❌ **Invalid** (frontmatter problems): 0
+- ❌ **Invalid** (frontmatter problems): 1
 
 ## Per-category breakdown
 
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `01-perception` | 36 | 2 | 2 | 32 | 0 |
-| `02-reasoning` | 44 | 8 | 0 | 36 | 0 |
+| `02-reasoning` | 45 | 8 | 0 | 36 | 1 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
@@ -462,6 +462,10 @@ Each entry below is a real, claimed skill that currently has no runnable example
 ### `17-infrastructure` (1)
 
 - [`dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
+
+## ❌ Invalid (frontmatter must be fixed)
+
+- [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — frontmatter `stability: evolving` not in ['deprecated', 'experimental', 'stable'] — will be dropped from JSON-LD export
 
 ## Definitions
 
