@@ -1,6 +1,6 @@
 {
-  "generated": "2026-06-16T12:46:44Z",
-  "count": 365,
+  "generated": "2026-06-16T12:47:36Z",
+  "count": 366,
   "skills": [
     {
       "id": "api-response-parsing",
@@ -1114,6 +1114,33 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "goal-decomposition",
+      "path": "skills/02-reasoning/goal-decomposition.md",
+      "name": "Goal Decomposition",
+      "description": "Break a high-level user intent or agent objective into a hierarchy of sub-goals, clarifying ambiguities and establishing measurable success criteria at each level before execution begins.",
+      "category": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
+      "version": "v2",
+      "added": "2025-06",
+      "last_updated": "2026-06",
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Production Applications",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/plan-and-execute.md",
+        "../09-agentic-patterns/memory-augmented-agent.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {

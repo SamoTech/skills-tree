@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/langgraph-checkpointing.md",
-  "name": "LangGraph Checkpointing",
-  "headline": "LangGraph Checkpointing",
-  "description": "Persist agent graph state at every step using LangGraph checkpointers for fault tolerance and resumability.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/langgraph-checkpointing.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/goal-decomposition.md",
+  "name": "Goal Decomposition",
+  "headline": "Goal Decomposition",
+  "description": "Break a high-level user intent or agent objective into a hierarchy of sub-goals, clarifying ambiguities and establishing measurable success criteria at each level before execution begins.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/goal-decomposition.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,33 +53,35 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-06-16T12:47:36Z",
-  "skillId": "langgraph-checkpointing",
+  "skillId": "goal-decomposition",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
-  "categoryDir": "15-orchestration",
+  "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
     "Failure Modes",
-    "Prompt Patterns",
-    "Model Comparison",
-    "Related",
+    "Production Applications",
+    "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../09-agentic-patterns/plan-and-execute.md",
+    "../09-agentic-patterns/memory-augmented-agent.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "checkpointing, skills tree, AI agent, orchestration, langgraph, LLM skill",
+  "datePublished": "2025-06-01",
+  "keywords": "skills tree, AI agent, reasoning, LLM skill, decomposition, goal",
   "about": {
     "@type": "Thing",
-    "name": "LangGraph Checkpointing",
-    "description": "An AI agent skill for langgraph checkpointing."
+    "name": "Goal Decomposition",
+    "description": "An AI agent skill for goal decomposition."
   }
 }
