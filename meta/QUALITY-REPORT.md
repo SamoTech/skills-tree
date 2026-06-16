@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 361
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 51
+- **Total skill files:** 362
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 52
 - 🟡 **Enriched** (real description + runnable code): 2
 - ⚪ **Stub** (placeholder description or no runnable code): 308
 - ❌ **Invalid** (frontmatter problems): 0
@@ -15,7 +15,7 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `01-perception` | 36 | 2 | 2 | 32 | 0 |
-| `02-reasoning` | 39 | 3 | 0 | 36 | 0 |
+| `02-reasoning` | 40 | 4 | 0 | 36 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
@@ -38,6 +38,7 @@
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
 - [`skills/02-reasoning/planning.md`](skills/02-reasoning/planning.md) — Planning
 - [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
+- [`skills/02-reasoning/step-back-prompting.md`](skills/02-reasoning/step-back-prompting.md) — Step-Back Prompting
 - [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
 - [`skills/03-memory/agent-sessions.md`](skills/03-memory/agent-sessions.md) — Agent Sessions
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
