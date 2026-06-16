@@ -680,6 +680,21 @@
     "body": "ReAct (Reason + Act) Category: Skill Level: Stability: Added: 2025-03 Description Interleave reasoning traces with tool actions: Thought → Action → Observation loops that ground reasoning in real-world feedback. Example Advanced Techniques - Multi-turn ReAct: feed tool results back as blocks for true Observation steps - Scratchpad pattern: use XML tags to separate reasoning from final output - Parallel tool calls: pass multiple tools and let the model decide which to invoke simultaneously Related Skills - , , ,"
   },
   {
+    "id": "02-reasoning/reasoning-under-uncertainty",
+    "title": "Reasoning Under Uncertainty",
+    "category": "02-reasoning",
+    "level": "advanced",
+    "stability": "evolving",
+    "tags": [
+      "reasoning",
+      "uncertainty",
+      "calibration",
+      "confidence"
+    ],
+    "description": "Reason and make decisions when information is incomplete, ambiguous, or contradictory. Combines confidence calibration, hedged reasoning, and explicit uncertainty representation to produce reliable agent decisions under incomplete knowledge.",
+    "body": "Reasoning Under Uncertainty Description Reasoning Under Uncertainty (RuU) is the agent capability to: 1. Explicitly represent uncertainty — \"I am 70% confident this is correct\" 2. Hedge conclusions appropriately — distinguish facts from inferences from guesses 3. Request clarification or additional evidence when uncertainty is too high to proceed 4. Commit to a best-estimate decision even under incomplete information when action is required This is distinct from Uncertainty Quantification (which measures statistical uncertainty in model outputs) — RuU is the reasoning approach an agent uses when facing incomplete knowledge. Used in: Anthropic's extended thinking (uncertainty-driven budget allocation), GPT-4's calibrated confidence expressions, LangChain's agent fallback chains, and medical/legal reasoning agents where hedged outputs are required. When to Use - The agent must act despite missing information (incomplete evidence). - Downstream systems need to know confidence level (for human review routing). - Multiple contradictory sources require explicit confidence weighting. - Don't use for tasks with deterministic answers; hedge signals waste tokens. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Question or decision to reason about | | | | Available evidence items | | | | Minimum confidence to proceed (default 0.7) | | → | | Best-estimate answer with hedges | | → | | 0.0–1.0 confidence score | | → | | What additional evidence would improve confidence | | → | | proceed / clarify / escalate | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Overconfidence (confidence=1.0 always) | Model calibration issue | Require explicit evidence citation for confidence | | Refusal to act below threshold | Threshold too high | Tune threshold per risk tolerance | | Confidence not propagated downstream | No structured output | Use JSON schema with field | Production Applications - G02 Research Agent: Classify research findings by evidence strength before synthesis - G01 Coding Agent: Hedge before modifying unfamiliar codebases; request context when uncertain - G04 RAG Assistant: Score retrieved chunks by relevance confidence before including Related Skills - Self-Consistency — uses voting to reduce uncertainty in answers - Hypothesis Generation — generates candidate explanations for uncertain situations - Reflection Pattern — re-evaluates low-confidence outputs - RAG Retrieval — retrieves evidence to reduce uncertainty Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Full runnable example, structured output, action routing |"
+  },
+  {
     "id": "02-reasoning/risk-assessment",
     "title": "Risk Assessment",
     "category": "02-reasoning",
