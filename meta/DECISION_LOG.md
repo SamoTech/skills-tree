@@ -109,3 +109,17 @@
 
 **Alternatives Rejected:**
 - Single unidirectional edge: rejected (the relationship is symmetric; one direction would mislead traversal)
+
+---
+
+### 2026-06-21 GOVERNANCE — Reconciliation pass: TASK-002 classified OPEN
+
+**Decision:** TASK-002 (Add Context Engineering skills) is formally classified as OPEN. No nodes have been added to the graph corresponding to context engineering concepts. No `TASK_002_REPORT.md` exists. No DECISION_LOG entry for TASK-002 exists prior to this one.
+
+**Reasoning:** Graph was audited directly. No nodes with context-engineering semantics (`skill:context-window-management`, `skill:prompt-caching`, `skill:context-compression`, `skill:retrieval-augmented-context`, `skill:system-prompt-design`) are present beyond `skill:context-management` which was added in the original 15-node baseline and covers a different concept (agent working memory, not context engineering).
+
+**Impact:** TASK-002 remains in the open queue. It is the highest-priority unblocked task alongside TASK-004.
+
+**Alternatives Rejected:**
+- Marking TASK-002 as DONE: rejected — no graph evidence supports this
+- Merging TASK-002 into TASK-004: rejected — they cover distinct skill categories

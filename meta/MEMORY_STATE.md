@@ -2,7 +2,7 @@
 
 > **This file is the single source of truth for any agent resuming work on this repository.**  
 > Read this first. Do not rely on conversation history.  
-> Last updated: 2026-06-21 by Perplexity / SamoTech Architect
+> Last updated: 2026-06-21 — Governance Reconciliation (Phase 0–4)
 
 ---
 
@@ -21,7 +21,7 @@ Phase 1 objective: Reach 53 graph nodes covering `02-reasoning`, `09-agentic-pat
 
 ---
 
-## Graph Metrics
+## Graph Metrics (measured from SKILLS_GRAPH.json)
 
 | Metric | Value |
 |---|---|
@@ -30,27 +30,28 @@ Phase 1 objective: Reach 53 graph nodes covering `02-reasoning`, `09-agentic-pat
 | Schema version | 1.3 |
 | Avg edge confidence | 0.899 |
 | Graph file | `data/SKILLS_GRAPH.json` |
+| Last verified | 2026-06-21 |
 
 ### Categories Covered (nodes ≥ 1)
 
-| Category | Nodes | Notes |
+| Category | Nodes | Status |
 |---|---|---|
-| `02-reasoning` | **10** | TASK-003 DONE — 9 new nodes added |
+| `02-reasoning` | 10 | TASK-003 DONE |
 | `03-memory` | 4 | `vector-search`, `rag-retrieval`, `embedding-generation`, `context-management` |
 | `04-action-execution` | 1 | `error-recovery` |
 | `05-code` | 1 | `code-generation` |
 | `07-tool-use` | 2 | `function-calling`, `api-integration` |
-| `09-agentic-patterns` | **24** | **Fully mapped** — TASK-001 DONE |
+| `09-agentic-patterns` | 24 | TASK-001 DONE — fully mapped |
 | `10-computer-use` | 1 | `browser-automation` |
 | `11-web` | 1 | `web-scraping` |
 | `12-data` | 1 | `data-extraction` |
 | `15-orchestration` | 2 | `llm-orchestration`, `multi-agent-coordination` |
 
-### Categories Missing (0 nodes — blocker for goals)
+### Categories Missing (0 nodes)
 
 | Category | Priority | Blocked Goals |
 |---|---|---|
-| `01-perception` | HIGH | G03 (Browser Agent), G05, G06 |
+| `01-perception` | HIGH | G03, G05, G06 |
 | `06-knowledge` | MEDIUM | G02, G04 |
 | `08-planning` | MEDIUM | G06, G08 |
 | `13-execution` | LOW | G06 |
@@ -58,54 +59,68 @@ Phase 1 objective: Reach 53 graph nodes covering `02-reasoning`, `09-agentic-pat
 
 ---
 
+## Top Hub Nodes (by degree centrality)
+
+| Node ID | Degree | Centrality |
+|---|---|---|
+| `skill:prompt-engineering` | 11 | 0.2391 |
+| `skill:cot` | 7 | 0.1522 |
+| `skill:react-pattern` | 7 | 0.1522 |
+| `skill:llm-orchestration` | 7 | 0.1522 |
+| `skill:multi-agent-coordination` | 6 | 0.1304 |
+| `skill:reflection-pattern` | 6 | 0.1304 |
+| `skill:critic-agent` | 6 | 0.1304 |
+
+---
+
+## Task Registry (authoritative — from graph + report evidence)
+
+| Task ID | Title | Status | Evidence |
+|---|---|---|---|
+| TASK-001 | Map `09-agentic-patterns/` to graph | **DONE** | 24 nodes in graph; `TASK_001_REPORT.md` exists; commit `d47878d` |
+| TASK-002 | Add Context Engineering skills | **OPEN** | No nodes added; `TASK_002_REPORT.md` absent; not in DECISION_LOG |
+| TASK-003 | Add advanced reasoning layer | **DONE** | 9 nodes in `02-reasoning`; `TASK_003_REPORT.md` exists; `TASK_003_SELF_REVIEW.md` exists |
+| TASK-004 | Add causal + counterfactual reasoning | **OPEN** | No nodes added; now unblocked by TASK-003 |
+| TASK-005 | Add core perception skills | **OPEN** | `01-perception` has 0 nodes |
+| TASK-006 | Add document/data perception skills | **BLOCKED** | Blocked by TASK-005 |
+
+---
+
 ## Completed Tasks
 
-| Task ID | Title | Commit SHA | Date | Nodes Added | Edges Added |
+| Task ID | Title | Commit SHA | Nodes Added | Edges Added |
+|---|---|---|---|---|
+| TASK-001 | Map `09-agentic-patterns/` | `d47878dbef6c11e9932672d1747ab367eb6cb6c6` | +23 | +59 |
+| TASK-003 | Advanced reasoning layer | UNKNOWN (no SHA in DECISION_LOG) | +9 | +21 |
+
+> **TASK-003 commit SHA:** Not recorded in DECISION_LOG. Graph evidence confirms nodes exist. SHA recovery required from git log.
+
+---
+
+## Open Tasks (no blockers)
+
+| Task ID | Title | Est. Nodes | Est. Edges |
 |---|---|---|---|
-| TASK-001 | Map `09-agentic-patterns/` to graph | `d47878dbef6c11e9932672d1747ab367eb6cb6c6` | 2026-06-16 | +23 | +59 |
-| TASK-003 | Add advanced reasoning layer | _(see DECISION_LOG)_ | 2026-06-21 | +9 | +21 |
-
----
-
-## Open Tasks (Phase 1 — no blockers)
-
-| Task ID | Title | Deps | Est. Nodes | Est. Edges |
-|---|---|---|---|---|
-| TASK-002 | Add Context Engineering skills | None | +5 | +10–12 |
-| TASK-005 | Add core perception skills (OCR, screen parsing) | None | +6 | +12–15 |
-
-## Open Tasks (Phase 1 — have dependencies)
-
-| Task ID | Title | Blocked By | Est. Nodes | Est. Edges |
-|---|---|---|---|---|
-| TASK-004 | Add causal + counterfactual reasoning | TASK-003 ✅ (unblocked) | +3 | +6–8 |
-| TASK-006 | Add document/data perception skills | TASK-005 | +9 | +15–18 |
-
----
+| TASK-002 | Add Context Engineering skills | +5 | +10–12 |
+| TASK-004 | Add causal + counterfactual reasoning | +3 | +6–8 |
+| TASK-005 | Add core perception skills (OCR, screen parsing) | +6 | +12–15 |
 
 ## Blocked Tasks
 
-TASK-007 through TASK-042 are blocked pending Phase 1 completion or specific Phase 2 prerequisites. See `meta/AGENT_SKILLS_BACKLOG.md` for full dependency chains.
-
----
-
-## Top Priority Next Actions
-
-1. **Execute TASK-002** (Add Context Engineering skills) — no deps, Phase 1, creates 5 new nodes
-2. **Execute TASK-004** (Causal + counterfactual reasoning) — now unblocked by TASK-003 completion
-3. **Execute TASK-005** (Core perception layer) — no deps, unlocks G03 Browser Agent goal path
-4. After TASK-005: execute TASK-006 (document/data perception)
-
-**Do not skip to Phase 2 tasks** — Phase 1 targets are 53 nodes (currently at 47, need +6 more).
+| Task ID | Title | Blocked By |
+|---|---|---|
+| TASK-006 | Add document/data perception skills | TASK-005 |
+| TASK-007+ | Phase 2 tasks | Phase 1 completion |
 
 ---
 
 ## Anti-Drift Checklist
 
-Before adding any node, verify:
+Before adding any node:
 - [ ] Node ID `skill:kebab-case` does not already exist in `data/SKILLS_GRAPH.json`
 - [ ] Concept is not covered by an existing node under a different name
 - [ ] Category directory is correct
+- [ ] DECISION_LOG entry added before committing
 
 ### Existing Node IDs (47 total — do not duplicate)
 
@@ -113,37 +128,15 @@ Before adding any node, verify:
 
 ---
 
-## Known Risks
-
-| Risk | Severity | Mitigation |
-|---|---|---|
-| `01-perception` has 0 nodes — G03 Browser Agent cannot be recommended | HIGH | TASK-005 must be in next sprint |
-| TASK-007+ blocked until Phase 1 complete | MEDIUM | Expected — by design |
-
----
-
-## Recent Commits
-
-| SHA | Message | Date |
-|---|---|---|
-| `d47878dbef6c11e9932672d1747ab367eb6cb6c6` | `feat(graph): TASK-001 — map 23 agentic-pattern skills to graph` | 2026-06-16 |
-| `0b699a4cd2007a7f302fef15f873bf07c1af3555` | `chore(governance): persistent-memory bootstrap after TASK-001` | 2026-06-16 |
-| _(TASK-003 SHA — see DECISION_LOG.md)_ | `feat(graph): TASK-003 advanced reasoning layer` | 2026-06-21 |
-
----
-
-## Phase 1 Completion Target
+## Phase 1 Completion Progress
 
 | Stage | Nodes | Status |
 |---|---|---|
 | Baseline (pre-TASK-001) | 15 | — |
 | After TASK-001 | 38 | ✓ DONE |
-| After TASK-003 | **47** | ✓ DONE |
-| After TASK-002 + TASK-004 | ~55 | OPEN |
-| Phase 1 target | **53** | In Progress |
-
-**Phase 1 completion: 88.7% of node target (47/53)**
+| After TASK-003 | 47 | ✓ DONE |
+| Phase 1 target | 53 | **88.7% complete** |
 
 ---
 
-*Memory State version: 1.1.0 — Updated 2026-06-21 (TASK-003)*
+*Memory State version: 1.2.0 — Governance Reconciliation 2026-06-21*
