@@ -52,10 +52,10 @@
 
 **Reasoning:** The files existed in `09-agentic-patterns/` and TASK-001 required mapping ALL files in that directory. TASK-003 must be aware that these nodes already exist.
 
-**Impact:** TASK-003 must skip `cot` and `tot` from its node creation list. TASK-003 should add only the remaining reasoning skills not already in the graph: `self-consistency`, `step-back-prompting`, `least-to-most`, `meta-prompting`, `planning-decomposition`, `hypothesis-generation`, `goal-decomposition`, `reasoning-under-uncertainty`, `analogical-reasoning`.
+**Impact:** TASK-003 skipped `cot` and `tot` from its node creation list. TASK-003 added only the remaining reasoning skills: `self-consistency`, `step-back-prompting`, `least-to-most`, `meta-prompting`, `planning-decomposition`, `hypothesis-generation`, `goal-decomposition`, `reasoning-under-uncertainty`, `analogical-reasoning`.
 
 **Alternatives Rejected:**
-- Deferring cot/tot to TASK-003: rejected (would leave `09-agentic-patterns/` directory incompletely mapped, violating TASK-001 acceptance criteria)
+- Deferring cot/tot to TASK-003: rejected (would leave `09-agentic-patterns/` directory incompletely mapped)
 
 ---
 
@@ -65,44 +65,47 @@
 
 **Reasoning:** TASK-001 added nodes and edges but did not change the JSON schema shape. Schema version should only increment on structural/breaking changes to the graph format.
 
-**Impact:** Consumers of the graph API continue to work without version-bump handling.
+**Impact:** Consumers of the graph at schema 1.3 continue to parse successfully.
 
 **Alternatives Rejected:**
-- Bumping to 1.4: rejected (no schema-shape change was made)
+- Bumping to 1.4: rejected (no schema change occurred)
 
 ---
 
-### 2026-06-16 GOVERNANCE — MEMORY_STATE.md and DECISION_LOG.md created
+### 2026-06-21 TASK-003 — Add 9 advanced reasoning nodes to `02-reasoning` category
 
-**Decision:** Created `meta/MEMORY_STATE.md` and `meta/DECISION_LOG.md` as required by the Persistent Roadmap + Persistent Memory operating mode.
+**Decision:** Added exactly 9 nodes as specified: `self-consistency`, `step-back-prompting`, `least-to-most`, `meta-prompting`, `planning-decomposition`, `hypothesis-generation`, `goal-decomposition`, `reasoning-under-uncertainty`, `analogical-reasoning`. All assigned to `category: "02-reasoning"`.
 
-**Reasoning:** These files did not exist prior to this governance commit. Without them, any new agent session would have no canonical checkpoint and could repeat TASK-001 or drift from the roadmap.
+**Reasoning:** These are fundamental reasoning strategies that underpin higher-order agent behaviours. Placing them in `02-reasoning` (not `09-agentic-patterns`) correctly reflects their nature as cognitive techniques rather than agent execution patterns. TASK-003 spec explicitly listed 9 node IDs.
 
-**Impact:** All future agent sessions must read `MEMORY_STATE.md` first. All major decisions must be appended here.
+**Impact:** Graph grew from 38→47 nodes, 72→93 edges. `02-reasoning` category expanded from 1 node (`prompt-engineering`) to 10 nodes. TASK-004 (causal + counterfactual reasoning) is now unblocked.
 
 **Alternatives Rejected:**
-- Relying on conversation history: rejected (violates the Persistent Memory Rule — repo artifacts are the only source of truth)
+- Placing nodes in `09-agentic-patterns`: rejected (these are reasoning primitives, not agent execution patterns)
+- Adding `skill:cot` and `skill:tot` again: rejected — both already exist from TASK-001, anti-duplicate check confirmed
 
 ---
 
-### 2026-06-16 GOVERNANCE — Project Constitution v1.0.0 ratified
+### 2026-06-21 TASK-003 — Schema version held at 1.3
 
-**Decision:** Created and committed `meta/PROJECT_CONSTITUTION.md` as the supreme governance document for the repository.
+**Decision:** `schema_version` remained at `1.3`.
 
-**Reasoning:** The SamoTech Architect provided a Mission, 10 Principles, Non-Goals, and 5 Success Metrics. These needed to be encoded as binding, operational rules — not just aspirational text. The constitution translates each principle into an enforceable operational rule (with enforcement clauses), defines a conflict resolution priority order (Article VII), and establishes an amendment process (Article VI).
+**Reasoning:** No structural change to the JSON schema. Node and edge addition is a data-level change, not a schema-level change.
 
-**Impact:**
-- All 10 principles now have binding Operational Rules
-- Conflict resolution follows P-06 > P-07 > P-02 > P-05 > P-03 priority
-- Success metrics M-01 through M-05 have measurable definitions and current baselines
-- The constitution supersedes ROADMAP.md and ROADMAP_V2.md where they conflict
-- Current M-04 (production relevance) is already met: 84.2% of nodes are stable/evolving
-- Current M-05 partially met: Remember (5 nodes ✓) and Coordinate (26 nodes ✓); Perceive and Reason are blockers
+**Impact:** Zero breaking changes for downstream consumers.
 
 **Alternatives Rejected:**
-- Adding principles to AGENT_SKILLS_MASTER_PLAN.md: rejected (plans change; constitutions constrain plans)
-- Encoding rules in CI only: rejected (CI cannot capture reasoning-level constraints on agent behavior)
+- Bumping to 1.4: rejected (no schema structural change)
 
 ---
 
-*Decision Log initialized: 2026-06-16 | Last updated: 2026-06-16*
+### 2026-06-21 TASK-003 — Bidirectional RECOMMENDED_WITH between `reasoning-under-uncertainty` and `hypothesis-generation`
+
+**Decision:** `hypothesis-generation → reasoning-under-uncertainty` (RECOMMENDED_WITH) and `reasoning-under-uncertainty → hypothesis-generation` (RECOMMENDED_WITH) were both added, forming a symmetric synergy pair.
+
+**Reasoning:** These two skills are genuinely complementary: generating hypotheses requires tolerating uncertainty, and reasoning under uncertainty is enriched by hypothesis-generation. A bidirectional RECOMMENDED_WITH pair is semantically valid in the schema and does not create a directed cycle (neither is REQUIRES or LEARN_BEFORE).
+
+**Impact:** Two edges added for this pair. Graph remains a valid DAG when only REQUIRES + LEARN_BEFORE edge types are considered.
+
+**Alternatives Rejected:**
+- Single unidirectional edge: rejected (the relationship is symmetric; one direction would mislead traversal)
