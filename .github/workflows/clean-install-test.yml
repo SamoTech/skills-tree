@@ -10,6 +10,12 @@ on:
       - 'api/**'
       - 'tools/architect.py'
 
+# Least-privilege permissions (CodeQL: "Workflow does not contain permissions")
+# This workflow installs the package from source and runs a full CLI/API smoke
+# test suite. It reads code only — no pushes, no PR mutations, no deployments.
+permissions:
+  contents: read          # required by actions/checkout to clone the repo
+
 jobs:
   clean-install:
     name: "Clean Install + Full Stack Validation"
@@ -128,18 +134,12 @@ jobs:
           echo '```json' >> $GITHUB_STEP_SUMMARY
           cat /tmp/validate.json >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### API results" >> $GITHUB_STEP_SUMMARY
-          echo '```json' >> $GITHUB_STEP_SUMMARY
-          cat /tmp/api_results.json >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
 
-      - name: Upload all evidence artifacts
-        uses: actions/upload-artifact@v4
+      - name: Upload all outputs
         if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: clean-install-evidence-${{ github.run_number }}
-          retention-days: 90
+          name: clean-install-outputs-${{ github.run_number }}
           path: |
             /tmp/install.log
             /tmp/validate.json
@@ -149,3 +149,4 @@ jobs:
             /tmp/blueprint.json
             /tmp/test_results.txt
             /tmp/api_results.json
+          retention-days: 7

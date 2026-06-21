@@ -7,6 +7,12 @@ on:
       - '.github/workflows/verify-taxonomy.yml'
       - 'tools/verify_taxonomy.py'
 
+# Least-privilege permissions (CodeQL: "Workflow does not contain permissions")
+# This workflow runs a read-only Python verification script.
+# It does not modify the repository, create issues, or post comments.
+permissions:
+  contents: read          # required by actions/checkout to clone the repo
+
 jobs:
   verify:
     name: Runtime Taxonomy Verification

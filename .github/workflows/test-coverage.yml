@@ -7,6 +7,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Least-privilege permissions (CodeQL: "Workflow does not contain permissions")
+# This workflow only checks out code and runs pytest.
+# No writes to the repo, no package publishing, no PR comments.
+permissions:
+  contents: read          # required by actions/checkout to clone the repo
+
 jobs:
   test:
     name: pytest — Python ${{ matrix.python-version }}

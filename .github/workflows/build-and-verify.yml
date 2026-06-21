@@ -22,6 +22,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Least-privilege permissions (CodeQL: "Workflow does not contain permissions")
+# This workflow builds the Python package and validates wheel contents.
+# It does not push, publish, or write back to the repository.
+permissions:
+  contents: read          # required by actions/checkout to clone the repo
+
 jobs:
   build-and-verify:
     name: "python -m build + wheel content check"
