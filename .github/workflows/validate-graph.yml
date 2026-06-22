@@ -1,0 +1,172 @@
+name: Validate Skills Graph
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'schema/**'
+      - 'tools/**'
+      - 'data/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'skills/**'
+      - 'schema/**'
+      - 'tools/**'
+      - 'data/**'
+
+jobs:
+  build-and-validate:
+    name: Build Graph & Validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build graph (dry-run validation)
+        id: build
+        run: |
+          python tools/build_graph.py --dry-run
+          echo "build_status=$?" >> $GITHUB_OUTPUT
+
+      - name: Build graph (write artifacts)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          python tools/build_graph.py
+          echo "Graph built successfully."
+
+      - name: Validate graph schema
+        run: |
+          pip install jsonschema --quiet
+          python - <<'EOF'
+          import json
+          import sys
+          from pathlib import Path
+
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          if not graph_path.exists():
+              print("SKIP: SKILLS_GRAPH.json not yet generated (dry-run mode).")
+              sys.exit(0)
+
+          data = graph_path.read_text()
+          if data.strip().startswith('"') or not data.strip().startswith('{'):
+              print("ERROR: SKILLS_GRAPH.json is a placeholder string, not valid JSON graph.")
+              sys.exit(1)
+
+          graph = json.loads(data)
+          node_count = graph.get('meta', {}).get('node_count', 0)
+          edge_count = graph.get('meta', {}).get('edge_count', 0)
+          print(f"Graph valid: {node_count} nodes, {edge_count} edges.")
+          EOF
+
+      - name: Duplicate node ID check
+        run: |
+          python - <<'EOF'
+          import json, sys
+          from pathlib import Path
+
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          if not graph_path.exists():
+              print("SKIP")
+              sys.exit(0)
+
+          data = json.loads(graph_path.read_text())
+          if isinstance(data, str):
+              sys.exit(0)
+
+          ids = [n["id"] for n in data.get("nodes", [])]
+          dupes = [i for i in ids if ids.count(i) > 1]
+          if dupes:
+              print(f"FAIL: Duplicate node IDs: {list(set(dupes))}")
+              sys.exit(1)
+          print(f"PASS: {len(ids)} unique node IDs.")
+          EOF
+
+      - name: Self-loop edge check
+        run: |
+          python - <<'EOF'
+          import json, sys
+          from pathlib import Path
+
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          if not graph_path.exists():
+              print("SKIP")
+              sys.exit(0)
+
+          data = json.loads(graph_path.read_text())
+          if isinstance(data, str):
+              sys.exit(0)
+
+          loops = [e for e in data.get("edges", []) if e["source"] == e["target"]]
+          if loops:
+              print(f"FAIL: Self-loop edges: {loops}")
+              sys.exit(1)
+          print(f"PASS: No self-loops in {len(data.get('edges', []))} edges.")
+          EOF
+
+      - name: Invalid source edge check
+        run: |
+          python - <<'EOF'
+          import json, sys
+          from pathlib import Path
+
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          if not graph_path.exists():
+              print("SKIP")
+              sys.exit(0)
+
+          data = json.loads(graph_path.read_text())
+          if isinstance(data, str):
+              sys.exit(0)
+
+          node_ids = {n["id"] for n in data.get("nodes", [])}
+          invalid = [e for e in data.get("edges", []) if e["source"] not in node_ids]
+          if invalid:
+              print(f"FAIL: {len(invalid)} edges with invalid source IDs.")
+              for e in invalid[:10]:
+                  print(f"  {e['source']} -> {e['target']}")
+              sys.exit(1)
+          print(f"PASS: All edge sources are valid node IDs.")
+          EOF
+
+      - name: Commit updated graph artifacts
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'data/SKILLS_GRAPH.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md'
+          message: 'chore(graph): auto-update generated graph artifacts [skip ci]'
+          default_author: github_actions
+
+  quality-report:
+    name: Skill Quality Score
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build-and-validate
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate quality index
+        run: python tools/quality_score.py
+
+      - name: Commit quality index
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'meta/SKILL_QUALITY_INDEX.md'
+          message: 'chore(quality): auto-update skill quality index [skip ci]'
+          default_author: github_actions

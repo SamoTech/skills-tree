@@ -2,47 +2,72 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://samotech.github.io/skills-tree/schema/skill.schema.json",
   "title": "Skill",
-  "description": "A single skill node in the AI Engineering Skills Tree",
+  "description": "Canonical schema for a single skill node in the Skills Tree.",
   "type": "object",
-  "required": ["id", "title", "category", "level", "stability"],
+  "required": ["id", "title", "category", "level", "stability", "version"],
   "additionalProperties": false,
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(/[a-z0-9]+(-[a-z0-9]+)*)*$",
-      "description": "Unique slug derived from category path and filename. e.g. 02-reasoning/commonsense"
+      "description": "Unique skill identifier. Format: category-slug/skill-slug (e.g. 02-reasoning/causal)",
+      "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$"
     },
-    "title": { "type": "string", "minLength": 2 },
+    "title": {
+      "type": "string",
+      "description": "Human-readable skill name.",
+      "minLength": 2,
+      "maxLength": 80
+    },
     "category": {
       "type": "string",
+      "description": "Category directory slug (e.g. 02-reasoning).",
       "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*$"
     },
     "layer": {
       "type": "string",
+      "description": "Architecture layer (Phase F).",
       "enum": ["perception", "reasoning", "execution", "systems"]
     },
     "level": {
       "type": "string",
-      "enum": ["basic", "intermediate", "advanced", "expert"]
+      "enum": ["basic", "intermediate", "advanced"],
+      "description": "Skill difficulty level."
     },
     "stability": {
       "type": "string",
-      "enum": ["stable", "experimental", "deprecated", "draft"]
+      "enum": ["stable", "experimental", "deprecated"],
+      "description": "Stability status of the skill."
     },
-    "version": { "type": "string" },
-    "added": { "type": "string" },
-    "last_updated": { "type": "string" },
-    "description": { "type": "string" },
+    "version": {
+      "type": ["string", "integer"],
+      "description": "Skill content version (e.g. 'v2' or 2)."
+    },
+    "added": {
+      "type": "string",
+      "description": "Date skill was first added (YYYY-MM or YYYY-MM-DD).",
+      "pattern": "^[0-9]{4}-[0-9]{2}(-[0-9]{2})?$"
+    },
     "tags": {
       "type": "array",
+      "description": "Free-form tags for search and filtering.",
       "items": { "type": "string" },
       "uniqueItems": true
     },
     "related_skills": {
       "type": "array",
+      "description": "List of related skill IDs (used as edge hints by extract_edges.py).",
       "items": { "type": "string" },
       "uniqueItems": true
     },
-    "source_file": { "type": "string" }
+    "source_file": {
+      "type": "string",
+      "description": "Relative path to the source markdown file."
+    },
+    "quality_score": {
+      "type": ["number", "null"],
+      "description": "0-100 quality score assigned by quality_score.py. Null = not yet scored.",
+      "minimum": 0,
+      "maximum": 100
+    }
   }
 }

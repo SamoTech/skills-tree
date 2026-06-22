@@ -1,225 +1,365 @@
 #!/usr/bin/env python3
 """
-build_graph.py
+tools/build_graph.py — INITIATIVE-001 Phase C
 
-Parses every skill file under skills/**/*.md, extracts cross-skill
-"Related Skills" links, and writes a graph payload to docs/api/graph.json.
+Automated graph builder for skills-tree.
 
-The JSON format is consumed by docs/graph.html (D3 force-directed graph).
+Pipeline:
+  1. Discover all skills/*/  directories
+  2. Parse YAML frontmatter from every skill .md file
+  3. Invoke extract_edges.py logic to collect edges
+  4. Validate: no duplicate IDs, no self-loops, no orphan edges
+  5. Write data/SKILLS_GRAPH.json
+  6. Write data/SKILLS_GRAPH_STATS.json
+  7. Write meta/GRAPH_BUILD_REPORT.md
 
 Usage:
-    python tools/build_graph.py
+  python tools/build_graph.py
+  python tools/build_graph.py --dry-run       # validate only, no writes
+  python tools/build_graph.py --output path   # custom output path
 
-Output:
-    docs/api/graph.json
+NOTE: data/SKILLS_GRAPH.json is a GENERATED artifact.
+      Never edit it manually — re-run this script instead.
 """
 
-import os
-import re
-import glob
+import argparse
 import json
-import datetime
-from datetime import timezone
+import os
+import sys
+import re
+from datetime import datetime, timezone
+from pathlib import Path
 
 # ---------------------------------------------------------------------------
-# Category metadata (colour palette used by the HTML UI)
+# Paths (relative to repo root)
 # ---------------------------------------------------------------------------
+REPO_ROOT = Path(__file__).parent.parent
+SKILLS_DIR = REPO_ROOT / "skills"
+DATA_DIR = REPO_ROOT / "data"
+META_DIR = REPO_ROOT / "meta"
+SCHEMA_VERSION = "3.0"
+GENERATOR = "tools/build_graph.py"
 
-CATEGORY_META = {
-    "01-perception":       {"label": "Perception",        "color": "#4f98a3"},
-    "02-reasoning":        {"label": "Reasoning",         "color": "#6daa45"},
-    "03-memory":           {"label": "Memory",            "color": "#a86fdf"},
-    "04-action-execution": {"label": "Action Execution",  "color": "#fdab43"},
-    "05-code":             {"label": "Code",              "color": "#5591c7"},
-    "06-communication":    {"label": "Communication",     "color": "#dd6974"},
-    "07-tool-use":         {"label": "Tool Use",          "color": "#e8af34"},
-    "08-multimodal":       {"label": "Multimodal",        "color": "#bb653b"},
-    "09-agentic-patterns": {"label": "Agentic Patterns",  "color": "#d163a7"},
-    "10-computer-use":     {"label": "Computer Use",      "color": "#01696f"},
-    "11-web":              {"label": "Web",               "color": "#437a22"},
-    "12-data":             {"label": "Data",              "color": "#006494"},
-    "13-creative":         {"label": "Creative",          "color": "#964219"},
-    "14-security":         {"label": "Security",          "color": "#a12c7b"},
-    "15-orchestration":    {"label": "Orchestration",     "color": "#a13544"},
-    "16-domain-specific":  {"label": "Domain-Specific",   "color": "#7a39bb"},
-    "17-infrastructure":   {"label": "Infrastructure",    "color": "#da7101"},
+# ---------------------------------------------------------------------------
+# Layer mapping (Phase F — category → layer)
+# ---------------------------------------------------------------------------
+LAYER_MAP = {
+    "01-perception": "perception",
+    "02-reasoning": "reasoning",
+    "03-memory": "reasoning",
+    "04-context": "reasoning",
+    "05-output": "execution",
+    "06-code": "execution",
+    "07-tool-use": "execution",
+    "08-evaluation": "systems",
+    "09-agentic-patterns": "systems",
+    "10-safety": "systems",
+    "11-multimodal": "perception",
+    "12-data": "execution",
+    "13-deployment": "systems",
 }
 
-DEFAULT_COLOR = "#7a7974"
-
 
 # ---------------------------------------------------------------------------
-# Time helpers
+# Frontmatter parser
 # ---------------------------------------------------------------------------
-
-def _utc_now_iso() -> str:
-    """Return the current UTC time as an ISO-8601 string with Z suffix.
-
-    Uses datetime.now(timezone.utc) — compatible with Python 3.2+.
-    datetime.UTC (an alias for timezone.utc) was only added in 3.11
-    and raises AttributeError on 3.9/3.10 runners.
+def parse_frontmatter(md_path: Path) -> dict:
+    """Extract YAML frontmatter from a markdown file.
+    Returns empty dict if no frontmatter found.
     """
-    return datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    text = md_path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return {}
+    end = text.find("---", 3)
+    if end == -1:
+        return {}
+    fm_block = text[3:end].strip()
+    result = {}
+    for line in fm_block.splitlines():
+        if ":" in line:
+            key, _, val = line.partition(":")
+            result[key.strip()] = val.strip().strip('"')
+    return result
 
 
 # ---------------------------------------------------------------------------
-# Helpers
+# Skill node builder
 # ---------------------------------------------------------------------------
+def build_node(md_path: Path, category: str) -> dict | None:
+    """Build a canonical skill node from a markdown file."""
+    fm = parse_frontmatter(md_path)
+    if not fm:
+        return None  # skip files with no frontmatter
 
-def parse_skill(filepath: str) -> dict:
-    """Return {id, name, category_dir, level, version, related_ids}."""
-    with open(filepath, encoding="utf-8") as fh:
-        content = fh.read()
-
-    skill_id = os.path.splitext(os.path.basename(filepath))[0]
-
-    # Title
-    m = re.search(r'^# (.+)$', content, re.MULTILINE)
-    name = m.group(1).strip() if m else skill_id
-
-    # Category dir
-    parts = filepath.replace("\\", "/").split("/")
-    category_dir = parts[1] if len(parts) > 2 else "unknown"
-
-    # Level — try bold-markdown first, fall back to YAML frontmatter
-    lm = re.search(r'\*\*Skill Level:\*\*\s*`?([^`\n]+)`?', content, re.IGNORECASE)
-    level = lm.group(1).strip() if lm else None
-
-    # Version — same fallback
-    vm = re.search(r'\*\*Version:\*\*\s*`?([^`\n]+)`?', content, re.IGNORECASE)
-    version = vm.group(1).strip() if vm else None
-
-    yaml_block_m = re.match(r'\A---\s*\n(.*?)\n---', content, re.DOTALL)
-    if yaml_block_m:
-        yaml_text = yaml_block_m.group(1)
-        if not level:
-            ym = re.search(r'^level:\s*"?([^"\n]+?)"?\s*$', yaml_text, re.MULTILINE)
-            if ym:
-                level = ym.group(1).strip().strip('`')
-        if not version:
-            ym = re.search(r'^version:\s*"?([^"\n]+?)"?\s*$', yaml_text, re.MULTILINE)
-            if ym:
-                version = ym.group(1).strip().strip('`')
-
-    if not version:
-        version = "v1"
-
-    # Related skill links — extract filenames from markdown links
-    related_raw = re.findall(r'\[.*?\]\(([^)]+\.md)\)', content)
-    related_ids = []
-    for r in related_raw:
-        rid = os.path.splitext(os.path.basename(r))[0]
-        if rid != skill_id:
-            related_ids.append(rid)
+    skill_slug = md_path.stem
+    skill_id = f"{category}/{skill_slug}"
 
     return {
         "id": skill_id,
-        "name": name,
-        "path": filepath.replace("\\", "/"),
-        "category_dir": category_dir,
-        "level": level,
-        "version": version,
-        "related_ids": list(dict.fromkeys(related_ids)),  # dedupe, preserve order
+        "title": fm.get("title", skill_slug.replace("-", " ").title()),
+        "category": category,
+        "layer": LAYER_MAP.get(category, "systems"),
+        "level": fm.get("level", "basic"),
+        "stability": fm.get("stability", "stable"),
+        "version": fm.get("version", "v1"),
+        "added": fm.get("added", None),
+        "tags": [],
+        "related_skills": [],
+        "source_file": str(md_path.relative_to(REPO_ROOT)),
+        "quality_score": None,
     }
 
 
-def build_graph() -> dict:
-    """Return {nodes, links, categories, generated, stats}."""
-    skills_by_id: dict[str, dict] = {}
+# ---------------------------------------------------------------------------
+# Edge extraction (inline — see also tools/extract_edges.py for full engine)
+# ---------------------------------------------------------------------------
+REQUIRES_TRIGGERS = [
+    r"prerequisite", r"depends on", r"requires", r"before learning", r"foundation skill"
+]
+SUPPORTS_TRIGGERS = [
+    r"supports", r"enables", r"extends", r"powers", r"executes", r"builds on"
+]
+RELATED_SECTION_RE = re.compile(
+    r"##\s+Related Skills?\s*\n(.*?)(?=\n##|\Z)", re.DOTALL | re.IGNORECASE
+)
+MD_LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+\.md)\)")
 
-    for filepath in sorted(glob.glob("skills/**/*.md", recursive=True)):
-        # Skip category README.md files; they describe the directory, not a skill.
-        if os.path.basename(filepath).lower() == "readme.md":
+
+def extract_edges_from_file(md_path: Path, source_id: str, known_ids: set) -> list:
+    """Extract edges from a single markdown file."""
+    edges = []
+    text = md_path.read_text(encoding="utf-8")
+    category = md_path.parent.name
+
+    # Find Related Skills section
+    match = RELATED_SECTION_RE.search(text)
+    if not match:
+        return edges
+
+    section = match.group(1)
+    for link_match in MD_LINK_RE.finditer(section):
+        link_text = link_match.group(1)
+        link_href = link_match.group(2)
+        evidence = link_match.group(0)
+
+        # Resolve target ID
+        if link_href.startswith("../"):
+            # cross-category link
+            parts = link_href.lstrip("../").split("/")
+            if len(parts) == 2:
+                target_cat = parts[0]
+                target_slug = parts[1].replace(".md", "")
+                target_id = f"{target_cat}/{target_slug}"
+            else:
+                continue
+        else:
+            target_slug = link_href.replace(".md", "").split("/")[-1]
+            target_id = f"{category}/{target_slug}"
+
+        # Determine edge type
+        edge_type = "RELATED_TO"
+        lower_evidence = evidence.lower() + " " + link_text.lower()
+        if any(re.search(p, lower_evidence) for p in REQUIRES_TRIGGERS):
+            edge_type = "REQUIRES"
+        elif any(re.search(p, lower_evidence) for p in SUPPORTS_TRIGGERS):
+            edge_type = "SUPPORTS"
+
+        # Skip self-loops
+        if source_id == target_id:
             continue
-        try:
-            s = parse_skill(filepath)
-            skills_by_id[s["id"]] = s
-        except Exception as exc:
-            print(f"[graph] WARNING: could not parse {filepath}: {exc}")
 
-    # ---- Nodes ----
-    nodes = []
-    for s in skills_by_id.values():
-        cat = CATEGORY_META.get(s["category_dir"], {})
-        nodes.append({
-            "id":       s["id"],
-            "name":     s["name"],
-            "path":     s["path"],
-            "category": s["category_dir"],
-            "catLabel": cat.get("label", s["category_dir"]),
-            "color":    cat.get("color", DEFAULT_COLOR),
-            "level":    s["level"],
-            "version":  s["version"],
+        edges.append({
+            "source": source_id,
+            "target": target_id,
+            "type": edge_type,
+            "evidence": evidence.strip(),
+            "source_file": str(md_path.relative_to(REPO_ROOT)),
+            "confidence": "high",
         })
 
-    # ---- Links (directed: source references target) ----
-    links = []
-    seen_links: set[tuple] = set()
-    for s in skills_by_id.values():
-        for rid in s["related_ids"]:
-            if rid in skills_by_id:
-                key = (s["id"], rid)
-                if key not in seen_links:
-                    seen_links.add(key)
-                    links.append({"source": s["id"], "target": rid})
+    return edges
 
-    # ---- Category index ----
-    categories = [
-        {"id": cid, "label": meta["label"], "color": meta["color"]}
-        for cid, meta in CATEGORY_META.items()
+
+# ---------------------------------------------------------------------------
+# Validation
+# ---------------------------------------------------------------------------
+def validate_graph(nodes: list, edges: list) -> list:
+    """Run validation checks. Returns list of error strings (empty = pass)."""
+    errors = []
+    node_ids = {n["id"] for n in nodes}
+
+    # Duplicate node IDs
+    seen_ids = set()
+    for n in nodes:
+        if n["id"] in seen_ids:
+            errors.append(f"DUPLICATE_NODE: {n['id']}")
+        seen_ids.add(n["id"])
+
+    # Duplicate edges
+    seen_edges = set()
+    for e in edges:
+        key = (e["source"], e["target"], e["type"])
+        if key in seen_edges:
+            errors.append(f"DUPLICATE_EDGE: {e['source']} --{e['type']}--> {e['target']}")
+        seen_edges.add(key)
+
+    # Self-loops
+    for e in edges:
+        if e["source"] == e["target"]:
+            errors.append(f"SELF_LOOP: {e['source']}")
+
+    # Orphan source references
+    for e in edges:
+        if e["source"] not in node_ids:
+            errors.append(f"INVALID_SOURCE: {e['source']} in {e['source_file']}")
+
+    # Unresolved target references (warnings, not errors)
+    unresolved = []
+    for e in edges:
+        if e["target"] not in node_ids:
+            unresolved.append(f"UNRESOLVED_TARGET: {e['target']} referenced from {e['source_file']}")
+
+    return errors, unresolved
+
+
+# ---------------------------------------------------------------------------
+# Build report
+# ---------------------------------------------------------------------------
+def write_build_report(nodes, edges, errors, warnings, output_path, dry_run):
+    ts = datetime.now(timezone.utc).isoformat()
+    lines = [
+        "# Graph Build Report",
+        "",
+        f"**Generated:** {ts}  ",
+        f"**Generator:** {GENERATOR}  ",
+        f"**Schema Version:** {SCHEMA_VERSION}  ",
+        f"**Dry Run:** {dry_run}  ",
+        "",
+        "## Metrics",
+        "",
+        f"| Metric | Value |",
+        f"|---|---|",
+        f"| Total nodes | {len(nodes)} |",
+        f"| Total edges | {len(edges)} |",
+        f"| Validation errors | {len(errors)} |",
+        f"| Unresolved targets (warnings) | {len(warnings)} |",
+        "",
     ]
+    if errors:
+        lines += ["## Validation Errors (FAIL)", ""]
+        for e in errors:
+            lines.append(f"- `{e}`")
+        lines.append("")
+    if warnings:
+        lines += ["## Unresolved Target Warnings", ""]
+        for w in warnings[:50]:  # cap at 50 for readability
+            lines.append(f"- `{w}`")
+        lines.append("")
+    if not errors:
+        lines += ["## Status", "", "✅ **PASS** — graph generated successfully.", ""]
+    else:
+        lines += ["## Status", "", "❌ **FAIL** — validation errors must be resolved.", ""]
 
-    # ---- Stats ----
-    node_count = len(nodes)
-    link_count = len(links)
-
-    linked_ids: set[str] = set()
-    for lnk in links:
-        linked_ids.add(lnk["source"])
-        linked_ids.add(lnk["target"])
-    isolated = sum(1 for n in nodes if n["id"] not in linked_ids)
-
-    # Top connected nodes
-    degree: dict[str, int] = {}
-    for lnk in links:
-        degree[lnk["source"]] = degree.get(lnk["source"], 0) + 1
-        degree[lnk["target"]] = degree.get(lnk["target"], 0) + 1
-    top_nodes = sorted(degree.items(), key=lambda x: x[1], reverse=True)[:10]
-    top_connected = [
-        {"id": nid, "name": skills_by_id[nid]["name"], "degree": deg}
-        for nid, deg in top_nodes if nid in skills_by_id
-    ]
-
-    return {
-        "generated": _utc_now_iso(),
-        "stats": {
-            "nodes": node_count,
-            "links": link_count,
-            "isolated": isolated,
-            "top_connected": top_connected,
-        },
-        "categories": categories,
-        "nodes": nodes,
-        "links": links,
-    }
+    report_path = META_DIR / "GRAPH_BUILD_REPORT.md"
+    if not dry_run:
+        report_path.write_text("\n".join(lines), encoding="utf-8")
+        print(f"  [report] {report_path}")
 
 
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
-
 def main():
-    os.makedirs("docs/api", exist_ok=True)
-    print("[graph] Scanning skills/ ...")
-    graph = build_graph()
-    print(f"[graph] {graph['stats']['nodes']} nodes, {graph['stats']['links']} links")
-    print(f"[graph] Isolated nodes (no links): {graph['stats']['isolated']}")
+    parser = argparse.ArgumentParser(description="Build SKILLS_GRAPH.json from source files.")
+    parser.add_argument("--dry-run", action="store_true", help="Validate only, no file writes.")
+    parser.add_argument("--output", default=str(DATA_DIR / "SKILLS_GRAPH.json"),
+                        help="Output path for SKILLS_GRAPH.json.")
+    args = parser.parse_args()
 
-    out = "docs/api/graph.json"
-    with open(out, "w", encoding="utf-8") as fh:
-        json.dump(graph, fh, indent=2, ensure_ascii=False)
-    print(f"[graph] Wrote {out} ({os.path.getsize(out):,} bytes)")
-    print("[graph] Done.")
+    print("[build_graph] Scanning skill files...")
+    nodes = []
+    edges = []
+
+    for cat_dir in sorted(SKILLS_DIR.iterdir()):
+        if not cat_dir.is_dir():
+            continue
+        category = cat_dir.name
+        if not re.match(r"^[0-9]{2}-", category):
+            continue
+
+        for md_file in sorted(cat_dir.glob("*.md")):
+            if md_file.name == "README.md":
+                continue
+            node = build_node(md_file, category)
+            if node:
+                nodes.append(node)
+
+    print(f"  [nodes] {len(nodes)} nodes discovered")
+    known_ids = {n["id"] for n in nodes}
+
+    for cat_dir in sorted(SKILLS_DIR.iterdir()):
+        if not cat_dir.is_dir():
+            continue
+        category = cat_dir.name
+        if not re.match(r"^[0-9]{2}-", category):
+            continue
+        for md_file in sorted(cat_dir.glob("*.md")):
+            if md_file.name == "README.md":
+                continue
+            source_id = f"{category}/{md_file.stem}"
+            file_edges = extract_edges_from_file(md_file, source_id, known_ids)
+            edges.extend(file_edges)
+
+    print(f"  [edges] {len(edges)} edges extracted")
+
+    errors, warnings = validate_graph(nodes, edges)
+    write_build_report(nodes, edges, errors, warnings, args.output, args.dry_run)
+
+    if errors:
+        print(f"  [FAIL] {len(errors)} validation errors. Graph not written.")
+        for e in errors:
+            print(f"    ERROR: {e}")
+        sys.exit(1)
+
+    graph = {
+        "meta": {
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generator": GENERATOR,
+            "schema_version": SCHEMA_VERSION,
+            "node_count": len(nodes),
+            "edge_count": len(edges),
+            "initiative": "INITIATIVE-001 V3",
+        },
+        "nodes": nodes,
+        "edges": edges,
+    }
+
+    stats = {
+        "generated_at": graph["meta"]["generated_at"],
+        "node_count": len(nodes),
+        "edge_count": len(edges),
+        "nodes_by_level": {},
+        "nodes_by_layer": {},
+        "nodes_by_category": {},
+        "edges_by_type": {},
+    }
+    for n in nodes:
+        stats["nodes_by_level"][n["level"]] = stats["nodes_by_level"].get(n["level"], 0) + 1
+        stats["nodes_by_layer"][n["layer"]] = stats["nodes_by_layer"].get(n["layer"], 0) + 1
+        stats["nodes_by_category"][n["category"]] = stats["nodes_by_category"].get(n["category"], 0) + 1
+    for e in edges:
+        stats["edges_by_type"][e["type"]] = stats["edges_by_type"].get(e["type"], 0) + 1
+
+    if not args.dry_run:
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        output_path = Path(args.output)
+        output_path.write_text(json.dumps(graph, indent=2), encoding="utf-8")
+        print(f"  [write] {output_path}")
+        stats_path = DATA_DIR / "SKILLS_GRAPH_STATS.json"
+        stats_path.write_text(json.dumps(stats, indent=2), encoding="utf-8")
+        print(f"  [write] {stats_path}")
+
+    print(f"[build_graph] DONE — {len(nodes)} nodes, {len(edges)} edges, {len(warnings)} warnings.")
 
 
 if __name__ == "__main__":

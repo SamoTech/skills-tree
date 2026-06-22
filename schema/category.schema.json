@@ -2,15 +2,35 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://samotech.github.io/skills-tree/schema/category.schema.json",
   "title": "Category",
+  "description": "Canonical schema for a skills category (directory).",
   "type": "object",
-  "required": ["id", "name", "layer", "directory"],
+  "required": ["id", "title", "layer", "slug"],
   "additionalProperties": false,
   "properties": {
-    "id": { "type": "string", "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*$" },
-    "name": { "type": "string" },
-    "layer": { "type": "string", "enum": ["perception", "reasoning", "execution", "systems"] },
-    "directory": { "type": "string" },
-    "description": { "type": "string" },
-    "skill_count": { "type": "integer", "minimum": 0 }
+    "id": {
+      "type": "string",
+      "description": "Category directory slug (e.g. 02-reasoning).",
+      "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*$"
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-readable category name."
+    },
+    "layer": {
+      "type": "string",
+      "enum": ["perception", "reasoning", "execution", "systems"],
+      "description": "Architecture layer this category belongs to (Phase F)."
+    },
+    "slug": {
+      "type": "string",
+      "description": "Short lowercase slug without numeric prefix (e.g. reasoning)."
+    },
+    "description": {
+      "type": "string"
+    },
+    "skill_count": {
+      "type": ["integer", "null"],
+      "description": "Number of skill files. Populated by build_graph.py."
+    }
   }
 }

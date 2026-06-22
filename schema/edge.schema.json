@@ -2,22 +2,37 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://samotech.github.io/skills-tree/schema/edge.schema.json",
   "title": "Edge",
-  "description": "A directed relationship between two skill nodes",
+  "description": "Canonical schema for a directed edge between two skill nodes.",
   "type": "object",
   "required": ["source", "target", "type", "evidence", "source_file"],
   "additionalProperties": false,
   "properties": {
-    "source": { "type": "string" },
-    "target": { "type": "string" },
+    "source": {
+      "type": "string",
+      "description": "Source skill ID (must match a skill.id in the graph)."
+    },
+    "target": {
+      "type": "string",
+      "description": "Target skill ID (must match a skill.id in the graph)."
+    },
     "type": {
       "type": "string",
-      "enum": ["REQUIRES", "SUPPORTS", "RELATED_TO", "SUBSKILL_OF", "ALTERNATIVE_TO"]
+      "enum": ["REQUIRES", "SUPPORTS", "RELATED_TO", "SUBSKILL_OF", "ALTERNATIVE_TO"],
+      "description": "Semantic relationship type."
     },
-    "evidence": { "type": "string", "minLength": 5 },
-    "source_file": { "type": "string" },
-    "extraction_method": {
+    "evidence": {
       "type": "string",
-      "enum": ["related_skills_section", "markdown_link", "explicit_prerequisite", "frontmatter"]
+      "description": "Verbatim text excerpt that triggered this edge extraction.",
+      "minLength": 1
+    },
+    "source_file": {
+      "type": "string",
+      "description": "Relative path to the markdown file from which this edge was extracted."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Extraction confidence. high = explicit keyword match; medium = contextual; low = inferred."
     }
   }
 }

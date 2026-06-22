@@ -1,31 +1,33 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://samotech.github.io/skills-tree/schema/graph.schema.json",
-  "title": "Skills Graph",
-  "description": "The complete generated skills graph for the AI Engineering Skills Tree",
+  "title": "SkillsGraph",
+  "description": "Root schema for data/SKILLS_GRAPH.json. This file is GENERATED — do not edit manually.",
   "type": "object",
   "required": ["meta", "nodes", "edges"],
   "additionalProperties": false,
   "properties": {
     "meta": {
       "type": "object",
-      "required": ["schema_version", "generated_at", "generator", "node_count", "edge_count"],
+      "required": ["generated_at", "generator", "schema_version", "node_count", "edge_count"],
+      "additionalProperties": false,
       "properties": {
+        "generated_at": { "type": "string", "format": "date-time" },
+        "generator": { "type": "string", "description": "Script that produced this file (e.g. tools/build_graph.py)." },
         "schema_version": { "type": "string" },
-        "generated_at": { "type": "string" },
-        "generator": { "type": "string" },
         "node_count": { "type": "integer", "minimum": 0 },
         "edge_count": { "type": "integer", "minimum": 0 },
-        "categories": { "type": "array", "items": { "type": "string" } },
-        "build_sha": { "type": "string" }
+        "initiative": { "type": "string", "description": "INITIATIVE-001 V3" }
       }
     },
     "nodes": {
       "type": "array",
+      "description": "All skill nodes. Each item conforms to skill.schema.json.",
       "items": { "$ref": "skill.schema.json" }
     },
     "edges": {
       "type": "array",
+      "description": "All directed edges between skills. Each item conforms to edge.schema.json.",
       "items": { "$ref": "edge.schema.json" }
     }
   }
