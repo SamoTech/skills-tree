@@ -4,16 +4,17 @@
 
 ## Summary
 
-- **Total skill files:** 367
+- **Total skill files:** 368
 - 🟢 **Battle-tested** (rich content + tables + >=60 lines): 56
 - 🟡 **Enriched** (real description + runnable code): 2
-- ⚪ **Stub** (placeholder description or no runnable code): 308
+- ⚪ **Stub** (placeholder description or no runnable code): 309
 - ❌ **Invalid** (frontmatter problems): 1
 
 ## Per-category breakdown
 
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
+| `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 2 | 2 | 32 | 0 |
 | `02-reasoning` | 45 | 8 | 0 | 36 | 1 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
@@ -103,6 +104,10 @@ These skills have a real description and a runnable code example, but are missin
 ## ⚪ Stubs (good first PRs)
 
 Each entry below is a real, claimed skill that currently has no runnable example or a placeholder description. Pick one, follow [`meta/skill-template.md`](skill-template.md), and open a PR titled `improve: <skill-name> — v1→v2`.
+
+### `00-sandbox` (1)
+
+- [`pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 
 ### `01-perception` (32)
 
