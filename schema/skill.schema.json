@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://samotech.github.io/skills-tree/schema/skill.schema.json",
   "title": "Skill",
-  "description": "Canonical schema for a single skill node in the Skills Tree.",
+  "description": "Canonical schema for a single skill node in the Skills Tree. Schema version 3.1 — adds optional prerequisites field.",
   "type": "object",
   "required": ["id", "title", "category", "level", "stability", "version"],
   "additionalProperties": false,
@@ -53,9 +53,20 @@
       "items": { "type": "string" },
       "uniqueItems": true
     },
+    "prerequisites": {
+      "type": "array",
+      "description": "Skill IDs that must be understood before learning this skill. Each entry generates a REQUIRES edge during build_graph.py execution. Format: category-slug/skill-slug (e.g. 02-reasoning/causal). Optional — omit if no prerequisites exist.",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$"
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
     "related_skills": {
       "type": "array",
-      "description": "List of related skill IDs (used as edge hints by extract_edges.py).",
+      "description": "List of related skill IDs (used as edge hints by extract_edges.py). Generates RELATED_TO edges unless dependency language is present in the ## Related Skills section.",
       "items": { "type": "string" },
       "uniqueItems": true
     },

@@ -43,3 +43,20 @@
 **Evidence:** Python audit of `data/SKILLS_GRAPH.json` SHA `639b9cbb`. Counts verified programmatically.  
 **Action required:** INITIATIVE-002 — REQUIRES Edge Generation.  
 **Status:** ACTIVE
+
+---
+
+## D-INIT-003-001 — Schema v3.1: Add Optional `prerequisites` Field
+
+**Date:** 2026-06-22  
+**Decision:** Add optional `prerequisites` array field to `schema/skill.schema.json`. Field is validated (unique strings, canonical ID pattern, minItems 1 if present). This resolves two confirmed divergences: (1) `extract_edges.py` docstring referenced a frontmatter `dependencies` field that did not exist in the schema; (2) `build_graph.py` had no path to emit REQUIRES edges from structured metadata.  
+**Evidence:**
+- `schema/skill.schema.json` prior SHA `25d54e18d3ed1f2d6c48e9734056d10792f80fd3` — no `prerequisites` field, `additionalProperties: false`
+- `tools/extract_edges.py` SHA `6c16fb37` — docstring Source 2 references `dependencies` frontmatter field, but body has no frontmatter parser
+- `tools/build_graph.py` SHA `f84c8e00` — `build_node()` hardcodes `prerequisites` field absent
+- `meta/INITIATIVE_002B_AUTHORING_MODEL_AUDIT.md` — confirmed schema/code divergence
+- `meta/INITIATIVE_002B_STRATEGIC_OPTIONS.md` — RECOMMENDED_MODEL = C (Hybrid)
+**Breaking change:** NO — field is optional; all 367 existing skills pass validation unchanged.  
+**Schema version:** 3.0 → 3.1  
+**Next required:** INITIATIVE-004 — update `build_graph.py` and `extract_edges.py` to consume `prerequisites` and emit REQUIRES edges.  
+**Status:** ACTIVE
