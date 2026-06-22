@@ -42,21 +42,54 @@
 **Secondary blockers:** tags=[] (367/367), related_skills=[] (367/367), quality_score=null (367/367), 9 dangling targets, 54 orphans.  
 **Evidence:** Python audit of `data/SKILLS_GRAPH.json` SHA `639b9cbb`. Counts verified programmatically.  
 **Action required:** INITIATIVE-002 — REQUIRES Edge Generation.  
-**Status:** ACTIVE
+**Status:** SUPERSEDED — pipeline now active via INITIATIVE-004
 
 ---
 
 ## D-INIT-003-001 — Schema v3.1: Add Optional `prerequisites` Field
 
 **Date:** 2026-06-22  
-**Decision:** Add optional `prerequisites` array field to `schema/skill.schema.json`. Field is validated (unique strings, canonical ID pattern, minItems 1 if present). This resolves two confirmed divergences: (1) `extract_edges.py` docstring referenced a frontmatter `dependencies` field that did not exist in the schema; (2) `build_graph.py` had no path to emit REQUIRES edges from structured metadata.  
+**Decision:** Add optional `prerequisites` array field to `schema/skill.schema.json`.  
 **Evidence:**
-- `schema/skill.schema.json` prior SHA `25d54e18d3ed1f2d6c48e9734056d10792f80fd3` — no `prerequisites` field, `additionalProperties: false`
-- `tools/extract_edges.py` SHA `6c16fb37` — docstring Source 2 references `dependencies` frontmatter field, but body has no frontmatter parser
-- `tools/build_graph.py` SHA `f84c8e00` — `build_node()` hardcodes `prerequisites` field absent
-- `meta/INITIATIVE_002B_AUTHORING_MODEL_AUDIT.md` — confirmed schema/code divergence
-- `meta/INITIATIVE_002B_STRATEGIC_OPTIONS.md` — RECOMMENDED_MODEL = C (Hybrid)
-**Breaking change:** NO — field is optional; all 367 existing skills pass validation unchanged.  
+- `schema/skill.schema.json` prior SHA `25d54e18` — no `prerequisites` field
+- `tools/extract_edges.py` SHA `6c16fb37` — docstring Source 2 references `dependencies` frontmatter field, body has no frontmatter parser
+- `tools/build_graph.py` SHA `f84c8e00` — `build_node()` had no `prerequisites` read
+- `meta/INITIATIVE_002B_AUTHORING_MODEL_AUDIT.md` — confirmed schema/code divergence  
+**Breaking change:** NO  
 **Schema version:** 3.0 → 3.1  
-**Next required:** INITIATIVE-004 — update `build_graph.py` and `extract_edges.py` to consume `prerequisites` and emit REQUIRES edges.  
-**Status:** ACTIVE
+**Status:** COMPLETE
+
+---
+
+## D-INIT-004-001 — Pipeline Activation: tools updated to emit REQUIRES edges
+
+**Date:** 2026-06-22  
+**Decision:** Update `tools/build_graph.py` and `tools/extract_edges.py` to consume the `prerequisites` frontmatter field and emit `REQUIRES` edges with `source_method: "frontmatter_prerequisite"`.
+
+**Changes made (this commit):**
+1. `tools/build_graph.py`
+   - `parse_frontmatter()` extended to support YAML block sequences
+   - `build_node()` reads `prerequisites` list into node object
+   - New `build_prerequisite_edges(node)` function emits REQUIRES edges
+   - `main()` loops over nodes, calls `build_prerequisite_edges()` after body-text extraction
+   - `SCHEMA_VERSION` constant: `"3.0"` → `"3.1"`
+   - `meta` section of graph JSON now includes `requires_count`
+2. `tools/extract_edges.py`
+   - `parse_frontmatter()` added (same logic as build_graph.py)
+   - `extract_from_file()` implements Source 1 (frontmatter prerequisites)
+   - Docstring corrected: Source 1 = prerequisites frontmatter, Source 2 = Related Skills
+3. `skills/00-sandbox/pipeline-test.md` — pilot fixture with `prerequisites: [02-reasoning/chain-of-thought]`
+
+**Evidence basis:**
+- `meta/DEPENDENCY_TOOL_ALIGNMENT.md` — exact changes required documented in INITIATIVE-003
+- `schema/skill.schema.json` SHA `3917bb79` — `prerequisites` field validated at v3.1
+- `schema/edge.schema.json` SHA `980e2146` — `REQUIRES` already in type enum
+
+**Breaking change:** NO — all 367 existing skills have no `prerequisites` field; they generate 0 REQUIRES edges (same as before). Pilot fixture generates ≥1.
+
+**Expected pipeline output after workflow trigger:**
+- `meta.schema_version`: `3.1`
+- `meta.requires_count`: ≥1
+- REQUIRES edge from `00-sandbox/pipeline-test` → `02-reasoning/chain-of-thought`
+
+**Status:** ACTIVE — awaiting workflow trigger and graph regeneration confirmation

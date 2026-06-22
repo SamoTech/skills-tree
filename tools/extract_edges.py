@@ -3,12 +3,16 @@
 tools/extract_edges.py — INITIATIVE-001 Phase D
 
 Edge extraction engine for skills-tree.
-Replaces manual R-03/R-05 missions.
 
 Extraction sources (in order of priority):
-  1. ## Related Skills sections — markdown links
-  2. Explicit prerequisite language in frontmatter (dependencies field)
-  3. Inline prerequisite keywords in body text
+  1. `prerequisites` frontmatter field — generates REQUIRES edges
+     (schema v3.1 field; each entry is a canonical skill ID)
+  2. ## Related Skills sections — markdown links with optional keyword context
+     - REQUIRES: prerequisite, depends on, requires, before learning, foundation skill
+     - SUPPORTS: supports, enables, extends, powers, executes, builds on
+     - ALTERNATIVE_TO: alternative to, instead of, similar to
+     - SUBSKILL_OF: subskill of, specialization of, part of
+     - RELATED_TO: (default — no keyword match)
 
 Allowed edge types:
   REQUIRES      — prerequisite, depends on, requires, before learning, foundation skill
@@ -36,6 +40,50 @@ from datetime import datetime, timezone
 
 REPO_ROOT = Path(__file__).parent.parent
 SKILLS_DIR = REPO_ROOT / "skills"
+
+# ---------------------------------------------------------------------------
+# Frontmatter parser
+# ---------------------------------------------------------------------------
+def parse_frontmatter(md_path: Path) -> dict:
+    """Extract YAML frontmatter from a markdown file.
+    Returns empty dict if no frontmatter found.
+
+    Supports simple key:value pairs and YAML block sequences:
+        prerequisites:
+          - 02-reasoning/chain-of-thought
+    """
+    text = md_path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
+        return {}
+    end = text.find("---", 3)
+    if end == -1:
+        return {}
+    fm_block = text[3:end].strip()
+    result = {}
+    current_key = None
+    current_list = None
+
+    for line in fm_block.splitlines():
+        if line.startswith("  - ") or line.startswith("- "):
+            item = line.lstrip().lstrip("- ").strip().strip('"')
+            if current_key and current_list is not None:
+                current_list.append(item)
+            continue
+        if ":" in line and not line.startswith(" "):
+            current_list = None
+            key, _, val = line.partition(":")
+            key = key.strip()
+            val = val.strip().strip('"')
+            if val == "":
+                current_key = key
+                current_list = []
+                result[key] = current_list
+            else:
+                current_key = key
+                result[key] = val
+
+    return result
+
 
 # ---------------------------------------------------------------------------
 # Trigger patterns
@@ -100,20 +148,17 @@ def classify_edge_type(context: str) -> tuple[str, str]:
 # ---------------------------------------------------------------------------
 def resolve_target_id(href: str, source_category: str) -> str | None:
     """Resolve a markdown link href to a canonical skill ID."""
-    # Strip query/fragment
     href = href.split("#")[0].strip()
     if not href.endswith(".md"):
         return None
 
     if href.startswith("../"):
-        # Cross-category: ../09-agentic-patterns/plan-and-execute.md
         clean = href.lstrip("../")
         parts = clean.split("/")
         if len(parts) == 2:
-            return f"{parts[0]}/{parts[1][:-3]}"  # strip .md
+            return f"{parts[0]}/{parts[1][:-3]}"
         return None
     else:
-        # Same-category: causal.md or subdir/causal.md
         slug = Path(href).stem
         return f"{source_category}/{slug}"
 
@@ -122,7 +167,11 @@ def resolve_target_id(href: str, source_category: str) -> str | None:
 # Per-file extractor
 # ---------------------------------------------------------------------------
 def extract_from_file(md_path: Path) -> list[dict]:
-    """Extract all edges from a single skill markdown file."""
+    """Extract all edges from a single skill markdown file.
+
+    Source 1: frontmatter prerequisites field → REQUIRES edges
+    Source 2: ## Related Skills section → typed edges by keyword context
+    """
     edges = []
     category = md_path.parent.name
     source_id = f"{category}/{md_path.stem}"
@@ -134,20 +183,41 @@ def extract_from_file(md_path: Path) -> list[dict]:
         print(f"  [WARN] Cannot read {md_path}: {e}", file=sys.stderr)
         return []
 
-    # Find Related Skills section
+    # Source 1: frontmatter prerequisites → REQUIRES edges
+    fm = parse_frontmatter(md_path)
+    raw_prereqs = fm.get("prerequisites", [])
+    prerequisites = raw_prereqs if isinstance(raw_prereqs, list) else []
+    seen = set()
+
+    for prereq_id in prerequisites:
+        if prereq_id == source_id:
+            continue  # skip self-loop
+        edge_key = (source_id, prereq_id, "REQUIRES")
+        if edge_key in seen:
+            continue
+        seen.add(edge_key)
+        edges.append({
+            "source": source_id,
+            "target": prereq_id,
+            "type": "REQUIRES",
+            "evidence": f"prerequisites: {prereq_id}",
+            "source_file": rel_path,
+            "confidence": "high",
+            "source_method": "frontmatter_prerequisite",
+        })
+
+    # Source 2: ## Related Skills section → typed edges
     section_match = RELATED_SECTION_RE.search(text)
     if not section_match:
-        return []
+        return edges
 
     section = section_match.group(1)
-    seen = set()
 
     for link_match in MD_LINK_RE.finditer(section):
         link_text = link_match.group(1)
         href = link_match.group(2)
         evidence = link_match.group(0)
 
-        # Get surrounding context line for classification
         line_start = section.rfind("\n", 0, link_match.start()) + 1
         line_end = section.find("\n", link_match.end())
         context_line = section[line_start:line_end if line_end != -1 else len(section)]
@@ -157,17 +227,14 @@ def extract_from_file(md_path: Path) -> list[dict]:
         if target_id is None:
             continue
 
-        # Skip self-loops
         if target_id == source_id:
             continue
 
-        # Dedup within file
-        edge_key = (source_id, target_id)
+        edge_type, confidence = classify_edge_type(full_context)
+        edge_key = (source_id, target_id, edge_type)
         if edge_key in seen:
             continue
         seen.add(edge_key)
-
-        edge_type, confidence = classify_edge_type(full_context)
 
         edges.append({
             "source": source_id,
