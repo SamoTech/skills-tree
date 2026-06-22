@@ -3,38 +3,33 @@ title: "MCTS (Monte Carlo Tree Search)"
 category: 09-agentic-patterns
 level: advanced
 stability: experimental
-description: "Apply mcts (monte carlo tree search) in AI agent workflows."
+description: "Stochastic-rollout variant of ToT. Uses random playouts to estimate node value instead of a trained value function."
 added: "2025-03"
+version: v1
+prerequisites:
+  - 09-agentic-patterns/tot
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mcts.json)
 
 # MCTS (Monte Carlo Tree Search)
 
-**Category:** `agentic-patterns`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## Description
 
-### Description
+MCTS replaces the deterministic scorer in Tree of Thought with Monte Carlo rollouts: from each candidate node, run N random completions to the goal and use the win rate as the node's value. This makes the value estimate model-free at the cost of more total tokens.
 
-Use Monte Carlo Tree Search to explore a decision tree of actions. Balances exploration vs. exploitation via UCB scoring, enabling long-horizon planning.
+## When to Use
 
-### Example
+- Tasks with a binary or clear terminal outcome (pass/fail tests, game wins).
+- You lack a reliable critic model to score intermediate states.
+- Token budget is large enough for rollouts.
 
-```python
-# Pseudocode: MCTS for code generation
-root = Node(state="Generate a sorting function")
-for _ in range(100):  # simulations
-    node = select(root)          # UCB-guided selection
-    child = expand(node)         # generate candidate
-    reward = simulate(child)     # run tests → score
-    backpropagate(child, reward) # update path scores
-best = max(root.children, key=lambda n: n.value)
-```
+## Related Skills
 
-### Related Skills
+- [Tree of Thought](tot.md) — deterministic-scorer baseline this extends
+- [LATS](lats.md) — learned value function alternative
 
-- [Tree of Thought](tot.md)
-- [LATS](lats.md)
-- [Self-Play](self-play.md)
+## Changelog
+
+| Date | Version | Change |
+|---|---|---|
+| 2025-03 | v1 | Initial entry |
+| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |

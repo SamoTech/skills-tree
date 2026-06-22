@@ -1,42 +1,29 @@
 ---
-title: "Tool-Use Loop"
+title: Tool-Use Loop
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
-description: "Apply tool-use loop in AI agent workflows."
+description: A parallel-tool variant of ReAct where multiple tools may be called simultaneously in each step.
 added: "2025-03"
+version: v1
+prerequisites:
+  - 09-agentic-patterns/react
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-tool-use-loop.json)
 
 # Tool-Use Loop
 
-**Category:** `agentic-patterns`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+A parallel-tool variant of the ReAct loop. Where ReAct calls exactly one tool per step, the Tool-Use Loop may dispatch multiple tool calls simultaneously in a single model turn, collecting all observations before the next reasoning step.
 
-The agent iteratively calls tools (functions, APIs, search) and processes their results until the task is complete or a stop condition is reached.
+## Related Skills
 
-### Example
+- [ReAct](react.md) — sequential single-tool baseline this pattern extends
+- [Plan-and-Execute](plan-and-execute.md) — planning variant
 
-```
-Loop iteration 1:
-  → call weather_api(city="Cairo")
-  ← {"temp": 32, "condition": "sunny"}
+## Changelog
 
-Loop iteration 2:
-  → call translate(text="sunny", target="Arabic")
-  ← "مشمس"
-
-Stop condition: all required data collected.
-Final answer: "القاهرة 32 درجة ومشمس"
-```
-
-### Related Skills
-
-- [ReAct](react.md)
-- [MCP Tool](../07-tool-use/mcp-tool.md)
-- [Plan and Execute](plan-and-execute.md)
+| Date | Version | Change |
+|---|---|---|
+| 2025-03 | v1 | Initial entry |
+| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |

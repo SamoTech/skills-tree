@@ -16,6 +16,8 @@ dependencies:
 code_blocks:
   - id: "example-react-loop"
     type: executable
+prerequisites:
+  - 09-agentic-patterns/cot
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-react.json)
@@ -53,16 +55,12 @@ import anthropic
 
 client = anthropic.Anthropic()
 
-# --- 1. Real tools ----------------------------------------------------------
-
 def web_search(query: str) -> str:
-    # Plug in Tavily / Brave / Exa here. Demo returns a fixed snippet.
     if "cairo" in query.lower():
         return "Cairo metropolitan population (2024 UN est.): ~22.6 million."
     return "No high-confidence result found."
 
 def calc(expression: str) -> str:
-    # Eval-free arithmetic to keep the demo safe.
     import ast, operator as op
     ops = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul, ast.Div: op.truediv}
     def ev(node):
@@ -74,97 +72,52 @@ def calc(expression: str) -> str:
 TOOLS: dict[str, Callable[[str], str]] = {"web_search": web_search, "calc": calc}
 
 TOOL_SCHEMA = [
-    {
-        "name": "web_search",
-        "description": "Search the web. Argument: a natural-language query string.",
-        "input_schema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]},
-    },
-    {
-        "name": "calc",
-        "description": "Evaluate a basic arithmetic expression like '2 + 3 * 4'.",
-        "input_schema": {"type": "object", "properties": {"expression": {"type": "string"}}, "required": ["expression"]},
-    },
+    {"name": "web_search", "description": "Search the web.", "input_schema": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}},
+    {"name": "calc", "description": "Evaluate arithmetic.", "input_schema": {"type": "object", "properties": {"expression": {"type": "string"}}, "required": ["expression"]}},
 ]
-
-# --- 2. ReAct loop ----------------------------------------------------------
 
 SYSTEM = """You are a ReAct agent. For each turn either:
   1. Call exactly one tool to gather more information, OR
-  2. Reply in plain text starting with 'Final Answer:' once you can answer.
-Keep reasoning short and concrete. Never invent observations."""
+  2. Reply in plain text starting with 'Final Answer:' once you can answer."""
 
 def react(goal: str, max_steps: int = 8) -> dict:
     messages = [{"role": "user", "content": goal}]
     trace: list[dict] = []
     for step in range(max_steps):
-        resp = client.messages.create(
-            model="claude-opus-4-5",
-            max_tokens=512,
-            system=SYSTEM,
-            tools=TOOL_SCHEMA,
-            messages=messages,
-        )
+        resp = client.messages.create(model="claude-opus-4-5", max_tokens=512, system=SYSTEM, tools=TOOL_SCHEMA, messages=messages)
         if resp.stop_reason == "tool_use":
             tool_block = next(b for b in resp.content if b.type == "tool_use")
-            args = tool_block.input
-            obs = TOOLS[tool_block.name](**args)
-            trace.append({"thought": _text(resp), "action": tool_block.name, "args": args, "observation": obs})
+            obs = TOOLS[tool_block.name](**tool_block.input)
+            trace.append({"action": tool_block.name, "args": tool_block.input, "observation": obs})
             messages.append({"role": "assistant", "content": resp.content})
-            messages.append({"role": "user", "content": [
-                {"type": "tool_result", "tool_use_id": tool_block.id, "content": obs}
-            ]})
+            messages.append({"role": "user", "content": [{"type": "tool_result", "tool_use_id": tool_block.id, "content": obs}]})
             continue
-        # End_turn: model produced a final answer.
-        answer = _text(resp)
+        answer = "".join(b.text for b in resp.content if b.type == "text")
         return {"answer": answer.removeprefix("Final Answer:").strip(), "trace": trace}
     return {"answer": "step budget exhausted", "trace": trace}
-
-def _text(resp) -> str:
-    return "".join(b.text for b in resp.content if b.type == "text")
 
 if __name__ == "__main__":
     out = react("What is Cairo's population in millions, multiplied by 3?")
     print(out["answer"])
-    print(json.dumps(out["trace"], indent=2))
 ```
 
 ## Failure Modes
 
 | Failure | Cause | Mitigation |
 |---|---|---|
-| Tool-call ping-pong | Model re-asks the same tool with the same args | Detect duplicate (name, args) within trace; force "Final Answer or quit" prompt |
-| Hallucinated observations | Model writes Observation in its own reasoning | Use a real tool-call API (function calling), not free-form text parsing |
-| Infinite loop on impossible task | No success criterion + no step cap | Always set `max_steps`; have the agent self-summarize on cap |
-| Wrong tool selected | Tool descriptions ambiguous | Make descriptions imperative + include "use when …" / "do NOT use when …" |
-| Cost blow-up | Long traces fed back every turn | Truncate or summarize old observations; cache static tool results |
+| Tool-call ping-pong | Model re-asks the same tool | Detect duplicate (name, args) in trace |
+| Hallucinated observations | Model writes Observation itself | Use real tool-call API |
+| Infinite loop | No step cap | Always set `max_steps` |
+| Cost blow-up | Long traces fed back every turn | Truncate old observations |
 
 ## Variants
 
 | Variant | Difference |
 |---|---|
-| **Plan-and-Execute** | First produce a full plan, then execute steps without re-planning |
-| **Tool-Use Loop** | Same as ReAct but tools may run in parallel each step |
-| **LATS** | ReAct + tree search + value function — better on multi-hop search |
-| **Reflection** | After failure, an evaluator critiques the trace and the next attempt re-plans |
-
-## Frameworks & Models
-
-| Framework | Implementation |
-|---|---|
-| LangGraph | `create_react_agent(llm, tools)` |
-| LangChain (legacy) | `AgentExecutor(agent=ReActAgent(...), tools=...)` |
-| OpenAI Assistants v2 | Function calling + thread loop |
-| Anthropic Tool Use | Native `tool_use` / `tool_result` blocks (shown above) |
-| Pydantic AI | `Agent(tools=[...])` with typed deps |
-
-## Model Comparison
-
-| Capability | claude-opus-4-5 | gpt-4o | gemini-2.0-flash |
-|---|---|---|---|
-| Stops looping when goal met | 5 | 4 | 3 |
-| Recovers from a bad observation | 4 | 4 | 3 |
-| Tool argument validity | 4 | 5 | 3 |
-| Cost per task | 3 | 4 | 5 |
+| **Plan-and-Execute** | Full plan first, then execute |
+| **Tool-Use Loop** | Tools may run in parallel |
+| **LATS** | ReAct + tree search + value function |
+| **Reflection** | Evaluator critiques trace after failure |
 
 ## Related Skills
 
@@ -179,4 +132,5 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Initial entry |
 | 2026-02 | v2 | Added variants table |
-| 2026-04 | v3 | Full runnable Anthropic tool-use example, failure modes, model comparison |
+| 2026-04 | v3 | Full runnable Anthropic tool-use example |
+| 2026-06 | v3.1 | Added prerequisites field (INITIATIVE-005) |

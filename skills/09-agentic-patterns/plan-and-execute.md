@@ -1,36 +1,16 @@
 ---
-title: "Plan-and-Execute"
+title: Plan-and-Execute
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
+description: Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.
 added: "2025-03"
-description: "Apply plan-and-execute pattern in AI agent workflows."
-dependencies:
-  - package: langgraph
-    min_version: "0.2.0"
-    tested_version: "1.1.6"
-    confidence: verified
-  - package: langchain-openai
-    min_version: "0.1.0"
-    tested_version: "1.1.12"
-    confidence: verified
-  - package: pydantic
-    min_version: "2.0.0"
-    tested_version: "2.13.0"
-    confidence: verified
-code_blocks:
-  - id: "example-plan-execute"
-    type: executable
+version: v1
+prerequisites:
+  - 09-agentic-patterns/react
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-plan-and-execute.json)
-
 # Plan-and-Execute
-
-**Category:** `agentic-patterns`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
 
 ### Description
 
@@ -88,3 +68,10 @@ print(result["final_answer"])
 
 ### Related Skills
 - `react`, `planning`, `stateful-agent-graphs`, `agent-handoffs`
+
+## Changelog
+
+| Date | Version | Change |
+|---|---|---|
+| 2025-03 | v1 | Initial entry |
+| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
