@@ -93,3 +93,20 @@
 - REQUIRES edge from `00-sandbox/pipeline-test` → `02-reasoning/chain-of-thought`
 
 **Status:** ACTIVE — awaiting workflow trigger and graph regeneration confirmation
+
+---
+
+## D-INIT-004V-001 — Verification: Graph Stale, Workflow Trigger Required
+
+**Date:** 2026-06-22  
+**Decision:** INITIATIVE-004V live verification confirms the `build-graph` workflow has not been triggered since INITIATIVE-004 tools were committed. The current graph (`data/SKILLS_GRAPH.json` SHA `b3c274795996c90eb54382ed7b990dbc3e86cb7a`) reflects pre-INITIATIVE-004 state: `schema_version: 3.0`, `requires_count: 0`, pilot fixture node absent.  
+
+**Evidence:**
+- `data/SKILLS_GRAPH.json` live read: `schema_version: "3.0"`, `generated_at: "2026-06-22T11:42:37.598478+00:00"`, `initiative: "INITIATIVE-001 V3"`
+- `02-reasoning/chain-of-thought` node confirmed present in graph (target is valid)
+- `00-sandbox/pipeline-test` node NOT in current graph (fixture committed after last build)
+- REQUIRES edges in current graph: 0 (all 773 are RELATED_TO)
+
+**Conclusion:** Pipeline is structurally correct. Failure mode is workflow trigger gap, not code error.  
+**Required action:** Trigger `build-graph` workflow, then re-run INITIATIVE-004V.  
+**Status:** ACTIVE — blocking INITIATIVE-005
