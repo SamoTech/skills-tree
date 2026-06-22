@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schema/edge.schema.json",
+  "title": "Edge",
+  "description": "A directed relationship between two skill nodes",
+  "type": "object",
+  "required": ["source", "target", "type", "evidence", "source_file"],
+  "additionalProperties": false,
+  "properties": {
+    "source": { "type": "string" },
+    "target": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["REQUIRES", "SUPPORTS", "RELATED_TO", "SUBSKILL_OF", "ALTERNATIVE_TO"]
+    },
+    "evidence": { "type": "string", "minLength": 5 },
+    "source_file": { "type": "string" },
+    "extraction_method": {
+      "type": "string",
+      "enum": ["related_skills_section", "markdown_link", "explicit_prerequisite", "frontmatter"]
+    }
+  }
+}

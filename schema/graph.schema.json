@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://samotech.github.io/skills-tree/schema/graph.schema.json",
+  "title": "Skills Graph",
+  "description": "The complete generated skills graph for the AI Engineering Skills Tree",
+  "type": "object",
+  "required": ["meta", "nodes", "edges"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["schema_version", "generated_at", "generator", "node_count", "edge_count"],
+      "properties": {
+        "schema_version": { "type": "string" },
+        "generated_at": { "type": "string" },
+        "generator": { "type": "string" },
+        "node_count": { "type": "integer", "minimum": 0 },
+        "edge_count": { "type": "integer", "minimum": 0 },
+        "categories": { "type": "array", "items": { "type": "string" } },
+        "build_sha": { "type": "string" }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "skill.schema.json" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "edge.schema.json" }
+    }
+  }
+}
