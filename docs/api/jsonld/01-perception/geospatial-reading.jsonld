@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T09:47:36Z",
+  "dateModified": "2026-06-22T10:22:22Z",
   "skillId": "geospatial-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "geospatial, perception, LLM skill, skills tree, AI agent, reading",
+  "keywords": "perception, skills tree, reading, AI agent, LLM skill, geospatial",
   "about": {
     "@type": "Thing",
     "name": "Geospatial Reading",

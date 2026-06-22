@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T09:47:36Z",
+  "dateModified": "2026-06-22T10:22:22Z",
   "skillId": "memory-summarization",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "summarization, LLM skill, skills tree, memory, AI agent",
+  "keywords": "skills tree, summarization, AI agent, memory, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Memory Summarization",
