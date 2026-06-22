@@ -27,3 +27,5 @@ Verify end-to-end pipeline:
 3. `build_node()` stores list in `node["prerequisites"]`
 4. `build_prerequisite_edges()` emits REQUIRES edge
 5. Edge appears in `data/SKILLS_GRAPH.json` with `type: REQUIRES`
+
+<!-- INITIATIVE-004W: touched to trigger build-graph workflow -->

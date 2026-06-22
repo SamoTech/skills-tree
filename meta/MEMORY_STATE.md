@@ -1,7 +1,7 @@
 # MEMORY_STATE.md
 
-**Last updated:** 2026-06-22T14:54:00+03:00  
-**Updated by:** INITIATIVE-004V  
+**Last updated:** 2026-06-22T15:00:00+03:00  
+**Updated by:** INITIATIVE-004W  
 **Evidence basis:** Direct repository reads only.
 
 ---
@@ -10,39 +10,52 @@
 
 | Field | Value | Source |
 |---|---|---|
-| `data/SKILLS_GRAPH.json` SHA | `b3c274795996c90eb54382ed7b990dbc3e86cb7a` | GitHub API |
-| `schema_version` (graph) | `3.0` | `data/SKILLS_GRAPH.json` meta header |
-| `schema_version` (schema file) | `3.1` | `schema/skill.schema.json` (INITIATIVE-003) |
-| `node_count` | 367 | `data/SKILLS_GRAPH.json` meta header |
-| `edge_count` | 773 | `data/SKILLS_GRAPH.json` meta header |
-| `requires_count` | **0** | Audit evidence: all 773 edges RELATED_TO; graph pre-dates INITIATIVE-004 tools |
-| `generated_at` | `2026-06-22T11:42:37.598478+00:00` | `data/SKILLS_GRAPH.json` meta header |
-| Placeholder | ABSENT | Confirmed INITIATIVE-001B |
+| `data/SKILLS_GRAPH.json` SHA (pre-rebuild) | `b3c274795996c90eb54382ed7b990dbc3e86cb7a` | GitHub API (INITIATIVE-004V) |
+| `schema_version` (current graph) | `3.0` | `data/SKILLS_GRAPH.json` meta header |
+| `schema_version` (tools) | `3.1` | `tools/build_graph.py` `SCHEMA_VERSION` constant |
+| `node_count` (current graph) | 367 | `data/SKILLS_GRAPH.json` meta header |
+| `edge_count` (current graph) | 773 | `data/SKILLS_GRAPH.json` meta header |
+| `requires_count` (current graph) | **0** | Audit evidence |
+| `generated_at` (current graph) | `2026-06-22T11:42:42Z` | `data/SKILLS_GRAPH.json` meta header |
+| Graph state | **STALE** | build-graph workflow cancelled before commit (proven INITIATIVE-004W) |
 
-**Critical status:** Graph is STALE relative to INITIATIVE-004. The `build-graph` workflow has not been triggered since INITIATIVE-004 tools were committed. The pilot fixture (`skills/00-sandbox/pipeline-test.md`) is NOT yet reflected in the graph.
+**Remediation status:** INITIATIVE-004W commit includes `skills/00-sandbox/pipeline-test.md` (qualifying push). Build-graph workflow will trigger. Awaiting completion.
+
+**Expected post-rebuild values:**
+
+| Field | Expected Value |
+|---|---|
+| schema_version | `3.1` |
+| node_count | `368` |
+| edge_count | `≥ 774` |
+| requires_count | `≥ 1` |
+| initiative | `INITIATIVE-004` |
 
 ## Quality State
 
 | Metric | Value |
 |---|---|
-| Schema-valid nodes | 366/367 (1 invalid stability value) |
-| Dangling edges | 9 (pre-existing, carried from INITIATIVE-001C) |
+| Schema-valid nodes | 366/367 (1 invalid stability value `experimental` detected) + 1 sandbox fixture |
+| Dangling edges | 9 (pre-existing) |
 | Orphan nodes | 54 (pre-existing) |
-| REQUIRES edges | **0** (graph stale; tools produce REQUIRES but workflow not triggered) |
+| REQUIRES edges in live graph | **0** (graph stale) |
+| REQUIRES edges in tools | **≥ 1** (pipeline-test.md has prerequisites) |
 | Tags populated | 0/367 |
 | quality_score populated | 0/367 |
-| `prerequisites` field supported in schema | **YES** (schema v3.1, INITIATIVE-003) |
-| `prerequisites` field consumed by tools | **YES** (build_graph.py + extract_edges.py, INITIATIVE-004) |
-| `00-sandbox/pipeline-test.md` committed | **YES** (INITIATIVE-004) |
-| `02-reasoning/chain-of-thought` node in graph | **YES** (confirmed live read) |
+| `prerequisites` field in schema | YES (v3.1) |
+| `prerequisites` consumed by tools | YES (INITIATIVE-004) |
+| `00-sandbox/pipeline-test.md` committed | YES |
+| `02-reasoning/chain-of-thought` node in graph | YES (confirmed live read) |
+
+**Note on `experimental` stability:** `skills/00-sandbox/pipeline-test.md` has `stability: experimental`. The schema validation may flag this if `experimental` is not in the allowed enum. This is acceptable for a sandbox fixture and will show as 1 validation warning in the build report.
 
 ## Recommendation Readiness
 
 | Capability | Ready |
 |---|---|
-| Goal keyword matching | ⚠️ PARTIAL (title/id only) |
-| Learning path generation | ❌ NOT READY (REQUIRES edges = 0 in current graph) |
-| Dependency analysis | ❌ NOT READY (requires workflow trigger) |
+| Goal keyword matching | ⚠️ PARTIAL |
+| Learning path generation | ❌ NOT READY (requires rebuilt graph) |
+| Dependency analysis | ❌ NOT READY (requires rebuilt graph) |
 | Architecture generation | ⚠️ DEGRADED |
 
 ## Initiative History
@@ -57,16 +70,13 @@
 | INITIATIVE-002B | COMPLETE | Strategy: Hybrid model (Option C) recommended |
 | INITIATIVE-003 | COMPLETE | Schema v3.1: `prerequisites` field added to skill schema |
 | INITIATIVE-004 | COMPLETE | Pipeline activated: tools updated, pilot fixture committed |
-| INITIATIVE-004V | COMPLETE | Verification: PIPELINE_VERIFICATION_FAILED — workflow not triggered |
+| INITIATIVE-004V | COMPLETE | Verification: PIPELINE_VERIFICATION_FAILED — workflow cancelled |
+| INITIATIVE-004W | IN PROGRESS | Root cause proven: concurrency cancel race; remediation push sent |
 
-## Immediate Blocker
+## Next Required Action
 
-**ACTION REQUIRED:** Trigger the `build-graph` GitHub Actions workflow (`workflow_dispatch` or qualifying push).
-
-After trigger, re-run INITIATIVE-004V to confirm:
-- `schema_version = 3.1`
-- `requires_count ≥ 1`
-- `node_count = 368`
-- `00-sandbox/pipeline-test → 02-reasoning/chain-of-thought` REQUIRES edge present
-
-Only after confirmed can INITIATIVE-005 proceed.
+After build-graph workflow completes on INITIATIVE-004W commit:
+1. Read `data/SKILLS_GRAPH.json` and verify schema_version, requires_count, node_count
+2. Confirm `00-sandbox/pipeline-test → 02-reasoning/chain-of-thought` REQUIRES edge
+3. If PASS: proceed to INITIATIVE-005 (agentic-patterns backfill)
+4. If FAIL: create `meta/STATE_DIVERGENCE_REPORT.md` and investigate
