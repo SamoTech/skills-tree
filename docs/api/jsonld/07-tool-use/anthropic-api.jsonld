@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "anthropic-api",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "anthropic, skills tree, use, api, AI agent, tool, LLM skill",
+  "keywords": "use, skills tree, AI agent, api, anthropic, tool, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Anthropic API",

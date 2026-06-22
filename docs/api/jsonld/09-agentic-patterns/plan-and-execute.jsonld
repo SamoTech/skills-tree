@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "plan-and-execute",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "plan, agentic, patterns, skills tree, AI agent, and, LLM skill, execute",
+  "keywords": "execute, and, skills tree, AI agent, agentic, plan, LLM skill, patterns",
   "about": {
     "@type": "Thing",
     "name": "Plan-and-Execute",

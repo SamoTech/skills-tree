@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "openai-api",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "openai, skills tree, use, api, AI agent, tool, LLM skill",
+  "keywords": "use, skills tree, AI agent, api, tool, LLM skill, openai",
   "about": {
     "@type": "Thing",
     "name": "OpenAI API",

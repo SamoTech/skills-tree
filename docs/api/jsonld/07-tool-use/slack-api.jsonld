@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "slack-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "slack, use, skills tree, api, AI agent, tool, LLM skill",
+  "keywords": "use, slack, skills tree, AI agent, api, tool, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Slack API",

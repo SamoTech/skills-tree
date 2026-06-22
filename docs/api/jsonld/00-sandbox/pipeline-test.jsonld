@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/multilingual-output.md",
-  "name": "Multilingual Output",
-  "headline": "Multilingual Output",
-  "description": "Apply multilingual output in AI agent workflows.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/multilingual-output.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/00-sandbox/pipeline-test.md",
+  "name": "Pipeline Test Fixture",
+  "headline": "Pipeline Test Fixture",
+  "description": "",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/00-sandbox/pipeline-test.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,23 +53,25 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-06-22T11:49:11Z",
-  "skillId": "multilingual-output",
-  "skillVersion": null,
-  "skillLevel": "intermediate",
-  "skillStability": "stable",
-  "categoryDir": "06-communication",
-  "sections": [],
+  "skillId": "pipeline-test",
+  "skillVersion": "v1",
+  "skillLevel": "basic",
+  "skillStability": "experimental",
+  "categoryDir": "00-sandbox",
+  "sections": [
+    "Purpose"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "communication, output, skills tree, AI agent, LLM skill, multilingual",
+  "datePublished": "2026-06-22-01",
+  "keywords": "skills tree, test, sandbox, AI agent, LLM skill, pipeline",
   "about": {
     "@type": "Thing",
-    "name": "Multilingual Output",
-    "description": "An AI agent skill for multilingual output."
+    "name": "Pipeline Test Fixture",
+    "description": "An AI agent skill for pipeline test fixture."
   }
 }

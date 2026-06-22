@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "database-write",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "database, action, LLM skill, skills tree, execution, AI agent, write",
+  "keywords": "action, skills tree, AI agent, write, LLM skill, database, execution",
   "about": {
     "@type": "Thing",
     "name": "Database Write",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "stock-lookup",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "lookup, specific, skills tree, AI agent, stock, domain, LLM skill",
+  "keywords": "lookup, skills tree, AI agent, domain, stock, LLM skill, specific",
   "about": {
     "@type": "Thing",
     "name": "stock-lookup",

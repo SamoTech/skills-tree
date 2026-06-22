@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "screenshot-capture",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "capture, skills tree, use, computer, screenshot, AI agent, LLM skill",
+  "keywords": "use, computer, screenshot, skills tree, capture, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Screenshot Capture",

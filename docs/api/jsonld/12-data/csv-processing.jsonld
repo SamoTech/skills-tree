@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T10:22:22Z",
+  "dateModified": "2026-06-22T11:49:11Z",
   "skillId": "csv-processing",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "csv, data, skills tree, AI agent, processing, LLM skill",
+  "keywords": "processing, skills tree, AI agent, csv, LLM skill, data",
   "about": {
     "@type": "Thing",
     "name": "CSV Processing",

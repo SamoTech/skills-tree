@@ -1,7 +1,24 @@
 {
-  "generated": "2026-06-22T10:22:22Z",
-  "count": 367,
+  "generated": "2026-06-22T11:49:11Z",
+  "count": 368,
   "skills": [
+    {
+      "id": "pipeline-test",
+      "path": "skills/00-sandbox/pipeline-test.md",
+      "name": "Pipeline Test Fixture",
+      "description": "",
+      "category": "sandbox",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-06-22",
+      "last_updated": null,
+      "sections": [
+        "Purpose"
+      ],
+      "related": [],
+      "category_dir": "00-sandbox"
+    },
     {
       "id": "api-response-parsing",
       "path": "skills/01-perception/api-response-parsing.md",
