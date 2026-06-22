@@ -1,13 +1,12 @@
 # 🏆 Contributors Leaderboard
 
-> Last updated: 2026-06-15  
+> Last updated: 2026-06-22  
 > Counts merged PRs that added or improved a skill file.
 
 ## Last 30 days
 | Rank | Contributor | Merged PRs |
 |------|-------------|------------|
 | 🥇 | [@kriptoburak](https://github.com/kriptoburak) | 1 |
-| 🥈 | [@SamoTech](https://github.com/SamoTech) | 1 |
 
 ## Last 90 days
 | Rank | Contributor | Merged PRs |
