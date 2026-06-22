@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-22T11:07:34.632945+00:00",
+  "node_count": 367,
+  "edge_count": 773,
+  "nodes_by_level": {
+    "intermediate": 188,
+    "basic": 55,
+    "advanced": 124
+  },
+  "nodes_by_layer": {
+    "perception": 36,
+    "reasoning": 64,
+    "systems": 216,
+    "execution": 51
+  },
+  "nodes_by_category": {
+    "01-perception": 36,
+    "02-reasoning": 45,
+    "03-memory": 19,
+    "04-action-execution": 21,
+    "05-code": 28,
+    "06-communication": 15,
+    "07-tool-use": 33,
+    "08-multimodal": 14,
+    "09-agentic-patterns": 23,
+    "10-computer-use": 20,
+    "11-web": 17,
+    "12-data": 18,
+    "13-creative": 14,
+    "14-security": 13,
+    "15-orchestration": 22,
+    "16-domain-specific": 28,
+    "17-infrastructure": 1
+  },
+  "edges_by_type": {
+    "RELATED_TO": 773
+  }
+}
