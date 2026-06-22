@@ -1,6 +1,6 @@
 # DECISION_LOG.md
 
-Updated: 2026-06-22 | Mission: R-02B
+Updated: 2026-06-22 | Mission: R-02E.1
 
 ---
 
@@ -34,6 +34,15 @@ Updated: 2026-06-22 | Mission: R-02B
 - Decision: All previously claimed node/edge/category counts from prior sessions are unverifiable
 - Evidence: data/SKILLS_GRAPH.json was confirmed as a placeholder in R-01
 - Outcome: MEMORY_STATE.md carries only repository-evidenced values; all other values written as UNKNOWN
+
+## D-R02E.1-001 — Collision audit completed before graph write
+
+- Date: 2026-06-22
+- Decision: R-02E graph write is BLOCKED pending resolution of COLLISION-001
+- Evidence: `skills/04-action-execution/web-scraping.md` and `skills/11-web/web-scraping.md` both produce node ID `skill:web-scraping` under the current naming rule
+- Collision count: 1 (RAW_NODES 134, UNIQUE_NODES 133)
+- Outcome: STATUS = BLOCKED_BY_COLLISIONS; no modifications made to SKILLS_GRAPH.json
+- Next required action: A governance decision must choose one of the four resolution options documented in meta/R02E_COLLISION_REPORT.md before R-02E.2 proceeds
 
 ## NOT RECORDED
 
