@@ -1,7 +1,7 @@
 # MEMORY_STATE.md
 
-**Last updated:** 2026-06-22T15:00:00+03:00  
-**Updated by:** INITIATIVE-004W  
+**Last updated:** 2026-06-22T15:05:00+03:00  
+**Updated by:** INITIATIVE-004W.1  
 **Evidence basis:** Direct repository reads only.
 
 ---
@@ -10,53 +10,40 @@
 
 | Field | Value | Source |
 |---|---|---|
-| `data/SKILLS_GRAPH.json` SHA (pre-rebuild) | `b3c274795996c90eb54382ed7b990dbc3e86cb7a` | GitHub API (INITIATIVE-004V) |
-| `schema_version` (current graph) | `3.0` | `data/SKILLS_GRAPH.json` meta header |
-| `schema_version` (tools) | `3.1` | `tools/build_graph.py` `SCHEMA_VERSION` constant |
-| `node_count` (current graph) | 367 | `data/SKILLS_GRAPH.json` meta header |
-| `edge_count` (current graph) | 773 | `data/SKILLS_GRAPH.json` meta header |
-| `requires_count` (current graph) | **0** | Audit evidence |
-| `generated_at` (current graph) | `2026-06-22T11:42:42Z` | `data/SKILLS_GRAPH.json` meta header |
-| Graph state | **STALE** | build-graph workflow cancelled before commit (proven INITIATIVE-004W) |
-
-**Remediation status:** INITIATIVE-004W commit includes `skills/00-sandbox/pipeline-test.md` (qualifying push). Build-graph workflow will trigger. Awaiting completion.
-
-**Expected post-rebuild values:**
-
-| Field | Expected Value |
-|---|---|
-| schema_version | `3.1` |
-| node_count | `368` |
-| edge_count | `≥ 774` |
-| requires_count | `≥ 1` |
-| initiative | `INITIATIVE-004` |
+| `data/SKILLS_GRAPH.json` SHA | `c9b0be60b3a1d3fac16e6d8653e2254dbd182be2` | GitHub API (INITIATIVE-004W.1) |
+| `schema_version` | `3.1` | `data/SKILLS_GRAPH.json` meta header |
+| `node_count` | `368` | `data/SKILLS_GRAPH.json` meta header |
+| `edge_count` | `774` | `data/SKILLS_GRAPH.json` meta header |
+| `requires_count` | `1` | `data/SKILLS_GRAPH.json` meta header |
+| `generated_at` | `2026-06-22T12:03:48.553027+00:00` | `data/SKILLS_GRAPH.json` meta header |
+| `initiative` | `INITIATIVE-004` | `data/SKILLS_GRAPH.json` meta header |
+| `generator` | `tools/build_graph.py` | `data/SKILLS_GRAPH.json` meta header |
+| Graph state | **LIVE / CURRENT** | INITIATIVE-004W.1 verification |
 
 ## Quality State
 
-| Metric | Value |
-|---|---|
-| Schema-valid nodes | 366/367 (1 invalid stability value `experimental` detected) + 1 sandbox fixture |
-| Dangling edges | 9 (pre-existing) |
-| Orphan nodes | 54 (pre-existing) |
-| REQUIRES edges in live graph | **0** (graph stale) |
-| REQUIRES edges in tools | **≥ 1** (pipeline-test.md has prerequisites) |
-| Tags populated | 0/367 |
-| quality_score populated | 0/367 |
-| `prerequisites` field in schema | YES (v3.1) |
-| `prerequisites` consumed by tools | YES (INITIATIVE-004) |
-| `00-sandbox/pipeline-test.md` committed | YES |
-| `02-reasoning/chain-of-thought` node in graph | YES (confirmed live read) |
+| Metric | Value | Source |
+|---|---|---|
+| `prerequisites` field in schema | YES (v3.1) | INITIATIVE-003 |
+| `prerequisites` consumed by tools | YES | INITIATIVE-004 |
+| `00-sandbox/pipeline-test` node present | YES | INITIATIVE-004W.1 direct read |
+| `02-reasoning/chain-of-thought` node present | YES | INITIATIVE-004W.1 direct read |
+| REQUIRES edge (pipeline-test → chain-of-thought) | YES (1) | INITIATIVE-004W.1 verified |
+| Tags populated | 0/368 | Observed (all empty arrays) |
+| quality_score populated | 0/368 | Observed (all null) |
+| Dangling edges | UNKNOWN | Not re-audited this session |
+| Orphan nodes | UNKNOWN | Not re-audited this session |
 
-**Note on `experimental` stability:** `skills/00-sandbox/pipeline-test.md` has `stability: experimental`. The schema validation may flag this if `experimental` is not in the allowed enum. This is acceptable for a sandbox fixture and will show as 1 validation warning in the build report.
+**Note:** Dangling edges (9) and orphan nodes (54) were pre-existing findings from INITIATIVE-001C. Not re-audited in INITIATIVE-004W.1. Prior findings may or may not still apply.
 
-## Recommendation Readiness
+## Capability Readiness
 
-| Capability | Ready |
-|---|---|
-| Goal keyword matching | ⚠️ PARTIAL |
-| Learning path generation | ❌ NOT READY (requires rebuilt graph) |
-| Dependency analysis | ❌ NOT READY (requires rebuilt graph) |
-| Architecture generation | ⚠️ DEGRADED |
+| Capability | Ready | Notes |
+|---|---|---|
+| Goal keyword matching | ⚠️ PARTIAL | Tags field still unpopulated |
+| Learning path generation | ✅ READY | REQUIRES edges now exist |
+| Dependency analysis | ✅ READY | prerequisites field live |
+| Architecture generation | ⚠️ DEGRADED | quality_score unpopulated |
 
 ## Initiative History
 
@@ -71,12 +58,11 @@
 | INITIATIVE-003 | COMPLETE | Schema v3.1: `prerequisites` field added to skill schema |
 | INITIATIVE-004 | COMPLETE | Pipeline activated: tools updated, pilot fixture committed |
 | INITIATIVE-004V | COMPLETE | Verification: PIPELINE_VERIFICATION_FAILED — workflow cancelled |
-| INITIATIVE-004W | IN PROGRESS | Root cause proven: concurrency cancel race; remediation push sent |
+| INITIATIVE-004W | COMPLETE | Root cause proven: concurrency cancel race; remediation push sent |
+| INITIATIVE-004W.1 | COMPLETE | Post-rebuild verification: ALL PHASES PASS |
 
 ## Next Required Action
 
-After build-graph workflow completes on INITIATIVE-004W commit:
-1. Read `data/SKILLS_GRAPH.json` and verify schema_version, requires_count, node_count
-2. Confirm `00-sandbox/pipeline-test → 02-reasoning/chain-of-thought` REQUIRES edge
-3. If PASS: proceed to INITIATIVE-005 (agentic-patterns backfill)
-4. If FAIL: create `meta/STATE_DIVERGENCE_REPORT.md` and investigate
+All INITIATIVE-004 sub-phases complete. Graph is live with schema v3.1 and REQUIRES edges operational.
+
+**Proceed to INITIATIVE-005:** Agentic-patterns backfill / prerequisites population for skill categories beyond the sandbox fixture.
