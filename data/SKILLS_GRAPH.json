@@ -1,13 +1,31 @@
 {
   "meta": {
-    "generated_at": "2026-06-22T11:42:37.598478+00:00",
+    "generated_at": "2026-06-22T12:03:48.553027+00:00",
     "generator": "tools/build_graph.py",
-    "schema_version": "3.0",
-    "node_count": 367,
-    "edge_count": 773,
-    "initiative": "INITIATIVE-001 V3"
+    "schema_version": "3.1",
+    "node_count": 368,
+    "edge_count": 774,
+    "requires_count": 1,
+    "initiative": "INITIATIVE-004"
   },
   "nodes": [
+    {
+      "id": "00-sandbox/pipeline-test",
+      "title": "Pipeline Test Fixture",
+      "category": "00-sandbox",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-06-22",
+      "tags": [],
+      "prerequisites": [
+        "02-reasoning/chain-of-thought"
+      ],
+      "related_skills": [],
+      "source_file": "skills/00-sandbox/pipeline-test.md",
+      "quality_score": null
+    },
     {
       "id": "01-perception/api-response-parsing",
       "title": "API Response Parsing",
@@ -18,6 +36,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/api-response-parsing.md",
       "quality_score": null
@@ -32,6 +51,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/audio-transcription.md",
       "quality_score": null
@@ -46,6 +66,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/binary-file-reading.md",
       "quality_score": null
@@ -60,6 +81,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/calendar-parsing.md",
       "quality_score": null
@@ -74,6 +96,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/chart-reading.md",
       "quality_score": null
@@ -88,6 +111,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/code-reading.md",
       "quality_score": null
@@ -102,6 +126,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/contract-reading.md",
       "quality_score": null
@@ -116,6 +141,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/conversation-history-reading.md",
       "quality_score": null
@@ -130,6 +156,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/database-reading.md",
       "quality_score": null
@@ -144,6 +171,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/document-parsing.md",
       "quality_score": null
@@ -158,6 +186,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/email-parsing.md",
       "quality_score": null
@@ -172,6 +201,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/file-system-reading.md",
       "quality_score": null
@@ -186,6 +216,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/geospatial-reading.md",
       "quality_score": null
@@ -200,6 +231,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/git-diff-reading.md",
       "quality_score": null
@@ -214,6 +246,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/handwriting-recognition.md",
       "quality_score": null
@@ -228,6 +261,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/html-reading.md",
       "quality_score": null
@@ -242,6 +276,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/image-understanding.md",
       "quality_score": null
@@ -256,6 +291,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/json-schema-validation.md",
       "quality_score": null
@@ -270,6 +306,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/knowledge-graph-reading.md",
       "quality_score": null
@@ -284,6 +321,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/log-parsing.md",
       "quality_score": null
@@ -298,6 +336,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/markdown-parsing.md",
       "quality_score": null
@@ -312,6 +351,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/multimodal-document-reading.md",
       "quality_score": null
@@ -326,6 +366,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/network-traffic-reading.md",
       "quality_score": null
@@ -340,6 +381,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/ocr.md",
       "quality_score": null
@@ -354,6 +396,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/pdf-parsing.md",
       "quality_score": null
@@ -368,6 +411,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/screen-reading.md",
       "quality_score": null
@@ -382,6 +426,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/sensor-reading.md",
       "quality_score": null
@@ -396,6 +441,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/social-media-reading.md",
       "quality_score": null
@@ -410,6 +456,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/spreadsheet-reading.md",
       "quality_score": null
@@ -424,6 +471,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/structured-data-reading.md",
       "quality_score": null
@@ -438,6 +486,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/table-extraction.md",
       "quality_score": null
@@ -452,6 +501,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/text-reading.md",
       "quality_score": null
@@ -466,6 +516,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/time-series-reading.md",
       "quality_score": null
@@ -480,6 +531,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/url-dom-inspection.md",
       "quality_score": null
@@ -494,6 +546,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/video-understanding.md",
       "quality_score": null
@@ -508,6 +561,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/xml-parsing.md",
       "quality_score": null
@@ -522,6 +576,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/abductive.md",
       "quality_score": null
@@ -536,6 +591,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/analogical.md",
       "quality_score": null
@@ -550,6 +606,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/analogy-generation.md",
       "quality_score": null
@@ -564,6 +621,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/argument-structure-analysis.md",
       "quality_score": null
@@ -578,6 +636,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/bayesian-reasoning.md",
       "quality_score": null
@@ -592,6 +651,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/causal.md",
       "quality_score": null
@@ -606,6 +666,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/chain-of-thought.md",
       "quality_score": null
@@ -620,6 +681,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/commonsense.md",
       "quality_score": null
@@ -634,6 +696,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/constraint-satisfaction.md",
       "quality_score": null
@@ -648,6 +711,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/counterfactual-reasoning.md",
       "quality_score": null
@@ -662,6 +726,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/decision-making.md",
       "quality_score": null
@@ -676,6 +741,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/deductive-reasoning.md",
       "quality_score": null
@@ -690,6 +756,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/ethical-reasoning.md",
       "quality_score": null
@@ -704,6 +771,7 @@
       "version": "v2",
       "added": "2025-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/goal-decomposition.md",
       "quality_score": null
@@ -718,6 +786,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/goal-setting.md",
       "quality_score": null
@@ -732,6 +801,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/hypothesis-generation.md",
       "quality_score": null
@@ -746,6 +816,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/inductive-reasoning.md",
       "quality_score": null
@@ -760,6 +831,7 @@
       "version": "v2",
       "added": "2025-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/least-to-most.md",
       "quality_score": null
@@ -774,6 +846,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/mathematical-reasoning.md",
       "quality_score": null
@@ -788,6 +861,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/meta-cognition.md",
       "quality_score": null
@@ -802,6 +876,7 @@
       "version": "v2",
       "added": "2025-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/meta-prompting.md",
       "quality_score": null
@@ -816,6 +891,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/multi-step-planning.md",
       "quality_score": null
@@ -830,6 +906,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/numerical-estimation.md",
       "quality_score": null
@@ -844,6 +921,7 @@
       "version": "v2",
       "added": "2025-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/planning-decomposition.md",
       "quality_score": null
@@ -858,6 +936,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/planning.md",
       "quality_score": null
@@ -872,6 +951,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/prioritization.md",
       "quality_score": null
@@ -886,6 +966,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/probabilistic-reasoning.md",
       "quality_score": null
@@ -900,6 +981,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/problem-decomposition.md",
       "quality_score": null
@@ -914,6 +996,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/react.md",
       "quality_score": null
@@ -928,6 +1011,7 @@
       "version": "v2",
       "added": "2025-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
       "quality_score": null
@@ -942,6 +1026,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/risk-assessment.md",
       "quality_score": null
@@ -956,6 +1041,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/root-cause-analysis.md",
       "quality_score": null
@@ -970,6 +1056,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/scenario-planning.md",
       "quality_score": null
@@ -984,6 +1071,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/self-consistency.md",
       "quality_score": null
@@ -998,6 +1086,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/self-correction.md",
       "quality_score": null
@@ -1012,6 +1101,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/self-reflection.md",
       "quality_score": null
@@ -1026,6 +1116,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/socratic-questioning.md",
       "quality_score": null
@@ -1040,6 +1131,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/spatial-reasoning.md",
       "quality_score": null
@@ -1054,6 +1146,7 @@
       "version": "v2",
       "added": "2025-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/step-back-prompting.md",
       "quality_score": null
@@ -1068,6 +1161,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/systems-thinking.md",
       "quality_score": null
@@ -1082,6 +1176,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/task-decomposition.md",
       "quality_score": null
@@ -1096,6 +1191,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/temporal-reasoning.md",
       "quality_score": null
@@ -1110,6 +1206,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/trade-off-analysis.md",
       "quality_score": null
@@ -1124,6 +1221,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/tree-of-thought.md",
       "quality_score": null
@@ -1138,6 +1236,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/uncertainty-quantification.md",
       "quality_score": null
@@ -1152,6 +1251,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/agent-sessions.md",
       "quality_score": null
@@ -1166,6 +1266,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/cross-session-persistence.md",
       "quality_score": null
@@ -1180,6 +1281,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/cross-thread-memory.md",
       "quality_score": null
@@ -1194,6 +1296,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/episodic-memory.md",
       "quality_score": null
@@ -1208,6 +1311,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/fact-verification-memory.md",
       "quality_score": null
@@ -1222,6 +1326,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/fact-verification.md",
       "quality_score": null
@@ -1236,6 +1341,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/forgetting.md",
       "quality_score": null
@@ -1250,6 +1356,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/long-term-memory.md",
       "quality_score": null
@@ -1264,6 +1371,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/memory-injection.md",
       "quality_score": null
@@ -1278,6 +1386,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/memory-summarization.md",
       "quality_score": null
@@ -1292,6 +1401,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/procedural-memory.md",
       "quality_score": null
@@ -1306,6 +1416,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/procedural.md",
       "quality_score": null
@@ -1320,6 +1431,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/rag.md",
       "quality_score": null
@@ -1334,6 +1446,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/semantic-memory.md",
       "quality_score": null
@@ -1348,6 +1461,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/short-term-memory.md",
       "quality_score": null
@@ -1362,6 +1476,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/user-profile-memory.md",
       "quality_score": null
@@ -1376,6 +1491,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/user-profile.md",
       "quality_score": null
@@ -1390,6 +1506,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/vector-store-retrieval.md",
       "quality_score": null
@@ -1404,6 +1521,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/working-memory.md",
       "quality_score": null
@@ -1418,6 +1536,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/api-call.md",
       "quality_score": null
@@ -1432,6 +1551,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/assertion.md",
       "quality_score": null
@@ -1446,6 +1566,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/calendar-event.md",
       "quality_score": null
@@ -1460,6 +1581,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/clipboard-ops.md",
       "quality_score": null
@@ -1474,6 +1596,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/database-write.md",
       "quality_score": null
@@ -1488,6 +1611,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/drag-drop.md",
       "quality_score": null
@@ -1502,6 +1626,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/email-sending.md",
       "quality_score": null
@@ -1516,6 +1641,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/env-vars.md",
       "quality_score": null
@@ -1530,6 +1656,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/file-append.md",
       "quality_score": null
@@ -1544,6 +1671,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/file-delete.md",
       "quality_score": null
@@ -1558,6 +1686,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/file-write.md",
       "quality_score": null
@@ -1572,6 +1701,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/form-submission.md",
       "quality_score": null
@@ -1586,6 +1716,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/http-request.md",
       "quality_score": null
@@ -1600,6 +1731,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/keyboard-input.md",
       "quality_score": null
@@ -1614,6 +1746,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/mouse-input.md",
       "quality_score": null
@@ -1628,6 +1761,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/notification-sending.md",
       "quality_score": null
@@ -1642,6 +1776,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/process-management.md",
       "quality_score": null
@@ -1656,6 +1791,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/screenshot-capture.md",
       "quality_score": null
@@ -1670,6 +1806,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/scroll.md",
       "quality_score": null
@@ -1684,6 +1821,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/shell-command.md",
       "quality_score": null
@@ -1698,6 +1836,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/wait-sleep.md",
       "quality_score": null
@@ -1712,6 +1851,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/algorithm-design.md",
       "quality_score": null
@@ -1726,6 +1866,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/api-client-generation.md",
       "quality_score": null
@@ -1740,6 +1881,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/bug-fixing.md",
       "quality_score": null
@@ -1754,6 +1896,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/cicd-generation.md",
       "quality_score": null
@@ -1768,6 +1911,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-execution-sandbox.md",
       "quality_score": null
@@ -1782,6 +1926,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-explanation.md",
       "quality_score": null
@@ -1796,6 +1941,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-generation.md",
       "quality_score": null
@@ -1810,6 +1956,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-interpreter-agent.md",
       "quality_score": null
@@ -1824,6 +1971,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-review.md",
       "quality_score": null
@@ -1838,6 +1986,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-search.md",
       "quality_score": null
@@ -1852,6 +2001,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/code-translation.md",
       "quality_score": null
@@ -1866,6 +2016,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/db-schema-design.md",
       "quality_score": null
@@ -1880,6 +2031,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/debugging.md",
       "quality_score": null
@@ -1894,6 +2046,7 @@
       "version": "v2",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/dependency-auditor.md",
       "quality_score": null
@@ -1908,6 +2061,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/dependency-management.md",
       "quality_score": null
@@ -1922,6 +2076,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/dockerfile-generation.md",
       "quality_score": null
@@ -1936,6 +2091,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/documentation-generation.md",
       "quality_score": null
@@ -1950,6 +2106,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/git-operations.md",
       "quality_score": null
@@ -1964,6 +2121,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/github-api.md",
       "quality_score": null
@@ -1978,6 +2136,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/integration-test-writing.md",
       "quality_score": null
@@ -1992,6 +2151,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/linting-formatting.md",
       "quality_score": null
@@ -2006,6 +2166,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/performance-profiling.md",
       "quality_score": null
@@ -2020,6 +2181,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/refactoring.md",
       "quality_score": null
@@ -2034,6 +2196,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/regex-generation.md",
       "quality_score": null
@@ -2048,6 +2211,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/repl-interaction.md",
       "quality_score": null
@@ -2062,6 +2226,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/security-scanning.md",
       "quality_score": null
@@ -2076,6 +2241,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/sql-query-generation.md",
       "quality_score": null
@@ -2090,6 +2256,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/unit-test-generation.md",
       "quality_score": null
@@ -2104,6 +2271,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/argument-construction.md",
       "quality_score": null
@@ -2118,6 +2286,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/citation-attribution.md",
       "quality_score": null
@@ -2132,6 +2301,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/clarification-seeking.md",
       "quality_score": null
@@ -2146,6 +2316,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/debate.md",
       "quality_score": null
@@ -2160,6 +2331,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/email-drafting.md",
       "quality_score": null
@@ -2174,6 +2346,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/instruction-following.md",
       "quality_score": null
@@ -2188,6 +2361,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/multilingual-output.md",
       "quality_score": null
@@ -2202,6 +2376,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/paraphrasing.md",
       "quality_score": null
@@ -2216,6 +2391,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/persona-adoption.md",
       "quality_score": null
@@ -2230,6 +2406,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/question-answering.md",
       "quality_score": null
@@ -2244,6 +2421,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/report-writing.md",
       "quality_score": null
@@ -2258,6 +2436,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/structured-output.md",
       "quality_score": null
@@ -2272,6 +2451,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/summarization.md",
       "quality_score": null
@@ -2286,6 +2466,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/tone-adjustment.md",
       "quality_score": null
@@ -2300,6 +2481,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/translation.md",
       "quality_score": null
@@ -2314,6 +2496,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/a2a-tool.md",
       "quality_score": null
@@ -2328,6 +2511,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/anthropic-api.md",
       "quality_score": null
@@ -2342,6 +2526,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/browser-tool.md",
       "quality_score": null
@@ -2356,6 +2541,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/calculator.md",
       "quality_score": null
@@ -2370,6 +2556,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/code-exec-tool.md",
       "quality_score": null
@@ -2384,6 +2571,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/custom-api-wrapper.md",
       "quality_score": null
@@ -2398,6 +2586,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/file-system-tool.md",
       "quality_score": null
@@ -2412,6 +2601,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/function-calling.md",
       "quality_score": null
@@ -2426,6 +2616,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/github-api.md",
       "quality_score": null
@@ -2440,6 +2631,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/google-workspace-api.md",
       "quality_score": null
@@ -2454,6 +2646,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/huggingface-api.md",
       "quality_score": null
@@ -2468,6 +2661,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/image-gen-tool.md",
       "quality_score": null
@@ -2482,6 +2676,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/jira-api.md",
       "quality_score": null
@@ -2496,6 +2691,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/linear-api.md",
       "quality_score": null
@@ -2510,6 +2706,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/maps-geolocation.md",
       "quality_score": null
@@ -2524,6 +2721,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/mcp-tool.md",
       "quality_score": null
@@ -2538,6 +2736,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/news-api.md",
       "quality_score": null
@@ -2552,6 +2751,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/notion-api.md",
       "quality_score": null
@@ -2566,6 +2766,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/openai-api.md",
       "quality_score": null
@@ -2580,6 +2781,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/pdf-tool.md",
       "quality_score": null
@@ -2594,6 +2796,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/sendgrid-api.md",
       "quality_score": null
@@ -2608,6 +2811,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/slack-api.md",
       "quality_score": null
@@ -2622,6 +2826,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/sql-tool.md",
       "quality_score": null
@@ -2636,6 +2841,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/stripe-api.md",
       "quality_score": null
@@ -2650,6 +2856,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/tool-guardrails.md",
       "quality_score": null
@@ -2664,6 +2871,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/tool-review-loops.md",
       "quality_score": null
@@ -2678,6 +2886,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/twilio-api.md",
       "quality_score": null
@@ -2692,6 +2901,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/vector-db-tool.md",
       "quality_score": null
@@ -2706,6 +2916,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/weather-api.md",
       "quality_score": null
@@ -2720,6 +2931,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/web-search.md",
       "quality_score": null
@@ -2734,6 +2946,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/wikipedia-api.md",
       "quality_score": null
@@ -2748,6 +2961,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/wolfram-api.md",
       "quality_score": null
@@ -2762,6 +2976,7 @@
       "version": "v1",
       "added": "2026-06",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/xquik-api.md",
       "quality_score": null
@@ -2776,6 +2991,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/3d-scene-understanding.md",
       "quality_score": null
@@ -2790,6 +3006,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/audio-classification.md",
       "quality_score": null
@@ -2804,6 +3021,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/audio-transcription.md",
       "quality_score": null
@@ -2818,6 +3036,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/chart-generation.md",
       "quality_score": null
@@ -2832,6 +3051,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/document-layout-analysis.md",
       "quality_score": null
@@ -2846,6 +3066,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/image-captioning.md",
       "quality_score": null
@@ -2860,6 +3081,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/image-classification.md",
       "quality_score": null
@@ -2874,6 +3096,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/image-editing.md",
       "quality_score": null
@@ -2888,6 +3111,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/image-generation.md",
       "quality_score": null
@@ -2902,6 +3126,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/object-detection.md",
       "quality_score": null
@@ -2916,6 +3141,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/text-to-speech.md",
       "quality_score": null
@@ -2930,6 +3156,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/video-description.md",
       "quality_score": null
@@ -2944,6 +3171,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/video-frame-extraction.md",
       "quality_score": null
@@ -2958,6 +3186,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/vqa.md",
       "quality_score": null
@@ -2972,6 +3201,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agent-as-tool.md",
       "quality_score": null
@@ -2986,6 +3216,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agent-handoffs.md",
       "quality_score": null
@@ -3000,6 +3231,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agentic-rag.md",
       "quality_score": null
@@ -3014,6 +3246,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/bootstrapping.md",
       "quality_score": null
@@ -3028,6 +3261,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/constitutional-ai.md",
       "quality_score": null
@@ -3042,6 +3276,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/cot.md",
       "quality_score": null
@@ -3056,6 +3291,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/critic-agent.md",
       "quality_score": null
@@ -3070,6 +3306,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/debate-pattern.md",
       "quality_score": null
@@ -3084,6 +3321,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/interruptible-agent-flows.md",
       "quality_score": null
@@ -3098,6 +3336,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/lats.md",
       "quality_score": null
@@ -3112,6 +3351,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/mcts.md",
       "quality_score": null
@@ -3126,6 +3366,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/memory-augmented.md",
       "quality_score": null
@@ -3140,6 +3381,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/mixture-of-agents.md",
       "quality_score": null
@@ -3154,6 +3396,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/plan-and-execute.md",
       "quality_score": null
@@ -3168,6 +3411,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/rag-pipeline.md",
       "quality_score": null
@@ -3182,6 +3426,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/rag.md",
       "quality_score": null
@@ -3196,6 +3441,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/react.md",
       "quality_score": null
@@ -3210,6 +3456,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/reflection.md",
       "quality_score": null
@@ -3224,6 +3471,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/self-play.md",
       "quality_score": null
@@ -3238,6 +3486,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/subagent-delegation.md",
       "quality_score": null
@@ -3252,6 +3501,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/time-travel-debugging.md",
       "quality_score": null
@@ -3266,6 +3516,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/tool-use-loop.md",
       "quality_score": null
@@ -3280,6 +3531,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/tot.md",
       "quality_score": null
@@ -3294,6 +3546,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/accessibility-tree.md",
       "quality_score": null
@@ -3308,6 +3561,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/app-launch.md",
       "quality_score": null
@@ -3322,6 +3576,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/clipboard-read.md",
       "quality_score": null
@@ -3336,6 +3591,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/clipboard-write.md",
       "quality_score": null
@@ -3350,6 +3606,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/double-click.md",
       "quality_score": null
@@ -3364,6 +3621,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/drag-drop.md",
       "quality_score": null
@@ -3378,6 +3636,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/file-dialog.md",
       "quality_score": null
@@ -3392,6 +3651,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/keyboard-shortcut.md",
       "quality_score": null
@@ -3406,6 +3666,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/keyboard-type.md",
       "quality_score": null
@@ -3420,6 +3681,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/mouse-click.md",
       "quality_score": null
@@ -3434,6 +3696,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/mouse-move.md",
       "quality_score": null
@@ -3448,6 +3711,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/multi-monitor.md",
       "quality_score": null
@@ -3462,6 +3726,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/right-click.md",
       "quality_score": null
@@ -3476,6 +3741,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/screen-ocr.md",
       "quality_score": null
@@ -3490,6 +3756,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/screenshot-capture.md",
       "quality_score": null
@@ -3504,6 +3771,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/scroll.md",
       "quality_score": null
@@ -3518,6 +3786,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/terminal-interaction.md",
       "quality_score": null
@@ -3532,6 +3801,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/visual-element-detection.md",
       "quality_score": null
@@ -3546,6 +3816,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/vm-interaction.md",
       "quality_score": null
@@ -3560,6 +3831,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/window-management.md",
       "quality_score": null
@@ -3574,6 +3846,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/api-discovery.md",
       "quality_score": null
@@ -3588,6 +3861,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/browser-navigation.md",
       "quality_score": null
@@ -3602,6 +3876,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/captcha-solving.md",
       "quality_score": null
@@ -3616,6 +3891,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/cookie-management.md",
       "quality_score": null
@@ -3630,6 +3906,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/dom-inspection.md",
       "quality_score": null
@@ -3644,6 +3921,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/form-filling.md",
       "quality_score": null
@@ -3658,6 +3936,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/js-execution.md",
       "quality_score": null
@@ -3672,6 +3951,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/link-extraction.md",
       "quality_score": null
@@ -3686,6 +3966,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/rss-parsing.md",
       "quality_score": null
@@ -3700,6 +3981,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/sitemap-parsing.md",
       "quality_score": null
@@ -3714,6 +3996,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/url-fetching.md",
       "quality_score": null
@@ -3728,6 +4011,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/url-screenshot.md",
       "quality_score": null
@@ -3742,6 +4026,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-crawling.md",
       "quality_score": null
@@ -3756,6 +4041,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-login.md",
       "quality_score": null
@@ -3770,6 +4056,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-scraping.md",
       "quality_score": null
@@ -3784,6 +4071,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-search-tool-agents.md",
       "quality_score": null
@@ -3798,6 +4086,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-search.md",
       "quality_score": null
@@ -3812,6 +4101,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/anomaly-detection.md",
       "quality_score": null
@@ -3826,6 +4116,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/csv-processing.md",
       "quality_score": null
@@ -3840,6 +4131,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-aggregation.md",
       "quality_score": null
@@ -3854,6 +4146,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-cleaning.md",
       "quality_score": null
@@ -3868,6 +4161,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-filtering.md",
       "quality_score": null
@@ -3882,6 +4176,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-joining.md",
       "quality_score": null
@@ -3896,6 +4191,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-summarization.md",
       "quality_score": null
@@ -3910,6 +4206,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-visualization.md",
       "quality_score": null
@@ -3924,6 +4221,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/embedding-generation.md",
       "quality_score": null
@@ -3938,6 +4236,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/etl-pipeline.md",
       "quality_score": null
@@ -3952,6 +4251,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/json-transformation.md",
       "quality_score": null
@@ -3966,6 +4266,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/nosql-query.md",
       "quality_score": null
@@ -3980,6 +4281,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/pandas-operations.md",
       "quality_score": null
@@ -3994,6 +4296,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/schema-inference.md",
       "quality_score": null
@@ -4008,6 +4311,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/similarity-search.md",
       "quality_score": null
@@ -4022,6 +4326,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/sql-execution.md",
       "quality_score": null
@@ -4036,6 +4341,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/statistical-analysis.md",
       "quality_score": null
@@ -4050,6 +4356,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/time-series.md",
       "quality_score": null
@@ -4064,6 +4371,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/avatar-design.md",
       "quality_score": null
@@ -4078,6 +4386,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/blog-writing.md",
       "quality_score": null
@@ -4092,6 +4401,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/copywriting.md",
       "quality_score": null
@@ -4106,6 +4416,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/creative-writing.md",
       "quality_score": null
@@ -4120,6 +4431,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/game-level-design.md",
       "quality_score": null
@@ -4134,6 +4446,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/image-gen-prompt.md",
       "quality_score": null
@@ -4148,6 +4461,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/logo-design.md",
       "quality_score": null
@@ -4162,6 +4476,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/lyrics-writing.md",
       "quality_score": null
@@ -4176,6 +4491,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/meme-generation.md",
       "quality_score": null
@@ -4190,6 +4506,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/music-composition.md",
       "quality_score": null
@@ -4204,6 +4521,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/presentation-gen.md",
       "quality_score": null
@@ -4218,6 +4536,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/social-media-post.md",
       "quality_score": null
@@ -4232,6 +4551,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/svg-generation.md",
       "quality_score": null
@@ -4246,6 +4566,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/video-script.md",
       "quality_score": null
@@ -4260,6 +4581,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/approval-before-destructive-tools.md",
       "quality_score": null
@@ -4274,6 +4596,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/audit-logging.md",
       "quality_score": null
@@ -4288,6 +4611,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/harm-detection.md",
       "quality_score": null
@@ -4302,6 +4626,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/human-in-loop.md",
       "quality_score": null
@@ -4316,6 +4641,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/input-guardrails.md",
       "quality_score": null
@@ -4330,6 +4656,7 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/input-sanitization.md",
       "quality_score": null
@@ -4344,6 +4671,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/output-guardrails.md",
       "quality_score": null
@@ -4358,6 +4686,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/permission-checking.md",
       "quality_score": null
@@ -4372,6 +4701,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/privacy-preservation.md",
       "quality_score": null
@@ -4386,6 +4716,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/rate-limiting.md",
       "quality_score": null
@@ -4400,6 +4731,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/rollback-undo.md",
       "quality_score": null
@@ -4414,6 +4746,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/sandboxed-execution.md",
       "quality_score": null
@@ -4428,6 +4761,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/secret-scanning.md",
       "quality_score": null
@@ -4442,6 +4776,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/agent-communication.md",
       "quality_score": null
@@ -4456,6 +4791,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/agent-handoff.md",
       "quality_score": null
@@ -4470,6 +4806,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/budget-management.md",
       "quality_score": null
@@ -4484,6 +4821,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/conditional-branching.md",
       "quality_score": null
@@ -4498,6 +4836,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/consensus-voting.md",
       "quality_score": null
@@ -4512,6 +4851,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/event-triggers.md",
       "quality_score": null
@@ -4526,6 +4866,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/hierarchical-tree.md",
       "quality_score": null
@@ -4540,6 +4881,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/human-approval-gates.md",
       "quality_score": null
@@ -4554,6 +4896,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/langgraph-checkpointing.md",
       "quality_score": null
@@ -4568,6 +4911,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/logging-observability.md",
       "quality_score": null
@@ -4582,6 +4926,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/multi-agent-run-config.md",
       "quality_score": null
@@ -4596,6 +4941,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/parallel-execution.md",
       "quality_score": null
@@ -4610,6 +4956,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/retry-backoff.md",
       "quality_score": null
@@ -4624,6 +4971,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/role-assignment.md",
       "quality_score": null
@@ -4638,6 +4986,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/sequential-workflow.md",
       "quality_score": null
@@ -4652,6 +5001,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/shared-memory.md",
       "quality_score": null
@@ -4666,6 +5016,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/specialist-agent-routing.md",
       "quality_score": null
@@ -4680,6 +5031,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/state-machine.md",
       "quality_score": null
@@ -4694,6 +5046,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/stateful-agent-graphs.md",
       "quality_score": null
@@ -4708,6 +5061,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/subagent-spawning.md",
       "quality_score": null
@@ -4722,6 +5076,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/task-queue.md",
       "quality_score": null
@@ -4736,6 +5091,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/thread-based-resume.md",
       "quality_score": null
@@ -4750,6 +5106,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/ad-copy.md",
       "quality_score": null
@@ -4764,6 +5121,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/alert-triage.md",
       "quality_score": null
@@ -4778,6 +5136,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/clinical-note-summarization.md",
       "quality_score": null
@@ -4792,6 +5151,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/compliance-checking.md",
       "quality_score": null
@@ -4806,6 +5166,7 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/compliance-review-workflows.md",
       "quality_score": null
@@ -4820,6 +5181,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/contract-review.md",
       "quality_score": null
@@ -4834,6 +5196,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/data-labeling.md",
       "quality_score": null
@@ -4848,6 +5211,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/drug-interaction.md",
       "quality_score": null
@@ -4862,6 +5226,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/essay-grading.md",
       "quality_score": null
@@ -4876,6 +5241,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/financial-statement.md",
       "quality_score": null
@@ -4890,6 +5256,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/flashcard-creation.md",
       "quality_score": null
@@ -4904,6 +5271,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/hypothesis-generation.md",
       "quality_score": null
@@ -4918,6 +5286,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/iac-generation.md",
       "quality_score": null
@@ -4932,6 +5301,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/incident-response.md",
       "quality_score": null
@@ -4946,6 +5316,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/invoice-processing.md",
       "quality_score": null
@@ -4960,6 +5331,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/legal-research.md",
       "quality_score": null
@@ -4974,6 +5346,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/lesson-plan.md",
       "quality_score": null
@@ -4988,6 +5361,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/literature-review.md",
       "quality_score": null
@@ -5002,6 +5376,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/log-analysis.md",
       "quality_score": null
@@ -5016,6 +5391,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/medical-literature-search.md",
       "quality_score": null
@@ -5030,6 +5406,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/paper-summarization.md",
       "quality_score": null
@@ -5044,6 +5421,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/portfolio-analysis.md",
       "quality_score": null
@@ -5058,6 +5436,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/product-description.md",
       "quality_score": null
@@ -5072,6 +5451,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/quiz-generation.md",
       "quality_score": null
@@ -5086,6 +5466,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/review-analysis.md",
       "quality_score": null
@@ -5100,6 +5481,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/seo-optimization.md",
       "quality_score": null
@@ -5114,6 +5496,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/stock-lookup.md",
       "quality_score": null
@@ -5128,6 +5511,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/symptom-analysis.md",
       "quality_score": null
@@ -5142,6 +5526,7 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
+      "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/dependency-auditor.md",
       "quality_score": null
@@ -11331,6 +11716,15 @@
       "evidence": "[Clinical Note Summarization](clinical-note-summarization.md)",
       "source_file": "skills/16-domain-specific/symptom-analysis.md",
       "confidence": "high"
+    },
+    {
+      "source": "00-sandbox/pipeline-test",
+      "target": "02-reasoning/chain-of-thought",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 02-reasoning/chain-of-thought",
+      "source_file": "skills/00-sandbox/pipeline-test.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
     }
   ]
 }
