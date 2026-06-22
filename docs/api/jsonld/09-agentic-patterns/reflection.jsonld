@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
   "name": "Reflection / Reflexion",
   "headline": "Reflection / Reflexion",
-  "description": "After producing an answer or executing a step, the agent critiques its own output and revises. Closes the loop on first-try mistakes that no amount of better prompting can fix.",
+  "description": "Add a critique → revise pass on top of any agent output. The foundation of every self-correcting agent.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:03:57Z",
+  "dateModified": "2026-06-22T12:16:16Z",
   "skillId": "reflection",
   "skillVersion": "v3",
   "skillLevel": "advanced",
@@ -61,25 +61,17 @@
   "sections": [
     "Description",
     "When to Use",
-    "Inputs / Outputs",
-    "Runnable Example",
-    "Failure Modes",
-    "Frameworks & Models",
-    "Model Comparison",
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [
-    "../02-reasoning/planning.md",
-    "../02-reasoning/self-consistency.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "reflection, skills tree, LLM skill, AI agent, agentic, patterns",
+  "keywords": "agentic, reflection, AI agent, skills tree, LLM skill, patterns",
   "about": {
     "@type": "Thing",
     "name": "Reflection / Reflexion",

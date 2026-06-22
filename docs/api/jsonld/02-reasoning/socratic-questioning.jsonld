@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:03:57Z",
+  "dateModified": "2026-06-22T12:16:16Z",
   "skillId": "socratic-questioning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "questioning, reasoning, socratic, skills tree, LLM skill, AI agent",
+  "keywords": "reasoning, AI agent, skills tree, LLM skill, questioning, socratic",
   "about": {
     "@type": "Thing",
     "name": "Socratic Questioning",

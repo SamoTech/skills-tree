@@ -1,4 +1,4 @@
-generated: '2026-06-22T12:03:57Z'
+generated: '2026-06-22T12:16:16Z'
 count: 368
 skills:
 - id: pipeline-test
@@ -3844,27 +3844,37 @@ skills:
 - id: lats
   path: skills/09-agentic-patterns/lats.md
   name: LATS (Language Agent Tree Search)
-  description: Apply lats (language agent tree search) in AI agent workflows.
+  description: Combines ToT tree search with reflection-based branch evaluation. The
+    current best-performing single-agent reasoning architecture on hard benchmarks.
   category: agentic-patterns
   level: advanced
   stability: experimental
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: mcts
   path: skills/09-agentic-patterns/mcts.md
   name: MCTS (Monte Carlo Tree Search)
-  description: Apply mcts (monte carlo tree search) in AI agent workflows.
+  description: Stochastic-rollout variant of ToT. Uses random playouts to estimate
+    node value instead of a trained value function.
   category: agentic-patterns
   level: advanced
   stability: experimental
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: memory-augmented
@@ -3898,14 +3908,16 @@ skills:
 - id: plan-and-execute
   path: skills/09-agentic-patterns/plan-and-execute.md
   name: Plan-and-Execute
-  description: Apply plan-and-execute pattern in AI agent workflows.
+  description: Separate planning from execution — a planner LLM generates a task list
+    upfront, then an executor agent works through each step.
   category: agentic-patterns
   level: intermediate
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: rag-pipeline
@@ -3967,8 +3979,6 @@ skills:
   - Runnable Example
   - Failure Modes
   - Variants
-  - Frameworks & Models
-  - Model Comparison
   - Related Skills
   - Changelog
   related:
@@ -3977,9 +3987,8 @@ skills:
 - id: reflection
   path: skills/09-agentic-patterns/reflection.md
   name: Reflection / Reflexion
-  description: After producing an answer or executing a step, the agent critiques
-    its own output and revises. Closes the loop on first-try mistakes that no amount
-    of better prompting can fix.
+  description: Add a critique → revise pass on top of any agent output. The foundation
+    of every self-correcting agent.
   category: agentic-patterns
   level: advanced
   stability: stable
@@ -3989,16 +3998,9 @@ skills:
   sections:
   - Description
   - When to Use
-  - Inputs / Outputs
-  - Runnable Example
-  - Failure Modes
-  - Frameworks & Models
-  - Model Comparison
   - Related Skills
   - Changelog
-  related:
-  - ../02-reasoning/planning.md
-  - ../02-reasoning/self-consistency.md
+  related: []
   category_dir: 09-agentic-patterns
 - id: self-play
   path: skills/09-agentic-patterns/self-play.md
@@ -4031,8 +4033,8 @@ skills:
 - id: time-travel-debugging
   path: skills/09-agentic-patterns/time-travel-debugging.md
   name: Time-Travel Debugging
-  description: Replay and fork a LangGraph agent run from any prior checkpoint to
-    diagnose and fix failures.
+  description: Rewind an agent run to any previous checkpoint, inspect state, modify
+    it, and re-execute forward. Requires a checkpointer.
   category: agentic-patterns
   level: advanced
   stability: stable
@@ -4045,8 +4047,6 @@ skills:
   - Outputs
   - Example
   - Failure Modes
-  - Prompt Patterns
-  - Model Comparison
   - Related
   - Changelog
   related: []
@@ -4054,16 +4054,19 @@ skills:
 - id: tool-use-loop
   path: skills/09-agentic-patterns/tool-use-loop.md
   name: Tool-Use Loop
-  description: Apply tool-use loop in AI agent workflows.
+  description: A parallel-tool variant of ReAct where multiple tools may be called
+    simultaneously in each step.
   category: agentic-patterns
   level: intermediate
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
-  sections: []
-  related:
-  - ../07-tool-use/mcp-tool.md
+  sections:
+  - Description
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 09-agentic-patterns
 - id: tot
   path: skills/09-agentic-patterns/tot.md
@@ -4080,12 +4083,6 @@ skills:
   sections:
   - Description
   - When to Use
-  - Inputs / Outputs
-  - Runnable Example
-  - Failure Modes
-  - Variants
-  - Frameworks & Models
-  - Model Comparison
   - Related Skills
   - Changelog
   related: []

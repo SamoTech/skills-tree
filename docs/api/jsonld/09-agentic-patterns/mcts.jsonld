@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mcts.md",
   "name": "MCTS (Monte Carlo Tree Search)",
   "headline": "MCTS (Monte Carlo Tree Search)",
-  "description": "Apply mcts (monte carlo tree search) in AI agent workflows.",
+  "description": "Stochastic-rollout variant of ToT. Uses random playouts to estimate node value instead of a trained value function.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mcts.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,18 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:03:57Z",
+  "dateModified": "2026-06-22T12:16:16Z",
   "skillId": "mcts",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "advanced",
   "skillStability": "experimental",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "mcts, skills tree, LLM skill, AI agent, agentic, patterns",
+  "keywords": "agentic, AI agent, skills tree, LLM skill, patterns, mcts",
   "about": {
     "@type": "Thing",
     "name": "MCTS (Monte Carlo Tree Search)",
