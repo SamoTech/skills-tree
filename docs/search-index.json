@@ -7,7 +7,7 @@
     "stability": "experimental",
     "tags": [],
     "description": "",
-    "body": "Pipeline Test Fixture INITIATIVE-004 pilot validation fixture. This file exists solely to verify that the frontmatter field generates a REQUIRES edge during execution. Do NOT use this skill in production. This file should be removed after INITIATIVE-005 confirms the pipeline is live with real skill prerequisites. Purpose Verify end-to-end pipeline: 1. in frontmatter 2. reads field via 3. stores list in 4. emits REQUIRES edge 5. Edge appears in with"
+    "body": "Pipeline Test Fixture INITIATIVE-004 pilot validation fixture. This file exists solely to verify that the frontmatter field generates a REQUIRES edge during execution. Do NOT use this skill in production. This file should be removed after INITIATIVE-005 confirms the pipeline is live with real skill prerequisites. Purpose Verify end-to-end pipeline: 1. in frontmatter 2. reads field via 3. stores list in 4. emits REQUIRES edge 5. Edge appears in with <!-- INITIATIVE-004W: touched to trigger build-graph workflow -->"
   },
   {
     "id": "01-perception/api-response-parsing",
