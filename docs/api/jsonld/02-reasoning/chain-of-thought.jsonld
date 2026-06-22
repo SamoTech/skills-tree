@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T11:49:11Z",
+  "dateModified": "2026-06-22T12:03:57Z",
   "skillId": "chain-of-thought",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "chain, skills tree, AI agent, thought, reasoning, of, LLM skill",
+  "keywords": "chain, reasoning, thought, of, skills tree, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Chain of Thought",

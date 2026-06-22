@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T11:49:11Z",
+  "dateModified": "2026-06-22T12:03:57Z",
   "skillId": "sequential-workflow",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "sequential, skills tree, workflow, orchestration, AI agent, LLM skill",
+  "keywords": "sequential, orchestration, skills tree, LLM skill, workflow, AI agent",
   "about": {
     "@type": "Thing",
     "name": "sequential-workflow",
