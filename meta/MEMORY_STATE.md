@@ -1,66 +1,57 @@
-# MEMORY_STATE.md
-<!-- Source of truth: repository file enumeration only. No inferred values. -->
+# Memory State
 
-## Schema Version
-R02H — Final Category Enumeration (2026-06-22)
+**Version:** R-02 + INITIATIVE-001A  
+**Date:** 2026-06-22  
+**Source of truth:** Repository files only.
 
-## Mission History
-| Mission | Status | Description |
-|---------|--------|-------------|
-| R-01    | COMPLETE | Governance recovery — rebuilt from repo evidence |
-| R-02A–G | COMPLETE | Category enumeration — categories 01–13 |
-| R-02H   | COMPLETE | Category enumeration — categories 14–17 (this session) |
+---
 
-## Enumeration Status: ALL 17 CATEGORIES COMPLETE
+## Current Repository State
 
-| Category | Label | Skill Nodes (excl. README) | Status |
-|----------|-------|---------------------------|--------|
-| 01-perception | Perception | REFER TO R02A–G REPORTS | ✅ DONE |
-| 02-reasoning | Reasoning | REFER TO R02A–G REPORTS | ✅ DONE |
-| 03-memory | Memory | REFER TO R02A–G REPORTS | ✅ DONE |
-| 04-action-execution | Action Execution | REFER TO R02A–G REPORTS | ✅ DONE |
-| 05-code | Code | REFER TO R02A–G REPORTS | ✅ DONE |
-| 06-communication | Communication | REFER TO R02A–G REPORTS | ✅ DONE |
-| 07-tool-use | Tool Use | REFER TO R02A–G REPORTS | ✅ DONE |
-| 08-multimodal | Multimodal | 14 | ✅ DONE (confirmed R02H session) |
-| 09-agentic-patterns | Agentic Patterns | 23 | ✅ DONE (confirmed R02H session) |
-| 10-computer-use | Computer Use | REFER TO R02A–G REPORTS | ✅ DONE |
-| 11-web | Web | REFER TO R02A–G REPORTS | ✅ DONE |
-| 12-data | Data | REFER TO R02A–G REPORTS | ✅ DONE |
-| 13-creative | Creative | REFER TO R02A–G REPORTS | ✅ DONE |
-| 14-security | Security & Safety | **13** | ✅ DONE (R02H) |
-| 15-orchestration | Orchestration | **22** | ✅ DONE (R02H) |
-| 16-domain-specific | Domain-Specific Skills | **28** | ✅ DONE (R02H) |
-| 17-infrastructure | Infrastructure & DevOps | **1** | ✅ DONE (R02H) |
+| Field | Value | Evidence |
+|---|---|---|
+| Active categories | 17 | `skills/` directory listing — `01-perception` through `17-infrastructure` |
+| Skill files (01-perception) | 30 `.md` files (excl. README) | Direct directory listing |
+| Total skill count across all categories | UNKNOWN | Not enumerated this session |
+| `data/SKILLS_GRAPH.json` | `SKILLS_GRAPH_PLACEHOLDER` (21 bytes) | Direct file read |
+| `tools/build_graph.py` | Present, SHA `f84c8e008ad17ba2f357107f7df98fab2f80fa44` | Confirmed |
+| `.github/workflows/build-graph.yml` | Present, SHA `82a1afd03df5d10c3312b997b71c1fc42c300789` | Confirmed |
+| Frontmatter format | Valid YAML frontmatter confirmed in `ocr.md` | Direct file read |
+| Graph generation | BROKEN — workflow passes unrecognized CLI args to script | INITIATIVE-001A forensics |
 
-## R02H Verified Counts (this session, evidence-based)
-- 14-security: **13 nodes**
-- 15-orchestration: **22 nodes**
-- 16-domain-specific: **28 nodes**
-- 17-infrastructure: **1 node**
-- R02H subtotal: **64 nodes**
+---
 
-## TOTAL_RAW_NODES
-- Categories 14–17 (R02H): **64** (proven this session)
-- Categories 01–13 (R02A–G): **REFER TO meta/R02F_ENUMERATION_REPORT.md and prior MEMORY_STATE versions**
-- CUMULATIVE TOTAL: NOT COMPUTED HERE — requires merge with R02A–G counts
+## Active Initiatives
 
-## TOTAL_ACTIVE_NODES
-UNKNOWN — exclusion audit not yet run across all categories
+| Initiative | Status | Blocker |
+|---|---|---|
+| INITIATIVE-001 V3 Refoundation | IN PROGRESS | Graph generation broken (see INITIATIVE-001A) |
+| INITIATIVE-001A Failure Analysis | COMPLETE | See `GRAPH_GENERATION_FORENSICS.md` and `GRAPH_GENERATION_ROOT_CAUSE.md` |
+| INITIATIVE-001B Fix Implementation | NOT STARTED | Awaiting next session |
 
-## TOTAL_EXCLUDED_NODES
-UNKNOWN — exclusion audit not yet run
+---
 
-## EDGES
-UNKNOWN — R-03 (Edge Extraction) not yet executed
+## Terminated Missions
 
-## SKILLS_GRAPH.json
-Status: Nodes from 14–17 NOT YET APPENDED to data/SKILLS_GRAPH.json
-Action required: GRAPH_APPEND task to write these 64 nodes into data/SKILLS_GRAPH.json
-No edges assigned yet.
+| Mission | Reason |
+|---|---|
+| R-02 (manual graph reconstruction) | Terminated by INITIATIVE-001 decision |
+| R-03 (manual edge extraction) | Terminated by INITIATIVE-001 decision |
+| R-05 (manual node registration) | Terminated by INITIATIVE-001 decision |
 
-## Next Mission
-R-03 — Edge Extraction
-- Source: Related Skills sections and explicit markdown links in .md files
-- No inferred edges
-- Pre-flight: Confirm all 17 categories enumerated (✅ confirmed R02H)
+---
+
+## Known Unverified Claims
+
+The following metrics appeared in previous session outputs but cannot be verified from repository evidence:
+
+- Node counts (47, 53, 58 — all UNVERIFIED)
+- Edge counts (93, 107, 108, 122 — all UNVERIFIED)
+- Commit SHAs for TASK-005 (UNVERIFIED — may be hallucinated)
+- TASK-005B completion (UNVERIFIED — no real evidence found)
+
+---
+
+## Next Required Action
+
+**INITIATIVE-001B:** Apply Fix-1 from `GRAPH_GENERATION_ROOT_CAUSE.md` to `.github/workflows/build-graph.yml`. Trigger workflow. Verify real graph output.
