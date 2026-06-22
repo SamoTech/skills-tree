@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:48:49Z",
+  "dateModified": "2026-06-22T09:47:36Z",
   "skillId": "input-sanitization",
   "skillVersion": "v3",
   "skillLevel": "advanced",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, LLM skill, sanitization, security, AI agent, input",
+  "keywords": "sanitization, input, security, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Input Sanitization",

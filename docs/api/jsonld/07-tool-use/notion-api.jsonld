@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:48:49Z",
+  "dateModified": "2026-06-22T09:47:36Z",
   "skillId": "notion-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "notion, skills tree, LLM skill, api, use, tool, AI agent",
+  "keywords": "notion, LLM skill, skills tree, api, use, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "Notion API",
