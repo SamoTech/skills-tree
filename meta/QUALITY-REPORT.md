@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 368
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 56
-- 🟡 **Enriched** (real description + runnable code): 2
-- ⚪ **Stub** (placeholder description or no runnable code): 309
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 54
+- 🟡 **Enriched** (real description + runnable code): 3
+- ⚪ **Stub** (placeholder description or no runnable code): 310
 - ❌ **Invalid** (frontmatter problems): 1
 
 ## Per-category breakdown
@@ -23,7 +23,7 @@
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
+| `09-agentic-patterns` | 23 | 6 | 1 | 16 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
 | `11-web` | 17 | 4 | 0 | 13 | 0 |
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
@@ -71,10 +71,8 @@
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
+- [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
-- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — Reflection / Reflexion
-- [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-Travel Debugging
-- [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — Tree of Thought (ToT)
 - [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
@@ -100,6 +98,10 @@ These skills have a real description and a runnable code example, but are missin
 
 - [`text-reading.md`](skills/01-perception/text-reading.md) — missing table or <60 lines
 - [`xml-parsing.md`](skills/01-perception/xml-parsing.md) — missing table or <60 lines
+
+### `09-agentic-patterns` (1)
+
+- [`time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — missing table or <60 lines
 
 ## ⚪ Stubs (good first PRs)
 
@@ -309,23 +311,24 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`video-frame-extraction.md`](skills/08-multimodal/video-frame-extraction.md) — description matches placeholder pattern: 'Apply video frame extraction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`vqa.md`](skills/08-multimodal/vqa.md) — description matches placeholder pattern: 'Apply visual question answering (VQA) in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `09-agentic-patterns` (15)
+### `09-agentic-patterns` (16)
 
 - [`agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — description matches placeholder pattern: 'Apply agentic rag in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`bootstrapping.md`](skills/09-agentic-patterns/bootstrapping.md) — description matches placeholder pattern: 'Apply bootstrapping in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — description matches placeholder pattern: 'Apply constitutional ai in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — description matches placeholder pattern: 'Apply critic agent in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — description matches placeholder pattern: 'Apply debate pattern in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`lats.md`](skills/09-agentic-patterns/lats.md) — description matches placeholder pattern: 'Apply lats (language agent tree search) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`mcts.md`](skills/09-agentic-patterns/mcts.md) — description matches placeholder pattern: 'Apply mcts (monte carlo tree search) in AI agent workflows'; no inputs/outputs/failure-modes table
+- [`lats.md`](skills/09-agentic-patterns/lats.md) — no fenced runnable code example (>=3 non-blank lines)
+- [`mcts.md`](skills/09-agentic-patterns/mcts.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`memory-augmented.md`](skills/09-agentic-patterns/memory-augmented.md) — description matches placeholder pattern: 'Apply memory-augmented agent in AI agent workflows'
 - [`mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — description matches placeholder pattern: 'Apply mixture of agents (moa) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — description matches placeholder pattern: 'Apply plan-and-execute pattern in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — description matches placeholder pattern: 'Apply rag pipeline in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`rag.md`](skills/09-agentic-patterns/rag.md) — description matches placeholder pattern: 'Apply rag in AI agent workflows'
+- [`reflection.md`](skills/09-agentic-patterns/reflection.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`self-play.md`](skills/09-agentic-patterns/self-play.md) — description matches placeholder pattern: 'Apply self-play in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — description matches placeholder pattern: 'Apply subagent delegation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — description matches placeholder pattern: 'Apply tool-use loop in AI agent workflows'; no inputs/outputs/failure-modes table
+- [`tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — no fenced runnable code example (>=3 non-blank lines)
+- [`tot.md`](skills/09-agentic-patterns/tot.md) — no fenced runnable code example (>=3 non-blank lines)
 
 ### `10-computer-use` (20)
 
