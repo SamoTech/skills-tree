@@ -1,57 +1,55 @@
-# Memory State
+# MEMORY_STATE.md
 
-**Version:** R-02 + INITIATIVE-001A  
-**Date:** 2026-06-22  
-**Source of truth:** Repository files only.
+**Last updated:** 2026-06-22T14:20:00+03:00  
+**Updated by:** INITIATIVE-001C  
+**Evidence basis:** Direct repository reads only.
 
 ---
 
-## Current Repository State
+## Graph State
 
-| Field | Value | Evidence |
+| Field | Value | Source |
 |---|---|---|
-| Active categories | 17 | `skills/` directory listing — `01-perception` through `17-infrastructure` |
-| Skill files (01-perception) | 30 `.md` files (excl. README) | Direct directory listing |
-| Total skill count across all categories | UNKNOWN | Not enumerated this session |
-| `data/SKILLS_GRAPH.json` | `SKILLS_GRAPH_PLACEHOLDER` (21 bytes) | Direct file read |
-| `tools/build_graph.py` | Present, SHA `f84c8e008ad17ba2f357107f7df98fab2f80fa44` | Confirmed |
-| `.github/workflows/build-graph.yml` | Present, SHA `82a1afd03df5d10c3312b997b71c1fc42c300789` | Confirmed |
-| Frontmatter format | Valid YAML frontmatter confirmed in `ocr.md` | Direct file read |
-| Graph generation | BROKEN — workflow passes unrecognized CLI args to script | INITIATIVE-001A forensics |
+| `data/SKILLS_GRAPH.json` SHA | `639b9cbb4be5ec78f12ae2a7b733f9a5da3f9e89` | GitHub API |
+| `schema_version` | `3.0` | `meta.schema_version` |
+| `node_count` | `367` | `meta.node_count` + array length |
+| `edge_count` | `773` | `meta.edge_count` + array length |
+| `generated_at` | `2026-06-22T11:07:34.632945+00:00` | `meta.generated_at` |
+| `generator` | `tools/build_graph.py` | `meta.generator` |
+| Placeholder | ABSENT | Confirmed |
 
----
+## Quality State
 
-## Active Initiatives
-
-| Initiative | Status | Blocker |
-|---|---|---|
-| INITIATIVE-001 V3 Refoundation | IN PROGRESS | Graph generation broken (see INITIATIVE-001A) |
-| INITIATIVE-001A Failure Analysis | COMPLETE | See `GRAPH_GENERATION_FORENSICS.md` and `GRAPH_GENERATION_ROOT_CAUSE.md` |
-| INITIATIVE-001B Fix Implementation | NOT STARTED | Awaiting next session |
-
----
-
-## Terminated Missions
-
-| Mission | Reason |
+| Metric | Value |
 |---|---|
-| R-02 (manual graph reconstruction) | Terminated by INITIATIVE-001 decision |
-| R-03 (manual edge extraction) | Terminated by INITIATIVE-001 decision |
-| R-05 (manual node registration) | Terminated by INITIATIVE-001 decision |
+| Schema-valid nodes | 366/367 (1 invalid stability value) |
+| Dangling edges | 9 |
+| Orphan nodes | 54 (14.7%) |
+| REQUIRES edges | **0** |
+| Tags populated | 0/367 |
+| quality_score populated | 0/367 |
+| Edge types present | RELATED_TO only (1 of 5 schema types) |
 
----
+## Recommendation Readiness
 
-## Known Unverified Claims
+| Capability | Ready |
+|---|---|
+| Goal keyword matching | ⚠️ PARTIAL (title/id only) |
+| Learning path generation | ❌ NO |
+| Dependency analysis | ❌ NO |
+| Architecture generation | ⚠️ DEGRADED |
 
-The following metrics appeared in previous session outputs but cannot be verified from repository evidence:
+## Initiative History
 
-- Node counts (47, 53, 58 — all UNVERIFIED)
-- Edge counts (93, 107, 108, 122 — all UNVERIFIED)
-- Commit SHAs for TASK-005 (UNVERIFIED — may be hallucinated)
-- TASK-005B completion (UNVERIFIED — no real evidence found)
-
----
+| Initiative | Status | Key Outcome |
+|---|---|---|
+| R-01 | COMPLETE | Governance recovery from real repo evidence |
+| INITIATIVE-001A | COMPLETE | Root cause identified: workflow/script interface mismatch |
+| INITIATIVE-001B | COMPLETE | Workflow patch confirmed applied; graph generation verified |
+| INITIATIVE-001C | COMPLETE | Graph audit completed; REQUIRES edges = 0 is primary blocker |
 
 ## Next Required Action
 
-**INITIATIVE-001B:** Apply Fix-1 from `GRAPH_GENERATION_ROOT_CAUSE.md` to `.github/workflows/build-graph.yml`. Trigger workflow. Verify real graph output.
+**INITIATIVE-002: REQUIRES Edge Generation**  
+Root cause: `extract_edges.py` generates only `RELATED_TO` edges.  
+Until `REQUIRES` edges exist, `recommend.py` cannot generate learning paths.
