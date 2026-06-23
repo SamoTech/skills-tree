@@ -5,10 +5,10 @@
 ## Summary
 
 - **Total skill files:** 368
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 54
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 53
 - 🟡 **Enriched** (real description + runnable code): 3
 - ⚪ **Stub** (placeholder description or no runnable code): 309
-- ❌ **Invalid** (frontmatter problems): 2
+- ❌ **Invalid** (frontmatter problems): 3
 
 ## Per-category breakdown
 
@@ -23,7 +23,7 @@
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 6 | 1 | 15 | 1 |
+| `09-agentic-patterns` | 23 | 5 | 1 | 15 | 2 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
 | `11-web` | 17 | 4 | 0 | 13 | 0 |
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
@@ -71,7 +71,6 @@
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
-- [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
 - [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
@@ -473,7 +472,8 @@ Each entry below is a real, claimed skill that currently has no runnable example
 ## ❌ Invalid (frontmatter must be fixed)
 
 - [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — frontmatter `stability: evolving` not in ['deprecated', 'experimental', 'stable'] — will be dropped from JSON-LD export
-- [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — frontmatter `version: v1.1` not in ['v1', 'v2', 'v3'] — will be dropped from JSON-LD export
+- [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — frontmatter `version: v1.2` not in ['v1', 'v2', 'v3'] — will be dropped from JSON-LD export
+- [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — frontmatter `version: v1.2` not in ['v1', 'v2', 'v3'] — will be dropped from JSON-LD export
 
 ## Definitions
 
