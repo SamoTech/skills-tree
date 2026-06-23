@@ -7,7 +7,6 @@
 <meta name="description" content="The open knowledge graph for AI Engineering. Explore 368 skills, their dependencies, and learning paths across 17 categories.">
 <meta property="og:title" content="AI Engineering OS — Skill Explorer">
 <meta property="og:description" content="368 skills. 774+ connections. The operating system for AI engineers.">
-<meta property="og:url" content="https://samotech.github.io/skills-tree/explorer/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -16,7 +15,6 @@
 <body>
 <a href="#main-content" class="skip-link">Skip to content</a>
 
-<!-- NAV -->
 <header class="topnav" role="banner">
   <div class="topnav-inner">
     <a href="../../" class="brand" aria-label="skills-tree home">
@@ -43,13 +41,9 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero" aria-label="AI Engineering Operating System">
   <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      Open Knowledge Graph
-    </div>
+    <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span>Open Knowledge Graph</div>
     <h1 class="hero-title">AI Engineering<br><span class="hero-accent">Operating System</span></h1>
     <p class="hero-sub">The complete skill taxonomy for AI engineers — prerequisites, dependencies, and learning paths across every layer of the stack.</p>
     <div class="hero-stats" id="main-content">
@@ -62,44 +56,29 @@
       <div class="hstat"><span class="hstat-val" id="hero-requires">—</span><span class="hstat-label">Require edges</span></div>
     </div>
   </div>
-  <!-- subtle grid decoration -->
   <div class="hero-grid" aria-hidden="true"></div>
 </section>
 
-<!-- GRAPH HEALTH PANEL -->
 <section class="health-bar" aria-label="Graph health" id="health-bar">
   <div class="health-inner">
     <span class="health-label">Graph Health</span>
-    <div class="health-metrics" id="health-metrics">
-      <div class="health-metric">
-        <span class="health-val" id="h-coverage">—</span>
-        <span class="health-desc">skills with deps</span>
-      </div>
+    <div class="health-metrics">
+      <div class="health-metric"><span class="health-val" id="h-coverage">—</span><span class="health-desc">skills with deps</span></div>
       <div class="health-divider"></div>
-      <div class="health-metric">
-        <span class="health-val" id="h-isolated">—</span>
-        <span class="health-desc">isolated (no edges)</span>
-      </div>
+      <div class="health-metric"><span class="health-val" id="h-isolated">—</span><span class="health-desc">isolated (no edges)</span></div>
       <div class="health-divider"></div>
-      <div class="health-metric">
-        <span class="health-val" id="h-density">—</span>
-        <span class="health-desc">avg connections/skill</span>
-      </div>
+      <div class="health-metric"><span class="health-val" id="h-density">—</span><span class="health-desc">avg connections/skill</span></div>
       <div class="health-divider"></div>
-      <div class="health-metric health-metric-wide">
-        <span class="health-val health-val-sm" id="h-top">—</span>
-        <span class="health-desc">most connected skill</span>
-      </div>
+      <div class="health-metric health-metric-wide"><span class="health-val health-val-sm" id="h-top">—</span><span class="health-desc">most connected skill</span></div>
     </div>
   </div>
 </section>
 
-<!-- EXPLORER -->
 <div class="explorer-layout">
   <aside class="sidebar" role="complementary" aria-label="Search and filters">
     <div class="search-box-wrap">
       <label for="skill-search" class="sr-only">Search skills</label>
-      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <input id="skill-search" type="search" class="search-input" placeholder="Search skills…" autocomplete="off" spellcheck="false">
       <kbd class="search-kbd" aria-hidden="true">/</kbd>
     </div>
@@ -107,38 +86,45 @@
       <span class="filter-label">Level</span>
       <div class="filter-chips" id="filter-level">
         <button class="chip chip-active" data-filter="level" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="level" data-value="basic">Basic</button>
-        <button class="chip" data-filter="level" data-value="intermediate">Intermediate</button>
-        <button class="chip" data-filter="level" data-value="advanced">Advanced</button>
+        <button class="chip" data-filter="level" data-value="basic" aria-pressed="false">Basic</button>
+        <button class="chip" data-filter="level" data-value="intermediate" aria-pressed="false">Intermediate</button>
+        <button class="chip" data-filter="level" data-value="advanced" aria-pressed="false">Advanced</button>
       </div>
     </div>
     <div class="filter-group">
       <span class="filter-label">Stability</span>
       <div class="filter-chips" id="filter-stability">
         <button class="chip chip-active" data-filter="stability" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="stability" data-value="stable">Stable</button>
-        <button class="chip" data-filter="stability" data-value="evolving">Evolving</button>
-        <button class="chip" data-filter="stability" data-value="experimental">Experimental</button>
+        <button class="chip" data-filter="stability" data-value="stable" aria-pressed="false">Stable</button>
+        <button class="chip" data-filter="stability" data-value="evolving" aria-pressed="false">Evolving</button>
+        <button class="chip" data-filter="stability" data-value="experimental" aria-pressed="false">Experimental</button>
       </div>
     </div>
     <div class="filter-group">
       <span class="filter-label">Domain</span>
-      <div class="filter-chips filter-chips-cats" id="filter-category"></div>
+      <div class="filter-chips filter-chips-cats" id="filter-category" role="group" aria-label="Filter by domain"></div>
     </div>
     <div class="results-meta"><span id="results-count">Loading…</span></div>
   </aside>
 
-  <main class="skill-list-panel">
-    <div class="skill-grid" id="skill-grid" role="list">
-      <div class="skill-card skeleton"><div class="skeleton-line" style="width:60%"></div><div class="skeleton-line" style="width:40%"></div></div>
-      <div class="skill-card skeleton"><div class="skeleton-line" style="width:75%"></div><div class="skeleton-line" style="width:35%"></div></div>
-      <div class="skill-card skeleton"><div class="skeleton-line" style="width:50%"></div><div class="skeleton-line" style="width:45%"></div></div>
+  <main class="skill-list-panel" id="skill-list-panel">
+    <div class="skill-grid" id="skill-grid" role="list" aria-label="Skills">
+      <div class="skill-card skeleton" aria-hidden="true"><div class="skeleton-line" style="width:60%"></div><div class="skeleton-line" style="width:40%"></div></div>
+      <div class="skill-card skeleton" aria-hidden="true"><div class="skeleton-line" style="width:75%"></div><div class="skeleton-line" style="width:35%"></div></div>
+      <div class="skill-card skeleton" aria-hidden="true"><div class="skeleton-line" style="width:50%"></div><div class="skeleton-line" style="width:45%"></div></div>
     </div>
   </main>
 
-  <aside class="detail-panel" id="detail-panel" aria-live="polite">
+  <aside class="detail-panel" id="detail-panel" aria-live="polite" aria-label="Skill details">
     <div class="detail-empty" id="detail-empty">
-      <svg width="48" height="48" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><circle cx="16" cy="8" r="3" fill="currentColor" opacity="0.3"/><circle cx="8" cy="22" r="3" fill="currentColor" opacity="0.3"/><circle cx="24" cy="22" r="3" fill="currentColor" opacity="0.3"/><line x1="16" y1="11" x2="8" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.3"/><line x1="16" y1="11" x2="24" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.3"/></svg>
+      <svg width="48" height="48" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="16" cy="8" r="3" fill="currentColor" opacity="0.3"/>
+        <circle cx="8" cy="22" r="3" fill="currentColor" opacity="0.3"/>
+        <circle cx="24" cy="22" r="3" fill="currentColor" opacity="0.3"/>
+        <line x1="16" y1="11" x2="8" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+        <line x1="16" y1="11" x2="24" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+      </svg>
       <p>Select a skill to explore<br>its details and dependencies</p>
     </div>
     <div class="detail-content" id="detail-content" hidden>
@@ -146,8 +132,12 @@
         <div class="detail-header-top">
           <span class="detail-cat-badge" id="d-cat"></span>
           <div class="detail-actions">
-            <button class="icon-btn" id="btn-share" title="Copy share URL"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg></button>
-            <button class="icon-btn" id="btn-github" title="View on GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></button>
+            <button class="icon-btn" id="btn-share" title="Copy share URL" aria-label="Copy share URL">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+            </button>
+            <button class="icon-btn" id="btn-github" title="View on GitHub" aria-label="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </button>
           </div>
         </div>
         <h2 class="detail-title" id="d-title"></h2>
@@ -159,53 +149,43 @@
         <span class="tag" id="d-version"></span>
         <span class="tag" id="d-layer"></span>
       </div>
+      <div class="detail-tags-row" id="d-tags-wrap" hidden></div>
       <dl class="detail-meta">
         <div class="meta-row"><dt>Domain</dt><dd id="d-domain">—</dd></div>
         <div class="meta-row"><dt>Added</dt><dd id="d-added">—</dd></div>
         <div class="meta-row"><dt>Source</dt><dd><code id="d-source" class="mono-small">—</code></dd></div>
       </dl>
-
-      <!-- dependency sections -->
       <div class="detail-section" id="section-prereqs">
-        <h3 class="detail-section-title">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="17 11 21 7 17 3"/><path d="M21 7H9a4 4 0 0 0-4 4v7"/></svg>
-          Prerequisites
-        </h3>
+        <h3 class="detail-section-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="17 11 21 7 17 3"/><path d="M21 7H9a4 4 0 0 0-4 4v7"/></svg>Prerequisites</h3>
         <div class="dep-list" id="d-prereqs"></div>
       </div>
       <div class="detail-section" id="section-required-by">
-        <h3 class="detail-section-title">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="7 13 3 17 7 21"/><path d="M3 17h12a4 4 0 0 0 4-4V6"/></svg>
-          Required By
-        </h3>
+        <h3 class="detail-section-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="7 13 3 17 7 21"/><path d="M3 17h12a4 4 0 0 0 4-4V6"/></svg>Required By</h3>
         <div class="dep-list" id="d-required-by"></div>
       </div>
       <div class="detail-section" id="section-requires-out">
-        <h3 class="detail-section-title">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>
-          Requires
-        </h3>
+        <h3 class="detail-section-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>Requires</h3>
         <div class="dep-list" id="d-requires-out"></div>
       </div>
       <div class="detail-section" id="section-related">
-        <h3 class="detail-section-title">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
-          Related Skills
-        </h3>
+        <h3 class="detail-section-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>Related Skills</h3>
         <div class="dep-list" id="d-related"></div>
       </div>
     </div>
   </aside>
 </div>
 
-<div class="toast" id="toast" role="alert"></div>
-<div class="mobile-overlay" id="mobile-overlay" hidden>
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+<div class="mobile-overlay" id="mobile-overlay" hidden role="dialog" aria-modal="true" aria-label="Skill details">
   <div class="mobile-overlay-header">
     <h2 class="mobile-overlay-title">Skill Details</h2>
-    <button class="icon-btn" id="close-overlay"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <button class="icon-btn" id="close-overlay" aria-label="Close details">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
   </div>
   <div id="mobile-overlay-body"></div>
 </div>
+
 <script src="app.js"></script>
 </body>
 </html>
