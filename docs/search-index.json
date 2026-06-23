@@ -2278,7 +2278,7 @@
     "stability": "stable",
     "tags": [],
     "description": "Apply agentic rag in AI agent workflows.",
-    "body": "Agentic RAG Category: Skill Level: Stability: Added: 2025-03 Description Extends basic RAG with an agent that decides whether to retrieve, what to retrieve, when to re-retrieve, and how many iterations are needed — dynamically improving answer quality. Example Related Skills - RAG Pipeline - RAG - ReAct"
+    "body": "Agentic RAG Category: Skill Level: Stability: Added: 2025-03 Description Extends basic RAG with an agent that decides whether to retrieve, what to retrieve, when to re-retrieve, and how many iterations are needed — dynamically improving answer quality. Example Related Skills - RAG Pipeline - RAG - ReAct Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial entry | | 2026-06-23 | v1.1 | Added prerequisites field (INITIATIVE-006A): 03-memory/rag |"
   },
   {
     "id": "09-agentic-patterns/bootstrapping",
