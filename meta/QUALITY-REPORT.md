@@ -7,8 +7,8 @@
 - **Total skill files:** 368
 - 🟢 **Battle-tested** (rich content + tables + >=60 lines): 54
 - 🟡 **Enriched** (real description + runnable code): 3
-- ⚪ **Stub** (placeholder description or no runnable code): 310
-- ❌ **Invalid** (frontmatter problems): 1
+- ⚪ **Stub** (placeholder description or no runnable code): 309
+- ❌ **Invalid** (frontmatter problems): 2
 
 ## Per-category breakdown
 
@@ -23,7 +23,7 @@
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 6 | 1 | 16 | 0 |
+| `09-agentic-patterns` | 23 | 6 | 1 | 15 | 1 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
 | `11-web` | 17 | 4 | 0 | 13 | 0 |
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
@@ -311,9 +311,8 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`video-frame-extraction.md`](skills/08-multimodal/video-frame-extraction.md) — description matches placeholder pattern: 'Apply video frame extraction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`vqa.md`](skills/08-multimodal/vqa.md) — description matches placeholder pattern: 'Apply visual question answering (VQA) in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `09-agentic-patterns` (16)
+### `09-agentic-patterns` (15)
 
-- [`agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — description matches placeholder pattern: 'Apply agentic rag in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`bootstrapping.md`](skills/09-agentic-patterns/bootstrapping.md) — description matches placeholder pattern: 'Apply bootstrapping in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — description matches placeholder pattern: 'Apply constitutional ai in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — description matches placeholder pattern: 'Apply critic agent in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -474,6 +473,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 ## ❌ Invalid (frontmatter must be fixed)
 
 - [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — frontmatter `stability: evolving` not in ['deprecated', 'experimental', 'stable'] — will be dropped from JSON-LD export
+- [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — frontmatter `version: v1.1` not in ['v1', 'v2', 'v3'] — will be dropped from JSON-LD export
 
 ## Definitions
 
