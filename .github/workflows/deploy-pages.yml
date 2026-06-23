@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'data/SKILLS_GRAPH.json'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
 
@@ -31,10 +32,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v6
 
+      # INITIATIVE-012B2: Stage docs/ + data/ together so that
+      # /skills-tree/data/SKILLS_GRAPH.json resolves on GitHub Pages.
+      - name: Stage artifact (docs + data)
+        run: |
+          mkdir -p _site
+          cp -r docs/. _site/
+          mkdir -p _site/data
+          cp data/SKILLS_GRAPH.json _site/data/SKILLS_GRAPH.json
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: docs
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment

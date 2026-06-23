@@ -30,10 +30,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # INITIATIVE-012B2: Stage docs/ + data/ together so that
+      # /skills-tree/data/SKILLS_GRAPH.json resolves on GitHub Pages.
+      - name: Stage artifact (docs + data)
+        run: |
+          mkdir -p _site
+          cp -r docs/. _site/
+          mkdir -p _site/data
+          cp data/SKILLS_GRAPH.json _site/data/SKILLS_GRAPH.json
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './docs'
+          path: './_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

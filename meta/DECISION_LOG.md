@@ -4,6 +4,23 @@ _Append-only. Newest entries at top._
 
 ---
 
+## D-INIT-012B2-001
+
+**Date:** 2026-06-23  
+**Initiative:** INITIATIVE-012B.2 — GitHub Pages Artifact Audit  
+**Decision:** Stage `docs/` + `data/SKILLS_GRAPH.json` into `_site/` before uploading Pages artifact  
+**Rationale:** `actions/upload-pages-artifact` packages only the specified `path:` directory. Both deployment workflows pointed at `./docs`, which does not contain `data/`. Adding a `cp` staging step is the minimal, zero-dependency solution: no new actions, no symlinks, no `_config.yml` changes. The `_site/` staging directory is ephemeral (runner temp) and produces exactly the URL hierarchy required.  
+**Alternatives rejected:**
+- Symlink `docs/data → ../data` — GitHub Pages does not follow symlinks.
+- Move `data/SKILLS_GRAPH.json` into `docs/data/` — would break all other workflows and Python tooling that reference `data/` at repo root.
+- `jekyll` include — would require switching from static upload to Jekyll build, adding complexity and build time.
+- Separate Pages branch (`gh-pages`) — introduces branch management overhead and sync risk.
+
+**Status:** Implemented in `deploy-explorer.yml` and `deploy-pages.yml`  
+**Evidence:** `meta/STATE_DIVERGENCE_REPORT.md`
+
+---
+
 ## D-INIT-012B1-001
 
 **Date:** 2026-06-23  
