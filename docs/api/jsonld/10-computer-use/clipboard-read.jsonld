@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:59:35Z",
+  "dateModified": "2026-06-23T10:00:35Z",
   "skillId": "clipboard-read",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, read, use, computer, clipboard, LLM skill",
+  "keywords": "computer, read, LLM skill, use, AI agent, skills tree, clipboard",
   "about": {
     "@type": "Thing",
     "name": "Clipboard Read",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:59:35Z",
+  "dateModified": "2026-06-23T10:00:35Z",
   "skillId": "paraphrasing",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "paraphrasing, AI agent, communication, skills tree, LLM skill",
+  "keywords": "LLM skill, paraphrasing, communication, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Paraphrasing",

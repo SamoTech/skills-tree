@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:59:35Z",
+  "dateModified": "2026-06-23T10:00:35Z",
   "skillId": "self-reflection",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, self, skills tree, LLM skill, reflection, reasoning",
+  "keywords": "LLM skill, reasoning, reflection, AI agent, skills tree, self",
   "about": {
     "@type": "Thing",
     "name": "Self-Reflection",
