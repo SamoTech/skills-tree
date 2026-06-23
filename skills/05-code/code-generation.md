@@ -8,6 +8,8 @@ updated: "2026-04"
 version: v3
 description: "Generate runnable code from a natural-language spec, optional context (existing files), and optional tests. Validate with a quick AST + import check before returning so the caller never receives obviously broken code."
 tags: [code, generation, llm, validation]
+prerequisites:
+  - 05-code/algorithm-design
 dependencies:
   - package: anthropic
     min_version: "0.39.0"
@@ -199,3 +201,4 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Stub |
 | 2026-04 | v3 | Battle-tested: validated AST + imports, self-repair loop, fence stripping, model comparison |
+| 2026-06 | v3.1 | Added prerequisite: 05-code/algorithm-design (INITIATIVE-009D) |
