@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:38:43Z",
+  "dateModified": "2026-06-23T09:59:35Z",
   "skillId": "essay-grading",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "essay, domain, LLM skill, grading, specific, skills tree, AI agent",
+  "keywords": "AI agent, skills tree, grading, specific, domain, LLM skill, essay",
   "about": {
     "@type": "Thing",
     "name": "essay-grading",

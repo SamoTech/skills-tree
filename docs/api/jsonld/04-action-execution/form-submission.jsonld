@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:38:43Z",
+  "dateModified": "2026-06-23T09:59:35Z",
   "skillId": "form-submission",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "action, form, LLM skill, submission, skills tree, AI agent, execution",
+  "keywords": "AI agent, action, skills tree, form, execution, submission, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Form Submission",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:38:43Z",
+  "dateModified": "2026-06-23T09:59:35Z",
   "skillId": "knowledge-graph-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, graph, skills tree, perception, reading, AI agent, knowledge",
+  "keywords": "AI agent, knowledge, reading, skills tree, perception, graph, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Knowledge Graph Reading",
