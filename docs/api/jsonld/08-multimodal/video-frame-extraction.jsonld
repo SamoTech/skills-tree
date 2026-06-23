@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:16:16Z",
+  "dateModified": "2026-06-23T09:12:00Z",
   "skillId": "video-frame-extraction",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, video, multimodal, extraction, frame",
+  "keywords": "skills tree, extraction, multimodal, video, AI agent, LLM skill, frame",
   "about": {
     "@type": "Thing",
     "name": "Video Frame Extraction",

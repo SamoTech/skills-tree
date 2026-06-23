@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:16:16Z",
+  "dateModified": "2026-06-23T09:12:00Z",
   "skillId": "twilio-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "api, AI agent, skills tree, tool, LLM skill, use, twilio",
+  "keywords": "api, skills tree, twilio, AI agent, tool, LLM skill, use",
   "about": {
     "@type": "Thing",
     "name": "Twilio API",

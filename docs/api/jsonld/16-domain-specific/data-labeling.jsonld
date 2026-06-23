@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:16:16Z",
+  "dateModified": "2026-06-23T09:12:00Z",
   "skillId": "data-labeling",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "domain, data, AI agent, skills tree, labeling, LLM skill, specific",
+  "keywords": "data, skills tree, labeling, domain, AI agent, specific, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "data-labeling",

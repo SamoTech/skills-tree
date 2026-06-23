@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:16:16Z",
+  "dateModified": "2026-06-23T09:12:00Z",
   "skillId": "agent-sessions",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "memory, agent, AI agent, skills tree, LLM skill, sessions",
+  "keywords": "sessions, skills tree, AI agent, LLM skill, agent, memory",
   "about": {
     "@type": "Thing",
     "name": "Agent Sessions",

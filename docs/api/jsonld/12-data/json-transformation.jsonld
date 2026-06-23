@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:16:16Z",
+  "dateModified": "2026-06-23T09:12:00Z",
   "skillId": "json-transformation",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "transformation, data, AI agent, skills tree, json, LLM skill",
+  "keywords": "json, data, skills tree, AI agent, LLM skill, transformation",
   "about": {
     "@type": "Thing",
     "name": "JSON Transformation",

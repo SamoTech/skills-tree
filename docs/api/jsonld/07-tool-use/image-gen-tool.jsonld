@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:16:16Z",
+  "dateModified": "2026-06-23T09:12:00Z",
   "skillId": "image-gen-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "image, AI agent, skills tree, tool, gen, LLM skill, use",
+  "keywords": "skills tree, tool, AI agent, gen, LLM skill, use, image",
   "about": {
     "@type": "Thing",
     "name": "Image Generation Tool",

@@ -1,4 +1,4 @@
-generated: '2026-06-22T12:16:16Z'
+generated: '2026-06-23T09:11:59Z'
 count: 368
 skills:
 - id: pipeline-test
@@ -3733,10 +3733,11 @@ skills:
   category: agentic-patterns
   level: advanced
   stability: stable
-  version: null
+  version: v1.1
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Changelog
   related:
   - ../03-memory/rag.md
   category_dir: 09-agentic-patterns
