@@ -1,8 +1,8 @@
 # MEMORY STATE
 
-**Version:** R-03 + INITIATIVE-010A  
+**Version:** R-04 + INITIATIVE-011A  
 **Last updated:** 2026-06-23  
-**Updated by:** INITIATIVE-010A execution  
+**Updated by:** INITIATIVE-011A execution  
 **Source of truth:** repository only
 
 ---
@@ -23,16 +23,17 @@
 
 ## Active Initiatives
 
-| Initiative | Status | REQUIRES delta |
-|-----------|--------|----------------|
+| Initiative | Status | Notes |
+|-----------|--------|-------|
 | INITIATIVE-005 | CLOSED | +8 REQUIRES |
-| INITIATIVE-006A | CLOSED | +1 REQUIRES (agentic-rag → 03-memory/rag) |
+| INITIATIVE-006A | CLOSED | +1 REQUIRES |
 | INITIATIVE-008R | CLOSED | Cycle fix, dangling target cleanup |
 | INITIATIVE-009 | CLOSED | +4 REQUIRES (13 total) |
-| INITIATIVE-009B | NEVER_EXECUTED | Target was +37; superseded by 009C/009D |
-| INITIATIVE-009C | CLOSED | +0 REQUIRES (09-agentic-patterns exhausted; all edges already present) |
+| INITIATIVE-009B | NEVER_EXECUTED | Superseded by 009C/009D |
+| INITIATIVE-009C | CLOSED | +0 REQUIRES |
 | INITIATIVE-009D | CLOSED | +2 REQUIRES (15 total) |
 | INITIATIVE-010A | CLOSED | AI Engineering OS Agent Team bootstrapped |
+| INITIATIVE-011A | CLOSED | Viral Growth OS established |
 
 ---
 
@@ -52,12 +53,19 @@
 
 ---
 
-## Skill Files Modified (009D — last graph change)
+## Viral Growth OS (established INITIATIVE-011A)
 
-| File | Change | Initiative |
-|------|--------|------------|
-| `skills/05-code/bug-fixing.md` | Added prerequisite: `05-code/debugging` | INITIATIVE-009D candidate 009D-001 |
-| `skills/05-code/code-generation.md` | Added prerequisite: `05-code/algorithm-design` | INITIATIVE-009D candidate 009D-003 |
+| Document | Status |
+|----------|--------|
+| `meta/VIRAL_BASELINE_AUDIT.md` | ACTIVE |
+| `meta/COMPETITOR_INTELLIGENCE_REPORT.md` | ACTIVE |
+| `meta/MOAT_REPOSITIONING.md` | ACTIVE |
+| `meta/POSITIONING_DECISION.md` | ACTIVE — WINNER: Option B (AI Engineering OS) |
+| `meta/VIRAL_SURFACE_DESIGN.md` | ACTIVE |
+| `meta/CONTENT_ENGINE.md` | ACTIVE |
+| `meta/COMMUNITY_ENGINE.md` | ACTIVE |
+| `meta/NORTH_STAR_METRICS.md` | ACTIVE |
+| `meta/VIRAL_GROWTH_ROADMAP.md` | ACTIVE |
 
 ---
 
@@ -65,16 +73,16 @@
 
 | Document | Status |
 |----------|--------|
-| `meta/PROJECT_CONSTITUTION.md` | ACTIVE (12,312 bytes) |
+| `meta/PROJECT_CONSTITUTION.md` | ACTIVE |
 | `meta/DECISION_LOG.md` | ACTIVE |
 | `meta/MEMORY_STATE.md` | THIS FILE |
-| `meta/AGENT_TEAM_CHART.md` | ACTIVE (INITIATIVE-010A) |
-| `meta/AGENT_OPERATING_MODEL.md` | ACTIVE (INITIATIVE-010A) |
-| `meta/AGENT_MEMORY_PROTOCOL.md` | ACTIVE (INITIATIVE-010A) |
-| `meta/AGENT_HANDOFF_PROTOCOL.md` | ACTIVE (INITIATIVE-010A) |
-| `meta/AGENT_DECISION_FRAMEWORK.md` | ACTIVE (INITIATIVE-010A) |
-| `meta/AI_ENGINEERING_OS_READINESS.md` | ACTIVE (INITIATIVE-010A) |
-| `meta/DEPENDENCY_COVERAGE_AUDIT.md` | UPDATED (INITIATIVE-009) |
+| `meta/AGENT_TEAM_CHART.md` | ACTIVE |
+| `meta/AGENT_OPERATING_MODEL.md` | ACTIVE |
+| `meta/AGENT_MEMORY_PROTOCOL.md` | ACTIVE |
+| `meta/AGENT_HANDOFF_PROTOCOL.md` | ACTIVE |
+| `meta/AGENT_DECISION_FRAMEWORK.md` | ACTIVE |
+| `meta/AI_ENGINEERING_OS_READINESS.md` | ACTIVE |
+| `meta/VIRAL_GROWTH_ROADMAP.md` | ACTIVE |
 
 ---
 
@@ -84,11 +92,11 @@
 |-----------|--------|---------|--------|
 | Minimum viable | 10 | 15 | ✅ EXCEEDED |
 | Stretch goal | 30 | 15 | 🔄 IN PROGRESS |
-| Remaining gap | — | 15 | Needs 07-tool-use + 15-orchestration + remaining 05-code |
+| 12-month target | 150 | 15 | 🔄 Growth OS activated |
 
 ---
 
-## OS Readiness Score (INITIATIVE-010A)
+## OS Readiness Score (INITIATIVE-010A baseline)
 
 | Dimension | Score | Target |
 |-----------|-------|--------|
@@ -102,12 +110,17 @@
 
 ---
 
-## Known Unknowns
+## North Star Targets (12 months — June 2027)
 
-- Full REQUIRES coverage for `07-tool-use`, `15-orchestration`, remaining `05-code` (23 files), `06-frameworks`, `12-evaluation`, full `03-memory`, full `02-reasoning` — requires direct file reads in INITIATIVE-009E
-- Exact per-category edge counts — not available without pipeline re-run
-- Whether `debugging.md` and `algorithm-design.md` themselves have prerequisites (both are leaf nodes currently; stubs with 0 prerequisites)
-- Recommendation API deployment status — not confirmed from repository files
+| Metric | Target |
+|--------|--------|
+| GitHub Stars | 5,000 |
+| Contributors | 200 |
+| Battle-tested skills | 150 |
+| REQUIRES edges | 150 |
+| Learning paths | 30 |
+| Benchmarks | 50 |
+| PyPI downloads/month | 10,000 |
 
 ---
 
@@ -115,12 +128,11 @@
 
 | Metric | Value |
 |--------|-------|
-| LAST_INITIATIVE | INITIATIVE-010A |
-| NEXT_INITIATIVE | INITIATIVE-009E |
+| LAST_INITIATIVE | INITIATIVE-011A |
+| NEXT_INITIATIVE | INITIATIVE-009E (REQUIRES expansion) |
 | QUALITY_STATUS | QUALITY_FIRST_ENFORCED |
 | Standards lowered to hit quota | NEVER |
-| Total candidates evaluated across 009C+009D | 13 |
-| Total approved | 2 (009D) |
-| Total rejected | 11 (7×009C + 4 additional 009D on Related-only/conditional) |
-| Rejection rate | 85% — reflects strict evidence standards |
-| AI Engineering OS agents | 9 (bootstrapped INITIATIVE-010A) |
+| Positioning winner | OPTION B — AI Engineering OS |
+| Viral surfaces designed | 5 (Explorer, Paths, Generator, Roadmaps, Scoreboard) |
+| Content ideas generated | 50 |
+| 30-day target | 300 stars · 10 contributors · 5 merged PRs |
