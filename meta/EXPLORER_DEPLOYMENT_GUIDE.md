@@ -1,31 +1,8 @@
-# EXPLORER DEPLOYMENT GUIDE
+# Explorer Deployment Guide
 
 **Initiative:** INITIATIVE-012B  
-**Target:** GitHub Pages  
-**URL pattern:** `https://samotech.github.io/skills-tree/explorer/`
 
----
-
-## Prerequisites
-
-1. GitHub Pages must be enabled on the repository
-2. Source: **GitHub Actions** (not branch deploy)
-3. Workflow file: `.github/workflows/deploy-explorer.yml`
-
-## Enable GitHub Pages
-
-```
-Repository → Settings → Pages
-  Source: GitHub Actions
-```
-
-## Trigger Deployment
-
-Deployment triggers automatically on:
-- Any push to `main` that changes `docs/explorer/**` or `data/SKILLS_GRAPH.json`
-- Manual trigger via Actions → Deploy Explorer → Run workflow
-
-## Explorer URL
+## Live URL
 
 ```
 https://samotech.github.io/skills-tree/explorer/
@@ -36,26 +13,40 @@ https://samotech.github.io/skills-tree/explorer/
 ```
 https://samotech.github.io/skills-tree/explorer/?skill=09-agentic-patterns/react
 https://samotech.github.io/skills-tree/explorer/?skill=02-reasoning/chain-of-thought
-https://samotech.github.io/skills-tree/explorer/?skill=05-code/code-generation
 ```
 
-## Data Source
+## Deployment Trigger
 
-The Explorer reads `data/SKILLS_GRAPH.json` via:
-```
-../../data/SKILLS_GRAPH.json  (relative from docs/explorer/)
-```
-
-This resolves correctly under GitHub Pages when the site root is `/skills-tree/`.
+The GitHub Actions workflow `.github/workflows/deploy-explorer.yml` deploys automatically on:
+- Any push to `main` that touches `docs/explorer/**` or `data/SKILLS_GRAPH.json`
+- Manual trigger via `workflow_dispatch`
 
 ## Local Development
 
 ```bash
-# From repo root:
+# From repository root:
 python3 -m http.server 8000
-# Then open: http://localhost:8000/docs/explorer/
+# Open: http://localhost:8000/docs/explorer/
 ```
 
-## Updating the Graph
+The Explorer reads `../../data/SKILLS_GRAPH.json` (relative to `docs/explorer/`), which resolves to `data/SKILLS_GRAPH.json` from the repo root.
 
-When `data/SKILLS_GRAPH.json` is updated, the Explorer automatically reflects the new data on next page load — no rebuild required.
+## GitHub Pages Setup (one-time)
+
+1. Go to **Settings → Pages**
+2. Set **Source** to `GitHub Actions`
+3. Push any change to trigger the workflow
+
+## Graph Data Contract
+
+The Explorer reads `data/SKILLS_GRAPH.json` and expects:
+
+```json
+{
+  "meta": { "schema_version": "3.1", "node_count": N, "edge_count": N, "requires_count": N },
+  "nodes": [ { "id", "title", "category", "level", "stability", "version", "layer", "added", "tags", "prerequisites", "related_skills", "source_file" } ],
+  "edges": [ { "source", "target", "type" } ]
+}
+```
+
+If `schema_version` changes, update the pre-flight check in `app.js`.

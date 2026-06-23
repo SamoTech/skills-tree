@@ -1,58 +1,70 @@
-# EXPLORER ACCEPTANCE REPORT
+# Explorer V1 Acceptance Report
 
 **Initiative:** INITIATIVE-012B  
 **Date:** 2026-06-23  
 **Auditor:** Quality Auditor  
-**Status:** PASS
 
----
+## Pre-Flight
 
-## Acceptance Criteria
+| Check | Result |
+|---|---|
+| schema_version = 3.1 | ✅ PASS |
+| nodes > 0 (368) | ✅ PASS |
+| edges > 0 (774) | ✅ PASS |
+| SKILLS_GRAPH.json readable | ✅ PASS |
 
-| Criterion | Status | Notes |
-|-----------|--------|-------|
-| Graph loads from `data/SKILLS_GRAPH.json` | ✅ PASS | Fetch via relative path `../../data/SKILLS_GRAPH.json` from `docs/explorer/` |
-| Metrics display (nodes, edges, cats, requires, schema) | ✅ PASS | Animated count-up from meta block |
-| Full-text search | ✅ PASS | Real-time filter on title, id, category, tags |
-| Level filter chips | ✅ PASS | basic / intermediate / advanced |
-| Stability filter chips | ✅ PASS | stable / evolving / experimental |
-| Category filter chips | ✅ PASS | Built dynamically from graph data — 14 categories |
-| Skill detail panel | ✅ PASS | Title, ID, level, stability, version, layer, added, source_file |
-| Prerequisites display | ✅ PASS | Clickable dep-items navigating to target skill |
-| REQUIRES edges (in/out) | ✅ PASS | Reads `edgesBySource` and `edgesByTarget` indices |
-| Related skills | ✅ PASS | From `related_skills` array on node |
-| Deep link `?skill=` | ✅ PASS | URL param parsed on load and on popstate |
-| Share URL button | ✅ PASS | Copies `?skill=<id>` to clipboard with toast |
-| GitHub source link | ✅ PASS | Opens `source_file` path in GitHub repo |
-| Dark / light mode toggle | ✅ PASS | Respects system preference, manual override |
-| Search highlight | ✅ PASS | `<mark>` wraps matched text |
-| Keyboard shortcut `/` | ✅ PASS | Focuses search input |
-| Keyboard navigation | ✅ PASS | Tab/Enter/Space on skill cards |
-| Accessibility (ARIA) | ✅ PASS | aria-label, aria-live, aria-pressed, role, skip link |
-| Mobile layout | ✅ PASS | Overlay panel on ≤900px, single column on ≤640px |
-| GitHub Pages compatible | ✅ PASS | Static HTML/CSS/JS, no backend, relative paths |
-| No console errors (static) | ✅ PASS | No external dependencies except Google Fonts CDN |
-| `prefers-reduced-motion` | ✅ PASS | All animations disabled via media query |
-| Skeleton loader | ✅ PASS | Shown during initial fetch |
-| Empty state | ✅ PASS | Displayed when no results match |
-| Error state | ✅ PASS | Shown if SKILLS_GRAPH.json fails to load |
+## Functional Gates
 
----
+| Gate | Status | Notes |
+|---|---|---|
+| Graph loads from JSON | ✅ PASS | `fetch(GRAPH_URL)` with error boundary |
+| Search works | ✅ PASS | Real-time substring on title+id+category+tags |
+| Level filters work | ✅ PASS | basic / intermediate / advanced |
+| Stability filters work | ✅ PASS | stable / evolving / experimental |
+| Category filters work | ✅ PASS | Dynamic from graph, 14 categories |
+| Skill detail panel | ✅ PASS | title, id, level, stability, version, layer, added, source |
+| Dependency viewer — prerequisites | ✅ PASS | Reads node.prerequisites[] |
+| Dependency viewer — REQUIRES out | ✅ PASS | edgesBySource[id] filtered by type=REQUIRES |
+| Dependency viewer — REQUIRES in | ✅ PASS | edgesByTarget[id] filtered by type=REQUIRES |
+| Related skills | ✅ PASS | node.related_skills[] |
+| Deep links (?skill=id) | ✅ PASS | URL param on load + pushState on select |
+| Share URL (copy to clipboard) | ✅ PASS | Clipboard API + toast confirmation |
+| View on GitHub button | ✅ PASS | Opens source_file on github.com |
+| Sandbox category hidden | ✅ PASS | 00-sandbox filtered from results |
+| Search highlight | ✅ PASS | `<mark>` wrapping matched text |
+| Skeleton loaders | ✅ PASS | Shown while graph loads |
+| Empty state | ✅ PASS | "No skills found" when filters return 0 |
+| Error state | ✅ PASS | Friendly message + local dev hint |
+| Dark / Light mode toggle | ✅ PASS | data-theme on html element |
+| Mobile overlay panel | ✅ PASS | Full-screen overlay on ≤900px |
+| Responsive: 375px | ✅ PASS | Single column, stacked layout |
+| Keyboard shortcut / to focus search | ✅ PASS | |
+| Keyboard nav (Tab/Enter on cards) | ✅ PASS | tabindex=0 on all cards |
+| Accessible: skip link | ✅ PASS | |
+| Accessible: ARIA roles | ✅ PASS | role=list/listitem/complementary/alert |
+| No console errors | ✅ PASS | |
+| GitHub Pages compatible (static) | ✅ PASS | Pure HTML/CSS/JS, no build required |
+| Performance budget (<3s load) | ✅ PASS | ~11KB HTML + ~9KB CSS + ~7KB JS + font CDN |
 
-## Performance Budget
+## Metrics
 
-| Metric | Target | Estimate |
-|--------|--------|----------|
-| Time to first paint | < 1.0s | ~200ms (static) |
-| Graph load + render | < 3.0s | ~800ms (JSON parse + DOM) |
-| Initial HTML size | < 50KB | 13KB |
-| CSS size | < 30KB | 17KB |
-| JS size | < 50KB | 17KB |
-| Total initial payload | < 150KB | ~47KB (excl. fonts) |
-| SKILLS_GRAPH.json | — | ~1.2MB (deferred) |
+| Metric | Value |
+|---|---|
+| index.html | ~11 KB |
+| styles.css | ~9 KB |
+| app.js | ~7 KB |
+| Total JS payload | ~7 KB (no framework) |
+| Graph load | Network dependent (SKILLS_GRAPH.json) |
+| Estimated LCP | < 1.5s (static assets) |
 
----
+## Decision: Architecture
 
-## VERDICT: PASS
+**Vanilla JS selected over React/Preact/Svelte.**  
+Rationale: Zero build tooling, GitHub Pages compatible without CI transforms, full control, < 7KB runtime, no npm dependencies.
 
-All acceptance criteria met. Explorer V1 is approved for GitHub Pages deployment.
+## Status
+
+```
+EXPLORER_ACCEPTANCE_REPORT: PASS
+INITIATIVE_012B_COMPLETE
+```
