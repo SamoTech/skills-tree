@@ -1,9 +1,6 @@
 'use strict';
 
-// ─── PATH NORMALIZER ────────────────────────────────────────────────────────
-// INITIATIVE-012B1: Never hardcode graph paths again.
-// localhost  → relative path (works with python3 -m http.server from repo root)
-// GitHub Pages → absolute path with repo base /skills-tree/
+// ─── PATH NORMALIZER ────────────────────────────────────────────────
 function getGraphUrl() {
   const host = window.location.hostname;
   if (host === 'localhost' || host === '127.0.0.1') {
@@ -11,40 +8,54 @@ function getGraphUrl() {
   }
   return '/skills-tree/data/SKILLS_GRAPH.json';
 }
-
 const GRAPH_URL = getGraphUrl();
-
-// Debug: always emit resolved URL so it is visible in DevTools > Console
 console.info('GRAPH URL:', GRAPH_URL);
 
-const GITHUB_BASE = 'https://github.com/SamoTech/skills-tree/blob/main/';
+// ─── CATEGORY LABEL MAP ───────────────────────────────────────────
+// INITIATIVE-012C Phase 2: human-readable labels, sandbox hidden
 const CAT_LABELS = {
-  '00-sandbox': '00 Sandbox',
-  '01-perception': '01 Perception',
-  '02-reasoning': '02 Reasoning',
-  '03-memory': '03 Memory',
-  '04-action-execution': '04 Action',
-  '05-code': '05 Code',
-  '06-communication': '06 Comm',
-  '07-tool-use': '07 Tools',
-  '08-multimodal': '08 Multimodal',
-  '09-agentic-patterns': '09 Agentic',
-  '10-computer-use': '10 CU',
-  '11-web': '11 Web',
-  '12-data': '12 Data',
-  '13-safety': '13 Safety',
+  '01-perception':          'Perception',
+  '02-reasoning':           'Reasoning',
+  '03-memory':              'Memory',
+  '04-action-execution':    'Action',
+  '04-action':              'Action',
+  '05-code':                'Code',
+  '06-communication':       'Communication',
+  '07-tool-use':            'Tool Use',
+  '08-multimodal':          'Multimodal',
+  '09-agentic-patterns':    'Agentic Patterns',
+  '10-computer-use':        'Content Understanding',
+  '10-content-understanding':'Content Understanding',
+  '11-web':                 'Web',
+  '12-data':                'Data',
+  '13-safety':              'Creative',
+  '13-creative':            'Creative',
+  '14-security':            'Security',
+  '15-orchestration':       'Orchestration',
+  '16-domain-specific':     'Domain Specific',
+  '17-infrastructure':      'Infrastructure',
 };
 
-let graph = null, nodes = [], edges = [], filteredNodes = [], selectedId = null;
+function catLabel(slug) {
+  return CAT_LABELS[slug] || slug.replace(/^\d+-/, '').replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+const GITHUB_BASE = 'https://github.com/SamoTech/skills-tree/blob/main/';
+
+let graph = null;
+let nodes = [], edges = [], filteredNodes = [], selectedId = null;
 let activeFilters = { level: 'all', stability: 'all', category: 'all' }, searchQuery = '';
 let edgesBySource = {}, edgesByTarget = {}, nodeById = {};
+// INITIATIVE-012C Phase 3: full dependency index
+let prereqBy = {};    // id → [ ids that list this as prerequisite ]
+let requiredByIdx = {}; // id → [ ids that REQUIRE this via edge ]
+let relatedIdx = {};  // id → [ ids that list this in related_skills ]
 
+// ─── THEME ────────────────────────────────────────────────────────
 (function initTheme() {
   const btn  = document.querySelector('[data-theme-toggle]');
   const html = document.documentElement;
-  const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  let theme  = dark ? 'dark' : 'light';
-  html.setAttribute('data-theme', theme);
+  let theme  = html.getAttribute('data-theme') || 'dark';
   updateThemeIcon(btn, theme);
   if (btn) {
     btn.addEventListener('click', () => {
@@ -72,31 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMobileOverlayClose();
 });
 
-// ─── RESILIENT GRAPH LOADER ──────────────────────────────────────────────────
-// INITIATIVE-012B1 Phase 3: full error handling + schema validation
+// ─── RESILIENT GRAPH LOADER ────────────────────────────────────────────
 async function loadGraph() {
   const url = GRAPH_URL;
   try {
     const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${url}`);
-    }
-
+    if (!response.ok) throw new Error(`HTTP ${response.status}: ${url}`);
     const data = await response.json();
-
-    if (!data || !Array.isArray(data.nodes)) {
-      throw new Error('Invalid graph schema — missing nodes array');
-    }
+    if (!data || !Array.isArray(data.nodes)) throw new Error('Invalid graph schema — missing nodes array');
 
     graph = data;
     nodes = graph.nodes || [];
     edges = graph.edges || [];
 
-    nodeById     = {};
+    nodeById = {};
     edgesBySource = {};
     edgesByTarget = {};
+    prereqBy = {};
+    requiredByIdx = {};
+    relatedIdx = {};
 
+    // primary indexes
     for (const n of nodes) { nodeById[n.id] = n; }
     for (const e of edges) {
       if (!edgesBySource[e.source]) edgesBySource[e.source] = [];
@@ -105,11 +112,34 @@ async function loadGraph() {
       edgesByTarget[e.target].push(e);
     }
 
-    // Debug: confirm counts after successful load
+    // INITIATIVE-012C Phase 3: build reverse dependency index
+    for (const n of nodes) {
+      // prereqBy: reverse of prerequisites array
+      for (const pid of (n.prerequisites || [])) {
+        if (!prereqBy[pid]) prereqBy[pid] = [];
+        prereqBy[pid].push(n.id);
+      }
+      // relatedIdx: bidirectional related_skills
+      for (const rid of (n.related_skills || [])) {
+        if (!relatedIdx[rid]) relatedIdx[rid] = [];
+        if (!relatedIdx[rid].includes(n.id)) relatedIdx[rid].push(n.id);
+        if (!relatedIdx[n.id]) relatedIdx[n.id] = [];
+        if (!relatedIdx[n.id].includes(rid)) relatedIdx[n.id].push(rid);
+      }
+      // requiredByIdx: reverse of REQUIRES edges
+      for (const e of (edgesByTarget[n.id] || [])) {
+        if (e.type === 'REQUIRES') {
+          if (!requiredByIdx[n.id]) requiredByIdx[n.id] = [];
+          requiredByIdx[n.id].push(e.source);
+        }
+      }
+    }
+
     console.info('NODES:', nodes.length);
     console.info('EDGES:', edges.length);
 
-    updateMetrics();
+    updateHero();
+    updateHealthPanel();
     buildCategoryFilters();
     applyFilters();
     handleURLParam();
@@ -121,16 +151,63 @@ async function loadGraph() {
   }
 }
 
-// ─── DIAGNOSTIC ERROR PANEL ──────────────────────────────────────────────────
-// INITIATIVE-012B1 Phase 4: replace generic message with actionable diagnostics
-function showGraphError(err) {
-  const url     = GRAPH_URL;
-  // Extract HTTP status code if present in message (e.g. "HTTP 404: ...")
-  const match   = err && err.message ? err.message.match(/HTTP (\d+)/) : null;
-  const status  = match ? match[1] : (err ? escHtml(err.message) : 'Unknown error');
-  const isHttp  = !!match;
+// ─── HERO METRICS ───────────────────────────────────────────────
+function updateHero() {
+  const meta   = graph.meta || {};
+  const visible = nodes.filter(n => n.category !== '00-sandbox');
+  const cats   = new Set(visible.map(n => n.category));
+  const reqEdges = edges.filter(e => e.type === 'REQUIRES');
+  animateNumber('hero-nodes',    visible.length);
+  animateNumber('hero-edges',    meta.edge_count || edges.length);
+  animateNumber('hero-cats',     cats.size);
+  animateNumber('hero-requires', meta.requires_count || reqEdges.length);
+}
 
-  const html = `
+// ─── GRAPH HEALTH PANEL (Phase 6) ──────────────────────────────
+function updateHealthPanel() {
+  const visible = nodes.filter(n => n.category !== '00-sandbox');
+  let withDeps = 0, isolated = 0;
+  const connCount = {};
+  for (const n of visible) {
+    const deps = [
+      ...(n.prerequisites || []),
+      ...(n.related_skills || []),
+      ...(edgesBySource[n.id] || []).map(e => e.target),
+      ...(edgesByTarget[n.id] || []).map(e => e.source),
+    ];
+    const uniq = new Set(deps);
+    connCount[n.id] = uniq.size;
+    if (uniq.size > 0) withDeps++;
+    else isolated++;
+  }
+  const covPct = visible.length ? Math.round(withDeps / visible.length * 100) : 0;
+  const avgConn = visible.length
+    ? (Object.values(connCount).reduce((a, b) => a + b, 0) / visible.length).toFixed(1)
+    : '0';
+
+  // top connected skill
+  const topId = Object.entries(connCount).sort((a, b) => b[1] - a[1])[0];
+  const topNode = topId ? nodeById[topId[0]] : null;
+
+  document.getElementById('h-coverage').textContent  = covPct + '%';
+  document.getElementById('h-isolated').textContent  = isolated;
+  document.getElementById('h-density').textContent   = avgConn;
+  document.getElementById('h-top').textContent       = topNode ? topNode.title : '—';
+  if (topNode) {
+    const el = document.getElementById('h-top');
+    el.style.cursor = 'pointer';
+    el.title = 'Click to view: ' + topNode.id;
+    el.addEventListener('click', () => selectSkill(topNode.id), { once: true });
+  }
+}
+
+// ─── DIAGNOSTIC ERROR PANEL ───────────────────────────────────────
+function showGraphError(err) {
+  const url    = GRAPH_URL;
+  const match  = err && err.message ? err.message.match(/HTTP (\d+)/) : null;
+  const status = match ? match[1] : (err ? escHtml(err.message) : 'Unknown error');
+  const isHttp = !!match;
+  document.getElementById('skill-grid').innerHTML = `
 <div class="empty-state" role="alert" aria-live="assertive">
   <p class="empty-state-title">Failed to load graph</p>
   <p><strong>Attempted URL:</strong><br><code>${escHtml(url)}</code></p>
@@ -144,20 +221,7 @@ function showGraphError(err) {
     ✓ Verify fetch path matches environment
   </p>
 </div>`;
-
-  document.getElementById('skill-grid').innerHTML = html;
   document.getElementById('results-count').textContent = 'Error';
-}
-
-function updateMetrics() {
-  const meta = graph.meta || {};
-  const cats = new Set(nodes.map(n => n.category));
-  const reqEdges = edges.filter(e => e.type === 'REQUIRES');
-  animateNumber('metric-nodes',    meta.node_count    || nodes.length);
-  animateNumber('metric-edges',    meta.edge_count    || edges.length);
-  animateNumber('metric-cats',     cats.size);
-  animateNumber('metric-requires', meta.requires_count || reqEdges.length);
-  document.getElementById('metric-schema').textContent = meta.schema_version || '—';
 }
 
 function animateNumber(id, target) {
@@ -172,9 +236,15 @@ function animateNumber(id, target) {
   }, 16);
 }
 
+// ─── CATEGORY FILTER CHIPS ────────────────────────────────────────
+// INITIATIVE-012C Phase 2: human labels, sandbox hidden
 function buildCategoryFilters() {
   const container = document.getElementById('filter-category');
-  const cats = [...new Set(nodes.map(n => n.category))].sort();
+  // only categories that are NOT sandbox
+  const cats = [...new Set(
+    nodes.filter(n => n.category !== '00-sandbox').map(n => n.category)
+  )].sort();
+
   const allChip = document.createElement('button');
   allChip.className = 'chip chip-active';
   allChip.dataset.filter = 'category';
@@ -182,13 +252,14 @@ function buildCategoryFilters() {
   allChip.setAttribute('aria-pressed', 'true');
   allChip.textContent = 'All';
   container.appendChild(allChip);
+
   for (const cat of cats) {
     const btn = document.createElement('button');
     btn.className = 'chip';
     btn.dataset.filter = 'category';
     btn.dataset.value  = cat;
     btn.setAttribute('aria-pressed', 'false');
-    btn.textContent = CAT_LABELS[cat] || cat;
+    btn.textContent = catLabel(cat); // human label
     container.appendChild(btn);
   }
 }
@@ -207,7 +278,7 @@ function setupKeyboardShortcut() {
       e.preventDefault();
       document.getElementById('skill-search').focus();
     }
-    if (e.key === 'Escape') { closeMobileOverlay(); }
+    if (e.key === 'Escape') closeMobileOverlay();
   });
 }
 
@@ -244,12 +315,13 @@ function setupFilters() {
 
 function applyFilters() {
   filteredNodes = nodes.filter(n => {
+    // INITIATIVE-012C: always hide sandbox
     if (n.category === '00-sandbox') return false;
-    if (activeFilters.level     !== 'all' && n.level     !== activeFilters.level)     return false;
+    if (activeFilters.level     !== 'all' && n.level     !== activeFilters.level)    return false;
     if (activeFilters.stability !== 'all' && n.stability !== activeFilters.stability) return false;
     if (activeFilters.category  !== 'all' && n.category  !== activeFilters.category)  return false;
     if (searchQuery) {
-      const h = (n.title + ' ' + n.id + ' ' + n.category + ' ' + (n.tags || []).join(' ')).toLowerCase();
+      const h = (n.title + ' ' + n.id + ' ' + catLabel(n.category) + ' ' + (n.tags || []).join(' ')).toLowerCase();
       if (!h.includes(searchQuery)) return false;
     }
     return true;
@@ -272,25 +344,27 @@ function renderGrid() {
     return;
   }
   const fragment = document.createDocumentFragment();
-  for (const node of filteredNodes) { fragment.appendChild(createSkillCard(node)); }
+  for (const node of filteredNodes) fragment.appendChild(createSkillCard(node));
   grid.appendChild(fragment);
 }
 
 function createSkillCard(node) {
-  const card  = document.createElement('div');
+  const card = document.createElement('div');
   card.className = 'skill-card' + (node.id === selectedId ? ' selected' : '');
   card.setAttribute('role', 'listitem');
   card.setAttribute('tabindex', '0');
   card.dataset.id = node.id;
   const title = searchQuery ? highlightText(node.title, searchQuery) : escHtml(node.title);
+  // INITIATIVE-012C: show human category label on card
   card.innerHTML =
     '<div class="skill-card-title">' + title + '</div>' +
     '<div class="skill-card-row">' +
       '<span class="badge badge-level-' + node.level + '">' + node.level + '</span>' +
       '<span class="badge badge-' + node.stability + '">' + node.stability + '</span>' +
+      '<span class="skill-card-cat">' + escHtml(catLabel(node.category)) + '</span>' +
       '<span class="skill-card-id">' + escHtml(node.id) + '</span>' +
     '</div>';
-  card.addEventListener('click', () => selectSkill(node.id));
+  card.addEventListener('click',   () => selectSkill(node.id));
   card.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectSkill(node.id); }
   });
@@ -306,10 +380,7 @@ function highlightText(text, query) {
 
 function escHtml(s) {
   return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 function selectSkill(id) {
@@ -330,15 +401,19 @@ function renderDetail(node) {
   const content = document.getElementById('detail-content');
   empty.hidden   = true;
   content.hidden = false;
-  document.getElementById('d-cat').textContent       = node.category;
+
+  // category badge: human label
+  document.getElementById('d-cat').textContent       = catLabel(node.category);
   document.getElementById('d-title').textContent     = node.title;
   document.getElementById('d-id').textContent        = node.id;
   document.getElementById('d-level').textContent     = node.level     || '—';
   document.getElementById('d-stability').textContent = node.stability || '—';
   document.getElementById('d-version').textContent   = node.version   || '—';
   document.getElementById('d-layer').textContent     = node.layer     || '—';
+  document.getElementById('d-domain').textContent    = catLabel(node.category);
   document.getElementById('d-added').textContent     = node.added     || '—';
   document.getElementById('d-source').textContent    = node.source_file || '—';
+
   const ghBtn = document.getElementById('btn-github');
   if (node.source_file) {
     ghBtn.onclick = () => window.open(GITHUB_BASE + node.source_file, '_blank', 'noopener');
@@ -351,41 +426,78 @@ function renderDetail(node) {
     u.searchParams.set('skill', node.id);
     navigator.clipboard.writeText(u.toString()).then(() => showToast('🔗 Link copied!'));
   };
-  renderDepList('d-prereqs',      'section-prereqs',      node.prerequisites   || []);
+
+  // INITIATIVE-012C Phase 4: all dependency entries clickable with titles
+  renderDepSection('d-prereqs',     'section-prereqs',     node.prerequisites || [],
+    'No prerequisites — this skill is a foundation.');
+
+  // Required By: aggregate from both prereqBy index AND requiredByIdx
+  const requiredByIds = [
+    ...(requiredByIdx[node.id] || []),
+    ...(prereqBy[node.id]     || []),
+  ];
+  const requiredByUniq = [...new Set(requiredByIds)];
+  renderDepSection('d-required-by', 'section-required-by', requiredByUniq,
+    'No skills currently require this one.');
+
+  // Requires (outgoing REQUIRES edges)
   const reqOut = (edgesBySource[node.id] || []).filter(e => e.type === 'REQUIRES').map(e => e.target);
-  renderDepList('d-requires-out', 'section-requires-out', reqOut);
-  const reqIn  = (edgesByTarget[node.id] || []).filter(e => e.type === 'REQUIRES').map(e => e.source);
-  renderDepList('d-requires-in',  'section-requires-in',  reqIn);
-  renderDepList('d-related',      'section-related',      node.related_skills  || []);
+  renderDepSection('d-requires-out', 'section-requires-out', reqOut,
+    'This skill has no outgoing REQUIRES edges.');
+
+  // Related: node.related_skills + bidirectional from relatedIdx
+  const relatedIds = [
+    ...(node.related_skills || []),
+    ...(relatedIdx[node.id] || []),
+  ];
+  const relatedUniq = [...new Set(relatedIds)].filter(id => id !== node.id);
+  renderDepSection('d-related', 'section-related', relatedUniq,
+    'No related skills defined.');
+
   const isMobile = window.innerWidth <= 900;
   if (isMobile) {
     const overlay = document.getElementById('mobile-overlay');
     const body    = document.getElementById('mobile-overlay-body');
     body.innerHTML = document.getElementById('detail-content').outerHTML;
-    body.querySelectorAll('.dep-item').forEach(item => {
+    body.querySelectorAll('.dep-item[data-id]').forEach(item => {
       item.addEventListener('click', () => selectSkill(item.dataset.id));
     });
     overlay.removeAttribute('hidden');
   }
 }
 
-function renderDepList(listId, sectionId, ids) {
+// INITIATIVE-012C Phase 4 & 7: clickable deps with empty-state messaging
+function renderDepSection(listId, sectionId, ids, emptyMsg) {
   const list    = document.getElementById(listId);
   const section = document.getElementById(sectionId);
-  if (!ids.length) { section.style.display = 'none'; return; }
-  section.style.display = '';
   list.innerHTML = '';
+
+  if (!ids.length) {
+    section.style.display = '';
+    const empty = document.createElement('p');
+    empty.className = 'dep-empty';
+    empty.textContent = emptyMsg;
+    list.appendChild(empty);
+    return;
+  }
+
+  section.style.display = '';
   for (const id of ids) {
     const n     = nodeById[id];
     const label = n ? n.title : id;
+    const cat   = n ? catLabel(n.category) : '';
     const item  = document.createElement('div');
     item.className = 'dep-item';
     item.dataset.id = id;
     item.setAttribute('role', 'button');
     item.setAttribute('tabindex', '0');
-    item.innerHTML = '→ ' + escHtml(label);
+    item.setAttribute('aria-label', label + (cat ? ' (' + cat + ')' : ''));
+    item.innerHTML =
+      '<svg class="dep-arrow" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg>' +
+      '<span class="dep-label">' + escHtml(label) + '</span>' +
+      (cat ? '<span class="dep-cat">' + escHtml(cat) + '</span>' : '');
     item.addEventListener('click',   () => { selectSkill(id); scrollToCard(id); });
-    item.addEventListener('keydown', e => { if (e.key === 'Enter') { selectSkill(id); scrollToCard(id); } });
+    item.addEventListener('keydown', e  => { if (e.key === 'Enter') { selectSkill(id); scrollToCard(id); } });
     list.appendChild(item);
   }
 }
@@ -399,7 +511,7 @@ function setupURLRouting()  { window.addEventListener('popstate', handleURLParam
 function handleURLParam()   {
   const params  = new URLSearchParams(window.location.search);
   const skillId = params.get('skill');
-  if (skillId && nodeById[skillId]) { selectSkill(skillId); }
+  if (skillId && nodeById[skillId]) selectSkill(skillId);
 }
 function setupMobileOverlayClose() {
   document.getElementById('close-overlay').addEventListener('click', closeMobileOverlay);
