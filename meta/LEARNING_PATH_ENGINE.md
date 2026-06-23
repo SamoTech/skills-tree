@@ -1,69 +1,84 @@
-# LEARNING PATH ENGINE
-> Initiative: INITIATIVE-012C | Phase 4
+# LEARNING_PATH_ENGINE.md
+
+**Initiative:** INITIATIVE-012C  
+**Phase:** 4  
+**Status:** COMPLETE
+
+---
 
 ## Overview
 
-The Learning Path Engine converts a flat skill list into an ordered
-sequence of learning phases using topological sorting on the prerequisite graph.
+The Learning Path Engine converts an unordered skill set into a sequenced, phase-grouped learning plan using only the graph topology and category ordering.
 
-## Algorithm: Kahn's BFS Topological Sort
+---
 
-```python
-def topological_sort(skills, edges):
-    in_degree = {s: 0 for s in skills}
-    adj = {s: [] for s in skills}
-    
-    for edge in edges:
-        if edge.from in in_degree and edge.to in in_degree:
-            adj[edge.from].append(edge.to)
-            in_degree[edge.to] += 1
-    
-    queue = [s for s in skills if in_degree[s] == 0]
-    phases = []
-    visited = set()
-    
-    while queue:
-        phase = sorted(queue)
-        phases.append(phase)
-        visited.update(phase)
-        next_queue = []
-        for node in phase:
-            for neighbor in adj[node]:
-                in_degree[neighbor] -= 1
-                if in_degree[neighbor] == 0 and neighbor not in visited:
-                    next_queue.append(neighbor)
-        queue = next_queue
-    
-    return phases
+## Algorithm
+
+### Step 1: Category-based phase assignment
+
+```
+For each skill:
+  phase_key = CAT_ORDER.indexOf(skill.category)
+  if not found → phase_key = 99 ("other")
 ```
 
-## Cycle Detection
+`CAT_ORDER` is a static constant that defines a pedagogically-ordered sequence:
 
-1. Track visited nodes during BFS
-2. If a node is encountered again before being fully processed → cycle
-3. Log warning: `CYCLE_DETECTED: skill_id → skill_id`
-4. Remove offending edge and continue
-5. Document in `meta/STATE_DIVERGENCE_REPORT.md` if cycles found
-
-## Current Graph Status
-
-- `requires_count` in SKILLS_GRAPH.json meta: **1**  
-- Most edges are in `prerequisites[]` arrays on nodes
-- Cycle risk: LOW (manual authoring, small graph)
-
-## Gaps Identified
-
-| Gap | Severity | Mitigation |
-|-----|----------|------------|
-| Most nodes have empty `prerequisites[]` | Medium | Use category ordering as proxy |
-| `requires_count=1` suggests sparse REQUIRES edges | Low | Fall back to category-layer ordering |
-| No explicit learning_time per skill | Low | Estimate: basic=0.5w, intermediate=1w, advanced=2w |
-
-## Fallback Ordering
-
-When a skill has no prerequisites, order by layer:
 ```
-perception → reasoning → memory → action → code → tool-use → agentic
+01-perception → 02-reasoning → 03-memory → 04-action-execution
+→ 05-code → 06-communication → 07-tool-use → 08-multimodal
+→ 09-agentic-patterns → 10-computer-use → 11-web
 ```
 
-Mapped to category prefixes: `01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09 → 10 → 11`
+This ordering ensures foundational skills (perception, reasoning, memory) appear before applied skills (orchestration, tool use, agentic patterns).
+
+### Step 2: Level sub-ordering
+
+Within each category phase:
+```
+basic skills first → intermediate → advanced
+```
+
+### Step 3: Phase merging
+
+Small phases (< 2 skills) are merged with the next phase to avoid trivial one-item steps.
+
+### Step 4: Output
+
+```
+learningPath = [
+  Phase 1: [skill, skill, skill],  // foundational
+  Phase 2: [skill, skill],         // intermediate
+  ...
+  Phase N: [skill],                // applied/advanced
+]
+```
+
+---
+
+## Topological Ordering Notes
+
+The current engine uses **category order** as a proxy for topological order. Full prerequisite-graph topological sort (Kahn's algorithm) is documented as a gap:
+
+### Gap: Deep Prerequisite Traversal
+
+- **Current:** One level of prerequisite expansion (node.prerequisites → add to skill set)
+- **Missing:** Recursive transitive closure (prerequisites of prerequisites)
+- **Impact:** Low for current goals. Could matter for highly nested skill trees.
+- **Planned:** Phase 2 upgrade after graph edge coverage reaches >90%
+
+### Gap: Cycle Detection
+
+- **Current:** No cycle detection in prerequisite expansion
+- **Status:** SKILLS_GRAPH.json governance rules prohibit cycles; governance system enforces this
+- **Risk:** Minimal
+
+---
+
+## Graceful Degradation
+
+If `SKILLS_GRAPH.json` fails to load (network error, offline), the engine returns an empty skill list. The goal catalog and goal selection UI remain fully functional. A message is surfaced to the user.
+
+---
+
+_Generated: INITIATIVE-012C Phase 4_

@@ -1,67 +1,95 @@
-# GOAL MATCHING SPECIFICATION
-> Initiative: INITIATIVE-012C | Phase 2
+# GOAL_MATCHING_SPEC.md
 
-## Algorithm: Deterministic Keyword + Category Scoring
+**Initiative:** INITIATIVE-012C  
+**Phase:** 2  
+**Status:** COMPLETE
 
-No AI inference. No LLM calls. Pure graph evidence.
+---
 
-### Pipeline
+## Overview
+
+The goal matching engine maps a user-selected goal to a ranked list of skills using only graph evidence. No LLM inference. Fully deterministic.
+
+---
+
+## Pipeline
 
 ```
-User Input (goal title or free text)
-   │
-   ▼
-1. Normalize: lowercase, strip punctuation, tokenize
-   │
-   ▼
-2. Keyword Match: token overlap against goal.keywords[]
-   Score = matched_tokens / total_goal_keywords  (0.0–1.0)
-   │
-   ▼
-3. Category Expansion: for each matched goal, collect all skills
-   in goal.categories[] from SKILLS_GRAPH.json nodes
-   │
-   ▼
-4. Prerequisite Traversal: BFS from candidate skills
-   following prerequisites[] edges (depth ≤ 3)
-   │
-   ▼
-5. Topological Sort: Kahn's algorithm on prerequisite DAG
-   Cycle detection via visited set → log warning, skip edge
-   │
-   ▼
-6. Rank by: level weight (basic=1, intermediate=2, advanced=3)
-   + stability weight (stable=3, evolving=2, experimental=1)
-   │
-   ▼
-7. Output: Blueprint object (see BLUEPRINT_SCHEMA.md)
+Goal (id, title, categories, keywords)
+  │
+  ▼
+Graph Node Scan
+  │  Filter: node.category ∈ goal.categories
+  │  Filter: node.category ≠ "00-sandbox"
+  ▼
+Candidate Skills
+  │
+  ▼
+Prerequisite Expansion
+  │  For each candidate: expand node.prerequisites recursively
+  │  Add prereq nodes not already in candidate set
+  ▼
+Ranked Skill List
+  │  Sort by: CAT_ORDER index → level weight (basic < intermediate < advanced)
+  ▼
+Blueprint Object
 ```
 
-### Scoring Weights
+---
 
-| Factor | Weight |
-|--------|--------|
-| Exact keyword match | 1.0 |
-| Partial token overlap | 0.5 |
-| Category match | 0.3 |
-| Stability: stable | 1.0 |
-| Stability: evolving | 0.7 |
-| Stability: experimental | 0.4 |
+## Category Mapping
 
-### Determinism Guarantee
+Each goal defines `categories: [primary, secondary, tertiary, ...]` in priority order.
 
-Given identical input string and identical SKILLS_GRAPH.json:
-- Same goal selected every time
-- Same skills surfaced every time  
-- Same learning order every time
+The engine collects all nodes whose `category` appears in `goal.categories`.
 
-No random seeds. No sampling. No model calls.
+---
 
-### Edge Cases
+## Level Weights
 
-| Case | Handling |
-|------|----------|
-| No keyword match | Return closest goal by edit distance |
-| Empty prerequisites | Skill stands alone in learning path |
-| Cycle detected | Log, skip offending edge, continue |
-| Unknown goal ID | Return null blueprint with error message |
+| Level | Weight |
+|-------|--------|
+| basic | 0 |
+| intermediate | 1 |
+| advanced | 2 |
+
+Used for sorting within a category group and for computing aggregate difficulty.
+
+---
+
+## Difficulty Scoring
+
+```
+advRatio = count(level=advanced) / total_skills
+
+if advRatio > 0.40  → difficulty = "advanced"
+if advRatio > 0.15  → difficulty = "intermediate"
+else                → difficulty = "beginner"
+```
+
+---
+
+## Estimated Time
+
+```
+totalWeight = sum(levelWeight[skill.level] for skill in skills)
+  where basic=0.5, intermediate=1, advanced=2
+
+weeks = max(2, round(totalWeight * 0.8))
+estimatedTime = "(weeks-1)–(weeks+2) weeks"
+```
+
+---
+
+## Determinism Guarantee
+
+- Input: goal.id (static)
+- Graph source: SKILLS_GRAPH.json (static per commit)
+- Sort: deterministic multi-key (CAT_ORDER index, level weight)
+- Output: identical for same goal + same graph version
+
+No randomness. No model calls. No external lookups.
+
+---
+
+_Generated: INITIATIVE-012C Phase 2_

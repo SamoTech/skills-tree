@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blueprint Generator — Skills Tree</title>
+<meta name="description" content="Enter a goal. Get a full AI engineering blueprint: required skills, learning path, dependency layers, and exports. No backend. Pure graph evidence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -11,104 +12,110 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="header-inner">
-    <a href="../explorer/" class="logo" aria-label="Skills Tree">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <rect x="2" y="2" width="10" height="10" rx="2" fill="currentColor" opacity="0.9"/>
-        <rect x="16" y="2" width="10" height="10" rx="2" fill="currentColor" opacity="0.5"/>
-        <rect x="2" y="16" width="10" height="10" rx="2" fill="currentColor" opacity="0.5"/>
-        <rect x="16" y="16" width="10" height="10" rx="2" fill="currentColor" opacity="0.9"/>
-      </svg>
-      <span>Skills Tree</span>
-    </a>
-    <nav class="header-nav">
-      <a href="../explorer/">Explorer</a>
-      <a href="./" class="active">Blueprints</a>
-    </nav>
-    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-  </div>
+  <a href="../../" class="site-logo" aria-label="Skills Tree Home">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="16" cy="9" r="3" fill="currentColor"/>
+      <circle cx="9" cy="20" r="3" fill="currentColor"/>
+      <circle cx="23" cy="20" r="3" fill="currentColor"/>
+      <line x1="16" y1="12" x2="9" y2="17" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="16" y1="12" x2="23" y2="17" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="9" y1="20" x2="23" y2="20" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 2"/>
+    </svg>
+    <span>Skills Tree</span>
+  </a>
+  <nav class="site-nav">
+    <a href="../explorer/" class="nav-link">Explorer</a>
+    <a href="./" class="nav-link active">Blueprints</a>
+    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
+  </nav>
+  <button data-theme-toggle aria-label="Toggle theme" class="theme-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
 </header>
 
 <main>
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-badge">Blueprint Generator</div>
-      <h1>Goal → Skills Blueprint</h1>
-      <p class="hero-sub">Enter a goal. Get a complete learning path, skill dependencies, and exportable blueprint — derived entirely from the Skills Graph.</p>
+      <h1 class="hero-title">What do you want to build?</h1>
+      <p class="hero-sub">Select a goal. Get a full AI engineering blueprint — required skills, learning path, dependency layers, and exports. 100% graph evidence. No AI inference. No backend.</p>
+      <div class="example-bar">
+        <span class="example-label">Try:</span>
+        <button class="example-btn" data-goal="rag-assistant">RAG Assistant</button>
+        <button class="example-btn" data-goal="coding-agent">Coding Agent</button>
+        <button class="example-btn" data-goal="multi-agent-team">Multi-Agent Team</button>
+        <button class="example-btn" data-goal="evaluation-pipeline">Eval Pipeline</button>
+      </div>
     </div>
   </section>
 
   <div class="app-layout">
-    <aside class="goal-panel" id="goalPanel">
+    <aside class="goals-panel">
       <div class="panel-header">
-        <h2>Choose a Goal</h2>
         <div class="search-wrap">
-          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="search" id="goalSearch" placeholder="Search goals…" autocomplete="off" aria-label="Search goals">
+          <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" id="goalSearch" placeholder="Search 25 goals…" autocomplete="off" spellcheck="false">
         </div>
       </div>
-      <ul class="goal-list" id="goalList" role="list"></ul>
+      <ul class="goal-list" id="goalList" role="listbox" aria-label="Goal catalog"></ul>
     </aside>
 
-    <section class="blueprint-output" id="blueprintOutput">
+    <section class="blueprint-panel" id="blueprintOutput">
       <div class="empty-state" id="emptyState">
-        <div class="empty-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
-        </div>
-        <h3>Select a goal to generate a blueprint</h3>
-        <p>Choose from 25 curated AI engineering goals. Your blueprint will include required skills, learning order, and dependency chain — all derived from the Skills Graph.</p>
-        <div class="example-goals">
-          <button class="example-btn" data-goal="rag-assistant">RAG Assistant</button>
-          <button class="example-btn" data-goal="coding-agent">Coding Agent</button>
-          <button class="example-btn" data-goal="multi-agent-team">Multi-Agent Team</button>
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <h2>Select a goal to generate your blueprint</h2>
+        <p>Choose from 25 pre-defined AI engineering goals on the left, or search by keyword.</p>
+        <div class="empty-examples">
+          <button class="example-btn secondary" data-goal="customer-support-agent">Customer Support Agent →</button>
+          <button class="example-btn secondary" data-goal="research-agent">Research Agent →</button>
+          <button class="example-btn secondary" data-goal="voice-agent">Voice Agent →</button>
         </div>
       </div>
 
       <div class="blueprint-card hidden" id="blueprintCard">
-        <div class="blueprint-header">
-          <div class="blueprint-title-row">
-            <h2 id="bpTitle"></h2>
-            <div class="blueprint-actions">
-              <button class="btn-icon" id="shareBtn" title="Copy share URL">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-                Share
-              </button>
-              <button class="btn-icon" id="exportJsonBtn" title="Export JSON">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                JSON
-              </button>
-              <button class="btn-icon" id="exportMdBtn" title="Export Markdown">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                Markdown
-              </button>
-            </div>
+        <div class="bp-topbar">
+          <div class="bp-meta">
+            <span id="bpDifficulty" class="meta-chip">—</span>
+            <span id="bpTime" class="meta-chip neutral">—</span>
+            <span id="bpSkillCount" class="meta-chip neutral">—</span>
           </div>
-          <p id="bpSummary" class="blueprint-summary"></p>
-          <div class="blueprint-meta">
-            <span class="meta-chip" id="bpDifficulty"></span>
-            <span class="meta-chip" id="bpTime"></span>
-            <span class="meta-chip" id="bpSkillCount"></span>
+          <div class="bp-actions">
+            <button id="exportMdBtn" class="action-btn" title="Export Markdown">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              .md
+            </button>
+            <button id="exportJsonBtn" class="action-btn" title="Export JSON">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              .json
+            </button>
+            <button id="shareBtn" class="action-btn accent" title="Copy share URL">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              Share
+            </button>
           </div>
         </div>
 
-        <div class="blueprint-body">
-          <div class="bp-section">
-            <h3>Learning Path</h3>
-            <p class="section-hint">Phases ordered by prerequisite depth. Complete each phase before the next.</p>
-            <div id="learningPath" class="learning-path"></div>
+        <div class="bp-body">
+          <h2 class="bp-title" id="bpTitle"></h2>
+          <p class="bp-summary" id="bpSummary"></p>
+
+          <div class="section">
+            <div class="section-header">
+              <h3 class="section-title">Learning Path</h3>
+              <span class="section-hint" id="skillCountHint"></span>
+            </div>
+            <div class="learning-path" id="learningPath"></div>
           </div>
 
-          <div class="bp-section">
-            <h3>Required Skills</h3>
-            <p class="section-hint" id="skillCountHint"></p>
-            <div id="skillGrid" class="skill-grid"></div>
+          <div class="section">
+            <h3 class="section-title">Required Skills</h3>
+            <div class="skill-grid" id="skillGrid"></div>
           </div>
 
-          <div class="bp-section">
-            <h3>Categories</h3>
-            <div id="categoryList" class="category-list"></div>
+          <div class="section">
+            <h3 class="section-title">Skill Categories</h3>
+            <div class="cat-list" id="categoryList"></div>
           </div>
         </div>
       </div>
