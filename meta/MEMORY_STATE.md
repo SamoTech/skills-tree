@@ -1,44 +1,31 @@
-# Memory State
+# MEMORY STATE
 
-**Last updated:** 2026-06-23  
-**Pipeline status:** LIVE  
-**Schema version:** 3.1  
+_Last updated: 2026-06-23_
 
-## Current Repository State
+---
 
-| Metric | Value |
-|---|---|
-| Nodes | 368 |
-| Edges | 774 |
-| Categories | 14 |
-| REQUIRES edges | 1 |
-| Schema version | 3.1 |
+## Active Initiatives
+
+| ID | Name | Status | Owner |
+|---|---|---|---|
+| INITIATIVE-012B.1 | Explorer Loader Hotfix | ✅ COMPLETE | Graph Architect |
+
+---
+
+## System State
+
+- **Explorer UI:** Operational — graph loads on both localhost and GitHub Pages
+- **Path strategy:** `getGraphUrl()` — environment-aware, never hardcoded
+- **Graph data:** `data/SKILLS_GRAPH.json`
+- **Graph URL (localhost):** `../../data/SKILLS_GRAPH.json`
+- **Graph URL (GitHub Pages):** `/skills-tree/data/SKILLS_GRAPH.json`
+- **Debug mode:** Active — `console.info` for GRAPH URL, NODES, EDGES on init
+- **Error handling:** Resilient loader with HTTP status, attempted URL, and actionable checklist
+
+---
 
 ## Completed Initiatives
 
-| Initiative | Status | Date |
+| ID | Name | Date |
 |---|---|---|
-| INITIATIVE-004 | COMPLETE | Prior |
-| INITIATIVE-012A | COMPLETE | 2026-06-23 |
-| INITIATIVE-012B | COMPLETE | 2026-06-23 |
-
-## Active Product Surfaces
-
-| Surface | Status | URL |
-|---|---|---|
-| Interactive Skill Explorer V1 | DEPLOYED | https://samotech.github.io/skills-tree/explorer/ |
-
-## Next Priorities
-
-1. Blueprint Generator V1 (INITIATIVE-013)
-2. Show HN submission
-3. README V2 with Explorer CTA
-4. Reddit r/MachineLearning / r/LocalLLaMA
-5. Product Hunt listing
-
-## Governance
-
-- Repository is single source of truth
-- Explorer reads `data/SKILLS_GRAPH.json` directly
-- All structural changes require DECISION_LOG entry
-- GitHub Actions deploys Explorer on every push to `docs/explorer/**` or `data/SKILLS_GRAPH.json`
+| INITIATIVE-012B.1 | Explorer Loader Hotfix | 2026-06-23 |
