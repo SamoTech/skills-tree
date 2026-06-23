@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:12:00Z",
+  "dateModified": "2026-06-23T09:38:43Z",
   "skillId": "react",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "react, patterns, skills tree, agentic, AI agent, LLM skill",
+  "keywords": "agentic, LLM skill, react, skills tree, patterns, AI agent",
   "about": {
     "@type": "Thing",
     "name": "ReAct (Reasoning + Acting)",

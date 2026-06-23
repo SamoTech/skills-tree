@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:12:00Z",
+  "dateModified": "2026-06-23T09:38:43Z",
   "skillId": "tool-use-loop",
   "skillVersion": "v1",
   "skillLevel": "intermediate",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "patterns, skills tree, agentic, tool, loop, AI agent, LLM skill, use",
+  "keywords": "agentic, use, LLM skill, loop, skills tree, tool, patterns, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Tool-Use Loop",

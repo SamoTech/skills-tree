@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:12:00Z",
+  "dateModified": "2026-06-23T09:38:43Z",
   "skillId": "numerical-estimation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "numerical, skills tree, AI agent, estimation, LLM skill, reasoning",
+  "keywords": "numerical, reasoning, LLM skill, estimation, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Numerical Estimation",

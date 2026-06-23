@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:12:00Z",
+  "dateModified": "2026-06-23T09:38:43Z",
   "skillId": "flashcard-creation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "flashcard, skills tree, creation, domain, specific, AI agent, LLM skill",
+  "keywords": "domain, creation, LLM skill, flashcard, specific, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "flashcard-creation",

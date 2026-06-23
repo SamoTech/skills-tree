@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T09:12:00Z",
+  "dateModified": "2026-06-23T09:38:43Z",
   "skillId": "git-diff-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "git, perception, skills tree, diff, AI agent, LLM skill, reading",
+  "keywords": "LLM skill, git, skills tree, perception, reading, AI agent, diff",
   "about": {
     "@type": "Thing",
     "name": "Git Diff Reading",
