@@ -8,6 +8,8 @@ updated: "2026-04"
 version: v3
 description: "Take a failing test or stack trace and produce a minimal patch that makes the test pass. Loops on test execution until green or budget exhausted, with each retry conditioned on the new failure output."
 tags: [code, debugging, repair, testing, agentic-loop]
+prerequisites:
+  - 05-code/debugging
 dependencies:
   - package: anthropic
     min_version: "0.39.0"
@@ -198,3 +200,4 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Stub |
 | 2026-04 | v3 | Battle-tested: diff-patch loop, sandboxed test runner, iteration cap, failure modes, model comparison |
+| 2026-06 | v3.1 | Added prerequisite: 05-code/debugging (INITIATIVE-009D) |
