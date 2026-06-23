@@ -5,9 +5,10 @@ level: advanced
 stability: stable
 description: "Apply agentic rag in AI agent workflows."
 added: "2025-03"
-version: v1.1
+version: v1.2
 prerequisites:
   - 03-memory/rag
+  - 09-agentic-patterns/react
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-agentic-rag.json)
@@ -46,3 +47,4 @@ Answer: [grounded comparison]
 |---|---|---|
 | 2025-03 | v1 | Initial entry |
 | 2026-06-23 | v1.1 | Added prerequisites field (INITIATIVE-006A): 03-memory/rag |
+| 2026-06-23 | v1.2 | Added prerequisite: 09-agentic-patterns/react (INITIATIVE-009, C-002) |

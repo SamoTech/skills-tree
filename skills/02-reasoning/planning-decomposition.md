@@ -5,9 +5,12 @@ level: advanced
 stability: stable
 description: "Break a complex agent goal into an ordered sequence of actionable sub-tasks, each with clear inputs, outputs, and success criteria. The cognitive foundation for plan-and-execute, LangGraph pipelines, and CrewAI task breakdown."
 added: "2025-06"
-version: v2
+version: v3
 tags: [reasoning, planning, decomposition, agent-design]
 updated: "2026-06"
+prerequisites:
+  - 02-reasoning/goal-decomposition
+  - 09-agentic-patterns/react
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-planning-decomposition.json)
@@ -65,7 +68,6 @@ def planning_decomposition(goal: str, tools: list[str]) -> list[dict]:
         )}]
     )
     text = resp.content[0].text.strip()
-    # Extract JSON array
     start = text.find("[")
     end = text.rfind("]") + 1
     return json.loads(text[start:end])
@@ -108,3 +110,4 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-06 | v1 | Initial skill file |
 | 2026-06 | v2 | Full runnable example, failure modes, production applications |
+| 2026-06-23 | v3 | Added prerequisites: goal-decomposition, react (INITIATIVE-009, C-004, C-005) |
