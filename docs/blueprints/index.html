@@ -3,86 +3,121 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skills Tree — Blueprint Generator</title>
+<title>Blueprint Generator — Skills Tree</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="nav-brand" href="/">
-      <svg aria-label="Skills Tree" width="26" height="26" viewBox="0 0 26 26" fill="none">
-        <rect x="11" y="1" width="4" height="8" rx="2" fill="currentColor"/>
-        <rect x="1" y="13" width="8" height="4" rx="2" fill="currentColor" opacity=".6"/>
-        <rect x="17" y="13" width="8" height="4" rx="2" fill="currentColor" opacity=".6"/>
-        <rect x="11" y="17" width="4" height="8" rx="2" fill="currentColor" opacity=".35"/>
-        <circle cx="13" cy="13" r="3" fill="var(--color-primary)"/>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../explorer/" class="logo" aria-label="Skills Tree">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="10" height="10" rx="2" fill="currentColor" opacity="0.9"/>
+        <rect x="16" y="2" width="10" height="10" rx="2" fill="currentColor" opacity="0.5"/>
+        <rect x="2" y="16" width="10" height="10" rx="2" fill="currentColor" opacity="0.5"/>
+        <rect x="16" y="16" width="10" height="10" rx="2" fill="currentColor" opacity="0.9"/>
       </svg>
       <span>Skills Tree</span>
     </a>
-    <div class="nav-links">
-      <a href="../explorer/" class="nav-link">Explorer</a>
-      <a href="./" class="nav-link active">Blueprints</a>
-    </div>
-    <button class="icon-btn" data-theme-toggle aria-label="Toggle theme">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <nav class="header-nav">
+      <a href="../explorer/">Explorer</a>
+      <a href="./" class="active">Blueprints</a>
+    </nav>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
-</nav>
-<main class="app-layout">
-  <aside class="goals-panel" aria-label="Goal selector">
-    <div class="panel-header">
-      <div class="panel-title">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        Choose a Goal
-      </div>
-      <span class="goal-count" id="goalCount">25 goals</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Blueprint Generator</div>
+      <h1>Goal → Skills Blueprint</h1>
+      <p class="hero-sub">Enter a goal. Get a complete learning path, skill dependencies, and exportable blueprint — derived entirely from the Skills Graph.</p>
     </div>
-    <div class="search-row">
-      <div class="search-wrap">
-        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="search" id="goalSearch" class="search-input" placeholder="Search goals…" autocomplete="off" spellcheck="false">
-        <button class="clear-btn" id="clearSearch" style="display:none" aria-label="Clear search">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="diff-filters" role="group" aria-label="Filter by difficulty">
-      <button class="diff-filter active" data-diff="all">All</button>
-      <button class="diff-filter" data-diff="basic">Basic</button>
-      <button class="diff-filter" data-diff="intermediate">Inter.</button>
-      <button class="diff-filter" data-diff="advanced">Adv.</button>
-      <button class="diff-filter" data-diff="expert">Expert</button>
-    </div>
-    <div class="goals-list" id="goalsList" role="listbox" aria-label="Goals"></div>
-  </aside>
-  <section class="blueprint-panel" id="blueprintPanel" aria-live="polite">
-    <div class="bp-empty" id="blueprintEmpty">
-      <div class="bp-empty-icon">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14,2 14,8 20,8"/>
-          <path d="M12 18v-6M9 15l3 3 3-3"/>
-        </svg>
-      </div>
-      <h2 class="bp-empty-title">Select a goal</h2>
-      <p class="bp-empty-desc">Choose a goal from the left panel to generate an Architecture Blueprint — required skills, dependency layers, and a learning path derived from the skills graph.</p>
-      <div class="example-goals">
-        <div class="example-label">Quick start:</div>
-        <button class="example-btn" data-goal="rag-assistant">RAG Assistant</button>
-        <button class="example-btn" data-goal="multi-agent-team">Multi-Agent Team</button>
-        <button class="example-btn" data-goal="coding-agent">Coding Agent</button>
-        <button class="example-btn" data-goal="evaluation-pipeline">Eval Pipeline</button>
-      </div>
-    </div>
-    <div class="bp-content" id="blueprintContent" style="display:none"></div>
   </section>
+
+  <div class="app-layout">
+    <aside class="goal-panel" id="goalPanel">
+      <div class="panel-header">
+        <h2>Choose a Goal</h2>
+        <div class="search-wrap">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" id="goalSearch" placeholder="Search goals…" autocomplete="off" aria-label="Search goals">
+        </div>
+      </div>
+      <ul class="goal-list" id="goalList" role="list"></ul>
+    </aside>
+
+    <section class="blueprint-output" id="blueprintOutput">
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <h3>Select a goal to generate a blueprint</h3>
+        <p>Choose from 25 curated AI engineering goals. Your blueprint will include required skills, learning order, and dependency chain — all derived from the Skills Graph.</p>
+        <div class="example-goals">
+          <button class="example-btn" data-goal="rag-assistant">RAG Assistant</button>
+          <button class="example-btn" data-goal="coding-agent">Coding Agent</button>
+          <button class="example-btn" data-goal="multi-agent-team">Multi-Agent Team</button>
+        </div>
+      </div>
+
+      <div class="blueprint-card hidden" id="blueprintCard">
+        <div class="blueprint-header">
+          <div class="blueprint-title-row">
+            <h2 id="bpTitle"></h2>
+            <div class="blueprint-actions">
+              <button class="btn-icon" id="shareBtn" title="Copy share URL">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Share
+              </button>
+              <button class="btn-icon" id="exportJsonBtn" title="Export JSON">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                JSON
+              </button>
+              <button class="btn-icon" id="exportMdBtn" title="Export Markdown">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Markdown
+              </button>
+            </div>
+          </div>
+          <p id="bpSummary" class="blueprint-summary"></p>
+          <div class="blueprint-meta">
+            <span class="meta-chip" id="bpDifficulty"></span>
+            <span class="meta-chip" id="bpTime"></span>
+            <span class="meta-chip" id="bpSkillCount"></span>
+          </div>
+        </div>
+
+        <div class="blueprint-body">
+          <div class="bp-section">
+            <h3>Learning Path</h3>
+            <p class="section-hint">Phases ordered by prerequisite depth. Complete each phase before the next.</p>
+            <div id="learningPath" class="learning-path"></div>
+          </div>
+
+          <div class="bp-section">
+            <h3>Required Skills</h3>
+            <p class="section-hint" id="skillCountHint"></p>
+            <div id="skillGrid" class="skill-grid"></div>
+          </div>
+
+          <div class="bp-section">
+            <h3>Categories</h3>
+            <div id="categoryList" class="category-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
-<script>
-const GOALS_DATA=[{id:"customer-support-agent",title:"AI Customer Support Agent",description:"An autonomous agent that handles customer inquiries, resolves tickets, escalates edge cases, and maintains conversation context across sessions.",keywords:["customer","support","ticket","helpdesk","chat","escalation","crm"],categories:["06-orchestration","02-reasoning","03-memory","07-output"],difficulty:"intermediate",estimated_hours:40,skills_map:["01-perception/text-understanding","02-reasoning/intent-classification","02-reasoning/slot-filling","03-memory/conversation-history","03-memory/session-memory","06-orchestration/routing-agent","06-orchestration/escalation-logic","07-output/structured-response","08-evaluation/user-satisfaction"]},{id:"rag-assistant",title:"RAG Assistant",description:"A retrieval-augmented generation system that answers questions grounded in a private document corpus with citations and confidence scores.",keywords:["rag","retrieval","vector","documents","search","embedding","knowledge base","qa"],categories:["03-memory","01-perception","02-reasoning"],difficulty:"intermediate",estimated_hours:30,skills_map:["01-perception/document-parsing","01-perception/pdf-parsing","03-memory/rag","03-memory/vector-store-retrieval","03-memory/semantic-memory","02-reasoning/chain-of-thought","02-reasoning/source-attribution","07-output/cited-answer","08-evaluation/retrieval-precision"]},{id:"research-agent",title:"Research Agent",description:"An agent that autonomously conducts multi-source research, synthesizes findings, and produces structured reports with citations.",keywords:["research","search","synthesis","report","analysis","academic","literature review"],categories:["01-perception","05-tool-use","02-reasoning","07-output"],difficulty:"advanced",estimated_hours:60,skills_map:["01-perception/web-reading","01-perception/document-parsing","05-tool-use/web-search","05-tool-use/api-caller","02-reasoning/chain-of-thought","02-reasoning/evidence-synthesis","02-reasoning/self-reflection","03-memory/cross-session-memory","07-output/report-generation","07-output/structured-document"]},{id:"coding-agent",title:"Coding Agent",description:"An autonomous software engineering agent that writes, reviews, debugs, and tests code across multiple languages and frameworks.",keywords:["coding","code","programming","software","debug","test","engineer","developer","github"],categories:["02-reasoning","05-tool-use","04-action-execution"],difficulty:"advanced",estimated_hours:80,skills_map:["01-perception/code-understanding","02-reasoning/code-planning","02-reasoning/chain-of-thought","05-tool-use/code-executor","05-tool-use/file-system","05-tool-use/git-integration","04-action-execution/tool-calling","04-action-execution/self-correction","08-evaluation/test-runner","08-evaluation/code-quality"]},{id:"autonomous-browser-agent",title:"Autonomous Browser Agent",description:"An agent that navigates the web, fills forms, extracts data, and executes multi-step browser workflows without human intervention.",keywords:["browser","web","automation","scraping","forms","navigation","selenium","playwright"],categories:["05-tool-use","04-action-execution","01-perception"],difficulty:"advanced",estimated_hours:60,skills_map:["01-perception/web-reading","01-perception/visual-understanding","05-tool-use/browser-control","05-tool-use/web-search","04-action-execution/tool-calling","04-action-execution/multi-step-execution","02-reasoning/planning","02-reasoning/error-recovery","08-evaluation/outcome-verification"]},{id:"document-intelligence-system",title:"Document Intelligence System",description:"A pipeline that ingests, parses, classifies, and extracts structured information from diverse document types at scale.",keywords:["document","ocr","extraction","classification","invoice","contract","form","parsing"],categories:["01-perception","02-reasoning","07-output"],difficulty:"intermediate",estimated_hours:45,skills_map:["01-perception/document-parsing","01-perception/pdf-parsing","01-perception/ocr","01-perception/table-extraction","02-reasoning/entity-extraction","02-reasoning/classification","07-output/structured-data","03-memory/document-store","08-evaluation/extraction-accuracy"]},{id:"voice-agent",title:"Voice Agent",description:"A real-time conversational agent that processes speech input, reasons over user intent, and responds with synthesized voice output.",keywords:["voice","speech","asr","tts","audio","conversation","ivr","telephony"],categories:["11-multimodal","02-reasoning","07-output"],difficulty:"advanced",estimated_hours:70,skills_map:["11-multimodal/speech-to-text","11-multimodal/text-to-speech","01-perception/text-understanding","02-reasoning/intent-classification","02-reasoning/dialog-management","03-memory/conversation-history","07-output/voice-response","04-action-execution/real-time-processing","08-evaluation/latency-monitoring"]},{id:"multi-agent-team",title:"Multi-Agent Team",description:"An orchestrated network of specialized agents that collaborate, delegate tasks, and produce coordinated outputs toward a shared goal.",keywords:["multi-agent","orchestration","team","coordinator","delegation","collaboration","swarm"],categories:["06-orchestration","02-reasoning","03-memory"],difficulty:"expert",estimated_hours:120,skills_map:["06-orchestration/agent-router","06-orchestration/planner-agent","06-orchestration/coordinator","06-orchestration/inter-agent-communication","03-memory/shared-memory","03-memory/agent-state","02-reasoning/task-decomposition","02-reasoning/self-reflection","04-action-execution/parallel-execution","08-evaluation/multi-agent-eval","09-safety/trust-boundaries"]},{id:"data-analyst-agent",title:"Data Analyst Agent",description:"An agent that ingests datasets, performs statistical analysis, generates visualizations, and produces narrative insights.",keywords:["data","analysis","pandas","sql","visualization","statistics","analyst","reporting"],categories:["05-tool-use","02-reasoning","07-output"],difficulty:"intermediate",estimated_hours:35,skills_map:["01-perception/structured-data-reading","05-tool-use/code-executor","05-tool-use/database-query","02-reasoning/data-reasoning","02-reasoning/statistical-thinking","07-output/data-visualization","07-output/report-generation","08-evaluation/data-quality"]},{id:"evaluation-pipeline",title:"Evaluation Pipeline",description:"A systematic evaluation framework that benchmarks AI system outputs across quality, safety, accuracy, and latency dimensions.",keywords:["evaluation","benchmark","testing","quality","metrics","evals","judge","ragas"],categories:["08-evaluation","02-reasoning"],difficulty:"advanced",estimated_hours:50,skills_map:["08-evaluation/llm-judge","08-evaluation/benchmark-design","08-evaluation/regression-testing","08-evaluation/retrieval-precision","08-evaluation/faithfulness","02-reasoning/self-reflection","07-output/evaluation-report","05-tool-use/code-executor","03-memory/evaluation-store"]},{id:"workflow-automation-agent",title:"Workflow Automation Agent",description:"An agent that integrates with external services, executes multi-step business workflows, and handles errors and retries autonomously.",keywords:["workflow","automation","zapier","n8n","integration","api","trigger","actions","rpa"],categories:["05-tool-use","04-action-execution","06-orchestration"],difficulty:"intermediate",estimated_hours:40,skills_map:["05-tool-use/api-caller","05-tool-use/webhook-handler","04-action-execution/tool-calling","04-action-execution/error-recovery","06-orchestration/workflow-engine","06-orchestration/conditional-routing","02-reasoning/planning","07-output/structured-response","08-evaluation/outcome-verification"]},{id:"knowledge-management-agent",title:"Knowledge Management Agent",description:"An agent that ingests, organizes, tags, and retrieves organizational knowledge from diverse internal sources.",keywords:["knowledge","wiki","confluence","notion","tagging","search","index","organizational"],categories:["03-memory","01-perception","02-reasoning"],difficulty:"intermediate",estimated_hours:45,skills_map:["01-perception/document-parsing","01-perception/text-understanding","03-memory/vector-store-retrieval","03-memory/knowledge-graph","03-memory/semantic-memory","02-reasoning/classification","02-reasoning/entity-extraction","07-output/structured-document","08-evaluation/retrieval-precision"]},{id:"code-review-agent",title:"Code Review Agent",description:"An automated code review system that analyzes pull requests for bugs, style violations, security issues, and improvement opportunities.",keywords:["code review","pull request","pr","linting","security","static analysis","github","quality"],categories:["01-perception","02-reasoning","07-output"],difficulty:"advanced",estimated_hours:55,skills_map:["01-perception/code-understanding","02-reasoning/code-planning","02-reasoning/security-reasoning","02-reasoning/evidence-synthesis","05-tool-use/git-integration","07-output/structured-response","07-output/annotated-feedback","08-evaluation/code-quality","09-safety/input-validation"]},{id:"sales-copilot",title:"Sales Copilot",description:"An AI assistant for sales teams that researches prospects, drafts personalized outreach, tracks deal progress, and surfaces next-best actions.",keywords:["sales","crm","outreach","prospect","email","lead","pipeline","hubspot","salesforce"],categories:["02-reasoning","05-tool-use","07-output"],difficulty:"intermediate",estimated_hours:35,skills_map:["01-perception/web-reading","05-tool-use/api-caller","05-tool-use/web-search","02-reasoning/planning","02-reasoning/personalization","03-memory/cross-session-memory","07-output/email-draft","07-output/structured-response","08-evaluation/user-satisfaction"]},{id:"executive-assistant-agent",title:"Executive Assistant Agent",description:"A proactive agent that manages calendars, drafts communications, prepares meeting briefs, and tracks action items on behalf of a principal.",keywords:["assistant","calendar","email","scheduling","meeting","executive","chief of staff"],categories:["05-tool-use","06-orchestration","02-reasoning"],difficulty:"advanced",estimated_hours:65,skills_map:["01-perception/text-understanding","05-tool-use/calendar-integration","05-tool-use/email-integration","05-tool-use/api-caller","02-reasoning/planning","02-reasoning/prioritization","03-memory/cross-session-memory","06-orchestration/task-tracker","07-output/email-draft","07-output/meeting-brief"]},{id:"legal-document-reviewer",title:"Legal Document Reviewer",description:"A specialized agent that reviews contracts, identifies risk clauses, flags missing provisions, and summarizes obligations for non-legal stakeholders.",keywords:["legal","contract","clause","risk","compliance","due diligence","nda","review"],categories:["01-perception","02-reasoning","07-output"],difficulty:"expert",estimated_hours:80,skills_map:["01-perception/document-parsing","01-perception/pdf-parsing","02-reasoning/entity-extraction","02-reasoning/evidence-synthesis","02-reasoning/risk-reasoning","03-memory/document-store","07-output/structured-document","07-output/risk-report","09-safety/compliance-checking","08-evaluation/faithfulness"]},{id:"content-generation-pipeline",title:"Content Generation Pipeline",description:"A pipeline that produces SEO-optimized blog posts, social copy, and marketing assets from a brief or keyword list.",keywords:["content","blog","seo","copywriting","marketing","social","generation","writing"],categories:["02-reasoning","07-output","01-perception"],difficulty:"intermediate",estimated_hours:30,skills_map:["01-perception/text-understanding","02-reasoning/planning","02-reasoning/content-strategy","07-output/long-form-writing","07-output/structured-document","08-evaluation/tone-consistency","05-tool-use/web-search","03-memory/brand-guidelines"]},{id:"security-threat-analyzer",title:"Security Threat Analyzer",description:"An agent that ingests security logs, correlates events, identifies anomaly patterns, and generates threat intelligence reports.",keywords:["security","siem","threat","logs","anomaly","intrusion","soc","cyber","forensics"],categories:["01-perception","02-reasoning","09-safety"],difficulty:"expert",estimated_hours:90,skills_map:["01-perception/structured-data-reading","01-perception/log-parsing","02-reasoning/anomaly-detection","02-reasoning/pattern-recognition","02-reasoning/chain-of-thought","03-memory/event-store","09-safety/threat-modeling","09-safety/audit-logging","07-output/threat-report","08-evaluation/alert-precision"]},{id:"personalized-tutor",title:"Personalized AI Tutor",description:"An adaptive tutoring system that assesses learner knowledge, generates targeted exercises, explains concepts at the right level, and tracks progress.",keywords:["tutor","education","learning","teaching","exercise","student","adaptive","quiz"],categories:["02-reasoning","03-memory","07-output"],difficulty:"advanced",estimated_hours:60,skills_map:["02-reasoning/chain-of-thought","02-reasoning/pedagogical-reasoning","02-reasoning/difficulty-calibration","03-memory/learner-profile","03-memory/cross-session-memory","07-output/explanation","07-output/quiz-generation","08-evaluation/learner-progress","01-perception/text-understanding"]},{id:"financial-analysis-agent",title:"Financial Analysis Agent",description:"An agent that fetches financial data, models scenarios, identifies trends, and generates investment-grade analysis reports.",keywords:["finance","financial","investment","stock","analysis","dcf","model","portfolio","trading"],categories:["05-tool-use","02-reasoning","07-output"],difficulty:"expert",estimated_hours:75,skills_map:["05-tool-use/api-caller","05-tool-use/code-executor","01-perception/structured-data-reading","02-reasoning/statistical-thinking","02-reasoning/data-reasoning","02-reasoning/scenario-modeling","03-memory/document-store","07-output/financial-report","08-evaluation/data-quality","09-safety/confidence-scoring"]},{id:"meeting-intelligence-agent",title:"Meeting Intelligence Agent",description:"An agent that joins calls, transcribes conversations, extracts action items, and auto-populates project management tools.",keywords:["meeting","transcript","action items","notes","zoom","teams","project management","tasks"],categories:["11-multimodal","01-perception","02-reasoning"],difficulty:"advanced",estimated_hours:55,skills_map:["11-multimodal/speech-to-text","01-perception/text-understanding","02-reasoning/entity-extraction","02-reasoning/intent-classification","03-memory/conversation-history","05-tool-use/calendar-integration","05-tool-use/api-caller","07-output/meeting-summary","07-output/structured-response"]},{id:"api-integration-agent",title:"API Integration Agent",description:"An agent that reads API documentation, generates integration code, handles auth flows, and validates endpoint responses.",keywords:["api","integration","openapi","swagger","rest","auth","sdk","connector","http"],categories:["05-tool-use","01-perception","04-action-execution"],difficulty:"advanced",estimated_hours:50,skills_map:["01-perception/code-understanding","01-perception/document-parsing","05-tool-use/api-caller","05-tool-use/code-executor","04-action-execution/tool-calling","02-reasoning/code-planning","02-reasoning/api-understanding","07-output/code-generation","08-evaluation/api-validation"]},{id:"image-analysis-pipeline",title:"Image Analysis Pipeline",description:"A multimodal pipeline that classifies images, detects objects, extracts text, and generates structured metadata at scale.",keywords:["image","vision","ocr","object detection","classification","multimodal","vlm","caption"],categories:["11-multimodal","01-perception","07-output"],difficulty:"intermediate",estimated_hours:35,skills_map:["11-multimodal/image-understanding","11-multimodal/visual-question-answering","01-perception/ocr","02-reasoning/classification","02-reasoning/entity-extraction","07-output/structured-data","03-memory/image-store","08-evaluation/extraction-accuracy"]},{id:"monitoring-alert-agent",title:"Monitoring & Alert Agent",description:"A proactive monitoring agent that watches system metrics, diagnoses anomalies, and routes alerts to appropriate owners with context.",keywords:["monitoring","alerting","observability","metrics","prometheus","grafana","on-call","sre","ops"],categories:["05-tool-use","02-reasoning","04-action-execution"],difficulty:"advanced",estimated_hours:60,skills_map:["01-perception/structured-data-reading","01-perception/log-parsing","05-tool-use/api-caller","02-reasoning/anomaly-detection","02-reasoning/root-cause-analysis","04-action-execution/tool-calling","06-orchestration/alert-routing","07-output/structured-response","09-safety/audit-logging","08-evaluation/alert-precision"]},{id:"personal-finance-agent",title:"Personal Finance Agent",description:"A personal assistant that tracks spending, categorizes transactions, sets budget goals, and surfaces savings opportunities.",keywords:["finance","budget","spending","savings","personal","money","transactions","expense"],categories:["02-reasoning","07-output","05-tool-use"],difficulty:"basic",estimated_hours:20,skills_map:["01-perception/structured-data-reading","02-reasoning/data-reasoning","02-reasoning/classification","03-memory/user-profile","07-output/financial-report","07-output/structured-response","08-evaluation/data-quality"]}];
-</script>
+
+<div class="toast hidden" id="toast"></div>
+
 <script src="app.js"></script>
 </body>
 </html>
