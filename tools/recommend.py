@@ -106,35 +106,27 @@ def resolve_dependencies(seed_skills: list[str], adj_bwd: dict) -> set[str]:
 
 # ---------------------------------------------------------------------------
 # Topological sort (Kahn's algorithm)
+# INITIATIVE-008R Phase 3: Replaced silent cycle suppression with explicit
+# ValueError. Previously the fallback `ready = [sorted(remaining)[0]]`
+# silently picked an arbitrary node when no ready nodes existed (cycle),
+# producing a corrupted learning path without any error signal.
+# Now any cycle in the REQUIRES subgraph raises immediately.
+# Changed: 2026-06-23 | Decision: D-INIT-008R-001
 # ---------------------------------------------------------------------------
 def topological_sort(skill_ids: set, adj_bwd: dict) -> list[str]:
-    """Return topological order (prerequisites first) for the given skill set."""
-    in_degree = {s: 0 for s in skill_ids}
-    for skill in skill_ids:
-        for (prereq, edge_type) in adj_bwd.get(skill, []):
-            if edge_type == "REQUIRES" and prereq in skill_ids:
-                in_degree[skill] += 1
+    """Return topological order (prerequisites first) for the given skill set.
 
-    queue = deque(s for s in skill_ids if in_degree[s] == 0)
-    result = []
-    while queue:
-        skill = queue.popleft()
-        result.append(skill)
-        for (dependent, edge_type) in [(t, et) for t, et in
-                                         [(x, y) for (x, y) in
-                                          [(s, e) for s in skill_ids
-                                           for (t, e) in [(t, et) for (t, et) in []
-                                                          if t == skill]]
-                                          if False]
-                                         if False]:  # placeholder — simplified
-            pass  # full implementation below
-
-    # Simplified stable topo sort
+    Raises ValueError if a cycle is detected in the REQUIRES subgraph.
+    A cycle means two or more skills mutually require each other, which is
+    a graph integrity violation that must be fixed in the skill definitions.
+    """
     result = []
     remaining = set(skill_ids)
+
     for _ in range(len(skill_ids) + 1):
         if not remaining:
             break
+
         ready = []
         for s in sorted(remaining):
             prereqs_in_set = [
@@ -143,8 +135,16 @@ def topological_sort(skill_ids: set, adj_bwd: dict) -> list[str]:
             ]
             if not prereqs_in_set:
                 ready.append(s)
-        if not ready:  # cycle detected — add arbitrarily
-            ready = [sorted(remaining)[0]]
+
+        if not ready:
+            # INITIATIVE-008R Phase 3: explicit failure — no silent recovery.
+            # Previously: ready = [sorted(remaining)[0]]
+            raise ValueError(
+                f"Cycle detected in prerequisite graph. "
+                f"The following skills are in a circular REQUIRES dependency "
+                f"and cannot be topologically sorted: {sorted(remaining)}"
+            )
+
         result.extend(ready)
         for s in ready:
             remaining.discard(s)

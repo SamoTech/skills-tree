@@ -141,6 +141,73 @@ jobs:
           print(f"PASS: All edge sources are valid node IDs.")
           EOF
 
+      # -----------------------------------------------------------------------
+      # INITIATIVE-008R Phase 1: Dangling target detection
+      # Validates that every edge.target exists in the node registry.
+      # Added: 2026-06-23 | Decision: D-INIT-008R-001
+      # -----------------------------------------------------------------------
+      - name: Dangling target edge check
+        run: |
+          python - <<'EOF'
+          import json, sys
+          from pathlib import Path
+
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          if not graph_path.exists():
+              print("SKIP")
+              sys.exit(0)
+
+          data = json.loads(graph_path.read_text())
+          if isinstance(data, str):
+              sys.exit(0)
+
+          node_ids = {n["id"] for n in data.get("nodes", [])}
+          dangling = [e for e in data.get("edges", []) if e["target"] not in node_ids]
+          if dangling:
+              print(f"FAIL: {len(dangling)} edges with dangling (missing) target node IDs.")
+              for e in dangling[:10]:
+                  print(f"  {e['source']} -> {e['target']} [{e.get('type', '?')}]")
+              sys.exit(1)
+          print(f"PASS: All {len(data.get('edges', []))} edge targets are valid node IDs.")
+          EOF
+
+      # -----------------------------------------------------------------------
+      # INITIATIVE-008R Phase 2: Duplicate edge detection
+      # Canonical key: (source, target, type). Duplicate = identical triple.
+      # Added: 2026-06-23 | Decision: D-INIT-008R-001
+      # -----------------------------------------------------------------------
+      - name: Duplicate edge check
+        run: |
+          python - <<'EOF'
+          import json, sys
+          from pathlib import Path
+
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          if not graph_path.exists():
+              print("SKIP")
+              sys.exit(0)
+
+          data = json.loads(graph_path.read_text())
+          if isinstance(data, str):
+              sys.exit(0)
+
+          edges = data.get("edges", [])
+          seen = {}
+          dupes = []
+          for e in edges:
+              key = (e["source"], e["target"], e.get("type", ""))
+              if key in seen:
+                  dupes.append(e)
+              else:
+                  seen[key] = True
+          if dupes:
+              print(f"FAIL: {len(dupes)} duplicate edges (same source, target, type).")
+              for e in dupes[:10]:
+                  print(f"  {e['source']} -> {e['target']} [{e.get('type', '?')}]")
+              sys.exit(1)
+          print(f"PASS: All {len(edges)} edges are unique (source, target, type).")
+          EOF
+
       - name: Commit updated graph artifacts
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
