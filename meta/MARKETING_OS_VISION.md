@@ -1,81 +1,69 @@
-# MARKETING AI OPERATING SYSTEM — Vision
+# MARKETING_OS_VISION.md
 
-_Initiative: INITIATIVE-020 | Date: 2026-06-24 | Owner: Graph Architect_
-
----
-
-## The Insight
-
-Every marketing team in 2026 is drowning in the same paradox: more AI tools than ever, zero coherent operating system to run them. They have ChatGPT tabs, Midjourney subscriptions, and Meta Ads dashboards open simultaneously — but no architecture that connects intent to execution. Skills Tree already solved this problem for AI engineers. INITIATIVE-020 extends the same operating system logic to marketing teams.
+> Initiative: INITIATIVE-020  
+> Owner: Graph Architect  
+> Created: 2026-06-24  
+> Status: ACTIVE
 
 ---
 
-## Strategic Position
+## Mission
 
-**Skills Tree is not a chatbot. It is a skills graph.**
-
-The 368-node, 774-edge graph encodes *what AI agents need to know* and *how those capabilities connect*. For an AI engineer, that means understanding the path from `embedding-generation` → `rag` → `summarization`. For a marketing team, it means understanding the path from `audience-segmentation` → `creative-testing` → `bid-optimization` → `landing-page-conversion`.
-
-The graph does not change. The lens does.
+Transform Skills Tree from an **AI Engineering Operating System** into a **business-facing AI Marketing Operating System** capable of generating marketing execution blueprints, media-buying workflows, campaign audits, and AI agent teams — ready for non-technical marketing practitioners.
 
 ---
 
-## The Marketing AI OS
+## Strategic Context
 
-| Layer | Engineering OS | Marketing OS |
-|---|---|---|
-| **Goals** | Build a RAG pipeline | Launch a paid social campaign |
-| **Agent Teams** | Researcher + Coder + Reviewer | Media Buyer + Creative Tester + Analyst |
-| **Blueprints** | Code scaffold + skill map | Media plan + channel allocation + KPIs |
-| **Outputs** | GitHub repo, API | Campaign brief, ad creative spec, audit report |
-| **Data Source** | `SKILLS_GRAPH.json` | Same graph, marketing-domain filter |
+Skills Tree v2 (INITIATIVE-014B) shipped the core Skills Graph (368 nodes, 774+ edges) and the Explorer UI. The graph contains the full vocabulary of AI capabilities. The Blueprint Generator (INITIATIVE-012B) proved that the graph can power contextual output.
 
----
+The missing layer: **business-domain goals**. Engineering goals ("build a RAG pipeline") already work. Marketing goals ("launch a Meta Ads cold-traffic campaign") require a goal catalog, domain-specific agent teams, and KPI targets — none of which existed.
 
-## Four Product Surfaces
-
-### 1 — Marketing Blueprint Generator
-Input: A marketing goal ("Launch a DTC brand on Meta and Google").
-Output: A ranked blueprint with recommended AI agent team, skill requirements, channel allocation percentages, KPI targets, and a 30-day execution timeline.
-
-### 2 — Media Buying Workflow Builder
-Input: Budget, platform mix, funnel stage.
-Output: A structured workflow spec — bidding strategy, audience segmentation approach, creative rotation schedule, and a measurement plan mapped to specific AI skills.
-
-### 3 — Landing Page Audit Engine
-Input: URL or description of landing page.
-Output: Scored audit across conversion architecture, copy clarity, offer alignment, and CTA hierarchy — with AI agent recommendations for each gap.
-
-### 4 — Creative Testing Plan Generator
-Input: Product, audience, platform.
-Output: A structured A/B testing matrix: creative variables to test, statistical significance thresholds, winning-variant promotion criteria, and feedback loop architecture.
+INITIATIVE-020 closes that gap by:
+1. Defining 50+ marketing goals across 8 categories
+2. Creating a domain-adapted agent architecture for media buying
+3. Deploying a public Marketing AI OS product surface
 
 ---
 
-## Why This Wins the Build Challenge
+## Product Vision
 
-The It's Today Media Build Challenge rewards submissions that demonstrate:
-- **Real utility for marketers** — not theoretical AI demos
-- **Architecture depth** — not a thin GPT wrapper
-- **Reusability** — built on open, forkable foundations
+```
+User Input        →  Goal Selector
+Goal Selector     →  Blueprint Engine
+Blueprint Engine  →  Agent Team + KPI Targets + Timeline
+Output            →  Actionable 30-day execution plan
+```
 
-Skills Tree delivers all three. It is not a new product — it is an existing production system with 368+ skills and a live graph, extended by domain vocabulary. Judges who look under the hood will see semantic infrastructure, not prompt engineering.
-
----
-
-## Competitive Moat
-
-| Competitor Pattern | Our Advantage |
-|---|---|
-| "AI marketing tool" = ChatGPT prompt wrapper | We have a semantic graph with typed skill nodes |
-| "Blueprint" = static PDF template | Ours is dynamically assembled from skill metadata |
-| Agent team generator = role list | Ours maps roles to specific skill prerequisites |
-| Audit tool = checklist | Ours generates scored recommendations with skill gaps |
+The system answers: *"I want to scale my Meta Ads. What AI agents do I need and what does week 1 look like?"* — in under one second, with no AI API cost.
 
 ---
 
-## Deadline
+## Reuse Architecture
 
-**July 4, 2026** — It's Today Media Build Challenge submission.
+| Existing Asset             | Reuse in INITIATIVE-020       |
+|----------------------------|-------------------------------|
+| SKILLS_GRAPH.json (368+)   | Skill resolution engine       |
+| Blueprint Generator UX     | Goal → Blueprint pattern      |
+| GitHub Pages deploy        | docs/marketing-os/ surface    |
+| skills-tree semantic ver.  | Changelog + release tracking  |
 
-All Phase 1–7 deliverables must be complete and the Vercel demo URL live by July 3 EOD EEST to allow buffer.
+---
+
+## Success Criteria
+
+- [ ] 50+ marketing goals catalogued
+- [ ] 8 goal categories with agent teams
+- [ ] Media buying agent architecture documented
+- [ ] Public UI live at `/docs/marketing-os/`
+- [ ] Competition submission ready before 2026-07-04
+- [ ] README + Loom demo script complete
+
+---
+
+## Competitive Differentiation
+
+- **Not a chatbot.** Zero LLM latency. Deterministic, auditable output.
+- **Not a template pack.** Blueprints are generated from a live skill graph with semantic relationships.
+- **Not a SaaS.** Fully open-source, self-hostable, forkable.
+- **Real skill taxonomy.** 368+ skills with categories, tags, and edge data — not invented keywords.

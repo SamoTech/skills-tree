@@ -1,138 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marketing AI OS — Skills Tree</title>
-  <meta name="description" content="Generate AI-powered marketing blueprints, media buying workflows, agent teams, and campaign audits. Built on the Skills Tree graph." />
-  <link rel="stylesheet" href="./styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="Generate AI-powered marketing execution blueprints, agent teams, and media buying workflows instantly. Powered by Skills Tree.">
+  <meta property="og:title" content="Marketing AI OS">
+  <meta property="og:description" content="Turn marketing goals into AI agent teams and execution blueprints.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+<div class="app-shell">
 
   <!-- HEADER -->
-  <header class="header">
-    <div class="header-inner">
-      <a href="/skills-tree/" class="logo-link" target="_blank" rel="noopener noreferrer">
-        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Skills Tree">
-          <circle cx="16" cy="6" r="3" fill="currentColor" opacity="0.9"/>
-          <circle cx="6" cy="22" r="3" fill="currentColor" opacity="0.7"/>
-          <circle cx="26" cy="22" r="3" fill="currentColor" opacity="0.7"/>
-          <circle cx="16" cy="22" r="3" fill="currentColor" opacity="0.5"/>
-          <line x1="16" y1="9" x2="6" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          <line x1="16" y1="9" x2="26" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
-          <line x1="16" y1="9" x2="16" y2="19" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+  <header class="site-header" role="banner">
+    <div class="logo-wrap">
+      <div class="logo-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" fill="white" opacity="0.85"/>
+          <rect x="10" y="10" width="4" height="4" fill="white" opacity="0.4"/>
         </svg>
-        <span class="logo-text">Skills Tree</span>
-      </a>
-      <div class="header-badge">Marketing AI OS</div>
-      <nav class="header-nav">
-        <a href="/skills-tree/explorer/" target="_blank" rel="noopener noreferrer" class="nav-link">Explorer</a>
-        <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer" class="nav-link">GitHub</a>
-      </nav>
+      </div>
+      <div class="logo-text">
+        <span class="logo-title">Marketing AI OS</span>
+        <span class="logo-sub">by Skills Tree</span>
+      </div>
     </div>
+    <span class="header-badge">INITIATIVE-020 · Beta</span>
+    <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer" class="header-cta">GitHub ↗</a>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-kicker">It's Today Media Build Challenge — 2026</div>
-      <h1 class="hero-title">Marketing AI Operating System</h1>
-      <p class="hero-sub">Generate media buying blueprints, AI agent teams, landing page audits, and creative testing plans — powered by 368+ AI skills.</p>
-      <div class="hero-stats">
-        <div class="stat"><span class="stat-num" id="stat-goals">50</span><span class="stat-label">Marketing Goals</span></div>
-        <div class="stat"><span class="stat-num">368</span><span class="stat-label">AI Skills</span></div>
-        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Blueprint Types</span></div>
-        <div class="stat"><span class="stat-num">5</span><span class="stat-label">Agent Roles</span></div>
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-eyebrow" role="text">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><circle cx="6" cy="6" r="5"/></svg>
+      It's Today Media Build Challenge
+    </div>
+    <h1 class="hero-title" id="hero-heading">The <em>AI Operating System</em><br>for Marketing Teams</h1>
+    <p class="hero-sub">Select a marketing goal. Receive a complete AI agent team, KPI targets, required skills, and 30-day execution blueprint — instantly.</p>
+    <div class="hero-stats" role="list" aria-label="Platform statistics">
+      <div class="stat" role="listitem">
+        <div class="stat-value"><span id="stat-goals">50</span>+</div>
+        <div class="stat-label">Marketing Goals</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat" role="listitem">
+        <div class="stat-value">368<span>+</span></div>
+        <div class="stat-label">AI Skills</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat" role="listitem">
+        <div class="stat-value">8</div>
+        <div class="stat-label">Goal Categories</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat" role="listitem">
+        <div class="stat-value">&lt;1<span>s</span></div>
+        <div class="stat-label">Blueprint Time</div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN APP -->
-  <main class="app">
+  <!-- MAIN LAYOUT -->
+  <main class="main-layout" role="main">
 
     <!-- GOAL SELECTOR -->
-    <section class="panel" id="panel-goals">
-      <div class="panel-header">
-        <h2 class="panel-title">Select a Marketing Goal</h2>
-        <div class="filter-row">
-          <input type="search" id="goal-search" class="search-input" placeholder="Search goals..." aria-label="Search marketing goals" />
-          <div class="category-filters" id="category-filters" role="group" aria-label="Filter by category"></div>
+    <aside class="goal-panel" aria-label="Marketing goal selector">
+      <div class="goal-panel-head">
+        <div class="goal-panel-title">Select a Goal</div>
+        <div class="search-wrap">
+          <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="search" id="goal-search" placeholder="Search goals…" aria-label="Search marketing goals" autocomplete="off">
         </div>
+        <div id="category-filters" class="category-filters" role="group" aria-label="Filter by category"></div>
       </div>
-      <div class="goals-grid" id="goals-grid" role="list"></div>
-    </section>
+      <div id="goals-grid" role="list" aria-label="Marketing goals list"></div>
+    </aside>
 
     <!-- BLUEPRINT OUTPUT -->
-    <section class="panel" id="panel-blueprint" aria-live="polite">
-      <div class="panel-header">
-        <h2 class="panel-title">Blueprint</h2>
-        <div class="blueprint-actions" id="blueprint-actions" style="display:none">
-          <button class="btn btn-ghost" id="btn-copy" type="button">Copy</button>
-          <button class="btn btn-ghost" id="btn-reset" type="button">New Goal</button>
+    <section class="blueprint-panel" aria-label="Blueprint output">
+      <div class="blueprint-panel-head">
+        <div class="bp-panel-title">AI Marketing Blueprint</div>
+        <div id="blueprint-actions" role="toolbar" aria-label="Blueprint actions">
+          <button class="bp-btn" id="btn-copy" type="button">Copy</button>
+          <button class="bp-btn" id="btn-reset" type="button">Reset</button>
         </div>
       </div>
-      <div id="blueprint-empty" class="empty-state">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-          <rect x="8" y="12" width="32" height="28" rx="3" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-          <line x1="14" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-          <line x1="14" y1="26" x2="28" y2="26" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-          <line x1="14" y1="32" x2="22" y2="32" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
-        </svg>
-        <p>Select a marketing goal to generate your blueprint.</p>
+      <div class="blueprint-body">
+        <div id="blueprint-empty" aria-live="polite">
+          <div class="empty-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <div class="empty-title">Select a marketing goal</div>
+          <p class="empty-sub">Choose any goal from the left panel to generate your AI agent team and execution blueprint.</p>
+        </div>
+        <div id="blueprint-output" aria-live="polite"></div>
       </div>
-      <div id="blueprint-output" class="blueprint-output" style="display:none"></div>
     </section>
 
   </main>
 
-  <!-- ARCHITECTURE SECTION -->
-  <section class="architecture-section">
-    <div class="arch-inner">
-      <h2 class="arch-title">How It Works</h2>
-      <div class="arch-steps">
-        <div class="arch-step">
-          <div class="step-num">01</div>
-          <div class="step-body">
-            <h3>Select a Goal</h3>
-            <p>Choose from 50 marketing goals across 8 categories — from paid social campaigns to competitive intelligence.</p>
-          </div>
-        </div>
-        <div class="arch-step">
-          <div class="step-num">02</div>
-          <div class="step-body">
-            <h3>Graph Resolves Skills</h3>
-            <p>The 368-node Skills Tree graph maps your goal to the exact AI skills required, with prerequisite chains.</p>
-          </div>
-        </div>
-        <div class="arch-step">
-          <div class="step-num">03</div>
-          <div class="step-body">
-            <h3>Blueprint Assembled</h3>
-            <p>An AI agent team spec, channel allocation, KPI targets, and 30-day execution plan are generated instantly.</p>
-          </div>
-        </div>
-        <div class="arch-step">
-          <div class="step-num">04</div>
-          <div class="step-body">
-            <h3>Ship or Fork</h3>
-            <p>Export the blueprint, fork the repo, or deploy your own Marketing AI OS on Vercel in minutes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <span>Built on <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer">Skills Tree</a> — AI Engineering Operating System</span>
-      <span>INITIATIVE-020 — It's Today Media Build Challenge 2026</span>
-    </div>
+  <footer class="site-footer" role="contentinfo">
+    <p class="footer-text">Marketing AI OS · Powered by Skills Tree · INITIATIVE-020</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="https://github.com/SamoTech/skills-tree" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://github.com/SamoTech/skills-tree/blob/main/meta/MARKETING_OS_VISION.md" target="_blank" rel="noopener noreferrer">Vision Doc</a>
+      <a href="https://github.com/SamoTech/skills-tree/blob/main/meta/COMPETITION_SUBMISSION_README.md" target="_blank" rel="noopener noreferrer">Submission</a>
+    </nav>
   </footer>
 
-  <script src="./app.js"></script>
+</div>
+<script src="./app.js"></script>
 </body>
 </html>

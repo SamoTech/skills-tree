@@ -1,191 +1,124 @@
-# MEDIA BUYING AGENT ARCHITECTURE
+# MEDIA_BUYING_AGENT_ARCHITECTURE.md
 
-_Initiative: INITIATIVE-020 | Date: 2026-06-24_
+> Initiative: INITIATIVE-020  
+> Created: 2026-06-24  
+> Status: REFERENCE
 
 ---
 
 ## Overview
 
-A media buying AI agent team is a multi-agent system where specialist agents cover distinct phases of a paid advertising campaign: strategy, audience, creative, bidding, and measurement. This document specifies the canonical architecture, agent roles, skill requirements, communication protocol, and tool contracts.
+A media buying AI agent team is a **multi-agent system** where each agent owns a distinct phase of the campaign lifecycle. The supervisor orchestrates handoffs; specialist agents execute bounded tasks; the evaluator closes the feedback loop.
 
 ---
 
-## Agent Team Structure
+## Agent Roles
 
-```
-┌──────────────────────────────┐
-│     CAMPAIGN ORCHESTRATOR         │  ← Supervisor agent
-└──────────────────────────────┘
-         │           │            │
-    ┌───┴───┐   ┌─┴───┐   ┌───┴───┐
-    │AUDIENCE │   │CREATIVE│   │ BIDDING │
-    │ ANALYST │   │ TESTER │   │STRATEGIST│
-    └────────┘   └───────┘   └───────┘
-                                    │
-                              ┌───┴───┐
-                              │PERFORMANCE│
-                              │ ANALYST   │
-                              └────────┘
-```
+### 1. Campaign Orchestrator (Supervisor)
+- **Role:** Plans the campaign, assigns tasks, routes outputs
+- **Pattern:** Supervisor agent (LangGraph `StateGraph` or AutoGen `GroupChat`)
+- **Skills:** `multi-agent-orchestration`, `task-decomposition`, `planning`
+- **Trigger:** User goal input
+- **Output:** Task queue dispatched to specialist agents
 
----
+### 2. Audience Analyst (Specialist)
+- **Role:** Builds audience segments, lookalikes, exclusions
+- **Pattern:** Tool-calling agent with access to platform APIs
+- **Skills:** `audience-segmentation`, `embedding-generation`, `data-analysis`
+- **Input:** Campaign brief, first-party data
+- **Output:** Audience segment definitions (JSON)
 
-## Agent Role Specifications
+### 3. Creative Strategist (Specialist)
+- **Role:** Generates creative briefs, copy variants, hook frameworks
+- **Pattern:** RAG-augmented generation agent
+- **Skills:** `creative-testing`, `summarization`, `rag`
+- **Input:** Audience segments, product context
+- **Output:** Creative brief + 5 copy variants per format
 
-### Agent 1 — Campaign Orchestrator
+### 4. Bidding Strategist (Specialist)
+- **Role:** Sets bid strategy, budget allocation, pacing rules
+- **Pattern:** Reasoning agent with structured output
+- **Skills:** `bid-optimization`, `data-analysis`, `reasoning`
+- **Input:** KPI targets, historical ROAS data
+- **Output:** Bid strategy config (JSON)
 
-| Property | Value |
-|---|---|
-| **Role** | Supervisor / Planner |
-| **Responsibility** | Receives campaign goal, decomposes into tasks, assigns to specialist agents, aggregates outputs into final blueprint |
-| **Required Skills** | `task-decomposition`, `multi-agent-orchestration`, `planning`, `handoff` |
-| **Inputs** | Marketing goal, budget, timeline, platform mix |
-| **Outputs** | Task assignment manifest, final campaign blueprint |
-| **Tools** | Goal parser, Blueprint assembler, Handoff protocol |
-
-### Agent 2 — Audience Analyst
-
-| Property | Value |
-|---|---|
-| **Role** | Audience Specialist |
-| **Responsibility** | Builds audience segmentation strategy: cold, warm, and retargeting layers. Outputs audience spec with platform-specific configuration. |
-| **Required Skills** | `audience-segmentation`, `embedding-generation`, `data-analysis`, `reasoning` |
-| **Inputs** | Product description, target persona, platform |
-| **Outputs** | Audience spec: cold traffic tiers, lookalike seeds, retargeting windows, exclusion lists |
-| **Tools** | Persona builder, Lookalike calculator, Exclusion recommender |
-
-### Agent 3 — Creative Tester
-
-| Property | Value |
-|---|---|
-| **Role** | Creative Specialist |
-| **Responsibility** | Designs A/B testing matrix for ad creatives. Specifies variable isolation, test duration, minimum significance threshold, and promotion criteria. |
-| **Required Skills** | `creative-testing`, `data-analysis`, `summarization`, `intent-classification` |
-| **Inputs** | Audience spec, platform, product offer |
-| **Outputs** | Creative testing matrix: format variants, hook variants, CTA variants, test schedule |
-| **Tools** | Creative matrix builder, Statistical significance calculator, Fatigue detector |
-
-### Agent 4 — Bidding Strategist
-
-| Property | Value |
-|---|---|
-| **Role** | Bid & Budget Specialist |
-| **Responsibility** | Recommends bidding strategy, daily budget allocation across ad sets, scaling triggers, and kill thresholds. |
-| **Required Skills** | `bid-optimization`, `data-analysis`, `reasoning`, `audit-logging` |
-| **Inputs** | Total budget, campaign objective, target CPA or ROAS |
-| **Outputs** | Bid strategy spec: bid type, budget allocation per ad set, scaling rules, kill rules |
-| **Tools** | Budget allocator, Scaling rule generator, Threshold calculator |
-
-### Agent 5 — Performance Analyst
-
-| Property | Value |
-|---|---|
-| **Role** | Measurement & Reporting Specialist |
-| **Responsibility** | Defines KPI framework, reporting cadence, attribution model, and generates performance summaries. |
-| **Required Skills** | `data-analysis`, `summarization`, `rag`, `audit-logging` |
-| **Inputs** | Campaign objectives, platform data (simulated or live) |
-| **Outputs** | KPI dashboard spec, attribution model recommendation, weekly reporting template |
-| **Tools** | KPI selector, Attribution modeler, Report generator |
+### 5. Performance Evaluator (Evaluator)
+- **Role:** Reviews live data, triggers optimizations, escalates anomalies
+- **Pattern:** Reflection agent on scheduled cadence
+- **Skills:** `data-analysis`, `audit-logging`, `reflection`
+- **Input:** Platform performance reports
+- **Output:** Optimization action list or escalation to Orchestrator
 
 ---
 
-## Workflow Protocol
+## Handoff Protocol
 
-```
-STEP 1: Orchestrator receives goal
-  ↓
-STEP 2: Orchestrator calls Audience Analyst → returns audience_spec
-  ↓
-STEP 3: Orchestrator calls Creative Tester (with audience_spec) → returns creative_matrix
-  ↓
-STEP 4: Orchestrator calls Bidding Strategist (with budget + objective) → returns bid_spec
-  ↓
-STEP 5: Orchestrator calls Performance Analyst (with objectives) → returns kpi_spec
-  ↓
-STEP 6: Orchestrator assembles Blueprint from {audience_spec + creative_matrix + bid_spec + kpi_spec}
-  ↓
-STEP 7: Blueprint rendered in Marketing OS UI
-```
-
----
-
-## Communication Schema
-
-All inter-agent messages use a typed handoff envelope:
+All inter-agent messages use a typed envelope:
 
 ```json
 {
   "from": "campaign-orchestrator",
   "to": "audience-analyst",
-  "task_id": "media-buying-001",
+  "task": "build_audience_segment",
   "payload": {
-    "goal": "Launch DTC skincare brand on Meta",
-    "budget_daily_usd": 500,
-    "platform": "meta",
-    "objective": "purchase",
-    "timeline_days": 30
+    "goal": "cold-traffic-prospecting",
+    "budget_usd": 5000,
+    "kpi_target": { "roas": 3.0, "cpa": 45 }
   },
-  "expected_output": "audience_spec"
+  "context_window": "conversation_id_xyz"
 }
 ```
 
 ---
 
-## Skills Graph Mapping
-
-Every agent role maps to specific skill nodes in `SKILLS_GRAPH.json`:
-
-| Agent | Primary Skill Node | Connected Nodes |
-|---|---|---|
-| Campaign Orchestrator | `multi-agent-orchestration` | `task-decomposition`, `planning`, `handoff` |
-| Audience Analyst | `audience-segmentation` | `embedding-generation`, `data-analysis` |
-| Creative Tester | `creative-testing` | `data-analysis`, `intent-classification` |
-| Bidding Strategist | `bid-optimization` | `data-analysis`, `audit-logging` |
-| Performance Analyst | `data-analysis` | `summarization`, `rag`, `audit-logging` |
-
----
-
-## Output Contract — Media Buying Blueprint
+## Orchestration Pattern
 
 ```
-MEDIA BUYING BLUEPRINT
-══════════════════════
-■ Goal:              [campaign goal]
-■ Platform:          [platform mix]
-■ Daily Budget:      $[X]
-■ Timeline:          [N] days
-
-■ Audience Layer
-  - Cold Traffic:     [audience description]
-  - Lookalike:        [seed + % range]
-  - Retargeting:      [window + exclusions]
-
-■ Creative Matrix
-  - Formats:          [static / video / carousel]
-  - Hook Variants:    [N hooks to test]
-  - CTA Variants:     [N CTAs to test]
-  - Test Duration:    [N days per variant]
-
-■ Bidding Strategy
-  - Bid Type:         [lowest cost / cost cap / bid cap]
-  - Daily Budget:     $[X] per ad set
-  - Scale Trigger:    [rule]
-  - Kill Threshold:   [rule]
-
-■ KPIs
-  - Primary:          [CPA / ROAS target]
-  - Secondary:        [CTR, CPM benchmarks]
-  - Reporting:        [cadence]
-
-■ Required AI Skills
-  [Ranked skill list with links to skill detail pages]
+User Goal
+    │
+    ▼
+Campaign Orchestrator
+    │
+    ├──► Audience Analyst ──────► Segment JSON
+    │
+    ├──► Creative Strategist ───► Brief + Copy
+    │
+    ├──► Bidding Strategist ────► Bid Config
+    │
+    └──► Performance Evaluator ─► Optimization Loop
+            │
+            └──► (feedback) ──► Campaign Orchestrator
 ```
 
 ---
 
-## Reuse from Existing Architecture
+## Recommended Stack
 
-- `BLUEPRINT_CATALOG_V2.md` established the 50-goal scaffold; this document extends the pattern to marketing domain
-- `BLUEPRINT_SCHEMA.md` defines the output contract; Media Buying Blueprint follows same structure
-- `docs/blueprints/` hosts existing blueprint files; `docs/marketing-os/` hosts the marketing UI
-- `SKILLS_GRAPH.json` is the unchanged data source; marketing domain adds label filters, not new nodes
+| Layer | Tool | Notes |
+|-------|------|-------|
+| Orchestration | LangGraph or AutoGen | Stateful multi-agent graph |
+| LLM Backbone | GPT-4o or Claude 3.5 Sonnet | Reasoning + tool calls |
+| Memory | Upstash Redis | Shared state across agents |
+| Data Pipeline | Python + pandas | Performance data ingestion |
+| Platform APIs | Meta Marketing API, Google Ads API | Live data access |
+| Observability | LangSmith or Helicone | Trace all agent calls |
+
+---
+
+## KPI Targets by Campaign Type
+
+| Campaign Type | ROAS Target | CPA Target | CTR Floor | CPM Ceiling |
+|---------------|-------------|------------|-----------|-------------|
+| Cold Traffic | ≥ 2.5× | < $60 | 1.2% | $15 |
+| Retargeting | ≥ 5.0× | < $25 | 2.5% | $18 |
+| Brand Awareness | N/A | N/A | 0.8% | $8 |
+| Lead Gen (B2B) | N/A | < $120 | 0.5% | $25 |
+
+---
+
+## Deployment Notes
+
+- All agent state persists in Redis (Upstash serverless tier sufficient for prototype)
+- Evaluator agent runs on a cron schedule (every 6 hours for active campaigns)
+- Supervisor pattern prevents agent loops with a `max_turns: 10` hard limit
+- All agent outputs are logged to `audit-log.jsonl` for compliance
