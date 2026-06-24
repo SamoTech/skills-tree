@@ -1,10 +1,11 @@
 /* Blueprint Generator app.js
- * Initiative: INITIATIVE-012C
+ * Initiative: INITIATIVE-014A.2 (expanded from INITIATIVE-012C)
  * No backend. No AI inference. Pure graph evidence.
- * schema_version: 3.1 | Goals: 25
+ * schema_version: 3.1 | Goals: 50
  */
 
 const GOALS = [
+  // --- ORIGINAL 25 ---
   {id:"customer-support-agent",title:"AI Customer Support Agent",desc:"An agent that handles customer inquiries, resolves tickets, and escalates edge cases automatically.",categories:["09-agentic-patterns","07-tool-use","06-communication","03-memory"],keywords:["support","customer","ticket","chat","helpdesk","escalation","faq"]},
   {id:"rag-assistant",title:"RAG Assistant",desc:"Retrieval-augmented assistant that answers questions grounded in a private document corpus.",categories:["09-agentic-patterns","03-memory","07-tool-use","01-perception"],keywords:["rag","retrieval","documents","knowledge","qa","search","vector","embedding"]},
   {id:"research-agent",title:"Research Agent",desc:"Autonomous agent that searches, synthesizes, and summarizes information from the web and internal sources.",categories:["09-agentic-patterns","11-web","07-tool-use","02-reasoning","06-communication"],keywords:["research","search","web","synthesis","report","literature","analysis"]},
@@ -29,20 +30,47 @@ const GOALS = [
   {id:"content-creator",title:"Content Creation Agent",desc:"Agent that researches, outlines, drafts, and optimizes content for blogs, social media, and marketing.",categories:["06-communication","11-web","09-agentic-patterns","07-tool-use"],keywords:["content","blog","social","seo","marketing","writing","copywriting","brand","campaign"]},
   {id:"testing-agent",title:"Automated Testing Agent",desc:"Agent that generates test suites, runs them, interprets failures, and patches the code automatically.",categories:["05-code","09-agentic-patterns","07-tool-use","02-reasoning"],keywords:["testing","test","qa","unit","integration","coverage","automation","ci","regression"]},
   {id:"data-pipeline-agent",title:"Data Pipeline Agent",desc:"Agent that designs, builds, monitors, and repairs ETL/ELT data pipelines automatically.",categories:["05-code","07-tool-use","04-action-execution","09-agentic-patterns"],keywords:["etl","pipeline","data","ingestion","transformation","airflow","dbt","spark","warehouse"]},
-  {id:"customer-onboarding",title:"Customer Onboarding Agent",desc:"Guided agent that walks new users through product setup, configuration, and first value moment.",categories:["06-communication","09-agentic-patterns","07-tool-use","03-memory"],keywords:["onboarding","setup","guide","tutorial","user","product","activation","welcome"]}
+  {id:"customer-onboarding",title:"Customer Onboarding Agent",desc:"Guided agent that walks new users through product setup, configuration, and first value moment.",categories:["06-communication","09-agentic-patterns","07-tool-use","03-memory"],keywords:["onboarding","setup","guide","tutorial","user","product","activation","welcome"]},
+  // --- NEW 25 (INITIATIVE-014A.2) ---
+  {id:"sql-agent",title:"SQL / Database Agent",desc:"Agent that translates natural language questions into SQL, executes queries, and explains results over any relational database.",categories:["05-code","02-reasoning","07-tool-use","09-agentic-patterns"],keywords:["sql","database","query","natural language","postgres","mysql","text-to-sql","schema","db"]},
+  {id:"devops-agent",title:"DevOps Automation Agent",desc:"Agent that manages CI/CD pipelines, provisions infrastructure, handles deployments, and responds to incidents.",categories:["07-tool-use","04-action-execution","05-code","09-agentic-patterns"],keywords:["devops","cicd","deployment","infrastructure","kubernetes","docker","terraform","github actions","incident"]},
+  {id:"image-analysis-agent",title:"Image Analysis Agent",desc:"Agent that ingests images, performs visual question answering, extracts text, detects objects, and generates image descriptions.",categories:["08-multimodal","01-perception","09-agentic-patterns","02-reasoning"],keywords:["image","vision","vqa","ocr","object detection","multimodal","gpt-4v","claude","visual"]},
+  {id:"meeting-intelligence",title:"Meeting Intelligence Agent",desc:"Agent that transcribes meetings, extracts action items, generates summaries, and distributes follow-ups automatically.",categories:["08-multimodal","06-communication","07-tool-use","03-memory"],keywords:["meeting","transcription","summary","action items","notetaker","zoom","teams","calendar","follow-up"]},
+  {id:"competitive-intelligence",title:"Competitive Intelligence Agent",desc:"Agent that continuously monitors competitors, tracks product changes, pricing, and news, and surfaces insights to stakeholders.",categories:["11-web","09-agentic-patterns","02-reasoning","06-communication"],keywords:["competitive","intelligence","monitoring","competitor","pricing","market","tracking","news","business"]},
+  {id:"medical-triage-agent",title:"Medical Triage Agent",desc:"Clinical decision-support agent that assesses symptoms, suggests differential diagnoses, and recommends next steps within safe guardrails.",categories:["02-reasoning","09-agentic-patterns","06-communication","01-perception"],keywords:["medical","clinical","triage","symptoms","diagnosis","health","ehr","patient","care"]},
+  {id:"legal-research-agent",title:"Legal Research Agent",desc:"Agent that searches case law, statutes, and regulations, extracts precedents, and drafts legal memos.",categories:["11-web","01-perception","02-reasoning","06-communication"],keywords:["legal","law","case","statute","regulation","research","brief","memo","compliance"]},
+  {id:"supply-chain-agent",title:"Supply Chain Intelligence Agent",desc:"Agent that monitors suppliers, tracks shipments, detects disruption risks, and recommends mitigation strategies.",categories:["07-tool-use","02-reasoning","09-agentic-patterns","11-web"],keywords:["supply chain","logistics","supplier","shipment","inventory","disruption","procurement","erp"]},
+  {id:"hr-screening-agent",title:"HR Screening Agent",desc:"Agent that screens resumes, schedules interviews, generates candidate summaries, and manages the hiring pipeline.",categories:["01-perception","06-communication","07-tool-use","09-agentic-patterns"],keywords:["hr","hiring","resume","screening","interview","recruitment","candidate","ats","talent"]},
+  {id:"social-listening-agent",title:"Social Listening Agent",desc:"Agent that monitors social media for brand mentions, sentiment shifts, and trending topics, and generates response recommendations.",categories:["11-web","02-reasoning","06-communication","09-agentic-patterns"],keywords:["social media","listening","sentiment","brand","twitter","reddit","monitoring","reputation","crisis"]},
+  {id:"incident-response-agent",title:"Incident Response Agent",desc:"Agent that detects production incidents, diagnoses root causes using logs and traces, and executes runbook remediation.",categories:["07-tool-use","02-reasoning","04-action-execution","09-agentic-patterns"],keywords:["incident","response","runbook","postmortem","sre","pagerduty","logs","tracing","root cause"]},
+  {id:"email-triage-agent",title:"Email Triage Agent",desc:"Agent that reads, categorizes, prioritizes, and drafts responses to high-volume inboxes.",categories:["06-communication","09-agentic-patterns","07-tool-use","02-reasoning"],keywords:["email","inbox","triage","gmail","outlook","priority","draft","reply","categorize"]},
+  {id:"ecommerce-agent",title:"E-Commerce Operations Agent",desc:"Agent that manages product listings, handles returns, monitors inventory, and responds to customer inquiries across marketplaces.",categories:["07-tool-use","09-agentic-patterns","06-communication","04-action-execution"],keywords:["ecommerce","shopify","amazon","product","listing","inventory","returns","marketplace","orders"]},
+  {id:"educational-tutor-agent",title:"Educational Tutor Agent",desc:"Adaptive tutor agent that assesses student knowledge, generates personalized lessons, gives feedback, and tracks progress.",categories:["06-communication","02-reasoning","03-memory","09-agentic-patterns"],keywords:["education","tutor","learning","student","adaptive","quiz","feedback","curriculum","teaching"]},
+  {id:"news-digest-agent",title:"News Digest Agent",desc:"Agent that curates, summarizes, and delivers personalized news digests from hundreds of sources on a configurable schedule.",categories:["11-web","06-communication","03-memory","09-agentic-patterns"],keywords:["news","digest","newsletter","curation","rss","summarization","personalized","briefing"]},
+  {id:"graph-rag-agent",title:"Graph RAG Agent",desc:"Advanced retrieval agent that combines knowledge graphs with vector search for multi-hop, relationship-aware question answering.",categories:["09-agentic-patterns","03-memory","02-reasoning","07-tool-use"],keywords:["graph rag","knowledge graph","graphrag","multi-hop","reasoning","neo4j","entity","relationship","retrieval"]},
+  {id:"agentic-ide",title:"Agentic IDE / Code Copilot",desc:"Embedded agent in a developer's IDE that autocompletes code, explains errors, refactors on demand, and manages file edits autonomously.",categories:["05-code","09-agentic-patterns","07-tool-use","02-reasoning"],keywords:["ide","copilot","autocomplete","vscode","cursor","code","refactor","explain","edit"]},
+  {id:"video-analysis-agent",title:"Video Analysis Agent",desc:"Agent that processes video content, extracts key frames, transcribes audio, identifies events, and generates structured summaries.",categories:["08-multimodal","01-perception","02-reasoning","06-communication"],keywords:["video","analysis","transcription","frames","events","youtube","multimodal","highlights","summary"]},
+  {id:"api-integration-agent",title:"API Integration Agent",desc:"Agent that reads API documentation, writes integration code, tests endpoints, and monitors API health automatically.",categories:["05-code","07-tool-use","09-agentic-patterns","11-web"],keywords:["api","integration","openapi","swagger","rest","webhook","sdk","authentication","testing"]},
+  {id:"prompt-engineering-agent",title:"Prompt Engineering Agent",desc:"Meta-agent that iteratively generates, tests, scores, and refines prompts for a target task using automated evaluation loops.",categories:["09-agentic-patterns","02-reasoning","05-code","07-tool-use"],keywords:["prompt","engineering","optimization","dspy","few-shot","chain of thought","evaluation","llm","meta"]},
+  {id:"real-estate-agent",title:"Real Estate Analysis Agent",desc:"Agent that searches listings, compares properties, estimates valuations, and generates investment analysis reports.",categories:["11-web","02-reasoning","06-communication","07-tool-use"],keywords:["real estate","property","listing","valuation","investment","zillow","market","analysis","mortgage"]},
+  {id:"climate-data-agent",title:"Climate & Environmental Data Agent",desc:"Agent that aggregates climate datasets, runs scenario models, and produces environmental impact reports for ESG compliance.",categories:["02-reasoning","05-code","07-tool-use","06-communication"],keywords:["climate","environment","esg","carbon","sustainability","data","emissions","reporting","model"]},
+  {id:"recipe-meal-planner",title:"Recipe & Meal Planning Agent",desc:"Agent that generates personalized meal plans, creates shopping lists, adapts recipes to dietary restrictions, and tracks nutrition.",categories:["06-communication","02-reasoning","03-memory","07-tool-use"],keywords:["recipe","meal","nutrition","diet","planning","cooking","food","grocery","health"]},
+  {id:"threat-intelligence-agent",title:"Cyber Threat Intelligence Agent",desc:"Agent that monitors threat feeds, correlates indicators of compromise, scores risk levels, and generates security briefings.",categories:["14-security","11-web","02-reasoning","09-agentic-patterns"],keywords:["threat","intelligence","cyber","ioc","cve","siem","mitre","attack","security","risk"]},
+  {id:"translation-localization",title:"Translation & Localization Agent",desc:"Agent that translates content across languages, adapts tone and cultural context, and manages localization pipelines at scale.",categories:["06-communication","09-agentic-patterns","07-tool-use","02-reasoning"],keywords:["translation","localization","i18n","l10n","language","multilingual","cultural","content","global"]}
 ];
 
 const CAT_NAMES = {
   "00-sandbox":"Sandbox","01-perception":"Perception","02-reasoning":"Reasoning",
   "03-memory":"Memory","04-action-execution":"Action","05-code":"Code",
   "06-communication":"Communication","07-tool-use":"Tools","08-multimodal":"Multimodal",
-  "09-agentic-patterns":"Agentic Patterns","10-computer-use":"Computer Use","11-web":"Web"
+  "09-agentic-patterns":"Agentic Patterns","10-computer-use":"Computer Use","11-web":"Web",
+  "14-security":"Security"
 };
 
 const CAT_ORDER = [
   "01-perception","02-reasoning","03-memory","04-action-execution",
   "05-code","06-communication","07-tool-use","08-multimodal",
-  "09-agentic-patterns","10-computer-use","11-web"
+  "09-agentic-patterns","10-computer-use","11-web","14-security"
 ];
 
 let graphData = null;
@@ -74,15 +102,32 @@ function initTheme() {
   });
 }
 
-function loadGraph() {
-  fetch("../../data/SKILLS_GRAPH.json")
-    .then(r => r.json())
-    .then(data => {
-      graphData = data;
-      nodeMap = {};
-      for (const node of data.nodes) nodeMap[node.id] = node;
-    })
-    .catch(() => { /* graceful degradation — catalog data is sufficient */ });
+function getGraphUrl() {
+  const host = window.location.hostname;
+  if (host === 'localhost' || host === '127.0.0.1') {
+    return '../../data/SKILLS_GRAPH.json';
+  }
+  return '/skills-tree/data/SKILLS_GRAPH.json';
+}
+
+const GRAPH_URL = getGraphUrl();
+console.info('GRAPH URL (blueprints):', GRAPH_URL);
+
+async function loadGraph() {
+  try {
+    const response = await fetch(GRAPH_URL);
+    if (!response.ok) throw new Error(`HTTP ${response.status}: ${GRAPH_URL}`);
+    const data = await response.json();
+    if (!data || !Array.isArray(data.nodes)) throw new Error('Invalid graph schema');
+    graphData = data;
+    nodeMap = {};
+    for (const node of data.nodes) nodeMap[node.id] = node;
+    console.info('NODES:', data.nodes.length);
+    console.info('EDGES:', (data.edges||[]).length);
+  } catch (err) {
+    console.error('Graph load failed (blueprints):', err);
+    // graceful degradation — catalog data alone is sufficient
+  }
 }
 
 function checkDeepLink() {
@@ -195,7 +240,7 @@ function generateBlueprint(goal) {
   const difficulty = advCount > skills.length*0.4 ? "advanced" : advCount > skills.length*0.15 ? "intermediate" : "beginner";
   const weeks = Math.max(2, Math.round(totalW * 0.8));
   const categories = [...new Set(skills.map(s => s.category))].sort((a,b) => CAT_ORDER.indexOf(a)-CAT_ORDER.indexOf(b));
-  return {id:goal.id,goal:goal.title,summary:goal.desc,skills,learningPath,categories,difficulty,estimatedTime:`${Math.max(2,weeks-1)}–${weeks+2} weeks`,version:"1.0",generatedAt:new Date().toISOString()};
+  return {id:goal.id,goal:goal.title,summary:goal.desc,skills,learningPath,categories,difficulty,estimatedTime:`${Math.max(2,weeks-1)}-${weeks+2} weeks`,version:"1.1",generatedAt:new Date().toISOString()};
 }
 
 function reasonForSkill(node, goal) {
@@ -289,7 +334,7 @@ function exportMarkdown() {
 function shareBlueprint() {
   const url = new URL(location.href);
   if (currentBlueprint) url.searchParams.set("goal", currentBlueprint.id);
-  navigator.clipboard.writeText(url.toString()).then(()=>showToast("Share URL copied")).catch(()=>showToast("URL: "+url.toString()));
+  navigator.clipboard.writeText(url.toString()).then(()=>showToast("Share URL copied!")).catch(()=>showToast("URL: "+url.toString()));
 }
 
 let toastTimer = null;
