@@ -7,18 +7,15 @@
 
 # Skills Tree
 
-<!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — June 22, 2026
+### AI Engineering Operating System
 
-> No skill changes this week. Open a PR to get started!
+**The largest open, dependency-mapped knowledge graph for AI agents.**
 
-<!-- HIGHLIGHTS_END -->
+| 368 Skills | 780+ Connections | MIT Licensed |
+|:---:|:---:|:---:|
+| Versioned & benchmarked | Dependency-mapped | Community-governed |
 
-
-### The AI Agent Skill OS — Build Smarter Agents, Faster
-
-> **367 skills across 17 categories. Versioned, benchmarked, and openly evolving.**  
-> The shared operating system for AI agent capabilities — stop rediscovering, start building on what the community has already proven.
+**[▶ Explore Skills →](https://samotech.github.io/skills-tree/explorer/)  ·  [▶ Generate Blueprint →](https://samotech.github.io/skills-tree/blueprints/)  ·  [▶ GitHub Repository →](https://github.com/SamoTech/skills-tree)**
 
 <!-- BADGES_START -->
 [![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white&label=PyPI)](https://pypi.org/project/skills-tree/)
@@ -35,6 +32,8 @@
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
 [![Contributors](https://img.shields.io/github/contributors/SamoTech/skills-tree?style=for-the-badge&color=f59e0b&logo=github)](https://github.com/SamoTech/skills-tree/graphs/contributors)
 [![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](CONTRIBUTING.md)
+
+> **Response SLA:** Issues `<72h` · Pull Requests `<7 days` · Governance Reviews `<5 days`
 
 **[🌐 Live Docs](https://samotech.github.io/skills-tree) · [📦 PyPI](https://pypi.org/project/skills-tree/) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 

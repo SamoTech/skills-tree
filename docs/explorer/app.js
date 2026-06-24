@@ -1,11 +1,11 @@
 /* ============================================================
-   INITIATIVE-012C — Explorer Productization
+   INITIATIVE-014A3 — Explorer V2 + Shareable URLs
    AI Engineering Operating System — Skills Explorer
    ============================================================ */
 
 'use strict';
 
-/* ------ Phase 2: Category normalization map (sandbox hidden) ------ */
+/* ------ Category normalization map ------ */
 const CAT_LABELS = {
   '01-perception':            'Perception',
   '02-reasoning':             'Reasoning',
@@ -24,7 +24,6 @@ const CAT_LABELS = {
   '15-orchestration':         'Orchestration',
   '16-domain-specific':       'Domain Specific',
   '17-infrastructure':        'Infrastructure',
-  // 00-sandbox intentionally omitted — hidden per spec
 };
 
 function catLabel(raw) {
@@ -37,7 +36,7 @@ function catLabel(raw) {
   return raw;
 }
 
-/* ------ Phase 2: path normalization (INITIATIVE-012B1 retained) ------ */
+/* ------ Path normalization (INITIATIVE-012B1) ------ */
 function getGraphUrl() {
   const h = window.location.hostname;
   if (h === 'localhost' || h === '127.0.0.1') {
@@ -70,7 +69,152 @@ let selectedId     = null;
 let _toastTimer    = null;
 
 /* ============================================================
-   Phase 3 — Dependency Index Builder
+   PHASE 3 — Featured Skills & Popular Paths (V2)
+   ============================================================ */
+const FEATURED_SKILLS = [
+  { id: '09-agentic-patterns/react',           label: 'ReAct',             emoji: '🔄' },
+  { id: '03-memory/rag',                       label: 'RAG',               emoji: '🗄️' },
+  { id: '09-agentic-patterns/reflection',      label: 'Reflection',        emoji: '🪞' },
+  { id: '09-agentic-patterns/lats',            label: 'LATS',              emoji: '🌳' },
+  { id: '07-tool-use/function-calling',        label: 'Function Calling',  emoji: '🔧' },
+  { id: '09-agentic-patterns/tool-use-loop',   label: 'Tool Use Loop',     emoji: '⚙️' },
+  { id: '02-reasoning/task-decomposition',     label: 'Goal Decomposition',emoji: '🎯' },
+  { id: '02-reasoning/planning',               label: 'Plan & Execute',    emoji: '📋' },
+];
+
+const POPULAR_PATHS = [
+  {
+    name: 'RAG Engineer',
+    skills: ['03-memory/rag', '12-data/embedding-generation', '03-memory/vector-store-retrieval', '03-memory/memory-injection'],
+  },
+  {
+    name: 'Coding Agent',
+    skills: ['09-agentic-patterns/react', '05-code/code-generation', '07-tool-use/function-calling', '09-agentic-patterns/reflection'],
+  },
+  {
+    name: 'Research Agent',
+    skills: ['11-web/web-search', '03-memory/rag', '02-reasoning/task-decomposition', '06-communication/summarization'],
+  },
+  {
+    name: 'Multi-Agent Systems',
+    skills: ['15-orchestration/multi-agent', '09-agentic-patterns/react', '07-tool-use/function-calling', '02-reasoning/planning'],
+  },
+  {
+    name: 'Evaluation Specialist',
+    skills: ['09-agentic-patterns/reflection', '02-reasoning/self-consistency', '09-agentic-patterns/lats', '02-reasoning/task-decomposition'],
+  },
+];
+
+function renderDiscoveryPanel() {
+  const $panel = document.getElementById('discovery-panel');
+  if (!$panel) return;
+
+  /* Featured Skills strip */
+  const featuredItems = FEATURED_SKILLS.map(f => {
+    const node = Object.values(nodeMap).find(n =>
+      n.id === f.id ||
+      n.id.endsWith('/' + f.id.split('/').pop()) ||
+      (n.id || '').toLowerCase().includes(f.id.split('/').pop())
+    );
+    const resolvedId = node ? node.id : null;
+    return `<button class="featured-chip${resolvedId ? '' : ' featured-chip-disabled'}" 
+      data-nav="${escHtml(resolvedId || '')}" 
+      title="${escHtml(f.label)}"
+      ${resolvedId ? '' : 'disabled'}>
+      <span class="featured-emoji">${f.emoji}</span>
+      <span class="featured-label">${escHtml(f.label)}</span>
+    </button>`;
+  }).join('');
+
+  /* Popular Paths */
+  const pathItems = POPULAR_PATHS.map((path, pi) => {
+    const steps = path.skills.map((sid, i) => {
+      const node = Object.values(nodeMap).find(n =>
+        n.id === sid || n.id.endsWith('/' + sid.split('/').pop())
+      );
+      const label = node ? (node.name || node.label || node.id) : sid.split('/').pop();
+      const nid   = node ? node.id : null;
+      return `<button class="path-step${nid ? '' : ' path-step-disabled'}" 
+        data-nav="${escHtml(nid || '')}" 
+        ${nid ? '' : 'disabled'}
+        aria-label="Navigate to ${escHtml(label)}">${i + 1}. ${escHtml(label)}</button>`;
+    }).join('<span class="path-arrow">→</span>');
+    return `<div class="path-row"><span class="path-name">${escHtml(path.name)}</span><div class="path-steps">${steps}</div></div>`;
+  }).join('');
+
+  $panel.innerHTML = `
+    <section class="discovery-section">
+      <div class="discovery-header">
+        <h3 class="discovery-title">⭐ Featured Skills</h3>
+        <button class="surprise-btn" id="btn-surprise" aria-label="Navigate to a random skill">
+          🎲 Surprise Me
+        </button>
+      </div>
+      <div class="featured-strip">${featuredItems}</div>
+    </section>
+    <section class="discovery-section">
+      <h3 class="discovery-title">🛤️ Popular Learning Paths</h3>
+      <div class="paths-list">${pathItems}</div>
+    </section>`;
+
+  /* Surprise Me */
+  document.getElementById('btn-surprise')?.addEventListener('click', () => {
+    const visible = allNodes.filter(n => !isSandbox(n));
+    if (!visible.length) return;
+    const node = visible[Math.floor(Math.random() * visible.length)];
+    selectCard(node.id);
+    scrollToCard(node.id);
+    showToast(`🎲 ${node.name || node.id}`);
+  });
+
+  /* Featured chip nav */
+  $panel.querySelectorAll('.featured-chip[data-nav]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!btn.dataset.nav) return;
+      selectCard(btn.dataset.nav);
+      scrollToCard(btn.dataset.nav);
+    });
+  });
+
+  /* Path step nav */
+  $panel.querySelectorAll('.path-step[data-nav]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!btn.dataset.nav) return;
+      selectCard(btn.dataset.nav);
+      scrollToCard(btn.dataset.nav);
+    });
+  });
+}
+
+/* ============================================================
+   PHASE 3 — Shareable #skill= URL scheme (INITIATIVE-014A3)
+   Back-compat: bare #<id> still works.
+   ============================================================ */
+function getHashSkillId() {
+  const raw = window.location.hash.slice(1);
+  if (!raw) return null;
+  if (raw.startsWith('skill=')) return decodeURIComponent(raw.slice(6));
+  return decodeURIComponent(raw); // legacy bare hash
+}
+
+function setHashSkillId(id) {
+  const encoded = encodeURIComponent(id);
+  const newHash = `#skill=${encoded}`;
+  if (window.location.hash !== newHash) {
+    history.pushState(null, '', newHash);
+  }
+}
+
+window.addEventListener('popstate', () => {
+  const id = getHashSkillId();
+  if (id && nodeMap[id]) {
+    showDetail(nodeMap[id]);
+    scrollToCard(id);
+  }
+});
+
+/* ============================================================
+   Dependency Index Builder
    ============================================================ */
 function buildDependencyIndex(graph) {
   prereqMap = {}; requiredByMap = {}; requiresOutMap = {}; relatedMap = {};
@@ -112,7 +256,7 @@ function dedup(arr) {
 }
 
 /* ============================================================
-   Resilient loader (INITIATIVE-012B1 retained)
+   Resilient loader (INITIATIVE-012B1)
    ============================================================ */
 async function loadGraph() {
   try {
@@ -219,7 +363,7 @@ function renderList() {
 }
 
 /* ============================================================
-   Category chips — Phase 2 (normalised labels, sandbox excluded)
+   Category chips
    ============================================================ */
 function buildCategoryChips(nodes) {
   const catCounts = {};
@@ -239,7 +383,7 @@ function buildCategoryChips(nodes) {
 }
 
 /* ============================================================
-   Graph Health Panel — Phase 6
+   Graph Health Panel
    ============================================================ */
 function updateHealthPanel(graph) {
   const visible = allNodes;
@@ -263,7 +407,7 @@ function updateHealthPanel(graph) {
 }
 
 /* ============================================================
-   Hero stats — Phase 5
+   Hero stats
    ============================================================ */
 function updateHeroStats(graph) {
   const cats = new Set(allNodes.map(n => n.category || n.domain || '').filter(Boolean));
@@ -271,17 +415,18 @@ function updateHeroStats(graph) {
     const t = (e.type||e.relation||'').toLowerCase();
     return t === 'requires' || t === 'prerequisite' || t === 'prereq' || !t;
   }).length;
-  document.getElementById('hero-nodes').textContent   = allNodes.length;
-  document.getElementById('hero-edges').textContent   = (graph.edges||[]).length;
-  document.getElementById('hero-cats').textContent    = cats.size;
+  document.getElementById('hero-nodes').textContent    = allNodes.length;
+  document.getElementById('hero-edges').textContent    = (graph.edges||[]).length;
+  document.getElementById('hero-cats').textContent     = cats.size;
   document.getElementById('hero-requires').textContent = reqEdges;
 }
 
 /* ============================================================
-   Detail Panel — Phases 3, 4, 7
+   Detail Panel
    ============================================================ */
 function showDetail(node) {
   selectedId = node.id;
+  setHashSkillId(node.id); // Phase 3 — update shareable URL
   renderList();
   attachCardListeners();
   $detailEmpty.hidden   = true;
@@ -300,9 +445,13 @@ function showDetail(node) {
 
   document.getElementById('btn-github').onclick = () =>
     window.open('https://github.com/SamoTech/skills-tree', '_blank');
+
+  // Phase 3 — canonical #skill= share URL
   document.getElementById('btn-share').onclick = () => {
-    const url = `${location.origin}${location.pathname}#${encodeURIComponent(node.id)}`;
-    navigator.clipboard?.writeText(url).then(() => showToast('Link copied!')).catch(() => showToast('Copy failed'));
+    const url = `${location.origin}${location.pathname}#skill=${encodeURIComponent(node.id)}`;
+    navigator.clipboard?.writeText(url)
+      .then(() => showToast('🔗 Link copied!'))
+      .catch(() => showToast('Copy failed — use the address bar'));
   };
 
   const $lvl = document.getElementById('d-level');
@@ -334,7 +483,6 @@ function showDetail(node) {
   renderDepSection('section-related',     'd-related',     relatedMap[node.id]    || [], 'No related skills mapped yet.');
 }
 
-/* Phase 4 + Phase 7 */
 function renderDepSection(sectionId, listId, nodes, emptyMsg) {
   const $list = document.getElementById(listId);
   if (!nodes.length) {
@@ -479,12 +627,17 @@ async function init() {
   updateHeroStats(graph);
   updateHealthPanel(graph);
   buildCategoryChips(allNodes);
+  renderDiscoveryPanel(); // Phase 3 — Featured Skills + Popular Paths + Surprise Me
   renderList();
   attachCardListeners();
   attachFilterListeners();
 
-  const hash = decodeURIComponent(window.location.hash.slice(1));
-  if (hash && nodeMap[hash]) showDetail(nodeMap[hash]);
+  // Phase 3 — deep-link on load (supports #skill=<id> and legacy #<id>)
+  const skillId = getHashSkillId();
+  if (skillId && nodeMap[skillId]) {
+    showDetail(nodeMap[skillId]);
+    scrollToCard(skillId);
+  }
 }
 
 init();

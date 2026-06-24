@@ -1,22 +1,40 @@
-# Memory State
+# MEMORY STATE
 
-**Last Updated:** 2026-06-24  
-**Active Initiative:** INITIATIVE-014A.2 → COMPLETE → 014A.3 SPAWNED
+_Last updated: 2026-06-24 — INITIATIVE-014A.3_
 
-## Initiative History
-- INITIATIVE-012B.1 — EXPLORER_LOADER_HOTFIX — ✅ COMPLETE (2026-06-23)
-- INITIATIVE-014A.2 — LAUNCH_READINESS_SPRINT — ✅ COMPLETE (2026-06-24)
-- INITIATIVE-014A.3 — PRE-LAUNCH_POLISH_SPRINT — 🔴 PENDING
+---
 
-## Current State
-- Explorer: LIVE at https://samotech.github.io/skills-tree/explorer/ (hotfix applied)
-- Graph: 368 nodes, 774+ edges (SKILLS_GRAPH.json)
-- Skills: 367 in taxonomy, 17 categories
-- Blueprints: 8 live files, V2 catalog spec = 50 goals
-- PyPI: skills-tree package live
-- MCP: server live
-- CI: green
-- Launch readiness: 75/100 (threshold 85) → 014A.3 required
+## Active State
 
-## Next Action
-Execute INITIATIVE-014A.3 — close B1 (README P0 fixes) + B4 (SLA) + B3 (shareable URLs) + B2 (Explorer V2 features) to reach 88/100 and trigger Show HN.
+| Key | Value |
+|---|---|
+| Active Initiative | INITIATIVE-014B — SHOW HN LAUNCH |
+| Launch Readiness Score | **86/100** ✅ |
+| GO_LIVE_DECISION | **YES** |
+| SHOW_HN_READY | **YES** |
+| Target Launch Date | 2026-06-30 09:00 ET |
+| Explorer Status | V2 live — Featured Skills, Popular Paths, Surprise Me, shareable `#skill=` URLs |
+| README Status | Hero rebuilt — AI OS tagline, stat trio, CTAs above fold, SLA committed |
+| Graph Hotfix | Deployed (012B1) — path normalization, resilient loader, diagnostic errors |
+| PyPI Package | Live — `pip install skills-tree` |
+| MCP Server | Live |
+| CI | Green |
+
+---
+
+## Completed Initiatives
+
+| Initiative | Summary |
+|---|---|
+| INITIATIVE-012B1 | Explorer loader hotfix — path normalization, resilient fetch, diagnostic panel |
+| INITIATIVE-014A.2 | Launch Readiness Sprint — scored 75/100, spawned blockers B1-B4, created launch assets |
+| INITIATIVE-014A.3 | Fast Track — closed B1 (README), B2 (Explorer V2), B3 (shareable URLs), B4 (SLA) → **86/100** |
+
+---
+
+## Pending
+
+- Analytics deployment (zero-cost stack specced in ANALYTICS_SPEC.md)
+- OG image / preview card for social sharing
+- Pre-populate `good first issue` labels
+- INITIATIVE-014B execution (Show HN post + cross-posts)
