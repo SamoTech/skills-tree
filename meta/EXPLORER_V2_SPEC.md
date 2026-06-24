@@ -2,101 +2,126 @@
 
 **Initiative:** INITIATIVE-014A.2 — Phase 2  
 **Date:** 2026-06-24  
-**Lead Agent:** Repository Architect  
-**Status:** SPEC — Pending implementation in INITIATIVE-014A.3  
+**Status:** APPROVED FOR IMPLEMENTATION  
+**Target:** [https://samotech.github.io/skills-tree/explorer/](https://samotech.github.io/skills-tree/explorer/)
 
 ---
 
-## Current Explorer State
+## Objective
 
-The Explorer is a D3-powered force graph with:
-- Node search (functional)
-- Category filters (functional)
-- Node detail pane (functional)
-- Graph path normalization fix (INITIATIVE-012B1)
+Deliver a "wow" moment to a Show HN visitor within 30 seconds of first load. The graph must be immediately engaging, explorable without any instruction, and shareable.
 
 ---
 
-## V2 Feature Specifications
+## Feature 1 — Featured Skills Section
 
-### Feature 1 — Featured Skills Panel
-**Priority:** P1 — Wow Factor  
-**Description:** A curated row of 6–8 "battle-tested" skills displayed at the top of the sidebar as quick-access entry points. First-time visitors have no natural entry point into the graph — the Featured panel removes the blank-slate problem.
+### Display
+A horizontal carousel strip at the top of the sidebar, above the search input, labeled **"✨ Start Here"**.
 
-**Implementation:**
-- Static array of `featuredSkillIds` in `app.js` (e.g., `rag`, `react-pattern`, `chain-of-thought`, `function-calling`, `memory-injection`, `multi-agent-orchestration`)
-- Rendered as pill chips above the search bar
-- Click focuses + highlights the node in the graph and opens the detail pane
-- Label: "⭐ Popular Skills"
+### Content
+8 curated skills representing the most battle-tested, high-signal nodes:
+- `react` (ReAct) — Agentic Patterns
+- `rag` — Memory
+- `cot` (Chain of Thought) — Agentic Patterns
+- `function-calling` — Tool Use
+- `memory-injection` — Memory
+- `code-generation` — Code
+- `web-search` — Web
+- `input-sanitization` — Security
 
----
-
-### Feature 2 — Popular Learning Paths
-**Priority:** P1 — Engagement  
-**Description:** 4 pre-defined learning path shortcuts visible in the sidebar. Each path is a named sequence of skill IDs that the user can step through linearly.
-
-**Paths to implement:**
-1. "RAG Mastery" — 6 skills: embedding-generation → vector-store-retrieval → rag → memory-injection → hybrid-search → graphrag
-2. "Build Your First Agent" — 5 skills: function-calling → react-pattern → chain-of-thought → tool-use → multi-agent-orchestration
-3. "Computer Use" — 4 skills: screen-reading → ocr → click-type-scroll → browser-automation
-4. "Security Hardening" — 4 skills: input-sanitization → prompt-injection-defense → secret-scanning → audit-logging
-
-**Implementation:**
-- Sidebar "Learning Paths" section below search
-- Click highlights all path nodes on the graph
-- "Next skill" arrow button steps through the path
+### Behavior
+Clicking a featured skill badge fires `selectNode(id)` — centers the graph on that node, highlights its 1-hop neighborhood, and opens the detail panel. Gives first-time visitors an instant on-ramp without needing to type anything.
 
 ---
 
-### Feature 3 — Random Discovery Button
-**Priority:** P2 — Delight  
-**Description:** A "Discover a random skill" button that selects a random node and opens its detail pane. Encourages exploration and repeat visits.
+## Feature 2 — Popular Paths Section
 
-**Implementation:**
-- Button in sidebar footer: "🎲 Surprise me"
-- Picks random node from `graphData.nodes` (excluding sandbox)
-- Zooms to node, opens detail pane
-- Keyboard shortcut: `R`
+### Display
+A collapsible section in the sidebar below filters, labeled **"🗺️ Popular Paths"**.
 
----
+### Content
+5 curated learning paths as ordered node sequences:
 
-### Feature 4 — Skill Share Card
-**Priority:** P1 — Virality  
-**Description:** Each skill detail pane gets a "Share this skill" button that copies a deep-link URL (`?skill=<id>`) to clipboard. Enables viral sharing of individual skill pages.
+| Path Name | Skills (ordered) |
+|---|---|
+| Build a RAG Agent | embedding-generation → vector-store-retrieval → rag → function-calling → openai-api |
+| Reasoning Loop | cot → self-consistency → react → tot → reflection |
+| Multi-Agent System | task-decomposition → planning → react → consensus → multi-agent-orchestration |
+| Security-First Agent | input-sanitization → sandboxing → secret-scanning → audit-logging → rollback |
+| Production LLM | openai-api → anthropic-api → function-calling → retry-logic → streaming |
 
-**URL format:** `https://samotech.github.io/skills-tree/explorer/?skill=rag`
-
-**Implementation:**
-- Add `?skill=<id>` deep-link parsing to `app.js` on load
-- "🔗 Share" button in detail pane header
-- Toast confirmation on copy
+### Behavior
+Clicking a path highlights all nodes in the sequence with a sequential color overlay (step 1 = green, step 2 = teal, …) and draws a bold path edge between them. Clears on clicking elsewhere.
 
 ---
 
-### Feature 5 — Dependency Visualization Highlight
-**Priority:** P2 — Educational Value  
-**Description:** When a skill is selected, highlight its direct prerequisites in one color and its direct dependents in another color on the graph.
+## Feature 3 — Random Discovery Button
 
-**Implementation:**
-- On node select: traverse `prerequisites` array from node data
-- Apply CSS class `node-prereq` (blue tint) to prerequisite nodes
-- Apply CSS class `node-dependent` (green tint) to nodes that list current node in their prerequisites
-- Reset on deselect
+### Display
+A **"🎲 Surprise Me"** button in the sidebar toolbar, between the search input and filters.
 
----
+### Behavior
+1. Picks a random node from `graph.nodes` (weighted toward battle-tested: `stability === 'stable'`)
+2. Animates the camera to center on that node (500ms ease-in-out)
+3. Highlights the node's 2-hop neighborhood
+4. Opens the node detail panel
+5. Displays a small toast: `"Discovered: [Skill Name] in [Category]"`
 
-## Implementation Order
-
-1. Skill Share Card (highest virality, lowest effort)
-2. Featured Skills Panel (first-time experience fix)
-3. Random Discovery Button (delight)
-4. Popular Learning Paths (engagement)
-5. Dependency Visualization (educational, higher effort)
+### Rationale
+Pure serendipitous exploration — the primary way developers discover adjacent skills they didn't know existed. Creates organic "rabbit hole" sessions that drive session length and return visits.
 
 ---
 
-## Success Metrics
+## Feature 4 — Skill Dependency Visualization
 
-- Average session length: current baseline unknown → target 3+ minutes
-- Share button click rate: target 5% of sessions
-- Return visitor rate: target 20% within 7 days
+### Display
+In the node detail panel (right sidebar), below the skill description, add a **"Dependencies"** mini-section.
+
+### Content
+Two lists derived from the graph edges:
+- **Requires:** All nodes with an edge pointing *to* this node (prerequisites)
+- **Enables:** All nodes this node points *to* (what you can learn next)
+
+Each entry is a clickable chip that fires `selectNode(id)`.
+
+### Visual
+A compact inline mini-graph (D3 force simulation, radius 120px) showing only the selected node and its 1-hop neighbors, rendered inside the panel. Falls back to the chip list if the mini-graph has >8 neighbors.
+
+---
+
+## Feature 5 — Shareable Skill Cards
+
+### Display
+A **"Share"** button (icon: link) in the node detail panel header.
+
+### Behavior
+1. Generates a URL with hash: `https://samotech.github.io/skills-tree/explorer/#skill=rag`
+2. On page load, if `#skill=<id>` is present: auto-select that node and center graph
+3. Copies URL to clipboard and shows toast: `"Link copied!"`
+
+### Social Card (Optional — Phase 3)
+A generated 1200×630 OG meta tag per skill node using a dynamic template so that pasting a skill URL into Twitter/LinkedIn shows a rich card with: skill name, category, stability badge, short description.
+
+---
+
+## Implementation Notes
+
+- All features are additive to the existing `docs/explorer/app.js` — no rewrites
+- Featured skills and popular paths are defined as JS constants at the top of `app.js`
+- Dependency viz uses existing edge data — no new data generation needed
+- Shareable URLs use `window.location.hash` — no server-side routing required
+- The `getGraphUrl()` path normalization from INITIATIVE-012B.1 remains intact
+
+---
+
+## Acceptance Criteria
+
+- [ ] Featured Skills strip renders above search input
+- [ ] Clicking a featured skill centers graph on that node
+- [ ] Popular Paths renders 5 paths, click highlights path
+- [ ] Surprise Me fires on click, centers on random node, opens panel
+- [ ] Dependency chips render in node detail panel
+- [ ] `#skill=<id>` URL deep-links to node on load
+- [ ] Share button copies URL to clipboard
+- [ ] All features work on localhost AND GitHub Pages
+- [ ] No new console errors introduced
