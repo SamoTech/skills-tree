@@ -1,0 +1,637 @@
+{
+  "$schema": "https://skills-tree.dev/schemas/ontology/capability/v1",
+  "$version": "1.0",
+  "generated_at": "2026-06-28T00:00:00Z",
+  "total_capabilities": 28,
+  "tiers": ["perception", "memory", "reasoning", "tool_use", "communication", "execution", "safety"],
+
+  "capabilities": [
+
+    {
+      "cap_id": "CAP-001",
+      "name": "text_understanding",
+      "display_name": "Text Understanding",
+      "tier": "perception",
+      "purpose": "Parse, tokenize, and semantically understand natural language input including instructions, queries, and documents.",
+      "measurable_outcomes": [
+        "Intent classification accuracy ≥ 0.90 on standard NLU benchmarks",
+        "Named entity extraction F1 ≥ 0.85",
+        "Instruction-following accuracy on multi-step prompts ≥ 0.88"
+      ],
+      "dependencies": [],
+      "required_tools": [],
+      "required_models": ["any instruction-tuned LLM (GPT-4o, Claude Sonnet, Gemini Flash or equivalent)"],
+      "evaluation_methods": [
+        "MMLU (general language understanding)",
+        "HellaSwag (commonsense NLU)",
+        "SuperGLUE (multi-task language understanding)",
+        "Custom intent classification test set"
+      ],
+      "notes": "Foundation capability. Required by almost every other capability. If CAP-001 is weak, all downstream capabilities degrade."
+    },
+
+    {
+      "cap_id": "CAP-002",
+      "name": "document_parsing",
+      "display_name": "Document Parsing",
+      "tier": "perception",
+      "purpose": "Extract structured and unstructured information from PDF, HTML, DOCX, spreadsheet, Markdown, and image-embedded text formats.",
+      "measurable_outcomes": [
+        "Extraction recall ≥ 0.95 across supported formats",
+        "Structural fidelity score ≥ 0.90 (tables, headings, lists preserved)",
+        "Format handling coverage: PDF, HTML, DOCX, XLSX, MD minimum"
+      ],
+      "dependencies": ["CAP-001"],
+      "required_tools": [
+        "Document parser: PyMuPDF, Docling, Unstructured, or equivalent",
+        "Vision model for image-embedded text (optional, required for scanned PDFs)"
+      ],
+      "required_models": ["Vision-capable model for image-embedded text extraction"],
+      "evaluation_methods": [
+        "Cross-format extraction benchmark (PDF, HTML, DOCX)",
+        "Table extraction fidelity test",
+        "Scanned document OCR accuracy test"
+      ],
+      "notes": "Critical for any agent that processes user-provided documents. Line number accuracy is a frequent failure mode — validate explicitly."
+    },
+
+    {
+      "cap_id": "CAP-003",
+      "name": "intent_classification",
+      "display_name": "Intent Classification",
+      "tier": "perception",
+      "purpose": "Identify the goal, intent, or request type behind a user utterance or task specification, including multi-intent and out-of-scope detection.",
+      "measurable_outcomes": [
+        "Top-1 intent accuracy ≥ 0.90 on in-domain test set",
+        "Out-of-scope detection rate ≥ 0.85",
+        "Multi-intent identification precision ≥ 0.80"
+      ],
+      "dependencies": ["CAP-001"],
+      "required_tools": [],
+      "required_models": ["Classification-capable LLM or fine-tuned intent classifier"],
+      "evaluation_methods": [
+        "Domain-specific intent classification benchmark",
+        "Out-of-scope (OOS) detection test set",
+        "Confusion matrix analysis on top-10 intent classes"
+      ],
+      "notes": "The quality of intent classification determines everything downstream. A misclassified intent routes the agent to the wrong response path. Treat as P0 in any agent that handles multiple request types."
+    },
+
+    {
+      "cap_id": "CAP-004",
+      "name": "multimodal_perception",
+      "display_name": "Multimodal Perception",
+      "tier": "perception",
+      "purpose": "Process and reason over image, audio, and video inputs alongside text.",
+      "measurable_outcomes": [
+        "Visual question answering accuracy ≥ 0.75 on VQA v2",
+        "Image description CLIP similarity score ≥ 0.80",
+        "Audio transcription WER ≤ 0.08 on clean audio"
+      ],
+      "dependencies": ["CAP-001"],
+      "required_tools": ["Speech-to-text API for audio (Whisper, Assembly AI, or equivalent)"],
+      "required_models": ["Multimodal model: Claude claude-sonnet-4, GPT-4o, Gemini 1.5 Pro or equivalent"],
+      "evaluation_methods": [
+        "VQA v2 benchmark",
+        "MMMU (massive multidisciplinary multimodal understanding)",
+        "Audio WER benchmark on domain-specific vocabulary"
+      ],
+      "notes": "Only required when the agent must process non-text inputs. Do not include as a dependency if the goal is text-only."
+    },
+
+    {
+      "cap_id": "CAP-005",
+      "name": "short_term_context_management",
+      "display_name": "Short-Term Context Management",
+      "tier": "memory",
+      "purpose": "Maintain and manage conversation history, task state, and intermediate results within a single context window.",
+      "measurable_outcomes": [
+        "Instruction retention accuracy across 10+ turns ≥ 0.90",
+        "Context coherence score on long-context benchmarks ≥ 0.85",
+        "Context window utilization efficiency ≥ 0.80 (minimal redundant tokens)"
+      ],
+      "dependencies": [],
+      "required_tools": [],
+      "required_models": ["LLM with context window ≥ 16K tokens; ≥ 128K recommended for complex tasks"],
+      "evaluation_methods": [
+        "RULER (long-context understanding benchmark)",
+        "SCROLL benchmark",
+        "Multi-turn instruction-following test set"
+      ],
+      "notes": "Implicitly available in any LLM. The explicit capability designation is about managing it well: summarizing context when approaching limits, prioritizing recent instructions, and not losing state across tool calls."
+    },
+
+    {
+      "cap_id": "CAP-006",
+      "name": "long_term_memory_storage",
+      "display_name": "Long-Term Memory Storage",
+      "tier": "memory",
+      "purpose": "Persist information across sessions using external storage and retrieve it on demand in future sessions.",
+      "measurable_outcomes": [
+        "Cross-session retrieval precision@5 ≥ 0.85",
+        "Memory freshness: stale entries detected and flagged within 7 days",
+        "Storage efficiency: no duplicate entries above 0.95 semantic similarity"
+      ],
+      "dependencies": ["CAP-007"],
+      "required_tools": [
+        "Vector database: Pinecone, Weaviate, ChromaDB, pgvector, or equivalent",
+        "Structured store for metadata: PostgreSQL, Redis, or equivalent"
+      ],
+      "required_models": ["Embedding model: text-embedding-3-large, voyage-3, or equivalent"],
+      "evaluation_methods": [
+        "Multi-session memory recall benchmark",
+        "Memory coherence test (does the agent remember facts from session N in session N+5?)",
+        "Deduplication accuracy test"
+      ],
+      "notes": "Required for any agent that must maintain continuity across sessions. The most common failure mode is memory that grows unbounded without deduplication or expiry — build a memory management strategy from day one."
+    },
+
+    {
+      "cap_id": "CAP-007",
+      "name": "semantic_retrieval",
+      "display_name": "Semantic Retrieval",
+      "tier": "memory",
+      "purpose": "Find relevant information from a corpus using semantic similarity search, supporting RAG and knowledge-grounded generation.",
+      "measurable_outcomes": [
+        "Recall@5 ≥ 0.85 on domain-specific test set",
+        "Precision@5 ≥ 0.75",
+        "MRR (mean reciprocal rank) ≥ 0.70",
+        "Retrieval latency P95 ≤ 500ms"
+      ],
+      "dependencies": [],
+      "required_tools": [
+        "Vector database: Pinecone, Weaviate, ChromaDB, pgvector, or equivalent",
+        "Embedding pipeline: ingestion + indexing + query"
+      ],
+      "required_models": ["Embedding model: text-embedding-3-large, voyage-3, jina-embeddings-v3, or equivalent"],
+      "evaluation_methods": [
+        "MTEB benchmark (massive text embedding benchmark)",
+        "BEIR benchmark (heterogeneous retrieval)",
+        "Domain-specific retrieval test set with human-labeled relevance"
+      ],
+      "notes": "The most widely reused capability in the platform. Quality of retrieval directly determines quality of any RAG-based agent. Embedding model selection has outsized impact — evaluate on domain-specific data, not just public benchmarks."
+    },
+
+    {
+      "cap_id": "CAP-008",
+      "name": "episodic_memory",
+      "display_name": "Episodic Memory",
+      "tier": "memory",
+      "purpose": "Store and recall specific past events, interactions, decisions, and their outcomes with temporal ordering.",
+      "measurable_outcomes": [
+        "Episode recall accuracy ≥ 0.88 for events within the last 30 days",
+        "Temporal ordering precision ≥ 0.90",
+        "Event deduplication rate ≥ 0.95"
+      ],
+      "dependencies": ["CAP-006"],
+      "required_tools": [
+        "Structured memory store: PostgreSQL or Redis with temporal indexing",
+        "Vector store for semantic episode search"
+      ],
+      "required_models": ["Embedding model for episode text"],
+      "evaluation_methods": [
+        "Multi-session recall test: verify agent recalls specific decisions made in prior sessions",
+        "Temporal ordering test: verify agent correctly sequences past events"
+      ],
+      "notes": "Distinct from CAP-006 (long-term memory) in that episodes are event records with temporal context, not just semantic facts. Required for agents that learn from past interactions or must explain their history."
+    },
+
+    {
+      "cap_id": "CAP-009",
+      "name": "chain_of_thought_reasoning",
+      "display_name": "Chain-of-Thought Reasoning",
+      "tier": "reasoning",
+      "purpose": "Decompose complex problems into sequential reasoning steps with explicit intermediate states before producing a final answer.",
+      "measurable_outcomes": [
+        "Multi-step math accuracy ≥ 0.85 on GSM8K",
+        "Reasoning coherence: each step logically follows from the previous ≥ 0.90 (human eval)",
+        "Answer correctness improvement over direct prompting ≥ 15%"
+      ],
+      "dependencies": ["CAP-001"],
+      "required_tools": [],
+      "required_models": ["Reasoning-capable LLM: Claude Sonnet/Opus, GPT-4o, o1/o3, Gemini 2.0 Flash Thinking, or equivalent"],
+      "evaluation_methods": [
+        "GSM8K (grade school math multi-step)",
+        "MATH benchmark",
+        "BIG-Bench Hard",
+        "Domain-specific multi-step reasoning test set"
+      ],
+      "notes": "The single most impactful capability for improving output quality across all agent types. If only one reasoning capability can be invested in, it is this one. Model selection matters significantly: weak models produce incoherent chains that are worse than direct prompting."
+    },
+
+    {
+      "cap_id": "CAP-010",
+      "name": "planning_and_decomposition",
+      "display_name": "Planning and Decomposition",
+      "tier": "reasoning",
+      "purpose": "Break a high-level goal into an ordered sequence of sub-tasks with dependencies, estimated effort, and success criteria.",
+      "measurable_outcomes": [
+        "Plan feasibility score ≥ 0.80 (human evaluators rate plan as executable)",
+        "Task completion rate on multi-step benchmarks ≥ 0.75",
+        "Replanning frequency ≤ 20% of steps (agent does not need to re-plan more than 1 in 5 steps)"
+      ],
+      "dependencies": ["CAP-009"],
+      "required_tools": [],
+      "required_models": ["LLM with context window ≥ 32K; strong instruction-following capability"],
+      "evaluation_methods": [
+        "TaskBench",
+        "GAIA benchmark",
+        "Custom planning test harness: verify plan covers all required steps for known goal types"
+      ],
+      "notes": "Required for any orchestrator or pipeline agent. The quality of the plan directly determines the quality of execution. A well-structured plan with clear sub-task dependencies is more valuable than a sophisticated execution engine over an ambiguous plan."
+    },
+
+    {
+      "cap_id": "CAP-011",
+      "name": "self_evaluation",
+      "display_name": "Self-Evaluation",
+      "tier": "reasoning",
+      "purpose": "Assess the quality, accuracy, and completeness of own outputs against defined success criteria before delivering them.",
+      "measurable_outcomes": [
+        "Self-assessment calibration: Pearson correlation between self-score and human score ≥ 0.70",
+        "Error detection rate: agent catches ≥ 60% of its own errors before output",
+        "False alarm rate (correct outputs flagged as errors) ≤ 15%"
+      ],
+      "dependencies": ["CAP-009"],
+      "required_tools": [],
+      "required_models": ["Same model as generation, or a separate evaluator LLM"],
+      "evaluation_methods": [
+        "Calibration benchmark: compare self-scores to human scores on 100 outputs",
+        "Error injection test: introduce known errors and measure detection rate"
+      ],
+      "notes": "The primary mechanism for reducing false positive outputs. Implementing CAP-011 before shipping any agent to users significantly reduces trust damage from early errors. The evaluator model does not need to be the same as the generator — a smaller, faster model often works well for self-evaluation."
+    },
+
+    {
+      "cap_id": "CAP-012",
+      "name": "hypothesis_generation",
+      "display_name": "Hypothesis Generation",
+      "tier": "reasoning",
+      "purpose": "Generate multiple plausible hypotheses, candidate solutions, or explanations for open-ended problems before committing to one.",
+      "measurable_outcomes": [
+        "Hypothesis diversity: generated hypotheses cover ≥ 80% of plausible solution space (domain expert eval)",
+        "Plausibility rate: ≥ 75% of generated hypotheses are rated plausible by domain expert",
+        "Coverage: correct solution is within top-5 generated hypotheses ≥ 90% of the time"
+      ],
+      "dependencies": ["CAP-009", "CAP-010"],
+      "required_tools": [],
+      "required_models": ["High-capability LLM with strong creativity and breadth"],
+      "evaluation_methods": [
+        "Domain-specific hypothesis benchmark",
+        "Coverage test: verify correct answer is in generated set"
+      ],
+      "notes": "Critical for research agents, root cause analyzers, and any agent that must explore a solution space before converging. Less relevant for reactive agents with well-defined response patterns."
+    },
+
+    {
+      "cap_id": "CAP-013",
+      "name": "tool_selection",
+      "display_name": "Tool Selection",
+      "tier": "tool_use",
+      "purpose": "Choose the appropriate tool for a given sub-task from an available tool set, including deciding when no tool is needed.",
+      "measurable_outcomes": [
+        "Tool selection accuracy ≥ 0.88 (correct tool chosen for task)",
+        "Unnecessary tool call rate ≤ 10% (agent does not over-call tools)",
+        "Missing tool call rate ≤ 8% (agent does not fail to call when needed)"
+      ],
+      "dependencies": ["CAP-010"],
+      "required_tools": ["Any MCP tool set or function-calling API"],
+      "required_models": ["Tool-use-capable LLM: GPT-4o, Claude claude-sonnet-4, Gemini 1.5 Pro or equivalent"],
+      "evaluation_methods": [
+        "BFCL (Berkeley Function Calling Leaderboard)",
+        "ToolBench",
+        "Custom tool selection test set for specific tool set"
+      ],
+      "notes": "Requires explicit tool descriptions in the system prompt. The quality of tool descriptions is as important as the capability of the model. Vague tool descriptions produce poor tool selection even in capable models."
+    },
+
+    {
+      "cap_id": "CAP-014",
+      "name": "tool_execution",
+      "display_name": "Tool Execution",
+      "tier": "tool_use",
+      "purpose": "Correctly format and invoke tool calls, handle responses and errors, and integrate results into the reasoning chain.",
+      "measurable_outcomes": [
+        "Tool call success rate ≥ 0.92 (correctly formatted calls that return expected results)",
+        "Error recovery rate ≥ 0.80 (agent recovers from tool errors without human intervention)",
+        "Result integration accuracy ≥ 0.88 (tool results correctly used in subsequent reasoning)"
+      ],
+      "dependencies": ["CAP-013"],
+      "required_tools": ["Any MCP tool or function-calling API"],
+      "required_models": ["Tool-use-capable LLM"],
+      "evaluation_methods": [
+        "BFCL end-to-end execution benchmark",
+        "API-Bank benchmark",
+        "Error injection test: verify recovery from malformed tool responses"
+      ],
+      "notes": "The failure mode that causes the most silent failures: tool call succeeds (200 OK) but the result is misinterpreted. Always validate tool response schema before using the result in downstream reasoning."
+    },
+
+    {
+      "cap_id": "CAP-015",
+      "name": "web_search_and_retrieval",
+      "display_name": "Web Search and Retrieval",
+      "tier": "tool_use",
+      "purpose": "Query web search engines and retrieve relevant, current web content to ground agent responses in up-to-date information.",
+      "measurable_outcomes": [
+        "Query relevance: top-3 results relevant to query ≥ 85% of the time",
+        "Result freshness: results published within 30 days retrieved when recency matters ≥ 80%",
+        "URL retrieval accuracy: target page correctly retrieved ≥ 90% of direct URL fetches"
+      ],
+      "dependencies": ["CAP-014"],
+      "required_tools": ["Web search API: Serper, Tavily, Bing Search, or equivalent; web scraper for full-page retrieval"],
+      "required_models": [],
+      "evaluation_methods": [
+        "Web navigation benchmark",
+        "Information freshness test: compare retrieved dates to known recent events",
+        "Query reformulation test: verify agent reformulates failed queries"
+      ],
+      "notes": "Required for any research or monitoring agent. The search query quality is as important as the tool itself. Agents that pass user queries directly to the search API without reformulation produce poor results."
+    },
+
+    {
+      "cap_id": "CAP-016",
+      "name": "code_execution",
+      "display_name": "Code Execution",
+      "tier": "tool_use",
+      "purpose": "Write, execute, and interpret results from code in a sandboxed environment for computation, data analysis, and static analysis.",
+      "measurable_outcomes": [
+        "Code correctness rate ≥ 0.78 on HumanEval",
+        "Execution success rate ≥ 0.90 (code runs without runtime errors)",
+        "Sandbox escape attempts: 0 in 10,000 executions (security)"
+      ],
+      "dependencies": ["CAP-014"],
+      "required_tools": ["Code execution sandbox: E2B, Modal, Docker with network isolation, or equivalent"],
+      "required_models": ["Code-capable LLM: Claude claude-sonnet-4, GPT-4o, Gemini 1.5 Pro, or equivalent"],
+      "evaluation_methods": [
+        "HumanEval",
+        "SWE-bench (software engineering tasks)",
+        "Security test: sandbox escape attempt benchmark"
+      ],
+      "notes": "Never execute LLM-generated code without a sandbox. The sandbox is not optional. Code execution is the highest-risk capability in the platform from a security perspective."
+    },
+
+    {
+      "cap_id": "CAP-017",
+      "name": "response_generation",
+      "display_name": "Response Generation",
+      "tier": "communication",
+      "purpose": "Produce accurate, well-formatted, appropriately toned responses calibrated to the target audience and context.",
+      "measurable_outcomes": [
+        "Factual accuracy ≥ 0.92 on grounded response tasks",
+        "Formatting compliance ≥ 0.95 (correct use of requested format)",
+        "Tone appropriateness score ≥ 4.0/5.0 (human eval)"
+      ],
+      "dependencies": ["CAP-001", "CAP-009"],
+      "required_tools": [],
+      "required_models": ["High-quality instruction-following LLM"],
+      "evaluation_methods": [
+        "Human preference benchmark (pairwise evaluation)",
+        "Factual accuracy test against grounding source",
+        "Format compliance test for structured outputs"
+      ],
+      "notes": "The output quality of any agent ultimately depends on this capability. All upstream capabilities (retrieval, reasoning, tool use) feed into this. A strong CAP-017 can partially compensate for weak upstream capabilities; a weak CAP-017 wastes strong upstream work."
+    },
+
+    {
+      "cap_id": "CAP-018",
+      "name": "multi_turn_dialogue_management",
+      "display_name": "Multi-Turn Dialogue Management",
+      "tier": "communication",
+      "purpose": "Maintain coherent conversation state, topic continuity, and instruction retention across multiple user turns.",
+      "measurable_outcomes": [
+        "Context coherence score across 20-turn conversation ≥ 0.88",
+        "Topic tracking accuracy ≥ 0.90 (agent does not lose track of the current topic)",
+        "Instruction retention: instructions given in turn 1 followed in turn 10+ ≥ 0.85"
+      ],
+      "dependencies": ["CAP-005", "CAP-017"],
+      "required_tools": [],
+      "required_models": ["LLM with strong multi-turn instruction following"],
+      "evaluation_methods": [
+        "MT-Bench (multi-turn conversation benchmark)",
+        "Custom multi-turn instruction retention test set",
+        "Conversation coherence human evaluation"
+      ],
+      "notes": "The most commonly underestimated requirement in reactive agent design. Teams test single-turn behavior and assume multi-turn works. It frequently does not. Test explicitly with 10+ turn conversations before deployment."
+    },
+
+    {
+      "cap_id": "CAP-019",
+      "name": "structured_output_generation",
+      "display_name": "Structured Output Generation",
+      "tier": "communication",
+      "purpose": "Produce outputs in specific formats: JSON, YAML, XML, tables, code blocks, and Markdown with schema compliance.",
+      "measurable_outcomes": [
+        "Schema compliance rate: 100% of outputs pass JSON schema validation",
+        "Format validity: correct format produced on first attempt ≥ 0.95",
+        "Structural fidelity: nested structures, arrays, and optional fields handled correctly ≥ 0.92"
+      ],
+      "dependencies": ["CAP-017"],
+      "required_tools": ["JSON schema validator; structured output enforcement (OpenAI Structured Outputs, Instructor library, or equivalent)"],
+      "required_models": ["LLM with structured output support or strong format-following capability"],
+      "evaluation_methods": [
+        "JSON schema compliance test on 500 generated outputs",
+        "Schema complexity benchmark: simple flat schema, nested schema, schema with constraints",
+        "Format consistency test: same schema, 100 different inputs"
+      ],
+      "notes": "Do not rely on prompt engineering alone for schema compliance. Use structured output enforcement (Instructor, OpenAI Structured Outputs, or constrained decoding) for any production use case where schema compliance is required."
+    },
+
+    {
+      "cap_id": "CAP-020",
+      "name": "summarization",
+      "display_name": "Summarization",
+      "tier": "communication",
+      "purpose": "Compress long-form content into accurate, complete, appropriately-sized summaries that preserve the essential information.",
+      "measurable_outcomes": [
+        "ROUGE-L score ≥ 0.42 on domain-specific test set",
+        "Factual recall: ≥ 90% of key facts from source preserved in summary",
+        "Hallucination rate: ≤ 3% of summary sentences contain information not in source"
+      ],
+      "dependencies": ["CAP-001", "CAP-017"],
+      "required_tools": [],
+      "required_models": ["LLM with strong compression and faithfulness"],
+      "evaluation_methods": [
+        "ROUGE-L on domain-specific documents",
+        "SummEval (multi-dimensional summarization evaluation)",
+        "Faithfulness test: verify no introduced facts"
+      ],
+      "notes": "Hallucination in summarization (introducing facts not in the source) is a distinct failure mode from hallucination in generation. Test for it explicitly with a faithfulness evaluation, not just ROUGE scores."
+    },
+
+    {
+      "cap_id": "CAP-021",
+      "name": "task_orchestration",
+      "display_name": "Task Orchestration",
+      "tier": "execution",
+      "purpose": "Coordinate multiple tools, agents, or sub-tasks in a structured workflow with dependency management and state tracking.",
+      "measurable_outcomes": [
+        "Workflow completion rate ≥ 0.90 (workflows that complete all intended steps)",
+        "Step success rate ≥ 0.95 per individual step",
+        "Orchestration overhead ≤ 15% of total execution time"
+      ],
+      "dependencies": ["CAP-010", "CAP-013"],
+      "required_tools": ["Orchestration framework: LangGraph, AutoGen, CrewAI, or custom state machine"],
+      "required_models": ["LLM for dynamic task routing decisions"],
+      "evaluation_methods": [
+        "Multi-step task completion benchmark",
+        "Workflow execution trace analysis: verify correct step ordering and dependency satisfaction",
+        "Failure injection test: verify graceful handling of step failures"
+      ],
+      "notes": "The orchestration framework choice has long-term architectural implications. Choose based on the complexity of your workflow graph, not on hype. Simple linear pipelines do not need LangGraph. Complex conditional multi-agent workflows do."
+    },
+
+    {
+      "cap_id": "CAP-022",
+      "name": "error_recovery",
+      "display_name": "Error Recovery",
+      "tier": "execution",
+      "purpose": "Detect execution failures and apply corrective strategies (retry, fallback, reroute, or escalate) without requiring human intervention.",
+      "measurable_outcomes": [
+        "Recovery success rate ≥ 0.80 (errors resolved without human intervention)",
+        "Mean time to recovery ≤ 30 seconds for transient errors",
+        "Escalation rate ≤ 10% (cases that require human intervention)"
+      ],
+      "dependencies": ["CAP-011", "CAP-021"],
+      "required_tools": ["Retry logic with exponential backoff; fallback routing configuration"],
+      "required_models": [],
+      "evaluation_methods": [
+        "Error injection test suite: introduce known failure types and measure recovery",
+        "Recovery benchmark: classify errors by type and measure recovery rate per type"
+      ],
+      "notes": "The difference between a demo and a production system is often just this capability. Demos show the happy path. Production requires robust error handling. Implement before first user exposure, not after."
+    },
+
+    {
+      "cap_id": "CAP-023",
+      "name": "human_in_loop_escalation",
+      "display_name": "Human-in-the-Loop Escalation",
+      "tier": "execution",
+      "purpose": "Detect when agent confidence is below threshold or when action risk exceeds authorization level, and escalate to human review.",
+      "measurable_outcomes": [
+        "False escalation rate ≤ 15% (confident, correct actions that should not have escalated)",
+        "Missed escalation rate ≤ 5% (truly uncertain or high-risk actions that were not escalated)",
+        "Escalation latency ≤ 5 seconds from detection to human notification"
+      ],
+      "dependencies": ["CAP-011"],
+      "required_tools": ["Notification system: email, Slack, PagerDuty, or equivalent"],
+      "required_models": [],
+      "evaluation_methods": [
+        "Escalation calibration test: compare escalation decisions to human judgement on 200 cases",
+        "Confidence threshold benchmark: find threshold that minimizes false escalation + missed escalation"
+      ],
+      "notes": "In enterprise deployments, the escalation path must be defined before deployment, not during an incident. Who receives the escalation? What is the SLA for human response? What does the agent do while waiting? Answer all three before launch."
+    },
+
+    {
+      "cap_id": "CAP-024",
+      "name": "multi_agent_coordination",
+      "display_name": "Multi-Agent Coordination",
+      "tier": "execution",
+      "purpose": "Delegate sub-tasks to specialized agents, manage inter-agent communication, collect results, and integrate outputs into a coherent final product.",
+      "measurable_outcomes": [
+        "Delegation accuracy ≥ 0.90 (correct sub-task routed to correct specialist agent)",
+        "Coordination overhead ≤ 20% of total task execution time",
+        "Result integration quality ≥ 0.85 (human eval of integrated output coherence)"
+      ],
+      "dependencies": ["CAP-021", "CAP-010"],
+      "required_tools": ["Agent communication protocol: MCP, A2A, message queue, or direct API calls"],
+      "required_models": ["Orchestrator LLM with strong task decomposition"],
+      "evaluation_methods": [
+        "Multi-agent task completion benchmark",
+        "Coordination efficiency test: measure overhead vs. single-agent baseline",
+        "Integration quality human evaluation"
+      ],
+      "notes": "Multi-agent coordination amplifies both the strengths and weaknesses of the individual agents. Do not use multi-agent coordination to compensate for weak individual agents. Fix the agent first, coordinate second."
+    },
+
+    {
+      "cap_id": "CAP-025",
+      "name": "pii_detection_and_redaction",
+      "display_name": "PII Detection and Redaction",
+      "tier": "safety",
+      "purpose": "Identify and redact personally identifiable information in both inputs and outputs before processing or delivery.",
+      "measurable_outcomes": [
+        "PII detection recall ≥ 0.99 (misses ≤ 1% of PII instances)",
+        "False positive rate ≤ 5% (non-PII incorrectly redacted)",
+        "Redaction completeness: 100% of detected PII fully redacted, not partially masked"
+      ],
+      "dependencies": ["CAP-001"],
+      "required_tools": ["PII detection library: Microsoft Presidio, spaCy NER, AWS Comprehend, or equivalent"],
+      "required_models": ["NER model fine-tuned on PII categories or LLM-based PII classifier"],
+      "evaluation_methods": [
+        "PII recall benchmark on synthetic PII test set",
+        "Cross-jurisdiction coverage test: verify US, EU, and APAC PII formats detected",
+        "Edge case test: embedded PII, reformatted PII, PII in code"
+      ],
+      "notes": "Recall is more important than precision for PII detection. A false positive (unnecessary redaction) is recoverable. A false negative (PII leak) may not be. Set recall threshold at 0.99, not 0.95. Verify coverage for jurisdiction-specific PII formats."
+    },
+
+    {
+      "cap_id": "CAP-026",
+      "name": "hallucination_detection",
+      "display_name": "Hallucination Detection",
+      "tier": "safety",
+      "purpose": "Identify factually unsupported or contradicted claims in model outputs before they are delivered to users.",
+      "measurable_outcomes": [
+        "Hallucination detection precision ≥ 0.80 (flagged claims are actually hallucinated)",
+        "Hallucination detection recall ≥ 0.75 (catches ≥ 75% of actual hallucinations)",
+        "False alarm rate ≤ 20% (correct claims flagged as hallucinations)"
+      ],
+      "dependencies": ["CAP-011", "CAP-007"],
+      "required_tools": ["Grounding source for fact-checking; fact-checking module or LLM-as-judge"],
+      "required_models": ["Evaluator LLM or specialized hallucination detection model"],
+      "evaluation_methods": [
+        "HaluEval benchmark",
+        "FactScore (factual precision in long-form generation)",
+        "RAG faithfulness benchmark: verify claims are grounded in retrieved context"
+      ],
+      "notes": "Hallucination detection is hardest when the hallucination is plausible-sounding. LLM-as-judge evaluators have their own hallucination risks. Use grounding-based detection (does this claim appear in the retrieved context?) as the primary method for RAG-based agents."
+    },
+
+    {
+      "cap_id": "CAP-027",
+      "name": "compliance_logging",
+      "display_name": "Compliance Logging",
+      "tier": "safety",
+      "purpose": "Produce tamper-evident, structured, queryable logs of all agent inputs, outputs, tool calls, and decisions for audit and compliance requirements.",
+      "measurable_outcomes": [
+        "Log completeness: 100% of agent actions logged with timestamp, input, output, and tool calls",
+        "Query latency ≤ 500ms for compliance queries over 90-day log window",
+        "Audit pass rate ≥ 99% on simulated compliance audits"
+      ],
+      "dependencies": [],
+      "required_tools": ["Structured logging system: Elasticsearch, AWS CloudWatch, Google BigQuery, or equivalent with immutable log support"],
+      "required_models": [],
+      "evaluation_methods": [
+        "Audit simulation test: verify all required fields present for each log entry",
+        "Log completeness test: run 100 agent interactions and verify 100% logged",
+        "Query performance test: benchmark log retrieval latency"
+      ],
+      "notes": "Frequently treated as a P2 capability and deferred. This is a mistake for any enterprise deployment. Retroactive log reconstruction after a compliance incident is extremely expensive. Implement before first enterprise user, not after."
+    },
+
+    {
+      "cap_id": "CAP-028",
+      "name": "output_validation",
+      "display_name": "Output Validation",
+      "tier": "safety",
+      "purpose": "Validate agent outputs against a schema, policy, or specification before delivery to ensure correctness and compliance.",
+      "measurable_outcomes": [
+        "Validation coverage: 100% of outputs pass through validation before delivery",
+        "False rejection rate ≤ 5% (valid outputs rejected by validator)",
+        "Policy violation detection rate ≥ 0.95 (outputs that violate policy are caught)"
+      ],
+      "dependencies": ["CAP-011", "CAP-019"],
+      "required_tools": ["JSON schema validator; policy enforcement library or LLM-as-judge for policy compliance"],
+      "required_models": ["Evaluator LLM for policy compliance checking"],
+      "evaluation_methods": [
+        "Schema validation test: 500 outputs, 100% must pass schema",
+        "Policy violation injection test: introduce known violations and measure detection rate",
+        "False rejection benchmark: verify valid outputs are not incorrectly rejected"
+      ],
+      "notes": "The last line of defense before outputs reach users. In high-stakes domains (healthcare, legal, finance), treat output validation as P0, not P2. The cost of a single unvalidated harmful output is greater than the cost of implementing this capability."
+    }
+
+  ]
+}
