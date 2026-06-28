@@ -1,0 +1,301 @@
+{
+  "$schema": "https://skills-tree.dev/schemas/corpus/v1",
+  "$version": "1.0",
+
+  "entry_id": "CORPUS-001",
+  "created_at": "2026-06-28T00:00:00Z",
+  "last_reviewed_at": "2026-06-28T00:00:00Z",
+  "review_due_at": "2026-09-26T00:00:00Z",
+
+  "goal": {
+    "text": "Build a Customer Support Agent that handles inbound support requests via chat, resolves tier-1 issues autonomously, retrieves answers from a knowledge base, maintains conversation context across turns, detects when escalation to a human agent is required, and logs all interactions for compliance audit.",
+    "goal_id": "GOAL-001",
+    "goal_class": "reactive_agent",
+    "complexity": "complex",
+    "domain": "support",
+    "domain_variant": "enterprise"
+  },
+
+  "constraints": {
+    "security_tier": "enterprise",
+    "max_latency_ms": 5000,
+    "max_cost_usd_per_run": null,
+    "compliance_requirements": ["soc2"],
+    "require_battle_tested": true,
+    "excluded_capability_patterns": [],
+    "notes": "PII is present in inbound messages (customer names, account numbers, contact details). All PII must be detected and handled before any logging or downstream processing. Human escalation is a hard requirement: certain categories of requests (billing disputes, account termination, legal matters) must always route to a human regardless of agent confidence. SOC2 requires immutable audit logs of all agent inputs, outputs, tool calls, and escalation decisions. Latency budget of 5000ms covers the full response cycle including retrieval."
+  },
+
+  "required_capabilities": [
+    {
+      "cap_id": "CAP-003",
+      "name": "intent_classification",
+      "tier": "P0",
+      "criticality": 0.97,
+      "rationale": "Every inbound support message must be classified before any response logic executes. Intent classification determines whether the request is answerable by the agent, requires tool use, or must be escalated. Without accurate classification, the agent routes all requests through a single path, producing irrelevant responses for non-answerable intent classes and missing mandatory escalation triggers.",
+      "without_this": "Agent cannot differentiate between a password reset request and a legal dispute. Mandatory escalation categories are missed. Tier-1 deflection rate collapses to near zero."
+    },
+    {
+      "cap_id": "CAP-018",
+      "name": "multi_turn_dialogue_management",
+      "tier": "P0",
+      "criticality": 0.96,
+      "rationale": "Support conversations are multi-turn by nature. Customers provide partial information across messages, reference prior statements, and ask follow-up questions. The agent must track the full conversation thread, remember what it has already asked, and avoid requesting information the customer already provided. Single-turn response generation produces an agent that asks the same clarifying questions repeatedly, which is the fastest path to low CSAT scores.",
+      "without_this": "Agent treats every message as independent. Asks for account number on turn 3 after it was provided on turn 1. Customers abandon conversations. CSAT drops below acceptable threshold."
+    },
+    {
+      "cap_id": "CAP-007",
+      "name": "semantic_retrieval",
+      "tier": "P0",
+      "criticality": 0.94,
+      "rationale": "The agent must retrieve accurate answers from the enterprise knowledge base (product documentation, FAQ, policy documents, troubleshooting guides). Without retrieval, the agent answers from model training data, which is stale, hallucination-prone, and not specific to the company's products or policies. Enterprise support requires answers grounded in the company's actual knowledge base.",
+      "without_this": "Agent answers from LLM training data. Produces plausible-sounding but factually incorrect answers about company-specific products and policies. First escalation from an incorrect answer destroys trust."
+    },
+    {
+      "cap_id": "CAP-025",
+      "name": "pii_detection_and_redaction",
+      "tier": "P0",
+      "criticality": 0.99,
+      "rationale": "Customers routinely include PII in support messages: full names, email addresses, phone numbers, account numbers, partial payment card numbers, and sometimes SSNs or dates of birth. Under SOC2 and general data hygiene requirements, PII must be detected before logging and handled according to the data classification policy. A single unredacted PII field in an audit log is a compliance finding. This capability must execute before any other capability in the pipeline.",
+      "without_this": "PII flows into audit logs unredacted. SOC2 audit fails. Potential regulatory exposure depending on jurisdiction. This is the highest-severity capability gap in an enterprise deployment."
+    },
+    {
+      "cap_id": "CAP-027",
+      "name": "compliance_logging",
+      "tier": "P0",
+      "criticality": 0.98,
+      "rationale": "SOC2 Type II compliance requires immutable, timestamped, queryable logs of all system actions. For a customer support agent, this means: every inbound message (post-PII-redaction), every retrieval query and result set, every intent classification decision, every response generated, every tool call, and every escalation decision with its trigger reason. These logs are reviewed during SOC2 audits. Missing or incomplete logs are audit findings that can jeopardize certification.",
+      "without_this": "SOC2 audit fails. Enterprise customers cannot sign BAA or DPA. Deal-blocking in any regulated industry vertical."
+    },
+    {
+      "cap_id": "CAP-023",
+      "name": "human_in_loop_escalation",
+      "tier": "P0",
+      "criticality": 0.95,
+      "rationale": "Enterprise support deployments require deterministic escalation for certain intent classes (legal, billing disputes, account closures, expressions of distress) regardless of agent confidence. They also require confidence-based escalation when the agent is uncertain. The escalation path, SLA, and agent behavior during wait (hold message, ticket creation, estimated wait time) must be fully specified before deployment. Human escalation is not a fallback — it is a designed path.",
+      "without_this": "Agent attempts to handle legal disputes and account termination requests autonomously. Creates legal and reputational risk. Enterprise procurement will not approve deployment without documented escalation paths."
+    },
+    {
+      "cap_id": "CAP-005",
+      "name": "short_term_context_management",
+      "tier": "P0",
+      "criticality": 0.91,
+      "rationale": "Support conversations can run 10-20 turns. The agent must hold the entire conversation thread, the customer's account context (retrieved at session start), the current issue state, and any intermediate resolution steps in context simultaneously. Context window management determines whether the agent loses track of prior turns under load.",
+      "without_this": "Agent loses conversation state after 5-8 turns. Asks customers to repeat information. Context-dependent follow-up questions produce incoherent responses."
+    },
+    {
+      "cap_id": "CAP-017",
+      "name": "response_generation",
+      "tier": "P0",
+      "criticality": 0.93,
+      "rationale": "Support response quality directly determines CSAT. Responses must be accurate (grounded in retrieved knowledge), appropriately toned (empathetic for frustrated customers, concise for simple requests), correctly formatted for the chat interface, and within the latency budget. Response generation is the output capability that all upstream capabilities feed into.",
+      "without_this": "No output. Not applicable as a standalone omission — this is the terminal output step."
+    },
+    {
+      "cap_id": "CAP-001",
+      "name": "text_understanding",
+      "tier": "P0",
+      "criticality": 0.92,
+      "rationale": "Foundation capability. Inbound support messages vary enormously in grammar quality, formality, and completeness. The agent must correctly parse truncated sentences, typos, mixed languages in some deployments, and implicit context. Text understanding quality determines the ceiling on every downstream capability.",
+      "without_this": "All downstream capabilities degrade proportionally. Cannot operate."
+    },
+    {
+      "cap_id": "CAP-006",
+      "name": "long_term_memory_storage",
+      "tier": "P1",
+      "criticality": 0.78,
+      "rationale": "Enterprise support benefits significantly from customer history: previous tickets, known issues with their account, past interactions, and documented preferences. Without long-term memory, the agent treats every interaction as the first contact, producing a degraded experience for returning customers and missing context that would allow faster resolution.",
+      "without_this": "Agent has no memory of prior customer interactions. Cannot reference previous tickets. Resolution time increases for repeat issues. Acceptable for MVP but significantly degrades enterprise CX quality."
+    },
+    {
+      "cap_id": "CAP-028",
+      "name": "output_validation",
+      "tier": "P1",
+      "criticality": 0.82,
+      "rationale": "Before delivering a response, the agent must validate that: the response does not contain unredacted PII, does not make commitments the company cannot keep (pricing claims, SLA guarantees not in the knowledge base), and does not contain hallucinated product information. A single validated incorrect response policy claim creates a contractual dispute.",
+      "without_this": "Agent delivers hallucinated policy claims as fact. Creates contractual exposure. A single incident where a customer is told an incorrect refund policy and acts on it creates legal risk."
+    },
+    {
+      "cap_id": "CAP-011",
+      "name": "self_evaluation",
+      "tier": "P1",
+      "criticality": 0.74,
+      "rationale": "The agent should assess its own confidence before responding. Low-confidence responses should trigger retrieval expansion (search more sources), escalation consideration (is this above the confidence threshold?), or explicit uncertainty signaling to the customer. Without self-evaluation, the agent delivers all responses with uniform confidence regardless of actual answer quality.",
+      "without_this": "Agent delivers uncertain answers with the same tone as certain answers. Customers cannot tell when to trust the response. Escalation threshold cannot be set dynamically."
+    },
+    {
+      "cap_id": "CAP-026",
+      "name": "hallucination_detection",
+      "tier": "P2",
+      "criticality": 0.62,
+      "rationale": "For enterprise support, responses grounded in retrieved knowledge should be fact-checked against the retrieval context before delivery. Hallucination detection catches cases where the model generates plausible-sounding information not present in the retrieved documents. Particularly important for pricing, SLA, and policy responses.",
+      "without_this": "Policy-level hallucinations are delivered to customers. Risk is partially mitigated by CAP-028 (output validation) but not eliminated. Acceptable for initial deployment if output validation is strong."
+    },
+    {
+      "cap_id": "CAP-008",
+      "name": "episodic_memory",
+      "tier": "P2",
+      "criticality": 0.51,
+      "rationale": "Episodic memory allows the agent to recall the specific sequence of prior interactions with a customer: what was resolved, what was escalated, what commitments were made. Useful for premium support tiers where continuity across interactions is a service differentiator.",
+      "without_this": "Agent recalls general customer facts (CAP-006) but not the specific history of interactions. Acceptable for standard support tiers."
+    }
+  ],
+
+  "dependency_order": [
+    "CAP-001",
+    "CAP-025",
+    "CAP-003",
+    "CAP-005",
+    "CAP-007",
+    "CAP-006",
+    "CAP-011",
+    "CAP-018",
+    "CAP-017",
+    "CAP-028",
+    "CAP-023",
+    "CAP-026",
+    "CAP-008",
+    "CAP-027"
+  ],
+
+  "capability_notes": "CAP-025 (PII detection) must execute as the first step in the pipeline — before retrieval, before logging, before any other processing. This is non-negotiable under SOC2. CAP-027 (compliance logging) must receive post-redaction inputs only. The retrieval pipeline (CAP-007) and context management (CAP-005) are the primary latency drivers; both must be profiled against the 5000ms budget early in development. CAP-023 escalation categories must be defined with the enterprise client before deployment, not derived from model judgment — certain intents must trigger deterministic escalation regardless of model confidence.",
+
+  "risk_profile": {
+    "overall_risk": "high",
+    "primary_risks": [
+      {
+        "risk_id": "RISK-001",
+        "description": "PII leak into audit logs: CAP-025 fails to detect a PII variant (reformatted phone number, partial account number embedded in a sentence) and it passes through to the SOC2 audit log unredacted.",
+        "affected_capabilities": ["CAP-025", "CAP-027"],
+        "severity": "critical",
+        "probability": "occasional",
+        "mitigation": "Set CAP-025 recall threshold at 0.99, not 0.95. Test with synthetic PII in 50+ formats: reformatted, embedded in sentences, split across words, in code blocks. Run a quarterly PII audit on a random sample of 500 log entries. Implement a secondary PII scan at the log write step as defense in depth."
+      },
+      {
+        "risk_id": "RISK-002",
+        "description": "Missed mandatory escalation: agent handles a billing dispute or legal matter autonomously because the intent classifier assigns it a non-escalation class. Customer takes action based on incorrect agent guidance.",
+        "affected_capabilities": ["CAP-003", "CAP-023"],
+        "severity": "critical",
+        "probability": "occasional",
+        "mitigation": "Maintain a mandatory escalation intent list that triggers deterministic escalation regardless of model confidence. This list is defined by the enterprise client, not inferred. Use a rule-based override layer on top of the intent classifier for mandatory escalation categories. Test with adversarial inputs designed to disguise escalation-required intents as standard requests."
+      },
+      {
+        "risk_id": "RISK-003",
+        "description": "Latency breach under load: retrieval (CAP-007) + multi-turn context management (CAP-005) + response generation (CAP-017) exceed the 5000ms budget during peak traffic when the vector store is under load.",
+        "affected_capabilities": ["CAP-007", "CAP-005", "CAP-017"],
+        "severity": "high",
+        "probability": "occasional",
+        "mitigation": "Allocate latency budget explicitly before implementation: retrieval \u2264 800ms (P95), LLM generation \u2264 3500ms (P95), overhead \u2264 700ms. Profile each component independently before integration testing. Implement async retrieval where possible. Cache frequent queries. Set a latency SLA in the deployment monitoring before go-live."
+      },
+      {
+        "risk_id": "RISK-004",
+        "description": "Policy hallucination delivered as fact: agent generates a plausible but incorrect refund policy statement not grounded in the retrieved knowledge base. Customer acts on it. Creates contractual exposure.",
+        "affected_capabilities": ["CAP-017", "CAP-026", "CAP-028"],
+        "severity": "high",
+        "probability": "occasional",
+        "mitigation": "Implement CAP-028 (output validation) with a policy claim detector: any response containing pricing, SLA, refund, or commitment language must be cross-referenced against the retrieved context. Responses containing policy claims with no retrieval grounding are flagged and either blocked or marked with a caveat. This validation step adds latency (\u2264 300ms) but prevents contractual exposure."
+      },
+      {
+        "risk_id": "RISK-005",
+        "description": "Customer trust loss in first two weeks: agent delivers two or more visibly incorrect or tone-deaf responses in the first 14 days. Internal stakeholders lose confidence and push to disable or rebuild.",
+        "affected_capabilities": ["CAP-017", "CAP-011", "CAP-018"],
+        "severity": "high",
+        "probability": "frequent",
+        "mitigation": "Deploy in shadow mode for the first 7 days: agent generates responses but a human reviews before sending. Collect shadow mode feedback to identify systematic errors. Move to supervised mode (agent sends, human can intervene) for days 8-21. Move to autonomous mode only after supervised mode CSAT \u2265 4.0/5.0 on 100+ interactions. Never skip the shadow period for enterprise deployments."
+      }
+    ]
+  },
+
+  "evaluation_requirements": [
+    {
+      "capability": "CAP-003",
+      "eval_method": "intent_classification_accuracy",
+      "pass_threshold": 0.90,
+      "dataset_or_approach": "Curate 200 labeled support messages covering all defined intent classes plus out-of-scope inputs. Measure top-1 accuracy and separately measure escalation-required intent recall (must be \u2265 0.98 — higher bar than general accuracy). Confusion matrix analysis on all intent pairs.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-018",
+      "eval_method": "multi_turn_coherence_human_eval",
+      "pass_threshold": 0.88,
+      "dataset_or_approach": "Construct 30 scripted multi-turn support conversations (10-20 turns each) covering: context retention, reference to prior turns, avoidance of repeated questions, and topic continuity. Human raters score coherence and context retention on a 1-5 scale. Pass threshold: mean score \u2265 4.4/5.0 across all conversations.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-007",
+      "eval_method": "retrieval_recall_precision",
+      "pass_threshold": 0.85,
+      "dataset_or_approach": "Create a retrieval evaluation set of 100 support queries with human-labeled relevant documents from the knowledge base. Measure Recall@5 \u2265 0.85 and Precision@5 \u2265 0.75. Include query types: exact match, paraphrase, multi-hop (answer requires combining two documents), and edge cases (queries with no relevant document in the knowledge base).",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-025",
+      "eval_method": "pii_recall_benchmark",
+      "pass_threshold": 0.99,
+      "dataset_or_approach": "Construct a synthetic test set of 500 support messages containing PII in 30+ formats: standard email, phone (US, EU, international formats), full name, partial account numbers, embedded in sentences, in code-like strings. Measure recall \u2265 0.99. Any format category with recall < 0.99 requires targeted remediation before go-live. Test separately for false positive rate \u2264 5%.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-027",
+      "eval_method": "log_completeness_audit",
+      "pass_threshold": 1.0,
+      "dataset_or_approach": "Run 100 scripted agent interactions with known inputs and outputs. Verify that every interaction produces a log entry containing: timestamp, session_id, raw_input_post_redaction, intent_classification_result, retrieval_queries, retrieval_results, generated_response, escalation_decision, tool_calls. 100% completeness required. Simulate a SOC2 audit query (retrieve all interactions for a given customer_id in a date range) and verify query latency \u2264 500ms.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-023",
+      "eval_method": "escalation_calibration_test",
+      "pass_threshold": 0.98,
+      "dataset_or_approach": "Mandatory escalation recall test: present 50 messages from mandatory-escalation intent categories in disguised form (adversarial phrasings designed to look like standard requests). Verify that mandatory escalation is triggered \u2265 0.98 of the time regardless of disguise. Separate confidence-based escalation test: verify that confidence threshold triggers escalation at the configured rate on ambiguous inputs. False escalation rate \u2264 15%.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-005",
+      "eval_method": "context_retention_test",
+      "pass_threshold": 0.90,
+      "dataset_or_approach": "Run 20 scripted conversations of 15+ turns. Inject a key fact (account number, issue description, customer preference) in turn 2 and verify it is correctly referenced when relevant in turns 8, 12, and 15. Measure retention accuracy across all 20 conversations.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-017",
+      "eval_method": "csat_proxy_human_eval",
+      "pass_threshold": 0.80,
+      "dataset_or_approach": "Human evaluators rate 100 agent responses on: accuracy (is the information correct?), tone (is it appropriately empathetic and professional?), completeness (does it fully address the question?), and conciseness (is it appropriately brief?). Each dimension scored 1-5. Pass threshold: mean \u2265 4.0/5.0 on accuracy and tone. Completeness and conciseness are informational.",
+      "priority": "required"
+    },
+    {
+      "capability": "CAP-028",
+      "eval_method": "policy_claim_validation_test",
+      "pass_threshold": 0.95,
+      "dataset_or_approach": "Inject 50 queries that would prompt the agent to make a policy-level claim (refund policy, SLA, pricing). Verify that 95% of responses either: (a) cite a retrieved document as the source, or (b) appropriately hedge with 'please confirm with our team.' Verify that 0% of responses assert a specific policy claim with no retrieval grounding.",
+      "priority": "recommended"
+    }
+  ],
+
+  "effort_estimate": {
+    "days_to_implement_from_zero": 35,
+    "days_to_implement_with_existing": 18,
+    "primary_effort_drivers": [
+      "Knowledge base ingestion pipeline: chunking strategy, embedding, indexing, and retrieval quality tuning (6 days)",
+      "PII detection integration and coverage testing across 30+ PII formats (4 days)",
+      "SOC2 compliance logging implementation: schema design, immutable log infrastructure, query interface (5 days)",
+      "Intent classification: labeling 200 training examples, fine-tuning or prompt engineering, escalation category definition with enterprise client (5 days)",
+      "Shadow mode deployment, supervised period, and quality threshold validation before autonomous go-live (7 days)",
+      "Multi-turn dialogue tuning: prompt engineering and context management for 10+ turn coherence (4 days)",
+      "Evaluation harness setup and pass/fail validation against all required thresholds (4 days)"
+    ],
+    "confidence": "estimated"
+  },
+
+  "validation": {
+    "source": "human_architect",
+    "confidence": 0.88,
+    "validated_by": "samotech",
+    "evidence": "Pattern derived from direct architecture and deployment experience with enterprise LLM-based support agents. PII handling complexity and SOC2 logging requirements reflect real enterprise procurement blockers observed in production deployments. Mandatory escalation category design is a consistent gap between demo and production deployments — documented here from direct observation. Latency budget breakdown (retrieval 800ms, generation 3500ms, overhead 700ms) reflects profiled production numbers from similar deployments.",
+    "known_gaps": "Effort estimate assumes a well-structured knowledge base that has already been curated. If the enterprise knowledge base is unstructured, poorly maintained, or multilingual, retrieval quality and ingestion effort may be significantly higher (add 5-10 days). Multi-language support (if required) is not covered by this entry and requires a domain variant. Voice channel support (telephony integration) requires CAP-004 and is a separate entry."
+  },
+
+  "related_entries": [],
+  "superseded_by": null,
+  "tags": ["support", "enterprise", "reactive-agent", "pii", "soc2", "escalation", "rag", "multi-turn"]
+}
