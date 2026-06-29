@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T08:58:18Z",
+  "dateModified": "2026-06-29T09:15:56Z",
   "skillId": "question-answering",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "question, answering, skills tree, LLM skill, communication, AI agent",
+  "keywords": "AI agent, LLM skill, communication, answering, skills tree, question",
   "about": {
     "@type": "Thing",
     "name": "Question Answering",

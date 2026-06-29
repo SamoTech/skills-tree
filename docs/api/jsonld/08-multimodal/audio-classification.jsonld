@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T08:58:18Z",
+  "dateModified": "2026-06-29T09:15:56Z",
   "skillId": "audio-classification",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "classification, skills tree, LLM skill, audio, multimodal, AI agent",
+  "keywords": "multimodal, AI agent, audio, LLM skill, skills tree, classification",
   "about": {
     "@type": "Thing",
     "name": "Audio Classification",

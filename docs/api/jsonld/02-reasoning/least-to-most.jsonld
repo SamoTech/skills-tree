@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T08:58:18Z",
+  "dateModified": "2026-06-29T09:15:56Z",
   "skillId": "least-to-most",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-06-01",
-  "keywords": "to, least, skills tree, LLM skill, AI agent, reasoning, most",
+  "keywords": "to, reasoning, AI agent, least, LLM skill, most, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Least-to-Most Prompting",
