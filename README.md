@@ -7,6 +7,14 @@
 
 # Skills Tree
 
+<!-- HIGHLIGHTS_START -->
+## 📆 This Week's Highlights — June 29, 2026
+
+> No skill changes this week. Open a PR to get started!
+
+<!-- HIGHLIGHTS_END -->
+
+
 ### AI Engineering Operating System
 
 **The largest open, dependency-mapped knowledge graph for AI agents.**
