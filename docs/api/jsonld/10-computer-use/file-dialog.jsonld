@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-23T10:00:35Z",
+  "dateModified": "2026-06-29T08:58:18Z",
   "skillId": "file-dialog",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "dialog, computer, LLM skill, file, use, AI agent, skills tree",
+  "keywords": "file, dialog, computer, use, skills tree, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "File Dialog Interaction",
