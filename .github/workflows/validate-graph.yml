@@ -16,6 +16,11 @@ on:
       - 'tools/**'
       - 'data/**'
 
+# Default: restrict all permissions to read-only.
+# Individual jobs that need write access declare it explicitly.
+permissions:
+  contents: read
+
 jobs:
   build-and-validate:
     name: Build Graph & Validate
@@ -221,6 +226,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build-and-validate
+    permissions:
+      contents: write  # required by EndBug/add-and-commit to push quality index
 
     steps:
       - uses: actions/checkout@v4
