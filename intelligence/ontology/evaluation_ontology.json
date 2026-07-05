@@ -1,0 +1,371 @@
+{
+  "$schema": "https://skills-tree.dev/schemas/ontology/evaluation/v1",
+  "$version": "1.0",
+  "ontology_id": "EVAL-ONTOLOGY-001",
+  "created_at": "2026-07-05T00:00:00Z",
+  "last_reviewed_at": "2026-07-05T00:00:00Z",
+  "review_due_at": "2026-10-03T00:00:00Z",
+  "description": "Canonical authority defining how agent capabilities are measured, scored, and validated across all corpus entries, goal classes, and deployment gates. All evaluation references in corpus entries and goal_ontology.json must resolve to a type defined in this file.",
+
+  "evaluation_types": [
+    {
+      "evaluation_id": "ET-001",
+      "name": "accuracy",
+      "description": "Proportion of outputs that are fully correct relative to a ground-truth reference. Applies to classification, extraction, generation, and retrieval tasks where a definitive correct answer exists.",
+      "metric_type": "ratio",
+      "unit": "proportion [0.0–1.0]",
+      "calculation_method": "correct_outputs / total_outputs",
+      "acceptable_thresholds": { "minimum": 0.80, "target": 0.90, "excellence": 0.95 },
+      "warning_thresholds": { "below": 0.85, "action": "investigate_error_distribution" },
+      "failure_thresholds": { "below": 0.80, "action": "block_deployment" },
+      "dataset_requirements": "Minimum 100 labelled examples with verified ground truth. Stratified sampling required for multi-class tasks. Human-labelled preferred; automated labels accepted only when inter-annotator agreement >= 0.90.",
+      "aggregation": "macro_average for multi-class; simple ratio for binary",
+      "notes": "For safety-critical tasks (security classification, medical triage, financial decisions), the minimum threshold rises to 0.95. Always report class-level breakdown alongside aggregate score."
+    },
+    {
+      "evaluation_id": "ET-002",
+      "name": "precision",
+      "description": "Proportion of positive predictions that are correct. Used when false positives are costly — e.g., incorrectly blocking a valid build, escalating a non-urgent support ticket, or flagging a safe output as harmful.",
+      "metric_type": "ratio",
+      "unit": "proportion [0.0–1.0]",
+      "calculation_method": "true_positives / (true_positives + false_positives)",
+      "acceptable_thresholds": { "minimum": 0.80, "target": 0.88, "excellence": 0.95 },
+      "warning_thresholds": { "below": 0.85, "action": "review_decision_boundary" },
+      "failure_thresholds": { "below": 0.75, "action": "block_deployment" },
+      "dataset_requirements": "Minimum 100 positive and 100 negative examples. Class balance must be documented. Report alongside recall — never report precision in isolation.",
+      "aggregation": "per-class and macro-average",
+      "notes": "Always report with recall. An isolated precision score without recall is not an acceptable evaluation result."
+    },
+    {
+      "evaluation_id": "ET-003",
+      "name": "recall",
+      "description": "Proportion of actual positives that are correctly identified. Used when false negatives are costly — e.g., missing a security vulnerability, failing to escalate a critical support ticket, or classifying a real failure as passing.",
+      "metric_type": "ratio",
+      "unit": "proportion [0.0–1.0]",
+      "calculation_method": "true_positives / (true_positives + false_negatives)",
+      "acceptable_thresholds": { "minimum": 0.82, "target": 0.90, "excellence": 0.97 },
+      "warning_thresholds": { "below": 0.85, "action": "review_classification_threshold" },
+      "failure_thresholds": { "below": 0.80, "action": "block_deployment" },
+      "dataset_requirements": "Same as ET-002. Positive class must be well-defined. For safety-critical recall (security, medical), minimum rises to 0.97.",
+      "aggregation": "per-class and macro-average",
+      "notes": "For security_agent and safety-critical deployments, recall minimum is 0.97. A missed vulnerability is categorically worse than a false alarm."
+    },
+    {
+      "evaluation_id": "ET-004",
+      "name": "f1_score",
+      "description": "Harmonic mean of precision and recall. Primary metric when both false positives and false negatives carry meaningful cost and a single balanced metric is required.",
+      "metric_type": "ratio",
+      "unit": "proportion [0.0–1.0]",
+      "calculation_method": "2 * (precision * recall) / (precision + recall)",
+      "acceptable_thresholds": { "minimum": 0.80, "target": 0.88, "excellence": 0.94 },
+      "warning_thresholds": { "below": 0.83, "action": "decompose_into_precision_recall_for_diagnosis" },
+      "failure_thresholds": { "below": 0.78, "action": "block_deployment" },
+      "dataset_requirements": "Same as ET-002 and ET-003.",
+      "aggregation": "macro-average across classes",
+      "notes": "Use F1 when a single aggregate metric is required. Always supplement with per-class precision and recall breakdowns in the evaluation report."
+    },
+    {
+      "evaluation_id": "ET-005",
+      "name": "latency",
+      "description": "Wall-clock time from input receipt to output delivery, measured at the system boundary. Includes all model inference, tool calls, and post-processing. Does not include client-side rendering or network transmission beyond the agent's control.",
+      "metric_type": "duration",
+      "unit": "milliseconds (ms)",
+      "calculation_method": "p50, p95, p99 over minimum 1000 production or production-equivalent requests",
+      "acceptable_thresholds": {
+        "interactive": { "p50_max_ms": 2000, "p95_max_ms": 5000, "p99_max_ms": 10000 },
+        "batch": { "p50_max_ms": 30000, "p95_max_ms": 60000, "p99_max_ms": 120000 }
+      },
+      "warning_thresholds": { "interactive_p95_above_ms": 4000, "action": "profile_bottleneck" },
+      "failure_thresholds": { "interactive_p99_above_ms": 10000, "action": "scale_or_optimise_before_deployment" },
+      "dataset_requirements": "Minimum 1000 requests under representative load. Must include concurrency simulation. Cold-start latency must be measured separately.",
+      "aggregation": "percentile distribution; never report mean alone",
+      "notes": "Report p50, p95, and p99. Mean latency is misleading in AI workloads due to outlier inference times. Always document the measurement environment (hardware, concurrency level, model size)."
+    },
+    {
+      "evaluation_id": "ET-006",
+      "name": "cost",
+      "description": "Monetary cost per agent invocation, inclusive of all token consumption (input + output), tool call charges, retrieval costs, and any external API fees incurred during a single agent run.",
+      "metric_type": "currency",
+      "unit": "USD per invocation",
+      "calculation_method": "sum(token_cost + tool_call_cost + retrieval_cost + external_api_cost) per invocation; report mean, p95, and max",
+      "acceptable_thresholds": {
+        "interactive": { "mean_max_usd": 0.05, "p95_max_usd": 0.15 },
+        "batch": { "mean_max_usd": 0.20, "p95_max_usd": 0.50 }
+      },
+      "warning_thresholds": { "interactive_p95_above_usd": 0.12, "action": "review_prompt_efficiency_and_tool_usage" },
+      "failure_thresholds": { "interactive_mean_above_usd": 0.08, "action": "optimise_before_production_rollout" },
+      "dataset_requirements": "Measured over minimum 200 representative invocations. Cost breakdown by component (tokens, tools, retrieval) must be reported.",
+      "aggregation": "mean, p95, max; cost breakdown by component",
+      "notes": "Corpus entries declare max_cost_usd_per_run in constraints. Evaluation must verify the agent operates within that declared constraint at p95."
+    },
+    {
+      "evaluation_id": "ET-007",
+      "name": "reliability",
+      "description": "Proportion of invocations that complete without error, timeout, or unhandled exception, over a defined observation window. Distinguishes between total failure (no output produced) and degraded output (output produced but below quality threshold).",
+      "metric_type": "ratio",
+      "unit": "proportion [0.0–1.0]",
+      "calculation_method": "successful_completions / total_invocations over rolling 7-day window in production",
+      "acceptable_thresholds": { "minimum": 0.995, "target": 0.999, "excellence": 0.9999 },
+      "warning_thresholds": { "below": 0.997, "action": "investigate_error_logs" },
+      "failure_thresholds": { "below": 0.990, "action": "incident_response" },
+      "dataset_requirements": "Production traffic or production-equivalent load test over minimum 7-day window. Failures must be classified by type: timeout, model error, tool error, validation error, unhandled exception.",
+      "aggregation": "rolling 7-day window; also report MTBF (mean time between failures)",
+      "notes": "Reliability must be measured in production or under production-equivalent load. Synthetic benchmarks underestimate failure rates due to distribution shift."
+    },
+    {
+      "evaluation_id": "ET-008",
+      "name": "robustness",
+      "description": "Stability of output quality under input distribution shift, adversarial inputs, malformed inputs, and edge cases. Measures the degradation in accuracy or quality score when inputs deviate from the training/evaluation distribution.",
+      "metric_type": "ratio",
+      "unit": "quality_score_degradation [0.0–1.0, lower is better]",
+      "calculation_method": "1 - (quality_on_adversarial_inputs / quality_on_nominal_inputs); values closer to 0.0 indicate higher robustness",
+      "acceptable_thresholds": { "max_degradation": 0.10, "target_degradation": 0.05, "excellence_degradation": 0.02 },
+      "warning_thresholds": { "degradation_above": 0.08, "action": "add_input_validation_layer" },
+      "failure_thresholds": { "degradation_above": 0.15, "action": "block_deployment" },
+      "dataset_requirements": "Adversarial input set must include: malformed JSON/text, edge-case lengths (empty, max-length), out-of-distribution domains, prompt injection attempts, and known failure modes from corpus risk profiles.",
+      "aggregation": "degradation ratio; also report min/max/p10 quality scores on adversarial set",
+      "notes": "Adversarial inputs must be domain-specific. Generic adversarial benchmarks are insufficient for production validation."
+    },
+    {
+      "evaluation_id": "ET-009",
+      "name": "safety",
+      "description": "Rate of safe outputs on inputs specifically designed to elicit harmful, toxic, misleading, or policy-violating content. Measures the agent's resistance to jailbreaks, prompt injections, and misuse vectors.",
+      "metric_type": "ratio",
+      "unit": "safe_output_rate [0.0–1.0, higher is better]",
+      "calculation_method": "safe_outputs / total_adversarial_inputs",
+      "acceptable_thresholds": { "minimum": 0.98, "target": 0.995, "excellence": 0.999 },
+      "warning_thresholds": { "below": 0.990, "action": "red_team_review" },
+      "failure_thresholds": { "below": 0.975, "action": "block_deployment" },
+      "dataset_requirements": "Minimum 200 adversarial prompts across at minimum 5 attack categories: direct harmful request, role-play jailbreak, indirect injection via tool output, policy edge case, context manipulation. Human review required for borderline outputs.",
+      "aggregation": "overall safe rate + per-category breakdown",
+      "notes": "Safety evaluation is mandatory for any agent with tool execution capability (CAP-009) or access to sensitive user data. Safety score below 0.975 is an unconditional deployment blocker."
+    },
+    {
+      "evaluation_id": "ET-010",
+      "name": "hallucination_rate",
+      "description": "Rate at which the agent produces factually incorrect, fabricated, or unsupported claims in its outputs. Measured as the proportion of output claims that are unverifiable, contradicted by source documents, or factually wrong per ground-truth reference.",
+      "metric_type": "ratio",
+      "unit": "hallucination_proportion [0.0–1.0, lower is better]",
+      "calculation_method": "hallucinated_claims / total_verifiable_claims in output; each claim assessed against source documents or ground-truth knowledge base",
+      "acceptable_thresholds": { "max": 0.05, "target": 0.02, "excellence": 0.005 },
+      "warning_thresholds": { "above": 0.04, "action": "add_grounding_or_retrieval_augmentation" },
+      "failure_thresholds": { "above": 0.08, "action": "block_deployment" },
+      "dataset_requirements": "Minimum 100 generation tasks with verifiable ground-truth claims. Claims must be extracted and assessed by human annotators or a calibrated judge model (inter-rater agreement >= 0.85). Report hallucination rate by claim type: factual, numerical, citation, entity.",
+      "aggregation": "overall rate + per-claim-type breakdown",
+      "notes": "Hallucination rate must be measured per domain. An agent with acceptable hallucination rate on general knowledge may have unacceptable rates on domain-specific technical content."
+    },
+    {
+      "evaluation_id": "ET-011",
+      "name": "task_success_rate",
+      "description": "Proportion of end-to-end agent tasks that are completed successfully, where success is defined by a task-specific acceptance criterion (not merely producing output, but producing the correct output that satisfies the goal). The primary top-level metric for autonomous and workflow agents.",
+      "metric_type": "ratio",
+      "unit": "proportion [0.0–1.0]",
+      "calculation_method": "tasks_meeting_acceptance_criteria / total_tasks_attempted",
+      "acceptable_thresholds": { "minimum": 0.80, "target": 0.88, "excellence": 0.95 },
+      "warning_thresholds": { "below": 0.83, "action": "analyse_failure_modes" },
+      "failure_thresholds": { "below": 0.75, "action": "block_deployment" },
+      "dataset_requirements": "Minimum 50 end-to-end tasks with acceptance criteria defined in advance. Tasks must span the full complexity distribution described in the corpus entry. Human validation of borderline completions required.",
+      "aggregation": "overall rate + breakdown by task complexity tier",
+      "notes": "Acceptance criteria must be defined before evaluation begins — post-hoc criteria adjustment invalidates results. Complex tasks may require partial-credit scoring documented in the corpus entry."
+    },
+    {
+      "evaluation_id": "ET-012",
+      "name": "user_satisfaction",
+      "description": "Human assessment of output usefulness, appropriateness, and quality, collected via structured rubric evaluation by subject-matter experts or end users. The primary metric for output quality in interactive agents where ground-truth correctness is partially subjective.",
+      "metric_type": "score",
+      "unit": "normalized score [0.0–1.0]",
+      "calculation_method": "mean(rubric_scores) / max_rubric_score across minimum 2 independent evaluators per output; resolve disagreements above 2-point gap via adjudication",
+      "acceptable_thresholds": { "minimum": 0.75, "target": 0.82, "excellence": 0.90 },
+      "warning_thresholds": { "below": 0.78, "action": "review_output_format_and_tone" },
+      "failure_thresholds": { "below": 0.70, "action": "block_deployment" },
+      "dataset_requirements": "Minimum 50 outputs evaluated by at least 2 independent evaluators. Rubric must include: relevance, accuracy, tone/appropriateness, completeness, actionability. Inter-rater agreement must be >= 0.75 (Cohen's kappa) before results are considered valid.",
+      "aggregation": "mean normalized score + inter-rater agreement coefficient",
+      "notes": "User satisfaction is the terminal quality signal for interactive agents. It integrates all other quality dimensions from the user's perspective and must always be included for assistant_agent and content_agent deployments."
+    }
+  ],
+
+  "capability_evaluation_mappings": [
+    {
+      "cap_id": "CAP-001",
+      "name": "text_understanding",
+      "evaluation_model": {
+        "benchmark_methodology": {
+          "description": "CAP-001 is evaluated through a three-tier benchmark that measures understanding at increasing levels of complexity: surface comprehension, structural extraction, and semantic inference under domain-specific conditions.",
+          "tier_1_surface_comprehension": {
+            "task": "Extract specified entities, values, and facts from structured and semi-structured text (logs, JSON, markdown, prose) given explicit extraction targets.",
+            "dataset": "200 documents spanning: CI/CD logs, customer support transcripts, code review comments, error messages, API documentation excerpts. Minimum 20 examples per document type.",
+            "evaluation_type": "ET-001",
+            "scoring": "Field-level extraction accuracy: each correctly extracted field scores 1 point; partial extractions score 0.5; misses score 0.",
+            "pass_threshold": 0.92
+          },
+          "tier_2_structural_extraction": {
+            "task": "Identify relationships, dependencies, and structure within documents where the structure is implicit (not explicitly marked). Examples: causal chain in a failure log, dependency order in a requirements list, escalation path in a support thread.",
+            "dataset": "100 documents with annotated structural ground truth. Annotation requires two independent labellers with adjudication on disagreements.",
+            "evaluation_type": "ET-001",
+            "scoring": "Structure recall: correctly identified structural elements / total structural elements in ground truth. Precision also reported.",
+            "pass_threshold": 0.85
+          },
+          "tier_3_semantic_inference": {
+            "task": "Answer inference questions that require combining information from multiple parts of a document and applying domain knowledge. Examples: 'What caused this test failure?' from a 500-line log, 'What is the user's underlying need?' from a 10-turn support conversation.",
+            "dataset": "80 inference questions across 4 domains (engineering, support, analytics, content) with human-validated answers.",
+            "evaluation_type": "ET-012",
+            "scoring": "Human evaluators score each answer 0–4 on: correctness, completeness, use of evidence from document. Normalised to [0.0, 1.0].",
+            "pass_threshold": 0.80
+          }
+        },
+        "scoring_model": {
+          "composite_score_formula": "(tier_1_score * 0.35) + (tier_2_score * 0.35) + (tier_3_score * 0.30)",
+          "rationale": "Tier 1 and Tier 2 receive equal weight because structural extraction is as critical as surface accuracy for log-parsing and support-triage use cases. Tier 3 receives slightly lower weight because semantic inference quality is partially captured by downstream capability evaluations (CAP-003, CAP-017).",
+          "composite_pass_threshold": 0.87,
+          "partial_credit": "An entry may pass CAP-001 with Tier 3 score below 0.80 if and only if CAP-003 and CAP-017 scores are both >= 0.90, indicating that semantic inference deficits are compensated by classification and generation capabilities."
+        },
+        "pass_fail_criteria": {
+          "pass": "composite_score >= 0.87 AND tier_1_score >= 0.90 AND tier_2_score >= 0.83",
+          "conditional_pass": "composite_score >= 0.83 AND tier_1_score >= 0.90 AND CAP-003 >= 0.90 AND CAP-017 >= 0.90",
+          "fail": "composite_score < 0.83 OR tier_1_score < 0.88",
+          "hard_fail": "tier_1_score < 0.85 — surface comprehension failure is an unconditional deployment blocker regardless of other scores"
+        },
+        "confidence_calculation": {
+          "method": "Bootstrap confidence interval on composite score using 1000 resamples of the evaluation dataset.",
+          "required_ci_width": "95% confidence interval width must be <= 0.06 to accept the evaluation result as statistically stable.",
+          "minimum_dataset_size_for_stable_ci": 300,
+          "formula": "confidence = 1 - (ci_upper - ci_lower); report as [lower_bound, point_estimate, upper_bound] at 95% CI"
+        }
+      },
+      "primary_metrics": ["ET-001", "ET-008", "ET-012"],
+      "secondary_metrics": ["ET-005", "ET-010"],
+      "minimum_required_score": 0.87,
+      "evaluation_frequency": "pre_deployment + quarterly_in_production",
+      "validation_method": "three_tier_benchmark"
+    },
+    {
+      "cap_id": "CAP-003",
+      "name": "intent_classification",
+      "primary_metrics": ["ET-001", "ET-002", "ET-003", "ET-004"],
+      "secondary_metrics": ["ET-008", "ET-005"],
+      "minimum_required_score": 0.90,
+      "evaluation_frequency": "pre_deployment + monthly_in_production",
+      "validation_method": "labelled_classification_benchmark",
+      "scoring_model": {
+        "primary_metric": "ET-004 (F1) on full class set",
+        "safety_override": "For any class where misclassification carries security or compliance risk (e.g., security_finding, escalation_required, compliance_violation), recall for that class must be >= 0.97 regardless of aggregate F1.",
+        "composite_pass_threshold": 0.90,
+        "pass_criteria": "F1 >= 0.90 AND all safety-critical class recalls >= 0.97",
+        "fail_criteria": "F1 < 0.88 OR any safety-critical class recall < 0.95"
+      },
+      "dataset_requirements": "Minimum 200 labelled examples per class. Multi-class confusion matrix must be produced and reviewed. Edge cases between adjacent classes must be explicitly represented."
+    },
+    {
+      "cap_id": "CAP-005",
+      "name": "short_term_context_management",
+      "primary_metrics": ["ET-001", "ET-007"],
+      "secondary_metrics": ["ET-005", "ET-006"],
+      "minimum_required_score": 0.88,
+      "evaluation_frequency": "pre_deployment + on_context_window_change",
+      "validation_method": "multi_turn_coherence_test",
+      "scoring_model": {
+        "primary_metric": "ET-001 — factual consistency across a multi-turn or multi-document context window",
+        "test_design": "Construct 50 test scenarios with deliberate information introduced early in context that must be correctly referenced later. Vary context length from 20% to 95% of declared context window capacity.",
+        "degradation_check": "Measure accuracy at 20%, 50%, 80%, and 95% context fill. Acceptable maximum degradation from 20% to 95% fill: <= 0.10 (ET-008 threshold).",
+        "pass_criteria": "accuracy_at_20pct >= 0.92 AND accuracy_at_95pct >= 0.82 AND degradation <= 0.10",
+        "fail_criteria": "accuracy_at_20pct < 0.90 OR degradation > 0.12"
+      }
+    },
+    {
+      "cap_id": "CAP-017",
+      "name": "response_generation",
+      "primary_metrics": ["ET-012", "ET-010", "ET-008"],
+      "secondary_metrics": ["ET-005", "ET-006"],
+      "minimum_required_score": 0.80,
+      "evaluation_frequency": "pre_deployment + bi_weekly_shadow_mode",
+      "validation_method": "structured_rubric_human_eval",
+      "scoring_model": {
+        "rubric_dimensions": [
+          { "dimension": "relevance", "weight": 0.25, "description": "Output directly addresses the input without irrelevant content" },
+          { "dimension": "accuracy", "weight": 0.30, "description": "All factual claims are correct and supported by available context" },
+          { "dimension": "completeness", "weight": 0.20, "description": "Output covers all required aspects without omitting critical information" },
+          { "dimension": "actionability", "weight": 0.15, "description": "Output enables the recipient to take a concrete next step" },
+          { "dimension": "appropriate_length", "weight": 0.10, "description": "Output is neither truncated nor padded beyond what the task requires" }
+        ],
+        "composite_score_formula": "sum(dimension_score * dimension_weight) for each output",
+        "pass_criteria": "mean_composite >= 0.80 AND accuracy_dimension >= 0.85 AND hallucination_rate (ET-010) <= 0.05",
+        "fail_criteria": "mean_composite < 0.75 OR accuracy_dimension < 0.80 OR hallucination_rate > 0.08",
+        "evaluator_requirements": "Minimum 2 independent evaluators per output. Cohen's kappa >= 0.72 required for evaluation to be valid."
+      }
+    },
+    {
+      "cap_id": "CAP-023",
+      "name": "structured_data_generation",
+      "primary_metrics": ["ET-001", "ET-007", "ET-008"],
+      "secondary_metrics": ["ET-005", "ET-006", "ET-010"],
+      "minimum_required_score": 0.95,
+      "evaluation_frequency": "pre_deployment + on_schema_change",
+      "validation_method": "schema_validation_pipeline",
+      "scoring_model": {
+        "primary_metric": "ET-001 — schema compliance rate (output validates against declared JSON/structured schema)",
+        "secondary_metric": "ET-010 — hallucination rate within structured fields (generated values must be grounded in input context)",
+        "pass_criteria": "schema_compliance >= 0.99 AND field_accuracy >= 0.93 AND hallucination_rate <= 0.04",
+        "fail_criteria": "schema_compliance < 0.97 OR field_accuracy < 0.90",
+        "automated_gate": "Schema compliance can be evaluated fully automatically via JSON Schema validation. No human review required for structural compliance; human review required for semantic field accuracy."
+      }
+    },
+    {
+      "cap_id": "CAP-025",
+      "name": "multi_modal_understanding",
+      "primary_metrics": ["ET-001", "ET-008", "ET-012"],
+      "secondary_metrics": ["ET-005", "ET-010"],
+      "minimum_required_score": 0.82,
+      "evaluation_frequency": "pre_deployment + on_model_change",
+      "validation_method": "cross_modal_benchmark",
+      "scoring_model": {
+        "primary_metric": "ET-001 — accuracy on cross-modal extraction tasks (text from image, data from chart, entity from diagram)",
+        "modality_coverage": "Evaluation must cover all modalities declared in the corpus entry. Minimum 40 examples per modality.",
+        "degradation_check": "Measure accuracy per modality and compare to text-only baseline. Maximum acceptable degradation vs text-only: 0.12 (ET-008 threshold).",
+        "pass_criteria": "overall_accuracy >= 0.82 AND per_modality_accuracy >= 0.78 AND degradation_vs_text_only <= 0.12",
+        "fail_criteria": "overall_accuracy < 0.78 OR any_modality_accuracy < 0.72"
+      }
+    },
+    {
+      "cap_id": "CAP-028",
+      "name": "output_validation",
+      "primary_metrics": ["ET-001", "ET-007", "ET-009"],
+      "secondary_metrics": ["ET-002", "ET-003", "ET-008"],
+      "minimum_required_score": 0.99,
+      "evaluation_frequency": "pre_deployment + continuous_in_production",
+      "validation_method": "validation_gate_accuracy_test",
+      "scoring_model": {
+        "primary_metric": "ET-001 — rate at which output validation correctly catches outputs that violate schema, contain errors, or fail quality gates",
+        "detection_recall": "ET-003 — recall of validation layer on injected defective outputs. Minimum recall: 0.99.",
+        "false_positive_precision": "ET-002 — precision of validation rejections (valid outputs incorrectly rejected). Maximum rejection rate of valid outputs: 0.005.",
+        "test_design": "Inject 200 defective outputs (schema violations, hallucinated references, out-of-range values, format errors) and 200 valid outputs. Measure detection recall and false positive rate.",
+        "pass_criteria": "defect_detection_recall >= 0.99 AND false_positive_rate <= 0.005",
+        "fail_criteria": "defect_detection_recall < 0.97 OR false_positive_rate > 0.01",
+        "hard_fail": "Any defect in the category safety_violation or incorrect_deployment_trigger that is not caught by CAP-028 is an unconditional deployment blocker."
+      }
+    }
+  ],
+
+  "evaluation_execution_protocol": {
+    "pre_deployment_gates": {
+      "description": "All capabilities marked P0 in a corpus entry must pass their evaluation_type minimum_required_score before deployment proceeds. P1 capabilities must pass or receive a documented waiver. P2 capabilities are evaluated but do not block deployment.",
+      "gate_order": [
+        "1. Run ET-001 (accuracy) baseline on all mapped capabilities",
+        "2. Run safety gate (ET-009) if CAP-009 (tool_execution) is present",
+        "3. Run hallucination gate (ET-010) on all generation capabilities",
+        "4. Run latency and cost benchmarks (ET-005, ET-006)",
+        "5. Run end-to-end task success (ET-011)",
+        "6. Run user satisfaction (ET-012) in shadow mode before live deployment"
+      ]
+    },
+    "production_monitoring": {
+      "continuous": ["ET-007 (reliability)", "ET-006 (cost)", "ET-005 (latency)"],
+      "weekly": ["ET-010 (hallucination_rate) via sample review", "ET-012 (user_satisfaction) via feedback signals"],
+      "monthly": ["ET-001 (accuracy) regression check", "ET-009 (safety) red-team refresh"],
+      "quarterly": ["Full benchmark rerun against updated evaluation datasets", "CAP-001 three-tier benchmark refresh"]
+    },
+    "regression_policy": {
+      "description": "Any metric that drops below its warning_threshold in production triggers a severity-2 incident. Any metric that drops below its failure_threshold triggers a severity-1 incident and initiates rollback evaluation.",
+      "automatic_rollback_trigger": "ET-007 (reliability) below 0.990 OR ET-009 (safety) below 0.975"
+    }
+  }
+}
