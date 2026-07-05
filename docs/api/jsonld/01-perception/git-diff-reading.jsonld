@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/git-diff-reading.md",
   "name": "Git Diff Reading",
   "headline": "Git Diff Reading",
-  "description": "Apply git diff reading in AI agent workflows.",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-git-diff-reading.json)",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/git-diff-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T09:15:56Z",
+  "dateModified": "2026-07-05T10:33:23Z",
   "skillId": "git-diff-reading",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
@@ -63,9 +63,12 @@
     "Inputs",
     "Outputs",
     "Example",
-    "Frameworks",
+    "Frameworks & Models",
+    "Model Comparison",
     "Failure Modes",
-    "Related",
+    "Prompt Patterns",
+    "Notes",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -75,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "git, perception, diff, AI agent, LLM skill, reading, skills tree",
+  "keywords": "skills tree, AI agent, reading, git, diff, LLM skill, perception",
   "about": {
     "@type": "Thing",
     "name": "Git Diff Reading",

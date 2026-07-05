@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T09:15:56Z",
+  "dateModified": "2026-07-05T10:33:23Z",
   "skillId": "similarity-search",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "search, AI agent, similarity, LLM skill, skills tree, data",
+  "keywords": "skills tree, AI agent, search, LLM skill, data, similarity",
   "about": {
     "@type": "Thing",
     "name": "Similarity Search",
