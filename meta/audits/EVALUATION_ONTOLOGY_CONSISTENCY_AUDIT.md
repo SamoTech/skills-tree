@@ -1,169 +1,150 @@
-# EVALUATION ONTOLOGY CONSISTENCY AUDIT
-**Report ID:** EVAL-CONSISTENCY-AUDIT-001  
+# EVALUATION_ONTOLOGY_CONSISTENCY_AUDIT
+
 **Generated:** 2026-07-05  
-**Scope:** Cross-reference of `evaluation_ontology.json` against `capability_ontology.json`  
-**Sources:**
-- Capability ontology SHA: `5cdcd58d2c3f56a66b883c41e96d79499fb576d0`
-- Evaluation ontology SHA: `7cd1b696b0ae29f32003b4f85f4e8b0450fe6fd9`
-- No modifications made to either file.
+**Ontology under audit:** `intelligence/ontology/evaluation_ontology.json` v1.0  
+**Cross-reference authority:** `intelligence/ontology/capability_ontology.json` v1.0  
+**Total CAP-IDs in capability ontology:** 28  
+**Total CAP-IDs in evaluation ontology:** 7  
+**Investigation scope:** RCA-002
 
 ---
 
-## Section 1 — Canonical Capability Registry (from capability_ontology.json)
+## 1. Full Cross-Reference Table
 
-All 28 capabilities registered in the canonical ontology, extracted as the authoritative reference for this audit:
+Every evaluation mapping checked against the canonical capability ontology.
 
-| CAP-ID | Canonical Name |
-|---|---|
-| CAP-001 | text_understanding |
-| CAP-002 | document_parsing |
-| CAP-003 | intent_classification |
-| CAP-004 | sentiment_analysis |
-| CAP-005 | short_term_context_management |
-| CAP-006 | long_term_memory_storage |
-| CAP-007 | semantic_retrieval |
-| CAP-008 | episodic_memory |
-| CAP-009 | chain_of_thought_reasoning |
-| CAP-010 | planning_and_decomposition |
-| CAP-011 | self_evaluation |
-| CAP-012 | hypothesis_generation |
-| CAP-013 | tool_selection |
-| CAP-014 | tool_execution |
-| CAP-015 | api_integration |
-| CAP-016 | code_execution |
-| CAP-017 | response_generation |
-| CAP-018 | multi_turn_dialogue_management |
-| CAP-019 | structured_output_generation |
-| CAP-020 | summarization |
-| CAP-021 | task_orchestration |
-| CAP-022 | error_recovery |
-| CAP-023 | human_in_loop_escalation |
-| CAP-024 | multi_agent_coordination |
-| CAP-025 | pii_detection_and_redaction |
-| CAP-026 | hallucination_detection |
-| CAP-027 | compliance_logging |
-| CAP-028 | output_validation |
+| cap_id | eval_name | cap_name | cap_id_exists | name_match | semantic_match | classification |
+|--------|-----------|----------|---------------|------------|----------------|----------------|
+| CAP-001 | text_understanding | text_understanding | ✅ | ✅ | ✅ | VALID |
+| CAP-003 | intent_classification | intent_classification | ✅ | ✅ | ✅ | VALID |
+| CAP-005 | short_term_context_management | short_term_context_management | ✅ | ✅ | ✅ | VALID |
+| CAP-017 | response_generation | response_generation | ✅ | ✅ | ✅ | VALID |
+| CAP-023 | structured_data_generation | human_in_loop_escalation | ✅ | ❌ | ❌ | **TYPE A** |
+| CAP-025 | multi_modal_understanding | pii_detection_and_redaction | ✅ | ❌ | ❌ | **TYPE A** |
+| CAP-028 | output_validation | output_validation | ✅ | ✅ | ✅ | VALID |
+
+**Valid mappings:** 5  
+**Type A mismatches:** 2 (CAP-023, CAP-025)  
+**Type B mismatches:** 0  
+**Type C errors:** 0  
+**Type D gaps (capability with no evaluation):** 21
 
 ---
 
-## Section 2 — Evaluation Mapping Cross-Reference
+## 2. Mismatch Classification Definitions
 
-| CAP-ID | Eval Ontology Name | Canonical Name | ID Match | Name Match | Verdict |
-|---|---|---|---|---|---|
-| CAP-001 | text_understanding | text_understanding | ✅ | ✅ | CONSISTENT |
-| CAP-003 | intent_classification | intent_classification | ✅ | ✅ | CONSISTENT |
-| CAP-005 | short_term_context_management | short_term_context_management | ✅ | ✅ | CONSISTENT |
-| CAP-017 | response_generation | response_generation | ✅ | ✅ | CONSISTENT |
-| **CAP-023** | **structured_data_generation** | **human_in_loop_escalation** | ✅ | ❌ | **TYPE A MISMATCH** |
-| **CAP-025** | **multi_modal_understanding** | **pii_detection_and_redaction** | ✅ | ❌ | **TYPE A MISMATCH** |
-| CAP-028 | output_validation | output_validation | ✅ | ✅ | CONSISTENT |
+| Type | Definition |
+|------|------------|
+| TYPE A | Same CAP-ID, different capability name in eval ontology vs. capability ontology |
+| TYPE B | Same capability name, different CAP-ID assigned in each ontology |
+| TYPE C | Evaluation mapping references a CAP-ID that does not exist in capability ontology |
+| TYPE D | Capability exists in capability ontology but has no entry in evaluation ontology |
 
 ---
 
-## Section 3 — Mismatch Classification
+## 3. TYPE A — Detailed Mismatch Records
 
-### TYPE A — Same CAP-ID, Different Capability Name
+### Mismatch A-001: CAP-023
 
-Two confirmed TYPE A mismatches. The CAP-ID is correct but the capability name attached to it in the evaluation ontology describes a different, unrelated capability.
+| Field | Capability Ontology | Evaluation Ontology |
+|-------|--------------------|---------  ---------|
+| cap_id | CAP-023 | CAP-023 |
+| name | `human_in_loop_escalation` | `structured_data_generation` |
+| tier | execution | (not declared in eval ontology) |
+| purpose | Detect when agent confidence is below threshold or action risk exceeds authorization level, and escalate to human review | Schema compliance + field accuracy for structured JSON/data output |
+| validation_method | escalation_calibration_test | schema_validation_pipeline |
+| min_required_score | not mapped | 0.95 |
+| primary_metrics | not mapped | ET-001, ET-007, ET-008 |
+| semantic_match | — | ❌ Completely different domain (execution safety vs. output generation) |
 
-#### TYPE A-1: CAP-023
-
-| Field | Value |
-|---|---|
-| **CAP-ID** | CAP-023 |
-| **Canonical name** | `human_in_loop_escalation` |
-| **Eval ontology name** | `structured_data_generation` |
-| **Divergence** | The evaluation mapping was written for `structured_data_generation` (a generation capability), not `human_in_loop_escalation` (a routing/escalation capability). These are semantically unrelated. |
-| **Eval content valid?** | The benchmark methodology (schema_validation_pipeline, JSON schema compliance) is appropriate for a structured output/generation capability — it is completely inapplicable to human_in_loop_escalation, which requires escalation-trigger recall and false-positive analysis. |
-| **Secondary collision** | `structured_data_generation` has no registered CAP-ID in capability_ontology.json. The nearest canonical match is CAP-019 (structured_output_generation). |
-
-#### TYPE A-2: CAP-025
-
-| Field | Value |
-|---|---|
-| **CAP-ID** | CAP-025 |
-| **Canonical name** | `pii_detection_and_redaction` |
-| **Eval ontology name** | `multi_modal_understanding` |
-| **Divergence** | The evaluation mapping was written for `multi_modal_understanding` (a perception/modality capability), not `pii_detection_and_redaction` (a data privacy capability). These are semantically unrelated. |
-| **Eval content valid?** | The benchmark methodology (cross_modal_benchmark, per-modality accuracy) is appropriate for multi-modal image/chart processing — it is completely inapplicable to PII detection, which requires detection recall on PII entity types, redaction correctness, and false negative analysis. |
-| **Secondary collision** | `multi_modal_understanding` has no registered CAP-ID in capability_ontology.json. It appears to be an unlisted capability that belongs in the ontology but was never registered. |
+**Ghost identity in evaluation ontology:** `structured_data_generation`  
+**Canonical identity per capability ontology:** `human_in_loop_escalation`  
+**Corresponding canonical CAP-ID for `structured_data_generation`:** NOT FOUND in capability_ontology.json — this name does not exist as any registered capability.
 
 ---
 
-### TYPE B — Same Capability, Different CAP-ID
+### Mismatch A-002: CAP-025
 
-No TYPE B mismatches detected in the 7 evaluation mappings.
+| Field | Capability Ontology | Evaluation Ontology |
+|-------|--------------------|---------  ---------|
+| cap_id | CAP-025 | CAP-025 |
+| name | `pii_detection_and_redaction` | `multi_modal_understanding` |
+| tier | safety | (not declared in eval ontology) |
+| purpose | Identify and redact PII in inputs and outputs before processing or delivery | Cross-modal extraction: text from image, data from chart, entity from diagram |
+| validation_method | PII recall benchmark + cross-jurisdiction coverage | cross_modal_benchmark |
+| min_required_score | not mapped | 0.82 |
+| primary_metrics | not mapped | ET-001, ET-008, ET-012 |
+| semantic_match | — | ❌ Completely different domain (safety/compliance vs. perception/multimodal) |
 
----
-
-### TYPE C — Evaluation References Missing Capability
-
-Confirmed: The `evaluation_execution_protocol.pre_deployment_gates` section contains:
-
-> *"Run safety gate (ET-009) if CAP-009 (tool_execution) is present"*
-
-**CAP-009 in the canonical ontology = `chain_of_thought_reasoning`, NOT `tool_execution`.**  
-`tool_execution` = CAP-014.
-
-This is an inline TYPE A reference error embedded in the protocol definition, not a mapping entry. It is a secondary collision distinct from the two primary TYPE A mismatches.
-
-| Location | Erroneous Reference | Should Be |
-|---|---|---|
-| `evaluation_execution_protocol.pre_deployment_gates[1]` | `CAP-009 (tool_execution)` | `CAP-014 (tool_execution)` |
+**Ghost identity in evaluation ontology:** `multi_modal_understanding`  
+**Canonical identity per capability ontology:** `pii_detection_and_redaction`  
+**Corresponding canonical CAP-ID for `multi_modal_understanding`:** CAP-004 (`multimodal_perception`) — closest match but not identical.
 
 ---
 
-### TYPE D — Capability Missing Evaluation Mapping
+## 4. TYPE D — Unmapped Capabilities (21 total)
 
-The following P0 and P1 capabilities appear in corpus entries but have no evaluation mapping in `evaluation_ontology.json`:
+Capabilities present in `capability_ontology.json` with no evaluation mapping.
 
-| CAP-ID | Canonical Name | Corpus Presence | Priority | Evaluation Coverage |
-|---|---|---|---|---|
-| CAP-002 | document_parsing | CORPUS-001 | P0 | ❌ No mapping |
-| CAP-006 | long_term_memory_storage | CORPUS-001, CORPUS-002 | P1 | ❌ No mapping |
-| CAP-007 | semantic_retrieval | CORPUS-001, CORPUS-002 | P1 | ❌ No mapping |
-| CAP-008 | episodic_memory | CORPUS-001, CORPUS-002 | P2 | ❌ No mapping |
-| CAP-009 | chain_of_thought_reasoning | CORPUS-001 | P0 | ❌ No mapping |
-| CAP-010 | planning_and_decomposition | CORPUS-002 | P1 | ❌ No mapping |
-| CAP-011 | self_evaluation | CORPUS-001, CORPUS-002 | P0 | ❌ No mapping |
-| CAP-014 | tool_execution | CORPUS-002 | P0 | ❌ No mapping |
-| CAP-018 | multi_turn_dialogue_management | CORPUS-001 | P1 | ❌ No mapping |
-| CAP-019 | structured_output_generation | CORPUS-001 | P1 | ❌ No mapping |
-| CAP-020 | summarization | CORPUS-001 | P1 | ❌ No mapping |
-| CAP-021 | task_orchestration | CORPUS-001 | P1 | ❌ No mapping |
-| CAP-022 | error_recovery | CORPUS-001 | P0 | ❌ No mapping |
-| CAP-024 | multi_agent_coordination | CORPUS-001 | P2 | ❌ No mapping |
-| CAP-026 | hallucination_detection | CORPUS-001, CORPUS-002 | P2 | ❌ No mapping |
-| CAP-027 | compliance_logging | CORPUS-001 | P1 | ❌ No mapping |
-| CAP-023 | human_in_loop_escalation | CORPUS-001 | P1 | ❌ Incorrectly mapped (TYPE A) |
-| CAP-025 | pii_detection_and_redaction | CORPUS-001 | P0 | ❌ Incorrectly mapped (TYPE A) |
+| cap_id | name | tier | Corpus Usage | Goal Ontology Usage | Gap Severity |
+|--------|------|------|--------------|--------------------:|-------------|
+| CAP-002 | document_parsing | perception | none | partial | Low |
+| CAP-004 | multimodal_perception | perception | none | partial | Low |
+| CAP-006 | long_term_memory_storage | memory | CORPUS-001 P1, CORPUS-002 P1 | assistant_agent required | Medium |
+| CAP-007 | semantic_retrieval | memory | CORPUS-001 P0 | support_agent, research_agent | **High** |
+| CAP-008 | episodic_memory | memory | CORPUS-001 P2, CORPUS-002 P2 | none | Low |
+| CAP-009 | chain_of_thought_reasoning | reasoning | none | autonomous_agent | Medium |
+| CAP-010 | planning_and_decomposition | reasoning | CORPUS-002 P1 | autonomous_agent, orchestrator | **High** |
+| CAP-011 | self_evaluation | reasoning | CORPUS-001 P1, CORPUS-002 P0 | 7 goal classes | **High** |
+| CAP-012 | hypothesis_generation | reasoning | none | none | Low |
+| CAP-013 | tool_selection | tool_use | none | partial | Low |
+| CAP-014 | tool_execution | tool_use | CORPUS-002 P0 | 8 goal classes | **Critical** |
+| CAP-015 | web_search_and_retrieval | tool_use | none | research_agent | Low |
+| CAP-016 | code_execution | tool_use | none | coding_agent | Medium |
+| CAP-018 | multi_turn_dialogue_management | communication | none | assistant_agent | Low |
+| CAP-019 | structured_output_generation | communication | none | workflow_agent | Medium |
+| CAP-020 | summarization | communication | none | content_agent | Low |
+| CAP-021 | task_orchestration | execution | none | orchestrator_agent | Medium |
+| CAP-022 | error_recovery | execution | none | autonomous_agent | Medium |
+| CAP-024 | multi_agent_coordination | execution | none | orchestrator_agent | Medium |
+| CAP-026 | hallucination_detection | safety | CORPUS-001 P1, CORPUS-002 P2 | evaluation_agent, security_agent | **High** |
+| CAP-027 | compliance_logging | safety | none | security_agent | Low |
 
-**Total TYPE D:** 18 corpus-active capabilities have no valid evaluation mapping.
+**Critical gaps (corpus-used P0 with no evaluation):**
+- CAP-014 (tool_execution) — P0 in CORPUS-002, required in 8 goal classes, zero evaluation coverage
+- CAP-011 (self_evaluation) — P0 in CORPUS-002, P1 in CORPUS-001, required in 7 goal classes
 
----
-
-## Section 4 — Mismatch Summary
-
-| Type | Count | Affected CAP-IDs | Severity |
-|---|---|---|---|
-| TYPE A (same ID, wrong name) | 2 primary + 1 inline | CAP-023, CAP-025, protocol ref to CAP-009 | HIGH |
-| TYPE B (same name, wrong ID) | 0 | — | — |
-| TYPE C (eval ref to missing capability) | 1 inline | `structured_data_generation`, `multi_modal_understanding` as unmapped names | MEDIUM |
-| TYPE D (capability missing evaluation) | 18 | See table above | HIGH |
-
----
-
-## Section 5 — Ontology Integrity Status
-
-```
-INTEGRITY STATUS: DEGRADED
-Primary mismatches: 2 (TYPE A — CAP-023, CAP-025)
-Inline protocol error: 1 (CAP-009 referenced as tool_execution)
-TYPE D coverage gaps: 18 capabilities unmapped
-Overall evaluation coverage: 5 correctly mapped / 28 total capabilities = 17.9%
-P0 evaluation coverage (corpus-active P0s): 4 correctly mapped / 9 corpus-active P0s = 44.4% (with CAP-025 falsely reported as 5/9 = 55.6% in ID-only systems)
-```
+**High gaps (corpus-used with no evaluation):**
+- CAP-007 (semantic_retrieval) — P0 in CORPUS-001
+- CAP-010 (planning_and_decomposition) — P1 in CORPUS-002
+- CAP-026 (hallucination_detection) — used in both corpus entries
 
 ---
 
-*No modifications made to any ontology file. This document is investigation output only.*
+## 5. Ghost Capability Analysis
+
+Two capability names appear in `evaluation_ontology.json` that have **no existence in `capability_ontology.json`**:
+
+| Ghost Name | Attached to CAP-ID | Closest real capability | Distance |
+|------------|--------------------|------------------------|----------|
+| `structured_data_generation` | CAP-023 | CAP-019 `structured_output_generation` | Semantic overlap ~60%; different purpose (generation vs. validation) |
+| `multi_modal_understanding` | CAP-025 | CAP-004 `multimodal_perception` | Semantic overlap ~70%; evaluation content describes cross-modal extraction tasks matching CAP-004 |
+
+Neither ghost name is a registered capability. Both names describe real capabilities that exist in the ontology under different IDs.
+
+---
+
+## 6. Summary Statistics
+
+| Metric | Value |
+|--------|-------|
+| Total CAP-IDs in capability_ontology | 28 |
+| Total CAP-IDs in evaluation_ontology | 7 |
+| Valid mappings (name + semantic match) | 5 |
+| TYPE A mismatches | 2 |
+| TYPE B mismatches | 0 |
+| TYPE C errors (missing CAP-ID) | 0 |
+| TYPE D gaps (unmapped capabilities) | 21 |
+| Ghost capability names in eval ontology | 2 |
+| Evaluation coverage rate (7/28) | 25.0% |
+| Evaluation coverage rate (correct only, 5/28) | 17.9% |
