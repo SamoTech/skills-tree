@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 368
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 53
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 59
 - 🟡 **Enriched** (real description + runnable code): 3
-- ⚪ **Stub** (placeholder description or no runnable code): 309
+- ⚪ **Stub** (placeholder description or no runnable code): 303
 - ❌ **Invalid** (frontmatter problems): 3
 
 ## Per-category breakdown
@@ -15,7 +15,7 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 2 | 2 | 32 | 0 |
+| `01-perception` | 36 | 8 | 2 | 26 | 0 |
 | `02-reasoning` | 45 | 8 | 0 | 36 | 1 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
@@ -35,6 +35,12 @@
 
 ## 🟢 Battle-tested skills (start here as a user)
 
+- [`skills/01-perception/binary-file-reading.md`](skills/01-perception/binary-file-reading.md) — Binary File Reading
+- [`skills/01-perception/calendar-parsing.md`](skills/01-perception/calendar-parsing.md) — Calendar Parsing
+- [`skills/01-perception/geospatial-reading.md`](skills/01-perception/geospatial-reading.md) — Geospatial Reading
+- [`skills/01-perception/git-diff-reading.md`](skills/01-perception/git-diff-reading.md) — Git Diff Reading
+- [`skills/01-perception/html-reading.md`](skills/01-perception/html-reading.md) — HTML Reading
+- [`skills/01-perception/json-schema-validation.md`](skills/01-perception/json-schema-validation.md) — JSON Schema Validation
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
 - [`skills/02-reasoning/goal-decomposition.md`](skills/02-reasoning/goal-decomposition.md) — Goal Decomposition
@@ -110,12 +116,10 @@ Each entry below is a real, claimed skill that currently has no runnable example
 
 - [`pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 
-### `01-perception` (32)
+### `01-perception` (26)
 
 - [`api-response-parsing.md`](skills/01-perception/api-response-parsing.md) — description matches placeholder pattern: 'Apply api response parsing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`audio-transcription.md`](skills/01-perception/audio-transcription.md) — description matches placeholder pattern: 'Apply audio transcription in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`binary-file-reading.md`](skills/01-perception/binary-file-reading.md) — description matches placeholder pattern: 'Apply binary file reading in AI agent workflows'
-- [`calendar-parsing.md`](skills/01-perception/calendar-parsing.md) — description matches placeholder pattern: 'Apply calendar parsing in AI agent workflows'
 - [`chart-reading.md`](skills/01-perception/chart-reading.md) — description matches placeholder pattern: 'Apply chart reading in AI agent workflows'
 - [`code-reading.md`](skills/01-perception/code-reading.md) — description matches placeholder pattern: 'Apply code reading in AI agent workflows'
 - [`contract-reading.md`](skills/01-perception/contract-reading.md) — description matches placeholder pattern: 'Apply contract reading in AI agent workflows'
@@ -124,12 +128,8 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`document-parsing.md`](skills/01-perception/document-parsing.md) — description matches placeholder pattern: 'Apply document parsing in AI agent workflows'
 - [`email-parsing.md`](skills/01-perception/email-parsing.md) — description matches placeholder pattern: 'Apply email parsing in AI agent workflows'
 - [`file-system-reading.md`](skills/01-perception/file-system-reading.md) — description matches placeholder pattern: 'Apply file system reading in AI agent workflows'
-- [`geospatial-reading.md`](skills/01-perception/geospatial-reading.md) — description matches placeholder pattern: 'Apply geospatial reading in AI agent workflows'
-- [`git-diff-reading.md`](skills/01-perception/git-diff-reading.md) — description matches placeholder pattern: 'Apply git diff reading in AI agent workflows'
 - [`handwriting-recognition.md`](skills/01-perception/handwriting-recognition.md) — description matches placeholder pattern: 'Apply handwriting recognition in AI agent workflows'
-- [`html-reading.md`](skills/01-perception/html-reading.md) — description matches placeholder pattern: 'Apply html reading in AI agent workflows'
 - [`image-understanding.md`](skills/01-perception/image-understanding.md) — description matches placeholder pattern: 'Apply image understanding in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`json-schema-validation.md`](skills/01-perception/json-schema-validation.md) — description matches placeholder pattern: 'Apply json schema validation in AI agent workflows'
 - [`knowledge-graph-reading.md`](skills/01-perception/knowledge-graph-reading.md) — description matches placeholder pattern: 'Apply knowledge graph reading in AI agent workflows'
 - [`log-parsing.md`](skills/01-perception/log-parsing.md) — description matches placeholder pattern: 'Apply log parsing in AI agent workflows'
 - [`markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — description matches placeholder pattern: 'Apply markdown parsing in AI agent workflows'
