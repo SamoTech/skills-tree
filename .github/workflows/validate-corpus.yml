@@ -1,0 +1,208 @@
+name: Validate Corpus Entries
+
+on:
+  push:
+    paths:
+      - 'intelligence/corpus/**/*.json'
+  pull_request:
+    paths:
+      - 'intelligence/corpus/**/*.json'
+
+jobs:
+  validate-corpus:
+    name: Corpus JSON Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install jsonschema==4.23.0
+
+      - name: Validate corpus JSON syntax
+        run: |
+          set -e
+          ERRORS=0
+          FILES=$(find intelligence/corpus/entries -name '*.json' 2>/dev/null)
+          if [ -z "$FILES" ]; then
+            echo "No corpus entry files found under intelligence/corpus/entries/"
+            exit 1
+          fi
+          for f in $FILES; do
+            echo "Checking JSON syntax: $f"
+            if ! python -m json.tool "$f" > /dev/null 2>&1; then
+              echo "::error file=$f::MALFORMED JSON — file is not valid JSON"
+              ERRORS=$((ERRORS + 1))
+            fi
+          done
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "::error::$ERRORS file(s) failed JSON syntax validation"
+            exit 1
+          fi
+          echo "All files passed JSON syntax validation"
+
+      - name: Validate required fields
+        run: |
+          set -e
+          python - <<'PYEOF'
+          import json
+          import sys
+          import pathlib
+
+          REQUIRED_TOP_LEVEL = [
+              "$schema", "$version", "entry_id", "created_at",
+              "last_reviewed_at", "review_due_at", "goal",
+              "constraints", "required_capabilities",
+              "dependency_order", "risk_profile",
+              "evaluation_requirements", "effort_estimate", "validation"
+          ]
+
+          REQUIRED_GOAL_FIELDS = [
+              "text", "goal_id", "goal_class", "complexity", "domain"
+          ]
+
+          REQUIRED_CAPABILITY_FIELDS = [
+              "cap_id", "name", "tier", "criticality", "rationale", "without_this"
+          ]
+
+          VALID_TIERS = {"P0", "P1", "P2"}
+          VALID_COMPLEXITIES = {"simple", "moderate", "complex", "critical"}
+          VALID_OVERALL_RISK = {"low", "medium", "high", "critical"}
+
+          corpus_dir = pathlib.Path("intelligence/corpus/entries")
+          files = list(corpus_dir.rglob("*.json"))
+
+          if not files:
+              print("ERROR: No corpus entry files found", file=sys.stderr)
+              sys.exit(1)
+
+          errors = []
+          for fp in sorted(files):
+              print(f"Validating fields: {fp}")
+              with fp.open() as fh:
+                  try:
+                      data = json.load(fh)
+                  except json.JSONDecodeError as exc:
+                      errors.append(f"{fp}: JSON parse error — {exc}")
+                      continue
+
+              entry_id = data.get("entry_id", str(fp))
+
+              # Required top-level fields
+              for field in REQUIRED_TOP_LEVEL:
+                  if field not in data:
+                      errors.append(f"{entry_id} [{fp}]: missing required top-level field '{field}'")
+
+              # Required goal sub-fields
+              goal = data.get("goal", {})
+              for field in REQUIRED_GOAL_FIELDS:
+                  if field not in goal:
+                      errors.append(f"{entry_id}: missing required goal field '{field}'")
+
+              # goal.complexity must be in valid set
+              complexity = goal.get("complexity")
+              if complexity and complexity not in VALID_COMPLEXITIES:
+                  errors.append(f"{entry_id}: invalid goal.complexity '{complexity}' — must be one of {sorted(VALID_COMPLEXITIES)}")
+
+              # required_capabilities must be a non-empty list
+              caps = data.get("required_capabilities")
+              if not isinstance(caps, list) or len(caps) == 0:
+                  errors.append(f"{entry_id}: 'required_capabilities' must be a non-empty array")
+              else:
+                  cap_ids_seen = set()
+                  for i, cap in enumerate(caps):
+                      for field in REQUIRED_CAPABILITY_FIELDS:
+                          if field not in cap:
+                              errors.append(f"{entry_id}: capability[{i}] missing required field '{field}'")
+                      tier = cap.get("tier")
+                      if tier and tier not in VALID_TIERS:
+                          errors.append(f"{entry_id}: capability[{i}] invalid tier '{tier}' — must be P0, P1, or P2")
+                      crit = cap.get("criticality")
+                      if crit is not None and not (0.0 <= float(crit) <= 1.0):
+                          errors.append(f"{entry_id}: capability[{i}] criticality {crit} out of range [0.0, 1.0]")
+                      cap_id = cap.get("cap_id")
+                      if cap_id:
+                          if cap_id in cap_ids_seen:
+                              errors.append(f"{entry_id}: duplicate cap_id '{cap_id}'")
+                          cap_ids_seen.add(cap_id)
+
+              # dependency_order must reference only declared cap_ids
+              dep_order = data.get("dependency_order", [])
+              declared_ids = {c.get("cap_id") for c in (caps or [])}
+              for dep in dep_order:
+                  if dep not in declared_ids:
+                      errors.append(f"{entry_id}: dependency_order references undeclared cap_id '{dep}'")
+
+              # risk_profile.overall_risk must be valid
+              rp = data.get("risk_profile", {})
+              overall_risk = rp.get("overall_risk")
+              if overall_risk and overall_risk not in VALID_OVERALL_RISK:
+                  errors.append(f"{entry_id}: risk_profile.overall_risk '{overall_risk}' invalid")
+
+              # evaluation_requirements must be a non-empty list
+              evals = data.get("evaluation_requirements")
+              if not isinstance(evals, list) or len(evals) == 0:
+                  errors.append(f"{entry_id}: 'evaluation_requirements' must be a non-empty array")
+
+              # effort_estimate must have days_to_implement_from_zero
+              effort = data.get("effort_estimate", {})
+              if "days_to_implement_from_zero" not in effort:
+                  errors.append(f"{entry_id}: effort_estimate missing 'days_to_implement_from_zero'")
+
+          if errors:
+              print("\nCORPUS VALIDATION FAILED:", file=sys.stderr)
+              for e in errors:
+                  print(f"  ::error::{e}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"\nAll {len(files)} corpus entries passed required-field validation")
+          PYEOF
+
+      - name: Validate goal_class against goal_ontology
+        run: |
+          set -e
+          python - <<'PYEOF'
+          import json
+          import sys
+          import pathlib
+
+          ontology_path = pathlib.Path("intelligence/ontology/goal_ontology.json")
+          if not ontology_path.exists():
+              print("WARNING: goal_ontology.json not found — skipping goal_class cross-validation")
+              sys.exit(0)
+
+          with ontology_path.open() as fh:
+              ontology = json.load(fh)
+
+          valid_classes = {gc["goal_id"] for gc in ontology.get("goal_classes", [])}
+
+          corpus_dir = pathlib.Path("intelligence/corpus/entries")
+          files = list(corpus_dir.rglob("*.json"))
+          errors = []
+          for fp in sorted(files):
+              with fp.open() as fh:
+                  data = json.load(fh)
+              goal_class = data.get("goal", {}).get("goal_class")
+              entry_id = data.get("entry_id", str(fp))
+              if goal_class and goal_class not in valid_classes:
+                  errors.append(f"{entry_id}: goal_class '{goal_class}' is not defined in goal_ontology.json")
+
+          if errors:
+              print("GOAL CLASS MISMATCH:", file=sys.stderr)
+              for e in errors:
+                  print(f"  ::error::{e}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"All corpus entries reference valid goal classes")
+          PYEOF
+
+      - name: Report summary
+        if: success()
+        run: |
+          COUNT=$(find intelligence/corpus/entries -name '*.json' | wc -l)
+          echo "Corpus validation passed: $COUNT entries validated"

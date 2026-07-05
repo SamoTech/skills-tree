@@ -1,0 +1,549 @@
+{
+  "$schema": "https://skills-tree.dev/schemas/ontology/goal/v1",
+  "$version": "1.0",
+  "created_at": "2026-07-05T00:00:00Z",
+  "last_reviewed_at": "2026-07-05T00:00:00Z",
+  "review_due_at": "2026-10-03T00:00:00Z",
+  "ontology_id": "GOAL-ONTOLOGY-001",
+  "description": "Canonical classification of agent goal types used across corpus entries, capability ontology, and evaluation frameworks. Each goal class defines the structural pattern of the agent, its minimum required capabilities, optional enrichment capabilities, and the evaluation requirements that must be satisfied before production deployment.",
+
+  "goal_classes": [
+    {
+      "goal_id": "reactive_agent",
+      "name": "Reactive Agent",
+      "description": "An agent that operates in response to external events or user inputs. It does not initiate action on its own. The agent receives a stimulus (user message, webhook event, incoming ticket, pipeline trigger), processes it, and produces a response or side-effect. All state is short-lived unless augmented with memory capabilities. Reactive agents are the most common pattern in production deployments.",
+      "structural_pattern": "event → perceive → classify → retrieve → reason → respond",
+      "autonomy_level": "low",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-008",
+        "CAP-009",
+        "CAP-011",
+        "CAP-014",
+        "CAP-026"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-REACT-001",
+          "capability": "CAP-003",
+          "method": "intent_classification_accuracy",
+          "pass_threshold": 0.90,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-REACT-002",
+          "capability": "CAP-017",
+          "method": "response_quality_human_eval",
+          "pass_threshold": 0.80,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-REACT-003",
+          "capability": "CAP-028",
+          "method": "output_schema_compliance",
+          "pass_threshold": 0.99,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": ["CORPUS-001", "CORPUS-002"]
+    },
+    {
+      "goal_id": "assistant_agent",
+      "name": "Assistant Agent",
+      "description": "An agent that assists a human user through multi-turn conversational interaction. It maintains conversation context across turns, tracks user preferences and history, and adapts its responses to the user's demonstrated expertise level. Unlike a reactive agent, an assistant agent is expected to proactively offer information, clarify ambiguity, and guide the user toward a goal rather than simply responding to each message in isolation.",
+      "structural_pattern": "turn → understand → recall → reason → respond → update-memory",
+      "autonomy_level": "low",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-006",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-007",
+        "CAP-008",
+        "CAP-009",
+        "CAP-011",
+        "CAP-014",
+        "CAP-026"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-ASST-001",
+          "capability": "CAP-005",
+          "method": "multi_turn_coherence",
+          "pass_threshold": 0.88,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-ASST-002",
+          "capability": "CAP-006",
+          "method": "memory_recall_accuracy",
+          "pass_threshold": 0.85,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-ASST-003",
+          "capability": "CAP-017",
+          "method": "response_helpfulness_survey",
+          "pass_threshold": 0.82,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "autonomous_agent",
+      "name": "Autonomous Agent",
+      "description": "An agent that operates without continuous human involvement. It receives a high-level goal, decomposes it into subtasks, executes a multi-step plan using available tools, monitors its own progress, and produces a final output or report. Autonomous agents require robust self-evaluation and fallback handling because errors compound across steps without a human in the loop to catch them.",
+      "structural_pattern": "goal → plan → execute-step* → evaluate → revise-plan → report",
+      "autonomy_level": "high",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-009",
+        "CAP-011",
+        "CAP-014",
+        "CAP-017",
+        "CAP-026",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-008",
+        "CAP-016",
+        "CAP-022",
+        "CAP-024"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-AUTO-001",
+          "capability": "CAP-014",
+          "method": "plan_completion_rate",
+          "pass_threshold": 0.85,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-AUTO-002",
+          "capability": "CAP-011",
+          "method": "self_correction_accuracy",
+          "pass_threshold": 0.80,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-AUTO-003",
+          "capability": "CAP-009",
+          "method": "tool_call_correctness",
+          "pass_threshold": 0.97,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-AUTO-004",
+          "capability": "CAP-026",
+          "method": "hallucination_rate_benchmark",
+          "pass_threshold": 0.95,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "workflow_agent",
+      "name": "Workflow Agent",
+      "description": "An agent that executes a predefined, structured workflow where the steps are known in advance but the content of each step is dynamic. The agent moves through stages in a deterministic order, using AI capabilities to handle variability within each stage. Unlike an autonomous agent, a workflow agent does not replan — it follows a fixed DAG of operations. Common in document processing, approval pipelines, and data transformation jobs.",
+      "structural_pattern": "trigger → stage-1 → stage-2 → ... → stage-n → output",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-005",
+        "CAP-009",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-003",
+        "CAP-006",
+        "CAP-007",
+        "CAP-011",
+        "CAP-023"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-WKFL-001",
+          "capability": "CAP-009",
+          "method": "stage_execution_success_rate",
+          "pass_threshold": 0.99,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-WKFL-002",
+          "capability": "CAP-028",
+          "method": "output_schema_compliance",
+          "pass_threshold": 0.995,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "orchestrator_agent",
+      "name": "Orchestrator Agent",
+      "description": "An agent whose primary function is to coordinate multiple sub-agents or specialized tools to complete a composite task. The orchestrator decomposes a high-level goal into subtasks, assigns each subtask to the most capable sub-agent, collects and synthesises results, and handles failures in individual sub-agents without failing the overall task. The orchestrator does not execute domain tasks itself — it delegates them.",
+      "structural_pattern": "goal → decompose → assign-subagents → collect-results → synthesise → report",
+      "autonomy_level": "high",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-009",
+        "CAP-011",
+        "CAP-014",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-016",
+        "CAP-022",
+        "CAP-024",
+        "CAP-025"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-ORCH-001",
+          "capability": "CAP-014",
+          "method": "task_decomposition_accuracy",
+          "pass_threshold": 0.88,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-ORCH-002",
+          "capability": "CAP-011",
+          "method": "sub_agent_failure_recovery_rate",
+          "pass_threshold": 0.90,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "evaluation_agent",
+      "name": "Evaluation Agent",
+      "description": "An agent whose purpose is to assess the quality, correctness, safety, or compliance of outputs produced by other agents or systems. Evaluation agents are used in automated quality gates, model red-teaming, output scoring, and compliance checks. They must be calibrated — their scores must be reliable predictors of ground-truth human assessments.",
+      "structural_pattern": "input → criteria-check → score → rationale → verdict",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-011",
+        "CAP-017",
+        "CAP-026",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-005",
+        "CAP-007",
+        "CAP-014",
+        "CAP-022"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-EVLAG-001",
+          "capability": "CAP-011",
+          "method": "inter_rater_agreement_with_humans",
+          "pass_threshold": 0.85,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-EVLAG-002",
+          "capability": "CAP-026",
+          "method": "false_positive_rate_on_safe_outputs",
+          "pass_threshold": 0.05,
+          "priority": "required",
+          "note": "pass_threshold here is a maximum — false positive rate must be <= 0.05"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "research_agent",
+      "name": "Research Agent",
+      "description": "An agent that conducts open-ended information gathering, synthesis, and analysis. It issues search queries, retrieves and reads documents, extracts relevant information, identifies patterns across sources, and produces structured reports or summaries. Research agents are characterised by high retrieval dependency and iterative search refinement based on what has been found so far.",
+      "structural_pattern": "question → search → retrieve → extract → synthesise → verify → report",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-005",
+        "CAP-007",
+        "CAP-009",
+        "CAP-014",
+        "CAP-017",
+        "CAP-026",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-003",
+        "CAP-006",
+        "CAP-008",
+        "CAP-011",
+        "CAP-023"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-RES-001",
+          "capability": "CAP-007",
+          "method": "retrieval_recall_at_k",
+          "pass_threshold": 0.88,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-RES-002",
+          "capability": "CAP-026",
+          "method": "factual_accuracy_benchmark",
+          "pass_threshold": 0.92,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-RES-003",
+          "capability": "CAP-017",
+          "method": "report_completeness_human_eval",
+          "pass_threshold": 0.82,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "coding_agent",
+      "name": "Coding Agent",
+      "description": "An agent that writes, reviews, refactors, debugs, or documents code. Coding agents interact with code repositories, test runners, and static analysis tools. They must understand programming language semantics, infer programmer intent from partial code and natural language instructions, and produce syntactically and semantically correct code. Output correctness is measurable via test execution, making coding agents among the most objectively evaluable agent types.",
+      "structural_pattern": "task → understand-codebase → plan-change → generate-code → validate → submit",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-009",
+        "CAP-011",
+        "CAP-017",
+        "CAP-026",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-008",
+        "CAP-014",
+        "CAP-023"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-CODE-001",
+          "capability": "CAP-017",
+          "method": "test_pass_rate_on_generated_code",
+          "pass_threshold": 0.85,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-CODE-002",
+          "capability": "CAP-026",
+          "method": "syntax_error_rate",
+          "pass_threshold": 0.01,
+          "priority": "required",
+          "note": "pass_threshold is a maximum — syntax error rate must be <= 0.01"
+        },
+        {
+          "eval_id": "EVAL-CODE-003",
+          "capability": "CAP-009",
+          "method": "tool_call_correctness_in_repo_context",
+          "pass_threshold": 0.97,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "support_agent",
+      "name": "Support Agent",
+      "description": "An agent that handles customer or user support interactions. It resolves tier-1 issues autonomously via knowledge base retrieval and predefined resolution playbooks, escalates tier-2 and tier-3 issues to human agents, maintains interaction logs for compliance, and adapts its tone and depth to the user's context. Support agents operate in high-volume, latency-sensitive environments where consistent quality is more important than peak creativity.",
+      "structural_pattern": "request → classify → retrieve → resolve-or-escalate → respond → log",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-007",
+        "CAP-009",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-008",
+        "CAP-011",
+        "CAP-014",
+        "CAP-021",
+        "CAP-026"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-SUP-001",
+          "capability": "CAP-003",
+          "method": "escalation_precision_recall",
+          "pass_threshold": 0.90,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-SUP-002",
+          "capability": "CAP-007",
+          "method": "knowledge_base_retrieval_accuracy",
+          "pass_threshold": 0.88,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-SUP-003",
+          "capability": "CAP-017",
+          "method": "csat_survey_score",
+          "pass_threshold": 0.82,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": ["CORPUS-001"]
+    },
+    {
+      "goal_id": "security_agent",
+      "name": "Security Agent",
+      "description": "An agent that performs security-related tasks: vulnerability scanning, threat modelling, log analysis for anomaly detection, incident response triage, and compliance verification. Security agents operate on sensitive data and infrastructure, making correctness and confidentiality paramount. False negatives (missed vulnerabilities) are more costly than false positives (false alarms).",
+      "structural_pattern": "target → scan → classify-findings → prioritise → report → remediate-or-escalate",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-009",
+        "CAP-011",
+        "CAP-017",
+        "CAP-026",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-014",
+        "CAP-022",
+        "CAP-024"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-SEC-001",
+          "capability": "CAP-003",
+          "method": "vulnerability_classification_recall",
+          "pass_threshold": 0.97,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-SEC-002",
+          "capability": "CAP-026",
+          "method": "false_negative_rate_on_known_cve_set",
+          "pass_threshold": 0.02,
+          "priority": "required",
+          "note": "pass_threshold is a maximum — false negative rate must be <= 0.02"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "analytics_agent",
+      "name": "Analytics Agent",
+      "description": "An agent that performs data analysis, generates insights, and produces structured reports from structured and semi-structured data sources. Analytics agents translate natural language questions into data queries, execute them against databases or APIs, interpret the results, and communicate findings in natural language with supporting visualisations or tables. They are commonly deployed as natural language interfaces to business intelligence systems.",
+      "structural_pattern": "question → understand-schema → generate-query → execute → interpret → visualise → respond",
+      "autonomy_level": "medium",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-009",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-011",
+        "CAP-014",
+        "CAP-023",
+        "CAP-026"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-ANA-001",
+          "capability": "CAP-009",
+          "method": "query_execution_accuracy",
+          "pass_threshold": 0.88,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-ANA-002",
+          "capability": "CAP-017",
+          "method": "insight_correctness_human_eval",
+          "pass_threshold": 0.85,
+          "priority": "required"
+        }
+      ],
+      "corpus_entries": []
+    },
+    {
+      "goal_id": "content_agent",
+      "name": "Content Agent",
+      "description": "An agent that generates, edits, transforms, or classifies content: articles, marketing copy, product descriptions, translations, summaries, and structured documents. Content agents are evaluated primarily on output quality (relevance, tone, accuracy, brand alignment) rather than on task completion. They commonly operate in human-in-the-loop workflows where generated content is reviewed before publication.",
+      "structural_pattern": "brief → understand-requirements → draft → self-review → refine → output",
+      "autonomy_level": "low",
+      "required_capabilities": [
+        "CAP-001",
+        "CAP-003",
+        "CAP-005",
+        "CAP-011",
+        "CAP-017",
+        "CAP-028"
+      ],
+      "optional_capabilities": [
+        "CAP-006",
+        "CAP-007",
+        "CAP-008",
+        "CAP-014",
+        "CAP-023",
+        "CAP-026"
+      ],
+      "evaluation_requirements": [
+        {
+          "eval_id": "EVAL-CONT-001",
+          "capability": "CAP-017",
+          "method": "content_quality_rubric_human_eval",
+          "pass_threshold": 0.80,
+          "priority": "required"
+        },
+        {
+          "eval_id": "EVAL-CONT-002",
+          "capability": "CAP-011",
+          "method": "self_revision_improvement_rate",
+          "pass_threshold": 0.75,
+          "priority": "recommended"
+        }
+      ],
+      "corpus_entries": []
+    }
+  ]
+}
