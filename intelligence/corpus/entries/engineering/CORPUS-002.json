@@ -44,7 +44,7 @@
       "without_this": "All pipeline events are treated uniformly. Security findings are reported at the same priority as whitespace lint warnings. Developers learn to ignore agent output because signal-to-noise is too low."
     },
     {
-      "cap_id": "CAP-009",
+      "cap_id": "CAP-014",
       "name": "tool_execution",
       "tier": "P0",
       "criticality": 0.98,
@@ -100,7 +100,7 @@
       "without_this": "Agent triages unfamiliar error messages from model knowledge only, which is stale and may not include the specific dependency version in use. Triage quality for novel errors is reduced. Acceptable for mature codebases with well-understood error patterns."
     },
     {
-      "cap_id": "CAP-014",
+      "cap_id": "CAP-010",
       "name": "planning_and_decomposition",
       "tier": "P1",
       "criticality": 0.71,
@@ -131,16 +131,16 @@
     "CAP-005",
     "CAP-006",
     "CAP-007",
-    "CAP-009",
-    "CAP-011",
     "CAP-014",
+    "CAP-011",
+    "CAP-010",
     "CAP-017",
     "CAP-026",
     "CAP-028",
     "CAP-008"
   ],
 
-  "capability_notes": "CAP-009 (tool execution) is the integration point that determines whether the agent is a passive reporter or an active participant in the pipeline. Define the minimum viable tool set before implementation: PR comment API and build log retrieval API are strictly required; deployment trigger API should be behind a confirmation gate until the agent's classification accuracy is validated in production. CAP-006 (long-term memory) is the dependency for flaky test detection — without it, the agent cannot distinguish a flaky failure from a regression. Implement flake detection as a threshold: a test is classified as flaky if it has failed in more than 30% of the last 20 runs without a code change touching its path. CAP-005 (short-term context management) is the primary token budget pressure: a full build log can exceed 200KB. Implement log truncation strategies (first N lines, last N lines, lines containing 'ERROR' or 'FAIL') before passing to the model.",
+  "capability_notes": "CAP-014 (tool execution) is the integration point that determines whether the agent is a passive reporter or an active participant in the pipeline. Define the minimum viable tool set before implementation: PR comment API and build log retrieval API are strictly required; deployment trigger API should be behind a confirmation gate until the agent's classification accuracy is validated in production. CAP-006 (long-term memory) is the dependency for flaky test detection — without it, the agent cannot distinguish a flaky failure from a regression. Implement flake detection as a threshold: a test is classified as flaky if it has failed in more than 30% of the last 20 runs without a code change touching its path. CAP-005 (short-term context management) is the primary token budget pressure: a full build log can exceed 200KB. Implement log truncation strategies (first N lines, last N lines, lines containing 'ERROR' or 'FAIL') before passing to the model.",
 
   "risk_profile": {
     "overall_risk": "high",
@@ -197,7 +197,7 @@
       "priority": "required"
     },
     {
-      "capability": "CAP-009",
+      "capability": "CAP-014",
       "eval_method": "tool_call_correctness",
       "pass_threshold": 0.99,
       "dataset_or_approach": "Run 100 scripted pipeline events in a staging environment with mocked tool APIs. Verify that: (1) PR comments are posted to the correct PR and commit, (2) deployment triggers are sent to the correct environment, (3) no deployment is triggered when any quality gate status is non-passing. Tool call correctness must be 100% for deployment triggers and >= 0.99 for comment posting.",
@@ -232,7 +232,7 @@
       "priority": "required"
     },
     {
-      "capability": "CAP-014",
+      "capability": "CAP-010",
       "eval_method": "root_cause_consolidation_test",
       "pass_threshold": 0.85,
       "dataset_or_approach": "Construct 20 cascading failure scenarios where a single root cause (broken import, removed function, schema migration) produces 10-50 downstream test failures. Measure that the agent's report identifies the single root cause as the primary issue in >= 85% of scenarios, rather than listing all downstream failures individually.",

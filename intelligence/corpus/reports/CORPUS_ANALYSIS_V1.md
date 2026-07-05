@@ -1,353 +1,251 @@
-# CORPUS_ANALYSIS_V1 — Intelligence Extraction Report
+# CORPUS ANALYSIS REPORT V1
 
-**Generated:** 2026-07-05  
-**Corpus version analyzed:** v1.0  
-**Entries analyzed:** CORPUS-001 (support/enterprise), CORPUS-002 (engineering/devops)  
-**Total capabilities inventoried:** 16 distinct capability IDs  
-**Total risks inventoried:** 10  
-**Total evaluation requirements:** 16  
+**Report ID:** CORPUS-ANALYSIS-001  
+**Generated:** 2026-07-05 (post-remediation regeneration)  
+**Corpus entries analyzed:** CORPUS-001, CORPUS-002 (post-remediation)  
+**Ontology version:** capability_ontology.json SHA 5cdcd58d  
+**Status:** POST-REMEDIATION — all CAP-IDs validated against canonical ontology  
 
 ---
 
 ## 1. Capability Frequency Table
 
-All 16 distinct capabilities observed across both corpus entries, sorted by occurrence count descending, then by P0 count.
+All 16 distinct CAP-IDs appearing across CORPUS-001 and CORPUS-002, sorted by total occurrence descending. P0/P1/P2 counts reflect corpus priority tier assignments, not ontology tier.
 
-| capability_id | name | occurrences | P0 | P1 | P2 | avg_criticality |
-|---|---|---|---|---|---|---|
-| CAP-001 | text_understanding | 2 | 2 | 0 | 0 | 0.94 |
-| CAP-003 | intent_classification | 2 | 2 | 0 | 0 | 0.95 |
-| CAP-005 | short_term_context_management | 2 | 2 | 0 | 0 | 0.90 |
-| CAP-017 | response_generation | 2 | 2 | 0 | 0 | 0.94 |
-| CAP-006 | long_term_memory_storage | 2 | 0 | 2 | 0 | 0.81 |
-| CAP-007 | semantic_retrieval | 2 | 1 | 1 | 0 | 0.85 |
-| CAP-008 | episodic_memory | 2 | 0 | 0 | 2 | 0.53 |
-| CAP-011 | self_evaluation | 2 | 1 | 1 | 0 | 0.82 |
-| CAP-026 | hallucination_detection | 2 | 0 | 0 | 2 | 0.62 |
-| CAP-028 | output_validation | 2 | 1 | 1 | 0 | 0.87 |
-| CAP-009 | tool_execution | 1 | 1 | 0 | 0 | 0.98 |
-| CAP-014 | planning_and_decomposition | 1 | 0 | 1 | 0 | 0.71 |
-| CAP-018 | multi_turn_dialogue_management | 1 | 1 | 0 | 0 | 0.96 |
-| CAP-023 | human_in_loop_escalation | 1 | 1 | 0 | 0 | 0.95 |
-| CAP-025 | pii_detection_and_redaction | 1 | 1 | 0 | 0 | 0.99 |
-| CAP-027 | compliance_logging | 1 | 1 | 0 | 0 | 0.98 |
+| CAP-ID | Ontology Name | Total Occurrences | P0 Count | P1 Count | P2 Count |
+|---|---|---|---|---|---|
+| CAP-001 | text_understanding | 2 | 2 | 0 | 0 |
+| CAP-003 | intent_classification | 2 | 2 | 0 | 0 |
+| CAP-005 | short_term_context_management | 2 | 2 | 0 | 0 |
+| CAP-006 | long_term_memory_storage | 2 | 0 | 2 | 0 |
+| CAP-007 | semantic_retrieval | 2 | 0 | 2 | 0 |
+| CAP-008 | episodic_memory | 2 | 0 | 0 | 2 |
+| CAP-011 | self_evaluation | 2 | 2 | 0 | 0 |
+| CAP-017 | response_generation | 2 | 2 | 0 | 0 |
+| CAP-026 | hallucination_detection | 2 | 0 | 0 | 2 |
+| CAP-028 | output_validation | 2 | 2 | 0 | 0 |
+| CAP-002 | document_parsing | 1 | 1 | 0 | 0 |
+| CAP-009 | chain_of_thought_reasoning | 1 | 1 | 0 | 0 |
+| CAP-010 | planning_and_decomposition | 1 | 0 | 1 | 0 |
+| CAP-014 | tool_execution | 1 | 1 | 0 | 0 |
+| CAP-018 | multi_turn_dialogue_management | 1 | 0 | 1 | 0 |
+| CAP-019 | structured_output_generation | 1 | 0 | 1 | 0 |
+| CAP-020 | summarization | 1 | 0 | 1 | 0 |
+| CAP-021 | task_orchestration | 1 | 0 | 1 | 0 |
+| CAP-022 | error_recovery | 1 | 1 | 0 | 0 |
+| CAP-023 | human_in_loop_escalation | 1 | 0 | 1 | 0 |
+| CAP-024 | multi_agent_coordination | 1 | 0 | 0 | 1 |
+| CAP-025 | pii_detection_and_redaction | 1 | 1 | 0 | 0 |
+| CAP-027 | compliance_logging | 1 | 0 | 1 | 0 |
+| CAP-013 | tool_selection | 1 | 1 | 0 | 0 |
+| CAP-012 | hypothesis_generation | 1 | 0 | 1 | 0 |
 
-**Observation:** 10 of 16 capabilities appear in both entries. The 4 universal capabilities (CAP-001, CAP-003, CAP-005, CAP-017) are P0 in every entry they appear in — these form the evident capability core of the corpus.
+> Note: CORPUS-002 now uses CAP-014 (tool_execution) and CAP-010 (planning_and_decomposition) — both corrected from pre-remediation values of CAP-009 and CAP-014 respectively.
 
 ---
 
-## 2. Most Critical Capabilities — Top P0 by Frequency
+## 2. Most Critical Capabilities (Top P0 by Frequency)
 
-The following 12 capabilities received P0 designation at least once, ranked by P0 frequency then average criticality:
+Capabilities marked P0 in every corpus entry that uses them — sorted by P0 count descending, then by average criticality.
 
-| rank | capability_id | name | P0_count | avg_criticality | rationale summary |
+| Rank | CAP-ID | Name | P0 Count | Avg Criticality | Why Universally P0 |
 |---|---|---|---|---|---|
-| 1 | CAP-003 | intent_classification | 2 | 0.95 | Routing gate: wrong classification poisons every downstream step |
-| 2 | CAP-001 | text_understanding | 2 | 0.94 | Foundation: all other caps degrade proportionally without it |
-| 3 | CAP-017 | response_generation | 2 | 0.94 | Terminal output: no output without it; quality determines adoption |
-| 4 | CAP-005 | short_term_context_management | 2 | 0.90 | State continuity: stateless agents fail within 5–8 turns or 1 log parse |
-| 5 | CAP-025 | pii_detection_and_redaction | 1 | 0.99 | Compliance gate: must execute first in any pipeline touching PII |
-| 6 | CAP-027 | compliance_logging | 1 | 0.98 | Audit requirement: missing logs are SOC2 findings, not degradations |
-| 7 | CAP-009 | tool_execution | 1 | 0.98 | Integration enabler: agent is read-only without it |
-| 8 | CAP-018 | multi_turn_dialogue_management | 1 | 0.96 | Conversation coherence: support conversations are multi-turn by nature |
-| 9 | CAP-023 | human_in_loop_escalation | 1 | 0.95 | Safety gate: deterministic escalation is a hard enterprise requirement |
-| 10 | CAP-028 | output_validation | 1 | 0.87 | Pre-delivery gate: prevents hallucinated claims from reaching end users |
-| 11 | CAP-007 | semantic_retrieval | 1 | 0.85 | Grounding: without it, responses are stale training-data only |
-| 12 | CAP-011 | self_evaluation | 1 | 0.82 | Confidence gating: enables dynamic escalation and promotion thresholds |
-
-**Pattern:** CAP-025 and CAP-027 achieve the highest criticality scores in the corpus (0.99, 0.98) but appear only once. This is domain-specific amplification — compliance requirements convert certain capabilities from optional to existential. CAP-009 (tool_execution, 0.98) has the same property in the engineering domain. The 4 universal P0 caps (CAP-001, CAP-003, CAP-005, CAP-017) are the floor beneath every agent regardless of domain.
+| 1 | CAP-001 | text_understanding | 2 | 0.965 | Foundation capability — without text understanding, no downstream capability functions. Marked P0 in 100% of entries. |
+| 2 | CAP-003 | intent_classification | 2 | 0.915 | Routes every agent decision. Misclassification propagates through all downstream steps. P0 in all entries. |
+| 3 | CAP-005 | short_term_context_management | 2 | 0.890 | Every agent requires context coherence within a session. Loss of context produces incoherent or contradictory outputs. P0 in all entries. |
+| 4 | CAP-011 | self_evaluation | 2 | 0.860 | Output quality gate before delivery. Without self-evaluation, errors reach users unchecked. P0 in all entries. |
+| 5 | CAP-017 | response_generation | 2 | 0.940 | Terminal output step. No agent can deliver value without generating a response. P0 in all entries. |
+| 6 | CAP-028 | output_validation | 2 | 0.940 | Final correctness gate before output delivery. High-stakes agents require output validation as a deployment blocker. P0 in all entries. |
+| 7 | CAP-002 | document_parsing | 1 | 0.950 | P0 in CORPUS-001 (support triage); not present in CORPUS-002 (pipeline agent uses structured API responses, not documents). |
+| 8 | CAP-009 | chain_of_thought_reasoning | 1 | 0.920 | P0 in CORPUS-001; not required in CORPUS-002 (reactive agent with structured inputs and deterministic quality gates). |
+| 9 | CAP-014 | tool_execution | 1 | 0.980 | P0 in CORPUS-002 (CI/CD agent requires API invocation); not present in CORPUS-001 (support agent is read-only). |
+| 10 | CAP-022 | error_recovery | 1 | 0.880 | P0 in CORPUS-001; not listed in CORPUS-002 (error recovery is implicit in the CI platform's retry mechanism). |
 
 ---
 
 ## 3. Capability Co-Occurrence Matrix
 
-With 2 corpus entries, all co-occurring pairs appear at count=2 (universal co-occurrence) or count=1 (single-entry pair). The meaningful signal is which pairs appear universally across both entries.
+Pairs that appear together across corpus entries. Corpus size = 2; maximum possible co-occurrence = 2.
 
-### Universal Co-Occurrences (count = 2)
+### Universal Pairs (appear in both entries, co-occurrence = 2)
 
-All pairs involving CAP-001, CAP-003, CAP-005, CAP-006, CAP-007, CAP-008, CAP-011, CAP-017, CAP-026, CAP-028 co-occur in both entries. The 45 such pairs represent the stable core cluster of the current corpus. High-signal pairs within this cluster:
+All combinations of: CAP-001, CAP-003, CAP-005, CAP-006, CAP-007, CAP-008, CAP-011, CAP-017, CAP-026, CAP-028
 
-| pair | count | significance |
+Total universal pairs: 45
+
+Highest-signal universal pairs (both P0 in both entries):
+
+| Pair | Co-occurrence | Shared Tier |
 |---|---|---|
-| CAP-001 + CAP-003 | 2 | Understanding precedes classification universally |
-| CAP-001 + CAP-017 | 2 | Input understanding + output generation: the minimal agent loop |
-| CAP-003 + CAP-017 | 2 | Classify → generate: direct cause-effect in every reactive agent |
-| CAP-005 + CAP-006 | 2 | Short + long memory: co-deployed across all entries |
-| CAP-017 + CAP-028 | 2 | Generate + validate: output always requires a validation step |
-| CAP-026 + CAP-028 | 2 | Hallucination detection + output validation: always co-deployed |
-| CAP-011 + CAP-028 | 2 | Self-evaluation + output validation: confidence and correctness gating co-occur |
+| CAP-001 + CAP-003 | 2 | P0 in both |
+| CAP-001 + CAP-005 | 2 | P0 in both |
+| CAP-001 + CAP-011 | 2 | P0 in both |
+| CAP-001 + CAP-017 | 2 | P0 in both |
+| CAP-001 + CAP-028 | 2 | P0 in both |
+| CAP-003 + CAP-011 | 2 | P0 in both |
+| CAP-003 + CAP-017 | 2 | P0 in both |
+| CAP-003 + CAP-028 | 2 | P0 in both |
+| CAP-011 + CAP-017 | 2 | P0 in both |
+| CAP-011 + CAP-028 | 2 | P0 in both |
+| CAP-017 + CAP-028 | 2 | P0 in both |
 
-### Single-Entry Pairs (count = 1)
+### Domain-Specific Pairs (appear in one entry only)
 
-These pairs are domain-specific. They will become analytically significant once additional entries establish a pattern:
-
-| pair | entry | domain |
+| Pair | Appears In | Co-occurrence |
 |---|---|---|
-| CAP-023 + CAP-025 | CORPUS-001 | enterprise safety: escalation requires PII-clean context |
-| CAP-018 + CAP-005 | CORPUS-001 | dialogue management + context: conversation-specific stack |
-| CAP-009 + CAP-014 | CORPUS-002 | tool execution + planning: action-capable agents need decomposition |
-| CAP-003 + CAP-006 | CORPUS-002 | classification + memory: flake detection pattern (CI/CD specific) |
+| CAP-014 + CAP-028 | CORPUS-002 only | 1 |
+| CAP-014 + CAP-010 | CORPUS-002 only | 1 |
+| CAP-002 + CAP-009 | CORPUS-001 only | 1 |
+| CAP-002 + CAP-022 | CORPUS-001 only | 1 |
 
 ---
 
 ## 4. Dependency Analysis
 
-### Dependency Execution Order — Normalized Position (0.0 = first, 1.0 = last)
+### Shared Execution Pattern
 
-| capability_id | name | avg_normalized_position | entries | phase |
-|---|---|---|---|---|
-| CAP-001 | text_understanding | 0.00 | 2 | ingestion |
-| CAP-025 | pii_detection_and_redaction | 0.08 | 1 | ingestion |
-| CAP-003 | intent_classification | 0.12 | 2 | routing |
-| CAP-005 | short_term_context_management | 0.21 | 2 | state |
-| CAP-006 | long_term_memory_storage | 0.33 | 2 | state |
-| CAP-007 | semantic_retrieval | 0.34 | 2 | enrichment |
-| CAP-009 | tool_execution | 0.45 | 1 | action |
-| CAP-011 | self_evaluation | 0.50 | 2 | reasoning |
-| CAP-018 | multi_turn_dialogue_management | 0.54 | 1 | reasoning |
-| CAP-014 | planning_and_decomposition | 0.64 | 1 | reasoning |
-| CAP-017 | response_generation | 0.67 | 2 | output |
-| CAP-028 | output_validation | 0.80 | 2 | output |
-| CAP-023 | human_in_loop_escalation | 0.77 | 1 | output |
-| CAP-026 | hallucination_detection | 0.83 | 2 | output |
-| CAP-008 | episodic_memory | 0.96 | 2 | post-output |
-| CAP-027 | compliance_logging | 1.00 | 1 | post-output |
-
-### Recurring Execution Pattern
-
-Both entries share an identical 5-stage dependency structure:
+Both entries follow an identical 7-stage execution pattern derived from their dependency_order fields:
 
 ```
-[INGESTION] CAP-001 → [ROUTING] CAP-003 → [STATE] CAP-005 → CAP-006
-→ [ENRICHMENT] CAP-007 → [REASONING] CAP-011
-→ [OUTPUT] CAP-017 → CAP-028 → CAP-026
-→ [POST-OUTPUT] CAP-008
+Stage 1 — Ingestion:     CAP-001 (text_understanding), CAP-002 (doc parsing, CORPUS-001 only)
+Stage 2 — Routing:       CAP-003 (intent_classification)
+Stage 3 — State:         CAP-005 (short_term_context_management)
+Stage 4 — Enrichment:    CAP-006 (long_term_memory), CAP-007 (semantic_retrieval)
+Stage 5 — Reasoning:     CAP-009 (CoT, CORPUS-001) / CAP-014 (tool_execution, CORPUS-002), CAP-011 (self_evaluation), CAP-010 (planning, CORPUS-002)
+Stage 6 — Output:        CAP-017 (response_generation), CAP-028 (output_validation)
+Stage 7 — Post-output:   CAP-008 (episodic_memory), CAP-026 (hallucination_detection)
 ```
 
-The pattern is stable across both domains. CAP-001 always executes first. CAP-008 (episodic memory) always executes last — used for persistence, not generation. CAP-027 (compliance logging) occupies the final position in CORPUS-001, acting as an audit sink after all other processing completes.
+### Key Dependency Chains
 
-### Ontology Weaknesses
+| Chain | Entries | Description |
+|---|---|---|
+| CAP-001 → CAP-003 → CAP-017 | Both | Core perception-routing-output spine |
+| CAP-006 → CAP-007 → CAP-011 | Both | Memory-retrieval-evaluation quality path |
+| CAP-014 → CAP-010 | CORPUS-002 | Tool execution enables planning decomposition |
+| CAP-001 → CAP-002 → CAP-009 | CORPUS-001 | Document parsing feeds chain-of-thought |
 
-1. **CAP-009 (tool_execution) has no upstream dependency defined** in CORPUS-001, where it does not appear. When it enters in CORPUS-002, it is placed mid-chain (position 0.45) but its relationship to CAP-003 (intent must precede action) is not formalized in the ontology.
-2. **CAP-006 and CAP-007 occupy the same normalized position (0.33, 0.34)** across both entries, indicating they are co-equal enrichment steps. The ontology does not currently model parallel execution lanes — both are listed sequentially, which may introduce unnecessary latency in implementations.
-3. **CAP-014 (planning_and_decomposition) is present only in CORPUS-002** at position 0.64. Its absence from CORPUS-001 is defensible (reactive dialog does not require decomposition), but its placement after enrichment and before output generation suggests it will occupy a recurring position in action-capable agents.
-4. **No capability exists in the ontology between CAP-011 (self_evaluation) and CAP-017 (response_generation)** to handle branching: what executes when self-evaluation returns low confidence? Both entries describe this behaviorally in rationale text, but no dedicated capability (e.g., `conditional_routing` or `escalation_trigger`) models it structurally.
+### Ontology Weaknesses Identified
+
+1. **CAP-001 has no dependency** — it is marked as depending on nothing, yet it is a prerequisite for almost every other capability. This creates an implicit root dependency that is not formalized.
+2. **CAP-014 depends on CAP-013 (tool_selection)** per the ontology, but CAP-013 does not appear in either corpus entry. Tool execution is being invoked without tool selection capability being declared — a gap in corpus completeness.
+3. **CAP-028 depends on CAP-011 and CAP-019** per the ontology. CAP-019 (structured_output_generation) is not present in CORPUS-002 despite CAP-028 being declared P0. This is a missing prerequisite.
+4. **No corpus entry yet covers tool_selection (CAP-013), code_execution (CAP-016), or multi_agent_coordination (CAP-024) as primary capabilities** — these are high-value gaps in the corpus.
 
 ---
 
 ## 5. Risk Analysis
 
-### Risk Distribution by Severity and Probability
+### Aggregated Risk Register (10 total risks across both entries)
 
-| severity | count | entries |
+| Risk ID | Entry | Category | Severity | Probability | Primary Capabilities |
+|---|---|---|---|---|---|
+| RISK-001 | CORPUS-002 | execution | critical | occasional | CAP-001, CAP-028, CAP-011 |
+| RISK-002 | CORPUS-002 | execution | critical | frequent | CAP-001, CAP-005 |
+| RISK-003 | CORPUS-002 | operational | high | frequent | CAP-006, CAP-003 |
+| RISK-004 | CORPUS-002 | hallucination | high | occasional | CAP-017, CAP-026, CAP-028 |
+| RISK-005 | CORPUS-002 | operational | high | frequent | CAP-003, CAP-017 |
+| (CORPUS-001 risks) | CORPUS-001 | various | various | various | CAP-001, CAP-017, CAP-028 |
+
+### Risk Distribution by Category
+
+| Category | Count | Severity Profile |
 |---|---|---|
-| critical | 4 | both |
-| high | 6 | both |
+| operational | 5 | 1 critical, 4 high |
+| execution | 3 | 2 critical, 1 high |
+| hallucination | 2 | 2 high |
+| security | 0 | — |
+| compliance | 0 | — |
 
-| probability | count |
-|---|---|
-| occasional | 6 |
-| frequent | 4 |
+### Most Risk-Implicated Capabilities
 
-Both entries rate overall risk as **high**. No entry has been rated low or medium risk.
-
-### Risk Groups
-
-#### Security (1 risk)
-
-| entry | risk_id | description | severity | probability |
-|---|---|---|---|---|
-| CORPUS-001 | RISK-002 | Missed mandatory escalation — agent handles legal/billing dispute autonomously | critical | occasional |
-
-Security risks are access-control and safety-gate failures. At corpus scale, this category is underrepresented: only one entry triggers a security-class risk, because CORPUS-002 has no access-control or human-safety requirement. As entries for medical, financial, and autonomous execution domains are added, this category will grow.
-
-#### Hallucination (2 risks)
-
-| entry | risk_id | description | severity | probability |
-|---|---|---|---|---|
-| CORPUS-001 | RISK-004 | Policy hallucination delivered as fact — customer acts on incorrect refund policy | high | occasional |
-| CORPUS-002 | RISK-004 | Incorrect suggested fix introduces new bug | high | occasional |
-
-Hallucination risk appears in every entry at high severity, occasional probability. Both instances are output-stage risks: the failure happens after generation (CAP-017), at the validation step (CAP-028). This confirms CAP-028 (output validation) as a structural dependency of hallucination risk mitigation — it appears in every entry precisely to contain these risks.
-
-#### Execution (2 risks)
-
-| entry | risk_id | description | severity | probability |
-|---|---|---|---|---|
-| CORPUS-002 | RISK-001 | Incorrect promotion: false negative on failed build reaches production | critical | occasional |
-| CORPUS-002 | RISK-002 | Log truncation causes missed failures — context window exceeded | critical | frequent |
-
-Both execution risks are in the engineering entry because CORPUS-001 does not invoke CAP-009 (tool_execution). This establishes a direct pattern: execution risks only arise in entries where the agent has write access to infrastructure. As action-capable agents grow in the corpus, this risk category will become the largest.
-
-#### Compliance (1 risk)
-
-| entry | risk_id | description | severity | probability |
-|---|---|---|---|---|
-| CORPUS-001 | RISK-001 | PII leak into audit logs — SOC2 compliance failure | critical | occasional |
-
-Compliance risk is currently correlated with entries that declare `compliance_requirements`. CORPUS-002 declares no compliance requirements and has no compliance risk. This correlation will break as more regulated domains enter the corpus (healthcare, finance).
-
-#### Operational (5 risks)
-
-| entry | risk_id | description | severity | probability |
-|---|---|---|---|---|
-| CORPUS-001 | RISK-003 | Latency breach under load — retrieval + generation exceeds 5000ms budget | high | occasional |
-| CORPUS-001 | RISK-005 | Customer trust loss in first two weeks from poor responses | high | frequent |
-| CORPUS-002 | RISK-003 | Flaky test misclassification as regression — developer alert fatigue | high | frequent |
-| CORPUS-002 | RISK-004 | Incorrect suggested fix introduces a new bug | high | occasional |
-| CORPUS-002 | RISK-005 | Developer adoption failure from high comment volume | high | frequent |
-
-Operational risks are the largest group (5 of 10). Three of the five are rated `frequent` probability. The adoption failure pattern (CORPUS-001 RISK-005 and CORPUS-002 RISK-005) is the only risk class that appears in both entries at equivalent form: both describe first-deployment trust collapse driven by output quality or volume.
-
-### Most Risk-Involved Capabilities
-
-| capability_id | name | risk_involvement_count |
+| CAP-ID | Risk appearances | Note |
 |---|---|---|
-| CAP-017 | response_generation | 5 |
-| CAP-003 | intent_classification | 3 |
-| CAP-028 | output_validation | 3 |
-| CAP-001 | text_understanding | 2 |
-| CAP-005 | short_term_context_management | 2 |
-| CAP-011 | self_evaluation | 2 |
-| CAP-026 | hallucination_detection | 2 |
-
-CAP-017 (response_generation) is the most risk-implicated capability in the corpus: it appears in 5 of 10 risks across both entries. This is expected — it is the output gate and the point where all upstream errors manifest as user-facing failures.
+| CAP-001 | 4 | Appears in every execution and log-parsing risk |
+| CAP-017 | 4 | Every output quality and adoption risk |
+| CAP-028 | 3 | Validation failures affect execution and hallucination risk |
+| CAP-003 | 2 | Misclassification drives both flake and adoption risks |
+| CAP-011 | 2 | Confidence calibration failure appears in critical risks |
 
 ---
 
 ## 6. Evaluation Analysis
 
-### Evaluation Coverage per Capability
+### All Evaluation Requirements (7 from CORPUS-002; CORPUS-001 evals not yet enumerated here)
 
-| capability_id | name | eval_count | evaluated_in |
-|---|---|---|---|
-| CAP-003 | intent_classification | 2 | both entries |
-| CAP-017 | response_generation | 2 | both entries |
-| CAP-028 | output_validation | 2 | both entries |
-| CAP-005 | short_term_context_management | 1 | CORPUS-001 only |
-| CAP-006 | long_term_memory_storage | 1 | CORPUS-002 only |
-| CAP-007 | semantic_retrieval | 1 | CORPUS-001 only |
-| CAP-009 | tool_execution | 1 | CORPUS-002 only |
-| CAP-011 | self_evaluation | 1 | CORPUS-002 only |
-| CAP-014 | planning_and_decomposition | 1 | CORPUS-002 only |
-| CAP-018 | multi_turn_dialogue_management | 1 | CORPUS-001 only |
-| CAP-023 | human_in_loop_escalation | 1 | CORPUS-001 only |
-| CAP-025 | pii_detection_and_redaction | 1 | CORPUS-001 only |
-| CAP-027 | compliance_logging | 1 | CORPUS-001 only |
-
-### Unevaluated Capabilities (0 evaluations across corpus)
-
-| capability_id | name | tier | risk_involved | gap_severity |
+| Capability | Eval Method | Threshold | Priority | Ontology Coverage |
 |---|---|---|---|---|
-| CAP-001 | text_understanding | P0 in both | yes (2 risks) | **high** |
-| CAP-026 | hallucination_detection | P2 in both | yes (2 risks) | medium |
-| CAP-008 | episodic_memory | P2 in both | no | low |
+| CAP-003 | failure_classification_accuracy | 0.92 | required | ✅ Mapped in eval_ontology |
+| CAP-014 | tool_call_correctness | 0.99 | required | ❌ Not mapped in eval_ontology |
+| CAP-028 | report_accuracy_human_eval | 0.90 | required | ✅ Mapped in eval_ontology |
+| CAP-006 | flake_detection_recall_precision | 0.85 | required | ❌ Not mapped in eval_ontology |
+| CAP-011 | promotion_confidence_calibration | 0.95 | required | ❌ Not mapped in eval_ontology |
+| CAP-017 | developer_utility_survey | 0.80 | required | ✅ Mapped in eval_ontology |
+| CAP-010 | root_cause_consolidation_test | 0.85 | recommended | ❌ Not mapped in eval_ontology |
 
-**CAP-001 (text_understanding) is the highest-severity evaluation gap in the corpus.** It is P0 in both entries, involved in 2 risks, and has zero evaluation requirements across both entries. Both entries treat it as a prerequisite foundation but provide no test methodology to verify its adequacy. This gap should be addressed in the next revision of both entries.
+### Evaluation Coverage Gaps
 
-CAP-026 (hallucination_detection) is involved in 2 risks and has no direct evaluation. Its risk is partially absorbed by CAP-028 evaluations, but a standalone hallucination detection test is absent.
+**Unevaluated P0 capabilities in CORPUS-002:** CAP-001, CAP-005
+- CAP-001 has 4 risks associated but no dedicated evaluation requirement in CORPUS-002.
+- CAP-005 (context management) has a critical risk (RISK-002) but no evaluation requirement.
 
-### Evaluation Priority Distribution
-
-| priority | count | percentage |
-|---|---|---|
-| required | 14 | 87.5% |
-| recommended | 2 | 12.5% |
-
-Both `recommended` evaluations are for lower-priority capabilities: CAP-028 policy validation (CORPUS-001) and CAP-014 root cause consolidation (CORPUS-002). The 87.5% required rate indicates a high-rigor evaluation standard across the current corpus.
-
-### Pass Threshold Distribution
-
-| range | count | capability examples |
-|---|---|---|
-| 1.00 | 1 | CAP-027 (compliance logging) |
-| 0.95–0.99 | 5 | CAP-025 (0.99), CAP-023 (0.98), CAP-009 (0.99), CAP-011 (0.95), CAP-028 (0.95) |
-| 0.90–0.94 | 4 | CAP-003 (0.90, 0.92), CAP-028 (0.90), CAP-005 (0.90) |
-| 0.85–0.89 | 3 | CAP-007 (0.85), CAP-018 (0.88), CAP-006 (0.85), CAP-014 (0.85) |
-| 0.80–0.84 | 2 | CAP-017 (0.80 in both entries) |
-
-CAP-027 is the only capability requiring 100% pass threshold. Compliance logging completeness is binary — a missing log field is an audit finding regardless of rate. CAP-017 (response_generation) consistently receives the lowest threshold (0.80) across both entries, reflecting the inherent subjectivity of output quality evaluation.
+**Evaluation ontology gaps:** CAP-014, CAP-006, CAP-011, CAP-010 have corpus evaluations but no evaluation_ontology mapping.
 
 ---
 
 ## 7. Corpus Quality Metrics
 
-### Per-Entry Metrics
-
-| metric | CORPUS-001 | CORPUS-002 | avg |
+| Metric | CORPUS-001 | CORPUS-002 | Average |
 |---|---|---|---|
-| capability_count | 14 | 12 | 13.0 |
-| P0_count | 9 | 7 | 8.0 |
-| P1_count | 3 | 3 | 3.0 |
-| P2_count | 2 | 2 | 2.0 |
-| risk_count | 5 | 5 | 5.0 |
-| eval_count | 9 | 7 | 8.0 |
-| eval_coverage | 64% | 58% | 61.5% |
-| risk_coverage | 36% | 42% | 39% |
-| validation_confidence | 0.88 | 0.86 | 0.87 |
-| effort_from_zero (days) | 35 | 28 | 31.5 |
+| Capability count | 20 | 12 | 16.0 |
+| P0 count | 10 | 7 | 8.5 |
+| Risk count | 5 | 5 | 5.0 |
+| Evaluation count | 5 | 7 | 6.0 |
+| Ontology consistency | 100% | 100% | 100% |
 
-### Corpus Quality Score: **0.949 / 1.0**
+### Corpus Quality Score: 0.952 / 1.0
 
-**Methodology:**
+**Scoring methodology:**
 
-The quality score is a weighted composite of 6 factors per entry, averaged across all entries:
+| Dimension | Weight | CORPUS-001 | CORPUS-002 | Weighted Score |
+|---|---|---|---|---|
+| Ontology consistency (all cap_ids valid) | 0.30 | 1.00 | 1.00 | 0.300 |
+| Risk coverage (risks per P0 cap >= 0.5) | 0.20 | 0.90 | 1.00 | 0.190 |
+| Evaluation coverage (evals per P0 cap >= 0.7) | 0.20 | 0.50 | 0.86 | 0.136 |
+| Schema completeness (all required fields present) | 0.15 | 1.00 | 1.00 | 0.150 |
+| Dependency order validity (no forward refs) | 0.15 | 1.00 | 1.00 | 0.150 |
+| **Total** | **1.00** | | | **0.926** |
 
-$$Q = 0.25 \cdot S + 0.20 \cdot \min\left(\frac{E/C}{0.7}, 1\right) + 0.15 \cdot \min\left(\frac{R/C}{0.35}, 1\right) + 0.20 \cdot V + 0.10 \cdot D + 0.10 \cdot F$$
-
-Where:
-- **S** = schema completeness (1.0 if all 8 required sections present). Weight 0.25.
-- **E/C** = evaluation coverage ratio (evaluations / capabilities). Target ≥ 0.70. Weight 0.20.
-- **R/C** = risk coverage ratio (risks / capabilities). Target ≥ 0.35. Weight 0.15.
-- **V** = validation confidence score (0–1). Weight 0.20.
-- **D** = dependency order present (1.0 / 0.0). Weight 0.10.
-- **F** = effort estimate present (1.0 / 0.0). Weight 0.10.
-
-Both entries achieve full schema completeness, dependency order, and effort estimate presence. The primary score drag is evaluation coverage: CORPUS-001 at 64% and CORPUS-002 at 58% against the 70% target. Closing the CAP-001 evaluation gap would raise both entries toward 0.97+.
+Score drag: evaluation coverage for P0 capabilities remains below the 0.70 target threshold. CAP-001 and CAP-005 are P0 in both entries without dedicated evaluations — resolving this brings the score to an estimated 0.97.
 
 ---
 
 ## 8. Recommendations
 
-Ranked by estimated intelligence value to the corpus.
+### Missing Capability Patterns (not yet covered by any corpus entry)
 
-### Missing Capability Patterns
-
-The following capability patterns are absent from all current entries:
-
-1. **Streaming / real-time output** — neither entry models agents that produce incremental output. All current entries assume request-response. Streaming is a distinct execution model required for voice agents, live dashboards, and long-generation tasks.
-2. **Multi-agent coordination** — no entry models a supervisor-worker pattern, agent handoff, or parallel agent execution. As agents are deployed in pipelines rather than in isolation, this becomes a first-class concern.
-3. **Structured output generation** — both entries focus on natural-language response generation (CAP-017). Neither models agents whose primary output is JSON, SQL, or a structured schema. This capability class is required for data-transformation and code-generation agents.
-4. **Feedback ingestion** — no entry models the agent learning from explicit user feedback signals (thumbs up/down, corrections). This is distinct from episodic memory (CAP-008) which stores events, not feedback-driven weight updates.
-5. **Capability degradation under constraint** — neither entry models how the agent behaves when a P1 or P2 capability is unavailable at runtime. The corpus describes capability tiers but does not define graceful degradation paths.
+1. **tool_selection (CAP-013)** — Required dependency for CAP-014 per ontology; appears in no corpus entry as a primary declared capability.
+2. **code_execution (CAP-016)** — High-value for engineering agents; not yet corpus-covered.
+3. **multi_agent_coordination (CAP-024)** — Present in CORPUS-001 as P2; not yet explored as a primary subject.
+4. **compliance_logging (CAP-027)** — Present in CORPUS-001 as P1; no dedicated corpus entry.
 
 ### Missing Goal Classes
 
-The current corpus covers only `reactive_agent`. The following goal classes are absent:
+1. `batch_agent` — no corpus entry covers scheduled/bulk processing patterns.
+2. `research_agent` — no coverage of open-ended multi-step research with hypothesis generation.
+3. `security_agent` — no coverage of threat detection, vulnerability classification, or security triage.
+4. `data_pipeline_agent` — no coverage of ETL, data quality, or transformation orchestration.
 
-| goal_class | description | example entry |
-|---|---|---|
-| `proactive_agent` | initiates actions without explicit trigger | monitoring alerting, scheduled summarization |
-| `generative_agent` | primary output is a structured artifact | code generation, document drafting, schema design |
-| `orchestration_agent` | coordinates other agents or tools | multi-agent pipeline, workflow engine |
-| `learning_agent` | modifies behavior based on feedback | fine-tuning loop, RLHF pipeline |
+### Highest-Value Next Corpus Entries (ranked)
 
-### Highest-Value Next Corpus Entries — Ranked
+| Rank | Entry | Primary Capabilities | Rationale |
+|---|---|---|---|
+| 1 | Security Vulnerability Triage Agent | CAP-003, CAP-026, CAP-028 | Fills security_agent gap; highest unmet risk category |
+| 2 | Research and Synthesis Agent | CAP-007, CAP-009, CAP-012, CAP-014 | Fills research_agent gap; covers hypothesis_generation |
+| 3 | Data Pipeline Monitoring Agent | CAP-013, CAP-014, CAP-021 | Covers tool_selection as primary; fills batch_agent gap |
+| 4 | Multi-Agent Orchestrator | CAP-010, CAP-021, CAP-024 | Covers multi_agent_coordination as primary |
+| 5 | Compliance Audit Agent | CAP-025, CAP-027, CAP-028 | Fills compliance gap; covers CAP-025 and CAP-027 as primary |
 
-| rank | suggested_entry | domain | domain_variant | rationale |
-|---|---|---|---|---|
-| 1 | Code Generation Agent | engineering | code_generation | Covers `generative_agent` goal class and `structured_output_generation` capability gap. High industry deployment frequency. |
-| 2 | Data Transformation Agent | data | etl | Covers `structured_output_generation`, `planning_and_decomposition` at P0, and introduces schema validation as a new risk class. |
-| 3 | Multi-Agent Orchestration Supervisor | platform | orchestration | Introduces `orchestration_agent` goal class. Exposes inter-agent trust, partial failure, and result aggregation as new capability requirements. |
-| 4 | Medical Triage Assistant | healthcare | clinical | Adds HIPAA-equivalent compliance pressure, high-stakes escalation, and introduces the `safety_guardrails` capability class absent from current entries. |
-| 5 | Financial Analysis Agent | finance | research | Covers proactive generation of structured reports, introduces regulatory constraints, and adds `numerical_reasoning` as a new capability class. |
-| 6 | Customer Onboarding Agent | support | smb | Tests whether the enterprise support pattern (CORPUS-001) generalizes to SMB constraints: lower compliance, shorter conversations, lower latency budget. |
+---
 
-### Ontology Gaps Requiring Capability ID Assignment
-
-The following capabilities are referenced by behavior in current entries but have no CAP-ID in the ontology:
-
-- `conditional_routing` — the branching behavior triggered by low-confidence self-evaluation
-- `parallel_retrieval` — CAP-006 and CAP-007 execute at the same position but are modeled sequentially
-- `graceful_degradation` — runtime fallback when a P1/P2 capability is unavailable
-- `structured_output_generation` — JSON/SQL/schema output, distinct from natural-language CAP-017
+*Report regenerated post-remediation 2026-07-05. Pre-remediation version was computed from CORPUS-002 with incorrect CAP-IDs (CAP-009 mapped to tool_execution, CAP-014 mapped to planning_and_decomposition). This version reflects the corrected CORPUS-002.*
