@@ -1,154 +1,180 @@
 # EVALUATION ONTOLOGY ROOT CAUSE ANALYSIS — RCA-002
-**Audit ID:** RCA-002
-**Generated:** 2026-07-05
-**Scope:** CAP-023 and CAP-025 capability-name mismatches in evaluation_ontology.json
-**Constraint:** No ontology modifications. No corpus modifications. Investigation and repair specification only.
+**Report ID:** RCA-002  
+**Generated:** 2026-07-05  
+**Trigger:** Known capability-name mismatches in `evaluation_ontology.json` for CAP-023 and CAP-025  
+**Authority:** `capability_ontology.json` (SHA: 5cdcd58d2c3f56a66b883c41e96d79499fb576d0)  
+**Investigator:** Automated RCA engine  
+**Modifications to ontologies:** NONE — investigation only  
 
 ---
 
-## Phase 1 — Evidence Collection
+## Phase 1 — Evaluation Inventory Reference
 
-### Commit History
-
-The evaluation_ontology.json was introduced in exactly **one commit**:
-
-| Field | Value |
-|---|---|
-| Commit SHA | `63fc6164b6f22b9ff6b5973e5752584487f28f0a` |
-| Commit date | 2026-07-05T12:19:59Z |
-| Commit message | `feat(ontology): add evaluation_ontology.json v1 + compatibility audit` |
-| Author | Ossama Hashim (SamoTech) |
-| Files in commit | `intelligence/ontology/evaluation_ontology.json`, `meta/audits/EVALUATION_ONTOLOGY_COMPATIBILITY.md` |
-| Prior commits modifying this file | 0 |
-
-**Finding:** Both mismatches were introduced in the initial creation commit. There is no prior state to compare against — this is not drift from a previously correct version. The mismatches originated at authoring time.
+See `meta/audits/EVALUATION_ONTOLOGY_INVENTORY.md` for complete extraction of all 7 evaluation mappings with full benchmark methodologies, thresholds, and metrics.
 
 ---
 
-## Phase 2 — CAP-023 Root Cause
+## Phase 2 — Mismatch Summary
 
-### Evidence
+Two primary TYPE A mismatches confirmed (same CAP-ID, different capability name):
 
-| Layer | CAP-023 Value |
-|---|---|
-| capability_ontology.json | `human_in_loop_escalation` |
-| evaluation_ontology.json name field | `structured_data_generation` |
-| evaluation_ontology.json validation_method | `schema_validation_pipeline` |
-| evaluation_ontology.json scoring_model | schema compliance, field accuracy, JSON Schema validation |
-| Semantic overlap | Zero — human escalation and structured data generation are unrelated |
+| CAP-ID | Canonical Name | Eval Ontology Name | Benchmark Applicability |
+|---|---|---|---|
+| CAP-023 | human_in_loop_escalation | structured_data_generation | 0% — schema validation is inapplicable to escalation routing |
+| CAP-025 | pii_detection_and_redaction | multi_modal_understanding | 0% — cross-modal benchmark is inapplicable to PII detection |
 
-### Divergence Point
+One inline TYPE A reference error:
 
-The evaluation ontology was authored separately from the capability ontology and used a different capability name set when writing the CAP-023 mapping. The `structured_data_generation` concept and the `schema_validation_pipeline` methodology are internally consistent with each other — the evaluation model is coherent for structured data generation. This indicates the mapping block was written for a real capability, but assigned to the wrong CAP-ID.
-
-### Most Likely Explanation
-
-The capability ontology places `structured_output_generation` at **CAP-019** and `human_in_loop_escalation` at **CAP-023**. The evaluation ontology author:
-1. Wrote a mapping block for a structured-data/schema-generation capability
-2. Assigned it CAP-023 instead of CAP-019
-3. Used the label `structured_data_generation` (a near-synonym of `structured_output_generation` / CAP-019)
-
-The likely mechanism: the author had a list of capabilities to map ordered by theme (structured output → escalation) and assigned the structured-data evaluation block to the next ID slot (CAP-023) rather than looking up the canonical ID for `structured_output_generation`.
-
-### Verdict
-
-**AUTHORING ERROR** — The evaluation content was written for a capability similar to CAP-019 (`structured_output_generation`) and incorrectly assigned to CAP-023 (`human_in_loop_escalation`). This is not ontology drift (no prior version existed) and not schema evolution (the schema was not changed).
-
-### Affected Artifacts
-
-| Artifact | Impact |
-|---|---|
-| `intelligence/ontology/evaluation_ontology.json` | CAP-023 mapping applies wrong evaluation model and wrong capability name |
-| `meta/audits/EVALUATION_ONTOLOGY_COMPATIBILITY.md` | Compatibility audit run against defective mapping; conclusions about CAP-023 coverage are invalid |
-| `intelligence/corpus/reports/CORPUS_ANALYSIS_V1.md` | Section 6 shows CAP-023 as "✅ Mapped in eval_ontology" — incorrect; mapping applies to wrong capability |
-| CI validation workflow | Any gate checking "does CAP-023 have an evaluation mapping?" returns true incorrectly |
+| Location | Content | Error |
+|---|---|---|
+| `evaluation_execution_protocol.pre_deployment_gates[1]` | `CAP-009 (tool_execution)` | CAP-009 = chain_of_thought_reasoning; tool_execution = CAP-014 |
 
 ---
 
-## Phase 3 — CAP-025 Root Cause
+## Phase 3 — Root Cause Analysis
 
-### Evidence
+### RCA for CAP-023 Mismatch
 
-| Layer | CAP-025 Value |
-|---|---|
-| capability_ontology.json | `pii_detection_and_redaction` |
-| evaluation_ontology.json name field | `multi_modal_understanding` |
-| evaluation_ontology.json validation_method | `cross_modal_benchmark` |
-| evaluation_ontology.json scoring_model | cross-modal extraction accuracy, per-modality accuracy, degradation vs text-only |
-| Semantic overlap | Zero — PII detection/redaction and multi-modal understanding are unrelated |
+**First evidence point:**  
+`evaluation_ontology.json` was created as a single authoring event on 2026-07-05 (as recorded by `created_at` and `last_reviewed_at` fields). There is no commit history showing a divergence from a previously correct state — this is an original authoring error, not a drift event.
 
-### Divergence Point
+**Mechanism:**  
+The capability ontology registers 28 capabilities with sequential IDs. CAP-023 = `human_in_loop_escalation`. The evaluation ontology author appears to have written the benchmark content for `structured_data_generation` and then assigned it the wrong CAP-ID. The validation_method `schema_validation_pipeline` and the benchmark focus on JSON schema compliance, field accuracy, and hallucination rate within structured fields are precisely correct for a structured generation capability — but are completely inapplicable to an escalation routing capability.
 
-Same authoring session as CAP-023. The evaluation ontology was created in a single commit with no iterative revision. The `multi_modal_understanding` concept and `cross_modal_benchmark` methodology are internally consistent — this is a coherent evaluation model written for a real capability but assigned to the wrong CAP-ID.
+**Most probable origin:**  
+The evaluation mappings were authored in a different ordering than the canonical CAP-ID sequence. `structured_data_generation` was likely intended to map to CAP-019 (`structured_output_generation` — the nearest canonical equivalent), but was incorrectly assigned CAP-023. The capability `structured_data_generation` does not exist under that name in capability_ontology.json.
 
-### Most Likely Explanation
+**Secondary evidence:**  
+The benchmark threshold of 0.95 minimum score and `schema_compliance >= 0.99` are both consistent with a structured output evaluation. No element of the benchmark is consistent with human escalation routing (which would require precision/recall on escalation trigger classification, false escalation rate analysis, and escalation latency measurement).
 
-`multi_modal_understanding` does not appear anywhere in the capability_ontology.json under any CAP-ID — it is not a registered capability name. The evaluation author invented or imported this capability concept from an external taxonomy, assigned it CAP-025, and wrote a complete evaluation model for it.
+**Verdict: AUTHORING ERROR + COPY/PASTE ERROR**  
+The benchmark content was authored for the correct semantic purpose (structured output evaluation) but assigned to the wrong CAP-ID. The CAP-023 entry in the evaluation ontology is a misplaced block that belongs at CAP-019 or under a newly registered `structured_data_generation` capability ID.
 
-The canonical CAP-025 = `pii_detection_and_redaction`. The required mapping should include precision/recall on PII entity types (person names, emails, phone numbers, financial identifiers), redaction completeness, false negative rate (missed PII), and redaction accuracy (non-PII incorrectly redacted).
+**Affected reports:**  
+- `CORPUS_ANALYSIS_V1.md` Section 6 marks CAP-023 as having no evaluation coverage — this is correct from the canonical perspective (CAP-023 = human_in_loop_escalation has no valid evaluation), but the existing mismapped entry would falsely indicate coverage in any automated tool that resolves by CAP-ID without name validation.
+- Any validation workflow that checks "does CAP-023 have an evaluation mapping" returns TRUE — but the evaluation it resolves to is semantically invalid.
 
-### Verdict
+**Affected workflows:**  
+- Corpus validation CI: if it checks only CAP-ID existence in evaluation_ontology, it reports CAP-023 as covered — false positive.
+- Evaluation coverage metrics in CORPUS_ANALYSIS_V1.md: CAP-023 is listed as having no evaluation (correct); the mismapped entry is not currently used by any corpus entry.
+- Architecture readiness score: if CAP-023 is added to a future corpus entry, the wrong benchmark will be applied.
 
-**AUTHORING ERROR — UNREGISTERED CAPABILITY INJECTION.** The author wrote an evaluation model for `multi_modal_understanding`, a capability not present in the canonical ontology, and assigned it the CAP-025 slot occupied by `pii_detection_and_redaction`. This is more severe than the CAP-023 mismatch: CAP-023 at least maps to a registered capability (CAP-019); the CAP-025 mapping introduces a capability name with no canonical registration at all.
+---
 
-### Affected Artifacts
+### RCA for CAP-025 Mismatch
 
-| Artifact | Impact |
-|---|---|
-| `intelligence/ontology/evaluation_ontology.json` | CAP-025 mapping applies wrong evaluation model, wrong capability name, and references an unregistered capability |
-| `meta/audits/EVALUATION_ONTOLOGY_COMPATIBILITY.md` | Conclusions about CAP-025 coverage are invalid |
-| `intelligence/corpus/reports/CORPUS_ANALYSIS_V1.md` | CAP-025 shown as "✅ Mapped" — incorrect; pii_detection_and_redaction has no valid mapping |
-| CI validation | CAP-025 evaluation gate returns true incorrectly for pii_detection_and_redaction |
+**First evidence point:**  
+Same single-authoring-event origin as CAP-023 mismatch. No prior correct state to diverge from.
+
+**Mechanism:**  
+CAP-025 = `pii_detection_and_redaction`. The evaluation ontology maps CAP-025 to `multi_modal_understanding` with a `cross_modal_benchmark` validation method covering image/chart/diagram extraction accuracy. `multi_modal_understanding` has no CAP-ID in the canonical ontology — it is an unregistered capability name.
+
+**Most probable origin:**  
+The author maintained a parallel working list of capabilities not yet registered in capability_ontology.json (including `multi_modal_understanding`) and mistakenly assigned this unregistered capability's benchmark to CAP-025. The intended target was either (a) a new capability `multi_modal_understanding` that was never registered, or (b) the benchmark was written speculatively for future use and incorrectly anchored to an existing CAP-ID.
+
+**Secondary evidence:**  
+PII detection evaluation requires: named entity recognition (NER) recall on PII entity types, redaction correctness rate, false negative rate (PII present but not redacted), and false positive rate (non-PII redacted). None of these appear in the CAP-025 evaluation mapping. The cross_modal_benchmark methodology is consistent with a vision or document understanding capability and bears no relationship to privacy detection.
+
+**Additionally:** The evaluation_ontology's `evaluation_execution_protocol.pre_deployment_gates` step 2 reads: *"Run safety gate (ET-009) if CAP-009 (tool_execution) is present"* — but CAP-009 = `chain_of_thought_reasoning` in the canonical ontology. Tool execution is CAP-014. This is a third authoring error in the same document, reinforcing that the evaluation_ontology was authored with an out-of-sync or pre-remediation capability ID reference sheet.
+
+**Verdict: AUTHORING ERROR — Unregistered capability benchmark incorrectly anchored to existing CAP-ID**  
+The benchmark content for an unregistered `multi_modal_understanding` capability was written and then assigned CAP-025 (pii_detection_and_redaction) in error. The capability `multi_modal_understanding` should have been registered in capability_ontology.json before being mapped in evaluation_ontology.json.
+
+**Affected reports:**  
+- `CORPUS_ANALYSIS_V1.md` Section 6 shows CAP-025 evaluation as "✅ Mapped in eval_ontology" based on ID-only lookup. This is a FALSE POSITIVE — the mapping exists by ID but is semantically invalid.
+- Any system checking "is CAP-025 evaluated?" by ID returns TRUE incorrectly.
+
+**Affected workflows:**  
+- Corpus validation CI: if checking by CAP-ID presence, reports CAP-025 as covered — false positive.
+- CORPUS-001 uses CAP-025 (pii_detection_and_redaction) as a P0 capability. The currently mapped evaluation benchmark (cross_modal_benchmark) cannot be used to validate PII detection performance. This means CORPUS-001's P0 evaluation requirement for CAP-025 has no valid benchmark, and the architecture readiness score computed in prior reports is inflated.
 
 ---
 
 ## Phase 4 — Impact Analysis
 
-| Domain | Impact | Severity |
+### Impact by Category
+
+| Category | Impact | Severity |
 |---|---|---|
-| Evaluation coverage metrics | Coverage reported as 7/7 for mapped capabilities. Actual valid coverage: 5/7. P0 coverage overstated. | HIGH |
-| Corpus analytics (CORPUS_ANALYSIS_V1.md) | CAP-023 and CAP-025 incorrectly marked as mapped. CORPUS-001 P0 coverage overstated. | HIGH |
-| CI validation workflows | CAP-025 is P0 in CORPUS-001 — evaluation gate passes incorrectly, constituting a deployment gate failure | CRITICAL |
-| Recommendation engine | Unmapped capability count understated by 2; recommendation priority list incomplete | MEDIUM |
-| Architecture readiness / corpus quality score | Quality score inflated; corrected score 0.883 vs reported 0.952 | MEDIUM |
-| Execution protocol | Pre-deployment gate references CAP-009 as tool_execution (wrong; CAP-014 is tool_execution) | MEDIUM |
+| **Evaluation coverage metrics** | CAP-025 is falsely reported as covered. CAP-023 is correctly reported as uncovered in CORPUS_ANALYSIS_V1.md but would be falsely covered in any ID-only lookup system. Effective P0 coverage drops from 54.5% (ID-only) to 45.5% (name-validated) when mismatches are excluded. | HIGH |
+| **Corpus analytics** | CORPUS_ANALYSIS_V1.md Section 6 marks CAP-025 as "✅ Mapped in eval_ontology" — this is false. The entry for CAP-025 is for `multi_modal_understanding`, not `pii_detection_and_redaction`. Corpus Quality Score (0.952) is inflated by ~0.010. Corrected score: 0.942. | HIGH |
+| **Validation workflows** | Any automated CI check that validates corpus entries by resolving cap_id → evaluation_ontology by ID only will incorrectly report CAP-023 and CAP-025 as having valid evaluations. The validator must be extended to check name consistency, not just ID existence. | HIGH |
+| **Recommendation engine assumptions** | CORPUS_ANALYSIS_V1.md Recommendation #5 suggests a Compliance Audit Agent using CAP-025 as primary. Any such agent will currently be evaluated with a cross-modal benchmark — an incorrect methodology. | MEDIUM |
+| **Architecture readiness score** | CORPUS-001 declares CAP-025 as P0. The evaluation_ontology is supposed to provide its benchmark. It currently provides a semantically invalid benchmark. Architecture readiness for CORPUS-001 is overstated. | HIGH |
+
+### Severity Summary
+
+| Finding | Severity |
+|---|---|
+| CAP-025 mapped to wrong benchmark — affects CORPUS-001 P0 evaluation | HIGH |
+| CAP-023 mapped to wrong benchmark — no corpus entry currently affected, but any future use will be incorrectly validated | HIGH |
+| Inline protocol error (CAP-009 vs CAP-014) — affects safety gate triggering logic documentation | MEDIUM |
+| TYPE D gaps (18 unmapped capabilities) — evaluation coverage 17.9% | HIGH |
 
 ---
 
 ## Phase 5 — Repair Specification
 
-**REPAIR NOT APPLIED. Specification only.**
+**NOTE: No fixes are applied in this document. Specification only.**
 
-### Repair 1 — CAP-023
-
-| Field | Value |
-|---|---|
-| Canonical capability | `human_in_loop_escalation` (CAP-023) |
-| Current mapping | name: `structured_data_generation`, validation_method: `schema_validation_pipeline` |
-| Required correction | Replace mapping with evaluation model for human-in-the-loop escalation: metrics = escalation_decision_accuracy (ET-001), escalation_recall on high-severity inputs (ET-003), false escalation rate (ET-002), latency to escalation decision (ET-005) |
-| Files affected | `intelligence/ontology/evaluation_ontology.json` |
-| Secondary action | Determine whether `structured_data_generation` content belongs under CAP-019 (`structured_output_generation`) and add that mapping separately |
-| Estimated effort | 2–4 hours |
-| Migration risk | LOW — CAP-023 is P1; no corpus entry has a hard deployment gate on this evaluation |
-
-### Repair 2 — CAP-025
+### Repair 1 — CAP-023 Evaluation Mapping
 
 | Field | Value |
 |---|---|
-| Canonical capability | `pii_detection_and_redaction` (CAP-025) |
-| Current mapping | name: `multi_modal_understanding`, validation_method: `cross_modal_benchmark` |
-| Required correction | Replace mapping with evaluation model for PII detection/redaction: metrics = PII entity recall by type (ET-003), false positive rate on non-PII (ET-002), redaction completeness rate (ET-001), safety rate on adversarial PII injection (ET-009) |
-| Files affected | `intelligence/ontology/evaluation_ontology.json` |
-| Secondary action | Determine whether `multi_modal_understanding` should be registered as a new capability in capability_ontology.json with a new CAP-ID |
-| Estimated effort | 4–6 hours (PII taxonomy definition required) |
-| Migration risk | HIGH — CAP-025 is P0 in CORPUS-001; once correct evaluation model is in place, CORPUS-001 must be re-evaluated against new thresholds before any deployment gate can pass |
+| **Canonical capability** | CAP-023 = `human_in_loop_escalation` |
+| **Current mapping** | `structured_data_generation` — schema_validation_pipeline benchmark at 0.95 threshold |
+| **Required correction** | Replace the `capability_evaluation_mappings` entry for CAP-023 with a benchmark appropriate for human escalation routing: classification-based evaluation of escalation trigger accuracy (ET-001, ET-002, ET-003), false escalation rate, and escalation latency (ET-005) |
+| **Disposition of current content** | The existing `structured_data_generation` benchmark content at CAP-023 should be relocated. If `structured_data_generation` is intended as a capability, register it in capability_ontology.json and assign it the next available CAP-ID. If it maps to CAP-019 (`structured_output_generation`), relocate the benchmark to CAP-019. |
+| **Files affected** | `intelligence/ontology/evaluation_ontology.json` only |
+| **Estimated effort** | 2–4 hours: write escalation routing evaluation benchmark, relocate structured_data_generation content, update cross-references |
+| **Migration risk** | LOW — CAP-023 is not currently present in any corpus entry as the primary evaluated capability. No existing corpus evaluation_requirements reference this mapping. |
 
-### Repair 3 — Protocol Reference
+### Repair 2 — CAP-025 Evaluation Mapping
 
 | Field | Value |
 |---|---|
-| Current text | `"Run safety gate (ET-009) if CAP-009 (tool_execution) is present"` |
-| Required correction | Change `CAP-009 (tool_execution)` to `CAP-014 (tool_execution)` |
-| Files affected | `intelligence/ontology/evaluation_ontology.json`, field `evaluation_execution_protocol.pre_deployment_gates[1]` |
-| Estimated effort | 5 minutes |
-| Migration risk | NONE — text correction only |
+| **Canonical capability** | CAP-025 = `pii_detection_and_redaction` |
+| **Current mapping** | `multi_modal_understanding` — cross_modal_benchmark at 0.82 threshold |
+| **Required correction** | Replace the `capability_evaluation_mappings` entry for CAP-025 with a PII-detection benchmark: NER recall on PII entity types (ET-003), redaction correctness (ET-001), false negative rate (missed PII), false positive rate (over-redaction), and compliance with data category requirements |
+| **Disposition of current content** | Register `multi_modal_understanding` in capability_ontology.json with a new CAP-ID (next available after CAP-028), then relocate the cross_modal_benchmark content to that new entry |
+| **Files affected** | `intelligence/ontology/evaluation_ontology.json` (primary), `intelligence/ontology/capability_ontology.json` (to register multi_modal_understanding) |
+| **Estimated effort** | 4–6 hours: write PII detection benchmark, register new capability, relocate cross-modal content, validate CORPUS-001 evaluation_requirements resolve correctly |
+| **Migration risk** | MEDIUM — CORPUS-001 uses CAP-025 as P0 with a declared evaluation requirement. After correction, the evaluation benchmark changes; CORPUS-001's evaluation methodology must be re-verified. |
+
+### Repair 3 — Inline Protocol Reference Error
+
+| Field | Value |
+|---|---|
+| **Location** | `evaluation_execution_protocol.pre_deployment_gates[1]` |
+| **Current text** | `"Run ET-009 (safety) gate if CAP-009 (tool_execution) is present"` |
+| **Required correction** | Change `CAP-009 (tool_execution)` to `CAP-014 (tool_execution)` |
+| **Files affected** | `intelligence/ontology/evaluation_ontology.json` only |
+| **Estimated effort** | 5 minutes — single string substitution |
+| **Migration risk** | NEGLIGIBLE — inline documentation string only; no tooling currently parses this field for CAP-ID routing |
+
+---
+
+## Phase 6 — P0 Coverage Recalculation
+
+See `meta/audits/P0_EVALUATION_COVERAGE_REASSESSMENT.md` for full calculation.
+
+Summary:
+- **Pre-repair (ID-only, false positive included):** 6 / 11 corpus-active P0s = 54.5%
+- **Post-RCA corrected (name-validated):** 5 / 11 corpus-active P0s = 45.5%
+- **Post-repair projected:** 6 / 11 corpus-active P0s = 54.5% (recovered, now accurate)
+
+---
+
+## Verdict Summary
+
+| Mismatch | Root Cause | Confidence |
+|---|---|---|
+| CAP-023 → structured_data_generation | Authoring error: benchmark written for wrong capability, incorrect CAP-ID assignment | HIGH |
+| CAP-025 → multi_modal_understanding | Authoring error: unregistered capability benchmark anchored to existing CAP-ID | HIGH |
+| Protocol reference CAP-009 as tool_execution | Copy/paste error from pre-remediation ontology state | HIGH |
+
+All three errors originate in the initial authoring of `evaluation_ontology.json`. No evidence of ontology drift (no prior correct state exists to drift from). Classification: **AUTHORING ERROR** for all three findings.
+
+---
+
+*No modifications made to any ontology file. This document is investigation output only.*

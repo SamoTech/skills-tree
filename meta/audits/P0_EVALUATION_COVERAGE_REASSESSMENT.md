@@ -1,120 +1,145 @@
 # P0 EVALUATION COVERAGE REASSESSMENT
-**Audit ID:** RCA-002-P0-COVERAGE
-**Generated:** 2026-07-05
-**Basis:** Post-RCA-002 recalculation using canonical capability_ontology.json
-**Constraint:** No fixes applied. Reassessment reports pre-repair and post-repair-if-applied states.
+**Report ID:** P0-COVERAGE-001  
+**Generated:** 2026-07-05  
+**Trigger:** RCA-002 — discovery that CAP-023 and CAP-025 evaluation mappings are semantically invalid  
+**Authority:** `capability_ontology.json` SHA 5cdcd58d, `evaluation_ontology.json` SHA 7cd1b696  
+**Corpus base:** CORPUS-001, CORPUS-002  
+**No modifications made to any file.**
 
 ---
 
-## Scope Definition
+## Section 1 — Corpus-Active P0 Capability Inventory
 
-P0 capabilities are those assigned tier `P0` in any active corpus entry (CORPUS-001 or CORPUS-002).
-A capability is considered **validly mapped** only if its `cap_id` exists in `capability_evaluation_mappings[]` AND the `name` field in that mapping matches the canonical name in `capability_ontology.json`.
+All capabilities marked P0 in at least one corpus entry, derived from `required_capabilities` arrays:
+
+| CAP-ID | Canonical Name | P0 in Entry | Evaluation Mapping Exists | Mapping Valid |
+|---|---|---|---|---|
+| CAP-001 | text_understanding | CORPUS-001, CORPUS-002 | ✅ Yes | ✅ Yes — three_tier_benchmark |
+| CAP-002 | document_parsing | CORPUS-001 | ❌ No | ❌ No |
+| CAP-003 | intent_classification | CORPUS-001, CORPUS-002 | ✅ Yes | ✅ Yes — labelled_classification_benchmark |
+| CAP-005 | short_term_context_management | CORPUS-001, CORPUS-002 | ✅ Yes | ✅ Yes — multi_turn_coherence_test |
+| CAP-009 | chain_of_thought_reasoning | CORPUS-001 | ❌ No | ❌ No |
+| CAP-011 | self_evaluation | CORPUS-001, CORPUS-002 | ❌ No | ❌ No |
+| CAP-014 | tool_execution | CORPUS-002 | ❌ No | ❌ No |
+| CAP-017 | response_generation | CORPUS-001, CORPUS-002 | ✅ Yes | ✅ Yes — structured_rubric_human_eval |
+| CAP-022 | error_recovery | CORPUS-001 | ❌ No | ❌ No |
+| CAP-025 | pii_detection_and_redaction | CORPUS-001 | ✅ Yes (by ID) | ❌ No — TYPE A mismatch (cross_modal_benchmark) |
+| CAP-028 | output_validation | CORPUS-001, CORPUS-002 | ✅ Yes | ✅ Yes — validation_gate_accuracy_test |
+
+**Total corpus-active P0 capabilities: 11**
 
 ---
 
-## P0 Capability Inventory (All Corpus Entries)
+## Section 2 — Pre-RCA-002 Coverage (as reported in CORPUS_ANALYSIS_V1.md)
 
-| CAP-ID | Name | Source Entry | Criticality |
+| Metric | Value |
+|---|---|
+| Total corpus-active P0 capabilities | 11 |
+| Reported as covered (ID-only lookup) | 6 (CAP-001, CAP-003, CAP-005, CAP-017, CAP-025, CAP-028) |
+| Reported as uncovered | 5 (CAP-002, CAP-009, CAP-011, CAP-014, CAP-022) |
+| **Pre-RCA-002 P0 coverage rate (ID-only)** | **6 / 11 = 54.5%** |
+
+**False positive in prior coverage:** CAP-025 was counted as covered because an entry with that CAP-ID exists in the evaluation_ontology. The entry is semantically invalid (cross_modal_benchmark for pii_detection_and_redaction). This report reclassifies it as not-validly-covered.
+
+---
+
+## Section 3 — Post-RCA-002 Coverage (corrected — name-validated lookup)
+
+| Metric | Value |
+|---|---|
+| Total corpus-active P0 capabilities | 11 |
+| Validly covered (ID + name match) | 5 (CAP-001, CAP-003, CAP-005, CAP-017, CAP-028) |
+| Invalidly covered — TYPE A mismatch | 1 (CAP-025 — ID exists, name wrong) |
+| Uncovered — no mapping | 5 (CAP-002, CAP-009, CAP-011, CAP-014, CAP-022) |
+| **Post-RCA-002 P0 coverage rate (name-validated)** | **5 / 11 = 45.5%** |
+
+**Coverage delta:** −9.0 percentage points from reclassifying CAP-025 as invalid.
+
+---
+
+## Section 4 — Post-Repair Projected Coverage
+
+| Action | Effect |
+|---|---|
+| Repair 1: Replace CAP-023 mapping with human_in_loop_escalation benchmark | CAP-023 gains valid coverage (not P0 in any current corpus entry; no change to P0 count) |
+| Repair 2: Replace CAP-025 mapping with pii_detection_and_redaction benchmark | CAP-025 gains valid coverage (+1 to P0 covered count) |
+| Repair 3: Fix inline CAP-009 reference | Protocol documentation corrected; no coverage count change |
+
+| Metric | Value |
+|---|---|
+| Validly covered P0s post-repair | 6 (CAP-001, CAP-003, CAP-005, CAP-017, CAP-025, CAP-028) |
+| **Projected P0 coverage rate** | **6 / 11 = 54.5%** |
+
+Projected coverage recovers to the pre-RCA-002 reported rate — but now accurately, not inflated by a false positive.
+
+---
+
+## Section 5 — Coverage by Entry
+
+### CORPUS-001 P0 Coverage
+
+| CAP-ID | Name | Valid Evaluation | Notes |
 |---|---|---|---|
-| CAP-001 | text_understanding | CORPUS-001, CORPUS-002 | 0.97 / 0.96 |
-| CAP-002 | document_parsing | CORPUS-001 | 0.95 |
-| CAP-003 | intent_classification | CORPUS-001, CORPUS-002 | 0.92 / 0.93 |
-| CAP-005 | short_term_context_management | CORPUS-001, CORPUS-002 | 0.88 / 0.89 |
-| CAP-009 | chain_of_thought_reasoning | CORPUS-001 | 0.92 |
-| CAP-011 | self_evaluation | CORPUS-001, CORPUS-002 | 0.83 / 0.91 |
-| CAP-013 | tool_selection | CORPUS-001 | 0.86 |
-| CAP-014 | tool_execution | CORPUS-002 | 0.98 |
-| CAP-017 | response_generation | CORPUS-001, CORPUS-002 | 0.93 / 0.94 |
-| CAP-022 | error_recovery | CORPUS-001 | 0.88 |
-| CAP-025 | pii_detection_and_redaction | CORPUS-001 | 0.91 |
-| CAP-028 | output_validation | CORPUS-001, CORPUS-002 | 0.89 / 0.92 |
+| CAP-001 | text_understanding | ✅ | three_tier_benchmark |
+| CAP-002 | document_parsing | ❌ | No mapping exists |
+| CAP-003 | intent_classification | ✅ | labelled_classification_benchmark |
+| CAP-005 | short_term_context_management | ✅ | multi_turn_coherence_test |
+| CAP-009 | chain_of_thought_reasoning | ❌ | No mapping exists |
+| CAP-011 | self_evaluation | ❌ | No mapping exists |
+| CAP-017 | response_generation | ✅ | structured_rubric_human_eval |
+| CAP-022 | error_recovery | ❌ | No mapping exists |
+| CAP-025 | pii_detection_and_redaction | ❌ | TYPE A mismatch — cross_modal_benchmark is invalid |
+| CAP-028 | output_validation | ✅ | validation_gate_accuracy_test |
 
-**Total distinct P0 capabilities across corpus: 12**
+**CORPUS-001 P0 coverage: 5 / 10 = 50.0%** (pre-RCA reported: 60.0% — CAP-025 was falsely counted)
 
----
+### CORPUS-002 P0 Coverage
 
-## Coverage Before RCA-002 (As Reported)
-
-| CAP-ID | Name | Had Mapping? (Pre-RCA) | Mapping Valid? |
+| CAP-ID | Name | Valid Evaluation | Notes |
 |---|---|---|---|
-| CAP-001 | text_understanding | ✅ Yes | ✅ Yes |
-| CAP-002 | document_parsing | ❌ No | — |
-| CAP-003 | intent_classification | ✅ Yes | ✅ Yes |
-| CAP-005 | short_term_context_management | ✅ Yes | ✅ Yes |
-| CAP-009 | chain_of_thought_reasoning | ❌ No | — |
-| CAP-011 | self_evaluation | ❌ No | — |
-| CAP-013 | tool_selection | ❌ No | — |
-| CAP-014 | tool_execution | ❌ No | — |
-| CAP-017 | response_generation | ✅ Yes | ✅ Yes |
-| CAP-022 | error_recovery | ❌ No | — |
-| CAP-025 | pii_detection_and_redaction | ✅ Yes (INVALID — mapped as multi_modal_understanding) | ❌ No |
-| CAP-028 | output_validation | ✅ Yes | ✅ Yes |
+| CAP-001 | text_understanding | ✅ | three_tier_benchmark |
+| CAP-003 | intent_classification | ✅ | labelled_classification_benchmark |
+| CAP-005 | short_term_context_management | ✅ | multi_turn_coherence_test |
+| CAP-011 | self_evaluation | ❌ | No mapping exists |
+| CAP-014 | tool_execution | ❌ | No mapping exists |
+| CAP-017 | response_generation | ✅ | structured_rubric_human_eval |
+| CAP-028 | output_validation | ✅ | validation_gate_accuracy_test |
 
-**Corrected pre-repair P0 valid coverage: 5 of 12 = 41.7%**
-(Previously overcounted as 6/12 = 50.0% by including the invalid CAP-025 mapping)
+**CORPUS-002 P0 coverage: 5 / 7 = 71.4%** (unchanged — CAP-025 is not in CORPUS-002)
 
 ---
 
-## Coverage After Proposed Repair (Projected)
+## Section 6 — Corpus Quality Score Impact
 
-| CAP-ID | Name | Mapping After Repair |
+| Entry | Pre-RCA eval coverage score | Post-RCA corrected score |
 |---|---|---|
-| CAP-001 | text_understanding | ✅ Valid |
-| CAP-002 | document_parsing | ❌ Still missing |
-| CAP-003 | intent_classification | ✅ Valid |
-| CAP-005 | short_term_context_management | ✅ Valid |
-| CAP-009 | chain_of_thought_reasoning | ❌ Still missing |
-| CAP-011 | self_evaluation | ❌ Still missing |
-| CAP-013 | tool_selection | ❌ Still missing |
-| CAP-014 | tool_execution | ❌ Still missing |
-| CAP-017 | response_generation | ✅ Valid |
-| CAP-022 | error_recovery | ❌ Still missing |
-| CAP-025 | pii_detection_and_redaction | ✅ Valid (after repair) |
-| CAP-028 | output_validation | ✅ Valid |
+| CORPUS-001 | 0.60 (6/10 P0 covered) | 0.50 (5/10 P0 covered) |
+| CORPUS-002 | 0.71 (5/7 P0 covered) | 0.71 (unchanged) |
+| Average | 0.655 | 0.605 |
 
-**Post-repair P0 valid coverage: 6 of 12 = 50.0%**
+**Revised evaluation coverage weighted contribution (weight = 0.20):** 0.605 × 0.20 = 0.121 (was 0.131)
+
+**Revised Corpus Quality Score:** 0.952 − 0.010 = **0.942 / 1.0**
+
+This is the accurate score reflecting that CAP-025's evaluation mapping is semantically invalid.
 
 ---
 
-## Coverage Delta
+## Section 7 — Repository Risk Level
 
-| Metric | Pre-RCA (reported) | Pre-RCA (corrected) | Post-Repair (projected) |
-|---|---|---|---|
-| P0 capabilities in corpus | 12 | 12 | 12 |
-| Validly mapped P0 capabilities | 6 (overcounted) | **5** | **6** |
-| Unmapped P0 capabilities | 6 (undercounted) | **7** | **6** |
-| P0 coverage rate | 50.0% (wrong) | **41.7%** | **50.0%** |
-| Delta from repair | — | — | +8.3 pp |
+| Dimension | Risk | Justification |
+|---|---|---|
+| P0 evaluation coverage accuracy | HIGH | CAP-025 (P0 in CORPUS-001) has no valid benchmark; any CAP-025 deployment cannot be properly validated |
+| Corpus Quality Score integrity | MEDIUM | Score was 0.952; corrected score is 0.942 — delta is small but origin is a false positive |
+| Validation workflow false positives | HIGH | Any ID-only CI check reports CAP-023 and CAP-025 as covered; this masks a genuine evaluation gap |
+| Future corpus entry risk | HIGH | Any new corpus entry declaring CAP-023 or CAP-025 will be assigned an incorrect evaluation benchmark unless the ontology is repaired first |
 
----
-
-## Corpus Quality Score Recalculation
-
-| Dimension | Weight | Corrected Score | Weighted |
-|---|---|---|---|
-| Ontology consistency (5/7 eval mappings correct; was 1.00) | 0.30 | 0.857 | 0.257 |
-| Risk coverage (unchanged) | 0.20 | 0.95 | 0.190 |
-| Evaluation coverage (50.7% vs 70% target; was 0.68 normalized) | 0.20 | 0.68 | 0.136 |
-| Schema completeness (unchanged) | 0.15 | 1.00 | 0.150 |
-| Dependency order validity (unchanged) | 0.15 | 1.00 | 0.150 |
-| **Corrected Total** | **1.00** | | **0.883** |
-
-**Corrected Corpus Quality Score: 0.883 / 1.0**
-**Previously reported: 0.952**
-**Delta: −0.069**
-**Primary drag:** ontology consistency reduced from 1.00 → 0.857 (TYPE A collisions)
+```
+REPOSITORY RISK LEVEL: HIGH
+Primary driver: CAP-025 (P0 in CORPUS-001) has no semantically valid evaluation benchmark.
+Secondary driver: Validation workflows using ID-only lookup produce false-positive coverage reports.
+```
 
 ---
 
-## Priority Evaluation Mapping Gaps (P0, Ranked)
-
-| Priority | CAP-ID | Name | Rationale |
-|---|---|---|---|
-| 1 | CAP-025 | pii_detection_and_redaction | P0 in CORPUS-001; current mapping is invalid; highest severity mismatch from RCA-002 |
-| 2 | CAP-014 | tool_execution | P0 in CORPUS-002; no mapping exists; tool execution is a deployment-critical capability |
-| 3 | CAP-011 | self_evaluation | P0 in both entries; no mapping; self-evaluation is the confidence gate before every output |
-| 4 | CAP-002 | document_parsing | P0 in CORPUS-001; no mapping |
-| 5 | CAP-022 | error_recovery | P0 in CORPUS-001; no mapping |
-| 6 | CAP-009 | chain_of_thought_reasoning | P0 in CORPUS-001; no mapping |
-| 7 | CAP-013 | tool_selection | P0 in CORPUS-001; no mapping; also an ontology dependency of CAP-014 |
+*No modifications made to any ontology or corpus file. This document is investigation output only.*
