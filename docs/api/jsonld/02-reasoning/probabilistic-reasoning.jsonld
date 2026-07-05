@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T09:15:56Z",
+  "dateModified": "2026-07-05T10:33:23Z",
   "skillId": "probabilistic-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "reasoning, AI agent, LLM skill, probabilistic, skills tree",
+  "keywords": "probabilistic, skills tree, AI agent, reasoning, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Probabilistic Reasoning",

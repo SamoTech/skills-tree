@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/json-schema-validation.md",
   "name": "JSON Schema Validation",
   "headline": "JSON Schema Validation",
-  "description": "Apply json schema validation in AI agent workflows.",
+  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-json-schema-validation.json)",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/json-schema-validation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,10 +52,10 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-29T09:15:56Z",
+  "dateModified": "2026-07-05T10:33:23Z",
   "skillId": "json-schema-validation",
-  "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillVersion": "v2",
+  "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
@@ -63,19 +63,22 @@
     "Inputs",
     "Outputs",
     "Example",
-    "Frameworks",
+    "Frameworks & Models",
+    "Model Comparison",
     "Failure Modes",
-    "Related",
+    "Prompt Patterns",
+    "Notes",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "perception, validation, AI agent, schema, json, LLM skill, skills tree",
+  "keywords": "skills tree, validation, AI agent, schema, LLM skill, perception, json",
   "about": {
     "@type": "Thing",
     "name": "JSON Schema Validation",
