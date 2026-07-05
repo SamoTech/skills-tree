@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-05T10:33:23Z",
+  "dateModified": "2026-07-05T10:37:12Z",
   "skillId": "problem-decomposition",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, reasoning, problem, LLM skill, decomposition",
+  "keywords": "LLM skill, reasoning, decomposition, AI agent, problem, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Problem Decomposition",
