@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-06T08:19:09Z",
+  "dateModified": "2026-07-06T08:46:41Z",
   "skillId": "wolfram-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, api, AI agent, LLM skill, use, tool, wolfram",
+  "keywords": "wolfram, skills tree, AI agent, LLM skill, api, use, tool",
   "about": {
     "@type": "Thing",
     "name": "Wolfram Alpha API",

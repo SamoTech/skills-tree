@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-06T08:19:09Z",
+  "dateModified": "2026-07-06T08:46:41Z",
   "skillId": "object-detection",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, object, detection, LLM skill, multimodal",
+  "keywords": "skills tree, detection, AI agent, LLM skill, object, multimodal",
   "about": {
     "@type": "Thing",
     "name": "Object Detection",

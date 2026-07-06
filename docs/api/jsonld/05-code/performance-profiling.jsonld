@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-06T08:19:09Z",
+  "dateModified": "2026-07-06T08:46:41Z",
   "skillId": "performance-profiling",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "performance, skills tree, AI agent, profiling, LLM skill, code",
+  "keywords": "skills tree, AI agent, performance, LLM skill, profiling, code",
   "about": {
     "@type": "Thing",
     "name": "Performance Profiling",

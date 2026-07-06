@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-06T08:19:09Z",
+  "dateModified": "2026-07-06T08:46:41Z",
   "skillId": "compliance-review-workflows",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "workflows, specific, skills tree, AI agent, LLM skill, compliance, review, domain",
+  "keywords": "skills tree, workflows, AI agent, LLM skill, compliance, specific, domain, review",
   "about": {
     "@type": "Thing",
     "name": "Compliance Review Workflows",
