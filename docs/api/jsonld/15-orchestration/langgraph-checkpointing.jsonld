@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-05T10:37:12Z",
+  "dateModified": "2026-07-06T08:19:09Z",
   "skillId": "langgraph-checkpointing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "LLM skill, langgraph, orchestration, AI agent, checkpointing, skills tree",
+  "keywords": "orchestration, skills tree, AI agent, LLM skill, langgraph, checkpointing",
   "about": {
     "@type": "Thing",
     "name": "LangGraph Checkpointing",
