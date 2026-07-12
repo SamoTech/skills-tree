@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo "Running repository safety checks..."
+
+if git diff --cached --name-only | grep -E '(^|/)skills-tree(/|$)' >/dev/null
+then
+    echo ""
+    echo "ERROR: Nested skills-tree directory detected."
+    echo "Commit blocked."
+    exit 1
+fi
+
+exit 0
