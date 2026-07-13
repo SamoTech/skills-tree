@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T06:52:12Z",
+  "dateModified": "2026-07-13T07:48:52Z",
   "skillId": "sql-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "sql, LLM skill, tool, use, skills tree, AI agent",
+  "keywords": "use, sql, skills tree, tool, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "SQL Tool",

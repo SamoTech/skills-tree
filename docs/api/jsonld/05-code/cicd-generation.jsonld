@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T06:52:12Z",
+  "dateModified": "2026-07-13T07:48:52Z",
   "skillId": "cicd-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, LLM skill, cicd, generation, code, AI agent",
+  "keywords": "LLM skill, code, skills tree, generation, cicd, AI agent",
   "about": {
     "@type": "Thing",
     "name": "CI/CD Pipeline Generation",
