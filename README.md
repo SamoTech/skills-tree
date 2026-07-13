@@ -8,10 +8,9 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — July 6, 2026
+## 📆 This Week's Highlights — July 13, 2026
 
-### ✨ New Skills
-- [feat(perception): expand 6 stub skills to v2 level](https://github.com/SamoTech/skills-tree/pull/92)
+> No skill changes this week. Open a PR to get started!
 
 <!-- HIGHLIGHTS_END -->
 
