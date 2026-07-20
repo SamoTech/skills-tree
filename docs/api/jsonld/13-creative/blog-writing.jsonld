@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-20T06:44:54Z",
+  "dateModified": "2026-07-20T07:41:21Z",
   "skillId": "blog-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "writing, creative, LLM skill, skills tree, AI agent, blog",
+  "keywords": "blog, creative, skills tree, writing, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "blog-writing",

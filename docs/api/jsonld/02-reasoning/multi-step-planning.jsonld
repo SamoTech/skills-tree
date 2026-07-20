@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-20T06:44:54Z",
+  "dateModified": "2026-07-20T07:41:21Z",
   "skillId": "multi-step-planning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "reasoning, LLM skill, skills tree, step, planning, multi, AI agent",
+  "keywords": "reasoning, multi, skills tree, step, planning, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Multi-Step Planning",
