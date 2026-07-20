@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T07:48:52Z",
+  "dateModified": "2026-07-20T06:44:54Z",
   "skillId": "event-triggers",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, event, orchestration, skills tree, triggers, AI agent",
+  "keywords": "AI agent, LLM skill, skills tree, event, orchestration, triggers",
   "about": {
     "@type": "Thing",
     "name": "event-triggers",

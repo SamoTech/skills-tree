@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T07:48:52Z",
+  "dateModified": "2026-07-20T06:44:54Z",
   "skillId": "meta-prompting",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-06-01",
-  "keywords": "meta, skills tree, prompting, reasoning, LLM skill, AI agent",
+  "keywords": "reasoning, LLM skill, skills tree, prompting, meta, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Meta-Prompting",

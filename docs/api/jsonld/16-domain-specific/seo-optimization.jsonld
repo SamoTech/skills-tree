@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T07:48:52Z",
+  "dateModified": "2026-07-20T06:44:54Z",
   "skillId": "seo-optimization",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "domain, optimization, specific, skills tree, seo, LLM skill, AI agent",
+  "keywords": "domain, seo, LLM skill, skills tree, optimization, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "seo-optimization",

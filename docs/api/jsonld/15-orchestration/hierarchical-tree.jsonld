@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T07:48:52Z",
+  "dateModified": "2026-07-20T06:44:54Z",
   "skillId": "hierarchical-tree",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "tree, AI agent, skills tree, LLM skill, hierarchical, orchestration",
+  "keywords": "hierarchical, tree, LLM skill, skills tree, orchestration, AI agent",
   "about": {
     "@type": "Thing",
     "name": "hierarchical-tree",

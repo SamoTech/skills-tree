@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-13T07:48:52Z",
+  "dateModified": "2026-07-20T06:44:54Z",
   "skillId": "wait-sleep",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, action, wait, skills tree, sleep, LLM skill, AI agent",
+  "keywords": "LLM skill, skills tree, sleep, execution, wait, action, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Wait / Sleep",
