@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-27T07:30:00Z",
+  "dateModified": "2026-07-27T08:03:02Z",
   "skillId": "uncertainty-quantification",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, quantification, LLM skill, reasoning, AI agent, uncertainty",
+  "keywords": "reasoning, skills tree, quantification, AI agent, uncertainty, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Uncertainty Quantification",
