@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-20T07:41:21Z",
+  "dateModified": "2026-07-27T07:30:00Z",
   "skillId": "memory-augmented",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, patterns, augmented, memory, LLM skill, AI agent, agentic",
+  "keywords": "agentic, skills tree, augmented, memory, LLM skill, patterns, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Memory-Augmented Agent",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-20T07:41:21Z",
+  "dateModified": "2026-07-27T07:30:00Z",
   "skillId": "subagent-spawning",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "spawning, subagent, orchestration, skills tree, AI agent, LLM skill",
+  "keywords": "skills tree, subagent, LLM skill, spawning, AI agent, orchestration",
   "about": {
     "@type": "Thing",
     "name": "Subagent Spawning",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-20T07:41:21Z",
+  "dateModified": "2026-07-27T07:30:00Z",
   "skillId": "forgetting",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "forgetting, skills tree, memory, AI agent, LLM skill",
+  "keywords": "skills tree, memory, LLM skill, AI agent, forgetting",
   "about": {
     "@type": "Thing",
     "name": "Forgetting",

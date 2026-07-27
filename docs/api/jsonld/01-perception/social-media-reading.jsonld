@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-20T07:41:21Z",
+  "dateModified": "2026-07-27T07:30:00Z",
   "skillId": "social-media-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "media, AI agent, skills tree, social, perception, reading, LLM skill",
+  "keywords": "skills tree, reading, media, social, LLM skill, perception, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Social Media Reading",
