@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-> Last updated: 2026-07-20  
+> Last updated: 2026-07-27  
 > Counts merged PRs that added or improved a skill file.
 
 ## Last 30 days
@@ -11,9 +11,8 @@
 ## Last 90 days
 | Rank | Contributor | Merged PRs |
 |------|-------------|------------|
-| 🥇 | [@devin-ai-integration[bot]](https://github.com/devin-ai-integration[bot]) | 4 |
-| 🥈 | [@SamoTech](https://github.com/SamoTech) | 2 |
-| 🥉 | [@kriptoburak](https://github.com/kriptoburak) | 1 |
+| 🥇 | [@SamoTech](https://github.com/SamoTech) | 2 |
+| 🥈 | [@kriptoburak](https://github.com/kriptoburak) | 1 |
 
 ## All time (past 12 months)
 | Rank | Contributor | Merged PRs |
