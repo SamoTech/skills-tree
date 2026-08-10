@@ -1,12 +1,10 @@
 # 🏆 Contributors Leaderboard
 
-> Last updated: 2026-08-03  
+> Last updated: 2026-08-10  
 > Counts merged PRs that added or improved a skill file.
 
 ## Last 30 days
-| Rank | Contributor | Merged PRs |
-|------|-------------|------------|
-| 🥇 | [@SamoTech](https://github.com/SamoTech) | 1 |
+_No contributions yet._
 
 ## Last 90 days
 | Rank | Contributor | Merged PRs |
