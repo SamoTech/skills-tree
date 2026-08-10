@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-03T07:58:37Z",
+  "dateModified": "2026-08-10T05:25:45Z",
   "skillId": "integration-test-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "writing, skills tree, test, code, LLM skill, integration, AI agent",
+  "keywords": "test, AI agent, integration, code, LLM skill, skills tree, writing",
   "about": {
     "@type": "Thing",
     "name": "Integration Test Writing",

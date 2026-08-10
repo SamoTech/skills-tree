@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-03T07:58:37Z",
+  "dateModified": "2026-08-10T05:25:46Z",
   "skillId": "captcha-solving",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "web, captcha, LLM skill, skills tree, solving, AI agent",
+  "keywords": "AI agent, web, solving, LLM skill, skills tree, captcha",
   "about": {
     "@type": "Thing",
     "name": "CAPTCHA Solving",
