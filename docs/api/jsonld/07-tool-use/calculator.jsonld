@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:45Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "calculator",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, calculator, tool, AI agent, LLM skill, skills tree",
+  "keywords": "use, AI agent, tool, LLM skill, skills tree, calculator",
   "about": {
     "@type": "Thing",
     "name": "Calculator",

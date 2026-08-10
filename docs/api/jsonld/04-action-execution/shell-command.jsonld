@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:45Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "shell-command",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, AI agent, shell, LLM skill, skills tree, command, action",
+  "keywords": "command, AI agent, shell, action, execution, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Shell Command Execution",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:45Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "xml-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "xml, perception, parsing, AI agent, LLM skill, skills tree",
+  "keywords": "AI agent, parsing, LLM skill, xml, skills tree, perception",
   "about": {
     "@type": "Thing",
     "name": "XML Parsing",

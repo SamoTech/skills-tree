@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:45Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "url-dom-inspection",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "inspection, perception, AI agent, dom, LLM skill, skills tree, url",
+  "keywords": "AI agent, LLM skill, dom, inspection, skills tree, perception, url",
   "about": {
     "@type": "Thing",
     "name": "URL / DOM Inspection",

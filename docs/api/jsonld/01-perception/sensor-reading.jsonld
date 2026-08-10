@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:45Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "sensor-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "perception, AI agent, LLM skill, reading, skills tree, sensor",
+  "keywords": "sensor, AI agent, LLM skill, skills tree, perception, reading",
   "about": {
     "@type": "Thing",
     "name": "Sensor Reading",

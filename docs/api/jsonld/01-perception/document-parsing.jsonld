@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:45Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "document-parsing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -73,7 +73,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "perception, parsing, AI agent, LLM skill, skills tree, document",
+  "keywords": "AI agent, document, parsing, LLM skill, skills tree, perception",
   "about": {
     "@type": "Thing",
     "name": "Document Parsing",

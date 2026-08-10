@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:46Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "url-screenshot",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "screenshot, AI agent, web, LLM skill, skills tree, url",
+  "keywords": "AI agent, LLM skill, screenshot, web, skills tree, url",
   "about": {
     "@type": "Thing",
     "name": "Screenshot of URL",

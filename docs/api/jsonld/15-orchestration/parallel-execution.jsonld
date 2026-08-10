@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:25:46Z",
+  "dateModified": "2026-08-10T05:56:38Z",
   "skillId": "parallel-execution",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "parallel, execution, AI agent, orchestration, LLM skill, skills tree",
+  "keywords": "AI agent, LLM skill, execution, parallel, orchestration, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Parallel Task Execution",
