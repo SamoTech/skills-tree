@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:56:38Z",
+  "dateModified": "2026-08-17T04:40:18Z",
   "skillId": "medical-literature-search",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, domain, medical, LLM skill, search, literature, skills tree, specific",
+  "keywords": "AI agent, literature, specific, domain, LLM skill, search, medical, skills tree",
   "about": {
     "@type": "Thing",
     "name": "medical-literature-search",

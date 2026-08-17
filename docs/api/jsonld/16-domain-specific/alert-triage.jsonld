@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-10T05:56:38Z",
+  "dateModified": "2026-08-17T04:40:18Z",
   "skillId": "alert-triage",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "AI agent, domain, LLM skill, alert, skills tree, triage, specific",
+  "keywords": "AI agent, specific, alert, domain, LLM skill, triage, skills tree",
   "about": {
     "@type": "Thing",
     "name": "alert-triage",
