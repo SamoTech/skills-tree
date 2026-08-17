@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-17T04:40:18Z",
+  "dateModified": "2026-08-17T05:09:53Z",
   "skillId": "multi-monitor",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "monitor, AI agent, multi, use, LLM skill, computer, skills tree",
+  "keywords": "LLM skill, skills tree, computer, AI agent, multi, use, monitor",
   "about": {
     "@type": "Thing",
     "name": "Multi-Monitor Support",

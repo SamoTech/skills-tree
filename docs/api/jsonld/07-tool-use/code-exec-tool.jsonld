@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-17T04:40:18Z",
+  "dateModified": "2026-08-17T05:09:52Z",
   "skillId": "code-exec-tool",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "exec, AI agent, use, LLM skill, tool, code, skills tree",
+  "keywords": "LLM skill, tool, skills tree, AI agent, code, use, exec",
   "about": {
     "@type": "Thing",
     "name": "Code Execution Tool",

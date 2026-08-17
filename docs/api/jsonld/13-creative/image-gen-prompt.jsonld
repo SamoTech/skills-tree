@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-17T04:40:18Z",
+  "dateModified": "2026-08-17T05:09:53Z",
   "skillId": "image-gen-prompt",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "prompt, gen, AI agent, creative, image, LLM skill, skills tree",
+  "keywords": "prompt, LLM skill, skills tree, AI agent, gen, creative, image",
   "about": {
     "@type": "Thing",
     "name": "image-gen-prompt",

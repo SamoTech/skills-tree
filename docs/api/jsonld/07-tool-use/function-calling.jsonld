@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-08-17T04:40:18Z",
+  "dateModified": "2026-08-17T05:09:52Z",
   "skillId": "function-calling",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "function, AI agent, use, LLM skill, tool, calling, skills tree",
+  "keywords": "LLM skill, tool, skills tree, AI agent, calling, use, function",
   "about": {
     "@type": "Thing",
     "name": "Function / Tool Calling",
