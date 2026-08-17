@@ -8,7 +8,7 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — August 10, 2026
+## 📆 This Week's Highlights — August 17, 2026
 
 > No skill changes this week. Open a PR to get started!
 
