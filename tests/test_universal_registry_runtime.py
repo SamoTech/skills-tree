@@ -46,3 +46,12 @@ def test_registry_rejects_dangling_references(tmp_path: Path) -> None:
 
     with pytest.raises(ValueError, match="Dangling capability reference"):
         UniversalRegistry(broken)
+
+
+def test_registry_provenance_points_to_existing_repository_sources() -> None:
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+
+    for entity_type in ("goals", "capabilities", "skills"):
+        for entity in data["entities"][entity_type]:
+            source = entity["provenance"]["source"]
+            assert (ROOT / source).is_file(), source
