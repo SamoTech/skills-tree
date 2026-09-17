@@ -1,0 +1,64 @@
+{
+  "registry_version": "1.0",
+  "entities": {
+    "goals": [
+      {
+        "id": "goal/research-and-analysis",
+        "version": "1.0",
+        "name": "Research and Analysis",
+        "capabilities": ["capability/web-retrieval", "capability/knowledge-retrieval"],
+        "provenance": {"source_type": "repository", "source": "meta/GOAL_TAXONOMY.md"}
+      },
+      {
+        "id": "goal/software-engineering",
+        "version": "1.0",
+        "name": "Software Engineering",
+        "capabilities": ["capability/code-quality"],
+        "provenance": {"source_type": "repository", "source": "meta/GOAL_TAXONOMY.md"}
+      }
+    ],
+    "capabilities": [
+      {
+        "id": "capability/web-retrieval",
+        "version": "1.0",
+        "name": "Web Retrieval",
+        "skills": ["11-web/web-search"],
+        "implementations": [],
+        "adapters": [],
+        "provenance": {"source_type": "repository", "source": "skills/11-web/web-search.md"}
+      },
+      {
+        "id": "capability/knowledge-retrieval",
+        "version": "1.0",
+        "name": "Knowledge Retrieval",
+        "skills": ["03-memory/rag"],
+        "implementations": [],
+        "adapters": [],
+        "provenance": {"source_type": "repository", "source": "skills/03-memory/rag.md"}
+      },
+      {
+        "id": "capability/code-quality",
+        "version": "1.0",
+        "name": "Code Quality Analysis",
+        "skills": ["05-code/code-review"],
+        "implementations": [],
+        "adapters": [],
+        "provenance": {"source_type": "repository", "source": "skills/05-code/code-review.md"}
+      }
+    ],
+    "skills": [
+      {"id": "11-web/web-search", "canonical": true, "capabilities": ["capability/web-retrieval"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/11-web/web-search.md"}},
+      {"id": "03-memory/rag", "canonical": true, "capabilities": ["capability/knowledge-retrieval"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/03-memory/rag.md"}},
+      {"id": "05-code/code-review", "canonical": true, "capabilities": ["capability/code-quality"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/05-code/code-review.md"}}
+    ],
+    "implementations": [],
+    "tools": [],
+    "models": [],
+    "platforms": [],
+    "frameworks": [],
+    "adapters": [],
+    "evidence": [],
+    "benchmarks": [],
+    "architectures": []
+  }
+}
