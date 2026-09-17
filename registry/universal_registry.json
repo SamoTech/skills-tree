@@ -47,9 +47,9 @@
       }
     ],
     "skills": [
-      {"id": "11-web/web-search", "canonical": true, "capabilities": ["capability/web-retrieval"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/11-web/web-search.md"}},
-      {"id": "03-memory/rag", "canonical": true, "capabilities": ["capability/knowledge-retrieval"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/03-memory/rag.md"}},
-      {"id": "05-code/code-review", "canonical": true, "capabilities": ["capability/code-quality"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/05-code/code-review.md"}}
+      {"id": "11-web/web-search", "version": "3", "canonical": true, "capabilities": ["capability/web-retrieval"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/11-web/web-search.md"}},
+      {"id": "03-memory/rag", "version": "1.0", "canonical": true, "capabilities": ["capability/knowledge-retrieval"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/03-memory/rag.md"}},
+      {"id": "05-code/code-review", "version": "1.0", "canonical": true, "capabilities": ["capability/code-quality"], "implementations": [], "provenance": {"source_type": "repository", "source": "skills/05-code/code-review.md"}}
     ],
     "implementations": [],
     "tools": [],
