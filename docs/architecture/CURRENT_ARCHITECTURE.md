@@ -1,16 +1,21 @@
 # Current Architecture
 
-This document describes the implementation observed at the 2026-09-17 audit baseline. It is not a target-state design.
+This document describes the implementation observed at the 2026-09-17 audit baseline and the first incremental universal-registry runtime slice.
 
 ## Runtime layers
 
 ```text
-Data
+Canonical sources
   meta/GOAL_TAXONOMY.md
   meta/skill-schema.json
   meta/frameworks.md
   data/SKILLS_GRAPH.json
   benchmarks/INDEX.json
+
+Universal registry boundary
+  meta/universal-registry.schema.json
+  registry/universal_registry.json
+  registry/runtime.py
 
 Core implementation
   tools/architect.py
@@ -31,11 +36,13 @@ Transport
   cli/main.py
 ```
 
-## Current universal-registry position
+## Universal registry runtime slice
 
-The repository is currently skill-centric. A JSON Schema exists for skill frontmatter, a Markdown goal taxonomy contains goal → capability → skill mappings, and `meta/frameworks.md` provides a curated framework/platform/model reference. These are useful existing sources, but Capability, Implementation, Platform, Framework, Model, Tool, and Adapter are not yet first-class registry entities.
+The registry now has a small machine-readable seed containing real repository-backed Goals, Capabilities, and canonical Skills. `registry/runtime.py` provides a read-only deterministic facade for Goal → Capability → Skill resolution and rejects duplicate IDs, missing universal metadata, non-canonical skills, and dangling references.
 
-The new `meta/universal-registry.schema.json` defines the intended cross-entity vocabulary without changing existing runtime contracts. It is the first compatibility boundary for incremental migration.
+This is intentionally an additive compatibility layer. Existing skill files, graph generation, recommendation behavior, API contracts, and MCP contracts remain unchanged.
+
+Implementations, Tools, Models, Platforms, Frameworks, Adapters, Evidence, Benchmarks, and Architectures are present as empty typed collections in the seed until audited source records can be introduced. Empty is preferred to invented compatibility claims.
 
 ## Recommendation execution
 
@@ -49,30 +56,20 @@ The new `meta/universal-registry.schema.json` defines the intended cross-entity 
 8. RecommendationEngine aggregates confidence and returns the recommendation payload.
 9. API applies the ranking calibration boundary and converts the result to Pydantic summaries.
 
+The universal registry runtime is not yet inserted into this production recommendation path. That integration is deferred until the registry records have equivalent coverage and contract tests.
+
 ## Blueprint execution
 
-BlueprintGenerator consumes the recommendation result and taxonomy. Architecture selection is still primarily driven by goal-category mappings, with risk patterns matched against required skill IDs. Blueprint output contains runtime-generated identity/timing fields and therefore is not yet a fully deterministic universal architecture artifact.
+BlueprintGenerator consumes the recommendation result and taxonomy. Architecture selection is still primarily driven by goal-category mappings. The universal capability graph is not yet the primary architecture path.
 
-## Existing hardening completed before the universal-registry migration
+## Remaining P1 gaps
 
-- Recommendation and blueprint tests exercise real behavior rather than synthetic placeholders.
-- Runtime taxonomy compatibility is covered by the shared runtime parser.
-- API ranking/calibration ordering drift was corrected at the API boundary.
-- Graph generation validates the regenerated canonical dataset.
-- Graph UI data is synchronized from `data/SKILLS_GRAPH.json` by the graph build workflow.
-- Workflow permissions and security checks were hardened.
-
-## Remaining architectural gaps
-
-- The core intelligence implementation remains concentrated in `tools/architect.py`.
-- Capability is represented inside the goal taxonomy rather than as a first-class registry entity.
-- Implementation, Tool, Platform, Framework, and Model identities are not consistently separated.
-- Adapter contracts for platform/framework integration do not yet exist as a universal machine-readable layer.
-- Provenance is derived for recommendations but is not yet a cross-entity registry contract.
-- The graph remains predominantly skill-centric and needs typed cross-entity relationships.
-- `meta/ARCHITECTURE_OUTPUT_SCHEMA.md` is currently empty and must be replaced by a versioned output contract in a later P1 slice.
-- `meta/frameworks.md` is a curated reference with a documented April 2026 freshness boundary; it is not yet a versioned registry.
-- The existing package metadata still describes the product primarily as an Architect recommendation engine; this is a packaging/positioning gap rather than a runtime correctness issue.
+- Promote Capability from taxonomy-derived data to authoritative registry data without creating divergent mappings.
+- Introduce first audited Implementation and Adapter records with provenance.
+- Add typed cross-entity graph edges and deterministic generation rules.
+- Add registry-backed eligibility and compatibility filtering before recommendation ranking.
+- Define versioned evidence and benchmark records.
+- Introduce a machine-readable universal architecture output contract.
 
 ## Migration constraint
 
