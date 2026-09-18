@@ -35,51 +35,21 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "goal": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "capability": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "skill": {
-          "$ref": "#/$defs/skillDefinition"
-        },
-        "implementation": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "tool": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "model": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "platform": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "framework": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "adapter": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "evidence": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "benchmark": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "architecture": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "compatibility": {
-          "$ref": "#/$defs/compatibilityDefinition"
-        },
-        "protocol": {
-          "$ref": "#/$defs/entityDefinition"
-        },
-        "runtime": {
-          "$ref": "#/$defs/entityDefinition"
-        }
+        "goal": { "$ref": "#/$defs/entityDefinition" },
+        "capability": { "$ref": "#/$defs/entityDefinition" },
+        "skill": { "$ref": "#/$defs/skillDefinition" },
+        "implementation": { "$ref": "implementation-contract.schema.json#/$defs/implementation" },
+        "tool": { "$ref": "#/$defs/entityDefinition" },
+        "model": { "$ref": "#/$defs/entityDefinition" },
+        "platform": { "$ref": "#/$defs/entityDefinition" },
+        "framework": { "$ref": "#/$defs/entityDefinition" },
+        "adapter": { "$ref": "#/$defs/entityDefinition" },
+        "evidence": { "$ref": "#/$defs/entityDefinition" },
+        "benchmark": { "$ref": "#/$defs/entityDefinition" },
+        "architecture": { "$ref": "#/$defs/entityDefinition" },
+        "compatibility": { "$ref": "#/$defs/compatibilityDefinition" },
+        "protocol": { "$ref": "#/$defs/entityDefinition" },
+        "runtime": { "$ref": "#/$defs/entityDefinition" }
       }
     },
     "relationship_types": {
@@ -151,16 +121,10 @@
     },
     "skillDefinition": {
       "allOf": [
-        {
-          "$ref": "#/$defs/entityDefinition"
-        },
+        { "$ref": "#/$defs/entityDefinition" },
         {
           "type": "object",
-          "required": [
-            "canonical",
-            "capabilities",
-            "implementations"
-          ],
+          "required": ["canonical", "capabilities", "implementations"],
           "properties": {
             "canonical": {
               "type": "boolean",
@@ -170,16 +134,12 @@
             "capabilities": {
               "type": "array",
               "uniqueItems": true,
-              "items": {
-                "$ref": "#/$defs/id"
-              }
+              "items": { "$ref": "#/$defs/id" }
             },
             "implementations": {
               "type": "array",
               "uniqueItems": true,
-              "items": {
-                "$ref": "#/$defs/id"
-              }
+              "items": { "$ref": "#/$defs/id" }
             }
           }
         }
@@ -196,9 +156,7 @@
     },
     "provenance": {
       "type": "object",
-      "required": [
-        "source_type"
-      ],
+      "required": ["source_type"],
       "properties": {
         "source_type": {
           "type": "string",
@@ -212,22 +170,10 @@
             "experimental"
           ]
         },
-        "source": {
-          "type": "string",
-          "minLength": 1
-        },
-        "verified_at": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "confidence": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 1
-        },
-        "methodology": {
-          "type": "string"
-        }
+        "source": { "type": "string", "minLength": 1 },
+        "verified_at": { "type": "string", "format": "date-time" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "methodology": { "type": "string" }
       },
       "additionalProperties": false
     }
