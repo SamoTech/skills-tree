@@ -4,7 +4,29 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
+
+from jsonschema import Draft202012Validator
+
+
+class ImplementationRecord(TypedDict):
+    """Normative runtime shape for a registered Implementation."""
+    id: str
+    version: str
+    name: str
+    skill: str
+    type: str
+    provider: str | None
+    interface: str
+    inputs: list[str]
+    outputs: list[str]
+    requirements: list[str]
+    constraints: list[str]
+    limitations: list[str]
+    provenance: dict[str, Any]
+    evidence: list[str]
+    status: str
+
 
 
 class UniversalRegistry:
@@ -14,6 +36,7 @@ class UniversalRegistry:
         self.path = Path(path)
         self._data = json.loads(self.path.read_text(encoding="utf-8"))
         self._validate_integrity()
+        self._validate_implementation_contracts()
 
     @property
     def data(self) -> dict[str, Any]:
@@ -35,6 +58,22 @@ class UniversalRegistry:
             for skill_id in capability["skills"]:
                 result[skill_id] = skills[skill_id]
         return [result[key] for key in sorted(result)]
+
+    def resolve_implementation(self, implementation_id: str) -> ImplementationRecord:
+        """Return one validated Implementation by canonical ID."""
+        matches = [item for item in self._data["entities"]["implementations"] if item["id"] == implementation_id]
+        if not matches:
+            raise KeyError(f"Unknown implementation: {implementation_id}")
+        return matches[0]
+
+    def implementations_for_skill(self, skill_id: str) -> list[ImplementationRecord]:
+        """Return validated implementations for a canonical Skill in deterministic order."""
+        if not any(item["id"] == skill_id for item in self._data["entities"]["skills"]):
+            raise KeyError(f"Unknown skill: {skill_id}")
+        return sorted(
+            [item for item in self._data["entities"]["implementations"] if item["skill"] == skill_id],
+            key=lambda item: item["id"],
+        )
 
     def compatibility_for(self, subject_id: str, target_type: str | None = None, target_id: str | None = None) -> list[dict[str, Any]]:
         """Return deterministic compatibility facts for an entity."""
@@ -81,6 +120,14 @@ class UniversalRegistry:
             if edge["source"] == edge["target"]:
                 raise ValueError(f"Graph self-loop: {edge['source']}")
         return sorted(edges, key=lambda x: (x["source"], x["relationship_type"], x["target"]))
+
+    def _validate_implementation_contracts(self) -> None:
+        """Validate every registered Implementation against the normative contract."""
+        schema_path = self.path.parent.parent / "meta" / "implementation-contract.schema.json"
+        contract = json.loads(schema_path.read_text(encoding="utf-8"))
+        validator = Draft202012Validator(contract)
+        for implementation in self._data["entities"]["implementations"]:
+            validator.validate({"contract_version": "1.0", "implementation": implementation})
 
     def _validate_integrity(self) -> None:
         entities = self._data.get("entities")
