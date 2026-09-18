@@ -45,3 +45,8 @@ The universal graph is a schema-governed artifact. The runtime now validates `gr
 ## Next Action
 
 Run the full behavioral, schema, graph, security, build, and CI quality gate for the active branch. Merge only after all required checks are explicitly green, using the exact current PR head SHA. After merge, reconcile this state checkpoint to the resulting main HEAD.
+
+
+## Follow-up audit — 2026-09-19
+
+PR #121 is merged at `9d180b509f28d0d7396fc85ec0ceed8871270827`. The next audit-derived Phase 2 slice requires every universal-graph edge provenance record to include a non-empty `source`, because provenance is part of the normative graph trust boundary. This branch adds the machine-readable schema requirement and a real runtime regression test; no graph entities or claims are changed.
