@@ -2,7 +2,7 @@
 
 **Status:** Governing development knowledge for the Universal Agent Knowledge Layer
 **Version:** 1.0
-**Updated:** 2026-09-17
+**Updated:** 2026-09-18
 **Authority:** This document records the development model, architecture direction, execution rules, and verified implementation state. It complements `meta/PROJECT_CONSTITUTION.md`, `meta/AGENT_OPERATING_MODEL.md`, and the machine-readable registry contract in `meta/universal-registry.schema.json`.
 
 ## 1. Mission
@@ -15,7 +15,7 @@ The target system allows an agent to start with a goal and deterministically dis
 
 and then reason over prerequisites, dependencies, evidence, benchmarks, constraints, failure modes, composition, architecture, and execution paths.
 
-P1.8 compatibility is now a merged registry capability: compatibility facts are typed, evidence-backed, and consumed as applicability data rather than ranking scores. P1.9 eligibility is implemented as a standalone pre-ranking filter and must remain separate from ranking and calibration.
+P1.8 compatibility is a merged registry capability: compatibility facts are typed, evidence-backed, and consumed as applicability data rather than ranking scores. P1.9 eligibility is implemented as a standalone pre-ranking filter and must remain separate from ranking and calibration. P1.10 adds typed universal graph edges, and P1.11 integrates eligibility with recommendations without converting eligibility or compatibility into ranking scores. Phase 2 has since promoted Implementation into the ontology and added typed runtime access and normative contract validation.
 
 The repository is not intended to become a prompt library, a framework-specific skill collection, or a static Markdown directory. Markdown remains valuable as human-readable source material, while machine-readable contracts, provenance, graph integrity, and deterministic runtime behavior become first-class.
 
@@ -106,7 +106,7 @@ Establish the universal ontology, repository audit baseline, registry contract, 
 
 Build the first runtime registry slice and then establish trustworthy source maps for implementations, adapters, platforms, frameworks, tools, and MCP assets.
 
-Near-term execution order:
+Execution order:
 
 `P1.1 Implementation Source Audit`
 `P1.2 Adapter Source Audit`
@@ -120,9 +120,17 @@ Near-term execution order:
 `P1.10 Typed graph edges`
 `P1.11 Recommendation Engine integration`
 
+**Verified state:** P1.1 through P1.11 are merged on `main`.
+
 ### Phase 2 — Implementation Ontology
 
 Define Implementation independently from Skill. Minimum direction: stable ID, version, name, linked canonical skill, implementation type, provider, interface, inputs, outputs, requirements, constraints, limitations, provenance, evidence, and lifecycle/verification status.
+
+**P2.1 — Complete.** Implementation is a first-class universal-registry entity governed by `meta/implementation-contract.schema.json`.
+
+**P2.2 — Complete.** `registry/runtime.py` exposes typed Implementation access, deterministic Implementation-by-ID and Skill-to-Implementation lookup, and validates registered Implementation records against the normative contract during registry initialization. Behavioral regression tests cover successful lookup, unknown IDs, and contract rejection.
+
+**Next:** no numbered P2.3 item is currently defined in the repository. The next Phase 2 slice must be derived from an audited architectural gap and documented before implementation; do not invent a roadmap item solely to advance the sequence.
 
 ### Phase 3 — Adapter Architecture
 
@@ -246,28 +254,34 @@ Final target: an open universal knowledge layer connecting goals, capabilities, 
 
 ## 8. Current Verified Development State
 
-The repository already contains a machine-readable universal registry contract and a read-only deterministic runtime slice. The current registry has a small verified set of goals, capabilities, and canonical skills; implementation/tool/platform/framework/adapter/evidence/benchmark/architecture collections remain intentionally empty until their source audits and contracts are completed.
+The repository contains a machine-readable universal registry contract and a read-only deterministic runtime slice. The registry now contains a small verified set of goals, capabilities, canonical skills, and the audited `implementation/code-reviewer-system` Implementation record. Implementation runtime access is contract-validated; broader implementation, adapter, platform, framework, model, benchmark, and architecture population remains intentionally limited to audited records.
 
-The existing framework/model catalogue is `meta/frameworks.md`. It currently mixes agent frameworks, computer-use/browser systems, protocols/standards, and foundation models in a human-oriented curated reference. This is source material, not yet the canonical universal registry.
+The existing framework/model catalogue is `meta/frameworks.md`. It mixes agent frameworks, computer-use/browser systems, protocols/standards, and foundation models in a human-oriented curated reference. This is source material, not yet the canonical universal registry.
 
 The repository also contains real MCP assets including `mcp/`, `examples/mcp-server/`, and MCP design/validation documents. These are existing implementation/protocol assets to be audited and linked through the universal ontology rather than copied into new canonical skill definitions.
 
 ## 9. Current Execution Position
 
-**Completed immediately before this knowledge baseline:**
+**Verified completed sequence:**
 
-- Repository architecture/audit baseline established.
-- Runtime taxonomy safety improvements merged.
-- GitHub Pages deployment path fixed.
-- Canonical graph data synchronization implemented in the graph PR stream.
-- Universal registry contract merged.
-- Universal registry runtime slice merged and CI-verified.
+- Phase 0 governance and registry foundation.
+- P1.1 Implementation Source Audit.
+- P1.2 Adapter Source Audit.
+- P1.3 Platform/Framework Source Audit.
+- P1.4 Implementation Contract.
+- P1.5 Adapter Contract.
+- P1.6 first audited Implementation slice.
+- P1.7 first real Adapter slice.
+- P1.8 Compatibility Model.
+- P1.9 Eligibility Engine.
+- P1.10 Typed Universal Graph.
+- P1.11 Recommendation Engine integration.
+- P2.1 Implementation Ontology contract unification.
+- P2.2 typed Implementation runtime access and contract validation.
 
-**Next mandatory task:**
+**Current mandatory action:**
 
-`P1.1 — Implementation Source Audit`
-
-The audit must identify existing implementation-like assets, their source locations, linked skills/capabilities, provider/tool/runtime information, provenance quality, duplication risks, and gaps. It must produce a canonical source map before new implementation entities are added.
+Perform the Phase 2 post-P2.2 architectural audit and document the next vertical slice from an evidence-backed gap. Do not reopen completed P1 work and do not invent a P2.3 requirement without repository evidence.
 
 ## 10. Vertical-Slice Strategy
 
@@ -290,12 +304,14 @@ Historical documents remain useful context but must not silently override the cu
 
 When a roadmap task is completed, update this document only with verifiable evidence: commit/PR, tests, CI, and resulting behavior. Never mark a phase complete because code was drafted or because a specification exists.
 
-
 ## Current roadmap state
 
-P1.1 through P1.8 are verified on `main`. P1.9 introduces the deterministic eligibility boundary in `registry/eligibility.py` with `meta/eligibility-contract.schema.json` and behavioral tests. The first slice uses registered candidates and optional typed targets; compatibility is evaluated before ranking. No authoritative prerequisite registry exists yet, so prerequisite evaluation is not fabricated.
-
+P1.1 through P1.11 are verified on `main`. P2.1 and P2.2 are also verified on `main`. P1.9 provides the deterministic eligibility boundary in `registry/eligibility.py` with `meta/eligibility-contract.schema.json`; compatibility is evaluated before ranking and prerequisite evaluation is not fabricated where authoritative prerequisite records do not exist.
 
 ### P1.10 — Typed Universal Graph
 
 P1.10 is implemented as an additive typed graph slice in `graph/universal_graph.json`, governed by `meta/universal-graph.schema.json` and exposed through deterministic `UniversalRegistry.graph_edges()`. Endpoint types are checked against registry entities, self-loops are rejected, and provenance is required. The existing `data/SKILLS_GRAPH.json` remains the generated skill-corpus graph; it is not silently replaced by the universal graph.
+
+### P2.2 — Typed Implementation Runtime
+
+P2.2 is implemented in `registry/runtime.py`. `ImplementationRecord` defines the runtime shape, `resolve_implementation()` resolves a canonical Implementation ID, `implementations_for_skill()` returns deterministic linked Implementations, and registry initialization validates every registered Implementation against `meta/implementation-contract.schema.json`. Regression coverage is in `tests/test_registry_implementation_runtime.py`.
