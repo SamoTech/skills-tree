@@ -30,6 +30,18 @@ Lifecycle states are `candidate`, `verified`, `experimental`, and `deprecated`. 
 
 P2.1 intentionally does not register new providers or implementations. The existing `implementation/code-reviewer-system` record is used as the real regression subject because its source and evidence already exist in the repository.
 
+## P2.2 — Typed runtime access and validation
+
+P2.2 is complete on `main`.
+
+`registry/runtime.py` exposes the normative `ImplementationRecord` runtime shape, deterministic lookup by canonical Implementation ID, and deterministic lookup of Implementations linked to a canonical Skill. Registry initialization validates every registered Implementation against `meta/implementation-contract.schema.json` while preserving the existing read-only facade and graph/reference integrity checks.
+
+Regression coverage in `tests/test_registry_implementation_runtime.py` verifies successful resolution, deterministic Skill lookup, unknown identifier rejection, and rejection of a contract-invalid Implementation registry. The P2.2 branch passed the required Python 3.11/3.12/3.13 test matrix, Test & Coverage, Security Scan, PR Checks, and Build & Verify Wheel before merge.
+
 ## Next vertical slice
 
-P2.2 should introduce typed runtime access/validation for Implementation records while preserving the read-only registry behavior and existing graph/reference integrity rules.
+No P2.3 item is currently defined.
+
+The next Phase 2 slice must first be established by an architecture audit of the Implementation Ontology after P2.2. The audit should identify the highest-value missing invariant or runtime capability, confirm that it is not already covered by the existing contract, registry, or graph layers, and then define a minimal schema → runtime → behavioral-test slice. No new provider, platform, framework, model, adapter, or compatibility claim should be introduced without authoritative source and provenance.
+
+MCP remains a Protocol and must not be promoted into the canonical Implementation ontology.
