@@ -188,3 +188,28 @@ def test_registry_initialization_validates_universal_graph_contract(tmp_path: Pa
     graph_contract_target.write_text((ROOT / "meta" / "universal-graph.schema.json").read_text(encoding="utf-8"), encoding="utf-8")
     with pytest.raises(Exception):
         UniversalRegistry(registry_path)
+
+def test_registry_initialization_requires_graph_provenance_source(tmp_path: Path) -> None:
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    registry_path = tmp_path / "registry" / "universal_registry.json"
+    registry_path.parent.mkdir()
+    registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+    contract = ROOT / "meta" / "implementation-contract.schema.json"
+    contract_target = tmp_path / "meta" / "implementation-contract.schema.json"
+    contract_target.parent.mkdir()
+    contract_target.write_text(contract.read_text(encoding="utf-8"), encoding="utf-8")
+
+    graph = json.loads((ROOT / "graph" / "universal_graph.json").read_text(encoding="utf-8"))
+    graph["edges"][0]["provenance"].pop("source")
+    graph_target = tmp_path / "graph" / "universal_graph.json"
+    graph_target.parent.mkdir()
+    graph_target.write_text(json.dumps(graph), encoding="utf-8")
+
+    graph_contract = ROOT / "meta" / "universal-graph.schema.json"
+    graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
+    graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+
+    with pytest.raises(Exception):
+        UniversalRegistry(registry_path)
+
