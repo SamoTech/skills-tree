@@ -9,7 +9,8 @@ def test_universal_graph_schema_is_valid():
 def test_typed_graph_edges_resolve_to_registry_entities():
     edges=UniversalRegistry(REGISTRY).graph_edges()
     assert len(edges)==8
-    assert edges[0]["source"]=="05-code/code-review"
+    assert edges==sorted(edges,key=lambda x:(x["source"],x["relationship_type"],x["target"]))
+    assert any(edge["source"]=="05-code/code-review" and edge["target"]=="implementation/code-reviewer-system" for edge in edges)
     assert any(edge["target"]=="protocol/model-context-protocol" for edge in edges)
 def test_graph_edges_are_deterministic():
     r=UniversalRegistry(REGISTRY); assert r.graph_edges()==r.graph_edges()
