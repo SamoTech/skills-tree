@@ -117,13 +117,19 @@ def test_registered_implementation_conforms_to_the_normative_contract() -> None:
     implementation = next(
         item for item in implementations if item["id"] == "implementation/code-reviewer-system"
     )
-    implementation_schema = json.loads(
+    implementation_contract = json.loads(
         IMPLEMENTATION_SCHEMA_PATH.read_text(encoding="utf-8")
-    )["$defs"]["implementation"]
+    )
 
-    Draft202012Validator(implementation_schema).validate(implementation)
+    Draft202012Validator(implementation_contract).validate(
+        {"contract_version": "1.0", "implementation": implementation}
+    )
 
     invalid = dict(implementation)
     invalid.pop("interface")
-    errors = list(Draft202012Validator(implementation_schema).iter_errors(invalid))
+    errors = list(
+        Draft202012Validator(implementation_contract).iter_errors(
+            {"contract_version": "1.0", "implementation": invalid}
+        )
+    )
     assert errors
