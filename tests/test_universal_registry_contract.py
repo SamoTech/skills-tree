@@ -8,6 +8,8 @@ from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "meta" / "universal-registry.schema.json"
+IMPLEMENTATION_SCHEMA_PATH = ROOT / "meta" / "implementation-contract.schema.json"
+REGISTRY_PATH = ROOT / "registry" / "universal_registry.json"
 
 
 def load_schema() -> dict:
@@ -80,3 +82,48 @@ def test_universal_registry_relationship_vocabulary_is_explicit() -> None:
     }
 
     assert required_relationships <= set(relationships)
+
+
+def test_implementation_entity_reuses_the_normative_implementation_contract() -> None:
+    schema = load_schema()
+    implementation_ref = schema["properties"]["entity_types"]["properties"]["implementation"]["$ref"]
+    assert implementation_ref == "implementation-contract.schema.json#/$defs/implementation"
+
+    implementation_schema = json.loads(
+        IMPLEMENTATION_SCHEMA_PATH.read_text(encoding="utf-8")
+    )
+    required = set(implementation_schema["$defs"]["implementation"]["required"])
+    assert {
+        "id",
+        "version",
+        "name",
+        "skill",
+        "type",
+        "interface",
+        "inputs",
+        "outputs",
+        "requirements",
+        "constraints",
+        "limitations",
+        "provenance",
+        "evidence",
+        "status",
+    } <= required
+
+
+def test_registered_implementation_conforms_to_the_normative_contract() -> None:
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    implementations = registry["entities"]["implementations"]
+    implementation = next(
+        item for item in implementations if item["id"] == "implementation/code-reviewer-system"
+    )
+    implementation_schema = json.loads(
+        IMPLEMENTATION_SCHEMA_PATH.read_text(encoding="utf-8")
+    )["$defs"]["implementation"]
+
+    Draft202012Validator(implementation_schema).validate(implementation)
+
+    invalid = dict(implementation)
+    invalid.pop("interface")
+    errors = list(Draft202012Validator(implementation_schema).iter_errors(invalid))
+    assert errors
