@@ -78,12 +78,16 @@ jobs:
       - name: Post upgrade comment
         if: steps.detect.outputs.has_upgrades == 'true'
         uses: actions/github-script@v9
+        env:
+          SKILL_UPGRADES: ${{ steps.detect.outputs.upgrades }}
+          SKILL_HAS_V3: ${{ steps.detect.outputs.has_v3 }}
+          SKILL_V3_UPGRADES: ${{ steps.detect.outputs.v3_upgrades }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const upgrades = `${{ steps.detect.outputs.upgrades }}`;
-            const hasV3 = `${{ steps.detect.outputs.has_v3 }}` === 'true';
-            const v3Skills = `${{ steps.detect.outputs.v3_upgrades }}`;
+            const upgrades = process.env.SKILL_UPGRADES || '';
+            const hasV3 = process.env.SKILL_HAS_V3 === 'true';
+            const v3Skills = process.env.SKILL_V3_UPGRADES || '';
 
             let body = `## 🚀 Skill Version Upgrade Detected\n\n`;
             body += `This PR upgrades the following skills:\n${upgrades}\n\n`;
