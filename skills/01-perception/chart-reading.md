@@ -4,6 +4,7 @@ category: 01-perception
 level: intermediate
 stability: stable
 description: "Interpret charts by separating visual extraction from semantic analysis, capturing axes, units, series, extrema, trends, and uncertainty before drawing conclusions."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
 version: v2
 updated: "2026-09"
