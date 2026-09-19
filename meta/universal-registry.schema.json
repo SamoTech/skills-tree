@@ -156,7 +156,7 @@
     },
     "provenance": {
       "type": "object",
-      "required": ["source_type"],
+      "required": ["source_type", "source"],
       "properties": {
         "source_type": {
           "type": "string",

@@ -213,3 +213,14 @@ def test_registry_initialization_requires_graph_provenance_source(tmp_path: Path
     with pytest.raises(Exception):
         UniversalRegistry(registry_path)
 
+
+
+def test_registry_initialization_requires_entity_provenance_source(tmp_path: Path) -> None:
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    registry["entities"]["skills"][0]["provenance"].pop("source")
+    registry_path = tmp_path / "registry" / "universal_registry.json"
+    registry_path.parent.mkdir()
+    registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="traceable provenance source"):
+        UniversalRegistry(registry_path)
