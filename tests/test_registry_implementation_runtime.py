@@ -156,6 +156,21 @@ def test_implementation_skill_linkage_accepts_symmetric_record() -> None:
     assert implementation["id"] in skill["implementations"]
 
 
+def test_capability_implementation_linkage_must_be_symmetric(tmp_path: Path) -> None:
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    capability = next(
+        item for item in registry["entities"]["capabilities"]
+        if item["id"] == "capability/code-quality"
+    )
+    capability["skills"] = []
+    registry_path = tmp_path / "registry" / "universal_registry.json"
+    registry_path.parent.mkdir()
+    registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="Capability/implementation linkage is not symmetric"):
+        UniversalRegistry(registry_path)
+
+
 def test_read_only_facade_returns_independent_snapshots() -> None:
     registry = UniversalRegistry(REGISTRY_PATH)
     implementation_id = "implementation/code-reviewer-system"
