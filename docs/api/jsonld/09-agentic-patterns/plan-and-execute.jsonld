@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/plan-and-execute.md",
   "name": "Plan-and-Execute",
   "headline": "Plan-and-Execute",
-  "description": "Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.",
+  "description": "Separate planning from execution so a planner produces a bounded task graph and an executor performs and verifies each step.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/plan-and-execute.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-19T19:32:58Z",
+  "dateModified": "2026-09-19T20:02:32Z",
   "skillId": "plan-and-execute",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Example",
+    "Failure Modes",
+    "Output Contract",
+    "Design Rules",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -68,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, skills tree, plan, agentic, execute, patterns, and",
+  "keywords": "LLM skill, and, execute, AI agent, skills tree, patterns, plan, agentic",
   "about": {
     "@type": "Thing",
     "name": "Plan-and-Execute",

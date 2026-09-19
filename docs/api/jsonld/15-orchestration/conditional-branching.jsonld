@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-19T19:32:58Z",
+  "dateModified": "2026-09-19T20:02:32Z",
   "skillId": "conditional-branching",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "LLM skill, AI agent, orchestration, skills tree, branching, conditional",
+  "keywords": "LLM skill, branching, AI agent, orchestration, skills tree, conditional",
   "about": {
     "@type": "Thing",
     "name": "conditional-branching",

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-19T19:32:58Z",
+  "generated": "2026-09-19T20:02:32Z",
   "count": 369,
   "skills": [
     {
@@ -4368,7 +4368,7 @@
       "id": "agentic-rag",
       "path": "skills/09-agentic-patterns/agentic-rag.md",
       "name": "Agentic RAG",
-      "description": "Apply agentic rag in AI agent workflows.",
+      "description": "Use an agentic retrieval loop that decides whether to retrieve, what to retrieve, when to re-retrieve, and when evidence is sufficient.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
@@ -4376,11 +4376,17 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Example",
+        "Failure Modes",
+        "Output Contract",
+        "Design Rules",
+        "Related Skills",
         "Changelog"
       ],
-      "related": [
-        "../03-memory/rag.md"
-      ],
+      "related": [],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -4574,7 +4580,7 @@
       "id": "plan-and-execute",
       "path": "skills/09-agentic-patterns/plan-and-execute.md",
       "name": "Plan-and-Execute",
-      "description": "Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.",
+      "description": "Separate planning from execution so a planner produces a bounded task graph and an executor performs and verifies each step.",
       "category": "agentic-patterns",
       "level": "intermediate",
       "stability": "stable",
@@ -4582,6 +4588,14 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Example",
+        "Failure Modes",
+        "Output Contract",
+        "Design Rules",
+        "Related Skills",
         "Changelog"
       ],
       "related": [],
