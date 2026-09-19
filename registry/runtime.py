@@ -172,6 +172,9 @@ class UniversalRegistry:
                 ids.add(entity_id)
                 if "version" not in record or "provenance" not in record:
                     raise ValueError(f"Missing universal metadata: {entity_id}")
+                provenance = record["provenance"]
+                if not isinstance(provenance, dict) or not provenance.get("source"):
+                    raise ValueError(f"Missing traceable provenance source: {entity_id}")
 
         capabilities = {x["id"]: x for x in entities["capabilities"]}
         skills = {x["id"]: x for x in entities["skills"]}
