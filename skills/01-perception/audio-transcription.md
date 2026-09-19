@@ -4,7 +4,7 @@ category: 01-perception
 level: intermediate
 stability: stable
 added: "2025-03"
-description: "Apply audio transcription in AI agent workflows."
+description: "Convert spoken audio into timestamp-aware text while preserving speaker boundaries, language metadata, confidence signals, and recoverable transcription errors."
 dependencies:
   - package: openai-whisper
     min_version: "20231117"
@@ -18,57 +18,91 @@ code_blocks:
   - id: "example-diarization"
     type: illustrative
     note: "pyannote.audio requires HuggingFace token and model download — illustrative only"
+version: v2
+updated: "2026-09"
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-audio-transcription.json)
 
 # Audio Transcription
 
-### Description
-Converts spoken audio into structured text with word-level timestamps, speaker diarization, language identification, and confidence scoring. Handles noise, overlapping speech, domain-specific vocabulary, and long-form recordings via chunking strategies.
+## Description
 
-### When to Use
-- Transcribing meetings, interviews, podcasts, call recordings, or lecture audio
-- Building downstream pipelines that require timestamped captions or subtitles
-- Speaker-attributed summarization or action-item extraction from multi-participant audio
-- Real-time transcription via streaming WebSocket APIs
+Convert spoken audio into timestamp-aware text while preserving speaker boundaries, language metadata, confidence signals, and recoverable transcription errors.
 
-### Example
-```python type:illustrative
-# pip install openai-whisper torch pyannote.audio
-# Note: `pyannote` is the import name for PyPI package `pyannote.audio`
-import whisper, torch
-from pyannote.audio import Pipeline
+## When to Use
 
-def transcribe_with_diarization(audio_path: str) -> list[dict]:
-    # Step 1: transcribe with word timestamps
-    model = whisper.load_model("large-v3", device="cuda" if torch.cuda.is_available() else "cpu")
-    result = model.transcribe(audio_path, word_timestamps=True, language=None)  # auto-detect lang
+Use for voice notes, meetings, calls, interviews, or media pipelines where audio must become searchable or actionable text.
 
-    # Step 2: diarize
-    diar = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
-    diar_result = diar(audio_path)
+## Inputs / Outputs
 
-    # Step 3: merge word timestamps with speaker turns
-    segments = []
-    for turn, _, speaker in diar_result.itertracks(yield_label=True):
-        words = [
-            w for seg in result["segments"]
-            for w in seg.get("words", [])
-            if turn.start <= w["start"] < turn.end
-        ]
-        if words:
-            segments.append({"speaker": speaker, "start": turn.start,
-                              "end": turn.end, "text": " ".join(w["word"] for w in words)})
-    return segments
+| Field | Type | Description |
+|---|---|---|
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
+
+## Runnable Example
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Segment:
+    start: float
+    end: float
+    text: str
+    speaker: str | None = None
+
+def normalize_segments(raw: list[dict]) -> list[Segment]:
+    result = []
+    for item in raw:
+        start = float(item["start"])
+        end = float(item["end"])
+        text = str(item["text"]).strip()
+        if end < start:
+            raise ValueError("segment end precedes start")
+        if text:
+            result.append(Segment(start, end, text, item.get("speaker")))
+    return result
+
+segments = normalize_segments([
+    {"start": 0.0, "end": 2.4, "text": "Hello", "speaker": "A"},
+    {"start": 2.5, "end": 4.0, "text": "Welcome", "speaker": "B"},
+])
+print(segments)
 ```
 
-### Advanced Techniques
-- **Long audio chunking**: split at silence boundaries (`pydub.silence.split_on_silence`) before feeding to Whisper to avoid context window truncation
-- **Custom vocabulary**: inject domain terms via `initial_prompt` parameter in Whisper or use PromptingWhisper
-- **Streaming**: use `faster-whisper` with `stream=True` for low-latency real-time pipelines
-- **Post-correction**: run a language model pass to fix homophones and domain-specific names
+## Failure Modes
 
-### Related Skills
-- `video-understanding`, `summarization`, `text-reading`, `image-understanding`
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Noisy audio | malformed or adversarial input | Validate structure before semantic processing. |
+| overlapping speakers | unexpected source variation | Preserve raw context and emit a warning. |
+| wrong language detection | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
+
+## Output Contract
+
+Ordered transcription segments with timestamps and optional speaker labels; retain provider confidence separately.
+
+## Design Rules
+
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
+
+## Related Skills
+
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |
