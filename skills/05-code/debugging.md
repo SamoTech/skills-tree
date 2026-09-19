@@ -13,7 +13,7 @@ added: "2025-03"
 
 **Category:** `code`  
 **Skill Level:** `intermediate`  
-**Stability:** `stable`
+**Stability:** `stable`  
 **Added:** 2025-03
 
 ### Description
@@ -25,9 +25,9 @@ Identify the root cause of bugs in code by analyzing error messages, stack trace
 ```python
 prompt = f"""
 This code raises an error:
-```python
+<buggy_code>
 {buggy_code}
-```
+</buggy_code>
 Error: {error_message}
 
 Find the bug and provide the fixed code.
