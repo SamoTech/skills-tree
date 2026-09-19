@@ -4,6 +4,7 @@ category: 01-perception
 level: basic
 stability: stable
 description: "Parse email messages into normalized headers, body parts, attachments, threading metadata, and security-relevant indicators without trusting message content."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
 version: v2
 updated: "2026-09"
