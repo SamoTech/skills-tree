@@ -5,7 +5,7 @@ level: advanced
 stability: stable
 description: "Apply agentic rag in AI agent workflows."
 added: "2025-03"
-version: v1.2
+version: v2
 prerequisites:
   - 03-memory/rag
   - 09-agentic-patterns/react
