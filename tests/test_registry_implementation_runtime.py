@@ -52,6 +52,9 @@ def test_registry_initialization_validates_implementation_contract(tmp_path: Pat
     graph_contract = ROOT / "meta" / "universal-graph.schema.json"
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
     with pytest.raises(Exception):
         UniversalRegistry(registry_path)
 
@@ -75,6 +78,9 @@ def test_verified_implementation_requires_evidence_and_traceable_provenance(tmp_
     graph_contract = ROOT / "meta" / "universal-graph.schema.json"
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
     with pytest.raises(Exception, match="evidence"):
         UniversalRegistry(registry_path)
 
@@ -99,6 +105,9 @@ def test_verified_implementation_evidence_must_support_record(tmp_path: Path) ->
     graph_contract = ROOT / "meta" / "universal-graph.schema.json"
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
     with pytest.raises(ValueError, match="does not support implementation"):
         UniversalRegistry(registry_path)
 
@@ -121,6 +130,9 @@ def test_verified_implementation_with_supporting_evidence_passes(tmp_path: Path)
     graph_contract = ROOT / "meta" / "universal-graph.schema.json"
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
     UniversalRegistry(registry_path)
 
 
@@ -186,6 +198,9 @@ def test_registry_initialization_validates_universal_graph_contract(tmp_path: Pa
     graph_target.write_text(json.dumps(graph), encoding="utf-8")
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text((ROOT / "meta" / "universal-graph.schema.json").read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
     with pytest.raises(Exception):
         UniversalRegistry(registry_path)
 
@@ -209,10 +224,12 @@ def test_registry_initialization_requires_graph_provenance_source(tmp_path: Path
     graph_contract = ROOT / "meta" / "universal-graph.schema.json"
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
 
     with pytest.raises(Exception):
         UniversalRegistry(registry_path)
-
 
 
 def test_registry_initialization_requires_entity_provenance_source(tmp_path: Path) -> None:
@@ -244,5 +261,8 @@ def test_registry_initialization_requires_compatibility_evidence_support(tmp_pat
     graph_contract = ROOT / "meta" / "universal-graph.schema.json"
     graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
     graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
+    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
     with pytest.raises(ValueError, match="does not support compatibility"):
         UniversalRegistry(registry_path)
