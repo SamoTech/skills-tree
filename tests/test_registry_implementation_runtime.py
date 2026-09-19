@@ -315,18 +315,7 @@ def test_registry_accepts_and_rejects_model_adapter_targets(tmp_path: Path) -> N
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
 
-    for schema_name in (
-        "implementation-contract.schema.json",
-        "universal-graph.schema.json",
-        "adapter-contract.schema.json",
-    ):
-        target = tmp_path / "meta" / schema_name
-        target.parent.mkdir(exist_ok=True)
-        target.write_text((ROOT / "meta" / schema_name).read_text(encoding="utf-8"), encoding="utf-8")
-
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text((ROOT / "graph" / "universal_graph.json").read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
 
     UniversalRegistry(registry_path)
 
