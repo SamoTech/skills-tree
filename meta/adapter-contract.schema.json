@@ -25,7 +25,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["platform", "framework", "protocol", "runtime"]
+          "enum": ["platform", "framework", "model", "protocol", "runtime"]
         },
         "id": { "$ref": "#/$defs/id" }
       },
