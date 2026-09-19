@@ -37,6 +37,7 @@ class UniversalRegistry:
         self._data = json.loads(self.path.read_text(encoding="utf-8"))
         self._validate_integrity()
         self._validate_implementation_contracts()
+        self._validate_adapter_contracts()
         self._validate_graph_contract()
 
     @property
@@ -155,6 +156,14 @@ class UniversalRegistry:
                     f"Verified implementation evidence does not support implementation {implementation['id']}: "
                     + ", ".join(sorted(unsupported))
                 )
+
+    def _validate_adapter_contracts(self) -> None:
+        """Validate every registered Adapter against the normative contract."""
+        schema_path = self.path.parent.parent / "meta" / "adapter-contract.schema.json"
+        contract = json.loads(schema_path.read_text(encoding="utf-8"))
+        validator = Draft202012Validator(contract)
+        for adapter in self._data["entities"]["adapters"]:
+            validator.validate({"contract_version": "1.0", "adapter": adapter})
 
     def _validate_integrity(self) -> None:
         entities = self._data.get("entities")
