@@ -4,6 +4,7 @@ category: 01-perception
 level: intermediate
 stability: stable
 description: "Inspect database metadata and query results safely, preserving schema information, nullability, cardinality, provenance, and query limitations."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
 version: v2
 updated: "2026-09"
