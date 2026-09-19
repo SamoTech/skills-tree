@@ -3,147 +3,89 @@ title: "Chart Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply chart reading in AI agent workflows."
+description: "Interpret charts by separating visual extraction from semantic analysis, capturing axes, units, series, extrema, trends, and uncertainty before drawing conclusions."
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-chart-reading.json)
 
 # Chart Reading
 
-**Category:** `perception`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
----
-
 ## Description
 
-Interpret charts, graphs, and data visualizations from images to extract numerical values, trends, comparisons, and patterns. Supports bar charts, line charts, pie charts, scatter plots, histograms, heatmaps, and dashboards. The model reads axis labels, legends, titles, and data points — returning structured JSON, markdown tables, or natural-language summaries.
+Interpret charts by separating visual extraction from semantic analysis, capturing axes, units, series, extrema, trends, and uncertainty before drawing conclusions.
 
----
+## When to Use
 
-## Inputs
+Use when an agent must answer questions about plotted data, dashboards, screenshots, or exported chart images.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `image` | `bytes` / `url` | ✅ | Chart image (PNG, JPEG, WebP) or public URL |
-| `output_format` | `string` | ❌ | `json` (default), `markdown`, or `prose` |
-| `context` | `string` | ❌ | Domain hint, e.g. `"financial quarterly report"` |
+## Inputs / Outputs
 
----
-
-## Outputs
-
-| Output | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `chart_type` | `string` | Detected chart type |
-| `series` | `list` | Data series with labels and values |
-| `key_insight` | `string` | One-sentence summary of the main trend |
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
 
----
-
-## Example
+## Runnable Example
 
 ```python
-import anthropic
-import base64
-from pathlib import Path
+from dataclasses import dataclass
 
-client = anthropic.Anthropic()
+@dataclass(frozen=True)
+class ChartObservation:
+    title: str | None
+    x_label: str | None
+    y_label: str | None
+    series: list[str]
+    trend: str
+    uncertainty: list[str]
 
-def read_chart(image_path: str) -> str:
-    """Extract structured data from a chart image."""
-    image_data = base64.standard_b64encode(
-        Path(image_path).read_bytes()
-    ).decode("utf-8")
-
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1024,
-        messages=[{
-            "role": "user",
-            "content": [
-                {
-                    "type": "image",
-                    "source": {
-                        "type": "base64",
-                        "media_type": "image/png",
-                        "data": image_data,
-                    },
-                },
-                {
-                    "type": "text",
-                    "text": (
-                        "Analyze this chart and return a JSON object with:\n"
-                        "- chart_type: type of chart\n"
-                        "- title: chart title if present\n"
-                        "- x_axis: {label, values}\n"
-                        "- y_axis: {label, unit}\n"
-                        "- series: [{name, values}]\n"
-                        "- key_insight: one-sentence trend summary\n"
-                        "Return ONLY valid JSON."
-                    )
-                }
-            ],
-        }]
+def summarize_chart(obs: ChartObservation) -> str:
+    series = ", ".join(obs.series) or "no identified series"
+    uncertainty = "; ".join(obs.uncertainty) or "none recorded"
+    return (
+        f"Series: {series}. Trend: {obs.trend}. "
+        f"Y axis: {obs.y_label or 'unknown'}. "
+        f"Uncertainty: {uncertainty}."
     )
-    return response.content[0].text
 
-result = read_chart("quarterly_revenue.png")
-print(result)
+obs = ChartObservation("Revenue", "Month", "USD", ["Actual"], "rising", [])
+print(summarize_chart(obs))
 ```
 
-```python
-# URL-hosted chart
-response = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=1024,
-    messages=[{
-        "role": "user",
-        "content": [
-            {"type": "image", "source": {"type": "url", "url": "https://example.com/chart.png"}},
-            {"type": "text", "text": "Extract all data series as JSON."}
-        ]
-    }]
-)
-```
+## Failure Modes
 
----
-
-## Frameworks & Models
-
-| Framework / Model | Implementation | Since |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Claude claude-opus-4-5 | Native vision via `image` content block | 2024-06 |
-| GPT-4o | Vision via `image_url` content block | 2024-05 |
-| LangChain | `ChatAnthropic` + base64 image message | v0.2 |
+| Occluded labels | malformed or adversarial input | Validate structure before semantic processing. |
+| dual axes | unexpected source variation | Preserve raw context and emit a warning. |
+| misleading scales | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
 
----
+## Output Contract
 
-## Notes
+A structured observation of chart metadata and visible trends, plus explicit uncertainty; not an invented dataset.
 
-- For URL-hosted charts use `{"type": "url", "url": chart_url}` instead of base64
-- Pass `"Return ONLY valid JSON"` to suppress prose wrapping
-- Low-resolution or heavily compressed images reduce accuracy; request 1x–2x renders
-- For dashboards with multiple charts, crop each chart individually before passing
+## Design Rules
 
----
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
 
 ## Related Skills
 
-- [Image Understanding](image-understanding.md) — foundation vision skill
-- [OCR](ocr.md) — when axis labels are the primary target
-- [Document Parsing](document-parsing.md) — for charts embedded in reports
-- [Structured Data Reading](structured-data-reading.md) — post-extraction processing
-
----
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: full description, inputs/outputs table, two code examples, notes |
-| `2025-03` | Initial stub entry |
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |
