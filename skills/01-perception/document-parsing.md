@@ -4,6 +4,7 @@ category: 01-perception
 level: intermediate
 stability: stable
 description: "Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
     min_version: "0.3.0"
     tested_version: "0.4.1"
