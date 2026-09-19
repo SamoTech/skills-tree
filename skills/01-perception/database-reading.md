@@ -3,141 +3,75 @@ title: "Database Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply database reading in AI agent workflows."
+description: "Inspect database metadata and query results safely, preserving schema information, nullability, cardinality, provenance, and query limitations."
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-database-reading.json)
 
 # Database Reading
 
-**Category:** `perception`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
----
-
 ## Description
 
-Read and interpret data from relational databases (PostgreSQL, MySQL, SQLite), NoSQL stores (MongoDB, DynamoDB), and time-series databases. The agent generates and executes queries, inspects schema structures, and converts raw rows into natural-language summaries or structured JSON. Supports schema introspection, sample-based profiling, and query explanation.
+Inspect database metadata and query results safely, preserving schema information, nullability, cardinality, provenance, and query limitations.
 
----
+## When to Use
 
-## Inputs
+Use when an agent needs to understand relational or structured database state without mutating data.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `connection` | `object` | ✅ | DB connection object or DSN string |
-| `question` | `string` | ✅ | Natural-language question about the data |
-| `schema_hint` | `dict` | ❌ | Pre-fetched schema to skip introspection |
+## Inputs / Outputs
 
----
-
-## Outputs
-
-| Output | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `sql` | `string` | Generated SQL query |
-| `rows` | `list` | Raw result rows |
-| `answer` | `string` | Natural-language answer to the question |
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
 
----
-
-## Example
+## Runnable Example
 
 ```python
-import anthropic
-import sqlite3
-import json
+def normalize_rows(columns: list[str], rows: list[tuple]) -> list[dict]:
+    if any(len(row) != len(columns) for row in rows):
+        raise ValueError("row/column cardinality mismatch")
+    return [dict(zip(columns, row, strict=True)) for row in rows]
 
-client = anthropic.Anthropic()
-
-def query_database_with_nl(db_path: str, question: str) -> str:
-    """Answer a natural-language question against a SQLite database."""
-    conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-
-    # Introspect schema
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
-    tables = [row[0] for row in cursor.fetchall()]
-    schema = {}
-    for table in tables:
-        cursor.execute(f"PRAGMA table_info({table})")
-        schema[table] = [row[1] for row in cursor.fetchall()]
-
-    # Generate SQL via Claude
-    sql_response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=512,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Schema: {json.dumps(schema)}\n"
-                f"Question: {question}\n"
-                "Return ONLY a valid SQLite SELECT query, no explanation."
-            )
-        }]
-    )
-    sql = sql_response.content[0].text.strip().strip("```sql").strip("```").strip()
-
-    # Execute and summarize
-    cursor.execute(sql)
-    rows = cursor.fetchmany(50)
-    conn.close()
-
-    summary = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=512,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Question: {question}\n"
-                f"SQL: {sql}\n"
-                f"Results ({len(rows)} rows): {rows}\n"
-                "Answer concisely based on these results."
-            )
-        }]
-    )
-    return summary.content[0].text
-
-answer = query_database_with_nl("sales.db", "Which product had the highest revenue last month?")
-print(answer)
+columns = ["id", "name"]
+rows = [(1, "Ada"), (2, None)]
+print(normalize_rows(columns, rows))
 ```
 
----
+## Failure Modes
 
-## Frameworks & Models
-
-| Framework / Model | Implementation | Since |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| LangChain | `SQLDatabaseChain` / `create_sql_agent` | v0.1 |
-| LangGraph | Tool node wrapping DB cursor | v0.1 |
-| Claude claude-opus-4-5 | Direct text prompt with schema | 2024-06 |
+| Schema drift | malformed or adversarial input | Validate structure before semantic processing. |
+| null handling | unexpected source variation | Preserve raw context and emit a warning. |
+| permission errors | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
 
----
+## Output Contract
 
-## Notes
+Typed/normalized rows plus schema and query metadata; never treat absence from a limited result set as proof of absence.
 
-- Always parameterize any user-supplied values before executing generated SQL
-- Limit result sets (`LIMIT 50`) to avoid flooding the context window
-- For large schemas, send only relevant tables rather than the full schema
-- Never expose database credentials in prompts
+## Design Rules
 
----
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
 
 ## Related Skills
 
-- [Structured Data Reading](structured-data-reading.md) — CSV/JSON/YAML parsing
-- [API Response Parsing](api-response-parsing.md) — for REST API data sources
-- [Text Reading](text-reading.md) — general text extraction
-
----
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: full description, I/O table, NL-to-SQL example, security notes |
-| `2025-03` | Initial stub entry |
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |
