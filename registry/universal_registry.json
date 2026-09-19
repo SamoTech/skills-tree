@@ -248,7 +248,8 @@
         "type": "repository",
         "source": "implementations/code_reviewer.py",
         "supports": [
-          "implementation/code-reviewer-system"
+          "implementation/code-reviewer-system",
+          "adapter/code-reviewer-mcp"
         ],
         "provenance": {
           "source_type": "repository",
