@@ -162,8 +162,19 @@ class UniversalRegistry:
         schema_path = self.path.parent.parent / "meta" / "adapter-contract.schema.json"
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
+        evidence = {item["id"]: item for item in self._data["entities"]["evidence"]}
         for adapter in self._data["entities"]["adapters"]:
             validator.validate({"contract_version": "1.0", "adapter": adapter})
+            unsupported = [
+                evidence_id
+                for evidence_id in adapter["evidence"]
+                if adapter["id"] not in evidence[evidence_id].get("supports", [])
+            ]
+            if unsupported:
+                raise ValueError(
+                    f"Adapter evidence does not support adapter {adapter['id']}: "
+                    + ", ".join(sorted(unsupported))
+                )
 
     def _validate_integrity(self) -> None:
         entities = self._data.get("entities")
