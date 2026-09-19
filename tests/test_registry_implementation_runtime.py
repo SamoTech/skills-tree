@@ -297,3 +297,47 @@ def test_registry_initialization_requires_adapter_evidence_support(tmp_path: Pat
 
     with pytest.raises(ValueError, match="does not support adapter"):
         UniversalRegistry(registry_path)
+
+
+def test_registry_accepts_and_rejects_model_adapter_targets(tmp_path: Path) -> None:
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    registry["entities"]["models"].append(
+        {
+            "id": "model/test-model",
+            "version": "1.0",
+            "name": "Test Model",
+            "provenance": {
+                "source_type": "experimental",
+                "source": "tests/test_registry_implementation_runtime.py",
+            },
+        }
+    )
+    adapter = deepcopy(registry["entities"]["adapters"][0])
+    adapter["id"] = "adapter/test-model-target"
+    adapter["targets"] = [{"type": "model", "id": "model/test-model"}]
+    registry["entities"]["adapters"].append(adapter)
+    registry["entities"]["evidence"][1]["supports"].append("adapter/test-model-target")
+
+    registry_path = tmp_path / "registry" / "universal_registry.json"
+    registry_path.parent.mkdir()
+    registry_path.write_text(json.dumps(registry), encoding="utf-8")
+
+    for schema_name in (
+        "implementation-contract.schema.json",
+        "universal-graph.schema.json",
+        "adapter-contract.schema.json",
+    ):
+        target = tmp_path / "meta" / schema_name
+        target.parent.mkdir(exist_ok=True)
+        target.write_text((ROOT / "meta" / schema_name).read_text(encoding="utf-8"), encoding="utf-8")
+
+    graph_target = tmp_path / "graph" / "universal_graph.json"
+    graph_target.parent.mkdir()
+    graph_target.write_text((ROOT / "graph" / "universal_graph.json").read_text(encoding="utf-8"), encoding="utf-8")
+
+    UniversalRegistry(registry_path)
+
+    registry["entities"]["adapters"][-1]["targets"][0]["id"] = "model/missing-model"
+    registry_path.write_text(json.dumps(registry), encoding="utf-8")
+    with pytest.raises(ValueError, match="Dangling adapter target reference: model/model/missing-model"):
+        UniversalRegistry(registry_path)
