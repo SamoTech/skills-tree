@@ -4,6 +4,7 @@ category: 01-perception
 level: intermediate
 stability: stable
 description: "Reconstruct conversation state from message history while distinguishing durable facts, transient context, unresolved requests, and contradictory statements."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
 version: v2
 updated: "2026-09"
