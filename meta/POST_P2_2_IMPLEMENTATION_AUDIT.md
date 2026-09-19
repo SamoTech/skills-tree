@@ -142,3 +142,28 @@ The Adapter contract and evidence boundaries are now enforced. A fresh review of
 3. Regression: create a temporary model entity and model-targeted Adapter and verify initialization accepts the valid reference; verify a dangling model target is rejected.
 4. Preserve all current registry claims and MCP classification.
 5. Update MEMORY_STATE.md; do not invent a numbered P2.3 roadmap item.
+
+
+---
+
+## Follow-up audit — Capability↔Implementation linkage symmetry — 2026-09-19
+
+The Adapter model-target ontology boundary is now merged. A fresh review of the Implementation Ontology found a remaining referential-integrity gap in the existing capability-to-implementation relationship.
+
+### Evidence reviewed
+
+- `registry/universal_registry.json` allows capabilities to declare an `implementations` collection.
+- `registry/runtime.py` previously checked that each capability implementation ID exists, while separately checking that each Implementation points to a canonical Skill.
+- The runtime did not verify that a capability declaring an Implementation actually owns that Implementation's Skill.
+- The current audited Code Reviewer record is internally consistent: `capability/code-quality` contains `05-code/code-review`, and `implementation/code-reviewer-system` points to that Skill.
+
+### Selected vertical slice
+
+Implement only Capability↔Implementation linkage symmetry:
+
+1. Runtime: require every Implementation listed by a Capability to point to a Skill listed by that Capability.
+2. Regression: remove the Implementation's Skill from the Capability and verify registry initialization rejects the inconsistent relationship.
+3. Preserve the current registry claims and all existing Adapter, compatibility, graph, and MCP behavior.
+4. Update `MEMORY_STATE.md` and do not invent a numbered P2.3 roadmap item.
+
+This is an audit-derived Phase 2 correctness slice. It strengthens referential integrity without adding entities or ecosystem claims.
