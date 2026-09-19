@@ -319,6 +319,7 @@ def test_registry_accepts_and_rejects_model_adapter_targets(tmp_path: Path) -> N
     registry["entities"]["adapters"].append(adapter)
     registry["entities"]["evidence"][0]["supports"].append("adapter/test-model-target")
     registry["entities"]["evidence"][1]["supports"].append("adapter/test-model-target")
+    registry["entities"]["evidence"][2]["supports"].append("adapter/test-model-target")
 
     registry_path = tmp_path / "registry" / "universal_registry.json"
     registry_path.parent.mkdir()
