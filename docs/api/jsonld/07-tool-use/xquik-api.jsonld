@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-19T19:28:45Z",
+  "dateModified": "2026-09-19T19:32:58Z",
   "skillId": "xquik-api",
   "skillVersion": "v1",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-06-01",
-  "keywords": "LLM skill, tool, api, AI agent, xquik, use, skills tree",
+  "keywords": "LLM skill, AI agent, skills tree, use, tool, xquik, api",
   "about": {
     "@type": "Thing",
     "name": "Xquik API",

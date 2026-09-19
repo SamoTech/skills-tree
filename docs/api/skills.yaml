@@ -1,4 +1,4 @@
-generated: '2026-09-19T19:28:45Z'
+generated: '2026-09-19T19:32:58Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -1383,7 +1383,7 @@ skills:
     knowledge.
   category: reasoning
   level: advanced
-  stability: evolving
+  stability: experimental
   version: v2
   added: 2025-06
   last_updated: 2026-06
@@ -3816,7 +3816,7 @@ skills:
   category: agentic-patterns
   level: advanced
   stability: stable
-  version: v1.2
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -3997,7 +3997,7 @@ skills:
   category: agentic-patterns
   level: intermediate
   stability: stable
-  version: v1.2
+  version: v2
   added: 2025-03
   last_updated: null
   sections:

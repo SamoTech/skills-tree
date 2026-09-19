@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-19T19:28:45Z",
+  "dateModified": "2026-09-19T19:32:58Z",
   "skillId": "multimodal-document-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "document, reading, LLM skill, AI agent, multimodal, skills tree, perception",
+  "keywords": "LLM skill, AI agent, skills tree, perception, multimodal, document, reading",
   "about": {
     "@type": "Thing",
     "name": "Multimodal Document Reading",
