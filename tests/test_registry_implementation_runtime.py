@@ -280,5 +280,20 @@ def test_registry_initialization_requires_adapter_evidence_support(tmp_path: Pat
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
 
+    for schema_name in (
+        "implementation-contract.schema.json",
+        "universal-graph.schema.json",
+        "adapter-contract.schema.json",
+    ):
+        source = ROOT / "meta" / schema_name
+        target = tmp_path / "meta" / schema_name
+        target.parent.mkdir(exist_ok=True)
+        target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
+
+    graph = ROOT / "graph" / "universal_graph.json"
+    graph_target = tmp_path / "graph" / "universal_graph.json"
+    graph_target.parent.mkdir()
+    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
+
     with pytest.raises(ValueError, match="does not support adapter"):
         UniversalRegistry(registry_path)
