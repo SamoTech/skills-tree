@@ -17,6 +17,8 @@ def test_compatibility_schema_is_valid_and_versioned() -> None:
     assert set(schema["properties"]["compatibility"]["required"]) == {
         "id", "version", "name", "subject", "target", "status", "evidence", "provenance"
     }
+    assert schema["properties"]["compatibility"]["properties"]["evidence"]["minItems"] == 1
+    assert schema["properties"]["compatibility"]["properties"]["provenance"]["required"] == ["source_type", "source"]
 
 
 def test_compatibility_schema_accepts_conditional_fact() -> None:

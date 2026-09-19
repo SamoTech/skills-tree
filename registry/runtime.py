@@ -250,6 +250,10 @@ class UniversalRegistry:
             for evidence_id in compatibility.get("evidence", []):
                 if evidence_id not in evidence:
                     raise ValueError(f"Dangling compatibility evidence reference: {evidence_id}")
+                if compatibility["id"] not in evidence[evidence_id].get("supports", []):
+                    raise ValueError(
+                        f"Compatibility evidence does not support compatibility {compatibility['id']}: {evidence_id}"
+                    )
         for evidence_item in evidence.values():
             for supported_id in evidence_item.get("supports", []):
                 if supported_id not in ids:

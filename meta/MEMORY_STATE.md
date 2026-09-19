@@ -11,12 +11,12 @@
 
 | Key | Value |
 |---|---|
-| Main HEAD at task baseline | `66725159dd56ce9c138f3767b16001bd292e366e` |
+| Main HEAD at task baseline | `b264601681bd4d389d97bbd84cbda2cdd88bb373` |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
 | Current phase | Phase 2 — Implementation Ontology |
 | Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Universal registry entity provenance source contract — merged |
-| Active branch | `main` |
+| Current audit-derived slice | Compatibility evidence traceability — active on branch |
+| Active branch | `phase2/compatibility-evidence-contract-20260919` |
 | Active governance blocker | None |
 | Current implementation registry | `implementation/code-reviewer-system` |
 | MCP classification | Protocol; not an Implementation |
@@ -36,12 +36,10 @@ The older June 2026 launch/content roadmap documents remain historical records. 
 
 Phase 1 and P2.1/P2.2 remain the highest numbered verified roadmap items. Universal graph contract validation and graph provenance-source enforcement are merged on `main`. No numbered P2.3 item is invented.
 
----
-
 ## Current Audit-Driven Slice
 
-Post-P2.2 audit found a parallel provenance gap: the universal registry contract defined `source` but did not require it, and runtime integrity only required the provenance object to exist. The slice makes entity provenance traceable by requiring a non-empty `source` in the normative registry schema and rejecting missing entity provenance sources at runtime, with regression coverage. PR #124 was merged to `main` at `66725159dd56ce9c138f3767b16001bd292e366e`. No entities or ecosystem claims were added.
+Post-P2.2 audit found a compatibility evidence trust-boundary gap: compatibility records referenced evidence, but the runtime did not require each referenced evidence record to explicitly support the compatibility fact. The standalone compatibility contract also did not require non-empty evidence or a provenance source. The current slice makes that relationship explicit without adding any new ecosystem claims.
 
 ## Next Action
 
-Perform a fresh Phase 2 post-P2.2 architectural audit from the resulting `main` state. Derive the smallest evidence-backed vertical slice, document it before implementation, and do not invent a numbered P2.3 requirement.
+Validate the compatibility evidence traceability slice through the full required CI gate, merge only if all required checks are green, then reconcile `MEMORY_STATE.md` on `main` and perform a fresh post-P2.2 architecture audit. Do not invent a numbered P2.3 requirement.

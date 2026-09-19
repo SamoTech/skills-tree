@@ -262,7 +262,8 @@
         "type": "repository",
         "source": "mcp/tools.py",
         "supports": [
-          "adapter/code-reviewer-mcp"
+          "adapter/code-reviewer-mcp",
+          "compatibility/code-reviewer-mcp-model-context-protocol"
         ],
         "provenance": {
           "source_type": "repository",

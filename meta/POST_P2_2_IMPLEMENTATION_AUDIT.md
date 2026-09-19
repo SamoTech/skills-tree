@@ -52,3 +52,21 @@ Implement only graph contract enforcement:
 5. Update `MEMORY_STATE.md` in the same task commit.
 
 This is an audit-derived correctness slice and is intentionally not assigned a fabricated P2.3 number.
+
+---
+
+## Follow-up audit — compatibility evidence traceability — 2026-09-19
+
+The entity-provenance and graph-provenance fixes are now merged. A fresh review of the compatibility boundary found that compatibility records declare evidence, but the runtime only verifies that the referenced evidence IDs exist. The evidence record is not required to explicitly support the compatibility fact itself. In the current registry, the sole compatibility fact references `evidence/code-reviewer-mcp-boundary`, whose `supports` list names the adapter but not the compatibility fact. That makes the compatibility assertion traceable to a source file but not explicitly evidence-linked at the claim level.
+
+### Selected vertical slice
+
+Implement only compatibility evidence traceability:
+
+1. Schema: require at least one compatibility evidence reference and require a traceable provenance source in the standalone compatibility contract.
+2. Runtime: require every evidence record referenced by a compatibility to explicitly list that compatibility ID in `supports`.
+3. Registry: make the existing compatibility evidence relationship explicit; do not add a new compatibility fact or ecosystem entity.
+4. Regression: remove the compatibility ID from its evidence `supports` list and verify registry initialization rejects the record.
+5. State: update `MEMORY_STATE.md` in the same task commit.
+
+This is an audit-derived Phase 2 correctness slice. It does not create a numbered P2.3 item, add providers/platforms/frameworks/models, or change MCP's classification.
