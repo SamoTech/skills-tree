@@ -4,6 +4,7 @@ category: 01-perception
 level: intermediate
 stability: stable
 description: "Read unfamiliar source code by reconstructing control flow, data flow, contracts, side effects, dependencies, and failure boundaries before proposing changes."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
 version: v2
 updated: "2026-09"
