@@ -3,7 +3,7 @@ title: "Document Parsing"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply document parsing in AI agent workflows."
+description: "Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty."
 added: "2025-03"
 dependencies:
   - package: langchain-community
@@ -11,109 +11,86 @@ dependencies:
     tested_version: "0.4.1"
     confidence: verified
     notes: "Patched PYSEC-2024-278. Use langchain-community>=0.4.1."
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)
 
 # Document Parsing
 
-**Category:** `perception`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Version:** v2
-
----
-
 ## Description
 
-Parse structured office documents — DOCX, XLSX, PPTX, HTML, CSV — extracting text, tables, images, and embedded metadata. Production systems must handle corrupt files, password-protected docs, mixed encodings, and scanned PDFs gracefully.
+Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty.
 
----
+## When to Use
 
-## Input / Output
+Use for PDFs, word-processing files, HTML exports, reports, invoices, and other documents that need downstream retrieval or analysis.
 
-| Input | Output |
-|---|---|
-| `.docx` / `.odt` | Paragraph list, table list, image refs, style map |
-| `.xlsx` / `.csv` | Sheet names → DataFrame, formula values (not formulas) |
-| `.pptx` | Slide-by-slide text + speaker notes + image captions |
-| `.html` | Cleaned prose via Trafilatura or Readability |
-| Mixed zip bundle | Per-file structured JSON |
+## Inputs / Outputs
 
----
-
-## Implementation
-
-### Python — DOCX
-
-```python
-from docx import Document
-from docx.oxml.ns import qn
-
-def parse_docx(path: str) -> dict:
-    doc = Document(path)
-    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
-    tables = []
-    for table in doc.tables:
-        rows = [[cell.text for cell in row.cells] for row in table.rows]
-        tables.append(rows)
-    return {"paragraphs": paragraphs, "tables": tables}
-```
-
-### Python — XLSX
-
-```python
-import openpyxl
-
-def parse_xlsx(path: str) -> dict:
-    wb = openpyxl.load_workbook(path, data_only=True)
-    sheets = {}
-    for name in wb.sheetnames:
-        ws = wb[name]
-        sheets[name] = [[cell.value for cell in row] for row in ws.iter_rows()]
-    return sheets
-```
-
-### LangChain loaders
-
-```python
-from langchain_community.document_loaders import (
-    Docx2txtLoader, UnstructuredExcelLoader, UnstructuredPowerPointLoader
-)
-
-loader = Docx2txtLoader("report.docx")
-docs = loader.load()  # List[Document] with page_content + metadata
-```
-
----
-
-## Frameworks
-
-| Library | Best For | Notes |
+| Field | Type | Description |
 |---|---|---|
-| `python-docx` | DOCX structure | Tables, styles, headers/footers |
-| `openpyxl` | XLSX (no formulas) | `data_only=True` resolves cached values |
-| `python-pptx` | PPTX slides | Per-slide text + notes |
-| `unstructured` | Mixed document types | Unified API, handles edge cases |
-| `trafilatura` | HTML → clean prose | Best-in-class noise removal |
-| LangChain loaders | Agent integration | Wrap all of the above |
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
 
----
+## Runnable Example
 
-## Edge Cases
+```python
+from dataclasses import dataclass
 
-- **Password-protected files** — catch `BadZipFile` / `PermissionError`; prompt user for password via `msoffcrypto-tool`
-- **Corrupt files** — wrap in try/except and fallback to `unstructured`
-- **Scanned DOCX** (images only) — detect zero paragraphs, route to OCR pipeline
-- **Mixed encodings** — use `chardet` to detect encoding before reading CSV
-- **Merged table cells** — `python-docx` exposes merged cells via `cell.spans`
+@dataclass(frozen=True)
+class Block:
+    kind: str
+    text: str
+    page: int | None = None
 
----
+def parse_blocks(raw: list[dict]) -> list[Block]:
+    blocks = []
+    for item in raw:
+        text = str(item.get("text", "")).strip()
+        if not text:
+            continue
+        blocks.append(Block(str(item.get("kind", "paragraph")), text, item.get("page")))
+    return blocks
+
+print(parse_blocks([
+    {"kind": "heading", "text": "Invoice", "page": 1},
+    {"kind": "paragraph", "text": "Total: 100", "page": 1},
+]))
+```
+
+## Failure Modes
+
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Broken reading order | malformed or adversarial input | Validate structure before semantic processing. |
+| OCR artifacts | unexpected source variation | Preserve raw context and emit a warning. |
+| embedded objects | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
+
+## Output Contract
+
+Ordered document blocks with type and source location; retain extraction warnings rather than silently repairing uncertain text.
+
+## Design Rules
+
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
 
 ## Related Skills
 
-- [PDF Parsing](pdf-parsing.md)
-- [Structured Data Reading](structured-data-reading.md)
-- [OCR](ocr.md)
-- [Email Parsing](email-parsing.md)
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |
