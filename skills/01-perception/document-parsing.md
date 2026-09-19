@@ -5,8 +5,6 @@ level: intermediate
 stability: stable
 description: "Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty."
 added: "2025-03"
-dependencies:
-  - package: langchain-community
     min_version: "0.3.0"
     tested_version: "0.4.1"
     confidence: verified
