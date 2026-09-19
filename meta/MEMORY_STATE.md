@@ -11,12 +11,12 @@
 
 | Key | Value |
 |---|---|
-| Main HEAD at task baseline | `839446ad74269f0e58916d2715f6be30f6b718e2` |
+| Main HEAD at task baseline | `696d12ba4c41f947dd2a7344aa2f8fea3792d621` |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
 | Current phase | Phase 2 — Implementation Ontology |
 | Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Adapter contract runtime enforcement — merged |
-| Active branch | `main` |
+| Current audit-derived slice | Adapter evidence traceability — in progress |
+| Active branch | `phase2/adapter-evidence-traceability-20260919` |
 | Active governance blocker | None |
 | Current implementation registry | `implementation/code-reviewer-system` |
 | MCP classification | Protocol; not an Implementation |
@@ -34,12 +34,12 @@ The older June 2026 launch/content roadmap documents remain historical records. 
 
 `P1.1 → P1.2 → P1.3 → P1.4 → P1.5 → P1.6 → P1.7 → P1.8 → P1.9 → P1.10 → P1.11 → P2.1 → P2.2`
 
-Phase 1 and P2.1/P2.2 remain the highest numbered verified roadmap items. Universal graph contract validation, graph provenance-source enforcement, entity provenance-source enforcement, compatibility evidence traceability, and Adapter contract runtime enforcement are merged on `main`. No numbered P2.3 item is invented.
+Phase 1 and P2.1/P2.2 remain the highest numbered verified roadmap items. Universal graph contract validation, graph provenance-source enforcement, entity provenance-source enforcement, compatibility evidence traceability, and Adapter contract runtime enforcement are merged on `main`. The next audit-derived Adapter evidence traceability slice is in progress. No numbered P2.3 item is invented.
 
 ## Current Audit-Driven Slice
 
-Adapter contract runtime enforcement is merged in PR #126 at `839446ad74269f0e58916d2715f6be30f6b718e2`. `UniversalRegistry` validates every registered Adapter against `meta/adapter-contract.schema.json` during initialization, while preserving existing Adapter reference-integrity checks. Regression coverage rejects a malformed Adapter record.
+Adapter evidence traceability is the current audit-derived Phase 2 slice from `main` at `696d12ba4c41f947dd2a7344aa2f8fea3792d621`. The slice requires Adapter evidence/provenance contract fields and validates that each referenced evidence record explicitly supports the Adapter claim.
 
 ## Next Action
 
-Perform a fresh Phase 2 post-P2.2 architectural audit from the resulting `main` state. Derive the smallest evidence-backed vertical slice, document it before implementation, and do not invent a numbered P2.3 requirement.
+Complete the Adapter evidence traceability quality gate, then open/validate the PR. Do not invent a numbered P2.3 requirement.
