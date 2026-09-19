@@ -4,6 +4,7 @@ category: 01-perception
 level: basic
 stability: stable
 description: "Inspect files and directories with bounded traversal, explicit encoding handling, metadata capture, and path-safety checks."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
 version: v2
 updated: "2026-09"
