@@ -119,3 +119,26 @@ Implement only Adapter evidence traceability:
 3. Regression: remove the Adapter ID from its evidence `supports` list and verify registry initialization rejects the record.
 4. Preserve the current Adapter/entity data and MCP classification; add no new ecosystem claims.
 5. Update `MEMORY_STATE.md` as part of the task and do not assign a numbered P2.3 roadmap item.
+
+
+---
+
+## Follow-up audit — Adapter model-target ontology boundary — 2026-09-19
+
+The Adapter contract and evidence boundaries are now enforced. A fresh review of the canonical ontology and Adapter contract found a schema/runtime expressiveness gap: the Phase 2/3 architecture defines an Adapter as a bridge into platform/framework/model/runtime targets, while the normative Adapter contract and runtime target validation currently omit model.
+
+### Evidence reviewed
+
+- meta/DEVELOPMENT_KNOWLEDGE.md defines Adapter as a compatibility bridge into platform/framework/model/runtime constraints.
+- meta/adapter-contract.schema.json currently permits only platform, framework, protocol, and runtime target types.
+- registry/runtime.py uses the same four target types for Adapter reference validation.
+- registry/universal_registry.json already has a typed models collection in the universal ontology, so the omission is a contract expressiveness gap rather than a missing ontology category.
+- No new model claim is required for the current registry; this slice only makes the existing contract capable of representing model-targeted adapters.
+
+### Selected vertical slice
+
+1. Schema: permit model as an Adapter target type.
+2. Runtime: validate Adapter model targets against the canonical models collection.
+3. Regression: create a temporary model entity and model-targeted Adapter and verify initialization accepts the valid reference; verify a dangling model target is rejected.
+4. Preserve all current registry claims and MCP classification.
+5. Update MEMORY_STATE.md; do not invent a numbered P2.3 roadmap item.
