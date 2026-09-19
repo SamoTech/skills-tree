@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 added: "2025-03"
 description: "Convert spoken audio into timestamp-aware text while preserving speaker boundaries, language metadata, confidence signals, and recoverable transcription errors."
+related: [text-reading, structured-data-reading, json-schema-validation]
     min_version: "20231117"
     tested_version: "20231117"
     confidence: verified
