@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/document-parsing.md",
   "name": "Document Parsing",
   "headline": "Document Parsing",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)",
+  "description": "Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/document-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-17T17:08:38Z",
+  "dateModified": "2026-09-19T20:02:32Z",
   "skillId": "document-parsing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -60,11 +60,14 @@
   "categoryDir": "01-perception",
   "sections": [
     "Description",
-    "Input / Output",
-    "Implementation",
-    "Frameworks",
-    "Edge Cases",
-    "Related Skills"
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Output Contract",
+    "Design Rules",
+    "Related Skills",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -73,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, AI agent, document, skills tree, parsing",
+  "keywords": "LLM skill, document, parsing, AI agent, skills tree, perception",
   "about": {
     "@type": "Thing",
     "name": "Document Parsing",

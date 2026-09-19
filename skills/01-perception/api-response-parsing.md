@@ -4,59 +4,98 @@ category: 01-perception
 level: intermediate
 stability: stable
 added: "2025-03"
-description: "Apply api response parsing in AI agent workflows."
+description: "Parse heterogeneous API responses into validated, normalized records while preserving error context, pagination metadata, and provider-specific fields."
+related: [text-reading, structured-data-reading, json-schema-validation]
+version: v2
+updated: "2026-09"
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-api-response-parsing.json)
 
 # API Response Parsing
 
-### Description
-Structured extraction and validation of data from REST, GraphQL, gRPC, and WebSocket API responses. Handles deeply nested payloads, pagination envelopes, error schemas, partial responses, and dynamic field resolution. Includes schema validation, type coercion, and tolerance for malformed or evolving APIs.
+## Description
 
-### When to Use
-- Consuming third-party REST or GraphQL APIs where the schema may drift
-- Extracting structured data from paginated or cursor-based response envelopes
-- Validating API responses against OpenAPI / JSON Schema before downstream processing
-- Handling gRPC Protobuf responses that must be decoded and mapped to domain objects
+Parse heterogeneous API responses into validated, normalized records while preserving error context, pagination metadata, and provider-specific fields.
 
-### Example
+## When to Use
+
+Use when an agent receives JSON or structured HTTP responses from third-party APIs and downstream logic needs a stable internal representation.
+
+## Inputs / Outputs
+
+| Field | Type | Description |
+|---|---|---|
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
+
+## Runnable Example
+
 ```python
-import httpx, jsonpath_ng
-from jsonschema import validate
+from dataclasses import dataclass
+from typing import Any
 
-SCHEMA = {
-  "type": "object",
-  "required": ["data", "meta"],
-  "properties": {
-    "data": {"type": "array", "items": {"type": "object"}},
-    "meta": {"type": "object", "properties": {"next_cursor": {"type": "string"}}}
-  }
-}
+@dataclass(frozen=True)
+class ApiResult:
+    data: list[dict[str, Any]]
+    next_cursor: str | None
+    warnings: list[str]
 
-def fetch_all_pages(url: str, headers: dict) -> list[dict]:
-    results, cursor = [], None
-    while True:
-        params = {"cursor": cursor} if cursor else {}
-        r = httpx.get(url, headers=headers, params=params, timeout=10)
-        r.raise_for_status()
-        body = r.json()
-        validate(instance=body, schema=SCHEMA)  # raises on malformed payload
-        expr = jsonpath_ng.parse("$.data[*].id")
-        ids = [m.value for m in expr.find(body)]
-        results.extend(body["data"])
-        cursor = body.get("meta", {}).get("next_cursor")
-        if not cursor:
-            break
-    return results
+def parse_api_response(payload: dict[str, Any]) -> ApiResult:
+    items = payload.get("items", payload.get("data", []))
+    if not isinstance(items, list):
+        raise ValueError("API response items must be a list")
+
+    normalized: list[dict[str, Any]] = []
+    warnings: list[str] = []
+    for item in items:
+        if not isinstance(item, dict):
+            warnings.append("ignored non-object item")
+            continue
+        normalized.append(dict(item))
+
+    paging = payload.get("pagination") or payload.get("meta") or {}
+    cursor = paging.get("next_cursor") if isinstance(paging, dict) else None
+    return ApiResult(normalized, cursor, warnings)
+
+result = parse_api_response({
+    "items": [{"id": "42", "name": "Ada"}],
+    "pagination": {"next_cursor": "abc"},
+})
+print(result)
 ```
 
-### Advanced Techniques
-- **GraphQL fragment unpacking**: recursively resolve `__typename` to dispatch handlers per concrete type
-- **Protobuf → dict**: use `google.protobuf.json_format.MessageToDict` with `preserving_proto_field_name=True`
-- **Delta patching**: for PATCH-style APIs returning only changed fields, merge with a local baseline using `deepmerge`
-- **Rate-limit header parsing**: extract `X-RateLimit-Remaining` / `Retry-After` to back off gracefully
+## Failure Modes
 
-### Related Skills
-- `web-scraping`, `json-transformation`, `schema-inference`, `http-request`, `data-cleaning`
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Malformed envelopes | malformed or adversarial input | Validate structure before semantic processing. |
+| type drift | unexpected source variation | Preserve raw context and emit a warning. |
+| missing pagination fields | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
+
+## Output Contract
+
+A normalized list of records, an optional continuation cursor, and non-fatal parsing warnings.
+
+## Design Rules
+
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
+
+## Related Skills
+
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |

@@ -3,77 +3,67 @@ title: Plan-and-Execute
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
-description: Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.
+description: Separate planning from execution so a planner produces a bounded task graph and an executor performs and verifies each step.
+related: [09-agentic-patterns/react, 02-reasoning/planning-decomposition]
 added: "2025-03"
-version: v1.2
-prerequisites:
-  - 09-agentic-patterns/react
-  - 02-reasoning/planning-decomposition
+version: v2
 ---
 
 # Plan-and-Execute
 
-### Description
+## Description
 
-Separate planning from execution: a planner LLM generates a task list upfront, then an executor agent works through each step, optionally replanning when steps fail.
+Separate planning from execution: a planner produces a bounded sequence or task graph, then an executor performs each step and records its result. Replanning is allowed only when a step fails or new evidence invalidates the remaining plan.
 
-### Example
+## When to Use
+
+Use for multi-step work where explicit decomposition improves verification or recovery. Avoid it for simple deterministic operations where planning overhead exceeds the task itself.
+
+## Inputs / Outputs
+
+Input: task, constraints, available tools, and a verification policy. Output: plan steps with explicit status, execution results, verification results, and unresolved failures.
+
+## Example
 
 ```python
-# pip install langgraph langchain-openai pydantic
-from langgraph.graph import StateGraph, END
-from langchain_openai import ChatOpenAI
-from pydantic import BaseModel
-from typing import List, Optional
+from dataclasses import dataclass
 
-class AgentState(BaseModel):
-    goal: str
-    plan: List[str] = []
-    current_step: int = 0
-    results: List[str] = []
-    final_answer: Optional[str] = None
+@dataclass
+class Step:
+    name: str
+    status: str = "pending"
 
-planner_llm = ChatOpenAI(model="gpt-4o")
-executor_llm = ChatOpenAI(model="gpt-4o-mini")
 
-def planner(state: AgentState) -> AgentState:
-    response = planner_llm.invoke(f"Create a step-by-step plan for: {state.goal}. Return only numbered steps.")
-    steps = [line.strip() for line in response.content.split("\n") if line.strip() and line[0].isdigit()]
-    state.plan = steps
-    return state
-
-def executor(state: AgentState) -> AgentState:
-    if state.current_step >= len(state.plan):
-        state.final_answer = "\n".join(state.results)
-        return state
-    step = state.plan[state.current_step]
-    result = executor_llm.invoke(f"Execute this step: {step}")
-    state.results.append(result.content)
-    state.current_step += 1
-    return state
-
-def should_continue(state: AgentState) -> str:
-    return END if state.final_answer else "executor"
-
-graph = StateGraph(AgentState)
-graph.add_node("planner", planner)
-graph.add_node("executor", executor)
-graph.set_entry_point("planner")
-graph.add_edge("planner", "executor")
-graph.add_conditional_edges("executor", should_continue, {END: END, "executor": "executor"})
-app = graph.compile()
-
-result = app.invoke(AgentState(goal="Research and summarize the benefits of RAG"))
-print(result["final_answer"])
+def execute(plan: list[Step], run):
+    for step in plan:
+        result = run(step.name)
+        step.status = "passed" if result else "failed"
+        if step.status == "failed":
+            break
+    return plan
 ```
 
-### Related Skills
-- `react`, `planning`, `stateful-agent-graphs`, `agent-handoffs`
+## Failure Modes
+
+- Invalid plan: reject missing prerequisites or unverifiable steps before execution.
+- Step failure: stop or replan according to the declared recovery policy; do not silently skip the failed step.
+- Stale assumptions: invalidate affected downstream steps when new evidence changes a prerequisite.
+- Tool failure: distinguish infrastructure failure from task failure.
+- Unverified completion: never mark a step complete solely because an action was attempted.
+
+## Output Contract
+
+Every step has a stable identifier or name and an explicit status. A completed step must have a verification result when the policy requires verification. Failed or skipped steps must retain a reason.
+
+## Design Rules
+
+Keep planning and execution state separate. Bound plan size and replanning attempts. Make dependencies explicit. Verify outputs before allowing dependent steps to proceed. Preserve an execution trace sufficient to reconstruct why the final state was reached.
+
+## Related Skills
+
+- `09-agentic-patterns/react`
+- `02-reasoning/planning-decomposition`
 
 ## Changelog
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
-| 2026-06-23 | v1.2 | Added prerequisite: 02-reasoning/planning-decomposition (INITIATIVE-009, C-003) |
+- v2 (2026-09): normalized metadata and added explicit planning, execution, recovery, and verification contracts.

@@ -3,117 +3,68 @@ title: "Document Parsing"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply document parsing in AI agent workflows."
+description: "Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
-dependencies:
-  - package: langchain-community
-    min_version: "0.3.0"
-    tested_version: "0.4.1"
-    confidence: verified
-    notes: "Patched PYSEC-2024-278. Use langchain-community>=0.4.1."
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)
 
 # Document Parsing
 
-**Category:** `perception`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Version:** v2
-
----
-
 ## Description
 
-Parse structured office documents — DOCX, XLSX, PPTX, HTML, CSV — extracting text, tables, images, and embedded metadata. Production systems must handle corrupt files, password-protected docs, mixed encodings, and scanned PDFs gracefully.
+Parse documents into structured sections, paragraphs, tables, metadata, and source locations while preserving reading order and extraction uncertainty.
 
----
+## When to Use
 
-## Input / Output
+Use for PDFs, word-processing files, HTML exports, reports, invoices, and other documents that need downstream retrieval or analysis.
 
-| Input | Output |
-|---|---|
-| `.docx` / `.odt` | Paragraph list, table list, image refs, style map |
-| `.xlsx` / `.csv` | Sheet names → DataFrame, formula values (not formulas) |
-| `.pptx` | Slide-by-slide text + speaker notes + image captions |
-| `.html` | Cleaned prose via Trafilatura or Readability |
-| Mixed zip bundle | Per-file structured JSON |
+## Inputs / Outputs
 
----
+Input: a document source and an optional extraction policy. Output: ordered blocks with type, text or cell data, source location when available, and extraction warnings. Preserve page, section, or element identifiers when supplied by the parser.
 
-## Implementation
-
-### Python — DOCX
+## Runnable Example
 
 ```python
-from docx import Document
-from docx.oxml.ns import qn
+from pathlib import Path
 
-def parse_docx(path: str) -> dict:
-    doc = Document(path)
-    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
-    tables = []
-    for table in doc.tables:
-        rows = [[cell.text for cell in row.cells] for row in table.rows]
-        tables.append(rows)
-    return {"paragraphs": paragraphs, "tables": tables}
+
+def extract_text(path: str) -> dict:
+    """Read a UTF-8 text fixture without silently accepting a missing source."""
+    source = Path(path)
+    if not source.is_file():
+        raise FileNotFoundError(source)
+    text = source.read_text(encoding="utf-8")
+    return {"type": "document", "source": str(source), "text": text}
+
+print(extract_text("example.txt"))
 ```
 
-### Python — XLSX
+## Failure Modes
 
-```python
-import openpyxl
+- Missing or unreadable source: fail explicitly with the source path or parser error.
+- Unsupported format: report the format limitation instead of returning an empty successful result.
+- Broken reading order: preserve source locations and flag the affected blocks.
+- OCR uncertainty: retain extraction uncertainty and avoid silently correcting names, numbers, or legal text.
+- Table extraction errors: preserve the raw region or warning when cell boundaries are uncertain.
 
-def parse_xlsx(path: str) -> dict:
-    wb = openpyxl.load_workbook(path, data_only=True)
-    sheets = {}
-    for name in wb.sheetnames:
-        ws = wb[name]
-        sheets[name] = [[cell.value for cell in row] for row in ws.iter_rows()]
-    return sheets
-```
+## Output Contract
 
-### LangChain loaders
+Every emitted block must identify its type and preserve its source order. Text blocks must contain non-empty text unless the parser explicitly represents an empty structural element. Source locations should be retained whenever the source parser provides them.
 
-```python
-from langchain_community.document_loaders import (
-    Docx2txtLoader, UnstructuredExcelLoader, UnstructuredPowerPointLoader
-)
+## Design Rules
 
-loader = Docx2txtLoader("report.docx")
-docs = loader.load()  # List[Document] with page_content + metadata
-```
-
----
-
-## Frameworks
-
-| Library | Best For | Notes |
-|---|---|---|
-| `python-docx` | DOCX structure | Tables, styles, headers/footers |
-| `openpyxl` | XLSX (no formulas) | `data_only=True` resolves cached values |
-| `python-pptx` | PPTX slides | Per-slide text + notes |
-| `unstructured` | Mixed document types | Unified API, handles edge cases |
-| `trafilatura` | HTML → clean prose | Best-in-class noise removal |
-| LangChain loaders | Agent integration | Wrap all of the above |
-
----
-
-## Edge Cases
-
-- **Password-protected files** — catch `BadZipFile` / `PermissionError`; prompt user for password via `msoffcrypto-tool`
-- **Corrupt files** — wrap in try/except and fallback to `unstructured`
-- **Scanned DOCX** (images only) — detect zero paragraphs, route to OCR pipeline
-- **Mixed encodings** — use `chardet` to detect encoding before reading CSV
-- **Merged table cells** — `python-docx` exposes merged cells via `cell.spans`
-
----
+Separate extraction from interpretation. Preserve page and element boundaries. Do not silently normalize source content that could change meaning. For high-value fields such as dates, amounts, identifiers, and legal clauses, retain the original text alongside normalized values.
 
 ## Related Skills
 
-- [PDF Parsing](pdf-parsing.md)
-- [Structured Data Reading](structured-data-reading.md)
-- [OCR](ocr.md)
-- [Email Parsing](email-parsing.md)
+- `text-reading`
+- `structured-data-reading`
+- `json-schema-validation`
+
+## Changelog
+
+- v2 (2026-09): repaired malformed metadata and added bounded extraction guidance, output contract, and executable fixture example.

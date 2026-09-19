@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-17T17:08:38Z",
+  "dateModified": "2026-09-19T20:02:32Z",
   "skillId": "cot",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -80,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "cot, LLM skill, agentic, AI agent, patterns, skills tree",
+  "keywords": "LLM skill, AI agent, skills tree, patterns, agentic, cot",
   "about": {
     "@type": "Thing",
     "name": "Chain of Thought (CoT)",

@@ -3,46 +3,94 @@ title: "Conversation History Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply conversation history reading in AI agent workflows."
+description: "Reconstruct conversation state from message history while distinguishing durable facts, transient context, unresolved requests, and contradictory statements."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-conversation-history-reading.json)
 
 # Conversation History Reading
-Category: perception | Level: basic | Stability: stable | Version: v1
 
 ## Description
-Load and structure multi-turn conversation histories from various formats (JSON, plain text, CSV exports) for context injection or analysis.
 
-## Inputs
-- `source`: file path or list of message dicts
-- `format`: `openai` | `anthropic` | `plain` | `auto`
+Reconstruct conversation state from message history while distinguishing durable facts, transient context, unresolved requests, and contradictory statements.
 
-## Outputs
-- Normalized message list: `[{role, content, timestamp}]`
+## When to Use
 
-## Example
+Use when an agent must resume a thread safely or determine what information is already known before asking the user to repeat it.
+
+## Inputs / Outputs
+
+| Field | Type | Description |
+|---|---|---|
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
+
+## Runnable Example
+
 ```python
-import json
-with open("chat_export.json") as f:
-    raw = json.load(f)
-messages = [{"role": m["role"], "content": m["content"], "ts": m.get("created_at")} for m in raw["messages"]]
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class ConversationState:
+    goals: list[str]
+    decisions: list[str]
+    open_questions: list[str]
+    contradictions: list[str]
+
+def summarize_history(messages: list[dict[str, str]]) -> ConversationState:
+    goals, decisions, questions, contradictions = [], [], [], []
+    for m in messages:
+        text = m.get("content", "").strip()
+        if text.endswith("?"):
+            questions.append(text)
+        if "decided" in text.lower() or "agreed" in text.lower():
+            decisions.append(text)
+        if "need to" in text.lower() or "goal" in text.lower():
+            goals.append(text)
+    return ConversationState(goals, decisions, questions, contradictions)
+
+state = summarize_history([
+    {"role": "user", "content": "Our goal is to ship the parser."},
+    {"role": "assistant", "content": "We agreed to keep the schema stable."},
+])
+print(state)
 ```
 
-## Frameworks
-| Framework | Method |
-|---|---|
-| LangChain | `ChatMessageHistory`, `FileChatMessageHistory` |
-| LlamaIndex | `ChatMemoryBuffer` |
-| mem0 | `memory.get_all()` |
-
 ## Failure Modes
-- Role names differ across providers (`human` vs `user`)
-- Token limit exceeded when injecting full history
 
-## Related
-- `text-reading.md` · `memory-injection.md` (03-memory)
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Contradictory messages | malformed or adversarial input | Validate structure before semantic processing. |
+| stale assumptions | unexpected source variation | Preserve raw context and emit a warning. |
+| quoted text mistaken for user intent | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
+
+## Output Contract
+
+A bounded state summary with provenance back to message ranges; separate facts from assumptions and unresolved questions.
+
+## Design Rules
+
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
+
+## Related Skills
+
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
-- v1 (2026-04): Initial entry
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |

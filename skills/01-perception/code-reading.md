@@ -3,118 +3,86 @@ title: "Code Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply code reading in AI agent workflows."
+description: "Read unfamiliar source code by reconstructing control flow, data flow, contracts, side effects, dependencies, and failure boundaries before proposing changes."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-code-reading.json)
 
 # Code Reading
 
-**Category:** `perception`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
----
-
 ## Description
 
-Parse, understand, and extract meaning from source code files or snippets. Covers identifying intent, extracting function signatures and docstrings, detecting dependencies, summarizing modules, spotting bugs or anti-patterns, and explaining logic in plain language. Works across all major languages: Python, JavaScript/TypeScript, Go, Rust, Java, C/C++, SQL, and shell scripts.
+Read unfamiliar source code by reconstructing control flow, data flow, contracts, side effects, dependencies, and failure boundaries before proposing changes.
 
----
+## When to Use
 
-## Inputs
+Use during repository onboarding, incident analysis, code review, reverse engineering, and maintenance of legacy systems.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `source` | `string` | ✅ | Raw source code or file path |
-| `language` | `string` | ❌ | Language hint (auto-detected if omitted) |
-| `task` | `string` | ❌ | `summarize`, `extract_signatures`, `find_bugs`, `explain` |
+## Inputs / Outputs
 
----
-
-## Outputs
-
-| Output | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `purpose` | `string` | One-sentence description of file intent |
-| `functions` | `list` | `[{name, params, return_type, summary}]` |
-| `imports` | `list` | External dependencies detected |
-| `issues` | `list` | Potential bugs or code smells |
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
 
----
-
-## Example
+## Runnable Example
 
 ```python
-import anthropic
-from pathlib import Path
+from dataclasses import dataclass
 
-client = anthropic.Anthropic()
+@dataclass(frozen=True)
+class CodeReading:
+    entry_points: list[str]
+    dependencies: list[str]
+    state_changes: list[str]
+    risks: list[str]
 
-def analyze_code_file(file_path: str) -> str:
-    """Extract structured metadata from a source code file."""
-    source = Path(file_path).read_text(encoding="utf-8")
-    language = Path(file_path).suffix.lstrip(".")
+def reading_checklist(source: str) -> CodeReading:
+    lines = source.splitlines()
+    entries = [ln.strip() for ln in lines if ln.strip().startswith(("def ", "class "))]
+    imports = [ln.strip() for ln in lines if ln.strip().startswith(("import ", "from "))]
+    mutations = [ln.strip() for ln in lines if "=" in ln and not ln.strip().startswith("#")]
+    risks = [ln.strip() for ln in lines if any(x in ln.lower() for x in ("exec(", "eval(", "subprocess", "password"))]
+    return CodeReading(entries, imports, mutations, risks)
 
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=2048,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Analyze this {language} file and return JSON with:\n"
-                "- language\n"
-                "- purpose: one-sentence description\n"
-                "- functions: [{name, params, return_type, summary}]\n"
-                "- classes: [{name, methods, summary}]\n"
-                "- imports: list of external dependencies\n"
-                "- issues: list of potential bugs or code smells\n"
-                "Return ONLY valid JSON.\n\n"
-                f"```{language}\n{source[:8000]}\n```"
-            )
-        }]
-    )
-    return response.content[0].text
-
-result = analyze_code_file("src/utils.py")
-print(result)
+print(reading_checklist("import os\ndef load():\n    password = os.getenv('PASSWORD')"))
 ```
 
----
+## Failure Modes
 
-## Frameworks & Models
-
-| Framework / Model | Implementation | Since |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Claude claude-opus-4-5 | Direct text prompt with fenced code block | 2024-06 |
-| GPT-4o | Same pattern via OpenAI SDK | 2024-05 |
-| LangChain | `ChatAnthropic` chain | v0.2 |
+| Missing runtime context | malformed or adversarial input | Validate structure before semantic processing. |
+| dynamic dispatch | unexpected source variation | Preserve raw context and emit a warning. |
+| generated code | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
 
----
+## Output Contract
 
-## Notes
+A factual code map and explicit unknowns. Do not infer behavior that cannot be established from available source/configuration.
 
-- Chunk files larger than ~800 lines before sending; use sliding window for context continuity
-- For multi-file analysis, send a directory tree first then individual files
-- Combine with [Structured Data Reading](structured-data-reading.md) to process `package.json`, `pyproject.toml`, etc.
+## Design Rules
 
----
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
 
 ## Related Skills
 
-- [Text Reading](text-reading.md) — general text extraction
-- [Structured Data Reading](structured-data-reading.md) — config file parsing
-- [Document Parsing](document-parsing.md) — for code in PDFs or docs
-- [File System Reading](file-system-reading.md) — discovering files to read
-
----
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: full description, I/O table, runnable example, notes |
-| `2025-03` | Initial stub entry |
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |

@@ -4,71 +4,79 @@ category: 01-perception
 level: intermediate
 stability: stable
 added: "2025-03"
-description: "Apply audio transcription in AI agent workflows."
-dependencies:
-  - package: openai-whisper
-    min_version: "20231117"
-    tested_version: "20231117"
-    confidence: verified
-  - package: torch
-    min_version: "2.1.0"
-    tested_version: "2.3.0"
-    confidence: verified
-code_blocks:
-  - id: "example-diarization"
-    type: illustrative
-    note: "pyannote.audio requires HuggingFace token and model download — illustrative only"
+description: "Convert spoken audio into timestamp-aware text while preserving speaker boundaries, language metadata, confidence signals, and recoverable transcription errors."
+related: [text-reading, structured-data-reading, json-schema-validation]
+version: v2
+updated: "2026-09"
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-audio-transcription.json)
 
 # Audio Transcription
 
-### Description
-Converts spoken audio into structured text with word-level timestamps, speaker diarization, language identification, and confidence scoring. Handles noise, overlapping speech, domain-specific vocabulary, and long-form recordings via chunking strategies.
+## Description
 
-### When to Use
-- Transcribing meetings, interviews, podcasts, call recordings, or lecture audio
-- Building downstream pipelines that require timestamped captions or subtitles
-- Speaker-attributed summarization or action-item extraction from multi-participant audio
-- Real-time transcription via streaming WebSocket APIs
+Convert audio into structured, reviewable transcription data. Preserve timestamps, speaker labels when available, language metadata, and uncertainty instead of presenting low-confidence speech recognition as fact.
 
-### Example
-```python type:illustrative
-# pip install openai-whisper torch pyannote.audio
-# Note: `pyannote` is the import name for PyPI package `pyannote.audio`
-import whisper, torch
-from pyannote.audio import Pipeline
+## When to Use
 
-def transcribe_with_diarization(audio_path: str) -> list[dict]:
-    # Step 1: transcribe with word timestamps
-    model = whisper.load_model("large-v3", device="cuda" if torch.cuda.is_available() else "cpu")
-    result = model.transcribe(audio_path, word_timestamps=True, language=None)  # auto-detect lang
+Use when an audio recording must be converted into searchable text, meeting notes, captions, evidence for downstream analysis, or a transcript that can be reviewed against the source recording.
 
-    # Step 2: diarize
-    diar = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
-    diar_result = diar(audio_path)
+## Inputs / Outputs
 
-    # Step 3: merge word timestamps with speaker turns
-    segments = []
-    for turn, _, speaker in diar_result.itertracks(yield_label=True):
-        words = [
-            w for seg in result["segments"]
-            for w in seg.get("words", [])
-            if turn.start <= w["start"] < turn.end
-        ]
-        if words:
-            segments.append({"speaker": speaker, "start": turn.start,
-                              "end": turn.end, "text": " ".join(w["word"] for w in words)})
-    return segments
+Input: an audio source plus optional language, diarization, timestamp, and segmentation settings. Output: transcript segments containing text and timing, with speaker and confidence metadata when the transcription system provides them.
+
+## Runnable Example
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class Segment:
+    start: float
+    end: float
+    text: str
+
+
+def normalize_segments(segments: list[dict]) -> list[Segment]:
+    """Validate a minimal transcription segment contract."""
+    result = []
+    for item in segments:
+        start = float(item["start"])
+        end = float(item["end"])
+        text = str(item["text"]).strip()
+        if start < 0 or end < start or not text:
+            raise ValueError("invalid transcription segment")
+        result.append(Segment(start=start, end=end, text=text))
+    return result
+
+print(normalize_segments([
+    {"start": 0.0, "end": 1.8, "text": "Hello"},
+]))
 ```
 
-### Advanced Techniques
-- **Long audio chunking**: split at silence boundaries (`pydub.silence.split_on_silence`) before feeding to Whisper to avoid context window truncation
-- **Custom vocabulary**: inject domain terms via `initial_prompt` parameter in Whisper or use PromptingWhisper
-- **Streaming**: use `faster-whisper` with `stream=True` for low-latency real-time pipelines
-- **Post-correction**: run a language model pass to fix homophones and domain-specific names
+## Failure Modes
 
-### Related Skills
-- `video-understanding`, `summarization`, `text-reading`, `image-understanding`
+- Unsupported codec or unreadable media: fail with the source and decoder error; do not emit a fabricated transcript.
+- Missing or unreliable timestamps: mark timing as unavailable rather than inventing offsets.
+- Low-confidence speech: preserve the uncertainty signal and route ambiguous spans for review.
+- Overlapping speakers: keep speaker attribution separate from transcript text when diarization is uncertain.
+- Background noise, music, or crosstalk: record the limitation when it materially affects interpretation.
+
+## Output Contract
+
+A valid normalized segment has a non-negative `start`, an `end` greater than or equal to `start`, and non-empty `text`. Optional speaker, language, and confidence fields must retain their source semantics and must not be synthesized as verified facts.
+
+## Design Rules
+
+Separate transcription from summarization. Preserve source order. Keep uncertainty attached to the smallest useful span. Never infer speaker identity from voice characteristics alone. Treat a transcript as an extraction artifact that may require source verification.
+
+## Related Skills
+
+- `text-reading`
+- `structured-data-reading`
+- `json-schema-validation`
+
+## Changelog
+
+- v2 (2026-09): replaced placeholder guidance with a bounded transcription contract and executable normalization example.

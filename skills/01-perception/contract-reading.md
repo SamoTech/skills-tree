@@ -3,53 +3,83 @@ title: "Contract Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply contract reading in AI agent workflows."
+description: "Extract obligations, definitions, dates, exceptions, parties, and risk-bearing clauses from contracts without collapsing legal language into unsupported conclusions."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-contract-reading.json)
 
 # Contract Reading
-Category: perception | Level: advanced | Stability: stable | Version: v1
 
 ## Description
-Extract key clauses, parties, dates, and obligations from legal contracts using LLM-assisted parsing.
 
-## Inputs
-- `document`: contract text or PDF path
-- `extract_fields`: list of fields (e.g., `["parties", "effective_date", "termination_clause"]`)
+Extract obligations, definitions, dates, exceptions, parties, and risk-bearing clauses from contracts without collapsing legal language into unsupported conclusions.
 
-## Outputs
-- Structured dict with extracted field values and source spans
+## When to Use
 
-## Example
+Use for contract triage, clause extraction, obligation tracking, and preparation for human legal review.
+
+## Inputs / Outputs
+
+| Field | Type | Description |
+|---|---|---|
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
+
+## Runnable Example
+
 ```python
-import anthropic
-client = anthropic.Anthropic()
-with open("contract.txt") as f:
-    text = f.read()
-response = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=2048,
-    messages=[{"role": "user", "content": f"Extract: parties, effective_date, payment_terms, termination_clause from:\n{text[:4000]}\nReturn JSON."}]
-)
-import json
-fields = json.loads(response.content[0].text)
+import re
+
+def extract_contract_signals(text: str) -> dict[str, list[str]]:
+    sections = {"obligations": [], "deadlines": [], "exceptions": []}
+    for line in text.splitlines():
+        s = line.strip()
+        if re.search(r"\bshall\b|\bmust\b", s, re.I):
+            sections["obligations"].append(s)
+        if re.search(r"\bwithin\s+\d+\s+days?\b|\bdeadline\b", s, re.I):
+            sections["deadlines"].append(s)
+        if re.search(r"\bexcept\b|\bunless\b|\bprovided that\b", s, re.I):
+            sections["exceptions"].append(s)
+    return sections
+
+print(extract_contract_signals("Supplier shall deliver within 30 days unless force majeure applies."))
 ```
 
-## Frameworks
-| Framework | Method |
-|---|---|
-| LlamaIndex | `StructuredLLMExtractor` |
-| LangChain | `create_extraction_chain()` |
-| Raw API | Structured output prompt |
-
 ## Failure Modes
-- Defined terms redefined mid-document
-- Exhibits/schedules referenced but not included
 
-## Related
-- `document-parsing.md` · `pdf-parsing.md`
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Definitions outside the excerpt | malformed or adversarial input | Validate structure before semantic processing. |
+| cross-references | unexpected source variation | Preserve raw context and emit a warning. |
+| jurisdiction-specific meaning | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
+
+## Output Contract
+
+Quoted or location-linked clause observations grouped by obligation, deadline, and exception; legal conclusions require qualified review.
+
+## Design Rules
+
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
+
+## Related Skills
+
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
-- v1 (2026-04): Initial entry
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |

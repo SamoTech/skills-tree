@@ -3,129 +3,90 @@ title: "Email Parsing"
 category: 01-perception
 level: basic
 stability: stable
-description: "Apply email parsing in AI agent workflows."
+description: "Parse email messages into normalized headers, body parts, attachments, threading metadata, and security-relevant indicators without trusting message content."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-email-parsing.json)
 
 # Email Parsing
 
-**Category:** `perception`  
-**Skill Level:** `basic`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
----
-
 ## Description
 
-Extract structured data from raw email messages — sender, recipient, subject, date, body text, HTML content, attachments, and threading metadata. Handles both plain-text and MIME multipart messages. Useful for inbox triage, automated response pipelines, lead extraction from sales emails, and compliance archival workflows.
+Parse email messages into normalized headers, body parts, attachments, threading metadata, and security-relevant indicators without trusting message content.
 
----
+## When to Use
 
-## Inputs
+Use for mailbox ingestion, triage, search indexing, automation, and incident analysis.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `raw_email` | `string` | ✅ | Raw RFC 2822 email string or `.eml` file content |
-| `extract_fields` | `list` | ❌ | Fields to extract; defaults to all |
+## Inputs / Outputs
 
----
-
-## Outputs
-
-| Output | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `intent` | `string` | Detected sender intent, e.g. `request_quote` |
-| `urgency` | `string` | `low` / `medium` / `high` |
-| `entities` | `list` | Names, companies, dates, amounts mentioned |
-| `action_required` | `bool` | Whether a response or action is needed |
-| `summary` | `string` | One-sentence email summary |
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
 
----
-
-## Example
+## Runnable Example
 
 ```python
-import anthropic
-import email
-import json
 from email import policy
+from email.parser import BytesParser
 
-client = anthropic.Anthropic()
+def parse_email(raw: bytes) -> dict:
+    msg = BytesParser(policy=policy.default).parsebytes(raw)
+    text_parts = []
+    attachments = []
+    for part in msg.walk():
+        if part.is_attachment():
+            attachments.append(part.get_filename() or "unnamed")
+        elif part.get_content_type() == "text/plain":
+            text_parts.append(part.get_content())
+    return {
+        "from": msg.get("From"),
+        "to": msg.get("To"),
+        "subject": msg.get("Subject"),
+        "message_id": msg.get("Message-ID"),
+        "body": "\n".join(text_parts),
+        "attachments": attachments,
+    }
 
-def parse_email(raw_email: str) -> dict:
-    """Parse a raw email message into structured JSON."""
-    msg = email.message_from_string(raw_email, policy=policy.default)
-
-    # Extract plain-text body
-    body = ""
-    if msg.is_multipart():
-        for part in msg.walk():
-            if part.get_content_type() == "text/plain":
-                body = part.get_content()
-                break
-    else:
-        body = msg.get_content()
-
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1024,
-        messages=[{
-            "role": "user",
-            "content": (
-                "Extract the following from this email and return JSON:\n"
-                "- intent: what the sender wants (e.g. 'request_quote', 'complaint', 'inquiry')\n"
-                "- urgency: low | medium | high\n"
-                "- entities: list of mentioned names, companies, dates, amounts\n"
-                "- action_required: boolean\n"
-                "- summary: one sentence\n\n"
-                f"From: {msg['from']}\n"
-                f"Subject: {msg['subject']}\n"
-                f"Date: {msg['date']}\n"
-                f"Body:\n{body[:3000]}"
-            )
-        }]
-    )
-    return json.loads(response.content[0].text)
-
-with open("sample.eml") as f:
-    result = parse_email(f.read())
-print(json.dumps(result, indent=2))
+print(parse_email(b"Subject: Test\n\nHello").get("subject"))
 ```
 
----
+## Failure Modes
 
-## Frameworks & Models
-
-| Framework / Model | Implementation | Since |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Claude claude-opus-4-5 | Direct text prompt | 2024-06 |
-| LangChain | `UnstructuredEmailLoader` + LLM chain | v0.1 |
+| Malformed MIME | malformed or adversarial input | Validate structure before semantic processing. |
+| encoded headers | unexpected source variation | Preserve raw context and emit a warning. |
+| spoofed sender fields | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
 
----
+## Output Contract
 
-## Notes
+Normalized headers, body text, attachment metadata, and thread identifiers; authentication results must come from trusted mail infrastructure.
 
-- Strip HTML tags before passing to avoid injecting formatting tokens
-- Truncate very long bodies to ~3000 characters
-- For attachment processing, combine with [Document Parsing](document-parsing.md) or [PDF Parsing](pdf-parsing.md)
+## Design Rules
 
----
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
 
 ## Related Skills
 
-- [Document Parsing](document-parsing.md) — for email attachments
-- [Text Reading](text-reading.md) — general text extraction
-- [PDF Parsing](pdf-parsing.md) — parsing PDF attachments
-
----
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: full description, I/O table, MIME parsing example, notes |
-| `2025-03` | Initial stub entry |
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/api-response-parsing.md",
   "name": "API Response Parsing",
   "headline": "API Response Parsing",
-  "description": "Apply api response parsing in AI agent workflows.",
+  "description": "Parse heterogeneous API responses into validated, normalized records while preserving error context, pagination metadata, and provider-specific fields.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/api-response-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-17T17:08:38Z",
+  "dateModified": "2026-09-19T20:02:32Z",
   "skillId": "api-response-parsing",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Output Contract",
+    "Design Rules",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, AI agent, response, api, skills tree, parsing",
+  "keywords": "LLM skill, parsing, api, AI agent, skills tree, response, perception",
   "about": {
     "@type": "Thing",
     "name": "API Response Parsing",

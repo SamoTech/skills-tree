@@ -3,125 +3,83 @@ title: "File System Reading"
 category: 01-perception
 level: basic
 stability: stable
-description: "Apply file system reading in AI agent workflows."
+description: "Inspect files and directories with bounded traversal, explicit encoding handling, metadata capture, and path-safety checks."
+related: [text-reading, structured-data-reading, json-schema-validation]
 added: "2025-03"
+version: v2
+updated: "2026-09"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-file-system-reading.json)
 
 # File System Reading
 
-**Category:** `perception`  
-**Skill Level:** `basic`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
----
-
 ## Description
 
-Traverse, list, filter, and read files from a local or remote file system. Includes directory tree enumeration, glob pattern matching, metadata extraction (size, timestamps, permissions), and selective content reading for large codebases or data directories. Agents use this skill to build inventories, locate relevant files, and ingest content into their context.
+Inspect files and directories with bounded traversal, explicit encoding handling, metadata capture, and path-safety checks.
 
----
+## When to Use
 
-## Inputs
+Use when an agent needs to discover or read local files while preventing accidental traversal outside an approved root.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `root` | `string` | ✅ | Root directory path |
-| `pattern` | `string` | ❌ | Glob pattern, e.g. `**/*.py` (default: `**/*`) |
-| `max_files` | `int` | ❌ | Cap on files returned (default: 50) |
-| `include_content` | `bool` | ❌ | Read file contents for small files (default: true) |
+## Inputs / Outputs
 
----
-
-## Outputs
-
-| Output | Type | Description |
+| Field | Type | Description |
 |---|---|---|
-| `tree` | `list` | `[{path, size, preview}]` |
-| `summary` | `string` | Natural-language description of the directory |
-| `total_files` | `int` | Count of matched files |
+| input | structured | Source content plus any format-specific metadata. |
+| options | object | Limits, locale, schema, or provider-specific parsing options. |
+| output | structured | Normalized records with provenance and explicit uncertainty. |
 
----
-
-## Example
+## Runnable Example
 
 ```python
-import anthropic
 from pathlib import Path
 
-client = anthropic.Anthropic()
+def read_text_under(root: Path, relative: str, max_bytes: int = 1_000_000) -> str:
+    base = root.resolve()
+    target = (base / relative).resolve()
+    if target != base and base not in target.parents:
+        raise PermissionError("path escapes approved root")
+    if not target.is_file():
+        raise FileNotFoundError(target)
+    if target.stat().st_size > max_bytes:
+        raise ValueError("file exceeds read limit")
+    return target.read_text(encoding="utf-8")
 
-def summarize_directory(root: str, pattern: str = "**/*.py") -> str:
-    """Build a directory inventory and summarize the codebase purpose."""
-    root_path = Path(root)
-    files = list(root_path.glob(pattern))
-
-    inventory = []
-    for f in files[:50]:  # cap at 50 files
-        rel = f.relative_to(root_path)
-        size = f.stat().st_size
-        preview = ""
-        if size < 4096:
-            try:
-                preview = f.read_text(encoding="utf-8")[:300]
-            except Exception:
-                preview = "<binary or unreadable>"
-        inventory.append(f"### {rel} ({size} bytes)\n{preview}")
-
-    tree_text = "\n".join(inventory)
-
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1024,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"File inventory of `{root}`:\n\n"
-                f"{tree_text}\n\n"
-                "Summarize: What does this project do? What are the main modules?"
-            )
-        }]
-    )
-    return response.content[0].text
-
-print(summarize_directory("./my_project"))
+root = Path(".")
+print(read_text_under(root, "README.md")[:80])
 ```
 
----
+## Failure Modes
 
-## Frameworks & Models
-
-| Framework / Model | Implementation | Since |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Claude claude-opus-4-5 | Direct text prompt with inventory | 2024-06 |
-| LangChain | `DirectoryLoader` | v0.1 |
-| LangGraph | Tool node using `pathlib` | v0.1 |
+| Path traversal | malformed or adversarial input | Validate structure before semantic processing. |
+| symlink escapes | unexpected source variation | Preserve raw context and emit a warning. |
+| huge files | incomplete source | Mark uncertainty instead of inventing values. |
+| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
 
----
+## Output Contract
 
-## Notes
+File contents plus bounded metadata; reject unsafe paths and preserve the distinction between missing, inaccessible, and unreadable files.
 
-- Use `pathlib.Path.glob()` for cross-platform recursive matching
-- Always cap the number of files to avoid context overflow
-- For remote filesystems, use SFTP or cloud SDK to list/read before passing to the model
-- Binary files should be skipped or handled separately
+## Design Rules
 
----
+1. Preserve source provenance and ordering whenever it is available.
+2. Validate structure before interpreting semantics.
+3. Never silently convert uncertainty into a confident assertion.
+4. Bound input size, execution time, and result cardinality.
+5. Keep provider-specific parsing behind a stable internal representation.
 
 ## Related Skills
 
-- [Document Parsing](document-parsing.md) — extracting content from specific file types
-- [Code Reading](code-reading.md) — deeper analysis of source files
-- [Structured Data Reading](structured-data-reading.md) — parsing config/data files
-
----
+- [Text Reading](text-reading.md) — plain text extraction and normalization
+- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
+- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
 
 ## Changelog
 
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: full description, I/O table, directory summarizer example |
-| `2025-03` | Initial stub entry |
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial skill entry |
+| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |

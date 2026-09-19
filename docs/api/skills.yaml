@@ -1,4 +1,4 @@
-generated: '2026-09-17T17:08:38Z'
+generated: '2026-09-19T20:02:32Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -18,27 +18,48 @@ skills:
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
   name: API Response Parsing
-  description: Apply api response parsing in AI agent workflows.
+  description: Parse heterogeneous API responses into validated, normalized records
+    while preserving error context, pagination metadata, and provider-specific fields.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: null
-  sections: []
+  last_updated: 2026-09
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 01-perception
 - id: audio-transcription
   path: skills/01-perception/audio-transcription.md
   name: Audio Transcription
-  description: Apply audio transcription in AI agent workflows.
+  description: Convert spoken audio into timestamp-aware text while preserving speaker
+    boundaries, language metadata, confidence signals, and recoverable transcription
+    errors.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: null
-  sections: []
+  last_updated: 2026-09
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 01-perception
 - id: binary-file-reading
@@ -92,20 +113,23 @@ skills:
 - id: chart-reading
   path: skills/01-perception/chart-reading.md
   name: Chart Reading
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-chart-reading.json)'
+  description: Interpret charts by separating visual extraction from semantic analysis,
+    capturing axes, units, series, extrema, trends, and uncertainty before drawing
+    conclusions.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: 2026-04
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks & Models
-  - Notes
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
   - Related Skills
   - Changelog
   related: []
@@ -113,20 +137,23 @@ skills:
 - id: code-reading
   path: skills/01-perception/code-reading.md
   name: Code Reading
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-code-reading.json)'
+  description: Read unfamiliar source code by reconstructing control flow, data flow,
+    contracts, side effects, dependencies, and failure boundaries before proposing
+    changes.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: 2026-04
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks & Models
-  - Notes
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
   - Related Skills
   - Changelog
   related: []
@@ -134,62 +161,68 @@ skills:
 - id: contract-reading
   path: skills/01-perception/contract-reading.md
   name: Contract Reading
-  description: Apply contract reading in AI agent workflows.
+  description: Extract obligations, definitions, dates, exceptions, parties, and risk-bearing
+    clauses from contracts without collapsing legal language into unsupported conclusions.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: null
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
   - Failure Modes
-  - Related
+  - Output Contract
+  - Design Rules
+  - Related Skills
   - Changelog
   related: []
   category_dir: 01-perception
 - id: conversation-history-reading
   path: skills/01-perception/conversation-history-reading.md
   name: Conversation History Reading
-  description: Apply conversation history reading in AI agent workflows.
+  description: Reconstruct conversation state from message history while distinguishing
+    durable facts, transient context, unresolved requests, and contradictory statements.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: null
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
   - Failure Modes
-  - Related
+  - Output Contract
+  - Design Rules
+  - Related Skills
   - Changelog
   related: []
   category_dir: 01-perception
 - id: database-reading
   path: skills/01-perception/database-reading.md
   name: Database Reading
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-database-reading.json)'
+  description: Inspect database metadata and query results safely, preserving schema
+    information, nullability, cardinality, provenance, and query limitations.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: 2026-04
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks & Models
-  - Notes
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
   - Related Skills
   - Changelog
   related: []
@@ -197,39 +230,46 @@ skills:
 - id: document-parsing
   path: skills/01-perception/document-parsing.md
   name: Document Parsing
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)'
+  description: Parse documents into structured sections, paragraphs, tables, metadata,
+    and source locations while preserving reading order and extraction uncertainty.
   category: perception
   level: intermediate
   stability: stable
   version: v2
   added: 2025-03
-  last_updated: null
+  last_updated: 2026-09
   sections:
   - Description
-  - Input / Output
-  - Implementation
-  - Frameworks
-  - Edge Cases
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
   - Related Skills
+  - Changelog
   related: []
   category_dir: 01-perception
 - id: email-parsing
   path: skills/01-perception/email-parsing.md
   name: Email Parsing
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-email-parsing.json)'
+  description: Parse email messages into normalized headers, body parts, attachments,
+    threading metadata, and security-relevant indicators without trusting message
+    content.
   category: perception
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: 2026-04
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks & Models
-  - Notes
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
   - Related Skills
   - Changelog
   related: []
@@ -237,20 +277,22 @@ skills:
 - id: file-system-reading
   path: skills/01-perception/file-system-reading.md
   name: File System Reading
-  description: '![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-file-system-reading.json)'
+  description: Inspect files and directories with bounded traversal, explicit encoding
+    handling, metadata capture, and path-safety checks.
   category: perception
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: 2026-04
+  last_updated: 2026-09
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
-  - Frameworks & Models
-  - Notes
+  - When to Use
+  - Inputs / Outputs
+  - Runnable Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
   - Related Skills
   - Changelog
   related: []
@@ -1341,7 +1383,7 @@ skills:
     knowledge.
   category: reasoning
   level: advanced
-  stability: evolving
+  stability: experimental
   version: v2
   added: 2025-06
   last_updated: 2026-06
@@ -3770,17 +3812,25 @@ skills:
 - id: agentic-rag
   path: skills/09-agentic-patterns/agentic-rag.md
   name: Agentic RAG
-  description: Apply agentic rag in AI agent workflows.
+  description: Use an agentic retrieval loop that decides whether to retrieve, what
+    to retrieve, when to re-retrieve, and when evidence is sufficient.
   category: agentic-patterns
   level: advanced
   stability: stable
-  version: v1.2
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
+  - Related Skills
   - Changelog
-  related:
-  - ../03-memory/rag.md
+  related: []
   category_dir: 09-agentic-patterns
 - id: bootstrapping
   path: skills/09-agentic-patterns/bootstrapping.md
@@ -3950,15 +4000,23 @@ skills:
 - id: plan-and-execute
   path: skills/09-agentic-patterns/plan-and-execute.md
   name: Plan-and-Execute
-  description: Separate planning from execution — a planner LLM generates a task list
-    upfront, then an executor agent works through each step.
+  description: Separate planning from execution so a planner produces a bounded task
+    graph and an executor performs and verifies each step.
   category: agentic-patterns
   level: intermediate
   stability: stable
-  version: v1.2
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Example
+  - Failure Modes
+  - Output Contract
+  - Design Rules
+  - Related Skills
   - Changelog
   related: []
   category_dir: 09-agentic-patterns
