@@ -11,12 +11,12 @@
 
 | Key | Value |
 |---|---|
-| Main HEAD at task baseline | `d35e67e8339b1af0cc20f522e4e6e1d6205f79ee` |
+| Main HEAD at task baseline | `e8fb0187a4f5b12c7176edc90b5818cac6693e81` |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
 | Current phase | Phase 2 — Implementation Ontology |
 | Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Compatibility evidence traceability — merged |
-| Active branch | `main` |
+| Current audit-derived slice | Adapter contract runtime enforcement — in progress |
+| Active branch | `phase2/adapter-contract-runtime-20260919` |
 | Active governance blocker | None |
 | Current implementation registry | `implementation/code-reviewer-system` |
 | MCP classification | Protocol; not an Implementation |
@@ -34,12 +34,12 @@ The older June 2026 launch/content roadmap documents remain historical records. 
 
 `P1.1 → P1.2 → P1.3 → P1.4 → P1.5 → P1.6 → P1.7 → P1.8 → P1.9 → P1.10 → P1.11 → P2.1 → P2.2`
 
-Phase 1 and P2.1/P2.2 remain the highest numbered verified roadmap items. Universal graph contract validation, graph provenance-source enforcement, and entity provenance-source enforcement are merged on `main`. No numbered P2.3 item is invented.
+Phase 1 and P2.1/P2.2 remain the highest numbered verified roadmap items. Universal graph contract validation, graph provenance-source enforcement, entity provenance-source enforcement, and compatibility evidence traceability are merged on `main`. No numbered P2.3 item is invented.
 
 ## Current Audit-Driven Slice
 
-The compatibility evidence traceability slice is merged. Compatibility records now require non-empty evidence and traceable provenance in the standalone contract, and registry initialization requires every referenced evidence record to explicitly support the compatibility fact.
+The next correctness slice is Adapter contract enforcement. `UniversalRegistry` now validates every registered Adapter against `meta/adapter-contract.schema.json` during initialization, while preserving the existing reference-integrity checks. A regression test removes a required Adapter field and verifies initialization rejects the malformed record.
 
 ## Next Action
 
-Perform a fresh post-P2.2 architecture audit from the reconciled `main` state. Derive the smallest evidence-backed vertical slice, document it before implementation, and do not invent a numbered P2.3 requirement.
+Run the full required CI/quality gate for the Adapter contract runtime slice. If all required checks are green, verify the current PR head and merge using the exact head SHA; then reconcile `MEMORY_STATE.md` on the resulting `main` state.
