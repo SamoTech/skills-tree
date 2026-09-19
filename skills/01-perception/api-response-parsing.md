@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 added: "2025-03"
 description: "Parse heterogeneous API responses into validated, normalized records while preserving error context, pagination metadata, and provider-specific fields."
+related: [text-reading, structured-data-reading, json-schema-validation]
 version: v2
 updated: "2026-09"
 ---
