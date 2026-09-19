@@ -279,10 +279,11 @@ class UniversalRegistry:
                 if supported_id not in ids:
                     raise ValueError(f"Dangling evidence support reference: {supported_id}")
 
-        valid_target_types = {"platform", "framework", "protocol", "runtime"}
+        valid_target_types = {"platform", "framework", "model", "protocol", "runtime"}
         target_collections = {
             "platform": "platforms",
             "framework": "frameworks",
+            "model": "models",
             "protocol": "protocols",
             "runtime": "runtimes",
         }
