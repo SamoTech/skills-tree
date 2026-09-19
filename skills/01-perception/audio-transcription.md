@@ -6,17 +6,6 @@ stability: stable
 added: "2025-03"
 description: "Convert spoken audio into timestamp-aware text while preserving speaker boundaries, language metadata, confidence signals, and recoverable transcription errors."
 related: [text-reading, structured-data-reading, json-schema-validation]
-    min_version: "20231117"
-    tested_version: "20231117"
-    confidence: verified
-  - package: torch
-    min_version: "2.1.0"
-    tested_version: "2.3.0"
-    confidence: verified
-code_blocks:
-  - id: "example-diarization"
-    type: illustrative
-    note: "pyannote.audio requires HuggingFace token and model download — illustrative only"
 version: v2
 updated: "2026-09"
 ---
@@ -27,19 +16,15 @@ updated: "2026-09"
 
 ## Description
 
-Convert spoken audio into timestamp-aware text while preserving speaker boundaries, language metadata, confidence signals, and recoverable transcription errors.
+Convert audio into structured, reviewable transcription data. Preserve timestamps, speaker labels when available, language metadata, and uncertainty instead of presenting low-confidence speech recognition as fact.
 
 ## When to Use
 
-Use for voice notes, meetings, calls, interviews, or media pipelines where audio must become searchable or actionable text.
+Use when an audio recording must be converted into searchable text, meeting notes, captions, evidence for downstream analysis, or a transcript that can be reviewed against the source recording.
 
 ## Inputs / Outputs
 
-| Field | Type | Description |
-|---|---|---|
-| input | structured | Source content plus any format-specific metadata. |
-| options | object | Limits, locale, schema, or provider-specific parsing options. |
-| output | structured | Normalized records with provenance and explicit uncertainty. |
+Input: an audio source plus optional language, diarization, timestamp, and segmentation settings. Output: transcript segments containing text and timing, with speaker and confidence metadata when the transcription system provides them.
 
 ## Runnable Example
 
@@ -51,57 +36,47 @@ class Segment:
     start: float
     end: float
     text: str
-    speaker: str | None = None
 
-def normalize_segments(raw: list[dict]) -> list[Segment]:
+
+def normalize_segments(segments: list[dict]) -> list[Segment]:
+    """Validate a minimal transcription segment contract."""
     result = []
-    for item in raw:
+    for item in segments:
         start = float(item["start"])
         end = float(item["end"])
         text = str(item["text"]).strip()
-        if end < start:
-            raise ValueError("segment end precedes start")
-        if text:
-            result.append(Segment(start, end, text, item.get("speaker")))
+        if start < 0 or end < start or not text:
+            raise ValueError("invalid transcription segment")
+        result.append(Segment(start=start, end=end, text=text))
     return result
 
-segments = normalize_segments([
-    {"start": 0.0, "end": 2.4, "text": "Hello", "speaker": "A"},
-    {"start": 2.5, "end": 4.0, "text": "Welcome", "speaker": "B"},
-])
-print(segments)
+print(normalize_segments([
+    {"start": 0.0, "end": 1.8, "text": "Hello"},
+]))
 ```
 
 ## Failure Modes
 
-| Failure | Cause | Mitigation |
-|---|---|---|
-| Noisy audio | malformed or adversarial input | Validate structure before semantic processing. |
-| overlapping speakers | unexpected source variation | Preserve raw context and emit a warning. |
-| wrong language detection | incomplete source | Mark uncertainty instead of inventing values. |
-| Resource exhaustion | unbounded input | Enforce size, time, and result limits. |
+- Unsupported codec or unreadable media: fail with the source and decoder error; do not emit a fabricated transcript.
+- Missing or unreliable timestamps: mark timing as unavailable rather than inventing offsets.
+- Low-confidence speech: preserve the uncertainty signal and route ambiguous spans for review.
+- Overlapping speakers: keep speaker attribution separate from transcript text when diarization is uncertain.
+- Background noise, music, or crosstalk: record the limitation when it materially affects interpretation.
 
 ## Output Contract
 
-Ordered transcription segments with timestamps and optional speaker labels; retain provider confidence separately.
+A valid normalized segment has a non-negative `start`, an `end` greater than or equal to `start`, and non-empty `text`. Optional speaker, language, and confidence fields must retain their source semantics and must not be synthesized as verified facts.
 
 ## Design Rules
 
-1. Preserve source provenance and ordering whenever it is available.
-2. Validate structure before interpreting semantics.
-3. Never silently convert uncertainty into a confident assertion.
-4. Bound input size, execution time, and result cardinality.
-5. Keep provider-specific parsing behind a stable internal representation.
+Separate transcription from summarization. Preserve source order. Keep uncertainty attached to the smallest useful span. Never infer speaker identity from voice characteristics alone. Treat a transcript as an extraction artifact that may require source verification.
 
 ## Related Skills
 
-- [Text Reading](text-reading.md) — plain text extraction and normalization
-- [Structured Data Reading](structured-data-reading.md) — schema-aware data ingestion
-- [JSON Schema Validation](json-schema-validation.md) — validate normalized structures
+- `text-reading`
+- `structured-data-reading`
+- `json-schema-validation`
 
 ## Changelog
 
-| Version | Date | Change |
-|---|---|---|
-| v1 | 2025-03 | Initial skill entry |
-| v2 | 2026-09 | Replaced placeholder guidance with executable implementation, I/O contract, failure modes, and bounded parsing rules |
+- v2 (2026-09): replaced placeholder guidance with a bounded transcription contract and executable normalization example.
