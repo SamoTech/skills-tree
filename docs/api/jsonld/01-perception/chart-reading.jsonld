@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/chart-reading.md",
   "name": "Chart Reading",
   "headline": "Chart Reading",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-chart-reading.json)",
+  "description": "Interpret charts by separating visual extraction from semantic analysis, capturing axes, units, series, extrema, trends, and uncertainty before drawing conclusions.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/chart-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,19 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-17T17:08:38Z",
+  "dateModified": "2026-09-19T19:28:45Z",
   "skillId": "chart-reading",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks & Models",
-    "Notes",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Output Contract",
+    "Design Rules",
     "Related Skills",
     "Changelog"
   ],
@@ -75,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, AI agent, chart, skills tree, reading",
+  "keywords": "LLM skill, reading, chart, AI agent, skills tree, perception",
   "about": {
     "@type": "Thing",
     "name": "Chart Reading",

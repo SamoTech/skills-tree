@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/code-reading.md",
   "name": "Code Reading",
   "headline": "Code Reading",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-code-reading.json)",
+  "description": "Read unfamiliar source code by reconstructing control flow, data flow, contracts, side effects, dependencies, and failure boundaries before proposing changes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/code-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,19 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-17T17:08:38Z",
+  "dateModified": "2026-09-19T19:28:45Z",
   "skillId": "code-reading",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks & Models",
-    "Notes",
+    "When to Use",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Output Contract",
+    "Design Rules",
     "Related Skills",
     "Changelog"
   ],
@@ -75,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, AI agent, code, skills tree, reading",
+  "keywords": "LLM skill, reading, AI agent, code, skills tree, perception",
   "about": {
     "@type": "Thing",
     "name": "Code Reading",
