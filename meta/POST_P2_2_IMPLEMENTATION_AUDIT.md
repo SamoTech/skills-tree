@@ -70,3 +70,28 @@ Implement only compatibility evidence traceability:
 5. State: update `MEMORY_STATE.md` in the same task commit.
 
 This is an audit-derived Phase 2 correctness slice. It does not create a numbered P2.3 item, add providers/platforms/frameworks/models, or change MCP's classification.
+
+---
+
+## Follow-up audit — adapter contract runtime boundary — 2026-09-19
+
+The compatibility evidence boundary is now merged. A fresh review of the existing first real Adapter found a remaining contract-enforcement gap: `meta/adapter-contract.schema.json` is the normative machine-readable Adapter contract, but `UniversalRegistry` previously validated Implementation and universal-graph contracts during initialization without validating registered Adapter records against the Adapter contract.
+
+This meant malformed Adapter structure could pass the runtime's structural integrity checks as long as basic references happened to be valid. The gap is especially relevant because Adapter records form the explicit boundary between an Implementation and an external protocol/platform/framework/runtime target.
+
+### Evidence reviewed
+
+- `meta/adapter-contract.schema.json` defines the normative Adapter contract and required fields.
+- `registry/universal_registry.json` contains the current audited `adapter/code-reviewer-mcp` record.
+- `registry/runtime.py` validated Implementation and graph contracts during initialization but had no corresponding Adapter contract validation.
+- Existing Adapter reference checks already reject dangling implementation, target, and evidence IDs, so this slice is limited to schema enforcement rather than duplicating those checks.
+
+### Selected vertical slice
+
+Implement only Adapter contract enforcement:
+
+1. Runtime: validate every registered Adapter against `meta/adapter-contract.schema.json` during registry initialization.
+2. Preserve existing Adapter reference-integrity checks.
+3. Add a real regression test that removes a required Adapter field and verifies registry initialization rejects the record.
+4. Keep the current Adapter/entity data unchanged; add no ecosystem claims.
+5. Do not assign a fabricated P2.3 roadmap number.
