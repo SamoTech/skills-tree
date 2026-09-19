@@ -95,3 +95,27 @@ Implement only Adapter contract enforcement:
 3. Add a real regression test that removes a required Adapter field and verifies registry initialization rejects the record.
 4. Keep the current Adapter/entity data unchanged; add no ecosystem claims.
 5. Do not assign a fabricated P2.3 roadmap number.
+
+
+---
+
+## Follow-up audit — Adapter evidence traceability — 2026-09-19
+
+The Adapter contract runtime boundary is now enforced. A fresh review of the existing audited Adapter found one remaining claim-level evidence gap: Adapter records declare evidence, and runtime verifies that referenced evidence IDs exist, but the runtime does not require each referenced evidence record to explicitly support the Adapter claim. The standalone Adapter contract also permits an empty evidence list and does not require a traceable provenance source, while the universal registry runtime already treats provenance source as mandatory for every entity.
+
+### Evidence reviewed
+
+- `meta/adapter-contract.schema.json` defines Adapter evidence and provenance fields but currently allows empty evidence and an omitted `provenance.source`.
+- `registry/universal_registry.json` contains `adapter/code-reviewer-mcp` with evidence records that can express claim support through `evidence.supports`.
+- `registry/runtime.py` checks Adapter evidence IDs and Adapter references, but does not verify that each referenced evidence record supports the Adapter ID.
+- The existing evidence record `evidence/code-reviewer-mcp-boundary` already supports `adapter/code-reviewer-mcp`, so no new evidence or ecosystem claim is required.
+
+### Selected vertical slice
+
+Implement only Adapter evidence traceability:
+
+1. Schema: require at least one Adapter evidence reference and require a traceable `provenance.source`.
+2. Runtime: require every evidence record referenced by an Adapter to explicitly list that Adapter ID in `supports`.
+3. Regression: remove the Adapter ID from its evidence `supports` list and verify registry initialization rejects the record.
+4. Preserve the current Adapter/entity data and MCP classification; add no new ecosystem claims.
+5. Update `MEMORY_STATE.md` as part of the task and do not assign a numbered P2.3 roadmap item.
