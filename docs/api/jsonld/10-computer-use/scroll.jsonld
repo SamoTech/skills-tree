@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T08:44:30Z",
+  "dateModified": "2026-09-20T10:39:24Z",
   "skillId": "scroll",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, computer, scroll, use, AI agent, skills tree",
+  "keywords": "scroll, computer, LLM skill, AI agent, skills tree, use",
   "about": {
     "@type": "Thing",
     "name": "Scroll",

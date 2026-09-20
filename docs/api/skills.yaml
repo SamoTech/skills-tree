@@ -1,4 +1,4 @@
-generated: '2026-09-20T08:44:30Z'
+generated: '2026-09-20T10:39:23Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -1099,13 +1099,24 @@ skills:
   name: Inductive Reasoning
   description: Generalize from observations to tentative broader conclusions while
     preserving sample limits, counterexamples, and uncertainty.
-  category: reasoning
+  category: 02-reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Description
+  - When to Use
+  - Inputs and Outputs
+  - Contract
+  - Deterministic Reference Implementation
+  - Validation Rules
+  - Failure Modes
+  - Safety Boundaries
+  - Provenance and Reproducibility
+  - Related Skills
+  - Changelog
   related:
   - ../12-data/statistical-analysis.md
   category_dir: 02-reasoning
@@ -1297,17 +1308,24 @@ skills:
   name: Probabilistic Reasoning
   description: Reason with probability distributions and conditional uncertainty while
     making independence assumptions and prior information explicit.
-  category: reasoning
+  category: 02-reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Example
+  - When to Use
+  - Inputs and Outputs
+  - Core Identities
+  - Deterministic Reference Implementation
+  - Validation Rules
   - Failure Modes
-  - Related
+  - Safety Boundaries
+  - Provenance and Reproducibility
+  - Framework Notes
+  - Related Skills
   - Changelog
   related: []
   category_dir: 02-reasoning
