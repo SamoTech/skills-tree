@@ -1,32 +1,9 @@
 #!/usr/bin/env python3
-"""Skill quality auditor.
-
-Scans every file in `skills/**/*.md` and classifies it into one of:
-
-  battle_tested  — has a non-stub description, a runnable code example,
-                   typed I/O or failure-modes table, and >= 60 content lines.
-  enriched       — non-stub description + runnable example.
-  stub           — placeholder description ("Apply X in AI agent workflows.")
-                   OR no code example.
-  invalid        — missing required frontmatter (title, category).
-
-Outputs a deterministic Markdown report at `meta/QUALITY-REPORT.md` and prints
-a summary. Exits 0 always so it can run informationally; CI gates are
-implemented separately by inspecting the produced report or by passing
-`--enforce-new-stubs` (which fails if the diff vs origin/main introduces a new
-stub).
-
-Run from repo root:
-
-    python3 tools/check_skill_quality.py [--enforce-new-stubs]
-
-This script has no third-party dependencies; it shells out to `git` only when
-`--enforce-new-stubs` is passed.
-"""
-
+"""Deterministic skill-quality auditor driven by the authoritative JSON schema."""
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import subprocess
 import sys
@@ -42,33 +19,19 @@ except ImportError:  # pragma: no cover
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = REPO_ROOT / "skills"
+SCHEMA_PATH = REPO_ROOT / "meta" / "skill-schema.json"
 REPORT_PATH = REPO_ROOT / "meta" / "QUALITY-REPORT.md"
-
-# Patterns whose presence in `description` makes a skill a stub regardless of
-# everything else. The historical placeholder was "Apply X in AI agent
-# workflows." — we also catch obvious near-clones so swapping a synonym
-# doesn't silently bypass the gate (audit finding #10).
 STUB_DESCRIPTION_PATTERNS = [
-    re.compile(r'^\s*Apply\s.+?\s(?:in\s)?AI\s+agent\s+workflows?\.?\s*$', re.IGNORECASE),
-    re.compile(r'^\s*Apply\s.+?\sin\s+agentic\s+(?:pipelines?|workflows?)\.?\s*$', re.IGNORECASE),
-    re.compile(r'^\s*Use\s.+?\sin\s+AI\s+(?:agent|agentic)\s+(?:workflows?|pipelines?)\.?\s*$', re.IGNORECASE),
-    re.compile(r'^\s*TODO\.?\s*$', re.IGNORECASE),
-    re.compile(r'^\s*WIP\.?\s*$', re.IGNORECASE),
+    re.compile(r'^\s*Apply\s.+?\s(?:in\s)?AI\s+agent\s+workflows?\.?\s*$', re.I),
+    re.compile(r'^\s*Apply\s.+?\sin\s+agentic\s+(?:pipelines?|workflows?)\.?\s*$', re.I),
+    re.compile(r'^\s*Use\s.+?\sin\s+AI\s+(?:agent|agentic)\s+(?:workflows?|pipelines?)\.?\s*$', re.I),
+    re.compile(r'^\s*TODO\.?\s*$', re.I),
+    re.compile(r'^\s*WIP\.?\s*$', re.I),
 ]
 MIN_DESCRIPTION_CHARS = 30
-
-# Allowed frontmatter enum values. Mirrored from `tools/export_skills.py`'s
-# JSON Schema and CONTRIBUTING.md. Values outside these sets are silently
-# dropped from the JSON-LD export (`educationalLevel` etc.), so the quality
-# auditor classifies them as `invalid` to surface the regression in CI.
-ALLOWED_LEVEL = {"basic", "intermediate", "advanced"}
-ALLOWED_STABILITY = {"stable", "experimental", "deprecated"}
-ALLOWED_VERSION = {"v1", "v2", "v3"}
-
-FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
-CODE_BLOCK_RE = re.compile(r"```[a-zA-Z0-9_-]*\n.*?\n```", re.DOTALL)
-TABLE_RE = re.compile(r"^\|.+\|.+\n\|[-: |]+\|", re.MULTILINE)
-
+FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.S)
+CODE_BLOCK_RE = re.compile(r"```[a-zA-Z0-9_-]*\n.*?\n```", re.S)
+TABLE_RE = re.compile(r"^\|.+\|.+\n\|[-: |]+\|", re.M)
 
 @dataclass
 class SkillReport:
@@ -80,15 +43,22 @@ class SkillReport:
     line_count: int = 0
 
 
-def parse_frontmatter(text: str) -> dict:
-    """Parse the YAML frontmatter block at the top of a skill file.
+def schema_enums() -> tuple[set[str], set[str], re.Pattern[str] | None]:
+    """Load level/stability/version constraints from meta/skill-schema.json.
 
-    Uses ``yaml.safe_load`` when PyYAML is available so multi-line lists,
-    nested mappings and quoted values with colons are handled correctly.
-    Falls back to a tiny line parser (top-level scalar keys only) if PyYAML
-    is not installed in the runtime — sufficient for the title/category
-    checks this script makes today.
+    This intentionally avoids duplicating enum values in the auditor. Version
+    is schema-pattern based because the schema accepts any vN, not only a
+    hard-coded finite list.
     """
+    schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+    props = schema["properties"]
+    levels = set(props["level"].get("enum", []))
+    stability = set(props["stability"].get("enum", []))
+    version_pattern = props.get("version", {}).get("pattern")
+    return levels, stability, re.compile(version_pattern) if version_pattern else None
+
+
+def parse_frontmatter(text: str) -> dict:
     m = FRONTMATTER_RE.match(text)
     if not m:
         return {}
@@ -99,7 +69,7 @@ def parse_frontmatter(text: str) -> dict:
             if isinstance(data, dict):
                 return data
         except yaml.YAMLError:
-            pass  # fall through to line parser
+            pass
     fm: dict[str, str] = {}
     for line in block.splitlines():
         if not line or line.startswith((" ", "\t", "-")) or ":" not in line:
@@ -109,24 +79,15 @@ def parse_frontmatter(text: str) -> dict:
     return fm
 
 
-def _description_value(fm: dict, text: str) -> str:
-    """Best-effort fetch the `description` field from the frontmatter."""
+def description_value(fm: dict, text: str) -> str:
     desc = fm.get("description")
     if isinstance(desc, str):
         return desc.strip()
-    # Frontmatter may not parse cleanly — grep the raw block for description.
-    m = re.search(r'^description:\s*"?([^"\n]+?)"?\s*$', text, re.MULTILINE)
+    m = re.search(r'^description:\s*"?([^"\n]+?)"?\s*$', text, re.M)
     return m.group(1).strip() if m else ""
 
 
 def stub_description_reason(description: str, title: str) -> str | None:
-    """Return a human-readable reason if `description` is a stub, else None.
-
-    Rules (audit finding #10):
-    1. matches a known placeholder template (Apply X in AI agent workflows, …)
-    2. shorter than MIN_DESCRIPTION_CHARS — too thin to be useful
-    3. equals the skill title (with case/punctuation normalised)
-    """
     desc = (description or "").strip().rstrip(".")
     if not desc:
         return "description is empty"
@@ -137,16 +98,12 @@ def stub_description_reason(description: str, title: str) -> str | None:
         return f"description too short ({len(desc)} < {MIN_DESCRIPTION_CHARS} chars)"
     norm_desc = re.sub(r"[^a-z0-9]+", "", desc.lower())
     norm_title = re.sub(r"[^a-z0-9]+", "", (title or "").lower())
-    if norm_title and norm_desc == norm_title:
-        return "description is identical to the title"
-    return None
+    return "description is identical to the title" if norm_title and norm_desc == norm_title else None
 
 
 def has_runnable_example(text: str) -> bool:
-    """Heuristic: at least one fenced python/bash code block of >= 3 non-blank lines."""
     for block in CODE_BLOCK_RE.findall(text):
-        lines = [ln for ln in block.splitlines()[1:-1] if ln.strip()]
-        if len(lines) >= 3:
+        if len([ln for ln in block.splitlines()[1:-1] if ln.strip()]) >= 3:
             return True
     return False
 
@@ -159,307 +116,132 @@ def classify(path: Path) -> SkillReport:
     text = path.read_text(encoding="utf-8")
     fm = parse_frontmatter(text)
     category = path.parent.name
-    title = (fm.get("title") if isinstance(fm.get("title"), str) else None) \
-        or path.stem.replace("-", " ").title()
-    line_count = text.count("\n")
+    title = fm.get("title") if isinstance(fm.get("title"), str) else path.stem.replace("-", " ").title()
+    lines = text.count("\n")
     reasons: list[str] = []
-
     if "title" not in fm or "category" not in fm:
-        reasons.append("missing required frontmatter (title/category)")
-        return SkillReport(path, category, title, "invalid", reasons, line_count)
+        return SkillReport(path, category, title, "invalid", ["missing required frontmatter (title/category)"], lines)
 
-    # Enum-validate the metadata fields whose JSON-LD output silently degrades
-    # when the value is out of range.
-    for fkey, allowed in (
-        ("level", ALLOWED_LEVEL),
-        ("stability", ALLOWED_STABILITY),
-        ("version", ALLOWED_VERSION),
-    ):
-        val = fm.get(fkey)
-        if isinstance(val, str) and val not in allowed:
-            reasons.append(
-                f"frontmatter `{fkey}: {val}` not in {sorted(allowed)} "
-                f"— will be dropped from JSON-LD export"
-            )
-    if any("not in" in r for r in reasons):
-        return SkillReport(path, category, title, "invalid", reasons, line_count)
+    levels, stability, version_re = schema_enums()
+    checks = (("level", levels, None), ("stability", stability, None))
+    for key, allowed, _ in checks:
+        val = fm.get(key)
+        if isinstance(val, str) and allowed and val not in allowed:
+            reasons.append(f"frontmatter `{key}: {val}` not allowed by meta/skill-schema.json: {sorted(allowed)}")
+    version = fm.get("version")
+    if isinstance(version, str) and version_re and not version_re.fullmatch(version):
+        reasons.append(f"frontmatter `version: {version}` does not match schema pattern {version_re.pattern!r}")
+    if reasons:
+        return SkillReport(path, category, title, "invalid", reasons, lines)
 
-    description = _description_value(fm, text)
-    stub_desc_reason = stub_description_reason(description, title)
+    stub_reason = stub_description_reason(description_value(fm, text), title)
     runnable = has_runnable_example(text)
     tabled = has_table(text)
-
-    if stub_desc_reason:
-        reasons.append(stub_desc_reason)
+    if stub_reason:
+        reasons.append(stub_reason)
     if not runnable:
         reasons.append("no fenced runnable code example (>=3 non-blank lines)")
     if not tabled:
         reasons.append("no inputs/outputs/failure-modes table")
-
-    if stub_desc_reason or not runnable:
-        return SkillReport(path, category, title, "stub", reasons, line_count)
-    if line_count >= 60 and tabled:
-        return SkillReport(path, category, title, "battle_tested", reasons, line_count)
-    return SkillReport(path, category, title, "enriched", reasons, line_count)
+    if stub_reason or not runnable:
+        return SkillReport(path, category, title, "stub", reasons, lines)
+    return SkillReport(path, category, title, "battle_tested" if lines >= 60 and tabled else "enriched", reasons, lines)
 
 
 def iter_skill_files() -> Iterable[Path]:
-    for p in sorted(SKILLS_DIR.rglob("*.md")):
-        if p.name.lower() == "readme.md":
-            continue
-        yield p
+    return (p for p in sorted(SKILLS_DIR.rglob("*.md")) if p.name.lower() != "readme.md")
 
 
 def render_report(reports: list[SkillReport]) -> str:
     by_class: dict[str, list[SkillReport]] = defaultdict(list)
     for r in reports:
         by_class[r.classification].append(r)
-
-    total = len(reports)
-    n_stub = len(by_class["stub"])
-    n_enriched = len(by_class["enriched"])
-    n_bt = len(by_class["battle_tested"])
-    n_invalid = len(by_class["invalid"])
-
-    lines: list[str] = []
-    lines.append("# Skill Quality Report")
-    lines.append("")
-    lines.append(
-        "> Auto-generated by `tools/check_skill_quality.py`. Do not edit by hand. "
-        "Open a PR that turns a stub into a runnable, typed, failure-mode-aware "
-        "skill — that's the highest-impact contribution to this repo."
-    )
-    lines.append("")
-    lines.append("## Summary")
-    lines.append("")
-    lines.append(f"- **Total skill files:** {total}")
-    lines.append(f"- 🟢 **Battle-tested** (rich content + tables + >=60 lines): {n_bt}")
-    lines.append(f"- 🟡 **Enriched** (real description + runnable code): {n_enriched}")
-    lines.append(f"- ⚪ **Stub** (placeholder description or no runnable code): {n_stub}")
-    lines.append(f"- ❌ **Invalid** (frontmatter problems): {n_invalid}")
-    lines.append("")
-
-    lines.append("## Per-category breakdown")
-    lines.append("")
-    lines.append("| Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |")
-    lines.append("|---|---|---|---|---|---|")
+    lines = ["# Skill Quality Report", "", "> Auto-generated by `tools/check_skill_quality.py`. Do not edit by hand.", "", "## Summary", ""]
+    counts = {k: len(by_class[k]) for k in ("battle_tested", "enriched", "stub", "invalid")}
+    lines += [f"- **Total skill files:** {len(reports)}", f"- 🟢 **Battle-tested** (rich content + tables + >=60 lines): {counts['battle_tested']}", f"- 🟡 **Enriched** (real description + runnable code): {counts['enriched']}", f"- ⚪ **Stub** (placeholder description or no runnable code): {counts['stub']}", f"- ❌ **Invalid** (schema/frontmatter problems): {counts['invalid']}", "", "## Per-category breakdown", "", "| Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |", "|---|---|---|---|---|---|"]
     cats: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     for r in reports:
         cats[r.category]["total"] += 1
         cats[r.category][r.classification] += 1
     for cat in sorted(cats):
         c = cats[cat]
-        lines.append(
-            f"| `{cat}` | {c['total']} | {c['battle_tested']} | "
-            f"{c['enriched']} | {c['stub']} | {c['invalid']} |"
-        )
-    lines.append("")
-
-    lines.append("## 🟢 Battle-tested skills (start here as a user)")
-    lines.append("")
-    if not by_class["battle_tested"]:
-        lines.append("_None yet — be the first to upgrade a skill to battle-tested._")
-    else:
-        for r in sorted(by_class["battle_tested"], key=lambda x: (x.category, x.path.name)):
-            rel = r.path.relative_to(REPO_ROOT)
-            lines.append(f"- [`{rel}`]({rel}) — {r.title}")
-    lines.append("")
-
-    lines.append("## 🟡 Enriched skills (almost there — add a table or +60 lines of context)")
-    lines.append("")
-    if not by_class["enriched"]:
-        lines.append("_None — every skill is either a stub or fully battle-tested._")
-    else:
-        lines.append(
-            "These skills have a real description and a runnable code example, "
-            "but are missing one of: an inputs/outputs/failure-modes **table**, "
-            "or **>=60 lines** of total content. The smallest possible PR "
-            "upgrades them to battle-tested."
-        )
-        lines.append("")
-        by_cat_e: dict[str, list[SkillReport]] = defaultdict(list)
-        for r in by_class["enriched"]:
-            by_cat_e[r.category].append(r)
-        for cat in sorted(by_cat_e):
-            lines.append(f"### `{cat}` ({len(by_cat_e[cat])})")
-            lines.append("")
-            for r in sorted(by_cat_e[cat], key=lambda x: x.path.name):
-                rel = r.path.relative_to(REPO_ROOT)
-                why = "; ".join(r.reasons) or "missing table or <60 lines"
-                lines.append(f"- [`{rel.name}`]({rel}) — {why}")
-            lines.append("")
-
-    lines.append("## ⚪ Stubs (good first PRs)")
-    lines.append("")
-    lines.append(
-        "Each entry below is a real, claimed skill that currently has no runnable "
-        "example or a placeholder description. Pick one, follow "
-        "[`meta/skill-template.md`](skill-template.md), and open a PR titled "
-        "`improve: <skill-name> — v1→v2`."
-    )
-    lines.append("")
-    by_cat: dict[str, list[SkillReport]] = defaultdict(list)
-    for r in by_class["stub"]:
-        by_cat[r.category].append(r)
-    for cat in sorted(by_cat):
-        lines.append(f"### `{cat}` ({len(by_cat[cat])})")
-        lines.append("")
-        for r in sorted(by_cat[cat], key=lambda x: x.path.name):
-            rel = r.path.relative_to(REPO_ROOT)
-            why = "; ".join(r.reasons) or "stub"
-            lines.append(f"- [`{rel.name}`]({rel}) — {why}")
-        lines.append("")
-
+        lines.append(f"| `{cat}` | {c['total']} | {c['battle_tested']} | {c['enriched']} | {c['stub']} | {c['invalid']} |")
+    lines += ["", "## 🟢 Battle-tested skills (start here as a user)", ""]
+    lines += [f"- [`{r.path.relative_to(REPO_ROOT)}`]({r.path.relative_to(REPO_ROOT)}) — {r.title}" for r in sorted(by_class["battle_tested"], key=lambda x:(x.category,x.path.name))] or ["_None yet._"]
+    lines += ["", "## 🟡 Enriched skills", ""]
+    lines += [f"- [`{r.path.relative_to(REPO_ROOT)}`]({r.path.relative_to(REPO_ROOT)}) — {'; '.join(r.reasons) or 'missing table or <60 lines'}" for r in sorted(by_class["enriched"], key=lambda x:(x.category,x.path.name))] or ["_None._"]
+    lines += ["", "## ⚪ Stubs", ""]
+    lines += [f"- [`{r.path.relative_to(REPO_ROOT)}`]({r.path.relative_to(REPO_ROOT)}) — {'; '.join(r.reasons) or 'stub'}" for r in sorted(by_class["stub"], key=lambda x:(x.category,x.path.name))]
     if by_class["invalid"]:
-        lines.append("## ❌ Invalid (frontmatter must be fixed)")
-        lines.append("")
-        for r in sorted(by_class["invalid"], key=lambda x: (x.category, x.path.name)):
-            rel = r.path.relative_to(REPO_ROOT)
-            why = "; ".join(r.reasons)
-            lines.append(f"- [`{rel}`]({rel}) — {why}")
-        lines.append("")
-
-    lines.append("## Definitions")
-    lines.append("")
-    lines.append(
-        "- **Battle-tested**: real description, fenced runnable code (>=3 lines), at "
-        "least one Markdown table (I/O or failure modes), and >=60 lines of content."
-    )
-    lines.append("- **Enriched**: real description and a fenced runnable code block.")
-    lines.append(
-        "- **Stub**: description is the boilerplate `Apply X in AI agent workflows.` "
-        "or no fenced runnable code block exists."
-    )
-    lines.append("- **Invalid**: frontmatter is missing required keys.")
-    lines.append("")
-    return "\n".join(lines) + "\n"
+        lines += ["", "## ❌ Invalid", ""]
+        lines += [f"- [`{r.path.relative_to(REPO_ROOT)}`]({r.path.relative_to(REPO_ROOT)}) — {'; '.join(r.reasons)}" for r in sorted(by_class["invalid"], key=lambda x:(x.category,x.path.name))]
+    lines += ["", "## Definitions", "", "- **Battle-tested**: real description, fenced runnable code (>=3 lines), a Markdown table, and >=60 lines.", "- **Enriched**: real description and a fenced runnable code block.", "- **Stub**: placeholder/empty/too-short description or no runnable code.", "- **Invalid**: missing required frontmatter or metadata violates the authoritative schema enums/patterns.", ""]
+    return "\n".join(lines)
 
 
-def changed_skill_files_against(base: str, *, diff_filter: str = "AM") -> list[Path]:
-    """Return added or modified skill files since ``base``.
-
-    ``diff_filter='A'`` -> only newly-added files (legacy behaviour).
-    ``diff_filter='AM'`` -> added + modified files (default; lets the gate
-    catch regressions — audit finding #4).
-    """
+def changed_skill_files_against(base: str) -> list[Path]:
     try:
-        out = subprocess.check_output(
-            ["git", "diff", "--name-only", f"--diff-filter={diff_filter}", f"{base}...HEAD"],
-            cwd=REPO_ROOT,
-            text=True,
-        )
+        out = subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=AM", f"{base}...HEAD"], cwd=REPO_ROOT, text=True)
     except subprocess.CalledProcessError:
         return []
-    paths: list[Path] = []
-    for line in out.splitlines():
-        if line.startswith("skills/") and line.endswith(".md") and not line.endswith("README.md"):
-            p = REPO_ROOT / line
-            if p.exists():
-                paths.append(p)
-    return paths
+    return [REPO_ROOT / line for line in out.splitlines() if line.startswith("skills/") and line.endswith(".md") and not line.endswith("README.md") and (REPO_ROOT / line).exists()]
 
 
-def _classify_at_revision(rev: str, rel_path: str) -> str | None:
-    """Classify the skill at a git revision. Returns None if file didn't exist."""
-    try:
-        text = subprocess.check_output(
-            ["git", "show", f"{rev}:{rel_path}"],
-            cwd=REPO_ROOT, text=True, stderr=subprocess.DEVNULL,
-        )
-    except subprocess.CalledProcessError:
-        return None
+def classify_text(text: str) -> str:
     fm = parse_frontmatter(text)
     if "title" not in fm or "category" not in fm:
         return "invalid"
-    for fkey, allowed in (
-        ("level", ALLOWED_LEVEL),
-        ("stability", ALLOWED_STABILITY),
-        ("version", ALLOWED_VERSION),
-    ):
-        val = fm.get(fkey)
-        if isinstance(val, str) and val not in allowed:
-            return "invalid"
-    description = _description_value(fm, text)
+    levels, stability, version_re = schema_enums()
+    if isinstance(fm.get("level"), str) and fm["level"] not in levels:
+        return "invalid"
+    if isinstance(fm.get("stability"), str) and fm["stability"] not in stability:
+        return "invalid"
+    if isinstance(fm.get("version"), str) and version_re and not version_re.fullmatch(fm["version"]):
+        return "invalid"
     title = fm.get("title") if isinstance(fm.get("title"), str) else ""
-    stub_reason = stub_description_reason(description, title)
-    runnable = has_runnable_example(text)
-    tabled = has_table(text)
-    if stub_reason or not runnable:
+    if stub_description_reason(description_value(fm, text), title) or not has_runnable_example(text):
         return "stub"
-    if text.count("\n") >= 60 and tabled:
-        return "battle_tested"
-    return "enriched"
+    return "battle_tested" if text.count("\n") >= 60 and has_table(text) else "enriched"
+
+
+def classify_at_revision(rev: str, rel: str) -> str | None:
+    try:
+        text = subprocess.check_output(["git", "show", f"{rev}:{rel}"], cwd=REPO_ROOT, text=True, stderr=subprocess.DEVNULL)
+    except subprocess.CalledProcessError:
+        return None
+    return classify_text(text)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--enforce-new-stubs",
-        action="store_true",
-        help="Fail if any skill file added in this branch is classified as stub.",
-    )
-    parser.add_argument(
-        "--base",
-        default="origin/main",
-        help="Base ref to diff against when --enforce-new-stubs is set.",
-    )
-    parser.add_argument(
-        "--no-write",
-        action="store_true",
-        help="Do not write QUALITY-REPORT.md; just print summary.",
-    )
+    parser.add_argument("--enforce-new-stubs", action="store_true")
+    parser.add_argument("--base", default="origin/main")
+    parser.add_argument("--no-write", action="store_true")
     args = parser.parse_args()
-
     reports = [classify(p) for p in iter_skill_files()]
-    text = render_report(reports)
-
     if not args.no_write:
-        REPORT_PATH.write_text(text, encoding="utf-8")
+        REPORT_PATH.write_text(render_report(reports), encoding="utf-8")
         print(f"Wrote {REPORT_PATH.relative_to(REPO_ROOT)}")
-
-    summary = {r.classification: 0 for r in reports}
-    for r in reports:
-        summary[r.classification] = summary.get(r.classification, 0) + 1
+    summary = {k: sum(r.classification == k for r in reports) for k in ("battle_tested", "enriched", "stub", "invalid")}
     print("Summary:", summary)
-
     if args.enforce_new_stubs:
-        # Audit finding #4: also check modified files, but only fail if the
-        # modification *introduces* stub or invalid status (regressed from the
-        # base ref). `invalid` here covers bad enum values for level /
-        # stability / version that would otherwise silently degrade the
-        # JSON-LD export.
-        changed = changed_skill_files_against(args.base, diff_filter="AM")
-        offenders: list[tuple[SkillReport, str]] = []
-        for p in changed:
-            r = classify(p)
-            if r.classification not in {"stub", "invalid"}:
+        offenders = []
+        for p in changed_skill_files_against(args.base):
+            current = classify(p)
+            if current not in {"stub", "invalid"}:
                 continue
             rel = str(p.relative_to(REPO_ROOT))
-            base_class = _classify_at_revision(args.base, rel)
-            if base_class == r.classification:
-                continue  # already in this state on base; not this PR's regression
-            label = "stub" if r.classification == "stub" else "invalid"
-            if base_class is None:
-                kind = f"new {label} added"
-            else:
-                kind = f"regression: was '{base_class}' on {args.base}, now '{label}'"
-            offenders.append((r, kind))
+            base = classify_at_revision(args.base, rel)
+            if base == current:
+                continue
+            kind = f"new {current} added" if base is None else f"regression: was '{base}' on {args.base}, now '{current}'"
+            offenders.append((p, kind, current))
         if offenders:
-            print(
-                f"\nERROR: {len(offenders)} skill file(s) failed the quality gate. "
-                f"Either keep them out of stub status or restore them to their previous "
-                f"classification before merging:",
-                file=sys.stderr,
-            )
-            for r, kind in offenders:
-                print(
-                    f"  - {r.path.relative_to(REPO_ROOT)} [{kind}]: {'; '.join(r.reasons)}",
-                    file=sys.stderr,
-                )
+            print(f"ERROR: {len(offenders)} skill file(s) failed the quality gate:", file=sys.stderr)
+            for p, kind, current in offenders:
+                print(f"  - {p.relative_to(REPO_ROOT)} [{kind}]", file=sys.stderr)
             return 1
-
     return 0
-
 
 if __name__ == "__main__":
     sys.exit(main())
