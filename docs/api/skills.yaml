@@ -1,4 +1,4 @@
-generated: '2026-09-20T04:43:09Z'
+generated: '2026-09-20T05:02:40Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -435,22 +435,29 @@ skills:
 - id: markdown-parsing
   path: skills/01-perception/markdown-parsing.md
   name: Markdown Parsing
-  description: Apply markdown parsing in AI agent workflows.
+  description: Parse Markdown deterministically into bounded structural records such
+    as headings, fenced code blocks, links, and frontmatter without executing embedded
+    content.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
-  last_updated: null
+  last_updated: 2026-09
   sections:
   - Description
+  - When to Use
   - Inputs
   - Outputs
-  - Example
+  - Output Contract
+  - Deterministic Reference Implementation
+  - Validation Rules
+  - Failure Modes
+  - Security Boundaries
   - Frameworks
   - Dependencies
-  - Failure Modes
-  - Related
+  - Related Skills
+  - Provenance
   - Changelog
   related: []
   category_dir: 01-perception

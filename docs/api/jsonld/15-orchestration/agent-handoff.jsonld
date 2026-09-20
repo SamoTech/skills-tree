@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T04:43:10Z",
+  "dateModified": "2026-09-20T05:02:40Z",
   "skillId": "agent-handoff",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agent, AI agent, orchestration, handoff, LLM skill, skills tree",
+  "keywords": "orchestration, agent, AI agent, LLM skill, handoff, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Agent Handoff",
