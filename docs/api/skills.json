@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-20T01:40:04Z",
+  "generated": "2026-09-20T02:00:11Z",
   "count": 369,
   "skills": [
     {
@@ -760,21 +760,24 @@
       "id": "text-reading",
       "path": "skills/01-perception/text-reading.md",
       "name": "Text Reading",
-      "description": "Read and pre-process plain text inputs for AI agent consumption.",
+      "description": "Read bounded plain-text inputs, normalize encoding and whitespace, and produce deterministic chunks for downstream agent processing without silently changing source meaning.",
       "category": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
         "Description",
         "Inputs",
         "Outputs",
-        "Example",
+        "Deterministic reference implementation",
+        "Contract",
+        "Chunking rules",
+        "Failure Modes",
+        "Security boundaries",
         "Frameworks",
         "Dependencies",
-        "Failure Modes",
         "Related",
         "Changelog"
       ],
