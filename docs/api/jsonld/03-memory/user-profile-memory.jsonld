@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T02:00:11Z",
+  "dateModified": "2026-09-20T02:02:01Z",
   "skillId": "user-profile-memory",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "user, profile, LLM skill, memory, skills tree, AI agent",
+  "keywords": "profile, LLM skill, memory, AI agent, user, skills tree",
   "about": {
     "@type": "Thing",
     "name": "User Profile Memory",

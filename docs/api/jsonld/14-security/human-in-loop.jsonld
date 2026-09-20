@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T02:00:12Z",
+  "dateModified": "2026-09-20T02:02:01Z",
   "skillId": "human-in-loop",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, human, loop, in, skills tree, security, AI agent",
+  "keywords": "in, loop, LLM skill, AI agent, security, human, skills tree",
   "about": {
     "@type": "Thing",
     "name": "human-in-loop",
