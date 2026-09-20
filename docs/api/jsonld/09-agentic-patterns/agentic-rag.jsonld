@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/agentic-rag.md",
   "name": "Agentic RAG",
   "headline": "Agentic RAG",
-  "description": "Apply agentic rag in AI agent workflows.",
+  "description": "Use an iterative retrieval-and-reasoning loop that decides when to retrieve, what evidence to retrieve, when to re-retrieve, and when enough grounded context is available to answer.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/agentic-rag.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T06:42:48Z",
+  "dateModified": "2026-09-20T07:40:16Z",
   "skillId": "agentic-rag",
-  "skillVersion": "v1.2",
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "patterns, skills tree, AI agent, LLM skill, agentic, rag",
+  "keywords": "LLM skill, agentic, patterns, rag, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Agentic RAG",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T06:42:48Z",
+  "dateModified": "2026-09-20T07:40:16Z",
   "skillId": "lats",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "patterns, lats, skills tree, AI agent, LLM skill, agentic",
+  "keywords": "LLM skill, lats, agentic, patterns, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "LATS (Language Agent Tree Search)",
