@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/xml-parsing.md",
   "name": "XML Parsing",
   "headline": "XML Parsing",
-  "description": "Parse and query XML documents in AI agent workflows.",
+  "description": "Parse bounded XML safely into deterministic element data, preserve namespaces when required, and reject external-resource behavior before content reaches downstream agent logic.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/xml-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,20 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:30Z",
+  "dateModified": "2026-09-20T08:03:37Z",
   "skillId": "xml-parsing",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Namespaces",
     "Frameworks",
-    "Dependencies",
     "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
     "Related",
     "Changelog"
   ],
@@ -76,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, skills tree, AI agent, parsing, xml",
+  "keywords": "skills tree, parsing, AI agent, LLM skill, xml, perception",
   "about": {
     "@type": "Thing",
     "name": "XML Parsing",

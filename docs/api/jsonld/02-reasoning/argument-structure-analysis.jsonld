@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/argument-structure-analysis.md",
   "name": "Argument Structure Analysis",
   "headline": "Argument Structure Analysis",
-  "description": "Apply argument structure analysis in AI agent workflows.",
+  "description": "Decompose arguments into premises, conclusions, inference links, and explicit gaps so agents distinguish stated evidence from unsupported claims.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/argument-structure-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,16 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:30Z",
+  "dateModified": "2026-09-20T08:03:37Z",
   "skillId": "argument-structure-analysis",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Analysis Protocol",
     "Failure Modes",
+    "Validation Rules",
+    "Safety Boundaries",
+    "Provenance",
     "Related",
     "Changelog"
   ],
@@ -72,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "analysis, argument, LLM skill, reasoning, skills tree, AI agent, structure",
+  "keywords": "skills tree, analysis, structure, reasoning, AI agent, LLM skill, argument",
   "about": {
     "@type": "Thing",
     "name": "Argument Structure Analysis",
