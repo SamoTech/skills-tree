@@ -3,9 +3,9 @@ title: "Agentic RAG"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
-description: "Apply agentic rag in AI agent workflows."
+description: "Use an iterative retrieval-and-reasoning loop that decides when to retrieve, what evidence to retrieve, when to re-retrieve, and when enough grounded context is available to answer."
 added: "2025-03"
-version: v1.2
+version: v2
 prerequisites:
   - 03-memory/rag
   - 09-agentic-patterns/react
@@ -47,4 +47,4 @@ Answer: [grounded comparison]
 |---|---|---|
 | 2025-03 | v1 | Initial entry |
 | 2026-06-23 | v1.1 | Added prerequisites field (INITIATIVE-006A): 03-memory/rag |
-| 2026-06-23 | v1.2 | Added prerequisite: 09-agentic-patterns/react (INITIATIVE-009, C-002) |
+| 2026-06-23 | v2 | Promoted version metadata from v1.2 to schema-compatible v2 after validation identified unsupported version value |
