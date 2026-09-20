@@ -1,5 +1,7 @@
 # Changelog
 
+- **Improved** [markdown-parsing — v1→v2](https://github.com/SamoTech/skills-tree/pull/149) by @SamoTech (#149) — 2026-09-20
+
 All notable changes to Skills Tree are documented here.
 Format: [Semantic Versioning](https://semver.org) · [Keep a Changelog](https://keepachangelog.com)
 
