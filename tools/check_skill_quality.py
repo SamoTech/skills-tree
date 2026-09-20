@@ -44,12 +44,7 @@ class SkillReport:
 
 
 def schema_enums() -> tuple[set[str], set[str], re.Pattern[str] | None]:
-    """Load level/stability/version constraints from meta/skill-schema.json.
-
-    This intentionally avoids duplicating enum values in the auditor. Version
-    is schema-pattern based because the schema accepts any vN, not only a
-    hard-coded finite list.
-    """
+    """Load level/stability/version constraints from meta/skill-schema.json."""
     schema = json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
     props = schema["properties"]
     levels = set(props["level"].get("enum", []))
@@ -85,6 +80,9 @@ def description_value(fm: dict, text: str) -> str:
         return desc.strip()
     m = re.search(r'^description:\s*"?([^"\n]+?)"?\s*$', text, re.M)
     return m.group(1).strip() if m else ""
+
+# Backward-compatible alias for corpus-audit tooling and external callers.
+_description_value = description_value
 
 
 def stub_description_reason(description: str, title: str) -> str | None:
@@ -123,8 +121,8 @@ def classify(path: Path) -> SkillReport:
         return SkillReport(path, category, title, "invalid", ["missing required frontmatter (title/category)"], lines)
 
     levels, stability, version_re = schema_enums()
-    checks = (("level", levels, None), ("stability", stability, None))
-    for key, allowed, _ in checks:
+    checks = (("level", levels), ("stability", stability))
+    for key, allowed in checks:
         val = fm.get(key)
         if isinstance(val, str) and allowed and val not in allowed:
             reasons.append(f"frontmatter `{key}: {val}` not allowed by meta/skill-schema.json: {sorted(allowed)}")
