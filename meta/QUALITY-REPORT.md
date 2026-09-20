@@ -5,10 +5,10 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 62
-- 🟡 **Enriched** (real description + runnable code): 3
-- ⚪ **Stub** (placeholder description or no runnable code): 301
-- ❌ **Invalid** (frontmatter problems): 3
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 67
+- 🟡 **Enriched** (real description + runnable code): 6
+- ⚪ **Stub** (placeholder description or no runnable code): 296
+- ❌ **Invalid** (frontmatter problems): 0
 
 ## Per-category breakdown
 
@@ -16,14 +16,14 @@
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 10 | 2 | 24 | 0 |
-| `02-reasoning` | 46 | 9 | 0 | 36 | 1 |
+| `02-reasoning` | 46 | 13 | 2 | 31 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 5 | 1 | 15 | 2 |
+| `09-agentic-patterns` | 23 | 6 | 2 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
 | `11-web` | 17 | 4 | 0 | 13 | 0 |
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
@@ -45,12 +45,16 @@
 - [`skills/01-perception/markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — Markdown Parsing
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
+- [`skills/02-reasoning/abductive.md`](skills/02-reasoning/abductive.md) — Abductive Reasoning
+- [`skills/02-reasoning/analogical.md`](skills/02-reasoning/analogical.md) — Analogical Reasoning
+- [`skills/02-reasoning/causal.md`](skills/02-reasoning/causal.md) — Causal Reasoning
 - [`skills/02-reasoning/goal-decomposition.md`](skills/02-reasoning/goal-decomposition.md) — Goal Decomposition
 - [`skills/02-reasoning/least-to-most.md`](skills/02-reasoning/least-to-most.md) — Least-to-Most Prompting
 - [`skills/02-reasoning/meta-prompting.md`](skills/02-reasoning/meta-prompting.md) — Meta-Prompting
 - [`skills/02-reasoning/planning-decomposition.md`](skills/02-reasoning/planning-decomposition.md) — Planning Decomposition
 - [`skills/02-reasoning/planning.md`](skills/02-reasoning/planning.md) — Planning
 - [`skills/02-reasoning/prompt-engineering.md`](skills/02-reasoning/prompt-engineering.md) — Prompt Engineering
+- [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — Reasoning Under Uncertainty
 - [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
 - [`skills/02-reasoning/step-back-prompting.md`](skills/02-reasoning/step-back-prompting.md) — Step-Back Prompting
 - [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
@@ -80,6 +84,7 @@
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
+- [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
 - [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
@@ -107,8 +112,14 @@ These skills have a real description and a runnable code example, but are missin
 - [`text-reading.md`](skills/01-perception/text-reading.md) — missing table or <60 lines
 - [`xml-parsing.md`](skills/01-perception/xml-parsing.md) — missing table or <60 lines
 
-### `09-agentic-patterns` (1)
+### `02-reasoning` (2)
 
+- [`argument-structure-analysis.md`](skills/02-reasoning/argument-structure-analysis.md) — no inputs/outputs/failure-modes table
+- [`bayesian-reasoning.md`](skills/02-reasoning/bayesian-reasoning.md) — missing table or <60 lines
+
+### `09-agentic-patterns` (2)
+
+- [`agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — missing table or <60 lines
 - [`time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — missing table or <60 lines
 
 ## ⚪ Stubs (good first PRs)
@@ -146,14 +157,9 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`url-dom-inspection.md`](skills/01-perception/url-dom-inspection.md) — description matches placeholder pattern: 'Apply url / dom inspection in AI agent workflows'
 - [`video-understanding.md`](skills/01-perception/video-understanding.md) — description matches placeholder pattern: 'Apply video understanding in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `02-reasoning` (36)
+### `02-reasoning` (31)
 
-- [`abductive.md`](skills/02-reasoning/abductive.md) — description matches placeholder pattern: 'Apply abductive reasoning in AI agent workflows'
-- [`analogical.md`](skills/02-reasoning/analogical.md) — description matches placeholder pattern: 'Apply analogical reasoning in AI agent workflows'
 - [`analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — description matches placeholder pattern: 'Apply analogy generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`argument-structure-analysis.md`](skills/02-reasoning/argument-structure-analysis.md) — description matches placeholder pattern: 'Apply argument structure analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`bayesian-reasoning.md`](skills/02-reasoning/bayesian-reasoning.md) — description matches placeholder pattern: 'Apply bayesian reasoning in AI agent workflows'
-- [`causal.md`](skills/02-reasoning/causal.md) — description matches placeholder pattern: 'Apply causal reasoning in AI agent workflows'
 - [`chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — description matches placeholder pattern: 'Apply chain of thought in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`commonsense.md`](skills/02-reasoning/commonsense.md) — description matches placeholder pattern: 'Apply commonsense reasoning in AI agent workflows'
 - [`constraint-satisfaction.md`](skills/02-reasoning/constraint-satisfaction.md) — description matches placeholder pattern: 'Apply constraint satisfaction in AI agent workflows'
@@ -469,12 +475,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 ### `17-infrastructure` (1)
 
 - [`dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
-
-## ❌ Invalid (frontmatter must be fixed)
-
-- [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — frontmatter `stability: evolving` not in ['deprecated', 'experimental', 'stable'] — will be dropped from JSON-LD export
-- [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — frontmatter `version: v1.2` not in ['v1', 'v2', 'v3'] — will be dropped from JSON-LD export
-- [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — frontmatter `version: v1.2` not in ['v1', 'v2', 'v3'] — will be dropped from JSON-LD export
 
 ## Definitions
 
