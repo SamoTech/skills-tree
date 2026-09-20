@@ -6,6 +6,7 @@ stability: stable
 description: "Parse untrusted XML with bounded, non-expanding semantics and deterministic element extraction while preventing external-entity and network resolution."
 added: "2025-03"
 version: v2
+related: [structured-data-reading, document-parsing, api-response-parsing, file-system-reading]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-xml-parsing.json)
