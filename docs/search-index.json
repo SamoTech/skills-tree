@@ -382,7 +382,7 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply abductive reasoning in AI agent workflows.",
+    "description": "Generate and compare plausible explanations for incomplete observations, separating observed evidence from hypotheses and identifying tests that could distinguish competing explanations.",
     "body": "Abductive Reasoning Category: Skill Level: Stability: Added: 2025-03 Last Updated: 2026-04 --- Description Infer the most plausible explanation for an incomplete set of observations — the logical \"inference to the best explanation.\" Given partial evidence (symptoms, logs, user complaints, sensor spikes), the agent generates ranked hypotheses ordered by likelihood, identifies what evidence supports each, and suggests what additional data would confirm or rule out each candidate. Useful for root-cause analysis, medical triage, debugging, and scientific hypothesis generation. --- Inputs | Input | Type | Required | Description | |---|---|---|---| | | | ✅ | List of observed facts or symptoms | | | | ❌ | Domain hint: , , , etc. | | | | ❌ | Number of hypotheses to return (default: 3) | --- Outputs | Output | Type | Description | |---|---|---| | | | | | | | Top-ranked hypothesis | | | | / / | --- Example --- Frameworks & Models | Framework / Model | Implementation | Since | |---|---|---| | Claude claude-opus-4-5 | Extended thinking + direct prompt | 2025-01 | | GPT-4o | Chain-of-thought prompt | 2024-05 | | LangGraph | Multi-step hypothesis graph node | v0.1 | --- Notes - Enable extended thinking for complex multi-variable observations - Frame observations as factual statements, not already-interpreted conclusions - For software debugging, attach relevant log snippets to the observations list --- Related Skills - Causal Reasoning — determining cause-effect chains - Commonsense Reasoning — background world knowledge - Fact Verification — checking hypothesis claims --- Changelog | Date | Change | |---|---| | | Expanded from stub: full description, I/O table, root-cause analysis example | | | Initial stub entry |"
   },
   {
@@ -392,7 +392,7 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply analogical reasoning in AI agent workflows.",
+    "description": "Transfer a solution pattern between domains by mapping structural relationships, testing the mapping, and explicitly documenting where the analogy breaks down.",
     "body": "Analogical Reasoning Category: Skill Level: Stability: Added: 2025-03 Last Updated: 2026-04 --- Description Transfer structure, patterns, and solutions from one domain to another by identifying structural parallels. Given a source scenario and a target problem, the agent maps corresponding elements, adapts the known solution, and explains where the analogy holds and where it breaks down. Supports creative problem-solving, technical explanation, concept teaching, and inter-domain innovation. --- Inputs | Input | Type | Required | Description | |---|---|---|---| | | | ✅ | Problem to solve in the target domain | | | | ❌ | Known domain to draw the analogy from | | | | ❌ | (shared attributes) or (relations between relations) | --- Outputs | Output | Type | Description | |---|---|---| | | | Proposed analogy | | | | | | | | Solution transferred from source to target | | | | Ways the analogy breaks down | --- Example --- Frameworks & Models | Framework / Model | Implementation | Since | |---|---|---| | Claude claude-opus-4-5 | Direct prompt with explicit mapping request | 2024-06 | | GPT-4o | Chain-of-thought prompt | 2024-05 | | LangGraph | Reasoning node | v0.1 | --- Notes - Specify a source domain when you want a particular lens; omit it to let the model choose - Structural analogies (mapping relations) are more powerful than surface analogies (shared features) - Always include the field to surface where the analogy misleads --- Related Skills - Causal Reasoning — for cause-effect inference - Commonsense Reasoning — world knowledge supporting analogies - Abductive Reasoning — hypothesis generation --- Changelog | Date | Change | |---|---| | | Expanded from stub: full description, I/O table, API rate-limiter analogy example | | | Initial stub entry |"
   },
   {
@@ -412,7 +412,7 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply argument structure analysis in AI agent workflows.",
+    "description": "Decompose arguments into premises, conclusions, inference links, and explicit gaps so agents distinguish stated evidence from unsupported claims.",
     "body": "Argument Structure Analysis Category: reasoning | Level: intermediate | Stability: stable | Version: v1 Description Identify premises, conclusions, and logical connectives in text; detect fallacies and weak inferences. Example Failure Modes - Implied premises not surfaced - Circular arguments hard to detect automatically Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
@@ -422,7 +422,7 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply bayesian reasoning in AI agent workflows.",
+    "description": "Update a belief from prior probability and evidence likelihoods using Bayes theorem while exposing the assumptions used to compute the posterior.",
     "body": "Bayesian Reasoning Category: reasoning | Level: advanced | Stability: stable | Version: v1 Description Update beliefs based on evidence using Bayes' theorem: compute posterior probability from prior and likelihood. Example Frameworks | Framework | Method | |---|---| | Python | , | | LangChain | Custom reasoning chain | Failure Modes - Base rate neglect when setting priors - Independence assumptions violated in real data Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
@@ -432,7 +432,7 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply causal reasoning in AI agent workflows.",
+    "description": "Analyze candidate cause-effect relationships while separating correlation, mechanism, confounding, and counterfactual claims.",
     "body": "Causal Reasoning Category: Skill Level: Stability: Added: 2025-03 Last Updated: 2026-04 --- Description Identify and reason about cause-and-effect relationships in text, data, or system descriptions. Distinguishes correlation from causation, builds causal chains, evaluates counterfactuals (\"what if X hadn't happened?\"), and identifies confounders. Applies to root-cause analysis, policy evaluation, experiment design, and business impact attribution. --- Inputs | Input | Type | Required | Description | |---|---|---|---| | | | ✅ | Description of the situation or event to analyze | | | | ❌ | Specific causal question (default: general causal analysis) | | | | ❌ | (effects of cause) or (causes of effect) | --- Outputs | Output | Type | Description | |---|---|---| | | | | | | | Factors that complicate attribution | | | | What would have happened without the root cause | | | | / / | --- Example --- Frameworks & Models | Framework / Model | Implementation | Since | |---|---|---| | Claude claude-opus-4-5 | Extended thinking for deep causal chains | 2025-01 | | GPT-4o | Chain-of-thought prompt | 2024-05 | | LangGraph | Multi-step causal graph node | v0.1 | --- Notes - Enable extended thinking for complex multi-variable chains - Provide a timeline or sequence of events when available - Always request confounders — models tend to over-attribute causation without explicit prompting --- Related Skills - Abductive Reasoning — hypothesis inference from incomplete observations - Analogical Reasoning — cross-domain solution transfer - Commonsense Reasoning — everyday causal knowledge --- Changelog | Date | Change | |---|---| | | Expanded from stub: full description, I/O table, conversion-drop case study | | | Initial stub entry |"
   },
   {
@@ -492,7 +492,7 @@
     "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply deductive reasoning in AI agent workflows.",
+    "description": "Derive necessary conclusions from supplied premises using valid formal rules, while separating logical validity from the truth of the premises.",
     "body": "Deductive Reasoning Category: Skill Level: Stability: Added: 2025-03 Version: v2 --- Description Derive necessary conclusions from given premises using formal logic. If the premises are true and the argument is valid, the conclusion must be true. Deductive reasoning is the foundation of formal proofs, rule-based systems, constraint checking, and any task requiring guaranteed correct inference. --- Core Forms Modus Ponens Modus Tollens Hypothetical Syllogism --- Prompt Pattern --- Common Fallacies to Avoid | Fallacy | Structure | Why It Fails | |---|---|---| | Affirming the consequent | Q is true → P must be true | Multiple causes can produce Q | | Denying the antecedent | P is false → Q must be false | Q may have other causes | | Undistributed middle | All A are B; All C are B → A=C | B is shared but A,C may differ | --- Related Skills - Inductive Reasoning - Abductive Reasoning - Mathematical Reasoning - Constraint Satisfaction"
   },
   {
@@ -547,7 +547,7 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply inductive reasoning in AI agent workflows.",
+    "description": "Generalize from observations to tentative broader conclusions while preserving sample limits, counterexamples, and uncertainty.",
     "body": "Inductive Reasoning Category: Skill Level: Stability: Added: 2025-03 Description Generalize from specific observations to broader principles or likely conclusions. Example Related Skills - Deductive Reasoning - Statistical Analysis"
   },
   {
@@ -666,7 +666,7 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply probabilistic reasoning in AI agent workflows.",
+    "description": "Reason with probability distributions and conditional uncertainty while making independence assumptions and prior information explicit.",
     "body": "Probabilistic Reasoning Category: reasoning | Level: advanced | Stability: stable | Version: v1 Description Reason with probabilities: compute joint, conditional, and marginal distributions; handle uncertainty explicitly. Example Failure Modes - Assuming independence when variables are correlated - Ignoring prior distributions Related - · Changelog - v1 (2026-04): Initial entry"
   },
   {
@@ -709,7 +709,7 @@
     "title": "Reasoning Under Uncertainty",
     "category": "02-reasoning",
     "level": "advanced",
-    "stability": "evolving",
+    "stability": "experimental",
     "tags": [
       "reasoning",
       "uncertainty",
@@ -2292,8 +2292,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply agentic rag in AI agent workflows.",
-    "body": "Agentic RAG Category: Skill Level: Stability: Added: 2025-03 Description Extends basic RAG with an agent that decides whether to retrieve, what to retrieve, when to re-retrieve, and how many iterations are needed — dynamically improving answer quality. Example Related Skills - RAG Pipeline - RAG - ReAct Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial entry | | 2026-06-23 | v1.1 | Added prerequisites field (INITIATIVE-006A): 03-memory/rag | | 2026-06-23 | v1.2 | Added prerequisite: 09-agentic-patterns/react (INITIATIVE-009, C-002) |"
+    "description": "Use an iterative retrieval-and-reasoning loop that decides when to retrieve, what evidence to retrieve, when to re-retrieve, and when enough grounded context is available to answer.",
+    "body": "Agentic RAG Category: Skill Level: Stability: Added: 2025-03 Description Extends basic RAG with an agent that decides whether to retrieve, what to retrieve, when to re-retrieve, and how many iterations are needed — dynamically improving answer quality. Example Related Skills - RAG Pipeline - RAG - ReAct Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial entry | | 2026-06-23 | v1.1 | Added prerequisites field (INITIATIVE-006A): 03-memory/rag | | 2026-06-23 | v2 | Promoted version metadata from v1.2 to schema-compatible v2 after validation identified unsupported version value |"
   },
   {
     "id": "09-agentic-patterns/bootstrapping",
@@ -2407,7 +2407,7 @@
     "stability": "stable",
     "tags": [],
     "description": "Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.",
-    "body": "Plan-and-Execute Description Separate planning from execution: a planner LLM generates a task list upfront, then an executor agent works through each step, optionally replanning when steps fail. Example Related Skills - , , , Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial entry | | 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) | | 2026-06-23 | v1.2 | Added prerequisite: 02-reasoning/planning-decomposition (INITIATIVE-009, C-003) |"
+    "body": "Plan-and-Execute Description Separate planning from execution: a planner LLM generates a task list upfront, then an executor agent works through each step, optionally replanning when steps fail. Example Related Skills - , , , Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial skill | | 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) | | 2026-06-23 | v2 | Promoted version metadata from v1.2 to schema-compatible v2 after validation identified unsupported version value |"
   },
   {
     "id": "09-agentic-patterns/rag-pipeline",
