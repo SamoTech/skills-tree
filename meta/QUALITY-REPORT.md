@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 67
-- 🟡 **Enriched** (real description + runnable code): 6
-- ⚪ **Stub** (placeholder description or no runnable code): 296
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 74
+- 🟡 **Enriched** (real description + runnable code): 2
+- ⚪ **Stub** (placeholder description or no runnable code): 293
 - ❌ **Invalid** (frontmatter problems): 0
 
 ## Per-category breakdown
@@ -15,15 +15,15 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 10 | 2 | 24 | 0 |
-| `02-reasoning` | 46 | 13 | 2 | 31 | 0 |
+| `01-perception` | 36 | 12 | 0 | 24 | 0 |
+| `02-reasoning` | 46 | 16 | 2 | 28 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 6 | 2 | 15 | 0 |
+| `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
 | `11-web` | 17 | 4 | 0 | 13 | 0 |
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
@@ -45,9 +45,14 @@
 - [`skills/01-perception/markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — Markdown Parsing
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
+- [`skills/01-perception/text-reading.md`](skills/01-perception/text-reading.md) — Text Reading
+- [`skills/01-perception/xml-parsing.md`](skills/01-perception/xml-parsing.md) — XML Parsing
 - [`skills/02-reasoning/abductive.md`](skills/02-reasoning/abductive.md) — Abductive Reasoning
 - [`skills/02-reasoning/analogical.md`](skills/02-reasoning/analogical.md) — Analogical Reasoning
+- [`skills/02-reasoning/argument-structure-analysis.md`](skills/02-reasoning/argument-structure-analysis.md) — Argument Structure Analysis
+- [`skills/02-reasoning/bayesian-reasoning.md`](skills/02-reasoning/bayesian-reasoning.md) — Bayesian Reasoning
 - [`skills/02-reasoning/causal.md`](skills/02-reasoning/causal.md) — Causal Reasoning
+- [`skills/02-reasoning/deductive-reasoning.md`](skills/02-reasoning/deductive-reasoning.md) — Deductive Reasoning
 - [`skills/02-reasoning/goal-decomposition.md`](skills/02-reasoning/goal-decomposition.md) — Goal Decomposition
 - [`skills/02-reasoning/least-to-most.md`](skills/02-reasoning/least-to-most.md) — Least-to-Most Prompting
 - [`skills/02-reasoning/meta-prompting.md`](skills/02-reasoning/meta-prompting.md) — Meta-Prompting
@@ -82,10 +87,12 @@
 - [`skills/07-tool-use/xquik-api.md`](skills/07-tool-use/xquik-api.md) — Xquik API
 - [`skills/09-agentic-patterns/agent-as-tool.md`](skills/09-agentic-patterns/agent-as-tool.md) — Agent as Tool
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
+- [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — Agentic RAG
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
 - [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-travel Debugging
 - [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
@@ -107,20 +114,10 @@
 
 These skills have a real description and a runnable code example, but are missing one of: an inputs/outputs/failure-modes **table**, or **>=60 lines** of total content. The smallest possible PR upgrades them to battle-tested.
 
-### `01-perception` (2)
-
-- [`text-reading.md`](skills/01-perception/text-reading.md) — missing table or <60 lines
-- [`xml-parsing.md`](skills/01-perception/xml-parsing.md) — missing table or <60 lines
-
 ### `02-reasoning` (2)
 
-- [`argument-structure-analysis.md`](skills/02-reasoning/argument-structure-analysis.md) — no inputs/outputs/failure-modes table
-- [`bayesian-reasoning.md`](skills/02-reasoning/bayesian-reasoning.md) — missing table or <60 lines
-
-### `09-agentic-patterns` (2)
-
-- [`agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — missing table or <60 lines
-- [`time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — missing table or <60 lines
+- [`inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — no inputs/outputs/failure-modes table
+- [`probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
 
 ## ⚪ Stubs (good first PRs)
 
@@ -157,7 +154,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`url-dom-inspection.md`](skills/01-perception/url-dom-inspection.md) — description matches placeholder pattern: 'Apply url / dom inspection in AI agent workflows'
 - [`video-understanding.md`](skills/01-perception/video-understanding.md) — description matches placeholder pattern: 'Apply video understanding in AI agent workflows'; no inputs/outputs/failure-modes table
 
-### `02-reasoning` (31)
+### `02-reasoning` (28)
 
 - [`analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — description matches placeholder pattern: 'Apply analogy generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — description matches placeholder pattern: 'Apply chain of thought in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -165,17 +162,14 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`constraint-satisfaction.md`](skills/02-reasoning/constraint-satisfaction.md) — description matches placeholder pattern: 'Apply constraint satisfaction in AI agent workflows'
 - [`counterfactual-reasoning.md`](skills/02-reasoning/counterfactual-reasoning.md) — description matches placeholder pattern: 'Apply counterfactual reasoning in AI agent workflows'
 - [`decision-making.md`](skills/02-reasoning/decision-making.md) — description matches placeholder pattern: 'Apply decision making in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`deductive-reasoning.md`](skills/02-reasoning/deductive-reasoning.md) — description matches placeholder pattern: 'Apply deductive reasoning in AI agent workflows'
 - [`ethical-reasoning.md`](skills/02-reasoning/ethical-reasoning.md) — description matches placeholder pattern: 'Apply ethical reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`goal-setting.md`](skills/02-reasoning/goal-setting.md) — description matches placeholder pattern: 'Apply goal setting in AI agent workflows'
 - [`hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — description matches placeholder pattern: 'Apply hypothesis generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — description matches placeholder pattern: 'Apply inductive reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`mathematical-reasoning.md`](skills/02-reasoning/mathematical-reasoning.md) — description matches placeholder pattern: 'Apply mathematical reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`meta-cognition.md`](skills/02-reasoning/meta-cognition.md) — description matches placeholder pattern: 'Apply meta-cognition in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`multi-step-planning.md`](skills/02-reasoning/multi-step-planning.md) — description matches placeholder pattern: 'Apply multi-step planning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`numerical-estimation.md`](skills/02-reasoning/numerical-estimation.md) — description matches placeholder pattern: 'Apply numerical estimation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`prioritization.md`](skills/02-reasoning/prioritization.md) — description matches placeholder pattern: 'Apply prioritization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — description matches placeholder pattern: 'Apply probabilistic reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`problem-decomposition.md`](skills/02-reasoning/problem-decomposition.md) — description matches placeholder pattern: 'Apply problem decomposition in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`react.md`](skills/02-reasoning/react.md) — description matches placeholder pattern: 'Apply ReAct reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`risk-assessment.md`](skills/02-reasoning/risk-assessment.md) — description matches placeholder pattern: 'Apply risk assessment in AI agent workflows'; no inputs/outputs/failure-modes table
