@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T08:44:30Z",
+  "dateModified": "2026-09-20T09:42:11Z",
   "skillId": "risk-assessment",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "assessment, LLM skill, AI agent, skills tree, risk, reasoning",
+  "keywords": "reasoning, risk, LLM skill, assessment, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Risk Assessment",
