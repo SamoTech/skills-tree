@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-20T08:03:37Z",
+  "generated": "2026-09-20T08:04:02Z",
   "count": 369,
   "skills": [
     {
@@ -4368,11 +4368,18 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Deterministic Reference Implementation",
+        "Control Protocol",
+        "Failure Modes",
+        "Safety Boundaries",
+        "Validation Rules",
+        "Provenance",
+        "Related Skills",
         "Changelog"
       ],
-      "related": [
-        "../03-memory/rag.md"
-      ],
+      "related": [],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -4709,8 +4716,8 @@
     {
       "id": "time-travel-debugging",
       "path": "skills/09-agentic-patterns/time-travel-debugging.md",
-      "name": "Time-Travel Debugging",
-      "description": "Rewind an agent run to any previous checkpoint, inspect state, modify it, and re-execute forward. Requires a checkpointer.",
+      "name": "Time-travel Debugging",
+      "description": "Rewind an agent run to a prior checkpoint, inspect or modify state, and re-execute from that point while preserving checkpoint identity and separating diagnostic forks from production runs.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
@@ -4719,10 +4726,14 @@
       "last_updated": null,
       "sections": [
         "Description",
-        "Inputs",
-        "Outputs",
-        "Example",
+        "Inputs / Outputs",
+        "Reference Workflow",
+        "Diagnostic Protocol",
         "Failure Modes",
+        "Reproducibility Limits",
+        "Validation Rules",
+        "Security Boundaries",
+        "Provenance",
         "Related",
         "Changelog"
       ],

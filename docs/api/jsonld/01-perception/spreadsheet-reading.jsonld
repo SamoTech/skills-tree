@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T08:03:37Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "skillId": "spreadsheet-reading",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, reading, spreadsheet, AI agent, LLM skill, perception",
+  "keywords": "AI agent, spreadsheet, skills tree, reading, LLM skill, perception",
   "about": {
     "@type": "Thing",
     "name": "Spreadsheet Reading",

@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 369,
-  "dateModified": "2026-09-20T08:03:37Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -1415,7 +1415,7 @@
       "@type": "ListItem",
       "position": 234,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
-      "name": "Time-Travel Debugging"
+      "name": "Time-travel Debugging"
     },
     {
       "@type": "ListItem",

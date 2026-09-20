@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T08:03:37Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "skillId": "portfolio-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "domain, skills tree, specific, analysis, AI agent, portfolio, LLM skill",
+  "keywords": "AI agent, specific, skills tree, domain, analysis, LLM skill, portfolio",
   "about": {
     "@type": "Thing",
     "name": "portfolio-analysis",
