@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:40:16Z",
+  "dateModified": "2026-09-20T07:42:30Z",
   "skillId": "hypothesis-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "generation, LLM skill, specific, domain, hypothesis, skills tree, AI agent",
+  "keywords": "LLM skill, specific, hypothesis, skills tree, generation, AI agent, domain",
   "about": {
     "@type": "Thing",
     "name": "hypothesis-generation",
