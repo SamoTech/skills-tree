@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T04:43:10Z",
+  "dateModified": "2026-09-20T05:02:40Z",
   "skillId": "agent-communication",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "communication, agent, AI agent, orchestration, LLM skill, skills tree",
+  "keywords": "orchestration, agent, AI agent, communication, LLM skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "agent-communication",

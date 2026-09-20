@@ -24,7 +24,6 @@ jobs:
       - name: Detect upgraded skills
         id: detect
         run: |
-          # Get list of changed skill files in this PR
           CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'skills/**/*.md' 2>/dev/null || \
                     git diff --name-only HEAD~1...HEAD -- 'skills/**/*.md')
 
@@ -37,7 +36,6 @@ jobs:
             NEW_VER=$(grep -m1 '^version:' "$FILE" | awk '{print $2}' | tr -d ' ')
             [ -z "$NEW_VER" ] && continue
 
-            # Get old version from base branch
             OLD_VER=$(git show origin/${{ github.base_ref }}:"$FILE" 2>/dev/null | grep -m1 '^version:' | awk '{print $2}' | tr -d ' ')
             [ -z "$OLD_VER" ] && OLD_VER="v1"
 
@@ -52,38 +50,41 @@ jobs:
             fi
           done
 
-          # Save to outputs (escape newlines for GitHub output)
-          echo "upgrades<<EOF" >> $GITHUB_OUTPUT
-          printf "%b" "$UPGRADES" >> $GITHUB_OUTPUT
-          echo "" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "upgrades<<EOF" >> "$GITHUB_OUTPUT"
+          printf "%b" "$UPGRADES" >> "$GITHUB_OUTPUT"
+          echo "" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
-          echo "v3_upgrades<<EOF" >> $GITHUB_OUTPUT
-          printf "%b" "$V3_UPGRADES" >> $GITHUB_OUTPUT
-          echo "" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "v3_upgrades<<EOF" >> "$GITHUB_OUTPUT"
+          printf "%b" "$V3_UPGRADES" >> "$GITHUB_OUTPUT"
+          echo "" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
           if [ -n "$UPGRADES" ]; then
-            echo "has_upgrades=true" >> $GITHUB_OUTPUT
+            echo "has_upgrades=true" >> "$GITHUB_OUTPUT"
           else
-            echo "has_upgrades=false" >> $GITHUB_OUTPUT
+            echo "has_upgrades=false" >> "$GITHUB_OUTPUT"
           fi
 
           if [ -n "$V3_UPGRADES" ]; then
-            echo "has_v3=true" >> $GITHUB_OUTPUT
+            echo "has_v3=true" >> "$GITHUB_OUTPUT"
           else
-            echo "has_v3=false" >> $GITHUB_OUTPUT
+            echo "has_v3=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Post upgrade comment
         if: steps.detect.outputs.has_upgrades == 'true'
         uses: actions/github-script@v9
+        env:
+          UPGRADES: ${{ steps.detect.outputs.upgrades }}
+          HAS_V3: ${{ steps.detect.outputs.has_v3 }}
+          V3_UPGRADES: ${{ steps.detect.outputs.v3_upgrades }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const upgrades = `${{ steps.detect.outputs.upgrades }}`;
-            const hasV3 = `${{ steps.detect.outputs.has_v3 }}` === 'true';
-            const v3Skills = `${{ steps.detect.outputs.v3_upgrades }}`;
+            const upgrades = process.env.UPGRADES || '';
+            const hasV3 = process.env.HAS_V3 === 'true';
+            const v3Skills = process.env.V3_UPGRADES || '';
 
             let body = `## 🚀 Skill Version Upgrade Detected\n\n`;
             body += `This PR upgrades the following skills:\n${upgrades}\n\n`;
@@ -103,7 +104,6 @@ jobs:
             body += `\n---\n*Auto-detected by the [Skill Upgrade Detector workflow]`;
             body += `(../.github/workflows/skill-upgrade-comment.yml)*`;
 
-            // Find existing bot comment to update instead of duplicating
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
