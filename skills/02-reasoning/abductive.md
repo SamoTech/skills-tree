@@ -6,6 +6,7 @@ stability: stable
 description: "Generate and compare plausible explanations for incomplete observations, separating observed evidence from hypotheses and identifying tests that could distinguish competing explanations."
 added: "2025-03"
 version: v2
+related: [causal, bayesian-reasoning, hypothesis-generation]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-abductive.json)
