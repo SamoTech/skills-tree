@@ -5,7 +5,7 @@ level: intermediate
 stability: stable
 description: Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.
 added: "2025-03"
-version: v1.2
+version: v2
 prerequisites:
   - 09-agentic-patterns/react
   - 02-reasoning/planning-decomposition
@@ -74,6 +74,6 @@ print(result["final_answer"])
 
 | Date | Version | Change |
 |---|---|---|
-| 2025-03 | v1 | Initial entry |
+| 2025-03 | v1 | Initial skill |
 | 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
-| 2026-06-23 | v1.2 | Added prerequisite: 02-reasoning/planning-decomposition (INITIATIVE-009, C-003) |
+| 2026-06-23 | v2 | Promoted version metadata from v1.2 to schema-compatible v2 after validation identified unsupported version value |
