@@ -3,8 +3,10 @@ title: "Inductive Reasoning"
 category: 02-reasoning
 level: intermediate
 stability: stable
-description: "Apply inductive reasoning in AI agent workflows."
+description: "Generalize from observations to tentative broader conclusions while preserving sample limits, counterexamples, and uncertainty."
 added: "2025-03"
+version: v2
+related: [deductive-reasoning, probabilistic-reasoning, statistical-analysis]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-inductive-reasoning.json)
