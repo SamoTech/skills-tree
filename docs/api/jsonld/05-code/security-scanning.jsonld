@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T06:42:48Z",
+  "dateModified": "2026-09-20T07:01:02Z",
   "skillId": "security-scanning",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "scanning, skills tree, AI agent, LLM skill, code, security",
+  "keywords": "scanning, AI agent, code, skills tree, LLM skill, security",
   "about": {
     "@type": "Thing",
     "name": "Security Scanning",

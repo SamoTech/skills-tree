@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T06:42:48Z",
+  "dateModified": "2026-09-20T07:01:02Z",
   "skillId": "vector-store-retrieval",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "retrieval, skills tree, AI agent, store, LLM skill, memory, vector",
+  "keywords": "retrieval, store, AI agent, skills tree, LLM skill, memory, vector",
   "about": {
     "@type": "Thing",
     "name": "Vector Store Retrieval",
