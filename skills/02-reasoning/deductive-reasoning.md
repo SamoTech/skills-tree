@@ -3,8 +3,10 @@ title: "Deductive Reasoning"
 category: 02-reasoning
 level: basic
 stability: stable
-description: "Apply deductive reasoning in AI agent workflows."
+description: "Derive necessary conclusions from supplied premises using valid formal rules, while separating logical validity from the truth of the premises."
 added: "2025-03"
+version: v2
+related: [inductive-reasoning, abductive, mathematical-reasoning]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-deductive-reasoning.json)
