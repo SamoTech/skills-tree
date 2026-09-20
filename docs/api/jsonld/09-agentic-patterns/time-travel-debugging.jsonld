@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
-  "name": "Time-Travel Debugging",
-  "headline": "Time-Travel Debugging",
-  "description": "Rewind an agent run to any previous checkpoint, inspect state, modify it, and re-execute forward. Requires a checkpointer.",
+  "name": "Time-travel Debugging",
+  "headline": "Time-travel Debugging",
+  "description": "Rewind an agent run to a prior checkpoint, inspect or modify state, and re-execute from that point while preserving checkpoint identity and separating diagnostic forks from production runs.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/time-travel-debugging.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:30Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "skillId": "time-travel-debugging",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -60,10 +60,14 @@
   "categoryDir": "09-agentic-patterns",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
+    "Inputs / Outputs",
+    "Reference Workflow",
+    "Diagnostic Protocol",
     "Failure Modes",
+    "Reproducibility Limits",
+    "Validation Rules",
+    "Security Boundaries",
+    "Provenance",
     "Related",
     "Changelog"
   ],
@@ -74,10 +78,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "debugging, LLM skill, time, patterns, skills tree, AI agent, travel, agentic",
+  "keywords": "AI agent, skills tree, LLM skill, debugging, travel, agentic, time, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Time-Travel Debugging",
+    "name": "Time-travel Debugging",
     "description": "An AI agent skill for time-travel debugging."
   }
 }

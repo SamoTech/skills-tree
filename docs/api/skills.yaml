@@ -1,4 +1,4 @@
-generated: '2026-09-20T07:42:30Z'
+generated: '2026-09-20T08:04:02Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -679,21 +679,24 @@ skills:
 - id: text-reading
   path: skills/01-perception/text-reading.md
   name: Text Reading
-  description: Read and pre-process plain text inputs for AI agent consumption.
+  description: Read bounded plain-text inputs, normalize encoding and whitespace,
+    and split content deterministically for downstream agent processing without conflating
+    parsing with retrieval or generation.
   category: perception
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
+  - Inputs / Outputs
+  - Deterministic Reference Implementation
   - Frameworks
-  - Dependencies
   - Failure Modes
+  - Security Boundaries
+  - Validation Rules
+  - Provenance
   - Related
   - Changelog
   related: []
@@ -756,21 +759,25 @@ skills:
 - id: xml-parsing
   path: skills/01-perception/xml-parsing.md
   name: XML Parsing
-  description: Parse and query XML documents in AI agent workflows.
+  description: Parse bounded XML safely into deterministic element data, preserve
+    namespaces when required, and reject external-resource behavior before content
+    reaches downstream agent logic.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
+  - Inputs / Outputs
+  - Deterministic Reference Implementation
+  - Namespaces
   - Frameworks
-  - Dependencies
   - Failure Modes
+  - Security Boundaries
+  - Validation Rules
+  - Provenance
   - Related
   - Changelog
   related: []
@@ -782,7 +789,7 @@ skills:
   category: reasoning
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -804,7 +811,7 @@ skills:
   category: reasoning
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -839,17 +846,23 @@ skills:
 - id: argument-structure-analysis
   path: skills/02-reasoning/argument-structure-analysis.md
   name: Argument Structure Analysis
-  description: Apply argument structure analysis in AI agent workflows.
+  description: Decompose arguments into premises, conclusions, inference links, and
+    explicit gaps so agents distinguish stated evidence from unsupported claims.
   category: reasoning
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Example
+  - Inputs / Outputs
+  - Deterministic Reference Implementation
+  - Analysis Protocol
   - Failure Modes
+  - Validation Rules
+  - Safety Boundaries
+  - Provenance
   - Related
   - Changelog
   related: []
@@ -857,18 +870,24 @@ skills:
 - id: bayesian-reasoning
   path: skills/02-reasoning/bayesian-reasoning.md
   name: Bayesian Reasoning
-  description: Apply bayesian reasoning in AI agent workflows.
+  description: Update a belief from prior probability and evidence likelihoods using
+    Bayes theorem while exposing the assumptions used to compute the posterior.
   category: reasoning
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Example
-  - Frameworks
+  - Inputs / Outputs
+  - Deterministic Reference Implementation
+  - Interpretation Protocol
   - Failure Modes
+  - Validation Rules
+  - Frameworks
+  - Safety Boundaries
+  - Provenance
   - Related
   - Changelog
   related: []
@@ -880,7 +899,7 @@ skills:
   category: reasoning
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -1078,11 +1097,12 @@ skills:
 - id: inductive-reasoning
   path: skills/02-reasoning/inductive-reasoning.md
   name: Inductive Reasoning
-  description: Apply inductive reasoning in AI agent workflows.
+  description: Generalize from observations to tentative broader conclusions while
+    preserving sample limits, counterexamples, and uncertainty.
   category: reasoning
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections: []
@@ -1275,11 +1295,12 @@ skills:
 - id: probabilistic-reasoning
   path: skills/02-reasoning/probabilistic-reasoning.md
   name: Probabilistic Reasoning
-  description: Apply probabilistic reasoning in AI agent workflows.
+  description: Reason with probability distributions and conditional uncertainty while
+    making independence assumptions and prior information explicit.
   category: reasoning
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -3792,9 +3813,17 @@ skills:
   added: 2025-03
   last_updated: null
   sections:
+  - Description
+  - Inputs / Outputs
+  - Deterministic Reference Implementation
+  - Control Protocol
+  - Failure Modes
+  - Safety Boundaries
+  - Validation Rules
+  - Provenance
+  - Related Skills
   - Changelog
-  related:
-  - ../03-memory/rag.md
+  related: []
   category_dir: 09-agentic-patterns
 - id: bootstrapping
   path: skills/09-agentic-patterns/bootstrapping.md
@@ -4088,9 +4117,10 @@ skills:
   category_dir: 09-agentic-patterns
 - id: time-travel-debugging
   path: skills/09-agentic-patterns/time-travel-debugging.md
-  name: Time-Travel Debugging
-  description: Rewind an agent run to any previous checkpoint, inspect state, modify
-    it, and re-execute forward. Requires a checkpointer.
+  name: Time-travel Debugging
+  description: Rewind an agent run to a prior checkpoint, inspect or modify state,
+    and re-execute from that point while preserving checkpoint identity and separating
+    diagnostic forks from production runs.
   category: agentic-patterns
   level: advanced
   stability: stable
@@ -4099,10 +4129,14 @@ skills:
   last_updated: null
   sections:
   - Description
-  - Inputs
-  - Outputs
-  - Example
+  - Inputs / Outputs
+  - Reference Workflow
+  - Diagnostic Protocol
   - Failure Modes
+  - Reproducibility Limits
+  - Validation Rules
+  - Security Boundaries
+  - Provenance
   - Related
   - Changelog
   related: []

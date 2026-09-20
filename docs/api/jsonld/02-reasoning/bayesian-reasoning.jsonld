@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/bayesian-reasoning.md",
   "name": "Bayesian Reasoning",
   "headline": "Bayesian Reasoning",
-  "description": "Apply bayesian reasoning in AI agent workflows.",
+  "description": "Update a belief from prior probability and evidence likelihoods using Bayes theorem while exposing the assumptions used to compute the posterior.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/bayesian-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:30Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "skillId": "bayesian-reasoning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
-    "Frameworks",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Interpretation Protocol",
     "Failure Modes",
+    "Validation Rules",
+    "Frameworks",
+    "Safety Boundaries",
+    "Provenance",
     "Related",
     "Changelog"
   ],
@@ -73,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, reasoning, bayesian, skills tree, AI agent",
+  "keywords": "bayesian, AI agent, skills tree, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Bayesian Reasoning",

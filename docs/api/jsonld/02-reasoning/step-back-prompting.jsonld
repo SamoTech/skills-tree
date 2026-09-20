@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:30Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "skillId": "step-back-prompting",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-06-01",
-  "keywords": "prompting, LLM skill, reasoning, step, skills tree, AI agent, back",
+  "keywords": "back, AI agent, prompting, skills tree, step, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Step-Back Prompting",

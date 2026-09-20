@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/probabilistic-reasoning.md",
   "name": "Probabilistic Reasoning",
   "headline": "Probabilistic Reasoning",
-  "description": "Apply probabilistic reasoning in AI agent workflows.",
+  "description": "Reason with probability distributions and conditional uncertainty while making independence assumptions and prior information explicit.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/probabilistic-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:30Z",
+  "dateModified": "2026-09-20T08:04:02Z",
   "skillId": "probabilistic-reasoning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, probabilistic, reasoning, skills tree, AI agent",
+  "keywords": "AI agent, skills tree, probabilistic, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Probabilistic Reasoning",
