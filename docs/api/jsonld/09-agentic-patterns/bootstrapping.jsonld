@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T08:04:02Z",
+  "dateModified": "2026-09-20T08:44:30Z",
   "skillId": "bootstrapping",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "bootstrapping, AI agent, skills tree, LLM skill, agentic, patterns",
+  "keywords": "LLM skill, patterns, agentic, AI agent, bootstrapping, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Bootstrapping",
