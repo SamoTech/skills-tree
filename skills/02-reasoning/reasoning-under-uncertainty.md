@@ -2,7 +2,7 @@
 title: "Reasoning Under Uncertainty"
 category: 02-reasoning
 level: advanced
-stability: evolving
+stability: experimental
 description: "Reason and make decisions when information is incomplete, ambiguous, or contradictory. Combines confidence calibration, hedged reasoning, and explicit uncertainty representation to produce reliable agent decisions under incomplete knowledge."
 added: "2025-06"
 version: v2
