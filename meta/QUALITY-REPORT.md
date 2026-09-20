@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 61
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 62
 - 🟡 **Enriched** (real description + runnable code): 3
-- ⚪ **Stub** (placeholder description or no runnable code): 302
+- ⚪ **Stub** (placeholder description or no runnable code): 301
 - ❌ **Invalid** (frontmatter problems): 3
 
 ## Per-category breakdown
@@ -15,7 +15,7 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 9 | 2 | 25 | 0 |
+| `01-perception` | 36 | 10 | 2 | 24 | 0 |
 | `02-reasoning` | 46 | 9 | 0 | 36 | 1 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
@@ -42,6 +42,7 @@
 - [`skills/01-perception/html-reading.md`](skills/01-perception/html-reading.md) — HTML Reading
 - [`skills/01-perception/json-schema-validation.md`](skills/01-perception/json-schema-validation.md) — JSON Schema Validation
 - [`skills/01-perception/log-parsing.md`](skills/01-perception/log-parsing.md) — Log Parsing
+- [`skills/01-perception/markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — Markdown Parsing
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
 - [`skills/02-reasoning/goal-decomposition.md`](skills/02-reasoning/goal-decomposition.md) — Goal Decomposition
@@ -118,7 +119,7 @@ Each entry below is a real, claimed skill that currently has no runnable example
 
 - [`pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 
-### `01-perception` (25)
+### `01-perception` (24)
 
 - [`api-response-parsing.md`](skills/01-perception/api-response-parsing.md) — description matches placeholder pattern: 'Apply api response parsing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`audio-transcription.md`](skills/01-perception/audio-transcription.md) — description matches placeholder pattern: 'Apply audio transcription in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
@@ -133,7 +134,6 @@ Each entry below is a real, claimed skill that currently has no runnable example
 - [`handwriting-recognition.md`](skills/01-perception/handwriting-recognition.md) — description matches placeholder pattern: 'Apply handwriting recognition in AI agent workflows'
 - [`image-understanding.md`](skills/01-perception/image-understanding.md) — description matches placeholder pattern: 'Apply image understanding in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`knowledge-graph-reading.md`](skills/01-perception/knowledge-graph-reading.md) — description matches placeholder pattern: 'Apply knowledge graph reading in AI agent workflows'
-- [`markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — description matches placeholder pattern: 'Apply markdown parsing in AI agent workflows'
 - [`multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — description matches placeholder pattern: 'Apply multimodal document reading in AI agent workflows'
 - [`network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — description matches placeholder pattern: 'Apply network traffic reading in AI agent workflows'
 - [`screen-reading.md`](skills/01-perception/screen-reading.md) — description matches placeholder pattern: 'Apply screen reading in AI agent workflows'
