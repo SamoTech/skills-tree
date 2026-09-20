@@ -1461,7 +1461,7 @@
     "stability": "stable",
     "tags": [],
     "description": "Apply debugging in AI agent workflows.",
-    "body": "Debugging Category: Skill Level: Stability: Added: 2025-03 Description Identify the root cause of bugs in code by analyzing error messages, stack traces, and code logic — then propose a fix. Example python {buggy_code} Related Skills - Code Generation - Self-Correction - Code Execution (Sandbox)"
+    "body": "Debugging Category: Skill Level: Stability: Added: 2025-03 Description Identify the root cause of bugs in code by analyzing error messages, stack traces, and code logic — then propose a fix. Example Related Skills - Code Generation - Self-Correction - Code Execution (Sandbox)"
   },
   {
     "id": "05-code/dependency-auditor",
