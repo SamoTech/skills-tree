@@ -8,6 +8,7 @@ added: "2026-04"
 version: v3
 prerequisites:
   - 09-agentic-patterns/interruptible-agent-flows
+related: [interruptible-agent-flows, stateful-agent-graphs, thread-based-resume, human-approval-gates]
 ---
 
 # Time-Travel Debugging
