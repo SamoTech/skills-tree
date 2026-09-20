@@ -3,8 +3,10 @@ title: "Probabilistic Reasoning"
 category: 02-reasoning
 level: intermediate
 stability: stable
-description: "Apply probabilistic reasoning in AI agent workflows."
+description: "Reason with probability distributions and conditional uncertainty while making independence assumptions and prior information explicit."
 added: "2025-03"
+version: v2
+related: [bayesian-reasoning, reasoning-under-uncertainty, uncertainty-quantification]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-probabilistic-reasoning.json)
