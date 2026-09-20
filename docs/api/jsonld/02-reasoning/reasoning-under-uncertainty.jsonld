@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T05:02:40Z",
+  "dateModified": "2026-09-20T06:42:48Z",
   "skillId": "reasoning-under-uncertainty",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-06-01",
-  "keywords": "under, AI agent, LLM skill, reasoning, skills tree, uncertainty",
+  "keywords": "skills tree, AI agent, LLM skill, reasoning, uncertainty, under",
   "about": {
     "@type": "Thing",
     "name": "Reasoning Under Uncertainty",

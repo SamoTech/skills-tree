@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T05:02:40Z",
+  "dateModified": "2026-09-20T06:42:48Z",
   "skillId": "scenario-planning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "scenario, AI agent, LLM skill, reasoning, planning, skills tree",
+  "keywords": "planning, skills tree, AI agent, LLM skill, reasoning, scenario",
   "about": {
     "@type": "Thing",
     "name": "Scenario Planning",
