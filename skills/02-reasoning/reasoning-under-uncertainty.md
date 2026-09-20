@@ -71,7 +71,7 @@ def reason_under_uncertainty(question: str, evidence: list[str], confidence_thre
             question=question,
             evidence="\n".join(f"- {e}" for e in evidence),
             threshold=confidence_threshold
-        )]
+        )}]
     )
     text = resp.content[0].text.strip()
     start = text.find("{")
