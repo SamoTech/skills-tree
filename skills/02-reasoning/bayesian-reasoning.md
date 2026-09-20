@@ -3,8 +3,10 @@ title: "Bayesian Reasoning"
 category: 02-reasoning
 level: intermediate
 stability: stable
-description: "Apply bayesian reasoning in AI agent workflows."
+description: "Update a belief from prior probability and evidence likelihoods using Bayes theorem while exposing the assumptions used to compute the posterior."
 added: "2025-03"
+version: v2
+related: [probabilistic-reasoning, reasoning-under-uncertainty, causal]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-bayesian-reasoning.json)

@@ -3,8 +3,10 @@ title: "Analogical Reasoning"
 category: 02-reasoning
 level: advanced
 stability: stable
-description: "Apply analogical reasoning in AI agent workflows."
+description: "Transfer a solution pattern between domains by mapping structural relationships, testing the mapping, and explicitly documenting where the analogy breaks down."
 added: "2025-03"
+version: v2
+related: [abductive, causal, commonsense]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-analogical.json)

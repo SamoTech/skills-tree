@@ -3,8 +3,10 @@ title: "Causal Reasoning"
 category: 02-reasoning
 level: advanced
 stability: stable
-description: "Apply causal reasoning in AI agent workflows."
+description: "Analyze candidate cause-effect relationships while separating correlation, mechanism, confounding, and counterfactual claims."
 added: "2025-03"
+version: v2
+related: [abductive, bayesian-reasoning, reasoning-under-uncertainty]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-causal.json)

@@ -3,8 +3,10 @@ title: "Argument Structure Analysis"
 category: 02-reasoning
 level: intermediate
 stability: stable
-description: "Apply argument structure analysis in AI agent workflows."
+description: "Decompose arguments into premises, conclusions, inference links, and explicit gaps so agents distinguish stated evidence from unsupported claims."
 added: "2025-03"
+version: v2
+related: [deductive-reasoning, inductive-reasoning, ../06-communication/citation-attribution]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-argument-structure-analysis.json)
