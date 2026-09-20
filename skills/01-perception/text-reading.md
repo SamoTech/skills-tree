@@ -6,6 +6,7 @@ stability: stable
 description: "Read bounded plain-text inputs, normalize encoding and whitespace, and produce deterministic chunks for downstream agent processing without silently changing source meaning."
 added: "2025-03"
 version: v2
+related: [binary-file-reading, document-parsing, markdown-parsing, structured-data-reading]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-text-reading.json)
