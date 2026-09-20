@@ -1,4 +1,4 @@
-generated: '2026-09-20T01:40:04Z'
+generated: '2026-09-20T04:43:09Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -409,7 +409,8 @@ skills:
 - id: log-parsing
   path: skills/01-perception/log-parsing.md
   name: Log Parsing
-  description: Apply log parsing in AI agent workflows.
+  description: Parse bounded application and infrastructure logs into normalized events
+    while preserving malformed records for explicit error handling.
   category: perception
   level: intermediate
   stability: stable
@@ -418,12 +419,16 @@ skills:
   last_updated: null
   sections:
   - Description
+  - When to Use
   - Inputs
   - Outputs
-  - Example
-  - Frameworks
+  - Contract
+  - Deterministic Reference Implementation
+  - Format Guidance
   - Failure Modes
-  - Related
+  - Safety Boundaries
+  - Validation Rules
+  - Related Skills
   - Changelog
   related: []
   category_dir: 01-perception

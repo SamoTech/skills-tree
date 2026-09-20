@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/log-parsing.md",
   "name": "Log Parsing",
   "headline": "Log Parsing",
-  "description": "Apply log parsing in AI agent workflows.",
+  "description": "Parse bounded application and infrastructure logs into normalized events while preserving malformed records for explicit error handling.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/log-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T01:40:04Z",
+  "dateModified": "2026-09-20T04:43:09Z",
   "skillId": "log-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -60,12 +60,16 @@
   "categoryDir": "01-perception",
   "sections": [
     "Description",
+    "When to Use",
     "Inputs",
     "Outputs",
-    "Example",
-    "Frameworks",
+    "Contract",
+    "Deterministic Reference Implementation",
+    "Format Guidance",
     "Failure Modes",
-    "Related",
+    "Safety Boundaries",
+    "Validation Rules",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -75,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, perception, skills tree, log, parsing",
+  "keywords": "log, AI agent, LLM skill, skills tree, parsing, perception",
   "about": {
     "@type": "Thing",
     "name": "Log Parsing",
