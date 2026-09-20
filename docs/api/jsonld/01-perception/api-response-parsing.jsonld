@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/api-response-parsing.md",
   "name": "API Response Parsing",
   "headline": "API Response Parsing",
-  "description": "Apply api response parsing in AI agent workflows.",
+  "description": "Parse bounded API response payloads into deterministic records while preserving schema errors, pagination state, and untrusted response content for explicit downstream validation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/api-response-parsing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,27 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T06:42:48Z",
+  "dateModified": "2026-09-20T07:01:02Z",
   "skillId": "api-response-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Outputs",
+    "Contract",
+    "Deterministic Reference Implementation",
+    "Pagination Guidance",
+    "Failure Modes",
+    "Safety Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "api, skills tree, AI agent, LLM skill, perception, response, parsing",
+  "keywords": "api, parsing, AI agent, perception, response, skills tree, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "API Response Parsing",

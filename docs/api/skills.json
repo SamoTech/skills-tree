@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-20T06:42:48Z",
+  "generated": "2026-09-20T07:01:02Z",
   "count": 369,
   "skills": [
     {
@@ -23,14 +23,28 @@
       "id": "api-response-parsing",
       "path": "skills/01-perception/api-response-parsing.md",
       "name": "API Response Parsing",
-      "description": "Apply api response parsing in AI agent workflows.",
+      "description": "Parse bounded API response payloads into deterministic records while preserving schema errors, pagination state, and untrusted response content for explicit downstream validation.",
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
       "version": null,
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Outputs",
+        "Contract",
+        "Deterministic Reference Implementation",
+        "Pagination Guidance",
+        "Failure Modes",
+        "Safety Boundaries",
+        "Validation Rules",
+        "Provenance",
+        "Related Skills",
+        "Changelog"
+      ],
       "related": [],
       "category_dir": "01-perception"
     },
