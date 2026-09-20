@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/text-reading.md",
   "name": "Text Reading",
   "headline": "Text Reading",
-  "description": "Read and pre-process plain text inputs for AI agent consumption.",
+  "description": "Read bounded plain-text inputs, normalize encoding and whitespace, and produce deterministic chunks for downstream agent processing without silently changing source meaning.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/text-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T01:40:04Z",
+  "dateModified": "2026-09-20T02:02:01Z",
   "skillId": "text-reading",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "01-perception",
@@ -62,10 +62,13 @@
     "Description",
     "Inputs",
     "Outputs",
-    "Example",
+    "Deterministic reference implementation",
+    "Contract",
+    "Chunking rules",
+    "Failure Modes",
+    "Security boundaries",
     "Frameworks",
     "Dependencies",
-    "Failure Modes",
     "Related",
     "Changelog"
   ],
@@ -76,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, perception, reading, skills tree, text",
+  "keywords": "LLM skill, reading, text, AI agent, perception, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Text Reading",
