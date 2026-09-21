@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-21T09:49:58Z",
+  "dateModified": "2026-09-21T10:09:42Z",
   "skillId": "procedural",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, procedural, memory, AI agent, LLM skill",
+  "keywords": "AI agent, LLM skill, skills tree, procedural, memory",
   "about": {
     "@type": "Thing",
     "name": "Procedural Memory",

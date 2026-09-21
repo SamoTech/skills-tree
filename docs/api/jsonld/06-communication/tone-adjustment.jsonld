@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-21T09:49:58Z",
+  "dateModified": "2026-09-21T10:09:42Z",
   "skillId": "tone-adjustment",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, tone, communication, adjustment, AI agent, LLM skill",
+  "keywords": "adjustment, AI agent, communication, LLM skill, skills tree, tone",
   "about": {
     "@type": "Thing",
     "name": "Tone Adjustment",

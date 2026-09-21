@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-21T09:49:58Z",
+  "dateModified": "2026-09-21T10:09:42Z",
   "skillId": "sql-query-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "query, skills tree, sql, code, generation, AI agent, LLM skill",
+  "keywords": "sql, AI agent, query, LLM skill, skills tree, code, generation",
   "about": {
     "@type": "Thing",
     "name": "SQL Query Generation",

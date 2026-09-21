@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-21T09:49:58Z",
+  "dateModified": "2026-09-21T10:09:42Z",
   "skillId": "embedding-generation",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -80,7 +80,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, generation, embedding, AI agent, data, LLM skill",
+  "keywords": "AI agent, data, LLM skill, embedding, skills tree, generation",
   "about": {
     "@type": "Thing",
     "name": "Embedding Generation",
