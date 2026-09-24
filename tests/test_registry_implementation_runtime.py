@@ -12,6 +12,21 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / "registry" / "universal_registry.json"
 
 
+def _copy_runtime_contracts(tmp_path: Path) -> None:
+    for schema_name in (
+        "implementation-contract.schema.json",
+        "adapter-contract.schema.json",
+        "evidence-contract.schema.json",
+        "universal-graph.schema.json",
+    ):
+        target = tmp_path / "meta" / schema_name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text((ROOT / "meta" / schema_name).read_text(encoding="utf-8"), encoding="utf-8")
+    graph_target = tmp_path / "graph" / "universal_graph.json"
+    graph_target.parent.mkdir(parents=True, exist_ok=True)
+    graph_target.write_text((ROOT / "graph" / "universal_graph.json").read_text(encoding="utf-8"), encoding="utf-8")
+
+
 def test_resolve_adapter_returns_normative_record() -> None:
     registry = UniversalRegistry(REGISTRY_PATH)
     adapter = registry.resolve_adapter("adapter/code-reviewer-mcp")
@@ -65,20 +80,7 @@ def test_registry_initialization_validates_implementation_contract(tmp_path: Pat
     registry_path = tmp_path / "registry" / "universal_registry.json"
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
-    contract = ROOT / "meta" / "implementation-contract.schema.json"
-    contract_target = tmp_path / "meta" / "implementation-contract.schema.json"
-    contract_target.parent.mkdir()
-    contract_target.write_text(contract.read_text(encoding="utf-8"), encoding="utf-8")
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
-    graph_contract = ROOT / "meta" / "universal-graph.schema.json"
-    graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
-    graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
-    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
     with pytest.raises(Exception):
         UniversalRegistry(registry_path)
 
@@ -92,20 +94,7 @@ def test_implementation_evidence_must_support_record(tmp_path: Path) -> None:
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
 
-    for schema_name in (
-        "implementation-contract.schema.json",
-        "universal-graph.schema.json",
-        "adapter-contract.schema.json",
-    ):
-        source = ROOT / "meta" / schema_name
-        target = tmp_path / "meta" / schema_name
-        target.parent.mkdir(exist_ok=True)
-        target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
-
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
 
     with pytest.raises(ValueError, match="does not support implementation"):
         UniversalRegistry(registry_path)
@@ -119,20 +108,7 @@ def test_verified_implementation_requires_evidence_and_traceable_provenance(tmp_
     registry_path = tmp_path / "registry" / "universal_registry.json"
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
-    contract = ROOT / "meta" / "implementation-contract.schema.json"
-    contract_target = tmp_path / "meta" / "implementation-contract.schema.json"
-    contract_target.parent.mkdir()
-    contract_target.write_text(contract.read_text(encoding="utf-8"), encoding="utf-8")
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
-    graph_contract = ROOT / "meta" / "universal-graph.schema.json"
-    graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
-    graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
-    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
     with pytest.raises(Exception, match="evidence"):
         UniversalRegistry(registry_path)
 
@@ -146,20 +122,7 @@ def test_verified_implementation_evidence_must_support_record(tmp_path: Path) ->
     registry_path = tmp_path / "registry" / "universal_registry.json"
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
-    contract = ROOT / "meta" / "implementation-contract.schema.json"
-    contract_target = tmp_path / "meta" / "implementation-contract.schema.json"
-    contract_target.parent.mkdir()
-    contract_target.write_text(contract.read_text(encoding="utf-8"), encoding="utf-8")
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
-    graph_contract = ROOT / "meta" / "universal-graph.schema.json"
-    graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
-    graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
-    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
     with pytest.raises(ValueError, match="does not support implementation"):
         UniversalRegistry(registry_path)
 
@@ -171,20 +134,7 @@ def test_verified_implementation_with_supporting_evidence_passes(tmp_path: Path)
     registry_path = tmp_path / "registry" / "universal_registry.json"
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
-    contract = ROOT / "meta" / "implementation-contract.schema.json"
-    contract_target = tmp_path / "meta" / "implementation-contract.schema.json"
-    contract_target.parent.mkdir()
-    contract_target.write_text(contract.read_text(encoding="utf-8"), encoding="utf-8")
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
-    graph_contract = ROOT / "meta" / "universal-graph.schema.json"
-    graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
-    graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
-    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
     UniversalRegistry(registry_path)
 
 
@@ -317,20 +267,7 @@ def test_registry_initialization_requires_compatibility_evidence_support(tmp_pat
     registry_path = tmp_path / "registry" / "universal_registry.json"
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
-    contract = ROOT / "meta" / "implementation-contract.schema.json"
-    contract_target = tmp_path / "meta" / "implementation-contract.schema.json"
-    contract_target.parent.mkdir()
-    contract_target.write_text(contract.read_text(encoding="utf-8"), encoding="utf-8")
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
-    graph_contract = ROOT / "meta" / "universal-graph.schema.json"
-    graph_contract_target = tmp_path / "meta" / "universal-graph.schema.json"
-    graph_contract_target.write_text(graph_contract.read_text(encoding="utf-8"), encoding="utf-8")
-    adapter_contract = ROOT / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target = tmp_path / "meta" / "adapter-contract.schema.json"
-    adapter_contract_target.write_text(adapter_contract.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
     with pytest.raises(ValueError, match="does not support compatibility"):
         UniversalRegistry(registry_path)
 
@@ -347,20 +284,7 @@ def test_registry_initialization_requires_adapter_evidence_support(tmp_path: Pat
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
 
-    for schema_name in (
-        "implementation-contract.schema.json",
-        "universal-graph.schema.json",
-        "adapter-contract.schema.json",
-    ):
-        source = ROOT / "meta" / schema_name
-        target = tmp_path / "meta" / schema_name
-        target.parent.mkdir(exist_ok=True)
-        target.write_text(source.read_text(encoding="utf-8"), encoding="utf-8")
-
-    graph = ROOT / "graph" / "universal_graph.json"
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text(graph.read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
 
     with pytest.raises(ValueError, match="does not support adapter"):
         UniversalRegistry(registry_path)
@@ -391,18 +315,7 @@ def test_registry_accepts_and_rejects_model_adapter_targets(tmp_path: Path) -> N
     registry_path.parent.mkdir()
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
 
-    for schema_name in (
-        "implementation-contract.schema.json",
-        "universal-graph.schema.json",
-        "adapter-contract.schema.json",
-    ):
-        target = tmp_path / "meta" / schema_name
-        target.parent.mkdir(exist_ok=True)
-        target.write_text((ROOT / "meta" / schema_name).read_text(encoding="utf-8"), encoding="utf-8")
-
-    graph_target = tmp_path / "graph" / "universal_graph.json"
-    graph_target.parent.mkdir()
-    graph_target.write_text((ROOT / "graph" / "universal_graph.json").read_text(encoding="utf-8"), encoding="utf-8")
+    _copy_runtime_contracts(tmp_path)
 
     UniversalRegistry(registry_path)
 

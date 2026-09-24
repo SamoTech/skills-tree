@@ -19,6 +19,7 @@ def _materialize_runtime_fixture(tmp_path: Path, graph: dict) -> Path:
     for relative in (
         "implementation-contract.schema.json",
         "adapter-contract.schema.json",
+        "evidence-contract.schema.json",
         "universal-graph.schema.json",
     ):
         target = tmp_path / "meta" / relative
