@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-28T10:46:53Z",
+  "dateModified": "2026-09-28T11:10:08Z",
   "skillId": "mathematical-reasoning",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, mathematical, LLM skill, skills tree, reasoning",
+  "keywords": "reasoning, skills tree, mathematical, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Mathematical Reasoning",

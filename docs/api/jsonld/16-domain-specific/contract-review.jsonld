@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-28T10:46:53Z",
+  "dateModified": "2026-09-28T11:10:08Z",
   "skillId": "contract-review",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "review, AI agent, LLM skill, skills tree, specific, domain, contract",
+  "keywords": "skills tree, AI agent, review, specific, LLM skill, domain, contract",
   "about": {
     "@type": "Thing",
     "name": "contract-review",

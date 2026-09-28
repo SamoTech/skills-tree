@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-28T10:46:53Z",
+  "dateModified": "2026-09-28T11:10:08Z",
   "skillId": "root-cause-analysis",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, LLM skill, root, skills tree, analysis, reasoning, cause",
+  "keywords": "reasoning, skills tree, analysis, AI agent, LLM skill, root, cause",
   "about": {
     "@type": "Thing",
     "name": "Root Cause Analysis",

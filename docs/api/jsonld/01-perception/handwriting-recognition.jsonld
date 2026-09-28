@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-28T10:46:53Z",
+  "dateModified": "2026-09-28T11:10:08Z",
   "skillId": "handwriting-recognition",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "recognition, AI agent, LLM skill, skills tree, perception, handwriting",
+  "keywords": "skills tree, perception, AI agent, handwriting, LLM skill, recognition",
   "about": {
     "@type": "Thing",
     "name": "Handwriting Recognition",
