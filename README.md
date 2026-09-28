@@ -8,21 +8,9 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — September 21, 2026
+## 📆 This Week's Highlights — September 28, 2026
 
-### 🔥 Most Active Skills
-- **Deductive Reasoning** — 1 PR
-- **Inductive Reasoning** — 1 PR
-- **Probabilistic Reasoning** — 1 PR
-- **Abductive** — 1 PR
-- **Analogical** — 1 PR
-
-### ⬆️ Skill Upgrades
-- [improve: markdown-parsing — v1→v2](https://github.com/SamoTech/skills-tree/pull/149)
-- [improve: log-parsing — v1→v2](https://github.com/SamoTech/skills-tree/pull/148)
-
-### ✨ New Skills
-- [feat(frontend): add Vercel-ready Skills Tree UI](https://github.com/SamoTech/skills-tree/pull/135)
+> No skill changes this week. Open a PR to get started!
 
 <!-- HIGHLIGHTS_END -->
 
