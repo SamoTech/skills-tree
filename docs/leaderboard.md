@@ -1,6 +1,6 @@
 # 🏆 Contributors Leaderboard
 
-> Last updated: 2026-09-21  
+> Last updated: 2026-09-28  
 > Counts merged PRs that added or improved a skill file.
 
 ## Last 30 days
