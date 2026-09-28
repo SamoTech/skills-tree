@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-21T10:09:42Z",
+  "dateModified": "2026-09-28T10:46:53Z",
   "skillId": "news-api",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "news, AI agent, tool, use, LLM skill, skills tree, api",
+  "keywords": "use, AI agent, api, tool, LLM skill, skills tree, news",
   "about": {
     "@type": "Thing",
     "name": "News API",
