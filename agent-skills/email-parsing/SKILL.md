@@ -26,3 +26,5 @@ metadata:
 
 - https://docs.python.org/3/library/email.html
 - https://docs.python.org/3/library/email.policy.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
