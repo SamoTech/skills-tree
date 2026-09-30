@@ -11,7 +11,7 @@
 - Enriched: 2
 - Stubs: 293
 - Invalid: 0
-- Stub migration: batch 01 prepared on branch `coo/stub-migration-batch-01` (10 perception skills)
+- Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
 - DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
@@ -22,7 +22,7 @@
 
 ## Validation and CI state
 
-The current generated `meta/QUALITY-REPORT.md` verifies 74 battle-tested, 2 enriched, 293 stub, and 0 invalid skill files. This supersedes the earlier point-in-time counts above.
+The current generated `meta/QUALITY-REPORT.md` still reflects the pre-batch snapshot (74 battle-tested, 2 enriched, 293 stubs, 0 invalid). Batch 01 is merged, but the connector-visible Actions state has not produced a refreshed quality report yet; therefore the 293-stub count is not being presented as current post-migration evidence.
 
 PR #141 added and enforced the machine-readable Evidence contract at registry initialization and added regression coverage. It was merged after review because it was focused and GitHub reported it mergeable.
 
@@ -30,7 +30,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 293 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batch 01 covers 10 perception skills and adds standards-compatible `SKILL.md` projections plus an automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+The current quality distribution makes the remaining 293 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batch 01 merged 10 perception skills and added standards-compatible `SKILL.md` projections plus an automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
 
 ## Governance state
 
