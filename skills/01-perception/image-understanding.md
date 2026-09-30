@@ -7,21 +7,6 @@ version: v2
 added: "2025-03"
 description: "Transcribe, interpret, and ground visual content while preserving source coordinates, uncertainty, and provenance. Use for VQA, object localization, scene understanding, and structured visual extraction."
 related: []
-dependencies:
-  - package: openai
-    min_version: "1.0.0"
-    tested_version: "1.30.1"
-    confidence: verified
-  - package: httpx
-    min_version: "0.27.0"
-    tested_version: "0.27.0"
-    confidence: verified
-code_blocks:
-  - id: "example-vqa"
-    type: executable
-  - id: "example-grounding-dino"
-    type: illustrative
-    note: "groundingdino-py requires manual model weights download — illustrative only"
 ---
 
 
