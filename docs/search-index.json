@@ -1756,13 +1756,13 @@
   },
   {
     "id": "07-tool-use/a2a-tool",
-    "title": "Agent-to-Agent Tool (A2A)",
+    "title": "A2a Tool",
     "category": "07-tool-use",
     "level": "advanced",
-    "stability": "experimental",
+    "stability": "stable",
     "tags": [],
-    "description": "Apply agent-to-agent tool (a2a) in AI agent workflows.",
-    "body": "Agent-to-Agent Tool (A2A) Category: Skill Level: Stability: Added: 2025-03 Description Call another AI agent as a tool — delegating sub-tasks to specialized agents via the Google A2A protocol or custom RPC interfaces. Example Architecture Related Skills - MCP Tool - Subagent Spawning - Agent Handoff"
+    "description": "Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes.",
+    "body": "Description Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. Inspect the target protocol and repository conventions before making calls. When to Use Use when one agent invokes another agent or agent-facing service through a defined tool interface. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Tool contract, request payload, authorization context, and expected result. | | Outputs | Validated response and evidence of the resulting state. | | Failure modes | Invalid payloads, unauthorized actions, protocol mismatch, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending incomplete or excessive data. - Treating an acknowledgement as proof of completion. - Ignoring authorization boundaries. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "07-tool-use/anthropic-api",
@@ -1783,51 +1783,51 @@
     "id": "07-tool-use/browser-tool",
     "title": "Browser Tool",
     "category": "07-tool-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply browser tool in AI agent workflows.",
-    "body": "Browser Tool Category: Skill Level: Stability: Added: 2025-03 Description Control a real browser as an agent tool — navigate, click, fill forms, and extract content from any website. Example Frameworks - Browser Use - Playwright MCP - Selenium, Puppeteer Related Skills - Browser Navigation - Web Scraping"
+    "description": "Use browser automation through explicit navigation, interaction, extraction, and verification steps.",
+    "body": "Description Use browser automation through explicit navigation, interaction, extraction, and verification steps. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "07-tool-use/calculator",
     "title": "Calculator",
     "category": "07-tool-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply calculator in AI agent workflows.",
-    "body": "Calculator Category: Skill Level: Stability: Added: 2025-03 Description Perform precise arithmetic, symbolic math, and unit conversions — bypassing LLM floating-point errors by calling a real calculator or math engine. Example Related Skills - Wolfram API - Mathematical Reasoning"
+    "description": "Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs.",
+    "body": "Description Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "07-tool-use/code-exec-tool",
-    "title": "Code Execution Tool",
+    "title": "Code Exec Tool",
     "category": "07-tool-use",
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply code execution tool in AI agent workflows.",
-    "body": "Code Execution Tool Category: Skill Level: Stability: Added: 2025-03 Description Execute code in a sandboxed environment as an agent tool and capture stdout, stderr, and return values. Example Related Skills - Code Execution Sandbox - Sandboxed Execution"
+    "description": "Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects.",
+    "body": "Description Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "07-tool-use/custom-api-wrapper",
-    "title": "Custom API Wrapper",
+    "title": "Custom Api Wrapper",
     "category": "07-tool-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply custom api wrapper in AI agent workflows.",
-    "body": "Custom API Wrapper Category: Skill Level: Stability: Added: 2025-03 Description Wrap any REST API as a reusable agent tool with a defined schema, authentication, and error handling. Example Related Skills - Function Calling - HTTP Request - MCP Tool"
+    "description": "Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries.",
+    "body": "Description Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "07-tool-use/file-system-tool",
     "title": "File System Tool",
     "category": "07-tool-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply file system tool in AI agent workflows.",
-    "body": "File System Tool Category: Skill Level: Stability: Added: 2025-03 Description Expose file system operations (read, write, list, delete) as structured agent tools with permission checks. Example Related Skills - File System Reading - File Write"
+    "description": "Operate on files through explicit paths, scope checks, content validation, and reversible changes.",
+    "body": "Description Operate on files through explicit paths, scope checks, content validation, and reversible changes. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "07-tool-use/function-calling",
