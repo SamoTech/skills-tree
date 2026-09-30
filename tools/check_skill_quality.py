@@ -226,11 +226,11 @@ def main() -> int:
         offenders = []
         for p in changed_skill_files_against(args.base):
             current = classify(p)
-            if current not in {"stub", "invalid"}:
+            if current.classification not in {"stub", "invalid"}:
                 continue
             rel = str(p.relative_to(REPO_ROOT))
             base = classify_at_revision(args.base, rel)
-            if base == current:
+            if base == current.classification:
                 continue
             kind = f"new {current} added" if base is None else f"regression: was '{base}' on {args.base}, now '{current}'"
             offenders.append((p, kind, current))

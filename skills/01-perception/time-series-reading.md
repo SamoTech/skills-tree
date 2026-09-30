@@ -3,7 +3,9 @@ title: "Time Series Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply time series reading in AI agent workflows."
+version: v2
+description: "Load time-indexed data from files, databases, or APIs, normalize timestamps and sampling intervals, and produce analysis-ready series without hiding missing or irregular observations."
+related: []
 added: "2025-03"
 ---
 
@@ -47,3 +49,11 @@ print(df.describe())
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://pandas.pydata.org/docs/user_guide/timeseries.html
+- https://docs.pola.rs/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

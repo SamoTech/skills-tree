@@ -3,7 +3,9 @@ title: "Structured Data Reading"
 category: 01-perception
 level: basic
 stability: stable
-description: "Apply structured data reading in AI agent workflows."
+version: v2
+description: "Parse JSON, YAML, TOML, XML, CSV, and related structured formats into validated data while preserving type errors, missing fields, and parser failures."
+related: []
 added: "2025-03"
 ---
 
@@ -117,3 +119,21 @@ print(json.dumps(result, indent=2))
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, normalize example, notes |
 | `2025-03` | Initial stub entry |
+
+
+## Evidence
+
+- https://docs.python.org/3/library/json.html
+- https://yaml.org/spec/1.2.2/
+- https://docs.python.org/3/library/xml.etree.elementtree.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Ambiguous extraction | Low-quality, incomplete, or conflicting source data | Preserve uncertainty and source location; do not invent values |
+| Resource exhaustion | Large files, graphs, captures, or media | Bound input size, traversal depth, rows, frames, and processing time |
+| Untrusted content | Source data contains instructions or sensitive material | Treat content as data, isolate tool execution, and redact secrets |

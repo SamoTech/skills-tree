@@ -3,7 +3,9 @@ title: "Table Extraction"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply table extraction in AI agent workflows."
+version: v2
+description: "Extract tables from documents, images, and web content into structured rows and columns while detecting merged cells, missing headers, and uncertain boundaries."
+related: []
 added: "2025-03"
 ---
 
@@ -56,3 +58,11 @@ tables = json.loads(response.content[0].text)
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://docs.unstructured.io/open-source/core-functionality/partitioning
+- https://camelot-py.readthedocs.io/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

@@ -3,7 +3,9 @@ title: "Knowledge Graph Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply knowledge graph reading in AI agent workflows."
+version: v2
+description: "Query and traverse RDF, SPARQL, property graphs, and knowledge-graph APIs to retrieve bounded entity relationships with explicit query limits and provenance."
+related: []
 added: "2025-03"
 ---
 
@@ -50,3 +52,12 @@ results = sparql.query().convert()
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://www.w3.org/TR/sparql11-query/
+- https://neo4j.com/docs/cypher-manual/current/
+- https://rdflib.readthedocs.io/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

@@ -100,4 +100,4 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 
 **Reopen Conditions:** Change only if the canonical Agent Skills specification, repository quality contract, or security findings materially change.
 
-**Execution record:** Batch 01 covers 10 perception skills and adds `tools/validate_agent_skills.py` plus `.github/workflows/validate-agent-skills.yml`. Remaining stubs are intentionally not mass-promoted without evidence. The generated quality report must be refreshed before reporting the new corpus counts.
+**Execution record:** Batch 01 covers 10 perception skills and adds `tools/validate_agent_skills.py` plus `.github/workflows/validate-agent-skills.yml`. Batch 02 prepares 10 additional perception skills using the same evidence, failure-mode, and standards-compatible package gate. Remaining stubs are intentionally not mass-promoted without evidence. The generated quality report must be refreshed before reporting the new corpus counts.
