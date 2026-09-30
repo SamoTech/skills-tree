@@ -51,3 +51,15 @@ print(response.content[0].text)
 - https://github.com/openai/openai-python
 
 Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- False mapping: identify which relationships do not transfer.
+- Missing context: state assumptions before generating an analogy.
+- Overextension: stop when the analogy no longer explains the target concept.
+
+## Evidence
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
