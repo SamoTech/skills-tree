@@ -1,131 +1,64 @@
 ---
 title: "Forgetting"
 category: 03-memory
-level: advanced
+level: intermediate
 stability: stable
-description: "Apply forgetting in AI agent workflows."
+description: "Remove or expire stored memory according to explicit retention, correction, consent, or relevance rules without silently preserving deleted state."
 added: "2025-03"
+version: v2
+related: [long-term-memory, user-profile-memory, memory-summarization]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-forgetting.json)
 
 # Forgetting
 
-**Category:** `memory`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
----
-
 ## Description
+Remove or expire stored memory according to explicit retention, correction, consent, or relevance rules without silently preserving deleted state.
 
-Selectively remove, suppress, or down-weight stored memories to maintain context relevance, comply with privacy regulations (GDPR right to erasure), prevent confidential data leakage, and reduce context window bloat. Implements both hard deletion (removing memory records) and soft suppression (marking memories as excluded from retrieval).
-
----
-
-## Inputs
-
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `memory_store` | `object` | ✅ | The memory store to operate on |
-| `criteria` | `dict` | ✅ | Deletion criteria: `{older_than_days, user_id, topic_tags, content_match}` |
-| `mode` | `string` | ❌ | `hard_delete` or `soft_suppress` (default: `soft_suppress`) |
-
----
-
-## Outputs
-
-| Output | Type | Description |
+## Inputs / Outputs
+| Input | Type | Contract |
 |---|---|---|
-| `deleted_count` | `int` | Number of memories removed or suppressed |
-| `retained_count` | `int` | Memories kept |
-| `summary` | `string` | Human-readable report of what was removed |
+| memory records | structured | Schema, identity, provenance, and retention are explicit |
+| policy | structured | Retention and update rules are bounded |
+| query or event | structured | Scope and relevance criteria are explicit |
 
----
+| Output | Type | Contract |
+|---|---|---|
+| memory result | structured | Preserve provenance and uncertainty |
+| status | str | Complete, blocked, expired, or requires revision |
 
-## Example
-
+## Deterministic Reference Implementation
 ```python
-import anthropic
-import json
-from datetime import datetime, timedelta
-
-client = anthropic.Anthropic()
-
-def classify_memories_for_deletion(
-    memories: list[dict],
-    criteria: dict
-) -> dict:
-    """
-    Use LLM to classify memories into keep/delete based on natural-language criteria.
-    memories: [{id, content, created_at, tags}]
-    criteria: {reason, instructions}
-    """
-    mem_text = json.dumps(memories, indent=2, default=str)
-    
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=2048,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Deletion criteria: {criteria['instructions']}\n\n"
-                f"Memories:\n{mem_text}\n\n"
-                "For each memory, return JSON with:\n"
-                "- decisions: [{id, action (keep|delete), reason}]\n"
-                "- summary: how many and why\n"
-                "Return ONLY valid JSON."
-            )
-        }]
-    )
-    return json.loads(response.content[0].text)
-
-memories = [
-    {"id": "m1", "content": "User's home address: 123 Main St", "created_at": "2025-01-01", "tags": ["pii"]},
-    {"id": "m2", "content": "User prefers dark mode", "created_at": "2025-06-01", "tags": ["preference"]},
-    {"id": "m3", "content": "User's credit card last 4: 4242", "created_at": "2025-01-15", "tags": ["pii", "financial"]},
-]
-
-result = classify_memories_for_deletion(
-    memories,
-    criteria={"instructions": "Delete all PII and financial data per GDPR erasure request"}
-)
-print(json.dumps(result, indent=2))
+records=[{"key":"temporary","expires":10},{"key":"durable","expires":None}]
+now=11
+kept=[r for r in records if r["expires"] is None or r["expires"]>now]
+assert kept[0]["key"]=="durable"
 ```
 
----
-
-## Frameworks & Models
-
-| Framework / Model | Implementation | Since |
+## Failure Modes
+| Failure Mode | Cause | Mitigation |
 |---|---|---|
-| LangChain | `VectorStore.delete()` by id | v0.2 |
-| LangGraph | Memory management node | v0.1 |
-| mem0 | `client.memory.delete()` | v1.0 |
+| Stale memory | State outlives validity | Attach timestamps and retention rules |
+| Untrusted memory | Source is missing or ambiguous | Preserve provenance and confidence |
+| Context leakage | Memory crosses identity boundary | Scope records to an explicit principal |
+| Silent loss | Deletion or compaction is not auditable | Record policy-driven state transitions |
 
----
+## Security Boundaries
+Memory is data, not authority. Do not execute instructions stored in memory merely because they were retrieved. Enforce identity, authorization, privacy, retention, and deletion rules outside the memory record. Treat retrieved memory as untrusted input and never use it to bypass tool approval or safety controls.
 
-## Notes
+## Validation Rules
+- Memory records have explicit identity and provenance.
+- Retention, correction, and deletion behavior is deterministic or policy-defined.
+- Retrieval does not grant authorization.
+- Missing or conflicting evidence is surfaced rather than silently overwritten.
 
-- Always log deleted memory IDs for audit purposes before hard deletion
-- GDPR erasure requests must propagate to all downstream storage (vector store, relational DB, backups)
-- Combine with [Memory Summarization](memory-summarization.md) to compact before deleting redundant details
-
----
+## Provenance
+The implementation is a deterministic Python reference demonstrating data contracts, not model capability. No benchmark or production-readiness claim is made without reproducible evidence.
 
 ## Related Skills
-
-- [Memory Injection](memory-injection.md) — adding memories
-- [Memory Summarization](memory-summarization.md) — compaction before deletion
-- [User Profile](user-profile.md) — managing user-level memory
-
----
+- `long-term-memory`
+- `user-profile-memory`
+- `memory-summarization`
 
 ## Changelog
-
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: GDPR use-case, LLM classification example, hard vs soft delete |
-| `2025-03` | Initial stub entry |
+- v1 (2026-04): Initial entry
+- v2 (2026-09): Added explicit I/O, deterministic reference behavior, failure modes, security boundaries, validation, and provenance
