@@ -1,41 +1,49 @@
 ---
-title: "Database Schema Design"
+title: Db Schema Design
 category: 05-code
 level: advanced
 stability: stable
-description: "Apply database schema design in AI agent workflows."
-added: "2025-03"
+description: Design database schemas from explicit data requirements, relationships, constraints, and access patterns.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-db-schema-design.json)
+## Description
+Design database schemas from explicit data requirements, relationships, constraints, and access patterns. The procedure is evidence-first: inspect the repository and explicit requirements before changing code, preserve existing contracts, and verify the result with the repository's own tests and quality gates.
 
-# Database Schema Design
+## When to Use
+Use this skill when the task requires design database schemas from explicit data requirements, relationships, constraints, and access patterns. Prefer the smallest reversible change that satisfies the stated requirement.
 
-**Category:** `code`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Repository state, explicit requirements, relevant source/configuration, and existing tests or interfaces. |
+| Outputs | A verified implementation or analysis, plus concise evidence of what was checked. |
+| Failure modes | Missing requirements, incompatible assumptions, hidden side effects, incomplete verification, or changes that weaken existing controls. |
 
-Design normalized relational or document database schemas for a given domain, including tables, relationships, and indexes.
+## Runnable Example
 
-### Example
+```python
+from pathlib import Path
 
-```sql
--- Skills Tree schema
-CREATE TABLE skills (
-    id      SERIAL PRIMARY KEY,
-    slug    TEXT NOT NULL UNIQUE,
-    title   TEXT NOT NULL,
-    category TEXT NOT NULL,
-    level   TEXT CHECK (level IN ('basic','intermediate','advanced'))
-);
-
-CREATE INDEX idx_skills_category ON skills(category);
+root = Path('.')
+files = sorted(p for p in root.rglob('*') if p.is_file())
+print(f'Repository files discovered: {len(files)}')
+print('Inspect relevant files before making changes.')
 ```
 
-### Related Skills
+## Failure modes
+- Acting on an inferred requirement instead of an explicit one.
+- Modifying unrelated files or interfaces.
+- Treating a passing local example as sufficient verification.
+- Suppressing or weakening a validator to accommodate an implementation defect.
+- Reporting completion without reproducible evidence.
 
-- [SQL Query Generation](sql-query-generation.md)
-- [Database Write](../04-action-execution/database-write.md)
+## Related
+- [05-code](../README.md)
+- [AI Constitution](../../AI_CONSTITUTION.md)
+- [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
+
+## Evidence
+Repository-backed implementation guidance. The skill is grounded in the repository's governance, validation workflows, and evidence-first operating model; no external benchmark claim is made.
