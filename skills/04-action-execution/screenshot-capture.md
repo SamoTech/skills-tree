@@ -1,34 +1,56 @@
 ---
-title: "Screenshot Capture (Action)"
+title: "Screenshot Capture"
 category: 04-action-execution
 level: basic
 stability: stable
-description: "Apply screenshot capture (action) in AI agent workflows."
-added: "2025-03"
+description: "Capture a verified application or screen region while minimizing sensitive content exposure."
+added: "2026-09"
+related: [screen-reading, mouse-input, clipboard-ops]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-screenshot-capture.json)
+# Screenshot Capture
 
-# Screenshot Capture (Action)
+## Description
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+Capture a verified application or screen region while minimizing sensitive content exposure.
 
-### Description
+## When to Use
 
-Capture the current state of the screen as an image for visual verification, logging, or downstream visual reasoning.
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
 
-### Example
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
 
 ```python
-import pyautogui
-shot = pyautogui.screenshot()
-shot.save('state_snapshot.png')
+from pathlib import Path
+def capture(page, path):
+    page.screenshot(path=path)
+    if not Path(path).is_file(): raise RuntimeError("capture failed")
+    return path
 ```
 
-### Related Skills
+## Failure modes
 
-- [Screenshot Capture (Computer Use)](../10-computer-use/screenshot-capture.md)
-- [Screen OCR](../10-computer-use/screen-ocr.md)
+Capturing private data; uncontrolled storage; unverified artifact; excessive capture scope.
+
+## Related
+
+- `screen-reading.md`
+- `mouse-input.md`
+- `clipboard-ops.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

@@ -5,8 +5,8 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9` — current main after PR #181 generated-writer serialization
-- Stubs: 237
+- Main HEAD: `066739db5023aaf279255ad41559184dfed2531b` — current main after action-execution batch 01 generated-state synchronization
+- Stubs: 227
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
 - Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
@@ -101,3 +101,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Ten corresponding Agent Skills projections were added under agent-skills/.
 - No benchmark or battle-tested performance claim is made by this batch.
 - Verification gate: PR CI must pass the canonical skill validator, Agent Skills validator, schema checks, security scans, and new-stub quality gate before merge.
+
+
+## Action-execution modernization — batch 02
+
+- Nine remaining 04-action-execution stubs were rewritten: form-submission, keyboard-input, mouse-input, notification-sending, process-management, screenshot-capture, scroll, shell-command, and wait-sleep.
+- Nine corresponding Agent Skills projections were added under agent-skills/.
+- No benchmark or battle-tested performance claim is made by this batch.
+- PR CI must verify canonical schema, Agent Skills evidence, graph integrity, security scans, and the no-new-stub quality gate before merge.

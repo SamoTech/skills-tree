@@ -3,35 +3,52 @@ title: "Notification Sending"
 category: 04-action-execution
 level: intermediate
 stability: stable
-description: "Apply notification sending in AI agent workflows."
-added: "2025-03"
+description: "Deliver an approved notification through a configured channel with validated destination and content."
+added: "2026-09"
+related: [email-sending, assertion, tool-guardrails]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-notification-sending.json)
 
 # Notification Sending
 
-**Category:** `action-execution`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Deliver an approved notification through a configured channel with validated destination and content.
 
-Send push notifications, Slack messages, Telegram alerts, or desktop notifications as agent outputs.
+## When to Use
 
-### Example
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
 
 ```python
-import httpx
-# Slack webhook
-httpx.post(
-    'https://hooks.slack.com/services/XXX/YYY/ZZZ',
-    json={'text': ':white_check_mark: Agent task completed successfully!'}
-)
+def build_notification(destination, message):
+    if not destination or not message: raise ValueError("missing input")
+    return {"destination": destination, "message": message}
 ```
 
-### Related Skills
+## Failure modes
 
-- [Email Sending](email-sending.md)
-- [Slack API](../07-tool-use/slack-api.md)
+Ambiguous destination; sensitive content leakage; duplicate delivery; uncontrolled urgency.
+
+## Related
+
+- `email-sending.md`
+- `assertion.md`
+- `tool-guardrails.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

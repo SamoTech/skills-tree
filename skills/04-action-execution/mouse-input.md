@@ -1,35 +1,56 @@
 ---
 title: "Mouse Input"
 category: 04-action-execution
-level: basic
+level: intermediate
 stability: stable
-description: "Apply mouse input in AI agent workflows."
-added: "2025-03"
+description: "Perform bounded pointer actions against verified interface targets and verify consequential results."
+added: "2026-09"
+related: [keyboard-input, screenshot-capture, assertion]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-mouse-input.json)
 
 # Mouse Input
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Perform bounded pointer actions against verified interface targets and verify consequential results.
 
-Simulate mouse movements, clicks, right-clicks, and double-clicks at specified screen coordinates.
+## When to Use
 
-### Example
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
 
 ```python
-import pyautogui
-pyautogui.moveTo(960, 540, duration=0.3)
-pyautogui.click()
-pyautogui.rightClick(200, 300)
+def click_verified(target):
+    target.click()
+    state = target.get_attribute("data-state")
+    if state != "clicked": raise RuntimeError("not verified")
+    print("click verified")
 ```
 
-### Related Skills
+## Failure modes
 
-- [Keyboard Input](keyboard-input.md)
-- [Mouse Click](../10-computer-use/mouse-click.md)
+Stale coordinates; wrong target; destructive click without authorization; silent failure.
+
+## Related
+
+- `keyboard-input.md`
+- `screenshot-capture.md`
+- `assertion.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

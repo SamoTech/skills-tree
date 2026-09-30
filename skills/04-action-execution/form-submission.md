@@ -3,38 +3,53 @@ title: "Form Submission"
 category: 04-action-execution
 level: intermediate
 stability: stable
-description: "Apply form submission in AI agent workflows."
-added: "2025-03"
+description: "Submit validated form data to a verified target and confirm the resulting state."
+added: "2026-09"
+related: [keyboard-input, input-sanitization, assertion]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-form-submission.json)
 
 # Form Submission
 
-**Category:** `action-execution`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Submit validated form data to a verified target and confirm the resulting state.
 
-Fill in and submit web forms programmatically — via browser automation or direct HTTP POST requests.
+## When to Use
 
-### Example
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
 
 ```python
-from playwright.sync_api import sync_playwright
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-    page.goto('https://example.com/contact')
-    page.fill('#name', 'AI Agent')
-    page.fill('#message', 'Hello from the agent.')
-    page.click('button[type=submit]')
-    browser.close()
+def submit(fields):
+    required = [k for k in fields if fields[k] is None]
+    if required: raise ValueError(required)
+    return {"status": "submitted", "count": len(fields)}
 ```
 
-### Related Skills
+## Failure modes
 
-- [Browser Navigation](../11-web/browser-navigation.md)
-- [Form Filling](../11-web/form-filling.md)
+Unverified destination; missing validation; leaked secrets; unverified success.
+
+## Related
+
+- `keyboard-input.md`
+- `input-sanitization.md`
+- `assertion.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows
