@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/react.md",
   "name": "ReAct (Reason + Act)",
   "headline": "ReAct (Reason + Act)",
-  "description": "Apply ReAct reasoning in AI agent workflows.",
+  "description": "Alternate bounded reasoning decisions with tool actions and observations, using explicit stop conditions and verified tool results rather than unbounded action loops.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/react.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "react",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, react, AI agent, LLM skill, reasoning",
+  "keywords": "AI agent, skills tree, reasoning, LLM skill, react",
   "about": {
     "@type": "Thing",
     "name": "ReAct (Reason + Act)",

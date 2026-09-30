@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/numerical-estimation.md",
   "name": "Numerical Estimation",
   "headline": "Numerical Estimation",
-  "description": "Apply numerical estimation in AI agent workflows.",
+  "description": "Estimate quantities by decomposing them into measurable factors, stating assumptions, calculating ranges, and checking whether the result is dimensionally plausible.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/numerical-estimation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "numerical-estimation",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "numerical, estimation, skills tree, AI agent, LLM skill, reasoning",
+  "keywords": "AI agent, skills tree, reasoning, LLM skill, estimation, numerical",
   "about": {
     "@type": "Thing",
     "name": "Numerical Estimation",

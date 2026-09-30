@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "commonsense",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -81,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, commonsense, AI agent, LLM skill, reasoning",
+  "keywords": "AI agent, skills tree, reasoning, commonsense, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Commonsense Reasoning",

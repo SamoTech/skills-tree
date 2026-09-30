@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/multi-step-planning.md",
   "name": "Multi-Step Planning",
   "headline": "Multi-Step Planning",
-  "description": "Apply multi-step planning in AI agent workflows.",
+  "description": "Convert a goal into ordered, bounded steps with dependencies, completion criteria, and explicit handling for blocked or failed steps.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/multi-step-planning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "multi-step-planning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "planning, step, skills tree, multi, AI agent, LLM skill, reasoning",
+  "keywords": "AI agent, skills tree, step, reasoning, planning, LLM skill, multi",
   "about": {
     "@type": "Thing",
     "name": "Multi-Step Planning",

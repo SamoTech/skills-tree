@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/root-cause-analysis.md",
   "name": "Root Cause Analysis",
   "headline": "Root Cause Analysis",
-  "description": "Apply root cause analysis in AI agent workflows.",
+  "description": "Trace an observed failure from symptoms through testable causal hypotheses, using evidence and controlled checks instead of stopping at the first plausible explanation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/root-cause-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "root-cause-analysis",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "cause, analysis, skills tree, root, AI agent, LLM skill, reasoning",
+  "keywords": "AI agent, analysis, skills tree, root, reasoning, LLM skill, cause",
   "about": {
     "@type": "Thing",
     "name": "Root Cause Analysis",

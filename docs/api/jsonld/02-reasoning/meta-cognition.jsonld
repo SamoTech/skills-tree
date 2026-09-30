@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/meta-cognition.md",
   "name": "Meta-Cognition",
   "headline": "Meta-Cognition",
-  "description": "Apply meta-cognition in AI agent workflows.",
+  "description": "Monitor and regulate reasoning quality by checking assumptions, uncertainty, evidence, and stopping conditions before committing to a conclusion.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/meta-cognition.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "meta-cognition",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "meta, skills tree, cognition, AI agent, LLM skill, reasoning",
+  "keywords": "AI agent, skills tree, cognition, reasoning, meta, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Meta-Cognition",

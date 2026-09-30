@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/risk-assessment.md",
   "name": "Risk Assessment",
   "headline": "Risk Assessment",
-  "description": "Apply risk assessment in AI agent workflows.",
+  "description": "Identify threats or failure scenarios, estimate likelihood and impact on explicit scales, and record mitigations without treating heuristic scores as measured probabilities.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/risk-assessment.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:18:00Z",
+  "dateModified": "2026-09-30T12:47:02Z",
   "skillId": "risk-assessment",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "assessment, skills tree, AI agent, LLM skill, reasoning, risk",
+  "keywords": "AI agent, skills tree, reasoning, risk, assessment, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Risk Assessment",
