@@ -26,3 +26,5 @@ metadata:
 
 - https://agentskills.io/specification
 - https://docs.python.org/3/library/json.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
