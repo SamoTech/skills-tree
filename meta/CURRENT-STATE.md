@@ -5,7 +5,7 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: `3907ce2e8608c7f410f4aed450c314bab9ed4164` — current main after PR #179 and automated badge synchronization
+- Main HEAD: `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9` — current main after PR #181 generated-writer serialization
 - Stubs: 237
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
@@ -84,7 +84,7 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added reusable repository-operation skills under skills/15-orchestration/ for state loading, documentation-drift resolution, evidence verification, automation review, and execution handoff.
 - Added Agent Skills projections where the repository projection path was successfully created.
 - These skills encode the existing AI_CONSTITUTION.md, AGENTS.md, and agent operating model rather than creating a competing governance system.
-- Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; all substantive PR checks passed, and the five project-operating canonical skills are now on `main`.
+- Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; PR #181 merged as `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9`; both passed their substantive CI gates.
 
 
 ## Automation review — 2026-09-30
@@ -92,4 +92,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
 - Several writers use the shared `auto-commit-main` concurrency group, but not every writer is serialized through that group. In particular, `generate-changelog.yml` and `quality-report.yml` currently have no workflow-level concurrency block while retaining `contents: write` capability.
 - This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.
-- Open pull requests: 0 at the time of this snapshot.
+- Open pull requests: 0 at the time of the previous snapshot; the action-execution modernization batch is now staged on a dedicated branch for CI verification.
+
+
+## Action-execution modernization — batch 01
+
+- Ten canonical 04-action-execution stubs were rewritten with explicit inputs/outputs, runnable examples, failure modes, related skills, and repository evidence.
+- Ten corresponding Agent Skills projections were added under agent-skills/.
+- No benchmark or battle-tested performance claim is made by this batch.
+- Verification gate: PR CI must pass the canonical skill validator, Agent Skills validator, schema checks, security scans, and new-stub quality gate before merge.
