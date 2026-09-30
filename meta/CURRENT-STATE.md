@@ -11,6 +11,7 @@
 - Enriched: 2
 - Stubs: 293
 - Invalid: 0
+- Stub migration: batch 01 prepared on branch `coo/stub-migration-batch-01` (10 perception skills)
 - DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
@@ -29,7 +30,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 293 stubs the dominant modernization target. Category `01-perception` contains 24 stubs; `09-agentic-patterns` contains 15 stubs and 0 invalid skills; `05-code` contains 23 stubs. Work should remain incremental and evidence-driven rather than attempting a corpus-wide rewrite.
+The current quality distribution makes the remaining 293 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batch 01 covers 10 perception skills and adds standards-compatible `SKILL.md` projections plus an automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
 
 ## Governance state
 
