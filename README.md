@@ -17,9 +17,9 @@
 
 ### AI Engineering Operating System
 
-**The largest open, dependency-mapped knowledge graph for AI agents.**
+**An open, dependency-mapped registry and knowledge graph for AI agent skills.**
 
-| 368 Skills | 780+ Connections | MIT Licensed |
+| 369 Skills | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & benchmarked | Dependency-mapped | Community-governed |
 
@@ -112,7 +112,7 @@ Skills Tree fixes that. → [Read the full problem statement](docs/WHY_SKILLS_TR
 
 A living, versioned, community-powered index of everything an agent can do — at its best, documented with working code, real benchmarks, failure modes, and evolution history.
 
-Battle-tested skills (🟢 verified) are production-ready and copy-paste safe. Yellow/unscanned skills are the community's TODO list — open files, real problem space, and the clearest signal of where contributions are most useful.
+Battle-tested skills (🟢 verified) have passed the repository's defined quality gate; that status does not by itself guarantee production safety for every environment. Enriched and stub skills remain explicitly lower-confidence content and should be reviewed before operational use.
 
 → [Real-world use cases](docs/USE_CASES.md) · [Why Skills Tree vs alternatives](docs/WHY_SKILLS_TREE.md#competitive-positioning)
 
@@ -196,7 +196,7 @@ If you're new, **read these first**. Each ships with runnable code, typed I/O, f
 ```
 skills-tree/
 │
-├── skills/          → 360 atomic skill files (50 battle-tested, 308 stubs)
+├── skills/          → 369 canonical registry skill files (74 battle-tested, 2 enriched, 293 stubs)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
@@ -237,7 +237,7 @@ skills-tree/
 
 ## A Skill in 60 Seconds
 
-Every skill file is self-contained and production-ready:
+A canonical skill is considered distribution-ready only after it passes the repository quality and security gates:
 
 ````markdown
 # Memory Injection
@@ -256,7 +256,7 @@ client.messages.create(
 ```
 ````
 
-Every skill includes: ✅ typed inputs/outputs · ✅ runnable Python code · ✅ frameworks table · ✅ failure modes · ✅ version history
+The public machine-readable registry is published at [docs/api/skills.json](https://samotech.github.io/skills-tree/api/skills.json). Agent-Skills-standard packaging is being added under the repository's distribution contract; see [docs/AGENT_SKILLS_DISTRIBUTION.md](docs/AGENT_SKILLS_DISTRIBUTION.md).
 
 ---
 
