@@ -5,14 +5,13 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: `2c123af09fe6eb506eab543e2eea96efb0124273` — Batch 02 squash merge
-- Skill files: 369
-- Battle-tested: 82
-- Enriched: 3
+- Main HEAD: `ff4a774d33f81282508a3fb7879b5fed0238c223` — Batch 04 squash mergenriched: 3
 - Stubs: 284
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
 - Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
+- Stub migration: batch 03 merged as PR #169 at `a86b05aa55dab80d4180d8cae19356f7b35c314f` (4 additional perception skills)
+- Stub migration: batch 04 merged as PR #170 at `ff4a774d33f81282508a3fb7879b5fed0238c223` (10 reasoning skills)
 - DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
@@ -33,7 +32,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 284 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills and added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+The current quality distribution makes the remaining 270 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills. Batch 03 covered 4 additional perception skills and Batch 04 covered 10 reasoning skills and added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
 
 ## Governance state
 
