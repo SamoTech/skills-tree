@@ -23,7 +23,7 @@ The current generated `meta/QUALITY-REPORT.md` verifies 74 battle-tested, 2 enri
 
 PR #141 added and enforced the machine-readable Evidence contract at registry initialization and added regression coverage. It was merged after review because it was focused and GitHub reported it mergeable.
 
-For the remaining open PRs, GitHub currently reports Vercel status failure with a deployment-rate-limit condition. This is infrastructure/quota noise rather than evidence of a repository test failure. Separately, their branches are stale relative to current main and several are non-mergeable, so they must be rebased/reconciled and revalidated before merge.
+The repository no longer depends on Vercel or an external project dashboard. GitHub is the authoritative operational source; `README.md` is the public source guide. CI, issues, pull requests, releases, generated reports, and repository files are the evidence surfaces.
 
 ## Corpus modernization priority
 
@@ -46,3 +46,12 @@ The authoritative-document map intentionally reuses existing repository document
 Do not treat historical snapshots in `PROJECT_MEMORY.md` or older audit documents as current truth when they conflict with current main SHA, current PR metadata, current CI results, or generated quality reports.
 
 A meaningful task is not COMPLETE until implementation and required documentation are both verified.
+
+## Source of truth
+
+- Canonical source: GitHub repository `SamoTech/skills-tree`.
+- Public source guide: `README.md`.
+- Operational state: `meta/CURRENT-STATE.md` and GitHub CI/PR state.
+- Strategic decisions: `meta/memory/DECISIONS.md`.
+- Quality evidence: generated repository reports.
+- External dashboards and Vercel deployments are not authoritative and are not part of the project architecture.
