@@ -96,8 +96,8 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 
 **Evidence IDs:** `meta/QUALITY-REPORT.md`, `docs/AGENT_SKILLS_DISTRIBUTION.md`, Agent Skills specification, batch-01 validation workflow.
 
-**Status:** IN PROGRESS — Batch 01 merged; post-merge generated quality report refresh pending.
+**Status:** IN PROGRESS — Batches 01 and 02 merged; current generated quality report verified at 82 battle-tested, 3 enriched, 284 stubs, 0 invalid.
 
 **Reopen Conditions:** Change only if the canonical Agent Skills specification, repository quality contract, or security findings materially change.
 
-**Execution record:** Batch 01 covers 10 perception skills and adds `tools/validate_agent_skills.py` plus `.github/workflows/validate-agent-skills.yml`. Batch 02 prepares 10 additional perception skills using the same evidence, failure-mode, and standards-compatible package gate. Remaining stubs are intentionally not mass-promoted without evidence. The generated quality report must be refreshed before reporting the new corpus counts.
+**Execution record:** Batch 01 merged as PR #164 (`424fb43bee42545ac09f4683adb1127dfa97bcda`). Batch 02 merged as PR #168 (`2c123af09fe6eb506eab543e2eea96efb0124273`) covering 10 additional perception skills. Batch 02 required an explicit evidence-status gate and a corrected ODFPy evidence URL after CI exposed both issues. Remaining stubs are intentionally not mass-promoted without evidence.
