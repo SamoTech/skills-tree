@@ -27,3 +27,5 @@ metadata:
 - https://github.com/openai/whisper
 - https://github.com/openai/whisper/blob/main/whisper/transcribe.py
 - https://github.com/pyannote/pyannote-audio
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
