@@ -5,14 +5,14 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: verified on 2026-09-30; see the repository default branch for the current SHA.
+- Main HEAD: `2c123af09fe6eb506eab543e2eea96efb0124273` — Batch 02 squash merge
 - Skill files: 369
-- Battle-tested: 74
-- Enriched: 2
-- Stubs: 293
+- Battle-tested: 82
+- Enriched: 3
+- Stubs: 284
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
-- Stub migration: batch 02 prepared on `coo/stub-migration-batch-02` (10 additional perception skills)
+- Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
 - DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
@@ -23,7 +23,9 @@
 
 ## Validation and CI state
 
-The current generated `meta/QUALITY-REPORT.md` still reflects the pre-batch snapshot (74 battle-tested, 2 enriched, 293 stubs, 0 invalid). Batch 01 is merged, but the connector-visible Actions state has not produced a refreshed quality report yet; therefore the 293-stub count is not being presented as current post-migration evidence.
+The generated `meta/QUALITY-REPORT.md` is now refreshed on `main` and reports 369 skills, 82 battle-tested, 3 enriched, 284 stubs, and 0 invalid. The quality classifier is intentionally stricter than the migration gate, so a rewritten evidence-backed skill is not automatically counted as enriched or battle-tested.
+
+Batch 02 exposed two CI gates and both were reconciled before completion: the Agent Skills packages required an explicit evidence-status statement, and the spreadsheet-reading skill referenced an ODFPy documentation URL returning 404; it now points to the authoritative `eea/odfpy` repository.
 
 PR #141 added and enforced the machine-readable Evidence contract at registry initialization and added regression coverage. It was merged after review because it was focused and GitHub reported it mergeable.
 
@@ -31,7 +33,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 293 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batch 01 merged 10 perception skills and added standards-compatible `SKILL.md` projections plus an automated evidence/security validation gate. Batch 02 prepares 10 additional perception skills using the same gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+The current quality distribution makes the remaining 284 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills and added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
 
 ## Governance state
 
