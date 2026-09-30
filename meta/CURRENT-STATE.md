@@ -7,16 +7,19 @@
 - Snapshot date: 2026-09-30
 - Main HEAD: verified on 2026-09-30; see the repository default branch for the current SHA.
 - Skill files: 369
-- Battle-tested: 60
-- Enriched: 3
-- Stubs: 303
-- Invalid: 3
+- Battle-tested: 74
+- Enriched: 2
+- Stubs: 293
+- Invalid: 0
+- DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
 - Open substantive PRs requiring current-main revalidation: #145, #146, #155, #156, #142
 - Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
 
 ## Validation and CI state
+
+The current generated `meta/QUALITY-REPORT.md` verifies 74 battle-tested, 2 enriched, 293 stub, and 0 invalid skill files. This supersedes the earlier point-in-time counts above.
 
 PR #141 added and enforced the machine-readable Evidence contract at registry initialization and added regression coverage. It was merged after review because it was focused and GitHub reported it mergeable.
 
