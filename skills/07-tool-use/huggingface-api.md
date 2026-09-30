@@ -1,40 +1,59 @@
 ---
-title: "HuggingFace API"
+title: "Hugging Face API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-description: "Apply huggingface api in AI agent workflows."
-added: "2025-03"
+description: "Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-huggingface-api.json)
+# Hugging Face API
 
-# HuggingFace API
+## Description
+Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation.
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use this capability only when the workflow requires hugging face api, the target account or resource is authorized, and the provider contract is documented.
 
-### Description
+## Inputs / outputs / failure modes
 
-Call HuggingFace Inference API to run open-source models for text, image, audio, and embedding tasks.
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
 
-### Example
+## Runnable Example
 
 ```python
-import httpx
+import os
 
-headers = {'Authorization': f'Bearer {HF_TOKEN}'}
-r = httpx.post(
-    'https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2',
-    headers=headers,
-    json={'inputs': 'What is RAG?'}
-)
-embedding = r.json()
+request = {
+    "capability": "huggingface-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
 
-- [Embedding Generation](../12-data/embedding-generation.md)
-- [OpenAI API](openai-api.md)
+## Evidence
+- Provider documentation: https://huggingface.co/docs/api-inference
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails
