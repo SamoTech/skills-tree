@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:15:46Z",
   "skillId": "chart-reading",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, reading, skills tree, chart, AI agent",
+  "keywords": "AI agent, perception, LLM skill, reading, chart, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Chart Reading",

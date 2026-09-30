@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/time-series-reading.md",
   "name": "Time Series Reading",
   "headline": "Time Series Reading",
-  "description": "Apply time series reading in AI agent workflows.",
+  "description": "Load time-indexed data from files, databases, or APIs, normalize timestamps and sampling intervals, and produce analysis-ready series without hiding missing or irregular observations.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/time-series-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:15:46Z",
   "skillId": "time-series-reading",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
@@ -66,7 +66,8 @@
     "Frameworks",
     "Failure Modes",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -75,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, reading, time, skills tree, series, AI agent",
+  "keywords": "AI agent, perception, LLM skill, time, reading, series, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Time Series Reading",
