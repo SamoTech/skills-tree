@@ -6,6 +6,7 @@ on:
     paths:
       - 'docs/**'
       - 'data/SKILLS_GRAPH.json'
+      - 'docs/**'
       - 'mkdocs.yml'
       - '.github/workflows/deploy-pages.yml'
   workflow_dispatch:
@@ -46,15 +47,19 @@ jobs:
       - name: Build MkDocs
         run: mkdocs build --strict
 
-      - name: Stage graph data
+      - name: Stage standalone Explorer and Blueprint apps
         run: |
           mkdir -p site/data
           cp data/SKILLS_GRAPH.json site/data/SKILLS_GRAPH.json
+          test -d docs/explorer && cp -r docs/explorer site/explorer
+          test -d docs/blueprints && cp -r docs/blueprints site/blueprints
 
       - name: Verify Pages artifact
         run: |
           test -f site/index.html
           test -f site/data/SKILLS_GRAPH.json
+          test -f site/explorer/index.html
+          test -f site/blueprints/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
