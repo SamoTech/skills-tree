@@ -1,42 +1,47 @@
 ---
-title: "Debugging"
+title: Debugging
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply debugging in AI agent workflows."
-added: "2025-03"
-related: [code-generation, ../02-reasoning/self-correction, code-execution-sandbox]
+description: Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-debugging.json)
+## Description
+Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes. Preserve existing behavior outside the defect and use repository evidence rather than speculation.
 
-# Debugging
+## When to Use
+Use when a software failure, regression, unexpected result, or reproducible defect must be investigated and corrected.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Failure symptoms, reproduction steps, source, logs, configuration, and tests. |
+| Outputs | Root-cause analysis, minimal fix, and verification evidence. |
+| Failure modes | Non-reproducible symptoms, misleading evidence, unrelated changes, or incomplete regression testing. |
 
-Identify the root cause of bugs in code by analyzing error messages, stack traces, and code logic — then propose a fix.
-
-### Example
+## Runnable Example
 
 ```python
-prompt = f"""
-This code raises an error:
-<buggy_code>
-{buggy_code}
-</buggy_code>
-Error: {error_message}
+from pathlib import Path
 
-Find the bug and provide the fixed code.
-"""
+root = Path('.')
+print('repository:', root.resolve())
+print('inspect logs, source, and tests before changing code')
 ```
 
-### Related Skills
+## Failure modes
+- Fixing symptoms without establishing a root cause.
+- Changing unrelated code while debugging.
+- Ignoring regression coverage.
+- Disabling validators to hide a defect.
 
-- [Code Generation](code-generation.md)
-- [Self-Correction](../02-reasoning/self-correction.md)
-- [Code Execution (Sandbox)](code-execution-sandbox.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
