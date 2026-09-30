@@ -27,3 +27,5 @@ metadata:
 
 - https://docs.python.org/3/library/pathlib.html
 - https://agentskills.io/specification
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
