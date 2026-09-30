@@ -27,3 +27,5 @@ metadata:
 
 - https://docs.python.org/3/library/ast.html
 - https://docs.python.org/3/library/inspect.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
