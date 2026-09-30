@@ -3383,6 +3383,16 @@
     "body": "Agent Handoff Category: Skill Level: Stability: Added: 2025-03 Description Transfer task context, memory, and control from one agent to another cleanly — used in multi-agent pipelines and triage systems. Example Frameworks - OpenAI Agents SDK - LangGraph - AutoGen Related Skills - Subagent Spawning - Role Assignment"
   },
   {
+    "id": "15-orchestration/automation-review",
+    "title": "Automation Review",
+    "category": "15-orchestration",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Audit repository automation for duplicate writers, unsafe triggers, permissions, concurrency, and preserved outputs before automation changes.",
+    "body": "Automation Review Description Inspect repository automation before changing it. Inventory workflows, triggers, writers, permissions, concurrency, and release paths. Consolidation is safe only when every required output and trigger remains represented and the resulting CI behavior is verified. 1. Inventory all workflow files and their triggers. 2. Identify workflows that write repository state, publish artifacts, deploy pages, or release packages. 3. Detect duplicate writers and competing publishers. 4. Compare permissions and concurrency behavior before consolidation. 5. Preserve every required output path when merging workflows. 6. Verify changed workflows through actual CI runs after the change. 7. Record material automation decisions in the repository decision log. Runnable example Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Workflow inventory | Complete automation map | A workflow is overlooked | | Trigger definitions | Preserved event coverage | Trigger behavior changes unintentionally | | Permissions and writers | Reduced conflict risk | Multiple writers compete | | Publish/release paths | Preserved outputs | Artifact or site output disappears | | CI results | Post-change evidence | Workflow is assumed healthy without a run | Failure modes - Removing a workflow without mapping its outputs. - Preserving duplicate writers that can race. - Broadening permissions without a documented need. - Assuming a successful YAML parse means the automation behavior is correct. - Declaring consolidation complete before the affected workflows execute successfully. Related - - - Evidence - AICONSTITUTION.md - AGENTS.md - meta/AGENTOPERATING_MODEL.md - meta/CURRENT-STATE.md - GitHub Actions workflow runs"
+  },
+  {
     "id": "15-orchestration/budget-management",
     "title": "Budget Management",
     "category": "15-orchestration",
@@ -3413,6 +3423,16 @@
     "body": "Category: Orchestration Skill Level: Advanced Stability: stable Added: 2025-03 Description Collects independent responses from multiple agents on the same question and aggregates them via majority vote, weighted scoring, or LLM meta-evaluation. Improves reliability and reduces hallucination on factual or classification tasks. Example Related Skills - Mixture of Agents - Debate Pattern - Subagent Spawning"
   },
   {
+    "id": "15-orchestration/documentation-drift-resolution",
+    "title": "Documentation Drift Resolution",
+    "category": "15-orchestration",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Detect, reconcile, and document drift between implementation and authoritative repository documentation.",
+    "body": "Documentation Drift Resolution Description Reconcile implementation state with the repository's authoritative documentation without inventing history or silently changing strategic decisions. Documentation is updated only from verified implementation and decision evidence. 1. Identify the authoritative document for the affected concern. 2. Inspect live implementation and verification evidence. 3. Classify the mismatch as stale documentation, stale implementation, or unresolved strategic conflict. 4. Correct authoritative documentation to verified state when the decision is already established. 5. Record historically significant changes in the decision log. 6. Update only the relevant current-state, roadmap, architecture, security, testing, or deployment documents. 7. Do not declare completion until the documentation gate passes. Runnable example Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Live implementation | Verified current state | Implementation evidence is incomplete | | Authoritative docs | Corrected documentation | Wrong document is treated as authoritative | | Decisions | Historical continuity | Strategic conflict is silently resolved | | CI/test evidence | Completion evidence | Documentation claims exceed verification | Failure modes - Creating duplicate status documents. - Copying historical metrics into current state. - Calling documentation complete without CI or repository verification. - Silently resolving a strategic conflict that requires CEO/CIO authority. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - meta/CURRENT-STATE.md - meta/memory/DECISIONS.md"
+  },
+  {
     "id": "15-orchestration/event-triggers",
     "title": "Event Triggers",
     "category": "15-orchestration",
@@ -3421,6 +3441,26 @@
     "tags": [],
     "description": "Apply event triggers in AI agent workflows.",
     "body": "Category: Orchestration Skill Level: Advanced Stability: stable Added: 2025-03 Description Fires agent workflows in response to external events — webhook callbacks, file system changes, cron schedules, database triggers, or message queue messages. Decouples event producers from agent consumers using an event loop or serverless function. Example Related Skills - Agent Communication - Task Queue Management - Sequential Workflow"
+  },
+  {
+    "id": "15-orchestration/evidence-verification",
+    "title": "Evidence Verification",
+    "category": "15-orchestration",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Verify meaningful repository changes with direct implementation, test, CI, and documentation evidence.",
+    "body": "Evidence Verification Description Verify completion claims against direct repository, test, CI, security, and documentation evidence. Separate verified facts from assumptions and unresolved risks. 1. Identify the claim being verified and its strongest evidence source. 2. Inspect the actual changed implementation. 3. Execute or inspect required validation gates. 4. Verify the resulting main commit and relevant CI runs. 5. Check security implications and documentation synchronization. 6. Report verified facts separately from unresolved risks and assumptions. 7. Use the precise completion states defined by AGENTS.md. Runnable example Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Changed files | Scope evidence | Claimed change is not present | | Tests | Behavioral evidence | Tests are missing or failing | | CI checks | Repository-level evidence | Required check is pending/failing | | Security scans | Risk evidence | Security result is absent | | Documentation | State continuity | Docs still describe old behavior | Related - - - Evidence - AGENTS.md - AICONSTITUTION.md - meta/AGENTHANDOFF_PROTOCOL.md - GitHub commit, PR, and Actions evidence"
+  },
+  {
+    "id": "15-orchestration/execution-handoff",
+    "title": "Execution Handoff",
+    "category": "15-orchestration",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Execute repository work under the established governance model and leave a complete continuation packet.",
+    "body": "Execution Handoff Description Carry work from verified intake through bounded execution, validation, documentation synchronization, and a continuation-ready handoff. A handoff must preserve enough evidence for another agent to continue without reconstructing hidden context. 1. Load authoritative state before execution. 2. Convert the objective into a bounded execution plan. 3. Inspect before changing and preserve existing functionality. 4. Escalate strategic, destructive, breaking, or high-impact decisions. 5. Execute specialist work within scope. 6. Validate implementation, security, CI, and documentation. 7. Synchronize current state and decisions when material state changes. 8. Before closing, preserve objective, decision source, files, tests, evidence, risks, remaining work, documentation updates, and next action. Runnable example Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Objective and constraints | Bounded work plan | Scope expands without authority | | Repository state | Safe execution context | Baseline is stale | | Implementation changes | Verified result | Existing behavior is unintentionally broken | | CI/security evidence | Completion state | Gates remain unresolved | | Current state and decisions | Continuation packet | Handoff omits material context | Related - - - Evidence - AICONSTITUTION.md - AGENTS.md - meta/AGENTOPERATINGMODEL.md - meta/AGENTHANDOFF_PROTOCOL.md"
   },
   {
     "id": "15-orchestration/hierarchical-tree",
@@ -3481,6 +3521,16 @@
     "tags": [],
     "description": "Apply parallel task execution in AI agent workflows.",
     "body": "Parallel Task Execution Category: Skill Level: Stability: Added: 2025-03 Description Run multiple independent agent tasks concurrently to reduce total wall-clock time. Example Frameworks - LangGraph parallel nodes - AutoGen group chat - Python Related Skills - Subagent Spawning - Sequential Workflow"
+  },
+  {
+    "id": "15-orchestration/repository-state-load",
+    "title": "Repository State Load",
+    "category": "15-orchestration",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Load and reconcile authoritative repository state before meaningful AI execution.",
+    "body": "Repository State Load Description Load the repository's authoritative governance, current-state, decisions, and task-relevant technical evidence before making consequential changes. The goal is to establish a verified baseline rather than infer state from partial context. 1. Establish the current main SHA from GitHub. 2. Read authoritative governance and state documents. 3. Compare documented state with live GitHub metadata and generated reports. 4. Treat live repository evidence as authoritative when historical snapshots conflict. 5. Record material divergence before making consequential changes. 6. Do not execute against incomplete or contradictory state without resolving or escalating the divergence. Runnable example Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Main branch reference | Verified baseline SHA | Main SHA cannot be established | | Governance documents | Authoritative operating rules | Required document is missing | | GitHub metadata and CI | Current implementation evidence | Evidence is stale or incomplete | | Current-state and decisions | Continuation context | Documentation contradicts live state | Failure modes - Stale CURRENT-STATE data: refresh it before declaring state. - Historical decision mistaken for current state: verify against current main and PR/CI evidence. - Missing authoritative document: record the blocker and escalate. - Partial retrieval: do not infer unseen repository state. Related - - - Evidence - AICONSTITUTION.md - AGENTS.md - meta/AGENTOPERATING_MODEL.md - meta/CURRENT-STATE.md - meta/memory/DECISIONS.md"
   },
   {
     "id": "15-orchestration/retry-backoff",
