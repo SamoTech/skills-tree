@@ -16,6 +16,11 @@ on:
       - 'tools/**'
       - 'data/**'
 
+# Serialize generated-main writers with the repository-wide main writer group.
+concurrency:
+  group: auto-commit-main
+  cancel-in-progress: false
+
 # Default: restrict all permissions to read-only.
 # Individual jobs that need write access declare it explicitly.
 permissions:
