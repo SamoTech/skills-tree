@@ -1,38 +1,52 @@
 ---
-title: "Code Execution Tool"
+title: Code Exec Tool
 category: 07-tool-use
 level: advanced
 stability: stable
-description: "Apply code execution tool in AI agent workflows."
-added: "2025-03"
+description: Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects.
+added: "2026-09"
+related: [07-tool-use]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-code-exec-tool.json)
+## Description
+Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
 
-# Code Execution Tool
+## When to Use
+Use when the repository task explicitly requires this tool capability.
 
-**Category:** `tool-use`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
+| Outputs | Verified result with concise evidence. |
+| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
 
-Execute code in a sandboxed environment as an agent tool and capture stdout, stderr, and return values.
-
-### Example
+## Runnable Example
 
 ```python
-def execute_python(code: str) -> dict:
-    import subprocess, tempfile
-    with tempfile.NamedTemporaryFile(suffix='.py', mode='w', delete=False) as f:
-        f.write(code)
-        fname = f.name
-    result = subprocess.run(['python', fname], capture_output=True, text=True, timeout=10)
-    return {'stdout': result.stdout, 'stderr': result.stderr, 'returncode': result.returncode}
+from dataclasses import dataclass
+
+@dataclass
+class Request:
+    action: str
+
+request = Request(action="inspect")
+assert request.action
+print("validate the tool contract before invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Calling an undocumented interface.
+- Sending invalid or excessive data.
+- Exposing credentials or secrets.
+- Treating an acknowledgement as proof of completion.
+- Skipping repository validation.
 
-- [Code Execution Sandbox](../05-code/code-execution-sandbox.md)
-- [Sandboxed Execution](../14-security/sandboxed-execution.md)
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
