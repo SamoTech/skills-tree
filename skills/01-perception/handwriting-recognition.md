@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Transcribe handwritten text from images while preserving uncertainty, illegible regions, layout observations, and source-image provenance. Use domain context only as a disambiguating hint."
+related: []
 added: "2025-03"
 ---
 
