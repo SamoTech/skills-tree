@@ -96,11 +96,11 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 
 **Evidence IDs:** `meta/QUALITY-REPORT.md`, `docs/AGENT_SKILLS_DISTRIBUTION.md`, Agent Skills specification, batch-01 validation workflow.
 
-**Status:** IN PROGRESS — Batches 01–04 merged; current generated quality report verified at 91 battle-tested, 8 enriched, 270 stubs, 0 invalid.
+**Status:** IN PROGRESS — Batches 01–06 merged; current generated quality report verified at 121 battle-tested, 16 enriched, 237 stubs, 0 invalid.
 
 **Reopen Conditions:** Change only if the canonical Agent Skills specification, repository quality contract, or security findings materially change.
 
-**Execution record:** Batch 01 merged as PR #164 (`424fb43bee42545ac09f4683adb1127dfa97bcda`). Batch 02 merged as PR #168 (`2c123af09fe6eb506eab543e2eea96efb0124273`). Batch 03 merged as PR #169 (`a86b05aa55dab80d4180d8cae19356f7b35c314f`). Batch 04 merged as PR #170 (`ff4a774d33f81282508a3fb7879b5fed0238c223`). Batch 03 required removal of unsupported legacy frontmatter properties before schema validation passed. Batch 04 passed the full repository quality/security gate. Remaining stubs are intentionally not mass-promoted without evidence.
+**Execution record:** Batch 01 merged as PR #164 (`424fb43bee42545ac09f4683adb1127dfa97bcda`). Batch 02 merged as PR #168 (`2c123af09fe6eb506eab543e2eea96efb0124273`). Batch 03 merged as PR #169 (`a86b05aa55dab80d4180d8cae19356f7b35c314f`). Batch 04 merged as PR #170 (`ff4a774d33f81282508a3fb7879b5fed0238c223`). Batch 03 required removal of unsupported legacy frontmatter properties before schema validation passed. Batch 04 passed the full repository quality/security gate. Batch 05 merged 8 additional reasoning skills and Batch 06 completed the 02-reasoning category with 0 reasoning stubs. PR #179 subsequently added the reusable project-operating skills used for repository execution. Remaining stubs are intentionally not mass-promoted without evidence.
 
 
 ## DECISION-2026-09-30-CI-AUTOMATION
