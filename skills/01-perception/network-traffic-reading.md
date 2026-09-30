@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Read authorized packet captures or bounded network telemetry to identify protocols, endpoints, timing, and transport behavior for debugging and security analysis."
+related: []
 added: "2025-03"
 ---
 
