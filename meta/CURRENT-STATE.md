@@ -5,8 +5,8 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: `20c83f272c3c196876820d4ae63d4700c0557e34` — current main after Batch 06 and graph-push retry hardening
-- Stubs: 242
+- Main HEAD: `3907ce2e8608c7f410f4aed450c314bab9ed4164` — current main after PR #179 and automated badge synchronization
+- Stubs: 237
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
 - Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
@@ -24,7 +24,7 @@
 
 ## Validation and CI state
 
-The generated `meta/QUALITY-REPORT.md` is now refreshed on `main` and reports 369 skills, 113 classifier battle-tested, 14 enriched, 242 stubs, and 0 invalid. The quality classifier is intentionally stricter than the migration gate, so a rewritten evidence-backed skill is not automatically counted as enriched or battle-tested.
+The generated `meta/QUALITY-REPORT.md` is refreshed on `main` and reports 374 skills, 121 classifier battle-tested, 16 enriched, 237 stubs, and 0 invalid. The quality classifier is intentionally stricter than the migration gate, so a rewritten evidence-backed skill is not automatically counted as enriched or battle-tested.
 
 Batch 02 exposed two CI gates and both were reconciled before completion: the Agent Skills packages required an explicit evidence-status statement, and the spreadsheet-reading skill referenced an ODFPy documentation URL returning 404; it now points to the authoritative `eea/odfpy` repository.
 
@@ -34,7 +34,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 270 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills. Batch 03 covered 4 additional perception skills. Batch 04 covered 10 reasoning skills, Batch 05 covered 8 additional reasoning skills, and Batch 06 covered the final 10 reasoning stubs; both batches added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+The current quality distribution makes the remaining 237 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills. Batch 03 covered 4 additional perception skills. Batch 04 covered 10 reasoning skills, Batch 05 covered 8 additional reasoning skills, and Batch 06 covered the final 10 reasoning stubs; both batches added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
 
 ## Governance state
 
@@ -84,4 +84,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added reusable repository-operation skills under skills/15-orchestration/ for state loading, documentation-drift resolution, evidence verification, automation review, and execution handoff.
 - Added Agent Skills projections where the repository projection path was successfully created.
 - These skills encode the existing AI_CONSTITUTION.md, AGENTS.md, and agent operating model rather than creating a competing governance system.
-- Validation status: branch-level content inspection passed; PR CI remains the authoritative verification gate before merge.
+- Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; all substantive PR checks passed, and the five project-operating canonical skills are now on `main`.
+
+
+## Automation review — 2026-09-30
+
+- Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
+- Several writers use the shared `auto-commit-main` concurrency group, but not every writer is serialized through that group. In particular, `generate-changelog.yml` and `quality-report.yml` currently have no workflow-level concurrency block while retaining `contents: write` capability.
+- This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.
+- Open pull requests: 0 at the time of this snapshot.
