@@ -26,3 +26,5 @@ metadata:
 
 - https://docs.unstructured.io/open-source/core-functionality/partitioning
 - https://camelot-py.readthedocs.io/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
