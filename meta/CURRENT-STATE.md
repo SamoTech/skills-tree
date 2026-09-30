@@ -109,3 +109,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Nine corresponding Agent Skills projections were added under agent-skills/.
 - No benchmark or battle-tested performance claim is made by this batch.
 - PR CI must verify canonical schema, Agent Skills evidence, graph integrity, security scans, and the no-new-stub quality gate before merge.
+
+
+## Code modernization — batch 01
+
+- Ten 05-code stubs were rewritten with explicit procedures, runnable examples, failure modes, related references, and evidence statements.
+- Ten corresponding Agent Skills projections were added.
+- No benchmark or battle-tested claim is introduced.
+- PR CI must pass canonical validation, Agent Skills validation, graph checks, security scans, and the no-new-stub quality gate before merge.
