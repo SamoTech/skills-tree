@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 95
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 103
 - 🟡 **Enriched** (real description + runnable code): 14
-- ⚪ **Stub** (placeholder description or no runnable code): 260
+- ⚪ **Stub** (placeholder description or no runnable code): 252
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -16,7 +16,7 @@
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
-| `02-reasoning` | 46 | 20 | 8 | 18 | 0 |
+| `02-reasoning` | 46 | 28 | 8 | 10 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
@@ -76,11 +76,19 @@
 - [`skills/02-reasoning/goal-decomposition.md`](skills/02-reasoning/goal-decomposition.md) — Goal Decomposition
 - [`skills/02-reasoning/goal-setting.md`](skills/02-reasoning/goal-setting.md) — Goal Setting
 - [`skills/02-reasoning/least-to-most.md`](skills/02-reasoning/least-to-most.md) — Least-to-Most Prompting
+- [`skills/02-reasoning/meta-cognition.md`](skills/02-reasoning/meta-cognition.md) — Meta-Cognition
 - [`skills/02-reasoning/meta-prompting.md`](skills/02-reasoning/meta-prompting.md) — Meta-Prompting
+- [`skills/02-reasoning/multi-step-planning.md`](skills/02-reasoning/multi-step-planning.md) — Multi-Step Planning
+- [`skills/02-reasoning/numerical-estimation.md`](skills/02-reasoning/numerical-estimation.md) — Numerical Estimation
 - [`skills/02-reasoning/planning-decomposition.md`](skills/02-reasoning/planning-decomposition.md) — Planning Decomposition
 - [`skills/02-reasoning/planning.md`](skills/02-reasoning/planning.md) — Planning
+- [`skills/02-reasoning/prioritization.md`](skills/02-reasoning/prioritization.md) — Prioritization
+- [`skills/02-reasoning/problem-decomposition.md`](skills/02-reasoning/problem-decomposition.md) — Problem Decomposition
 - [`skills/02-reasoning/prompt-engineering.md`](skills/02-reasoning/prompt-engineering.md) — Prompt Engineering
+- [`skills/02-reasoning/react.md`](skills/02-reasoning/react.md) — ReAct (Reason + Act)
 - [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — Reasoning Under Uncertainty
+- [`skills/02-reasoning/risk-assessment.md`](skills/02-reasoning/risk-assessment.md) — Risk Assessment
+- [`skills/02-reasoning/root-cause-analysis.md`](skills/02-reasoning/root-cause-analysis.md) — Root Cause Analysis
 - [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
 - [`skills/02-reasoning/step-back-prompting.md`](skills/02-reasoning/step-back-prompting.md) — Step-Back Prompting
 - [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
@@ -152,14 +160,6 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/02-reasoning/meta-cognition.md`](skills/02-reasoning/meta-cognition.md) — description matches placeholder pattern: 'Apply meta-cognition in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/multi-step-planning.md`](skills/02-reasoning/multi-step-planning.md) — description matches placeholder pattern: 'Apply multi-step planning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/numerical-estimation.md`](skills/02-reasoning/numerical-estimation.md) — description matches placeholder pattern: 'Apply numerical estimation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/prioritization.md`](skills/02-reasoning/prioritization.md) — description matches placeholder pattern: 'Apply prioritization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/problem-decomposition.md`](skills/02-reasoning/problem-decomposition.md) — description matches placeholder pattern: 'Apply problem decomposition in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/react.md`](skills/02-reasoning/react.md) — description matches placeholder pattern: 'Apply ReAct reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/risk-assessment.md`](skills/02-reasoning/risk-assessment.md) — description matches placeholder pattern: 'Apply risk assessment in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/root-cause-analysis.md`](skills/02-reasoning/root-cause-analysis.md) — description matches placeholder pattern: 'Apply root cause analysis in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/scenario-planning.md`](skills/02-reasoning/scenario-planning.md) — description matches placeholder pattern: 'Apply scenario planning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/self-correction.md`](skills/02-reasoning/self-correction.md) — description matches placeholder pattern: 'Apply self-correction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/self-reflection.md`](skills/02-reasoning/self-reflection.md) — description matches placeholder pattern: 'Apply self-reflection in AI agent workflows'; no inputs/outputs/failure-modes table
