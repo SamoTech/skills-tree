@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-30T11:12:46Z",
+  "generated": "2026-09-30T11:18:00Z",
   "count": 369,
   "skills": [
     {
@@ -978,11 +978,11 @@
       "id": "analogy-generation",
       "path": "skills/02-reasoning/analogy-generation.md",
       "name": "Analogy Generation",
-      "description": "Apply analogy generation in AI agent workflows.",
+      "description": "Generate structural analogies that map a source concept to a target concept while explicitly checking which relationships transfer and which do not.",
       "category": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -990,7 +990,11 @@
         "Example",
         "Failure Modes",
         "Related",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "02-reasoning"
@@ -1076,14 +1080,19 @@
       "id": "chain-of-thought",
       "path": "skills/02-reasoning/chain-of-thought.md",
       "name": "Chain of Thought",
-      "description": "Apply chain of thought in AI agent workflows.",
+      "description": "Use structured intermediate reasoning techniques for multi-step tasks without requiring exposure of private chain-of-thought; return concise conclusions, assumptions, and verification steps.",
       "category": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
+      ],
       "related": [],
       "category_dir": "02-reasoning"
     },
@@ -1095,7 +1104,7 @@
       "category": "reasoning",
       "level": "basic",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": "2026-04",
       "sections": [
@@ -1106,7 +1115,11 @@
         "Frameworks & Models",
         "Notes",
         "Related Skills",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [
         "../03-memory/fact-verification.md"
@@ -1131,7 +1144,11 @@
         "Solving Strategies",
         "Python Example (python-constraint)",
         "LLM Prompt Pattern",
-        "Related Skills"
+        "Related Skills",
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "02-reasoning"
@@ -1154,7 +1171,11 @@
         "Example — Root Cause Analysis",
         "Prompt Pattern",
         "Failure Modes",
-        "Related Skills"
+        "Related Skills",
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "02-reasoning"
@@ -1163,14 +1184,19 @@
       "id": "decision-making",
       "path": "skills/02-reasoning/decision-making.md",
       "name": "Decision Making",
-      "description": "Apply decision making in AI agent workflows.",
+      "description": "Select among explicit options using stated goals, constraints, risks, evidence, and decision criteria; preserve trade-offs instead of hiding them.",
       "category": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
+      ],
       "related": [],
       "category_dir": "02-reasoning"
     },
@@ -1199,11 +1225,11 @@
       "id": "ethical-reasoning",
       "path": "skills/02-reasoning/ethical-reasoning.md",
       "name": "Ethical Reasoning",
-      "description": "Apply ethical reasoning in AI agent workflows.",
+      "description": "Analyze decisions across explicit ethical frameworks and stakeholder impacts without presenting a framework-dependent judgment as objective fact.",
       "category": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -1211,7 +1237,11 @@
         "Example",
         "Failure Modes",
         "Related",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "02-reasoning"
@@ -1260,7 +1290,11 @@
         "Goal Hierarchy",
         "Prompt Pattern",
         "Agentic Goal Tracking",
-        "Related Skills"
+        "Related Skills",
+        "Failure Modes",
+        "Evidence",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "02-reasoning"
@@ -1269,14 +1303,17 @@
       "id": "hypothesis-generation",
       "path": "skills/02-reasoning/hypothesis-generation.md",
       "name": "Hypothesis Generation",
-      "description": "Apply hypothesis generation in AI agent workflows.",
+      "description": "Generate multiple testable explanations for an observation, compare them using stated evidence, and identify discriminating checks.",
       "category": "reasoning",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes",
+        "Evidence"
+      ],
       "related": [],
       "category_dir": "02-reasoning"
     },
@@ -1328,14 +1365,17 @@
       "id": "mathematical-reasoning",
       "path": "skills/02-reasoning/mathematical-reasoning.md",
       "name": "Mathematical Reasoning",
-      "description": "Apply mathematical reasoning in AI agent workflows.",
+      "description": "Solve bounded mathematical problems with explicit assumptions, equations, units, intermediate checks, and a verifiable final result.",
       "category": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes",
+        "Evidence"
+      ],
       "related": [
         "../07-tool-use/calculator.md"
       ],

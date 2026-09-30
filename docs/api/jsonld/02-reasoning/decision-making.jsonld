@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/decision-making.md",
   "name": "Decision Making",
   "headline": "Decision Making",
-  "description": "Apply decision making in AI agent workflows.",
+  "description": "Select among explicit options using stated goals, constraints, risks, evidence, and decision criteria; preserve trade-offs instead of hiding them.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/decision-making.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,18 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "decision-making",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [],
+  "sections": [
+    "Failure Modes",
+    "Evidence",
+    "Failure Modes",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "making, reasoning, decision, skills tree, LLM skill, AI agent",
+  "keywords": "decision, making, skills tree, AI agent, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Decision Making",

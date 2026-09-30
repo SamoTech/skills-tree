@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/analogy-generation.md",
   "name": "Analogy Generation",
   "headline": "Analogy Generation",
-  "description": "Apply analogy generation in AI agent workflows.",
+  "description": "Generate structural analogies that map a source concept to a target concept while explicitly checking which relationships transfer and which do not.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/analogy-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "analogy-generation",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
@@ -63,7 +63,11 @@
     "Example",
     "Failure Modes",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Failure Modes",
+    "Evidence",
+    "Failure Modes",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "generation, reasoning, skills tree, LLM skill, AI agent, analogy",
+  "keywords": "analogy, skills tree, AI agent, LLM skill, reasoning, generation",
   "about": {
     "@type": "Thing",
     "name": "Analogy Generation",

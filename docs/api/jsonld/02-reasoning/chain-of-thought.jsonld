@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
   "name": "Chain of Thought",
   "headline": "Chain of Thought",
-  "description": "Apply chain of thought in AI agent workflows.",
+  "description": "Use structured intermediate reasoning techniques for multi-step tasks without requiring exposure of private chain-of-thought; return concise conclusions, assumptions, and verification steps.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/chain-of-thought.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,18 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "chain-of-thought",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [],
+  "sections": [
+    "Failure Modes",
+    "Evidence",
+    "Failure Modes",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "thought, reasoning, skills tree, of, LLM skill, chain, AI agent",
+  "keywords": "thought, skills tree, of, AI agent, chain, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Chain of Thought",

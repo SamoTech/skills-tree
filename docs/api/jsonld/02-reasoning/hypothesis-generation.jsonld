@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/hypothesis-generation.md",
   "name": "Hypothesis Generation",
   "headline": "Hypothesis Generation",
-  "description": "Apply hypothesis generation in AI agent workflows.",
+  "description": "Generate multiple testable explanations for an observation, compare them using stated evidence, and identify discriminating checks.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/hypothesis-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "hypothesis-generation",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [],
+  "sections": [
+    "Failure Modes",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "hypothesis, generation, reasoning, skills tree, LLM skill, AI agent",
+  "keywords": "skills tree, AI agent, hypothesis, LLM skill, reasoning, generation",
   "about": {
     "@type": "Thing",
     "name": "Hypothesis Generation",

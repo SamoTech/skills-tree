@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:47Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "lyrics-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "creative, skills tree, writing, LLM skill, lyrics, AI agent",
+  "keywords": "creative, AI agent, skills tree, lyrics, writing, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "lyrics-writing",

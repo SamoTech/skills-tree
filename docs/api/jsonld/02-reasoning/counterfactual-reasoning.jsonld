@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "counterfactual-reasoning",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -65,7 +65,11 @@
     "Example — Root Cause Analysis",
     "Prompt Pattern",
     "Failure Modes",
-    "Related Skills"
+    "Related Skills",
+    "Failure Modes",
+    "Evidence",
+    "Failure Modes",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -74,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "counterfactual, reasoning, skills tree, LLM skill, AI agent",
+  "keywords": "counterfactual, skills tree, AI agent, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Counterfactual Reasoning",

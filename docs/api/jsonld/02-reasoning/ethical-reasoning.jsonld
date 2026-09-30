@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/ethical-reasoning.md",
   "name": "Ethical Reasoning",
   "headline": "Ethical Reasoning",
-  "description": "Apply ethical reasoning in AI agent workflows.",
+  "description": "Analyze decisions across explicit ethical frameworks and stakeholder impacts without presenting a framework-dependent judgment as objective fact.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/ethical-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "ethical-reasoning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
@@ -63,7 +63,11 @@
     "Example",
     "Failure Modes",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Failure Modes",
+    "Evidence",
+    "Failure Modes",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "ethical, reasoning, skills tree, LLM skill, AI agent",
+  "keywords": "skills tree, AI agent, LLM skill, reasoning, ethical",
   "about": {
     "@type": "Thing",
     "name": "Ethical Reasoning",

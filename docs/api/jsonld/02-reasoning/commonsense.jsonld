@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "commonsense",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
@@ -66,7 +66,11 @@
     "Frameworks & Models",
     "Notes",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Failure Modes",
+    "Evidence",
+    "Failure Modes",
+    "Evidence"
   ],
   "relatedSkills": [
     "../03-memory/fact-verification.md"
@@ -77,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "commonsense, reasoning, skills tree, LLM skill, AI agent",
+  "keywords": "skills tree, commonsense, AI agent, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Commonsense Reasoning",

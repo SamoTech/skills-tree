@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "drag-drop",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "drop, execution, drag, skills tree, action, LLM skill, AI agent",
+  "keywords": "execution, action, drop, skills tree, drag, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Drag and Drop",

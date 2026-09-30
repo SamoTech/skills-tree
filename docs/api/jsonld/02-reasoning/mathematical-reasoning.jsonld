@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/mathematical-reasoning.md",
   "name": "Mathematical Reasoning",
   "headline": "Mathematical Reasoning",
-  "description": "Apply mathematical reasoning in AI agent workflows.",
+  "description": "Solve bounded mathematical problems with explicit assumptions, equations, units, intermediate checks, and a verifiable final result.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/mathematical-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "mathematical-reasoning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [],
+  "sections": [
+    "Failure Modes",
+    "Evidence"
+  ],
   "relatedSkills": [
     "../07-tool-use/calculator.md"
   ],
@@ -68,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "mathematical, reasoning, skills tree, LLM skill, AI agent",
+  "keywords": "mathematical, skills tree, AI agent, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Mathematical Reasoning",

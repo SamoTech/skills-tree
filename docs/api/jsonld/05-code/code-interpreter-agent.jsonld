@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:46Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "code-interpreter-agent",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "code, interpreter, agent, skills tree, LLM skill, AI agent",
+  "keywords": "agent, code, interpreter, skills tree, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Code Interpreter Agent",

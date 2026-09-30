@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:47Z",
+  "dateModified": "2026-09-30T11:18:00Z",
   "skillId": "app-launch",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "launch, use, computer, skills tree, app, LLM skill, AI agent",
+  "keywords": "use, app, computer, skills tree, AI agent, launch, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Application Launch",
