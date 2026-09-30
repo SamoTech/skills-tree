@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Extract tables from documents, images, and web content into structured rows and columns while detecting merged cells, missing headers, and uncertain boundaries."
+related: []
 added: "2025-03"
 ---
 
