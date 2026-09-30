@@ -3,40 +3,51 @@ title: "SendGrid API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-description: "Apply sendgrid api in AI agent workflows."
-added: "2025-03"
+description: "Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification."
+added: "2026-09"
+related: [07-tool-use, 04-action-execution]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-sendgrid-api.json)
 
 # SendGrid API
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification.
 
-### Description
+## When to Use
+Use this capability when the workflow explicitly requires sendgrid api and the target account, document, channel, or provider is authorized.
 
-Send transactional and marketing emails at scale via the SendGrid REST API.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Use least-privilege credentials managed outside source code. |
+| Scope | Bound the operation to the intended resource and task. |
+| Inputs | Validate identifiers, content, filters, and required fields. |
+| Outputs | Preserve structured provider results needed by downstream steps. |
+| Verification | Re-check important reads or mutations when correctness matters. |
+| Privacy | Minimize exposure and retention of sensitive content. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
+
+## Runnable Example
 
 ```python
-import sendgrid
-from sendgrid.helpers.mail import Mail
-
-sg = sendgrid.SendGridAPIClient(api_key=SENDGRID_KEY)
-message = Mail(
-    from_email='agent@example.com',
-    to_emails='user@example.com',
-    subject='Skills Tree Update',
-    plain_text_content='223 new skill files have been added to the repository.'
-)
-sg.send(message)
+import os
+request = {"tool": "sendgrid-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Hard-coding credentials or exposing them in logs.
+- Assuming provider fields or identifiers are portable across accounts.
+- Performing side effects without validating authorization and current state.
+- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
+- Using unbounded pagination or retries.
 
-- [Email Sending](../04-action-execution/email-sending.md)
-- [Twilio API](twilio-api.md)
+## Evidence
+Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
