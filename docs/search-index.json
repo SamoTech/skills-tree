@@ -1517,13 +1517,13 @@
   },
   {
     "id": "05-code/linting-formatting",
-    "title": "Linting & Formatting",
+    "title": "Linting Formatting",
     "category": "05-code",
-    "level": "basic",
+    "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply linting & formatting in AI agent workflows.",
-    "body": "Linting & Formatting Category: Skill Level: Stability: Added: 2025-03 Description Run linters and code formatters to enforce style, catch errors, and maintain consistent code quality. Example Related Skills - Code Review - CI/CD Generation"
+    "description": "Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn.",
+    "body": "Description Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn. Inspect the configured tools and version before changing source style. When to Use Use when code quality checks require linting, formatting, or normalization. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Source files, repository configuration, formatter and linter versions. | | Outputs | Consistently formatted and lint-clean code with verification evidence. | | Failure modes | Unrelated churn, version mismatch, behavior changes, or ignored configuration. | Runnable Example Failure modes - Formatting with an incompatible tool version. - Mixing style changes with functional changes. - Ignoring repository configuration. - Treating lint success as proof of functional correctness. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "05-code/performance-profiling",
@@ -1532,38 +1532,38 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply performance profiling in AI agent workflows.",
-    "body": "Performance Profiling Category: Skill Level: Stability: Added: 2025-03 Description Measure and analyze code execution time, memory usage, and bottlenecks to guide optimization. Example Related Skills - Algorithm Design - Debugging"
+    "description": "Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements.",
+    "body": "Description Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements. Prefer measurement over intuition and preserve correctness while optimizing. When to Use Use when latency, throughput, memory, CPU, startup, or resource consumption must be investigated or improved. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Performance requirement, representative workload, profiling tools, and baseline measurements. | | Outputs | Bottleneck evidence, targeted change, and before/after verification. | | Failure modes | Unrepresentative workload, noisy measurements, premature optimization, or correctness regressions. | Runnable Example Failure modes - Optimizing without a baseline. - Using an unrealistic workload. - Mistaking measurement noise for improvement. - Skipping functional regression tests. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "05-code/refactoring",
     "title": "Refactoring",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply refactoring in AI agent workflows.",
-    "body": "Refactoring Category: Skill Level: Stability: Added: 2025-03 Description Restructure existing code to improve readability, maintainability, and performance without changing its external behavior. Example Related Skills - Code Review - Linting & Formatting"
+    "description": "Restructure code to improve maintainability or design while preserving documented behavior and interfaces.",
+    "body": "Description Restructure code to improve maintainability or design while preserving documented behavior and interfaces. Refactoring is evidence-driven: establish current behavior, make a bounded change, and verify equivalence. When to Use Use when structure, duplication, coupling, readability, or maintainability needs improvement without changing intended behavior. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Current implementation, tests, interfaces, and explicit design goal. | | Outputs | Cleaner structure with preserved behavior and verification evidence. | | Failure modes | Scope creep, hidden behavior changes, incomplete coverage, or API breakage. | Runnable Example Failure modes - Combining refactoring with unrelated feature work. - Changing public behavior unintentionally. - Removing tests instead of preserving coverage. - Reporting equivalence without verification. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "05-code/regex-generation",
     "title": "Regex Generation",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply regex generation in AI agent workflows.",
-    "body": "Regex Generation Category: Skill Level: Stability: Added: 2025-03 Description Generate, explain, and test regular expressions for pattern matching, extraction, and validation tasks. Example Related Skills - Code Generation - Text Reading"
+    "description": "Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases.",
+    "body": "Description Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases. Prefer readable patterns and explicit tests over clever or opaque expressions. When to Use Use when structured text must be matched, extracted, validated, or rejected using regular expressions. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Required matches, required rejections, engine syntax, flags, and representative samples. | | Outputs | Tested regex and documented assumptions. | | Failure modes | Overmatching, undermatching, engine incompatibility, or pathological performance. | Runnable Example Failure modes - Deriving a pattern without explicit examples. - Ignoring the target regex engine. - Testing only positive cases. - Creating unnecessarily expensive patterns. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "05-code/repl-interaction",
-    "title": "REPL Interaction",
+    "title": "Repl Interaction",
     "category": "05-code",
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply repl interaction in AI agent workflows.",
-    "body": "REPL Interaction Category: Skill Level: Stability: Added: 2025-03 Description Execute code interactively in a REPL (Read-Eval-Print Loop) environment and observe results step-by-step. Example Related Skills - Code Execution Sandbox - Debugging"
+    "description": "Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests.",
+    "body": "Description Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests. Keep experiments isolated and convert durable findings into source or tests. When to Use Use for exploratory debugging, API inspection, small transformations, or hypothesis testing. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Runtime, relevant modules, hypothesis, and controlled sample data. | | Outputs | Reproducible findings, code, or tests derived from the experiment. | | Failure modes | Hidden state, environment mismatch, non-reproducible sessions, or accidental side effects. | Runnable Example Failure modes - Relying on hidden interactive state. - Making destructive changes during exploration. - Treating a REPL result as full project verification. - Failing to capture a reproducible experiment. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "05-code/security-scanning",
@@ -1577,23 +1577,23 @@
   },
   {
     "id": "05-code/sql-query-generation",
-    "title": "SQL Query Generation",
+    "title": "Sql Query Generation",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply sql query generation in AI agent workflows.",
-    "body": "SQL Query Generation Category: Skill Level: Stability: Added: 2025-03 Description Translate natural language questions into valid SQL queries for relational databases. Example Frameworks - Vanna.ai (text-to-SQL fine-tuning) - LangChain - Any LLM with schema context Related Skills - SQL Query Execution - Database Schema Design"
+    "description": "Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling.",
+    "body": "Description Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling. Inspect the actual schema and query conventions before writing queries. When to Use Use when a task requires a query, migration query, reporting query, or database interaction. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Schema, required result, dialect, parameters, and performance constraints. | | Outputs | Validated SQL with safe parameter handling and evidence. | | Failure modes | Wrong schema assumptions, injection-prone interpolation, incorrect joins, or inefficient queries. | Runnable Example Failure modes - Guessing table or column names. - Interpolating untrusted values into SQL. - Ignoring dialect differences. - Failing to test result shape and edge cases. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "05-code/unit-test-generation",
     "title": "Unit Test Generation",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply unit test generation in AI agent workflows.",
-    "body": "Unit Test Generation Category: Skill Level: Stability: Added: 2025-03 Description Automatically generate unit test cases for functions and classes, covering happy paths, edge cases, and error conditions. Example Related Skills - Code Generation - Debugging - Code Review"
+    "description": "Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts.",
+    "body": "Description Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts. Tests should be deterministic, readable, and aligned with repository conventions. When to Use Use when a unit-level behavior needs regression coverage or when implementation changes require focused tests. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Function or component contract, dependencies, expected behavior, and edge cases. | | Outputs | Deterministic unit tests with meaningful assertions. | | Failure modes | Weak assertions, excessive mocking, missing boundaries, or flaky setup. | Runnable Example Failure modes - Testing implementation details instead of behavior. - Missing boundary and failure cases. - Over-mocking dependencies needed to establish behavior. - Tests that pass without meaningful assertions. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
   },
   {
     "id": "06-communication/argument-construction",
