@@ -27,3 +27,5 @@ metadata:
 - https://www.w3.org/TR/sparql11-query/
 - https://neo4j.com/docs/cypher-manual/current/
 - https://rdflib.readthedocs.io/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
