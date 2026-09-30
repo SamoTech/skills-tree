@@ -14,7 +14,7 @@
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
 - Open substantive PRs requiring current-main revalidation: #145, #146, #155, #156, #142
-- Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
+- Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158.\n- Audit hardening branch: `coo/full-audit-hardening-2026-09-30` removes CI mutation from skill validation, disables automatic Dependabot approval/merge, defines the Agent Skills distribution contract, and adds a standards-compatible registry skill seed.
 
 ## Validation and CI state
 
@@ -43,3 +43,14 @@ The authoritative-document map intentionally reuses existing repository document
 Do not treat historical snapshots in `PROJECT_MEMORY.md` or older audit documents as current truth when they conflict with current main SHA, current PR metadata, current CI results, or generated quality reports.
 
 A meaningful task is not COMPLETE until implementation and required documentation are both verified.
+
+
+## Distribution readiness
+
+The repository is suitable as a GitHub-native skill source today through its canonical `skills/` corpus and generated `docs/api/skills.json` registry. A standards-compatible Agent Skills projection has now been established under `agent-skills/`, with the distribution contract in `docs/AGENT_SKILLS_DISTRIBUTION.md`. Full web discovery via `/.well-known/agent-skills/index.json` remains a release-engineering task because every published artifact must carry a reproducible SHA-256 digest.
+
+## Security hardening
+
+- Skill validation is read-only and no longer writes to contributor branches.
+- Dependabot automation no longer auto-approves or auto-merges dependency updates.
+- Agent-facing skill content is explicitly treated as a supply-chain/security surface.
