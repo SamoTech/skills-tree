@@ -111,3 +111,15 @@ Steps:
 - https://github.com/openai/openai-python
 
 Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
