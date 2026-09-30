@@ -3,16 +3,10 @@ title: "Chain of Thought"
 category: 02-reasoning
 level: intermediate
 stability: stable
+version: v2
 added: "2025-03"
-description: "Apply chain of thought in AI agent workflows."
-dependencies:
-  - package: anthropic
-    min_version: "0.25.0"
-    tested_version: "0.94.1"
-    confidence: verified
-code_blocks:
-  - id: "example-cot"
-    type: executable
+description: "Use structured intermediate reasoning techniques for multi-step tasks without requiring exposure of private chain-of-thought; return concise conclusions, assumptions, and verification steps."
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-chain-of-thought.json)
@@ -57,3 +51,16 @@ print(chain_of_thought("If a train travels 60 mph for 2.5 hours, how far does it
 
 ### Related Skills
 - `tree-of-thought`, `react`, `self-reflection`, `planning`
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
