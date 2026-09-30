@@ -51,6 +51,12 @@ git diff -- .github/workflows
 - Assuming a successful YAML parse means the automation behavior is correct.
 - Declaring consolidation complete before the affected workflows execute successfully.
 
+## Related
+
+- `repository-state-load.md`
+- `evidence-verification.md`
+- `documentation-drift-resolution.md`
+
 ## Evidence
 
 - AI_CONSTITUTION.md
