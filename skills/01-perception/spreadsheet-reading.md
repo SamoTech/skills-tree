@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Read XLSX, CSV, and ODS workbooks into bounded structured data while preserving sheet names, headers, formulas or cached values, and workbook metadata."
+related: []
 added: "2025-03"
 ---
 
