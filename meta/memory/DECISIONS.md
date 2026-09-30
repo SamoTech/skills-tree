@@ -189,3 +189,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on branch coo/code-batch-02-2026-09-30 pending PR CI.
 
 **Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, or evidence-contract incompatibility.
+
+
+## DECISION-2026-09-30-CODE-BATCH-03
+
+**Topic:** Continue 05-code modernization after batch 02.
+
+**Decision:** Modernize the next available code skills with explicit runnable guidance, synchronized projections where permitted, and unchanged repository quality gates. Blocked connector writes are not bypassed.
+
+**Status:** IN PROGRESS — staged on branch coo/code-batch-03-2026-09-30 pending PR CI.
+
+**Reopen Conditions:** Reopen if CI identifies schema, graph, projection, evidence, or documentation incompatibility.
