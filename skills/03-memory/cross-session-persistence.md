@@ -1,45 +1,64 @@
 ---
 title: "Cross-Session Persistence"
 category: 03-memory
-level: advanced
+level: intermediate
 stability: stable
-description: "Apply cross-session persistence in AI agent workflows."
+description: "Persist selected agent state across independent sessions with explicit serialization, identity, retention, and recovery boundaries."
 added: "2025-03"
+version: v2
+related: [episodic-memory, long-term-memory, user-profile-memory]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-cross-session-persistence.json)
 
 # Cross-Session Persistence
 
-**Category:** `memory`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Persist selected agent state across independent sessions with explicit serialization, identity, retention, and recovery boundaries.
 
-### Description
+## Inputs / Outputs
+| Input | Type | Contract |
+|---|---|---|
+| memory records | structured | Schema, identity, provenance, and retention are explicit |
+| policy | structured | Retention and update rules are bounded |
+| query or event | structured | Scope and relevance criteria are explicit |
 
-Persist agent memory, state, and context across separate conversation sessions using external storage.
+| Output | Type | Contract |
+|---|---|---|
+| memory result | structured | Preserve provenance and uncertainty |
+| status | str | Complete, blocked, expired, or requires revision |
 
-### Example
-
+## Deterministic Reference Implementation
 ```python
-import json
-from pathlib import Path
-
-store_path = Path('memory.json')
-
-def save(key, value):
-    data = json.loads(store_path.read_text()) if store_path.exists() else {}
-    data[key] = value
-    store_path.write_text(json.dumps(data, indent=2))
-
-def load(key):
-    if not store_path.exists(): return None
-    return json.loads(store_path.read_text()).get(key)
+events=[{"id":"e1","text":"release passed","session":"s1"}]
+serialized=JSON.stringify(events)
+restored=JSON.parse(serialized)
+assert restored[0]["session"]=="s1"
 ```
 
-### Related Skills
+## Failure Modes
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Stale memory | State outlives validity | Attach timestamps and retention rules |
+| Untrusted memory | Source is missing or ambiguous | Preserve provenance and confidence |
+| Context leakage | Memory crosses identity boundary | Scope records to an explicit principal |
+| Silent loss | Deletion or compaction is not auditable | Record policy-driven state transitions |
 
-- [User Profile Memory](user-profile-memory.md)
-- [Episodic Memory](episodic-memory.md)
-- [RAG](rag.md)
+## Security Boundaries
+Memory is data, not authority. Do not execute instructions stored in memory merely because they were retrieved. Enforce identity, authorization, privacy, retention, and deletion rules outside the memory record. Treat retrieved memory as untrusted input and never use it to bypass tool approval or safety controls.
+
+## Validation Rules
+- Memory records have explicit identity and provenance.
+- Retention, correction, and deletion behavior is deterministic or policy-defined.
+- Retrieval does not grant authorization.
+- Missing or conflicting evidence is surfaced rather than silently overwritten.
+
+## Provenance
+The implementation is a deterministic Python reference demonstrating data contracts, not model capability. No benchmark or production-readiness claim is made without reproducible evidence.
+
+## Related Skills
+- `episodic-memory`
+- `long-term-memory`
+- `user-profile-memory`
+
+## Changelog
+- v1 (2026-04): Initial entry
+- v2 (2026-09): Added explicit I/O, deterministic reference behavior, failure modes, security boundaries, validation, and provenance
