@@ -1,36 +1,59 @@
 ---
 title: "Code Search"
 category: 05-code
-level: intermediate
+level: basic
 stability: stable
-description: "Apply code search in AI agent workflows."
-added: "2025-03"
+description: "Locate relevant code by explicit symbol, behavior, dependency, or file criteria and verify matches before editing."
+added: "2026-09"
+related: [git-diff-reading, code-reading]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-search.json)
 
 # Code Search
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Locate relevant code by explicit symbol, behavior, dependency, or file criteria and verify matches before editing.
 
-Search through a codebase by keyword, symbol, regex, or semantic meaning to find relevant files, functions, or usages.
+## When to Use
 
-### Example
+- Use when the code task has explicit acceptance criteria.
+- Preserve repository conventions and existing security gates.
+- Verify behavior before reporting completion.
 
-```bash
-# ripgrep semantic search
-rg 'def train' --type py
+## Inputs / outputs / failure modes
 
-# GitHub code search
-gh api search/code?q=skill+repo:SamoTech/skills-tree
+| Input | Output | Failure mode |
+|---|---|---|
+| Requirements | Code or analysis | Ambiguous requirement |
+| Repository context | Compatible change | Convention mismatch |
+| Tests/evidence | Verification result | Regression |
+| Security constraints | Safe implementation | Gate bypass |
+
+## Runnable Example
+
+```python
+files = ['src/api.py', 'tests/test_api.py']
+matches = [f for f in files if 'api' in f]
+assert len(matches) == 2
+print(matches)
 ```
 
-### Related Skills
+## Failure modes
 
-- [Code Reading](../01-perception/code-reading.md)
-- [Refactoring](refactoring.md)
+- Implementing behavior not supported by the requirements.
+- Changing unrelated code.
+- Skipping regression or security verification.
+- Claiming correctness without evidence.
+
+## Related
+
+- `git-diff-reading.md`
+- `code-reading.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository validation and security workflows
+
+Evidence status: repository-backed implementation guidance; no benchmark claim.
