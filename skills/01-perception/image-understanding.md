@@ -3,23 +3,10 @@ title: "Image Understanding"
 category: 01-perception
 level: intermediate
 stability: stable
+version: v2
 added: "2025-03"
-description: "Apply image understanding in AI agent workflows."
-dependencies:
-  - package: openai
-    min_version: "1.0.0"
-    tested_version: "1.30.1"
-    confidence: verified
-  - package: httpx
-    min_version: "0.27.0"
-    tested_version: "0.27.0"
-    confidence: verified
-code_blocks:
-  - id: "example-vqa"
-    type: executable
-  - id: "example-grounding-dino"
-    type: illustrative
-    note: "groundingdino-py requires manual model weights download — illustrative only"
+description: "Transcribe, interpret, and ground visual content while preserving source coordinates, uncertainty, and provenance. Use for VQA, object localization, scene understanding, and structured visual extraction."
+related: []
 ---
 
 
@@ -80,3 +67,16 @@ def ground_objects(image_path: str, caption: str) -> list[dict]:
 
 ### Related Skills
 - `ocr`, `video-understanding`, `screen-reading`, `visual-element-detection`, `image-captioning`
+
+## Failure Modes
+
+- Untrusted or malformed input: validate format, bound resource usage, and preserve parser or model uncertainty.
+- Ambiguous visual or telemetry evidence: distinguish observed values from inferred interpretation and retain source references.
+- Sensitive or unauthorized source: require authorization, minimize retained data, and do not expose unrelated content.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: implementation guidance is grounded in the cited standards or primary implementation references; no benchmark claim is made without reproducible benchmark evidence.
