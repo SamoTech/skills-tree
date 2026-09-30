@@ -200,3 +200,12 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on branch coo/code-batch-03-2026-09-30 pending PR CI.
 
 **Reopen Conditions:** Reopen if CI identifies schema, graph, projection, evidence, or documentation incompatibility.
+
+
+## DECISION-2026-09-30-TOOL-USE-BATCH-01
+
+**Topic:** Begin controlled 07-tool-use stub modernization.
+
+**Decision:** Modernize ten tool-use skills with explicit contracts, runnable guidance, synchronized Agent Skills projections, and unchanged quality/security gates.
+
+**Status:** IN PROGRESS — staged pending PR CI.
