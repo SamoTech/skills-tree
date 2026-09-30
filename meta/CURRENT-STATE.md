@@ -140,3 +140,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Modernized ten 07-tool-use skills with repository-backed procedures and runnable examples: a2a-tool, browser-tool, calculator, code-exec-tool, custom-api-wrapper, file-system-tool, function-calling, github-api, google-workspace-api, and huggingface-api.
 - Agent Skills projections were synchronized for the batch.
 - No validation or security gate was weakened.
+
+
+## Tool-use modernization — batch 02
+
+- Modernized ten additional 07-tool-use skills: image-gen-tool, jira-api, linear-api, maps-geolocation, mcp-tool, news-api, notion-api, pdf-tool, sendgrid-api, and slack-api.
+- Added corresponding Agent Skills projections under agent-skills/.
+- Provider-specific claims are grounded in cited provider documentation; no benchmark or battle-tested performance claim is introduced.
+- No validator, security gate, or repository governance rule was weakened.
+- PR CI is the required verification gate before merge.
