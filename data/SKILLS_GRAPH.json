@@ -1,11 +1,11 @@
 {
   "meta": {
-    "generated_at": "2026-06-22T12:03:48.553027+00:00",
+    "generated_at": "2026-09-30T10:34:56.690668+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 368,
-    "edge_count": 774,
-    "requires_count": 1,
+    "node_count": 369,
+    "edge_count": 811,
+    "requires_count": 18,
     "initiative": "INITIATIVE-004"
   },
   "nodes": [
@@ -33,7 +33,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -48,7 +48,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -63,7 +63,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -76,9 +76,9 @@
       "title": "Calendar Parsing",
       "category": "01-perception",
       "layer": "perception",
-      "level": "intermediate",
+      "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -93,7 +93,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -108,7 +108,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -123,7 +123,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -138,7 +138,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -153,7 +153,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -168,7 +168,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -183,7 +183,7 @@
       "layer": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -198,7 +198,7 @@
       "layer": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -213,7 +213,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -228,7 +228,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -243,7 +243,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -256,9 +256,9 @@
       "title": "HTML Reading",
       "category": "01-perception",
       "layer": "perception",
-      "level": "intermediate",
+      "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -286,9 +286,9 @@
       "title": "JSON Schema Validation",
       "category": "01-perception",
       "layer": "perception",
-      "level": "intermediate",
+      "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -303,7 +303,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -333,7 +333,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -348,7 +348,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -363,7 +363,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -438,7 +438,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -453,7 +453,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -468,7 +468,7 @@
       "layer": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -483,7 +483,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -498,7 +498,7 @@
       "layer": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -513,7 +513,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -543,7 +543,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -558,7 +558,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -573,7 +573,7 @@
       "layer": "reasoning",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -588,7 +588,7 @@
       "layer": "reasoning",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -618,7 +618,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -633,7 +633,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -648,7 +648,7 @@
       "layer": "reasoning",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -738,7 +738,7 @@
       "layer": "reasoning",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -813,7 +813,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -918,10 +918,13 @@
       "layer": "reasoning",
       "level": "advanced",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-06",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "02-reasoning/goal-decomposition",
+        "09-agentic-patterns/react"
+      ],
       "related_skills": [],
       "source_file": "skills/02-reasoning/planning-decomposition.md",
       "quality_score": null
@@ -963,7 +966,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -987,6 +990,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/prompt-engineering",
+      "title": "Prompt Engineering",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "stable",
+      "version": "v1",
+      "added": "2025-03",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/react",
       "title": "ReAct (Reason + Act)",
       "category": "02-reasoning",
@@ -1007,7 +1025,7 @@
       "category": "02-reasoning",
       "layer": "reasoning",
       "level": "advanced",
-      "stability": "evolving",
+      "stability": "experimental",
       "version": "v2",
       "added": "2025-06",
       "tags": [],
@@ -1881,7 +1899,9 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "05-code/debugging"
+      ],
       "related_skills": [],
       "source_file": "skills/05-code/bug-fixing.md",
       "quality_score": null
@@ -1941,7 +1961,9 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "05-code/algorithm-design"
+      ],
       "related_skills": [],
       "source_file": "skills/05-code/code-generation.md",
       "quality_score": null
@@ -3228,10 +3250,13 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "03-memory/rag",
+        "09-agentic-patterns/react"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agentic-rag.md",
       "quality_score": null
@@ -3336,7 +3361,11 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/react",
+        "09-agentic-patterns/tot",
+        "09-agentic-patterns/reflection"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/lats.md",
       "quality_score": null
@@ -3351,7 +3380,9 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/tot"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/mcts.md",
       "quality_score": null
@@ -3393,10 +3424,13 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/react",
+        "02-reasoning/planning-decomposition"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/plan-and-execute.md",
       "quality_score": null
@@ -3441,7 +3475,9 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/cot"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/react.md",
       "quality_score": null
@@ -3456,7 +3492,9 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/cot"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/reflection.md",
       "quality_score": null
@@ -3493,7 +3531,7 @@
     },
     {
       "id": "09-agentic-patterns/time-travel-debugging",
-      "title": "Time-Travel Debugging",
+      "title": "Time-travel Debugging",
       "category": "09-agentic-patterns",
       "layer": "systems",
       "level": "advanced",
@@ -3501,7 +3539,9 @@
       "version": "v2",
       "added": "2026-04",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/interruptible-agent-flows"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/time-travel-debugging.md",
       "quality_score": null
@@ -3516,7 +3556,9 @@
       "version": "v1",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/react"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/tool-use-loop.md",
       "quality_score": null
@@ -3531,7 +3573,9 @@
       "version": "v3",
       "added": "2025-03",
       "tags": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "09-agentic-patterns/cot"
+      ],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/tot.md",
       "quality_score": null
@@ -5534,6 +5578,62 @@
   ],
   "edges": [
     {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/file-system-reading",
+      "type": "RELATED_TO",
+      "evidence": "[File System Reading](./file-system-reading.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](./image-understanding.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](./ocr.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-parsing",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-parsing",
+      "target": "01-perception/email-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Email Parsing](./email-parsing.md)",
+      "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-parsing",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](./structured-data-reading.md)",
+      "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/chart-reading",
       "target": "01-perception/image-understanding",
       "type": "RELATED_TO",
@@ -5702,6 +5802,54 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/geospatial-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](./structured-data-reading.md)",
+      "source_file": "skills/01-perception/geospatial-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/geospatial-reading",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](./image-understanding.md)",
+      "source_file": "skills/01-perception/geospatial-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/geospatial-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/geospatial-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/git-diff-reading",
+      "target": "01-perception/code-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Code Reading](./code-reading.md)",
+      "source_file": "skills/01-perception/git-diff-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/git-diff-reading",
+      "target": "01-perception/file-system-reading",
+      "type": "RELATED_TO",
+      "evidence": "[File System Reading](./file-system-reading.md)",
+      "source_file": "skills/01-perception/git-diff-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/git-diff-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/git-diff-reading.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/handwriting-recognition",
       "target": "01-perception/ocr",
       "type": "RELATED_TO",
@@ -5723,6 +5871,62 @@
       "type": "RELATED_TO",
       "evidence": "[Document Parsing](document-parsing.md)",
       "source_file": "skills/01-perception/handwriting-recognition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/url-dom-inspection",
+      "type": "RELATED_TO",
+      "evidence": "[URL DOM Inspection](./url-dom-inspection.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/table-extraction",
+      "type": "RELATED_TO",
+      "evidence": "[Table Extraction](./table-extraction.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/json-schema-validation",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/json-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/json-schema-validation",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](./structured-data-reading.md)",
+      "source_file": "skills/01-perception/json-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/json-schema-validation",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/json-schema-validation.md",
       "confidence": "high"
     },
     {
@@ -6087,9 +6291,9 @@
     },
     {
       "source": "02-reasoning/goal-decomposition",
-      "target": "09-agentic-patterns/memory-augmented-agent",
+      "target": "09-agentic-patterns/memory-augmented",
       "type": "RELATED_TO",
-      "evidence": "[Memory-Augmented Agent](../09-agentic-patterns/memory-augmented-agent.md)",
+      "evidence": "[Memory-Augmented Agent](../09-agentic-patterns/memory-augmented.md)",
       "source_file": "skills/02-reasoning/goal-decomposition.md",
       "confidence": "high"
     },
@@ -6231,9 +6435,9 @@
     },
     {
       "source": "02-reasoning/meta-prompting",
-      "target": "09-agentic-patterns/react-pattern",
+      "target": "09-agentic-patterns/react",
       "type": "RELATED_TO",
-      "evidence": "[ReAct Pattern](../09-agentic-patterns/react-pattern.md)",
+      "evidence": "[ReAct Pattern](../09-agentic-patterns/react.md)",
       "source_file": "skills/02-reasoning/meta-prompting.md",
       "confidence": "high"
     },
@@ -6247,9 +6451,9 @@
     },
     {
       "source": "02-reasoning/meta-prompting",
-      "target": "09-agentic-patterns/reflection-pattern",
+      "target": "09-agentic-patterns/reflection",
       "type": "RELATED_TO",
-      "evidence": "[Reflection](../09-agentic-patterns/reflection-pattern.md)",
+      "evidence": "[Reflection](../09-agentic-patterns/reflection.md)",
       "source_file": "skills/02-reasoning/meta-prompting.md",
       "confidence": "high"
     },
@@ -6279,9 +6483,9 @@
     },
     {
       "source": "02-reasoning/planning-decomposition",
-      "target": "09-agentic-patterns/react-pattern",
+      "target": "09-agentic-patterns/react",
       "type": "RELATED_TO",
-      "evidence": "[ReAct Pattern](../09-agentic-patterns/react-pattern.md)",
+      "evidence": "[ReAct Pattern](../09-agentic-patterns/react.md)",
       "source_file": "skills/02-reasoning/planning-decomposition.md",
       "confidence": "high"
     },
@@ -6350,6 +6554,38 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "02-reasoning/meta-prompting",
+      "type": "RELATED_TO",
+      "evidence": "[Meta-Prompting](meta-prompting.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "02-reasoning/step-back-prompting",
+      "type": "RELATED_TO",
+      "evidence": "[Step-Back Prompting](step-back-prompting.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "02-reasoning/goal-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Goal Decomposition](goal-decomposition.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "09-agentic-patterns/react",
+      "type": "RELATED_TO",
+      "evidence": "[ReAct Pattern](../09-agentic-patterns/react.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/reasoning-under-uncertainty",
       "target": "02-reasoning/self-consistency",
       "type": "RELATED_TO",
@@ -6367,17 +6603,17 @@
     },
     {
       "source": "02-reasoning/reasoning-under-uncertainty",
-      "target": "09-agentic-patterns/reflection-pattern",
+      "target": "09-agentic-patterns/reflection",
       "type": "RELATED_TO",
-      "evidence": "[Reflection Pattern](../09-agentic-patterns/reflection-pattern.md)",
+      "evidence": "[Reflection Pattern](../09-agentic-patterns/reflection.md)",
       "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
       "confidence": "high"
     },
     {
       "source": "02-reasoning/reasoning-under-uncertainty",
-      "target": "03-memory/rag-retrieval",
+      "target": "03-memory/rag",
       "type": "RELATED_TO",
-      "evidence": "[RAG Retrieval](../03-memory/rag-retrieval.md)",
+      "evidence": "[RAG Retrieval](../03-memory/rag.md)",
       "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
       "confidence": "high"
     },
@@ -6447,9 +6683,9 @@
     },
     {
       "source": "02-reasoning/step-back-prompting",
-      "target": "09-agentic-patterns/rag-pattern",
+      "target": "09-agentic-patterns/rag",
       "type": "RELATED_TO",
-      "evidence": "[RAG Pattern](../09-agentic-patterns/rag-pattern.md)",
+      "evidence": "[RAG Pattern](../09-agentic-patterns/rag.md)",
       "source_file": "skills/02-reasoning/step-back-prompting.md",
       "confidence": "high"
     },
@@ -8774,30 +9010,6 @@
       "confidence": "high"
     },
     {
-      "source": "09-agentic-patterns/agentic-rag",
-      "target": "09-agentic-patterns/rag-pipeline",
-      "type": "RELATED_TO",
-      "evidence": "[RAG Pipeline](rag-pipeline.md)",
-      "source_file": "skills/09-agentic-patterns/agentic-rag.md",
-      "confidence": "high"
-    },
-    {
-      "source": "09-agentic-patterns/agentic-rag",
-      "target": "03-memory/rag",
-      "type": "RELATED_TO",
-      "evidence": "[RAG](../03-memory/rag.md)",
-      "source_file": "skills/09-agentic-patterns/agentic-rag.md",
-      "confidence": "high"
-    },
-    {
-      "source": "09-agentic-patterns/agentic-rag",
-      "target": "09-agentic-patterns/react",
-      "type": "RELATED_TO",
-      "evidence": "[ReAct](react.md)",
-      "source_file": "skills/09-agentic-patterns/agentic-rag.md",
-      "confidence": "high"
-    },
-    {
       "source": "09-agentic-patterns/bootstrapping",
       "target": "09-agentic-patterns/self-play",
       "type": "RELATED_TO",
@@ -8927,9 +9139,9 @@
     },
     {
       "source": "09-agentic-patterns/lats",
-      "target": "09-agentic-patterns/mcts",
+      "target": "09-agentic-patterns/react",
       "type": "RELATED_TO",
-      "evidence": "[MCTS](mcts.md)",
+      "evidence": "[ReAct](react.md)",
       "source_file": "skills/09-agentic-patterns/lats.md",
       "confidence": "high"
     },
@@ -8950,6 +9162,14 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/mcts",
+      "type": "RELATED_TO",
+      "evidence": "[MCTS](mcts.md)",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/mcts",
       "target": "09-agentic-patterns/tot",
       "type": "RELATED_TO",
@@ -8962,14 +9182,6 @@
       "target": "09-agentic-patterns/lats",
       "type": "RELATED_TO",
       "evidence": "[LATS](lats.md)",
-      "source_file": "skills/09-agentic-patterns/mcts.md",
-      "confidence": "high"
-    },
-    {
-      "source": "09-agentic-patterns/mcts",
-      "target": "09-agentic-patterns/self-play",
-      "type": "RELATED_TO",
-      "evidence": "[Self-Play](self-play.md)",
       "source_file": "skills/09-agentic-patterns/mcts.md",
       "confidence": "high"
     },
@@ -9111,25 +9323,25 @@
     },
     {
       "source": "09-agentic-patterns/reflection",
-      "target": "09-agentic-patterns/tot",
+      "target": "09-agentic-patterns/react",
       "type": "RELATED_TO",
-      "evidence": "[Tree of Thought](tot.md)",
+      "evidence": "[ReAct](react.md)",
       "source_file": "skills/09-agentic-patterns/reflection.md",
       "confidence": "high"
     },
     {
       "source": "09-agentic-patterns/reflection",
-      "target": "02-reasoning/planning",
+      "target": "09-agentic-patterns/critic-agent",
       "type": "RELATED_TO",
-      "evidence": "[Planning](../02-reasoning/planning.md)",
+      "evidence": "[Critic Agent](critic-agent.md)",
       "source_file": "skills/09-agentic-patterns/reflection.md",
       "confidence": "high"
     },
     {
       "source": "09-agentic-patterns/reflection",
-      "target": "02-reasoning/self-consistency",
+      "target": "09-agentic-patterns/lats",
       "type": "RELATED_TO",
-      "evidence": "[Self-Consistency](../02-reasoning/self-consistency.md)",
+      "evidence": "[LATS](lats.md)",
       "source_file": "skills/09-agentic-patterns/reflection.md",
       "confidence": "high"
     },
@@ -9191,17 +9403,9 @@
     },
     {
       "source": "09-agentic-patterns/tool-use-loop",
-      "target": "07-tool-use/mcp-tool",
-      "type": "RELATED_TO",
-      "evidence": "[MCP Tool](../07-tool-use/mcp-tool.md)",
-      "source_file": "skills/09-agentic-patterns/tool-use-loop.md",
-      "confidence": "high"
-    },
-    {
-      "source": "09-agentic-patterns/tool-use-loop",
       "target": "09-agentic-patterns/plan-and-execute",
       "type": "RELATED_TO",
-      "evidence": "[Plan and Execute](plan-and-execute.md)",
+      "evidence": "[Plan-and-Execute](plan-and-execute.md)",
       "source_file": "skills/09-agentic-patterns/tool-use-loop.md",
       "confidence": "high"
     },
@@ -11723,6 +11927,159 @@
       "type": "REQUIRES",
       "evidence": "prerequisites: 02-reasoning/chain-of-thought",
       "source_file": "skills/00-sandbox/pipeline-test.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "02-reasoning/goal-decomposition",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 02-reasoning/goal-decomposition",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "09-agentic-patterns/react",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/react",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "05-code/bug-fixing",
+      "target": "05-code/debugging",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 05-code/debugging",
+      "source_file": "skills/05-code/bug-fixing.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "05-code/code-generation",
+      "target": "05-code/algorithm-design",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 05-code/algorithm-design",
+      "source_file": "skills/05-code/code-generation.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/agentic-rag",
+      "target": "03-memory/rag",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 03-memory/rag",
+      "source_file": "skills/09-agentic-patterns/agentic-rag.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/agentic-rag",
+      "target": "09-agentic-patterns/react",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/react",
+      "source_file": "skills/09-agentic-patterns/agentic-rag.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/react",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/react",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/tot",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/tot",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/reflection",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/reflection",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/mcts",
+      "target": "09-agentic-patterns/tot",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/tot",
+      "source_file": "skills/09-agentic-patterns/mcts.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/plan-and-execute",
+      "target": "09-agentic-patterns/react",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/react",
+      "source_file": "skills/09-agentic-patterns/plan-and-execute.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/plan-and-execute",
+      "target": "02-reasoning/planning-decomposition",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 02-reasoning/planning-decomposition",
+      "source_file": "skills/09-agentic-patterns/plan-and-execute.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/react",
+      "target": "09-agentic-patterns/cot",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/cot",
+      "source_file": "skills/09-agentic-patterns/react.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/reflection",
+      "target": "09-agentic-patterns/cot",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/cot",
+      "source_file": "skills/09-agentic-patterns/reflection.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/time-travel-debugging",
+      "target": "09-agentic-patterns/interruptible-agent-flows",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/interruptible-agent-flows",
+      "source_file": "skills/09-agentic-patterns/time-travel-debugging.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/tool-use-loop",
+      "target": "09-agentic-patterns/react",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/react",
+      "source_file": "skills/09-agentic-patterns/tool-use-loop.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "09-agentic-patterns/tot",
+      "target": "09-agentic-patterns/cot",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/cot",
+      "source_file": "skills/09-agentic-patterns/tot.md",
       "confidence": "high",
       "source_method": "frontmatter_prerequisite"
     }

@@ -1,30 +1,22 @@
 # Graph Build Report
 
-**Generated:** 2026-06-22T11:42:37.598280+00:00  
+**Generated:** 2026-09-30T10:34:56.690478+00:00  
 **Generator:** tools/build_graph.py  
-**Schema Version:** 3.0  
+**Schema Version:** 3.1  
 **Dry Run:** False  
 
 ## Metrics
 
 | Metric | Value |
 |---|---|
-| Total nodes | 367 |
-| Total edges | 773 |
+| Total nodes | 369 |
+| Total edges | 811 |
+| REQUIRES edges | 18 |
+| REQUIRES (frontmatter) | 18 |
+| SUPPORTS edges | 0 |
+| RELATED_TO edges | 793 |
 | Validation errors | 0 |
-| Unresolved targets (warnings) | 9 |
-
-## Unresolved Target Warnings
-
-- `UNRESOLVED_TARGET: 09-agentic-patterns/memory-augmented-agent referenced from skills/02-reasoning/goal-decomposition.md`
-- `UNRESOLVED_TARGET: 02-reasoning/prompt-engineering referenced from skills/02-reasoning/meta-prompting.md`
-- `UNRESOLVED_TARGET: 09-agentic-patterns/react-pattern referenced from skills/02-reasoning/meta-prompting.md`
-- `UNRESOLVED_TARGET: 09-agentic-patterns/reflection-pattern referenced from skills/02-reasoning/meta-prompting.md`
-- `UNRESOLVED_TARGET: 09-agentic-patterns/react-pattern referenced from skills/02-reasoning/planning-decomposition.md`
-- `UNRESOLVED_TARGET: 09-agentic-patterns/reflection-pattern referenced from skills/02-reasoning/reasoning-under-uncertainty.md`
-- `UNRESOLVED_TARGET: 03-memory/rag-retrieval referenced from skills/02-reasoning/reasoning-under-uncertainty.md`
-- `UNRESOLVED_TARGET: 02-reasoning/prompt-engineering referenced from skills/02-reasoning/step-back-prompting.md`
-- `UNRESOLVED_TARGET: 09-agentic-patterns/rag-pattern referenced from skills/02-reasoning/step-back-prompting.md`
+| Unresolved targets (warnings) | 0 |
 
 ## Status
 
