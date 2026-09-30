@@ -1,39 +1,59 @@
 ---
 title: "Weather API"
 category: 07-tool-use
-level: basic
+level: intermediate
 stability: stable
-description: "Apply weather api in AI agent workflows."
-added: "2025-03"
+description: "Retrieve weather observations or forecasts through a documented API with explicit location, time window, units, freshness, and provider-status handling."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-weather-api.json)
 
 # Weather API
 
-**Category:** `tool-use`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Retrieve weather observations or forecasts through a documented API with explicit location, time window, units, freshness, and provider-status handling.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires weather api, the target account or resource is authorized, and the provider contract is documented.
 
-Fetch current weather conditions, forecasts, and historical weather data for any location.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+
+## Runnable Example
 
 ```python
-import httpx
+import os
 
-r = httpx.get(
-    'https://api.openweathermap.org/data/2.5/weather',
-    params={'q': 'Giza,EG', 'appid': OWM_KEY, 'units': 'metric'}
-)
-data = r.json()
-print(f"{data['main']['temp']}°C, {data['weather'][0]['description']}")
+request = {
+    "capability": "weather-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
 
-- [Custom API Wrapper](custom-api-wrapper.md)
-- [Structured Data Reading](../01-perception/structured-data-reading.md)
+## Evidence
+- Provider documentation: https://openweathermap.org/api
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails
