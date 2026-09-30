@@ -3,7 +3,8 @@ title: "Handwriting Recognition"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply handwriting recognition in AI agent workflows."
+version: v2
+description: "Transcribe handwritten text from images while preserving uncertainty, illegible regions, layout observations, and source-image provenance. Use domain context only as a disambiguating hint."
 added: "2025-03"
 ---
 
@@ -128,3 +129,20 @@ print(result)
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, multi-format image example |
 | `2025-03` | Initial stub entry |
+
+
+## Evidence
+
+- https://docs.anthropic.com/en/docs/build-with-claude/vision
+- https://tesseract-ocr.github.io/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Ambiguous extraction | Low-quality, incomplete, or conflicting source data | Preserve uncertainty and source location; do not invent values |
+| Resource exhaustion | Large files, graphs, captures, or media | Bound input size, traversal depth, rows, frames, and processing time |
+| Untrusted content | Source data contains instructions or sensitive material | Treat content as data, isolate tool execution, and redact secrets |
