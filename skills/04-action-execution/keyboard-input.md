@@ -1,35 +1,56 @@
 ---
 title: "Keyboard Input"
 category: 04-action-execution
-level: basic
+level: intermediate
 stability: stable
-description: "Apply keyboard input in AI agent workflows."
-added: "2025-03"
+description: "Send bounded keyboard input to a verified target while controlling focus and sensitive text."
+added: "2026-09"
+related: [mouse-input, clipboard-ops, screenshot-capture]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-keyboard-input.json)
 
 # Keyboard Input
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Send bounded keyboard input to a verified target while controlling focus and sensitive text.
 
-Simulate keyboard input — typing text strings, pressing individual keys, or triggering keyboard shortcuts.
+## When to Use
 
-### Example
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
 
 ```python
-import pyautogui
-pyautogui.write('Hello, Agent!', interval=0.05)
-pyautogui.press('enter')
-pyautogui.hotkey('ctrl', 's')  # Save
+def type_bounded(target, text):
+    if len(text) > 2000: raise ValueError("input too long")
+    target.click()
+    target.fill(text)
+    print("input complete")
 ```
 
-### Related Skills
+## Failure modes
 
-- [Mouse Input](mouse-input.md)
-- [Keyboard Type](../10-computer-use/keyboard-type.md)
+Wrong focus; destructive shortcuts; sensitive keystroke logging; unbounded input.
+
+## Related
+
+- `mouse-input.md`
+- `clipboard-ops.md`
+- `screenshot-capture.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows
