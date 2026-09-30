@@ -26,3 +26,5 @@ metadata:
 
 - https://docs.anthropic.com/en/docs/build-with-claude/vision
 - https://tesseract-ocr.github.io/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
