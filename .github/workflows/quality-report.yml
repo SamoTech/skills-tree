@@ -14,6 +14,11 @@ on:
     - cron: '0 4 * * 1'   # Monday 04:00 UTC
   workflow_dispatch:
 
+# Serialize this generated-main writer with the other workflows that commit to main.
+concurrency:
+  group: auto-commit-main
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
