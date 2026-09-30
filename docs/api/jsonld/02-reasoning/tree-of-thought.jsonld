@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:18:03Z",
+  "dateModified": "2026-09-30T10:19:50Z",
   "skillId": "tree-of-thought",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, of, AI agent, reasoning, tree, skills tree, thought",
+  "keywords": "thought, tree, skills tree, AI agent, LLM skill, of, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Tree of Thought (ToT)",

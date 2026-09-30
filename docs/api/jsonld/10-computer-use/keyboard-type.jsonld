@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:18:03Z",
+  "dateModified": "2026-09-30T10:19:50Z",
   "skillId": "keyboard-type",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "type, LLM skill, computer, keyboard, use, AI agent, skills tree",
+  "keywords": "skills tree, computer, AI agent, keyboard, LLM skill, use, type",
   "about": {
     "@type": "Thing",
     "name": "Keyboard Type",

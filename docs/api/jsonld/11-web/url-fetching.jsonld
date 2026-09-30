@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:18:03Z",
+  "dateModified": "2026-09-30T10:19:50Z",
   "skillId": "url-fetching",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "fetching, LLM skill, url, AI agent, skills tree, web",
+  "keywords": "url, fetching, skills tree, AI agent, LLM skill, web",
   "about": {
     "@type": "Thing",
     "name": "URL Fetching",

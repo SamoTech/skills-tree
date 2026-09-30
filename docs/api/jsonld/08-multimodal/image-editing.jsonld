@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:18:03Z",
+  "dateModified": "2026-09-30T10:19:50Z",
   "skillId": "image-editing",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "editing, LLM skill, image, multimodal, AI agent, skills tree",
+  "keywords": "editing, multimodal, skills tree, AI agent, LLM skill, image",
   "about": {
     "@type": "Thing",
     "name": "Image Editing",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:18:03Z",
+  "dateModified": "2026-09-30T10:19:50Z",
   "skillId": "counterfactual-reasoning",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, reasoning, skills tree, counterfactual",
+  "keywords": "skills tree, LLM skill, AI agent, counterfactual, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Counterfactual Reasoning",
