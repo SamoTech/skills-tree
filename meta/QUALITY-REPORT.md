@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 103
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 113
 - 🟡 **Enriched** (real description + runnable code): 14
-- ⚪ **Stub** (placeholder description or no runnable code): 252
+- ⚪ **Stub** (placeholder description or no runnable code): 242
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -16,7 +16,7 @@
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
-| `02-reasoning` | 46 | 28 | 8 | 10 | 0 |
+| `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
@@ -89,9 +89,19 @@
 - [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — Reasoning Under Uncertainty
 - [`skills/02-reasoning/risk-assessment.md`](skills/02-reasoning/risk-assessment.md) — Risk Assessment
 - [`skills/02-reasoning/root-cause-analysis.md`](skills/02-reasoning/root-cause-analysis.md) — Root Cause Analysis
+- [`skills/02-reasoning/scenario-planning.md`](skills/02-reasoning/scenario-planning.md) — Scenario Planning
 - [`skills/02-reasoning/self-consistency.md`](skills/02-reasoning/self-consistency.md) — Self-Consistency
+- [`skills/02-reasoning/self-correction.md`](skills/02-reasoning/self-correction.md) — Self-Correction
+- [`skills/02-reasoning/self-reflection.md`](skills/02-reasoning/self-reflection.md) — Self-Reflection
+- [`skills/02-reasoning/socratic-questioning.md`](skills/02-reasoning/socratic-questioning.md) — Socratic Questioning
+- [`skills/02-reasoning/spatial-reasoning.md`](skills/02-reasoning/spatial-reasoning.md) — Spatial Reasoning
 - [`skills/02-reasoning/step-back-prompting.md`](skills/02-reasoning/step-back-prompting.md) — Step-Back Prompting
+- [`skills/02-reasoning/systems-thinking.md`](skills/02-reasoning/systems-thinking.md) — Systems Thinking
 - [`skills/02-reasoning/task-decomposition.md`](skills/02-reasoning/task-decomposition.md) — Task Decomposition
+- [`skills/02-reasoning/temporal-reasoning.md`](skills/02-reasoning/temporal-reasoning.md) — Temporal Reasoning
+- [`skills/02-reasoning/trade-off-analysis.md`](skills/02-reasoning/trade-off-analysis.md) — Trade-off Analysis
+- [`skills/02-reasoning/tree-of-thought.md`](skills/02-reasoning/tree-of-thought.md) — Tree of Thought
+- [`skills/02-reasoning/uncertainty-quantification.md`](skills/02-reasoning/uncertainty-quantification.md) — Uncertainty Quantification
 - [`skills/03-memory/agent-sessions.md`](skills/03-memory/agent-sessions.md) — Agent Sessions
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
 - [`skills/03-memory/memory-injection.md`](skills/03-memory/memory-injection.md) — Memory Injection
@@ -160,16 +170,6 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/02-reasoning/scenario-planning.md`](skills/02-reasoning/scenario-planning.md) — description matches placeholder pattern: 'Apply scenario planning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/self-correction.md`](skills/02-reasoning/self-correction.md) — description matches placeholder pattern: 'Apply self-correction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/self-reflection.md`](skills/02-reasoning/self-reflection.md) — description matches placeholder pattern: 'Apply self-reflection in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/socratic-questioning.md`](skills/02-reasoning/socratic-questioning.md) — description matches placeholder pattern: 'Apply socratic questioning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/spatial-reasoning.md`](skills/02-reasoning/spatial-reasoning.md) — description matches placeholder pattern: 'Apply spatial reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/systems-thinking.md`](skills/02-reasoning/systems-thinking.md) — description matches placeholder pattern: 'Apply systems thinking in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/temporal-reasoning.md`](skills/02-reasoning/temporal-reasoning.md) — description matches placeholder pattern: 'Apply temporal reasoning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/trade-off-analysis.md`](skills/02-reasoning/trade-off-analysis.md) — description matches placeholder pattern: 'Apply trade-off analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/tree-of-thought.md`](skills/02-reasoning/tree-of-thought.md) — description matches placeholder pattern: 'Apply tree of thought (tot) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/uncertainty-quantification.md`](skills/02-reasoning/uncertainty-quantification.md) — description matches placeholder pattern: 'Apply uncertainty quantification in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/03-memory/cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — description matches placeholder pattern: 'Apply cross-session persistence in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/03-memory/episodic-memory.md`](skills/03-memory/episodic-memory.md) — description matches placeholder pattern: 'Apply episodic memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/03-memory/fact-verification-memory.md`](skills/03-memory/fact-verification-memory.md) — description matches placeholder pattern: 'Apply fact verification memory in AI agent workflows'; no inputs/outputs/failure-modes table
