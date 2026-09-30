@@ -222,3 +222,16 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on branch coo/tool-use-batch-02-2026-09-30 pending PR CI.
 
 **Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, evidence, or documentation incompatibility.
+
+
+## DECISION-2026-09-30-TOOL-USE-BATCH-03
+
+**Topic:** Continue controlled 07-tool-use stub modernization.
+
+**Decision:** Modernize the next ten tool-use skills with explicit contracts, runnable examples, evidence references, synchronized Agent Skills projections, and unchanged repository quality/security gates.
+
+**Scope:** github-api, google-workspace-api, huggingface-api, sql-tool, stripe-api, twilio-api, vector-db-tool, weather-api, web-search, wikipedia-api.
+
+**Status:** IN PROGRESS — staged on branch coo/tool-use-batch-03-2026-09-30 pending PR CI.
+
+**Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, evidence, or documentation incompatibility.
