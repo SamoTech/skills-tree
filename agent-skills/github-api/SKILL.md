@@ -1,26 +1,37 @@
 ---
 name: github-api
-description: Work with GitHub APIs using documented endpoints, authentication boundaries, pagination, error handling, and least-privilege access.
-license: MIT
-metadata:
-  source: skills/05-code/github-api.md
-  version: "v2"
+description: Use github api as a bounded agent capability with validated inputs, least-privilege access, and verified results.
 ---
 
-# Github Api
+# GitHub API
 
-1. Identify the documented endpoint and required scope.
-2. Validate request parameters and pagination behavior.
-3. Make the API request without exposing credentials.
-4. Inspect status, response semantics, and errors.
-5. Verify any claimed repository state change independently.
+## Description
+Use github api only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
 
-## Failure modes
-- Wrong endpoint or request shape.
-- Excessive permissions or exposed credentials.
-- Pagination or rate-limit errors.
-- Completion claims without state verification.
+## When to Use
+Use when the workflow explicitly requires github api and the target resource is authorized.
+
+## Inputs / Outputs
+- Inputs: validated task data, documented provider parameters, and authorization context.
+- Outputs: structured provider result and evidence sufficient for downstream verification.
+
+## Failure Modes
+- Invalid or ambiguous inputs.
+- Permission, rate-limit, transport, or provider failures.
+- Credential or private-data exposure.
+- Unverified side effects.
+
+## Runnable Example
+
+```python
+capability = "github-api"
+assert capability
+print("validate provider contract before invocation")
+```
 
 ## Evidence
-Canonical skill: skills/05-code/github-api.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed guidance. See the canonical skill at skills/07-tool-use/github-api.md and its cited provider documentation.
+
+## Related
+- 07-tool-use
+- tool-guardrails
