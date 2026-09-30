@@ -57,7 +57,16 @@ jobs:
           git add data/SKILLS_GRAPH.json docs/api/graph.json
           git diff --staged --quiet && echo "No graph changes." && exit 0
           git commit -m "chore(graph): rebuild skills dependency graph [skip ci]"
-          git push origin main
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            git push origin main && {
+              echo "Graph push succeeded (attempt ${attempt})."
+              exit 0
+            }
+            sleep $((attempt * 2))
+          done
+          echo "ERROR: Graph push failed after 5 attempts."
+          exit 1
 
   secret-scan:
     name: Gitleaks secret scan
