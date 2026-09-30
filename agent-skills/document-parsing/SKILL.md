@@ -27,3 +27,5 @@ metadata:
 - https://python-docx.readthedocs.io/
 - https://openpyxl.readthedocs.io/
 - https://python.langchain.com/docs/concepts/document_loaders/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
