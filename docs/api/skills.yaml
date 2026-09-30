@@ -1,4 +1,4 @@
-generated: '2026-09-30T10:35:14Z'
+generated: '2026-09-30T11:12:46Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -379,14 +379,18 @@ skills:
 - id: image-understanding
   path: skills/01-perception/image-understanding.md
   name: Image Understanding
-  description: Apply image understanding in AI agent workflows.
+  description: Transcribe, interpret, and ground visual content while preserving source
+    coordinates, uncertainty, and provenance. Use for VQA, object localization, scene
+    understanding, and structured visual extraction.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Failure Modes
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: json-schema-validation
@@ -592,7 +596,7 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -604,6 +608,8 @@ skills:
   - Notes
   - Related Skills
   - Changelog
+  - Failure Modes
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: sensor-reading
@@ -613,7 +619,7 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -625,6 +631,8 @@ skills:
   - Notes
   - Related Skills
   - Changelog
+  - Failure Modes
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: social-media-reading
@@ -777,7 +785,7 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -789,6 +797,8 @@ skills:
   - Notes
   - Related Skills
   - Changelog
+  - Failure Modes
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: video-understanding

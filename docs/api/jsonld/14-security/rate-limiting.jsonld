@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:35:14Z",
+  "dateModified": "2026-09-30T11:12:47Z",
   "skillId": "rate-limiting",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "LLM skill, security, AI agent, limiting, rate, skills tree",
+  "keywords": "limiting, security, skills tree, LLM skill, rate, AI agent",
   "about": {
     "@type": "Thing",
     "name": "rate-limiting",
