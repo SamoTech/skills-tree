@@ -43,7 +43,6 @@ print([f.name for f in fields])
 - Claiming migration safety without executing validation.
 
 ## Related
-- [05-code](../README.md)
 - [AI Constitution](../../AI_CONSTITUTION.md)
 - [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
 
