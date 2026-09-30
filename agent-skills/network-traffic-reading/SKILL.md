@@ -26,3 +26,5 @@ metadata:
 
 - https://scapy.readthedocs.io/
 - https://www.wireshark.org/docs/man-pages/tshark.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
