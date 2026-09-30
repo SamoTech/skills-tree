@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 113
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 118
 - 🟡 **Enriched** (real description + runnable code): 14
-- ⚪ **Stub** (placeholder description or no runnable code): 242
+- ⚪ **Stub** (placeholder description or no runnable code): 237
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -17,7 +17,7 @@
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
-| `03-memory` | 19 | 6 | 0 | 13 | 0 |
+| `03-memory` | 19 | 11 | 0 | 8 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
@@ -103,8 +103,13 @@
 - [`skills/02-reasoning/tree-of-thought.md`](skills/02-reasoning/tree-of-thought.md) — Tree of Thought
 - [`skills/02-reasoning/uncertainty-quantification.md`](skills/02-reasoning/uncertainty-quantification.md) — Uncertainty Quantification
 - [`skills/03-memory/agent-sessions.md`](skills/03-memory/agent-sessions.md) — Agent Sessions
+- [`skills/03-memory/cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — Cross-Session Persistence
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
+- [`skills/03-memory/episodic-memory.md`](skills/03-memory/episodic-memory.md) — Episodic Memory
+- [`skills/03-memory/forgetting.md`](skills/03-memory/forgetting.md) — Forgetting
+- [`skills/03-memory/long-term-memory.md`](skills/03-memory/long-term-memory.md) — Long-Term Memory
 - [`skills/03-memory/memory-injection.md`](skills/03-memory/memory-injection.md) — Memory Injection
+- [`skills/03-memory/memory-summarization.md`](skills/03-memory/memory-summarization.md) — Memory Summarization
 - [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
 - [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
 - [`skills/03-memory/vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — Vector Store Retrieval
@@ -170,17 +175,12 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — description matches placeholder pattern: 'Apply cross-session persistence in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/03-memory/episodic-memory.md`](skills/03-memory/episodic-memory.md) — description matches placeholder pattern: 'Apply episodic memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/03-memory/fact-verification-memory.md`](skills/03-memory/fact-verification-memory.md) — description matches placeholder pattern: 'Apply fact verification memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/03-memory/fact-verification.md`](skills/03-memory/fact-verification.md) — description matches placeholder pattern: 'Apply fact verification in AI agent workflows'
-- [`skills/03-memory/forgetting.md`](skills/03-memory/forgetting.md) — description matches placeholder pattern: 'Apply forgetting in AI agent workflows'
-- [`skills/03-memory/long-term-memory.md`](skills/03-memory/long-term-memory.md) — description matches placeholder pattern: 'Apply long term memory in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/03-memory/memory-summarization.md`](skills/03-memory/memory-summarization.md) — description matches placeholder pattern: 'Apply memory summarization in AI agent workflows'
-- [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — description matches placeholder pattern: 'Apply procedural memory in AI agent workflows'; no inputs/outputs/failure-modes table
+- [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — description matches placeholder pattern: 'Apply procedural memory in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — description matches placeholder pattern: 'Apply semantic memory in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — description matches placeholder pattern: 'Apply user profile memory in AI agent workflows'; no inputs/outputs/failure-modes table
+- [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — no fenced runnable code example (>=3 non-blank lines)
+- [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — description matches placeholder pattern: 'Apply user profile in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — description matches placeholder pattern: 'Apply working memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/04-action-execution/api-call.md`](skills/04-action-execution/api-call.md) — description matches placeholder pattern: 'Apply api call in AI agent workflows'; no inputs/outputs/failure-modes table
