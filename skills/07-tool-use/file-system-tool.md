@@ -1,40 +1,52 @@
 ---
-title: "File System Tool"
+title: File System Tool
 category: 07-tool-use
-level: basic
+level: advanced
 stability: stable
-description: "Apply file system tool in AI agent workflows."
-added: "2025-03"
+description: Operate on files through explicit paths, scope checks, content validation, and reversible changes.
+added: "2026-09"
+related: [07-tool-use]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-file-system-tool.json)
+## Description
+Operate on files through explicit paths, scope checks, content validation, and reversible changes. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
 
-# File System Tool
+## When to Use
+Use when the repository task explicitly requires this tool capability.
 
-**Category:** `tool-use`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
+| Outputs | Verified result with concise evidence. |
+| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
 
-Expose file system operations (read, write, list, delete) as structured agent tools with permission checks.
-
-### Example
+## Runnable Example
 
 ```python
-def read_file(path: str) -> str:
-    from pathlib import Path
-    p = Path(path)
-    assert p.exists(), f'File not found: {path}'
-    return p.read_text()
+from dataclasses import dataclass
 
-def list_dir(path: str) -> list:
-    from pathlib import Path
-    return [str(f) for f in Path(path).iterdir()]
+@dataclass
+class Request:
+    action: str
+
+request = Request(action="inspect")
+assert request.action
+print("validate the tool contract before invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Calling an undocumented interface.
+- Sending invalid or excessive data.
+- Exposing credentials or secrets.
+- Treating an acknowledgement as proof of completion.
+- Skipping repository validation.
 
-- [File System Reading](../01-perception/file-system-reading.md)
-- [File Write](../04-action-execution/file-write.md)
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
