@@ -1,42 +1,47 @@
 ---
-title: "Refactoring"
+title: Refactoring
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply refactoring in AI agent workflows."
-added: "2025-03"
+description: Restructure code to improve maintainability or design while preserving documented behavior and interfaces.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-refactoring.json)
+## Description
+Restructure code to improve maintainability or design while preserving documented behavior and interfaces. Refactoring is evidence-driven: establish current behavior, make a bounded change, and verify equivalence.
 
-# Refactoring
+## When to Use
+Use when structure, duplication, coupling, readability, or maintainability needs improvement without changing intended behavior.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Current implementation, tests, interfaces, and explicit design goal. |
+| Outputs | Cleaner structure with preserved behavior and verification evidence. |
+| Failure modes | Scope creep, hidden behavior changes, incomplete coverage, or API breakage. |
 
-Restructure existing code to improve readability, maintainability, and performance without changing its external behavior.
-
-### Example
+## Runnable Example
 
 ```python
-# Before
-def p(x):
-    r = []
-    for i in x:
-        if i > 0:
-            r.append(i * 2)
-    return r
+def normalize_name(value: str) -> str:
+    return ' '.join(value.split())
 
-# After (refactored)
-def double_positives(numbers: list[int]) -> list[int]:
-    return [n * 2 for n in numbers if n > 0]
+print(normalize_name('  example   name '))
+print('refactor only after behavior is understood')
 ```
 
-### Related Skills
+## Failure modes
+- Combining refactoring with unrelated feature work.
+- Changing public behavior unintentionally.
+- Removing tests instead of preserving coverage.
+- Reporting equivalence without verification.
 
-- [Code Review](code-review.md)
-- [Linting & Formatting](linting-formatting.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
