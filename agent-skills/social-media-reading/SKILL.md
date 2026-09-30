@@ -27,3 +27,5 @@ metadata:
 - https://www.reddit.com/dev/api/
 - https://docs.joinmastodon.org/api/
 - https://docs.x.com/x-api
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
