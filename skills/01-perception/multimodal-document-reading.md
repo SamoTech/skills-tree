@@ -3,7 +3,8 @@ title: "Multimodal Document Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply multimodal document reading in AI agent workflows."
+version: v2
+description: "Process documents containing text, images, tables, and diagrams while preserving content order, page boundaries, and extraction provenance."
 added: "2025-03"
 ---
 
@@ -46,3 +47,11 @@ for el in elements:
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://docs.unstructured.io/open-source/core-functionality/partitioning
+- https://python.langchain.com/docs/concepts/document_loaders/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
