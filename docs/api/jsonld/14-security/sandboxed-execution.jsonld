@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:20:17Z",
   "skillId": "sandboxed-execution",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "execution, LLM skill, skills tree, security, sandboxed, AI agent",
+  "keywords": "execution, security, LLM skill, AI agent, sandboxed, skills tree",
   "about": {
     "@type": "Thing",
     "name": "sandboxed-execution",

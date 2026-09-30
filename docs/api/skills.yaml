@@ -1,4 +1,4 @@
-generated: '2026-09-30T10:08:45Z'
+generated: '2026-09-30T10:20:17Z'
 count: 369
 skills:
 - id: pipeline-test
@@ -336,7 +336,7 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -348,6 +348,8 @@ skills:
   - Notes
   - Related Skills
   - Changelog
+  - Evidence
+  - Failure Modes
   related: []
   category_dir: 01-perception
 - id: html-reading
@@ -414,11 +416,12 @@ skills:
 - id: knowledge-graph-reading
   path: skills/01-perception/knowledge-graph-reading.md
   name: Knowledge Graph Reading
-  description: Apply knowledge graph reading in AI agent workflows.
+  description: Query and traverse RDF, SPARQL, property graphs, and knowledge-graph
+    APIs to retrieve bounded entity relationships with explicit query limits and provenance.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -430,6 +433,7 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: log-parsing
@@ -490,11 +494,12 @@ skills:
 - id: multimodal-document-reading
   path: skills/01-perception/multimodal-document-reading.md
   name: Multimodal Document Reading
-  description: Apply multimodal document reading in AI agent workflows.
+  description: Process documents containing text, images, tables, and diagrams while
+    preserving content order, page boundaries, and extraction provenance.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -506,16 +511,19 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: network-traffic-reading
   path: skills/01-perception/network-traffic-reading.md
   name: Network Traffic Reading
-  description: Apply network traffic reading in AI agent workflows.
+  description: Read authorized packet captures or bounded network telemetry to identify
+    protocols, endpoints, timing, and transport behavior for debugging and security
+    analysis.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -527,6 +535,7 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: ocr
@@ -621,11 +630,13 @@ skills:
 - id: social-media-reading
   path: skills/01-perception/social-media-reading.md
   name: Social Media Reading
-  description: Apply social media reading in AI agent workflows.
+  description: Parse authorized social-media API responses or exported datasets into
+    normalized posts, threads, authors, timestamps, and engagement metadata while
+    respecting platform limits and privacy boundaries.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -637,16 +648,18 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: spreadsheet-reading
   path: skills/01-perception/spreadsheet-reading.md
   name: Spreadsheet Reading
-  description: Apply spreadsheet reading in AI agent workflows.
+  description: Read XLSX, CSV, and ODS workbooks into bounded structured data while
+    preserving sheet names, headers, formulas or cached values, and workbook metadata.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -658,6 +671,7 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: structured-data-reading
@@ -667,7 +681,7 @@ skills:
   category: perception
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: 2026-04
   sections:
@@ -679,16 +693,20 @@ skills:
   - Notes
   - Related Skills
   - Changelog
+  - Evidence
+  - Failure Modes
   related: []
   category_dir: 01-perception
 - id: table-extraction
   path: skills/01-perception/table-extraction.md
   name: Table Extraction
-  description: Apply table extraction in AI agent workflows.
+  description: Extract tables from documents, images, and web content into structured
+    rows and columns while detecting merged cells, missing headers, and uncertain
+    boundaries.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -700,6 +718,7 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: text-reading
@@ -730,11 +749,13 @@ skills:
 - id: time-series-reading
   path: skills/01-perception/time-series-reading.md
   name: Time Series Reading
-  description: Apply time series reading in AI agent workflows.
+  description: Load time-indexed data from files, databases, or APIs, normalize timestamps
+    and sampling intervals, and produce analysis-ready series without hiding missing
+    or irregular observations.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
@@ -746,6 +767,7 @@ skills:
   - Failure Modes
   - Related
   - Changelog
+  - Evidence
   related: []
   category_dir: 01-perception
 - id: url-dom-inspection
@@ -772,14 +794,18 @@ skills:
 - id: video-understanding
   path: skills/01-perception/video-understanding.md
   name: Video Understanding
-  description: Apply video understanding in AI agent workflows.
+  description: Analyze video over time using bounded frame or segment sampling, temporal
+    metadata, and optional audio transcripts to identify scenes, events, captions,
+    and grounded time ranges.
   category: perception
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
+  - Failure Modes
   related: []
   category_dir: 01-perception
 - id: xml-parsing
