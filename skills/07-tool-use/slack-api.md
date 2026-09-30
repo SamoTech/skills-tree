@@ -3,54 +3,51 @@ title: "Slack API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-added: "2025-03"
-description: "Apply Slack API in AI agent workflows."
-dependencies:
-  - package: slack-sdk
-    min_version: "3.20.0"
-    tested_version: "3.41.0"
-    confidence: verified
-code_blocks:
-  - id: "example-slack"
-    type: executable
+description: "Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects."
+added: "2026-09"
+related: [07-tool-use, 04-action-execution]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-slack-api.json)
 
 # Slack API
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects.
 
-### Description
+## When to Use
+Use this capability when the workflow explicitly requires slack api and the target account, document, channel, or provider is authorized.
 
-Send messages, post to channels, upload files, and react to events using the Slack Web API and Bolt framework.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Use least-privilege credentials managed outside source code. |
+| Scope | Bound the operation to the intended resource and task. |
+| Inputs | Validate identifiers, content, filters, and required fields. |
+| Outputs | Preserve structured provider results needed by downstream steps. |
+| Verification | Re-check important reads or mutations when correctness matters. |
+| Privacy | Minimize exposure and retention of sensitive content. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
+
+## Runnable Example
 
 ```python
-# pip install slack-sdk
-from slack_sdk import WebClient
-from slack_sdk.errors import SlackApiError
-
-client = WebClient(token="xoxb-your-bot-token")
-
-try:
-    # Post a message
-    response = client.chat_postMessage(
-        channel="#general",
-        text="Hello from your AI agent! :robot_face:",
-        blocks=[
-            {"type": "section", "text": {"type": "mrkdwn", "text": "*Agent Report*"}},
-            {"type": "section", "text": {"type": "mrkdwn", "text": "Task completed successfully."}}
-        ]
-    )
-    print(f"Message sent: {response['ts']}")
-except SlackApiError as e:
-    print(f"Error: {e.response['error']}")
+import os
+request = {"tool": "slack-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
-- `notification-sending`, `email-sending`, `webhook-call`, `twilio-api`
+## Failure modes
+- Hard-coding credentials or exposing them in logs.
+- Assuming provider fields or identifiers are portable across accounts.
+- Performing side effects without validating authorization and current state.
+- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
+- Using unbounded pagination or retries.
+
+## Evidence
+Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
