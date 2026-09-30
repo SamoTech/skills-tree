@@ -116,3 +116,18 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if a generated-main writer requires an incompatible serialization model or the public taxonomy intentionally expands to include `00-sandbox`.
+
+
+## DECISION-2026-09-30-REASONING-MIGRATION
+
+**Topic:** Complete the 02-reasoning stub migration.
+
+**Decision:** Migrate the remaining reasoning stubs incrementally under the evidence-backed v2 contract. Batch 06 completes the 02-reasoning category; the generated quality report now shows 46 reasoning skills with 0 stubs and repository-wide totals of 369 skills, 113 classifier battle-tested, 14 enriched, 242 stubs, and 0 invalid.
+
+**Confidence:** High
+
+**Evidence IDs:** PR-174, QUALITY-20260930, MAIN-20260930
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the canonical skill schema, evidence contract, or quality classification changes materially.
