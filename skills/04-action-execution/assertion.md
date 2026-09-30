@@ -1,37 +1,61 @@
 ---
-title: "Assertion / Verification"
+title: "Assertion"
 category: 04-action-execution
-level: intermediate
+level: basic
 stability: stable
-description: "Apply assertion / verification in AI agent workflows."
-added: "2025-03"
+description: "Check an explicit execution invariant and stop safely when the expected state is not true."
+added: "2026-09"
+related: [self-correction, output-guardrails, evidence-verification]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-assertion.json)
+# Assertion
 
-# Assertion / Verification
+## Description
 
-**Category:** `action-execution`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+Verify a condition that must hold before an agent continues an action sequence. Assertions turn assumptions into explicit gates and should fail closed when the expected state cannot be established.
 
-### Description
+## When to Use
 
-Verify that a condition or expected state is true before or after an action — used for guard clauses, test validation, and workflow checkpoints.
+- Checking a precondition before a destructive action.
+- Verifying an API response or file state.
+- Enforcing invariants in automation.
 
-### Example
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Condition | Boolean or exception | False condition |
+| Context/message | Actionable failure | Missing context |
+| Severity | Stop or escalation decision | Wrong escalation |
+
+## Runnable example
 
 ```python
-def assert_file_exists(path):
-    from pathlib import Path
-    assert Path(path).exists(), f'Expected file not found: {path}'
+def assert_state(condition, message):
+    if not condition:
+        raise RuntimeError("Assertion failed: " + message)
+    return True
 
-def assert_status_ok(response):
-    assert response.status_code == 200, f'Bad status: {response.status_code}'
+record = {"status": "ready"}
+assert_state(record.get("status") == "ready", "record is not ready")
+print("precondition satisfied")
 ```
 
-### Related Skills
+## Failure modes
 
-- [Unit Test Generation](../05-code/unit-test-generation.md)
-- [Self-Correction](../02-reasoning/self-correction.md)
+- Logging a failed assertion while continuing.
+- Checking stale state.
+- Hiding the evidence needed to diagnose failure.
+- Using an assertion as a substitute for authorization.
+
+## Related
+
+- ../02-reasoning/self-correction.md
+- ../14-security/approval-before-destructive-tools.md
+- ../14-security/output-guardrails.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows
