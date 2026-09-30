@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 82
-- 🟡 **Enriched** (real description + runnable code): 3
-- ⚪ **Stub** (placeholder description or no runnable code): 284
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 88
+- 🟡 **Enriched** (real description + runnable code): 7
+- ⚪ **Stub** (placeholder description or no runnable code): 274
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -15,7 +15,7 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 20 | 1 | 15 | 0 |
+| `01-perception` | 36 | 26 | 5 | 5 | 0 |
 | `02-reasoning` | 46 | 16 | 2 | 28 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
@@ -47,13 +47,19 @@
 - [`skills/01-perception/file-system-reading.md`](skills/01-perception/file-system-reading.md) — File System Reading
 - [`skills/01-perception/geospatial-reading.md`](skills/01-perception/geospatial-reading.md) — Geospatial Reading
 - [`skills/01-perception/git-diff-reading.md`](skills/01-perception/git-diff-reading.md) — Git Diff Reading
+- [`skills/01-perception/handwriting-recognition.md`](skills/01-perception/handwriting-recognition.md) — Handwriting Recognition
 - [`skills/01-perception/html-reading.md`](skills/01-perception/html-reading.md) — HTML Reading
 - [`skills/01-perception/json-schema-validation.md`](skills/01-perception/json-schema-validation.md) — JSON Schema Validation
+- [`skills/01-perception/knowledge-graph-reading.md`](skills/01-perception/knowledge-graph-reading.md) — Knowledge Graph Reading
 - [`skills/01-perception/log-parsing.md`](skills/01-perception/log-parsing.md) — Log Parsing
 - [`skills/01-perception/markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — Markdown Parsing
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
+- [`skills/01-perception/spreadsheet-reading.md`](skills/01-perception/spreadsheet-reading.md) — Spreadsheet Reading
+- [`skills/01-perception/structured-data-reading.md`](skills/01-perception/structured-data-reading.md) — Structured Data Reading
+- [`skills/01-perception/table-extraction.md`](skills/01-perception/table-extraction.md) — Table Extraction
 - [`skills/01-perception/text-reading.md`](skills/01-perception/text-reading.md) — Text Reading
+- [`skills/01-perception/video-understanding.md`](skills/01-perception/video-understanding.md) — Video Understanding
 - [`skills/01-perception/xml-parsing.md`](skills/01-perception/xml-parsing.md) — XML Parsing
 - [`skills/02-reasoning/abductive.md`](skills/02-reasoning/abductive.md) — Abductive Reasoning
 - [`skills/02-reasoning/analogical.md`](skills/02-reasoning/analogical.md) — Analogical Reasoning
@@ -121,6 +127,10 @@
 ## 🟡 Enriched skills
 
 - [`skills/01-perception/conversation-history-reading.md`](skills/01-perception/conversation-history-reading.md) — missing table or <60 lines
+- [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — missing table or <60 lines
+- [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — missing table or <60 lines
+- [`skills/01-perception/social-media-reading.md`](skills/01-perception/social-media-reading.md) — missing table or <60 lines
+- [`skills/01-perception/time-series-reading.md`](skills/01-perception/time-series-reading.md) — missing table or <60 lines
 - [`skills/02-reasoning/inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
 
@@ -128,20 +138,10 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/01-perception/handwriting-recognition.md`](skills/01-perception/handwriting-recognition.md) — description matches placeholder pattern: 'Apply handwriting recognition in AI agent workflows'
 - [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — description matches placeholder pattern: 'Apply image understanding in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/01-perception/knowledge-graph-reading.md`](skills/01-perception/knowledge-graph-reading.md) — description matches placeholder pattern: 'Apply knowledge graph reading in AI agent workflows'
-- [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — description matches placeholder pattern: 'Apply multimodal document reading in AI agent workflows'
-- [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — description matches placeholder pattern: 'Apply network traffic reading in AI agent workflows'
 - [`skills/01-perception/screen-reading.md`](skills/01-perception/screen-reading.md) — description matches placeholder pattern: 'Apply screen reading in AI agent workflows'
 - [`skills/01-perception/sensor-reading.md`](skills/01-perception/sensor-reading.md) — description matches placeholder pattern: 'Apply sensor reading in AI agent workflows'
-- [`skills/01-perception/social-media-reading.md`](skills/01-perception/social-media-reading.md) — description matches placeholder pattern: 'Apply social media reading in AI agent workflows'
-- [`skills/01-perception/spreadsheet-reading.md`](skills/01-perception/spreadsheet-reading.md) — description matches placeholder pattern: 'Apply spreadsheet reading in AI agent workflows'
-- [`skills/01-perception/structured-data-reading.md`](skills/01-perception/structured-data-reading.md) — description matches placeholder pattern: 'Apply structured data reading in AI agent workflows'
-- [`skills/01-perception/table-extraction.md`](skills/01-perception/table-extraction.md) — description matches placeholder pattern: 'Apply table extraction in AI agent workflows'
-- [`skills/01-perception/time-series-reading.md`](skills/01-perception/time-series-reading.md) — description matches placeholder pattern: 'Apply time series reading in AI agent workflows'
 - [`skills/01-perception/url-dom-inspection.md`](skills/01-perception/url-dom-inspection.md) — description matches placeholder pattern: 'Apply url / dom inspection in AI agent workflows'
-- [`skills/01-perception/video-understanding.md`](skills/01-perception/video-understanding.md) — description matches placeholder pattern: 'Apply video understanding in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — description matches placeholder pattern: 'Apply analogy generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — description matches placeholder pattern: 'Apply chain of thought in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/commonsense.md`](skills/02-reasoning/commonsense.md) — description matches placeholder pattern: 'Apply commonsense reasoning in AI agent workflows'
