@@ -5,11 +5,17 @@ level: advanced
 stability: stable
 description: "Load and reconcile authoritative repository state before meaningful AI execution."
 added: "2026-09"
+related:
+  - documentation-drift-resolution
+  - evidence-verification
+  - execution-handoff
 ---
 
 # Repository State Load
 
-Before meaningful work, load the repository constitution, agent entrypoint, operating model, current state, decisions, handoff protocol, and task-relevant architecture/testing/security/deployment documents.
+## Description
+
+Load the repository's authoritative governance, current-state, decisions, and task-relevant technical evidence before making consequential changes. The goal is to establish a verified baseline rather than infer state from partial context.
 
 1. Establish the current main SHA from GitHub.
 2. Read authoritative governance and state documents.
@@ -17,6 +23,23 @@ Before meaningful work, load the repository constitution, agent entrypoint, oper
 4. Treat live repository evidence as authoritative when historical snapshots conflict.
 5. Record material divergence before making consequential changes.
 6. Do not execute against incomplete or contradictory state without resolving or escalating the divergence.
+
+## Runnable example
+
+```bash
+git fetch origin main --depth=1
+git rev-parse origin/main
+git diff --name-only origin/main...HEAD
+```
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Main branch reference | Verified baseline SHA | Main SHA cannot be established |
+| Governance documents | Authoritative operating rules | Required document is missing |
+| GitHub metadata and CI | Current implementation evidence | Evidence is stale or incomplete |
+| Current-state and decisions | Continuation context | Documentation contradicts live state |
 
 ## Failure modes
 
