@@ -1,38 +1,52 @@
 ---
-title: "Custom API Wrapper"
+title: Custom Api Wrapper
 category: 07-tool-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply custom api wrapper in AI agent workflows."
-added: "2025-03"
+description: Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries.
+added: "2026-09"
+related: [07-tool-use]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-custom-api-wrapper.json)
+## Description
+Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
 
-# Custom API Wrapper
+## When to Use
+Use when the repository task explicitly requires this tool capability.
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
+| Outputs | Verified result with concise evidence. |
+| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
 
-Wrap any REST API as a reusable agent tool with a defined schema, authentication, and error handling.
-
-### Example
+## Runnable Example
 
 ```python
-def call_api(endpoint: str, method: str = 'GET', payload: dict = None) -> dict:
-    import httpx
-    headers = {'Authorization': f'Bearer {API_KEY}'}
-    r = httpx.request(method, f'{BASE_URL}/{endpoint}', json=payload, headers=headers)
-    r.raise_for_status()
-    return r.json()
+from dataclasses import dataclass
+
+@dataclass
+class Request:
+    action: str
+
+request = Request(action="inspect")
+assert request.action
+print("validate the tool contract before invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Calling an undocumented interface.
+- Sending invalid or excessive data.
+- Exposing credentials or secrets.
+- Treating an acknowledgement as proof of completion.
+- Skipping repository validation.
 
-- [Function Calling](function-calling.md)
-- [HTTP Request](../04-action-execution/http-request.md)
-- [MCP Tool](mcp-tool.md)
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
