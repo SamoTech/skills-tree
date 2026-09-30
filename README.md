@@ -19,13 +19,13 @@
 
 ### AI Engineering Operating System
 
-**The largest open, dependency-mapped knowledge graph for AI agents.**
+**The open, dependency-mapped knowledge graph for AI agents.**
 
 | 369 Skills | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & benchmarked | Dependency-mapped | Community-governed |
 
-**[▶ Explore Skills →](https://samotech.github.io/skills-tree/explorer/)  ·  [▶ Generate Blueprint →](https://samotech.github.io/skills-tree/blueprints/)  ·  [▶ GitHub Repository →](https://github.com/SamoTech/skills-tree)**
+**[▶ Explore Skills →](https://github.com/SamoTech/skills-tree/tree/main/skills)  ·  [▶ Generate Blueprint →](https://github.com/SamoTech/skills-tree/tree/main/blueprints)  ·  [▶ GitHub Repository →](https://github.com/SamoTech/skills-tree)**
 
 <!-- BADGES_START -->
 [![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white&label=PyPI)](https://pypi.org/project/skills-tree/)
@@ -35,7 +35,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/releases)
 [![Coverage](https://img.shields.io/badge/Coverage-report-orange?style=for-the-badge)](meta/COVERAGE_STRATEGY.md)
-[![Docs](https://img.shields.io/badge/Docs-Live-22c55e?style=for-the-badge&logo=github)](https://samotech.github.io/skills-tree)
+[![Docs](https://img.shields.io/badge/Docs-GitHub-22c55e?style=for-the-badge&logo=github)](https://github.com/SamoTech/skills-tree)
 <!-- BADGES_END -->
 
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
@@ -80,7 +80,7 @@ from skills_tree import SkillsTree
 
 st = SkillsTree()
 skill = st.get("rag")           # fetch a skill by ID
-results = st.search("memory")   # full-text search across 360+ skills
+results = st.search("memory")   # full-text search across 369 skills
 cats = st.categories()          # list all 17 categories
 ```
 
@@ -146,7 +146,7 @@ Battle-tested skills (🟢 verified) are production-ready and copy-paste safe. Y
 
 | Feature | **Skills Tree** | LangChain Hub | Hugging Face Hub | Custom YAML files |
 |---|---|---|---|---|
-| AI agent skill taxonomy | ✅ 360+ skills | ⚠️ Prompt-focused | ❌ Model-focused | ❌ None |
+| AI agent skill taxonomy | ✅ 369 skills | ⚠️ Prompt-focused | ❌ Model-focused | ❌ None |
 | Versioned skill evolution | ✅ v1→v2→v3 | ❌ | ❌ | ❌ |
 | Runnable code examples | ✅ Every skill | ⚠️ Some | ⚠️ Some | ❌ |
 | Benchmarks included | ✅ Head-to-head | ❌ | ⚠️ Leaderboards | ❌ |
@@ -198,7 +198,7 @@ If you're new, **read these first**. Each ships with runnable code, typed I/O, f
 ```
 skills-tree/
 │
-├── skills/          → 360 atomic skill files (50 battle-tested, 308 stubs)
+├── skills/          → 369 skill files (74 battle-tested, 2 enriched, 293 stubs, 0 invalid)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
@@ -258,7 +258,7 @@ client.messages.create(
 ```
 ````
 
-Every skill includes: ✅ typed inputs/outputs · ✅ runnable Python code · ✅ frameworks table · ✅ failure modes · ✅ version history
+Every documented battle-tested skill includes: ✅ typed inputs/outputs · ✅ runnable Python code · ✅ frameworks table · ✅ failure modes · ✅ version history
 
 ---
 

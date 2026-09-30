@@ -16,6 +16,7 @@
 - PR #150: closed as duplicate of PR #155
 - Open substantive PRs requiring current-main revalidation: #145, #146, #155, #156, #142
 - Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
+- Source-of-truth cleanup: PR #162 merged on 2026-09-30 as `33b36dfa02b5acb87d517a5669f1a9eca3b50626`.
 
 ## Validation and CI state
 
@@ -55,3 +56,18 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Strategic decisions: `meta/memory/DECISIONS.md`.
 - Quality evidence: generated repository reports.
 - External dashboards and Vercel deployments are not authoritative and are not part of the project architecture.
+
+## Distribution readiness
+
+- Canonical skill source: `skills/` in GitHub.
+- Machine-readable projection: `docs/api/skills.json`, generated from canonical skill content.
+- Standards-compatible seed: `agent-skills/skills-tree-registry/SKILL.md`.
+- Distribution contract: `docs/AGENT_SKILLS_DISTRIBUTION.md`.
+- GitHub raw content is the repository-native machine-readable distribution surface; no external dashboard is authoritative.
+- Full `/.well-known/agent-skills/index.json` publication remains a release-engineering task until reproducible artifact generation and SHA-256 verification are implemented.
+
+## Security hardening
+
+- Skill validation is read-only and does not mutate contributor branches.
+- Dependabot automation does not auto-approve or auto-merge dependency updates.
+- Agent-facing skill instructions are explicitly treated as a supply-chain/security surface.

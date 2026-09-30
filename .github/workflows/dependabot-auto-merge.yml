@@ -1,19 +1,18 @@
-name: Dependabot Auto-Merge
+name: Dependabot Review Gate
 
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: write
 
 jobs:
-  auto-merge:
-    name: Auto-merge Dependabot PRs
+  review:
+    name: Review Dependabot updates
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
-
     steps:
       - name: Fetch Dependabot metadata
         id: meta
@@ -21,36 +20,24 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Wait for CI to pass
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          check-name: 'pytest — Python 3.11'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 30
-          allowed-conclusions: success,skipped
-
-      - name: Auto-approve patch updates
+      - name: Label patch/minor updates for human review
         if: >
           steps.meta.outputs.update-type == 'version-update:semver-patch' ||
           steps.meta.outputs.update-type == 'version-update:semver-minor'
-        run: gh pr review --approve "$PR_URL"
+        run: gh pr edit "$PR_URL" --add-label "dependabot-review"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Auto-merge patch and minor updates
-        if: >
-          steps.meta.outputs.update-type == 'version-update:semver-patch' ||
-          steps.meta.outputs.update-type == 'version-update:semver-minor'
-        run: gh pr merge --auto --squash "$PR_URL"
-        env:
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Label major updates for manual review
+      - name: Label major updates for explicit review
         if: steps.meta.outputs.update-type == 'version-update:semver-major'
         run: gh pr edit "$PR_URL" --add-label "dependabot-major"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report required human gate
+        run: |
+          echo "Dependabot update classified as: ${{ steps.meta.outputs.update-type }}"
+          echo "No approval or merge is performed by automation."
+          echo "A maintainer must review and merge the exact green HEAD."
