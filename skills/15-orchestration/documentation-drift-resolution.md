@@ -49,6 +49,12 @@ git log -1 --oneline
 - Calling documentation complete without CI or repository verification.
 - Silently resolving a strategic conflict that requires CEO/CIO authority.
 
+## Related
+
+- `repository-state-load.md`
+- `evidence-verification.md`
+- `execution-handoff.md`
+
 ## Evidence
 
 - AI_CONSTITUTION.md
