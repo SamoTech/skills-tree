@@ -5,7 +5,7 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: `880b7b688427e1e6f68cba674fa0803d814e8c55`
+- Main HEAD: verified on 2026-09-30; see the repository default branch for the current SHA.
 - Skill files: 369
 - Battle-tested: 60
 - Enriched: 3
