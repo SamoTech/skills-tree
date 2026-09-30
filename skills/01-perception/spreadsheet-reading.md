@@ -58,6 +58,6 @@ for sheet in xls.sheet_names:
 
 - https://pandas.pydata.org/docs/
 - https://openpyxl.readthedocs.io/
-- https://odfpy.readthedocs.io/
+- https://github.com/eea/odfpy
 
 Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
