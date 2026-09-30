@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/memory-summarization.md",
   "name": "Memory Summarization",
   "headline": "Memory Summarization",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-memory-summarization.json)",
+  "description": "Compress accumulated memory into a smaller representation while retaining material facts, provenance, uncertainty, and information needed for later retrieval.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/memory-summarization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,19 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "memory-summarization",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks & Models",
-    "Notes",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
     "Related Skills",
     "Changelog"
   ],
@@ -75,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, summarization, memory, LLM skill",
+  "keywords": "summarization, LLM skill, memory, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Memory Summarization",

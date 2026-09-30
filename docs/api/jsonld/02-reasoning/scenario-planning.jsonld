@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/scenario-planning.md",
   "name": "Scenario Planning",
   "headline": "Scenario Planning",
-  "description": "Apply scenario planning in AI agent workflows.",
+  "description": "Construct multiple plausible future states from explicit drivers, assumptions, and uncertainties so plans can be stress-tested without treating scenarios as forecasts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/scenario-planning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "scenario-planning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, reasoning, planning, LLM skill, scenario",
+  "keywords": "planning, scenario, LLM skill, skills tree, AI agent, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Scenario Planning",

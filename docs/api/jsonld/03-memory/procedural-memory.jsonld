@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/procedural-memory.md",
   "name": "Procedural Memory",
   "headline": "Procedural Memory",
-  "description": "Apply procedural memory in AI agent workflows.",
+  "description": "Persist reusable procedures as explicit, versioned instructions with preconditions, steps, and verification criteria.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/procedural-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "procedural-memory",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/planning.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, memory, LLM skill, procedural",
+  "keywords": "LLM skill, memory, skills tree, AI agent, procedural",
   "about": {
     "@type": "Thing",
     "name": "Procedural Memory",

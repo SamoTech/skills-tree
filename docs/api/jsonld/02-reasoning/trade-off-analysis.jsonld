@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/trade-off-analysis.md",
   "name": "Trade-off Analysis",
   "headline": "Trade-off Analysis",
-  "description": "Apply trade-off analysis in AI agent workflows.",
+  "description": "Compare options across explicit competing criteria, constraints, and opportunity costs without hiding the assumptions behind the comparison.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/trade-off-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "trade-off-analysis",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, analysis, off, skills tree, reasoning, LLM skill, trade",
+  "keywords": "AI agent, LLM skill, analysis, off, skills tree, trade, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Trade-off Analysis",

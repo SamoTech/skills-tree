@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/user-profile-memory.md",
   "name": "User Profile Memory",
   "headline": "User Profile Memory",
-  "description": "Apply user profile memory in AI agent workflows.",
+  "description": "Maintain an explicit, consent-aware profile of stable user preferences and attributes with provenance, update rules, and retention limits.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/user-profile-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "user-profile-memory",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, memory, LLM skill, user, profile",
+  "keywords": "profile, user, memory, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "User Profile Memory",

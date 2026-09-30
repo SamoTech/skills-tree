@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "decision-making",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -71,7 +71,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, decision, reasoning, making, LLM skill",
+  "keywords": "LLM skill, making, skills tree, AI agent, reasoning, decision",
   "about": {
     "@type": "Thing",
     "name": "Decision Making",

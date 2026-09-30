@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-reflection.md",
   "name": "Self-Reflection",
   "headline": "Self-Reflection",
-  "description": "Apply self-reflection in AI agent workflows.",
+  "description": "Critique a completed reasoning result against its requirements, evidence, assumptions, and failure modes before accepting or revising it.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-reflection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "self-reflection",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, reasoning, self, reflection, LLM skill",
+  "keywords": "reflection, LLM skill, skills tree, AI agent, reasoning, self",
   "about": {
     "@type": "Thing",
     "name": "Self-Reflection",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-correction.md",
   "name": "Self-Correction",
   "headline": "Self-Correction",
-  "description": "Apply self-correction in AI agent workflows.",
+  "description": "Detect a concrete error or failed validation, identify the cause, and revise the result using new evidence without silently changing the original record.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/self-correction.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "self-correction",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/debugging.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, reasoning, self, correction, LLM skill",
+  "keywords": "correction, LLM skill, skills tree, AI agent, reasoning, self",
   "about": {
     "@type": "Thing",
     "name": "Self-Correction",

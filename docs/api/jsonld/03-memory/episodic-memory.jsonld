@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/episodic-memory.md",
   "name": "Episodic Memory",
   "headline": "Episodic Memory",
-  "description": "Apply episodic memory in AI agent workflows.",
+  "description": "Store and retrieve bounded records of past events with timestamps, provenance, and relevance rather than treating all history as permanent memory.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/episodic-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "episodic-memory",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "episodic, AI agent, skills tree, memory, LLM skill",
+  "keywords": "LLM skill, memory, skills tree, AI agent, episodic",
   "about": {
     "@type": "Thing",
     "name": "Episodic Memory",

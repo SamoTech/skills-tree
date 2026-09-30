@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/temporal-reasoning.md",
   "name": "Temporal Reasoning",
   "headline": "Temporal Reasoning",
-  "description": "Apply temporal reasoning in AI agent workflows.",
+  "description": "Represent ordering, duration, intervals, recurrence, and temporal constraints explicitly while distinguishing timestamps from inferred sequence.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/temporal-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "temporal-reasoning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, reasoning, LLM skill, temporal",
+  "keywords": "temporal, LLM skill, skills tree, AI agent, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Temporal Reasoning",

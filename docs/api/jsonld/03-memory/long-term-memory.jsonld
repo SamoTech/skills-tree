@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/long-term-memory.md",
   "name": "Long-Term Memory",
   "headline": "Long-Term Memory",
-  "description": "Apply long term memory in AI agent workflows.",
+  "description": "Design durable agent memory with explicit schemas, retention policy, provenance, and retrieval rules so persistent state remains auditable.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/long-term-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "long-term-memory",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
+    "Failure Modes",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, memory, long, LLM skill, term",
+  "keywords": "long, LLM skill, memory, term, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Long-Term Memory",

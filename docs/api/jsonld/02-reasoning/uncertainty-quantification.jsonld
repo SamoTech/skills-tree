@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/uncertainty-quantification.md",
   "name": "Uncertainty Quantification",
   "headline": "Uncertainty Quantification",
-  "description": "Apply uncertainty quantification in AI agent workflows.",
+  "description": "Represent uncertainty with explicit ranges, distributions, confidence intervals, or qualitative levels and preserve the assumptions that produced them.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/uncertainty-quantification.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "uncertainty-quantification",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, reasoning, LLM skill, uncertainty, quantification",
+  "keywords": "quantification, LLM skill, uncertainty, skills tree, AI agent, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Uncertainty Quantification",

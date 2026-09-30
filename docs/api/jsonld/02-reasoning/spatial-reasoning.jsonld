@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/spatial-reasoning.md",
   "name": "Spatial Reasoning",
   "headline": "Spatial Reasoning",
-  "description": "Apply spatial reasoning in AI agent workflows.",
+  "description": "Represent relative positions, distances, containment, and transformations explicitly while separating geometric facts from uncertain perception.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/spatial-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T12:47:02Z",
+  "dateModified": "2026-09-30T13:26:23Z",
   "skillId": "spatial-reasoning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Description",
-    "Example",
+    "Inputs / Outputs",
+    "Deterministic Reference Implementation",
     "Failure Modes",
-    "Related",
+    "Security Boundaries",
+    "Validation Rules",
+    "Provenance",
+    "Related Skills",
     "Changelog"
   ],
   "relatedSkills": [],
@@ -72,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, spatial, reasoning, LLM skill",
+  "keywords": "spatial, LLM skill, skills tree, AI agent, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Spatial Reasoning",
