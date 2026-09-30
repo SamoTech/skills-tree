@@ -1319,21 +1319,21 @@
     "id": "05-code/algorithm-design",
     "title": "Algorithm Design",
     "category": "05-code",
-    "level": "advanced",
+    "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply algorithm design in AI agent workflows.",
-    "body": "Algorithm Design Category: Skill Level: Stability: Added: 2025-03 Description Design efficient algorithms and data structures for a given problem, considering time and space complexity trade-offs. Example Related Skills - Code Generation - Performance Profiling"
+    "description": "Design an algorithm from explicit requirements, constraints, invariants, complexity targets, and testable acceptance criteria.",
+    "body": "Algorithm Design Description Design an algorithm from explicit requirements, constraints, invariants, complexity targets, and testable acceptance criteria. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/api-client-generation",
-    "title": "API Client Generation",
+    "title": "Api Client Generation",
     "category": "05-code",
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply api client generation in AI agent workflows.",
-    "body": "API Client Generation Category: Skill Level: Stability: Added: 2025-03 Description Generate typed API client code from an OpenAPI/Swagger spec or by inspecting an existing API. Example Related Skills - Code Generation - HTTP Request"
+    "description": "Generate an API client from a documented contract with typed inputs, response validation, timeout policy, and error handling.",
+    "body": "Api Client Generation Description Generate an API client from a documented contract with typed inputs, response validation, timeout policy, and error handling. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/bug-fixing",
@@ -1341,35 +1341,29 @@
     "category": "05-code",
     "level": "intermediate",
     "stability": "stable",
-    "tags": [
-      "code",
-      "debugging",
-      "repair",
-      "testing",
-      "agentic-loop"
-    ],
-    "description": "Take a failing test or stack trace and produce a minimal patch that makes the test pass. Loops on test execution until green or budget exhausted, with each retry conditioned on the new failure output.",
-    "body": "Bug Fixing Description Bug fixing is an agentic loop, not a one-shot prompt. Given a repo, a failing test (or a stack trace + reproducer), the agent: (1) reads the failing code + relevant context, (2) proposes a minimal patch, (3) applies it, (4) re-runs the test, (5) repeats until green or the iteration budget is exhausted. The naive \"ask for a fix\" prompt fails on three things: it doesn't see the actual failure output, it patches sites that aren't the bug, and it gives up after one wrong attempt. This skill encodes the loop with hard guardrails — read-only test runner, max iterations, minimal-diff bias — that get you from broken to green without burning the repo down. When to Use - You have a deterministic reproducer: a failing test, a script that crashes, a CI log with a stack trace. - You can run the reproducer in a sandbox (subprocess, container) — never on production. - The fix is localised (a few files at most). For \"the architecture is wrong\", the loop will spin. - Don't use when: you don't know what's broken (use Debugging first to localise), the bug is environmental (config, infra, deps), or the test itself is wrong. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Path to the working directory | | | | Shell command that exits non-zero on the bug (e.g. ) | | | | Paths to read into context (None → agent picks) | | | | Loop budget (default 4) | | → | | Did the failing command exit 0? | | → | | Diffs applied per iteration | | → | | stdout/stderr of the last run | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Patch applies, test still fails | Wrong file edited, or partial fix | Loop again with new failure output; cap iterations | | Patch fails to apply | Non-existent line numbers, model hallucinated context | Validate diff hunks against current file; reject malformed | | Agent edits the test to pass | \"Make test pass\" interpreted literally | System prompt forbids test edits; diff-allow-list for paths | | Spinning on flaky test | Test is non-deterministic, not a bug | Run failing command N times before declaring green; flag flakes | | Catastrophic regression | Fix broke other tests | Run full suite at the end; rollback patches if regression | | Timeout | Failing command hangs | Hard subprocess timeout (120s above); kill on exceed | Variants | Variant | When | |---|---| | Diff/patch loop (above) | Default; smallest blast radius | | Whole-file rewrite | Single file; simpler than diff parsing | | SWE-Agent style | Multi-file repos; agent navigates, edits, runs | | Verifier-guided | A second model reviews each candidate diff before apply | | Retrieval-augmented | Pull similar past bugs/fixes from a corpus to ground the agent | Frameworks & Models | Framework | Notes | |---|---| | Direct API loop (above) | Maximum control | | Aider | Repo-aware, git-integrated | | OpenHands / SWE-Agent | Production agentic IDE for repo work | | Claude Code / Cursor | Editor-integrated single-file repair | Model Comparison | Capability | claude-opus-4-5 | gpt-4o | claude-haiku-4-5 | |---|---|---|---| | Localising the bug | 5 | 4 | 4 | | Minimal-diff discipline | 5 | 4 | 4 | | Multi-file fixes | 5 | 4 | 3 | | Cost-per-iteration | 2 | 3 | 5 | Related Skills - Debugging — localise the bug before patching - Code Generation — same loop pattern, different goal - Code Review — verifier-guided variant - Reflection — generic critique-revise pattern Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Stub | | 2026-04 | v3 | Battle-tested: diff-patch loop, sandboxed test runner, iteration cap, failure modes, model comparison | | 2026-06 | v3.1 | Added prerequisite: 05-code/debugging (INITIATIVE-009D) |"
+    "tags": [],
+    "description": "Fix a reproducible defect by isolating the failing behavior, making the smallest safe change, and verifying regression coverage.",
+    "body": "Bug Fixing Description Fix a reproducible defect by isolating the failing behavior, making the smallest safe change, and verifying regression coverage. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/cicd-generation",
-    "title": "CI/CD Pipeline Generation",
+    "title": "Cicd Generation",
     "category": "05-code",
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply ci/cd pipeline generation in AI agent workflows.",
-    "body": "CI/CD Pipeline Generation Category: Skill Level: Stability: Added: 2025-03 Description Generate CI/CD pipeline configuration files for GitHub Actions, GitLab CI, CircleCI, or other platforms. Example Related Skills - Dockerfile Generation - Code Generation"
+    "description": "Generate CI/CD configuration from explicit build, test, security, artifact, and deployment requirements without weakening gates.",
+    "body": "Cicd Generation Description Generate CI/CD configuration from explicit build, test, security, artifact, and deployment requirements without weakening gates. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-execution-sandbox",
-    "title": "Code Execution (Sandbox)",
+    "title": "Code Execution Sandbox",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply code execution (sandbox) in AI agent workflows.",
-    "body": "Code Execution (Sandbox) Category: Skill Level: Stability: Added: 2025-03 Description Run generated code in an isolated sandbox environment and capture stdout, stderr, and return values safely. Example Frameworks - E2B Code Interpreter - OpenAI Code Interpreter (Assistants API) - Modal sandboxes - Docker containers Related Skills - Shell Command Execution - REPL Interaction"
+    "description": "Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls.",
+    "body": "Code Execution Sandbox Description Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-explanation",
@@ -1378,8 +1372,8 @@
     "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply code explanation in AI agent workflows.",
-    "body": "Code Explanation Category: Skill Level: Stability: Added: 2025-03 Description Explain what a piece of code does in plain language — line by line, function by function, or at a high level. Example Related Skills - Code Review - Documentation Generation - Debugging"
+    "description": "Explain code by tracing inputs, control flow, state changes, dependencies, and observable outputs without inventing behavior.",
+    "body": "Code Explanation Description Explain code by tracing inputs, control flow, state changes, dependencies, and observable outputs without inventing behavior. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-generation",
@@ -1387,24 +1381,19 @@
     "category": "05-code",
     "level": "intermediate",
     "stability": "stable",
-    "tags": [
-      "code",
-      "generation",
-      "llm",
-      "validation"
-    ],
-    "description": "Generate runnable code from a natural-language spec, optional context (existing files), and optional tests. Validate with a quick AST + import check before returning so the caller never receives obviously broken code.",
-    "body": "Code Generation Description Code generation takes a natural-language specification plus optional context (existing files, type signatures, failing tests) and returns runnable source code. It's the most-used LLM capability outside chat. The naive prompt — \"write a function that does X\" — works for trivial scripts but loses on three things at scale: (1) it produces code that doesn't compile or import; (2) it loses pre-existing project conventions; (3) it can't tell when it's wrong. This skill is the production-grade version: structured spec → grounded prompt with relevant context → AST/import validation → optional self-repair before returning. When to Use - You have a clear, scoped spec (a single function, an endpoint, a CLI flag) — not \"build me an app\". - You can supply context: type signatures, docstrings, a few neighbouring files, or failing tests. - You want the result to compile: rejecting obviously-broken output is cheaper than letting the agent run it. - Don't use when: the user wants you to design the architecture (use Algorithm Design first), or when you need to modify many files (use Refactoring). Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Natural-language description of what to write | | | | , , etc. | | | | Paths whose contents to inline as grounding | | | | Where the generated file would live (informs imports) | | | | Retries on syntax/import failure (default 2) | | → | | Validated source | | → | | Same as | | → | | Checks that passed ( , ) | Runnable Example \"): # Remove leading s = s.split(\"\\n\", 1)[1] if \"\\n\" in s else \"\" if s.endswith(\" Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Markdown fences leak into the file | Model wrapped output in python ... temperature=0.0` for code; lint after generation | | Loops on repair (same error each time) | Spec is genuinely ambiguous | Cap retries; surface failure to caller; ask the user | Variants | Variant | When | |---|---| | Spec → file (above) | New file from scratch | | Spec → edit | Modify existing file; pass it as context; ask for full file back | | Tests → impl (TDD) | Tests are the spec; loop until they pass | | Type-driven | Pass type signatures only; let the model fill bodies | | Diff/patch protocol | For multi-file edits; return unified diffs | Frameworks & Models | Framework | Notes | |---|---| | Direct API (above) | Maximum control; ~80 lines | | Aider | Repo-aware diff/patch protocol with git integration | | Claude Code / Cursor | IDE-integrated; context-aware via the editor | | GitHub Copilot Workspaces | PR-level codegen with task spec | Model Comparison | Capability | claude-opus-4-5 | gpt-4o | claude-haiku-4-5 | |---|---|---|---| | Single-function correctness | 5 | 5 | 4 | | Multi-file edits | 5 | 4 | 3 | | Following project conventions | 5 | 4 | 4 | | Strict format adherence | 5 | 4 | 5 | | Cost-per-task | 2 | 3 | 5 | Related Skills - Bug Fixing — repair generated or human code - Code Review — automated critique of the result - Algorithm Design — picks the strategy before generation - Function Calling — when generation must invoke tools Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Stub | | 2026-04 | v3 | Battle-tested: validated AST + imports, self-repair loop, fence stripping, model comparison | | 2026-06 | v3.1 | Added prerequisite: 05-code/algorithm-design (INITIATIVE-009D) |"
+    "tags": [],
+    "description": "Generate maintainable code from explicit requirements, interfaces, constraints, tests, and repository conventions.",
+    "body": "Code Generation Description Generate maintainable code from explicit requirements, interfaces, constraints, tests, and repository conventions. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-interpreter-agent",
     "title": "Code Interpreter Agent",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Use a sandboxed code execution tool to run Python, analyse data, and produce charts inside an agent workflow.",
-    "body": "Code Interpreter Agent Category: code | Level: intermediate | Stability: stable | Version: v2 Description Code interpreter gives agents a sandboxed Python environment where they can write, run, and iterate on code in response to user requests. In the OpenAI Agents SDK it is available as . The agent can upload files, execute data analysis, generate plots, and return file outputs — all within a single run. The sandbox is isolated per session, preventing cross-contamination between users. Inputs - : Python code string generated by the agent - : optional list of uploaded file IDs to make available in sandbox - : attached to the agent Outputs - / from code execution - Generated files (CSV, PNG, etc.) as downloadable outputs - Agent's natural-language interpretation of results Example Failure Modes | Cause | Symptom | Mitigation | |---|---|---| | Infinite loop in generated code | Sandbox timeout | Set execution timeout; instruct agent to avoid loops over large datasets | | Missing library in sandbox | ImportError | Inform agent of available libraries in system prompt | | Large file upload | Slow or failed execution | Chunk large files before upload | Prompt Patterns Basic: Chain-of-Thought: Constrained Output: Model Comparison | Capability | GPT-4o | Claude 3.7 Sonnet | Gemini 2.0 Flash | |---|---|---|---| | Code generation quality | ✅ High | ✅ Very High | ✅ Good | | Native code interpreter | ✅ Built-in | ⚠️ Requires custom | ⚠️ Requires custom | | Debugging iterations | ✅ Strong | ✅ Strong | ⚠️ Limited | | Data viz quality | ✅ Good | ✅ Good | ⚠️ Basic | | Cost per run | High | Moderate | Low | Related - · · · Changelog - v2 (2026-04): Full expansion"
+    "description": "Run iterative code analysis or execution with explicit state, tool boundaries, output limits, and verification between iterations.",
+    "body": "Code Interpreter Agent Description Run iterative code analysis or execution with explicit state, tool boundaries, output limits, and verification between iterations. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-review",
@@ -1412,26 +1401,19 @@
     "category": "05-code",
     "level": "intermediate",
     "stability": "stable",
-    "tags": [
-      "code",
-      "review",
-      "quality",
-      "automation",
-      "security",
-      "diff"
-    ],
-    "description": "Automates structured code review — bugs, security, performance, style — returning severity-graded findings, a quality score, and suggested fixes.",
-    "body": "Code Review Description Automates code review by analyzing a diff or full file for bugs, security vulnerabilities, style violations, performance problems, and logic errors — returning structured, actionable feedback with severity levels, line references, and suggested fixes. Operates as a drop-in CI/CD step or an interactive agent tool. What It Does Given source code or a unified diff, this skill: 1. Parses the input (full file or patch) 2. Sends it to the model with a structured JSON output contract 3. Returns a list of objects — each with severity, category, line reference, description, and a concrete fix 4. Computes an overall quality score (0–100) and an executive summary 5. Optionally posts findings as inline GitHub PR review comments When to Use - Automated PR review triggered by events - Pre-commit quality gates (block on or findings) - Onboarding: teaching code standards by example - Auditing unfamiliar or legacy codebases quickly - Security triage: focus mode on category only Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Code diff (unified format) or full file content | | | | Programming language (e.g. , ) | | | | Prioritize: , , , , | | | | Optional: architecture notes, key conventions | | → | | Severity-graded findings with line refs and fixes | | → | | 2–3 sentence executive summary | | → | | Quality score 0–100 (100 = no issues) | Severity Scale | Level | Meaning | Block PR? | |---|---|---| | | Data loss, RCE, auth bypass | Always | | | SQL injection, unhandled exception in hot path | Yes | | | Logic error, missing validation | Warn | | | Style, naming, minor perf | Comment only | | | Suggestion, best practice | Optional | Runnable Example json ... (?:json)?\\s', '', text) text = re.sub(r'\\s {language}\\n{code}\\n Diff-Mode Example Feed a patch directly — the model only reviews changed lines, reducing noise and token cost. Batch Review (Multiple Files) CI/CD Integration Failure Modes | Failure | Cause | Fix | |---|---|---| | False positives on style | Model too strict | Tune list; pass -annotated lines in context | | Misses context-specific bugs | No project knowledge | Pass snippet as param | | JSON parse error | Model wraps in markdown | handles this; add regex fallback | | Slow on large files | Full file in context | Use diff-mode: send only changed hunks | | Duplicate findings | Same issue in multiple related lines | Deduplicate by tuple before surfacing | | Severity inflation | Model flags everything critical | Add a post-processing calibration: cap to genuine exploitability | Related Skills - — Write new code - — Find and fix bugs interactively - — Deep CVE and SAST analysis - — Verify dependencies execute cleanly Changelog | Version | Date | Change | |---|---|---| | v1 | 2025-05 | Initial entry | | v2 | 2026-04 | Structured JSON output, CI/CD example, severity scoring | | v3 | 2026-04 | Diff-mode, batch review, inline PR comment workflow, fixed broken link to , added block |"
+    "tags": [],
+    "description": "Review code against correctness, security, maintainability, tests, interfaces, and repository conventions, reporting evidence-backed findings.",
+    "body": "Code Review Description Review code against correctness, security, maintainability, tests, interfaces, and repository conventions, reporting evidence-backed findings. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-search",
     "title": "Code Search",
     "category": "05-code",
-    "level": "intermediate",
+    "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply code search in AI agent workflows.",
-    "body": "Code Search Category: Skill Level: Stability: Added: 2025-03 Description Search through a codebase by keyword, symbol, regex, or semantic meaning to find relevant files, functions, or usages. Example Related Skills - Code Reading - Refactoring"
+    "description": "Locate relevant code by explicit symbol, behavior, dependency, or file criteria and verify matches before editing.",
+    "body": "Code Search Description Locate relevant code by explicit symbol, behavior, dependency, or file criteria and verify matches before editing. When to Use - Use when the code task has explicit acceptance criteria. - Preserve repository conventions and existing security gates. - Verify behavior before reporting completion. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Requirements | Code or analysis | Ambiguous requirement | | Repository context | Compatible change | Convention mismatch | | Tests/evidence | Verification result | Regression | | Security constraints | Safe implementation | Gate bypass | Runnable Example Failure modes - Implementing behavior not supported by the requirements. - Changing unrelated code. - Skipping regression or security verification. - Claiming correctness without evidence. Related - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository validation and security workflows Evidence status: repository-backed implementation guidance; no benchmark claim."
   },
   {
     "id": "05-code/code-translation",
