@@ -1,42 +1,47 @@
 ---
-title: "Git Operations"
+title: Git Operations
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply git operations in AI agent workflows."
-added: "2025-03"
+description: Perform Git operations with explicit branch, commit, merge, and recovery intent while preserving repository history and state.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-git-operations.json)
+## Description
+Perform Git operations with explicit branch, commit, merge, and recovery intent while preserving repository history and repository governance. Verify the target ref and working state before destructive or history-changing actions.
 
-# Git Operations
+## When to Use
+Use when branching, committing, merging, rebasing, reverting, recovering, or inspecting Git state is required.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Repository state, target refs, intended change, and recovery constraints. |
+| Outputs | Correct Git state with traceable history and verification evidence. |
+| Failure modes | Wrong target ref, lost changes, unexpected history rewrite, or unverified merge state. |
 
-Perform git version control operations: clone, commit, push, pull, branch, merge, rebase, and diff.
+## Runnable Example
 
-### Example
+```python
+import subprocess
 
-```bash
-git checkout -b feature/new-skill
-git add skills/05-code/git-operations.md
-git commit -m 'feat: add git operations skill'
-git push origin feature/new-skill
+result = subprocess.run(['git', 'status', '--short'], text=True, capture_output=True)
+print(result.stdout)
+print('inspect state before mutating repository history')
 ```
 
-### Frameworks
+## Failure modes
+- Running history-changing commands without confirming the target.
+- Losing uncommitted work.
+- Merging stale refs.
+- Reporting a Git operation complete without checking the resulting state.
 
-- `gitpython` Python library
-- GitHub MCP server
-- SWE-Agent
-- Devin
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
-### Related Skills
-
-- [GitHub API](github-api.md)
-- [Shell Command Execution](../04-action-execution/shell-command.md)
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
