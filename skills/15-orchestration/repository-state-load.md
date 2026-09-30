@@ -48,6 +48,12 @@ git diff --name-only origin/main...HEAD
 - Missing authoritative document: record the blocker and escalate.
 - Partial retrieval: do not infer unseen repository state.
 
+## Related
+
+- `documentation-drift-resolution.md`
+- `evidence-verification.md`
+- `execution-handoff.md`
+
 ## Evidence
 
 - AI_CONSTITUTION.md
