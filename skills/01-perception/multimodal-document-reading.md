@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Process documents containing text, images, tables, and diagrams while preserving content order, page boundaries, and extraction provenance."
+related: []
 added: "2025-03"
 ---
 
