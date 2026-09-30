@@ -3,37 +3,61 @@ title: "Clipboard Operations"
 category: 04-action-execution
 level: basic
 stability: stable
-description: "Apply clipboard operations in AI agent workflows."
-added: "2025-03"
+description: "Read or write clipboard content with explicit content handling and privacy boundaries."
+added: "2026-09"
+related: [keyboard-input, mouse-input, screenshot-capture]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-clipboard-ops.json)
 
 # Clipboard Operations
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Transfer text or other supported clipboard data between an agent and the active desktop environment. Clipboard contents may contain credentials or personal data and must not be logged or exfiltrated by default.
 
-Read from or write to the system clipboard programmatically.
+## When to Use
 
-### Example
+- Pasting approved text into an application.
+- Reading user-provided clipboard content for an explicit task.
+- Moving text between desktop applications.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Clipboard text | Text value | Clipboard unavailable |
+| Write payload | Updated clipboard | Platform error |
+| Privacy policy | Redacted handling | Sensitive data leakage |
+| Target application | Pasted value | Wrong focus/window |
+
+## Runnable example
 
 ```python
-import pyperclip
+import tkinter as tk
 
-# Write
-pyperclip.copy('Hello from the agent!')
-
-# Read
-text = pyperclip.paste()
-print(text)
+root = tk.Tk()
+root.withdraw()
+root.clipboard_clear()
+root.clipboard_append("approved text")
+root.update()
+print(root.clipboard_get())
+root.destroy()
 ```
 
-### Related Skills
+## Failure modes
 
-- [Keyboard Input](keyboard-input.md)
-- [Screenshot Capture](screenshot-capture.md)
+- Printing clipboard contents into logs.
+- Copying secrets to an unintended application.
+- Assuming the active window is the intended target.
+- Leaving sensitive data in the clipboard unnecessarily.
+
+## Related
+
+- keyboard-input.md
+- mouse-input.md
+- ../14-security/input-guardrails.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

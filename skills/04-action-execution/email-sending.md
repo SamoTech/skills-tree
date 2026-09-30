@@ -3,41 +3,60 @@ title: "Email Sending"
 category: 04-action-execution
 level: intermediate
 stability: stable
-description: "Apply email sending in AI agent workflows."
-added: "2025-03"
+description: "Send an approved email through a configured mail transport while validating recipients and preventing credential or content leakage."
+added: "2026-09"
+related: [email-parsing, form-submission, approval-before-destructive-tools]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-email-sending.json)
 
 # Email Sending
 
-**Category:** `action-execution`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Submit an email through an authorized SMTP or provider transport. Recipient, subject, body, attachments, and approval state should be explicit before sending.
 
-Compose and send emails via SMTP or email service APIs (SendGrid, Resend, Gmail API).
+## When to Use
 
-### Example
+- Sending a message explicitly approved by the user.
+- Delivering an automated notification through a configured service.
+- Testing mail transport against a safe endpoint.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Sender/recipients | Delivery request | Invalid address |
+| Subject/body | Message | Content validation failure |
+| Mail credentials | Authenticated transport | Credential failure |
+| Approval state | Send/no-send decision | Unauthorized action |
+
+## Runnable example
 
 ```python
-import smtplib
-from email.mime.text import MIMEText
+from email.message import EmailMessage
 
-msg = MIMEText('Hello from your AI agent!')
-msg['Subject'] = 'Agent Notification'
-msg['From'] = 'agent@example.com'
-msg['To'] = 'user@example.com'
-
-with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-    server.login(user, password)
-    server.send_message(msg)
+msg = EmailMessage()
+msg["From"] = "sender@example.invalid"
+msg["To"] = "recipient@example.invalid"
+msg["Subject"] = "Test"
+msg.set_content("Approved test message.")
+print(msg.as_string())
 ```
 
-### Related Skills
+## Failure modes
 
-- [Email Parsing](../01-perception/email-parsing.md)
-- [Notification Sending](notification-sending.md)
-- [SendGrid API](../07-tool-use/sendgrid-api.md)
+- Sending without required authorization.
+- Exposing SMTP passwords or API keys.
+- Sending to recipients inferred from ambiguous context.
+- Retrying without an idempotency strategy when duplicates matter.
+
+## Related
+
+- ../01-perception/email-parsing.md
+- form-submission.md
+- ../14-security/approval-before-destructive-tools.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

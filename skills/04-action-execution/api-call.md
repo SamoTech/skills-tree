@@ -3,57 +3,64 @@ title: "API Call"
 category: 04-action-execution
 level: intermediate
 stability: stable
-added: "2025-03"
-description: "Apply api call in AI agent workflows."
+description: "Execute authenticated HTTP API requests with explicit timeouts, bounded retries, response validation, and secret-safe error handling."
+added: "2026-09"
+related: [http-request, api-response-parsing, rate-limiting]
 ---
-
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-api-call.json)
 
 # API Call
 
-### Description
-Executes authenticated HTTP requests to REST and GraphQL APIs with retry logic, rate-limit handling, circuit breaking, request signing, and response validation. Supports OAuth2, API key, JWT, HMAC, and mTLS authentication schemes.
+## Description
 
-### When to Use
-- Triggering external services (Stripe, Twilio, GitHub, Slack, etc.) from agentic pipelines
-- Posting data, creating resources, or triggering webhooks as part of task execution
-- Integrating with internal microservices via REST or GraphQL
+Execute an HTTP API operation as an agent action while making authentication, timeout, retry, idempotency, and response validation explicit. Credentials must come from secret-safe configuration and must never be embedded in source or logs.
 
-### Example
+## When to Use
+
+- Calling REST or GraphQL services.
+- Creating or updating remote resources.
+- Integrating an external action into an agent workflow.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Method, URL, headers, body | Status and parsed response | Invalid request |
+| Secret/token reference | Authenticated request | Missing credential |
+| Timeout and retry policy | Bounded execution | Retry exhaustion |
+| Idempotency policy | Safe retry decision | Duplicate side effect |
+
+## Runnable example
+
 ```python
-import httpx, time
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
+import json
+import urllib.request
 
-@retry(
-    retry=retry_if_exception_type((httpx.HTTPStatusError, httpx.TimeoutException)),
-    wait=wait_exponential(multiplier=1, min=1, max=60),
-    stop=stop_after_attempt(5)
-)
-def call_api(method: str, url: str, token: str, **kwargs) -> dict:
-    with httpx.Client(timeout=30) as client:
-        r = client.request(
-            method, url,
-            headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
-            **kwargs
-        )
-        if r.status_code == 429:
-            retry_after = int(r.headers.get("Retry-After", 5))
-            time.sleep(retry_after)
-            r.raise_for_status()
-        r.raise_for_status()
-        return r.json()
+def api_call(url, token, method="GET", body=None, timeout=20):
+    data = None if body is None else json.dumps(body).encode()
+    req = urllib.request.Request(url, data=data, method=method,
+        headers={"Authorization": f"Bearer {token}", "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        return response.status, json.load(response)
 
-# GraphQL example
-def graphql_query(url: str, token: str, query: str, variables: dict = None) -> dict:
-    return call_api("POST", url, token, json={"query": query, "variables": variables or {}})
+status, result = api_call("https://example.invalid/items", "TOKEN")
+print(status, result)
 ```
 
-### Advanced Techniques
-- **Circuit breaker**: use `pybreaker` to stop calling a failing service after N consecutive failures
-- **Request signing**: HMAC-SHA256 signature for AWS or Stripe webhook validation
-- **mTLS**: pass `cert=('client.crt', 'client.key')` to `httpx.Client` for mutual TLS
-- **Async batch**: use `httpx.AsyncClient` with `asyncio.gather` for parallel API calls
+## Failure modes
 
-### Related Skills
-- `http-request`, `webhook-trigger`, `api-tool`, `api-response-parsing`, `rate-limiting`
+- Retry non-idempotent mutations without an idempotency key.
+- Log authorization headers or secret-bearing response data.
+- Use unbounded retries or no timeout.
+- Treat HTTP success as proof that the response schema is valid.
+
+## Related
+
+- http-request.md
+- ../01-perception/api-response-parsing.md
+- ../07-tool-use/tool-guardrails.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

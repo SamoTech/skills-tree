@@ -1,38 +1,65 @@
 ---
 title: "File Delete"
 category: 04-action-execution
-level: basic
+level: intermediate
 stability: stable
-description: "Apply file delete in AI agent workflows."
-added: "2025-03"
+description: "Delete a verified filesystem target only after path validation, scope checks, and any required approval boundary."
+added: "2026-09"
+related: [file-write, file-system-reading, approval-before-destructive-tools]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-file-delete.json)
 
 # File Delete
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Remove a filesystem entry only after resolving the intended path and confirming that the target is within the permitted scope. Destructive deletion must fail closed when path or authorization is ambiguous.
 
-Delete a file or directory from the file system as part of an agent workflow (cleanup, rollback, temp file removal).
+## When to Use
 
-### Example
+- Removing temporary artifacts.
+- Deleting an explicitly identified file or directory.
+- Cleaning generated output inside a controlled workspace.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target path | Deletion result | Target missing |
+| Allowed root | Scope validation | Path escape |
+| Recursive flag | Controlled removal | Accidental directory deletion |
+| Approval state | Allowed action | Unauthorized deletion |
+
+## Runnable example
 
 ```python
 from pathlib import Path
 
-tmp = Path('output/temp_result.json')
-if tmp.exists():
-    tmp.unlink()
-    print(f'Deleted: {tmp}')
+def delete_file(path, allowed_root):
+    target = Path(path).resolve()
+    root = Path(allowed_root).resolve()
+    if target.parent != root:
+        raise ValueError("target is outside the allowed root")
+    target.unlink()
+    return True
+
+delete_file("workspace/output.txt", "workspace")
 ```
 
-### Related Skills
+## Failure modes
 
-- [File Write](file-write.md)
-- [File Append](file-append.md)
-- [Rollback / Undo](../14-security/rollback-undo.md)
+- Deleting from an untrusted path string.
+- Following a symlink outside the permitted workspace.
+- Recursive deletion without explicit scope.
+- Treating a missing target as proof of successful deletion.
+
+## Related
+
+- file-write.md
+- ../01-perception/file-system-reading.md
+- ../14-security/approval-before-destructive-tools.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

@@ -1,55 +1,60 @@
 ---
-title: "Calendar Event Creation"
+title: "Calendar Event"
 category: 04-action-execution
 level: intermediate
 stability: stable
-description: "Apply calendar event creation in AI agent workflows."
-added: "2025-03"
-dependencies:
-  - package: google-api-python-client
-    min_version: "2.100.0"
-    tested_version: "2.130.0"
-    confidence: verified
-  - package: google-auth
-    min_version: "2.23.0"
-    tested_version: "2.29.0"
-    confidence: verified
-code_blocks:
-  - id: "example-calendar"
-    type: illustrative
-    note: "Requires OAuth2 credentials setup — illustrative only"
+description: "Create a calendar event representation with explicit time zone, duration, participants, and confirmation boundaries."
+added: "2026-09"
+related: [form-submission, assertion, email-sending]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-calendar-event.json)
+# Calendar Event
 
-# Calendar Event Creation
+## Description
 
-**Category:** `action-execution`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+Construct or submit a calendar event while preserving time zone, duration, attendees, and summary. External calendar writes should remain explicit actions with duplicate-prevention controls.
 
-### Description
+## When to Use
 
-Create, update, or delete calendar events via calendar APIs (Google Calendar, Outlook, CalDAV).
+- Preparing an iCalendar event for import.
+- Creating an event through a calendar API.
+- Translating an approved scheduling request into structured data.
 
-### Example
+## Inputs / outputs / failure modes
 
-```python type:illustrative
-# pip install google-api-python-client google-auth
-# Note: `googleapiclient` is the import name for PyPI package `google-api-python-client`
-from googleapiclient.discovery import build
+| Input | Output | Failure mode |
+|---|---|---|
+| Start/end time | Calendar event | Ambiguous time zone |
+| Summary/location | Event fields | Missing data |
+| Attendees | Participant list | Invalid address |
+| Stable event ID | Idempotent identity | Duplicate event |
 
-service = build('calendar', 'v3', credentials=creds)
-event = {
-    'summary': 'Agent Review Meeting',
-    'start': {'dateTime': '2026-04-15T10:00:00+02:00'},
-    'end':   {'dateTime': '2026-04-15T11:00:00+02:00'},
-}
-service.events().insert(calendarId='primary', body=event).execute()
+## Runnable example
+
+```python
+from datetime import datetime, timezone
+
+start = datetime(2026, 9, 30, 15, 0, tzinfo=timezone.utc)
+end = datetime(2026, 9, 30, 16, 0, tzinfo=timezone.utc)
+event = {"summary": "Project review", "start": start.isoformat(), "end": end.isoformat()}
+print(event)
 ```
 
-### Related Skills
+## Failure modes
 
-- [Email Sending](email-sending.md)
-- [Notification Sending](notification-sending.md)
+- Omitting a time zone and silently shifting the meeting.
+- Creating duplicates without a stable identifier.
+- Sending invitations when only a draft was requested.
+- Trusting ambiguous attendee data.
+
+## Related
+
+- form-submission.md
+- assertion.md
+- email-sending.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

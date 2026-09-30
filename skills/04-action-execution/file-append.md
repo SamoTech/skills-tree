@@ -3,33 +3,60 @@ title: "File Append"
 category: 04-action-execution
 level: basic
 stability: stable
-description: "Apply file append in AI agent workflows."
-added: "2025-03"
+description: "Append text or bytes to a file with explicit encoding, newline, locking, and error semantics."
+added: "2026-09"
+related: [file-write, file-system-reading, assertion]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-file-append.json)
 
 # File Append
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Append content to an existing file without replacing prior content. Define encoding and newline behavior and consider locking when multiple processes can write concurrently.
 
-Append content to an existing file without overwriting it — used for logs, running records, and incremental output.
+## When to Use
 
-### Example
+- Appending audit records or logs.
+- Adding generated entries to a text file.
+- Updating append-only artifacts where replacement is not appropriate.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Path | Updated file | Permission error |
+| Content | Appended bytes | Encoding error |
+| Encoding/newline | Deterministic text | Format drift |
+| Lock policy | Serialized write | Concurrent writers |
+
+## Runnable example
 
 ```python
 from pathlib import Path
 
-log = Path('agent.log')
-log.open('a').write('2026-04-11 23:00 — Task completed\n')
+def append_text(path, text, encoding="utf-8"):
+    with Path(path).open("a", encoding=encoding, newline="") as handle:
+        handle.write(text)
+    return Path(path)
+
+print(append_text("audit.log", "approved\n"))
 ```
 
-### Related Skills
+## Failure modes
 
-- [File Write](file-write.md)
-- [File Delete](file-delete.md)
+- Appending unbounded data without rotation.
+- Concurrent writers interleaving records.
+- Mixing incompatible encodings.
+- Treating an append-only file as tamper-proof evidence.
+
+## Related
+
+- file-write.md
+- ../01-perception/file-system-reading.md
+- assertion.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows

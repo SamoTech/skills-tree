@@ -141,3 +141,18 @@ Confidence: HIGH
 Evidence IDs: GOV-001, PROJECT-SKILLS-20260930
 Status: LOCKED
 Reopen Conditions: Reopen if the repository governance model, canonical skill projection contract, or agent operating lifecycle materially changes.
+
+
+## DECISION-2026-09-30-ACTION-EXECUTION-MIGRATION
+
+**Topic:** Modernize action-execution skill stubs incrementally.
+
+**Decision:** Convert the first ten 04-action-execution stubs into evidence-backed canonical skills with standards-compatible Agent Skills projections. Preserve explicit destructive-action, secret-handling, validation, and failure boundaries. Do not claim benchmark or battle-tested status without reproducible evidence.
+
+**Confidence:** High
+
+**Evidence IDs:** QUALITY-20260930, ACTION-EXECUTION-BATCH-01, AI-CONSTITUTION, AGENTS
+
+**Status:** IN PROGRESS — staged on branch coo/action-execution-batch-01-2026-09-30 pending PR CI.
+
+**Reopen Conditions:** Reopen if validation reveals schema, security, projection, or evidence-contract incompatibility.
