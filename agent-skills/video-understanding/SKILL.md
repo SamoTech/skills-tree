@@ -27,3 +27,5 @@ metadata:
 - https://docs.opencv.org/
 - https://github.com/openai/whisper
 - https://scenedetect.com/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
