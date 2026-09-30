@@ -6,11 +6,6 @@ stability: stable
 description: "Expose or consume Model Context Protocol tools through explicit schemas, bounded permissions, and verified tool results."
 added: "2026-09"
 related: [07-tool-use, 14-security, 15-orchestration]
-dependencies:
-  - package: mcp
-    min_version: "1.0.0"
-    tested_version: "1.27.0"
-    confidence: verified
 ---
 
 # MCP Tool
