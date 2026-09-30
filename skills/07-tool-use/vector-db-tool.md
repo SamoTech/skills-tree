@@ -3,55 +3,57 @@ title: "Vector DB Tool"
 category: 07-tool-use
 level: intermediate
 stability: stable
-description: "Apply vector db tool in AI agent workflows."
-added: "2025-03"
+description: "Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-vector-db-tool.json)
 
 # Vector DB Tool
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires vector db tool, the target account or resource is authorized, and the provider contract is documented.
 
-Perform semantic search and document storage operations against a vector database as an agent tool.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+
+## Runnable Example
 
 ```python
-import chromadb
+import os
 
-client = chromadb.Client()
-collection = client.get_or_create_collection("docs")
-
-# Upsert documents
-collection.upsert(
-    documents=["LangChain is a framework for LLM apps."],
-    ids=["doc-1"]
-)
-
-# Semantic search
-results = collection.query(query_texts=["LLM frameworks"], n_results=3)
-print(results["documents"])
+request = {
+    "capability": "vector-db-tool",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Supported Databases
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
 
-| Database | Type | Notes |
-|---|---|---|
-| Pinecone | Managed | Fast, scalable |
-| Qdrant | Self-hosted/Managed | Rust-based, high performance |
-| Weaviate | Self-hosted/Managed | GraphQL interface |
-| Chroma | Local | Great for development |
-| FAISS | Local library | Meta's ANN library |
-| pgvector | PostgreSQL extension | SQL + vectors |
+## Evidence
+- Provider documentation: https://docs.pinecone.io/guides/get-started/overview
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-### Related Skills
-
-- [Similarity Search](../12-data/similarity-search.md)
-- [Embedding Generation](../12-data/embedding-generation.md)
-- [RAG](../03-memory/rag.md)
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails
