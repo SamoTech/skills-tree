@@ -11,12 +11,12 @@
 
 | Key | Value |
 |---|---|
-| Main HEAD at task baseline | `77737a0fbf743c1cf28431b63790b9acc4d7c469` |
+| Main HEAD at task baseline | `28aa3ea1b2ceee1aadfa62fd396bc7fb9c3d0ff5` |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
 | Current phase | Phase 2 — Implementation Ontology |
 | Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Implementation evidence traceability |
-| Active branch | `phase2/implementation-evidence-traceability-20260919` |
+| Current audit-derived slice | Evidence contract runtime enforcement |
+| Active branch | `phase2/evidence-contract-runtime-20260919` |
 | Active governance blocker | None |
 | Current implementation registry | `implementation/code-reviewer-system` |
 | MCP classification | Protocol; not an Implementation |
@@ -44,4 +44,4 @@ MCP remains a Protocol. No compatibility or ecosystem claims are added.
 
 ## Next Action
 
-Run focused regression and required CI on `phase2/adapter-runtime-access-20260919`. If green, open a PR, verify its exact head and all required checks, merge only the green head SHA, then verify the resulting `main` HEAD. If CI fails, inspect the actual failed job/log and make only the smallest architectural correction on the existing branch.
+Run focused regression and required CI on `phase2/evidence-contract-runtime-20260919`. If green, open a PR, verify its exact head and all required checks, merge only the green head SHA, then verify the resulting `main` HEAD. If CI fails, inspect the actual failed job/log and make only the smallest architectural correction on the existing branch.

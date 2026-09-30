@@ -15,6 +15,7 @@ def _copy_runtime_contracts(tmp_path: Path) -> None:
     for schema_name in (
         "implementation-contract.schema.json",
         "adapter-contract.schema.json",
+        "evidence-contract.schema.json",
         "universal-graph.schema.json",
     ):
         target = tmp_path / "meta" / schema_name
