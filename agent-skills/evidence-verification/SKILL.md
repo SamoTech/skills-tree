@@ -10,3 +10,10 @@ metadata:
 # Evidence Verification
 
 Identify the claim, inspect implementation, execute or inspect validation gates, verify the resulting commit and CI, check security and documentation, and report verified facts separately from unresolved risks.
+
+## Evidence
+
+- AGENTS.md
+- AI_CONSTITUTION.md
+- meta/AGENT_HANDOFF_PROTOCOL.md
+- GitHub commit, PR, and Actions evidence
