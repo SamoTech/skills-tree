@@ -1,41 +1,60 @@
 ---
-title: "API Client Generation"
+title: "Api Client Generation"
 category: 05-code
 level: intermediate
 stability: stable
-description: "Apply api client generation in AI agent workflows."
-added: "2025-03"
+description: "Generate an API client from a documented contract with typed inputs, response validation, timeout policy, and error handling."
+added: "2026-09"
+related: [api-call, api-response-parsing]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-api-client-generation.json)
+# Api Client Generation
 
-# API Client Generation
+## Description
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+Generate an API client from a documented contract with typed inputs, response validation, timeout policy, and error handling.
 
-### Description
+## When to Use
 
-Generate typed API client code from an OpenAPI/Swagger spec or by inspecting an existing API.
+- Use when the code task has explicit acceptance criteria.
+- Preserve repository conventions and existing security gates.
+- Verify behavior before reporting completion.
 
-### Example
+## Inputs / outputs / failure modes
 
-```bash
-# Generate Python client from OpenAPI spec
-openapi-python-client generate --path openapi.yaml
+| Input | Output | Failure mode |
+|---|---|---|
+| Requirements | Code or analysis | Ambiguous requirement |
+| Repository context | Compatible change | Convention mismatch |
+| Tests/evidence | Verification result | Regression |
+| Security constraints | Safe implementation | Gate bypass |
 
-# Or use httpx manually
-class SkillsAPIClient:
-    def __init__(self, base_url, api_key):
-        self.client = httpx.Client(base_url=base_url, headers={'Authorization': f'Bearer {api_key}'})
+## Runnable Example
 
-    def list_skills(self):
-        return self.client.get('/skills').json()
+```python
+def build_request(base_url, path, token):
+    if not base_url or not path or not token: raise ValueError('missing client input')
+    return {'url': base_url.rstrip('/') + '/' + path.lstrip('/'), 'token': token}
+
+print(build_request('https://api.example', '/items', 'TOKEN'))
 ```
 
-### Related Skills
+## Failure modes
 
-- [Code Generation](code-generation.md)
-- [HTTP Request](../04-action-execution/http-request.md)
+- Implementing behavior not supported by the requirements.
+- Changing unrelated code.
+- Skipping regression or security verification.
+- Claiming correctness without evidence.
+
+## Related
+
+- `api-call.md`
+- `api-response-parsing.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository validation and security workflows
+
+Evidence status: repository-backed implementation guidance; no benchmark claim.

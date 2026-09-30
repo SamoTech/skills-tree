@@ -1,42 +1,59 @@
 ---
-title: "Code Execution (Sandbox)"
+title: "Code Execution Sandbox"
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply code execution (sandbox) in AI agent workflows."
-added: "2025-03"
+description: "Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls."
+added: "2026-09"
+related: [shell-command, process-management, output-guardrails]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-execution-sandbox.json)
+# Code Execution Sandbox
 
-# Code Execution (Sandbox)
+## Description
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls.
 
-### Description
+## When to Use
 
-Run generated code in an isolated sandbox environment and capture stdout, stderr, and return values safely.
+- Use when the code task has explicit acceptance criteria.
+- Preserve repository conventions and existing security gates.
+- Verify behavior before reporting completion.
 
-### Example
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Requirements | Code or analysis | Ambiguous requirement |
+| Repository context | Compatible change | Convention mismatch |
+| Tests/evidence | Verification result | Regression |
+| Security constraints | Safe implementation | Gate bypass |
+
+## Runnable Example
 
 ```python
-from e2b_code_interpreter import Sandbox
-with Sandbox() as sandbox:
-    result = sandbox.run_code('print(2 ** 10)')
-    print(result.logs.stdout)  # ['1024']
+limits = {'timeout': 5, 'network': False, 'filesystem': 'isolated'}
+assert limits['timeout'] > 0 and limits['network'] is False
+print('sandbox policy validated')
 ```
 
-### Frameworks
+## Failure modes
 
-- E2B Code Interpreter
-- OpenAI Code Interpreter (Assistants API)
-- Modal sandboxes
-- Docker containers
+- Implementing behavior not supported by the requirements.
+- Changing unrelated code.
+- Skipping regression or security verification.
+- Claiming correctness without evidence.
 
-### Related Skills
+## Related
 
-- [Shell Command Execution](../04-action-execution/shell-command.md)
-- [REPL Interaction](repl-interaction.md)
+- `shell-command.md`
+- `process-management.md`
+- `output-guardrails.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository validation and security workflows
+
+Evidence status: repository-backed implementation guidance; no benchmark claim.

@@ -1,43 +1,59 @@
 ---
-title: "CI/CD Pipeline Generation"
+title: "Cicd Generation"
 category: 05-code
 level: advanced
 stability: stable
-description: "Apply ci/cd pipeline generation in AI agent workflows."
-added: "2025-03"
+description: "Generate CI/CD configuration from explicit build, test, security, artifact, and deployment requirements without weakening gates."
+added: "2026-09"
+related: [shell-command, security-scanning, dependency-auditor]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-cicd-generation.json)
+# Cicd Generation
 
-# CI/CD Pipeline Generation
+## Description
 
-**Category:** `code`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+Generate CI/CD configuration from explicit build, test, security, artifact, and deployment requirements without weakening gates.
 
-### Description
+## When to Use
 
-Generate CI/CD pipeline configuration files for GitHub Actions, GitLab CI, CircleCI, or other platforms.
+- Use when the code task has explicit acceptance criteria.
+- Preserve repository conventions and existing security gates.
+- Verify behavior before reporting completion.
 
-### Example
+## Inputs / outputs / failure modes
 
-```yaml
-# Generated GitHub Actions workflow
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.12' }
-      - run: pip install -r requirements.txt
-      - run: pytest
+| Input | Output | Failure mode |
+|---|---|---|
+| Requirements | Code or analysis | Ambiguous requirement |
+| Repository context | Compatible change | Convention mismatch |
+| Tests/evidence | Verification result | Regression |
+| Security constraints | Safe implementation | Gate bypass |
+
+## Runnable Example
+
+```python
+pipeline = {'test': True, 'security': True, 'build': True, 'deploy': True}
+assert all(pipeline.values())
+print('required pipeline gates present')
 ```
 
-### Related Skills
+## Failure modes
 
-- [Dockerfile Generation](dockerfile-generation.md)
-- [Code Generation](code-generation.md)
+- Implementing behavior not supported by the requirements.
+- Changing unrelated code.
+- Skipping regression or security verification.
+- Claiming correctness without evidence.
+
+## Related
+
+- `shell-command.md`
+- `security-scanning.md`
+- `dependency-auditor.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository validation and security workflows
+
+Evidence status: repository-backed implementation guidance; no benchmark claim.
