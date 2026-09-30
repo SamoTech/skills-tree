@@ -3,8 +3,10 @@ title: "Mathematical Reasoning"
 category: 02-reasoning
 level: intermediate
 stability: stable
-description: "Apply mathematical reasoning in AI agent workflows."
+version: v2
+description: "Solve bounded mathematical problems with explicit assumptions, equations, units, intermediate checks, and a verifiable final result."
 added: "2025-03"
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-mathematical-reasoning.json)
@@ -40,3 +42,15 @@ Answer: ≈ 22.22 m/s
 
 - [Chain of Thought](chain-of-thought.md)
 - [Calculator](../07-tool-use/calculator.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
