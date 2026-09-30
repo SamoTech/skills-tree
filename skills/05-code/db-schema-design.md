@@ -9,36 +9,38 @@ related: [05-code]
 ---
 
 ## Description
-Design database schemas from explicit data requirements, relationships, constraints, and access patterns. The procedure is evidence-first: inspect the repository and explicit requirements before changing code, preserve existing contracts, and verify the result with the repository's own tests and quality gates.
+Design database schemas from explicit data requirements, relationships, constraints, and access patterns. Inspect existing models, migrations, indexes, and application queries before changing a schema. Preserve compatibility and verify migrations.
 
 ## When to Use
-Use this skill when the task requires design database schemas from explicit data requirements, relationships, constraints, and access patterns. Prefer the smallest reversible change that satisfies the stated requirement.
+Use when a task requires a new schema, a schema change, normalization decision, constraint, index, or migration plan.
 
 ## Inputs / outputs / failure modes
 
 | Area | Guidance |
 |---|---|
-| Inputs | Repository state, explicit requirements, relevant source/configuration, and existing tests or interfaces. |
-| Outputs | A verified implementation or analysis, plus concise evidence of what was checked. |
-| Failure modes | Missing requirements, incompatible assumptions, hidden side effects, incomplete verification, or changes that weaken existing controls. |
+| Inputs | Requirements, existing schema, access patterns, migrations, and constraints. |
+| Outputs | A justified schema or migration with verification evidence. |
+| Failure modes | Data loss, incompatible migrations, missing constraints, or unsupported assumptions. |
 
 ## Runnable Example
 
 ```python
-from pathlib import Path
+from dataclasses import dataclass
 
-root = Path('.')
-files = sorted(p for p in root.rglob('*') if p.is_file())
-print(f'Repository files discovered: {len(files)}')
-print('Inspect relevant files before making changes.')
+@dataclass
+class Field:
+    name: str
+    nullable: bool = False
+
+fields = [Field("id"), Field("created_at")]
+print([f.name for f in fields])
 ```
 
 ## Failure modes
-- Acting on an inferred requirement instead of an explicit one.
-- Modifying unrelated files or interfaces.
-- Treating a passing local example as sufficient verification.
-- Suppressing or weakening a validator to accommodate an implementation defect.
-- Reporting completion without reproducible evidence.
+- Designing without inspecting the current schema.
+- Introducing destructive changes without a recovery path.
+- Ignoring query patterns and constraints.
+- Claiming migration safety without executing validation.
 
 ## Related
 - [05-code](../README.md)
@@ -46,4 +48,4 @@ print('Inspect relevant files before making changes.')
 - [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
 
 ## Evidence
-Repository-backed implementation guidance. The skill is grounded in the repository's governance, validation workflows, and evidence-first operating model; no external benchmark claim is made.
+Repository-backed implementation guidance grounded in the repository governance and validation model; no external benchmark claim is made.
