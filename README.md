@@ -43,6 +43,8 @@
 
 > **Response SLA:** Issues `<72h` · Pull Requests `<7 days` · Governance Reviews `<5 days`
 
+> **AI Repository Governance:** Start with [AI_CONSTITUTION.md](AI_CONSTITUTION.md) and [AGENTS.md](AGENTS.md) before performing repository-level AI work.
+
 **[🌐 Live Docs](https://samotech.github.io/skills-tree) · [📦 PyPI](https://pypi.org/project/skills-tree/) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
 [🐦 **Share Skills Tree on X →**](https://twitter.com/intent/tweet?text=Skills%20Tree%20%E2%80%94%20the%20shared%20operating%20system%20for%20AI%20agent%20capabilities.&url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&hashtags=AI,Agents,LLM,OpenSource)
