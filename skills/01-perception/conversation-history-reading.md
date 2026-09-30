@@ -3,7 +3,8 @@ title: "Conversation History Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply conversation history reading in AI agent workflows."
+version: v2
+description: "Normalize multi-turn conversation exports into a consistent message representation while preserving roles, timestamps, ordering, and provider-specific metadata. Use it before context selection, summarization, or memory injection."
 added: "2025-03"
 ---
 
@@ -46,3 +47,13 @@ messages = [{"role": m["role"], "content": m["content"], "ts": m.get("created_at
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- OpenAI conversation/message concepts: https://platform.openai.com/docs/guides/text
+- Anthropic Messages API concepts: https://docs.anthropic.com/en/api/messages
+- Agent Skills progressive-disclosure guidance: https://agentskills.io/specification
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
