@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-28T11:10:07Z",
+  "generated": "2026-09-30T10:08:45Z",
   "count": 369,
   "skills": [
     {
@@ -23,14 +23,17 @@
       "id": "api-response-parsing",
       "path": "skills/01-perception/api-response-parsing.md",
       "name": "API Response Parsing",
-      "description": "Apply api response parsing in AI agent workflows.",
+      "description": "Parse and validate REST, GraphQL, gRPC, and WebSocket responses into bounded, typed structures, including pagination, error envelopes, schema drift, and partial responses.",
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes",
+        "Evidence"
+      ],
       "related": [],
       "category_dir": "01-perception"
     },
@@ -38,14 +41,17 @@
       "id": "audio-transcription",
       "path": "skills/01-perception/audio-transcription.md",
       "name": "Audio Transcription",
-      "description": "Apply audio transcription in AI agent workflows.",
+      "description": "Transcribe spoken audio into timestamped text and, when a compatible diarization model is available, speaker-attributed segments. Use it for meetings, interviews, captions, and other speech-to-text pipelines.",
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes",
+        "Evidence"
+      ],
       "related": [],
       "category_dir": "01-perception"
     },
@@ -111,7 +117,7 @@
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": "2026-04",
       "sections": [
@@ -122,7 +128,9 @@
         "Frameworks & Models",
         "Notes",
         "Related Skills",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -135,7 +143,7 @@
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": "2026-04",
       "sections": [
@@ -146,7 +154,9 @@
         "Frameworks & Models",
         "Notes",
         "Related Skills",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -155,11 +165,11 @@
       "id": "contract-reading",
       "path": "skills/01-perception/contract-reading.md",
       "name": "Contract Reading",
-      "description": "Apply contract reading in AI agent workflows.",
+      "description": "Extract contract structure, parties, dates, obligations, definitions, and termination or payment clauses while preserving source spans and uncertainty. Use it for document analysis, not as a substitute for legal advice or legal review.",
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -170,7 +180,8 @@
         "Frameworks",
         "Failure Modes",
         "Related",
-        "Changelog"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -179,11 +190,11 @@
       "id": "conversation-history-reading",
       "path": "skills/01-perception/conversation-history-reading.md",
       "name": "Conversation History Reading",
-      "description": "Apply conversation history reading in AI agent workflows.",
+      "description": "Normalize multi-turn conversation exports into a consistent message representation while preserving roles, timestamps, ordering, and provider-specific metadata. Use it before context selection, summarization, or memory injection.",
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -194,7 +205,8 @@
         "Frameworks",
         "Failure Modes",
         "Related",
-        "Changelog"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -207,7 +219,7 @@
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": "2026-04",
       "sections": [
@@ -218,7 +230,9 @@
         "Frameworks & Models",
         "Notes",
         "Related Skills",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -240,7 +254,9 @@
         "Implementation",
         "Frameworks",
         "Edge Cases",
-        "Related Skills"
+        "Related Skills",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -253,7 +269,7 @@
       "category": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": "2026-04",
       "sections": [
@@ -264,7 +280,9 @@
         "Frameworks & Models",
         "Notes",
         "Related Skills",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -277,7 +295,7 @@
       "category": "perception",
       "level": "basic",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": "2026-04",
       "sections": [
@@ -288,7 +306,9 @@
         "Frameworks & Models",
         "Notes",
         "Related Skills",
-        "Changelog"
+        "Changelog",
+        "Failure Modes",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "01-perception"

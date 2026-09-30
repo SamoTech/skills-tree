@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/audio-transcription.md",
   "name": "Audio Transcription",
   "headline": "Audio Transcription",
-  "description": "Apply audio transcription in AI agent workflows.",
+  "description": "Transcribe spoken audio into timestamped text and, when a compatible diarization model is available, speaker-attributed segments. Use it for meetings, interviews, captions, and other speech-to-text pipelines.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/audio-transcription.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-28T11:10:08Z",
+  "dateModified": "2026-09-30T10:08:45Z",
   "skillId": "audio-transcription",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
-  "sections": [],
+  "sections": [
+    "Failure Modes",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, perception, AI agent, transcription, audio, LLM skill",
+  "keywords": "LLM skill, perception, skills tree, audio, transcription, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Audio Transcription",
