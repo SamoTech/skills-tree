@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:28:12Z",
   "skillId": "causal",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "causal, LLM skill, skills tree, reasoning, AI agent",
+  "keywords": "skills tree, LLM skill, AI agent, causal, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Causal Reasoning",

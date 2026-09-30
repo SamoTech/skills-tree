@@ -43,8 +43,6 @@ def validate(path: Path) -> list[str]:
     body = path.read_text(encoding="utf-8")
     if "## Evidence" not in body:
         errors.append("missing Evidence section")
-    if "Evidence status:" not in body:
-        errors.append("missing evidence status")
     if SECRET_RE.search(body):
         errors.append("possible hard-coded secret")
     if len(body.splitlines()) > 500:

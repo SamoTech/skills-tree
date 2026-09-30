@@ -26,3 +26,5 @@ metadata:
 
 - https://docs.python.org/3/library/sqlite3.html
 - https://docs.python.org/3/library/sqlite3.html#how-to-use-placeholders-to-bind-values-in-sql-queries
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

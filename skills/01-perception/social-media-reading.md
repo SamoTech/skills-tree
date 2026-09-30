@@ -3,7 +3,9 @@ title: "Social Media Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply social media reading in AI agent workflows."
+version: v2
+description: "Parse authorized social-media API responses or exported datasets into normalized posts, threads, authors, timestamps, and engagement metadata while respecting platform limits and privacy boundaries."
+related: []
 added: "2025-03"
 ---
 
@@ -46,3 +48,12 @@ for post in reddit.subreddit("python").hot(limit=10):
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://www.reddit.com/dev/api/
+- https://docs.joinmastodon.org/api/
+- https://docs.x.com/x-api
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

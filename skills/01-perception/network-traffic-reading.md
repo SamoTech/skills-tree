@@ -3,7 +3,9 @@ title: "Network Traffic Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply network traffic reading in AI agent workflows."
+version: v2
+description: "Read authorized packet captures or bounded network telemetry to identify protocols, endpoints, timing, and transport behavior for debugging and security analysis."
+related: []
 added: "2025-03"
 ---
 
@@ -46,3 +48,11 @@ for pkt in packets:
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://scapy.readthedocs.io/
+- https://www.wireshark.org/docs/man-pages/tshark.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

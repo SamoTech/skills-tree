@@ -3,7 +3,9 @@ title: "Spreadsheet Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply spreadsheet reading in AI agent workflows."
+version: v2
+description: "Read XLSX, CSV, and ODS workbooks into bounded structured data while preserving sheet names, headers, formulas or cached values, and workbook metadata."
+related: []
 added: "2025-03"
 ---
 
@@ -50,3 +52,12 @@ for sheet in xls.sheet_names:
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+- https://pandas.pydata.org/docs/
+- https://openpyxl.readthedocs.io/
+- https://github.com/eea/odfpy
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

@@ -26,3 +26,5 @@ metadata:
 
 - https://json-schema.org/specification
 - https://json-schema.org/draft/2020-12/json-schema-validation
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.

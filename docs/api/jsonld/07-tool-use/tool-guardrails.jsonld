@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:28:12Z",
   "skillId": "tool-guardrails",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "use, guardrails, LLM skill, skills tree, tool, AI agent",
+  "keywords": "LLM skill, tool, skills tree, guardrails, use, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Tool Guardrails",

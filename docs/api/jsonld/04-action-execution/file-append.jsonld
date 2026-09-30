@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:28:12Z",
   "skillId": "file-append",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "append, execution, LLM skill, skills tree, action, AI agent, file",
+  "keywords": "action, LLM skill, skills tree, AI agent, execution, append, file",
   "about": {
     "@type": "Thing",
     "name": "File Append",
