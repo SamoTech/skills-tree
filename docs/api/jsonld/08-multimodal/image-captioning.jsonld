@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:20:17Z",
+  "dateModified": "2026-09-30T10:28:12Z",
   "skillId": "image-captioning",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "multimodal, captioning, LLM skill, AI agent, skills tree, image",
+  "keywords": "LLM skill, skills tree, image, AI agent, captioning, multimodal",
   "about": {
     "@type": "Thing",
     "name": "Image Captioning",

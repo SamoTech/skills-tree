@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:20:17Z",
+  "dateModified": "2026-09-30T10:28:12Z",
   "skillId": "link-extraction",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "extraction, LLM skill, AI agent, link, web, skills tree",
+  "keywords": "LLM skill, skills tree, AI agent, link, extraction, web",
   "about": {
     "@type": "Thing",
     "name": "Link Extraction",
