@@ -149,3 +149,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Provider-specific claims are grounded in cited provider documentation; no benchmark or battle-tested performance claim is introduced.
 - No validator, security gate, or repository governance rule was weakened.
 - PR CI is the required verification gate before merge.
+
+
+## Tool-use modernization — batch 03
+
+- Modernized ten additional 07-tool-use skills: github-api, google-workspace-api, huggingface-api, sql-tool, stripe-api, twilio-api, vector-db-tool, weather-api, web-search, and wikipedia-api.
+- Added or synchronized corresponding Agent Skills projections under agent-skills/.
+- Provider-specific behavior is referenced to official provider documentation; no benchmark or battle-tested claim is introduced.
+- No validator, security gate, or repository governance rule was weakened.
+- PR CI is the required verification gate before merge.
