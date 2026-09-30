@@ -7,19 +7,16 @@
 - Snapshot date: 2026-09-30
 - Main HEAD: verified on 2026-09-30; see the repository default branch for the current SHA.
 - Skill files: 369
-- Battle-tested: 74
-- Enriched: 2
-- Stubs: 293
-- Invalid: 0
-- DevLens health: 87/100 (README badge, updated 2026-09-30)
+- Battle-tested: 60
+- Enriched: 3
+- Stubs: 303
+- Invalid: 3
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
 - Open substantive PRs requiring current-main revalidation: #145, #146, #155, #156, #142
-- Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
+- Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158.\n- Audit hardening branch: `coo/full-audit-hardening-2026-09-30` removes CI mutation from skill validation, disables automatic Dependabot approval/merge, defines the Agent Skills distribution contract, and adds a standards-compatible registry skill seed.
 
 ## Validation and CI state
-
-The current generated `meta/QUALITY-REPORT.md` verifies 74 battle-tested, 2 enriched, 293 stub, and 0 invalid skill files. This supersedes the earlier point-in-time counts above.
 
 PR #141 added and enforced the machine-readable Evidence contract at registry initialization and added regression coverage. It was merged after review because it was focused and GitHub reported it mergeable.
 
@@ -27,7 +24,7 @@ For the remaining open PRs, GitHub currently reports Vercel status failure with 
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 293 stubs the dominant modernization target. Category `01-perception` contains 24 stubs; `09-agentic-patterns` contains 15 stubs and 0 invalid skills; `05-code` contains 23 stubs. Work should remain incremental and evidence-driven rather than attempting a corpus-wide rewrite.
+The current quality distribution makes the remaining 303 stubs the dominant modernization target. Category `01-perception` contains 26 stubs; `09-agentic-patterns` contains 15 stubs and 2 invalid skills; `05-code` contains 23 stubs. Work should remain incremental and evidence-driven rather than attempting a corpus-wide rewrite.
 
 ## Governance state
 
@@ -46,3 +43,14 @@ The authoritative-document map intentionally reuses existing repository document
 Do not treat historical snapshots in `PROJECT_MEMORY.md` or older audit documents as current truth when they conflict with current main SHA, current PR metadata, current CI results, or generated quality reports.
 
 A meaningful task is not COMPLETE until implementation and required documentation are both verified.
+
+
+## Distribution readiness
+
+The repository is suitable as a GitHub-native skill source today through its canonical `skills/` corpus and generated `docs/api/skills.json` registry. A standards-compatible Agent Skills projection has now been established under `agent-skills/`, with the distribution contract in `docs/AGENT_SKILLS_DISTRIBUTION.md`. Full web discovery via `/.well-known/agent-skills/index.json` remains a release-engineering task because every published artifact must carry a reproducible SHA-256 digest.
+
+## Security hardening
+
+- Skill validation is read-only and no longer writes to contributor branches.
+- Dependabot automation no longer auto-approves or auto-merges dependency updates.
+- Agent-facing skill content is explicitly treated as a supply-chain/security surface.
