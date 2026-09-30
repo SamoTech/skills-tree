@@ -92,3 +92,6 @@ The skill's implementation guidance is grounded in the following primary referen
 - pyannote.audio: https://github.com/pyannote/pyannote-audio
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
+
+### Changelog
+- 2026-09-30: verified as part of stub-migration batch 02; evidence and failure-mode gates retained.
