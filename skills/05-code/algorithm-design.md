@@ -1,40 +1,61 @@
 ---
 title: "Algorithm Design"
 category: 05-code
-level: advanced
+level: intermediate
 stability: stable
-description: "Apply algorithm design in AI agent workflows."
-added: "2025-03"
+description: "Design an algorithm from explicit requirements, constraints, invariants, complexity targets, and testable acceptance criteria."
+added: "2026-09"
+related: [defining-requirements, testing]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-algorithm-design.json)
 
 # Algorithm Design
 
-**Category:** `code`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Design an algorithm from explicit requirements, constraints, invariants, complexity targets, and testable acceptance criteria.
 
-Design efficient algorithms and data structures for a given problem, considering time and space complexity trade-offs.
+## When to Use
 
-### Example
+- Use when the code task has explicit acceptance criteria.
+- Preserve repository conventions and existing security gates.
+- Verify behavior before reporting completion.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Requirements | Code or analysis | Ambiguous requirement |
+| Repository context | Compatible change | Convention mismatch |
+| Tests/evidence | Verification result | Regression |
+| Security constraints | Safe implementation | Gate bypass |
+
+## Runnable Example
 
 ```python
-# Binary search implementation
-def binary_search(arr, target):
-    lo, hi = 0, len(arr) - 1
-    while lo <= hi:
-        mid = (lo + hi) // 2
-        if arr[mid] == target: return mid
-        elif arr[mid] < target: lo = mid + 1
-        else: hi = mid - 1
-    return -1
+def algorithm(values):
+    values = list(values)
+    return sorted(values)
+
+assert algorithm([3, 1, 2]) == [1, 2, 3]
+print('algorithm contract verified')
 ```
 
-### Related Skills
+## Failure modes
 
-- [Code Generation](code-generation.md)
-- [Performance Profiling](performance-profiling.md)
+- Implementing behavior not supported by the requirements.
+- Changing unrelated code.
+- Skipping regression or security verification.
+- Claiming correctness without evidence.
+
+## Related
+
+- `defining-requirements.md`
+- `testing.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository validation and security workflows
+
+Evidence status: repository-backed implementation guidance; no benchmark claim.
