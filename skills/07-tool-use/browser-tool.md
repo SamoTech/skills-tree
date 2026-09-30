@@ -1,41 +1,52 @@
 ---
-title: "Browser Tool"
+title: Browser Tool
 category: 07-tool-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply browser tool in AI agent workflows."
-added: "2025-03"
+description: Use browser automation through explicit navigation, interaction, extraction, and verification steps.
+added: "2026-09"
+related: [07-tool-use]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-browser-tool.json)
+## Description
+Use browser automation through explicit navigation, interaction, extraction, and verification steps. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
 
-# Browser Tool
+## When to Use
+Use when the repository task explicitly requires this tool capability.
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
+| Outputs | Verified result with concise evidence. |
+| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
 
-Control a real browser as an agent tool — navigate, click, fill forms, and extract content from any website.
-
-### Example
+## Runnable Example
 
 ```python
-# Playwright MCP or Browser Use
-from browser_use import Agent
-agent = Agent(task='Go to github.com/SamoTech/skills-tree and count the skill files.')
-result = await agent.run()
+from dataclasses import dataclass
+
+@dataclass
+class Request:
+    action: str
+
+request = Request(action="inspect")
+assert request.action
+print("validate the tool contract before invocation")
 ```
 
-### Frameworks
+## Failure modes
+- Calling an undocumented interface.
+- Sending invalid or excessive data.
+- Exposing credentials or secrets.
+- Treating an acknowledgement as proof of completion.
+- Skipping repository validation.
 
-- Browser Use
-- Playwright MCP
-- Selenium, Puppeteer
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
-### Related Skills
-
-- [Browser Navigation](../11-web/browser-navigation.md)
-- [Web Scraping](../11-web/web-scraping.md)
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

@@ -1,52 +1,45 @@
 ---
-title: "Agent-to-Agent Tool (A2A)"
+title: A2a Tool
 category: 07-tool-use
 level: advanced
-stability: experimental
-description: "Apply agent-to-agent tool (a2a) in AI agent workflows."
-added: "2025-03"
+stability: stable
+description: Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes.
+added: "2026-09"
+related: [07-tool-use]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-a2a-tool.json)
+## Description
+Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. Inspect the target protocol and repository conventions before making calls.
 
-# Agent-to-Agent Tool (A2A)
+## When to Use
+Use when one agent invokes another agent or agent-facing service through a defined tool interface.
 
-**Category:** `tool-use`  
-**Skill Level:** `advanced`  
-**Stability:** `experimental`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Tool contract, request payload, authorization context, and expected result. |
+| Outputs | Validated response and evidence of the resulting state. |
+| Failure modes | Invalid payloads, unauthorized actions, protocol mismatch, or unverified outcomes. |
 
-Call another AI agent as a tool — delegating sub-tasks to specialized agents via the Google A2A protocol or custom RPC interfaces.
-
-### Example
+## Runnable Example
 
 ```python
-# Using Google A2A protocol to call a specialized research agent
-agent_client = A2AClient(endpoint="https://research-agent.example.com")
-response = await agent_client.send_task({
-    "id": "task-001",
-    "message": {
-        "role": "user",
-        "parts": [{"text": "Summarize the latest AI papers on RAG from 2025"}]
-    }
-})
-print(response.result.parts[0].text)
+request = {"action": "inspect", "target": "repository"}
+assert "action" in request
+print("validate tool contracts before invocation")
 ```
 
-### Architecture
+## Failure modes
+- Calling an undocumented interface.
+- Sending incomplete or excessive data.
+- Treating an acknowledgement as proof of completion.
+- Ignoring authorization boundaries.
 
-```
-Orchestrator Agent
-  │
-  ├── A2A call → Research Agent
-  ├── A2A call → Code Agent
-  └── A2A call → Writer Agent
-```
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
-### Related Skills
-
-- [MCP Tool](mcp-tool.md)
-- [Subagent Spawning](../15-orchestration/subagent-spawning.md)
-- [Agent Handoff](../15-orchestration/agent-handoff.md)
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
