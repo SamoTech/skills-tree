@@ -1,39 +1,47 @@
 ---
-title: "Regex Generation"
+title: Regex Generation
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply regex generation in AI agent workflows."
-added: "2025-03"
+description: Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-regex-generation.json)
+## Description
+Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases. Prefer readable patterns and explicit tests over clever or opaque expressions.
 
-# Regex Generation
+## When to Use
+Use when structured text must be matched, extracted, validated, or rejected using regular expressions.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Required matches, required rejections, engine syntax, flags, and representative samples. |
+| Outputs | Tested regex and documented assumptions. |
+| Failure modes | Overmatching, undermatching, engine incompatibility, or pathological performance. |
 
-Generate, explain, and test regular expressions for pattern matching, extraction, and validation tasks.
-
-### Example
+## Runnable Example
 
 ```python
 import re
 
-# Match GitHub repo URLs
-pattern = r'https://github\.com/([\w-]+)/([\w-]+)'
-text = 'Check out https://github.com/SamoTech/skills-tree for all skills!'
-match = re.search(pattern, text)
-if match:
-    owner, repo = match.group(1), match.group(2)
+pattern = re.compile(r'^[A-Z]{2}-\\d{4}$')
+for value in ['AB-1234', 'bad']:
+    print(value, bool(pattern.fullmatch(value)))
 ```
 
-### Related Skills
+## Failure modes
+- Deriving a pattern without explicit examples.
+- Ignoring the target regex engine.
+- Testing only positive cases.
+- Creating unnecessarily expensive patterns.
 
-- [Code Generation](code-generation.md)
-- [Text Reading](../01-perception/text-reading.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
