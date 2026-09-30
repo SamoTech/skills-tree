@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 121
-- 🟡 **Enriched** (real description + runnable code): 16
-- ⚪ **Stub** (placeholder description or no runnable code): 237
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 130
+- 🟡 **Enriched** (real description + runnable code): 17
+- ⚪ **Stub** (placeholder description or no runnable code): 227
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -18,7 +18,7 @@
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
 | `03-memory` | 19 | 11 | 0 | 8 | 0 |
-| `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
+| `04-action-execution` | 21 | 11 | 1 | 9 | 0 |
 | `05-code` | 28 | 5 | 0 | 23 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
@@ -113,6 +113,15 @@
 - [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
 - [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
 - [`skills/03-memory/vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — Vector Store Retrieval
+- [`skills/04-action-execution/api-call.md`](skills/04-action-execution/api-call.md) — API Call
+- [`skills/04-action-execution/assertion.md`](skills/04-action-execution/assertion.md) — Assertion
+- [`skills/04-action-execution/calendar-event.md`](skills/04-action-execution/calendar-event.md) — Calendar Event
+- [`skills/04-action-execution/clipboard-ops.md`](skills/04-action-execution/clipboard-ops.md) — Clipboard Operations
+- [`skills/04-action-execution/database-write.md`](skills/04-action-execution/database-write.md) — Database Write
+- [`skills/04-action-execution/email-sending.md`](skills/04-action-execution/email-sending.md) — Email Sending
+- [`skills/04-action-execution/env-vars.md`](skills/04-action-execution/env-vars.md) — Environment Variables
+- [`skills/04-action-execution/file-append.md`](skills/04-action-execution/file-append.md) — File Append
+- [`skills/04-action-execution/file-delete.md`](skills/04-action-execution/file-delete.md) — File Delete
 - [`skills/04-action-execution/file-write.md`](skills/04-action-execution/file-write.md) — File Write
 - [`skills/04-action-execution/http-request.md`](skills/04-action-execution/http-request.md) — HTTP Request
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
@@ -173,6 +182,7 @@
 - [`skills/02-reasoning/inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/mathematical-reasoning.md`](skills/02-reasoning/mathematical-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
+- [`skills/04-action-execution/drag-drop.md`](skills/04-action-execution/drag-drop.md) — missing table or <60 lines
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
 - [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
 
@@ -188,16 +198,6 @@
 - [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — description matches placeholder pattern: 'Apply user profile in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — description matches placeholder pattern: 'Apply working memory in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/api-call.md`](skills/04-action-execution/api-call.md) — description matches placeholder pattern: 'Apply api call in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/assertion.md`](skills/04-action-execution/assertion.md) — description matches placeholder pattern: 'Apply assertion / verification in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/calendar-event.md`](skills/04-action-execution/calendar-event.md) — description matches placeholder pattern: 'Apply calendar event creation in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/clipboard-ops.md`](skills/04-action-execution/clipboard-ops.md) — description matches placeholder pattern: 'Apply clipboard operations in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/database-write.md`](skills/04-action-execution/database-write.md) — description matches placeholder pattern: 'Apply database write in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/drag-drop.md`](skills/04-action-execution/drag-drop.md) — description matches placeholder pattern: 'Apply drag and drop in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/email-sending.md`](skills/04-action-execution/email-sending.md) — description matches placeholder pattern: 'Apply email sending in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/env-vars.md`](skills/04-action-execution/env-vars.md) — description matches placeholder pattern: 'Apply environment variable management in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/file-append.md`](skills/04-action-execution/file-append.md) — description matches placeholder pattern: 'Apply file append in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/file-delete.md`](skills/04-action-execution/file-delete.md) — description matches placeholder pattern: 'Apply file delete in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/04-action-execution/form-submission.md`](skills/04-action-execution/form-submission.md) — description matches placeholder pattern: 'Apply form submission in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/04-action-execution/keyboard-input.md`](skills/04-action-execution/keyboard-input.md) — description matches placeholder pattern: 'Apply keyboard input in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/04-action-execution/mouse-input.md`](skills/04-action-execution/mouse-input.md) — description matches placeholder pattern: 'Apply mouse input in AI agent workflows'; no inputs/outputs/failure-modes table
