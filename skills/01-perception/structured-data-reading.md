@@ -5,6 +5,7 @@ level: basic
 stability: stable
 version: v2
 description: "Parse JSON, YAML, TOML, XML, CSV, and related structured formats into validated data while preserving type errors, missing fields, and parser failures."
+related: []
 added: "2025-03"
 ---
 
