@@ -27,3 +27,5 @@ metadata:
 - https://docs.python.org/3/library/json.html
 - https://yaml.org/spec/1.2.2/
 - https://docs.python.org/3/library/xml.etree.elementtree.html
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
