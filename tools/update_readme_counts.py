@@ -40,7 +40,7 @@ def gather_counts() -> dict:
     bt = 0
     stub = 0
     for p in SKILLS_DIR.iterdir():
-        if not p.is_dir():
+        if not p.is_dir() or p.name == "00-sandbox":
             continue
         n = sum(1 for f in p.glob("*.md") if f.name.lower() != "readme.md")
         if n:
