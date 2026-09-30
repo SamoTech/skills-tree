@@ -3,8 +3,10 @@ title: "Goal Setting"
 category: 02-reasoning
 level: intermediate
 stability: stable
-description: "Apply goal setting in AI agent workflows."
+version: v2
+description: "Transform vague intentions into measurable goals, success criteria, dependencies, scope boundaries, and time constraints suitable for planning and execution."
 added: "2025-03"
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-goal-setting.json)
@@ -101,3 +103,16 @@ class GoalTracker:
 - [Task Decomposition](task-decomposition.md)
 - [Prioritization](prioritization.md)
 - [Self-Reflection](self-reflection.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
