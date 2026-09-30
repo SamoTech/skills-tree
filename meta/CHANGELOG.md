@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-09-30 — Governance and PR Audit
+
+### Added
+- Added `AI_CONSTITUTION.md` as the authoritative AI CEO/CIO → COO governance and documentation gate.
+- Added `AGENTS.md` as the mandatory AI-agent repository entrypoint.
+
+### Changed
+- Updated `meta/CURRENT-STATE.md` with the verified post-PR-audit repository state.
+- Recorded governance and PR-audit decisions in `meta/memory/DECISIONS.md`.
+- PR #141 merged after focused runtime Evidence-contract validation.
+- PR #150 closed as duplicate of PR #155.
+- PRs #142, #146, #155, and #156 remain open pending current-main revalidation; PR #145 remains under the previously defined revision gate.
+
+
 - **Improved** [reasoning core metadata wave](https://github.com/SamoTech/skills-tree/pull/152) by @SamoTech (#152) — 2026-09-20
 
 - **Improved** [markdown-parsing — v1→v2](https://github.com/SamoTech/skills-tree/pull/149) by @SamoTech (#149) — 2026-09-20
