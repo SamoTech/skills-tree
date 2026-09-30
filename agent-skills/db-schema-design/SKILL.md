@@ -9,21 +9,19 @@ metadata:
 
 # Db Schema Design
 
-1. Load the repository state and identify the exact requirement, affected components, and existing contracts.
-2. Inspect relevant source, configuration, tests, and documentation before editing.
-3. Define the smallest change that satisfies the requirement without weakening quality or security controls.
-4. Implement the change with explicit handling for invalid, missing, or incompatible inputs.
-5. Run the most relevant repository validation and inspect failures rather than bypassing them.
-6. Record concise evidence of the implementation and verification performed.
+1. Inspect the current schema, migrations, queries, constraints, and explicit requirements.
+2. Model entities, relationships, keys, nullability, indexes, and integrity constraints.
+3. Choose the smallest compatible schema change and define migration and rollback behavior.
+4. Implement the migration without bypassing repository controls.
+5. Run schema, migration, and relevant application tests.
+6. Record verification evidence.
 
 ## Failure modes
-- Ambiguous requirements or missing repository context.
-- Unintended interface or behavior changes.
-- Incomplete tests or verification.
-- Validator bypasses or weakened security controls.
-- Completion claims without evidence.
+- Data loss or destructive migration without recovery.
+- Missing constraints or incompatible interfaces.
+- Designing from assumptions instead of repository evidence.
+- Skipping migration validation.
 
 ## Evidence
-- Canonical skill: [skills/05-code/db-schema-design.md](../../skills/05-code/db-schema-design.md)
-- Repository governance: [AI_CONSTITUTION.md](../../AI_CONSTITUTION.md)
-- Agent operating model: [meta/AGENT_OPERATING_MODEL.md](../../meta/AGENT_OPERATING_MODEL.md)
+Canonical skill: skills/05-code/db-schema-design.md
+Repository governance: AI_CONSTITUTION.md
