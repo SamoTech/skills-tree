@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 130
-- 🟡 **Enriched** (real description + runnable code): 54
-- ⚪ **Stub** (placeholder description or no runnable code): 190
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 135
+- 🟡 **Enriched** (real description + runnable code): 59
+- ⚪ **Stub** (placeholder description or no runnable code): 180
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -21,7 +21,7 @@
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
 | `05-code` | 28 | 5 | 22 | 1 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
-| `07-tool-use` | 33 | 6 | 6 | 21 | 0 |
+| `07-tool-use` | 33 | 11 | 11 | 11 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
 | `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
@@ -134,6 +134,11 @@
 - [`skills/06-communication/translation.md`](skills/06-communication/translation.md) — Translation
 - [`skills/07-tool-use/anthropic-api.md`](skills/07-tool-use/anthropic-api.md) — Anthropic API
 - [`skills/07-tool-use/function-calling.md`](skills/07-tool-use/function-calling.md) — Function / Tool Calling
+- [`skills/07-tool-use/image-gen-tool.md`](skills/07-tool-use/image-gen-tool.md) — Image Generation Tool
+- [`skills/07-tool-use/jira-api.md`](skills/07-tool-use/jira-api.md) — Jira API
+- [`skills/07-tool-use/linear-api.md`](skills/07-tool-use/linear-api.md) — Linear API
+- [`skills/07-tool-use/maps-geolocation.md`](skills/07-tool-use/maps-geolocation.md) — Maps & Geolocation
+- [`skills/07-tool-use/mcp-tool.md`](skills/07-tool-use/mcp-tool.md) — MCP Tool
 - [`skills/07-tool-use/openai-api.md`](skills/07-tool-use/openai-api.md) — OpenAI API
 - [`skills/07-tool-use/tool-guardrails.md`](skills/07-tool-use/tool-guardrails.md) — Tool Guardrails
 - [`skills/07-tool-use/tool-review-loops.md`](skills/07-tool-use/tool-review-loops.md) — Tool Review Loops
@@ -220,6 +225,11 @@
 - [`skills/07-tool-use/code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — missing table or <60 lines
 - [`skills/07-tool-use/custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — missing table or <60 lines
 - [`skills/07-tool-use/file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/news-api.md`](skills/07-tool-use/news-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/notion-api.md`](skills/07-tool-use/notion-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/pdf-tool.md`](skills/07-tool-use/pdf-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/sendgrid-api.md`](skills/07-tool-use/sendgrid-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/slack-api.md`](skills/07-tool-use/slack-api.md) — missing table or <60 lines
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
 - [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
 
@@ -251,16 +261,6 @@
 - [`skills/07-tool-use/github-api.md`](skills/07-tool-use/github-api.md) — description matches placeholder pattern: 'Apply github api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — description matches placeholder pattern: 'Apply google workspace api in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — description matches placeholder pattern: 'Apply huggingface api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/image-gen-tool.md`](skills/07-tool-use/image-gen-tool.md) — description matches placeholder pattern: 'Apply image generation tool in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/jira-api.md`](skills/07-tool-use/jira-api.md) — description matches placeholder pattern: 'Apply jira api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/linear-api.md`](skills/07-tool-use/linear-api.md) — description matches placeholder pattern: 'Apply linear api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/maps-geolocation.md`](skills/07-tool-use/maps-geolocation.md) — description matches placeholder pattern: 'Apply maps & geolocation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/mcp-tool.md`](skills/07-tool-use/mcp-tool.md) — description matches placeholder pattern: 'Apply MCP (Model Context Protocol) tools in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/news-api.md`](skills/07-tool-use/news-api.md) — description matches placeholder pattern: 'Apply news api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/notion-api.md`](skills/07-tool-use/notion-api.md) — description matches placeholder pattern: 'Apply notion api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/pdf-tool.md`](skills/07-tool-use/pdf-tool.md) — description matches placeholder pattern: 'Apply pdf tool in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/sendgrid-api.md`](skills/07-tool-use/sendgrid-api.md) — description matches placeholder pattern: 'Apply sendgrid api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/slack-api.md`](skills/07-tool-use/slack-api.md) — description matches placeholder pattern: 'Apply Slack API in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/sql-tool.md`](skills/07-tool-use/sql-tool.md) — description matches placeholder pattern: 'Apply sql tool in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/stripe-api.md`](skills/07-tool-use/stripe-api.md) — description matches placeholder pattern: 'Apply Stripe API in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/twilio-api.md`](skills/07-tool-use/twilio-api.md) — description matches placeholder pattern: 'Apply Twilio API in AI agent workflows'; no inputs/outputs/failure-modes table
