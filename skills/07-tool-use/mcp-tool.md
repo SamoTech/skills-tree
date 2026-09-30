@@ -3,60 +3,69 @@ title: "MCP Tool"
 category: 07-tool-use
 level: intermediate
 stability: stable
-added: "2025-03"
-description: "Apply MCP (Model Context Protocol) tools in AI agent workflows."
+description: "Expose or consume Model Context Protocol tools through explicit schemas, bounded permissions, and verified tool results."
+added: "2026-09"
+related: [07-tool-use, 14-security, 15-orchestration]
 dependencies:
   - package: mcp
     min_version: "1.0.0"
     tested_version: "1.27.0"
     confidence: verified
-code_blocks:
-  - id: "example-mcp"
-    type: executable
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-mcp-tool.json)
 
 # MCP Tool
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use the Model Context Protocol (MCP) to expose tools or connect an agent to MCP servers through a standardized tool interface. Tool names, descriptions, input schemas, permissions, and returned content must be treated as an explicit contract rather than inferred behavior.
 
-### Description
+## When to Use
+- Expose a local or remote capability to an MCP-compatible client.
+- Discover and invoke tools through an MCP server.
+- Build an agent workflow that must remain portable across MCP-compatible clients.
 
-Expose tools via the Model Context Protocol (MCP), enabling any MCP-compatible client (Claude Desktop, Cursor, custom agents) to call your tools.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Server | Identify the intended MCP server and transport before invocation. |
+| Tool schema | Validate the declared name, description, and input schema. |
+| Arguments | Construct only schema-valid arguments from trusted workflow state. |
+| Permissions | Grant the minimum capability required by the task. |
+| Output | Preserve structured content and distinguish errors from successful results. |
+| Verification | Independently verify important side effects after a tool call. |
+| Failure modes | Schema mismatch, unavailable server, transport failure, authorization error, or unsafe tool exposure. |
+
+## Runnable Example
 
 ```python
 # pip install mcp
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("my-tools")
+server = FastMCP("skills-tree-demo")
 
-@mcp.tool()
-def get_weather(city: str) -> dict:
-    """Get current weather for a city."""
-    # Replace with real API call
-    return {"city": city, "temp_c": 22, "condition": "sunny"}
-
-@mcp.tool()
-def calculate(expression: str) -> float:
-    """Safely evaluate a mathematical expression."""
-    import ast, operator
-    ops = {ast.Add: operator.add, ast.Sub: operator.sub,
-           ast.Mult: operator.mul, ast.Div: operator.truediv}
-    def eval_expr(node):
-        if isinstance(node, ast.Num): return node.n
-        elif isinstance(node, ast.BinOp): return ops[type(node.op)](eval_expr(node.left), eval_expr(node.right))
-        raise ValueError("Unsupported expression")
-    return eval_expr(ast.parse(expression, mode="eval").body)
+@server.tool()
+def add(a: int, b: int) -> int:
+    """Add two validated integers."""
+    return a + b
 
 if __name__ == "__main__":
-    mcp.run()
+    server.run()
 ```
 
-### Related Skills
-- `custom-api-wrapper`, `tool-selection`, `tool-guardrails`, `openai-api`
+## Failure modes
+- Publishing a tool without an explicit input schema.
+- Giving an MCP server access to secrets or destructive capabilities it does not need.
+- Trusting tool descriptions as authorization.
+- Treating a successful transport response as proof of a completed side effect.
+- Failing to bound filesystem, network, or command execution capabilities.
+
+## Evidence
+- Model Context Protocol specification and documentation: https://modelcontextprotocol.io/
+- Python MCP SDK documentation: https://github.com/modelcontextprotocol/python-sdk
+- Repository schema and validation workflows define local conformance requirements.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- specialist-agent-routing
