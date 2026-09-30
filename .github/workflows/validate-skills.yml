@@ -1,15 +1,8 @@
 # ============================================================
 # validate-skills.yml
 # Full structural validation for every skill .md file.
-# Runs on PRs touching skills/**/*.md.
-#
-# Checks:
-#   1. YAML frontmatter has required fields (title, category, level,
-#      stability, description, related)
-#   2. Body has ## Description and ## Related sections
-#   3. File is not trivially short (< 200 chars)
-#   4. Frontmatter backfill: adds `added: YYYY-MM` dynamically
-#      using the current date if the field is missing
+# This workflow is intentionally read-only: CI must never mutate a
+# contributor branch or silently change skill content during review.
 # ============================================================
 name: 🔍 Validate Skills
 
@@ -20,19 +13,17 @@ on:
       - 'skills/**/*.md'
 
 permissions:
-  contents: write
+  contents: read
   pull-requests: read
 
 jobs:
   validate:
-    name: Validate & backfill skill files
+    name: Validate skill files
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get changed skill files
         id: changed
@@ -42,35 +33,34 @@ jobs:
           echo "Found $(wc -l < changed_skills.txt) changed skill files"
           cat changed_skills.txt
 
-      - name: Validate + backfill frontmatter
+      - name: Validate skill files
         run: |
-          python3 - <<'EOF'
-          import re, sys
-          from datetime import datetime
+          python3 - <<'PYEOF'
+          import re
+          import sys
           from pathlib import Path
 
-          REQUIRED_FRONTMATTER = ["title", "category", "level", "stability", "description", "related"]
-          REQUIRED_SECTIONS    = ["## Description", "## Related"]
+          REQUIRED_FRONTMATTER = [
+              "title", "category", "level", "stability", "description", "related"
+          ]
+          REQUIRED_SECTIONS = ["## Description", "## Related"]
           errors = []
-          backfilled = []
 
           changed = Path("changed_skills.txt").read_text().splitlines()
-          files   = [f for f in changed if f.strip() and Path(f.strip()).exists()]
+          files = [f for f in changed if f.strip() and Path(f.strip()).exists()]
 
           for raw_path in files:
               path = Path(raw_path.strip())
-              # Guard: only process files inside skills/
               if not str(path).startswith("skills/"):
-                  errors.append(f"{path}: path outside skills/ directory — skipping")
+                  errors.append(f"{path}: path outside skills/ directory")
                   continue
 
-              content = path.read_text(encoding="utf-8", errors="ignore")
+              content = path.read_text(encoding="utf-8", errors="strict")
 
               if len(content.strip()) < 200:
                   errors.append(f"{path}: file too short (< 200 chars), possibly a stub")
                   continue
 
-              # --- Frontmatter check ---
               if not content.startswith("---"):
                   errors.append(f"{path}: missing YAML frontmatter block")
                   continue
@@ -81,41 +71,22 @@ jobs:
                   continue
 
               fm_block = content[3:fm_end]
-              present  = set(re.findall(r'^([\w-]+):', fm_block, re.MULTILINE))
-              missing  = [f for f in REQUIRED_FRONTMATTER if f not in present]
+              present = set(re.findall(r'^([\w-]+):', fm_block, re.MULTILINE))
+              missing = [field for field in REQUIRED_FRONTMATTER if field not in present]
               if missing:
-                  errors.append(f"{path}: missing frontmatter fields: {', '.join(missing)}")
+                  errors.append(
+                      f"{path}: missing frontmatter fields: {', '.join(missing)}"
+                  )
 
-              # --- Backfill `added` with current YYYY-MM if missing ---
-              if "added" not in present:
-                  today_ym = datetime.utcnow().strftime("%Y-%m")
-                  new_fm   = fm_block.rstrip() + f'\nadded: "{today_ym}"\n'
-                  content  = "---" + new_fm + content[fm_end:]
-                  path.write_text(content, encoding="utf-8")
-                  backfilled.append(str(path))
-
-              # --- Required section headings ---
               for section in REQUIRED_SECTIONS:
                   if section not in content:
                       errors.append(f"{path}: missing section '{section}'")
 
-          if backfilled:
-              print(f"Backfilled 'added' field in {len(backfilled)} file(s):")
-              for p in backfilled: print(f"  ✏️  {p}")
-
           if errors:
               print("\nValidation errors:")
-              for e in errors: print(f"  ❌ {e}")
+              for error in errors:
+                  print(f"  ❌ {error}")
               sys.exit(1)
-          else:
-              print(f"\n✅ {len(files)} skill file(s) validated OK")
-          EOF
 
-      - name: Commit backfilled files (if any)
-        run: |
-          git config user.name  'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add skills/
-          git diff --staged --quiet && exit 0
-          git commit -m 'chore(skills): backfill missing `added` frontmatter field [skip ci]'
-          git push origin HEAD:${{ github.head_ref }}
+          print(f"\n✅ {len(files)} skill file(s) validated without repository mutation")
+          PYEOF
