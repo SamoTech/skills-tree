@@ -1,41 +1,50 @@
 ---
-title: "Database Schema Design"
+title: Db Schema Design
 category: 05-code
 level: advanced
 stability: stable
-description: "Apply database schema design in AI agent workflows."
-added: "2025-03"
+description: Design database schemas from explicit data requirements, relationships, constraints, and access patterns.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-db-schema-design.json)
+## Description
+Design database schemas from explicit data requirements, relationships, constraints, and access patterns. Inspect existing models, migrations, indexes, and application queries before changing a schema. Preserve compatibility and verify migrations.
 
-# Database Schema Design
+## When to Use
+Use when a task requires a new schema, a schema change, normalization decision, constraint, index, or migration plan.
 
-**Category:** `code`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Requirements, existing schema, access patterns, migrations, and constraints. |
+| Outputs | A justified schema or migration with verification evidence. |
+| Failure modes | Data loss, incompatible migrations, missing constraints, or unsupported assumptions. |
 
-Design normalized relational or document database schemas for a given domain, including tables, relationships, and indexes.
+## Runnable Example
 
-### Example
+```python
+from dataclasses import dataclass
 
-```sql
--- Skills Tree schema
-CREATE TABLE skills (
-    id      SERIAL PRIMARY KEY,
-    slug    TEXT NOT NULL UNIQUE,
-    title   TEXT NOT NULL,
-    category TEXT NOT NULL,
-    level   TEXT CHECK (level IN ('basic','intermediate','advanced'))
-);
+@dataclass
+class Field:
+    name: str
+    nullable: bool = False
 
-CREATE INDEX idx_skills_category ON skills(category);
+fields = [Field("id"), Field("created_at")]
+print([f.name for f in fields])
 ```
 
-### Related Skills
+## Failure modes
+- Designing without inspecting the current schema.
+- Introducing destructive changes without a recovery path.
+- Ignoring query patterns and constraints.
+- Claiming migration safety without executing validation.
 
-- [SQL Query Generation](sql-query-generation.md)
-- [Database Write](../04-action-execution/database-write.md)
+## Related
+- [AI Constitution](../../AI_CONSTITUTION.md)
+- [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
+
+## Evidence
+Repository-backed implementation guidance grounded in the repository governance and validation model; no external benchmark claim is made.

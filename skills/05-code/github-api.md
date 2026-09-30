@@ -1,40 +1,48 @@
 ---
-title: "GitHub API (Code)"
+title: Github Api
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply github api (code) in AI agent workflows."
-added: "2025-03"
+description: Work with GitHub APIs using documented endpoints, authentication boundaries, pagination, error handling, and least-privilege access.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-github-api.json)
+## Description
+Work with GitHub APIs using documented endpoints, authentication boundaries, pagination, error handling, and least-privilege access. Validate response semantics and avoid assuming that an API response proves a repository state change unless the resulting state is checked.
 
-# GitHub API (Code)
+## When to Use
+Use when an implementation or automation must interact with GitHub's API.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | API documentation, endpoint, authentication scope, request data, and expected response. |
+| Outputs | Correct API interaction and independently verified resulting state. |
+| Failure modes | Wrong endpoint, insufficient scope, pagination errors, rate limits, or false completion claims. |
 
-Interact with GitHub repositories programmatically: create issues, PRs, commits, branches, and releases via the REST or GraphQL API.
-
-### Example
+## Runnable Example
 
 ```python
-import httpx
+from urllib.parse import urlparse
 
-headers = {'Authorization': f'token {GITHUB_TOKEN}'}
-r = httpx.post(
-    f'https://api.github.com/repos/{owner}/{repo}/issues',
-    json={'title': 'Missing skill file', 'body': 'Please add the missing file.'},
-    headers=headers
-)
-print(r.json()['html_url'])
+url = 'https://api.github.com/repos/example/project'
+parts = urlparse(url)
+print(parts.netloc)
+print(parts.path)
 ```
 
-### Related Skills
+## Failure modes
+- Using undocumented endpoint behavior.
+- Exposing credentials in source or logs.
+- Ignoring pagination or rate limits.
+- Treating a request response as proof without verifying resulting state.
 
-- [Git Operations](git-operations.md)
-- [GitHub API Tool](../07-tool-use/github-api.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

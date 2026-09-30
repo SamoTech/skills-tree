@@ -1,39 +1,47 @@
 ---
-title: "Dependency Management"
+title: Dependency Management
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply dependency management in AI agent workflows."
-added: "2025-03"
+description: Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dependency-management.json)
+## Description
+Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes. Preserve lockfile integrity and verify application behavior after updates.
 
-# Dependency Management
+## When to Use
+Use for dependency additions, removals, upgrades, downgrades, lockfile refreshes, and compatibility remediation.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Manifest, lockfile, runtime constraints, compatibility requirements, and tests. |
+| Outputs | Reproducible dependency state with verification evidence. |
+| Failure modes | Unbounded upgrades, lockfile drift, incompatible transitive changes, or missing rollback. |
 
-Install, update, audit, and manage project dependencies across package managers (pip, npm, cargo, etc.).
+## Runnable Example
 
-### Example
+```python
+from pathlib import Path
 
-```bash
-# Python
-pip install langchain openai --upgrade
-pip freeze > requirements.txt
-pip audit  # Security check
-
-# Node
-npm install && npm audit fix
+for name in ('package.json', 'pyproject.toml', 'requirements.txt'):
+    p = Path(name)
+    print(name, 'present=' + str(p.exists()))
 ```
 
-### Related Skills
+## Failure modes
+- Updating without respecting runtime constraints.
+- Committing inconsistent manifests and lockfiles.
+- Skipping compatibility and regression tests.
+- Making irreversible changes without recovery evidence.
 
-- [Dockerfile Generation](dockerfile-generation.md)
-- [CI/CD Generation](cicd-generation.md)
-- [Security Scanning](security-scanning.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

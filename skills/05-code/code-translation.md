@@ -1,38 +1,48 @@
 ---
-title: "Code Translation"
+title: Code Translation
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply code translation in AI agent workflows."
-added: "2025-03"
+description: Translate source code between programming languages while preserving behavior, interfaces, and documented constraints.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-translation.json)
+## Description
+Translate source code between programming languages while preserving behavior, interfaces, and documented constraints. The procedure is evidence-first: inspect the repository and explicit requirements before changing code, preserve existing contracts, and verify the result with the repository's own tests and quality gates.
 
-# Code Translation
+## When to Use
+Use this skill when the task requires translate source code between programming languages while preserving behavior, interfaces, and documented constraints. Prefer the smallest reversible change that satisfies the stated requirement.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Repository state, explicit requirements, relevant source/configuration, and existing tests or interfaces. |
+| Outputs | A verified implementation or analysis, plus concise evidence of what was checked. |
+| Failure modes | Missing requirements, incompatible assumptions, hidden side effects, incomplete verification, or changes that weaken existing controls. |
 
-Translate code from one programming language to another while preserving logic and idioms.
-
-### Example
+## Runnable Example
 
 ```python
-prompt = '''
-Translate this Python function to TypeScript:
+from pathlib import Path
 
-def greet(name: str) -> str:
-    return f"Hello, {name}!"
-'''
-ts_code = llm.invoke(prompt)
+root = Path('.')
+files = sorted(p for p in root.rglob('*') if p.is_file())
+print(f'Repository files discovered: {len(files)}')
+print('Inspect relevant files before making changes.')
 ```
 
-### Related Skills
+## Failure modes
+- Acting on an inferred requirement instead of an explicit one.
+- Modifying unrelated files or interfaces.
+- Treating a passing local example as sufficient verification.
+- Suppressing or weakening a validator to accommodate an implementation defect.
+- Reporting completion without reproducible evidence.
 
-- [Code Generation](code-generation.md)
-- [Code Explanation](code-explanation.md)
+## Related
+- [AI Constitution](../../AI_CONSTITUTION.md)
+- [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
+
+## Evidence
+Repository-backed implementation guidance. The skill is grounded in the repository's governance, validation workflows, and evidence-first operating model; no external benchmark claim is made.

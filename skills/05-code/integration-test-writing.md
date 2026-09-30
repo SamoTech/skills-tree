@@ -1,42 +1,51 @@
 ---
-title: "Integration Test Writing"
+title: Integration Test Writing
 category: 05-code
 level: advanced
 stability: stable
-description: "Apply integration test writing in AI agent workflows."
-added: "2025-03"
+description: Create integration tests that verify interactions between real application components, external boundaries, persistence, or services.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-integration-test-writing.json)
+## Description
+Create integration tests that verify interactions between real application components, external boundaries, persistence, or services. Use realistic boundaries while keeping tests deterministic, isolated, and aligned with documented behavior.
 
-# Integration Test Writing
+## When to Use
+Use when correctness depends on interactions that unit tests alone cannot establish.
 
-**Category:** `code`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Component contracts, test environment, fixtures, persistence or service boundaries, and expected behavior. |
+| Outputs | Repeatable integration coverage with clear failure diagnostics. |
+| Failure modes | Flaky dependencies, shared state, weak assertions, or tests that do not exercise the real boundary. |
 
-Write tests that verify interactions between multiple components, services, or modules working together.
-
-### Example
+## Runnable Example
 
 ```python
-import pytest
-import httpx
+from dataclasses import dataclass
 
-@pytest.mark.integration
-def test_create_and_retrieve_skill():
-    client = httpx.Client(base_url='http://localhost:8000')
-    r = client.post('/skills', json={'slug': 'test-skill', 'category': 'code'})
-    assert r.status_code == 201
-    skill_id = r.json()['id']
-    r2 = client.get(f'/skills/{skill_id}')
-    assert r2.json()['slug'] == 'test-skill'
+@dataclass
+class Response:
+    status: int
+
+response = Response(status=200)
+assert response.status == 200
+print('integration tests should assert observable boundary behavior')
 ```
 
-### Related Skills
+## Failure modes
+- Testing only mocks when the integration boundary is the requirement.
+- Shared mutable state between tests.
+- Weak assertions that permit regressions.
+- Environment-dependent tests without controlled prerequisites.
 
-- [Unit Test Generation](unit-test-generation.md)
-- [Code Generation](code-generation.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
