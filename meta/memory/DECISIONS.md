@@ -50,7 +50,7 @@ Reopen Conditions: Reopen only if the Human Owner changes the governance model o
 # DECISION-003
 DECISION-ID: DECISION-003
 Topic: PR audit disposition on 2026-09-30
-Decision: Merge focused PR #141 after verification; close duplicate PR #150; keep #145, #146, #155, #156, and #142 open pending current-main revalidation and reconciliation where changes overlap. Vercel deployment-rate-limit failures are treated as infrastructure conditions, not code-quality evidence.
+Decision: Merge focused PR #141 after verification; close duplicate PR #150; close stale PRs #142, #146, #155, and #156 after current-main revalidation; keep #145 separately closed after its supply-chain review. Vercel deployment-rate-limit failures are treated as infrastructure conditions, not code-quality evidence.
 Confidence: HIGH
 Evidence IDs: PR-141, PR-142, PR-145, PR-146, PR-150, PR-155, PR-156, MAIN-20260930
 Status: LOCKED
@@ -101,3 +101,18 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 **Reopen Conditions:** Change only if the canonical Agent Skills specification, repository quality contract, or security findings materially change.
 
 **Execution record:** Batch 01 merged as PR #164 (`424fb43bee42545ac09f4683adb1127dfa97bcda`). Batch 02 merged as PR #168 (`2c123af09fe6eb506eab543e2eea96efb0124273`). Batch 03 merged as PR #169 (`a86b05aa55dab80d4180d8cae19356f7b35c314f`). Batch 04 merged as PR #170 (`ff4a774d33f81282508a3fb7879b5fed0238c223`). Batch 03 required removal of unsupported legacy frontmatter properties before schema validation passed. Batch 04 passed the full repository quality/security gate. Remaining stubs are intentionally not mass-promoted without evidence.
+
+
+## DECISION-2026-09-30-CI-AUTOMATION
+
+**Topic:** Serialize generated-main automation and repair OSV/README drift.
+
+**Decision:** Generated writers that commit to `main` share the `auto-commit-main` concurrency group with cancellation disabled. OSV Watch installs its required `httpx` dependency. README category counting excludes the `00-sandbox` fixture so the public taxonomy remains 17 categories.
+
+**Confidence:** High
+
+**Evidence IDs:** CI-20260930-OSV, CI-20260930-README, CI-20260930-GRAPH, PR-172
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if a generated-main writer requires an incompatible serialization model or the public taxonomy intentionally expands to include `00-sandbox`.
