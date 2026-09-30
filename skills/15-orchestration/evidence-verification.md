@@ -43,6 +43,12 @@ git status --short
 | Security scans | Risk evidence | Security result is absent |
 | Documentation | State continuity | Docs still describe old behavior |
 
+## Related
+
+- `repository-state-load.md`
+- `documentation-drift-resolution.md`
+- `execution-handoff.md`
+
 ## Evidence
 
 - AGENTS.md
