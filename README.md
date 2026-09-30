@@ -342,3 +342,20 @@ See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 *The AI Agent Skill OS — built by the community, for the community.*
 
 </div>
+
+
+<!-- DEVLENS:START -->
+![DevLens Health](https://img.shields.io/badge/DevLens%20Health-87%2F100-brightgreen?style=flat-square&logo=github) **Overall health: 87/100** — *Last updated: 2026-09-30*
+
+| Dimension | Progress | Score | Weight |
+|---|---|---|---|
+| 📝 **README Quality** | `████████░░` | ![84](https://img.shields.io/badge/84-brightgreen?style=flat-square) | 20% |
+| 🔥 **Commit Activity** | `██████████` | ![100](https://img.shields.io/badge/100-brightgreen?style=flat-square) | 20% |
+| 🌿 **Repo Freshness** | `██████████` | ![100](https://img.shields.io/badge/100-brightgreen?style=flat-square) | 10% |
+| 📚 **Documentation** | `██████████` | ![100](https://img.shields.io/badge/100-brightgreen?style=flat-square) | 10% |
+| ⚙️ **CI/CD Setup** | `██████████` | ![100](https://img.shields.io/badge/100-brightgreen?style=flat-square) | 10% |
+| 🎯 **Issue Response** | `████████░░` | ![80](https://img.shields.io/badge/80-brightgreen?style=flat-square) | 10% |
+| ⭐ **Community Signal** | `███░░░░░░░` | ![26](https://img.shields.io/badge/26-red?style=flat-square) | 5% |
+| 🔀 **PR Velocity** | `██████████` | ![100](https://img.shields.io/badge/100-brightgreen?style=flat-square) | 10% |
+| 🔐 **Security** | `███░░░░░░░` | ![30](https://img.shields.io/badge/30-red?style=flat-square) | 5% |
+<!-- DEVLENS:END -->
