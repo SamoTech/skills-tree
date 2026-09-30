@@ -27,7 +27,7 @@ For the remaining open PRs, GitHub currently reports Vercel status failure with 
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 303 stubs the dominant modernization target. Category `01-perception` contains 26 stubs; `09-agentic-patterns` contains 15 stubs and 2 invalid skills; `05-code` contains 23 stubs. Work should remain incremental and evidence-driven rather than attempting a corpus-wide rewrite.
+The current quality distribution makes the remaining 293 stubs the dominant modernization target. Category `01-perception` contains 24 stubs; `09-agentic-patterns` contains 15 stubs and 0 invalid skills; `05-code` contains 23 stubs. Work should remain incremental and evidence-driven rather than attempting a corpus-wide rewrite.
 
 ## Governance state
 
