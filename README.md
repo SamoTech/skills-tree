@@ -1,3 +1,5 @@
+> **Source of truth:** The GitHub repository is the canonical source for Skills Tree. This README is the public source guide and entry point. Current repository state, decisions, roadmap, architecture, quality reports, skills, issues, pull requests, releases, and security policies are maintained in GitHub. No external dashboard or deployment platform is authoritative.
+
 <div align="center">
 
 <picture>
@@ -19,7 +21,7 @@
 
 **The largest open, dependency-mapped knowledge graph for AI agents.**
 
-| 368 Skills | 780+ Connections | MIT Licensed |
+| 369 Skills | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & benchmarked | Dependency-mapped | Community-governed |
 
@@ -45,7 +47,7 @@
 
 > **AI Repository Governance:** Start with [AI_CONSTITUTION.md](AI_CONSTITUTION.md) and [AGENTS.md](AGENTS.md) before performing repository-level AI work.
 
-**[🌐 Live Docs](https://samotech.github.io/skills-tree) · [📦 PyPI](https://pypi.org/project/skills-tree/) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
+**[📖 README / Source Guide](README.md) · [📦 PyPI](https://pypi.org/project/skills-tree/) · [🗺️ Systems](systems/) · [🏗️ Blueprints](blueprints/) · [📊 Benchmarks](benchmarks/) · [🤝 Contribute](CONTRIBUTING.md) · [🗺 Roadmap](meta/ROADMAP.md)**
 
 [🐦 **Share Skills Tree on X →**](https://twitter.com/intent/tweet?text=Skills%20Tree%20%E2%80%94%20the%20shared%20operating%20system%20for%20AI%20agent%20capabilities.&url=https%3A%2F%2Fgithub.com%2FSamoTech%2Fskills-tree&hashtags=AI,Agents,LLM,OpenSource)
 
@@ -202,7 +204,7 @@ skills-tree/
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
 ├── labs/            → Experimental & bleeding-edge capabilities
 │
-├── docs/            → Interactive web UI (GitHub Pages) + MkDocs docs site
+├── docs/            → Repository documentation and generated registry artifacts
 ├── i18n/            → Localized READMEs (10 languages)
 ├── meta/            → Schema, glossary, frameworks, roadmap, changelog
 ├── mcp/             → MCP server integration
@@ -339,7 +341,7 @@ See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 
 <div align="center">
 
-**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [📦 Install from PyPI](https://pypi.org/project/skills-tree/) · [🌐 Browse Skills](https://samotech.github.io/skills-tree) · [🤝 Contribute](CONTRIBUTING.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
+**[⭐ Star this repo](https://github.com/SamoTech/skills-tree) · [📦 Install from PyPI](https://pypi.org/project/skills-tree/) · [🔎 Browse Skills](https://github.com/SamoTech/skills-tree/tree/main/skills) · [🤝 Contribute](CONTRIBUTING.md) · [💖 Sponsor](https://github.com/sponsors/SamoTech)**
 
 *The AI Agent Skill OS — built by the community, for the community.*
 

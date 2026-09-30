@@ -55,3 +55,13 @@ Confidence: HIGH
 Evidence IDs: PR-141, PR-142, PR-145, PR-146, PR-150, PR-155, PR-156, MAIN-20260930
 Status: LOCKED
 Reopen Conditions: Reopen if current-main revalidation, CI evidence, or contributor changes materially alter the technical assessment.
+
+
+# DECISION-006
+DECISION-ID: DECISION-006
+Topic: Project source of truth and deployment surface
+Decision: GitHub is the authoritative source for repository content, operational evidence, releases, issues, pull requests, and machine-readable skill distribution. README.md is the public source guide. Remove Vercel configuration and project-health/launch dashboard artifacts; they are not authoritative project surfaces. GitHub-controlled files and GitHub-native evidence replace those surfaces.
+Confidence: HIGH
+Evidence IDs: SRC-001, SRC-002, SRC-003
+Status: LOCKED
+Reopen Conditions: Reopen only if the Human Owner explicitly adopts a different source-of-truth architecture.

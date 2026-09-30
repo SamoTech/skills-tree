@@ -54,11 +54,11 @@ These items are already known from INITIATIVE-014A.2 scoring gaps. They enter 01
 - All Class A (bugs) from launch week are closed
 - Top 3 Class B (UX) items are shipped
 - Top 2 Class C (features) items are shipped or roadmapped
-- LAUNCH_DASHBOARD.md 7d actuals are filled in
+- GitHub launch/issues/PR evidence is reviewed and recorded in the repository
 
 ---
 
 ## Activation
 
 This initiative activates automatically on 2026-07-07 after T+7d war room check.
-INITIATIVE-014C will be formally scoped using the feedback log from LAUNCH_DASHBOARD.md.
+INITIATIVE-014C will be formally scoped using the feedback recorded in GitHub issues, pull requests, and discussions.
