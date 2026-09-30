@@ -1,46 +1,46 @@
 ---
-title: "SQL Query Generation"
+title: Sql Query Generation
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply sql query generation in AI agent workflows."
-added: "2025-03"
+description: Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-sql-query-generation.json)
+## Description
+Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling. Inspect the actual schema and query conventions before writing queries.
 
-# SQL Query Generation
+## When to Use
+Use when a task requires a query, migration query, reporting query, or database interaction.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Schema, required result, dialect, parameters, and performance constraints. |
+| Outputs | Validated SQL with safe parameter handling and evidence. |
+| Failure modes | Wrong schema assumptions, injection-prone interpolation, incorrect joins, or inefficient queries. |
 
-Translate natural language questions into valid SQL queries for relational databases.
+## Runnable Example
 
-### Example
-
-```
-Input: "Show me the top 5 customers by total order value this year"
-Output:
-  SELECT c.name, SUM(o.amount) as total
-  FROM customers c
-  JOIN orders o ON o.customer_id = c.id
-  WHERE YEAR(o.created_at) = 2026
-  GROUP BY c.id
-  ORDER BY total DESC
-  LIMIT 5;
+```python
+query = 'SELECT id, name FROM users WHERE status = ?'
+parameter = 'active'
+print(query)
+print('parameter:', parameter)
 ```
 
-### Frameworks
+## Failure modes
+- Guessing table or column names.
+- Interpolating untrusted values into SQL.
+- Ignoring dialect differences.
+- Failing to test result shape and edge cases.
 
-- Vanna.ai (text-to-SQL fine-tuning)
-- LangChain `SQLDatabaseChain`
-- Any LLM with schema context
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
-### Related Skills
-
-- [SQL Query Execution](../12-data/sql-execution.md)
-- [Database Schema Design](db-schema-design.md)
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

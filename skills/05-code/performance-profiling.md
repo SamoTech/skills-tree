@@ -1,40 +1,48 @@
 ---
-title: "Performance Profiling"
+title: Performance Profiling
 category: 05-code
 level: advanced
 stability: stable
-description: "Apply performance profiling in AI agent workflows."
-added: "2025-03"
+description: Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-performance-profiling.json)
+## Description
+Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements. Prefer measurement over intuition and preserve correctness while optimizing.
 
-# Performance Profiling
+## When to Use
+Use when latency, throughput, memory, CPU, startup, or resource consumption must be investigated or improved.
 
-**Category:** `code`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Performance requirement, representative workload, profiling tools, and baseline measurements. |
+| Outputs | Bottleneck evidence, targeted change, and before/after verification. |
+| Failure modes | Unrepresentative workload, noisy measurements, premature optimization, or correctness regressions. |
 
-Measure and analyze code execution time, memory usage, and bottlenecks to guide optimization.
-
-### Example
+## Runnable Example
 
 ```python
-import cProfile
-import pstats
+import time
 
-with cProfile.Profile() as pr:
-    run_agent_task()
-
-stats = pstats.Stats(pr)
-stats.sort_stats('cumulative')
-stats.print_stats(10)  # Top 10 slowest functions
+start = time.perf_counter()
+sum(range(10000))
+elapsed = time.perf_counter() - start
+print('elapsed:', elapsed)
 ```
 
-### Related Skills
+## Failure modes
+- Optimizing without a baseline.
+- Using an unrealistic workload.
+- Mistaking measurement noise for improvement.
+- Skipping functional regression tests.
 
-- [Algorithm Design](algorithm-design.md)
-- [Debugging](debugging.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

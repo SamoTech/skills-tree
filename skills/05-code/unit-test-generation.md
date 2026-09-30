@@ -1,34 +1,47 @@
 ---
-title: "Unit Test Generation"
+title: Unit Test Generation
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply unit test generation in AI agent workflows."
-added: "2025-03"
+description: Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-unit-test-generation.json)
+## Description
+Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts. Tests should be deterministic, readable, and aligned with repository conventions.
 
-# Unit Test Generation
+## When to Use
+Use when a unit-level behavior needs regression coverage or when implementation changes require focused tests.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Function or component contract, dependencies, expected behavior, and edge cases. |
+| Outputs | Deterministic unit tests with meaningful assertions. |
+| Failure modes | Weak assertions, excessive mocking, missing boundaries, or flaky setup. |
 
-Automatically generate unit test cases for functions and classes, covering happy paths, edge cases, and error conditions.
-
-### Example
+## Runnable Example
 
 ```python
-prompt = f"""Write pytest unit tests for this function:\n{source_code}"""
-tests = llm.invoke(prompt)
+def add(a: int, b: int) -> int:
+    return a + b
+
+assert add(2, 3) == 5
+assert add(0, 0) == 0
 ```
 
-### Related Skills
+## Failure modes
+- Testing implementation details instead of behavior.
+- Missing boundary and failure cases.
+- Over-mocking dependencies needed to establish behavior.
+- Tests that pass without meaningful assertions.
 
-- [Code Generation](code-generation.md)
-- [Debugging](debugging.md)
-- [Code Review](code-review.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

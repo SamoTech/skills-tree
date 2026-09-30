@@ -1,36 +1,46 @@
 ---
-title: "REPL Interaction"
+title: Repl Interaction
 category: 05-code
 level: intermediate
 stability: stable
-description: "Apply repl interaction in AI agent workflows."
-added: "2025-03"
+description: Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-repl-interaction.json)
+## Description
+Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests. Keep experiments isolated and convert durable findings into source or tests.
 
-# REPL Interaction
+## When to Use
+Use for exploratory debugging, API inspection, small transformations, or hypothesis testing.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Runtime, relevant modules, hypothesis, and controlled sample data. |
+| Outputs | Reproducible findings, code, or tests derived from the experiment. |
+| Failure modes | Hidden state, environment mismatch, non-reproducible sessions, or accidental side effects. |
 
-Execute code interactively in a REPL (Read-Eval-Print Loop) environment and observe results step-by-step.
-
-### Example
+## Runnable Example
 
 ```python
-import code
-
-# Launch interactive Python REPL
-locals_env = {'skills': load_all_skills()}
-code.interact(local=locals_env, banner='Skills REPL ready.')
+value = 21
+result = value * 2
+print(result)
+print('promote useful experiments into reproducible tests')
 ```
 
-### Related Skills
+## Failure modes
+- Relying on hidden interactive state.
+- Making destructive changes during exploration.
+- Treating a REPL result as full project verification.
+- Failing to capture a reproducible experiment.
 
-- [Code Execution Sandbox](code-execution-sandbox.md)
-- [Debugging](debugging.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

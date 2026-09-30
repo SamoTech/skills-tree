@@ -1,39 +1,47 @@
 ---
-title: "Linting & Formatting"
+title: Linting Formatting
 category: 05-code
-level: basic
+level: intermediate
 stability: stable
-description: "Apply linting & formatting in AI agent workflows."
-added: "2025-03"
+description: Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-linting-formatting.json)
+## Description
+Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn. Inspect the configured tools and version before changing source style.
 
-# Linting & Formatting
+## When to Use
+Use when code quality checks require linting, formatting, or normalization.
 
-**Category:** `code`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Source files, repository configuration, formatter and linter versions. |
+| Outputs | Consistently formatted and lint-clean code with verification evidence. |
+| Failure modes | Unrelated churn, version mismatch, behavior changes, or ignored configuration. |
 
-Run linters and code formatters to enforce style, catch errors, and maintain consistent code quality.
+## Runnable Example
 
-### Example
+```python
+from pathlib import Path
 
-```bash
-# Python
-ruff check . --fix
-black .
-mypy src/
-
-# JavaScript/TypeScript
-npx eslint . --fix
-npx prettier --write .
+files = list(Path('.').rglob('*.py'))
+print('python files:', len(files))
+print('use repository-configured lint and format commands')
 ```
 
-### Related Skills
+## Failure modes
+- Formatting with an incompatible tool version.
+- Mixing style changes with functional changes.
+- Ignoring repository configuration.
+- Treating lint success as proof of functional correctness.
 
-- [Code Review](code-review.md)
-- [CI/CD Generation](cicd-generation.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
