@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 88
-- 🟡 **Enriched** (real description + runnable code): 7
-- ⚪ **Stub** (placeholder description or no runnable code): 274
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 91
+- 🟡 **Enriched** (real description + runnable code): 8
+- ⚪ **Stub** (placeholder description or no runnable code): 270
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -15,7 +15,7 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 26 | 5 | 5 | 0 |
+| `01-perception` | 36 | 29 | 6 | 1 | 0 |
 | `02-reasoning` | 46 | 16 | 2 | 28 | 0 |
 | `03-memory` | 19 | 6 | 0 | 13 | 0 |
 | `04-action-execution` | 21 | 2 | 0 | 19 | 0 |
@@ -55,10 +55,13 @@
 - [`skills/01-perception/markdown-parsing.md`](skills/01-perception/markdown-parsing.md) — Markdown Parsing
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
+- [`skills/01-perception/screen-reading.md`](skills/01-perception/screen-reading.md) — Screen Reading
+- [`skills/01-perception/sensor-reading.md`](skills/01-perception/sensor-reading.md) — Sensor Reading
 - [`skills/01-perception/spreadsheet-reading.md`](skills/01-perception/spreadsheet-reading.md) — Spreadsheet Reading
 - [`skills/01-perception/structured-data-reading.md`](skills/01-perception/structured-data-reading.md) — Structured Data Reading
 - [`skills/01-perception/table-extraction.md`](skills/01-perception/table-extraction.md) — Table Extraction
 - [`skills/01-perception/text-reading.md`](skills/01-perception/text-reading.md) — Text Reading
+- [`skills/01-perception/url-dom-inspection.md`](skills/01-perception/url-dom-inspection.md) — URL / DOM Inspection
 - [`skills/01-perception/video-understanding.md`](skills/01-perception/video-understanding.md) — Video Understanding
 - [`skills/01-perception/xml-parsing.md`](skills/01-perception/xml-parsing.md) — XML Parsing
 - [`skills/02-reasoning/abductive.md`](skills/02-reasoning/abductive.md) — Abductive Reasoning
@@ -127,6 +130,7 @@
 ## 🟡 Enriched skills
 
 - [`skills/01-perception/conversation-history-reading.md`](skills/01-perception/conversation-history-reading.md) — missing table or <60 lines
+- [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — no inputs/outputs/failure-modes table
 - [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — missing table or <60 lines
 - [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — missing table or <60 lines
 - [`skills/01-perception/social-media-reading.md`](skills/01-perception/social-media-reading.md) — missing table or <60 lines
@@ -138,10 +142,6 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — description matches placeholder pattern: 'Apply image understanding in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/01-perception/screen-reading.md`](skills/01-perception/screen-reading.md) — description matches placeholder pattern: 'Apply screen reading in AI agent workflows'
-- [`skills/01-perception/sensor-reading.md`](skills/01-perception/sensor-reading.md) — description matches placeholder pattern: 'Apply sensor reading in AI agent workflows'
-- [`skills/01-perception/url-dom-inspection.md`](skills/01-perception/url-dom-inspection.md) — description matches placeholder pattern: 'Apply url / dom inspection in AI agent workflows'
 - [`skills/02-reasoning/analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — description matches placeholder pattern: 'Apply analogy generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — description matches placeholder pattern: 'Apply chain of thought in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/commonsense.md`](skills/02-reasoning/commonsense.md) — description matches placeholder pattern: 'Apply commonsense reasoning in AI agent workflows'
