@@ -41,7 +41,6 @@ print('Inspect relevant files before making changes.')
 - Reporting completion without reproducible evidence.
 
 ## Related
-- [05-code](../README.md)
 - [AI Constitution](../../AI_CONSTITUTION.md)
 - [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
 
