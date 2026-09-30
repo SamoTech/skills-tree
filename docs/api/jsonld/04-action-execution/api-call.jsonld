@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/api-call.md",
   "name": "API Call",
   "headline": "API Call",
-  "description": "Apply api call in AI agent workflows.",
+  "description": "Execute authenticated HTTP API requests with explicit timeouts, bounded retries, response validation, and secret-safe error handling.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/api-call.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "api-call",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "call, execution, LLM skill, api, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, call, action, LLM skill, api",
   "about": {
     "@type": "Thing",
     "name": "API Call",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "goal-decomposition",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-06-01",
-  "keywords": "goal, LLM skill, skills tree, AI agent, reasoning, decomposition",
+  "keywords": "AI agent, goal, skills tree, decomposition, LLM skill, reasoning",
   "about": {
     "@type": "Thing",
     "name": "Goal Decomposition",

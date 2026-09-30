@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/shell-command.md",
-  "name": "Shell Command Execution",
-  "headline": "Shell Command Execution",
-  "description": "Apply shell command execution in AI agent workflows.",
+  "name": "Shell Command",
+  "headline": "Shell Command",
+  "description": "Execute a permitted local command with explicit working directory, environment, timeout, and output bounds.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/shell-command.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "shell-command",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/code-execution-sandbox.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "execution, LLM skill, skills tree, AI agent, shell, action, command",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, command, action, LLM skill, shell",
   "about": {
     "@type": "Thing",
-    "name": "Shell Command Execution",
-    "description": "An AI agent skill for shell command execution."
+    "name": "Shell Command",
+    "description": "An AI agent skill for shell command."
   }
 }

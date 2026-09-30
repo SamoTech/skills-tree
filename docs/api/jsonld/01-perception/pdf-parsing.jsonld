@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "pdf-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "perception, parsing, LLM skill, skills tree, AI agent, pdf",
+  "keywords": "AI agent, skills tree, pdf, LLM skill, parsing, perception",
   "about": {
     "@type": "Thing",
     "name": "PDF Parsing",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-append.md",
   "name": "File Append",
   "headline": "File Append",
-  "description": "Apply file append in AI agent workflows.",
+  "description": "Append text or bytes to a file with explicit encoding, newline, locking, and error semantics.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-append.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "file-append",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "file, append, execution, LLM skill, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, append, action, LLM skill, file",
   "about": {
     "@type": "Thing",
     "name": "File Append",

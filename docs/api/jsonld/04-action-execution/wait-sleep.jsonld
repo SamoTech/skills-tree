@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/wait-sleep.md",
-  "name": "Wait / Sleep",
-  "headline": "Wait / Sleep",
-  "description": "Apply wait / sleep in AI agent workflows.",
+  "name": "Wait Sleep",
+  "headline": "Wait Sleep",
+  "description": "Pause for a bounded duration or polling interval without treating elapsed time as proof of state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/wait-sleep.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "wait-sleep",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../15-orchestration/retry-backoff.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "execution, wait, sleep, LLM skill, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, sleep, AI agent, skills tree, action, LLM skill, wait",
   "about": {
     "@type": "Thing",
-    "name": "Wait / Sleep",
-    "description": "An AI agent skill for wait / sleep."
+    "name": "Wait Sleep",
+    "description": "An AI agent skill for wait sleep."
   }
 }

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/database-write.md",
   "name": "Database Write",
   "headline": "Database Write",
-  "description": "Apply database write in AI agent workflows.",
+  "description": "Persist structured data with transaction boundaries, parameterized queries, validation, and explicit rollback behavior.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/database-write.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "database-write",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/database-reading.md",
-    "../05-code/sql-query-generation.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "execution, LLM skill, database, skills tree, AI agent, action, write",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, write, AI agent, skills tree, action, LLM skill, database",
   "about": {
     "@type": "Thing",
     "name": "Database Write",

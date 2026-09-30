@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "invoice-processing",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -70,7 +70,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "domain, invoice, LLM skill, processing, skills tree, AI agent, specific",
+  "keywords": "domain, AI agent, skills tree, LLM skill, specific, processing, invoice",
   "about": {
     "@type": "Thing",
     "name": "invoice-processing",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/process-management.md",
   "name": "Process Management",
   "headline": "Process Management",
-  "description": "Apply process management in AI agent workflows.",
+  "description": "Manage a local process with explicit command scope, timeout, environment, output limits, and termination policy.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/process-management.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "process-management",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../10-computer-use/terminal-interaction.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "management, process, execution, LLM skill, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, action, LLM skill, management, process",
   "about": {
     "@type": "Thing",
     "name": "Process Management",

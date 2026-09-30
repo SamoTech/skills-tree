@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-delete.md",
   "name": "File Delete",
   "headline": "File Delete",
-  "description": "Apply file delete in AI agent workflows.",
+  "description": "Delete a verified filesystem target only after path validation, scope checks, and any required approval boundary.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/file-delete.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "file-delete",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../14-security/rollback-undo.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "delete, file, execution, LLM skill, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, action, LLM skill, delete, file",
   "about": {
     "@type": "Thing",
     "name": "File Delete",

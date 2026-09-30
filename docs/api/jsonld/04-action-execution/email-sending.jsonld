@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/email-sending.md",
   "name": "Email Sending",
   "headline": "Email Sending",
-  "description": "Apply email sending in AI agent workflows.",
+  "description": "Send an approved email through a configured mail transport while validating recipients and preventing credential or content leakage.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/email-sending.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "email-sending",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/email-parsing.md",
-    "../07-tool-use/sendgrid-api.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "email, execution, LLM skill, sending, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, sending, AI agent, skills tree, action, LLM skill, email",
   "about": {
     "@type": "Thing",
     "name": "Email Sending",

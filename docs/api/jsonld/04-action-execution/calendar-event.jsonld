@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/calendar-event.md",
-  "name": "Calendar Event Creation",
-  "headline": "Calendar Event Creation",
-  "description": "Apply calendar event creation in AI agent workflows.",
+  "name": "Calendar Event",
+  "headline": "Calendar Event",
+  "description": "Create a calendar event representation with explicit time zone, duration, participants, and confirmation boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/calendar-event.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "calendar-event",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "event, execution, LLM skill, calendar, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, action, LLM skill, event, calendar",
   "about": {
     "@type": "Thing",
-    "name": "Calendar Event Creation",
-    "description": "An AI agent skill for calendar event creation."
+    "name": "Calendar Event",
+    "description": "An AI agent skill for calendar event."
   }
 }

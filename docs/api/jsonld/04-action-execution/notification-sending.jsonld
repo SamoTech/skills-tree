@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/notification-sending.md",
   "name": "Notification Sending",
   "headline": "Notification Sending",
-  "description": "Apply notification sending in AI agent workflows.",
+  "description": "Deliver an approved notification through a configured channel with validated destination and content.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/notification-sending.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "notification-sending",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../07-tool-use/slack-api.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "notification, execution, LLM skill, sending, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, notification, sending, AI agent, skills tree, action, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Notification Sending",

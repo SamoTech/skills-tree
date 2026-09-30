@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/assertion.md",
-  "name": "Assertion / Verification",
-  "headline": "Assertion / Verification",
-  "description": "Apply assertion / verification in AI agent workflows.",
+  "name": "Assertion",
+  "headline": "Assertion",
+  "description": "Check an explicit execution invariant and stop safely when the expected state is not true.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/assertion.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "assertion",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/unit-test-generation.md",
-    "../02-reasoning/self-correction.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "assertion, execution, LLM skill, skills tree, AI agent, action",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, action, LLM skill, assertion",
   "about": {
     "@type": "Thing",
-    "name": "Assertion / Verification",
-    "description": "An AI agent skill for assertion / verification."
+    "name": "Assertion",
+    "description": "An AI agent skill for assertion."
   }
 }

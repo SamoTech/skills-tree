@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "google-workspace-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "tool, skills tree, LLM skill, use, api, workspace, AI agent, google",
+  "keywords": "use, AI agent, skills tree, tool, google, LLM skill, workspace, api",
   "about": {
     "@type": "Thing",
     "name": "Google Workspace API",

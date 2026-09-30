@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/screenshot-capture.md",
-  "name": "Screenshot Capture (Action)",
-  "headline": "Screenshot Capture (Action)",
-  "description": "Apply screenshot capture (action) in AI agent workflows.",
+  "name": "Screenshot Capture",
+  "headline": "Screenshot Capture",
+  "description": "Capture a verified application or screen region while minimizing sensitive content exposure.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/screenshot-capture.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "screenshot-capture",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../10-computer-use/screenshot-capture.md",
-    "../10-computer-use/screen-ocr.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "execution, LLM skill, screenshot, skills tree, AI agent, action, capture",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, screenshot, action, LLM skill, capture",
   "about": {
     "@type": "Thing",
-    "name": "Screenshot Capture (Action)",
-    "description": "An AI agent skill for screenshot capture (action)."
+    "name": "Screenshot Capture",
+    "description": "An AI agent skill for screenshot capture."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/env-vars.md",
-  "name": "Environment Variable Management",
-  "headline": "Environment Variable Management",
-  "description": "Apply environment variable management in AI agent workflows.",
+  "name": "Environment Variables",
+  "headline": "Environment Variables",
+  "description": "Read and validate environment configuration without exposing secrets or confusing missing configuration with empty values.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/env-vars.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T13:26:23Z",
+  "dateModified": "2026-09-30T14:16:10Z",
   "skillId": "env-vars",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
-  "sections": [],
-  "relatedSkills": [
-    "../14-security/secret-scanning.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "execution, LLM skill, env, skills tree, AI agent, action, vars",
+  "datePublished": "2026-09-01",
+  "keywords": "execution, AI agent, skills tree, vars, action, LLM skill, env",
   "about": {
     "@type": "Thing",
-    "name": "Environment Variable Management",
-    "description": "An AI agent skill for environment variable management."
+    "name": "Environment Variables",
+    "description": "An AI agent skill for environment variables."
   }
 }
