@@ -3,7 +3,9 @@ title: "Screen Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply screen reading in AI agent workflows."
+version: v2
+description: "Read screenshots or authorized screen captures into structured UI state, visible text, interactive elements, and alerts while preserving uncertainty and screen provenance."
+related: []
 added: "2025-03"
 ---
 
@@ -132,3 +134,16 @@ print(state)
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, screenshot analysis example |
 | `2025-03` | Initial stub entry |
+
+## Failure Modes
+
+- Untrusted or malformed input: validate format, bound resource usage, and preserve parser or model uncertainty.
+- Ambiguous visual or telemetry evidence: distinguish observed values from inferred interpretation and retain source references.
+- Sensitive or unauthorized source: require authorization, minimize retained data, and do not expose unrelated content.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: implementation guidance is grounded in the cited standards or primary implementation references; no benchmark claim is made without reproducible benchmark evidence.
