@@ -1,0 +1,25 @@
+name: Validate Agent Skills
+
+on:
+  pull_request:
+    paths:
+      - "agent-skills/**"
+      - "tools/validate_agent_skills.py"
+      - ".github/workflows/validate-agent-skills.yml"
+  push:
+    branches: [main]
+    paths:
+      - "agent-skills/**"
+      - "tools/validate_agent_skills.py"
+      - ".github/workflows/validate-agent-skills.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Agent Skills packages
+        run: python tools/validate_agent_skills.py

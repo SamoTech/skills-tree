@@ -3,7 +3,8 @@ title: "File System Reading"
 category: 01-perception
 level: basic
 stability: stable
-description: "Apply file system reading in AI agent workflows."
+version: v2
+description: "Inventory and selectively read files from a bounded filesystem root using explicit patterns and file-count limits. Use it to discover relevant artifacts while avoiding uncontrolled recursive reads or accidental exposure of secrets."
 added: "2025-03"
 ---
 
@@ -125,3 +126,21 @@ print(summarize_directory("./my_project"))
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, directory summarizer example |
 | `2025-03` | Initial stub entry |
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- Python pathlib documentation: https://docs.python.org/3/library/pathlib.html
+- Agent Skills specification security/progressive-disclosure model: https://agentskills.io/specification
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

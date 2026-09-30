@@ -3,8 +3,9 @@ title: "API Response Parsing"
 category: 01-perception
 level: intermediate
 stability: stable
+version: v2
 added: "2025-03"
-description: "Apply api response parsing in AI agent workflows."
+description: "Parse and validate REST, GraphQL, gRPC, and WebSocket responses into bounded, typed structures, including pagination, error envelopes, schema drift, and partial responses."
 ---
 
 
@@ -60,3 +61,22 @@ def fetch_all_pages(url: str, headers: dict) -> list[dict]:
 
 ### Related Skills
 - `web-scraping`, `json-transformation`, `schema-inference`, `http-request`, `data-cleaning`
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- JSON Schema 2020-12: https://json-schema.org/specification
+- JSON Schema Validation: https://json-schema.org/draft/2020-12/json-schema-validation
+- Python jsonschema validator API: https://python-jsonschema.readthedocs.io/
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

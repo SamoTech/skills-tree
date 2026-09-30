@@ -3,7 +3,8 @@ title: "Document Parsing"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply document parsing in AI agent workflows."
+version: v2
+description: "Extract text, tables, and metadata from common office and web documents using format-specific parsers, with explicit handling for corrupt, protected, scanned, and mixed-content inputs."
 added: "2025-03"
 dependencies:
   - package: langchain-community
@@ -117,3 +118,22 @@ docs = loader.load()  # List[Document] with page_content + metadata
 - [Structured Data Reading](structured-data-reading.md)
 - [OCR](ocr.md)
 - [Email Parsing](email-parsing.md)
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- python-docx documentation: https://python-docx.readthedocs.io/
+- openpyxl documentation: https://openpyxl.readthedocs.io/
+- LangChain document loaders: https://python.langchain.com/docs/concepts/document_loaders/
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

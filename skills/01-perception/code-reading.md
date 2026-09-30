@@ -3,7 +3,8 @@ title: "Code Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply code reading in AI agent workflows."
+version: v2
+description: "Inspect source code to identify purpose, structure, dependencies, control flow, and likely defects without treating model interpretation as proof of correctness. Use it before debugging, refactoring, or architecture changes."
 added: "2025-03"
 ---
 
@@ -118,3 +119,21 @@ print(result)
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, runnable example, notes |
 | `2025-03` | Initial stub entry |
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- Python AST documentation: https://docs.python.org/3/library/ast.html
+- Python inspect documentation: https://docs.python.org/3/library/inspect.html
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

@@ -84,3 +84,20 @@ Confidence: HIGH
 Evidence IDs: SEC-001, SEC-002
 Status: LOCKED
 Reopen Conditions: Reopen only after a documented replacement governance model provides equal or stronger review and supply-chain controls.
+
+
+## DECISION-2026-09-30-STUB-MIGRATION
+
+**Topic:** Convert the remaining legacy skill stubs into evidence-backed, standards-compatible Agent Skills.
+
+**Decision:** Migrate the 293 stubs incrementally. Preserve `skills/` as canonical source, generate `agent-skills/<skill-name>/SKILL.md` as the compatibility projection, require evidence references and explicit failure/security boundaries, and prohibit performance/battle-tested claims without reproducible benchmark evidence.
+
+**Confidence:** High
+
+**Evidence IDs:** `meta/QUALITY-REPORT.md`, `docs/AGENT_SKILLS_DISTRIBUTION.md`, Agent Skills specification, batch-01 validation workflow.
+
+**Status:** IN PROGRESS
+
+**Reopen Conditions:** Change only if the canonical Agent Skills specification, repository quality contract, or security findings materially change.
+
+**Execution record:** Batch 01 covers 10 perception skills and adds `tools/validate_agent_skills.py` plus `.github/workflows/validate-agent-skills.yml`. Remaining stubs are intentionally not mass-promoted without evidence.

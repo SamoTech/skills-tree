@@ -3,7 +3,8 @@ title: "Email Parsing"
 category: 01-perception
 level: basic
 stability: stable
-description: "Apply email parsing in AI agent workflows."
+version: v2
+description: "Parse RFC-style email and MIME messages into structured headers, body parts, attachments, and metadata before downstream classification or extraction. Use the standard library parser for untrusted raw messages and preserve message boundaries."
 added: "2025-03"
 ---
 
@@ -129,3 +130,21 @@ print(json.dumps(result, indent=2))
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, MIME parsing example, notes |
 | `2025-03` | Initial stub entry |
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- Python email package documentation: https://docs.python.org/3/library/email.html
+- Python email policy documentation: https://docs.python.org/3/library/email.policy.html
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

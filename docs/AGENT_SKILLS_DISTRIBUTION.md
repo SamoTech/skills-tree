@@ -104,3 +104,19 @@ A distribution change is not complete until:
 As of 2026-09-30, Skills Tree has 369 registry skill files: 74 battle-tested, 2 enriched, 293 stubs, and 0 invalid according to the generated quality report.
 
 The standards-compatible distribution layer is intentionally being introduced as a separate projection so the existing corpus can be migrated incrementally without corrupting the canonical registry.
+
+
+## Stub migration gate
+
+The 293 legacy stubs are migrated incrementally. A migrated skill must satisfy all of these before it is treated as a completed migration:
+
+1. The canonical `skills/<category>/<skill>.md` entry has a non-placeholder description and a real runnable example.
+2. Inputs/outputs and failure modes are explicit.
+3. Evidence references identify primary or authoritative documentation for the implementation claims.
+4. Security-sensitive behavior is bounded and documented; credentials, private endpoints, and hard-coded secrets are prohibited.
+5. A standards-compatible `agent-skills/<skill-name>/SKILL.md` package is generated from the canonical entry.
+6. The package passes `tools/validate_agent_skills.py`.
+7. Benchmark claims are not upgraded to "battle-tested" unless reproducible benchmark evidence exists. Documentation references alone are evidence for implementation guidance, not performance claims.
+8. Migration batches are independently reviewable and rollback-safe; a failed batch does not justify lowering the gate for later batches.
+
+The compatibility package is a projection of the canonical entry. It does not become an independently authored source of truth.
