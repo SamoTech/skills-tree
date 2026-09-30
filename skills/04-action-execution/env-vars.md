@@ -1,37 +1,60 @@
 ---
-title: "Environment Variable Management"
+title: "Environment Variables"
 category: 04-action-execution
 level: basic
 stability: stable
-description: "Apply environment variable management in AI agent workflows."
-added: "2025-03"
+description: "Read and validate environment configuration without exposing secrets or confusing missing configuration with empty values."
+added: "2026-09"
+related: [input-sanitization, tool-guardrails, file-write]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-env-vars.json)
+# Environment Variables
 
-# Environment Variable Management
+## Description
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+Read configuration supplied through environment variables and distinguish required, optional, empty, and malformed values. Secret values must never be printed.
 
-### Description
+## When to Use
 
-Read, set, and manage environment variables for configuration and secret injection in agent workflows.
+- Loading API credentials or deployment configuration.
+- Validating required runtime settings.
+- Keeping environment-specific values outside repository source.
 
-### Example
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Variable name | Value or absence | Missing variable |
+| Required flag | Validation result | Required value missing |
+| Default | Resolved configuration | Unsafe default |
+| Secret classification | Safe handling | Secret disclosure |
+
+## Runnable example
 
 ```python
 import os
-from dotenv import load_dotenv
 
-load_dotenv()  # Load .env file
-api_key = os.environ.get('OPENAI_API_KEY')
-os.environ['LOG_LEVEL'] = 'DEBUG'
+token = os.environ.get("API_TOKEN")
+if not token:
+    raise RuntimeError("API_TOKEN is required")
+print("API_TOKEN is configured")
 ```
 
-### Related Skills
+## Failure modes
 
-- [Shell Command](shell-command.md)
-- [Secret Scanning](../14-security/secret-scanning.md)
+- Printing environment variables wholesale.
+- Committing secret-bearing environment files.
+- Treating an empty value as a valid credential.
+- Using a permissive production default.
+
+## Related
+
+- ../14-security/input-sanitization.md
+- ../07-tool-use/tool-guardrails.md
+- file-write.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows
