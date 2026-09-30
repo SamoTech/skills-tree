@@ -178,3 +178,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Decision:** Modernize ten code skills at a time, preserving repository conventions, security gates, explicit acceptance criteria, and evidence requirements.
 
 **Status:** IN PROGRESS — staged on branch coo/code-batch-01-2026-09-30 pending PR CI.
+
+
+## DECISION-2026-09-30-CODE-BATCH-02
+
+**Topic:** Continue controlled 05-code stub modernization.
+
+**Decision:** Modernize the next ten code skills with repository-backed procedures and synchronized Agent Skills projections, without weakening validation, security, or evidence requirements.
+
+**Status:** IN PROGRESS — staged on branch coo/code-batch-02-2026-09-30 pending PR CI.
+
+**Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, or evidence-contract incompatibility.
