@@ -96,8 +96,8 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 
 **Evidence IDs:** `meta/QUALITY-REPORT.md`, `docs/AGENT_SKILLS_DISTRIBUTION.md`, Agent Skills specification, batch-01 validation workflow.
 
-**Status:** IN PROGRESS
+**Status:** IN PROGRESS — Batch 01 merged; post-merge generated quality report refresh pending.
 
 **Reopen Conditions:** Change only if the canonical Agent Skills specification, repository quality contract, or security findings materially change.
 
-**Execution record:** Batch 01 covers 10 perception skills and adds `tools/validate_agent_skills.py` plus `.github/workflows/validate-agent-skills.yml`. Remaining stubs are intentionally not mass-promoted without evidence.
+**Execution record:** Batch 01 covers 10 perception skills and adds `tools/validate_agent_skills.py` plus `.github/workflows/validate-agent-skills.yml`. Remaining stubs are intentionally not mass-promoted without evidence. The generated quality report must be refreshed before reporting the new corpus counts.
