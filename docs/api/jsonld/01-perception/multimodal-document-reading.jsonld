@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/multimodal-document-reading.md",
   "name": "Multimodal Document Reading",
   "headline": "Multimodal Document Reading",
-  "description": "Apply multimodal document reading in AI agent workflows.",
+  "description": "Process documents containing text, images, tables, and diagrams while preserving content order, page boundaries, and extraction provenance.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/01-perception/multimodal-document-reading.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:18:03Z",
   "skillId": "multimodal-document-reading",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
@@ -66,7 +66,8 @@
     "Frameworks",
     "Failure Modes",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -75,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, perception, multimodal, reading, document, skills tree, AI agent",
+  "keywords": "LLM skill, perception, reading, multimodal, AI agent, skills tree, document",
   "about": {
     "@type": "Thing",
     "name": "Multimodal Document Reading",

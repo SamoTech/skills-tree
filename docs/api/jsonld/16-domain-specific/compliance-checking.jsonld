@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:18:03Z",
   "skillId": "compliance-checking",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "specific, LLM skill, skills tree, domain, compliance, checking, AI agent",
+  "keywords": "LLM skill, specific, checking, AI agent, compliance, skills tree, domain",
   "about": {
     "@type": "Thing",
     "name": "compliance-checking",

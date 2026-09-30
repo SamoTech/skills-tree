@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:18:03Z",
   "skillId": "planning-decomposition",
   "skillVersion": "v3",
   "skillLevel": "advanced",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-06-01",
-  "keywords": "LLM skill, skills tree, reasoning, planning, decomposition, AI agent",
+  "keywords": "planning, LLM skill, decomposition, AI agent, reasoning, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Planning Decomposition",

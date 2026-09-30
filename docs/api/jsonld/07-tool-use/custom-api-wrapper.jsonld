@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:18:03Z",
   "skillId": "custom-api-wrapper",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "api, use, LLM skill, skills tree, wrapper, tool, custom, AI agent",
+  "keywords": "LLM skill, wrapper, api, use, AI agent, custom, skills tree, tool",
   "about": {
     "@type": "Thing",
     "name": "Custom API Wrapper",

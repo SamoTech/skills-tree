@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:08:45Z",
+  "dateModified": "2026-09-30T10:18:03Z",
   "skillId": "file-write",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, LLM skill, skills tree, action, write, AI agent, file",
+  "keywords": "LLM skill, action, file, AI agent, write, skills tree, execution",
   "about": {
     "@type": "Thing",
     "name": "File Write",
