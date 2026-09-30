@@ -6,6 +6,7 @@ stability: stable
 version: v2
 added: "2025-03"
 description: "Analyze video over time using bounded frame or segment sampling, temporal metadata, and optional audio transcripts to identify scenes, events, captions, and grounded time ranges."
+related: []
 ---
 
 
