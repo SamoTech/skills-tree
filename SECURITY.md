@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Skills Tree is a documentation repository. There is no executable code deployed in production.
+Skills Tree is a registry and developer platform. It contains Markdown skill instructions plus executable validation, API, CLI, MCP, and CI/CD components. Skill content is therefore treated as an agent-instruction supply-chain surface, not as inert documentation.
 However, we take security seriously for the following surfaces:
 
 | Surface | Supported |
@@ -10,7 +10,7 @@ However, we take security seriously for the following surfaces:
 | `docs/index.html` (GitHub Pages viewer) | ✅ Active |
 | GitHub Actions workflows (`.github/workflows/`) | ✅ Active |
 | Skill file content (code examples) | ✅ Reviewed |
-| `meta/` and `skills/` markdown files | ✅ Reviewed |
+| `meta/` and `skills/` markdown files | ✅ Reviewed |\n| Agent-facing skill instructions and distribution artifacts | ✅ Security-sensitive |
 | Dependency Auditor snippet execution (Phase 3) | ✅ Active |
 
 ---
@@ -99,7 +99,7 @@ skill code example) would have **full outbound network access** during execution
 | **Tertiary** | 30-second subprocess timeout — caps runaway or stalling snippets. | ✅ Active |
 | **Escalation path** | Docker `--network=none` container for snippet execution — completely severs outbound network for the execution subprocess. | ⏳ Available if abuse is detected |
 
-**Current Risk Assessment: LOW**
+**Current Risk Assessment: CONTROLLED but material.** The repository has containment controls, but skill content can influence agent behavior and some repository workflows execute code or install dependencies. This is not equivalent to a security audit or a guarantee that every published skill is safe in every environment.
 
 For the current scope — a curated, maintainer-reviewed repository — the ephemeral runner
 model is the **primary and sufficient containment strategy**. The runner is discarded after
@@ -152,4 +152,20 @@ Thank you to everyone who responsibly discloses security issues and helps keep t
 
 ---
 
-*Maintained by [@SamoTech](https://github.com/SamoTech) · Last updated: April 2026*
+*Maintained by [@SamoTech](https://github.com/SamoTech) · Last updated: September 2026*
+
+
+## Agent Skill Supply-Chain Rules
+
+Skills are executable instructions from an agent's point of view. A Markdown file can therefore create security impact even when it contains no executable source code itself.
+
+The repository applies these rules to distributed skills:
+
+1. A skill must not require an external package, installer, CLI, URL, or service merely to understand the skill. External implementations are optional and must be clearly identified.
+2. Installation commands must not be presented as mandatory agent behavior unless the dependency and trust boundary are explicitly documented and the dependency is pinned or otherwise reproducibly identified.
+3. Skill content must not request secrets, disable security controls, weaken authentication, or execute destructive actions without an explicit safety boundary and human-approval path where appropriate.
+4. CI must not mutate contributor branches as part of validation. Validation should be read-only; generated artifacts should be reconciled through an explicit release or PR path.
+5. Automated dependency updates must not auto-approve or auto-merge into `main`. A maintainer reviews the exact green HEAD.
+6. A "battle-tested" quality label means the repository quality criteria were met. It is not a blanket trust or malware guarantee.
+
+For the planned Agent Skills standard distribution, each published artifact will carry a stable name, description, source path, version/provenance information, and SHA-256 integrity digest. The discovery surface will follow the `/.well-known/agent-skills/index.json` model and will be generated from the same canonical source rather than maintained by hand.
