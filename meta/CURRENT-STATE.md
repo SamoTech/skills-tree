@@ -12,6 +12,7 @@
 - Stubs: 293
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
+- Stub migration: batch 02 prepared on `coo/stub-migration-batch-02` (10 additional perception skills)
 - DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
@@ -30,7 +31,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 293 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batch 01 merged 10 perception skills and added standards-compatible `SKILL.md` projections plus an automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+The current quality distribution makes the remaining 293 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batch 01 merged 10 perception skills and added standards-compatible `SKILL.md` projections plus an automated evidence/security validation gate. Batch 02 prepares 10 additional perception skills using the same gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
 
 ## Governance state
 
