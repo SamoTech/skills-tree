@@ -45,7 +45,7 @@ T+4h (20:00 EEST)
   └─ First war room check — stars, comments, issues, traffic
 
 T+24h (June 31, 16:00 EEST)
-  └─ 24h audit — update LAUNCH_DASHBOARD.md
+  └─ 24h audit — record findings in GitHub issues/discussions and repository documentation
   └─ Reply to every HN comment
   └─ Triage all GitHub issues
   └─ Post Day 1 recap
@@ -57,7 +57,7 @@ T+24h (June 31, 16:00 EEST)
 
 Do NOT launch if any of these are RED:
 
-- [ ] Explorer loads on GitHub Pages (test at https://samotech.github.io/skills-tree/explorer/)
+- [ ] GitHub repository renders correctly and README links resolve
 - [ ] `pip install skills-tree` completes successfully
 - [ ] README renders correctly on github.com (check hero above fold)
 - [ ] `#skill=09-agentic-patterns/react` deep-link opens correct detail panel
