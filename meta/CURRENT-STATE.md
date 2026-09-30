@@ -125,3 +125,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Corresponding Agent Skills projections were added or synchronized.
 - No benchmark or battle-tested claim is introduced.
 - PR CI must pass canonical validation, Agent Skills validation, graph checks, security scans, and the no-new-stub quality gate before merge.
+
+
+## Code modernization — batch 03
+
+- Six additional 05-code stubs were modernized: linting-formatting, performance-profiling, refactoring, regex-generation, repl-interaction, sql-query-generation, and unit-test-generation.
+- Agent Skills projections were added for the completed skills except where the repository connector safety layer blocked a projection path; no validator was weakened.
+- security-scanning was intentionally not modified because the connector safety layer blocked the repository write; it remains subject to a later safe execution path.
+- No benchmark or battle-tested claim is introduced.
