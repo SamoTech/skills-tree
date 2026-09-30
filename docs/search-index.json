@@ -1101,28 +1101,28 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply api call in AI agent workflows.",
-    "body": "API Call Description Executes authenticated HTTP requests to REST and GraphQL APIs with retry logic, rate-limit handling, circuit breaking, request signing, and response validation. Supports OAuth2, API key, JWT, HMAC, and mTLS authentication schemes. When to Use - Triggering external services (Stripe, Twilio, GitHub, Slack, etc.) from agentic pipelines - Posting data, creating resources, or triggering webhooks as part of task execution - Integrating with internal microservices via REST or GraphQL Example Advanced Techniques - Circuit breaker: use to stop calling a failing service after N consecutive failures - Request signing: HMAC-SHA256 signature for AWS or Stripe webhook validation - mTLS: pass to for mutual TLS - Async batch: use with for parallel API calls Related Skills - , , , ,"
+    "description": "Execute authenticated HTTP API requests with explicit timeouts, bounded retries, response validation, and secret-safe error handling.",
+    "body": "API Call Description Execute an HTTP API operation as an agent action while making authentication, timeout, retry, idempotency, and response validation explicit. Credentials must come from secret-safe configuration and must never be embedded in source or logs. When to Use - Calling REST or GraphQL services. - Creating or updating remote resources. - Integrating an external action into an agent workflow. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Method, URL, headers, body | Status and parsed response | Invalid request | | Secret/token reference | Authenticated request | Missing credential | | Timeout and retry policy | Bounded execution | Retry exhaustion | | Idempotency policy | Safe retry decision | Duplicate side effect | Runnable example Failure modes - Retry non-idempotent mutations without an idempotency key. - Log authorization headers or secret-bearing response data. - Use unbounded retries or no timeout. - Treat HTTP success as proof that the response schema is valid. Related - http-request.md - ../01-perception/api-response-parsing.md - ../07-tool-use/tool-guardrails.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/assertion",
-    "title": "Assertion / Verification",
+    "title": "Assertion",
     "category": "04-action-execution",
-    "level": "intermediate",
+    "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply assertion / verification in AI agent workflows.",
-    "body": "Assertion / Verification Category: Skill Level: Stability: Added: 2025-03 Description Verify that a condition or expected state is true before or after an action — used for guard clauses, test validation, and workflow checkpoints. Example Related Skills - Unit Test Generation - Self-Correction"
+    "description": "Check an explicit execution invariant and stop safely when the expected state is not true.",
+    "body": "Assertion Description Verify a condition that must hold before an agent continues an action sequence. Assertions turn assumptions into explicit gates and should fail closed when the expected state cannot be established. When to Use - Checking a precondition before a destructive action. - Verifying an API response or file state. - Enforcing invariants in automation. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Condition | Boolean or exception | False condition | | Context/message | Actionable failure | Missing context | | Severity | Stop or escalation decision | Wrong escalation | Runnable example Failure modes - Logging a failed assertion while continuing. - Checking stale state. - Hiding the evidence needed to diagnose failure. - Using an assertion as a substitute for authorization. Related - ../02-reasoning/self-correction.md - ../14-security/approval-before-destructive-tools.md - ../14-security/output-guardrails.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/calendar-event",
-    "title": "Calendar Event Creation",
+    "title": "Calendar Event",
     "category": "04-action-execution",
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply calendar event creation in AI agent workflows.",
-    "body": "Calendar Event Creation Category: Skill Level: Stability: Added: 2025-03 Description Create, update, or delete calendar events via calendar APIs (Google Calendar, Outlook, CalDAV). Example Related Skills - Email Sending - Notification Sending"
+    "description": "Create a calendar event representation with explicit time zone, duration, participants, and confirmation boundaries.",
+    "body": "Calendar Event Description Construct or submit a calendar event while preserving time zone, duration, attendees, and summary. External calendar writes should remain explicit actions with duplicate-prevention controls. When to Use - Preparing an iCalendar event for import. - Creating an event through a calendar API. - Translating an approved scheduling request into structured data. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Start/end time | Calendar event | Ambiguous time zone | | Summary/location | Event fields | Missing data | | Attendees | Participant list | Invalid address | | Stable event ID | Idempotent identity | Duplicate event | Runnable example Failure modes - Omitting a time zone and silently shifting the meeting. - Creating duplicates without a stable identifier. - Sending invitations when only a draft was requested. - Trusting ambiguous attendee data. Related - form-submission.md - assertion.md - email-sending.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/clipboard-ops",
@@ -1131,8 +1131,8 @@
     "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply clipboard operations in AI agent workflows.",
-    "body": "Clipboard Operations Category: Skill Level: Stability: Added: 2025-03 Description Read from or write to the system clipboard programmatically. Example Related Skills - Keyboard Input - Screenshot Capture"
+    "description": "Read or write clipboard content with explicit content handling and privacy boundaries.",
+    "body": "Clipboard Operations Description Transfer text or other supported clipboard data between an agent and the active desktop environment. Clipboard contents may contain credentials or personal data and must not be logged or exfiltrated by default. When to Use - Pasting approved text into an application. - Reading user-provided clipboard content for an explicit task. - Moving text between desktop applications. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Clipboard text | Text value | Clipboard unavailable | | Write payload | Updated clipboard | Platform error | | Privacy policy | Redacted handling | Sensitive data leakage | | Target application | Pasted value | Wrong focus/window | Runnable example Failure modes - Printing clipboard contents into logs. - Copying secrets to an unintended application. - Assuming the active window is the intended target. - Leaving sensitive data in the clipboard unnecessarily. Related - keyboard-input.md - mouse-input.md - ../14-security/input-guardrails.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/database-write",
@@ -1141,8 +1141,8 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply database write in AI agent workflows.",
-    "body": "Database Write Category: Skill Level: Stability: Added: 2025-03 Description Insert, update, or delete records in a database using SQL or ORM operations. Example Related Skills - Database Reading - SQL Query Generation"
+    "description": "Persist structured data with transaction boundaries, parameterized queries, validation, and explicit rollback behavior.",
+    "body": "Database Write Description Write validated data to a database using parameterized statements and an explicit transaction boundary. The action must make rollback behavior and authorization assumptions visible. When to Use - Creating or updating application records. - Persisting validated agent-generated state. - Applying a small transactional mutation. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Connection | Database transaction | Connection failure | | Validated fields | Insert/update result | Constraint violation | | Parameters | Safe query | Injection risk | | Commit policy | Durable state | Partial mutation | Runnable example Failure modes - Building SQL through string concatenation. - Committing before validation is complete. - Performing dependent writes without a transaction. - Logging credentials or sensitive row contents. Related - ../01-perception/database-reading.md - ../14-security/input-sanitization.md - assertion.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/drag-drop",
@@ -1151,8 +1151,8 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply drag and drop in AI agent workflows.",
-    "body": "Drag and Drop Category: Skill Level: Stability: Added: 2025-03 Description Simulate drag-and-drop interactions on a GUI — moving UI elements, files, or reordering items. Example Related Skills - Mouse Input - Screenshot Capture"
+    "description": "Perform a bounded desktop or browser drag-and-drop action using verified source and destination targets.",
+    "body": "Drag and Drop Description Move an interface object from a verified source location to a verified destination. Confirm the resulting state because coordinate-only actions are sensitive to layout changes. When to Use - Browser workflows with draggable elements. - Desktop applications with drag-and-drop controls. - Moving an explicitly identified item between targets. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Source locator | Drag gesture | Source not found | | Destination locator | Drop result | Wrong target | | Coordinate fallback | Mouse movement | Layout changed | | Postcondition | Verified state | Drop silently failed | Runnable example Failure modes - Dragging by stale coordinates. - Dropping into a destructive target without a boundary. - Assuming the gesture succeeded without checking state. - Using an untrusted locator without validation. Related - mouse-input.md - screenshot-capture.md - assertion.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/email-sending",
@@ -1161,18 +1161,18 @@
     "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply email sending in AI agent workflows.",
-    "body": "Email Sending Category: Skill Level: Stability: Added: 2025-03 Description Compose and send emails via SMTP or email service APIs (SendGrid, Resend, Gmail API). Example Related Skills - Email Parsing - Notification Sending - SendGrid API"
+    "description": "Send an approved email through a configured mail transport while validating recipients and preventing credential or content leakage.",
+    "body": "Email Sending Description Submit an email through an authorized SMTP or provider transport. Recipient, subject, body, attachments, and approval state should be explicit before sending. When to Use - Sending a message explicitly approved by the user. - Delivering an automated notification through a configured service. - Testing mail transport against a safe endpoint. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Sender/recipients | Delivery request | Invalid address | | Subject/body | Message | Content validation failure | | Mail credentials | Authenticated transport | Credential failure | | Approval state | Send/no-send decision | Unauthorized action | Runnable example Failure modes - Sending without required authorization. - Exposing SMTP passwords or API keys. - Sending to recipients inferred from ambiguous context. - Retrying without an idempotency strategy when duplicates matter. Related - ../01-perception/email-parsing.md - form-submission.md - ../14-security/approval-before-destructive-tools.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/env-vars",
-    "title": "Environment Variable Management",
+    "title": "Environment Variables",
     "category": "04-action-execution",
     "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply environment variable management in AI agent workflows.",
-    "body": "Environment Variable Management Category: Skill Level: Stability: Added: 2025-03 Description Read, set, and manage environment variables for configuration and secret injection in agent workflows. Example Related Skills - Shell Command - Secret Scanning"
+    "description": "Read and validate environment configuration without exposing secrets or confusing missing configuration with empty values.",
+    "body": "Environment Variables Description Read configuration supplied through environment variables and distinguish required, optional, empty, and malformed values. Secret values must never be printed. When to Use - Loading API credentials or deployment configuration. - Validating required runtime settings. - Keeping environment-specific values outside repository source. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Variable name | Value or absence | Missing variable | | Required flag | Validation result | Required value missing | | Default | Resolved configuration | Unsafe default | | Secret classification | Safe handling | Secret disclosure | Runnable example Failure modes - Printing environment variables wholesale. - Committing secret-bearing environment files. - Treating an empty value as a valid credential. - Using a permissive production default. Related - ../14-security/input-sanitization.md - ../07-tool-use/tool-guardrails.md - file-write.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/file-append",
@@ -1181,18 +1181,18 @@
     "level": "basic",
     "stability": "stable",
     "tags": [],
-    "description": "Apply file append in AI agent workflows.",
-    "body": "File Append Category: Skill Level: Stability: Added: 2025-03 Description Append content to an existing file without overwriting it — used for logs, running records, and incremental output. Example Related Skills - File Write - File Delete"
+    "description": "Append text or bytes to a file with explicit encoding, newline, locking, and error semantics.",
+    "body": "File Append Description Append content to an existing file without replacing prior content. Define encoding and newline behavior and consider locking when multiple processes can write concurrently. When to Use - Appending audit records or logs. - Adding generated entries to a text file. - Updating append-only artifacts where replacement is not appropriate. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Path | Updated file | Permission error | | Content | Appended bytes | Encoding error | | Encoding/newline | Deterministic text | Format drift | | Lock policy | Serialized write | Concurrent writers | Runnable example Failure modes - Appending unbounded data without rotation. - Concurrent writers interleaving records. - Mixing incompatible encodings. - Treating an append-only file as tamper-proof evidence. Related - file-write.md - ../01-perception/file-system-reading.md - assertion.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/file-delete",
     "title": "File Delete",
     "category": "04-action-execution",
-    "level": "basic",
+    "level": "intermediate",
     "stability": "stable",
     "tags": [],
-    "description": "Apply file delete in AI agent workflows.",
-    "body": "File Delete Category: Skill Level: Stability: Added: 2025-03 Description Delete a file or directory from the file system as part of an agent workflow (cleanup, rollback, temp file removal). Example Related Skills - File Write - File Append - Rollback / Undo"
+    "description": "Delete a verified filesystem target only after path validation, scope checks, and any required approval boundary.",
+    "body": "File Delete Description Remove a filesystem entry only after resolving the intended path and confirming that the target is within the permitted scope. Destructive deletion must fail closed when path or authorization is ambiguous. When to Use - Removing temporary artifacts. - Deleting an explicitly identified file or directory. - Cleaning generated output inside a controlled workspace. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Target path | Deletion result | Target missing | | Allowed root | Scope validation | Path escape | | Recursive flag | Controlled removal | Accidental directory deletion | | Approval state | Allowed action | Unauthorized deletion | Runnable example Failure modes - Deleting from an untrusted path string. - Following a symlink outside the permitted workspace. - Recursive deletion without explicit scope. - Treating a missing target as proof of successful deletion. Related - file-write.md - ../01-perception/file-system-reading.md - ../14-security/approval-before-destructive-tools.md Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
   },
   {
     "id": "04-action-execution/file-write",
