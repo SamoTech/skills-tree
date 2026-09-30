@@ -209,3 +209,16 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Decision:** Modernize ten tool-use skills with explicit contracts, runnable guidance, synchronized Agent Skills projections, and unchanged quality/security gates.
 
 **Status:** IN PROGRESS — staged pending PR CI.
+
+
+## DECISION-2026-09-30-TOOL-USE-BATCH-02
+
+**Topic:** Continue controlled 07-tool-use stub modernization.
+
+**Decision:** Modernize the next ten tool-use skills with explicit contracts, runnable examples, evidence references, synchronized Agent Skills projections, and unchanged repository quality/security gates.
+
+**Scope:** image-gen-tool, jira-api, linear-api, maps-geolocation, mcp-tool, news-api, notion-api, pdf-tool, sendgrid-api, slack-api.
+
+**Status:** IN PROGRESS — staged on branch coo/tool-use-batch-02-2026-09-30 pending PR CI.
+
+**Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, evidence, or documentation incompatibility.
