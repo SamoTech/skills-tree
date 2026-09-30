@@ -3,8 +3,10 @@ title: "Constraint Satisfaction"
 category: 02-reasoning
 level: advanced
 stability: stable
-description: "Apply constraint satisfaction in AI agent workflows."
+version: v2
+description: "Find assignments that satisfy explicit variables, domains, and constraints, reporting conflicts or unsatisfied constraints when no solution exists."
 added: "2025-03"
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-constraint-satisfaction.json)
@@ -113,3 +115,28 @@ If no solution exists, explain which constraints conflict.
 - [Mathematical Reasoning](mathematical-reasoning.md)
 - [Decision Making](decision-making.md)
 - [Task Decomposition](task-decomposition.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

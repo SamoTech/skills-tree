@@ -3,8 +3,10 @@ title: "Counterfactual Reasoning"
 category: 02-reasoning
 level: advanced
 stability: stable
-description: "Apply counterfactual reasoning in AI agent workflows."
+version: v2
+description: "Analyze bounded alternative scenarios by identifying the factual world, intervention, causal assumptions, and differences in outcomes."
 added: "2025-03"
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-counterfactual-reasoning.json)
@@ -96,3 +98,28 @@ Steps:
 - [Hypothesis Generation](hypothesis-generation.md)
 - [Risk Assessment](risk-assessment.md)
 - [Self-Correction](self-correction.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

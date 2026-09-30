@@ -3,8 +3,10 @@ title: "Hypothesis Generation"
 category: 02-reasoning
 level: advanced
 stability: stable
-description: "Apply hypothesis generation in AI agent workflows."
+version: v2
+description: "Generate multiple testable explanations for an observation, compare them using stated evidence, and identify discriminating checks."
 added: "2025-03"
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-hypothesis-generation.json)
@@ -37,3 +39,15 @@ Next: Check deploy logs and provider status page.
 - [Causal Reasoning](causal.md)
 - [Inductive Reasoning](inductive-reasoning.md)
 - [Deductive Reasoning](deductive-reasoning.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
