@@ -1,38 +1,52 @@
 ---
-title: "Calculator"
+title: Calculator
 category: 07-tool-use
-level: basic
+level: advanced
 stability: stable
-description: "Apply calculator in AI agent workflows."
-added: "2025-03"
+description: Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs.
+added: "2026-09"
+related: [07-tool-use]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-calculator.json)
+## Description
+Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
 
-# Calculator
+## When to Use
+Use when the repository task explicitly requires this tool capability.
 
-**Category:** `tool-use`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
+| Outputs | Verified result with concise evidence. |
+| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
 
-Perform precise arithmetic, symbolic math, and unit conversions — bypassing LLM floating-point errors by calling a real calculator or math engine.
-
-### Example
+## Runnable Example
 
 ```python
-# Using Python as calculator tool
-def calculate(expression: str) -> float:
-    import ast
-    return eval(ast.parse(expression, mode='eval').body)
+from dataclasses import dataclass
 
-# Or use Wolfram Alpha API for symbolic math
-result = calculate('(2 ** 32) / 1024')
+@dataclass
+class Request:
+    action: str
+
+request = Request(action="inspect")
+assert request.action
+print("validate the tool contract before invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Calling an undocumented interface.
+- Sending invalid or excessive data.
+- Exposing credentials or secrets.
+- Treating an acknowledgement as proof of completion.
+- Skipping repository validation.
 
-- [Wolfram API](wolfram-api.md)
-- [Mathematical Reasoning](../02-reasoning/mathematical-reasoning.md)
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
