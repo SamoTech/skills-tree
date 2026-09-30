@@ -6,8 +6,8 @@
 
 - **Total skill files:** 374
 - 🟢 **Battle-tested** (rich content + tables + >=60 lines): 130
-- 🟡 **Enriched** (real description + runnable code): 17
-- ⚪ **Stub** (placeholder description or no runnable code): 227
+- 🟡 **Enriched** (real description + runnable code): 54
+- ⚪ **Stub** (placeholder description or no runnable code): 190
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -18,10 +18,10 @@
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
 | `03-memory` | 19 | 11 | 0 | 8 | 0 |
-| `04-action-execution` | 21 | 11 | 1 | 9 | 0 |
-| `05-code` | 28 | 5 | 0 | 23 | 0 |
+| `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
+| `05-code` | 28 | 5 | 22 | 1 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
-| `07-tool-use` | 33 | 6 | 0 | 27 | 0 |
+| `07-tool-use` | 33 | 6 | 6 | 21 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
 | `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
@@ -124,11 +124,11 @@
 - [`skills/04-action-execution/file-delete.md`](skills/04-action-execution/file-delete.md) — File Delete
 - [`skills/04-action-execution/file-write.md`](skills/04-action-execution/file-write.md) — File Write
 - [`skills/04-action-execution/http-request.md`](skills/04-action-execution/http-request.md) — HTTP Request
+- [`skills/05-code/algorithm-design.md`](skills/05-code/algorithm-design.md) — Algorithm Design
+- [`skills/05-code/api-client-generation.md`](skills/05-code/api-client-generation.md) — Api Client Generation
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
 - [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
-- [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — Code Review
-- [`skills/05-code/dependency-auditor.md`](skills/05-code/dependency-auditor.md) — Dependency Auditor
 - [`skills/06-communication/paraphrasing.md`](skills/06-communication/paraphrasing.md) — Paraphrasing
 - [`skills/06-communication/summarization.md`](skills/06-communication/summarization.md) — Summarization
 - [`skills/06-communication/translation.md`](skills/06-communication/translation.md) — Translation
@@ -183,6 +183,43 @@
 - [`skills/02-reasoning/mathematical-reasoning.md`](skills/02-reasoning/mathematical-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/04-action-execution/drag-drop.md`](skills/04-action-execution/drag-drop.md) — missing table or <60 lines
+- [`skills/04-action-execution/form-submission.md`](skills/04-action-execution/form-submission.md) — missing table or <60 lines
+- [`skills/04-action-execution/keyboard-input.md`](skills/04-action-execution/keyboard-input.md) — missing table or <60 lines
+- [`skills/04-action-execution/mouse-input.md`](skills/04-action-execution/mouse-input.md) — missing table or <60 lines
+- [`skills/04-action-execution/notification-sending.md`](skills/04-action-execution/notification-sending.md) — missing table or <60 lines
+- [`skills/04-action-execution/process-management.md`](skills/04-action-execution/process-management.md) — missing table or <60 lines
+- [`skills/04-action-execution/screenshot-capture.md`](skills/04-action-execution/screenshot-capture.md) — missing table or <60 lines
+- [`skills/04-action-execution/scroll.md`](skills/04-action-execution/scroll.md) — missing table or <60 lines
+- [`skills/04-action-execution/shell-command.md`](skills/04-action-execution/shell-command.md) — missing table or <60 lines
+- [`skills/04-action-execution/wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — missing table or <60 lines
+- [`skills/05-code/cicd-generation.md`](skills/05-code/cicd-generation.md) — missing table or <60 lines
+- [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — missing table or <60 lines
+- [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — missing table or <60 lines
+- [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — missing table or <60 lines
+- [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — missing table or <60 lines
+- [`skills/05-code/code-translation.md`](skills/05-code/code-translation.md) — missing table or <60 lines
+- [`skills/05-code/db-schema-design.md`](skills/05-code/db-schema-design.md) — missing table or <60 lines
+- [`skills/05-code/debugging.md`](skills/05-code/debugging.md) — missing table or <60 lines
+- [`skills/05-code/dependency-auditor.md`](skills/05-code/dependency-auditor.md) — missing table or <60 lines
+- [`skills/05-code/dependency-management.md`](skills/05-code/dependency-management.md) — missing table or <60 lines
+- [`skills/05-code/dockerfile-generation.md`](skills/05-code/dockerfile-generation.md) — missing table or <60 lines
+- [`skills/05-code/documentation-generation.md`](skills/05-code/documentation-generation.md) — missing table or <60 lines
+- [`skills/05-code/git-operations.md`](skills/05-code/git-operations.md) — missing table or <60 lines
+- [`skills/05-code/github-api.md`](skills/05-code/github-api.md) — missing table or <60 lines
+- [`skills/05-code/integration-test-writing.md`](skills/05-code/integration-test-writing.md) — missing table or <60 lines
+- [`skills/05-code/linting-formatting.md`](skills/05-code/linting-formatting.md) — missing table or <60 lines
+- [`skills/05-code/performance-profiling.md`](skills/05-code/performance-profiling.md) — missing table or <60 lines
+- [`skills/05-code/refactoring.md`](skills/05-code/refactoring.md) — missing table or <60 lines
+- [`skills/05-code/regex-generation.md`](skills/05-code/regex-generation.md) — missing table or <60 lines
+- [`skills/05-code/repl-interaction.md`](skills/05-code/repl-interaction.md) — missing table or <60 lines
+- [`skills/05-code/sql-query-generation.md`](skills/05-code/sql-query-generation.md) — missing table or <60 lines
+- [`skills/05-code/unit-test-generation.md`](skills/05-code/unit-test-generation.md) — missing table or <60 lines
+- [`skills/07-tool-use/a2a-tool.md`](skills/07-tool-use/a2a-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/browser-tool.md`](skills/07-tool-use/browser-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/calculator.md`](skills/07-tool-use/calculator.md) — missing table or <60 lines
+- [`skills/07-tool-use/code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — missing table or <60 lines
+- [`skills/07-tool-use/file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — missing table or <60 lines
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
 - [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
 
@@ -198,38 +235,7 @@
 - [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — description matches placeholder pattern: 'Apply user profile in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — description matches placeholder pattern: 'Apply working memory in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/form-submission.md`](skills/04-action-execution/form-submission.md) — description matches placeholder pattern: 'Apply form submission in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/keyboard-input.md`](skills/04-action-execution/keyboard-input.md) — description matches placeholder pattern: 'Apply keyboard input in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/mouse-input.md`](skills/04-action-execution/mouse-input.md) — description matches placeholder pattern: 'Apply mouse input in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/notification-sending.md`](skills/04-action-execution/notification-sending.md) — description matches placeholder pattern: 'Apply notification sending in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/process-management.md`](skills/04-action-execution/process-management.md) — description matches placeholder pattern: 'Apply process management in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/screenshot-capture.md`](skills/04-action-execution/screenshot-capture.md) — description matches placeholder pattern: 'Apply screenshot capture (action) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/scroll.md`](skills/04-action-execution/scroll.md) — description matches placeholder pattern: 'Apply scroll in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/shell-command.md`](skills/04-action-execution/shell-command.md) — description matches placeholder pattern: 'Apply shell command execution in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — description matches placeholder pattern: 'Apply wait / sleep in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/algorithm-design.md`](skills/05-code/algorithm-design.md) — description matches placeholder pattern: 'Apply algorithm design in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/api-client-generation.md`](skills/05-code/api-client-generation.md) — description matches placeholder pattern: 'Apply api client generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/cicd-generation.md`](skills/05-code/cicd-generation.md) — description matches placeholder pattern: 'Apply ci/cd pipeline generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — description matches placeholder pattern: 'Apply code execution (sandbox) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — description matches placeholder pattern: 'Apply code explanation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — description matches placeholder pattern: 'Apply code search in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/code-translation.md`](skills/05-code/code-translation.md) — description matches placeholder pattern: 'Apply code translation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/db-schema-design.md`](skills/05-code/db-schema-design.md) — description matches placeholder pattern: 'Apply database schema design in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/debugging.md`](skills/05-code/debugging.md) — description matches placeholder pattern: 'Apply debugging in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/dependency-management.md`](skills/05-code/dependency-management.md) — description matches placeholder pattern: 'Apply dependency management in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/dockerfile-generation.md`](skills/05-code/dockerfile-generation.md) — description matches placeholder pattern: 'Apply dockerfile generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/documentation-generation.md`](skills/05-code/documentation-generation.md) — description matches placeholder pattern: 'Apply documentation generation in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/05-code/git-operations.md`](skills/05-code/git-operations.md) — description matches placeholder pattern: 'Apply git operations in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/github-api.md`](skills/05-code/github-api.md) — description matches placeholder pattern: 'Apply github api (code) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/integration-test-writing.md`](skills/05-code/integration-test-writing.md) — description matches placeholder pattern: 'Apply integration test writing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/linting-formatting.md`](skills/05-code/linting-formatting.md) — description matches placeholder pattern: 'Apply linting & formatting in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/performance-profiling.md`](skills/05-code/performance-profiling.md) — description matches placeholder pattern: 'Apply performance profiling in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/refactoring.md`](skills/05-code/refactoring.md) — description matches placeholder pattern: 'Apply refactoring in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/regex-generation.md`](skills/05-code/regex-generation.md) — description matches placeholder pattern: 'Apply regex generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/repl-interaction.md`](skills/05-code/repl-interaction.md) — description matches placeholder pattern: 'Apply repl interaction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — description matches placeholder pattern: 'Apply security scanning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/sql-query-generation.md`](skills/05-code/sql-query-generation.md) — description matches placeholder pattern: 'Apply sql query generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/05-code/unit-test-generation.md`](skills/05-code/unit-test-generation.md) — description matches placeholder pattern: 'Apply unit test generation in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — description matches placeholder pattern: 'Apply argument construction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/citation-attribution.md`](skills/06-communication/citation-attribution.md) — description matches placeholder pattern: 'Apply citation & attribution in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/06-communication/clarification-seeking.md`](skills/06-communication/clarification-seeking.md) — description matches placeholder pattern: 'Apply clarification seeking in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -242,12 +248,6 @@
 - [`skills/06-communication/report-writing.md`](skills/06-communication/report-writing.md) — description matches placeholder pattern: 'Apply report writing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/structured-output.md`](skills/06-communication/structured-output.md) — description matches placeholder pattern: 'Apply structured output in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — description matches placeholder pattern: 'Apply tone adjustment in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/a2a-tool.md`](skills/07-tool-use/a2a-tool.md) — description matches placeholder pattern: 'Apply agent-to-agent tool (a2a) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/browser-tool.md`](skills/07-tool-use/browser-tool.md) — description matches placeholder pattern: 'Apply browser tool in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/calculator.md`](skills/07-tool-use/calculator.md) — description matches placeholder pattern: 'Apply calculator in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — description matches placeholder pattern: 'Apply code execution tool in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — description matches placeholder pattern: 'Apply custom api wrapper in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — description matches placeholder pattern: 'Apply file system tool in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/github-api.md`](skills/07-tool-use/github-api.md) — description matches placeholder pattern: 'Apply github api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — description matches placeholder pattern: 'Apply google workspace api in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — description matches placeholder pattern: 'Apply huggingface api in AI agent workflows'; no inputs/outputs/failure-modes table
