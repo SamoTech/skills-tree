@@ -1,41 +1,56 @@
 ---
-title: "Wait / Sleep"
+title: "Wait Sleep"
 category: 04-action-execution
 level: basic
 stability: stable
-description: "Apply wait / sleep in AI agent workflows."
-added: "2025-03"
+description: "Pause for a bounded duration or polling interval without treating elapsed time as proof of state."
+added: "2026-09"
+related: [assertion, process-management, automation-review]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-wait-sleep.json)
+# Wait Sleep
 
-# Wait / Sleep
+## Description
 
-**Category:** `action-execution`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+Pause for a bounded duration or polling interval without treating elapsed time as proof of state.
 
-### Description
+## When to Use
 
-Pause agent execution for a fixed duration or until a condition is met — used for rate limiting, polling, and timing coordination.
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
 
-### Example
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
 
 ```python
 import time
-
-# Fixed wait
-time.sleep(2)
-
-# Poll until condition
-for _ in range(30):
-    if job_is_done():
-        break
-    time.sleep(1)
+def bounded_wait(seconds, maximum=30):
+    if not 0 <= seconds <= maximum: raise ValueError("out of bounds")
+    time.sleep(seconds)
+    print("wait completed")
 ```
 
-### Related Skills
+## Failure modes
 
-- [Retry / Backoff](../15-orchestration/retry-backoff.md)
-- [Process Management](process-management.md)
+Long fixed waits; unbounded polling; busy waiting; assuming time proves state.
+
+## Related
+
+- `assertion.md`
+- `process-management.md`
+- `automation-review.md`
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows
