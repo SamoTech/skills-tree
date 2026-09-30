@@ -27,3 +27,5 @@ metadata:
 - https://platform.openai.com/docs/guides/text
 - https://docs.anthropic.com/en/api/messages
 - https://agentskills.io/specification
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
