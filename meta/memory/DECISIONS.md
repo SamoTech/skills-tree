@@ -131,3 +131,13 @@ Reopen Conditions: Reopen only after a documented replacement governance model p
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the canonical skill schema, evidence contract, or quality classification changes materially.
+
+
+# DECISION-2026-09-30-PROJECT-OPERATING-SKILLS
+DECISION-ID: DECISION-2026-09-30-PROJECT-OPERATING-SKILLS
+Topic: Reusable AI operating skills for repository execution
+Decision: Encode the repository's established state-loading, documentation-drift, evidence-verification, automation-review, and execution-handoff procedures as reusable skills under the canonical orchestration taxonomy. Agent Skills projections are created only through the repository's existing skills-to-agent-skills contract; governance documents remain authoritative.
+Confidence: HIGH
+Evidence IDs: GOV-001, PROJECT-SKILLS-20260930
+Status: LOCKED
+Reopen Conditions: Reopen if the repository governance model, canonical skill projection contract, or agent operating lifecycle materially changes.

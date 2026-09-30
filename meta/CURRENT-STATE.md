@@ -77,3 +77,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Skill validation is read-only and does not mutate contributor branches.
 - Dependabot automation does not auto-approve or auto-merge dependency updates.
 - Agent-facing skill instructions are explicitly treated as a supply-chain/security surface.
+
+
+## Project-operating skills
+
+- Added reusable repository-operation skills under skills/15-orchestration/ for state loading, documentation-drift resolution, evidence verification, automation review, and execution handoff.
+- Added Agent Skills projections where the repository projection path was successfully created.
+- These skills encode the existing AI_CONSTITUTION.md, AGENTS.md, and agent operating model rather than creating a competing governance system.
+- Validation status: branch-level content inspection passed; PR CI remains the authoritative verification gate before merge.
