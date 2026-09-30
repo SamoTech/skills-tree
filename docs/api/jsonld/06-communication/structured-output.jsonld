@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:28:12Z",
+  "dateModified": "2026-09-30T10:35:14Z",
   "skillId": "structured-output",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "output, LLM skill, skills tree, communication, AI agent, structured",
+  "keywords": "LLM skill, structured, AI agent, output, skills tree, communication",
   "about": {
     "@type": "Thing",
     "name": "Structured Output",

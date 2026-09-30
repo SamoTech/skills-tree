@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T10:28:12Z",
+  "dateModified": "2026-09-30T10:35:14Z",
   "skillId": "dependency-auditor",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "auditor, infrastructure, LLM skill, skills tree, AI agent, dependency",
+  "keywords": "LLM skill, infrastructure, AI agent, auditor, skills tree, dependency",
   "about": {
     "@type": "Thing",
     "name": "Dependency Auditor",
