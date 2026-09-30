@@ -44,6 +44,12 @@ git log -5 --oneline
 | CI/security evidence | Completion state | Gates remain unresolved |
 | Current state and decisions | Continuation packet | Handoff omits material context |
 
+## Related
+
+- `repository-state-load.md`
+- `evidence-verification.md`
+- `documentation-drift-resolution.md`
+
 ## Evidence
 
 - AI_CONSTITUTION.md
