@@ -3,8 +3,10 @@ title: "Commonsense Reasoning"
 category: 02-reasoning
 level: basic
 stability: stable
-description: "Apply commonsense reasoning in AI agent workflows."
+version: v2
+description: "Apply everyday physical, social, temporal, and causal assumptions while making implicit assumptions explicit and treating unusual cases as uncertain."
 added: "2025-03"
+related: []
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-commonsense.json)
@@ -117,3 +119,16 @@ print(json.dumps(result, indent=2))
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, umbrella example |
 | `2025-03` | Initial stub entry |
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
