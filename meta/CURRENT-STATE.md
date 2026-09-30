@@ -5,7 +5,7 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-09-30
-- Main HEAD: `e34d71e6cf7e980871bf71fb084b46c0f5617127`
+- Main HEAD: `ee427de8705dba318a32d8c7be82bbdac53f80f8`
 - Skill files: 369
 - Battle-tested: 60
 - Enriched: 3
@@ -14,7 +14,7 @@
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
 - Open substantive PRs requiring current-main revalidation: #145, #146, #155, #156, #142
-- Governance implementation: `governance/ai-coo-operating-model` branch adds `AI_CONSTITUTION.md` and `AGENTS.md`; this branch is pending review/merge.
+- Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
 
 ## Validation and CI state
 
