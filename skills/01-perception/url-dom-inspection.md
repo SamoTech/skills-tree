@@ -3,7 +3,9 @@ title: "URL / DOM Inspection"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply url / dom inspection in AI agent workflows."
+version: v2
+description: "Inspect authorized public web pages and DOM structures to extract metadata, links, structured data, text, and interactive elements with bounded fetching and explicit provenance."
+related: []
 added: "2025-03"
 ---
 
@@ -124,3 +126,16 @@ print(json.dumps(result, indent=2))
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, httpx+BeautifulSoup example |
 | `2025-03` | Initial stub entry |
+
+## Failure Modes
+
+- Untrusted or malformed input: validate format, bound resource usage, and preserve parser or model uncertainty.
+- Ambiguous visual or telemetry evidence: distinguish observed values from inferred interpretation and retain source references.
+- Sensitive or unauthorized source: require authorization, minimize retained data, and do not expose unrelated content.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: implementation guidance is grounded in the cited standards or primary implementation references; no benchmark claim is made without reproducible benchmark evidence.
