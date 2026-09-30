@@ -3,8 +3,9 @@ title: "Audio Transcription"
 category: 01-perception
 level: intermediate
 stability: stable
+version: v2
 added: "2025-03"
-description: "Apply audio transcription in AI agent workflows."
+description: "Transcribe spoken audio into timestamped text and, when a compatible diarization model is available, speaker-attributed segments. Use it for meetings, interviews, captions, and other speech-to-text pipelines."
 dependencies:
   - package: openai-whisper
     min_version: "20231117"
@@ -72,3 +73,22 @@ def transcribe_with_diarization(audio_path: str) -> list[dict]:
 
 ### Related Skills
 - `video-understanding`, `summarization`, `text-reading`, `image-understanding`
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- OpenAI Whisper implementation: https://github.com/openai/whisper
+- Whisper transcription options include word-level timestamps and initial prompts: https://github.com/openai/whisper/blob/main/whisper/transcribe.py
+- pyannote.audio: https://github.com/pyannote/pyannote-audio
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
