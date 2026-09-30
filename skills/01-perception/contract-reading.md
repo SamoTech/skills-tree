@@ -3,7 +3,8 @@ title: "Contract Reading"
 category: 01-perception
 level: intermediate
 stability: stable
-description: "Apply contract reading in AI agent workflows."
+version: v2
+description: "Extract contract structure, parties, dates, obligations, definitions, and termination or payment clauses while preserving source spans and uncertainty. Use it for document analysis, not as a substitute for legal advice or legal review."
 added: "2025-03"
 ---
 
@@ -53,3 +54,12 @@ fields = json.loads(response.content[0].text)
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- Agent Skills specification: https://agentskills.io/specification
+- Python JSON tooling for structured extraction: https://docs.python.org/3/library/json.html
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
