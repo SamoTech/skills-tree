@@ -64,3 +64,16 @@ print(chain_of_thought("If a train travels 60 mph for 2.5 hours, how far does it
 - https://github.com/openai/openai-python
 
 Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- Private reasoning exposure: return concise conclusions and verification evidence rather than hidden chain-of-thought.
+- Unsupported intermediate claims: identify assumptions and verify material steps.
+- Excessive reasoning budget: bound iterations and stop when the requested result is established.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
