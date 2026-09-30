@@ -1,33 +1,47 @@
 ---
-title: "Documentation Generation"
+title: Documentation Generation
 category: 05-code
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply documentation generation in AI agent workflows."
-added: "2025-03"
+description: Generate technical documentation from verified repository behavior, interfaces, configuration, and implementation evidence.
+added: "2026-09"
+related: [05-code]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-documentation-generation.json)
+## Description
+Generate technical documentation from verified repository behavior, interfaces, configuration, and implementation evidence. Documentation must describe what the repository actually supports and must not invent APIs or capabilities.
 
-# Documentation Generation
+## When to Use
+Use when README, API, architecture, configuration, runbook, or developer documentation must be created or refreshed.
 
-**Category:** `code`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / outputs / failure modes
 
-### Description
+| Area | Guidance |
+|---|---|
+| Inputs | Source, configuration, interfaces, tests, and existing documentation. |
+| Outputs | Accurate documentation with traceable repository evidence. |
+| Failure modes | Stale claims, invented interfaces, missing prerequisites, or documentation drift. |
 
-Automatically generate docstrings, README files, API documentation, and inline comments from source code.
-
-### Example
+## Runnable Example
 
 ```python
-prompt = f"""Generate a complete Google-style docstring for this Python function:\n{source_code}"""
-docstring = llm.invoke(prompt)
+from pathlib import Path
+
+readme = Path('README.md')
+print('README exists:', readme.exists())
+print('documentation must follow verified repository behavior')
 ```
 
-### Related Skills
+## Failure modes
+- Documenting assumptions as facts.
+- Omitting prerequisites or operational constraints.
+- Updating implementation without updating required documentation.
+- Claiming verification that was not performed.
 
-- [Code Explanation](code-explanation.md)
-- [Code Generation](code-generation.md)
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
+
+## Evidence
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
