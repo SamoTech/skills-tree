@@ -156,3 +156,16 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on branch coo/action-execution-batch-01-2026-09-30 pending PR CI.
 
 **Reopen Conditions:** Reopen if validation reveals schema, security, projection, or evidence-contract incompatibility.
+
+
+## DECISION-2026-09-30-ACTION-EXECUTION-BATCH-02
+
+**Topic:** Complete the remaining 04-action-execution stub modernization.
+
+**Decision:** Convert the remaining nine action-execution stubs into evidence-backed canonical skills with standards-compatible Agent Skills projections. Preserve explicit target verification, authorization, bounds, secret handling, and postcondition checks.
+
+**Confidence:** High
+
+**Status:** IN PROGRESS — staged on branch coo/action-execution-batch-02-2026-09-30 pending PR CI.
+
+**Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, or evidence-contract incompatibility.
