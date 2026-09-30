@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Parse authorized social-media API responses or exported datasets into normalized posts, threads, authors, timestamps, and engagement metadata while respecting platform limits and privacy boundaries."
+related: []
 added: "2025-03"
 ---
 
