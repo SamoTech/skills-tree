@@ -14,9 +14,10 @@
 - DevLens health: 87/100 (README badge, updated 2026-09-30)
 - PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
 - PR #150: closed as duplicate of PR #155
-- Open substantive PRs requiring current-main revalidation: #145, #146, #155, #156, #142
+- Stale substantive PRs remain open only where GitHub safety controls prevented bulk disposition; they are not merge candidates until reconciled against current `main`.
 - Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
 - Source-of-truth cleanup: PR #162 merged on 2026-09-30 as `33b36dfa02b5acb87d517a5669f1a9eca3b50626`.
+- Security/distribution consolidation: PR #163 merged on 2026-09-30 as `2a6d2dfe50006746d7866df6890691f154840dfb`.
 
 ## Validation and CI state
 
