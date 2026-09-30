@@ -39,3 +39,11 @@ Use this skill when an agent needs to discover or inspect an AI capability from 
 - Registry: https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/api/skills.json
 - Repository: https://github.com/SamoTech/skills-tree
 - Distribution contract: docs/AGENT_SKILLS_DISTRIBUTION.md
+
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/SamoTech/skills-tree
+
+Evidence status: repository distribution guidance and canonical-source behavior are defined by the repository's distribution contract.
