@@ -23,3 +23,10 @@ metadata:
 - Copying historical metrics into current state.
 - Calling documentation complete without CI or repository verification.
 - Silently resolving a strategic conflict that requires CEO/CIO authority.
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- meta/CURRENT-STATE.md
+- meta/memory/DECISIONS.md
