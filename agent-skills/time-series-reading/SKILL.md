@@ -26,3 +26,5 @@ metadata:
 
 - https://pandas.pydata.org/docs/user_guide/timeseries.html
 - https://docs.pola.rs/
+
+Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
