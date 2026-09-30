@@ -1,0 +1,20 @@
+name: DevLens
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  security-events: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Score repository
+        uses: SamoTech/devlens@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          update_readme: 'true'
+          readme_branch: ''
+          badge_style: flat-square
