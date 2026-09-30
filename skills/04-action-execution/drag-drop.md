@@ -3,32 +3,57 @@ title: "Drag and Drop"
 category: 04-action-execution
 level: intermediate
 stability: stable
-description: "Apply drag and drop in AI agent workflows."
-added: "2025-03"
+description: "Perform a bounded desktop or browser drag-and-drop action using verified source and destination targets."
+added: "2026-09"
+related: [mouse-input, screenshot-capture, assertion]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-drag-drop.json)
 
 # Drag and Drop
 
-**Category:** `action-execution`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
 
-### Description
+Move an interface object from a verified source location to a verified destination. Confirm the resulting state because coordinate-only actions are sensitive to layout changes.
 
-Simulate drag-and-drop interactions on a GUI — moving UI elements, files, or reordering items.
+## When to Use
 
-### Example
+- Browser workflows with draggable elements.
+- Desktop applications with drag-and-drop controls.
+- Moving an explicitly identified item between targets.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Source locator | Drag gesture | Source not found |
+| Destination locator | Drop result | Wrong target |
+| Coordinate fallback | Mouse movement | Layout changed |
+| Postcondition | Verified state | Drop silently failed |
+
+## Runnable example
 
 ```python
-import pyautogui
-# Drag from (100, 200) to (400, 200) over 0.5 seconds
-pyautogui.drag(300, 0, duration=0.5, button='left')
+source = page.locator("[data-testid='source']")
+target = page.locator("[data-testid='target']")
+source.drag_to(target)
+assert target.get_attribute("data-state") == "received"
+print("drop verified")
 ```
 
-### Related Skills
+## Failure modes
 
-- [Mouse Input](mouse-input.md)
-- [Screenshot Capture](screenshot-capture.md)
+- Dragging by stale coordinates.
+- Dropping into a destructive target without a boundary.
+- Assuming the gesture succeeded without checking state.
+- Using an untrusted locator without validation.
+
+## Related
+
+- mouse-input.md
+- screenshot-capture.md
+- assertion.md
+
+## Evidence
+
+- AI_CONSTITUTION.md
+- AGENTS.md
+- Repository security and validation workflows
