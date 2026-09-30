@@ -4,9 +4,9 @@
 
 ## Summary
 
-- **Total skill files:** 369
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 118
-- 🟡 **Enriched** (real description + runnable code): 14
+- **Total skill files:** 374
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 121
+- 🟡 **Enriched** (real description + runnable code): 16
 - ⚪ **Stub** (placeholder description or no runnable code): 237
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
@@ -29,7 +29,7 @@
 | `12-data` | 18 | 1 | 0 | 17 | 0 |
 | `13-creative` | 14 | 0 | 0 | 14 | 0 |
 | `14-security` | 13 | 4 | 0 | 9 | 0 |
-| `15-orchestration` | 22 | 6 | 0 | 16 | 0 |
+| `15-orchestration` | 27 | 9 | 2 | 16 | 0 |
 | `16-domain-specific` | 28 | 1 | 0 | 27 | 0 |
 | `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
 
@@ -146,9 +146,12 @@
 - [`skills/14-security/input-guardrails.md`](skills/14-security/input-guardrails.md) — Input Guardrails
 - [`skills/14-security/input-sanitization.md`](skills/14-security/input-sanitization.md) — Input Sanitization
 - [`skills/14-security/output-guardrails.md`](skills/14-security/output-guardrails.md) — Output Guardrails
+- [`skills/15-orchestration/automation-review.md`](skills/15-orchestration/automation-review.md) — Automation Review
+- [`skills/15-orchestration/documentation-drift-resolution.md`](skills/15-orchestration/documentation-drift-resolution.md) — Documentation Drift Resolution
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
 - [`skills/15-orchestration/langgraph-checkpointing.md`](skills/15-orchestration/langgraph-checkpointing.md) — LangGraph Checkpointing
 - [`skills/15-orchestration/multi-agent-run-config.md`](skills/15-orchestration/multi-agent-run-config.md) — Multi-Agent Run Config
+- [`skills/15-orchestration/repository-state-load.md`](skills/15-orchestration/repository-state-load.md) — Repository State Load
 - [`skills/15-orchestration/specialist-agent-routing.md`](skills/15-orchestration/specialist-agent-routing.md) — Specialist Agent Routing
 - [`skills/15-orchestration/stateful-agent-graphs.md`](skills/15-orchestration/stateful-agent-graphs.md) — Stateful Agent Graphs
 - [`skills/15-orchestration/thread-based-resume.md`](skills/15-orchestration/thread-based-resume.md) — Thread-Based Resume
@@ -170,6 +173,8 @@
 - [`skills/02-reasoning/inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/mathematical-reasoning.md`](skills/02-reasoning/mathematical-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
+- [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
+- [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
 
 ## ⚪ Stubs
 
