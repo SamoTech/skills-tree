@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: build-graph-${{ github.ref }}
-  cancel-in-progress: true
+  group: auto-commit-main
+  cancel-in-progress: false
 
 permissions: {}
 
