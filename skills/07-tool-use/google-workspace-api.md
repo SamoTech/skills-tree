@@ -3,52 +3,57 @@ title: "Google Workspace API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-description: "Apply google workspace api in AI agent workflows."
-added: "2025-03"
-dependencies:
-  - package: google-api-python-client
-    min_version: "2.100.0"
-    tested_version: "2.130.0"
-    confidence: verified
-  - package: google-auth
-    min_version: "2.23.0"
-    tested_version: "2.29.0"
-    confidence: verified
-code_blocks:
-  - id: "example-sheets"
-    type: illustrative
-    note: "Requires OAuth2 credentials setup — illustrative only"
+description: "Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-google-workspace-api.json)
 
 # Google Workspace API
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires google workspace api, the target account or resource is authorized, and the provider contract is documented.
 
-Interact with Google Docs, Sheets, Drive, Gmail, and Calendar programmatically via the Google Workspace APIs.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
 
-```python type:illustrative
-# pip install google-api-python-client google-auth
-# Note: `googleapiclient` is the import name for PyPI package `google-api-python-client`
-from googleapiclient.discovery import build
+## Runnable Example
 
-# Read a Google Sheet
-service = build('sheets', 'v4', credentials=creds)
-result = service.spreadsheets().values().get(
-    spreadsheetId=SHEET_ID, range='Sheet1!A1:D10'
-).execute()
-rows = result.get('values', [])
+```python
+import os
+
+request = {
+    "capability": "google-workspace-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
 
-- [Calendar Event](../04-action-execution/calendar-event.md)
-- [Email Sending](../04-action-execution/email-sending.md)
+## Evidence
+- Provider documentation: https://developers.google.com/workspace
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails
