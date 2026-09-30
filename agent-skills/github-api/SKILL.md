@@ -9,21 +9,18 @@ metadata:
 
 # Github Api
 
-1. Load the repository state and identify the exact requirement, affected components, and existing contracts.
-2. Inspect relevant source, configuration, tests, and documentation before editing.
-3. Define the smallest change that satisfies the requirement without weakening quality or security controls.
-4. Implement the change with explicit handling for invalid, missing, or incompatible inputs.
-5. Run the most relevant repository validation and inspect failures rather than bypassing them.
-6. Record concise evidence of the implementation and verification performed.
+1. Identify the documented endpoint and required scope.
+2. Validate request parameters and pagination behavior.
+3. Make the API request without exposing credentials.
+4. Inspect status, response semantics, and errors.
+5. Verify any claimed repository state change independently.
 
 ## Failure modes
-- Ambiguous requirements or missing repository context.
-- Unintended interface or behavior changes.
-- Incomplete tests or verification.
-- Validator bypasses or weakened security controls.
-- Completion claims without evidence.
+- Wrong endpoint or request shape.
+- Excessive permissions or exposed credentials.
+- Pagination or rate-limit errors.
+- Completion claims without state verification.
 
 ## Evidence
-- Canonical skill: [skills/05-code/github-api.md](../../skills/05-code/github-api.md)
-- Repository governance: [AI_CONSTITUTION.md](../../AI_CONSTITUTION.md)
-- Agent operating model: [meta/AGENT_OPERATING_MODEL.md](../../meta/AGENT_OPERATING_MODEL.md)
+Canonical skill: skills/05-code/github-api.md
+Repository governance: AI_CONSTITUTION.md
