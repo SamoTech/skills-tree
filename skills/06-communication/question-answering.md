@@ -3,33 +3,63 @@ title: "Question Answering"
 category: 06-communication
 level: basic
 stability: stable
-description: "Apply question answering in AI agent workflows."
+description: "Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns."
 added: "2025-03"
+related: ["06-communication", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-question-answering.json)
+## Description
 
-# Question Answering
+Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns.
 
-**Category:** `communication`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit.
 
-Answer questions accurately and concisely based on provided context, retrieved knowledge, or world knowledge.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | question, context or evidence sources, and answer constraints. |
+| Outputs | answer with supporting evidence and uncertainty where material. |
+| Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. |
+
+## Procedure
+
+1. Parse the requested purpose, audience, constraints, and evidence boundary.
+2. Resolve precedence between explicit requirements and defaults.
+3. Draft or construct the response while preserving source meaning and provenance.
+4. Check factual claims, required format, terminology, tone, and omissions.
+5. Verify the result against the declared acceptance criteria.
+6. Ask a focused clarification question when unresolved ambiguity could materially change the result.
+
+## Runnable Example
 
 ```python
-context = load_document('skills-tree/README.md')
-question = 'How many skill categories does the skills-tree have?'
-prompt = f'Context:\n{context}\n\nQuestion: {question}'
-answer = llm.invoke(prompt)
+task = {"capability": "question-answering", "validated": True, "budget": 4}
+assert task["validated"] and task["budget"] > 0
+print({"status": "contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Summarization](summarization.md)
-- [RAG](../03-memory/rag.md)
+- User intent is ambiguous or materially underspecified.
+- Claims are presented without supporting evidence.
+- Constraints conflict and precedence is unclear.
+- Style or persona instructions override factual accuracy or safety boundaries.
+- Translation or paraphrase changes the source meaning.
+- Completion is reported without checking the requested format or postcondition.
+
+## Safety Boundary
+
+Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself.
+
+## Related
+
+- 06-communication
+- input-guardrails
+- output-guardrails

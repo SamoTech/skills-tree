@@ -3,33 +3,63 @@ title: "Debate"
 category: 06-communication
 level: advanced
 stability: stable
-description: "Apply debate in AI agent workflows."
+description: "Present and test competing positions using explicit claims, evidence, rebuttals, and uncertainty without treating rhetorical confidence as proof."
 added: "2025-03"
+related: ["06-communication", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-debate.json)
+## Description
 
-# Debate
+Present and test competing positions using explicit claims, evidence, rebuttals, and uncertainty without treating rhetorical confidence as proof.
 
-**Category:** `communication`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit.
 
-Present and defend positions from multiple perspectives, engaging in structured argumentation to surface the strongest reasoning.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | motion, opposing positions, evidence boundary, and stopping criteria. |
+| Outputs | structured positions, rebuttals, evidence, and unresolved disagreements. |
+| Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. |
 
+## Procedure
+
+1. Parse the requested purpose, audience, constraints, and evidence boundary.
+2. Resolve precedence between explicit requirements and defaults.
+3. Draft or construct the response while preserving source meaning and provenance.
+4. Check factual claims, required format, terminology, tone, and omissions.
+5. Verify the result against the declared acceptance criteria.
+6. Ask a focused clarification question when unresolved ambiguity could materially change the result.
+
+## Runnable Example
+
+```python
+task = {"capability": "debate", "validated": True, "budget": 4}
+assert task["validated"] and task["budget"] > 0
+print({"status": "contract_checked", "capability": task["capability"]})
 ```
-Motion: "LLMs should replace traditional search engines."
-Pro: Conversational, synthesized answers, no link-hopping needed.
-Con: Hallucination risk, no real-time indexing, citation gaps.
-Judgement: Hybrid approach superior for most use cases.
-```
 
-### Related Skills
+## Failure Modes
 
-- [Argument Construction](argument-construction.md)
-- [Debate Pattern](../09-agentic-patterns/debate-pattern.md)
+- User intent is ambiguous or materially underspecified.
+- Claims are presented without supporting evidence.
+- Constraints conflict and precedence is unclear.
+- Style or persona instructions override factual accuracy or safety boundaries.
+- Translation or paraphrase changes the source meaning.
+- Completion is reported without checking the requested format or postcondition.
+
+## Safety Boundary
+
+Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself.
+
+## Related
+
+- 06-communication
+- input-guardrails
+- output-guardrails

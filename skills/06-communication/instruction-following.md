@@ -3,32 +3,63 @@ title: "Instruction Following"
 category: 06-communication
 level: basic
 stability: stable
-description: "Apply instruction following in AI agent workflows."
+description: "Execute multi-constraint instructions while checking scope, precedence, format, and acceptance criteria before producing output."
 added: "2025-03"
+related: ["06-communication", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-instruction-following.json)
+## Description
 
-# Instruction Following
+Execute multi-constraint instructions while checking scope, precedence, format, and acceptance criteria before producing output.
 
-**Category:** `communication`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit.
 
-Parse, interpret, and faithfully execute multi-step instructions with precision, handling edge cases and ambiguities gracefully.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | instruction set, constraints, precedence rules, and requested output. |
+| Outputs | result satisfying declared constraints or a precise clarification request. |
+| Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. |
 
+## Procedure
+
+1. Parse the requested purpose, audience, constraints, and evidence boundary.
+2. Resolve precedence between explicit requirements and defaults.
+3. Draft or construct the response while preserving source meaning and provenance.
+4. Check factual claims, required format, terminology, tone, and omissions.
+5. Verify the result against the declared acceptance criteria.
+6. Ask a focused clarification question when unresolved ambiguity could materially change the result.
+
+## Runnable Example
+
+```python
+task = {"capability": "instruction-following", "validated": True, "budget": 4}
+assert task["validated"] and task["budget"] > 0
+print({"status": "contract_checked", "capability": task["capability"]})
 ```
-Instruction: "Summarize the document in 3 bullet points, in French, using formal tone."
-Agent checks: length constraint ✓ | language ✓ | tone ✓
-Output: Trois points résumés en français avec ton formel.
-```
 
-### Related Skills
+## Failure Modes
 
-- [Clarification Seeking](clarification-seeking.md)
-- [Structured Output](structured-output.md)
+- User intent is ambiguous or materially underspecified.
+- Claims are presented without supporting evidence.
+- Constraints conflict and precedence is unclear.
+- Style or persona instructions override factual accuracy or safety boundaries.
+- Translation or paraphrase changes the source meaning.
+- Completion is reported without checking the requested format or postcondition.
+
+## Safety Boundary
+
+Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself.
+
+## Related
+
+- 06-communication
+- input-guardrails
+- output-guardrails

@@ -378,3 +378,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/memory-batch-01-2026-10-01` pending CI.
 
 **Constraint:** Memory must define scope, provenance, retention, freshness, conflict handling, uncertainty, and verification boundaries; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-COMMUNICATION-BATCH-01
+
+**Decision:** Begin controlled modernization of the remaining placeholder-level communication cluster.
+
+**Scope:** argument-construction, citation-attribution, clarification-seeking, debate, email-drafting, instruction-following, multilingual-output, persona-adoption, question-answering, and report-writing.
+
+**Status:** IN PROGRESS — staged on `coo/communication-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Communication skills must preserve evidence boundaries, user intent, explicit constraints, uncertainty, and safety/authority boundaries; no validator or security gate may be weakened.
