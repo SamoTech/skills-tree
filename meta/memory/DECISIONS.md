@@ -246,3 +246,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on coo/domain-specific-batch-01-2026-10-01 pending CI.
 
 **Constraint:** Domain-specific skills must preserve scope, evidence, uncertainty, and applicable professional-domain boundaries; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-DOMAIN-SPECIFIC-BATCH-02
+
+**Decision:** Continue controlled modernization of the remaining 16-domain-specific stub cluster.
+
+**Scope:** flashcard-creation, hypothesis-generation, iac-generation, incident-response, invoice-processing, legal-research, lesson-plan, literature-review, log-analysis, and medical-literature-search.
+
+**Status:** IN PROGRESS — staged on `coo/domain-specific-batch-02-2026-10-01` pending CI.
+
+**Constraint:** Preserve source traceability, uncertainty, applicable professional-domain boundaries, and unchanged validation/security gates.
