@@ -356,3 +356,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/multimodal-batch-01-2026-10-01` pending CI.
 
 **Constraint:** Multimodal skills must define modality-specific inputs and outputs, bounded preprocessing/execution, provenance, uncertainty, failure handling, and safety boundaries; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-AGENTIC-PATTERNS-BATCH-02
+
+**Decision:** Complete the remaining stub-level agentic-patterns cluster.
+
+**Scope:** bootstrapping, memory-augmented, subagent-delegation, and tool-use-loop.
+
+**Status:** IN PROGRESS — staged on `coo/agentic-patterns-batch-02-2026-10-01` pending CI.
+
+**Constraint:** Agentic patterns must state objective, evaluation criteria, budgets, provenance, evidence boundaries, uncertainty, and failure handling; no validator or security gate may be weakened.
