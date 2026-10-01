@@ -235,3 +235,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on branch coo/tool-use-batch-03-2026-09-30 pending PR CI.
 
 **Reopen Conditions:** Reopen if CI identifies schema, graph, security, projection, evidence, or documentation incompatibility.
+
+
+## DECISION-2026-10-01-DOMAIN-SPECIFIC-BATCH-01
+
+**Decision:** Begin controlled modernization of the 16-domain-specific stub cluster.
+
+**Scope:** First ten skills listed in the live category inventory.
+
+**Status:** IN PROGRESS — staged on coo/domain-specific-batch-01-2026-10-01 pending CI.
+
+**Constraint:** Domain-specific skills must preserve scope, evidence, uncertainty, and applicable professional-domain boundaries; no validator or security gate may be weakened.
