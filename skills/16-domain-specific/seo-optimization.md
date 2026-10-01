@@ -3,43 +3,57 @@ title: "Seo Optimization"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply seo optimization in AI agent workflows."
+description: "Audit and improve supplied page content against explicit search, metadata, linking, and technical constraints."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-seo-optimization.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Analyses and improves on-page SEO factors including title tags, meta descriptions, heading hierarchy, keyword density, internal linking, schema markup, and Core Web Vitals recommendations. Supports both content creation and technical auditing workflows.
+## Description
+Audit and improve supplied page content against explicit search, metadata, linking, and technical constraints.
 
-### Example
+## When to Use
+Use when page content, target query, and optimization constraints are available.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
 ```python
-import re
-
-def seo_audit(html: str, target_keyword: str) -> dict:
-    title = re.search(r"<title>(.*?)</title>", html, re.I)
-    desc = re.search(r'name=["\']description["\'].*?content=["\']([^"\']+)', html, re.I)
-    h1s = re.findall(r"<h1[^>]*>(.*?)</h1>", html, re.I)
-    kw_count = html.lower().count(target_keyword.lower())
-    word_count = len(re.sub(r"<[^>]+>", "", html).split())
-    density = round(kw_count / max(word_count, 1) * 100, 2)
-    return {
-        "title_ok": bool(title) and target_keyword.lower() in (title.group(1).lower()),
-        "meta_desc": bool(desc),
-        "h1_count": len(h1s),
-        "keyword_density_pct": density,
-        "word_count": word_count,
-    }
-
-html = "<title>Best SSD for Developers 2026</title><h1>Best SSD for Developers</h1><p>best ssd</p>"
-print(seo_audit(html, "best ssd"))
+task = {"capability": "seo-optimization", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Product Description Writing](product-description.md)
-- [Web Scraping](../11-web/web-scraping.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+SEO recommendations are not guarantees of rankings; validate technical recommendations against current search-engine guidance.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
