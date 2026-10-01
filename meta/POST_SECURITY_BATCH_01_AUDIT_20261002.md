@@ -30,6 +30,10 @@ The repository is not treating the generated file as manually editable. Instead,
 
 The intended regenerated classification, once the canonical generator runs against the merged corpus, is expected to move the nine migrated security files out of the stub class. The exact published counts must be taken from the generated report, not inferred in documentation.
 
-## Next action
+## Final verification
 
-Verify the workflow correction in CI and confirm that `meta/QUALITY-REPORT.md` is regenerated on the next merged PR. Only then update public documentation with exact quality counts.
+The workflow correction was merged in PR #244 and produced GitHub Actions commit `ac8aacb5982018d2ee57a2953924dd74a9013e20`, which regenerated `meta/QUALITY-REPORT.md` from live `main`.
+
+Verified generated state: 374 total, 202 battle-tested, 159 enriched, 13 stubs, 0 invalid. Category 14-security: 13 battle-tested, 0 stubs.
+
+Public documentation is now synchronized to this generated state.
