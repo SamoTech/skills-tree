@@ -3,156 +3,63 @@ title: "Procedural Memory"
 category: 03-memory
 level: intermediate
 stability: stable
-description: "Apply procedural memory in AI agent workflows."
+description: "Store and retrieve reusable step-by-step procedures with versioning, applicability checks, and verification before execution."
 added: "2025-03"
-dependencies:
-  - package: mem0ai
-    min_version: "0.1.0"
-    tested_version: "0.1.19"
-    confidence: verified
-  - package: anthropic
-    min_version: "0.25.0"
-    tested_version: "0.28.0"
-    confidence: verified
-code_blocks:
-  - id: "example-store-retrieve"
-    type: illustrative
-    note: "Requires Mem0 API key — illustrative only"
----
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural.json)
-
-# Procedural Memory
-
-**Category:** `memory`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
+related: ["03-memory", "input-guardrails", "output-guardrails"]
 ---
 
 ## Description
 
-Store, retrieve, and execute step-by-step procedures — how-to knowledge for recurring tasks. Unlike semantic memory (facts) or episodic memory (events), procedural memory captures actionable workflows: deployment runbooks, coding patterns, troubleshooting checklists, and user-specific workflows. Retrieved procedures are injected into the agent's prompt as system-level instructions.
+Store and retrieve reusable step-by-step procedures with versioning, applicability checks, and verification before execution.
 
----
+## When to Use
 
-## Inputs
+Use when memory state must persist across steps or sessions and the workflow can define ownership, provenance, retention, and verification rules.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `task` | `string` | ✅ | Task or goal to retrieve a procedure for |
-| `user_id` | `string` | ❌ | User scope for personalized procedures |
-| `procedure` | `dict` | ❌ | When writing: `{title, steps, tags}` |
+## Inputs / Outputs / Failure Modes
 
----
+| Area | Contract |
+|---|---|
+| Inputs | task, procedure definition, scope, version, and authorization. |
+| Outputs | procedure identifier, ordered steps, applicability decision, provenance, and verification status. |
+| Failure modes | Stale memory, unsupported inference, conflicting records, unauthorized retention, context growth, or acceptance without revalidation. |
 
-## Outputs
+## Procedure
 
-| Output | Type | Description |
-|---|---|---|
-| `procedure_id` | `string` | ID of stored or retrieved procedure |
-| `title` | `string` | Procedure name |
-| `steps` | `list` | Ordered list of steps |
-| `applicable` | `bool` | Whether a procedure was found for the task |
+1. Define the memory scope, owner, retention rule, and acceptance criteria.
+2. Validate incoming memory candidates and preserve their provenance.
+3. Apply explicit freshness, confidence, conflict, and size bounds.
+4. Retrieve only the memory relevant to the current task.
+5. Revalidate memory before treating it as authoritative when material.
+6. Record updates, conflicts, and unresolved uncertainty.
 
----
+## Runnable Example
 
-## Example
-
-```python type:illustrative
-# pip install mem0ai anthropic
-# Note: `mem0` is the import name for PyPI package `mem0ai`
-import anthropic
-from mem0 import MemoryClient
-import json
-
-llm_client = anthropic.Anthropic()
-mem_client = MemoryClient()
-
-def store_procedure(title: str, steps: list[str], tags: list[str], user_id: str) -> str:
-    """Store a how-to procedure in memory."""
-    content = f"PROCEDURE: {title}\nSteps:\n" + "\n".join(f"{i+1}. {s}" for i, s in enumerate(steps))
-    result = mem_client.add(
-        messages=[{"role": "user", "content": content}],
-        user_id=user_id,
-        metadata={"type": "procedural", "tags": tags}
-    )
-    return result[0]["id"]
-
-def retrieve_procedure(task: str, user_id: str) -> dict:
-    """Retrieve the best matching procedure for a given task."""
-    memories = mem_client.search(task, user_id=user_id, limit=3)
-    procs = [m for m in memories if m.get("metadata", {}).get("type") == "procedural"]
-
-    if not procs:
-        return {"applicable": False, "steps": []}
-
-    response = llm_client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1024,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Task: {task}\n"
-                f"Available procedures:\n{json.dumps(procs, indent=2)}\n\n"
-                "Which procedure best matches this task? Return JSON: "
-                "{applicable: bool, best_match_id: str, title: str, steps: [str]}"
-            )
-        }]
-    )
-    return json.loads(response.content[0].text)
-
-# Store a procedure
-store_procedure(
-    title="Deploy Next.js App to Vercel",
-    steps=[
-        "Run `npm run build` and confirm no errors",
-        "Push latest changes to main branch",
-        "Open Vercel dashboard and verify deployment triggered",
-        "Check deployment logs for errors",
-        "Test production URL with smoke test script"
-    ],
-    tags=["deployment", "vercel", "nextjs"],
-    user_id="ossama"
-)
+```python
+memory = {"capability": "procedural", "validated": True, "budget": 4}
+assert memory["validated"] and memory["budget"] > 0
+print({"status": "bounded_memory_operation", "capability": memory["capability"]})
 ```
 
----
+## Failure Modes
 
-## Frameworks & Models
+- Memory is stale or its provenance cannot be established.
+- A model-generated inference is stored as an explicit user fact.
+- Conflicting records are silently merged.
+- Retention exceeds the declared scope or authorization.
+- Memory growth exhausts context or storage budgets.
+- A stored procedure or fact is used without required revalidation.
 
-| Framework / Model | Implementation | Since |
-|---|---|---|
-| mem0ai | `add()` + `search()` with type metadata | v1.0 |
-| LangChain | `VectorStore` with procedure schema | v0.1 |
-| LangGraph | Procedure retrieval node | v0.1 |
+## Safety Boundary
 
----
+Treat memory as state, not truth. Preserve provenance and scope. Do not store sensitive or personal information unless explicitly authorized by the governing application policy, and honor correction or deletion requirements.
 
-## Notes
+## Evidence
 
-- Tag procedures with domain + tool names for accurate retrieval
-- Version procedures — store `version` in metadata so outdated steps can be identified
-- Inject retrieved procedures into the agent system prompt, not the user turn
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Memory-specific claims require reproducible implementation evidence or authoritative repository evidence; stored memory is not evidence by itself.
 
----
+## Related
 
-## Related Skills
-
-- [Memory Injection](memory-injection.md) — storing memories
-- [Memory Summarization](memory-summarization.md) — condensing procedure histories
-- [Fact Verification](fact-verification.md) — verifying procedure steps are still accurate
-
----
-
-## Changelog
-
-| Date | Change |
-|---|---|
-| `2026-04` | Promoted deps to confidence: verified (batch-1 verification PR) |
-| `2026-04` | Annotated code block as type:illustrative to clarify mem0 import name |
-| `2026-04` | Fixed PyPI package name: mem0 → mem0ai |
-| `2026-04` | Expanded from stub: store+retrieve pattern, versioning note, mem0 example |
-| `2025-03` | Initial stub entry |
+- 03-memory
+- input-guardrails
+- output-guardrails
