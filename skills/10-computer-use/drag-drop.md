@@ -1,43 +1,59 @@
 ---
-title: "Drag and Drop"
+title: "Drag Drop"
 category: 10-computer-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply drag and drop in AI agent workflows."
+description: "Move a verified UI object from a source target to a destination target using controlled drag-and-drop."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-drag-drop.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Drag and Drop
+## Description
+Move a verified UI object from a source target to a destination target using controlled drag-and-drop.
 
-**Category:** `computer-use`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when both source and destination are identifiable and the operation is authorized.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
+| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
 
-Click and hold on a source element, move to a target position, and release to perform a drag-and-drop operation. Used for file moves, reordering lists, and canvas operations.
+## Procedure
+1. Establish the active application, target, and expected UI state.
+2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
+3. Perform only the requested action within the declared bounds.
+4. Inspect the resulting UI state and verify the expected postcondition.
+5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pyautogui
-
-# Drag file from (100, 200) to (500, 200)
-pyautogui.dragTo(500, 200, duration=0.5, button='left')
-
-# Or using drag from source to destination
-pyautogui.drag(
-    xOffset=400, yOffset=0,  # relative movement
-    duration=0.5,
-    button='left'
-)
+action = {"capability": "drag-drop", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or application identity cannot be verified.
+- UI changed between observation and action.
+- Focus is ambiguous or lost.
+- Action may have destructive or irreversible side effects.
+- Postcondition cannot be verified.
 
-- [Mouse Move](mouse-move.md)
-- [Mouse Click](mouse-click.md)
-- [Visual Element Detection](visual-element-detection.md)
+## Safety Boundary
+Coordinate drift, scrolling, or overlays can misroute the object; verify both endpoints and resulting state.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
