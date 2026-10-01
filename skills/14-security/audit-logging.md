@@ -7,6 +7,7 @@ description: "Record security-relevant agent actions in a structured, tamper-evi
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [human-in-loop, permission-checking, secret-scanning]
 ---
 
 # Audit Logging
