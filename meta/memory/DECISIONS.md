@@ -389,3 +389,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/communication-batch-01-2026-10-01` pending CI.
 
 **Constraint:** Communication skills must preserve evidence boundaries, user intent, explicit constraints, uncertainty, and safety/authority boundaries; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-COMMUNICATION-BATCH-02
+
+**Decision:** Complete the remaining placeholder-level communication cluster.
+
+**Scope:** structured-output and tone-adjustment.
+
+**Status:** IN PROGRESS — staged on `coo/communication-batch-02-2026-10-01` pending CI.
+
+**Constraint:** Communication skills must preserve meaning, explicit constraints, evidence boundaries, and validation results; no validator or security gate may be weakened.
