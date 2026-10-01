@@ -240,3 +240,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added explicit objectives, evaluation criteria, budgets, provenance, evidence boundaries, uncertainty handling, and failure modes.
 - Preserved existing substantial ReAct, CoT, RAG, Agentic RAG, and Plan-and-Execute implementations.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Multimodal modernization — batch 01
+
+- Modernized fourteen `08-multimodal` skills: 3d-scene-understanding, audio-classification, audio-transcription, chart-generation, document-layout-analysis, image-captioning, image-classification, image-editing, image-generation, object-detection, text-to-speech, video-description, video-frame-extraction, and vqa.
+- Added or synchronized corresponding Agent Skills projections.
+- Added explicit modality contracts, bounded preprocessing/execution, provenance, uncertainty handling, failure modes, safety boundaries, and runnable examples.
+- Preserved verified dependency metadata where present.
+- No validator, security gate, or repository governance rule was weakened.
