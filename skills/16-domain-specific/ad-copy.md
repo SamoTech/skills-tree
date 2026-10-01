@@ -3,7 +3,7 @@ title: "Ad Copy"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply ad copy in AI agent workflows."
+description: "Apply ad copy in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
 added: "2025-03"
 ---
 
@@ -44,6 +44,7 @@ def generate_ad(product: str, platform: str, n_variants: int = 3) -> list[dict]:
 print(generate_ad("AI-powered note-taking app", "google"))
 ```
 
-### Related Skills
-- [Product Description Writing](product-description.md)
-- [Copywriting](../13-creative/copywriting.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
