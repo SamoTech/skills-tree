@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 158
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 170
 - 🟡 **Enriched** (real description + runnable code): 159
-- ⚪ **Stub** (placeholder description or no runnable code): 57
+- ⚪ **Stub** (placeholder description or no runnable code): 45
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -20,7 +20,7 @@
 | `03-memory` | 19 | 16 | 0 | 3 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
 | `05-code` | 28 | 5 | 22 | 1 | 0 |
-| `06-communication` | 15 | 3 | 0 | 12 | 0 |
+| `06-communication` | 15 | 15 | 0 | 0 | 0 |
 | `07-tool-use` | 33 | 11 | 21 | 1 | 0 |
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 |
 | `09-agentic-patterns` | 23 | 12 | 10 | 1 | 0 |
@@ -134,8 +134,20 @@
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
 - [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
+- [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — Argument Construction
+- [`skills/06-communication/citation-attribution.md`](skills/06-communication/citation-attribution.md) — Citation & Attribution
+- [`skills/06-communication/clarification-seeking.md`](skills/06-communication/clarification-seeking.md) — Clarification Seeking
+- [`skills/06-communication/debate.md`](skills/06-communication/debate.md) — Debate
+- [`skills/06-communication/email-drafting.md`](skills/06-communication/email-drafting.md) — Email Drafting
+- [`skills/06-communication/instruction-following.md`](skills/06-communication/instruction-following.md) — Instruction Following
+- [`skills/06-communication/multilingual-output.md`](skills/06-communication/multilingual-output.md) — Multilingual Output
 - [`skills/06-communication/paraphrasing.md`](skills/06-communication/paraphrasing.md) — Paraphrasing
+- [`skills/06-communication/persona-adoption.md`](skills/06-communication/persona-adoption.md) — Persona Adoption
+- [`skills/06-communication/question-answering.md`](skills/06-communication/question-answering.md) — Question Answering
+- [`skills/06-communication/report-writing.md`](skills/06-communication/report-writing.md) — Report Writing
+- [`skills/06-communication/structured-output.md`](skills/06-communication/structured-output.md) — Structured Output
 - [`skills/06-communication/summarization.md`](skills/06-communication/summarization.md) — Summarization
+- [`skills/06-communication/tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — Tone Adjustment
 - [`skills/06-communication/translation.md`](skills/06-communication/translation.md) — Translation
 - [`skills/07-tool-use/anthropic-api.md`](skills/07-tool-use/anthropic-api.md) — Anthropic API
 - [`skills/07-tool-use/function-calling.md`](skills/07-tool-use/function-calling.md) — Function / Tool Calling
@@ -364,18 +376,6 @@
 - [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — description matches placeholder pattern: 'Apply security scanning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — description matches placeholder pattern: 'Apply argument construction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/citation-attribution.md`](skills/06-communication/citation-attribution.md) — description matches placeholder pattern: 'Apply citation & attribution in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/06-communication/clarification-seeking.md`](skills/06-communication/clarification-seeking.md) — description matches placeholder pattern: 'Apply clarification seeking in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/debate.md`](skills/06-communication/debate.md) — description matches placeholder pattern: 'Apply debate in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/email-drafting.md`](skills/06-communication/email-drafting.md) — description matches placeholder pattern: 'Apply email drafting in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/instruction-following.md`](skills/06-communication/instruction-following.md) — description matches placeholder pattern: 'Apply instruction following in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/multilingual-output.md`](skills/06-communication/multilingual-output.md) — description matches placeholder pattern: 'Apply multilingual output in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/06-communication/persona-adoption.md`](skills/06-communication/persona-adoption.md) — description matches placeholder pattern: 'Apply persona adoption in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/question-answering.md`](skills/06-communication/question-answering.md) — description matches placeholder pattern: 'Apply question answering in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/report-writing.md`](skills/06-communication/report-writing.md) — description matches placeholder pattern: 'Apply report writing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/structured-output.md`](skills/06-communication/structured-output.md) — description matches placeholder pattern: 'Apply structured output in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/06-communication/tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — description matches placeholder pattern: 'Apply tone adjustment in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — description matches placeholder pattern: 'Apply wolfram alpha api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — description matches placeholder pattern: 'Apply rag in AI agent workflows'
 - [`skills/11-web/api-discovery.md`](skills/11-web/api-discovery.md) — description matches placeholder pattern: 'Apply api endpoint discovery in AI agent workflows'; no inputs/outputs/failure-modes table
