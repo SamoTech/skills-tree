@@ -455,3 +455,22 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED — implementation merged as PR #213 at `42bc204a944cb27ee42f0b626592a48a1d4b92e1`.
 
 **Reopen Conditions:** Reopen if a new generated-main writer cannot safely share the semaphore, or if the repository adopts a different serialized generation architecture with equal or stronger guarantees.
+
+
+## DECISION-2026-10-01-EVIDENCE-RUNTIME-INTEGRATION
+
+**Decision-ID:** DECISION-2026-10-01-EVIDENCE-RUNTIME-INTEGRATION
+
+**Topic:** Integrate typed Evidence access into the UniversalRegistry facade.
+
+**Context:** Evidence was already a first-class, contract-validated registry entity with a dedicated `EvidenceRuntime`, but consumers of `UniversalRegistry` still had to depend on the internal registry JSON layout to resolve or enumerate Evidence.
+
+**Decision:** Integrate the existing `EvidenceRuntime` into `UniversalRegistry` and expose deterministic `resolve_evidence()` and `evidence_for_entity()` access. Preserve existing validation, provenance semantics, read-only behavior, and registry claims.
+
+**Evidence:** `meta/POST_P2_2_EVIDENCE_RUNTIME_AUDIT.md`; PR #223; exact-head CI green; merge commit `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
+
+**Alternatives:** Continue exposing raw registry data; rejected because it leaks storage representation and weakens the runtime abstraction boundary. Create a second Evidence runtime facade; rejected because the repository already has `EvidenceRuntime`.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only if a replacement runtime architecture supersedes the current facade or tests demonstrate an abstraction/integrity regression.
