@@ -334,3 +334,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/15-orchestration-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Preserve workflow state, ownership, authority boundaries, recovery, idempotency, and evidence; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-AGENTIC-PATTERNS-BATCH-01
+
+**Decision:** Begin controlled modernization of the remaining stub-level agentic-pattern cluster.
+
+**Scope:** tot, lats, mcts, rag-pipeline, reflection, critic-agent, self-play, constitutional-ai, debate-pattern, and mixture-of-agents.
+
+**Status:** IN PROGRESS — staged on `coo/agentic-patterns-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Agentic patterns must state objective, evaluation criteria, budget, provenance, evidence boundary, uncertainty, and failure handling; no validator or security gate may be weakened.
