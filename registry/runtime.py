@@ -318,6 +318,8 @@ class UniversalRegistry:
     def _validate_registry_schema(self) -> None:
         """Validate the loaded registry against its normative JSON Schema."""
         schema_path = self.path.parent.parent / "meta" / "universal-registry.schema.json"
+        if not schema_path.is_file():
+            schema_path = Path(__file__).resolve().parents[1] / "meta" / "universal-registry.schema.json"
         schema = json.loads(schema_path.read_text(encoding="utf-8"))
         Draft202012Validator(schema).validate(self._data)
 
