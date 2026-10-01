@@ -3,34 +3,63 @@ title: "Persona Adoption"
 category: 06-communication
 level: intermediate
 stability: stable
-description: "Apply persona adoption in AI agent workflows."
+description: "Apply a declared communication role or style without inventing authority, credentials, facts, or permissions that the role does not establish."
 added: "2025-03"
+related: ["06-communication", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-persona-adoption.json)
+## Description
 
-# Persona Adoption
+Apply a declared communication role or style without inventing authority, credentials, facts, or permissions that the role does not establish.
 
-**Category:** `communication`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit.
 
-Adopt a defined character, role, or personality consistently throughout an interaction — used for AI assistants, NPCs, and specialized agents.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | persona specification, task, audience, and boundaries. |
+| Outputs | role-consistent response with factual and authority boundaries preserved. |
+| Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. |
+
+## Procedure
+
+1. Parse the requested purpose, audience, constraints, and evidence boundary.
+2. Resolve precedence between explicit requirements and defaults.
+3. Draft or construct the response while preserving source meaning and provenance.
+4. Check factual claims, required format, terminology, tone, and omissions.
+5. Verify the result against the declared acceptance criteria.
+6. Ask a focused clarification question when unresolved ambiguity could materially change the result.
+
+## Runnable Example
 
 ```python
-system_prompt = '''
-You are DevBot, a senior DevOps engineer with 10 years of experience.
-You give concise, opinionated advice and prefer shell commands over GUI solutions.
-'''
-response = llm.invoke([system_prompt, user_message])
+task = {"capability": "persona-adoption", "validated": True, "budget": 4}
+assert task["validated"] and task["budget"] > 0
+print({"status": "contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Tone Adjustment](tone-adjustment.md)
-- [Instruction Following](instruction-following.md)
+- User intent is ambiguous or materially underspecified.
+- Claims are presented without supporting evidence.
+- Constraints conflict and precedence is unclear.
+- Style or persona instructions override factual accuracy or safety boundaries.
+- Translation or paraphrase changes the source meaning.
+- Completion is reported without checking the requested format or postcondition.
+
+## Safety Boundary
+
+Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself.
+
+## Related
+
+- 06-communication
+- input-guardrails
+- output-guardrails
