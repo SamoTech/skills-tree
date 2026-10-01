@@ -2495,103 +2495,103 @@
   },
   {
     "id": "10-computer-use/accessibility-tree",
-    "title": "Accessibility Tree Navigation",
+    "title": "Accessibility Tree",
     "category": "10-computer-use",
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply accessibility tree navigation in AI agent workflows.",
-    "body": "Accessibility Tree Navigation Category: Skill Level: Stability: Added: 2025-03 Description Use OS accessibility APIs (AT-SPI on Linux, UIAutomation on Windows, AXUIElement on macOS) to navigate and interact with UI elements by role, name, or property — more reliable than pixel-based automation. Example Related Skills - Visual Element Detection - Mouse Click - Screen Region OCR"
+    "description": "Interpret an accessibility tree to identify roles, names, states, and actionable UI targets.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Interpret an accessibility tree to identify roles, names, states, and actionable UI targets. When to Use Use when an accessibility tree is available and UI interaction should rely on semantic targets rather than coordinates. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Accessibility trees can be stale or incomplete; verify the target state before acting. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/app-launch",
-    "title": "Application Launch",
+    "title": "App Launch",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply application launch in AI agent workflows.",
-    "body": "Application Launch Category: Skill Level: Stability: Added: 2025-03 Description Open a desktop application by name, path, or system command. Waits for the window to appear before continuing. Example Related Skills - Window Management - Terminal / Shell Interaction - Screenshot Capture"
+    "description": "Launch a specified desktop application using an explicit application identifier or verified path.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Launch a specified desktop application using an explicit application identifier or verified path. When to Use Use when the application target and launch method are known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Never execute an unverified path or unexpected executable; verify application identity and resulting window. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/clipboard-read",
     "title": "Clipboard Read",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply clipboard read in AI agent workflows.",
-    "body": "Clipboard Read Category: Skill Level: Stability: Added: 2025-03 Description Read the current content of the system clipboard. Used to retrieve text, URLs, or other data that a user or agent previously copied. Example Related Skills - Clipboard Write - Keyboard Shortcut - Keyboard Type"
+    "description": "Read clipboard contents from an authorized computer-use session and preserve their type and provenance.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Read clipboard contents from an authorized computer-use session and preserve their type and provenance. When to Use Use when clipboard access is explicitly required by the task. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Clipboard data may contain secrets or personal information; minimize exposure and never log sensitive contents. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/clipboard-write",
     "title": "Clipboard Write",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply clipboard write in AI agent workflows.",
-    "body": "Clipboard Write Category: Skill Level: Stability: Added: 2025-03 Description Write content to the system clipboard so it can be pasted into any application. Useful for injecting data into GUI fields without simulating keystrokes. Example Related Skills - Clipboard Read - Keyboard Type - Keyboard Shortcut"
+    "description": "Write explicitly supplied content to the clipboard for a subsequent authorized computer-use step.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Write explicitly supplied content to the clipboard for a subsequent authorized computer-use step. When to Use Use when clipboard transfer is required between UI actions. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Do not overwrite user clipboard data without authorization; avoid placing secrets in the clipboard unless required. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/double-click",
     "title": "Double Click",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply double click in AI agent workflows.",
-    "body": "Double Click Category: Skill Level: Stability: Added: 2025-03 Description Double-click at a screen coordinate or on a detected UI element to open files, launch apps, or activate items that require a double-click event. Example Related Skills - Mouse Click - App Launch - Visual Element Detection"
+    "description": "Perform a double-click on a verified UI target using semantic or coordinate-based targeting.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Perform a double-click on a verified UI target using semantic or coordinate-based targeting. When to Use Use when the target and intended double-click action are unambiguous. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Re-check target identity and postcondition; double-click can trigger destructive or irreversible UI actions. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/drag-drop",
-    "title": "Drag and Drop",
+    "title": "Drag Drop",
     "category": "10-computer-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply drag and drop in AI agent workflows.",
-    "body": "Drag and Drop Category: Skill Level: Stability: Added: 2025-03 Description Click and hold on a source element, move to a target position, and release to perform a drag-and-drop operation. Used for file moves, reordering lists, and canvas operations. Example Related Skills - Mouse Move - Mouse Click - Visual Element Detection"
+    "description": "Move a verified UI object from a source target to a destination target using controlled drag-and-drop.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Move a verified UI object from a source target to a destination target using controlled drag-and-drop. When to Use Use when both source and destination are identifiable and the operation is authorized. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Coordinate drift, scrolling, or overlays can misroute the object; verify both endpoints and resulting state. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/file-dialog",
-    "title": "File Dialog Interaction",
+    "title": "File Dialog",
     "category": "10-computer-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply file dialog interaction in AI agent workflows.",
-    "body": "File Dialog Interaction Category: Skill Level: Stability: Added: 2025-03 Description Navigate OS file open/save dialogs by typing file paths directly into the dialog or interacting with the folder tree, enabling automated file selection without knowing exact pixel coordinates. Example Related Skills - Keyboard Type - Keyboard Shortcut - Terminal / Shell Interaction"
+    "description": "Navigate and operate a file chooser with explicit path, selection, and confirmation boundaries.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Navigate and operate a file chooser with explicit path, selection, and confirmation boundaries. When to Use Use when a file-selection or save dialog is visible and the intended path is known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Do not select or overwrite files outside the declared scope; verify filename, extension, and destination before confirmation. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/keyboard-shortcut",
     "title": "Keyboard Shortcut",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply keyboard shortcut in AI agent workflows.",
-    "body": "Keyboard Shortcut Category: Skill Level: Stability: Added: 2025-03 Description Execute keyboard shortcuts (e.g., Ctrl+C, Cmd+V, Alt+F4) to trigger application commands without using the mouse or menus. Example Common Shortcuts | Action | Windows/Linux | macOS | |---|---|---| | Copy | | | | Paste | | | | Undo | | | | Save | | | | Select All | | | | Close Window | | | Related Skills - Keyboard Type - Clipboard Read - Clipboard Write"
+    "description": "Execute a specified keyboard shortcut against the verified active application and UI context.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Execute a specified keyboard shortcut against the verified active application and UI context. When to Use Use when the shortcut is known and the focused target is verified. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Shortcuts are context-sensitive and may trigger destructive actions; verify focus and postcondition. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/keyboard-type",
     "title": "Keyboard Type",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply keyboard typing in AI agent workflows.",
-    "body": "Keyboard Type Category: Skill Level: Stability: Added: 2025-03 Description Type text and press individual keys or keyboard shortcuts programmatically. Example Related Skills - , , ,"
+    "description": "Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely. When to Use Use when the destination field and input text are explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Never type secrets into an unverified destination; confirm focus and avoid accidental submission. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/mouse-click",
     "title": "Mouse Click",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply mouse click in AI agent workflows.",
-    "body": "Mouse Click Category: Skill Level: Stability: Added: 2025-03 Description Perform left, right, and double mouse clicks at screen coordinates or on located UI elements. Example Related Skills - , , , ,"
+    "description": "Click a verified UI target using semantic or coordinate-based targeting with postcondition verification.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Click a verified UI target using semantic or coordinate-based targeting with postcondition verification. When to Use Use when the target is unambiguous and the click is authorized. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Performed action plus verified resulting UI state or an explicit failure. | | Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application, target, and expected UI state. 2. Verify the target before interaction; prefer semantic accessibility identifiers when available. 3. Perform only the requested action within the declared bounds. 4. Inspect the resulting UI state and verify the expected postcondition. 5. Stop and report ambiguity rather than guessing when the UI differs from the expected state. Runnable Example Failure Modes - Target or application identity cannot be verified. - UI changed between observation and action. - Focus is ambiguous or lost. - Action may have destructive or irreversible side effects. - Postcondition cannot be verified. Safety Boundary Coordinate drift, overlays, or stale UI state can cause unintended actions; verify target and result. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/mouse-move",
