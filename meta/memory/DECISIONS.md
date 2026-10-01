@@ -474,3 +474,19 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only if a replacement runtime architecture supersedes the current facade or tests demonstrate an abstraction/integrity regression.
+
+## DECISION-2026-10-01-COMPATIBILITY-RUNTIME-INTEGRATION
+
+**Decision-ID:** DECISION-2026-10-01-COMPATIBILITY-RUNTIME-INTEGRATION
+
+**Topic:** Integrate typed Compatibility access into the UniversalRegistry facade.
+
+**Context:** Compatibility was already a contract-validated registry entity with a dedicated CompatibilityRuntime, but UniversalRegistry.compatibility_for() directly traversed raw registry JSON. Consumers therefore had to depend on storage representation or construct the runtime independently.
+
+**Decision:** Integrate the existing CompatibilityRuntime into UniversalRegistry, expose deterministic typed resolve_compatibility(), and route compatibility_for() through the validated runtime.
+
+**Alternatives:** Continue raw access — rejected because it leaks storage representation. Create another compatibility facade — rejected because the repository already has CompatibilityRuntime.
+
+**Status:** IN PROGRESS — implementation staged; verification pending.
+
+**Reopen Conditions:** Reopen if verification exposes an abstraction or integrity regression, or if a replacement runtime architecture supersedes the current facade.

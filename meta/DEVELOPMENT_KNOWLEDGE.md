@@ -321,3 +321,11 @@ P2.2 is implemented in `registry/runtime.py`. `ImplementationRecord` defines the
 PR #223 integrated the existing validated EvidenceRuntime into UniversalRegistry. The runtime now exposes deterministic typed Evidence resolution and entity-support traversal. Exact-head CI passed before merge at 642e968879e9b6bfc8e7f9b2a44d12544585fc18.
 
 Next: perform a fresh universal-registry runtime architecture audit. No numbered P2.3 item is defined.
+
+## Post-P2.2 Compatibility Runtime Integration — Selected 2026-10-01
+
+A fresh universal-registry runtime audit found that Compatibility had a validated dedicated runtime but the UniversalRegistry facade still exposed raw-storage access through compatibility_for(). The selected next vertical slice is to integrate the existing CompatibilityRuntime, expose typed resolve_compatibility(), and route filtering through the validated runtime.
+
+No numbered P2.3 requirement is being invented. No compatibility records or external claims are being added.
+
+**Status:** IN PROGRESS — implementation staged; verification pending.

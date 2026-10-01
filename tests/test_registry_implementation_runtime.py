@@ -17,6 +17,7 @@ def _copy_runtime_contracts(tmp_path: Path) -> None:
         "implementation-contract.schema.json",
         "adapter-contract.schema.json",
         "evidence-contract.schema.json",
+        "compatibility-model.schema.json",
         "universal-graph.schema.json",
     ):
         target = tmp_path / "meta" / schema_name
@@ -347,3 +348,45 @@ def test_unknown_evidence_and_entity_are_rejected() -> None:
         registry.resolve_evidence("evidence/missing")
     with pytest.raises(KeyError, match="Unknown entity"):
         registry.evidence_for_entity("entity/missing")
+
+def test_resolve_compatibility_returns_validated_record() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    record = registry.resolve_compatibility(
+        "compatibility/code-reviewer-mcp-model-context-protocol"
+    )
+    assert record["subject"] == "adapter/code-reviewer-mcp"
+    assert record["target"] == {
+        "type": "protocol",
+        "id": "protocol/model-context-protocol",
+    }
+    assert record["status"] == "conditional"
+
+
+def test_compatibility_for_is_deterministic_and_filterable() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    records = registry.compatibility_for(
+        "adapter/code-reviewer-mcp",
+        target_type="protocol",
+        target_id="protocol/model-context-protocol",
+    )
+    assert [item["id"] for item in records] == [
+        "compatibility/code-reviewer-mcp-model-context-protocol"
+    ]
+
+
+def test_unknown_compatibility_is_rejected() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    with pytest.raises(KeyError, match="Unknown compatibility"):
+        registry.resolve_compatibility("compatibility/missing")
+
+
+def test_compatibility_facade_returns_independent_snapshots() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    record = registry.resolve_compatibility(
+        "compatibility/code-reviewer-mcp-model-context-protocol"
+    )
+    record["constraints"].append("mutated")
+    assert "mutated" not in registry.resolve_compatibility(
+        "compatibility/code-reviewer-mcp-model-context-protocol"
+    )["constraints"]
+
