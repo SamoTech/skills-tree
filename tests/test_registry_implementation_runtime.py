@@ -323,3 +323,27 @@ def test_registry_accepts_and_rejects_model_adapter_targets(tmp_path: Path) -> N
     registry_path.write_text(json.dumps(registry), encoding="utf-8")
     with pytest.raises(ValueError, match="Dangling adapter target reference: model/model/missing-model"):
         UniversalRegistry(registry_path)
+
+
+def test_resolve_evidence_returns_validated_record() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    evidence = registry.resolve_evidence("evidence/code-reviewer-system-source")
+    assert evidence["id"] == "evidence/code-reviewer-system-source"
+    assert evidence["supports"] == ["implementation/code-reviewer-system"]
+
+
+def test_evidence_for_entity_is_deterministic_and_typed() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    records = registry.evidence_for_entity("implementation/code-reviewer-system")
+    assert [item["id"] for item in records] == [
+        "evidence/code-reviewer-runtime",
+        "evidence/code-reviewer-system-source",
+    ]
+
+
+def test_unknown_evidence_and_entity_are_rejected() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    with pytest.raises(KeyError, match="Unknown evidence"):
+        registry.resolve_evidence("evidence/missing")
+    with pytest.raises(KeyError, match="Unknown entity"):
+        registry.evidence_for_entity("entity/missing")
