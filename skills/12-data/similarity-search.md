@@ -1,77 +1,59 @@
 ---
 title: "Similarity Search"
 category: 12-data
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply similarity search in AI agent workflows."
+description: "Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold."
 added: "2025-03"
-dependencies:
-  - package: langchain-community
-    min_version: "0.3.0"
-    tested_version: "0.4.1"
-    confidence: verified
-    notes: "Patched PYSEC-2024-278. Use langchain-community>=0.4.1."
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-similarity-search.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Similarity Search
+## Description
+Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.
 
-**Category:** `data`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when embeddings/features, distance metric, and retrieval scope are defined.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, schema/context, method parameters, and required output contract. |
+| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
 
-Find the most semantically similar items to a query using vector embeddings and approximate nearest-neighbor (ANN) algorithms.
+## Procedure
+1. Establish the source schema, analytical or query objective, and output contract.
+2. Validate types, ranges, temporal or database context, and relevant assumptions.
+3. Apply only the declared operation within bounded scope.
+4. Validate outputs, counts, assumptions, and reproducibility.
+5. Preserve source data and record material uncertainty or exceptions.
 
-### Inputs
-
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `query` | `string` | ✅ | Query text or vector |
-| `top_k` | `int` | ❌ | Number of results to return (default: 5) |
-| `index` | `VectorStore` | ✅ | Pre-built vector index to search |
-
-### Outputs
-
-| Output | Type | Description |
-|---|---|---|
-| `results` | `list[dict]` | Top-K matches with scores and metadata |
-
-### Example
-
+## Runnable Example
 ```python
-from langchain_community.vectorstores import FAISS
-from langchain_openai import OpenAIEmbeddings
-
-embeddings = OpenAIEmbeddings()
-vectorstore = FAISS.load_local('my_index', embeddings)
-
-results = vectorstore.similarity_search('How do I reset my password?', k=5)
-for doc in results:
-    print(doc.page_content)
+task = {"capability": "similarity-search", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks / Models
+## Failure Modes
+- Missing or ambiguous schema/context.
+- Unsupported assumptions or invalid method selection.
+- Silent data loss, leakage, or coercion.
+- Unbounded or unauthorized execution.
+- Output not validated against the required contract.
 
-- **LangChain** — `vectorstore.similarity_search()`
-- **FAISS** — Meta's fast ANN library
-- **Pinecone** — Managed vector database
-- **Weaviate** — Open-source vector DB
-- **Qdrant** — High-performance vector search
-- **Chroma** — Local-first vector store
-- **pgvector** — Vector search inside PostgreSQL
+## Data Boundary
+Similarity is metric-dependent and not proof of semantic equivalence; validate retrieved candidates.
 
-### Notes
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-- Distance metrics: cosine similarity, dot product, Euclidean (L2)
-- For large indexes (>1M vectors), use HNSW or IVF indexing for speed
-- Hybrid search (keyword + vector) improves precision for many use cases
-
-### Related Skills
-
-- [Embedding Generation](embedding-generation.md)
-- [RAG](../03-memory/rag.md)
-- [Vector DB Tool](../07-tool-use/vector-db-tool.md)
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails

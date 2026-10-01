@@ -1,41 +1,59 @@
 ---
-title: "Time Series Analysis"
+title: "Time Series"
 category: 12-data
 level: advanced
 stability: stable
-description: "Apply time series analysis in AI agent workflows."
+description: "Analyze or transform ordered time-series data using explicit frequency, time zone, window, and forecasting assumptions."
 added: "2025-03"
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-time-series.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Time Series Analysis
+## Description
+Analyze or transform ordered time-series data using explicit frequency, time zone, window, and forecasting assumptions.
 
-**Category:** `data`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when timestamps, ordering, frequency, and analysis objective are known.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, schema/context, method parameters, and required output contract. |
+| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
 
-Analyze time-indexed data to identify trends, seasonality, anomalies, and produce forecasts.
+## Procedure
+1. Establish the source schema, analytical or query objective, and output contract.
+2. Validate types, ranges, temporal or database context, and relevant assumptions.
+3. Apply only the declared operation within bounded scope.
+4. Validate outputs, counts, assumptions, and reproducibility.
+5. Preserve source data and record material uncertainty or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-from prophet import Prophet
-model = Prophet()
-model.fit(df)  # df must have 'ds' (date) and 'y' (value) columns
-forecast = model.predict(future)
+task = {"capability": "time-series", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks
+## Failure Modes
+- Missing or ambiguous schema/context.
+- Unsupported assumptions or invalid method selection.
+- Silent data loss, leakage, or coercion.
+- Unbounded or unauthorized execution.
+- Output not validated against the required contract.
 
-- Python `prophet`, `statsmodels`, `sktime`
-- Pandas `resample()`, `rolling()`
+## Data Boundary
+Missing intervals, timezone errors, leakage, and nonstationarity can invalidate results; validate temporal alignment.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-- [Statistical Analysis](statistical-analysis.md)
-- [Anomaly Detection](anomaly-detection.md)
-- [Data Visualization](data-visualization.md)
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails

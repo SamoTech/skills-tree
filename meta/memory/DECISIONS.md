@@ -301,3 +301,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/data-batch-01-2026-10-01` pending CI.
 
 **Constraint:** Preserve source provenance, explicit schemas, validation, data-loss boundaries, and unchanged validation/security gates.
+
+
+## DECISION-2026-10-01-DATA-BATCH-02
+
+**Decision:** Complete the remaining `12-data` stub modernization while preserving the existing battle-tested embedding skill.
+
+**Scope:** nosql-query, pandas-operations, schema-inference, similarity-search, sql-execution, statistical-analysis, and time-series.
+
+**Status:** IN PROGRESS — staged on `coo/data-batch-02-2026-10-01` pending CI.
+
+**Constraint:** Preserve explicit data contracts, validation, provenance, bounded execution, and unchanged validation/security gates.

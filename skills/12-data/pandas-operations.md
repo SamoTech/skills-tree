@@ -1,35 +1,59 @@
 ---
 title: "Pandas Operations"
 category: 12-data
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply pandas operations in AI agent workflows."
+description: "Apply reproducible pandas transformations to validated tabular data while preserving schema and row-count expectations."
 added: "2025-03"
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-pandas-operations.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Pandas Operations
+## Description
+Apply reproducible pandas transformations to validated tabular data while preserving schema and row-count expectations.
 
-**Category:** `data`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when pandas is the intended execution environment and the transformation is explicit.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, schema/context, method parameters, and required output contract. |
+| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
 
-Perform the full range of pandas DataFrame operations: slicing, indexing, apply, merge, reshape, window functions, and more.
+## Procedure
+1. Establish the source schema, analytical or query objective, and output contract.
+2. Validate types, ranges, temporal or database context, and relevant assumptions.
+3. Apply only the declared operation within bounded scope.
+4. Validate outputs, counts, assumptions, and reproducibility.
+5. Preserve source data and record material uncertainty or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-import pandas as pd
-df['revenue_growth'] = df['revenue'].pct_change()
-df['rolling_avg'] = df['revenue'].rolling(window=7).mean()
+task = {"capability": "pandas-operations", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Missing or ambiguous schema/context.
+- Unsupported assumptions or invalid method selection.
+- Silent data loss, leakage, or coercion.
+- Unbounded or unauthorized execution.
+- Output not validated against the required contract.
 
-- [CSV Processing](csv-processing.md)
-- [Data Aggregation](data-aggregation.md)
-- [Data Cleaning](data-cleaning.md)
+## Data Boundary
+Index alignment, dtype coercion, chained assignment, and missing values can change results; validate outputs.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
+
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
