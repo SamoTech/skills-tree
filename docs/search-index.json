@@ -2597,101 +2597,101 @@
     "id": "10-computer-use/mouse-move",
     "title": "Mouse Move",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply mouse move in AI agent workflows.",
-    "body": "Mouse Move Category: Skill Level: Stability: Added: 2025-03 Description Move the mouse cursor to an absolute screen coordinate or relative to its current position, without clicking. Used to hover over elements, reveal tooltips, or position before a click. Example Related Skills - Mouse Click - Drag and Drop - Screenshot Capture"
+    "description": "Move the pointer to a verified UI target using semantic or coordinate-based targeting.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Move the pointer to a verified UI target using semantic or coordinate-based targeting. When to Use Use when a precise pointer location is required before a subsequent action. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Pointer movement alone should not trigger unintended interaction; verify the target and current UI state. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/multi-monitor",
-    "title": "Multi-Monitor Support",
+    "title": "Multi Monitor",
     "category": "10-computer-use",
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply multi-monitor support in AI agent workflows.",
-    "body": "Multi-Monitor Support Category: Skill Level: Stability: Added: 2025-03 Description Detect, navigate, and capture content across multiple physical or virtual monitors. Enables agents to operate across extended desktops and multi-display setups. Example Related Skills - Screenshot Capture - Window Management - Mouse Move"
+    "description": "Identify and target a specific display in a multi-monitor environment using verified display geometry and application state.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Identify and target a specific display in a multi-monitor environment using verified display geometry and application state. When to Use Use when an action depends on a particular display or monitor arrangement. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Display geometry can change dynamically; verify monitor identity and bounds before acting. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/right-click",
-    "title": "Right Click / Context Menu",
+    "title": "Right Click",
     "category": "10-computer-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply right click / context menu in AI agent workflows.",
-    "body": "Right Click / Context Menu Category: Skill Level: Stability: Added: 2025-03 Description Right-click at a screen position or on a UI element to open a context menu, then select a menu item by text or position. Example Related Skills - Mouse Click - Accessibility Tree Navigation - Visual Element Detection"
+    "description": "Perform a context click on a verified UI target and inspect the resulting context menu.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Perform a context click on a verified UI target and inspect the resulting context menu. When to Use Use when the intended target and expected context-menu state are unambiguous. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Context menus are application-specific and may expose destructive actions; verify menu contents before selection. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/screen-ocr",
-    "title": "Screen Region OCR",
+    "title": "Screen Ocr",
     "category": "10-computer-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply screen region ocr in AI agent workflows.",
-    "body": "Screen Region OCR Category: Skill Level: Stability: Added: 2025-03 Description Extract text from a defined region of the screen using Optical Character Recognition. Enables agents to read UI labels, dialog text, and content that isn't accessible via the accessibility tree. Example Related Skills - Screenshot Capture - Visual Element Detection - Accessibility Tree Navigation"
+    "description": "Extract visible text from a verified screen region using OCR while preserving location and uncertainty.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Extract visible text from a verified screen region using OCR while preserving location and uncertainty. When to Use Use when visible text is needed and an accessibility tree or direct text source is unavailable. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary OCR can misread text; preserve uncertainty and verify critical values against the screen. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/screenshot-capture",
     "title": "Screenshot Capture",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply screenshot capture in AI agent workflows.",
-    "body": "Screenshot Capture Category: Skill Level: Stability: Added: 2025-03 Description Capture full-screen or region screenshots for visual inspection, OCR pipelines, or feeding to vision models. Example Related Skills - , , ,"
+    "description": "Capture a screenshot of a verified screen or region for observation, evidence, or postcondition checking.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Capture a screenshot of a verified screen or region for observation, evidence, or postcondition checking. When to Use Use when visual evidence is required and the capture scope is explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Screenshots may contain sensitive information; minimize capture scope and storage. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/scroll",
     "title": "Scroll",
     "category": "10-computer-use",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply scroll in AI agent workflows.",
-    "body": "Scroll Category: Skill Level: Stability: Added: 2025-03 Description Scroll a window, panel, or element vertically or horizontally to reveal content not visible in the current viewport. Example Related Skills - Mouse Move - Browser Navigation - Visual Element Detection"
+    "description": "Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state. When to Use Use when the target is not currently visible and the scroll container is known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Scrolling can change context or lose target state; use bounded increments and re-observe after each move. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/terminal-interaction",
-    "title": "Terminal / Shell Interaction",
+    "title": "Terminal Interaction",
     "category": "10-computer-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply terminal / shell interaction in AI agent workflows.",
-    "body": "Terminal / Shell Interaction Category: Skill Level: Stability: Added: 2025-03 Description Type and execute shell commands in a terminal window by simulating keyboard input, then capture output via screenshot OCR or clipboard. Example Related Skills - Screen Region OCR - Keyboard Type - Screenshot Capture"
+    "description": "Interact with a verified terminal window using explicit commands, context, and output checks.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Interact with a verified terminal window using explicit commands, context, and output checks. When to Use Use when terminal interaction is authorized and the command scope is explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Treat terminal commands as potentially destructive; verify working directory, command, target, and postcondition before execution. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/visual-element-detection",
     "title": "Visual Element Detection",
     "category": "10-computer-use",
     "level": "advanced",
-    "stability": "experimental",
+    "stability": "stable",
     "tags": [],
-    "description": "Apply visual element detection in AI agent workflows.",
-    "body": "Visual Element Detection Category: Skill Level: Stability: Added: 2025-03 Description Detect UI elements (buttons, fields, icons) on screen using computer vision — template matching, YOLO-based object detection, or multimodal VLM analysis of screenshots. Example Related Skills - Screenshot Capture - Screen Region OCR - Mouse Click"
+    "description": "Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets. When to Use Use when semantic accessibility data is unavailable and visual targeting is required. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Visual detection can be uncertain; candidates require verification before any action. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/vm-interaction",
-    "title": "Virtual Machine Interaction",
+    "title": "Vm Interaction",
     "category": "10-computer-use",
     "level": "advanced",
-    "stability": "experimental",
+    "stability": "stable",
     "tags": [],
-    "description": "Apply virtual machine interaction in AI agent workflows.",
-    "body": "Virtual Machine Interaction Category: Skill Level: Stability: Added: 2025-03 Description Operate inside VMs and sandboxed environments (VirtualBox, VMware, Docker desktops, E2B sandboxes) by connecting via RDP, VNC, or cloud APIs to execute GUI and terminal actions safely. Example Related Skills - Screenshot Capture - Terminal / Shell Interaction - Window Management"
+    "description": "Interact with a verified virtual-machine display using bounded input actions and explicit VM identity.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Interact with a verified virtual-machine display using bounded input actions and explicit VM identity. When to Use Use when a specific VM session is authorized and its display state is known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary VM identity and session state can change; never assume the active VM is the intended target. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "10-computer-use/window-management",
     "title": "Window Management",
     "category": "10-computer-use",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply window management in AI agent workflows.",
-    "body": "Window Management Category: Skill Level: Stability: Added: 2025-03 Description Open, close, minimize, maximize, resize, and move application windows. Enables agents to organize the desktop state before performing tasks. Example Related Skills - App Launch - Screenshot Capture - Multi-Monitor Support"
+    "description": "Move, resize, minimize, maximize, or focus a verified application window within explicit bounds.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Move, resize, minimize, maximize, or focus a verified application window within explicit bounds. When to Use Use when window state must be changed for a subsequent task. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Window handles and geometry can become stale; verify identity and resulting bounds after each change. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
   },
   {
     "id": "11-web/api-discovery",
