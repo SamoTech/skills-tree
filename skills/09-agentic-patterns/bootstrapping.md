@@ -2,39 +2,60 @@
 title: "Bootstrapping"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Apply bootstrapping in AI agent workflows."
+stability: stable
+description: "Generate controlled synthetic training or demonstration data to improve a model or agent without treating self-generated data as independent ground truth."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-bootstrapping.json)
+## Description
 
-# Bootstrapping
+Generate controlled synthetic training or demonstration data to improve a model or agent without treating self-generated data as independent ground truth.
 
-**Category:** `agentic-patterns`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the pattern has a measurable objective, explicit acceptance criteria, and a bounded execution budget.
 
-Agent generates its own training data (question-answer pairs, preference pairs, or demonstrations) to fine-tune itself or a smaller model, iteratively improving capability without human annotation.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | task distribution, generation policy, acceptance criteria, and compute/data budget. |
+| Outputs | versioned synthetic dataset or demonstrations with provenance, filtering decisions, and evaluation results. |
+| Failure modes | Ambiguous objective, budget exhaustion, correlated model errors, unsupported evidence, stale state, or acceptance without a reproducible postcondition. |
+
+## Procedure
+
+1. Define the objective, evaluation criteria, state representation, and termination condition.
+2. Validate inputs, role boundaries, and the evidence boundary.
+3. Execute within explicit compute, tool, depth, data, or agent budgets.
+4. Preserve provenance for candidates, subagents, memories, and tool observations.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report conflicts, uncertainty, failed branches, and incomplete evidence.
+
+## Runnable Example
 
 ```python
-# Generate synthetic Q&A pairs
-for topic in topics:
-    question = llm.generate(f"Write a hard question about: {topic}")
-    answer   = llm.generate(f"Answer this question: {question}")
-    dataset.append({"question": question, "answer": answer})
-
-# Fine-tune smaller model on dataset
-trainer.train(model=small_model, data=dataset)
+pattern = {"capability": "bootstrapping", "validated": True, "budget": 4}
+assert pattern["validated"] and pattern["budget"] > 0
+print({"status": "bounded_execution", "capability": pattern["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Self-Play](self-play.md)
-- [Constitutional AI](constitutional-ai.md)
-- [Reflection](reflection.md)
+- Objective or acceptance criterion is ambiguous.
+- Budget is exhausted without a verified result.
+- Correlated model outputs are treated as independent evidence.
+- Stale or unsupported evidence is accepted.
+- The pattern mutates state outside its authorization boundary.
+- Completion is reported without a reproducible postcondition.
+
+## Evidence
+
+Canonical repository skill: this file. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Pattern-specific claims require reproducible implementation evidence or authoritative primary documentation; generated reasoning is not evidence by itself.
+
+## Related
+
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
