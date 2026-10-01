@@ -102,8 +102,7 @@
     "provenance": {
       "type": "object",
       "required": [
-        "source_type",
-        "source"
+        "source_type"
       ],
       "properties": {
         "source_type": {
