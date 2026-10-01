@@ -7,6 +7,7 @@ description: "Minimize, detect, and redact sensitive personal data before agent 
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [secret-scanning, input-sanitization, audit-logging]
 ---
 
 # Privacy Preservation
