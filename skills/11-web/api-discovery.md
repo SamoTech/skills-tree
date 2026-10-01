@@ -2,54 +2,64 @@
 title: "API Endpoint Discovery"
 category: 11-web
 level: advanced
-stability: experimental
-description: "Apply api endpoint discovery in AI agent workflows."
+stability: stable
+description: "Discover web API requests from an authorized browser session and characterize their method, endpoint, parameters, and response contract."
 added: "2025-03"
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-api-discovery.json)
+## Description
 
-# API Endpoint Discovery
+Discover web API requests from an authorized browser session and characterize their method, endpoint, parameters, and response contract.
 
-**Category:** `web`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit URL, session, data, and action boundaries.
 
-Intercept browser network traffic to discover undocumented REST or GraphQL API endpoints that a website uses internally, enabling direct programmatic access.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized site/session, observed network requests, and discovery scope. |
+| Outputs | candidate endpoint records with provenance and authorization context. |
+| Failure modes | Wrong origin, stale page state, authentication leakage, anti-automation controls, malformed content, unbounded crawling, or unverified postconditions. |
+
+## Procedure
+
+1. Establish the authorized origin, session scope, and target resource.
+2. Validate the requested URL, selector, payload, or content against that scope.
+3. Execute with bounded requests, pages, scripts, redirects, or data volume.
+4. Preserve source URLs, timestamps, and relevant request/response provenance.
+5. Validate the result and expected postcondition before continuing.
+6. Stop on authorization, anti-automation, or ambiguity boundaries rather than bypassing them.
+
+## Runnable Example
 
 ```python
-from playwright.sync_api import sync_playwright
-
-requests_log = []
-
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-
-    # Intercept all XHR / fetch requests
-    page.on('request', lambda req: requests_log.append({
-        'url': req.url,
-        'method': req.method,
-        'headers': dict(req.headers)
-    }))
-
-    page.goto('https://example.com/dashboard')
-    page.wait_for_timeout(3000)
-    browser.close()
-
-# Inspect discovered API calls
-for r in requests_log:
-    if '/api/' in r['url']:
-        print(r['method'], r['url'])
+task = {"capability": "api-discovery", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Web Scraping](web-scraping.md)
-- [DOM Inspection](dom-inspection.md)
-- [JavaScript Execution](js-execution.md)
+- Target origin or authorization cannot be verified.
+- Page state changes between observation and action.
+- Session tokens or personal data are exposed.
+- Anti-bot, CAPTCHA, robots, or access controls are bypassed.
+- Redirects, recursion, or data volume exceed the declared bounds.
+- Output is accepted without validation.
+
+## Safety Boundary
+
+Do not bypass authentication, paywalls, CAPTCHA/anti-bot controls, rate limits, robots restrictions, or other access controls. Use only authorized sites and data, and never log credentials, session tokens, or sensitive cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails

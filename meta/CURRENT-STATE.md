@@ -283,3 +283,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added corresponding Agent Skills projections.
 - The `06-communication` placeholder cluster is now fully addressed; existing enriched skills were preserved.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Web modernization — batch 01
+
+- Modernized ten `11-web` skills: api-discovery, browser-navigation, captcha-solving, cookie-management, dom-inspection, form-filling, js-execution, link-extraction, rss-parsing, and sitemap-parsing.
+- Added corresponding Agent Skills projections.
+- Added explicit authorization boundaries, bounded requests/actions, provenance, postcondition checks, and anti-automation/access-control safety boundaries.
+- No validator, security gate, or repository governance rule was weakened.

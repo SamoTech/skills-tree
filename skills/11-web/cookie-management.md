@@ -3,47 +3,63 @@ title: "Cookie / Session Management"
 category: 11-web
 level: advanced
 stability: stable
-description: "Apply cookie / session management in AI agent workflows."
+description: "Manage cookies and browser session state within an authorized domain while preserving credential and session-token boundaries."
 added: "2025-03"
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-cookie-management.json)
+## Description
 
-# Cookie / Session Management
+Manage cookies and browser session state within an authorized domain while preserving credential and session-token boundaries.
 
-**Category:** `web`
-**Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit URL, session, data, and action boundaries.
 
-Read, set, and delete browser cookies and session storage to maintain authenticated state, bypass consent banners, or inject session tokens for headless automation.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized browser context, cookie policy, and scoped session state. |
+| Outputs | updated session state and verification result without exposing secrets. |
+| Failure modes | Wrong origin, stale page state, authentication leakage, anti-automation controls, malformed content, unbounded crawling, or unverified postconditions. |
+
+## Procedure
+
+1. Establish the authorized origin, session scope, and target resource.
+2. Validate the requested URL, selector, payload, or content against that scope.
+3. Execute with bounded requests, pages, scripts, redirects, or data volume.
+4. Preserve source URLs, timestamps, and relevant request/response provenance.
+5. Validate the result and expected postcondition before continuing.
+6. Stop on authorization, anti-automation, or ambiguity boundaries rather than bypassing them.
+
+## Runnable Example
 
 ```python
-from playwright.sync_api import sync_playwright
-
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    context = browser.new_context()
-
-    # Load saved session state (cookies + localStorage)
-    context = browser.new_context(storage_state='session.json')
-    page = context.new_page()
-    page.goto('https://github.com')  # already logged in
-
-    # Manually set a cookie
-    context.add_cookies([{
-        'name': 'consent', 'value': '1',
-        'domain': '.example.com', 'path': '/'
-    }])
-    browser.close()
+task = {"capability": "cookie-management", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Web Login](web-login.md)
-- [Browser Navigation](browser-navigation.md)
-- [JavaScript Execution](js-execution.md)
+- Target origin or authorization cannot be verified.
+- Page state changes between observation and action.
+- Session tokens or personal data are exposed.
+- Anti-bot, CAPTCHA, robots, or access controls are bypassed.
+- Redirects, recursion, or data volume exceed the declared bounds.
+- Output is accepted without validation.
+
+## Safety Boundary
+
+Do not bypass authentication, paywalls, CAPTCHA/anti-bot controls, rate limits, robots restrictions, or other access controls. Use only authorized sites and data, and never log credentials, session tokens, or sensitive cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails

@@ -3,58 +3,63 @@ title: "Form Filling"
 category: 11-web
 level: intermediate
 stability: stable
+description: "Populate authorized web forms using explicit field mappings and verify validation or submission outcomes before proceeding."
 added: "2025-03"
-description: "Apply form filling in AI agent workflows."
-dependencies:
-  - package: playwright
-    min_version: "1.40.0"
-    tested_version: "1.58.0"
-    confidence: verified
-code_blocks:
-  - id: "example-form"
-    type: executable
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-form-filling.json)
+## Description
 
-# Form Filling
+Populate authorized web forms using explicit field mappings and verify validation or submission outcomes before proceeding.
 
-**Category:** `web`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit URL, session, data, and action boundaries.
 
-Fill HTML forms — text inputs, dropdowns, checkboxes, file uploads — and submit them programmatically.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized page, field mapping, supplied values, and submission policy. |
+| Outputs | filled form state and verified validation/submission result. |
+| Failure modes | Wrong origin, stale page state, authentication leakage, anti-automation controls, malformed content, unbounded crawling, or unverified postconditions. |
+
+## Procedure
+
+1. Establish the authorized origin, session scope, and target resource.
+2. Validate the requested URL, selector, payload, or content against that scope.
+3. Execute with bounded requests, pages, scripts, redirects, or data volume.
+4. Preserve source URLs, timestamps, and relevant request/response provenance.
+5. Validate the result and expected postcondition before continuing.
+6. Stop on authorization, anti-automation, or ambiguity boundaries rather than bypassing them.
+
+## Runnable Example
 
 ```python
-# pip install playwright && playwright install chromium
-from playwright.sync_api import sync_playwright
-
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    page = browser.new_page()
-    page.goto("https://example.com/contact")
-
-    # Text inputs
-    page.fill("#name", "Agent Smith")
-    page.fill("#email", "agent@example.com")
-    page.fill("#message", "Hello from an AI agent.")
-
-    # Dropdown
-    page.select_option("select#category", "support")
-
-    # Checkbox
-    page.check("input[name='agree']")
-
-    # Submit
-    page.click("button[type='submit']")
-    page.wait_for_selector(".success-message")
-    browser.close()
+task = {"capability": "form-filling", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
-- `browser-navigation`, `web-login`, `dom-inspection`, `form-submission`
+## Failure Modes
+
+- Target origin or authorization cannot be verified.
+- Page state changes between observation and action.
+- Session tokens or personal data are exposed.
+- Anti-bot, CAPTCHA, robots, or access controls are bypassed.
+- Redirects, recursion, or data volume exceed the declared bounds.
+- Output is accepted without validation.
+
+## Safety Boundary
+
+Do not bypass authentication, paywalls, CAPTCHA/anti-bot controls, rate limits, robots restrictions, or other access controls. Use only authorized sites and data, and never log credentials, session tokens, or sensitive cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails

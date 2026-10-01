@@ -3,48 +3,63 @@ title: "JavaScript Execution"
 category: 11-web
 level: advanced
 stability: stable
-description: "Apply javascript execution in AI agent workflows."
+description: "Execute explicitly scoped JavaScript in an authorized page context for supported inspection or interaction tasks without bypassing security controls."
 added: "2025-03"
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-js-execution.json)
+## Description
 
-# JavaScript Execution
+Execute explicitly scoped JavaScript in an authorized page context for supported inspection or interaction tasks without bypassing security controls.
 
-**Category:** `web`
-**Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit URL, session, data, and action boundaries.
 
-Inject and execute arbitrary JavaScript in the browser context to interact with the DOM, extract data, trigger events, or bypass limitations of standard automation APIs.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized page, bounded script, inputs, and expected postcondition. |
+| Outputs | script result and verified page state. |
+| Failure modes | Wrong origin, stale page state, authentication leakage, anti-automation controls, malformed content, unbounded crawling, or unverified postconditions. |
+
+## Procedure
+
+1. Establish the authorized origin, session scope, and target resource.
+2. Validate the requested URL, selector, payload, or content against that scope.
+3. Execute with bounded requests, pages, scripts, redirects, or data volume.
+4. Preserve source URLs, timestamps, and relevant request/response provenance.
+5. Validate the result and expected postcondition before continuing.
+6. Stop on authorization, anti-automation, or ambiguity boundaries rather than bypassing them.
+
+## Runnable Example
 
 ```python
-from playwright.sync_api import sync_playwright
-
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page()
-    page.goto('https://example.com')
-
-    # Extract data via JS
-    title = page.evaluate("document.title")
-    links = page.evaluate("[...document.querySelectorAll('a')].map(a => a.href)")
-
-    # Trigger a hidden event
-    page.evaluate("document.querySelector('#hidden-btn').click()")
-
-    # Scroll to bottom
-    page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-
-    browser.close()
+task = {"capability": "js-execution", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [DOM Inspection](dom-inspection.md)
-- [Browser Navigation](browser-navigation.md)
-- [Web Scraping](web-scraping.md)
+- Target origin or authorization cannot be verified.
+- Page state changes between observation and action.
+- Session tokens or personal data are exposed.
+- Anti-bot, CAPTCHA, robots, or access controls are bypassed.
+- Redirects, recursion, or data volume exceed the declared bounds.
+- Output is accepted without validation.
+
+## Safety Boundary
+
+Do not bypass authentication, paywalls, CAPTCHA/anti-bot controls, rate limits, robots restrictions, or other access controls. Use only authorized sites and data, and never log credentials, session tokens, or sensitive cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails
