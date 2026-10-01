@@ -2878,81 +2878,81 @@
     "id": "12-data/anomaly-detection",
     "title": "Anomaly Detection",
     "category": "12-data",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply anomaly detection in AI agent workflows.",
-    "body": "Anomaly Detection Category: Skill Level: Stability: Added: 2025-03 Description Detect statistical outliers and anomalous patterns in numerical datasets using Isolation Forest, Z-score, or LOF algorithms. Example Related Skills - , , ,"
+    "description": "Identify unusual observations in supplied datasets using explicit baselines, thresholds, or statistical criteria.",
+    "body": "Category: Data Skill Level: Stability: stable Description Identify unusual observations in supplied datasets using explicit baselines, thresholds, or statistical criteria. When to Use Use when a dataset, comparison baseline, and anomaly objective are defined. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary An anomaly is not automatically an error or incident; investigate context before acting. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/csv-processing",
-    "title": "CSV Processing",
+    "title": "Csv Processing",
     "category": "12-data",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply CSV processing in AI agent workflows.",
-    "body": "CSV Processing Category: Skill Level: Stability: Added: 2025-03 Description Load, filter, transform, and export CSV data using pandas for structured analysis in agent pipelines. Example Related Skills - , , ,"
+    "description": "Read, validate, transform, and export CSV data while preserving schema and row-level integrity.",
+    "body": "Category: Data Skill Level: Stability: stable Description Read, validate, transform, and export CSV data while preserving schema and row-level integrity. When to Use Use when CSV input and required output schema are explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Handle encoding, quoting, missing values, and malformed rows explicitly; never silently drop data. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/data-aggregation",
     "title": "Data Aggregation",
     "category": "12-data",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data aggregation in AI agent workflows.",
-    "body": "Data Aggregation Category: Skill Level: Stability: Added: 2025-03 Description Group, sum, count, average, and pivot datasets to produce summary statistics and aggregated views. Example Frameworks - Python — , - SQL - Apache Spark Related Skills - Data Filtering - Statistical Analysis - SQL Query Execution"
+    "description": "Aggregate records by declared dimensions using explicit metrics, filters, and null-handling rules.",
+    "body": "Category: Data Skill Level: Stability: stable Description Aggregate records by declared dimensions using explicit metrics, filters, and null-handling rules. When to Use Use when grouping dimensions and aggregation semantics are known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Aggregation can hide distributional detail; preserve counts and assumptions and avoid denominator errors. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/data-cleaning",
     "title": "Data Cleaning",
     "category": "12-data",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data cleaning in AI agent workflows.",
-    "body": "Data Cleaning Category: Skill Level: Stability: Added: 2025-03 Description Detect and fix data quality issues: remove nulls, deduplicate rows, fix data types, standardize formats, and handle outliers. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | ✅ | Raw dataset to clean | | | | ❌ | Cleaning rules (drop nulls, cast types, etc.) | Outputs | Output | Type | Description | |---|---|---| | | | Cleaned dataset | | | | Summary of changes made | Example Related Skills - CSV Processing - Anomaly Detection - Data Schema Inference"
+    "description": "Detect and resolve missing, malformed, duplicate, or inconsistent data according to explicit cleaning rules.",
+    "body": "Category: Data Skill Level: Stability: stable Description Detect and resolve missing, malformed, duplicate, or inconsistent data according to explicit cleaning rules. When to Use Use when data-quality rules and acceptable transformations are defined. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Do not overwrite source data silently; preserve transformation decisions and distinguish imputation from observed values. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/data-filtering",
     "title": "Data Filtering",
     "category": "12-data",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data filtering in AI agent workflows.",
-    "body": "Data Filtering Category: Skill Level: Stability: Added: 2025-03 Description Filter datasets by one or more conditions to produce a relevant subset of rows or columns. Example Related Skills - Data Aggregation - SQL Query Execution"
+    "description": "Filter datasets using explicit predicates while preserving reproducibility and row-selection semantics.",
+    "body": "Category: Data Skill Level: Stability: stable Description Filter datasets using explicit predicates while preserving reproducibility and row-selection semantics. When to Use Use when inclusion/exclusion criteria are clearly defined. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Ambiguous predicates or null semantics can change results; validate counts before and after filtering. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/data-joining",
     "title": "Data Joining",
     "category": "12-data",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data joining in AI agent workflows.",
-    "body": "Data Joining Category: Skill Level: Stability: Added: 2025-03 Description Merge two or more datasets on shared keys using inner, left, right, or full outer joins. Example Related Skills - Data Aggregation - SQL Query Execution"
+    "description": "Combine datasets using explicit keys and join semantics while checking cardinality and unmatched records.",
+    "body": "Category: Data Skill Level: Stability: stable Description Combine datasets using explicit keys and join semantics while checking cardinality and unmatched records. When to Use Use when source schemas, join keys, and desired join type are known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Many-to-many joins can multiply records unexpectedly; inspect cardinality and unmatched keys. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/data-summarization",
     "title": "Data Summarization",
     "category": "12-data",
-    "level": "intermediate",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data summarization in AI agent workflows.",
-    "body": "Data Summarization Category: Skill Level: Stability: Added: 2025-03 Description Produce a natural language summary of a dataset's contents, distributions, trends, and notable patterns. Example Frameworks - Any LLM with data-to-text prompting - LangChain - OpenAI Code Interpreter Related Skills - Statistical Analysis - Data Visualization"
+    "description": "Produce structured summaries of datasets using declared metrics, dimensions, and source coverage.",
+    "body": "Category: Data Skill Level: Stability: stable Description Produce structured summaries of datasets using declared metrics, dimensions, and source coverage. When to Use Use when the dataset and summary questions are explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Summary statistics can conceal outliers or subgroup differences; preserve denominators and source scope. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/data-visualization",
     "title": "Data Visualization",
     "category": "12-data",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data visualization in AI agent workflows.",
-    "body": "Data Visualization Category: Skill Level: Stability: Added: 2025-03 Description Generate interactive charts and static plots from structured data for agent-generated reports and dashboards. Example Related Skills - , , ,"
+    "description": "Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.",
+    "body": "Category: Data Skill Level: Stability: stable Description Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent. When to Use Use when the analytical question and visual encoding are defined. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Charts can mislead through scales, aggregation, or omitted context; validate labels, units, and source data. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/embedding-generation",
@@ -2972,23 +2972,23 @@
   },
   {
     "id": "12-data/etl-pipeline",
-    "title": "ETL Pipeline",
+    "title": "Etl Pipeline",
     "category": "12-data",
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply etl pipeline in AI agent workflows.",
-    "body": "ETL Pipeline Category: Skill Level: Stability: Added: 2025-03 Description Build Extract-Transform-Load pipelines to move and reshape data between sources and destinations. Example Frameworks - Apache Airflow, Prefect, Dagster - dbt (transform layer) - Fivetran, Airbyte (managed ETL) Related Skills - Data Cleaning - Data Joining - SQL Query Execution"
+    "description": "Design or execute bounded extract-transform-load workflows with explicit source, transformation, destination, and validation contracts.",
+    "body": "Category: Data Skill Level: Stability: stable Description Design or execute bounded extract-transform-load workflows with explicit source, transformation, destination, and validation contracts. When to Use Use when pipeline stages, schemas, and operational boundaries are known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Partial failures can create inconsistent destinations; use checkpoints, idempotency, and post-load validation. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/json-transformation",
-    "title": "JSON Transformation",
+    "title": "Json Transformation",
     "category": "12-data",
-    "level": "basic",
+    "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply json transformation in AI agent workflows.",
-    "body": "JSON Transformation Category: Skill Level: Stability: Added: 2025-03 Description Parse and transform JSON data structures — flatten, filter, reshape, or extract specific fields. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | ✅ | Raw JSON string or parsed dict | | | | ❌ | jq-style or natural language spec | Outputs | Output | Type | Description | |---|---|---| | | | Transformed JSON structure | Example Frameworks - Python , - LangChain JSONLoader - OpenAI function calling with structured output Related Skills - CSV Processing - Structured Data Reading"
+    "description": "Transform JSON structures between explicit schemas while preserving required fields and data types.",
+    "body": "Category: Data Skill Level: Stability: stable Description Transform JSON structures between explicit schemas while preserving required fields and data types. When to Use Use when source and target JSON schemas are known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Dataset or records, schema/context, transformation rules, and required output format. | | Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. | | Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. | Procedure 1. Inspect the source schema and establish explicit transformation semantics. 2. Validate required fields, types, encoding, null behavior, and relevant constraints. 3. Apply only the declared transformation or analysis. 4. Compare input/output counts and validate the resulting schema and values. 5. Preserve source data and record material assumptions or exceptions. Runnable Example Failure Modes - Missing or ambiguous schema. - Unexpected nulls, duplicates, or malformed records. - Silent row/field loss. - Incorrect join, aggregation, or type coercion semantics. - Output not validated against the required contract. Data Boundary Do not silently discard fields or coerce incompatible types; validate the transformed document against the target schema. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit. Related - 12-data - input-guardrails - output-guardrails"
   },
   {
     "id": "12-data/nosql-query",
