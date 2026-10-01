@@ -275,3 +275,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added explicit communication contracts, evidence boundaries, uncertainty handling, constraint checking, failure modes, and runnable examples.
 - Preserved existing enriched paraphrasing, summarization, and translation skills.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Communication modernization — batch 02
+
+- Modernized the remaining two `06-communication` placeholder skills: structured-output and tone-adjustment.
+- Added corresponding Agent Skills projections.
+- The `06-communication` placeholder cluster is now fully addressed; existing enriched skills were preserved.
+- No validator, security gate, or repository governance rule was weakened.
