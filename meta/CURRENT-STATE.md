@@ -207,3 +207,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections.
 - Added explicit schema, provenance, validation, cardinality, null-handling, and data-loss boundaries.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Data modernization — batch 02
+
+- Modernized the remaining seven `12-data` stubs: nosql-query, pandas-operations, schema-inference, similarity-search, sql-execution, statistical-analysis, and time-series.
+- Added or synchronized corresponding Agent Skills projections.
+- The `12-data` category is now fully modernized; the existing embedding-generation skill was preserved as the category's already battle-tested implementation.
+- No validator, security gate, or repository governance rule was weakened.
