@@ -133,7 +133,7 @@ print(result)
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python AST documentation: https://docs.python.org/3/library/ast.html
-- Python inspect documentation: https://docs.python.org/3/library/inspect.html
+- Python AST documentation: https://docs.python.org/3.14/library/ast.html
+- Python inspect documentation: https://docs.python.org/3.14/library/inspect.html
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
