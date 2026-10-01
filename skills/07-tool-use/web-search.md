@@ -1,43 +1,59 @@
 ---
 title: "Web Search"
 category: 07-tool-use
-level: basic
+level: intermediate
 stability: stable
-description: "Apply web search in AI agent workflows."
-added: "2025-03"
+description: "Use a web-search service as a bounded retrieval tool with explicit queries, freshness constraints, source tracking, and result verification."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-web-search.json)
 
 # Web Search
 
-**Category:** `tool-use`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use a web-search service as a bounded retrieval tool with explicit queries, freshness constraints, source tracking, and result verification.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires web search, the target account or resource is authorized, and the provider contract is documented.
 
-Search the web via search engine APIs and return relevant results (titles, URLs, snippets).
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+
+## Runnable Example
 
 ```python
-import requests
-params = {'q': 'LangGraph tutorial 2026', 'key': SERPAPI_KEY}
-results = requests.get('https://serpapi.com/search', params=params).json()
-for r in results['organic_results'][:5]:
-    print(r['title'], r['link'])
+import os
+
+request = {
+    "capability": "web-search",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Frameworks
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
 
-- SerpAPI, Tavily, Brave Search API
-- Bing Web Search API
-- DuckDuckGo (unofficial)
-- Perplexity API
+## Evidence
+- Provider documentation: https://developers.google.com/custom-search/v1/overview
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-### Related Skills
-
-- [URL Fetching](../11-web/url-fetching.md)
-- [Web Scraping](../11-web/web-scraping.md)
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails

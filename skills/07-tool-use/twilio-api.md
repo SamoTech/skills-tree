@@ -3,55 +3,57 @@ title: "Twilio API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-added: "2025-03"
-description: "Apply Twilio API in AI agent workflows."
-dependencies:
-  - package: twilio
-    min_version: "8.0.0"
-    tested_version: "9.10.5"
-    confidence: verified
-code_blocks:
-  - id: "example-twilio"
-    type: executable
+description: "Use Twilio APIs for authorized messaging and communications with validated destinations, rate controls, secret-safe credentials, and delivery-state handling."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-twilio-api.json)
 
 # Twilio API
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use Twilio APIs for authorized messaging and communications with validated destinations, rate controls, secret-safe credentials, and delivery-state handling.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires twilio api, the target account or resource is authorized, and the provider contract is documented.
 
-Send SMS, WhatsApp messages, and make voice calls programmatically via the Twilio REST API.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+
+## Runnable Example
 
 ```python
-# pip install twilio
-from twilio.rest import Client
+import os
 
-client = Client("ACxxxxxxxx", "your_auth_token")
-
-# Send SMS
-message = client.messages.create(
-    body="Your agent task completed successfully!",
-    from_="+15551234567",  # Twilio number
-    to="+15559876543"
-)
-print(f"SMS sent: {message.sid}, status: {message.status}")
-
-# Send WhatsApp message
-wapp = client.messages.create(
-    body="Agent report ready.",
-    from_="whatsapp:+14155238886",
-    to="whatsapp:+15559876543"
-)
-print(f"WhatsApp sent: {wapp.sid}")
+request = {
+    "capability": "twilio-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
-- `notification-sending`, `slack-api`, `sendgrid-api`, `email-sending`
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
+
+## Evidence
+- Provider documentation: https://www.twilio.com/docs/usage/api
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails

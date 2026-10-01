@@ -1,15 +1,15 @@
 ---
-name: github-api
-description: Use github api as a bounded agent capability with validated inputs, least-privilege access, and verified results.
+name: sql-tool
+description: Use sql tool as a bounded agent capability with validated inputs, least-privilege access, and verified results.
 ---
 
-# GitHub API
+# SQL Tool
 
 ## Description
-Use github api only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
+Use sql tool only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
 
 ## When to Use
-Use when the workflow explicitly requires github api and the target resource is authorized.
+Use when the workflow explicitly requires sql tool and the target resource is authorized.
 
 ## Inputs / Outputs
 - Inputs: validated task data, documented provider parameters, and authorization context.
@@ -24,13 +24,13 @@ Use when the workflow explicitly requires github api and the target resource is 
 ## Runnable Example
 
 ```python
-capability = "github-api"
+capability = "sql-tool"
 assert capability
 print("validate provider contract before invocation")
 ```
 
 ## Evidence
-Repository-backed guidance. See the canonical skill at skills/07-tool-use/github-api.md and its cited provider documentation.
+Repository-backed guidance. See the canonical skill at skills/07-tool-use/sql-tool.md and its cited provider documentation.
 
 ## Related
 - 07-tool-use

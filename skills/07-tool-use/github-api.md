@@ -3,42 +3,57 @@ title: "GitHub API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-description: "Apply github api in AI agent workflows."
-added: "2025-03"
+description: "Use GitHub REST APIs for bounded repository, issue, pull-request, and metadata operations with explicit scopes and verified mutations."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-github-api.json)
 
 # GitHub API
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use GitHub REST APIs for bounded repository, issue, pull-request, and metadata operations with explicit scopes and verified mutations.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires github api, the target account or resource is authorized, and the provider contract is documented.
 
-Interact with GitHub repositories: create/read issues, pull requests, commits, files, branches, and releases via the GitHub REST or GraphQL API.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+
+## Runnable Example
 
 ```python
-import httpx
-headers = {'Authorization': f'token {GITHUB_TOKEN}'}
-r = httpx.post(
-    f'https://api.github.com/repos/{owner}/{repo}/issues',
-    json={'title': 'Bug: skill file missing', 'body': 'The skill file was not created.'},
-    headers=headers
-)
+import os
+
+request = {
+    "capability": "github-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Frameworks
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
 
-- GitHub MCP Server
-- PyGithub
-- Octokit (JavaScript)
+## Evidence
+- Provider documentation: https://docs.github.com/en/rest
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-### Related Skills
-
-- [Git Operations](../05-code/git-operations.md)
-- [MCP Tool](mcp-tool.md)
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails

@@ -1,25 +1,37 @@
 ---
 name: google-workspace-api
-description: Work with Google Workspace APIs through documented resources, scoped authorization, pagination, and verified state changes.
-license: MIT
-metadata:
-  source: skills/07-tool-use/google-workspace-api.md
-  version: "v2"
+description: Use google workspace api as a bounded agent capability with validated inputs, least-privilege access, and verified results.
 ---
 
-# Google Workspace Api
+# Google Workspace API
 
-1. Inspect the documented interface and repository contract.
-2. Validate inputs and authorization boundaries.
-3. Invoke only the intended operation.
-4. Validate the response and resulting state.
-5. Record verification evidence.
+## Description
+Use google workspace api only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
 
-## Failure modes
-- Undocumented interface usage.
-- Invalid inputs or excessive permissions.
-- Unverified outcomes.
+## When to Use
+Use when the workflow explicitly requires google workspace api and the target resource is authorized.
+
+## Inputs / Outputs
+- Inputs: validated task data, documented provider parameters, and authorization context.
+- Outputs: structured provider result and evidence sufficient for downstream verification.
+
+## Failure Modes
+- Invalid or ambiguous inputs.
+- Permission, rate-limit, transport, or provider failures.
+- Credential or private-data exposure.
+- Unverified side effects.
+
+## Runnable Example
+
+```python
+capability = "google-workspace-api"
+assert capability
+print("validate provider contract before invocation")
+```
 
 ## Evidence
-Canonical skill: skills/07-tool-use/google-workspace-api.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed guidance. See the canonical skill at skills/07-tool-use/google-workspace-api.md and its cited provider documentation.
+
+## Related
+- 07-tool-use
+- tool-guardrails

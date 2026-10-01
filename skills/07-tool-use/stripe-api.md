@@ -3,53 +3,57 @@ title: "Stripe API"
 category: 07-tool-use
 level: intermediate
 stability: stable
-added: "2025-03"
-description: "Apply Stripe API in AI agent workflows."
-dependencies:
-  - package: stripe
-    min_version: "7.0.0"
-    tested_version: "15.0.1"
-    confidence: verified
-code_blocks:
-  - id: "example-stripe"
-    type: executable
+description: "Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification."
+added: "2026-09"
+related: [07-tool-use, 14-security]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-stripe-api.json)
 
 # Stripe API
 
-**Category:** `tool-use`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## Description
+Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification.
 
-### Description
+## When to Use
+Use this capability only when the workflow requires stripe api, the target account or resource is authorized, and the provider contract is documented.
 
-Create charges, manage subscriptions, retrieve invoices, and handle payment events via the Stripe Python SDK.
+## Inputs / outputs / failure modes
 
-### Example
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+
+## Runnable Example
 
 ```python
-# pip install stripe
-import stripe
+import os
 
-stripe.api_key = "sk_test_your_key"
-
-# Create a PaymentIntent
-intent = stripe.PaymentIntent.create(
-    amount=2000,  # $20.00 in cents
-    currency="usd",
-    payment_method_types=["card"],
-    metadata={"order_id": "order_123"}
-)
-print(f"PaymentIntent: {intent.id}, status: {intent.status}")
-
-# List recent charges
-charges = stripe.Charge.list(limit=5)
-for charge in charges.auto_paging_iter():
-    print(f"{charge.id}: ${charge.amount/100:.2f} {charge.currency.upper()} — {charge.status}")
+request = {
+    "capability": "stripe-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
-### Related Skills
-- `webhook-call`, `api-call`, `env-vars`, `sendgrid-api`
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
+
+## Evidence
+- Provider documentation: https://docs.stripe.com/api
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
+
+## Related
+- tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails

@@ -1,25 +1,37 @@
 ---
 name: huggingface-api
-description: Use Hugging Face APIs through documented endpoints, validated inputs, model or dataset identifiers, and explicit response handling.
-license: MIT
-metadata:
-  source: skills/07-tool-use/huggingface-api.md
-  version: "v2"
+description: Use hugging face api as a bounded agent capability with validated inputs, least-privilege access, and verified results.
 ---
 
-# Huggingface Api
+# Hugging Face API
 
-1. Inspect the documented interface and repository contract.
-2. Validate inputs and authorization boundaries.
-3. Invoke only the intended operation.
-4. Validate the response and resulting state.
-5. Record verification evidence.
+## Description
+Use hugging face api only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
 
-## Failure modes
-- Undocumented interface usage.
-- Invalid inputs or excessive permissions.
-- Unverified outcomes.
+## When to Use
+Use when the workflow explicitly requires hugging face api and the target resource is authorized.
+
+## Inputs / Outputs
+- Inputs: validated task data, documented provider parameters, and authorization context.
+- Outputs: structured provider result and evidence sufficient for downstream verification.
+
+## Failure Modes
+- Invalid or ambiguous inputs.
+- Permission, rate-limit, transport, or provider failures.
+- Credential or private-data exposure.
+- Unverified side effects.
+
+## Runnable Example
+
+```python
+capability = "huggingface-api"
+assert capability
+print("validate provider contract before invocation")
+```
 
 ## Evidence
-Canonical skill: skills/07-tool-use/huggingface-api.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed guidance. See the canonical skill at skills/07-tool-use/huggingface-api.md and its cited provider documentation.
+
+## Related
+- 07-tool-use
+- tool-guardrails
