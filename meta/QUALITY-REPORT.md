@@ -6,8 +6,8 @@
 
 - **Total skill files:** 374
 - 🟢 **Battle-tested** (rich content + tables + >=60 lines): 135
-- 🟡 **Enriched** (real description + runnable code): 59
-- ⚪ **Stub** (placeholder description or no runnable code): 180
+- 🟡 **Enriched** (real description + runnable code): 96
+- ⚪ **Stub** (placeholder description or no runnable code): 143
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -21,7 +21,7 @@
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
 | `05-code` | 28 | 5 | 22 | 1 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
-| `07-tool-use` | 33 | 11 | 11 | 11 | 0 |
+| `07-tool-use` | 33 | 11 | 21 | 1 | 0 |
 | `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
 | `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
 | `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
@@ -30,7 +30,7 @@
 | `13-creative` | 14 | 0 | 0 | 14 | 0 |
 | `14-security` | 13 | 4 | 0 | 9 | 0 |
 | `15-orchestration` | 27 | 9 | 2 | 16 | 0 |
-| `16-domain-specific` | 28 | 1 | 0 | 27 | 0 |
+| `16-domain-specific` | 28 | 1 | 27 | 0 | 0 |
 | `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
 
 ## 🟢 Battle-tested skills (start here as a user)
@@ -225,13 +225,50 @@
 - [`skills/07-tool-use/code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — missing table or <60 lines
 - [`skills/07-tool-use/custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — missing table or <60 lines
 - [`skills/07-tool-use/file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/github-api.md`](skills/07-tool-use/github-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — missing table or <60 lines
 - [`skills/07-tool-use/news-api.md`](skills/07-tool-use/news-api.md) — missing table or <60 lines
 - [`skills/07-tool-use/notion-api.md`](skills/07-tool-use/notion-api.md) — missing table or <60 lines
 - [`skills/07-tool-use/pdf-tool.md`](skills/07-tool-use/pdf-tool.md) — missing table or <60 lines
 - [`skills/07-tool-use/sendgrid-api.md`](skills/07-tool-use/sendgrid-api.md) — missing table or <60 lines
 - [`skills/07-tool-use/slack-api.md`](skills/07-tool-use/slack-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/sql-tool.md`](skills/07-tool-use/sql-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/stripe-api.md`](skills/07-tool-use/stripe-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/twilio-api.md`](skills/07-tool-use/twilio-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/vector-db-tool.md`](skills/07-tool-use/vector-db-tool.md) — missing table or <60 lines
+- [`skills/07-tool-use/weather-api.md`](skills/07-tool-use/weather-api.md) — missing table or <60 lines
+- [`skills/07-tool-use/web-search.md`](skills/07-tool-use/web-search.md) — missing table or <60 lines
+- [`skills/07-tool-use/wikipedia-api.md`](skills/07-tool-use/wikipedia-api.md) — missing table or <60 lines
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
 - [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
+- [`skills/16-domain-specific/ad-copy.md`](skills/16-domain-specific/ad-copy.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/alert-triage.md`](skills/16-domain-specific/alert-triage.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/clinical-note-summarization.md`](skills/16-domain-specific/clinical-note-summarization.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/compliance-checking.md`](skills/16-domain-specific/compliance-checking.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/contract-review.md`](skills/16-domain-specific/contract-review.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/data-labeling.md`](skills/16-domain-specific/data-labeling.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/drug-interaction.md`](skills/16-domain-specific/drug-interaction.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/essay-grading.md`](skills/16-domain-specific/essay-grading.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/financial-statement.md`](skills/16-domain-specific/financial-statement.md) — no inputs/outputs/failure-modes table
+- [`skills/16-domain-specific/flashcard-creation.md`](skills/16-domain-specific/flashcard-creation.md) — missing table or <60 lines
+- [`skills/16-domain-specific/hypothesis-generation.md`](skills/16-domain-specific/hypothesis-generation.md) — missing table or <60 lines
+- [`skills/16-domain-specific/iac-generation.md`](skills/16-domain-specific/iac-generation.md) — missing table or <60 lines
+- [`skills/16-domain-specific/incident-response.md`](skills/16-domain-specific/incident-response.md) — missing table or <60 lines
+- [`skills/16-domain-specific/invoice-processing.md`](skills/16-domain-specific/invoice-processing.md) — missing table or <60 lines
+- [`skills/16-domain-specific/legal-research.md`](skills/16-domain-specific/legal-research.md) — missing table or <60 lines
+- [`skills/16-domain-specific/lesson-plan.md`](skills/16-domain-specific/lesson-plan.md) — missing table or <60 lines
+- [`skills/16-domain-specific/literature-review.md`](skills/16-domain-specific/literature-review.md) — missing table or <60 lines
+- [`skills/16-domain-specific/log-analysis.md`](skills/16-domain-specific/log-analysis.md) — missing table or <60 lines
+- [`skills/16-domain-specific/medical-literature-search.md`](skills/16-domain-specific/medical-literature-search.md) — missing table or <60 lines
+- [`skills/16-domain-specific/paper-summarization.md`](skills/16-domain-specific/paper-summarization.md) — missing table or <60 lines
+- [`skills/16-domain-specific/portfolio-analysis.md`](skills/16-domain-specific/portfolio-analysis.md) — missing table or <60 lines
+- [`skills/16-domain-specific/product-description.md`](skills/16-domain-specific/product-description.md) — missing table or <60 lines
+- [`skills/16-domain-specific/quiz-generation.md`](skills/16-domain-specific/quiz-generation.md) — missing table or <60 lines
+- [`skills/16-domain-specific/review-analysis.md`](skills/16-domain-specific/review-analysis.md) — missing table or <60 lines
+- [`skills/16-domain-specific/seo-optimization.md`](skills/16-domain-specific/seo-optimization.md) — missing table or <60 lines
+- [`skills/16-domain-specific/stock-lookup.md`](skills/16-domain-specific/stock-lookup.md) — missing table or <60 lines
+- [`skills/16-domain-specific/symptom-analysis.md`](skills/16-domain-specific/symptom-analysis.md) — missing table or <60 lines
 
 ## ⚪ Stubs
 
@@ -258,16 +295,6 @@
 - [`skills/06-communication/report-writing.md`](skills/06-communication/report-writing.md) — description matches placeholder pattern: 'Apply report writing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/structured-output.md`](skills/06-communication/structured-output.md) — description matches placeholder pattern: 'Apply structured output in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — description matches placeholder pattern: 'Apply tone adjustment in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/github-api.md`](skills/07-tool-use/github-api.md) — description matches placeholder pattern: 'Apply github api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — description matches placeholder pattern: 'Apply google workspace api in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — description matches placeholder pattern: 'Apply huggingface api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/sql-tool.md`](skills/07-tool-use/sql-tool.md) — description matches placeholder pattern: 'Apply sql tool in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/stripe-api.md`](skills/07-tool-use/stripe-api.md) — description matches placeholder pattern: 'Apply Stripe API in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/twilio-api.md`](skills/07-tool-use/twilio-api.md) — description matches placeholder pattern: 'Apply Twilio API in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/vector-db-tool.md`](skills/07-tool-use/vector-db-tool.md) — description matches placeholder pattern: 'Apply vector db tool in AI agent workflows'
-- [`skills/07-tool-use/weather-api.md`](skills/07-tool-use/weather-api.md) — description matches placeholder pattern: 'Apply weather api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/web-search.md`](skills/07-tool-use/web-search.md) — description matches placeholder pattern: 'Apply web search in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/wikipedia-api.md`](skills/07-tool-use/wikipedia-api.md) — description matches placeholder pattern: 'Apply wikipedia api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — description matches placeholder pattern: 'Apply wolfram alpha api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/08-multimodal/3d-scene-understanding.md`](skills/08-multimodal/3d-scene-understanding.md) — description matches placeholder pattern: 'Apply 3D scene understanding in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/08-multimodal/audio-classification.md`](skills/08-multimodal/audio-classification.md) — description matches placeholder pattern: 'Apply audio classification in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -387,33 +414,6 @@
 - [`skills/15-orchestration/state-machine.md`](skills/15-orchestration/state-machine.md) — description matches placeholder pattern: 'Apply state machine in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/15-orchestration/subagent-spawning.md`](skills/15-orchestration/subagent-spawning.md) — description matches placeholder pattern: 'Apply subagent spawning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/15-orchestration/task-queue.md`](skills/15-orchestration/task-queue.md) — description matches placeholder pattern: 'Apply task queue in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/ad-copy.md`](skills/16-domain-specific/ad-copy.md) — description matches placeholder pattern: 'Apply ad copy in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/alert-triage.md`](skills/16-domain-specific/alert-triage.md) — description matches placeholder pattern: 'Apply alert triage in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/clinical-note-summarization.md`](skills/16-domain-specific/clinical-note-summarization.md) — description matches placeholder pattern: 'Apply clinical note summarization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/compliance-checking.md`](skills/16-domain-specific/compliance-checking.md) — description matches placeholder pattern: 'Apply compliance checking in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/contract-review.md`](skills/16-domain-specific/contract-review.md) — description matches placeholder pattern: 'Apply contract review in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/data-labeling.md`](skills/16-domain-specific/data-labeling.md) — description matches placeholder pattern: 'Apply data labeling in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/drug-interaction.md`](skills/16-domain-specific/drug-interaction.md) — description matches placeholder pattern: 'Apply drug interaction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/essay-grading.md`](skills/16-domain-specific/essay-grading.md) — description matches placeholder pattern: 'Apply essay grading in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/financial-statement.md`](skills/16-domain-specific/financial-statement.md) — description matches placeholder pattern: 'Apply financial statement in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/flashcard-creation.md`](skills/16-domain-specific/flashcard-creation.md) — description matches placeholder pattern: 'Apply flashcard creation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/hypothesis-generation.md`](skills/16-domain-specific/hypothesis-generation.md) — description matches placeholder pattern: 'Apply hypothesis generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/iac-generation.md`](skills/16-domain-specific/iac-generation.md) — description matches placeholder pattern: 'Apply iac generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/incident-response.md`](skills/16-domain-specific/incident-response.md) — description matches placeholder pattern: 'Apply incident response in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/invoice-processing.md`](skills/16-domain-specific/invoice-processing.md) — description matches placeholder pattern: 'Apply invoice processing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/legal-research.md`](skills/16-domain-specific/legal-research.md) — description matches placeholder pattern: 'Apply legal research in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/lesson-plan.md`](skills/16-domain-specific/lesson-plan.md) — description matches placeholder pattern: 'Apply lesson plan in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/literature-review.md`](skills/16-domain-specific/literature-review.md) — description matches placeholder pattern: 'Apply literature review in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/log-analysis.md`](skills/16-domain-specific/log-analysis.md) — description matches placeholder pattern: 'Apply log analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/medical-literature-search.md`](skills/16-domain-specific/medical-literature-search.md) — description matches placeholder pattern: 'Apply medical literature search in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/paper-summarization.md`](skills/16-domain-specific/paper-summarization.md) — description matches placeholder pattern: 'Apply paper summarization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/portfolio-analysis.md`](skills/16-domain-specific/portfolio-analysis.md) — description matches placeholder pattern: 'Apply portfolio analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/product-description.md`](skills/16-domain-specific/product-description.md) — description matches placeholder pattern: 'Apply product description in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/quiz-generation.md`](skills/16-domain-specific/quiz-generation.md) — description matches placeholder pattern: 'Apply quiz generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/review-analysis.md`](skills/16-domain-specific/review-analysis.md) — description matches placeholder pattern: 'Apply review analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/seo-optimization.md`](skills/16-domain-specific/seo-optimization.md) — description matches placeholder pattern: 'Apply seo optimization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/stock-lookup.md`](skills/16-domain-specific/stock-lookup.md) — description matches placeholder pattern: 'Apply stock lookup in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/16-domain-specific/symptom-analysis.md`](skills/16-domain-specific/symptom-analysis.md) — description matches placeholder pattern: 'Apply symptom analysis in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
 
 ## Definitions
