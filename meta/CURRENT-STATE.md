@@ -6,7 +6,7 @@
 
 - Snapshot date: 2026-10-01
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
-- Latest verified implementation synchronization: PR #227; latest verified documentation synchronization: PR #228, both merged on 2026-10-01.
+- Latest verified implementation synchronization: PR #227; documentation synchronization finalized by PR #229 on 2026-10-01.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
