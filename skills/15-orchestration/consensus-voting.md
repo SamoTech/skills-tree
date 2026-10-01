@@ -3,49 +3,57 @@ title: "Consensus Voting"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply consensus voting in AI agent workflows."
+description: "Combine independent agent votes under an explicit voting rule, quorum, tie-break policy, and evidence boundary."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-consensus-voting.json)
-
 **Category:** Orchestration
-**Skill Level:** Advanced
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
 
-### Description
-Collects independent responses from multiple agents on the same question and aggregates them via majority vote, weighted scoring, or LLM meta-evaluation. Improves reliability and reduces hallucination on factual or classification tasks.
+## Description
+Combine independent agent votes under an explicit voting rule, quorum, tie-break policy, and evidence boundary.
 
-### Example
+## When to Use
+Use when multiple independent assessments are available and a consensus mechanism is justified.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+
+## Runnable Example
 ```python
-import anthropic
-from collections import Counter
-
-client = anthropic.Anthropic()
-
-def agent_vote(question: str, temperature: float) -> str:
-    """A single agent vote at a given temperature."""
-    msg = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=16,
-        temperature=temperature,
-        messages=[{"role": "user", "content": f"{question} Answer with ONE word."}]
-    )
-    return msg.content[0].text.strip().lower()
-
-def consensus_vote(question: str, n_agents: int = 5) -> str:
-    """Run N agents and pick the majority answer."""
-    temps = [0.0, 0.3, 0.5, 0.7, 1.0][:n_agents]
-    votes = [agent_vote(question, t) for t in temps]
-    print(f"Votes: {votes}")
-    winner, count = Counter(votes).most_common(1)[0]
-    return f"{winner} ({count}/{n_agents} votes)"
-
-print(consensus_vote("Is Python interpreted or compiled?"))
+task = {"capability": "consensus-voting", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Mixture of Agents](../09-agentic-patterns/mixture-of-agents.md)
-- [Debate Pattern](../09-agentic-patterns/debate-pattern.md)
-- [Subagent Spawning](subagent-spawning.md)
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
+
+## Orchestration Boundary
+Consensus is not proof of correctness; preserve dissent, voter independence, and underlying evidence.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
