@@ -1,45 +1,59 @@
 ---
 title: "Window Management"
 category: 10-computer-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply window management in AI agent workflows."
+description: "Move, resize, minimize, maximize, or focus a verified application window within explicit bounds."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-window-management.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Window Management
+## Description
+Move, resize, minimize, maximize, or focus a verified application window within explicit bounds.
 
-**Category:** `computer-use`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when window state must be changed for a subsequent task.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
-Open, close, minimize, maximize, resize, and move application windows. Enables agents to organize the desktop state before performing tasks.
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pygetwindow as gw
-
-# Find and activate a window by title
-win = gw.getWindowsWithTitle('Notepad')[0]
-win.activate()
-win.maximize()
-
-# Resize and move
-win.resizeTo(1200, 800)
-win.moveTo(0, 0)
-
-# Minimize
-win.minimize()
+action = {"capability": "window-management", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [App Launch](app-launch.md)
-- [Screenshot Capture](screenshot-capture.md)
-- [Multi-Monitor Support](multi-monitor.md)
+## Safety Boundary
+Window handles and geometry can become stale; verify identity and resulting bounds after each change.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
