@@ -140,7 +140,7 @@ print(summarize_directory("./my_project"))
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python pathlib documentation: https://docs.python.org/3/library/pathlib.html
+- Python pathlib documentation: https://docs.python.org/3.14/library/pathlib.html
 - Agent Skills specification security/progressive-disclosure model: https://agentskills.io/specification
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
