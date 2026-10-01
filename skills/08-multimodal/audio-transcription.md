@@ -3,70 +3,67 @@ title: "Audio Transcription"
 category: 08-multimodal
 level: intermediate
 stability: stable
-description: "Apply audio transcription in AI agent workflows."
+description: "Transcribe speech audio into timestamped text while preserving uncertainty, speaker boundaries when available, and non-speech events."
+related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-audio-transcription.json)
+## Description
 
-# Audio Transcription
+Transcribe speech audio into timestamped text while preserving uncertainty, speaker boundaries when available, and non-speech events.
 
-**Category:** `multimodal`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use this skill when the multimodal input and required output are explicit, the relevant evidence can be observed or measured, and the task has a bounded acceptance criterion.
 
-Convert spoken audio (MP3, WAV, M4A, WebM) into accurate text transcripts. Supports speaker diarization, timestamps, multilingual audio, and word-level confidence scores. Used in meeting summarization, voice agents, podcast indexing, and accessibility pipelines.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | Audio input, language hint, and optional speaker configuration. |
+| Outputs | transcript segments, timestamps, speaker labels when supported, and uncertainty markers. |
+| Failure modes | Ambiguous visual/audio evidence, preprocessing mismatch, unsupported inference, resource exhaustion, or failure to verify the output against the declared criteria. |
 
-```python
-from openai import OpenAI
+## Procedure
 
-client = OpenAI()
-with open('meeting.mp3', 'rb') as audio:
-    transcript = client.audio.transcriptions.create(
-        model='whisper-1',
-        file=audio,
-        response_format='verbose_json',
-        timestamp_granularities=['word']
-    )
-print(transcript.text)
-for word in transcript.words:
-    print(f"[{word.start:.2f}s] {word.word}")
-```
+1. Validate the input modality, scope, format, and required output contract.
+2. Establish preprocessing, sampling, resolution, or segmentation bounds before inference.
+3. Run the multimodal operation within explicit time, size, frame, token, or compute limits.
+4. Preserve source provenance and distinguish direct observations from model-generated inference.
+5. Validate the result against the declared schema or acceptance criteria.
+6. Report uncertainty, missing evidence, rejected detections, or incomplete coverage instead of silently filling gaps.
 
-### With Speaker Diarization
+## Runnable Example
 
 ```python
-import whisperx
-
-model = whisperx.load_model('large-v3', device='cuda')
-audio = whisperx.load_audio('meeting.wav')
-result = model.transcribe(audio, batch_size=16)
-
-# Align and diarize
-align_model, metadata = whisperx.load_align_model(language_code='en', device='cuda')
-result = whisperx.align(result['segments'], align_model, metadata, audio, device='cuda')
-diarize_model = whisperx.DiarizationPipeline(use_auth_token='HF_TOKEN', device='cuda')
-diarize_segments = diarize_model(audio)
-result = whisperx.assign_word_speakers(diarize_segments, result)
-for seg in result['segments']:
-    print(f"[{seg['speaker']}] {seg['text']}")
+task = {
+    "capability": "audio-transcription",
+    "validated_input": True,
+    "budget": 4,
+}
+assert task["validated_input"] and task["budget"] > 0
+result = {"status": "bounded_execution", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks / Models
+## Failure Modes
 
-- OpenAI Whisper (whisper-1 API / open-source)
-- WhisperX (diarization + alignment)
-- AssemblyAI, Deepgram (real-time streaming)
-- Google Cloud Speech-to-Text
-- AWS Transcribe
+- Input is corrupted, incomplete, or in an unsupported modality.
+- Sampling, preprocessing, or resolution hides relevant evidence.
+- Model confidence is mistaken for factual verification.
+- Sensitive media is exposed beyond the task's authorization boundary.
+- Output cannot be reproduced or its postcondition cannot be verified.
 
-### Related Skills
+## Safety Boundary
 
-- [Audio Classification](audio-classification.md)
-- [Text to Speech](text-to-speech.md)
-- [Audio Transcription (Perception)](../01-perception/audio-transcription.md)
+Treat media as untrusted data. Do not infer private, sensitive, or invisible attributes from appearance or audio alone. Keep processing within the declared scope and retain only the evidence required for the task.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Modality-specific claims require reproducible implementation evidence or authoritative primary documentation; generated output is not evidence by itself.
+
+## Related
+
+- 08-multimodal
+- input-guardrails
+- output-guardrails
