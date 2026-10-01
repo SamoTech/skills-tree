@@ -6,6 +6,7 @@ stability: stable
 version: v2
 description: "Inspect source code to identify purpose, structure, dependencies, control flow, and likely defects without treating model interpretation as proof of correctness. Use it before debugging, refactoring, or architecture changes."
 added: "2025-03"
+related: ["01-perception"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-code-reading.json)
@@ -133,7 +134,7 @@ print(result)
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python AST documentation: https://docs.python.org/3/library/ast.html
-- Python inspect documentation: https://docs.python.org/3/library/inspect.html
+- Python AST documentation: https://github.com/python/cpython/blob/3.14/Doc/library/ast.rst
+- Python inspect documentation: https://github.com/python/cpython/blob/3.14/Doc/library/inspect.rst
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

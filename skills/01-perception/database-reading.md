@@ -6,6 +6,7 @@ stability: stable
 version: v2
 description: "Inspect database schemas and answer bounded questions over retrieved rows while separating query generation from execution and protecting user-controlled values. Use it for read-only analytical workflows and schema-aware agent tools."
 added: "2025-03"
+related: ["01-perception"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-database-reading.json)
@@ -156,7 +157,7 @@ print(answer)
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python sqlite3 documentation: https://docs.python.org/3/library/sqlite3.html
-- Python sqlite3 parameter substitution guidance: https://docs.python.org/3/library/sqlite3.html#how-to-use-placeholders-to-bind-values-in-sql-queries
+- Python sqlite3 documentation: https://github.com/python/cpython/blob/3.14/Doc/library/sqlite3.rst
+- Python sqlite3 parameter substitution guidance: https://github.com/python/cpython/blob/3.14/Doc/library/sqlite3.rst#how-to-use-placeholders-to-bind-values-in-sql-queries
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

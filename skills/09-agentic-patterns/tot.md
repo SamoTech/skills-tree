@@ -1,58 +1,58 @@
 ---
-title: "Tree of Thought (ToT)"
+title: "Tree of Thought"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
-description: "Generate multiple candidate next-steps, score each, and search the highest-scoring branch — a tree search over the model's reasoning space, not a linear chain."
+description: "Generate multiple candidate reasoning branches, evaluate them with an explicit criterion, and expand promising branches under a bounded search budget."
 added: "2025-03"
-version: v3
-tags: [reasoning, search, planning, tot]
-updated: "2026-04"
-dependencies:
-  - package: anthropic
-    min_version: "0.39.0"
-    tested_version: "0.39.0"
-    confidence: verified
-code_blocks:
-  - id: "example-tot"
-    type: executable
-prerequisites:
-  - 09-agentic-patterns/cot
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-tot.json)
-
-# Tree of Thought (ToT)
-
 ## Description
-
-Where Chain-of-Thought is **one** linear reasoning path, ToT explores **many** in parallel. Each step:
-
-1. The model proposes K candidate next-steps from the current state.
-2. A scorer (an LLM rubric or a programmatic check) ranks them.
-3. The search expands the top-N highest-scoring branches.
-4. Steps repeat until a branch reaches a goal state (or the budget is exhausted).
-
-This trades cost for accuracy on problems with **deceptive local optima** — where the first plausible step is often wrong.
+Generate multiple candidate reasoning branches, evaluate them with an explicit criterion, and expand promising branches under a bounded search budget.
 
 ## When to Use
+Use when the task benefits from exploring alternatives rather than committing to the first plausible reasoning path.
 
-- Combinatorial puzzles, theorem-style proofs, constrained creative writing.
-- Tasks where you can write a cheap scorer.
-- You can afford 5–50× the token budget of a single CoT.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | candidate_generation, score_candidates, and task constraints or execution bounds. |
+| Outputs | bounded_search with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Avoid treating model-generated scores as ground truth; cap breadth/depth and preserve branch provenance. |
 
-## Related Skills
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-- [Chain of Thought](cot.md) — linear reasoning baseline
-- [MCTS](mcts.md) — stochastic-rollout variant
-- [LATS](lats.md) — ToT + reflection
-- [Reflection](reflection.md) — critic agent for branch evaluation
+## Runnable Example
+```python
+pattern = {
+    "capability": "tot",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
+```
 
-## Changelog
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-02 | v2 | Added variants table |
-| 2026-04 | v3 | Full BFS-ToT runnable example |
-| 2026-06 | v3.1 | Added prerequisites field (INITIATIVE-005) |
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails

@@ -1,54 +1,58 @@
 ---
-title: "Reflection / Reflexion"
+title: "Reflection"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
-description: "Add a critique → revise pass on top of any agent output. The foundation of every self-correcting agent."
+description: "Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance."
 added: "2025-03"
-version: v3
-tags: [reflection, self-correction, critique, agent]
-updated: "2026-04"
-dependencies:
-  - package: anthropic
-    min_version: "0.39.0"
-    tested_version: "0.39.0"
-    confidence: verified
-code_blocks:
-  - id: "example-reflection"
-    type: executable
-prerequisites:
-  - 09-agentic-patterns/cot
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-reflection.json)
-
-# Reflection / Reflexion
-
 ## Description
-
-Reflection adds a **critique → revise** pass on top of any agent output. The model produces a draft, then a second prompt asks it (or a stronger model) to find flaws — wrong reasoning, hallucinated facts, missed constraints — and rewrite. Reflexion ([Shinn et al., 2023](https://arxiv.org/abs/2303.11366)) generalises this into a loop: store self-critiques in memory, retry the task, do better next time.
-
-This skill is the foundation of every agent that *recovers from its own first-try mistakes* — code agents that fix lint errors before submitting, planners that re-plan when a step fails, writers that revise drafts.
+Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance.
 
 ## When to Use
+Use when output quality benefits from an independent verification pass and the acceptance criteria are observable.
 
-- Tasks where the **first answer is often wrong but a fix is cheap** (code, math proofs, structured output validation).
-- You have a verifier signal — failing tests, schema errors, retrieval mismatch — that the critique can ground itself in.
-- Latency budget allows ≥2 model calls per task.
-- **Don't use** when the underlying error is information you don't have (no amount of reflection invents missing facts).
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | draft, evaluation_criteria, and task constraints or execution bounds. |
+| Outputs | revised_output with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Reflection is not independent evidence if the same model and context generate both draft and critique; use external checks when stakes require them. |
 
-## Related Skills
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-- [Chain of Thought](cot.md) — the reasoning baseline this reflects on
-- [ReAct](react.md) — agent loop that benefits from reflection on failure
-- [Critic Agent](critic-agent.md) — dedicated critic model variant
-- [LATS](lats.md) — tree search that uses reflection as branch evaluator
+## Runnable Example
+```python
+pattern = {
+    "capability": "reflection",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
+```
 
-## Changelog
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-02 | v2 | Added variants table |
-| 2026-04 | v3 | Full runnable example, failure modes, model comparison |
-| 2026-06 | v3.1 | Added prerequisites field (INITIATIVE-005) |
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails

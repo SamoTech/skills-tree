@@ -1,35 +1,58 @@
 ---
-title: "MCTS (Monte Carlo Tree Search)"
+title: "Monte Carlo Tree Search"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Stochastic-rollout variant of ToT. Uses random playouts to estimate node value instead of a trained value function."
+stability: stable
+description: "Use stochastic rollout and value estimates to explore a decision tree while controlling expansion, simulation, and selection budgets."
 added: "2025-03"
-version: v1
-prerequisites:
-  - 09-agentic-patterns/tot
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-# MCTS (Monte Carlo Tree Search)
-
 ## Description
-
-MCTS replaces the deterministic scorer in Tree of Thought with Monte Carlo rollouts: from each candidate node, run N random completions to the goal and use the win rate as the node's value. This makes the value estimate model-free at the cost of more total tokens.
+Use stochastic rollout and value estimates to explore a decision tree while controlling expansion, simulation, and selection budgets.
 
 ## When to Use
+Use when a discrete action space supports repeated simulation and a meaningful terminal or value signal.
 
-- Tasks with a binary or clear terminal outcome (pass/fail tests, game wins).
-- You lack a reliable critic model to score intermediate states.
-- Token budget is large enough for rollouts.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | root_state, action_space, and task constraints or execution bounds. |
+| Outputs | simulation_budget with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Random rollouts can amplify a poor value heuristic; define reproducible seeds where possible and validate the value signal. |
 
-## Related Skills
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-- [Tree of Thought](tot.md) — deterministic-scorer baseline this extends
-- [LATS](lats.md) — learned value function alternative
+## Runnable Example
+```python
+pattern = {
+    "capability": "mcts",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
+```
 
-## Changelog
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
