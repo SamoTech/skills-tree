@@ -59,6 +59,7 @@ class UniversalRegistry:
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path)
         self._data = json.loads(self.path.read_text(encoding="utf-8"))
+        self._validate_registry_schema()
         self._validate_integrity()
         self._validate_implementation_contracts()
         self._validate_adapter_contracts()
@@ -313,6 +314,12 @@ class UniversalRegistry:
                     f"Adapter evidence does not support adapter {adapter['id']}: "
                     + ", ".join(sorted(unsupported))
                 )
+
+    def _validate_registry_schema(self) -> None:
+        """Validate the loaded registry against its normative JSON Schema."""
+        schema_path = self.path.parent.parent / "meta" / "universal-registry.schema.json"
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        Draft202012Validator(schema).validate(self._data)
 
     def _validate_integrity(self) -> None:
         entities = self._data.get("entities")
