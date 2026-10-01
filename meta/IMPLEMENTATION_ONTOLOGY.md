@@ -45,3 +45,21 @@ No P2.3 item is currently defined.
 The next Phase 2 slice must first be established by an architecture audit of the Implementation Ontology after P2.2. The audit should identify the highest-value missing invariant or runtime capability, confirm that it is not already covered by the existing contract, registry, or graph layers, and then define a minimal schema → runtime → behavioral-test slice. No new provider, platform, framework, model, adapter, or compatibility claim should be introduced without authoritative source and provenance.
 
 MCP remains a Protocol and must not be promoted into the canonical Implementation ontology.
+
+
+## Post-P2.2 Evidence Runtime Integration — 2026-10-01
+
+The post-P2.2 audit identified a read-boundary gap: Evidence was already validated and had a dedicated `EvidenceRuntime`, but consumers of `UniversalRegistry` still had to depend on the internal registry JSON shape.
+
+PR #223 integrated the existing validated `EvidenceRuntime` into `UniversalRegistry` and exposed:
+
+- `resolve_evidence(evidence_id)`
+- `evidence_for_entity(entity_id)`
+
+The slice adds no new registry claims, provenance, compatibility facts, provider/platform/model claims, or MCP classifications. It preserves the existing read-only and validation boundaries.
+
+**Verification:** PR #223 exact head `c26652b710064876e3ced5003a74f9d6ba3fce32` passed Test Suite, PR Checks, Security Scan, Build & Verify Wheel, and Auto Label before merge as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
+
+## Next Architecture Audit
+
+No numbered P2.3 item is defined. The next slice must come from a fresh universal-registry runtime audit using live implementation, contract, graph, evidence, compatibility, and consumer behavior.
