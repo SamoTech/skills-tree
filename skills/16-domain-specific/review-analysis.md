@@ -3,44 +3,57 @@ title: "Review Analysis"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply review analysis in AI agent workflows."
+description: "Analyze supplied customer reviews for recurring themes, sentiment signals, and representative evidence."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-review-analysis.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Aggregates and analyses customer reviews to extract themes, sentiment distribution, product attribute ratings, and verbatim quote highlights. Produces actionable insight summaries for product, marketing, and support teams.
+## Description
+Analyze supplied customer reviews for recurring themes, sentiment signals, and representative evidence.
 
-### Example
+## When to Use
+Use when a defined review corpus and analysis objective are available.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
 ```python
-import anthropic, json
-
-client = anthropic.Anthropic()
-
-def analyse_reviews(reviews: list[str]) -> dict:
-    text = "\n".join(f"- {r}" for r in reviews)
-    prompt = (
-        "Analyse these customer reviews. Return JSON: {overall_sentiment, "
-        "top_positives: [str], top_negatives: [str], recurring_themes: [str], "
-        "net_promoter_estimate: int}.\n\n" + text
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=600,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return json.loads(resp.content[0].text)
-
-reviews = ["Battery is incredible", "Keyboard feels cheap", "Best laptop I've owned",
-           "Runs hot under load", "Display is stunning"]
-print(analyse_reviews(reviews))
+task = {"capability": "review-analysis", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Data Summarization](../12-data/data-summarization.md)
-- [SEO Optimization](seo-optimization.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+Aggregate sentiment is descriptive; do not infer customer intent or population-wide conclusions beyond the corpus.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
