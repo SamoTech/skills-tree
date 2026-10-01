@@ -6,6 +6,7 @@ stability: stable
 version: v2
 description: "Parse RFC-style email and MIME messages into structured headers, body parts, attachments, and metadata before downstream classification or extraction. Use the standard library parser for untrusted raw messages and preserve message boundaries."
 added: "2025-03"
+related: ["01-perception"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-email-parsing.json)
@@ -144,7 +145,7 @@ print(json.dumps(result, indent=2))
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python email package documentation: https://docs.python.org/3.14/library/email.html
-- Python email policy documentation: https://docs.python.org/3.14/library/email.policy.html
+- Python email package documentation: https://github.com/python/cpython/blob/3.14/Doc/library/email.rst
+- Python email policy documentation: https://github.com/python/cpython/blob/3.14/Doc/library/email.policy.rst
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
