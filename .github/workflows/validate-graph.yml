@@ -30,9 +30,9 @@ jobs:
   build-and-validate:
     name: Build Graph & Validate
     runs-on: ubuntu-latest
+    # PR validation is read-only; trusted-main generation is isolated below.
     permissions:
-      contents: write
-      pull-requests: write
+      contents: read
 
     steps:
       - name: Checkout repository
