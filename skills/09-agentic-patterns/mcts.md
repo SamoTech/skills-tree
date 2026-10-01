@@ -1,35 +1,59 @@
 ---
-title: "MCTS (Monte Carlo Tree Search)"
+title: "Mcts"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Stochastic-rollout variant of ToT. Uses random playouts to estimate node value instead of a trained value function."
+stability: stable
+description: "Apply Monte Carlo Tree Search concepts to agent decision trees using explicit selection, expansion, simulation, and backpropagation rules."
 added: "2025-03"
-version: v1
-prerequisites:
-  - 09-agentic-patterns/tot
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-# MCTS (Monte Carlo Tree Search)
+**Category:** Agentic Patterns
+**Skill Level:** `advanced`
+**Stability:** stable
 
 ## Description
-
-MCTS replaces the deterministic scorer in Tree of Thought with Monte Carlo rollouts: from each candidate node, run N random completions to the goal and use the win rate as the node's value. This makes the value estimate model-free at the cost of more total tokens.
+Apply Monte Carlo Tree Search concepts to agent decision trees using explicit selection, expansion, simulation, and backpropagation rules.
 
 ## When to Use
+Use when a decision problem has a meaningful search tree and an evaluation signal.
 
-- Tasks with a binary or clear terminal outcome (pass/fail tests, game wins).
-- You lack a reliable critic model to score intermediate states.
-- Token budget is large enough for rollouts.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Agent state, task objective, constraints, evidence/context, tools or evaluators, and stopping criteria. |
+| Outputs | Structured agent result with provenance, uncertainty, and validation state. |
+| Failure modes | Goal drift, evaluator bias, unsupported inference, unbounded search, or incomplete grounding. |
 
-## Related Skills
+## Procedure
+1. Establish the objective, state, constraints, evaluation criteria, and stopping conditions.
+2. Validate the available context and tool authority before execution.
+3. Apply the declared agentic pattern within explicit resource bounds.
+4. Evaluate outputs against evidence and acceptance criteria.
+5. Preserve uncertainty and stop or escalate when the evidence is insufficient.
 
-- [Tree of Thought](tot.md) — deterministic-scorer baseline this extends
-- [LATS](lats.md) — learned value function alternative
+## Runnable Example
+```python
+task = {"pattern": "mcts", "validated": True}
+assert task["validated"]
+result = {"status": "evaluation_required", "pattern": task["pattern"]}
+print(result)
+```
 
-## Changelog
+## Failure Modes
+- Ambiguous objective or stopping condition.
+- Evaluator or critic shares the same failure mode as the generator.
+- Unsupported claims treated as grounded output.
+- Resource use grows without an explicit bound.
+- Completion reported without evidence or validation.
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
+## Pattern Boundary
+Approximate simulations can bias selection; bound compute and validate the reward model.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Agentic-pattern outputs require explicit evaluation and evidence boundaries.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
