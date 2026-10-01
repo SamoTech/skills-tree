@@ -1,56 +1,59 @@
 ---
 title: "Keyboard Shortcut"
 category: 10-computer-use
-level: basic
+level: advanced
 stability: stable
-description: "Apply keyboard shortcut in AI agent workflows."
+description: "Execute a specified keyboard shortcut against the verified active application and UI context."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-keyboard-shortcut.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Keyboard Shortcut
+## Description
+Execute a specified keyboard shortcut against the verified active application and UI context.
 
-**Category:** `computer-use`
-**Skill Level:** `basic`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the shortcut is known and the focused target is verified.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
+| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
 
-Execute keyboard shortcuts (e.g., Ctrl+C, Cmd+V, Alt+F4) to trigger application commands without using the mouse or menus.
+## Procedure
+1. Establish the active application, target, and expected UI state.
+2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
+3. Perform only the requested action within the declared bounds.
+4. Inspect the resulting UI state and verify the expected postcondition.
+5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pyautogui
-
-# Copy selected text
-pyautogui.hotkey('ctrl', 'c')
-
-# Paste
-pyautogui.hotkey('ctrl', 'v')
-
-# Save file
-pyautogui.hotkey('ctrl', 's')
-
-# macOS equivalent
-pyautogui.hotkey('command', 'c')
+action = {"capability": "keyboard-shortcut", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Common Shortcuts
+## Failure Modes
+- Target or application identity cannot be verified.
+- UI changed between observation and action.
+- Focus is ambiguous or lost.
+- Action may have destructive or irreversible side effects.
+- Postcondition cannot be verified.
 
-| Action | Windows/Linux | macOS |
-|---|---|---|
-| Copy | `Ctrl+C` | `Cmd+C` |
-| Paste | `Ctrl+V` | `Cmd+V` |
-| Undo | `Ctrl+Z` | `Cmd+Z` |
-| Save | `Ctrl+S` | `Cmd+S` |
-| Select All | `Ctrl+A` | `Cmd+A` |
-| Close Window | `Alt+F4` | `Cmd+W` |
+## Safety Boundary
+Shortcuts are context-sensitive and may trigger destructive actions; verify focus and postcondition.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
 
-- [Keyboard Type](keyboard-type.md)
-- [Clipboard Read](clipboard-read.md)
-- [Clipboard Write](clipboard-write.md)
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails

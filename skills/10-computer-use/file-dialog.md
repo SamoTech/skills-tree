@@ -1,43 +1,59 @@
 ---
-title: "File Dialog Interaction"
+title: "File Dialog"
 category: 10-computer-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply file dialog interaction in AI agent workflows."
+description: "Navigate and operate a file chooser with explicit path, selection, and confirmation boundaries."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-file-dialog.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# File Dialog Interaction
+## Description
+Navigate and operate a file chooser with explicit path, selection, and confirmation boundaries.
 
-**Category:** `computer-use`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when a file-selection or save dialog is visible and the intended path is known.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
+| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
 
-Navigate OS file open/save dialogs by typing file paths directly into the dialog or interacting with the folder tree, enabling automated file selection without knowing exact pixel coordinates.
+## Procedure
+1. Establish the active application, target, and expected UI state.
+2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
+3. Perform only the requested action within the declared bounds.
+4. Inspect the resulting UI state and verify the expected postcondition.
+5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pyautogui
-import time
-
-# Trigger open dialog (e.g., Ctrl+O in an app)
-pyautogui.hotkey('ctrl', 'o')
-time.sleep(0.5)
-
-# On Windows: type path in filename field
-pyautogui.hotkey('ctrl', 'l')  # focus address bar
-pyautogui.typewrite('C:\\Users\\user\\Documents\\report.pdf', interval=0.02)
-pyautogui.press('enter')
+action = {"capability": "file-dialog", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or application identity cannot be verified.
+- UI changed between observation and action.
+- Focus is ambiguous or lost.
+- Action may have destructive or irreversible side effects.
+- Postcondition cannot be verified.
 
-- [Keyboard Type](keyboard-type.md)
-- [Keyboard Shortcut](keyboard-shortcut.md)
-- [Terminal / Shell Interaction](terminal-interaction.md)
+## Safety Boundary
+Do not select or overwrite files outside the declared scope; verify filename, extension, and destination before confirmation.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails

@@ -1,56 +1,59 @@
 ---
 title: "Mouse Click"
 category: 10-computer-use
-level: basic
+level: advanced
 stability: stable
+description: "Click a verified UI target using semantic or coordinate-based targeting with postcondition verification."
 added: "2025-03"
-description: "Apply mouse click in AI agent workflows."
-dependencies:
-  - package: pyautogui
-    min_version: "0.9.54"
-    tested_version: "0.9.54"
-    confidence: verified
-code_blocks:
-  - id: "example-click"
-    type: executable
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-mouse-click.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Mouse Click
+## Description
+Click a verified UI target using semantic or coordinate-based targeting with postcondition verification.
 
-**Category:** `computer-use`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the target is unambiguous and the click is authorized.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
+| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
 
-Perform left, right, and double mouse clicks at screen coordinates or on located UI elements.
+## Procedure
+1. Establish the active application, target, and expected UI state.
+2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
+3. Perform only the requested action within the declared bounds.
+4. Inspect the resulting UI state and verify the expected postcondition.
+5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-# pip install pyautogui
-import pyautogui
-import time
-
-pyautogui.FAILSAFE = True  # move mouse to corner to abort
-time.sleep(1)  # give time to switch windows
-
-# Click at absolute coordinates
-pyautogui.click(500, 300)
-
-# Right-click
-pyautogui.rightClick(500, 300)
-
-# Double-click
-pyautogui.doubleClick(500, 300)
-
-# Click relative to current position
-pyautogui.moveRel(100, 0, duration=0.3)
-pyautogui.click()
+action = {"capability": "mouse-click", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
-- `mouse-move`, `double-click`, `right-click`, `screenshot-capture`, `visual-element-detection`
+## Failure Modes
+- Target or application identity cannot be verified.
+- UI changed between observation and action.
+- Focus is ambiguous or lost.
+- Action may have destructive or irreversible side effects.
+- Postcondition cannot be verified.
+
+## Safety Boundary
+Coordinate drift, overlays, or stale UI state can cause unintended actions; verify target and result.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails

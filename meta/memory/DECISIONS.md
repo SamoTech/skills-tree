@@ -268,3 +268,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/domain-specific-batch-03-2026-10-01` pending CI.
 
 **Constraint:** Preserve source traceability, uncertainty, professional-domain boundaries, and unchanged validation/security gates.
+
+
+## DECISION-2026-10-01-COMPUTER-USE-BATCH-01
+
+**Decision:** Begin controlled modernization of the `10-computer-use` stub cluster.
+
+**Scope:** accessibility-tree, app-launch, clipboard-read, clipboard-write, double-click, drag-drop, file-dialog, keyboard-shortcut, keyboard-type, and mouse-click.
+
+**Status:** IN PROGRESS — staged on `coo/computer-use-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Computer-use skills must require target verification, authorization, bounded actions, sensitive-data protection, and postcondition checks; no validator or security gate may be weakened.

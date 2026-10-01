@@ -183,3 +183,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections.
 - The 16-domain-specific category is now fully modernized; no domain-specific stub remains in the planned migration queue.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Computer-use modernization — batch 01
+
+- Modernized ten `10-computer-use` skills: accessibility-tree, app-launch, clipboard-read, clipboard-write, double-click, drag-drop, file-dialog, keyboard-shortcut, keyboard-type, and mouse-click.
+- Added or synchronized corresponding Agent Skills projections.
+- Added explicit target verification, authorization, postcondition, sensitive-data, and destructive-action boundaries.
+- No validator, security gate, or repository governance rule was weakened.

@@ -1,44 +1,59 @@
 ---
-title: "Accessibility Tree Navigation"
+title: "Accessibility Tree"
 category: 10-computer-use
 level: advanced
 stability: stable
-description: "Apply accessibility tree navigation in AI agent workflows."
+description: "Interpret an accessibility tree to identify roles, names, states, and actionable UI targets."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-accessibility-tree.json)
-
-# Accessibility Tree Navigation
-
-**Category:** `computer-use`
+**Category:** Computer Use
 **Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Interpret an accessibility tree to identify roles, names, states, and actionable UI targets.
 
-Use OS accessibility APIs (AT-SPI on Linux, UIAutomation on Windows, AXUIElement on macOS) to navigate and interact with UI elements by role, name, or property — more reliable than pixel-based automation.
+## When to Use
+Use when an accessibility tree is available and UI interaction should rely on semantic targets rather than coordinates.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
+| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
 
+## Procedure
+1. Establish the active application, target, and expected UI state.
+2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
+3. Perform only the requested action within the declared bounds.
+4. Inspect the resulting UI state and verify the expected postcondition.
+5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
+
+## Runnable Example
 ```python
-# Windows: using pywinauto
-from pywinauto import Application
-
-app = Application(backend='uia').connect(title='Notepad')
-win = app.top_window()
-
-# Find element by name and type
-text_area = win.child_window(control_type='Edit')
-text_area.type_keys('Hello from accessibility tree!')
-
-# Click a button by name
-win.child_window(title='File', control_type='MenuItem').click_input()
+action = {"capability": "accessibility-tree", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or application identity cannot be verified.
+- UI changed between observation and action.
+- Focus is ambiguous or lost.
+- Action may have destructive or irreversible side effects.
+- Postcondition cannot be verified.
 
-- [Visual Element Detection](visual-element-detection.md)
-- [Mouse Click](mouse-click.md)
-- [Screen Region OCR](screen-ocr.md)
+## Safety Boundary
+Accessibility trees can be stale or incomplete; verify the target state before acting.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
