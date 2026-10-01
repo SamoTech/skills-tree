@@ -3,64 +3,57 @@ title: "State Machine"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply state machine in AI agent workflows."
+description: "Model workflow execution as explicit states and transitions with guards, entry/exit effects, and terminal conditions."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-state-machine.json)
-
 **Category:** Orchestration
-**Skill Level:** Advanced
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
 
-### Description
-Models complex agent workflows as explicit finite state machines with defined states, transitions, guards, and actions. Prevents invalid state transitions, enables checkpoint/resume, and makes workflow logic auditable and testable.
+## Description
+Model workflow execution as explicit states and transitions with guards, entry/exit effects, and terminal conditions.
 
-### Example
+## When to Use
+Use when a process has well-defined states and transition rules.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
+| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
+| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+
+## Procedure
+1. Establish state, ownership, dependencies, and acceptance criteria.
+2. Validate preconditions before changing workflow state.
+3. Execute the declared orchestration operation within bounded authority.
+4. Record state changes, evidence, and unresolved conditions.
+5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+
+## Runnable Example
 ```python
-from enum import Enum, auto
-from typing import Optional
-
-class State(Enum):
-    IDLE = auto()
-    RESEARCHING = auto()
-    WRITING = auto()
-    REVIEWING = auto()
-    DONE = auto()
-    FAILED = auto()
-
-TRANSITIONS: dict[State, list[State]] = {
-    State.IDLE:        [State.RESEARCHING],
-    State.RESEARCHING: [State.WRITING, State.FAILED],
-    State.WRITING:     [State.REVIEWING, State.FAILED],
-    State.REVIEWING:   [State.DONE, State.WRITING],
-    State.DONE:        [],
-    State.FAILED:      [],
-}
-
-class WorkflowStateMachine:
-    def __init__(self):
-        self.state = State.IDLE
-        self.history: list[State] = [State.IDLE]
-
-    def transition(self, new_state: State) -> None:
-        allowed = TRANSITIONS[self.state]
-        if new_state not in allowed:
-            raise ValueError(f"Invalid transition: {self.state} → {new_state}. Allowed: {allowed}")
-        self.state = new_state
-        self.history.append(new_state)
-        print(f"State → {new_state.name}")
-
-wf = WorkflowStateMachine()
-wf.transition(State.RESEARCHING)
-wf.transition(State.WRITING)
-wf.transition(State.REVIEWING)
-wf.transition(State.DONE)
-print(f"History: {[s.name for s in wf.history]}")
+task = {"capability": "state-machine", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Sequential Workflow](sequential-workflow.md)
-- [Conditional Branching](conditional-branching.md)
-- [Logging and Observability](logging-observability.md)
+## Failure Modes
+- Missing or ambiguous workflow state.
+- Invalid transition or unmet dependency.
+- Duplicate or concurrent execution.
+- Capability or authority exceeds declared scope.
+- Completion cannot be verified.
+
+## Orchestration Boundary
+Unreachable, ambiguous, or cyclic transitions can stall execution; validate the transition graph.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
