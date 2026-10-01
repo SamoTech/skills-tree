@@ -573,3 +573,20 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if tests or repository evidence demonstrate a regression in deterministic traversal, snapshot isolation, import architecture, or facade/runtime consistency, or if a replacement runtime architecture supersedes this boundary.
+
+
+## DECISION-2026-10-02-UNIVERSAL-REGISTRY-DATA-SCHEMA-RUNTIME-VALIDATION
+
+**Decision-ID:** DECISION-2026-10-02-UNIVERSAL-REGISTRY-DATA-SCHEMA-RUNTIME-VALIDATION
+
+**Topic:** Validate the UniversalRegistry seed against a schema governing the actual serialized registry data.
+
+**Finding:** The runtime previously validated semantic integrity and entity-specific contracts but lacked a first structural schema boundary for the loaded registry document. The existing `meta/universal-registry.schema.json` was initially considered for this purpose, but CI and contract tests demonstrated that it defines the registry ontology/contract vocabulary rather than the `registry/universal_registry.json` instance shape.
+
+**Decision:** Introduce `meta/universal-registry-data.schema.json` as the normative schema for the serialized registry seed. Validate it immediately after JSON load. Resolve the dedicated Implementation and Adapter contracts through an explicit local JSON Schema resource registry. Preserve existing semantic validation after structural validation.
+
+**Evidence:** PR #241; final implementation head `8ad05dfc995db49da847ea479e06e13bec80d2e1`; exact-head Security Scan, PR Checks, Test Suite, and Build & Verify Wheel passed; squash merge `93c50c3616a7c558b483f341f44a91509ed032ca`.
+
+**Status:** LOCKED.
+
+**Reopen Conditions:** Reopen if the serialized registry shape changes without corresponding schema evolution, schema/runtime drift is detected, cross-schema resolution becomes nondeterministic, or a replacement registry architecture supersedes this boundary.
