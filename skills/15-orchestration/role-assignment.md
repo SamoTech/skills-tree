@@ -3,60 +3,57 @@ title: "Role Assignment"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply role assignment in AI agent workflows."
+description: "Assign explicit responsibilities to agents or workflow stages using capability, authority, inputs, outputs, and escalation boundaries."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-role-assignment.json)
 
 **Category:** Orchestration
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Dynamically assigns specialised roles and system prompts to sub-agents in a multi-agent pipeline based on task requirements, available capabilities, and workload. Supports static rosters and on-demand role creation.
+## Description
+Assign explicit responsibilities to agents or workflow stages using capability, authority, inputs, outputs, and escalation boundaries.
 
-### Example
+## When to Use
+Use when a workflow needs deterministic ownership or delegation.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
+| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
+| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+
+## Procedure
+1. Establish state, ownership, dependencies, and acceptance criteria.
+2. Validate preconditions before changing workflow state.
+3. Execute the declared orchestration operation within bounded authority.
+4. Record state changes, evidence, and unresolved conditions.
+5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+
+## Runnable Example
 ```python
-from dataclasses import dataclass
-from typing import Callable
-
-@dataclass
-class AgentRole:
-    name: str
-    system_prompt: str
-    tools: list[str]
-
-ROLE_REGISTRY = {
-    "researcher": AgentRole(
-        "researcher",
-        "You are a research agent. Find and summarise relevant information.",
-        ["web_search", "wikipedia"]
-    ),
-    "coder": AgentRole(
-        "coder",
-        "You are a coding agent. Write and execute Python code.",
-        ["code_exec", "file_write"]
-    ),
-    "reviewer": AgentRole(
-        "reviewer",
-        "You are a critical reviewer. Find flaws and suggest improvements.",
-        []
-    ),
-}
-
-def assign_role(task: str) -> AgentRole:
-    if "code" in task.lower() or "script" in task.lower():
-        return ROLE_REGISTRY["coder"]
-    if "research" in task.lower() or "find" in task.lower():
-        return ROLE_REGISTRY["researcher"]
-    return ROLE_REGISTRY["reviewer"]
-
-role = assign_role("Write a Python script to parse CSV files")
-print(role.name, role.tools)
+task = {"capability": "role-assignment", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Subagent Delegation](../09-agentic-patterns/subagent-delegation.md)
-- [Sequential Workflow](sequential-workflow.md)
+## Failure Modes
+- Missing or ambiguous workflow state.
+- Invalid transition or unmet dependency.
+- Duplicate or concurrent execution.
+- Capability or authority exceeds declared scope.
+- Completion cannot be verified.
+
+## Orchestration Boundary
+Role assignment must not silently grant capabilities or authority beyond the declared task scope.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
