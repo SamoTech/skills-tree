@@ -1,6 +1,6 @@
 # GitHub Actions Workflow Inventory
 
-**Snapshot:** 2026-10-01  
+**Snapshot:** 2026-10-02  
 **Live workflow files:** 42
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
@@ -58,8 +58,8 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 4. `release-package.yml` is supporting release-artifact packaging, not a competing release authority.
 5. `stale.yml` and `stale-skills.yml` have different scopes and are not duplicates.
 6. Generated-main writers are a high-risk class and must remain least-privileged, deterministic, serialized, bounded, and observable.
-7. `validate-graph.yml` combines PR validation and trusted-main generated writes in one job. Its job-level `contents: write` and `pull-requests: write` permissions are broader than required for the PR validation path. This is the next concrete hardening target; this inventory slice intentionally makes no workflow change.
-8. GitHub control-plane settings not exposed by the available connector remain explicitly unverified rather than inferred.
+7. `validate-graph.yml` is now permission-isolated: the graph validation job is `contents: read`; trusted-main graph materialization is isolated to a `contents: write` job gated on a successful validation job; the quality writer is dependent on graph generation to avoid same-workflow writer races. No `pull-requests: write` permission is required by this workflow.
+8. GitHub control-plane state remains a separate verification boundary: the live branch inspection reports `main` as unprotected with required-status-check enforcement off. Other repository settings not exposed by the connector remain unverified rather than inferred.
 
 ## Known generated-main write paths
 
@@ -69,6 +69,6 @@ The repository-wide `auto-commit-main` semaphore remains the required serializat
 
 ## Completion gate
 
-Workflow classification is materially reconciled at the file/role level. Phase 0 remains open until the identified permission boundary is hardened and unavailable GitHub control-plane checks are explicitly documented.
+Workflow classification is materially reconciled at the file/role level and the identified `validate-graph.yml` permission boundary is hardened and CI-verified. Phase 0 remains open only for control-plane reconciliation/limitations and any other material security finding discovered by inspection.
 
 Any new or modified workflow must be classified in this file in the same change.
