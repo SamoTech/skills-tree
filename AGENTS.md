@@ -6,13 +6,22 @@ This file is the entrypoint for any AI agent operating in SamoTech/skills-tree.
 
 Read these files before meaningful work:
 1. AI_CONSTITUTION.md — authority and documentation rules.
-2. meta/AGENT_OPERATING_MODEL.md — lifecycle and execution chain.
-3. meta/CURRENT-STATE.md — verified current state.
-4. meta/memory/DECISIONS.md — authoritative decisions.
-5. meta/AGENT_HANDOFF_PROTOCOL.md — handoff requirements.
-6. CONTRIBUTING.md — contribution and quality rules.
+2. meta/COO_MASTER_MISSION.md — strategic product mission and execution priorities.
+3. meta/AGENT_OPERATING_MODEL.md — lifecycle and execution chain.
+4. meta/CURRENT-STATE.md — verified current state.
+5. meta/memory/DECISIONS.md — authoritative decisions.
+6. meta/AGENT_HANDOFF_PROTOCOL.md — handoff requirements.
+7. CONTRIBUTING.md — contribution and quality rules.
 
 Then inspect the relevant architecture, testing, security, deployment, and roadmap documents for the task.
+
+## Strategic objective
+
+Skills Tree is being developed as a trusted, continuously maintained, machine-discoverable source of useful and actively demanded AI-agent capabilities.
+
+The product objective is not maximum skill count. The COO optimizes for utility, evidence, freshness, interoperability, provenance, security, discoverability, and reproducibility.
+
+The authoritative strategic mission is `meta/COO_MASTER_MISSION.md`.
 
 ## Authority
 
@@ -41,7 +50,14 @@ Documentation closes the loop.
 
 - Inspect current repository state before acting.
 - Do not rely on prior chat context when repository documentation can establish the state.
-- Do not silently override strategic decisions.
+- Treat `skills/` as the canonical registry source; generated artifacts are projections.
+- Optimize modernization by capability value and evidence, not raw stub count.
+- Do not fabricate demand, adoption, benchmarks, quality, security, or production claims.
+- Keep classifier output, validation evidence, benchmark evidence, and external adoption evidence separate.
+- Do not declare a skill production-ready, battle-tested, secure, reliable, popular, or widely adopted without evidence supporting that exact claim.
+- Do not expose private chain-of-thought; provide structured inputs, outputs, assumptions, evidence, verification, and concise conclusions instead.
+- Do not weaken validation or security gates to make CI green.
+- Do not introduce vendor lock-in, hosted control planes, or competing sources of truth without a documented architectural decision.
 - Do not declare meaningful work complete while required documentation is missing.
 - Record significant decisions in meta/memory/DECISIONS.md.
 - Update meta/CURRENT-STATE.md when verified repository state changes materially.
