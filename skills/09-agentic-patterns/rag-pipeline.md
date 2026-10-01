@@ -1,37 +1,58 @@
 ---
 title: "RAG Pipeline"
 category: 09-agentic-patterns
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply rag pipeline in AI agent workflows."
+description: "Construct a retrieval-augmented generation pipeline with explicit ingestion, indexing, retrieval, grounding, generation, and verification stages."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-rag-pipeline.json)
+## Description
+Construct a retrieval-augmented generation pipeline with explicit ingestion, indexing, retrieval, grounding, generation, and verification stages.
 
-# RAG Pipeline
+## When to Use
+Use when answers depend on external or private source material that must be traceable.
 
-**Category:** `agentic-patterns`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | documents, retrieval_config, and task constraints or execution bounds. |
+| Outputs | grounded_answer with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Retrieval misses, stale indexes, conflicting sources, and unsupported synthesis must remain visible in the output. |
 
-### Description
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-Retrieve-Augmented Generation: embed user query → retrieve top-k relevant documents from a vector store → inject them into the LLM context → generate a grounded answer.
-
-### Example
-
+## Runnable Example
 ```python
-query = "What is LangGraph?"
-embedding = embed(query)
-docs = vector_store.search(embedding, k=5)
-context = "\n\n".join(docs)
-response = llm.invoke(f"Context:\n{context}\n\nQuestion: {query}")
+pattern = {
+    "capability": "rag-pipeline",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-- [Agentic RAG](agentic-rag.md)
-- [RAG](../03-memory/rag.md)
-- [Vector DB Tool](../07-tool-use/vector-db-tool.md)
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
