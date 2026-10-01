@@ -299,3 +299,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added corresponding Agent Skills projections.
 - `11-web` placeholder modernization is now complete; existing enriched web-search, web-scraping, and web-crawling skills were preserved.
 - Added explicit origin/session boundaries, resource limits, provenance, and credential/access-control safety rules.
+
+
+## Creative modernization — batch 01
+
+- Modernized ten `13-creative` skills: avatar-design, blog-writing, copywriting, creative-writing, game-level-design, image-gen-prompt, logo-design, lyrics-writing, meme-generation, and music-composition.
+- Added corresponding Agent Skills projections.
+- Added explicit creative briefs, originality/source-use boundaries, factual-claim controls, constraint checks, and runnable examples.
+- No validator, security gate, or repository governance rule was weakened.
