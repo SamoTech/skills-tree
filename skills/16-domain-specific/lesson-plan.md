@@ -3,42 +3,57 @@ title: "Lesson Plan"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply lesson plan in AI agent workflows."
+description: "Generate structured instructional plans from stated learning objectives, audience, duration, curriculum constraints, and available materials."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-lesson-plan.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Generates structured lesson plans with learning objectives, pacing, activities, materials, differentiation strategies, and formative assessments aligned to a specified curriculum standard. Supports K-12, higher education, and professional training contexts.
+## Description
+Generate structured instructional plans from stated learning objectives, audience, duration, curriculum constraints, and available materials.
 
-### Example
+## When to Use
+Use when educational context and learning objectives are explicit.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-def create_lesson_plan(topic: str, grade: str, duration_min: int) -> str:
-    prompt = (
-        f"Create a {duration_min}-minute lesson plan for {grade} on '{topic}'.\n"
-        "Include: Learning Objectives, Warm-up (5 min), Instruction, Guided Practice, "
-        "Independent Practice, Closure, Assessment method, and Materials."
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=1024,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return resp.content[0].text
-
-print(create_lesson_plan("Introduction to Fractions", "Grade 4", 45))
+source = {"capability": "lesson-plan", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Quiz Generation](quiz-generation.md)
-- [Essay Grading](essay-grading.md)
-- [Planning](../02-reasoning/planning.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Do not assume curriculum standards or learner needs; adapt and verify against the applicable institution or standard.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
