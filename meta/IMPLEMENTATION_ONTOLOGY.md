@@ -106,3 +106,10 @@ The selected vertical slice adds a read-only `GoalRuntime`, integrates it into `
 **Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
 
 **Status:** VERIFIED — Goal access through the UniversalRegistry facade is now routed through a dedicated deterministic runtime boundary.
+
+
+## Facade Boundary Audit — 2026-10-02
+
+After the Goal runtime integration, the public `UniversalRegistry` surface was re-audited. Goal, Capability, Skill, Evidence, and Compatibility now delegate to dedicated typed runtime boundaries. Implementation and Adapter access remain intentionally in `registry/runtime.py` because their normative typed records and relationship validation are already implemented there; no separate AdapterRuntime or duplicate runtime abstraction is justified by current repository evidence. Universal graph access is also validated during registry initialization and returned defensively.
+
+The audit therefore does not invent another P2.2/P2.3 requirement. The next architectural slice must come from a deeper runtime invariant or consumer-behavior audit, not from creating additional runtime classes for symmetry alone.
