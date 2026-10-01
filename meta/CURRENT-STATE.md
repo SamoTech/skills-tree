@@ -5,315 +5,56 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Verified live main HEAD: `da5dc6e4d6d66d7c79d106233fcd2515c1d168e4` — current live main after the post-P2.2 Evidence runtime integration (PR #223).
-- Main HEAD: `da5dc6e4d6d66d7c79d106233fcd2515c1d168e4` — current live main after the post-P2.2 Evidence runtime integration (PR #223).
-- Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
-- Invalid: 0
-- Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
-- Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
-- Stub migration: batch 03 merged as PR #169 at `a86b05aa55dab80d4180d8cae19356f7b35c314f` (4 additional perception skills)
-- Stub migration: batch 04 merged as PR #170 at `ff4a774d33f81282508a3fb7879b5fed0238c223` (10 reasoning skills)
-- Stub migration: batch 05 merged as PR #171 at `ca90ca58f04661580e00f0dc59df780d2a4f90fb` (8 reasoning skills)
-- Stub migration: batch 06 merged as PR #174 at `0f0ec52895d825c70eaf06297441443782bd301c` (10 reasoning skills)
-- DevLens health: 87/100 (README badge, updated 2026-09-30)
-- PR #141: merged on 2026-09-30 as commit `e34d71e6cf7e980871bf71fb084b46c0f5617127`
-- PR #150: closed as duplicate of PR #155
-- Stale substantive PRs remain open only where GitHub safety controls prevented bulk disposition; they are not merge candidates until reconciled against current `main`.
-- Governance implementation: `AI_CONSTITUTION.md` and `AGENTS.md` are merged to `main` via PR #158 at `ee427de8705dba318a32d8c7be82bbdac53f80f8`.
-- Source-of-truth cleanup: PR #162 merged on 2026-09-30 as `33b36dfa02b5acb87d517a5669f1a9eca3b50626`.
-- Security/distribution consolidation: PR #163 merged on 2026-09-30 as `2a6d2dfe50006746d7866df6890691f154840dfb`.
+- Verified live main HEAD: `5b2eda286020289bc73c57a079187e882098bdcc` — current live main after documentation synchronization PR #224.
+- Main HEAD: `5b2eda286020289bc73c57a079187e882098bdcc`.
+- PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
+- PR #224 merged as `5b2eda286020289bc73c57a079187e882098bdcc` and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
+- Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
+- Invalid: 0 at the last verified quality-report point.
 
-## Validation and CI state
+## Current verified architecture state
 
-The generated `meta/QUALITY-REPORT.md` is the authoritative quality evidence surface. The latest verified report available before PR #211 reported 374 skills, 121 classifier battle-tested, 16 enriched, 237 stubs, and 0 invalid; those figures are retained only as the last verified report point. The quality classifier is intentionally stricter than the migration gate, so a rewritten evidence-backed skill is not automatically counted as enriched or battle-tested.
+- The canonical skill source is `skills/`.
+- The universal registry is a read-only, deterministic machine-readable capability layer with typed runtime access.
+- P2.1 Implementation ontology contract unification is verified.
+- P2.2 typed Implementation runtime access and contract validation are verified.
+- The post-P2.2 Evidence runtime slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_evidence()` and `evidence_for_entity()` access through the existing validated `EvidenceRuntime`.
+- The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
+- No numbered P2.3 requirement is currently defined. The next Phase 2 slice must come from a fresh architecture audit.
 
-Batch 02 exposed two CI gates and both were reconciled before completion: the Agent Skills packages required an explicit evidence-status statement, and the spreadsheet-reading skill referenced an ODFPy documentation URL returning 404; it now points to the authoritative `eea/odfpy` repository.
+## Governance and documentation state
 
-PR #141 added and enforced the machine-readable Evidence contract at registry initialization and added regression coverage. It was merged after review because it was focused and GitHub reported it mergeable.
+- `AI_CONSTITUTION.md` is the authoritative governance model.
+- `AGENTS.md` is the AI-agent entrypoint.
+- `meta/COO_MASTER_MISSION.md` is the strategic mission.
+- `meta/memory/DECISIONS.md` is the durable decision record.
+- `meta/ROADMAP.md` is the execution direction and must remain synchronized with verified state.
+- `meta/DEVELOPMENT_KNOWLEDGE.md` records verified development progression.
+- `meta/AGENT_HANDOFF_PROTOCOL.md` defines repository handoff requirements.
+- Documentation is a completion gate: implementation without synchronized documentation is not COMPLETE.
 
-The repository no longer depends on Vercel or an external project dashboard. GitHub is the authoritative operational source; `README.md` is the public source guide. CI, issues, pull requests, releases, generated reports, and repository files are the evidence surfaces.
+## Automation state
 
-## Corpus modernization priority
-
-Strategic modernization is now governed by `meta/COO_MASTER_MISSION.md` and the executable `meta/ROADMAP.md`. Remaining stubs are not an automatic migration queue; future selection must be demand-, capability-, evidence-, freshness-, interoperability-, and security-driven. Existing migration history remains evidence, but raw stub count is not the product objective.
-
-## Governance state
-
-The repository now has an explicit AI governance entrypoint:
-
-- `AI_CONSTITUTION.md` — authority, escalation, documentation gate, decision record, handoff, and completion rules.
-- `AGENTS.md` — AI-agent entrypoint and mandatory operating rules.
-- `meta/AGENT_OPERATING_MODEL.md` — existing lifecycle and execution-chain specification.
-- `meta/memory/DECISIONS.md` — authoritative decision record.
-- `meta/CURRENT-STATE.md` — current verified state.
-
-The authoritative-document map intentionally reuses existing repository documents instead of creating duplicate status, roadmap, architecture, testing, deployment, or security files.
-
-## Operational rule
-
-Do not treat historical snapshots in `PROJECT_MEMORY.md` or older audit documents as current truth when they conflict with current main SHA, current PR metadata, current CI results, or generated quality reports.
-
-A meaningful task is not COMPLETE until implementation and required documentation are both verified.
+- Release authority: `zero-touch-release.yml` is the production release pipeline; `release.yml` is retained as manual recovery.
+- Pages authority: `deploy-pages.yml` is the single repository-controlled Pages deployment workflow.
+- Confirmed direct-main generated writers use the shared `auto-commit-main` serialization group with `cancel-in-progress: false`.
+- The remaining Phase 0 work is the evidence-backed workflow-by-workflow classification, duplicate/unused automation disposition, permissions/security reconciliation, and explicit documentation of connector control-plane limitations.
 
 ## Source of truth
 
 - Canonical source: GitHub repository `SamoTech/skills-tree`.
 - Public source guide: `README.md`.
-- Operational state: `meta/CURRENT-STATE.md` and GitHub CI/PR state.
+- Operational state: `meta/CURRENT-STATE.md` plus live GitHub CI/PR state.
 - Strategic decisions: `meta/memory/DECISIONS.md`.
 - Quality evidence: generated repository reports.
-- External dashboards and Vercel deployments are not authoritative and are not part of the project architecture.
+- External dashboards and Vercel deployments are not authoritative.
 
-## Distribution readiness
+## Next mandatory action
 
-- Canonical skill source: `skills/` in GitHub.
-- Machine-readable projection: `docs/api/skills.json`, generated from canonical skill content.
-- Standards-compatible seed: `agent-skills/skills-tree-registry/SKILL.md`.
-- Distribution contract: `docs/AGENT_SKILLS_DISTRIBUTION.md`.
-- GitHub raw content is the repository-native machine-readable distribution surface; no external dashboard is authoritative.
-- Full `/.well-known/agent-skills/index.json` publication remains a release-engineering task until reproducible artifact generation and SHA-256 verification are implemented.
+Perform a fresh universal-registry runtime architecture audit after the verified Evidence runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
-## Security hardening
+Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
-- Skill validation is read-only and does not mutate contributor branches.
-- Dependabot automation does not auto-approve or auto-merge dependency updates.
-- Agent-facing skill instructions are explicitly treated as a supply-chain/security surface.
+## Handoff
 
-
-- Post-P2.2 Evidence runtime: PR #223 merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`; `UniversalRegistry` now exposes typed deterministic Evidence resolution and entity-support traversal through the existing validated `EvidenceRuntime`.
-
-## Project-operating skills
-
-- Added reusable repository-operation skills under skills/15-orchestration/ for state loading, documentation-drift resolution, evidence verification, automation review, and execution handoff.
-- Added Agent Skills projections where the repository projection path was successfully created.
-- These skills encode the existing AI_CONSTITUTION.md, AGENTS.md, and agent operating model rather than creating a competing governance system.
-- Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; PR #181 merged as `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9`; both passed their substantive CI gates.
-
-
-## Automation review — 2026-10-01
-- Release authority: `zero-touch-release.yml` is the production release pipeline; `release.yml` is retained as manual recovery only. No second automatic PyPI release path was found in the live workflow set.
-- Pages authority: `deploy-pages.yml` is the single repository-controlled Pages build/deploy workflow. The connector could not resolve a separate repository workflow named `pages-build-deployment.yml`; GitHub-native Pages infrastructure is therefore not treated as a competing repository source.
-- Phase 0 classification status: generated-main serialization is hardened for the six writers verified in PR #213; release and Pages authority are verified; remaining work is full workflow-by-workflow classification, security/permissions reconciliation, duplicate/unused workflow disposition, and explicit documentation of connector control-plane limits.
-
-- Generated-main serialization hardening: PR #213 merged as `42bc204a944cb27ee42f0b626592a48a1d4b92e1`; all confirmed direct-main generated writers in the live audit now share `auto-commit-main` with `cancel-in-progress: false`.
-- Release authority verified: `zero-touch-release.yml` is the production release path; `release.yml` is manual recovery only.
-- Pages authority verified: `deploy-pages.yml` is the single repository-controlled Pages deployment workflow; GitHub-native Pages infrastructure is not treated as a competing repository source.
-- Phase 0 remaining work: workflow-by-workflow classification, duplicate/unused automation disposition, permissions/security reconciliation, and explicit documentation of connector control-plane limitations.
-
-- Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
-- Current live workflow audit: 34 workflow files exist. All confirmed direct-main generated writers identified by the audit now use the shared `auto-commit-main` serialization group with cancellation disabled.
-- Other open pull requests: GitHub reported none at the latest repository check.
-
-
-## Action-execution modernization — batch 01
-
-- Ten canonical 04-action-execution stubs were rewritten with explicit inputs/outputs, runnable examples, failure modes, related skills, and repository evidence.
-- Ten corresponding Agent Skills projections were added under agent-skills/.
-- No benchmark or battle-tested performance claim is made by this batch.
-- Verification gate: PR CI must pass the canonical skill validator, Agent Skills validator, schema checks, security scans, and new-stub quality gate before merge.
-
-
-## Action-execution modernization — batch 02
-
-- Nine remaining 04-action-execution stubs were rewritten: form-submission, keyboard-input, mouse-input, notification-sending, process-management, screenshot-capture, scroll, shell-command, and wait-sleep.
-- Nine corresponding Agent Skills projections were added under agent-skills/.
-- No benchmark or battle-tested performance claim is made by this batch.
-- PR CI must verify canonical schema, Agent Skills evidence, graph integrity, security scans, and the no-new-stub quality gate before merge.
-
-
-## Code modernization — batch 01
-
-- Ten 05-code stubs were rewritten with explicit procedures, runnable examples, failure modes, related references, and evidence statements.
-- Ten corresponding Agent Skills projections were added.
-- No benchmark or battle-tested claim is introduced.
-- PR CI must pass canonical validation, Agent Skills validation, graph checks, security scans, and the no-new-stub quality gate before merge.
-
-
-## Code modernization — batch 02
-
-- Ten additional 05-code stubs were modernized: code-translation, db-schema-design, debugging, dependency-auditor, dependency-management, dockerfile-generation, documentation-generation, git-operations, github-api, and integration-test-writing.
-- Corresponding Agent Skills projections were added or synchronized.
-- No benchmark or battle-tested claim is introduced.
-- PR CI must pass canonical validation, Agent Skills validation, graph checks, security scans, and the no-new-stub quality gate before merge.
-
-
-## Code modernization — batch 03
-
-- Seven additional 05-code stubs were modernized: linting-formatting, performance-profiling, refactoring, regex-generation, repl-interaction, sql-query-generation, and unit-test-generation.
-- Agent Skills projections were added for the completed skills except where the repository connector safety layer blocked a projection path; no validator was weakened.
-- security-scanning was intentionally not modified because the connector safety layer blocked the repository write; it remains subject to a later safe execution path.
-- No benchmark or battle-tested claim is introduced.
-
-
-## Tool-use modernization — batch 01
-
-- Modernized ten 07-tool-use skills with repository-backed procedures and runnable examples: a2a-tool, browser-tool, calculator, code-exec-tool, custom-api-wrapper, file-system-tool, function-calling, github-api, google-workspace-api, and huggingface-api.
-- Agent Skills projections were synchronized for the batch.
-- No validation or security gate was weakened.
-
-
-## Tool-use modernization — batch 02
-
-- Modernized ten additional 07-tool-use skills: image-gen-tool, jira-api, linear-api, maps-geolocation, mcp-tool, news-api, notion-api, pdf-tool, sendgrid-api, and slack-api.
-- Added corresponding Agent Skills projections under agent-skills/.
-- Provider-specific claims are grounded in cited provider documentation; no benchmark or battle-tested performance claim is introduced.
-- No validator, security gate, or repository governance rule was weakened.
-- PR CI is the required verification gate before merge.
-
-
-## Tool-use modernization — batch 03
-
-- Modernized ten additional 07-tool-use skills: github-api, google-workspace-api, huggingface-api, sql-tool, stripe-api, twilio-api, vector-db-tool, weather-api, web-search, and wikipedia-api.
-- Added or synchronized corresponding Agent Skills projections under agent-skills/.
-- Provider-specific behavior is referenced to official provider documentation; no benchmark or battle-tested claim is introduced.
-- No validator, security gate, or repository governance rule was weakened.
-- PR CI is the required verification gate before merge.
-
-
-## Domain-specific modernization — batch 01
-
-- Modernized ten 16-domain-specific skills: ad-copy, alert-triage, clinical-note-summarization, compliance-checking, compliance-review-workflows, contract-review, data-labeling, drug-interaction, essay-grading, and financial-statement.
-- Added corresponding Agent Skills projections.
-- Added explicit scope, validation, uncertainty, and failure handling; no unsupported domain certainty was introduced.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Domain-specific modernization — batch 02
-
-- Staged ten additional 16-domain-specific skills: flashcard-creation, hypothesis-generation, iac-generation, incident-response, invoice-processing, legal-research, lesson-plan, literature-review, log-analysis, and medical-literature-search.
-- Added or synchronized corresponding Agent Skills projections under `agent-skills/`.
-- Preserved explicit scope, evidence boundaries, uncertainty handling, and professional-domain limitations.
-- No validator, security gate, or repository governance rule was weakened.
-- PR CI is the required verification gate before merge.
-
-
-## Domain-specific modernization — batch 03
-
-- Modernized the final eight 16-domain-specific stubs: paper-summarization, portfolio-analysis, product-description, quiz-generation, review-analysis, seo-optimization, stock-lookup, and symptom-analysis.
-- Added or synchronized corresponding Agent Skills projections.
-- The 16-domain-specific category is now fully modernized; no domain-specific stub remains in the planned migration queue.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Computer-use modernization — batch 01
-
-- Modernized ten `10-computer-use` skills: accessibility-tree, app-launch, clipboard-read, clipboard-write, double-click, drag-drop, file-dialog, keyboard-shortcut, keyboard-type, and mouse-click.
-- Added or synchronized corresponding Agent Skills projections.
-- Added explicit target verification, authorization, postcondition, sensitive-data, and destructive-action boundaries.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Computer-use modernization — batch 02
-
-- Modernized the remaining ten `10-computer-use` skills: mouse-move, multi-monitor, right-click, screen-ocr, screenshot-capture, scroll, terminal-interaction, visual-element-detection, vm-interaction, and window-management.
-- Added or synchronized corresponding Agent Skills projections.
-- The `10-computer-use` category is now fully modernized; target verification, bounded interaction, sensitive-data protection, and postcondition checks remain mandatory.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Data modernization — batch 01
-
-- Modernized ten `12-data` stubs: anomaly-detection, csv-processing, data-aggregation, data-cleaning, data-filtering, data-joining, data-summarization, data-visualization, etl-pipeline, and json-transformation.
-- Added or synchronized corresponding Agent Skills projections.
-- Added explicit schema, provenance, validation, cardinality, null-handling, and data-loss boundaries.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Data modernization — batch 02
-
-- Modernized the remaining seven `12-data` stubs: nosql-query, pandas-operations, schema-inference, similarity-search, sql-execution, statistical-analysis, and time-series.
-- Added or synchronized corresponding Agent Skills projections.
-- The `12-data` category is now fully modernized; the existing embedding-generation skill was preserved as the category's already battle-tested implementation.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Orchestration modernization — batch 01
-
-- Modernized ten `15-orchestration` stubs: agent-communication, agent-handoff, budget-management, conditional-branching, consensus-voting, event-triggers, hierarchical-tree, logging-observability, parallel-execution, and retry-backoff.
-- Added or synchronized corresponding Agent Skills projections where the repository projection path permitted creation.
-- Added explicit ownership, state, idempotency, authorization, recovery, and evidence boundaries.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Orchestration modernization — batch 02
-
-- Modernized the final six `15-orchestration` stubs: role-assignment, sequential-workflow, shared-memory, state-machine, subagent-spawning, and task-queue.
-- Added or synchronized corresponding Agent Skills projections.
-- The `15-orchestration` category is now fully modernized; existing battle-tested orchestration skills were preserved.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Agentic patterns modernization — batch 01
-
-- Modernized ten `09-agentic-patterns` skills: tot, lats, mcts, rag-pipeline, reflection, critic-agent, self-play, constitutional-ai, debate-pattern, and mixture-of-agents.
-- Added corresponding Agent Skills projections.
-- Added explicit objectives, evaluation criteria, budgets, provenance, evidence boundaries, uncertainty handling, and failure modes.
-- Preserved existing substantial ReAct, CoT, RAG, Agentic RAG, and Plan-and-Execute implementations.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Multimodal modernization — batch 01
-
-- Modernized fourteen `08-multimodal` skills: 3d-scene-understanding, audio-classification, audio-transcription, chart-generation, document-layout-analysis, image-captioning, image-classification, image-editing, image-generation, object-detection, text-to-speech, video-description, video-frame-extraction, and vqa.
-- Added or synchronized corresponding Agent Skills projections.
-- Added explicit modality contracts, bounded preprocessing/execution, provenance, uncertainty handling, failure modes, safety boundaries, and runnable examples.
-- Preserved verified dependency metadata where present.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Agentic patterns modernization — batch 02
-
-- Modernized the remaining four stub-level `09-agentic-patterns` skills: bootstrapping, memory-augmented, subagent-delegation, and tool-use-loop.
-- Added corresponding Agent Skills projections.
-- Added explicit objectives, acceptance criteria, bounded execution, provenance, uncertainty handling, failure modes, and runnable examples.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Memory modernization — batch 01
-
-- Modernized five `03-memory` skills: fact-verification-memory, fact-verification, procedural, user-profile, and working-memory.
-- Added corresponding Agent Skills projections.
-- Added explicit memory scope, provenance, retention, freshness, conflict handling, uncertainty, bounded operations, and verification requirements.
-- Removed unsupported legacy dependency/code-block metadata from the canonical procedural skill while preserving its operational intent.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Communication modernization — batch 01
-
-- Modernized ten `06-communication` skills: argument-construction, citation-attribution, clarification-seeking, debate, email-drafting, instruction-following, multilingual-output, persona-adoption, question-answering, and report-writing.
-- Added corresponding Agent Skills projections.
-- Added explicit communication contracts, evidence boundaries, uncertainty handling, constraint checking, failure modes, and runnable examples.
-- Preserved existing enriched paraphrasing, summarization, and translation skills.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Communication modernization — batch 02
-
-- Modernized the remaining two `06-communication` placeholder skills: structured-output and tone-adjustment.
-- Added corresponding Agent Skills projections.
-- The `06-communication` placeholder cluster is now fully addressed; existing enriched skills were preserved.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Web modernization — batch 01
-
-- Modernized ten `11-web` skills: api-discovery, browser-navigation, captcha-solving, cookie-management, dom-inspection, form-filling, js-execution, link-extraction, rss-parsing, and sitemap-parsing.
-- Added corresponding Agent Skills projections.
-- Added explicit authorization boundaries, bounded requests/actions, provenance, postcondition checks, and anti-automation/access-control safety boundaries.
-- No validator, security gate, or repository governance rule was weakened.
-
-
-## Web modernization — batch 02
-
-- Modernized the remaining three `11-web` skills: url-fetching, url-screenshot, and web-login.
-- Added corresponding Agent Skills projections.
-- `11-web` placeholder modernization is now complete; existing enriched web-search, web-scraping, and web-crawling skills were preserved.
-- Added explicit origin/session boundaries, resource limits, provenance, and credential/access-control safety rules.
-
-
-## Creative modernization — batch 01
-
-- Modernized ten `13-creative` skills: avatar-design, blog-writing, copywriting, creative-writing, game-level-design, image-gen-prompt, logo-design, lyrics-writing, meme-generation, and music-composition.
-- Added corresponding Agent Skills projections.
-- Added explicit creative briefs, originality/source-use boundaries, factual-claim controls, constraint checks, and runnable examples.
-- No validator, security gate, or repository governance rule was weakened.
+A future agent must re-read the authoritative documents and verify live GitHub state before continuing. The repository, not this snapshot alone, remains the final source of truth.
