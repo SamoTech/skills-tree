@@ -89,6 +89,9 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 
 
 ## Automation review — 2026-10-01
+- Release authority: `zero-touch-release.yml` is the production release pipeline; `release.yml` is retained as manual recovery only. No second automatic PyPI release path was found in the live workflow set.
+- Pages authority: `deploy-pages.yml` is the single repository-controlled Pages build/deploy workflow. The connector could not resolve a separate repository workflow named `pages-build-deployment.yml`; GitHub-native Pages infrastructure is therefore not treated as a competing repository source.
+- Phase 0 classification status: generated-main serialization is hardened for the six writers verified in PR #213; release and Pages authority are verified; remaining work is full workflow-by-workflow classification, security/permissions reconciliation, duplicate/unused workflow disposition, and explicit documentation of connector control-plane limits.
 
 - Generated-main serialization hardening: PR #213 merged as `42bc204a944cb27ee42f0b626592a48a1d4b92e1`; six direct-main writers now share `auto-commit-main` with `cancel-in-progress: false`.
 - Remaining workflow-architecture work: classify all 34 workflows, verify release/Pages single-authority, reconcile any additional main writers discovered by future audits, and document connector control-plane limitations.
