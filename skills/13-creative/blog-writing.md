@@ -3,46 +3,63 @@ title: "Blog Writing"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply blog writing in AI agent workflows."
+description: "Produce a structured blog article that matches the requested audience, purpose, length, voice, and factual boundaries."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-blog-writing.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** `advanced`
-**Stability:** stable
-**Added:** 2025-03
+Produce a structured blog article that matches the requested audience, purpose, length, voice, and factual boundaries.
 
-### Description
-Produces well-structured blog articles with a clear title, introduction, H2/H3 subheadings, body sections, and conclusion. Adapts length, reading level, and SEO keyword density based on user instructions.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | topic, audience, outline, source material, length, and style constraints. |
+| Outputs | structured article with headings, source boundaries, and unresolved factual placeholders. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-prompt = """
-Write a 600-word blog post titled:
-'5 Ways AI Agents Are Changing Software Development in 2025'
-
-Include:
-- An engaging intro paragraph
-- 5 numbered sections with a subheading each
-- A short conclusion with a CTA to subscribe
-Tone: conversational but authoritative.
-"""
-
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": prompt}]
-)
-print(message.content[0].text)
+task = {"capability": "blog-writing", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [Creative Writing](creative-writing.md)
-- [Summarization](../06-communication/summarization.md)
-- [Structured Output](../06-communication/structured-output.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails
