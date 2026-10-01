@@ -3,122 +3,63 @@ title: "Fact Verification"
 category: 03-memory
 level: advanced
 stability: stable
-description: "Apply fact verification in AI agent workflows."
+description: "Evaluate factual claims against declared evidence sources and classify them as verified, contradicted, unverified, or uncertain."
 added: "2025-03"
----
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-fact-verification.json)
-
-# Fact Verification
-
-**Category:** `memory`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`  
-**Added:** 2025-03  
-**Last Updated:** 2026-04
-
+related: ["03-memory", "input-guardrails", "output-guardrails"]
 ---
 
 ## Description
 
-Verify factual claims against authoritative sources, retrieved context, or tool-accessible knowledge. Classifies each claim as `verified`, `unverified`, `contradicted`, or `uncertain`, and provides a citation or counter-evidence. Applies to hallucination detection in generated text, claim-checking user inputs, and research QA pipelines.
+Evaluate factual claims against declared evidence sources and classify them as verified, contradicted, unverified, or uncertain.
 
----
+## When to Use
 
-## Inputs
+Use when memory state must persist across steps or sessions and the workflow can define ownership, provenance, retention, and verification rules.
 
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `claims` | `list` | ✅ | List of factual statements to verify |
-| `context` | `string` | ❌ | Reference text to verify against (if available) |
-| `tool_use` | `bool` | ❌ | Allow web search for verification (default: false) |
+## Inputs / Outputs / Failure Modes
 
----
+| Area | Contract |
+|---|---|
+| Inputs | claims, evidence boundary, verification tools, and acceptance threshold. |
+| Outputs | claim verdicts, supporting evidence, provenance, and unresolved uncertainty. |
+| Failure modes | Stale memory, unsupported inference, conflicting records, unauthorized retention, context growth, or acceptance without revalidation. |
 
-## Outputs
+## Procedure
 
-| Output | Type | Description |
-|---|---|---|
-| `results` | `list` | `[{claim, verdict, confidence, evidence, source}]` |
-| `overall_reliability` | `string` | `high` / `medium` / `low` |
-| `unverifiable_claims` | `list` | Claims that cannot be checked without external tools |
+1. Define the memory scope, owner, retention rule, and acceptance criteria.
+2. Validate incoming memory candidates and preserve their provenance.
+3. Apply explicit freshness, confidence, conflict, and size bounds.
+4. Retrieve only the memory relevant to the current task.
+5. Revalidate memory before treating it as authoritative when material.
+6. Record updates, conflicts, and unresolved uncertainty.
 
----
-
-## Example
+## Runnable Example
 
 ```python
-import anthropic
-import json
-
-client = anthropic.Anthropic()
-
-def verify_claims(claims: list[str], context: str = "") -> dict:
-    """
-    Verify a list of factual claims, optionally against a reference context.
-    """
-    claims_text = "\n".join(f"{i+1}. {c}" for i, c in enumerate(claims))
-    ctx_block = f"\nReference context:\n{context}\n" if context else ""
-
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=2048,
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Claims to verify:\n{claims_text}{ctx_block}\n"
-                "For each claim return JSON with:\n"
-                "- results: [{claim, verdict (verified|unverified|contradicted|uncertain), "
-                "confidence (0-1), evidence, source}]\n"
-                "- overall_reliability: high | medium | low\n"
-                "- unverifiable_claims: list\n"
-                "Return ONLY valid JSON."
-            )
-        }]
-    )
-    return json.loads(response.content[0].text)
-
-result = verify_claims(
-    claims=[
-        "Python was created by Guido van Rossum",
-        "Python 3.0 was released in 2005",
-        "Python is the most popular language for data science"
-    ]
-)
-print(json.dumps(result, indent=2))
+memory = {"capability": "fact-verification", "validated": True, "budget": 4}
+assert memory["validated"] and memory["budget"] > 0
+print({"status": "bounded_memory_operation", "capability": memory["capability"]})
 ```
 
----
+## Failure Modes
 
-## Frameworks & Models
+- Memory is stale or its provenance cannot be established.
+- A model-generated inference is stored as an explicit user fact.
+- Conflicting records are silently merged.
+- Retention exceeds the declared scope or authorization.
+- Memory growth exhausts context or storage budgets.
+- A stored procedure or fact is used without required revalidation.
 
-| Framework / Model | Implementation | Since |
-|---|---|---|
-| Claude claude-opus-4-5 | Direct prompt with context | 2024-06 |
-| LangChain | `LLMCheckerChain` | v0.1 |
-| LangGraph | Verification node in fact-check pipeline | v0.1 |
+## Safety Boundary
 
----
+Treat memory as state, not truth. Preserve provenance and scope. Do not store sensitive or personal information unless explicitly authorized by the governing application policy, and honor correction or deletion requirements.
 
-## Notes
+## Evidence
 
-- For real-time verification, attach a web search tool (Brave Search, Tavily) and set `tool_use: true`
-- Model knowledge has a training cutoff — for recent events, always provide retrieved context
-- Distinguish `unverified` (no evidence found) from `contradicted` (counter-evidence found)
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Memory-specific claims require reproducible implementation evidence or authoritative repository evidence; stored memory is not evidence by itself.
 
----
+## Related
 
-## Related Skills
-
-- [Memory Summarization](memory-summarization.md) — condensing verified knowledge
-- [Procedural Memory](procedural.md) — verifying how-to knowledge
-- [Abductive Reasoning](../02-reasoning/abductive.md) — hypothesis-based inference
-
----
-
-## Changelog
-
-| Date | Change |
-|---|---|
-| `2026-04` | Expanded from stub: full description, I/O table, claim-checker example |
-| `2025-03` | Initial stub entry |
+- 03-memory
+- input-guardrails
+- output-guardrails

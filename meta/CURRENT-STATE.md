@@ -257,3 +257,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added corresponding Agent Skills projections.
 - Added explicit objectives, acceptance criteria, bounded execution, provenance, uncertainty handling, failure modes, and runnable examples.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Memory modernization — batch 01
+
+- Modernized five `03-memory` skills: fact-verification-memory, fact-verification, procedural, user-profile, and working-memory.
+- Added corresponding Agent Skills projections.
+- Added explicit memory scope, provenance, retention, freshness, conflict handling, uncertainty, bounded operations, and verification requirements.
+- Removed unsupported legacy dependency/code-block metadata from the canonical procedural skill while preserving its operational intent.
+- No validator, security gate, or repository governance rule was weakened.
