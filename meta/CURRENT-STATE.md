@@ -78,3 +78,16 @@ A regression test rejects a schema-invalid Goal field with the expected `jsonsch
 **Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`. Exact-head Security Scan, PR Checks, Test Suite, and Build & Verify Wheel passed; Dependabot Review Gate was skipped.
 
 **Status:** VERIFIED — runtime structural validation is now aligned with the actual registry data shape and existing semantic validation responsibilities.
+
+
+## Security Skill Migration Batch 01 — Verified 2026-10-02
+
+A corpus audit found 45 remaining stubs in the generated quality model. The highest-priority remaining cluster was the nine security-category stubs. PR #243 migrated Audit Logging, Harm Detection, Human In Loop, Permission Checking, Privacy Preservation, Rate Limiting, Rollback / Undo, Sandboxed Execution, and Secret Scanning.
+
+Each migrated skill now has a concrete description, explicit I/O contract, runnable example, failure modes, security boundaries, related-skill metadata, and authoritative references. Unsupported benchmark and compliance claims were deliberately excluded.
+
+**Verification:** PR #243 merged as `40fb35aa6c54438f08062c89c118815262b6fe98`. Validate Skills, Security Scan, PR Checks, Test Suite, Build & Verify Wheel, Schema Enforcement, Validate Skills Graph, AST Sweep, Check Links, and Skill Upgrade Detector passed on the final head. The intermediate quality-report run was superseded during the required frontmatter correction; the generated report had already passed for the same nine skill bodies before that metadata-only correction.
+
+**Generated-artifact finding:** `meta/QUALITY-REPORT.md` remained at its pre-merge classification because the configured `push` publication path did not produce a post-merge run after the API-driven merge. This is being corrected by the quality-report workflow trigger documented in the accompanying audit.
+
+**Status:** IMPLEMENTATION VERIFIED; generated report synchronization OPEN until the new post-merge trigger produces the canonical report.

@@ -213,3 +213,14 @@ The existing `meta/universal-registry.schema.json` is preserved as the ontology/
 **Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`; exact-head Test Suite, Security Scan, PR Checks, and Build & Verify Wheel passed.
 
 **Next:** fresh runtime/consumer invariant audit. No numbered P2.3 requirement is created.
+
+
+## Security Corpus Migration — Verified Implementation 2026-10-02
+
+The first controlled security corpus migration batch upgraded the nine remaining security stubs in category 14. The batch preserves the canonical `skills/` source and strengthens the evidence-backed migration gate with explicit I/O, failure modes, security boundaries, related metadata, and authoritative references.
+
+PR #243 merged as `40fb35aa6c54438f08062c89c118815262b6fe98` after the final validation matrix passed.
+
+A generated-quality-report synchronization defect was also observed: the `quality-report.yml` push publication path did not run after the API-driven merge. The workflow is being hardened with a trusted post-merge `pull_request_target: closed` trigger that checks out only the default branch and runs only for merged PRs.
+
+**Next:** verify the generated report after the workflow correction, then continue with the remaining 36 expected stubs only after the generated artifact confirms the new corpus state.

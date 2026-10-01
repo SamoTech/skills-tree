@@ -590,3 +590,30 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED.
 
 **Reopen Conditions:** Reopen if the serialized registry shape changes without corresponding schema evolution, schema/runtime drift is detected, cross-schema resolution becomes nondeterministic, or a replacement registry architecture supersedes this boundary.
+
+
+## DECISION-2026-10-02-SECURITY-SKILL-MIGRATION-BATCH-01
+
+**Decision-ID:** DECISION-2026-10-02-SECURITY-SKILL-MIGRATION-BATCH-01
+
+**Topic:** Upgrade the remaining security-category stubs as the first corpus-quality migration batch.
+
+**Decision:** Migrate all nine category-14 security stubs under the existing evidence-backed gate. Require explicit descriptions, I/O contracts, runnable examples, failure modes, related metadata, and authoritative references. Do not add unsupported benchmark or compliance claims.
+
+**Evidence:** PR #243; final head `a76f44379b1fba4a6667e9efce04a5db6c912d97`; final validation matrix green; squash merge `40fb35aa6c54438f08062c89c118815262b6fe98`.
+
+**Status:** LOCKED.
+
+## DECISION-2026-10-02-QUALITY-REPORT-POST-MERGE-TRIGGER
+
+**Decision-ID:** DECISION-2026-10-02-QUALITY-REPORT-POST-MERGE-TRIGGER
+
+**Topic:** Ensure generated skill-quality state is regenerated after merged PRs.
+
+**Finding:** The live `quality-report.yml` declared a `push: main` publication trigger, but no post-merge quality run was observable after the API-driven security batch merge. The generated report therefore remained at the pre-merge 374/170/159/45/0 classification even though the nine security skill bodies had passed the quality-report workflow before the metadata correction.
+
+**Decision:** Add a trusted `pull_request_target: closed` trigger limited to `main`, and execute the existing publish job only when `github.event.pull_request.merged == true`. The workflow checks out the default branch and never checks out or executes PR head code.
+
+**Security basis:** GitHub documents that `pull_request_target` runs workflow code from the default branch and can safely perform trusted post-merge automation when untrusted PR code is not executed. The trigger is constrained to closed PRs and a merged condition.
+
+**Status:** IMPLEMENTATION STAGED — must be CI-verified and observed producing the regenerated report before this decision is considered locked.

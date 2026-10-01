@@ -399,3 +399,18 @@ The schema intentionally permits the repository's existing Skill version value `
 **Verification:** PR #241 exact final head `8ad05dfc995db49da847ea479e06e13bec80d2e1` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before squash merge as `93c50c3616a7c558b483f341f44a91509ed032ca`.
 
 **Engineering lesson:** when multiple schemas exist, first establish which artifact each schema governs. Runtime validation must target the schema of the loaded artifact, not a related ontology-definition schema.
+
+
+## Security Stub Migration Batch 01 — 2026-10-02
+
+Corpus audit identified nine remaining stubs in category 14-security. The batch upgraded all nine to the repository's evidence-backed content gate.
+
+The migration deliberately removed placeholder descriptions and unsafe example patterns. Security skills now state explicit boundaries: audit logging must not become a secret sink; harm detection is a risk gate rather than an authorization oracle; human approval is action-bound and deny-by-default; authorization is distinct from authentication; privacy regexes are incomplete; rate limiting is not a substitute for provider quotas; rollback requires postcondition verification; subprocess timeouts are not sandboxes; and regex secret scanning is not complete protection.
+
+Authoritative references were added for OWASP logging/authorization/secrets guidance, NIST AI risk-management guidance, RFC 6585, Python subprocess/hash/context-manager behavior, GitHub secret scanning/push protection, and the NIST Privacy Framework.
+
+**Verification:** PR #243 final head `a76f44379b1fba4a6667e9efce04a5db6c912d97` passed the final validation matrix before squash merge `40fb35aa6c54438f08062c89c118815262b6fe98`.
+
+**Automation finding:** the generated quality report did not regenerate after the API-driven merge despite `quality-report.yml` declaring a main-push trigger. The repository is adding a trusted post-merge trigger rather than hand-editing the generated artifact.
+
+**Next:** verify the regenerated quality report and use it as the authoritative corpus baseline for the next migration batch.

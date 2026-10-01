@@ -10,6 +10,12 @@ on:
     paths:
       - 'skills/**/*.md'
       - 'tools/check_skill_quality.py'
+  # API-driven merges in this repository can complete without a usable
+  # post-merge push-triggered quality run. Regenerate from trusted main after
+  # every merged PR while checking out only the default branch.
+  pull_request_target:
+    types: [closed]
+    branches: [main]
   schedule:
     - cron: '0 4 * * 1'   # Monday 04:00 UTC
   workflow_dispatch:
@@ -50,7 +56,7 @@ jobs:
 
   publish:
     name: Regenerate QUALITY-REPORT.md
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && (github.event_name != 'pull_request_target' || github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
