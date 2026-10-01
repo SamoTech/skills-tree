@@ -344,3 +344,14 @@ The implemented correction isolates responsibilities. `build-and-validate` now h
 **Control-plane finding:** Live branch inspection reports `main` as unprotected with required-status-check enforcement off. This is recorded as a repository governance fact rather than inferred YAML behavior; no high-impact branch-protection change was made in this cycle.
 
 **Next:** complete observable control-plane reconciliation, then perform the fresh universal-registry runtime architecture audit required before selecting the next vertical slice.
+
+
+## Post-P2.2 Skill Runtime Facade Integration — Verified 2026-10-02
+
+A fresh universal-registry runtime audit identified a remaining abstraction-boundary gap. `SkillRuntime` already provided deterministic canonical Skill resolution, capability traversal, implementation traversal, unknown-ID rejection, and defensive snapshots, but `UniversalRegistry` still bypassed it with raw registry access.
+
+The selected vertical slice integrated the existing `SkillRuntime` into `UniversalRegistry`. The facade now exposes typed `resolve_skill()` and `capabilities_for_skill()` and delegates `implementations_for_skill()` to the dedicated runtime. The `TYPE_CHECKING` boundary prevents a runtime import cycle.
+
+**Verification:** PR #234 exact head `2ec1690606b26b1727567b6c421ea538b9a07d3a` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
+
+**Next:** perform another fresh universal-registry runtime architecture audit. Do not invent a numbered P2.3 requirement and do not add ontology facts without authoritative evidence.
