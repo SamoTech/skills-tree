@@ -355,3 +355,14 @@ The selected vertical slice integrated the existing `SkillRuntime` into `Univers
 **Verification:** PR #234 exact head `2ec1690606b26b1727567b6c421ea538b9a07d3a` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
 
 **Next:** perform another fresh universal-registry runtime architecture audit. Do not invent a numbered P2.3 requirement and do not add ontology facts without authoritative evidence.
+
+
+## Post-P2.2 Capability Runtime Facade Integration — Verified 2026-10-02
+
+A fresh universal-registry runtime audit identified the next remaining read-boundary gap. `CapabilityRuntime` already provided deterministic Capability resolution plus Implementation and Adapter traversal, but `UniversalRegistry` had no typed Capability facade.
+
+The selected vertical slice integrated the existing `CapabilityRuntime` into `UniversalRegistry`. The facade now exposes `resolve_capability()`, `implementations_for_capability()`, and `adapters_for_capability()`. The `TYPE_CHECKING` boundary prevents a runtime import cycle.
+
+**Verification:** PR #236 exact head `ccc0902bcb87714c8709d9a8f5d6d100554edb2f` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`.
+
+**Next:** perform another fresh universal-registry runtime architecture audit. Do not invent a numbered P2.3 requirement and do not add ontology facts without authoritative evidence.

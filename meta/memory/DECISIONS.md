@@ -539,3 +539,20 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if tests or repository evidence demonstrate a regression in canonicality, deterministic behavior, snapshot isolation, import architecture, or facade/runtime consistency, or if a replacement runtime architecture supersedes this boundary.
+
+
+## DECISION-2026-10-02-CAPABILITY-RUNTIME-FACADE-INTEGRATION
+
+**Decision-ID:** DECISION-2026-10-02-CAPABILITY-RUNTIME-FACADE-INTEGRATION
+
+**Topic:** Route Capability access through the existing validated CapabilityRuntime facade.
+
+**Decision:** Integrate the existing read-only `CapabilityRuntime` into `UniversalRegistry`. Expose `resolve_capability()`, `implementations_for_capability()`, and `adapters_for_capability()`. Preserve deterministic traversal, defensive snapshots, existing registry validation, and the no-new-claims boundary.
+
+**Rationale:** The repository already had a dedicated, tested Capability runtime, but the UniversalRegistry facade lacked typed Capability access. This was the remaining counterpart to the corrected Skill, Evidence, and Compatibility facade boundaries.
+
+**Evidence:** `meta/IMPLEMENTATION_ONTOLOGY.md`; PR #236; exact-head CI green; merge commit `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if tests or repository evidence demonstrate a regression in deterministic traversal, snapshot isolation, import architecture, or facade/runtime consistency, or if a replacement runtime architecture supersedes this boundary.
