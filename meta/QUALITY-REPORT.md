@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 135
-- 🟡 **Enriched** (real description + runnable code): 96
-- ⚪ **Stub** (placeholder description or no runnable code): 143
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 158
+- 🟡 **Enriched** (real description + runnable code): 159
+- ⚪ **Stub** (placeholder description or no runnable code): 57
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -17,19 +17,19 @@
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
-| `03-memory` | 19 | 11 | 0 | 8 | 0 |
+| `03-memory` | 19 | 16 | 0 | 3 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
 | `05-code` | 28 | 5 | 22 | 1 | 0 |
 | `06-communication` | 15 | 3 | 0 | 12 | 0 |
 | `07-tool-use` | 33 | 11 | 21 | 1 | 0 |
-| `08-multimodal` | 14 | 0 | 0 | 14 | 0 |
-| `09-agentic-patterns` | 23 | 8 | 0 | 15 | 0 |
-| `10-computer-use` | 20 | 0 | 0 | 20 | 0 |
+| `08-multimodal` | 14 | 14 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 23 | 12 | 10 | 1 | 0 |
+| `10-computer-use` | 20 | 0 | 20 | 0 | 0 |
 | `11-web` | 17 | 4 | 0 | 13 | 0 |
-| `12-data` | 18 | 1 | 0 | 17 | 0 |
+| `12-data` | 18 | 1 | 17 | 0 | 0 |
 | `13-creative` | 14 | 0 | 0 | 14 | 0 |
 | `14-security` | 13 | 4 | 0 | 9 | 0 |
-| `15-orchestration` | 27 | 9 | 2 | 16 | 0 |
+| `15-orchestration` | 27 | 9 | 18 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 |
 | `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
 
@@ -106,13 +106,18 @@
 - [`skills/03-memory/cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — Cross-Session Persistence
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
 - [`skills/03-memory/episodic-memory.md`](skills/03-memory/episodic-memory.md) — Episodic Memory
+- [`skills/03-memory/fact-verification-memory.md`](skills/03-memory/fact-verification-memory.md) — Fact Verification Memory
+- [`skills/03-memory/fact-verification.md`](skills/03-memory/fact-verification.md) — Fact Verification
 - [`skills/03-memory/forgetting.md`](skills/03-memory/forgetting.md) — Forgetting
 - [`skills/03-memory/long-term-memory.md`](skills/03-memory/long-term-memory.md) — Long-Term Memory
 - [`skills/03-memory/memory-injection.md`](skills/03-memory/memory-injection.md) — Memory Injection
 - [`skills/03-memory/memory-summarization.md`](skills/03-memory/memory-summarization.md) — Memory Summarization
+- [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — Procedural Memory
 - [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
 - [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
+- [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — User Profile
 - [`skills/03-memory/vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — Vector Store Retrieval
+- [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — Working Memory
 - [`skills/04-action-execution/api-call.md`](skills/04-action-execution/api-call.md) — API Call
 - [`skills/04-action-execution/assertion.md`](skills/04-action-execution/assertion.md) — Assertion
 - [`skills/04-action-execution/calendar-event.md`](skills/04-action-execution/calendar-event.md) — Calendar Event
@@ -143,14 +148,32 @@
 - [`skills/07-tool-use/tool-guardrails.md`](skills/07-tool-use/tool-guardrails.md) — Tool Guardrails
 - [`skills/07-tool-use/tool-review-loops.md`](skills/07-tool-use/tool-review-loops.md) — Tool Review Loops
 - [`skills/07-tool-use/xquik-api.md`](skills/07-tool-use/xquik-api.md) — Xquik API
+- [`skills/08-multimodal/3d-scene-understanding.md`](skills/08-multimodal/3d-scene-understanding.md) — 3D Scene Understanding
+- [`skills/08-multimodal/audio-classification.md`](skills/08-multimodal/audio-classification.md) — Audio Classification
+- [`skills/08-multimodal/audio-transcription.md`](skills/08-multimodal/audio-transcription.md) — Audio Transcription
+- [`skills/08-multimodal/chart-generation.md`](skills/08-multimodal/chart-generation.md) — Chart Generation
+- [`skills/08-multimodal/document-layout-analysis.md`](skills/08-multimodal/document-layout-analysis.md) — Document Layout Analysis
+- [`skills/08-multimodal/image-captioning.md`](skills/08-multimodal/image-captioning.md) — Image Captioning
+- [`skills/08-multimodal/image-classification.md`](skills/08-multimodal/image-classification.md) — Image Classification
+- [`skills/08-multimodal/image-editing.md`](skills/08-multimodal/image-editing.md) — Image Editing
+- [`skills/08-multimodal/image-generation.md`](skills/08-multimodal/image-generation.md) — Image Generation
+- [`skills/08-multimodal/object-detection.md`](skills/08-multimodal/object-detection.md) — Object Detection
+- [`skills/08-multimodal/text-to-speech.md`](skills/08-multimodal/text-to-speech.md) — Text to Speech
+- [`skills/08-multimodal/video-description.md`](skills/08-multimodal/video-description.md) — Video Description
+- [`skills/08-multimodal/video-frame-extraction.md`](skills/08-multimodal/video-frame-extraction.md) — Video Frame Extraction
+- [`skills/08-multimodal/vqa.md`](skills/08-multimodal/vqa.md) — Visual Question Answering
 - [`skills/09-agentic-patterns/agent-as-tool.md`](skills/09-agentic-patterns/agent-as-tool.md) — Agent as Tool
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
 - [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — Agentic RAG
+- [`skills/09-agentic-patterns/bootstrapping.md`](skills/09-agentic-patterns/bootstrapping.md) — Bootstrapping
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
+- [`skills/09-agentic-patterns/memory-augmented.md`](skills/09-agentic-patterns/memory-augmented.md) — Memory-Augmented Agent
 - [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — Subagent Delegation
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-travel Debugging
+- [`skills/09-agentic-patterns/tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — Tool-Use Loop
 - [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
@@ -240,8 +263,71 @@
 - [`skills/07-tool-use/weather-api.md`](skills/07-tool-use/weather-api.md) — missing table or <60 lines
 - [`skills/07-tool-use/web-search.md`](skills/07-tool-use/web-search.md) — missing table or <60 lines
 - [`skills/07-tool-use/wikipedia-api.md`](skills/07-tool-use/wikipedia-api.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/lats.md`](skills/09-agentic-patterns/lats.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/mcts.md`](skills/09-agentic-patterns/mcts.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — missing table or <60 lines
+- [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — missing table or <60 lines
+- [`skills/10-computer-use/accessibility-tree.md`](skills/10-computer-use/accessibility-tree.md) — missing table or <60 lines
+- [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — missing table or <60 lines
+- [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — missing table or <60 lines
+- [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — missing table or <60 lines
+- [`skills/10-computer-use/double-click.md`](skills/10-computer-use/double-click.md) — missing table or <60 lines
+- [`skills/10-computer-use/drag-drop.md`](skills/10-computer-use/drag-drop.md) — missing table or <60 lines
+- [`skills/10-computer-use/file-dialog.md`](skills/10-computer-use/file-dialog.md) — missing table or <60 lines
+- [`skills/10-computer-use/keyboard-shortcut.md`](skills/10-computer-use/keyboard-shortcut.md) — missing table or <60 lines
+- [`skills/10-computer-use/keyboard-type.md`](skills/10-computer-use/keyboard-type.md) — missing table or <60 lines
+- [`skills/10-computer-use/mouse-click.md`](skills/10-computer-use/mouse-click.md) — missing table or <60 lines
+- [`skills/10-computer-use/mouse-move.md`](skills/10-computer-use/mouse-move.md) — missing table or <60 lines
+- [`skills/10-computer-use/multi-monitor.md`](skills/10-computer-use/multi-monitor.md) — missing table or <60 lines
+- [`skills/10-computer-use/right-click.md`](skills/10-computer-use/right-click.md) — missing table or <60 lines
+- [`skills/10-computer-use/screen-ocr.md`](skills/10-computer-use/screen-ocr.md) — missing table or <60 lines
+- [`skills/10-computer-use/screenshot-capture.md`](skills/10-computer-use/screenshot-capture.md) — missing table or <60 lines
+- [`skills/10-computer-use/scroll.md`](skills/10-computer-use/scroll.md) — missing table or <60 lines
+- [`skills/10-computer-use/terminal-interaction.md`](skills/10-computer-use/terminal-interaction.md) — missing table or <60 lines
+- [`skills/10-computer-use/visual-element-detection.md`](skills/10-computer-use/visual-element-detection.md) — missing table or <60 lines
+- [`skills/10-computer-use/vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — missing table or <60 lines
+- [`skills/10-computer-use/window-management.md`](skills/10-computer-use/window-management.md) — missing table or <60 lines
+- [`skills/12-data/anomaly-detection.md`](skills/12-data/anomaly-detection.md) — missing table or <60 lines
+- [`skills/12-data/csv-processing.md`](skills/12-data/csv-processing.md) — missing table or <60 lines
+- [`skills/12-data/data-aggregation.md`](skills/12-data/data-aggregation.md) — missing table or <60 lines
+- [`skills/12-data/data-cleaning.md`](skills/12-data/data-cleaning.md) — missing table or <60 lines
+- [`skills/12-data/data-filtering.md`](skills/12-data/data-filtering.md) — missing table or <60 lines
+- [`skills/12-data/data-joining.md`](skills/12-data/data-joining.md) — missing table or <60 lines
+- [`skills/12-data/data-summarization.md`](skills/12-data/data-summarization.md) — missing table or <60 lines
+- [`skills/12-data/data-visualization.md`](skills/12-data/data-visualization.md) — missing table or <60 lines
+- [`skills/12-data/etl-pipeline.md`](skills/12-data/etl-pipeline.md) — missing table or <60 lines
+- [`skills/12-data/json-transformation.md`](skills/12-data/json-transformation.md) — missing table or <60 lines
+- [`skills/12-data/nosql-query.md`](skills/12-data/nosql-query.md) — missing table or <60 lines
+- [`skills/12-data/pandas-operations.md`](skills/12-data/pandas-operations.md) — missing table or <60 lines
+- [`skills/12-data/schema-inference.md`](skills/12-data/schema-inference.md) — missing table or <60 lines
+- [`skills/12-data/similarity-search.md`](skills/12-data/similarity-search.md) — missing table or <60 lines
+- [`skills/12-data/sql-execution.md`](skills/12-data/sql-execution.md) — missing table or <60 lines
+- [`skills/12-data/statistical-analysis.md`](skills/12-data/statistical-analysis.md) — missing table or <60 lines
+- [`skills/12-data/time-series.md`](skills/12-data/time-series.md) — missing table or <60 lines
+- [`skills/15-orchestration/agent-communication.md`](skills/15-orchestration/agent-communication.md) — missing table or <60 lines
+- [`skills/15-orchestration/agent-handoff.md`](skills/15-orchestration/agent-handoff.md) — missing table or <60 lines
+- [`skills/15-orchestration/budget-management.md`](skills/15-orchestration/budget-management.md) — missing table or <60 lines
+- [`skills/15-orchestration/conditional-branching.md`](skills/15-orchestration/conditional-branching.md) — missing table or <60 lines
+- [`skills/15-orchestration/consensus-voting.md`](skills/15-orchestration/consensus-voting.md) — missing table or <60 lines
+- [`skills/15-orchestration/event-triggers.md`](skills/15-orchestration/event-triggers.md) — missing table or <60 lines
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
 - [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
+- [`skills/15-orchestration/hierarchical-tree.md`](skills/15-orchestration/hierarchical-tree.md) — missing table or <60 lines
+- [`skills/15-orchestration/logging-observability.md`](skills/15-orchestration/logging-observability.md) — missing table or <60 lines
+- [`skills/15-orchestration/parallel-execution.md`](skills/15-orchestration/parallel-execution.md) — missing table or <60 lines
+- [`skills/15-orchestration/retry-backoff.md`](skills/15-orchestration/retry-backoff.md) — missing table or <60 lines
+- [`skills/15-orchestration/role-assignment.md`](skills/15-orchestration/role-assignment.md) — missing table or <60 lines
+- [`skills/15-orchestration/sequential-workflow.md`](skills/15-orchestration/sequential-workflow.md) — missing table or <60 lines
+- [`skills/15-orchestration/shared-memory.md`](skills/15-orchestration/shared-memory.md) — missing table or <60 lines
+- [`skills/15-orchestration/state-machine.md`](skills/15-orchestration/state-machine.md) — missing table or <60 lines
+- [`skills/15-orchestration/subagent-spawning.md`](skills/15-orchestration/subagent-spawning.md) — missing table or <60 lines
+- [`skills/15-orchestration/task-queue.md`](skills/15-orchestration/task-queue.md) — missing table or <60 lines
 - [`skills/16-domain-specific/ad-copy.md`](skills/16-domain-specific/ad-copy.md) — no inputs/outputs/failure-modes table
 - [`skills/16-domain-specific/alert-triage.md`](skills/16-domain-specific/alert-triage.md) — no inputs/outputs/failure-modes table
 - [`skills/16-domain-specific/clinical-note-summarization.md`](skills/16-domain-specific/clinical-note-summarization.md) — no inputs/outputs/failure-modes table
@@ -274,14 +360,9 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/fact-verification-memory.md`](skills/03-memory/fact-verification-memory.md) — description matches placeholder pattern: 'Apply fact verification memory in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/03-memory/fact-verification.md`](skills/03-memory/fact-verification.md) — description matches placeholder pattern: 'Apply fact verification in AI agent workflows'
 - [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — description matches placeholder pattern: 'Apply procedural memory in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — description matches placeholder pattern: 'Apply user profile in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — description matches placeholder pattern: 'Apply working memory in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — description matches placeholder pattern: 'Apply security scanning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — description matches placeholder pattern: 'Apply argument construction in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/citation-attribution.md`](skills/06-communication/citation-attribution.md) — description matches placeholder pattern: 'Apply citation & attribution in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
@@ -296,55 +377,7 @@
 - [`skills/06-communication/structured-output.md`](skills/06-communication/structured-output.md) — description matches placeholder pattern: 'Apply structured output in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/06-communication/tone-adjustment.md`](skills/06-communication/tone-adjustment.md) — description matches placeholder pattern: 'Apply tone adjustment in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — description matches placeholder pattern: 'Apply wolfram alpha api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/3d-scene-understanding.md`](skills/08-multimodal/3d-scene-understanding.md) — description matches placeholder pattern: 'Apply 3D scene understanding in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/audio-classification.md`](skills/08-multimodal/audio-classification.md) — description matches placeholder pattern: 'Apply audio classification in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/audio-transcription.md`](skills/08-multimodal/audio-transcription.md) — description matches placeholder pattern: 'Apply audio transcription in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/chart-generation.md`](skills/08-multimodal/chart-generation.md) — description matches placeholder pattern: 'Apply chart and diagram generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/document-layout-analysis.md`](skills/08-multimodal/document-layout-analysis.md) — description matches placeholder pattern: 'Apply document layout analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/image-captioning.md`](skills/08-multimodal/image-captioning.md) — description matches placeholder pattern: 'Apply image captioning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/image-classification.md`](skills/08-multimodal/image-classification.md) — description matches placeholder pattern: 'Apply image classification in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/image-editing.md`](skills/08-multimodal/image-editing.md) — description matches placeholder pattern: 'Apply image editing and generation operations in AI agent workflows'
-- [`skills/08-multimodal/image-generation.md`](skills/08-multimodal/image-generation.md) — description matches placeholder pattern: 'Apply image generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/object-detection.md`](skills/08-multimodal/object-detection.md) — description matches placeholder pattern: 'Apply object detection in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/text-to-speech.md`](skills/08-multimodal/text-to-speech.md) — description matches placeholder pattern: 'Apply text to speech in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/video-description.md`](skills/08-multimodal/video-description.md) — description matches placeholder pattern: 'Apply video description in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/video-frame-extraction.md`](skills/08-multimodal/video-frame-extraction.md) — description matches placeholder pattern: 'Apply video frame extraction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/08-multimodal/vqa.md`](skills/08-multimodal/vqa.md) — description matches placeholder pattern: 'Apply visual question answering (VQA) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/bootstrapping.md`](skills/09-agentic-patterns/bootstrapping.md) — description matches placeholder pattern: 'Apply bootstrapping in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — description matches placeholder pattern: 'Apply constitutional ai in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — description matches placeholder pattern: 'Apply critic agent in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — description matches placeholder pattern: 'Apply debate pattern in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/lats.md`](skills/09-agentic-patterns/lats.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/09-agentic-patterns/mcts.md`](skills/09-agentic-patterns/mcts.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/09-agentic-patterns/memory-augmented.md`](skills/09-agentic-patterns/memory-augmented.md) — description matches placeholder pattern: 'Apply memory-augmented agent in AI agent workflows'
-- [`skills/09-agentic-patterns/mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — description matches placeholder pattern: 'Apply mixture of agents (moa) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — description matches placeholder pattern: 'Apply rag pipeline in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — description matches placeholder pattern: 'Apply rag in AI agent workflows'
-- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — description matches placeholder pattern: 'Apply self-play in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — description matches placeholder pattern: 'Apply subagent delegation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/10-computer-use/accessibility-tree.md`](skills/10-computer-use/accessibility-tree.md) — description matches placeholder pattern: 'Apply accessibility tree navigation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — description matches placeholder pattern: 'Apply application launch in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — description matches placeholder pattern: 'Apply clipboard read in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — description matches placeholder pattern: 'Apply clipboard write in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/double-click.md`](skills/10-computer-use/double-click.md) — description matches placeholder pattern: 'Apply double click in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/drag-drop.md`](skills/10-computer-use/drag-drop.md) — description matches placeholder pattern: 'Apply drag and drop in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/file-dialog.md`](skills/10-computer-use/file-dialog.md) — description matches placeholder pattern: 'Apply file dialog interaction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/keyboard-shortcut.md`](skills/10-computer-use/keyboard-shortcut.md) — description matches placeholder pattern: 'Apply keyboard shortcut in AI agent workflows'
-- [`skills/10-computer-use/keyboard-type.md`](skills/10-computer-use/keyboard-type.md) — description matches placeholder pattern: 'Apply keyboard typing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/mouse-click.md`](skills/10-computer-use/mouse-click.md) — description matches placeholder pattern: 'Apply mouse click in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/mouse-move.md`](skills/10-computer-use/mouse-move.md) — description matches placeholder pattern: 'Apply mouse move in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/multi-monitor.md`](skills/10-computer-use/multi-monitor.md) — description matches placeholder pattern: 'Apply multi-monitor support in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/right-click.md`](skills/10-computer-use/right-click.md) — description matches placeholder pattern: 'Apply right click / context menu in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/screen-ocr.md`](skills/10-computer-use/screen-ocr.md) — description matches placeholder pattern: 'Apply screen region ocr in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/screenshot-capture.md`](skills/10-computer-use/screenshot-capture.md) — description matches placeholder pattern: 'Apply screenshot capture in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/scroll.md`](skills/10-computer-use/scroll.md) — description matches placeholder pattern: 'Apply scroll in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/terminal-interaction.md`](skills/10-computer-use/terminal-interaction.md) — description matches placeholder pattern: 'Apply terminal / shell interaction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/visual-element-detection.md`](skills/10-computer-use/visual-element-detection.md) — description matches placeholder pattern: 'Apply visual element detection in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — description matches placeholder pattern: 'Apply virtual machine interaction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/window-management.md`](skills/10-computer-use/window-management.md) — description matches placeholder pattern: 'Apply window management in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/11-web/api-discovery.md`](skills/11-web/api-discovery.md) — description matches placeholder pattern: 'Apply api endpoint discovery in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/11-web/browser-navigation.md`](skills/11-web/browser-navigation.md) — description matches placeholder pattern: 'Apply browser navigation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/11-web/captcha-solving.md`](skills/11-web/captcha-solving.md) — description matches placeholder pattern: 'Apply captcha solving in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -358,23 +391,6 @@
 - [`skills/11-web/url-fetching.md`](skills/11-web/url-fetching.md) — description matches placeholder pattern: 'Apply url fetching in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/11-web/url-screenshot.md`](skills/11-web/url-screenshot.md) — description matches placeholder pattern: 'Apply screenshot of url in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/11-web/web-login.md`](skills/11-web/web-login.md) — description matches placeholder pattern: 'Apply web login in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/anomaly-detection.md`](skills/12-data/anomaly-detection.md) — description matches placeholder pattern: 'Apply anomaly detection in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/csv-processing.md`](skills/12-data/csv-processing.md) — description matches placeholder pattern: 'Apply CSV processing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/data-aggregation.md`](skills/12-data/data-aggregation.md) — description matches placeholder pattern: 'Apply data aggregation in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/12-data/data-cleaning.md`](skills/12-data/data-cleaning.md) — description matches placeholder pattern: 'Apply data cleaning in AI agent workflows'
-- [`skills/12-data/data-filtering.md`](skills/12-data/data-filtering.md) — description matches placeholder pattern: 'Apply data filtering in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/data-joining.md`](skills/12-data/data-joining.md) — description matches placeholder pattern: 'Apply data joining in AI agent workflows'; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/12-data/data-summarization.md`](skills/12-data/data-summarization.md) — description matches placeholder pattern: 'Apply data summarization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/data-visualization.md`](skills/12-data/data-visualization.md) — description matches placeholder pattern: 'Apply data visualization in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/etl-pipeline.md`](skills/12-data/etl-pipeline.md) — description matches placeholder pattern: 'Apply etl pipeline in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/json-transformation.md`](skills/12-data/json-transformation.md) — description matches placeholder pattern: 'Apply json transformation in AI agent workflows'
-- [`skills/12-data/nosql-query.md`](skills/12-data/nosql-query.md) — description matches placeholder pattern: 'Apply nosql query in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/pandas-operations.md`](skills/12-data/pandas-operations.md) — description matches placeholder pattern: 'Apply pandas operations in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/schema-inference.md`](skills/12-data/schema-inference.md) — description matches placeholder pattern: 'Apply data schema inference in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/similarity-search.md`](skills/12-data/similarity-search.md) — description matches placeholder pattern: 'Apply similarity search in AI agent workflows'
-- [`skills/12-data/sql-execution.md`](skills/12-data/sql-execution.md) — description matches placeholder pattern: 'Apply sql query execution in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/statistical-analysis.md`](skills/12-data/statistical-analysis.md) — description matches placeholder pattern: 'Apply statistical analysis in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/12-data/time-series.md`](skills/12-data/time-series.md) — description matches placeholder pattern: 'Apply time series analysis in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/avatar-design.md`](skills/13-creative/avatar-design.md) — description matches placeholder pattern: 'Apply avatar design in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/blog-writing.md`](skills/13-creative/blog-writing.md) — description matches placeholder pattern: 'Apply blog writing in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/copywriting.md`](skills/13-creative/copywriting.md) — description matches placeholder pattern: 'Apply copywriting in AI agent workflows'; no inputs/outputs/failure-modes table
@@ -398,22 +414,6 @@
 - [`skills/14-security/rollback-undo.md`](skills/14-security/rollback-undo.md) — description matches placeholder pattern: 'Apply usage in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/14-security/sandboxed-execution.md`](skills/14-security/sandboxed-execution.md) — description matches placeholder pattern: 'Apply sandboxed execution in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/14-security/secret-scanning.md`](skills/14-security/secret-scanning.md) — description matches placeholder pattern: 'Apply secret scanning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/agent-communication.md`](skills/15-orchestration/agent-communication.md) — description matches placeholder pattern: 'Apply agent communication in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/agent-handoff.md`](skills/15-orchestration/agent-handoff.md) — description matches placeholder pattern: 'Apply agent handoff in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/budget-management.md`](skills/15-orchestration/budget-management.md) — description matches placeholder pattern: 'Apply budget management in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/conditional-branching.md`](skills/15-orchestration/conditional-branching.md) — description matches placeholder pattern: 'Apply conditional branching in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/consensus-voting.md`](skills/15-orchestration/consensus-voting.md) — description matches placeholder pattern: 'Apply consensus voting in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/event-triggers.md`](skills/15-orchestration/event-triggers.md) — description matches placeholder pattern: 'Apply event triggers in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/hierarchical-tree.md`](skills/15-orchestration/hierarchical-tree.md) — description matches placeholder pattern: 'Apply hierarchical tree in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/logging-observability.md`](skills/15-orchestration/logging-observability.md) — description matches placeholder pattern: 'Apply logging observability in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/parallel-execution.md`](skills/15-orchestration/parallel-execution.md) — description matches placeholder pattern: 'Apply parallel task execution in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/retry-backoff.md`](skills/15-orchestration/retry-backoff.md) — description matches placeholder pattern: 'Apply retry backoff in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/role-assignment.md`](skills/15-orchestration/role-assignment.md) — description matches placeholder pattern: 'Apply role assignment in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/sequential-workflow.md`](skills/15-orchestration/sequential-workflow.md) — description matches placeholder pattern: 'Apply sequential workflow in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/shared-memory.md`](skills/15-orchestration/shared-memory.md) — description matches placeholder pattern: 'Apply usage in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/state-machine.md`](skills/15-orchestration/state-machine.md) — description matches placeholder pattern: 'Apply state machine in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/subagent-spawning.md`](skills/15-orchestration/subagent-spawning.md) — description matches placeholder pattern: 'Apply subagent spawning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/15-orchestration/task-queue.md`](skills/15-orchestration/task-queue.md) — description matches placeholder pattern: 'Apply task queue in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
 
 ## Definitions
