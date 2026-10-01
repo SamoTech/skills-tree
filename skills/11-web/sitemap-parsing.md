@@ -3,41 +3,63 @@ title: "Sitemap Parsing"
 category: 11-web
 level: basic
 stability: stable
-description: "Apply sitemap parsing in AI agent workflows."
+description: "Parse XML sitemaps and sitemap indexes to discover URLs within an authorized crawl scope while enforcing size and recursion limits."
 added: "2025-03"
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-sitemap-parsing.json)
+## Description
 
-# Sitemap Parsing
+Parse XML sitemaps and sitemap indexes to discover URLs within an authorized crawl scope while enforcing size and recursion limits.
 
-**Category:** `web`
-**Skill Level:** `basic`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit URL, session, data, and action boundaries.
 
-Fetch and parse XML sitemaps (`sitemap.xml`, sitemap indexes) to discover all crawlable URLs of a website without recursively following links.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | sitemap content, crawl scope, URL limits, and recursion policy. |
+| Outputs | normalized URL set, source sitemap, and rejected/invalid entries. |
+| Failure modes | Wrong origin, stale page state, authentication leakage, anti-automation controls, malformed content, unbounded crawling, or unverified postconditions. |
+
+## Procedure
+
+1. Establish the authorized origin, session scope, and target resource.
+2. Validate the requested URL, selector, payload, or content against that scope.
+3. Execute with bounded requests, pages, scripts, redirects, or data volume.
+4. Preserve source URLs, timestamps, and relevant request/response provenance.
+5. Validate the result and expected postcondition before continuing.
+6. Stop on authorization, anti-automation, or ambiguity boundaries rather than bypassing them.
+
+## Runnable Example
 
 ```python
-import requests
-import xml.etree.ElementTree as ET
-
-response = requests.get('https://example.com/sitemap.xml')
-root = ET.fromstring(response.content)
-
-ns = {'sm': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
-urls = [loc.text for loc in root.findall('.//sm:loc', ns)]
-
-for url in urls[:10]:
-    print(url)
+task = {"capability": "sitemap-parsing", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [URL Fetching](url-fetching.md)
-- [RSS/Atom Feed Parsing](rss-parsing.md)
-- [Web Crawling](web-crawling.md)
+- Target origin or authorization cannot be verified.
+- Page state changes between observation and action.
+- Session tokens or personal data are exposed.
+- Anti-bot, CAPTCHA, robots, or access controls are bypassed.
+- Redirects, recursion, or data volume exceed the declared bounds.
+- Output is accepted without validation.
+
+## Safety Boundary
+
+Do not bypass authentication, paywalls, CAPTCHA/anti-bot controls, rate limits, robots restrictions, or other access controls. Use only authorized sites and data, and never log credentials, session tokens, or sensitive cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails
