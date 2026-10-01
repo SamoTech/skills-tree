@@ -2,40 +2,57 @@
 title: "Debate Pattern"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Apply debate pattern in AI agent workflows."
+stability: stable
+description: "Use multiple role-separated agents to present, challenge, and reconcile competing claims under an explicit evidence protocol."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-debate-pattern.json)
+## Description
+Use multiple role-separated agents to present, challenge, and reconcile competing claims under an explicit evidence protocol.
 
-# Debate Pattern
+## When to Use
+Use when adversarial examination can expose assumptions or missing evidence.
 
-**Category:** `agentic-patterns`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | claim_or_question, roles, and task constraints or execution bounds. |
+| Outputs | synthesized_result with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Debate does not guarantee truth; agents may agree on the same error, and rhetorical strength must not substitute for evidence. |
 
-### Description
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-Two or more agents argue for opposing positions on a question. A judge agent (or majority vote) evaluates the arguments and selects the most convincing conclusion.
-
-### Example
-
+## Runnable Example
+```python
+pattern = {
+    "capability": "debate-pattern",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
 ```
-Question: "Is microservices architecture always better than monoliths?"
 
-Agent A (Pro-microservices):  "Scalability, independent deployments..."
-Agent B (Pro-monolith):       "Lower complexity for small teams..."
-Agent A rebuttal: "..."
-Agent B rebuttal: "..."
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-Judge: Agent B's argument is more nuanced for the given context.
-Verdict: "Monolith preferred for early-stage startups."
-```
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-### Related Skills
-
-- [Mixture of Agents](mixture-of-agents.md)
-- [Critic Agent](critic-agent.md)
-- [Constitutional AI](constitutional-ai.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
