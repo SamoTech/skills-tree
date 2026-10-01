@@ -21,7 +21,7 @@
 
 **The open, dependency-mapped knowledge graph for AI agents.**
 
-| 369 Skills | 780+ Connections | MIT Licensed |
+| 374 Skills | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & benchmarked | Dependency-mapped | Community-governed |
 
@@ -198,7 +198,7 @@ If you're new, **read these first**. Each ships with runnable code, typed I/O, f
 ```
 skills-tree/
 │
-├── skills/          → 369 skill files (74 battle-tested, 2 enriched, 293 stubs, 0 invalid)
+├── skills/          → 374 skill files (classification tracked in the generated quality report)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
