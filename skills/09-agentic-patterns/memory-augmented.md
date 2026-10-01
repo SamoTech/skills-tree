@@ -1,44 +1,59 @@
 ---
-title: "Memory-Augmented Agent"
+title: "Memory Augmented"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
-description: "Apply memory-augmented agent in AI agent workflows."
+description: "Augment agent execution with retrieved memory under explicit relevance, provenance, freshness, and conflict rules."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-memory-augmented.json)
-
-# Memory-Augmented Agent
-
-**Category:** `agentic-patterns`
+**Category:** Agentic Patterns
 **Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Augment agent execution with retrieved memory under explicit relevance, provenance, freshness, and conflict rules.
 
-Agent maintains persistent external memory (episodic, semantic, or procedural) across sessions. Reads relevant memories before acting and writes new information after each interaction.
+## When to Use
+Use when prior state or knowledge is needed and memory sources are available.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Agent state, task objective, constraints, evidence/context, tools or evaluators, and stopping criteria. |
+| Outputs | Structured agent result with provenance, uncertainty, and validation state. |
+| Failure modes | Goal drift, evaluator bias, unsupported inference, unbounded search, or incomplete grounding. |
 
+## Procedure
+1. Establish the objective, state, constraints, evaluation criteria, and stopping conditions.
+2. Validate the available context and tool authority before execution.
+3. Apply the declared agentic pattern within explicit resource bounds.
+4. Evaluate outputs against evidence and acceptance criteria.
+5. Preserve uncertainty and stop or escalate when the evidence is insufficient.
+
+## Runnable Example
 ```python
-# On each turn:
-relevant = memory_store.search(user_message, k=5)  # read
-response = llm.invoke(context=relevant + [user_message])
-memory_store.upsert(user_message, response)         # write
+task = {"pattern": "memory-augmented", "validated": True}
+assert task["validated"]
+result = {"status": "evaluation_required", "pattern": task["pattern"]}
+print(result)
 ```
 
-### Memory Types
+## Failure Modes
+- Ambiguous objective or stopping condition.
+- Evaluator or critic shares the same failure mode as the generator.
+- Unsupported claims treated as grounded output.
+- Resource use grows without an explicit bound.
+- Completion reported without evidence or validation.
 
-| Type | Description | Example |
-|---|---|---|
-| Episodic | Past conversations | "User prefers Python" |
-| Semantic | World knowledge | Domain facts |
-| Procedural | How-to steps | Verified workflows |
+## Pattern Boundary
+Retrieved memory may be stale or incorrect; never treat memory as authoritative without source verification.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Agentic-pattern outputs require explicit evaluation and evidence boundaries.
 
-- [RAG Pipeline](rag-pipeline.md)
-- [Long-Term Memory](../03-memory/long-term-memory.md)
-- [Vector DB Tool](../07-tool-use/vector-db-tool.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
