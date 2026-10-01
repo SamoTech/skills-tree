@@ -44,3 +44,25 @@ def test_skill_runtime_returns_defensive_snapshots() -> None:
     original_capabilities = list(skill["capabilities"])
     skill["capabilities"].append("capability/mutated")
     assert runtime.resolve_skill("05-code/code-review")["capabilities"] == original_capabilities
+
+
+
+def test_universal_registry_exposes_typed_skill_runtime_boundary() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    skill = registry.resolve_skill("05-code/code-review")
+    assert skill["canonical"] is True
+    capabilities = registry.capabilities_for_skill("05-code/code-review")
+    assert [item["id"] for item in capabilities] == sorted(item["id"] for item in capabilities)
+    assert [item["id"] for item in registry.implementations_for_skill("05-code/code-review")] == [
+        "implementation/code-reviewer-system"
+    ]
+
+
+def test_universal_registry_skill_boundary_rejects_unknown_skill() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    with pytest.raises(KeyError, match="Unknown skill"):
+        registry.resolve_skill("skill/does-not-exist")
+    with pytest.raises(KeyError, match="Unknown skill"):
+        registry.capabilities_for_skill("skill/does-not-exist")
+    with pytest.raises(KeyError, match="Unknown skill"):
+        registry.implementations_for_skill("skill/does-not-exist")
