@@ -7,6 +7,7 @@ description: "Bound agent and tool request frequency to control abuse, runaway l
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [retry-backoff, budget-management, permission-checking]
 ---
 
 # Rate Limiting
