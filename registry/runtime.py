@@ -9,6 +9,8 @@ from typing import Any, TypedDict
 
 from jsonschema import Draft202012Validator
 
+from .evidence import EvidenceRecord, EvidenceRuntime
+
 
 class ImplementationRecord(TypedDict):
     """Normative runtime shape for a registered Implementation."""
@@ -58,10 +60,26 @@ class UniversalRegistry:
         self._validate_adapter_contracts()
         self._validate_evidence_contracts()
         self._validate_graph_contract()
+        self._evidence_runtime = EvidenceRuntime(self._data)
 
     @property
     def data(self) -> dict[str, Any]:
         return deepcopy(self._data)
+
+
+    def resolve_evidence(self, evidence_id: str) -> EvidenceRecord:
+        """Return one validated Evidence record by canonical ID."""
+        return self._evidence_runtime.resolve_evidence(evidence_id)
+
+    def evidence_for_entity(self, entity_id: str) -> list[EvidenceRecord]:
+        """Return Evidence records supporting an entity in deterministic order."""
+        if entity_id not in {
+            record["id"]
+            for records in self._data["entities"].values()
+            for record in records
+        }:
+            raise KeyError(f"Unknown entity: {entity_id}")
+        return self._evidence_runtime.evidence_for_entity(entity_id)
 
     def resolve_goal(self, goal_id: str) -> dict[str, Any]:
         matches = [g for g in self._data["entities"]["goals"] if g["id"] == goal_id]
