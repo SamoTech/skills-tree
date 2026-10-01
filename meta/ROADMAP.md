@@ -17,15 +17,15 @@ Security > Correctness > Canonical architecture > Discovery > Evidence > Freshne
 
 ## Phase 0 — Governance stabilization — ACTIVE — final reconciliation
 
-1. Finish the live GitHub Actions architecture audit.
-2. Classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, or redundant.
-3. Maintain exactly one authoritative Pages deployment.
-4. Maintain exactly one authoritative release architecture.
-5. Consolidate generated-main writers where technically safe.
-6. Require explicit reason, least privilege, deterministic output, serialization, bounded retry/rebase, and failure visibility for every generated-main writer.
-7. Remove synthetic repository churn and duplicate automation only after dependency/reference verification.
-8. Synchronize governance and current-state documentation with actual GitHub state.
-9. Verify security gates and document any GitHub control-plane limitations that the connector cannot inspect.
+1. Maintain the live 42-file workflow inventory and classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, or generated-main writer.
+2. Maintain exactly one authoritative Pages deployment.
+3. Maintain exactly one authoritative release architecture.
+4. Consolidate generated-main writers where technically safe.
+5. Require explicit reason, least privilege, deterministic output, serialization, bounded retry/rebase, and failure visibility for every generated-main writer.
+6. Remove synthetic repository churn and duplicate automation only after dependency/reference verification.
+7. Synchronize governance and current-state documentation with actual GitHub state.
+8. Verify security gates and document any GitHub control-plane limitations that the connector cannot inspect.
+9. Harden the identified `validate-graph.yml` PR permission boundary without weakening trusted-main graph generation.
 
 Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, and no undocumented automation ownership.
 
@@ -192,8 +192,9 @@ The strategic phases below remain the long-term product direction. They must not
 
 ## Current execution queue
 
-1. Complete the remaining evidence-backed Phase 0 workflow classification/reconciliation work.
-2. Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration.
+1. Complete the remaining Phase 0 permission/security reconciliation, beginning with `validate-graph.yml`.
+2. Verify GitHub control-plane settings that are observable through available APIs and explicitly record unavailable settings.
+3. Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration.
 3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
 4. Update decision memory, architecture documentation, development knowledge, roadmap, and current state in the same cycle.
 5. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.

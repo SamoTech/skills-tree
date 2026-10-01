@@ -39,7 +39,9 @@
 - Release authority: `zero-touch-release.yml` is the production release pipeline; `release.yml` is retained as manual recovery.
 - Pages authority: `deploy-pages.yml` is the single repository-controlled Pages deployment workflow.
 - Confirmed direct-main generated writers use the shared `auto-commit-main` serialization group with `cancel-in-progress: false`.
-- The remaining Phase 0 work is the evidence-backed workflow-by-workflow classification, duplicate/unused automation disposition, permissions/security reconciliation, and explicit documentation of connector control-plane limitations.
+- The live 42-workflow classification is now recorded in `meta/WORKFLOW_INVENTORY.md`.
+- Phase 0 remains open for permission/security reconciliation and explicit documentation of GitHub control-plane limitations.
+- `validate-graph.yml` is the next concrete hardening candidate because its combined PR/main job carries write permissions that are not required by the PR validation path.
 
 ## Source of truth
 
@@ -52,7 +54,7 @@
 
 ## Next mandatory action
 
-Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Complete the remaining Phase 0 permission/security reconciliation, beginning with `validate-graph.yml`, while preserving trusted-main graph generation. Then perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 

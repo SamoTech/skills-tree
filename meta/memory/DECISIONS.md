@@ -492,3 +492,16 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if verification exposes an abstraction or integrity regression, or if a replacement runtime architecture supersedes the current facade.
+
+
+## DECISION-2026-10-01-WORKFLOW-GOVERNANCE-INVENTORY
+
+**Decision-ID:** DECISION-2026-10-01-WORKFLOW-GOVERNANCE-INVENTORY
+
+**Decision:** Treat the 42 workflows present on live `main` on 2026-10-01 as the authoritative Phase 0 workflow inventory. Preserve one Pages authority and one production release authority. Treat generated-main writers as a high-risk automation class requiring least privilege, deterministic output, serialization, bounded retry/rebase, and failure visibility.
+
+**Key findings:** `zero-touch-release.yml` is the production release authority; `release.yml` is manual recovery; `deploy-pages.yml` is the single repository-controlled Pages deployment; `release-package.yml` is supporting catalog packaging. `validate-graph.yml` is the next concrete permission-boundary hardening candidate because its combined PR/main job grants write permissions not required by the PR validation path.
+
+**Evidence:** live workflow inventory and source inspection on 2026-10-01; existing generated-main serialization decision; GitHub Actions permission documentation.
+
+**Status:** LOCKED baseline; permission hardening remains OPEN.
