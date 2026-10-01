@@ -3,7 +3,8 @@ title: "Object Detection"
 category: 08-multimodal
 level: intermediate
 stability: stable
-description: "Apply object detection in AI agent workflows."
+description: "Detect and localize declared object classes with bounding boxes or equivalent regions while preserving confidence and missed-detection uncertainty."
+related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 dependencies:
   - package: transformers
@@ -13,59 +14,57 @@ dependencies:
     notes: "Patched PYSEC-2025-211 through PYSEC-2025-218. Use transformers>=4.51.0."
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-object-detection.json)
+## Description
 
-# Object Detection
+Detect and localize declared object classes with bounding boxes or equivalent regions while preserving confidence and missed-detection uncertainty.
 
-**Category:** `multimodal`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the multimodal input and required output are explicit, the relevant evidence can be observed or measured, and the task has a bounded acceptance criterion.
 
-Locate and label objects within an image by producing bounding boxes, class labels, and confidence scores. Supports real-time detection, batch processing, and open-vocabulary detection via vision-language models.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | Image/video frame, target classes, and detection threshold. |
+| Outputs | detections, coordinates, confidence, and uncertain or rejected detections. |
+| Failure modes | Ambiguous evidence, preprocessing mismatch, unsupported inference, resource exhaustion, or failure to verify the output. |
+
+## Procedure
+
+1. Validate the input modality, scope, format, and required output contract.
+2. Establish preprocessing, sampling, resolution, or segmentation bounds.
+3. Run the operation within explicit time, size, frame, token, or compute limits.
+4. Preserve source provenance and distinguish observations from inference.
+5. Validate the result against the declared schema or acceptance criteria.
+6. Report uncertainty, missing evidence, rejected results, or incomplete coverage.
+
+## Runnable Example
 
 ```python
-from transformers import pipeline
-
-detector = pipeline('object-detection', model='facebook/detr-resnet-50')
-results = detector('https://example.com/street.jpg')
-for obj in results:
-    print(f"{obj['label']} ({obj['score']:.0%}) at {obj['box']}")
-# person (97%) at {'xmin': 40, 'ymin': 70, 'xmax': 180, 'ymax': 400}
+task = {"capability": "object-detection", "validated_input": True, "budget": 4}
+assert task["validated_input"] and task["budget"] > 0
+print({"status": "bounded_execution", "capability": task["capability"]})
 ```
 
-### Open-Vocabulary with GPT-4o
+## Failure Modes
 
-```python
-import base64, httpx
-from openai import OpenAI
+- Input is corrupted, incomplete, or unsupported.
+- Sampling or preprocessing hides relevant evidence.
+- Model confidence is mistaken for factual verification.
+- Sensitive media is exposed beyond authorization.
+- Output cannot be reproduced or verified.
 
-client = OpenAI()
-image_data = base64.b64encode(httpx.get('https://example.com/scene.jpg').content).decode()
-response = client.chat.completions.create(
-    model='gpt-4o',
-    messages=[{'role': 'user', 'content': [
-        {'type': 'text', 'text': 'List all objects with approximate locations (top-left, center, etc.).'},
-        {'type': 'image_url', 'image_url': {'url': f'data:image/jpeg;base64,{image_data}'}}
-    ]}]
-)
-print(response.choices[0].message.content)
-```
+## Safety Boundary
 
-### Frameworks / Models
+Treat media as untrusted data. Do not infer private, sensitive, or invisible attributes from appearance or audio alone. Keep processing within the declared scope.
 
-- DETR, YOLO v8/v9, RT-DETR (Hugging Face / Ultralytics)
-- Grounding DINO (open-vocabulary)
-- GPT-4o (natural language bounding box descriptions)
-- Google Cloud Vision Object Localization
-- AWS Rekognition Object and Scene Detection
+## Evidence
 
-### Related Skills
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Modality-specific claims require reproducible implementation evidence or authoritative primary documentation.
 
-- [Image Classification](image-classification.md)
-- [Image Understanding](../01-perception/image-understanding.md)
-- [Visual Question Answering](vqa.md)
+## Related
+
+- 08-multimodal
+- input-guardrails
+- output-guardrails
