@@ -6,12 +6,6 @@ stability: stable
 description: "Detect and localize declared object classes with bounding boxes or equivalent regions while preserving confidence and missed-detection uncertainty."
 related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
-dependencies:
-  - package: transformers
-    min_version: "4.40.0"
-    tested_version: "5.9.0"
-    confidence: verified
-    notes: "Patched PYSEC-2025-211 through PYSEC-2025-218. Use transformers>=4.51.0."
 ---
 
 ## Description
