@@ -1,30 +1,27 @@
 ---
 name: screenshot-capture
-description: Capture a verified application or screen region while minimizing sensitive content exposure.
-license: MIT
-metadata:
-  source: skills/04-action-execution/screenshot-capture.md
-  version: "v2"
+description: Perform screenshot capture as a verified computer-use capability with explicit target and postcondition checks.
 ---
 
-# screenshot-capture
+# screenshot capture
 
-1. Verify the target, scope, and authorization before acting.
-2. Apply explicit bounds for input, duration, resources, and external effects.
-3. Execute only the requested operation.
-4. Verify the resulting state when the action has consequential effects.
-
-## Failure modes
-
-- Acting on an ambiguous or stale target.
-- Exceeding configured resource or time bounds.
-- Leaking sensitive input or environment data.
-- Reporting success without postcondition evidence.
+## Description
+Perform screenshot capture only against a verified UI or session target and expected state.
 
 ## Evidence
+Canonical source: `skills/10-computer-use/screenshot-capture.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
 
-- skills/04-action-execution/screenshot-capture.md
-- AI_CONSTITUTION.md
-- AGENTS.md
+## Usage
+Verify target identity, session state, authorization, and expected postcondition before and after the action.
 
-Evidence status: repository-backed implementation guidance; no benchmark claim.
+## Failure modes
+- Stale or ambiguous UI/session target.
+- Geometry or focus drift.
+- Unexpected application state.
+- Sensitive-data exposure or destructive side effect.
+- Postcondition cannot be verified.
+
+## Related
+- `10-computer-use`
+- `input-guardrails`
+- `output-guardrails`
