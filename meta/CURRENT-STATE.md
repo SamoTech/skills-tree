@@ -88,6 +88,6 @@ Each migrated skill now has a concrete description, explicit I/O contract, runna
 
 **Verification:** PR #243 merged as `40fb35aa6c54438f08062c89c118815262b6fe98`. Validate Skills, Security Scan, PR Checks, Test Suite, Build & Verify Wheel, Schema Enforcement, Validate Skills Graph, AST Sweep, Check Links, and Skill Upgrade Detector passed on the final head. The intermediate quality-report run was superseded during the required frontmatter correction; the generated report had already passed for the same nine skill bodies before that metadata-only correction.
 
-**Generated-artifact finding:** `meta/QUALITY-REPORT.md` remained at its pre-merge classification because the configured `push` publication path did not produce a post-merge run after the API-driven merge. This is being corrected by the quality-report workflow trigger documented in the accompanying audit.
+**Generated-artifact verification:** the hardened quality-report workflow regenerated `meta/QUALITY-REPORT.md` after the merged documentation PR. The live generated report now verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid. Category 14-security is 13 battle-tested, 0 stubs.
 
-**Status:** IMPLEMENTATION VERIFIED; generated report synchronization OPEN until the new post-merge trigger produces the canonical report.
+**Status:** VERIFIED — implementation, generated corpus report, and public documentation are synchronized.
