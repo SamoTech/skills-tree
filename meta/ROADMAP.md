@@ -192,8 +192,8 @@ The strategic phases below remain the long-term product direction. They must not
 
 ## Current execution queue
 
-1. Complete the remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
-2. Perform another fresh universal-registry runtime architecture audit after the verified Goal runtime facade integration.
+1. Complete any remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
+2. Perform a fresh universal-registry runtime architecture and consumer-behavior audit after the verified runtime data-schema validation slice.
 3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
 4. Update decision memory, architecture documentation, development knowledge, roadmap, and current state in the same cycle.
 5. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
@@ -202,3 +202,14 @@ The strategic phases below remain the long-term product direction. They must not
 ## Definition of done
 
 A roadmap item is complete only when implementation, tests/verification, documentation, and current-state evidence all agree.
+
+
+## Verified Runtime Data-Schema Slice — 2026-10-02
+
+The UniversalRegistry now validates the loaded registry against the dedicated `meta/universal-registry-data.schema.json` instance schema before semantic integrity, entity-specific contracts, and graph validation.
+
+The existing `meta/universal-registry.schema.json` is preserved as the ontology/contract-definition schema; it is not treated as the shape of `registry/universal_registry.json`. Implementation and adapter structural contracts remain authoritative in their dedicated schemas and are resolved locally through the runtime's explicit JSON Schema resource registry.
+
+**Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`; exact-head Test Suite, Security Scan, PR Checks, and Build & Verify Wheel passed.
+
+**Next:** fresh runtime/consumer invariant audit. No numbered P2.3 requirement is created.

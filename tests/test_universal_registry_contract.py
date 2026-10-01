@@ -8,12 +8,17 @@ from jsonschema import Draft202012Validator
 
 ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "meta" / "universal-registry.schema.json"
+DATA_SCHEMA_PATH = ROOT / "meta" / "universal-registry-data.schema.json"
 IMPLEMENTATION_SCHEMA_PATH = ROOT / "meta" / "implementation-contract.schema.json"
 REGISTRY_PATH = ROOT / "registry" / "universal_registry.json"
 
 
 def load_schema() -> dict:
     return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+
+
+def load_data_schema() -> dict:
+    return json.loads(DATA_SCHEMA_PATH.read_text(encoding="utf-8"))
 
 
 def test_universal_registry_schema_is_valid_json_and_versioned() -> None:
@@ -24,6 +29,15 @@ def test_universal_registry_schema_is_valid_json_and_versioned() -> None:
     assert schema["properties"]["schema_version"]["const"] == "1.0"
     assert schema["type"] == "object"
     assert schema["required"] == ["schema_version", "entity_types", "relationship_types"]
+
+
+def test_universal_registry_data_schema_is_valid_and_versioned() -> None:
+    schema = load_data_schema()
+
+    Draft202012Validator.check_schema(schema)
+    assert schema["$schema"] == "https://json-schema.org/draft/2020-12/schema"
+    assert schema["properties"]["registry_version"]["const"] == "1.0"
+    assert schema["required"] == ["registry_version", "entities"]
 
 
 def test_universal_registry_defines_all_core_entity_types() -> None:

@@ -113,3 +113,16 @@ The selected vertical slice adds a read-only `GoalRuntime`, integrates it into `
 After the Goal runtime integration, the public `UniversalRegistry` surface was re-audited. Goal, Capability, Skill, Evidence, and Compatibility now delegate to dedicated typed runtime boundaries. Implementation and Adapter access remain intentionally in `registry/runtime.py` because their normative typed records and relationship validation are already implemented there; no separate AdapterRuntime or duplicate runtime abstraction is justified by current repository evidence. Universal graph access is also validated during registry initialization and returned defensively.
 
 The audit therefore does not invent another P2.2/P2.3 requirement. The next architectural slice must come from a deeper runtime invariant or consumer-behavior audit, not from creating additional runtime classes for symmetry alone.
+
+
+## Universal Registry Data-Schema Runtime Boundary — 2026-10-02
+
+The UniversalRegistry initialization path now validates `registry/universal_registry.json` against the dedicated `meta/universal-registry-data.schema.json` instance schema immediately after loading.
+
+This boundary is deliberately separate from `meta/universal-registry.schema.json`, which defines the universal registry ontology/contract vocabulary rather than the serialized seed-data shape. Implementation and Adapter entities continue to use their dedicated normative contracts. The runtime resolves those external schema resources locally and deterministically.
+
+The structural schema catches malformed field types and required-shape violations before typed runtime boundaries are constructed. Existing semantic integrity and entity-specific validators remain authoritative for provenance, reference symmetry, evidence support, compatibility semantics, and graph relationships.
+
+**Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`; exact-head Test Suite, Security Scan, PR Checks, and Build & Verify Wheel passed.
+
+**Status:** VERIFIED. No registry records, ontology claims, compatibility facts, or external ecosystem claims were added.

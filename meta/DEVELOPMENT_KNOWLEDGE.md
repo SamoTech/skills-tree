@@ -384,3 +384,18 @@ The selected vertical slice added `GoalRuntime`, integrated it into `UniversalRe
 After the Goal runtime facade was verified, the public UniversalRegistry access surface was re-audited. Dedicated runtime boundaries now cover Goal, Capability, Skill, Evidence, and Compatibility. Implementation and Adapter remain intentionally implemented in the core runtime because their typed record contracts, initialization validation, defensive snapshots, and relationship checks already provide the required boundary. Graph edges are likewise schema- and relationship-validated before defensive return.
 
 No additional runtime class was invented merely for symmetry. The next work item must come from a deeper invariant or consumer-behavior gap demonstrated by repository evidence.
+
+
+## Universal Registry Runtime Data-Schema Validation — Verified 2026-10-02
+
+A fresh post-facade audit identified a runtime integrity gap: `UniversalRegistry` loaded `registry/universal_registry.json` and ran semantic/entity/graph validators, but did not first validate the loaded document against a schema describing the actual registry data shape.
+
+The first implementation attempt incorrectly targeted `meta/universal-registry.schema.json`. CI exposed that this file defines the registry ontology/contract vocabulary (`schema_version`, `entity_types`, `relationship_types`), while the live seed uses `registry_version` and `entities`. The implementation was corrected rather than weakening validation.
+
+The final slice introduced `meta/universal-registry-data.schema.json` for the seed shape. It validates common entity metadata, Goal/Capability/Skill structure, Evidence, Compatibility, and delegates Implementation/Adapter structural shapes to their dedicated contracts. Cross-schema references are resolved locally through `referencing.Registry`; runtime validation therefore remains deterministic and does not depend on network retrieval.
+
+The schema intentionally permits the repository's existing Skill version value `"3"`; version-format constraints remain owned by the specific contract that defines them. Provenance `source_type` is structural while the existing semantic validator retains responsibility for requiring a traceable `source`, preserving established error behavior.
+
+**Verification:** PR #241 exact final head `8ad05dfc995db49da847ea479e06e13bec80d2e1` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before squash merge as `93c50c3616a7c558b483f341f44a91509ed032ca`.
+
+**Engineering lesson:** when multiple schemas exist, first establish which artifact each schema governs. Runtime validation must target the schema of the loaded artifact, not a related ontology-definition schema.

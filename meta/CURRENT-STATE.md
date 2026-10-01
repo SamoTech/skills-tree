@@ -58,10 +58,23 @@
 
 ## Next mandatory action
 
-Complete the remaining Phase 0 control-plane reconciliation observable through available APIs, without silently changing high-impact repository governance. Then perform another fresh universal-registry runtime architecture audit after the verified Goal runtime facade integration. Identify the highest-value remaining missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Perform another fresh universal-registry runtime architecture audit after the verified runtime schema-validation slice. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
 ## Handoff
 
 A future agent must re-read the authoritative documents and verify live GitHub state before continuing. The repository, not this snapshot alone, remains the final source of truth.
+
+
+## Universal Registry Data Schema Validation — Verified 2026-10-02
+
+PR #241 added runtime structural validation of the loaded universal registry against the dedicated `meta/universal-registry-data.schema.json` data-instance schema. The existing `meta/universal-registry.schema.json` remains the ontology/contract-definition schema and is not incorrectly used as a seed-data schema.
+
+The runtime resolves the implementation and adapter contract schemas through an explicit local `referencing.Registry`, preserving offline/deterministic validation without fetching repository URLs at runtime. Structural validation runs immediately after JSON load; the existing semantic integrity and entity-specific contract validators remain responsible for semantic/provenance invariants.
+
+A regression test rejects a schema-invalid Goal field with the expected `jsonschema.ValidationError`, while the existing provenance test continues to exercise the established semantic `ValueError` boundary.
+
+**Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`. Exact-head Security Scan, PR Checks, Test Suite, and Build & Verify Wheel passed; Dependabot Review Gate was skipped.
+
+**Status:** VERIFIED — runtime structural validation is now aligned with the actual registry data shape and existing semantic validation responsibilities.
