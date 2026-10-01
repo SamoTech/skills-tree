@@ -3,15 +3,17 @@ title: "Compliance Review Workflows"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Design agent workflows that enforce multi-step regulatory and policy review before finalising outputs."
+description: "Apply compliance review workflows in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
 added: "2026-04"
 version: v2
 ---
 
 # Compliance Review Workflows
 Category: domain-specific | Level: advanced | Stability: stable | Version: v2
-
 ## Description
+
+Apply compliance review workflows as a bounded domain-specific capability. Define the task scope, preserve relevant source context, validate inputs and outputs, and avoid claiming domain certainty beyond the available evidence.
+
 Compliance review workflows embed mandatory review checkpoints into agent pipelines for regulated domains: financial advice, medical recommendations, legal documents, or marketing copy. The agent drafts content, an interrupt gate surfaces it for compliance review (human or automated policy engine), and execution continues only after sign-off. Full audit trails are maintained for regulatory accountability.
 
 ## Inputs
@@ -68,7 +70,6 @@ def human_review_node(state):
 | Cost | Moderate | Moderate | Low |
 
 ## Related
-- `human-approval-gates.md` · `approval-before-destructive-tools.md` · `interruptible-agent-flows.md` · `output-guardrails.md`
-
-## Changelog
-- v2 (2026-04): Full expansion
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
