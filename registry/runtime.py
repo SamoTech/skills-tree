@@ -11,6 +11,7 @@ from jsonschema import Draft202012Validator
 
 from .compatibility import CompatibilityRecord, CompatibilityRuntime
 from .evidence import EvidenceRecord, EvidenceRuntime
+from .skill import SkillRecord, SkillRuntime
 
 
 class ImplementationRecord(TypedDict):
@@ -65,6 +66,7 @@ class UniversalRegistry:
         compatibility_schema = json.loads(compatibility_schema_path.read_text(encoding="utf-8"))
         self._compatibility_runtime = CompatibilityRuntime(self._data, compatibility_schema)
         self._evidence_runtime = EvidenceRuntime(self._data)
+        self._skill_runtime = SkillRuntime(self)
 
     @property
     def data(self) -> dict[str, Any]:
@@ -84,6 +86,14 @@ class UniversalRegistry:
         }:
             raise KeyError(f"Unknown entity: {entity_id}")
         return self._evidence_runtime.evidence_for_entity(entity_id)
+
+    def resolve_skill(self, skill_id: str) -> SkillRecord:
+        """Return one validated canonical Skill by ID."""
+        return self._skill_runtime.resolve_skill(skill_id)
+
+    def capabilities_for_skill(self, skill_id: str) -> list[dict[str, Any]]:
+        """Return validated Capabilities linked to a canonical Skill."""
+        return self._skill_runtime.capabilities_for_skill(skill_id)
 
     def resolve_goal(self, goal_id: str) -> dict[str, Any]:
         matches = [g for g in self._data["entities"]["goals"] if g["id"] == goal_id]
@@ -111,12 +121,7 @@ class UniversalRegistry:
 
     def implementations_for_skill(self, skill_id: str) -> list[ImplementationRecord]:
         """Return validated implementations for a canonical Skill in deterministic order."""
-        if not any(item["id"] == skill_id for item in self._data["entities"]["skills"]):
-            raise KeyError(f"Unknown skill: {skill_id}")
-        return deepcopy(sorted(
-            [item for item in self._data["entities"]["implementations"] if item["skill"] == skill_id],
-            key=lambda item: item["id"],
-        ))
+        return self._skill_runtime.implementations_for_skill(skill_id)
 
     def resolve_adapter(self, adapter_id: str) -> AdapterRecord:
         """Return one validated Adapter by canonical ID."""
