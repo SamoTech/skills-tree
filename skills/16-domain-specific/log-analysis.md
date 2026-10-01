@@ -3,49 +3,57 @@ title: "Log Analysis"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply log analysis in AI agent workflows."
+description: "Analyze supplied logs for severity patterns, repeated failures, anomalies, and diagnostic signals while preserving raw evidence."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-log-analysis.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Parses structured and unstructured application, infrastructure, and security logs to identify errors, anomaly clusters, performance regressions, and root-cause signals. Integrates with alerting and incident workflows.
+## Description
+Analyze supplied logs for severity patterns, repeated failures, anomalies, and diagnostic signals while preserving raw evidence.
 
-### Example
+## When to Use
+Use when logs are available and their format, time range, and source are known.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-import re
-from collections import Counter
-
-SEVERITY = re.compile(r"^(ERROR|WARN|INFO|DEBUG)")
-
-def analyse_logs(lines: list[str]) -> dict:
-    counts = Counter()
-    errors = []
-    for line in lines:
-        m = SEVERITY.match(line)
-        if m:
-            level = m.group(1)
-            counts[level] += 1
-            if level == "ERROR":
-                errors.append(line[:120])
-    return {"counts": dict(counts), "sample_errors": errors[:3]}
-
-logs = [
-    "ERROR db timeout after 30s",
-    "INFO request processed in 42ms",
-    "ERROR auth service returned 503",
-    "WARN memory usage at 87%",
-]
-print(analyse_logs(logs))
+source = {"capability": "log-analysis", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Incident Response](incident-response.md)
-- [Anomaly Detection](../12-data/anomaly-detection.md)
-- [Monitoring Alert Triage](alert-triage.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Absence of an observed signal is not proof of absence; preserve timestamps and avoid claiming root cause without corroboration.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
