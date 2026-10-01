@@ -218,7 +218,7 @@ skills-tree/
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
 | 01 | 👁️ **Perception** | 36 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 45 | Planning, deduction, abduction, causal chains, commonsense |
+| 02 | 🧠 **Reasoning** | 46 | Planning, deduction, abduction, causal chains, commonsense |
 | 03 | 🗄️ **Memory** | 19 | Working, episodic, semantic, vector, injection, forgetting |
 | 04 | ⚡ **Action Execution** | 21 | File I/O, HTTP, email, shell, database writes |
 | 05 | 💻 **Code** | 28 | Write, run, debug, review, refactor, test, deploy |
@@ -231,7 +231,7 @@ skills-tree/
 | 12 | 📊 **Data** | 18 | ETL, SQL, embeddings, time series, anomaly detection |
 | 13 | 🎨 **Creative** | 14 | Copywriting, image prompts, SVG, music, scripts |
 | 14 | 🔒 **Security** | 13 | Sandboxing, secret scanning, audit logs, rollback |
-| 15 | 🎼 **Orchestration** | 22 | Multi-agent, state machines, retry, consensus |
+| 15 | 🎼 **Orchestration** | 27 | Multi-agent, state machines, retry, consensus |
 | 16 | 🏺 **Domain-Specific** | 28 | Medical, legal, finance, DevOps, education, science |
 | 17 | 🛠️ **Infrastructure** | 1 | Dependency auditing & supply-chain tooling |
 
