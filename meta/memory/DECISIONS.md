@@ -616,4 +616,6 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 
 **Security basis:** GitHub documents that `pull_request_target` runs workflow code from the default branch and can safely perform trusted post-merge automation when untrusted PR code is not executed. The trigger is constrained to closed PRs and a merged condition.
 
-**Status:** IMPLEMENTATION STAGED — must be CI-verified and observed producing the regenerated report before this decision is considered locked.
+**Evidence:** GitHub Actions regenerated `meta/QUALITY-REPORT.md` as commit `ac8aacb5982018d2ee57a2953924dd74a9013e20` after merged PR #244. The generated report verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid.
+
+**Status:** LOCKED.
