@@ -487,6 +487,8 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 
 **Alternatives:** Continue raw access — rejected because it leaks storage representation. Create another compatibility facade — rejected because the repository already has CompatibilityRuntime.
 
-**Status:** IN PROGRESS — implementation staged; verification pending.
+**Evidence:** PR #227; exact-head CI green; merge commit `ba9682b26ea59b18f21eb017b6f239f735c4dec3`.
+
+**Status:** LOCKED
 
 **Reopen Conditions:** Reopen if verification exposes an abstraction or integrity regression, or if a replacement runtime architecture supersedes the current facade.
