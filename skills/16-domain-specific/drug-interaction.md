@@ -3,7 +3,7 @@ title: "Drug Interaction"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply drug interaction in AI agent workflows."
+description: "Apply drug interaction in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
 added: "2025-03"
 ---
 
@@ -36,7 +36,7 @@ def check_interactions(drugs: list[str]) -> list[dict]:
 print(check_interactions(["Warfarin", "Ibuprofen", "Metformin"]))
 ```
 
-### Related Skills
-- [Symptom Analysis](symptom-analysis.md)
-- [Medical Literature Search](medical-literature-search.md)
-- [Fact Verification Memory](../03-memory/fact-verification-memory.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
