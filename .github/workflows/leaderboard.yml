@@ -22,7 +22,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: leaderboard-${{ github.ref }}
+  group: auto-commit-main
   cancel-in-progress: false
 
 jobs:
