@@ -4,9 +4,9 @@
 
 ## Verified snapshot
 
-- Snapshot date: 2026-10-01
+- Snapshot date: 2026-10-02
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
-- Latest verified implementation synchronization: PR #227; documentation synchronization finalized by PR #229 on 2026-10-01.
+- Latest verified implementation synchronization: validate-graph permission isolation merged to `main` as `d89bb26bfd3e55f513b3c07e6ebb5ee2f84ba85b`; this documentation cycle records that security/governance change.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
@@ -40,8 +40,9 @@
 - Pages authority: `deploy-pages.yml` is the single repository-controlled Pages deployment workflow.
 - Confirmed direct-main generated writers use the shared `auto-commit-main` serialization group with `cancel-in-progress: false`.
 - The live 42-workflow classification is now recorded in `meta/WORKFLOW_INVENTORY.md`.
-- Phase 0 remains open for permission/security reconciliation and explicit documentation of GitHub control-plane limitations.
-- `validate-graph.yml` is the next concrete hardening candidate because its combined PR/main job carries write permissions that are not required by the PR validation path.
+- `validate-graph.yml` permission isolation is implemented and verified: `build-and-validate` is `contents: read`; `generate-main-graph` alone has `contents: write` and runs only on trusted `main` pushes after validation; `quality-report` waits for graph generation before writing its projection.
+- PR #232 CI passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label; Dependabot Review Gate was skipped.
+- GitHub branch inspection currently reports `main` as unprotected with required-status-check enforcement off. This is documented as a control-plane finding; no branch-protection change was made in this cycle.
 
 ## Source of truth
 
@@ -54,7 +55,7 @@
 
 ## Next mandatory action
 
-Complete the remaining Phase 0 permission/security reconciliation, beginning with `validate-graph.yml`, while preserving trusted-main graph generation. Then perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Complete the remaining Phase 0 control-plane reconciliation observable through available APIs, without silently changing high-impact repository governance. Then perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 

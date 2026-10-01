@@ -331,3 +331,16 @@ No numbered P2.3 requirement is being invented. No compatibility records or exte
 **Verification:** PR #227 exact head `9e4c7608246092ce902384d10d87e2812330de8a` passed Test Suite, Security Scan, PR Checks, Build & Verify Wheel, and Auto Label before merge as `ba9682b26ea59b18f21eb017b6f239f735c4dec3`.
 
 **Status:** VERIFIED — Compatibility runtime access is integrated into UniversalRegistry; no new compatibility facts or external claims were introduced.
+
+
+## Phase 0 Workflow Permission Isolation — Verified 2026-10-02
+
+The workflow-governance inventory identified `.github/workflows/validate-graph.yml` as a concrete least-privilege gap: PR/main graph validation and trusted-main generated writes previously shared a broader write permission boundary.
+
+The implemented correction isolates responsibilities. `build-and-validate` now has `contents: read` only. `generate-main-graph` has `contents: write`, runs only for pushes to trusted `main`, and depends on successful validation. `quality-report` also runs only on trusted `main` and depends on both validation and graph generation, preventing the graph and quality writers from racing within the same workflow. The repository-wide `auto-commit-main` concurrency boundary is preserved.
+
+**Verification:** PR #232 merged as `d89bb26bfd3e55f513b3c07e6ebb5ee2f84ba85b`. Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label passed; Dependabot Review Gate was skipped. The merged workflow was re-read from live `main` and confirms the intended job-level permissions and dependencies.
+
+**Control-plane finding:** Live branch inspection reports `main` as unprotected with required-status-check enforcement off. This is recorded as a repository governance fact rather than inferred YAML behavior; no high-impact branch-protection change was made in this cycle.
+
+**Next:** complete observable control-plane reconciliation, then perform the fresh universal-registry runtime architecture audit required before selecting the next vertical slice.

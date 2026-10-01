@@ -505,3 +505,20 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Evidence:** live workflow inventory and source inspection on 2026-10-01; existing generated-main serialization decision; GitHub Actions permission documentation.
 
 **Status:** LOCKED baseline; permission hardening remains OPEN.
+
+
+## DECISION-2026-10-02-VALIDATE-GRAPH-PERMISSION-ISOLATION
+
+**Decision-ID:** DECISION-2026-10-02-VALIDATE-GRAPH-PERMISSION-ISOLATION
+
+**Topic:** Isolate validate-graph read-only validation from trusted-main generated writes.
+
+**Decision:** Keep the graph validation job strictly read-only with `contents: read`. Isolate generated graph materialization to a dedicated `generate-main-graph` job with `contents: write`, restricted to pushes of trusted `main` and dependent on successful validation. Keep the quality projection writer dependent on graph generation to prevent same-workflow writer races. Preserve the repository-wide `auto-commit-main` serialization group and existing deterministic graph generation semantics.
+
+**Security rationale:** The previous combined workflow job granted write permissions to the PR validation path, including `pull-requests: write`, although validation does not require them. The new boundary follows least privilege and limits write capability to the trusted-main projection jobs.
+
+**Evidence:** PR #232; merged commit `d89bb26bfd3e55f513b3c07e6ebb5ee2f84ba85b`; Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label passed on the PR head; live `.github/workflows/validate-graph.yml` inspection after merge.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if deterministic generation, validation ordering, writer serialization, or least-privilege assumptions are contradicted by repository evidence or a replacement generation architecture is adopted.
