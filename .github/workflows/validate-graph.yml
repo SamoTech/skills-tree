@@ -51,19 +51,14 @@ jobs:
           python tools/build_graph.py --dry-run
           echo "build_status=$?" >> $GITHUB_OUTPUT
 
-      # Pull requests must validate the graph generated from the current source,
-      # not a potentially stale checked-in artifact. Main still materializes and
-      # commits the generated artifact in the existing write step below.
-      - name: Materialize graph for PR validation
-        if: github.event_name == 'pull_request'
+      # Validate the graph generated from the current source. On PRs this
+      # materializes the graph into the workspace; on main pushes the same
+      # generation is validated before a separate least-privileged writer job
+      # commits the generated projection.
+      - name: Materialize graph for validation
         run: |
           python tools/build_graph.py --output data/SKILLS_GRAPH.json
-
-      - name: Build graph (write artifacts)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          python tools/build_graph.py
-          echo "Graph built successfully."
+          echo "Graph generated successfully."
 
       - name: Validate graph schema
         run: |
@@ -226,8 +221,29 @@ jobs:
           print(f"PASS: All {len(edges)} edges are unique (source, target, type).")
           EOF
 
+  generate-main-graph:
+    name: Materialize Generated Graph
+    runs-on: ubuntu-latest
+    needs: build-and-validate
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build graph
+        run: python tools/build_graph.py
+
       - name: Commit updated graph artifacts
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: EndBug/add-and-commit@v9
         with:
           add: 'data/SKILLS_GRAPH.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md'
@@ -238,7 +254,7 @@ jobs:
     name: Skill Quality Score
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: build-and-validate
+    needs: [build-and-validate, generate-main-graph]
     permissions:
       contents: write
 
