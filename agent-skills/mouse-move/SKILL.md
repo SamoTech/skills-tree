@@ -1,15 +1,15 @@
 ---
-name: scroll
-description: Perform scroll as a verified computer-use capability with explicit target and postcondition checks.
+name: mouse-move
+description: Perform mouse move as a verified computer-use capability with explicit target and postcondition checks.
 ---
 
-# scroll
+# mouse move
 
 ## Description
-Perform scroll only against a verified UI or session target and expected state.
+Perform mouse move only against a verified UI or session target and expected state.
 
 ## Evidence
-Canonical source: `skills/10-computer-use/scroll.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
+Canonical source: `skills/10-computer-use/mouse-move.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
 
 ## Usage
 Verify target identity, session state, authorization, and expected postcondition before and after the action.

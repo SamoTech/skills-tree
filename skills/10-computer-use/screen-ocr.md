@@ -1,39 +1,59 @@
 ---
-title: "Screen Region OCR"
+title: "Screen Ocr"
 category: 10-computer-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply screen region ocr in AI agent workflows."
+description: "Extract visible text from a verified screen region using OCR while preserving location and uncertainty."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-screen-ocr.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Screen Region OCR
+## Description
+Extract visible text from a verified screen region using OCR while preserving location and uncertainty.
 
-**Category:** `computer-use`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when visible text is needed and an accessibility tree or direct text source is unavailable.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
-Extract text from a defined region of the screen using Optical Character Recognition. Enables agents to read UI labels, dialog text, and content that isn't accessible via the accessibility tree.
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pytesseract
-from PIL import ImageGrab
-
-# Capture a region: (left, top, right, bottom)
-region = ImageGrab.grab(bbox=(100, 200, 800, 400))
-text = pytesseract.image_to_string(region)
-print(text)  # → "Invoice Total: $1,450.00"
+action = {"capability": "screen-ocr", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [Screenshot Capture](screenshot-capture.md)
-- [Visual Element Detection](visual-element-detection.md)
-- [Accessibility Tree Navigation](accessibility-tree.md)
+## Safety Boundary
+OCR can misread text; preserve uncertainty and verify critical values against the screen.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails

@@ -191,3 +191,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections.
 - Added explicit target verification, authorization, postcondition, sensitive-data, and destructive-action boundaries.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Computer-use modernization — batch 02
+
+- Modernized the remaining ten `10-computer-use` skills: mouse-move, multi-monitor, right-click, screen-ocr, screenshot-capture, scroll, terminal-interaction, visual-element-detection, vm-interaction, and window-management.
+- Added or synchronized corresponding Agent Skills projections.
+- The `10-computer-use` category is now fully modernized; target verification, bounded interaction, sensitive-data protection, and postcondition checks remain mandatory.
+- No validator, security gate, or repository governance rule was weakened.

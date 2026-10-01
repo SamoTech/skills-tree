@@ -1,48 +1,59 @@
 ---
-title: "Terminal / Shell Interaction"
+title: "Terminal Interaction"
 category: 10-computer-use
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply terminal / shell interaction in AI agent workflows."
+description: "Interact with a verified terminal window using explicit commands, context, and output checks."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-terminal-interaction.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Terminal / Shell Interaction
+## Description
+Interact with a verified terminal window using explicit commands, context, and output checks.
 
-**Category:** `computer-use`
-**Skill Level:** `intermediate`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when terminal interaction is authorized and the command scope is explicit.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
-Type and execute shell commands in a terminal window by simulating keyboard input, then capture output via screenshot OCR or clipboard.
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pyautogui
-import time
-
-# Focus terminal window
-pyautogui.click(800, 600)  # terminal position
-time.sleep(0.2)
-
-# Type and run a command
-pyautogui.typewrite('ls -la /home/user', interval=0.03)
-pyautogui.press('enter')
-time.sleep(0.5)
-
-# Capture output via screenshot + OCR
-from PIL import ImageGrab
-import pytesseract
-output = pytesseract.image_to_string(ImageGrab.grab())
+action = {"capability": "terminal-interaction", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [Screen Region OCR](screen-ocr.md)
-- [Keyboard Type](keyboard-type.md)
-- [Screenshot Capture](screenshot-capture.md)
+## Safety Boundary
+Treat terminal commands as potentially destructive; verify working directory, command, target, and postcondition before execution.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails

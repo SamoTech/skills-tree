@@ -1,15 +1,15 @@
 ---
-name: scroll
-description: Perform scroll as a verified computer-use capability with explicit target and postcondition checks.
+name: vm-interaction
+description: Perform vm interaction as a verified computer-use capability with explicit target and postcondition checks.
 ---
 
-# scroll
+# vm interaction
 
 ## Description
-Perform scroll only against a verified UI or session target and expected state.
+Perform vm interaction only against a verified UI or session target and expected state.
 
 ## Evidence
-Canonical source: `skills/10-computer-use/scroll.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
+Canonical source: `skills/10-computer-use/vm-interaction.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
 
 ## Usage
 Verify target identity, session state, authorization, and expected postcondition before and after the action.
