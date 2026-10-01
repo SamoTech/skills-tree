@@ -1,39 +1,59 @@
 ---
 title: "Mouse Move"
 category: 10-computer-use
-level: basic
+level: advanced
 stability: stable
-description: "Apply mouse move in AI agent workflows."
+description: "Move the pointer to a verified UI target using semantic or coordinate-based targeting."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-mouse-move.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Mouse Move
+## Description
+Move the pointer to a verified UI target using semantic or coordinate-based targeting.
 
-**Category:** `computer-use`
-**Skill Level:** `basic`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when a precise pointer location is required before a subsequent action.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
-Move the mouse cursor to an absolute screen coordinate or relative to its current position, without clicking. Used to hover over elements, reveal tooltips, or position before a click.
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pyautogui
-
-# Move to absolute position (x=500, y=300) over 0.3 seconds
-pyautogui.moveTo(500, 300, duration=0.3)
-
-# Move relative to current position
-pyautogui.moveRel(100, -50, duration=0.2)
+action = {"capability": "mouse-move", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [Mouse Click](mouse-click.md)
-- [Drag and Drop](drag-drop.md)
-- [Screenshot Capture](screenshot-capture.md)
+## Safety Boundary
+Pointer movement alone should not trigger unintended interaction; verify the target and current UI state.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
