@@ -95,3 +95,14 @@ The selected vertical slice integrates the existing `CapabilityRuntime` into `Un
 **Verification:** PR #236 exact head `ccc0902bcb87714c8709d9a8f5d6d100554edb2f` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`.
 
 **Status:** VERIFIED — Capability access through the UniversalRegistry facade is now routed through the dedicated validated runtime.
+
+
+## Post-P2.2 Goal Runtime Facade Integration — Verified 2026-10-02
+
+A fresh universal-registry runtime audit found the remaining public raw-storage path in Goal resolution and Goal-to-Skill traversal. No dedicated `GoalRuntime` existed, while Capability and Skill already had validated typed runtimes.
+
+The selected vertical slice adds a read-only `GoalRuntime`, integrates it into `UniversalRegistry`, and exposes `resolve_goal()` and deterministic `skills_for_goal()`. Goal-to-Skill traversal reuses the validated Capability and Skill facade boundaries. No ontology records or external claims were introduced.
+
+**Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
+
+**Status:** VERIFIED — Goal access through the UniversalRegistry facade is now routed through a dedicated deterministic runtime boundary.

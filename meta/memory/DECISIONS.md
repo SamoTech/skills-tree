@@ -556,3 +556,20 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if tests or repository evidence demonstrate a regression in deterministic traversal, snapshot isolation, import architecture, or facade/runtime consistency, or if a replacement runtime architecture supersedes this boundary.
+
+
+## DECISION-2026-10-02-GOAL-RUNTIME-FACADE-INTEGRATION
+
+**Decision-ID:** DECISION-2026-10-02-GOAL-RUNTIME-FACADE-INTEGRATION
+
+**Topic:** Establish a typed Goal runtime boundary for the UniversalRegistry facade.
+
+**Decision:** Add a read-only deterministic `GoalRuntime` and route `UniversalRegistry.resolve_goal()` and `skills_for_goal()` through it. Reuse the validated Capability and Skill runtime boundaries for Goal traversal. Preserve defensive snapshots, deterministic ordering, existing registry validation, and the no-new-claims boundary.
+
+**Rationale:** Goal was the remaining public UniversalRegistry access path implemented directly against registry storage after Skill, Capability, Evidence, and Compatibility facade boundaries had been normalized.
+
+**Evidence:** `meta/IMPLEMENTATION_ONTOLOGY.md`; PR #238; exact-head CI green; merge commit `3290ebc88060fca07e944cd31ad31d392982ca3d`.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if tests or repository evidence demonstrate a regression in deterministic traversal, snapshot isolation, import architecture, or facade/runtime consistency, or if a replacement runtime architecture supersedes this boundary.
