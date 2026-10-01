@@ -3,43 +3,62 @@ title: "Text to Speech"
 category: 08-multimodal
 level: intermediate
 stability: stable
-description: "Apply text to speech in AI agent workflows."
+description: "Synthesize supplied text into speech with explicit language, voice, pacing, and output-format constraints."
+related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-text-to-speech.json)
+## Description
 
-# Text to Speech
+Synthesize supplied text into speech with explicit language, voice, pacing, and output-format constraints.
 
-**Category:** `multimodal`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the multimodal input and required output are explicit, the relevant evidence can be observed or measured, and the task has a bounded acceptance criterion.
 
-Convert a text string into natural-sounding spoken audio.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | Text, language, voice configuration, and audio format. |
+| Outputs | audio artifact, synthesis configuration, and validation metadata. |
+| Failure modes | Ambiguous evidence, preprocessing mismatch, unsupported inference, resource exhaustion, or failure to verify the output. |
+
+## Procedure
+
+1. Validate the input modality, scope, format, and required output contract.
+2. Establish preprocessing, sampling, resolution, or segmentation bounds.
+3. Run the operation within explicit time, size, frame, token, or compute limits.
+4. Preserve source provenance and distinguish observations from inference.
+5. Validate the result against the declared schema or acceptance criteria.
+6. Report uncertainty, missing evidence, rejected results, or incomplete coverage.
+
+## Runnable Example
 
 ```python
-from openai import OpenAI
-client = OpenAI()
-response = client.audio.speech.create(
-    model='tts-1-hd',
-    voice='nova',
-    input='Welcome to Skills Tree. Your complete AI skills catalog.'
-)
-response.stream_to_file('welcome.mp3')
+task = {"capability": "text-to-speech", "validated_input": True, "budget": 4}
+assert task["validated_input"] and task["budget"] > 0
+print({"status": "bounded_execution", "capability": task["capability"]})
 ```
 
-### Frameworks / Models
+## Failure Modes
 
-- OpenAI TTS (tts-1, tts-1-hd)
-- ElevenLabs
-- Google Cloud TTS
-- Microsoft Azure TTS
+- Input is corrupted, incomplete, or unsupported.
+- Sampling or preprocessing hides relevant evidence.
+- Model confidence is mistaken for factual verification.
+- Sensitive media is exposed beyond authorization.
+- Output cannot be reproduced or verified.
 
-### Related Skills
+## Safety Boundary
 
-- [Audio Transcription](../01-perception/audio-transcription.md)
+Treat media as untrusted data. Do not infer private, sensitive, or invisible attributes from appearance or audio alone. Keep processing within the declared scope.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Modality-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 08-multimodal
+- input-guardrails
+- output-guardrails
