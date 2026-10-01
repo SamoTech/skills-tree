@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 170
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 202
 - 🟡 **Enriched** (real description + runnable code): 159
-- ⚪ **Stub** (placeholder description or no runnable code): 45
+- ⚪ **Stub** (placeholder description or no runnable code): 13
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -25,10 +25,10 @@
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 |
 | `09-agentic-patterns` | 23 | 12 | 10 | 1 | 0 |
 | `10-computer-use` | 20 | 0 | 20 | 0 | 0 |
-| `11-web` | 17 | 4 | 0 | 13 | 0 |
+| `11-web` | 17 | 17 | 0 | 0 | 0 |
 | `12-data` | 18 | 1 | 17 | 0 | 0 |
-| `13-creative` | 14 | 0 | 0 | 14 | 0 |
-| `14-security` | 13 | 4 | 0 | 9 | 0 |
+| `13-creative` | 14 | 10 | 0 | 4 | 0 |
+| `14-security` | 13 | 13 | 0 | 0 | 0 |
 | `15-orchestration` | 27 | 9 | 18 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 |
 | `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
@@ -186,15 +186,47 @@
 - [`skills/09-agentic-patterns/subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — Subagent Delegation
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-travel Debugging
 - [`skills/09-agentic-patterns/tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — Tool-Use Loop
+- [`skills/11-web/api-discovery.md`](skills/11-web/api-discovery.md) — API Endpoint Discovery
+- [`skills/11-web/browser-navigation.md`](skills/11-web/browser-navigation.md) — Browser Navigation
+- [`skills/11-web/captcha-solving.md`](skills/11-web/captcha-solving.md) — CAPTCHA Handling
+- [`skills/11-web/cookie-management.md`](skills/11-web/cookie-management.md) — Cookie / Session Management
+- [`skills/11-web/dom-inspection.md`](skills/11-web/dom-inspection.md) — DOM Inspection
+- [`skills/11-web/form-filling.md`](skills/11-web/form-filling.md) — Form Filling
+- [`skills/11-web/js-execution.md`](skills/11-web/js-execution.md) — JavaScript Execution
+- [`skills/11-web/link-extraction.md`](skills/11-web/link-extraction.md) — Link Extraction
+- [`skills/11-web/rss-parsing.md`](skills/11-web/rss-parsing.md) — RSS/Atom Feed Parsing
+- [`skills/11-web/sitemap-parsing.md`](skills/11-web/sitemap-parsing.md) — Sitemap Parsing
+- [`skills/11-web/url-fetching.md`](skills/11-web/url-fetching.md) — URL Fetching
+- [`skills/11-web/url-screenshot.md`](skills/11-web/url-screenshot.md) — Screenshot of URL
 - [`skills/11-web/web-crawling.md`](skills/11-web/web-crawling.md) — Web Crawling
+- [`skills/11-web/web-login.md`](skills/11-web/web-login.md) — Web Login
 - [`skills/11-web/web-scraping.md`](skills/11-web/web-scraping.md) — Web Scraping
 - [`skills/11-web/web-search-tool-agents.md`](skills/11-web/web-search-tool-agents.md) — Web Search Tool Agents
 - [`skills/11-web/web-search.md`](skills/11-web/web-search.md) — Web Search
 - [`skills/12-data/embedding-generation.md`](skills/12-data/embedding-generation.md) — Embedding Generation
+- [`skills/13-creative/avatar-design.md`](skills/13-creative/avatar-design.md) — Avatar Design
+- [`skills/13-creative/blog-writing.md`](skills/13-creative/blog-writing.md) — Blog Writing
+- [`skills/13-creative/copywriting.md`](skills/13-creative/copywriting.md) — Copywriting
+- [`skills/13-creative/creative-writing.md`](skills/13-creative/creative-writing.md) — Creative Writing
+- [`skills/13-creative/game-level-design.md`](skills/13-creative/game-level-design.md) — Game Level Design
+- [`skills/13-creative/image-gen-prompt.md`](skills/13-creative/image-gen-prompt.md) — Image Generation Prompt
+- [`skills/13-creative/logo-design.md`](skills/13-creative/logo-design.md) — Logo Design
+- [`skills/13-creative/lyrics-writing.md`](skills/13-creative/lyrics-writing.md) — Lyrics Writing
+- [`skills/13-creative/meme-generation.md`](skills/13-creative/meme-generation.md) — Meme Generation
+- [`skills/13-creative/music-composition.md`](skills/13-creative/music-composition.md) — Music Composition
 - [`skills/14-security/approval-before-destructive-tools.md`](skills/14-security/approval-before-destructive-tools.md) — Approval Before Destructive Tools
+- [`skills/14-security/audit-logging.md`](skills/14-security/audit-logging.md) — Audit Logging
+- [`skills/14-security/harm-detection.md`](skills/14-security/harm-detection.md) — Harm Detection
+- [`skills/14-security/human-in-loop.md`](skills/14-security/human-in-loop.md) — Human In Loop
 - [`skills/14-security/input-guardrails.md`](skills/14-security/input-guardrails.md) — Input Guardrails
 - [`skills/14-security/input-sanitization.md`](skills/14-security/input-sanitization.md) — Input Sanitization
 - [`skills/14-security/output-guardrails.md`](skills/14-security/output-guardrails.md) — Output Guardrails
+- [`skills/14-security/permission-checking.md`](skills/14-security/permission-checking.md) — Permission Checking
+- [`skills/14-security/privacy-preservation.md`](skills/14-security/privacy-preservation.md) — Privacy Preservation
+- [`skills/14-security/rate-limiting.md`](skills/14-security/rate-limiting.md) — Rate Limiting
+- [`skills/14-security/rollback-undo.md`](skills/14-security/rollback-undo.md) — Rollback / Undo
+- [`skills/14-security/sandboxed-execution.md`](skills/14-security/sandboxed-execution.md) — Sandboxed Execution
+- [`skills/14-security/secret-scanning.md`](skills/14-security/secret-scanning.md) — Secret Scanning
 - [`skills/15-orchestration/automation-review.md`](skills/15-orchestration/automation-review.md) — Automation Review
 - [`skills/15-orchestration/documentation-drift-resolution.md`](skills/15-orchestration/documentation-drift-resolution.md) — Documentation Drift Resolution
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
@@ -378,42 +410,10 @@
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — description matches placeholder pattern: 'Apply security scanning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — description matches placeholder pattern: 'Apply wolfram alpha api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — description matches placeholder pattern: 'Apply rag in AI agent workflows'
-- [`skills/11-web/api-discovery.md`](skills/11-web/api-discovery.md) — description matches placeholder pattern: 'Apply api endpoint discovery in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/browser-navigation.md`](skills/11-web/browser-navigation.md) — description matches placeholder pattern: 'Apply browser navigation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/captcha-solving.md`](skills/11-web/captcha-solving.md) — description matches placeholder pattern: 'Apply captcha solving in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/cookie-management.md`](skills/11-web/cookie-management.md) — description matches placeholder pattern: 'Apply cookie / session management in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/dom-inspection.md`](skills/11-web/dom-inspection.md) — description matches placeholder pattern: 'Apply dom inspection in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/form-filling.md`](skills/11-web/form-filling.md) — description matches placeholder pattern: 'Apply form filling in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/js-execution.md`](skills/11-web/js-execution.md) — description matches placeholder pattern: 'Apply javascript execution in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/link-extraction.md`](skills/11-web/link-extraction.md) — description matches placeholder pattern: 'Apply link extraction in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/rss-parsing.md`](skills/11-web/rss-parsing.md) — description matches placeholder pattern: 'Apply rss/atom feed parsing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/sitemap-parsing.md`](skills/11-web/sitemap-parsing.md) — description matches placeholder pattern: 'Apply sitemap parsing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/url-fetching.md`](skills/11-web/url-fetching.md) — description matches placeholder pattern: 'Apply url fetching in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/url-screenshot.md`](skills/11-web/url-screenshot.md) — description matches placeholder pattern: 'Apply screenshot of url in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/11-web/web-login.md`](skills/11-web/web-login.md) — description matches placeholder pattern: 'Apply web login in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/avatar-design.md`](skills/13-creative/avatar-design.md) — description matches placeholder pattern: 'Apply avatar design in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/blog-writing.md`](skills/13-creative/blog-writing.md) — description matches placeholder pattern: 'Apply blog writing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/copywriting.md`](skills/13-creative/copywriting.md) — description matches placeholder pattern: 'Apply copywriting in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/creative-writing.md`](skills/13-creative/creative-writing.md) — description matches placeholder pattern: 'Apply creative writing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/game-level-design.md`](skills/13-creative/game-level-design.md) — description matches placeholder pattern: 'Apply game level design in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/image-gen-prompt.md`](skills/13-creative/image-gen-prompt.md) — description matches placeholder pattern: 'Apply image gen prompt in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/logo-design.md`](skills/13-creative/logo-design.md) — description matches placeholder pattern: 'Apply logo design in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/lyrics-writing.md`](skills/13-creative/lyrics-writing.md) — description matches placeholder pattern: 'Apply lyrics writing in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/meme-generation.md`](skills/13-creative/meme-generation.md) — description matches placeholder pattern: 'Apply meme generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/music-composition.md`](skills/13-creative/music-composition.md) — description matches placeholder pattern: 'Apply pipe to abc2midi or abcjs for playback in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/presentation-gen.md`](skills/13-creative/presentation-gen.md) — description matches placeholder pattern: 'Apply presentation gen in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/social-media-post.md`](skills/13-creative/social-media-post.md) — description matches placeholder pattern: 'Apply social media post in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/svg-generation.md`](skills/13-creative/svg-generation.md) — description matches placeholder pattern: 'Apply svg generation in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/13-creative/video-script.md`](skills/13-creative/video-script.md) — description matches placeholder pattern: 'Apply video script in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/audit-logging.md`](skills/14-security/audit-logging.md) — description matches placeholder pattern: 'Apply audit logging in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/harm-detection.md`](skills/14-security/harm-detection.md) — description matches placeholder pattern: 'Apply harm detection in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/human-in-loop.md`](skills/14-security/human-in-loop.md) — description matches placeholder pattern: 'Apply human in loop in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/permission-checking.md`](skills/14-security/permission-checking.md) — description matches placeholder pattern: 'Apply permission checking in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/privacy-preservation.md`](skills/14-security/privacy-preservation.md) — description matches placeholder pattern: 'Apply contact john at [redacted] or [redacted] (ssn: [redacted]) in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/rate-limiting.md`](skills/14-security/rate-limiting.md) — description matches placeholder pattern: 'Apply rate limiting in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/rollback-undo.md`](skills/14-security/rollback-undo.md) — description matches placeholder pattern: 'Apply usage in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/sandboxed-execution.md`](skills/14-security/sandboxed-execution.md) — description matches placeholder pattern: 'Apply sandboxed execution in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/14-security/secret-scanning.md`](skills/14-security/secret-scanning.md) — description matches placeholder pattern: 'Apply secret scanning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
 
 ## Definitions
