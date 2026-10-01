@@ -422,3 +422,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/web-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Web operations must stay within authorized origin/session boundaries and must not expose or bypass credentials, authentication, anti-bot controls, rate limits, robots restrictions, paywalls, or other access controls.
+
+
+## DECISION-2026-10-01-CREATIVE-BATCH-01
+
+**Decision:** Begin controlled modernization of the first ten remaining placeholder-level creative skills.
+
+**Scope:** avatar-design, blog-writing, copywriting, creative-writing, game-level-design, image-gen-prompt, logo-design, lyrics-writing, meme-generation, and music-composition.
+
+**Status:** IN PROGRESS — staged on `coo/creative-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Creative generation must preserve originality/source permissions, factual boundaries, user-provided asset rights, and the declared deliverable contract.
