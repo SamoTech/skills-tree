@@ -7,6 +7,7 @@ description: "Make high-impact agent mutations reversible with explicit snapshot
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [audit-logging, permission-checking, human-in-loop]
 ---
 
 # Rollback / Undo
