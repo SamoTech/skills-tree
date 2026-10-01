@@ -1,143 +1,95 @@
 # AGENT OPERATING MODEL
 
-**Initiative:** INITIATIVE-010A  
-**Created:** 2026-06-23  
-**Status:** ACTIVE
+**Status:** ACTIVE  
+**Authority:** `AI_CONSTITUTION.md`, `AGENTS.md`, `meta/COO_MASTER_MISSION.md`
 
 ---
 
-## Agent Lifecycle
+## Agent lifecycle
 
-Every agent follows this lifecycle without exception:
+Every agent follows:
 
-```
-STATE_LOAD → MISSION_RECEIVE → EXECUTE → VALIDATE → COMMIT → HANDOFF
-```
+`READ → UNDERSTAND → INSPECT → DECIDE → IMPLEMENT → TEST → FIX → VERIFY → DOCUMENT → RE-READ → IMPROVE → VERIFY → CONTINUE`
 
-1. **STATE_LOAD** — Read `meta/MEMORY_STATE.md` and `meta/DECISION_LOG.md`. Verify metrics match `data/SKILLS_GRAPH.json`. If divergence found, create `meta/STATE_DIVERGENCE_REPORT.md` and stop.
-2. **MISSION_RECEIVE** — Accept mission assignment from Program Director. Confirm scope, inputs, and success criteria.
-3. **EXECUTE** — Perform specialist work. All reads from repository only. No external state.
-4. **VALIDATE** — Run self-validation checks per agent spec. Produce evidence artifacts.
-5. **COMMIT** — Commit only if Quality Auditor gate passes and Governance Officer has signed off on D2+ decisions.
-6. **HANDOFF** — Write handoff packet per `meta/AGENT_HANDOFF_PROTOCOL.md` and pass to next agent.
+Repository state and authoritative documentation are the source of truth. Conversation history is not required for execution.
 
----
+## Mandatory state loading
 
-## Mission Assignment Flow
+Before meaningful work, read at minimum:
 
-```
-Program Director
-  → identifies next initiative from MEMORY_STATE.md
-  → writes initiative charter
-  → assigns to Specialist Agent with scope + success criteria
-  → logs assignment in DECISION_LOG.md
-```
+1. `AI_CONSTITUTION.md`
+2. `AGENTS.md`
+3. `meta/COO_MASTER_MISSION.md`
+4. `meta/CURRENT-STATE.md`
+5. `meta/memory/DECISIONS.md`
+6. `meta/ROADMAP.md`
+7. `meta/EVIDENCE_MODEL.md`
+8. `meta/MOST-WANTED-SKILLS.md`
+9. `meta/AGENT_OPERATING_MODEL.md`
+10. `meta/AGENT_HANDOFF_PROTOCOL.md`
+11. `SECURITY.md`
+12. `CONTRIBUTING.md`
 
-The specialist agent may NOT begin execution until it has confirmed:
-- [ ] MEMORY_STATE.md loaded and verified
-- [ ] Mission charter received from Program Director
-- [ ] Required authoritative files identified
+Then inspect the implementation, schemas, generators, workflows, tests, release mechanisms, generated artifacts, and relevant documentation.
 
----
+Never rely on the obsolete `meta/MEMORY_STATE.md` or `meta/DECISION_LOG.md` as authoritative state unless the repository explicitly restores them.
 
-## Execution Flow
+## Execution rules
 
-```
-Specialist Agent
-  → reads required files
-  → performs analysis / generation
-  → produces output artifacts
-  → runs internal validation
-  → produces evidence package
-```
+- Inspect live branches, commits, open PRs, CI, tests, generated artifacts, and documentation before deciding.
+- Prefer existing mechanisms over duplication.
+- Treat `skills/` as the canonical skill source; generated representations are projections.
+- Use evidence proportional to the claim.
+- Preserve security, validation, provenance, reproducibility, and read-only boundaries.
+- Do not invent demand, adoption, benchmarks, compatibility, or production-readiness claims.
+- Do not expose private chain-of-thought.
 
-If any required file is missing or unreadable, the agent must:
-1. Log the blocker in the handoff packet
-2. Escalate to Program Director
-3. Stop — do not proceed with incomplete state
+## Verification
 
----
+Testing must match change risk. Use focused tests plus repository CI where applicable.
 
-## Validation Flow
+Do not claim a test, CI run, merge, release, or deployment occurred without live evidence.
 
-```
-Specialist Agent output
-  → Quality Auditor checks:
-      - Output completeness
-      - Schema conformance
-      - No phantom metrics
-      - Evidence files present
-  → PASS → proceed to commit
-  → FAIL → return to Specialist Agent with failure report
-```
+A green suite is not sufficient by itself; verify the changed behavior and resulting repository state independently.
 
-Quality gate is mandatory. The Release Manager will not commit without a Quality Auditor PASS signal.
+## Documentation gate
 
----
+A meaningful task is not COMPLETE until:
 
-## Commit Flow
+**Implementation + Verification + Documentation + Repository State**
 
-```
-Quality Auditor PASS
-  → D0/D1: Release Manager commits directly
-  → D2–D5: Governance Officer sign-off required first
-  → Release Manager:
-      - updates meta/MEMORY_STATE.md
-      - appends to meta/DECISION_LOG.md
-      - updates meta/CHANGELOG.md
-      - creates git tag if release
-      - writes handoff packet
-```
+are synchronized.
 
----
+After a merge:
 
-## Governance Checkpoints
+1. verify live `main`;
+2. synchronize `meta/CURRENT-STATE.md` if the merge changed verified state;
+3. re-read affected architecture/decision/roadmap documents;
+4. verify no known documentation drift remains;
+5. record the next justified action.
 
-| Checkpoint | Trigger | Handler |
-|-----------|---------|--------|
-| G1 — State Verification | Every mission start | All agents (self-check) |
-| G2 — Evidence Gate | Before any D2+ proposal | Specialist Agent |
-| G3 — Decision Approval | Before D2+ commit | Governance Officer |
-| G4 — Quality Gate | Before any commit | Quality Auditor |
-| G5 — Release Gate | Before version tag | Release Manager + Governance Officer |
+## Decision and escalation
 
----
+Normal repository execution decisions may be made autonomously within documented authority.
 
-## Required Execution Chain
+Escalate when a decision changes strategic direction, fundamental architecture, destructive operations, significant security posture, breaking interfaces, business/product direction, or another decision reserved by `AI_CONSTITUTION.md`.
 
-For all D2–D5 decisions:
+Important architectural decisions belong in `meta/memory/DECISIONS.md`.
 
-```
-Program Director
-  → Specialist Agent (execution)
-  → Governance Officer (approval)
-  → Quality Auditor (quality gate)
-  → Release Manager (commit + state update)
-```
+## Handoff
 
-For D0–D1 decisions:
+Every meaningful work session must leave enough repository information for the next agent to determine:
 
-```
-Program Director
-  → Specialist Agent (execution)
-  → Quality Auditor (quality gate)
-  → Release Manager (commit + state update)
-```
+- what changed;
+- why it changed;
+- what was verified;
+- what remains;
+- what is blocked;
+- what decision was made;
+- what should happen next.
 
-No agent may shortcut this chain.
+The repository must remain understandable without this conversation.
 
----
+## Completion rule
 
-## Agent Responsibilities Summary
-
-| Agent | Executes | Approves | Commits |
-|-------|---------|---------|--------|
-| Program Director | Initiative charters | D0–D1 | No |
-| Specialist Agents | Domain work | D0–D1 within scope | No |
-| Governance Officer | Constitution review | D2–D5 | No |
-| Quality Auditor | Quality checks | Gates only | No |
-| Release Manager | State updates | None | YES — final committer |
-
----
-
-*All agents must load this file before beginning execution.*
+Never declare COMPLETE while tests/CI are pending, documentation is stale, generated artifacts are unverified, a required merge is incomplete, or a material known defect remains.
