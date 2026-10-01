@@ -7,6 +7,7 @@ description: "Pause high-risk agent actions for explicit human approval with den
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [permission-checking, audit-logging, rollback-undo]
 ---
 
 # Human In Loop
