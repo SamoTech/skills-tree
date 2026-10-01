@@ -156,7 +156,7 @@ print(answer)
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python sqlite3 documentation: https://docs.python.org/3/library/sqlite3.html
-- Python sqlite3 parameter substitution guidance: https://docs.python.org/3/library/sqlite3.html#how-to-use-placeholders-to-bind-values-in-sql-queries
+- Python sqlite3 documentation: https://docs.python.org/3.14/library/sqlite3.html
+- Python sqlite3 parameter substitution guidance: https://docs.python.org/3.14/library/sqlite3.html#how-to-use-placeholders-to-bind-values-in-sql-queries
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
