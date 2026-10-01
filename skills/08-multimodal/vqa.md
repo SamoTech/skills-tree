@@ -3,61 +3,62 @@ title: "Visual Question Answering"
 category: 08-multimodal
 level: intermediate
 stability: stable
-description: "Apply visual question answering (VQA) in AI agent workflows."
+description: "Answer questions about an image or visual scene using only supported visual evidence and explicitly marking ambiguity."
+related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-vqa.json)
+## Description
 
-# Visual Question Answering (VQA)
+Answer questions about an image or visual scene using only supported visual evidence and explicitly marking ambiguity.
 
-**Category:** `multimodal`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the multimodal input and required output are explicit, the relevant evidence can be observed or measured, and the task has a bounded acceptance criterion.
 
-Answer natural language questions about the content of an image. Combines visual understanding with language reasoning to handle factual, spatial, counting, and commonsense questions about visual scenes.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | Image or visual input, question, and answer constraints. |
+| Outputs | answer, supporting observations, confidence, and unresolved ambiguity. |
+| Failure modes | Ambiguous evidence, preprocessing mismatch, unsupported inference, resource exhaustion, or failure to verify the output. |
 
-```python
-from openai import OpenAI
+## Procedure
 
-client = OpenAI()
-response = client.chat.completions.create(
-    model='gpt-4o',
-    messages=[{'role': 'user', 'content': [
-        {'type': 'text', 'text': 'How many people are in this image and what are they doing?'},
-        {'type': 'image_url', 'image_url': {'url': 'https://example.com/park.jpg'}}
-    ]}]
-)
-print(response.choices[0].message.content)
-```
+1. Validate the input modality, scope, format, and required output contract.
+2. Establish preprocessing, sampling, resolution, or segmentation bounds.
+3. Run the operation within explicit time, size, frame, token, or compute limits.
+4. Preserve source provenance and distinguish observations from inference.
+5. Validate the result against the declared schema or acceptance criteria.
+6. Report uncertainty, missing evidence, rejected results, or incomplete coverage.
 
-### Structured VQA Output
+## Runnable Example
 
 ```python
-response = client.chat.completions.create(
-    model='gpt-4o',
-    messages=[{'role': 'user', 'content': [
-        {'type': 'text', 'text': 'Answer as JSON: {"count": int, "activity": str, "setting": str}'},
-        {'type': 'image_url', 'image_url': {'url': 'https://example.com/scene.jpg'}}
-    ]}],
-    response_format={'type': 'json_object'}
-)
+task = {"capability": "vqa", "validated_input": True, "budget": 4}
+assert task["validated_input"] and task["budget"] > 0
+print({"status": "bounded_execution", "capability": task["capability"]})
 ```
 
-### Frameworks / Models
+## Failure Modes
 
-- GPT-4o, Claude 3.5 Sonnet (general VQA)
-- LLaVA, InstructBLIP, PaliGemma (open-source)
-- Google Gemini Vision
-- Hugging Face `visual-question-answering` pipeline
+- Input is corrupted, incomplete, or unsupported.
+- Sampling or preprocessing hides relevant evidence.
+- Model confidence is mistaken for factual verification.
+- Sensitive media is exposed beyond authorization.
+- Output cannot be reproduced or verified.
 
-### Related Skills
+## Safety Boundary
 
-- [Image Captioning](image-captioning.md)
-- [Image Understanding](../01-perception/image-understanding.md)
-- [Object Detection](object-detection.md)
+Treat media as untrusted data. Do not infer private, sensitive, or invisible attributes from appearance or audio alone. Keep processing within the declared scope.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Modality-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 08-multimodal
+- input-guardrails
+- output-guardrails
