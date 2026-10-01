@@ -5,7 +5,7 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Main HEAD: `7d83d43a3c953d7ce66c7d52f13ea8c3545d2a8d` — current main after domain-specific modernization batch 01
+- Main HEAD at mission adoption: `eae68e4114434bc8eedb7c829ca84bebc3ff8568` — verified live main on 2026-10-01; the branch was created from this state.nt main after domain-specific modernization batch 01
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
@@ -87,12 +87,14 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; PR #181 merged as `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9`; both passed their substantive CI gates.
 
 
-## Automation review — 2026-09-30
+## Automation review — 2026-10-01
 
-- Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
-- Several writers use the shared `auto-commit-main` concurrency group, but not every writer is serialized through that group. In particular, `generate-changelog.yml` and `quality-report.yml` currently have no workflow-level concurrency block while retaining `contents: write` capability.
-- This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.
-- Open pull requests: 0 at the time of the previous snapshot; the action-execution modernization batch is now staged on a dedicated branch for CI verification.
+- Live main contains 38 workflow files.
+- A live release review confirms `zero-touch-release.yml` is the active release pipeline and `release.yml` is manual recovery only.
+- `deploy-pages.yml` is the single live Pages deployment workflow.
+- Multiple generated-main writers remain and require responsibility-level review before consolidation.
+- `generate-changelog.yml` and `quality-report.yml` now use the shared `auto-commit-main` concurrency group; the previous current-state note claiming otherwise is stale and has been corrected.
+- The workflow audit remains active. No workflow is removed solely from historical duplication evidence; consumers, triggers, generated artifacts, and replacement coverage must be verified first.
 
 
 ## Action-execution modernization — batch 01
