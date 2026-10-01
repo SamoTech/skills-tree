@@ -400,3 +400,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/communication-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Communication skills must preserve meaning, explicit constraints, evidence boundaries, and validation results; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-WEB-BATCH-01
+
+**Decision:** Begin controlled modernization of the first ten remaining placeholder-level web skills.
+
+**Scope:** api-discovery, browser-navigation, captcha-solving, cookie-management, dom-inspection, form-filling, js-execution, link-extraction, rss-parsing, and sitemap-parsing.
+
+**Status:** IN PROGRESS — staged on `coo/web-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Web automation must remain within authorization and must not bypass authentication, CAPTCHA/anti-bot controls, rate limits, robots restrictions, paywalls, or other access controls.
