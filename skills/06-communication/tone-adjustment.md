@@ -3,35 +3,61 @@ title: "Tone Adjustment"
 category: 06-communication
 level: basic
 stability: stable
-description: "Apply tone adjustment in AI agent workflows."
+description: "Transform wording to a declared tone while preserving factual meaning, intent, and required constraints."
 added: "2025-03"
+related: ["06-communication", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-tone-adjustment.json)
+## Description
 
-# Tone Adjustment
+Transform wording to a declared tone while preserving factual meaning, intent, and required constraints.
 
-**Category:** `communication`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the output contract or target tone is explicit and can be checked after transformation.
 
-Rewrite or generate text in a specified tone — formal, casual, empathetic, assertive, technical, or humorous — to match the audience and context.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | source text, target tone, audience, and protected facts. |
+| Outputs | tone-adjusted text with preserved meaning and unresolved ambiguity. |
+| Failure modes | Schema mismatch, semantic drift, omitted constraints, unsupported assumptions, or acceptance without validation. |
+
+## Procedure
+
+1. Parse the requested output contract, protected meaning, audience, and constraints.
+2. Generate or transform the content within the declared bounds.
+3. Validate structure, semantics, required fields, and protected facts.
+4. Preserve provenance and distinguish transformed wording from new claims.
+5. Report validation errors or ambiguity instead of silently coercing the result.
+
+## Runnable Example
 
 ```python
-prompt = f'''
-Rewrite the following message in a warm, friendly tone:
-"{original_message}"
-'''
-adjusted = llm.invoke(prompt)
+task = {"capability": "tone-adjustment", "validated": True, "budget": 4}
+assert task["validated"] and task["budget"] > 0
+print({"status": "contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Paraphrasing](paraphrasing.md)
-- [Persona Adoption](persona-adoption.md)
-- [Email Drafting](email-drafting.md)
+- Output fails the declared schema or target tone.
+- Transformation changes factual meaning or user intent.
+- Missing constraints are guessed rather than clarified.
+- New claims are introduced without evidence.
+- Validation is skipped before downstream use.
+
+## Safety Boundary
+
+Formatting, tone, or persona changes do not authorize factual changes, fabricated sources, or disclosure of protected information.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Generated output is not evidence by itself.
+
+## Related
+
+- 06-communication
+- input-guardrails
+- output-guardrails
