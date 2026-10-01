@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
+from jsonschema import ValidationError
 
 from registry.runtime import UniversalRegistry
 
@@ -178,5 +179,5 @@ def test_registry_rejects_schema_invalid_entity_types(tmp_path: Path) -> None:
     broken = tmp_path / "schema-invalid.json"
     broken.write_text(json.dumps(data), encoding="utf-8")
 
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError):
         UniversalRegistry(broken)
