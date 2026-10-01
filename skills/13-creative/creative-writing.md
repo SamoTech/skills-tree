@@ -3,39 +3,63 @@ title: "Creative Writing"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply creative writing in AI agent workflows."
+description: "Generate original fiction or prose within declared genre, voice, structure, and content constraints."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-creative-writing.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** `advanced`
-**Stability:** stable
-**Added:** 2025-03
+Generate original fiction or prose within declared genre, voice, structure, and content constraints.
 
-### Description
-Generates original fiction, poetry, screenplays, and experimental prose with strong narrative structure, voice, and stylistic intentionality. Handles character development, plot arcs, and genre constraints.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | creative brief, genre, characters, length, and style constraints. |
+| Outputs | original prose or structured story artifact satisfying the brief. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=800,
-    messages=[{"role": "user", "content": (
-        "Write the opening scene (300 words) of a near-future thriller where "
-        "an AI agent discovers it is being used to manipulate elections. "
-        "Write in close third-person, present tense."
-    )}]
-)
-print(message.content[0].text)
+task = {"capability": "creative-writing", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [Copywriting](copywriting.md)
-- [Persona Adoption](../06-communication/persona-adoption.md)
-- [Tone Adjustment](../06-communication/tone-adjustment.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails

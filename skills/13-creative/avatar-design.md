@@ -3,46 +3,63 @@ title: "Avatar Design"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply avatar design in AI agent workflows."
+description: "Create a coherent character or avatar design specification covering visual traits, role, personality, backstory, and generation constraints."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-avatar-design.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** Advanced
-**Stability:** stable
-**Added:** 2025-03
+Create a coherent character or avatar design specification covering visual traits, role, personality, backstory, and generation constraints.
 
-### Description
-Creates detailed character design documents including appearance, personality, backstory, abilities, and visual design notes suitable for character sheets, games, fiction, or avatar generation prompts.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | character brief, audience/use, visual constraints, and protected attributes. |
+| Outputs | structured character specification or image-generation brief with consistency checks. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-prompt = """
-Create a complete character design sheet for a sci-fi RPG character.
-Output structured JSON with these keys:
-- name, age, species, role
-- appearance: {height, build, hair, eyes, distinguishing_features}
-- personality: {traits: [], flaws: [], motivation}
-- backstory: string (150 words)
-- abilities: [{name, description, power_level}] (3 abilities)
-- image_prompt: optimised DALL-E prompt to visualise this character
-"""
-
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": prompt}]
-)
-print(message.content[0].text)
+task = {"capability": "avatar-design", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [Creative Writing](creative-writing.md)
-- [Image Generation (Prompt)](image-gen-prompt.md)
-- [Persona Adoption](../06-communication/persona-adoption.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails

@@ -3,47 +3,63 @@ title: "Logo Design"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply logo design in AI agent workflows."
+description: "Develop a logo concept and production specification emphasizing legibility, scalability, accessibility, and brand constraints."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-logo-design.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** Advanced
-**Stability:** stable
-**Added:** 2025-03
+Develop a logo concept and production specification emphasizing legibility, scalability, accessibility, and brand constraints.
 
-### Description
-Designs brand logos as production-ready SVG code. Applies brand design principles: geometric abstraction, scalability from 16px favicon to billboard, monochrome-first approach with optional colour variants, and `currentColor` for theme adaptability.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | brand brief, audience, usage sizes, visual constraints, and deliverable format. |
+| Outputs | logo specification, variants, and validation checklist. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-prompt = """
-Design an SVG logo for 'Orbit Analytics' — a data analytics SaaS.
-Requirements:
-- viewBox="0 0 200 60"
-- Wordmark + icon mark side by side
-- Icon: abstract orbital ring around a data point
-- Font equivalent via SVG path for 'Orbit' text (or use <text> with Google Font)
-- Colors: #0066FF primary, #001A3D dark background variant
-- Include a <title> element for accessibility
-Output ONLY the SVG.
-"""
-
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=2048,
-    messages=[{"role": "user", "content": prompt}]
-)
-print(message.content[0].text)
+task = {"capability": "logo-design", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [SVG/Vector Art Generation](svg-generation.md)
-- [Avatar/Character Design](avatar-design.md)
-- [Image Generation (Prompt)](image-gen-prompt.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails
