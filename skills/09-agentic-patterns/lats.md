@@ -1,39 +1,59 @@
 ---
-title: "LATS (Language Agent Tree Search)"
+title: "Lats"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Combines ToT tree search with reflection-based branch evaluation. The current best-performing single-agent reasoning architecture on hard benchmarks."
+stability: stable
+description: "Use language-agent tree search to explore candidate actions or reasoning paths under explicit expansion and evaluation limits."
 added: "2025-03"
-version: v1
-prerequisites:
-  - 09-agentic-patterns/react
-  - 09-agentic-patterns/tot
-  - 09-agentic-patterns/reflection
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-# LATS (Language Agent Tree Search)
+**Category:** Agentic Patterns
+**Skill Level:** `advanced`
+**Stability:** stable
 
 ## Description
-
-LATS extends Tree of Thought with a ReAct-style action space and a Reflection-based value function. At each node the agent can call tools (ReAct), proposes multiple next steps (ToT), and uses a critic (Reflection) to score branches instead of a simple heuristic. This combination makes LATS the current state-of-the-art single-agent pattern on multi-step coding and reasoning benchmarks.
+Use language-agent tree search to explore candidate actions or reasoning paths under explicit expansion and evaluation limits.
 
 ## When to Use
+Use when branching search is justified and evaluation criteria are available.
 
-- Hard multi-step tasks where ReAct loops fail and ToT is too expensive without guidance.
-- You have a verifier (unit tests, formal checks) to ground the value function.
-- Token budget is not a primary constraint.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Agent state, task objective, constraints, evidence/context, tools or evaluators, and stopping criteria. |
+| Outputs | Structured agent result with provenance, uncertainty, and validation state. |
+| Failure modes | Goal drift, evaluator bias, unsupported inference, unbounded search, or incomplete grounding. |
 
-## Related Skills
+## Procedure
+1. Establish the objective, state, constraints, evaluation criteria, and stopping conditions.
+2. Validate the available context and tool authority before execution.
+3. Apply the declared agentic pattern within explicit resource bounds.
+4. Evaluate outputs against evidence and acceptance criteria.
+5. Preserve uncertainty and stop or escalate when the evidence is insufficient.
 
-- [ReAct](react.md) — tool-calling foundation
-- [Tree of Thought](tot.md) — search structure
-- [Reflection](reflection.md) — branch evaluation
-- [MCTS](mcts.md) — stochastic rollout alternative
+## Runnable Example
+```python
+task = {"pattern": "lats", "validated": True}
+assert task["validated"]
+result = {"status": "evaluation_required", "pattern": task["pattern"]}
+print(result)
+```
 
-## Changelog
+## Failure Modes
+- Ambiguous objective or stopping condition.
+- Evaluator or critic shares the same failure mode as the generator.
+- Unsupported claims treated as grounded output.
+- Resource use grows without an explicit bound.
+- Completion reported without evidence or validation.
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
+## Pattern Boundary
+Search quality depends on evaluator quality; bound expansion, depth, and resource use.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Agentic-pattern outputs require explicit evaluation and evidence boundaries.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
