@@ -60,6 +60,6 @@ fields = json.loads(response.content[0].text)
 
 The skill's implementation guidance is grounded in the following primary references:
 - Agent Skills specification: https://agentskills.io/specification
-- Python JSON tooling for structured extraction: https://docs.python.org/3/library/json.html
+- Python JSON tooling for structured extraction: https://docs.python.org/3.14/library/json.html
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
