@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from copy import deepcopy
-from typing import Any, TypedDict
+from typing import TYPE_CHECKING, Any, TypedDict
 
-from .runtime import UniversalRegistry
+if TYPE_CHECKING:
+    from .runtime import UniversalRegistry
 
 
 class SkillRecord(TypedDict):
