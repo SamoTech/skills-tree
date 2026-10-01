@@ -6,7 +6,7 @@
 
 - Snapshot date: 2026-10-02
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
-- Latest verified implementation synchronization: Skill runtime facade integration merged to `main` as `37b2a529555db2e5db34713ffcb8e3b72083cfb5; validate-graph permission isolation remains verified at `d89bb26bfd3e55f513b3c07e6ebb5ee2f84ba85b`.
+- Latest verified implementation synchronization: Capability runtime facade integration merged to `main` as `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`; Skill runtime facade remains verified at `37b2a529555db2e5db34713ffcb8e3b72083cfb5`; validate-graph permission isolation remains verified at `d89bb26bfd3e55f513b3c07e6ebb5ee2f84ba85b`.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
@@ -21,6 +21,7 @@
 - The post-P2.2 Evidence runtime slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_evidence()` and `evidence_for_entity()` access through the existing validated `EvidenceRuntime`.
 - The post-P2.2 Compatibility runtime slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_compatibility()` and routes `compatibility_for()` through the existing validated `CompatibilityRuntime`.
 - The post-P2.2 Skill runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_skill()` and `capabilities_for_skill()`, and delegates `implementations_for_skill()` through the existing validated `SkillRuntime`.
+- The post-P2.2 Capability runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_capability()`, `implementations_for_capability()`, and `adapters_for_capability()` through the existing validated `CapabilityRuntime`.
 - The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
 - No numbered P2.3 requirement is currently defined. The next Phase 2 slice must come from a fresh architecture audit.
 
@@ -56,7 +57,7 @@
 
 ## Next mandatory action
 
-Complete the remaining Phase 0 control-plane reconciliation observable through available APIs, without silently changing high-impact repository governance. Then perform another fresh universal-registry runtime architecture audit after the verified Skill runtime facade integration. Identify the highest-value remaining missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Complete the remaining Phase 0 control-plane reconciliation observable through available APIs, without silently changing high-impact repository governance. Then perform another fresh universal-registry runtime architecture audit after the verified Capability runtime facade integration. Identify the highest-value remaining missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
