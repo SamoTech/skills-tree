@@ -1,7 +1,7 @@
 # Skills Tree — Executable Product Roadmap
 
 > Strategic roadmap for the AI-agent capability registry.
-> Effective: 2026-10-01
+> Effective: 2026-10-02
 > Canonical source: `skills/`
 > Strategic mission: `meta/COO_MASTER_MISSION.md`
 
@@ -186,14 +186,14 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, and the post-P2.2 Compatibility runtime integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
+The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, and the verified Skill runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
 ## Current execution queue
 
 1. Complete the remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
-2. Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration.
+2. Perform another fresh universal-registry runtime architecture audit after the verified Skill runtime facade integration.
 3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
 4. Update decision memory, architecture documentation, development knowledge, roadmap, and current state in the same cycle.
 5. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
