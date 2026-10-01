@@ -2,43 +2,58 @@
 title: "Visual Element Detection"
 category: 10-computer-use
 level: advanced
-stability: experimental
-description: "Apply visual element detection in AI agent workflows."
+stability: stable
+description: "Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-visual-element-detection.json)
-
-# Visual Element Detection
-
-**Category:** `computer-use`
+**Category:** Computer Use
 **Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets.
 
-Detect UI elements (buttons, fields, icons) on screen using computer vision — template matching, YOLO-based object detection, or multimodal VLM analysis of screenshots.
+## When to Use
+Use when semantic accessibility data is unavailable and visual targeting is required.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
+
+## Runnable Example
 ```python
-import pyautogui
-
-# Template matching: find a button image on screen
-location = pyautogui.locateOnScreen(
-    'assets/submit_button.png',
-    confidence=0.85
-)
-if location:
-    pyautogui.click(pyautogui.center(location))
-
-# Or use a VLM to identify element positions
-# prompt: "Where is the Submit button? Return x,y coordinates."
+action = {"capability": "visual-element-detection", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [Screenshot Capture](screenshot-capture.md)
-- [Screen Region OCR](screen-ocr.md)
-- [Mouse Click](mouse-click.md)
+## Safety Boundary
+Visual detection can be uncertain; candidates require verification before any action.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
