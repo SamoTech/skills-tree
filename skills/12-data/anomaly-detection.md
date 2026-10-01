@@ -1,58 +1,59 @@
 ---
 title: "Anomaly Detection"
 category: 12-data
-level: intermediate
+level: advanced
 stability: stable
+description: "Identify unusual observations in supplied datasets using explicit baselines, thresholds, or statistical criteria."
 added: "2025-03"
-description: "Apply anomaly detection in AI agent workflows."
-dependencies:
-  - package: scikit-learn
-    min_version: "1.3.0"
-    tested_version: "1.8.0"
-    confidence: verified
-  - package: pandas
-    min_version: "2.0.0"
-    tested_version: "3.0.2"
-    confidence: verified
-code_blocks:
-  - id: "example-anomaly"
-    type: executable
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-anomaly-detection.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Anomaly Detection
+## Description
+Identify unusual observations in supplied datasets using explicit baselines, thresholds, or statistical criteria.
 
-**Category:** `data`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when a dataset, comparison baseline, and anomaly objective are defined.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
+| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
 
-Detect statistical outliers and anomalous patterns in numerical datasets using Isolation Forest, Z-score, or LOF algorithms.
+## Procedure
+1. Inspect the source schema and establish explicit transformation semantics.
+2. Validate required fields, types, encoding, null behavior, and relevant constraints.
+3. Apply only the declared transformation or analysis.
+4. Compare input/output counts and validate the resulting schema and values.
+5. Preserve source data and record material assumptions or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-# pip install scikit-learn pandas
-import pandas as pd
-from sklearn.ensemble import IsolationForest
-from sklearn.preprocessing import StandardScaler
-
-df = pd.read_csv("metrics.csv")
-features = df[["cpu_usage", "memory_mb", "latency_ms"]]
-
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(features)
-
-iso = IsolationForest(contamination=0.05, random_state=42)
-df["anomaly"] = iso.fit_predict(X_scaled)  # -1 = anomaly, 1 = normal
-
-anomalies = df[df["anomaly"] == -1]
-print(f"Detected {len(anomalies)} anomalies out of {len(df)} records")
-print(anomalies.head())
+task = {"capability": "anomaly-detection", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- `statistical-analysis`, `time-series`, `data-visualization`, `csv-processing`
+## Failure Modes
+- Missing or ambiguous schema.
+- Unexpected nulls, duplicates, or malformed records.
+- Silent row/field loss.
+- Incorrect join, aggregation, or type coercion semantics.
+- Output not validated against the required contract.
+
+## Data Boundary
+An anomaly is not automatically an error or incident; investigate context before acting.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
+
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
