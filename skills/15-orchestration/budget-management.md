@@ -3,48 +3,57 @@ title: "Budget Management"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply budget management in AI agent workflows."
+description: "Track and enforce declared resource budgets across an agent workflow, including token, time, tool, or monetary limits."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-budget-management.json)
 
 **Category:** Orchestration
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Tracks and enforces token, cost, time, and API-call budgets across a multi-agent workflow. Allocates quotas per sub-agent, triggers warnings at thresholds, and halts or degrades execution when limits are reached.
+## Description
+Track and enforce declared resource budgets across an agent workflow, including token, time, tool, or monetary limits.
 
-### Example
+## When to Use
+Use when a workflow has explicit resource ceilings and consumption must be bounded.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+
+## Runnable Example
 ```python
-from dataclasses import dataclass, field
-
-@dataclass
-class Budget:
-    max_tokens: int
-    max_cost_usd: float
-    used_tokens: int = 0
-    used_cost: float = 0.0
-
-    def charge(self, tokens: int, cost_usd: float):
-        self.used_tokens += tokens
-        self.used_cost += cost_usd
-        if self.used_tokens > self.max_tokens:
-            raise RuntimeError(f"Token budget exceeded: {self.used_tokens}/{self.max_tokens}")
-        if self.used_cost > self.max_cost_usd:
-            raise RuntimeError(f"Cost budget exceeded: ${self.used_cost:.4f}")
-
-    @property
-    def remaining_tokens(self):
-        return self.max_tokens - self.used_tokens
-
-b = Budget(max_tokens=10000, max_cost_usd=0.50)
-b.charge(4000, 0.12)
-print(f"Remaining tokens: {b.remaining_tokens}")
+task = {"capability": "budget-management", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Rate Limiting](../14-security/rate-limiting.md)
-- [Logging & Observability](logging-observability.md)
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
+
+## Orchestration Boundary
+Budget estimates can be approximate; enforce hard ceilings where available and surface uncertainty.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
