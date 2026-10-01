@@ -367,3 +367,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/agentic-patterns-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Agentic patterns must state objective, evaluation criteria, budgets, provenance, evidence boundaries, uncertainty, and failure handling; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-MEMORY-BATCH-01
+
+**Decision:** Modernize the remaining placeholder-level memory skills with explicit state and verification contracts.
+
+**Scope:** fact-verification-memory, fact-verification, procedural, user-profile, and working-memory.
+
+**Status:** IN PROGRESS — staged on `coo/memory-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Memory must define scope, provenance, retention, freshness, conflict handling, uncertainty, and verification boundaries; no validator or security gate may be weakened.
