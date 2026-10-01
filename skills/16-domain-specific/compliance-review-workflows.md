@@ -4,6 +4,7 @@ category: 16-domain-specific
 level: advanced
 stability: stable
 description: "Apply compliance review workflows in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 added: "2026-04"
 version: v2
 ---
