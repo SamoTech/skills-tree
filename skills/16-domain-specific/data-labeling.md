@@ -3,7 +3,8 @@ title: "Data Labeling"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply data labeling in AI agent workflows."
+description: "Apply data labeling in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
@@ -42,7 +43,7 @@ samples = ["I can't log into my account", "Loving the new dashboard!", "Please a
 print(label_batch(samples))
 ```
 
-### Related Skills
-- [Data Cleaning](../12-data/data-cleaning.md)
-- [Structured Output](../06-communication/structured-output.md)
-- [Embedding Generation](../12-data/embedding-generation.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

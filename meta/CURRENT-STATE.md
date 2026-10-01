@@ -158,3 +158,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Provider-specific behavior is referenced to official provider documentation; no benchmark or battle-tested claim is introduced.
 - No validator, security gate, or repository governance rule was weakened.
 - PR CI is the required verification gate before merge.
+
+
+## Domain-specific modernization — batch 01
+
+- Modernized ten 16-domain-specific skills: ad-copy, alert-triage, clinical-note-summarization, compliance-checking, compliance-review-workflows, contract-review, data-labeling, drug-interaction, essay-grading, and financial-statement.
+- Added corresponding Agent Skills projections.
+- Added explicit scope, validation, uncertainty, and failure handling; no unsupported domain certainty was introduced.
+- No validator, security gate, or repository governance rule was weakened.

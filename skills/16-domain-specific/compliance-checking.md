@@ -3,7 +3,8 @@ title: "Compliance Checking"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply compliance checking in AI agent workflows."
+description: "Apply compliance checking in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
@@ -36,7 +37,7 @@ def gdpr_gap_check(implemented: list[str]) -> dict:
 print(gdpr_gap_check(["privacy_policy_published", "consent_mechanism"]))
 ```
 
-### Related Skills
-- [Contract Review](contract-review.md)
-- [Risk Assessment](../02-reasoning/risk-assessment.md)
-- [Assertion](../04-action-execution/assertion.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

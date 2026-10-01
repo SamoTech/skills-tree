@@ -3,7 +3,8 @@ title: "Alert Triage"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply alert triage in AI agent workflows."
+description: "Apply alert triage in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
@@ -41,7 +42,7 @@ alerts = [
 print(triage_alerts(alerts))
 ```
 
-### Related Skills
-- [Incident Response](incident-response.md)
-- [Log Analysis](log-analysis.md)
-- [Prioritization](../02-reasoning/prioritization.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

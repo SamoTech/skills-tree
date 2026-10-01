@@ -3,7 +3,8 @@ title: "Essay Grading"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply essay grading in AI agent workflows."
+description: "Apply essay grading in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
@@ -39,7 +40,7 @@ def grade_essay(essay: str) -> dict:
 print(grade_essay("Renewable energy is crucial because fossil fuels are depleting..."))
 ```
 
-### Related Skills
-- [Lesson Plan Writing](lesson-plan.md)
-- [Report Writing](../06-communication/report-writing.md)
-- [Argument Construction](../06-communication/argument-construction.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
