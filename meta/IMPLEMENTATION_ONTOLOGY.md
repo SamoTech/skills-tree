@@ -73,3 +73,14 @@ The selected slice integrates the existing CompatibilityRuntime into UniversalRe
 **Verification:** PR #227 exact head `9e4c7608246092ce902384d10d87e2812330de8a` passed Test Suite, Security Scan, PR Checks, Build & Verify Wheel, and Auto Label before merge as `ba9682b26ea59b18f21eb017b6f239f735c4dec3`.
 
 **Status:** VERIFIED — no compatibility facts or external claims were added.
+
+
+## Post-P2.2 Skill Runtime Facade Integration — Verified 2026-10-02
+
+A fresh universal-registry runtime audit found that the repository already had a validated `SkillRuntime` with focused deterministic tests, but `UniversalRegistry` still bypassed that boundary for Skill resolution and Skill-to-Implementation traversal.
+
+The selected vertical slice integrates the existing `SkillRuntime` into `UniversalRegistry` and exposes `resolve_skill()`, `capabilities_for_skill()`, and delegated `implementations_for_skill()`. The `TYPE_CHECKING` import boundary keeps the runtime modules acyclic. No ontology records or external claims were introduced.
+
+**Verification:** PR #234 exact head `2ec1690606b26b1727567b6c421ea538b9a07d3a` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
+
+**Status:** VERIFIED — Skill access through the UniversalRegistry facade is now routed through the dedicated validated runtime.
