@@ -266,3 +266,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added explicit memory scope, provenance, retention, freshness, conflict handling, uncertainty, bounded operations, and verification requirements.
 - Removed unsupported legacy dependency/code-block metadata from the canonical procedural skill while preserving its operational intent.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Communication modernization — batch 01
+
+- Modernized ten `06-communication` skills: argument-construction, citation-attribution, clarification-seeking, debate, email-drafting, instruction-following, multilingual-output, persona-adoption, question-answering, and report-writing.
+- Added corresponding Agent Skills projections.
+- Added explicit communication contracts, evidence boundaries, uncertainty handling, constraint checking, failure modes, and runnable examples.
+- Preserved existing enriched paraphrasing, summarization, and translation skills.
+- No validator, security gate, or repository governance rule was weakened.
