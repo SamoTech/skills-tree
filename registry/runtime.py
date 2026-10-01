@@ -9,6 +9,7 @@ from typing import Any, TypedDict
 
 from jsonschema import Draft202012Validator
 
+from .compatibility import CompatibilityRecord, CompatibilityRuntime
 from .evidence import EvidenceRecord, EvidenceRuntime
 
 
@@ -60,6 +61,9 @@ class UniversalRegistry:
         self._validate_adapter_contracts()
         self._validate_evidence_contracts()
         self._validate_graph_contract()
+        compatibility_schema_path = self.path.parent.parent / "meta" / "compatibility-model.schema.json"
+        compatibility_schema = json.loads(compatibility_schema_path.read_text(encoding="utf-8"))
+        self._compatibility_runtime = CompatibilityRuntime(self._data, compatibility_schema)
         self._evidence_runtime = EvidenceRuntime(self._data)
 
     @property
@@ -130,14 +134,22 @@ class UniversalRegistry:
             key=lambda item: item["id"],
         ))
 
-    def compatibility_for(self, subject_id: str, target_type: str | None = None, target_id: str | None = None) -> list[dict[str, Any]]:
-        """Return deterministic compatibility facts for an entity."""
-        records = [x for x in self._data["entities"].get("compatibilities", []) if x["subject"] == subject_id]
-        if target_type is not None:
-            records = [x for x in records if x["target"]["type"] == target_type]
-        if target_id is not None:
-            records = [x for x in records if x["target"]["id"] == target_id]
-        return deepcopy(sorted(records, key=lambda x: x["id"]))
+    def resolve_compatibility(self, compatibility_id: str) -> CompatibilityRecord:
+        """Return one validated Compatibility by canonical ID."""
+        return self._compatibility_runtime.resolve_compatibility(compatibility_id)
+
+    def compatibility_for(
+        self,
+        subject_id: str,
+        target_type: str | None = None,
+        target_id: str | None = None,
+    ) -> list[CompatibilityRecord]:
+        """Return validated compatibility facts for an entity in deterministic order."""
+        return self._compatibility_runtime.compatibility_for(
+            subject_id,
+            target_type=target_type,
+            target_id=target_id,
+        )
 
     def graph_edges(self) -> list[dict[str, Any]]:
         """Return validated typed universal-graph edges in deterministic order."""
