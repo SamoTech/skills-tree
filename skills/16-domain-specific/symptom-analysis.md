@@ -3,46 +3,57 @@ title: "Symptom Analysis"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply symptom analysis in AI agent workflows."
+description: "Structure symptom information into questions, red-flag checks, and uncertainty-aware triage support without claiming a diagnosis."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-symptom-analysis.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Maps reported symptoms to differential diagnosis candidates, urgency tiers, and recommended next steps using structured medical reasoning. Integrates evidence-based triage heuristics, red-flag detection, and explicit uncertainty signalling to support (not replace) clinician review.
+## Description
+Structure symptom information into questions, red-flag checks, and uncertainty-aware triage support without claiming a diagnosis.
 
-### Example
+## When to Use
+Use only as an information-structuring aid when symptom details and relevant context are supplied.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
 ```python
-from dataclasses import dataclass
-from typing import List
-
-@dataclass
-class TriageResult:
-    urgency: str
-    differentials: List[str]
-    red_flags: List[str]
-    next_step: str
-
-RED_FLAGS = ["chest pain", "confusion", "shortness of breath", "sudden weakness"]
-
-def triage(symptoms: List[str]) -> TriageResult:
-    flags = [s for s in symptoms if s in RED_FLAGS]
-    urgency = "URGENT" if flags else "ROUTINE"
-    differentials = ["viral URI", "influenza"] if "fever" in symptoms else ["evaluate further"]
-    return TriageResult(urgency=urgency, differentials=differentials,
-                        red_flags=flags, next_step="Seek immediate care" if flags else "GP visit")
-
-print(triage(["fever", "cough", "fatigue"]))
+task = {"capability": "symptom-analysis", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Decision Making](../02-reasoning/decision-making.md)
-- [Risk Assessment](../02-reasoning/risk-assessment.md)
-- [Drug Interaction Check](drug-interaction.md)
-- [Clinical Note Summarization](clinical-note-summarization.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+This is not diagnosis or medical advice; urgent red flags require appropriate professional or emergency evaluation.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

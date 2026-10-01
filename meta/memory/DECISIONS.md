@@ -257,3 +257,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/domain-specific-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Preserve source traceability, uncertainty, applicable professional-domain boundaries, and unchanged validation/security gates.
+
+
+## DECISION-2026-10-01-DOMAIN-SPECIFIC-BATCH-03
+
+**Decision:** Complete the 16-domain-specific stub modernization.
+
+**Scope:** paper-summarization, portfolio-analysis, product-description, quiz-generation, review-analysis, seo-optimization, stock-lookup, and symptom-analysis.
+
+**Status:** IN PROGRESS — staged on `coo/domain-specific-batch-03-2026-10-01` pending CI.
+
+**Constraint:** Preserve source traceability, uncertainty, professional-domain boundaries, and unchanged validation/security gates.

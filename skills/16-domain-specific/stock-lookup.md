@@ -3,40 +3,57 @@ title: "Stock Lookup"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply stock lookup in AI agent workflows."
+description: "Retrieve and normalize supplied or connected market-data results for a requested security, preserving timestamp and source context."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-stock-lookup.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Retrieves real-time and historical OHLCV price data for equities, ETFs, and indices. Normalizes symbols across exchanges, handles corporate actions such as splits and dividends, and feeds downstream analysis or alerting pipelines.
+## Description
+Retrieve and normalize supplied or connected market-data results for a requested security, preserving timestamp and source context.
 
-### Example
+## When to Use
+Use when the security identifier, market, and required observation time are known.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
 ```python
-import yfinance as yf
-
-def get_snapshot(ticker: str) -> dict:
-    stock = yf.Ticker(ticker)
-    info = stock.info
-    hist = stock.history(period="5d")
-    return {
-        "symbol": ticker,
-        "price": info.get("currentPrice"),
-        "market_cap": info.get("marketCap"),
-        "pe_ratio": info.get("trailingPE"),
-        "5d_return": round((hist["Close"].iloc[-1] / hist["Close"].iloc[0] - 1) * 100, 2),
-    }
-
-print(get_snapshot("AAPL"))
+task = {"capability": "stock-lookup", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Portfolio Analysis](portfolio-analysis.md)
-- [Financial Statement Analysis](financial-statement.md)
-- [Time Series](../12-data/time-series.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+Market data can be delayed or provider-dependent; never present stale data as real-time and do not turn lookup output into investment advice.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

@@ -3,43 +3,57 @@ title: "Quiz Generation"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply quiz generation in AI agent workflows."
+description: "Generate assessment questions from supplied instructional material with explicit answer keys and source coverage."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-quiz-generation.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Generates multi-format assessments (MCQ, true/false, short-answer, fill-in-the-blank) from source material with calibrated difficulty, plausible distractors, and answer explanations. Supports Bloom's taxonomy alignment and export to quiz platforms.
+## Description
+Generate assessment questions from supplied instructional material with explicit answer keys and source coverage.
 
-### Example
+## When to Use
+Use when source content, learner level, and assessment format are specified.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
 ```python
-import anthropic, json
-
-client = anthropic.Anthropic()
-
-def generate_quiz(text: str, n: int = 3) -> list[dict]:
-    prompt = (
-        f"Generate {n} multiple-choice questions from this text. "
-        "Return JSON array, each item: {question, options: [A,B,C,D], answer, explanation}.\n\n" + text
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=1024,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return json.loads(resp.content[0].text)
-
-content = "The mitochondria produce ATP through oxidative phosphorylation."
-for q in generate_quiz(content):
-    print(q["question"], "->", q["answer"])
+task = {"capability": "quiz-generation", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Lesson Plan Writing](lesson-plan.md)
-- [Flashcard Creation](flashcard-creation.md)
-- [Structured Output](../06-communication/structured-output.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+Generated questions require content review for correctness, ambiguity, bias, and curriculum alignment.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

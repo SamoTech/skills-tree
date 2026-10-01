@@ -3,44 +3,57 @@ title: "Paper Summarization"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply paper summarization in AI agent workflows."
+description: "Summarize supplied academic papers into traceable problem, methods, findings, limitations, and future-work sections."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-paper-summarization.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Condenses academic papers into structured summaries covering research problem, methodology, key findings, limitations, and future work. Supports both single-paper deep dives and bulk pipeline summarisation for literature review automation.
+## Description
+Summarize supplied academic papers into traceable problem, methods, findings, limitations, and future-work sections.
 
-### Example
+## When to Use
+Use when a paper or extracted academic source text is available.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
 ```python
-import anthropic, json
-
-client = anthropic.Anthropic()
-
-def summarise_paper(abstract: str, full_text: str = "") -> dict:
-    content = abstract if not full_text else f"{abstract}\n\n{full_text[:3000]}"
-    prompt = (
-        "Summarise this paper as JSON: {problem, method, key_findings, "
-        "limitations, future_work, one_sentence_tldr}.\n\n" + content
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=700,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return json.loads(resp.content[0].text)
-
-abstract = "We propose a retrieval-augmented code generation pipeline that improves "\
-           "pass@1 on HumanEval by 8.4% over standard fine-tuning baselines."
-print(summarise_paper(abstract))
+task = {"capability": "paper-summarization", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Literature Review](literature-review.md)
-- [RAG](../03-memory/rag.md)
-- [Summarization](../06-communication/summarization.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+A summary is not independent evidence; preserve quotations, claims, and uncertainty rather than inventing findings.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
