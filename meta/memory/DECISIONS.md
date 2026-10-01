@@ -522,3 +522,20 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if deterministic generation, validation ordering, writer serialization, or least-privilege assumptions are contradicted by repository evidence or a replacement generation architecture is adopted.
+
+
+## DECISION-2026-10-02-SKILL-RUNTIME-FACADE-INTEGRATION
+
+**Decision-ID:** DECISION-2026-10-02-SKILL-RUNTIME-FACADE-INTEGRATION
+
+**Topic:** Route canonical Skill access through the existing validated SkillRuntime facade.
+
+**Decision:** Integrate the existing read-only `SkillRuntime` into `UniversalRegistry`. Expose `resolve_skill()` and `capabilities_for_skill()`, and delegate `implementations_for_skill()` to the runtime. Preserve canonicality enforcement, deterministic ordering, defensive snapshots, existing registry validation, and the no-new-claims boundary.
+
+**Rationale:** The repository already had a dedicated, tested Skill runtime, but the UniversalRegistry facade still bypassed it with direct registry storage access. This was an abstraction-boundary inconsistency analogous to the previously corrected Evidence and Compatibility gaps.
+
+**Evidence:** `meta/POST_P2_2_SKILL_RUNTIME_AUDIT_20260919.md`; PR #234; exact-head CI green; merge commit `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if tests or repository evidence demonstrate a regression in canonicality, deterministic behavior, snapshot isolation, import architecture, or facade/runtime consistency, or if a replacement runtime architecture supersedes this boundary.
