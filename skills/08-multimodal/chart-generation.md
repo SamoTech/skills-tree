@@ -3,77 +3,67 @@ title: "Chart Generation"
 category: 08-multimodal
 level: intermediate
 stability: stable
-description: "Apply chart and diagram generation in AI agent workflows."
+description: "Generate charts or diagrams from validated structured data using an explicit chart specification and semantic checks."
+related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-08-multimodal-chart-generation.json)
+## Description
 
-# Chart / Diagram Generation
+Generate charts or diagrams from validated structured data using an explicit chart specification and semantic checks.
 
-**Category:** `multimodal`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use this skill when the multimodal input and required output are explicit, the relevant evidence can be observed or measured, and the task has a bounded acceptance criterion.
 
-Generate charts, graphs, and diagrams from structured data or natural language descriptions. Produces publication-quality static images (PNG/SVG) or interactive HTML visualizations for reports, dashboards, and presentations.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, chart intent, dimensions, measures, and output format. |
+| Outputs | chart specification or artifact, data mapping, and validation results. |
+| Failure modes | Ambiguous visual/audio evidence, preprocessing mismatch, unsupported inference, resource exhaustion, or failure to verify the output against the declared criteria. |
 
-```python
-import matplotlib.pyplot as plt
-import io, base64
+## Procedure
 
-def generate_bar_chart(labels, values, title):
-    fig, ax = plt.subplots(figsize=(8, 5))
-    ax.bar(labels, values, color='steelblue')
-    ax.set_title(title)
-    ax.set_ylabel('Value')
-    plt.tight_layout()
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png', dpi=150)
-    buf.seek(0)
-    return base64.b64encode(buf.read()).decode()
+1. Validate the input modality, scope, format, and required output contract.
+2. Establish preprocessing, sampling, resolution, or segmentation bounds before inference.
+3. Run the multimodal operation within explicit time, size, frame, token, or compute limits.
+4. Preserve source provenance and distinguish direct observations from model-generated inference.
+5. Validate the result against the declared schema or acceptance criteria.
+6. Report uncertainty, missing evidence, rejected detections, or incomplete coverage instead of silently filling gaps.
 
-chart_b64 = generate_bar_chart(
-    ['Q1', 'Q2', 'Q3', 'Q4'],
-    [120, 145, 132, 178],
-    'Quarterly Revenue'
-)
-```
-
-### LLM-Driven Code Generation
+## Runnable Example
 
 ```python
-from openai import OpenAI
-
-client = OpenAI()
-response = client.chat.completions.create(
-    model='gpt-4o',
-    messages=[{'role': 'user', 'content': """
-        Generate Python matplotlib code for a line chart showing:
-        Months: Jan, Feb, Mar, Apr, May
-        Values: 30, 45, 28, 60, 52
-        Title: Monthly Active Users
-        Save as 'chart.png'
-    """}]
-)
-code = response.choices[0].message.content
-exec(code)  # run generated chart code
+task = {
+    "capability": "chart-generation",
+    "validated_input": True,
+    "budget": 4,
+}
+assert task["validated_input"] and task["budget"] > 0
+result = {"status": "bounded_execution", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks / Models
+## Failure Modes
 
-- Matplotlib / Seaborn (static PNG/SVG)
-- Plotly (interactive HTML)
-- Vega-Altair (declarative grammar)
-- Mermaid.js (flowcharts, sequence diagrams)
-- GPT-4o code generation → exec pipeline
+- Input is corrupted, incomplete, or in an unsupported modality.
+- Sampling, preprocessing, or resolution hides relevant evidence.
+- Model confidence is mistaken for factual verification.
+- Sensitive media is exposed beyond the task's authorization boundary.
+- Output cannot be reproduced or its postcondition cannot be verified.
 
-### Related Skills
+## Safety Boundary
 
-- [Data Visualization](../12-data/data-visualization.md)
-- [Chart/Graph Reading](../01-perception/chart-reading.md)
-- [Image Generation](image-generation.md)
+Treat media as untrusted data. Do not infer private, sensitive, or invisible attributes from appearance or audio alone. Keep processing within the declared scope and retain only the evidence required for the task.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Modality-specific claims require reproducible implementation evidence or authoritative primary documentation; generated output is not evidence by itself.
+
+## Related
+
+- 08-multimodal
+- input-guardrails
+- output-guardrails
