@@ -99,8 +99,7 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Phase 0 remaining work: workflow-by-workflow classification, duplicate/unused automation disposition, permissions/security reconciliation, and explicit documentation of connector control-plane limitations.
 
 - Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
-- Current live workflow audit: 34 workflow files exist. Generated-main writers are not all using one shared serialization group; some use `auto-commit-main`, while others use workflow-specific concurrency groups. This remains an active Phase 0 architecture finding.
-- This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.
+- Current live workflow audit: 34 workflow files exist. All confirmed direct-main generated writers identified by the audit now use the shared `auto-commit-main` serialization group with cancellation disabled.
 - Other open pull requests: GitHub reported none at the latest repository check; this snapshot update is itself PR #212.
 
 
