@@ -6,7 +6,7 @@
 
 - Snapshot date: 2026-10-01
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
-- Latest verified documentation synchronization: PR #225, merged on 2026-10-01. The merge corrected the live-state, roadmap, and agent-operating-model documentation after PR #224.
+- Latest verified implementation/documentation synchronization: PR #227, merged on 2026-10-01.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
@@ -19,6 +19,7 @@
 - P2.1 Implementation ontology contract unification is verified.
 - P2.2 typed Implementation runtime access and contract validation are verified.
 - The post-P2.2 Evidence runtime slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_evidence()` and `evidence_for_entity()` access through the existing validated `EvidenceRuntime`.
+- The post-P2.2 Compatibility runtime slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_compatibility()` and routes `compatibility_for()` through the existing validated `CompatibilityRuntime`.
 - The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
 - No numbered P2.3 requirement is currently defined. The next Phase 2 slice must come from a fresh architecture audit.
 
@@ -51,7 +52,7 @@
 
 ## Next mandatory action
 
-Perform a fresh universal-registry runtime architecture audit after the verified Evidence runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration. Identify the highest-value missing invariant or runtime capability, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, or consumer layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
