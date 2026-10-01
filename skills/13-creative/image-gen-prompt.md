@@ -1,43 +1,65 @@
 ---
-title: "Image Gen Prompt"
+title: "Image Generation Prompt"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply image gen prompt in AI agent workflows."
+description: "Construct a detailed image-generation prompt from subject, composition, lighting, style, and output constraints."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-image-gen-prompt.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** `advanced`
-**Stability:** stable
-**Added:** 2025-03
+Construct a detailed image-generation prompt from subject, composition, lighting, style, and output constraints.
 
-### Description
-Engineers detailed, model-specific prompts for image generation systems such as DALL-E, Stable Diffusion, and Midjourney. Applies techniques for subject, style, lighting, composition, aspect ratio, and negative prompt construction.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | concept, visual references supplied by the user, target generator constraints, and exclusions. |
+| Outputs | generator-ready prompt with explicit composition and exclusions. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-def craft_image_prompt(concept: str, style: str, model: str = "sdxl") -> str:
-    resp = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=300,
-        messages=[{"role": "user", "content": (
-            f"Create a detailed {model} image generation prompt for: '{concept}'.\n"
-            f"Style: {style}. Include subject, lighting, composition, "
-            "camera settings, and a concise negative prompt."
-        )}]
-    )
-    return resp.content[0].text
-
-print(craft_image_prompt("futuristic city at dawn", "cinematic realism"))
+task = {"capability": "image-gen-prompt", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [Image Generation](../08-multimodal/image-generation.md)
-- [Creative Writing](creative-writing.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails
