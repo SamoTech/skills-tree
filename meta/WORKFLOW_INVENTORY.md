@@ -1,0 +1,74 @@
+# GitHub Actions Workflow Inventory
+
+**Snapshot:** 2026-10-01  
+**Live workflow files:** 42
+
+This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
+
+| Workflow | Classification | Purpose / disposition |
+|---|---|---|
+| `ast-sweep.yml` | Scheduled maintenance | AST/repository hygiene |
+| `auto-label.yml` | Supporting automation | Issue/PR labeling |
+| `build-and-verify.yml` | Authoritative validation | Package build and wheel verification |
+| `build-graph.yml` | Generated-main writer | Graph projection |
+| `check-links.yml` | Supporting validation | Link validation |
+| `clean-install-test.yml` | Supporting validation | Clean-install regression |
+| `dependabot-auto-merge.yml` | Supporting automation | Dependabot PR handling |
+| `dependency-auditor.yml` | Maintenance automation | Dependency/security audit with repository side effects |
+| `deploy-pages.yml` | Authoritative Pages deployment | Single repository-controlled Pages deployment |
+| `devlens.yml` | Manual maintenance/diagnostic | Repository health assessment |
+| `export-skills.yml` | Generated-main writer | Published skill export |
+| `generate-blueprint.yml` | Supporting artifact generation | Blueprint generation |
+| `generate-changelog.yml` | Generated-main writer | Generated changelog |
+| `generate-search-index.yml` | Generated-main writer | Search index |
+| `issue-welcome.yml` | Supporting automation | Issue onboarding |
+| `leaderboard.yml` | Generated-main writer | Leaderboard projection |
+| `osv-watch.yml` | Generated-main writer | OSV/advisory state |
+| `pr-checks.yml` | Authoritative PR gate | Pull-request checks |
+| `quality-report.yml` | Generated-main writer | Quality projection |
+| `release-package.yml` | Supporting release artifact | Catalog ZIP attached to GitHub Release |
+| `release.yml` | Manual recovery | Existing-tag PyPI republish |
+| `revoke-phantom-badges.yml` | Generated-main writer | Badge reconciliation |
+| `schema-enforce.yml` | Authoritative validation | Schema enforcement |
+| `security-scan.yml` | Authoritative security gate | Security scanning |
+| `skill-upgrade-comment.yml` | Supporting PR automation | Upgrade/review comments |
+| `skill-version-badge.yml` | Supporting PR automation | Version/badge labeling |
+| `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
+| `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
+| `sync-badges.yml` | Generated-main writer | Badge reconciliation |
+| `test.yml` | Authoritative test execution | Repository tests |
+| `update-skill-count.yml` | Generated-main writer | Skill-count projection |
+| `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
+| `used-in-tracker.yml` | Generated-main writer | Usage tracker |
+| `validate-agent-skills.yml` | Authoritative validation | Agent Skills distribution validation |
+| `validate-corpus.yml` | Authoritative validation | Structured corpus validation |
+| `validate-evaluations.yml` | Authoritative validation | Evaluation validation |
+| `validate-graph.yml` | Authoritative validation + generated writer | Graph validation plus trusted-main artifact writes |
+| `validate-skills.yml` | Authoritative validation | Skill metadata validation |
+| `verify-taxonomy.yml` | Authoritative validation | Taxonomy verification |
+| `version-stats.yml` | Generated-main writer | Version statistics |
+| `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
+| `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+
+## Reconciliation findings
+
+1. `deploy-pages.yml` is the single repository-controlled Pages deployment.
+2. `zero-touch-release.yml` is the production release authority.
+3. `release.yml` is manual recovery only.
+4. `release-package.yml` is supporting release-artifact packaging, not a competing release authority.
+5. `stale.yml` and `stale-skills.yml` have different scopes and are not duplicates.
+6. Generated-main writers are a high-risk class and must remain least-privileged, deterministic, serialized, bounded, and observable.
+7. `validate-graph.yml` combines PR validation and trusted-main generated writes in one job. Its job-level `contents: write` and `pull-requests: write` permissions are broader than required for the PR validation path. This is the next concrete hardening target; this inventory slice intentionally makes no workflow change.
+8. GitHub control-plane settings not exposed by the available connector remain explicitly unverified rather than inferred.
+
+## Known generated-main write paths
+
+`build-graph.yml`, `export-skills.yml`, `generate-changelog.yml`, `generate-search-index.yml`, `leaderboard.yml`, `osv-watch.yml`, `quality-report.yml`, `revoke-phantom-badges.yml`, `sync-badges.yml`, `update-skill-count.yml`, `used-in-tracker.yml`, `version-stats.yml`, `weekly-highlights.yml`, `dependency-auditor.yml`, `zero-touch-release.yml`, and `validate-graph.yml`.
+
+The repository-wide `auto-commit-main` semaphore remains the required serialization boundary for direct generated-main writers.
+
+## Completion gate
+
+Workflow classification is materially reconciled at the file/role level. Phase 0 remains open until the identified permission boundary is hardened and unavailable GitHub control-plane checks are explicitly documented.
+
+Any new or modified workflow must be classified in this file in the same change.
