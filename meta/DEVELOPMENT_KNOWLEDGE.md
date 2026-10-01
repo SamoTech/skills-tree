@@ -411,6 +411,6 @@ Authoritative references were added for OWASP logging/authorization/secrets guid
 
 **Verification:** PR #243 final head `a76f44379b1fba4a6667e9efce04a5db6c912d97` passed the final validation matrix before squash merge `40fb35aa6c54438f08062c89c118815262b6fe98`.
 
-**Automation finding:** the generated quality report did not regenerate after the API-driven merge despite `quality-report.yml` declaring a main-push trigger. The repository is adding a trusted post-merge trigger rather than hand-editing the generated artifact.
+**Automation verification:** the hardened `quality-report.yml` post-merge trigger regenerated `meta/QUALITY-REPORT.md` as GitHub Actions commit `ac8aacb5982018d2ee57a2953924dd74a9013e20`. The generated report verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid; category 14-security is fully migrated at 13 battle-tested, 0 stubs.
 
-**Next:** verify the regenerated quality report and use it as the authoritative corpus baseline for the next migration batch.
+**Next:** use the generated report as the authoritative baseline for the remaining 13-stub migration backlog.
