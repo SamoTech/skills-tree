@@ -25,9 +25,9 @@ Security > Correctness > Canonical architecture > Discovery > Evidence > Freshne
 6. Remove synthetic repository churn and duplicate automation only after dependency/reference verification.
 7. Synchronize governance and current-state documentation with actual GitHub state.
 8. Verify security gates and document any GitHub control-plane limitations that the connector cannot inspect.
-9. Harden the identified `validate-graph.yml` PR permission boundary without weakening trusted-main graph generation.
+9. Harden the identified `validate-graph.yml` PR permission boundary without weakening trusted-main graph generation. **VERIFIED 2026-10-02:** validation is read-only; trusted-main graph generation is isolated to a write-scoped job; quality generation depends on graph generation.
 
-Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, and no undocumented automation ownership.
+Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, verified permission boundaries, and no undocumented automation ownership.
 
 ## Phase 1 — Registry foundation — VERIFIED — completed foundation
 
@@ -186,15 +186,14 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, and the post-P2.2 Compatibility runtime integration. The remaining Phase 0 items are limited to the evidence-backed workflow classification/reconciliation work recorded in `meta/CURRENT-STATE.md`. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
+The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, and the post-P2.2 Compatibility runtime integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
 ## Current execution queue
 
-1. Complete the remaining Phase 0 permission/security reconciliation, beginning with `validate-graph.yml`.
-2. Verify GitHub control-plane settings that are observable through available APIs and explicitly record unavailable settings.
-3. Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration.
+1. Complete the remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
+2. Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration.
 3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
 4. Update decision memory, architecture documentation, development knowledge, roadmap, and current state in the same cycle.
 5. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
