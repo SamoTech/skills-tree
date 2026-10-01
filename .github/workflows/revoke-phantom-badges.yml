@@ -28,7 +28,7 @@ on:
       - 'skills/**/*.md'
 
 concurrency:
-  group: revoke-phantom-badges-${{ github.ref }}
+  group: auto-commit-main
   cancel-in-progress: false
 
 permissions: {}
