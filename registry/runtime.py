@@ -12,6 +12,7 @@ from jsonschema import Draft202012Validator
 from .capability import CapabilityRecord, CapabilityRuntime
 from .compatibility import CompatibilityRecord, CompatibilityRuntime
 from .evidence import EvidenceRecord, EvidenceRuntime
+from .goal import GoalRecord, GoalRuntime
 from .skill import SkillRecord, SkillRuntime
 
 
@@ -69,6 +70,7 @@ class UniversalRegistry:
         self._evidence_runtime = EvidenceRuntime(self._data)
         self._skill_runtime = SkillRuntime(self)
         self._capability_runtime = CapabilityRuntime(self)
+        self._goal_runtime = GoalRuntime(self)
 
     @property
     def data(self) -> dict[str, Any]:
@@ -89,6 +91,14 @@ class UniversalRegistry:
             raise KeyError(f"Unknown entity: {entity_id}")
         return self._evidence_runtime.evidence_for_entity(entity_id)
 
+    def resolve_goal(self, goal_id: str) -> GoalRecord:
+        """Return one validated Goal by canonical ID."""
+        return self._goal_runtime.resolve_goal(goal_id)
+
+    def skills_for_goal(self, goal_id: str) -> list[dict[str, Any]]:
+        """Return canonical Skills reachable from a Goal in deterministic order."""
+        return self._goal_runtime.skills_for_goal(goal_id)
+
     def resolve_capability(self, capability_id: str) -> CapabilityRecord:
         """Return one validated Capability by canonical ID."""
         return self._capability_runtime.resolve_capability(capability_id)
@@ -108,23 +118,6 @@ class UniversalRegistry:
     def capabilities_for_skill(self, skill_id: str) -> list[dict[str, Any]]:
         """Return validated Capabilities linked to a canonical Skill."""
         return self._skill_runtime.capabilities_for_skill(skill_id)
-
-    def resolve_goal(self, goal_id: str) -> dict[str, Any]:
-        matches = [g for g in self._data["entities"]["goals"] if g["id"] == goal_id]
-        if not matches:
-            raise KeyError(f"Unknown goal: {goal_id}")
-        return deepcopy(matches[0])
-
-    def skills_for_goal(self, goal_id: str) -> list[dict[str, Any]]:
-        goal = self.resolve_goal(goal_id)
-        capabilities = {item["id"]: item for item in self._data["entities"]["capabilities"]}
-        skills = {item["id"]: item for item in self._data["entities"]["skills"]}
-        result: dict[str, dict[str, Any]] = {}
-        for capability_id in goal["capabilities"]:
-            capability = capabilities[capability_id]
-            for skill_id in capability["skills"]:
-                result[skill_id] = skills[skill_id]
-        return deepcopy([result[key] for key in sorted(result)])
 
     def resolve_implementation(self, implementation_id: str) -> ImplementationRecord:
         """Return one validated Implementation by canonical ID."""
