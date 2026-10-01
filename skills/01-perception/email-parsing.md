@@ -144,7 +144,7 @@ print(json.dumps(result, indent=2))
 ## Evidence
 
 The skill's implementation guidance is grounded in the following primary references:
-- Python email package documentation: https://docs.python.org/3/library/email.html
-- Python email policy documentation: https://docs.python.org/3/library/email.policy.html
+- Python email package documentation: https://docs.python.org/3.14/library/email.html
+- Python email policy documentation: https://docs.python.org/3.14/library/email.policy.html
 
 Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
