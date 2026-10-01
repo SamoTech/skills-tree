@@ -7,6 +7,7 @@ description: "Triage potentially harmful agent inputs and outputs with explicit 
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [input-sanitization, human-in-loop, privacy-preservation]
 ---
 
 # Harm Detection
