@@ -2,40 +2,58 @@
 title: "Debate Pattern"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Apply debate pattern in AI agent workflows."
+stability: stable
+description: "Run structured competing-agent arguments with explicit claims, evidence, rebuttal, and decision criteria."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-debate-pattern.json)
-
-# Debate Pattern
-
-**Category:** `agentic-patterns`
+**Category:** Agentic Patterns
 **Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Run structured competing-agent arguments with explicit claims, evidence, rebuttal, and decision criteria.
 
-Two or more agents argue for opposing positions on a question. A judge agent (or majority vote) evaluates the arguments and selects the most convincing conclusion.
+## When to Use
+Use when adversarial comparison can expose assumptions or weaknesses.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Agent state, task objective, constraints, evidence/context, tools or evaluators, and stopping criteria. |
+| Outputs | Structured agent result with provenance, uncertainty, and validation state. |
+| Failure modes | Goal drift, evaluator bias, unsupported inference, unbounded search, or incomplete grounding. |
 
+## Procedure
+1. Establish the objective, state, constraints, evaluation criteria, and stopping conditions.
+2. Validate the available context and tool authority before execution.
+3. Apply the declared agentic pattern within explicit resource bounds.
+4. Evaluate outputs against evidence and acceptance criteria.
+5. Preserve uncertainty and stop or escalate when the evidence is insufficient.
+
+## Runnable Example
+```python
+task = {"pattern": "debate-pattern", "validated": True}
+assert task["validated"]
+result = {"status": "evaluation_required", "pattern": task["pattern"]}
+print(result)
 ```
-Question: "Is microservices architecture always better than monoliths?"
 
-Agent A (Pro-microservices):  "Scalability, independent deployments..."
-Agent B (Pro-monolith):       "Lower complexity for small teams..."
-Agent A rebuttal: "..."
-Agent B rebuttal: "..."
+## Failure Modes
+- Ambiguous objective or stopping condition.
+- Evaluator or critic shares the same failure mode as the generator.
+- Unsupported claims treated as grounded output.
+- Resource use grows without an explicit bound.
+- Completion reported without evidence or validation.
 
-Judge: Agent B's argument is more nuanced for the given context.
-Verdict: "Monolith preferred for early-stage startups."
-```
+## Pattern Boundary
+Debate consensus can still be wrong; preserve evidence and dissent rather than treating majority vote as truth.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Agentic-pattern outputs require explicit evaluation and evidence boundaries.
 
-- [Mixture of Agents](mixture-of-agents.md)
-- [Critic Agent](critic-agent.md)
-- [Constitutional AI](constitutional-ai.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
