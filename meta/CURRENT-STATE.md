@@ -223,3 +223,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections where the repository projection path permitted creation.
 - Added explicit ownership, state, idempotency, authorization, recovery, and evidence boundaries.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Orchestration modernization — batch 02
+
+- Modernized the final six `15-orchestration` stubs: role-assignment, sequential-workflow, shared-memory, state-machine, subagent-spawning, and task-queue.
+- Added or synchronized corresponding Agent Skills projections.
+- The `15-orchestration` category is now fully modernized; existing battle-tested orchestration skills were preserved.
+- No validator, security gate, or repository governance rule was weakened.
