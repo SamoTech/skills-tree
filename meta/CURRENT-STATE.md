@@ -4,9 +4,9 @@
 
 ## Verified snapshot
 
-- Snapshot date: 2026-09-30
-- Main HEAD: `066739db5023aaf279255ad41559184dfed2531b` — current main after action-execution batch 01 generated-state synchronization
-- Stubs: 227
+- Snapshot date: 2026-10-01
+- Main HEAD: `7d83d43a3c953d7ce66c7d52f13ea8c3545d2a8d` — current main after domain-specific modernization batch 01
+- Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
 - Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
@@ -166,3 +166,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added corresponding Agent Skills projections.
 - Added explicit scope, validation, uncertainty, and failure handling; no unsupported domain certainty was introduced.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Domain-specific modernization — batch 02
+
+- Staged ten additional 16-domain-specific skills: flashcard-creation, hypothesis-generation, iac-generation, incident-response, invoice-processing, legal-research, lesson-plan, literature-review, log-analysis, and medical-literature-search.
+- Added or synchronized corresponding Agent Skills projections under `agent-skills/`.
+- Preserved explicit scope, evidence boundaries, uncertainty handling, and professional-domain limitations.
+- No validator, security gate, or repository governance rule was weakened.
+- PR CI is the required verification gate before merge.
