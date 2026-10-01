@@ -1,23 +1,27 @@
 ---
 name: hypothesis-generation
-description: Generate multiple testable explanations and identify checks that discriminate between them.
-license: MIT
-metadata:
-  source: skills/02-reasoning/hypothesis-generation.md
-  version: "v2"
+description: Generate testable hypotheses from supplied observations or research evidence.
 ---
 
-# hypothesis-generation
+# hypothesis generation
 
-Use this skill to produce a bounded, auditable reasoning result. State assumptions, preserve uncertainty, and verify material conclusions.
-
-## Failure modes
-
-- Premature convergence: keep plausible alternatives.
-- Unsupported hypothesis: label it as speculative.
+## Description
+Generate testable hypotheses from supplied observations or research evidence.
 
 ## Evidence
+Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
-- https://agentskills.io/specification
+## Usage
+Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.
 
-Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+## Failure modes
+- Missing or ambiguous source context.
+- Unsupported domain inference.
+- Stale or conflicting evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping validation or source verification.
+
+## Related
+- `16-domain-specific`
+- `input-guardrails`
+- `output-guardrails`
