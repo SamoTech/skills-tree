@@ -32,9 +32,11 @@ PR #141 added and enforced the machine-readable Evidence contract at registry in
 
 The repository no longer depends on Vercel or an external project dashboard. GitHub is the authoritative operational source; `README.md` is the public source guide. CI, issues, pull requests, releases, generated reports, and repository files are the evidence surfaces.
 
-## Corpus modernization priority
+## Strategic modernization priority
 
-The current quality distribution makes the remaining 237 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills. Batch 03 covered 4 additional perception skills. Batch 04 covered 10 reasoning skills, Batch 05 covered 8 additional reasoning skills, and Batch 06 covered the final 10 reasoning stubs; both batches added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+The remaining legacy stubs are no longer treated as an automatic migration queue. Existing modernization work remains valid historical execution evidence, but future selection must follow demand, capability importance, coverage gap, evidence gap, ecosystem relevance, freshness, and security.
+
+The authoritative demand backlog is `meta/MOST-WANTED-SKILLS.md`. Evidence tiers and lifecycle rules are defined in `meta/EVIDENCE_MODEL.md`. The migration objective is to close the highest-value capability gaps, not to minimize a raw stub counter.
 
 ## Governance state
 
