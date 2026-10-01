@@ -3,42 +3,59 @@ title: "Memory-Augmented Agent"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
-description: "Apply memory-augmented agent in AI agent workflows."
+description: "Use persistent external memory across interactions while separating retrieval, current context, memory writes, and verification."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-memory-augmented.json)
+## Description
 
-# Memory-Augmented Agent
+Use persistent external memory across interactions while separating retrieval, current context, memory writes, and verification.
 
-**Category:** `agentic-patterns`
-**Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use when the pattern has a measurable objective, explicit acceptance criteria, and a bounded execution budget.
 
-Agent maintains persistent external memory (episodic, semantic, or procedural) across sessions. Reads relevant memories before acting and writes new information after each interaction.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | current task, memory query, memory policy, retention constraints, and authorization. |
+| Outputs | response or action plus memory provenance, writes performed, and uncertainty. |
+| Failure modes | Ambiguous objective, budget exhaustion, correlated model errors, unsupported evidence, stale state, or acceptance without a reproducible postcondition. |
+
+## Procedure
+
+1. Define the objective, evaluation criteria, state representation, and termination condition.
+2. Validate inputs, role boundaries, and the evidence boundary.
+3. Execute within explicit compute, tool, depth, data, or agent budgets.
+4. Preserve provenance for candidates, subagents, memories, and tool observations.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report conflicts, uncertainty, failed branches, and incomplete evidence.
+
+## Runnable Example
 
 ```python
-# On each turn:
-relevant = memory_store.search(user_message, k=5)  # read
-response = llm.invoke(context=relevant + [user_message])
-memory_store.upsert(user_message, response)         # write
+pattern = {"capability": "memory-augmented", "validated": True, "budget": 4}
+assert pattern["validated"] and pattern["budget"] > 0
+print({"status": "bounded_execution", "capability": pattern["capability"]})
 ```
 
-### Memory Types
+## Failure Modes
 
-| Type | Description | Example |
-|---|---|---|
-| Episodic | Past conversations | "User prefers Python" |
-| Semantic | World knowledge | Domain facts |
-| Procedural | How-to steps | Verified workflows |
+- Objective or acceptance criterion is ambiguous.
+- Budget is exhausted without a verified result.
+- Correlated model outputs are treated as independent evidence.
+- Stale or unsupported evidence is accepted.
+- The pattern mutates state outside its authorization boundary.
+- Completion is reported without a reproducible postcondition.
 
-### Related Skills
+## Evidence
 
-- [RAG Pipeline](rag-pipeline.md)
-- [Long-Term Memory](../03-memory/long-term-memory.md)
-- [Vector DB Tool](../07-tool-use/vector-db-tool.md)
+Canonical repository skill: this file. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Pattern-specific claims require reproducible implementation evidence or authoritative primary documentation; generated reasoning is not evidence by itself.
+
+## Related
+
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
