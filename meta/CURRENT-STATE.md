@@ -90,6 +90,9 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 
 ## Automation review — 2026-10-01
 
+- Generated-main serialization hardening: PR #213 merged as `42bc204a944cb27ee42f0b626592a48a1d4b92e1`; six direct-main writers now share `auto-commit-main` with `cancel-in-progress: false`.
+- Remaining workflow-architecture work: classify all 34 workflows, verify release/Pages single-authority, reconcile any additional main writers discovered by future audits, and document connector control-plane limitations.
+
 - Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
 - Current live workflow audit: 34 workflow files exist. Generated-main writers are not all using one shared serialization group; some use `auto-commit-main`, while others use workflow-specific concurrency groups. This remains an active Phase 0 architecture finding.
 - This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.

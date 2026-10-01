@@ -441,3 +441,17 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Reopen Conditions:** Reopen only if the Human Owner/CEO changes the strategic product direction or repository evidence demonstrates that the objective is producing the wrong product outcome.
 
 **Implementation:** `meta/COO_MASTER_MISSION.md`, `meta/ROADMAP.md`, `meta/EVIDENCE_MODEL.md`, and `meta/MOST-WANTED-SKILLS.md` establish the authoritative execution surfaces. Existing migration decisions remain historical execution records unless explicitly superseded by a later decision.
+
+## DECISION-2026-10-01-GENERATED-MAIN-SERIALIZATION
+
+**Decision-ID:** DECISION-2026-10-01-GENERATED-MAIN-SERIALIZATION
+
+**Topic:** Unify generated-main writer concurrency.
+
+**Decision:** All verified repository workflows that directly commit generated projections or maintenance output to `main` must use the shared `auto-commit-main` concurrency group with `cancel-in-progress: false`. Workflow-specific serialization groups are not sufficient for cross-workflow writers.
+
+**Evidence:** Live workflow inventory on 2026-10-01 identified six direct-main writers with workflow-specific groups: `generate-search-index.yml`, `leaderboard.yml`, `used-in-tracker.yml`, `version-stats.yml`, `weekly-highlights.yml`, and `revoke-phantom-badges.yml`. PR #213 changed only those concurrency controls and passed Test Suite, PR Checks, Security Scan, Build & Verify Wheel, and Auto Label.
+
+**Status:** LOCKED — implementation merged as PR #213 at `42bc204a944cb27ee42f0b626592a48a1d4b92e1`.
+
+**Reopen Conditions:** Reopen if a new generated-main writer cannot safely share the semaphore, or if the repository adopts a different serialized generation architecture with equal or stronger guarantees.
