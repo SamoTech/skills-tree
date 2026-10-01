@@ -5,7 +5,7 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Main HEAD at mission adoption: `eae68e4114434bc8eedb7c829ca84bebc3ff8568` — verified live main on 2026-10-01; the branch was created from this state.nt main after domain-specific modernization batch 01
+- Main HEAD at mission adoption: `eae68e4114434bc8eedb7c829ca84bebc3ff8568` — verified live main on 2026-10-01; the branch was created from this state.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
