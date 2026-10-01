@@ -3,7 +3,7 @@ title: "Contract Review"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply contract review in AI agent workflows."
+description: "Apply contract review in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
 added: "2025-03"
 ---
 
@@ -39,7 +39,7 @@ contract = "Liability is capped at fees paid. Company may modify terms at any ti
 print(flag_clauses(contract))
 ```
 
-### Related Skills
-- [Legal Research](legal-research.md)
-- [Compliance Checking](compliance-checking.md)
-- [Document Parsing](../01-perception/document-parsing.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
