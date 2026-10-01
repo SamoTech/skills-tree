@@ -1,15 +1,15 @@
 ---
-name: hypothesis-generation
-description: Generate testable hypotheses from supplied observations or research evidence.
+name: log-analysis
+description: Analyze supplied logs for diagnostic patterns while preserving raw evidence.
 ---
 
-# hypothesis generation
+# log analysis
 
 ## Description
-Generate testable hypotheses from supplied observations or research evidence.
+Analyze supplied logs for diagnostic patterns while preserving raw evidence.
 
 ## Evidence
-Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
+Canonical source: `skills/16-domain-specific/log-analysis.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
 Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.

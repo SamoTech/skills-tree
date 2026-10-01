@@ -1,15 +1,15 @@
 ---
-name: hypothesis-generation
-description: Generate testable hypotheses from supplied observations or research evidence.
+name: lesson-plan
+description: Generate structured lesson plans from explicit learning objectives and instructional constraints.
 ---
 
-# hypothesis generation
+# lesson plan
 
 ## Description
-Generate testable hypotheses from supplied observations or research evidence.
+Generate structured lesson plans from explicit learning objectives and instructional constraints.
 
 ## Evidence
-Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
+Canonical source: `skills/16-domain-specific/lesson-plan.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
 Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.

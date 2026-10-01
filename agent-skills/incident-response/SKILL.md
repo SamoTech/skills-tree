@@ -1,15 +1,15 @@
 ---
-name: hypothesis-generation
-description: Generate testable hypotheses from supplied observations or research evidence.
+name: incident-response
+description: Structure incident detection, triage, mitigation, communication, and post-incident review.
 ---
 
-# hypothesis generation
+# incident response
 
 ## Description
-Generate testable hypotheses from supplied observations or research evidence.
+Structure incident detection, triage, mitigation, communication, and post-incident review.
 
 ## Evidence
-Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
+Canonical source: `skills/16-domain-specific/incident-response.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
 Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.

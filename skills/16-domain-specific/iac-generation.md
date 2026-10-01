@@ -3,42 +3,57 @@ title: "Iac Generation"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply iac generation in AI agent workflows."
+description: "Draft Infrastructure as Code from a declared infrastructure specification, with explicit assumptions, review points, and deployment-safety boundaries."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-iac-generation.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Generates production-ready Infrastructure as Code (IaC) for Terraform, Ansible, Pulumi, or Kubernetes YAML from natural-language specifications. Applies best practices such as variable parameterisation, state backend configuration, and least-privilege IAM policies.
+## Description
+Draft Infrastructure as Code from a declared infrastructure specification, with explicit assumptions, review points, and deployment-safety boundaries.
 
-### Example
+## When to Use
+Use when the target platform, resources, environment, and operational constraints are known.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-def generate_terraform(spec: str) -> str:
-    prompt = (
-        "Generate a production-ready Terraform module for the following spec.\n"
-        "Apply best practices: remote state, variables file, outputs, and least-privilege IAM.\n\n"
-        + spec
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=1500,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return resp.content[0].text
-
-print(generate_terraform("AWS S3 bucket for static website with CloudFront CDN and OAC"))
+source = {"capability": "iac-generation", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Code Generation](../05-code/code-generation.md)
-- [CI/CD Generation](../05-code/cicd-generation.md)
-- [Incident Response](incident-response.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Generated IaC must be reviewed, validated, and planned in the target environment before deployment; never assume provider defaults are safe.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

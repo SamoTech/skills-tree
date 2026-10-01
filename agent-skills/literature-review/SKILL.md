@@ -1,15 +1,15 @@
 ---
-name: hypothesis-generation
-description: Generate testable hypotheses from supplied observations or research evidence.
+name: literature-review
+description: Synthesize supplied academic sources while preserving traceability and uncertainty.
 ---
 
-# hypothesis generation
+# literature review
 
 ## Description
-Generate testable hypotheses from supplied observations or research evidence.
+Synthesize supplied academic sources while preserving traceability and uncertainty.
 
 ## Evidence
-Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
+Canonical source: `skills/16-domain-specific/literature-review.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
 Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.

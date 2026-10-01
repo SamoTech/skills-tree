@@ -1,15 +1,15 @@
 ---
-name: hypothesis-generation
-description: Generate testable hypotheses from supplied observations or research evidence.
+name: legal-research
+description: Organize jurisdiction-aware legal research from authoritative supplied or verified sources.
 ---
 
-# hypothesis generation
+# legal research
 
 ## Description
-Generate testable hypotheses from supplied observations or research evidence.
+Organize jurisdiction-aware legal research from authoritative supplied or verified sources.
 
 ## Evidence
-Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
+Canonical source: `skills/16-domain-specific/legal-research.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
 Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.

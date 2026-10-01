@@ -1,15 +1,15 @@
 ---
-name: hypothesis-generation
-description: Generate testable hypotheses from supplied observations or research evidence.
+name: flashcard-creation
+description: Create bounded study flashcards from supplied learning material.
 ---
 
-# hypothesis generation
+# flashcard creation
 
 ## Description
-Generate testable hypotheses from supplied observations or research evidence.
+Create bounded study flashcards from supplied learning material.
 
 ## Evidence
-Canonical source: `skills/16-domain-specific/hypothesis-generation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
+Canonical source: `skills/16-domain-specific/flashcard-creation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
 Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.

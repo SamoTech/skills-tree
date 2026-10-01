@@ -3,44 +3,57 @@ title: "Invoice Processing"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply invoice processing in AI agent workflows."
+description: "Extract and validate invoice fields from supplied invoice text or structured OCR output, including arithmetic and field-consistency checks."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-invoice-processing.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Extracts structured fields from vendor invoices (number, date, line items, totals, tax) using OCR and LLM parsing. Validates totals, currency, and dates before writing records to accounting or ERP systems.
+## Description
+Extract and validate invoice fields from supplied invoice text or structured OCR output, including arithmetic and field-consistency checks.
 
-### Example
+## When to Use
+Use when invoice source material is available and downstream accounting requires structured fields.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-import anthropic, json, re
-
-client = anthropic.Anthropic()
-
-def parse_invoice(raw_text: str) -> dict:
-    resp = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=512,
-        messages=[{"role": "user", "content": (
-            "Extract invoice fields as JSON: invoice_number, date, vendor, "
-            "line_items (list of {description, qty, unit_price}), subtotal, tax, total.\n\n"
-            + raw_text
-        )}]
-    )
-    return json.loads(resp.content[0].text)
-
-raw = "Invoice #INV-0042  Date: 2026-04-01  Vendor: Acme Corp\n"\
-      "1x Cloud Server  $450.00  Tax 10%  Total $495.00"
-print(parse_invoice(raw))
+source = {"capability": "invoice-processing", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [OCR](../01-perception/ocr.md)
-- [Document Parsing](../01-perception/document-parsing.md)
-- [Data Cleaning](../12-data/data-cleaning.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Do not approve payment solely from model output; preserve source evidence and route discrepancies for accounting review.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

@@ -3,44 +3,57 @@ title: "Hypothesis Generation"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply hypothesis generation in AI agent workflows."
+description: "Generate testable hypotheses from observations, data, or documented literature gaps, with explicit falsifiability criteria and expected outcomes."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-hypothesis-generation.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Generates testable scientific or product hypotheses from observations, experimental data, or literature gaps. Frames each hypothesis with a falsifiability criterion, suggested experiment design, and expected outcome.
+## Description
+Generate testable hypotheses from observations, data, or documented literature gaps, with explicit falsifiability criteria and expected outcomes.
 
-### Example
+## When to Use
+Use when observations or source findings are available and hypotheses need to be framed for subsequent testing.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-import anthropic, json
-
-client = anthropic.Anthropic()
-
-def generate_hypotheses(observations: list[str], domain: str, n: int = 3) -> list[dict]:
-    obs_text = "\n".join(f"- {o}" for o in observations)
-    prompt = (
-        f"Given these observations in {domain}, generate {n} testable hypotheses.\n"
-        "Return JSON array: [{hypothesis, falsifiability_test, expected_outcome, confidence}].\n\n"
-        + obs_text
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=900,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return json.loads(resp.content[0].text)
-
-obs = ["Conversion rose 22% after reducing checkout fields from 8 to 3",
-       "Mobile bounce rate dropped when form was split into steps"]
-print(generate_hypotheses(obs, "UX research"))
+source = {"capability": "hypothesis-generation", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Literature Review](literature-review.md)
-- [Inductive Reasoning](../02-reasoning/inductive-reasoning.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Generated hypotheses are proposals, not validated findings; separate correlation, assumption, and evidence.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

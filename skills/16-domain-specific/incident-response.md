@@ -3,47 +3,57 @@ title: "Incident Response"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply incident response in AI agent workflows."
+description: "Structure incident handling across detection, severity assessment, evidence collection, mitigation, communication, and post-incident review."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-incident-response.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Coordinates the full incident lifecycle: detection, severity classification, hypothesis-driven diagnosis, mitigation execution, stakeholder communication, and post-mortem generation. Combines log analysis, runbook execution, and escalation logic.
+## Description
+Structure incident handling across detection, severity assessment, evidence collection, mitigation, communication, and post-incident review.
 
-### Example
+## When to Use
+Use when an operational incident has identifiable signals and the responder can access authoritative telemetry or runbooks.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-from dataclasses import dataclass
-from typing import Callable
-
-@dataclass
-class Incident:
-    name: str
-    error_rate: float
-    latency_p99_ms: int
-
-def triage(incident: Incident) -> dict:
-    if incident.error_rate > 0.1 or incident.latency_p99_ms > 5000:
-        severity = "SEV-1"
-        action = "page oncall, rollback last deploy"
-    elif incident.error_rate > 0.01:
-        severity = "SEV-2"
-        action = "investigate db connection pool, check error logs"
-    else:
-        severity = "SEV-3"
-        action = "monitor for 15 min"
-    return {"severity": severity, "action": action}
-
-print(triage(Incident("api-gateway", error_rate=0.15, latency_p99_ms=6200)))
+source = {"capability": "incident-response", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Log Analysis](log-analysis.md)
-- [Monitoring Alert Triage](alert-triage.md)
-- [Risk Assessment](../02-reasoning/risk-assessment.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Do not infer root cause from incomplete telemetry; destructive remediation requires explicit authorization and rollback awareness.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

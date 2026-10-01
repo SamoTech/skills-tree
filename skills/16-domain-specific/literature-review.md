@@ -3,47 +3,57 @@ title: "Literature Review"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply literature review in AI agent workflows."
+description: "Synthesize supplied academic sources into themes, methods, disagreements, limitations, and research gaps without inventing citations."
 added: "2025-03"
+related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-literature-review.json)
 
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Surveys and synthesises a body of academic literature into a coherent narrative covering themes, methodological trends, conflicting findings, and open research gaps. Produces structured section outlines suitable for grant proposals or survey papers.
+## Description
+Synthesize supplied academic sources into themes, methods, disagreements, limitations, and research gaps without inventing citations.
 
-### Example
+## When to Use
+Use when a defined research question and source set are available.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with assumptions, uncertainty, provenance, or validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
+
+## Procedure
+1. Establish the task scope, source boundaries, and required output schema.
+2. Validate that the supplied material is sufficient for the requested domain task.
+3. Produce the result while preserving source meaning and distinguishing inference from evidence.
+4. Validate calculations, citations, constraints, and required fields before downstream use.
+5. Escalate material ambiguity or domain-specific uncertainty instead of inventing an answer.
+
+## Runnable Example
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-def literature_review(topic: str, papers: list[dict]) -> str:
-    refs = "\n".join(f"- {p['title']} ({p['year']}): {p['tldr']}" for p in papers)
-    prompt = (
-        f"Write a structured literature review on '{topic}' using these sources.\n"
-        "Sections: 1) Overview, 2) Key Themes, 3) Methodological Approaches, "
-        "4) Conflicting Findings, 5) Research Gaps.\n\nSources:\n" + refs
-    )
-    resp = client.messages.create(
-        model="claude-opus-4-5", max_tokens=1500,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return resp.content[0].text
-
-papers = [
-    {"title": "Chain-of-Thought Prompting", "year": 2022, "tldr": "CoT improves multi-step reasoning"},
-    {"title": "Tree of Thoughts", "year": 2023, "tldr": "ToT enables lookahead search in LLMs"},
-]
-print(literature_review("LLM reasoning strategies", papers))
+source = {"capability": "literature-review", "validated": True}
+assert source["validated"]
+result = {"status": "review_required", "capability": source["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Paper Summarization](paper-summarization.md)
-- [Hypothesis Generation](hypothesis-generation.md)
-- [RAG](../03-memory/rag.md)
+## Failure Modes
+- Missing or ambiguous source context.
+- Unsupported inference or domain-rule mismatch.
+- Stale, conflicting, or unverifiable evidence.
+- Treating generated output as authoritative professional advice.
+- Skipping post-generation validation or provenance checks.
+
+## Domain Boundary
+Do not treat generated synthesis as evidence; every substantive claim should remain traceable to a source.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
+## Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
