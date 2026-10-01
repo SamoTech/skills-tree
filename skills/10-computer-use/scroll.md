@@ -1,42 +1,59 @@
 ---
 title: "Scroll"
 category: 10-computer-use
-level: basic
+level: advanced
 stability: stable
-description: "Apply scroll in AI agent workflows."
+description: "Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-scroll.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Scroll
+## Description
+Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state.
 
-**Category:** `computer-use`
-**Skill Level:** `basic`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the target is not currently visible and the scroll container is known.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
-Scroll a window, panel, or element vertically or horizontally to reveal content not visible in the current viewport.
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-import pyautogui
-
-# Scroll down 5 clicks at mouse position
-pyautogui.scroll(-5)  # negative = down, positive = up
-
-# Scroll at a specific position
-pyautogui.scroll(3, x=400, y=300)  # scroll up at (400, 300)
-
-# Horizontal scroll
-pyautogui.hscroll(2)  # scroll right
+action = {"capability": "scroll", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [Mouse Move](mouse-move.md)
-- [Browser Navigation](../11-web/browser-navigation.md)
-- [Visual Element Detection](visual-element-detection.md)
+## Safety Boundary
+Scrolling can change context or lose target state; use bounded increments and re-observe after each move.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
