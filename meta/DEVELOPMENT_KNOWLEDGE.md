@@ -366,3 +366,14 @@ The selected vertical slice integrated the existing `CapabilityRuntime` into `Un
 **Verification:** PR #236 exact head `ccc0902bcb87714c8709d9a8f5d6d100554edb2f` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`.
 
 **Next:** perform another fresh universal-registry runtime architecture audit. Do not invent a numbered P2.3 requirement and do not add ontology facts without authoritative evidence.
+
+
+## Post-P2.2 Goal Runtime Facade Integration — Verified 2026-10-02
+
+A fresh universal-registry runtime audit identified the remaining public raw-storage access path in Goal resolution and Goal-to-Skill traversal. There was no dedicated Goal runtime boundary.
+
+The selected vertical slice added `GoalRuntime`, integrated it into `UniversalRegistry`, exported it from the registry package, and delegated `resolve_goal()` and deterministic `skills_for_goal()` through the new runtime. Goal traversal reuses the validated Capability and Skill runtime boundaries rather than duplicating their storage access.
+
+**Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
+
+**Next:** perform another fresh universal-registry runtime architecture audit. Do not invent a numbered P2.3 requirement and do not add ontology facts without authoritative evidence.
