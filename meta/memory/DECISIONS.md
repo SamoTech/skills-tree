@@ -323,3 +323,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/15-orchestration-batch-01-2026-10-01` pending CI.
 
 **Constraint:** Preserve workflow state, ownership, authorization, idempotency, recovery, and evidence boundaries; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-ORCHESTRATION-BATCH-02
+
+**Decision:** Complete the remaining `15-orchestration` stub modernization while preserving existing battle-tested skills.
+
+**Scope:** role-assignment, sequential-workflow, shared-memory, state-machine, subagent-spawning, and task-queue.
+
+**Status:** IN PROGRESS — staged on `coo/15-orchestration-batch-02-2026-10-01` pending CI.
+
+**Constraint:** Preserve workflow state, ownership, authority boundaries, recovery, idempotency, and evidence; no validator or security gate may be weakened.
