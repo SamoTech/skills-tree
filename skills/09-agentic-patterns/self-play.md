@@ -2,38 +2,57 @@
 title: "Self-Play"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Apply self-play in AI agent workflows."
+stability: stable
+description: "Train or improve an agent through controlled adversarial interaction between role-separated policies or prompts."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-self-play.json)
+## Description
+Train or improve an agent through controlled adversarial interaction between role-separated policies or prompts.
 
-# Self-Play
+## When to Use
+Use when the task has a measurable objective and adversarial interaction can generate informative counterexamples.
 
-**Category:** `agentic-patterns`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | policy_or_prompt, opponent_policy, and task constraints or execution bounds. |
+| Outputs | evaluation_metric with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Self-play can optimize the wrong proxy, collapse to repetitive strategies, or exploit evaluator weaknesses; maintain held-out evaluation. |
 
-### Description
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-Agent plays against itself (or a copy of itself) to generate training signal without human labeling. Used in RLHF pipelines, debate training, and code self-improvement.
-
-### Example
-
+## Runnable Example
+```python
+pattern = {
+    "capability": "self-play",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
 ```
-Round 1:
-  Agent A: generates solution to coding challenge
-  Agent B (clone): critiques Agent A's solution
-  Reward: based on test pass rate improvement
 
-Round 2: Agent A incorporates feedback → improved solution
-→ Loop continues until convergence
-```
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-- [Debate Pattern](debate-pattern.md)
-- [Bootstrapping](bootstrapping.md)
-- [Reflection](reflection.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
