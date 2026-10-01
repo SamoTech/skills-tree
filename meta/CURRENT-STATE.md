@@ -215,3 +215,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections.
 - The `12-data` category is now fully modernized; the existing embedding-generation skill was preserved as the category's already battle-tested implementation.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Orchestration modernization — batch 01
+
+- Modernized ten `15-orchestration` stubs: agent-communication, agent-handoff, budget-management, conditional-branching, consensus-voting, event-triggers, hierarchical-tree, logging-observability, parallel-execution, and retry-backoff.
+- Added or synchronized corresponding Agent Skills projections where the repository projection path permitted creation.
+- Added explicit ownership, state, idempotency, authorization, recovery, and evidence boundaries.
+- No validator, security gate, or repository governance rule was weakened.

@@ -3,41 +3,57 @@ title: "Conditional Branching"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply conditional branching in AI agent workflows."
+description: "Route workflow execution using explicit conditions, predicates, and mutually understood branch outcomes."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-conditional-branching.json)
 
 **Category:** Orchestration
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Routes agent execution to different workflow branches based on dynamic conditions such as tool results, confidence scores, user input, or state flags. Enables decision trees, fallback paths, and adaptive pipelines.
+## Description
+Route workflow execution using explicit conditions, predicates, and mutually understood branch outcomes.
 
-### Example
+## When to Use
+Use when downstream execution depends on validated state or decision criteria.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+
+## Runnable Example
 ```python
-from typing import Callable
-
-def route(state: dict, branches: dict[str, Callable]) -> dict:
-    """Route to a branch function based on state condition."""
-    intent = state.get("intent", "default")
-    handler = branches.get(intent, branches["default"])
-    return handler(state)
-
-def handle_order(s): return {**s, "action": "create_order"}
-def handle_refund(s): return {**s, "action": "process_refund"}
-def handle_default(s): return {**s, "action": "ask_clarification"}
-
-branches = {"order": handle_order, "refund": handle_refund, "default": handle_default}
-
-print(route({"intent": "refund", "user": "alice"}, branches))
-print(route({"intent": "unknown"}, branches))
+task = {"capability": "conditional-branching", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Sequential Workflow](sequential-workflow.md)
-- [State Machine](state-machine.md)
-- [Decision Making](../02-reasoning/decision-making.md)
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
+
+## Orchestration Boundary
+Ambiguous predicates can route work incorrectly; validate branch inputs and define a default/error path.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails

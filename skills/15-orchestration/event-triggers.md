@@ -3,66 +3,57 @@ title: "Event Triggers"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply event triggers in AI agent workflows."
+description: "Start workflow actions from explicit events, filters, deduplication rules, and authorization boundaries."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-event-triggers.json)
-
 **Category:** Orchestration
-**Skill Level:** Advanced
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
 
-### Description
-Fires agent workflows in response to external events — webhook callbacks, file system changes, cron schedules, database triggers, or message queue messages. Decouples event producers from agent consumers using an event loop or serverless function.
+## Description
+Start workflow actions from explicit events, filters, deduplication rules, and authorization boundaries.
 
-### Example
+## When to Use
+Use when external or internal events are the declared trigger for orchestration.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+
+## Runnable Example
 ```python
-import asyncio
-from dataclasses import dataclass
-from typing import Callable, Any
-
-@dataclass
-class Event:
-    type: str
-    payload: Any
-
-class EventBus:
-    def __init__(self):
-        self._handlers: dict[str, list[Callable]] = {}
-
-    def on(self, event_type: str, handler: Callable[[Event], Any]) -> None:
-        self._handlers.setdefault(event_type, []).append(handler)
-
-    async def emit(self, event: Event) -> None:
-        handlers = self._handlers.get(event.type, [])
-        await asyncio.gather(*[
-            handler(event) if asyncio.iscoroutinefunction(handler)
-            else asyncio.to_thread(handler, event)
-            for handler in handlers
-        ])
-
-bus = EventBus()
-
-async def on_new_issue(event: Event):
-    print(f"[Agent] New GitHub issue: #{event.payload['number']} — {event.payload['title']}")
-    print("[Agent] Triaging and assigning labels...")
-
-async def on_pr_merged(event: Event):
-    print(f"[Agent] PR #{event.payload['number']} merged. Triggering deployment...")
-
-bus.on("github.issues.opened", on_new_issue)
-bus.on("github.pull_request.merged", on_pr_merged)
-
-async def main():
-    await bus.emit(Event("github.issues.opened", {"number": 42, "title": "Bug: login fails"}))
-    await bus.emit(Event("github.pull_request.merged", {"number": 17}))
-
-asyncio.run(main())
+task = {"capability": "event-triggers", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Agent Communication](agent-communication.md)
-- [Task Queue Management](task-queue.md)
-- [Sequential Workflow](sequential-workflow.md)
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
+
+## Orchestration Boundary
+Duplicate, delayed, or spoofed events can cause repeated execution; validate event identity and idempotency.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails

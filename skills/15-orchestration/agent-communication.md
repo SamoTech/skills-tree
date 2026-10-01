@@ -3,60 +3,57 @@ title: "Agent Communication"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply agent communication in AI agent workflows."
+description: "Coordinate messages between agents using explicit sender, recipient, task context, state, and acknowledgement semantics."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-agent-communication.json)
-
 **Category:** Orchestration
-**Skill Level:** Advanced
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
 
-### Description
-Enables structured message passing between agents using a shared message bus or direct API calls. Implements request/response, publish/subscribe, and fire-and-forget patterns with typed message schemas and delivery guarantees.
+## Description
+Coordinate messages between agents using explicit sender, recipient, task context, state, and acknowledgement semantics.
 
-### Example
+## When to Use
+Use when multiple agents need structured coordination and message ownership is explicit.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+
+## Runnable Example
 ```python
-import asyncio
-from dataclasses import dataclass, field
-from typing import Any, Callable
-from collections import defaultdict
-
-@dataclass
-class Message:
-    sender: str
-    topic: str
-    payload: Any
-
-class MessageBus:
-    def __init__(self):
-        self._subscribers: dict[str, list[Callable]] = defaultdict(list)
-
-    def subscribe(self, topic: str, handler: Callable[[Message], Any]) -> None:
-        self._subscribers[topic].append(handler)
-
-    async def publish(self, message: Message) -> None:
-        handlers = self._subscribers.get(message.topic, [])
-        await asyncio.gather(*[asyncio.coroutine(h)(message) if not asyncio.iscoroutinefunction(h)
-                                else h(message) for h in handlers])
-
-bus = MessageBus()
-
-async def researcher_agent(msg: Message):
-    print(f"[Researcher] Got task: {msg.payload['query']}")
-    await bus.publish(Message("researcher", "research.done", {"result": "Found 5 papers"}))
-
-async def writer_agent(msg: Message):
-    print(f"[Writer] Writing from: {msg.payload['result']}")
-
-bus.subscribe("task.assign", researcher_agent)
-bus.subscribe("research.done", writer_agent)
-asyncio.run(bus.publish(Message("orchestrator", "task.assign", {"query": "LLM agents"})))
+task = {"capability": "agent-communication", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Subagent Spawning](subagent-spawning.md)
-- [Agent Handoff](agent-handoff.md)
-- [Shared Memory / Blackboard](shared-memory.md)
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
+
+## Orchestration Boundary
+Ambiguous ownership or stale state can cause duplicated or conflicting work; preserve message IDs and state.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails

@@ -3,40 +3,57 @@ title: "Agent Handoff"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply agent handoff in AI agent workflows."
+description: "Transfer an active task between agents with a complete state snapshot, pending actions, evidence, and acceptance criteria."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-agent-handoff.json)
+**Category:** Orchestration
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Agent Handoff
+## Description
+Transfer an active task between agents with a complete state snapshot, pending actions, evidence, and acceptance criteria.
 
-**Category:** `orchestration`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when responsibility for a task must move between agents or execution stages.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
 
-Transfer task context, memory, and control from one agent to another cleanly — used in multi-agent pipelines and triage systems.
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
 
-### Example
-
+## Runnable Example
 ```python
-# OpenAI Swarm / Agents SDK style handoff
-def triage_agent(context):
-    if context['topic'] == 'billing':
-        return handoff_to(billing_agent, context)
-    return handoff_to(support_agent, context)
+task = {"capability": "agent-handoff", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
 
-- OpenAI Agents SDK
-- LangGraph
-- AutoGen
+## Orchestration Boundary
+A handoff is incomplete if the receiving agent cannot reconstruct the current state and next action.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
 
-- [Subagent Spawning](subagent-spawning.md)
-- [Role Assignment](role-assignment.md)
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails

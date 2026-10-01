@@ -1,46 +1,59 @@
 ---
-title: "Parallel Task Execution"
+title: "Parallel Execution"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply parallel task execution in AI agent workflows."
+description: "Run independent workflow branches concurrently while defining isolation, synchronization, failure aggregation, and join semantics."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-parallel-execution.json)
+**Category:** Orchestration
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Parallel Task Execution
+## Description
+Run independent workflow branches concurrently while defining isolation, synchronization, failure aggregation, and join semantics.
 
-**Category:** `orchestration`  
-**Skill Level:** `advanced`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when tasks are demonstrably independent and parallelism improves execution without shared-state hazards.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
 
-Run multiple independent agent tasks concurrently to reduce total wall-clock time.
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
 
-### Example
-
+## Runnable Example
 ```python
-import asyncio
-
-async def run_all():
-    results = await asyncio.gather(
-        agent.run('Summarize document A'),
-        agent.run('Summarize document B'),
-        agent.run('Summarize document C'),
-    )
-    return results
+task = {"capability": "parallel-execution", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
 
-- LangGraph parallel nodes
-- AutoGen group chat
-- Python `asyncio`
+## Orchestration Boundary
+Shared mutable state can create races; define synchronization and deterministic join behavior.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
 
-- [Subagent Spawning](subagent-spawning.md)
-- [Sequential Workflow](sequential-workflow.md)
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails

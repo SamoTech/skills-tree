@@ -312,3 +312,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/data-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Preserve explicit data contracts, validation, provenance, bounded execution, and unchanged validation/security gates.
+
+
+## DECISION-2026-10-01-ORCHESTRATION-BATCH-01
+
+**Decision:** Begin controlled modernization of the remaining `15-orchestration` stub cluster.
+
+**Scope:** agent-communication, agent-handoff, budget-management, conditional-branching, consensus-voting, event-triggers, hierarchical-tree, logging-observability, parallel-execution, and retry-backoff.
+
+**Status:** IN PROGRESS — staged on `coo/15-orchestration-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Preserve workflow state, ownership, authorization, idempotency, recovery, and evidence boundaries; no validator or security gate may be weakened.
