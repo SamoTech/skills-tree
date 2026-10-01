@@ -175,3 +175,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Preserved explicit scope, evidence boundaries, uncertainty handling, and professional-domain limitations.
 - No validator, security gate, or repository governance rule was weakened.
 - PR CI is the required verification gate before merge.
+
+
+## Domain-specific modernization — batch 03
+
+- Modernized the final eight 16-domain-specific stubs: paper-summarization, portfolio-analysis, product-description, quiz-generation, review-analysis, seo-optimization, stock-lookup, and symptom-analysis.
+- Added or synchronized corresponding Agent Skills projections.
+- The 16-domain-specific category is now fully modernized; no domain-specific stub remains in the planned migration queue.
+- No validator, security gate, or repository governance rule was weakened.
