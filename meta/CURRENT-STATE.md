@@ -5,8 +5,8 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Verified live main HEAD: `20d36b705cdbc385abda32aa4ddd65b2fd166799` — current live main after PR #215 Phase 0 workflow-audit documentation.
-- Main HEAD: `20d36b705cdbc385abda32aa4ddd65b2fd166799` — current live main after PR #215 Phase 0 workflow-audit documentation.
+- Verified live main HEAD: `ad7ff7e193a3c15ed0b750914f875a64975bfc14` — current live main after PR #216 post-merge state synchronization.
+- Main HEAD: `ad7ff7e193a3c15ed0b750914f875a64975bfc14` — current live main after PR #216 post-merge state synchronization.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
