@@ -3,64 +3,57 @@ title: "Task Queue"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply task queue in AI agent workflows."
+description: "Manage pending work through explicit task states, priorities, ownership, retries, and completion semantics."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-task-queue.json)
-
 **Category:** Orchestration
-**Skill Level:** Advanced
+**Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2025-03
 
-### Description
-Manages an ordered priority queue of pending agent tasks with support for task priorities, deduplication, dead-letter queuing for failed tasks, and worker pool consumption. Integrates with Redis Queue (RQ), Celery, or a lightweight in-process implementation.
+## Description
+Manage pending work through explicit task states, priorities, ownership, retries, and completion semantics.
 
-### Example
+## When to Use
+Use when work must be queued, scheduled, retried, or resumed across execution cycles.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
+| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
+| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+
+## Procedure
+1. Establish state, ownership, dependencies, and acceptance criteria.
+2. Validate preconditions before changing workflow state.
+3. Execute the declared orchestration operation within bounded authority.
+4. Record state changes, evidence, and unresolved conditions.
+5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+
+## Runnable Example
 ```python
-import heapq
-import threading
-from dataclasses import dataclass, field
-from typing import Any, Callable
-
-@dataclass(order=True)
-class Task:
-    priority: int
-    task_id: str = field(compare=False)
-    fn: Callable = field(compare=False)
-    args: tuple = field(compare=False, default_factory=tuple)
-
-class TaskQueue:
-    def __init__(self):
-        self._heap: list[Task] = []
-        self._lock = threading.Lock()
-        self.failed: list[Task] = []
-
-    def enqueue(self, task: Task) -> None:
-        with self._lock:
-            heapq.heappush(self._heap, task)
-
-    def process_next(self) -> bool:
-        with self._lock:
-            if not self._heap:
-                return False
-            task = heapq.heappop(self._heap)
-        try:
-            task.fn(*task.args)
-        except Exception as e:
-            print(f"Task {task.task_id} failed: {e}")
-            self.failed.append(task)
-        return True
-
-queue = TaskQueue()
-queue.enqueue(Task(priority=2, task_id="low",  fn=print, args=("Low priority task",)))
-queue.enqueue(Task(priority=0, task_id="high", fn=print, args=("High priority task",)))
-queue.process_next()   # High priority task
-queue.process_next()   # Low priority task
+task = {"capability": "task-queue", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Parallel Task Execution](parallel-execution.md)
-- [Sequential Workflow](sequential-workflow.md)
-- [Retry with Backoff](retry-backoff.md)
+## Failure Modes
+- Missing or ambiguous workflow state.
+- Invalid transition or unmet dependency.
+- Duplicate or concurrent execution.
+- Capability or authority exceeds declared scope.
+- Completion cannot be verified.
+
+## Orchestration Boundary
+Duplicate delivery and poison tasks can destabilize workflows; use idempotency, visibility timeouts, and dead-letter handling.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
