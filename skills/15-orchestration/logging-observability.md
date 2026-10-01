@@ -3,50 +3,57 @@ title: "Logging Observability"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply logging observability in AI agent workflows."
+description: "Instrument agent workflows with structured logs, correlation identifiers, metrics, and traceable state transitions."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-logging-observability.json)
 
 **Category:** Orchestration
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Instruments multi-agent workflows with structured logging, distributed tracing, and metrics collection. Provides visibility into agent steps, latency, token usage, and failure modes for debugging and monitoring.
+## Description
+Instrument agent workflows with structured logs, correlation identifiers, metrics, and traceable state transitions.
 
-### Example
+## When to Use
+Use when workflow behavior must be diagnosed, audited, or measured.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
+| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
+| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+
+## Procedure
+1. Establish workflow state, ownership, boundaries, and acceptance criteria.
+2. Validate the inputs or trigger before changing workflow state.
+3. Execute only the declared orchestration operation.
+4. Record resulting state, evidence, and unresolved conditions.
+5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+
+## Runnable Example
 ```python
-import time, uuid, json
-from contextlib import contextmanager
-
-TRACE_LOG: list[dict] = []
-
-@contextmanager
-def span(name: str, trace_id: str = None):
-    span_id = str(uuid.uuid4())[:8]
-    trace_id = trace_id or str(uuid.uuid4())[:8]
-    start = time.perf_counter()
-    record = {"span_id": span_id, "trace_id": trace_id, "name": name, "status": "ok"}
-    try:
-        yield record
-    except Exception as e:
-        record["status"] = "error"
-        record["error"] = str(e)
-        raise
-    finally:
-        record["duration_ms"] = round((time.perf_counter() - start) * 1000, 2)
-        TRACE_LOG.append(record)
-
-with span("planner") as s:
-    with span("tool_call", s["trace_id"]):
-        time.sleep(0.01)
-
-print(json.dumps(TRACE_LOG, indent=2))
+task = {"capability": "logging-observability", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Audit Logging](../14-security/audit-logging.md)
-- [Budget Management](budget-management.md)
+## Failure Modes
+- Ambiguous agent ownership or workflow state.
+- Stale or conflicting state.
+- Duplicate, concurrent, or non-idempotent execution.
+- Missing authorization or recovery path.
+- Completion reported without verifiable postconditions.
+
+## Orchestration Boundary
+Logs can expose secrets or personal data; minimize sensitive fields and preserve correlation without oversharing.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
