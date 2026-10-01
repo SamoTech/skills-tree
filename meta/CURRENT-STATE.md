@@ -249,3 +249,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added explicit modality contracts, bounded preprocessing/execution, provenance, uncertainty handling, failure modes, safety boundaries, and runnable examples.
 - Preserved verified dependency metadata where present.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Agentic patterns modernization — batch 02
+
+- Modernized the remaining four stub-level `09-agentic-patterns` skills: bootstrapping, memory-augmented, subagent-delegation, and tool-use-loop.
+- Added corresponding Agent Skills projections.
+- Added explicit objectives, acceptance criteria, bounded execution, provenance, uncertainty handling, failure modes, and runnable examples.
+- No validator, security gate, or repository governance rule was weakened.
