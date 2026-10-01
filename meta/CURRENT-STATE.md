@@ -5,7 +5,8 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Main HEAD: `7d83d43a3c953d7ce66c7d52f13ea8c3545d2a8d` — current main after domain-specific modernization batch 01
+- Verified live main HEAD: `f0b9cc8b8ccd17455905814c1aa1d98ef8056685` — current live main after PR #211 governance reconciliation and semantic-release v1.55.0.
+- Main HEAD: `f0b9cc8b8ccd17455905814c1aa1d98ef8056685` — current live main after PR #211 governance reconciliation and semantic-release v1.55.0.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
@@ -24,7 +25,7 @@
 
 ## Validation and CI state
 
-The generated `meta/QUALITY-REPORT.md` is refreshed on `main` and reports 374 skills, 121 classifier battle-tested, 16 enriched, 237 stubs, and 0 invalid. The quality classifier is intentionally stricter than the migration gate, so a rewritten evidence-backed skill is not automatically counted as enriched or battle-tested.
+The generated `meta/QUALITY-REPORT.md` is the authoritative quality evidence surface. The latest verified report available before PR #211 reported 374 skills, 121 classifier battle-tested, 16 enriched, 237 stubs, and 0 invalid; those figures are retained only as the last verified report point. The quality classifier is intentionally stricter than the migration gate, so a rewritten evidence-backed skill is not automatically counted as enriched or battle-tested.
 
 Batch 02 exposed two CI gates and both were reconciled before completion: the Agent Skills packages required an explicit evidence-status statement, and the spreadsheet-reading skill referenced an ODFPy documentation URL returning 404; it now points to the authoritative `eea/odfpy` repository.
 
@@ -34,7 +35,7 @@ The repository no longer depends on Vercel or an external project dashboard. Git
 
 ## Corpus modernization priority
 
-The current quality distribution makes the remaining 237 stubs the dominant modernization target. Migration is incremental and evidence-driven. Batches 01 and 02 each covered 10 perception skills. Batch 03 covered 4 additional perception skills. Batch 04 covered 10 reasoning skills, Batch 05 covered 8 additional reasoning skills, and Batch 06 covered the final 10 reasoning stubs; both batches added standards-compatible `SKILL.md` projections plus the automated evidence/security validation gate. No skill is promoted to battle-tested solely because it has been rewritten; reproducible benchmark evidence is required for that claim.
+Strategic modernization is now governed by `meta/COO_MASTER_MISSION.md` and the executable `meta/ROADMAP.md`. Remaining stubs are not an automatic migration queue; future selection must be demand-, capability-, evidence-, freshness-, interoperability-, and security-driven. Existing migration history remains evidence, but raw stub count is not the product objective.
 
 ## Governance state
 
@@ -87,12 +88,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; PR #181 merged as `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9`; both passed their substantive CI gates.
 
 
-## Automation review — 2026-09-30
+## Automation review — 2026-10-01
 
 - Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
-- Several writers use the shared `auto-commit-main` concurrency group, but not every writer is serialized through that group. In particular, `generate-changelog.yml` and `quality-report.yml` currently have no workflow-level concurrency block while retaining `contents: write` capability.
+- Current live workflow audit: 34 workflow files exist. Generated-main writers are not all using one shared serialization group; some use `auto-commit-main`, while others use workflow-specific concurrency groups. This remains an active Phase 0 architecture finding.
 - This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.
-- Open pull requests: 0 at the time of the previous snapshot; the action-execution modernization batch is now staged on a dedicated branch for CI verification.
+- Other open pull requests: GitHub reported none at the latest repository check; this snapshot update is itself PR #212.
 
 
 ## Action-execution modernization — batch 01
