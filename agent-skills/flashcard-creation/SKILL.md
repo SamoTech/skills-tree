@@ -12,7 +12,7 @@ Create bounded study flashcards from supplied learning material.
 Canonical source: `skills/16-domain-specific/flashcard-creation.md`. Structural conformance is enforced by the repository skill schema, Agent Skills validator, security gates, and CI quality checks.
 
 ## Usage
-Use only when the task scope and required source material are established. Preserve provenance and state uncertainty when evidence is incomplete.
+Use only when task scope and source material are established. Preserve provenance and state uncertainty when evidence is incomplete.
 
 ## Failure modes
 - Missing or ambiguous source context.
