@@ -7,6 +7,7 @@ description: "Authorize agent actions against explicit identities, capabilities,
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [audit-logging, human-in-loop, input-sanitization]
 ---
 
 # Permission Checking
