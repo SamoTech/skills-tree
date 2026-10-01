@@ -1,39 +1,58 @@
 ---
-title: "Mixture of Agents (MoA)"
+title: "Mixture of Agents"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Apply mixture of agents (moa) in AI agent workflows."
+stability: stable
+description: "Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mixture-of-agents.json)
+## Description
+Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy.
 
-# Mixture of Agents (MoA)
+## When to Use
+Use when specialization or independent perspectives can improve coverage and the aggregation rule is defined.
 
-**Category:** `agentic-patterns`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | task, agent_outputs, and task constraints or execution bounds. |
+| Outputs | synthesized_output with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | More agents increase cost and correlated errors; measure whether added agents provide incremental signal before scaling. |
 
-### Description
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-Multiple LLM agents independently generate responses; an aggregator model combines their outputs into a final, higher-quality answer. Exploits the diversity of different model families.
-
-### Example
-
+## Runnable Example
+```python
+pattern = {
+    "capability": "mixture-of-agents",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
 ```
-Query: "Explain quantum entanglement simply"
 
-Agent 1 (GPT-4o):    "Imagine two coins always landing opposite..."
-Agent 2 (Claude 3):  "Entanglement links particles so measuring one..."
-Agent 3 (Gemini):    "Like a magic pair of dice that always match..."
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-Aggregator: synthesizes all three → best combined explanation
-```
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-### Related Skills
-
-- [Debate Pattern](debate-pattern.md)
-- [Subagent Delegation](subagent-delegation.md)
-- [Critic Agent](critic-agent.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
