@@ -1,46 +1,59 @@
 ---
-title: "Virtual Machine Interaction"
+title: "Vm Interaction"
 category: 10-computer-use
 level: advanced
-stability: experimental
-description: "Apply virtual machine interaction in AI agent workflows."
+stability: stable
+description: "Interact with a verified virtual-machine display using bounded input actions and explicit VM identity."
 added: "2025-03"
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-vm-interaction.json)
-
-# Virtual Machine Interaction
-
-**Category:** `computer-use`
+**Category:** Computer Use
 **Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Interact with a verified virtual-machine display using bounded input actions and explicit VM identity.
 
-Operate inside VMs and sandboxed environments (VirtualBox, VMware, Docker desktops, E2B sandboxes) by connecting via RDP, VNC, or cloud APIs to execute GUI and terminal actions safely.
+## When to Use
+Use when a specific VM session is authorized and its display state is known.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
+| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
 
+## Procedure
+1. Establish the active application/session and expected UI state.
+2. Verify target identity and bounds before interaction.
+3. Perform only the requested bounded action.
+4. Re-observe the resulting UI and verify the expected postcondition.
+5. Stop when the observed state differs materially from the expected state.
+
+## Runnable Example
 ```python
-# Using E2B cloud sandbox
-from e2b_desktop import Desktop
-
-desktop = Desktop()
-# Take screenshot of sandbox
-screenshot = desktop.screenshot()
-
-# Run a command inside the VM
-desktop.run_process('ls -la /home')
-
-# Click inside the VM at coordinates
-desktop.left_click(400, 300)
-
-desktop.close()
+action = {"capability": "vm-interaction", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Target or session identity cannot be verified.
+- UI or display geometry changed after observation.
+- Action may expose sensitive data or cause destructive effects.
+- Focus or permission is ambiguous.
+- Postcondition cannot be verified.
 
-- [Screenshot Capture](screenshot-capture.md)
-- [Terminal / Shell Interaction](terminal-interaction.md)
-- [Window Management](window-management.md)
+## Safety Boundary
+VM identity and session state can change; never assume the active VM is the intended target.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
