@@ -1,51 +1,90 @@
 ---
-title: "Contact John at [REDACTED] or [REDACTED] (SSN: [REDACTED])"
+title: "Privacy Preservation"
 category: 14-security
 level: advanced
 stability: stable
-description: "Apply contact john at [redacted] or [redacted] (ssn: [redacted]) in AI agent workflows."
+description: "Minimize, detect, and redact sensitive personal data before agent inputs, outputs, logs, storage, or external transmission."
 added: "2025-03"
+updated: "2026-10"
+version: v2
+related: [secret-scanning, input-sanitization, audit-logging]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-privacy-preservation.json)
+# Privacy Preservation
 
-**Category:** Security & Safety
-**Skill Level:** Advanced
-**Stability:** stable
-**Added:** 2025-03
+## Description
 
-### Description
-Detects and redacts Personally Identifiable Information (PII) — names, emails, phone numbers, SSNs, credit card numbers — from inputs and outputs before storage or transmission. Supports both regex-based and LLM-based detection.
+Privacy preservation reduces unnecessary collection and propagation of personal or sensitive information through an agent system. Apply data minimization first, then detect and transform sensitive values at explicit trust boundaries.
 
-### Example
+Pattern matching is useful for known formats but is incomplete. Production systems should combine deterministic detection with domain-specific validation, access controls, retention rules, and appropriate privacy governance.
+
+## Inputs / Outputs
+
+| Input | Type | Required | Description |
+|---|---|---:|---|
+| `text` | string | yes | Content to inspect |
+| `patterns` | mapping | yes | Named detection patterns |
+| `replacement` | string | no | Redaction marker |
+| `context` | dict | no | Minimal policy context |
+
+| Output | Type | Description |
+|---|---|---:|---|
+| `redacted` | string | Sanitized content |
+| `types` | list[str] | Detected data classes |
+| `count` | int | Number of replacements |
+
+## Runnable Example
+
 ```python
 import re
 
-PII_PATTERNS = {
-    "email":        r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}",
-    "phone_us":     r"\b(\+1[-.]?)?(\(?\d{3}\)?[-.]?)\d{3}[-.]?\d{4}\b",
-    "ssn":          r"\b\d{3}-\d{2}-\d{4}\b",
-    "credit_card":  r"\b(?:\d{4}[-\s]?){3}\d{4}\b",
-    "ip_address":   r"\b(?:\d{1,3}\.){3}\d{1,3}\b",
+PATTERNS = {
+    "email": re.compile(r"\b[\w.+-]+@[\w-]+(?:\.[\w-]+)+\b"),
+    "phone": re.compile(r"\b\+?[0-9][0-9 .()-]{7,}[0-9]\b"),
 }
 
-def redact_pii(text: str, replacement: str = "[REDACTED]") -> tuple[str, list[str]]:
-    redacted = text
-    found_types = []
-    for pii_type, pattern in PII_PATTERNS.items():
-        if re.search(pattern, redacted):
-            found_types.append(pii_type)
-            redacted = re.sub(pattern, replacement, redacted)
-    return redacted, found_types
+def redact(text: str) -> tuple[str, list[str]]:
+    found = []
+    for kind, pattern in PATTERNS.items():
+        if pattern.search(text):
+            found.append(kind)
+            text = pattern.sub(f"[REDACTED:{kind}]", text)
+    return text, found
 
-original = "Contact John at john.doe@email.com or 555-123-4567 (SSN: 123-45-6789)"
-cleaned, types = redact_pii(original)
-print(cleaned)
-# Contact John at [REDACTED] or [REDACTED] (SSN: [REDACTED])
-print(f"Redacted: {types}")
+print(redact("Contact example@example.com or +20 100 000 0000"))
 ```
 
-### Related Skills
-- [Harm Detection](harm-detection.md)
-- [Audit Logging](audit-logging.md)
+The example uses deliberately generic test data. It is not a complete PII detector.
+
+## Failure Modes
+
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Missed PII | Format is not covered by a regex | Add domain-aware detectors and test representative samples |
+| Over-redaction | Pattern is too broad | Use validation and context before replacing |
+| Sensitive logs | Original input is copied before redaction | Redact before logging and before external transmission |
+| Re-identification | Several harmless fields combine into identity | Apply data minimization and access controls |
+| Unicode bypass | Normalization differences | Normalize consistently before detection |
+| Retention leak | Redacted output retained indefinitely | Apply explicit retention and deletion policy |
+
+## Design Rules
+
+- Collect only what the task requires.
+- Redact before crossing a trust boundary.
+- Never assume a regex provides complete privacy protection.
+- Keep detection results free of the sensitive values they describe.
+- Define retention, access, and deletion policies.
+- Test international formats where relevant.
+
+## References
+
+- NIST Privacy Framework: https://www.nist.gov/privacy-framework
+- OWASP Secrets Management Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html
+
+Evidence status: references support privacy and secret-handling practices; no legal compliance determination is implied.
+
+## Related Skills
+
+- [Secret Scanning](secret-scanning.md)
 - [Input Sanitization](input-sanitization.md)
+- [Audit Logging](audit-logging.md)
