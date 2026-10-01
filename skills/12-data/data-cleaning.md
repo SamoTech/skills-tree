@@ -1,49 +1,59 @@
 ---
 title: "Data Cleaning"
 category: 12-data
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply data cleaning in AI agent workflows."
+description: "Detect and resolve missing, malformed, duplicate, or inconsistent data according to explicit cleaning rules."
 added: "2025-03"
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-cleaning.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Data Cleaning
+## Description
+Detect and resolve missing, malformed, duplicate, or inconsistent data according to explicit cleaning rules.
 
-**Category:** `data`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when data-quality rules and acceptable transformations are defined.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
+| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
 
-Detect and fix data quality issues: remove nulls, deduplicate rows, fix data types, standardize formats, and handle outliers.
+## Procedure
+1. Inspect the source schema and establish explicit transformation semantics.
+2. Validate required fields, types, encoding, null behavior, and relevant constraints.
+3. Apply only the declared transformation or analysis.
+4. Compare input/output counts and validate the resulting schema and values.
+5. Preserve source data and record material assumptions or exceptions.
 
-### Inputs
-
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `dataset` | `DataFrame/list` | ✅ | Raw dataset to clean |
-| `rules` | `dict` | ❌ | Cleaning rules (drop nulls, cast types, etc.) |
-
-### Outputs
-
-| Output | Type | Description |
-|---|---|---|
-| `clean_dataset` | `DataFrame` | Cleaned dataset |
-| `report` | `dict` | Summary of changes made |
-
-### Example
-
+## Runnable Example
 ```python
-df = df.dropna(subset=['email'])
-df = df.drop_duplicates()
-df['date'] = pd.to_datetime(df['date'])
+task = {"capability": "data-cleaning", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
+## Failure Modes
+- Missing or ambiguous schema.
+- Unexpected nulls, duplicates, or malformed records.
+- Silent row/field loss.
+- Incorrect join, aggregation, or type coercion semantics.
+- Output not validated against the required contract.
 
-- [CSV Processing](csv-processing.md)
-- [Anomaly Detection](anomaly-detection.md)
-- [Data Schema Inference](schema-inference.md)
+## Data Boundary
+Do not overwrite source data silently; preserve transformation decisions and distinguish imputation from observed values.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
+
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails

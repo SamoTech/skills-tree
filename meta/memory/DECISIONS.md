@@ -290,3 +290,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/computer-use-batch-02-2026-10-01` pending CI.
 
 **Constraint:** Require target/session verification, bounded actions, sensitive-data protection, authorization, and postcondition checks; no validator or security gate may be weakened.
+
+
+## DECISION-2026-10-01-DATA-BATCH-01
+
+**Decision:** Begin controlled modernization of the `12-data` stub cluster.
+
+**Scope:** anomaly-detection, csv-processing, data-aggregation, data-cleaning, data-filtering, data-joining, data-summarization, data-visualization, etl-pipeline, and json-transformation.
+
+**Status:** IN PROGRESS — staged on `coo/data-batch-01-2026-10-01` pending CI.
+
+**Constraint:** Preserve source provenance, explicit schemas, validation, data-loss boundaries, and unchanged validation/security gates.

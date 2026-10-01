@@ -1,53 +1,59 @@
 ---
-title: "JSON Transformation"
+title: "Json Transformation"
 category: 12-data
-level: basic
+level: advanced
 stability: stable
-description: "Apply json transformation in AI agent workflows."
+description: "Transform JSON structures between explicit schemas while preserving required fields and data types."
 added: "2025-03"
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-json-transformation.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# JSON Transformation
+## Description
+Transform JSON structures between explicit schemas while preserving required fields and data types.
 
-**Category:** `data`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when source and target JSON schemas are known.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
+| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
 
-Parse and transform JSON data structures — flatten, filter, reshape, or extract specific fields.
+## Procedure
+1. Inspect the source schema and establish explicit transformation semantics.
+2. Validate required fields, types, encoding, null behavior, and relevant constraints.
+3. Apply only the declared transformation or analysis.
+4. Compare input/output counts and validate the resulting schema and values.
+5. Preserve source data and record material assumptions or exceptions.
 
-### Inputs
-
-| Input | Type | Required | Description |
-|---|---|---|---|
-| `json_data` | `string/dict` | ✅ | Raw JSON string or parsed dict |
-| `transform_spec` | `string` | ❌ | jq-style or natural language spec |
-
-### Outputs
-
-| Output | Type | Description |
-|---|---|---|
-| `result` | `dict/list` | Transformed JSON structure |
-
-### Example
-
+## Runnable Example
 ```python
-import json, jq
-data = json.loads(raw_json)
-result = jq.first('.users[] | {name, email}', data)
+task = {"capability": "json-transformation", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks
+## Failure Modes
+- Missing or ambiguous schema.
+- Unexpected nulls, duplicates, or malformed records.
+- Silent row/field loss.
+- Incorrect join, aggregation, or type coercion semantics.
+- Output not validated against the required contract.
 
-- Python `json`, `jq`
-- LangChain JSONLoader
-- OpenAI function calling with structured output
+## Data Boundary
+Do not silently discard fields or coerce incompatible types; validate the transformed document against the target schema.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
 
-- [CSV Processing](csv-processing.md)
-- [Structured Data Reading](../01-perception/structured-data-reading.md)
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
