@@ -3,7 +3,7 @@ title: "Financial Statement"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply financial statement in AI agent workflows."
+description: "Apply financial statement in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
 added: "2025-03"
 ---
 
@@ -39,7 +39,7 @@ def analyse(revenue, cogs, opex, current_assets, current_liabilities, total_debt
 print(analyse(500_000, 200_000, 100_000, 120_000, 60_000, 80_000, 200_000))
 ```
 
-### Related Skills
-- [Portfolio Analysis](portfolio-analysis.md)
-- [Statistical Analysis](../12-data/statistical-analysis.md)
-- [Structured Data Reading](../01-perception/structured-data-reading.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
