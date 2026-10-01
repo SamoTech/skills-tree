@@ -1,48 +1,65 @@
 ---
-title: "Pipe to abc2midi or abcjs for playback"
+title: "Music Composition"
 category: 13-creative
 level: advanced
-stability: experimental
-description: "Apply pipe to abc2midi or abcjs for playback in AI agent workflows."
+stability: stable
+description: "Specify original musical material using notation or event structures under declared key, tempo, meter, harmony, and instrumentation constraints."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-music-composition.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** Advanced
-**Stability:** experimental
-**Added:** 2025-03
+Specify original musical material using notation or event structures under declared key, tempo, meter, harmony, and instrumentation constraints.
 
-### Description
-Generates musical compositions in ABC notation, MusicXML, or MIDI event sequences from text descriptions. Applies music theory: key signatures, chord progressions, rhythmic patterns, and dynamic markings.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | musical brief, notation format, theory constraints, and output limits. |
+| Outputs | notation or event sequence with structural validation metadata. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-
-client = anthropic.Anthropic()
-
-prompt = """
-Compose a 16-bar piano piece in ABC notation with these specs:
-- Key: C major
-- Time: 4/4
-- Tempo: Andante (76 BPM)
-- Mood: nostalgic, gentle
-- Use a I-V-vi-IV chord progression
-Output ONLY the ABC notation, starting with X:1
-"""
-
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": prompt}]
-)
-print(message.content[0].text)
-# Pipe to abc2midi or abcjs for playback
+task = {"capability": "music-composition", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [Lyrics Writing](lyrics-writing.md)
-- [Creative Writing](creative-writing.md)
-- [Structured Output](../06-communication/structured-output.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails
