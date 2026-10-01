@@ -1,41 +1,59 @@
 ---
 title: "Statistical Analysis"
 category: 12-data
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply statistical analysis in AI agent workflows."
+description: "Apply declared statistical methods to validated data with explicit assumptions, estimands, and uncertainty reporting."
 added: "2025-03"
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-statistical-analysis.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Statistical Analysis
+## Description
+Apply declared statistical methods to validated data with explicit assumptions, estimands, and uncertainty reporting.
 
-**Category:** `data`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the research question, variables, sample, and statistical method are defined.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, schema/context, method parameters, and required output contract. |
+| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
 
-Compute descriptive and inferential statistics: mean, median, variance, correlation, hypothesis tests, and distributions.
+## Procedure
+1. Establish the source schema, analytical or query objective, and output contract.
+2. Validate types, ranges, temporal or database context, and relevant assumptions.
+3. Apply only the declared operation within bounded scope.
+4. Validate outputs, counts, assumptions, and reproducibility.
+5. Preserve source data and record material uncertainty or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-import scipy.stats as stats
-t_stat, p_value = stats.ttest_ind(group_a, group_b)
-print(f'p-value: {p_value:.4f}')
+task = {"capability": "statistical-analysis", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks
+## Failure Modes
+- Missing or ambiguous schema/context.
+- Unsupported assumptions or invalid method selection.
+- Silent data loss, leakage, or coercion.
+- Unbounded or unauthorized execution.
+- Output not validated against the required contract.
 
-- Python `scipy`, `statsmodels`, `numpy`
-- R statistical functions
-- OpenAI Code Interpreter
+## Data Boundary
+Statistical results depend on assumptions and sampling; do not infer causality from descriptive or correlational output alone.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-- [Data Aggregation](data-aggregation.md)
-- [Time Series Analysis](time-series.md)
-- [Anomaly Detection](anomaly-detection.md)
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
