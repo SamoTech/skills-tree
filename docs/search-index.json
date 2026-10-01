@@ -3613,8 +3613,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply ad copy in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Generates channel-specific ad copy variants for Google Search, Meta, LinkedIn, and TikTok while respecting character limits, platform policies, and audience targeting parameters. Supports multi-variant generation for A/B testing. Example Related Skills - Product Description Writing - Copywriting"
+    "description": "Apply ad copy in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Generates channel-specific ad copy variants for Google Search, Meta, LinkedIn, and TikTok while respecting character limits, platform policies, and audience targeting parameters. Supports multi-variant generation for A/B testing. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/alert-triage",
@@ -3623,8 +3623,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply alert triage in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Classifies, deduplicates, and prioritises monitoring alerts from sources like PagerDuty, Datadog, or Prometheus. Suppresses noise, identifies correlated root causes, routes to the correct team, and generates concise summaries for on-call engineers. Example Related Skills - Incident Response - Log Analysis - Prioritization"
+    "description": "Apply alert triage in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Classifies, deduplicates, and prioritises monitoring alerts from sources like PagerDuty, Datadog, or Prometheus. Suppresses noise, identifies correlated root causes, routes to the correct team, and generates concise summaries for on-call engineers. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/clinical-note-summarization",
@@ -3633,8 +3633,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply clinical note summarization in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Condenses clinical documentation (discharge summaries, progress notes, EHR entries) into structured SOAP-style or problem-oriented summaries. Preserves critical findings, vital signs, medication changes, and follow-up actions while discarding administrative boilerplate. Example Related Skills - Summarization - Document Parsing - Structured Output"
+    "description": "Apply clinical note summarization in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Condenses clinical documentation (discharge summaries, progress notes, EHR entries) into structured SOAP-style or problem-oriented summaries. Preserves critical findings, vital signs, medication changes, and follow-up actions while discarding administrative boilerplate. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/compliance-checking",
@@ -3643,8 +3643,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply compliance checking in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Verifies that documents, configurations, or processes conform to specified regulatory or policy frameworks such as GDPR, HIPAA, SOC 2, or internal standards. Produces a gap report with severity levels and remediation steps. Example Related Skills - Contract Review - Risk Assessment - Assertion"
+    "description": "Apply compliance checking in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Verifies that documents, configurations, or processes conform to specified regulatory or policy frameworks such as GDPR, HIPAA, SOC 2, or internal standards. Produces a gap report with severity levels and remediation steps. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/compliance-review-workflows",
@@ -3653,8 +3653,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Design agent workflows that enforce multi-step regulatory and policy review before finalising outputs.",
-    "body": "Compliance Review Workflows Category: domain-specific | Level: advanced | Stability: stable | Version: v2 Description Compliance review workflows embed mandatory review checkpoints into agent pipelines for regulated domains: financial advice, medical recommendations, legal documents, or marketing copy. The agent drafts content, an interrupt gate surfaces it for compliance review (human or automated policy engine), and execution continues only after sign-off. Full audit trails are maintained for regulatory accountability. Inputs - : agent-generated content requiring review - : rules the content must satisfy (regulatory, legal, brand) - : human compliance officer or automated policy LLM - : LangGraph node list for compliance checkpoints - : append-only log with reviewer ID, timestamp, decision, notes Outputs - Approved content returned to end user - Rejected content returned to agent with specific failure reasons for revision - Immutable audit log entry created for every review decision Example Failure Modes | Cause | Symptom | Mitigation | |---|---|---| | Policy engine misses jurisdiction-specific rules | Non-compliant content approved | Maintain per-jurisdiction rule sets, not one global policy | | Reviewer approves without reading | Liability exposure | Require reviewers to annotate specific sections they approved | | Audit log tampered or deleted | No evidence for audit | Use append-only, cryptographically signed audit store | Prompt Patterns Basic: Chain-of-Thought: Constrained Output: Model Comparison | Capability | GPT-4o | Claude 3.7 Sonnet | Gemini 2.0 Flash | |---|---|---|---| | Regulatory content quality | ✅ Strong | ✅ Very Strong | ⚠️ Moderate | | Policy violation detection | ✅ Good | ✅ Strong | ⚠️ Misses edge cases | | Audit trail design advice | ✅ Detailed | ✅ Very Detailed | ⚠️ Basic | | Multi-jurisdiction awareness | ✅ Good | ✅ Strong | ⚠️ US-centric | | Cost | Moderate | Moderate | Low | Related - · · · Changelog - v2 (2026-04): Full expansion"
+    "description": "Apply compliance review workflows in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Compliance Review Workflows Category: domain-specific | Level: advanced | Stability: stable | Version: v2 Description Apply compliance review workflows as a bounded domain-specific capability. Define the task scope, preserve relevant source context, validate inputs and outputs, and avoid claiming domain certainty beyond the available evidence. Compliance review workflows embed mandatory review checkpoints into agent pipelines for regulated domains: financial advice, medical recommendations, legal documents, or marketing copy. The agent drafts content, an interrupt gate surfaces it for compliance review (human or automated policy engine), and execution continues only after sign-off. Full audit trails are maintained for regulatory accountability. Inputs - : agent-generated content requiring review - : rules the content must satisfy (regulatory, legal, brand) - : human compliance officer or automated policy LLM - : LangGraph node list for compliance checkpoints - : append-only log with reviewer ID, timestamp, decision, notes Outputs - Approved content returned to end user - Rejected content returned to agent with specific failure reasons for revision - Immutable audit log entry created for every review decision Example Failure Modes | Cause | Symptom | Mitigation | |---|---|---| | Policy engine misses jurisdiction-specific rules | Non-compliant content approved | Maintain per-jurisdiction rule sets, not one global policy | | Reviewer approves without reading | Liability exposure | Require reviewers to annotate specific sections they approved | | Audit log tampered or deleted | No evidence for audit | Use append-only, cryptographically signed audit store | Prompt Patterns Basic: Chain-of-Thought: Constrained Output: Model Comparison | Capability | GPT-4o | Claude 3.7 Sonnet | Gemini 2.0 Flash | |---|---|---|---| | Regulatory content quality | ✅ Strong | ✅ Very Strong | ⚠️ Moderate | | Policy violation detection | ✅ Good | ✅ Strong | ⚠️ Misses edge cases | | Audit trail design advice | ✅ Detailed | ✅ Very Detailed | ⚠️ Basic | | Multi-jurisdiction awareness | ✅ Good | ✅ Strong | ⚠️ US-centric | | Cost | Moderate | Moderate | Low | Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/contract-review",
@@ -3663,8 +3663,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply contract review in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Reviews legal contracts to extract key clauses (termination, liability, IP, payment, dispute resolution), flag high-risk provisions, compare against standard policy positions, and produce a structured risk report with recommended redlines. Example Related Skills - Legal Research - Compliance Checking - Document Parsing"
+    "description": "Apply contract review in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Reviews legal contracts to extract key clauses (termination, liability, IP, payment, dispute resolution), flag high-risk provisions, compare against standard policy positions, and produce a structured risk report with recommended redlines. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/data-labeling",
@@ -3673,8 +3673,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply data labeling in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Assigns category labels, span annotations, bounding boxes, or structured metadata to datasets for supervised ML training. Manages taxonomy versioning, confidence scoring, and inter-annotator consistency checks at scale. Example Related Skills - Data Cleaning - Structured Output - Embedding Generation"
+    "description": "Apply data labeling in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Assigns category labels, span annotations, bounding boxes, or structured metadata to datasets for supervised ML training. Manages taxonomy versioning, confidence scoring, and inter-annotator consistency checks at scale. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/drug-interaction",
@@ -3683,8 +3683,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply drug interaction in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Detects clinically significant drug-drug and drug-food interactions by checking pairs and combinations against curated interaction databases. Classifies severity (contraindicated / major / moderate / minor), explains the mechanism, and suggests safe alternatives where available. Example Related Skills - Symptom Analysis - Medical Literature Search - Fact Verification Memory"
+    "description": "Apply drug interaction in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Detects clinically significant drug-drug and drug-food interactions by checking pairs and combinations against curated interaction databases. Classifies severity (contraindicated / major / moderate / minor), explains the mechanism, and suggests safe alternatives where available. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/essay-grading",
@@ -3693,8 +3693,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply essay grading in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Scores student essays against a multi-criteria rubric covering thesis strength, evidence quality, argument coherence, structure, and mechanics. Returns numeric scores per dimension plus actionable feedback comments and an overall grade. Example Related Skills - Lesson Plan Writing - Report Writing - Argument Construction"
+    "description": "Apply essay grading in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Scores student essays against a multi-criteria rubric covering thesis strength, evidence quality, argument coherence, structure, and mechanics. Returns numeric scores per dimension plus actionable feedback comments and an overall grade. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/financial-statement",
@@ -3703,8 +3703,8 @@
     "level": "advanced",
     "stability": "stable",
     "tags": [],
-    "description": "Apply financial statement in AI agent workflows.",
-    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Parses income statements, balance sheets, and cash flow statements to compute key financial ratios and performance metrics. Supports trend analysis, peer benchmarking, and narrative commentary generation for analyst or investor audiences. Example Related Skills - Portfolio Analysis - Statistical Analysis - Structured Data Reading"
+    "description": "Apply financial statement in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
+    "body": "Category: Domain-Specific Skill Level: Stability: stable Added: 2026-04 Description Parses income statements, balance sheets, and cash flow statements to compute key financial ratios and performance metrics. Supports trend analysis, peer benchmarking, and narrative commentary generation for analyst or investor audiences. Example Related - 16-domain-specific - input-guardrails - output-guardrails"
   },
   {
     "id": "16-domain-specific/flashcard-creation",
