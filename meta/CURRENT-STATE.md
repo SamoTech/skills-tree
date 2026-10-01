@@ -5,8 +5,8 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Verified live main HEAD: `d9b9bb2f4b2ee61b68243dc6c8f23a77df3785e2` — PR #211 governance reconciliation merged.
-- Main HEAD: `d9b9bb2f4b2ee61b68243dc6c8f23a77df3785e2` — current live main after PR #211 governance reconciliation.
+- Verified live main HEAD: `f0b9cc8b8ccd17455905814c1aa1d98ef8056685` — current live main after PR #211 governance reconciliation and semantic-release v1.55.0.
+- Main HEAD: `f0b9cc8b8ccd17455905814c1aa1d98ef8056685` — current live main after PR #211 governance reconciliation and semantic-release v1.55.0.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
@@ -88,12 +88,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Validation status: PR #179 merged as `b0e47cf9ebbfa97377fb881caeb3a00e65209d40`; PR #181 merged as `8280d7ba4a8d7f6038d79900fc64a00a6a17ccb9`; both passed their substantive CI gates.
 
 
-## Automation review — 2026-09-30
+## Automation review — 2026-10-01
 
 - Live workflow inventory contains multiple automated writers to `main`, including exports, changelog generation, search-index generation, leaderboard updates, OSV Watch, quality reports, badge synchronization, skill-count updates, used-in tracking, and release packaging.
 - Current live workflow audit: 34 workflow files exist. Generated-main writers are not all using one shared serialization group; some use `auto-commit-main`, while others use workflow-specific concurrency groups. This remains an active Phase 0 architecture finding.
 - This is a documented automation-risk finding, not a demonstrated failure. No automation was changed during this audit because altering generated-main coordination is a significant infrastructure change and requires the established governance escalation path.
-- Open pull requests: GitHub reported no open PRs after PR #211 merge.
+- Other open pull requests: GitHub reported none at the latest repository check; this snapshot update is itself PR #212.
 
 
 ## Action-execution modernization — batch 01
