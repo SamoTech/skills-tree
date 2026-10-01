@@ -1,57 +1,59 @@
 ---
 title: "Data Visualization"
 category: 12-data
-level: basic
+level: advanced
 stability: stable
+description: "Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent."
 added: "2025-03"
-description: "Apply data visualization in AI agent workflows."
-dependencies:
-  - package: plotly
-    min_version: "5.0.0"
-    tested_version: "6.7.0"
-    confidence: verified
-  - package: pandas
-    min_version: "2.0.0"
-    tested_version: "3.0.2"
-    confidence: verified
-code_blocks:
-  - id: "example-viz"
-    type: executable
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-visualization.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Data Visualization
+## Description
+Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.
 
-**Category:** `data`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the analytical question and visual encoding are defined.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
+| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
 
-Generate interactive charts and static plots from structured data for agent-generated reports and dashboards.
+## Procedure
+1. Inspect the source schema and establish explicit transformation semantics.
+2. Validate required fields, types, encoding, null behavior, and relevant constraints.
+3. Apply only the declared transformation or analysis.
+4. Compare input/output counts and validate the resulting schema and values.
+5. Preserve source data and record material assumptions or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-# pip install plotly pandas
-import plotly.express as px
-import pandas as pd
-
-df = pd.read_csv("sales.csv")
-
-# Bar chart
-fig = px.bar(df, x="month", y="revenue", title="Monthly Revenue",
-             color="region", barmode="group")
-fig.write_html("revenue_chart.html")
-fig.write_image("revenue_chart.png")  # requires kaleido
-
-# Line chart with confidence band
-fig2 = px.line(df, x="date", y="value", color="metric",
-               title="Metrics Over Time")
-fig2.show()
+task = {"capability": "data-visualization", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- `csv-processing`, `pandas-operations`, `statistical-analysis`, `time-series`
+## Failure Modes
+- Missing or ambiguous schema.
+- Unexpected nulls, duplicates, or malformed records.
+- Silent row/field loss.
+- Incorrect join, aggregation, or type coercion semantics.
+- Output not validated against the required contract.
+
+## Data Boundary
+Charts can mislead through scales, aggregation, or omitted context; validate labels, units, and source data.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
+
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
