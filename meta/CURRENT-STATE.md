@@ -231,3 +231,12 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections.
 - The `15-orchestration` category is now fully modernized; existing battle-tested orchestration skills were preserved.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Agentic patterns modernization — batch 01
+
+- Modernized ten `09-agentic-patterns` skills: tot, lats, mcts, rag-pipeline, reflection, critic-agent, self-play, constitutional-ai, debate-pattern, and mixture-of-agents.
+- Added corresponding Agent Skills projections.
+- Added explicit objectives, evaluation criteria, budgets, provenance, evidence boundaries, uncertainty handling, and failure modes.
+- Preserved existing substantial ReAct, CoT, RAG, Agentic RAG, and Plan-and-Execute implementations.
+- No validator, security gate, or repository governance rule was weakened.
