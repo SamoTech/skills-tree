@@ -7,6 +7,7 @@ description: "Detect credentials and secret-like material before it reaches sour
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [privacy-preservation, audit-logging, input-sanitization]
 ---
 
 # Secret Scanning
