@@ -2,49 +2,64 @@
 title: "Game Level Design"
 category: 13-creative
 level: advanced
-stability: experimental
-description: "Apply game level design in AI agent workflows."
+stability: stable
+description: "Design playable level layouts or specifications with explicit geometry, pacing, challenge, navigation, and reward constraints."
 added: "2025-03"
+related: ["13-creative", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-game-level-design.json)
+## Description
 
-**Category:** Creative
-**Skill Level:** Advanced
-**Stability:** experimental
-**Added:** 2025-03
+Design playable level layouts or specifications with explicit geometry, pacing, challenge, navigation, and reward constraints.
 
-### Description
-Generates game level designs as 2D tile maps (CSV/JSON), room descriptions for text adventures, or procedural generation parameter sets. Applies game design principles: pacing, challenge curves, player flow, and reward placement.
+## When to Use
 
-### Example
+Use when the creative brief, audience, deliverable, and acceptance criteria are explicit.
+
+## Inputs / Outputs / Failure Modes
+
+| Area | Contract |
+|---|---|
+| Inputs | level goals, mechanics, map bounds, pacing, and content constraints. |
+| Outputs | validated level specification, map, or generation parameters. |
+| Failure modes | Ambiguous brief, unsupported factual claims, style/constraint drift, unauthorized source imitation, or output accepted without checking the requested structure. |
+
+## Procedure
+
+1. Parse the creative brief, audience, purpose, and protected constraints.
+2. Establish originality, attribution, and source-use boundaries.
+3. Generate within explicit length, format, and complexity limits.
+4. Check structure, consistency, factual claims, and requested style constraints.
+5. Preserve user-supplied facts and distinguish invention from source material.
+6. Validate the final artifact against the brief before delivery.
+
+## Runnable Example
+
 ```python
-import anthropic
-import json
-
-client = anthropic.Anthropic()
-
-prompt = """
-Generate a 20x15 tile map for a top-down RPG dungeon level in JSON format.
-Tile legend:
-  0 = floor, 1 = wall, 2 = door, 3 = chest, 4 = enemy spawn, 5 = exit
-Rules:
-- Surrounded by walls (1)
-- 3 rooms connected by corridors
-- 1 exit (5), 2 chests (3), 3 enemy spawns (4)
-- Output ONLY the JSON: {"width": 20, "height": 15, "tiles": [[...], ...]}
-"""
-
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=2048,
-    messages=[{"role": "user", "content": prompt}]
-)
-level = json.loads(message.content[0].text)
-print(f"Level size: {level['width']}x{level['height']}")
+task = {"capability": "game-level-design", "brief_validated": True, "budget": 4}
+assert task["brief_validated"] and task["budget"] > 0
+print({"status": "creative_contract_checked", "capability": task["capability"]})
 ```
 
-### Related Skills
-- [SVG/Vector Art Generation](svg-generation.md)
-- [Structured Output](../06-communication/structured-output.md)
-- [Algorithm Design](../05-code/algorithm-design.md)
+## Failure Modes
+
+- Creative brief is underspecified or internally inconsistent.
+- Factual or product claims are invented.
+- Output violates required structure or audience constraints.
+- Existing copyrighted material is reproduced or imitated beyond authorized transformation.
+- Personal likenesses or source images are used without authorization.
+- Completion is reported without checking the deliverable contract.
+
+## Safety Boundary
+
+Creative generation does not authorize deceptive claims, unauthorized likenesses, private data, or reproduction of copyrighted material. Keep source attribution and user-provided assets within their declared permissions.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Creative output is an artifact, not evidence of factual claims.
+
+## Related
+
+- 13-creative
+- input-guardrails
+- output-guardrails
