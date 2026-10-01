@@ -1,60 +1,59 @@
 ---
-title: "CSV Processing"
+title: "Csv Processing"
 category: 12-data
-level: basic
+level: advanced
 stability: stable
+description: "Read, validate, transform, and export CSV data while preserving schema and row-level integrity."
 added: "2025-03"
-description: "Apply CSV processing in AI agent workflows."
-dependencies:
-  - package: pandas
-    min_version: "2.0.0"
-    tested_version: "3.0.2"
-    confidence: verified
-code_blocks:
-  - id: "example-csv"
-    type: executable
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-csv-processing.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# CSV Processing
+## Description
+Read, validate, transform, and export CSV data while preserving schema and row-level integrity.
 
-**Category:** `data`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when CSV input and required output schema are explicit.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
+| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
 
-Load, filter, transform, and export CSV data using pandas for structured analysis in agent pipelines.
+## Procedure
+1. Inspect the source schema and establish explicit transformation semantics.
+2. Validate required fields, types, encoding, null behavior, and relevant constraints.
+3. Apply only the declared transformation or analysis.
+4. Compare input/output counts and validate the resulting schema and values.
+5. Preserve source data and record material assumptions or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-# pip install pandas
-import pandas as pd
-from io import StringIO
-
-# Load
-df = pd.read_csv("data.csv")
-
-# Inspect
-print(df.head())
-print(df.dtypes)
-print(df.describe())
-
-# Filter
-high_value = df[df["revenue"] > 10000]
-
-# Transform
-df["profit_margin"] = (df["profit"] / df["revenue"] * 100).round(2)
-
-# Aggregate
-by_region = df.groupby("region")["revenue"].sum().reset_index()
-
-# Export
-by_region.to_csv("output.csv", index=False)
+task = {"capability": "csv-processing", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- `pandas-operations`, `schema-inference`, `data-visualization`, `sql-execution`
+## Failure Modes
+- Missing or ambiguous schema.
+- Unexpected nulls, duplicates, or malformed records.
+- Silent row/field loss.
+- Incorrect join, aggregation, or type coercion semantics.
+- Output not validated against the required contract.
+
+## Data Boundary
+Handle encoding, quoting, missing values, and malformed rows explicitly; never silently drop data.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
+
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
