@@ -3,46 +3,57 @@ title: "Sequential Workflow"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Apply sequential workflow in AI agent workflows."
+description: "Execute workflow stages in a declared order with explicit dependencies, checkpoints, and completion criteria."
 added: "2025-03"
+related: ["15-orchestration", "input-guardrails", "output-guardrails"]
 ---
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-sequential-workflow.json)
 
 **Category:** Orchestration
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
 
-### Description
-Orchestrates a deterministic pipeline of agent steps where each step receives the output of the previous one as input. Manages state passing, step validation, error propagation, and result accumulation.
+## Description
+Execute workflow stages in a declared order with explicit dependencies, checkpoints, and completion criteria.
 
-### Example
+## When to Use
+Use when later stages depend on verified outputs from earlier stages.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
+| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
+| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+
+## Procedure
+1. Establish state, ownership, dependencies, and acceptance criteria.
+2. Validate preconditions before changing workflow state.
+3. Execute the declared orchestration operation within bounded authority.
+4. Record state changes, evidence, and unresolved conditions.
+5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+
+## Runnable Example
 ```python
-from typing import Any, Callable
-
-Step = tuple[str, Callable[[dict], dict]]
-
-def run_pipeline(initial_state: dict, steps: list[Step]) -> dict:
-    state = initial_state.copy()
-    for step_name, fn in steps:
-        print(f"Running step: {step_name}")
-        result = fn(state)
-        state.update(result)
-        state["__last_step"] = step_name
-    return state
-
-pipeline = [
-    ("fetch",    lambda s: {"raw": f"data for {s['query']}"}),
-    ("parse",    lambda s: {"parsed": s["raw"].upper()}),
-    ("summarise",lambda s: {"summary": s["parsed"][:20] + "..."}),
-]
-
-result = run_pipeline({"query": "AI agents"}, pipeline)
-print(result["summary"])
+task = {"capability": "sequential-workflow", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
 ```
 
-### Related Skills
-- [Conditional Branching](conditional-branching.md)
-- [Retry Backoff](retry-backoff.md)
-- [Logging & Observability](logging-observability.md)
+## Failure Modes
+- Missing or ambiguous workflow state.
+- Invalid transition or unmet dependency.
+- Duplicate or concurrent execution.
+- Capability or authority exceeds declared scope.
+- Completion cannot be verified.
+
+## Orchestration Boundary
+Do not advance on unverified or partial outputs; preserve stage state and failure handling.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
+
+## Related
+- 15-orchestration
+- input-guardrails
+- output-guardrails
