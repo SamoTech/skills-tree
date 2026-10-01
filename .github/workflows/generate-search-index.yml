@@ -14,8 +14,8 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: generate-search-index-${{ github.ref }}
-  cancel-in-progress: true
+  group: auto-commit-main
+  cancel-in-progress: false
 
 permissions: {}
 
