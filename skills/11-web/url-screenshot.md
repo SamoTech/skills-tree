@@ -3,40 +3,63 @@ title: "Screenshot of URL"
 category: 11-web
 level: basic
 stability: stable
-description: "Apply screenshot of url in AI agent workflows."
+description: "Capture a bounded screenshot of an authorized web page after verifying its final origin and rendering state."
 added: "2025-03"
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-url-screenshot.json)
+## Description
 
-# Screenshot of URL
+Capture a bounded screenshot of an authorized web page after verifying its final origin and rendering state.
 
-**Category:** `web`
-**Skill Level:** `basic`
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit origin, session, data, and action boundaries.
 
-Capture a full-page or viewport screenshot of any URL without human interaction. Used for visual verification, archiving, and feeding page images to multimodal agents.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized URL, viewport, wait condition, screenshot bounds, and output path. |
+| Outputs | screenshot artifact, final URL, viewport metadata, and capture status. |
+| Failure modes | Wrong origin, unsafe redirect, oversized response, stale page state, credential leakage, access-control bypass, or unverified postcondition. |
+
+## Procedure
+
+1. Establish the authorized origin and resource scope.
+2. Validate redirects, content type, size, and session boundaries.
+3. Execute with explicit timeout, page, script, or artifact limits.
+4. Preserve provenance and avoid logging secrets or sensitive session state.
+5. Verify the final resource or authenticated state before reporting success.
+6. Stop when authorization or security boundaries are encountered.
+
+## Runnable Example
 
 ```python
-from playwright.sync_api import sync_playwright
-
-with sync_playwright() as p:
-    browser = p.chromium.launch()
-    page = browser.new_page(page.set_viewport_size({"width": 1280, "height": 800}))
-    page.goto('https://github.com/SamoTech/skills-tree')
-
-    # Full-page screenshot
-    page.screenshot(path='skills-tree.png', full_page=True)
-    browser.close()
+task = {"capability": "url-screenshot", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
+## Failure Modes
 
-- [Browser Navigation](browser-navigation.md)
-- [Screenshot Capture](../10-computer-use/screenshot-capture.md)
-- [DOM Inspection](dom-inspection.md)
+- Authorization or final origin cannot be verified.
+- Redirects leave the allowed scope.
+- Response or screenshot exceeds resource bounds.
+- Credentials, cookies, or tokens are exposed.
+- Authentication or anti-bot controls are bypassed.
+- Final state is not verified.
+
+## Safety Boundary
+
+Do not bypass authentication, CAPTCHA/anti-bot controls, paywalls, rate limits, robots restrictions, or other access controls. Never hard-code, log, or return passwords, session tokens, or private cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails

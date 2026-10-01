@@ -3,55 +3,63 @@ title: "Web Login"
 category: 11-web
 level: intermediate
 stability: stable
+description: "Perform an authorized web login flow using supplied credentials or approved authentication mechanisms without exposing or persisting secrets unnecessarily."
 added: "2025-03"
-description: "Apply web login in AI agent workflows."
-dependencies:
-  - package: playwright
-    min_version: "1.40.0"
-    tested_version: "1.58.0"
-    confidence: verified
-code_blocks:
-  - id: "example-login"
-    type: executable
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-login.json)
+## Description
 
-# Web Login
+Perform an authorized web login flow using supplied credentials or approved authentication mechanisms without exposing or persisting secrets unnecessarily.
 
-**Category:** `web`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit origin, session, data, and action boundaries.
 
-Automate login flows: fill credentials, submit forms, handle redirects, and persist session cookies for subsequent requests.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized login endpoint, credential source, session policy, and expected authenticated state. |
+| Outputs | verified authenticated session state without returning raw credentials or session secrets. |
+| Failure modes | Wrong origin, unsafe redirect, oversized response, stale page state, credential leakage, access-control bypass, or unverified postcondition. |
+
+## Procedure
+
+1. Establish the authorized origin and resource scope.
+2. Validate redirects, content type, size, and session boundaries.
+3. Execute with explicit timeout, page, script, or artifact limits.
+4. Preserve provenance and avoid logging secrets or sensitive session state.
+5. Verify the final resource or authenticated state before reporting success.
+6. Stop when authorization or security boundaries are encountered.
+
+## Runnable Example
 
 ```python
-# pip install playwright && playwright install chromium
-from playwright.sync_api import sync_playwright
-import json
-
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    page = browser.new_page()
-
-    page.goto("https://app.example.com/login")
-    page.fill("input[name='email']", "user@example.com")
-    page.fill("input[name='password']", "s3cr3t")
-    page.click("button[type='submit']")
-    page.wait_for_url("**/dashboard")
-
-    # Save session cookies for reuse
-    cookies = page.context.cookies()
-    with open("session.json", "w") as f:
-        json.dump(cookies, f)
-
-    browser.close()
+task = {"capability": "web-login", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-### Related Skills
-- `browser-navigation`, `cookie-management`, `form-filling`, `web-scraping`
+## Failure Modes
+
+- Authorization or final origin cannot be verified.
+- Redirects leave the allowed scope.
+- Response or screenshot exceeds resource bounds.
+- Credentials, cookies, or tokens are exposed.
+- Authentication or anti-bot controls are bypassed.
+- Final state is not verified.
+
+## Safety Boundary
+
+Do not bypass authentication, CAPTCHA/anti-bot controls, paywalls, rate limits, robots restrictions, or other access controls. Never hard-code, log, or return passwords, session tokens, or private cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails

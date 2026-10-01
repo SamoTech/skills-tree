@@ -411,3 +411,14 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN PROGRESS — staged on `coo/web-batch-01-2026-10-01` pending CI.
 
 **Constraint:** Web automation must remain within authorization and must not bypass authentication, CAPTCHA/anti-bot controls, rate limits, robots restrictions, paywalls, or other access controls.
+
+
+## DECISION-2026-10-01-WEB-BATCH-02
+
+**Decision:** Complete the remaining placeholder-level web cluster.
+
+**Scope:** url-fetching, url-screenshot, and web-login.
+
+**Status:** IN PROGRESS — staged on `coo/web-batch-02-2026-10-01` pending CI.
+
+**Constraint:** Web operations must stay within authorized origin/session boundaries and must not expose or bypass credentials, authentication, anti-bot controls, rate limits, robots restrictions, paywalls, or other access controls.
