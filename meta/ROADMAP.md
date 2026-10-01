@@ -221,6 +221,6 @@ The first controlled security corpus migration batch upgraded the nine remaining
 
 PR #243 merged as `40fb35aa6c54438f08062c89c118815262b6fe98` after the final validation matrix passed.
 
-A generated-quality-report synchronization defect was also observed: the `quality-report.yml` push publication path did not run after the API-driven merge. The workflow is being hardened with a trusted post-merge `pull_request_target: closed` trigger that checks out only the default branch and runs only for merged PRs.
+The quality-report workflow was hardened with a trusted post-merge `pull_request_target: closed` trigger. The live generated report now confirms 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid; category 14-security has 13 battle-tested and 0 stubs.
 
-**Next:** verify the generated report after the workflow correction, then continue with the remaining 36 expected stubs only after the generated artifact confirms the new corpus state.
+**Next:** continue with the remaining 13 verified stubs, selecting the next batch by evidence, safety, and agent utility rather than directory order.
