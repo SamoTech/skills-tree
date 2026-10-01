@@ -6,7 +6,7 @@
 
 - Snapshot date: 2026-10-01
 - Main HEAD at mission adoption: `eae68e4114434bc8eedb7c829ca84bebc3ff8568` — verified live main on 2026-10-01; the branch was created from this state.
-- Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
+- Quality report at live main: 374 skills, 170 classifier battle-tested, 159 enriched, 45 stubs, 0 invalid (verified from generated `meta/QUALITY-REPORT.md` on 2026-10-01).
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
 - Stub migration: batch 02 merged as PR #168 at `2c123af09fe6eb506eab543e2eea96efb0124273` (10 additional perception skills)
