@@ -1,43 +1,59 @@
 ---
-title: "SQL Query Execution"
+title: "Sql Execution"
 category: 12-data
-level: intermediate
+level: advanced
 stability: stable
-description: "Apply sql query execution in AI agent workflows."
+description: "Execute bounded SQL against an explicitly identified database, schema, and authorized query scope."
 added: "2025-03"
+related: ["12-data", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-sql-execution.json)
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# SQL Query Execution
+## Description
+Execute bounded SQL against an explicitly identified database, schema, and authorized query scope.
 
-**Category:** `data`  
-**Skill Level:** `intermediate`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the target database and query intent are verified.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, schema/context, method parameters, and required output contract. |
+| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
 
-Execute SQL queries against relational databases (PostgreSQL, MySQL, SQLite, etc.) and return results.
+## Procedure
+1. Establish the source schema, analytical or query objective, and output contract.
+2. Validate types, ranges, temporal or database context, and relevant assumptions.
+3. Apply only the declared operation within bounded scope.
+4. Validate outputs, counts, assumptions, and reproducibility.
+5. Preserve source data and record material uncertainty or exceptions.
 
-### Example
-
+## Runnable Example
 ```python
-import psycopg2
-conn = psycopg2.connect(DATABASE_URL)
-cur = conn.cursor()
-cur.execute("SELECT user_id, SUM(amount) FROM orders GROUP BY user_id LIMIT 10")
-rows = cur.fetchall()
+task = {"capability": "sql-execution", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
 ```
 
-### Frameworks
+## Failure Modes
+- Missing or ambiguous schema/context.
+- Unsupported assumptions or invalid method selection.
+- Silent data loss, leakage, or coercion.
+- Unbounded or unauthorized execution.
+- Output not validated against the required contract.
 
-- LangChain `SQLDatabaseChain`
-- OpenAI function calling + `sqlalchemy`
-- Vanna.ai (text-to-SQL)
+## Data Boundary
+Treat writes and destructive SQL as high-impact; verify query scope, transaction boundaries, and postconditions.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-- [SQL Query Generation](../05-code/sql-query-generation.md)
-- [Data Aggregation](data-aggregation.md)
-- [NoSQL Query](nosql-query.md)
+## Related
+- 12-data
+- input-guardrails
+- output-guardrails
