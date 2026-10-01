@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
+from jsonschema import ValidationError
 
 from registry.runtime import UniversalRegistry
 
@@ -168,4 +169,15 @@ def test_registry_rejects_dangling_compatibility_target(tmp_path: Path) -> None:
     broken.write_text(json.dumps(data), encoding="utf-8")
 
     with pytest.raises(ValueError, match="Dangling compatibility target reference"):
+        UniversalRegistry(broken)
+
+
+
+def test_registry_rejects_schema_invalid_entity_types(tmp_path: Path) -> None:
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    data["entities"]["goals"][0]["name"] = 123
+    broken = tmp_path / "schema-invalid.json"
+    broken.write_text(json.dumps(data), encoding="utf-8")
+
+    with pytest.raises(ValidationError):
         UniversalRegistry(broken)

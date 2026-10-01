@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any, TypedDict
 
 from jsonschema import Draft202012Validator
+from referencing import Registry, Resource
 
 from .capability import CapabilityRecord, CapabilityRuntime
 from .compatibility import CompatibilityRecord, CompatibilityRuntime
@@ -59,6 +60,7 @@ class UniversalRegistry:
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path)
         self._data = json.loads(self.path.read_text(encoding="utf-8"))
+        self._validate_registry_schema()
         self._validate_integrity()
         self._validate_implementation_contracts()
         self._validate_adapter_contracts()
@@ -313,6 +315,30 @@ class UniversalRegistry:
                     f"Adapter evidence does not support adapter {adapter['id']}: "
                     + ", ".join(sorted(unsupported))
                 )
+
+    def _validate_registry_schema(self) -> None:
+        """Validate the loaded registry against its normative data-instance schema."""
+        schema_path = self.path.parent.parent / "meta" / "universal-registry-data.schema.json"
+        if not schema_path.is_file():
+            schema_path = Path(__file__).resolve().parents[1] / "meta" / "universal-registry-data.schema.json"
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+
+        implementation_path = schema_path.parent / "implementation-contract.schema.json"
+        adapter_path = schema_path.parent / "adapter-contract.schema.json"
+        implementation_schema = json.loads(implementation_path.read_text(encoding="utf-8"))
+        adapter_schema = json.loads(adapter_path.read_text(encoding="utf-8"))
+
+        registry = Registry().with_resource(
+            schema["$id"],
+            Resource.from_contents(schema),
+        ).with_resource(
+            implementation_schema["$id"],
+            Resource.from_contents(implementation_schema),
+        ).with_resource(
+            adapter_schema["$id"],
+            Resource.from_contents(adapter_schema),
+        )
+        Draft202012Validator(schema, registry=registry).validate(self._data)
 
     def _validate_integrity(self) -> None:
         entities = self._data.get("entities")
