@@ -101,14 +101,14 @@ A distribution change is not complete until:
 
 ## Current state
 
-As of 2026-09-30, Skills Tree has 369 registry skill files: 74 battle-tested, 2 enriched, 293 stubs, and 0 invalid according to the generated quality report.
+The current canonical corpus contains 374 registry skill files. Classification is authoritative only when read from the generated `meta/QUALITY-REPORT.md`; public documentation must not carry a stale copy of those counts.
 
 The standards-compatible distribution layer is intentionally being introduced as a separate projection so the existing corpus can be migrated incrementally without corrupting the canonical registry.
 
 
 ## Stub migration gate
 
-The 293 legacy stubs are migrated incrementally. A migrated skill must satisfy all of these before it is treated as a completed migration:
+Legacy stubs are migrated incrementally; the current count is authoritative only in the generated quality report. A migrated skill must satisfy all of these before it is treated as a completed migration:
 
 1. The canonical `skills/<category>/<skill>.md` entry has a non-placeholder description and a real runnable example.
 2. Inputs/outputs and failure modes are explicit.
