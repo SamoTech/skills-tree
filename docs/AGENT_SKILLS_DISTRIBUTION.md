@@ -101,7 +101,7 @@ A distribution change is not complete until:
 
 ## Current state
 
-The current canonical corpus contains 374 registry skill files. Classification is authoritative only when read from the generated `meta/QUALITY-REPORT.md`; public documentation must not carry a stale copy of those counts.
+The current generated quality report verifies 374 registry skill files: 202 battle-tested, 159 enriched, 13 stubs, and 0 invalid. Category-level classification is authoritative in `meta/QUALITY-REPORT.md`.
 
 The standards-compatible distribution layer is intentionally being introduced as a separate projection so the existing corpus can be migrated incrementally without corrupting the canonical registry.
 
