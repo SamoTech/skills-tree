@@ -1,6 +1,6 @@
 ---
 name: audio-transcription
-description: Transcribe speech into text with timestamps and optional speaker attribution. Use for meetings, interviews, captions, recordings, and other speech-to-text workflows.
+description: Transcribe speech audio into timestamped text while preserving uncertainty, speaker boundaries when available, and non-speech events. Use explicit evidence boundaries, bounded execution, and postcondition verification.
 license: MIT
 metadata:
   source: skills/01-perception/audio-transcription.md
