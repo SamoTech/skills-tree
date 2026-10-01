@@ -3,65 +3,90 @@ title: "Human In Loop"
 category: 14-security
 level: advanced
 stability: stable
-description: "Apply human in loop in AI agent workflows."
+description: "Pause high-risk agent actions for explicit human approval with deny-by-default timeouts, auditable decisions, and safe resume or abort behavior."
 added: "2025-03"
+updated: "2026-10"
+version: v2
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-14-security-human-in-loop.json)
+# Human In Loop
 
-**Category:** Security & Safety
-**Skill Level:** Advanced
-**Stability:** stable
-**Added:** 2025-03
+## Description
 
-### Description
-Pauses agent execution when a decision exceeds a risk threshold and routes it to a human reviewer via Slack, email, or a web dashboard. Resumes or aborts based on the human's response. Implements timeout handling if no response is received.
+Human-in-the-loop control inserts an explicit approval boundary before actions whose risk, authority, cost, or irreversibility exceeds an established threshold. The agent should prepare the proposed action and evidence, then wait for a decision from an authorized reviewer.
 
-### Example
+Approval must be bound to the exact action being approved. A generic approval such as "yes, continue" should not authorize a different action later in the workflow.
+
+## Inputs / Outputs
+
+| Input | Type | Required | Description |
+|---|---|---:|---|
+| `action` | string | yes | Canonical action identifier |
+| `target` | string | yes | Resource or target affected |
+| `risk` | string | yes | Policy risk classification |
+| `evidence` | dict | no | Facts needed by the reviewer |
+| `timeout_seconds` | int | no | Maximum approval wait |
+
+| Output | Type | Description |
+|---|---|---|
+| `approved` | bool | Explicit approval result |
+| `decision_id` | string | Audit correlation identifier |
+| `reason` | string | Reviewer decision reason when supplied |
+
+## Runnable Example
+
 ```python
-import anthropic
+from dataclasses import dataclass
 import time
 
-client = anthropic.Anthropic()
+@dataclass(frozen=True)
+class Approval:
+    approved: bool
+    decision_id: str
+    reason: str
 
-PENDING_APPROVALS: dict = {}  # In production: use Redis/DB
+def require_approval(action: str, target: str, timeout: int = 30) -> Approval:
+    decision_id = f"approval:{action}:{target}"
+    deadline = time.monotonic() + timeout
+    # Replace this deterministic demo with an authenticated approval service.
+    if time.monotonic() >= deadline:
+        return Approval(False, decision_id, "timeout")
+    return Approval(False, decision_id, "no reviewer decision in demo")
 
-def request_human_approval(action: str, details: dict, timeout: int = 300) -> bool:
-    """Pause execution and await human approval."""
-    approval_id = f"approval-{int(time.time())}"
-    PENDING_APPROVALS[approval_id] = {"action": action, "details": details, "approved": None}
-
-    # In production: send Slack message / email with approve/reject buttons
-    print(f"[HUMAN REVIEW REQUIRED]")
-    print(f"Action: {action}")
-    print(f"Details: {details}")
-    print(f"Approval ID: {approval_id}")
-    print(f"Waiting up to {timeout}s for human response...")
-
-    # Simulate waiting loop (real implementation uses webhooks)
-    deadline = time.time() + timeout
-    while time.time() < deadline:
-        approval = PENDING_APPROVALS[approval_id]["approved"]
-        if approval is not None:
-            return approval
-        time.sleep(5)
-
-    print("Timeout: defaulting to DENY")
-    return False
-
-def maybe_delete_database(db_name: str) -> None:
-    """High-risk action that always requires human approval."""
-    approved = request_human_approval(
-        action="database_delete",
-        details={"database": db_name, "reason": "cleanup old data"}
-    )
-    if approved:
-        print(f"Deleting {db_name}...")
-    else:
-        print("Action cancelled by human reviewer.")
+print(require_approval("account.delete", "acct-42"))
 ```
 
-### Related Skills
+The demo deliberately denies by default. A production implementation should use an authenticated, durable approval channel and bind the reviewer decision to an immutable action summary.
+
+## Failure Modes
+
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Approval replay | Old approval reused for a new action | Bind approval to action, target, parameters, and expiry |
+| Wrong reviewer | Reviewer lacks authority | Check reviewer identity and required scope |
+| Timeout bypass | Agent continues after timeout | Timeout must produce a deny/escalate state |
+| Approval fatigue | Too many low-risk approvals | Use explicit risk thresholds and batch only equivalent safe actions |
+| Missing evidence | Reviewer cannot understand the action | Present concise, relevant evidence and expected effects |
+| Race condition | Target changes after approval | Revalidate target state immediately before execution |
+
+## Design Rules
+
+- Deny by default on timeout or unavailable approval service.
+- Never interpret silence as approval.
+- Make approvals single-purpose and time-bounded.
+- Re-check permissions and target state after approval.
+- Record who approved what, when, and under which policy version.
+- Provide an explicit abort path.
+
+## References
+
+- NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework
+- NIST AI RMF FAQs: https://www.nist.gov/itl/ai-risk-management-framework/ai-risk-management-framework-faqs
+
+Evidence status: guidance is based on general AI risk-management and accountability principles; no claim is made that human review alone guarantees safe behavior.
+
+## Related Skills
+
 - [Permission Checking](permission-checking.md)
 - [Audit Logging](audit-logging.md)
-- [Harm Detection](harm-detection.md)
+- [Rollback / Undo](rollback-undo.md)
