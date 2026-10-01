@@ -14,7 +14,7 @@ permissions:
 # Serialize runs of THIS workflow on the same ref so concurrent
 # scheduled triggers do not race when pushing back to main.
 concurrency:
-  group: used-in-tracker-${{ github.ref }}
+  group: auto-commit-main
   cancel-in-progress: false
 
 jobs:
