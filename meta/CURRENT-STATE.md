@@ -199,3 +199,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added or synchronized corresponding Agent Skills projections.
 - The `10-computer-use` category is now fully modernized; target verification, bounded interaction, sensitive-data protection, and postcondition checks remain mandatory.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Data modernization — batch 01
+
+- Modernized ten `12-data` stubs: anomaly-detection, csv-processing, data-aggregation, data-cleaning, data-filtering, data-joining, data-summarization, data-visualization, etl-pipeline, and json-transformation.
+- Added or synchronized corresponding Agent Skills projections.
+- Added explicit schema, provenance, validation, cardinality, null-handling, and data-loss boundaries.
+- No validator, security gate, or repository governance rule was weakened.
