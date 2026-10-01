@@ -1,43 +1,59 @@
 ---
-title: "Constitutional AI"
+title: "Constitutional Ai"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
-description: "Apply constitutional ai in AI agent workflows."
+description: "Apply explicit behavioral principles and evaluation criteria to constrain agent outputs and actions."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-constitutional-ai.json)
-
-# Constitutional AI
-
-**Category:** `agentic-patterns`
+**Category:** Agentic Patterns
 **Skill Level:** `advanced`
-**Stability:** `stable`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Apply explicit behavioral principles and evaluation criteria to constrain agent outputs and actions.
 
-Agent revises its own output by checking it against a set of principles (a "constitution"). For each principle, the agent critiques and rewrites the output until all principles are satisfied.
+## When to Use
+Use when a workflow has declared principles that must be checked before release or action.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Agent state, task objective, constraints, evidence/context, tools or evaluators, and stopping criteria. |
+| Outputs | Structured agent result with provenance, uncertainty, and validation state. |
+| Failure modes | Goal drift, evaluator bias, unsupported inference, unbounded search, or incomplete grounding. |
 
+## Procedure
+1. Establish the objective, state, constraints, evaluation criteria, and stopping conditions.
+2. Validate the available context and tool authority before execution.
+3. Apply the declared agentic pattern within explicit resource bounds.
+4. Evaluate outputs against evidence and acceptance criteria.
+5. Preserve uncertainty and stop or escalate when the evidence is insufficient.
+
+## Runnable Example
+```python
+task = {"pattern": "constitutional-ai", "validated": True}
+assert task["validated"]
+result = {"status": "evaluation_required", "pattern": task["pattern"]}
+print(result)
 ```
-Initial response: [potentially harmful advice]
 
-Principle 1: "Do not provide instructions that could harm people."
-Critique: "My response could be misused to harm others."
-Revision: [safer, helpful alternative]
+## Failure Modes
+- Ambiguous objective or stopping condition.
+- Evaluator or critic shares the same failure mode as the generator.
+- Unsupported claims treated as grounded output.
+- Resource use grows without an explicit bound.
+- Completion reported without evidence or validation.
 
-Principle 2: "Be honest and acknowledge uncertainty."
-Critique: "I stated this as fact without citing sources."
-Revision: [adds uncertainty qualifier]
+## Pattern Boundary
+Principles must be explicit and auditable; they do not replace task-specific safety or authorization controls.
 
-Final response: [safe, honest, helpful]
-```
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Agentic-pattern outputs require explicit evaluation and evidence boundaries.
 
-### Related Skills
-
-- [Reflection](reflection.md)
-- [Critic Agent](critic-agent.md)
-- [Debate Pattern](debate-pattern.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
