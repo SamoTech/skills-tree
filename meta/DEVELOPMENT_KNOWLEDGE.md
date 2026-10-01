@@ -315,3 +315,9 @@ P1.10 is implemented as an additive typed graph slice in `graph/universal_graph.
 ### P2.2 — Typed Implementation Runtime
 
 P2.2 is implemented in `registry/runtime.py`. `ImplementationRecord` defines the runtime shape, `resolve_implementation()` resolves a canonical Implementation ID, `implementations_for_skill()` returns deterministic linked Implementations, and registry initialization validates every registered Implementation against `meta/implementation-contract.schema.json`. Regression coverage is in `tests/test_registry_implementation_runtime.py`.
+
+## Post-P2.2 Evidence Runtime Integration — Verified 2026-10-01
+
+PR #223 integrated the existing validated EvidenceRuntime into UniversalRegistry. The runtime now exposes deterministic typed Evidence resolution and entity-support traversal. Exact-head CI passed before merge at 642e968879e9b6bfc8e7f9b2a44d12544585fc18.
+
+Next: perform a fresh universal-registry runtime architecture audit. No numbered P2.3 item is defined.

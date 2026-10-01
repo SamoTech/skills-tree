@@ -5,8 +5,8 @@
 ## Verified snapshot
 
 - Snapshot date: 2026-10-01
-- Verified live main HEAD: `bcf4b51505e213604efbdc13159951af1162bdc9` — current live main after PR #220 final state synchronization.
-- Main HEAD: `bcf4b51505e213604efbdc13159951af1162bdc9` — current live main after PR #220 final state synchronization.
+- Verified live main HEAD: `da5dc6e4d6d66d7c79d106233fcd2515c1d168e4` — current live main after the post-P2.2 Evidence runtime integration (PR #223).
+- Main HEAD: `da5dc6e4d6d66d7c79d106233fcd2515c1d168e4` — current live main after the post-P2.2 Evidence runtime integration (PR #223).
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains 135 battle-tested, 59 enriched, 180 stubs, 0 invalid
 - Invalid: 0
 - Stub migration: batch 01 merged as PR #164 at `424fb43bee42545ac09f4683adb1127dfa97bcda` (10 perception skills)
@@ -79,6 +79,8 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Dependabot automation does not auto-approve or auto-merge dependency updates.
 - Agent-facing skill instructions are explicitly treated as a supply-chain/security surface.
 
+
+- Post-P2.2 Evidence runtime: PR #223 merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`; `UniversalRegistry` now exposes typed deterministic Evidence resolution and entity-support traversal through the existing validated `EvidenceRuntime`.
 
 ## Project-operating skills
 
