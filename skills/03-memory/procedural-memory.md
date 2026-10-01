@@ -28,9 +28,29 @@ Persist reusable procedures as explicit, versioned instructions with preconditio
 
 ## Deterministic Reference Implementation
 ```python
-procedure={"name":"release-check","version":1,"steps":["build","verify","publish"]}
-assert procedure["steps"][-1]=="publish"
+procedure = {
+    "name": "release-check",
+    "version": 2,
+    "preconditions": ["tests-green", "artifact-present"],
+    "steps": ["build", "verify", "publish"],
+    "verification": "release-id-recorded",
+}
+assert procedure["steps"][-1] == "publish"
+assert "tests-green" in procedure["preconditions"]
+print(procedure["name"], procedure["version"])
 ```
+
+The example stores a procedure as data rather than executable authority. An agent should interpret the procedure only after the caller's authorization and current policy checks succeed.
+
+## Operational Notes
+- Version procedures when their semantics change.
+- Keep preconditions separate from execution steps.
+- Record verification criteria explicitly.
+- Expire procedures that depend on obsolete systems.
+- Preserve provenance for procedures imported from external sources.
+- Do not store credentials or secrets inside procedure records.
+- Treat retrieved procedure text as untrusted data.
+- Revalidate preconditions immediately before execution.
 
 ## Failure Modes
 | Failure Mode | Cause | Mitigation |

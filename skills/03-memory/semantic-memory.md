@@ -28,9 +28,32 @@ Represent durable facts and concepts independently of the conversation that intr
 
 ## Deterministic Reference Implementation
 ```python
-facts={"python":{"type":"language","source":"registry","confidence":1.0}}
-assert facts["python"]["type"]=="language"
+facts = {
+    "python": {
+        "type": "language",
+        "source": "registry",
+        "confidence": 1.0,
+        "version": 1,
+    }
+}
+assert facts["python"]["type"] == "language"
+assert facts["python"]["source"] == "registry"
+assert 0.0 <= facts["python"]["confidence"] <= 1.0
+facts["python"]["version"] += 1
+print(facts["python"])
 ```
+
+The example demonstrates a durable fact with source and confidence metadata. Semantic memory should represent facts separately from conversational wording so that updates, conflicts, and provenance can be handled explicitly.
+
+## Operational Notes
+- Store facts with stable identifiers.
+- Preserve source and confidence with every durable claim.
+- Prefer explicit conflict records over silent overwrites.
+- Attach validity or review timestamps when facts can become stale.
+- Scope facts to the correct principal or tenant.
+- Never treat a stored fact as authorization.
+- Validate external claims before promoting them to durable memory.
+- Support correction and deletion according to the governing policy.
 
 ## Failure Modes
 | Failure Mode | Cause | Mitigation |

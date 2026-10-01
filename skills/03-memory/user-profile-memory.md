@@ -28,9 +28,27 @@ Maintain an explicit, consent-aware profile of stable user preferences and attri
 
 ## Deterministic Reference Implementation
 ```python
-profile={"language":{"value":"en","source":"user","confidence":1.0}}
-assert profile["language"]["source"]=="user"
+profile = {
+    "language": {"value": "en", "source": "user", "confidence": 1.0},
+    "format": {"value": "markdown", "source": "user", "confidence": 1.0},
+}
+assert profile["language"]["source"] == "user"
+assert profile["format"]["value"] == "markdown"
+assert all(0.0 <= item["confidence"] <= 1.0 for item in profile.values())
+print(profile["language"]["value"])
 ```
+
+The example keeps preference values attributable to the user rather than inferring them from unrelated context. A production profile should also carry consent, retention, scope, and correction metadata appropriate to the application.
+
+## Operational Notes
+- Store only attributes needed for the product behavior.
+- Prefer explicit user-provided preferences over weak inference.
+- Record provenance for each profile field.
+- Scope profile records to the correct user identity.
+- Define retention and deletion behavior before storing sensitive attributes.
+- Do not infer protected or sensitive characteristics from unrelated behavior.
+- Allow users to correct inaccurate profile values.
+- Treat profile memory as data, never as permission to act.
 
 ## Failure Modes
 | Failure Mode | Cause | Mitigation |
