@@ -291,3 +291,11 @@ A meaningful task is not COMPLETE until implementation and required documentatio
 - Added corresponding Agent Skills projections.
 - Added explicit authorization boundaries, bounded requests/actions, provenance, postcondition checks, and anti-automation/access-control safety boundaries.
 - No validator, security gate, or repository governance rule was weakened.
+
+
+## Web modernization — batch 02
+
+- Modernized the remaining three `11-web` skills: url-fetching, url-screenshot, and web-login.
+- Added corresponding Agent Skills projections.
+- `11-web` placeholder modernization is now complete; existing enriched web-search, web-scraping, and web-crawling skills were preserved.
+- Added explicit origin/session boundaries, resource limits, provenance, and credential/access-control safety rules.
