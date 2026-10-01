@@ -63,3 +63,11 @@ The slice adds no new registry claims, provenance, compatibility facts, provider
 ## Next Architecture Audit
 
 No numbered P2.3 item is defined. The next slice must come from a fresh universal-registry runtime audit using live implementation, contract, graph, evidence, compatibility, and consumer behavior.
+
+## Post-P2.2 Compatibility Runtime Audit — Selected Slice
+
+The fresh post-P2.2 universal-registry runtime audit identified a second read-boundary gap: Compatibility already has a dedicated validated CompatibilityRuntime, but UniversalRegistry.compatibility_for() was still reading raw registry storage directly.
+
+The selected slice integrates the existing CompatibilityRuntime into UniversalRegistry, exposes typed resolve_compatibility(), and routes compatibility_for() through the validated runtime. It adds no new compatibility facts, providers, platform/framework/model/protocol claims, evidence, or graph semantics.
+
+**Status:** IN PROGRESS — implementation staged; exact-head CI and final documentation verification pending.
