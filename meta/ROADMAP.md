@@ -186,14 +186,14 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, and the post-P2.2 Evidence runtime integration. The remaining Phase 0 items are limited to the evidence-backed workflow classification/reconciliation work recorded in `meta/CURRENT-STATE.md`. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
+The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, and the post-P2.2 Compatibility runtime integration. The remaining Phase 0 items are limited to the evidence-backed workflow classification/reconciliation work recorded in `meta/CURRENT-STATE.md`. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
 ## Current execution queue
 
 1. Complete the remaining evidence-backed Phase 0 workflow classification/reconciliation work.
-2. Perform a fresh universal-registry runtime architecture audit after the verified Evidence runtime integration.
+2. Perform a fresh universal-registry runtime architecture audit after the verified Compatibility runtime integration.
 3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
 4. Update decision memory, architecture documentation, development knowledge, roadmap, and current state in the same cycle.
 5. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
