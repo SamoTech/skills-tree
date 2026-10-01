@@ -55,3 +55,26 @@ def test_capability_runtime_returns_independent_snapshots() -> None:
     adapters = runtime.adapters_for_capability("capability/code-quality")
     adapters[0]["status"] = "verified"
     assert runtime.adapters_for_capability("capability/code-quality")[0]["status"] == "candidate"
+
+
+
+def test_universal_registry_exposes_typed_capability_runtime_boundary() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    capability = registry.resolve_capability("capability/code-quality")
+    assert capability["id"] == "capability/code-quality"
+    assert [item["id"] for item in registry.implementations_for_capability("capability/code-quality")] == [
+        "implementation/code-reviewer-system"
+    ]
+    assert [item["id"] for item in registry.adapters_for_capability("capability/code-quality")] == [
+        "adapter/code-reviewer-mcp"
+    ]
+
+
+def test_universal_registry_capability_boundary_rejects_unknown_capability() -> None:
+    registry = UniversalRegistry(REGISTRY_PATH)
+    with pytest.raises(KeyError, match="Unknown capability"):
+        registry.resolve_capability("capability/missing")
+    with pytest.raises(KeyError, match="Unknown capability"):
+        registry.implementations_for_capability("capability/missing")
+    with pytest.raises(KeyError, match="Unknown capability"):
+        registry.adapters_for_capability("capability/missing")

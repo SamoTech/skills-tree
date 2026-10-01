@@ -9,6 +9,7 @@ from typing import Any, TypedDict
 
 from jsonschema import Draft202012Validator
 
+from .capability import CapabilityRecord, CapabilityRuntime
 from .compatibility import CompatibilityRecord, CompatibilityRuntime
 from .evidence import EvidenceRecord, EvidenceRuntime
 from .skill import SkillRecord, SkillRuntime
@@ -67,6 +68,7 @@ class UniversalRegistry:
         self._compatibility_runtime = CompatibilityRuntime(self._data, compatibility_schema)
         self._evidence_runtime = EvidenceRuntime(self._data)
         self._skill_runtime = SkillRuntime(self)
+        self._capability_runtime = CapabilityRuntime(self)
 
     @property
     def data(self) -> dict[str, Any]:
@@ -86,6 +88,18 @@ class UniversalRegistry:
         }:
             raise KeyError(f"Unknown entity: {entity_id}")
         return self._evidence_runtime.evidence_for_entity(entity_id)
+
+    def resolve_capability(self, capability_id: str) -> CapabilityRecord:
+        """Return one validated Capability by canonical ID."""
+        return self._capability_runtime.resolve_capability(capability_id)
+
+    def implementations_for_capability(self, capability_id: str) -> list[ImplementationRecord]:
+        """Return validated Implementations linked to a Capability."""
+        return self._capability_runtime.implementations_for_capability(capability_id)
+
+    def adapters_for_capability(self, capability_id: str) -> list[AdapterRecord]:
+        """Return validated Adapters linked to a Capability."""
+        return self._capability_runtime.adapters_for_capability(capability_id)
 
     def resolve_skill(self, skill_id: str) -> SkillRecord:
         """Return one validated canonical Skill by ID."""
