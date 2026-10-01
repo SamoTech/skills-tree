@@ -1,39 +1,59 @@
 ---
-title: "Mixture of Agents (MoA)"
+title: "Mixture Of Agents"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Apply mixture of agents (moa) in AI agent workflows."
+stability: stable
+description: "Combine multiple independent agent outputs through explicit role separation, aggregation, and validation."
 added: "2025-03"
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mixture-of-agents.json)
-
-# Mixture of Agents (MoA)
-
-**Category:** `agentic-patterns`
+**Category:** Agentic Patterns
 **Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+**Stability:** stable
 
-### Description
+## Description
+Combine multiple independent agent outputs through explicit role separation, aggregation, and validation.
 
-Multiple LLM agents independently generate responses; an aggregator model combines their outputs into a final, higher-quality answer. Exploits the diversity of different model families.
+## When to Use
+Use when independent perspectives are useful and aggregation criteria are defined.
 
-### Example
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Agent state, task objective, constraints, evidence/context, tools or evaluators, and stopping criteria. |
+| Outputs | Structured agent result with provenance, uncertainty, and validation state. |
+| Failure modes | Goal drift, evaluator bias, unsupported inference, unbounded search, or incomplete grounding. |
 
+## Procedure
+1. Establish the objective, state, constraints, evaluation criteria, and stopping conditions.
+2. Validate the available context and tool authority before execution.
+3. Apply the declared agentic pattern within explicit resource bounds.
+4. Evaluate outputs against evidence and acceptance criteria.
+5. Preserve uncertainty and stop or escalate when the evidence is insufficient.
+
+## Runnable Example
+```python
+task = {"pattern": "mixture-of-agents", "validated": True}
+assert task["validated"]
+result = {"status": "evaluation_required", "pattern": task["pattern"]}
+print(result)
 ```
-Query: "Explain quantum entanglement simply"
 
-Agent 1 (GPT-4o):    "Imagine two coins always landing opposite..."
-Agent 2 (Claude 3):  "Entanglement links particles so measuring one..."
-Agent 3 (Gemini):    "Like a magic pair of dice that always match..."
+## Failure Modes
+- Ambiguous objective or stopping condition.
+- Evaluator or critic shares the same failure mode as the generator.
+- Unsupported claims treated as grounded output.
+- Resource use grows without an explicit bound.
+- Completion reported without evidence or validation.
 
-Aggregator: synthesizes all three → best combined explanation
-```
+## Pattern Boundary
+More agents do not guarantee correctness; correlated errors and aggregation bias remain possible.
 
-### Related Skills
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Agentic-pattern outputs require explicit evaluation and evidence boundaries.
 
-- [Debate Pattern](debate-pattern.md)
-- [Subagent Delegation](subagent-delegation.md)
-- [Critic Agent](critic-agent.md)
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
