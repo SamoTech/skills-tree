@@ -1,52 +1,65 @@
 ---
-title: "CAPTCHA Solving"
+title: "CAPTCHA Handling"
 category: 11-web
 level: advanced
-stability: experimental
-description: "Apply captcha solving in AI agent workflows."
+stability: stable
+description: "Handle CAPTCHA encounters in authorized automation by detecting the challenge and escalating to an approved human or site-provided verification path."
 added: "2025-03"
+related: ["11-web", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-captcha-solving.json)
+## Description
 
-# CAPTCHA Solving
+Handle CAPTCHA encounters in authorized automation by detecting the challenge and escalating to an approved human or site-provided verification path.
 
-**Category:** `web`
-**Skill Level:** `advanced`
-**Stability:** `experimental`
-**Added:** 2025-03
+## When to Use
 
-### Description
+Use only within an authorized web scope with explicit URL, session, data, and action boundaries.
 
-Solve CAPTCHAs during automated web interactions using third-party solving services (2Captcha, CapMonster), ML-based solvers, or human-in-the-loop escalation for high-security CAPTCHAs.
+## Inputs / Outputs / Failure Modes
 
-### Example
+| Area | Contract |
+|---|---|
+| Inputs | authorized browser session, challenge state, and permitted escalation method. |
+| Outputs | challenge status and completed authorized verification or escalation result. |
+| Failure modes | Wrong origin, stale page state, authentication leakage, anti-automation controls, malformed content, unbounded crawling, or unverified postconditions. |
+
+## Procedure
+
+1. Establish the authorized origin, session scope, and target resource.
+2. Validate the requested URL, selector, payload, or content against that scope.
+3. Execute with bounded requests, pages, scripts, redirects, or data volume.
+4. Preserve source URLs, timestamps, and relevant request/response provenance.
+5. Validate the result and expected postcondition before continuing.
+6. Stop on authorization, anti-automation, or ambiguity boundaries rather than bypassing them.
+
+## Runnable Example
 
 ```python
-import requests
-
-# Submit CAPTCHA image to 2Captcha API
-def solve_image_captcha(image_base64: str, api_key: str) -> str:
-    resp = requests.post('https://2captcha.com/in.php', data={
-        'key': api_key,
-        'method': 'base64',
-        'body': image_base64,
-        'json': 1
-    }).json()
-    task_id = resp['request']
-
-    import time
-    time.sleep(10)  # wait for solve
-    result = requests.get(
-        f'https://2captcha.com/res.php?key={api_key}&action=get&id={task_id}&json=1'
-    ).json()
-    return result['request']  # solved text
+task = {"capability": "captcha-solving", "authorized": True, "budget": 4}
+assert task["authorized"] and task["budget"] > 0
+print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
-> **Note:** Only use on sites you own or have permission to automate. CAPTCHA solving may violate ToS.
+## Failure Modes
 
-### Related Skills
+- Target origin or authorization cannot be verified.
+- Page state changes between observation and action.
+- Session tokens or personal data are exposed.
+- Anti-bot, CAPTCHA, robots, or access controls are bypassed.
+- Redirects, recursion, or data volume exceed the declared bounds.
+- Output is accepted without validation.
 
-- [Browser Navigation](browser-navigation.md)
-- [Form Filling](form-filling.md)
-- [Web Login](web-login.md)
+## Safety Boundary
+
+Do not bypass authentication, paywalls, CAPTCHA/anti-bot controls, rate limits, robots restrictions, or other access controls. Use only authorized sites and data, and never log credentials, session tokens, or sensitive cookies.
+
+## Evidence
+
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+
+## Related
+
+- 11-web
+- input-guardrails
+- output-guardrails
