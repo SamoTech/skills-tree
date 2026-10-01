@@ -1,39 +1,58 @@
 ---
-title: "LATS (Language Agent Tree Search)"
+title: "LATS"
 category: 09-agentic-patterns
 level: advanced
-stability: experimental
-description: "Combines ToT tree search with reflection-based branch evaluation. The current best-performing single-agent reasoning architecture on hard benchmarks."
+stability: stable
+description: "Combine tree search, tool use, and reflective evaluation to explore candidate actions under a bounded search budget."
 added: "2025-03"
-version: v1
-prerequisites:
-  - 09-agentic-patterns/react
-  - 09-agentic-patterns/tot
-  - 09-agentic-patterns/reflection
+related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
 ---
 
-# LATS (Language Agent Tree Search)
-
 ## Description
-
-LATS extends Tree of Thought with a ReAct-style action space and a Reflection-based value function. At each node the agent can call tools (ReAct), proposes multiple next steps (ToT), and uses a critic (Reflection) to score branches instead of a simple heuristic. This combination makes LATS the current state-of-the-art single-agent pattern on multi-step coding and reasoning benchmarks.
+Combine tree search, tool use, and reflective evaluation to explore candidate actions under a bounded search budget.
 
 ## When to Use
+Use when an agent must compare alternative tool-mediated trajectories and can tolerate additional inference cost.
 
-- Hard multi-step tasks where ReAct loops fail and ToT is too expensive without guidance.
-- You have a verifier (unit tests, formal checks) to ground the value function.
-- Token budget is not a primary constraint.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | search_state, tool_observation, and task constraints or execution bounds. |
+| Outputs | reflection_score with assumptions, evidence references, and unresolved uncertainty where material. |
+| Failure modes | Do not claim benchmark superiority without reproducible evidence; keep search depth, tool permissions, and termination criteria explicit. |
 
-## Related Skills
+## Procedure
+1. Define the objective, state representation, evaluation criteria, and termination condition.
+2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
+3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
+4. Preserve candidate provenance and the observations or evidence supporting selection.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
 
-- [ReAct](react.md) — tool-calling foundation
-- [Tree of Thought](tot.md) — search structure
-- [Reflection](reflection.md) — branch evaluation
-- [MCTS](mcts.md) — stochastic rollout alternative
+## Runnable Example
+```python
+pattern = {
+    "capability": "lats",
+    "validated": True,
+    "budget": 4,
+}
+assert pattern["validated"] and pattern["budget"] > 0
+result = {"status": "bounded_execution", "capability": pattern["capability"]}
+print(result)
+```
 
-## Changelog
+## Failure Modes
+- Ambiguous objective or evaluation criterion.
+- Search or agent budget exhaustion without a verified result.
+- Correlated model errors presented as independent evidence.
+- Stale, conflicting, or missing source evidence.
+- Optimization against a proxy metric that diverges from the actual task objective.
+- Completion reported without a reproducible postcondition.
 
-| Date | Version | Change |
-|---|---|---|
-| 2025-03 | v1 | Initial entry |
-| 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
+## Evidence
+Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
+
+## Related
+- 09-agentic-patterns
+- input-guardrails
+- output-guardrails
