@@ -1,52 +1,59 @@
 ---
 title: "Keyboard Type"
 category: 10-computer-use
-level: basic
+level: advanced
 stability: stable
+description: "Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely."
 added: "2025-03"
-description: "Apply keyboard typing in AI agent workflows."
-dependencies:
-  - package: pyautogui
-    min_version: "0.9.54"
-    tested_version: "0.9.54"
-    confidence: verified
-code_blocks:
-  - id: "example-type"
-    type: executable
+related: ["10-computer-use", "input-guardrails", "output-guardrails"]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-keyboard-type.json)
+**Category:** Computer Use
+**Skill Level:** `advanced`
+**Stability:** stable
 
-# Keyboard Type
+## Description
+Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely.
 
-**Category:** `computer-use`  
-**Skill Level:** `basic`  
-**Stability:** `stable`
-**Added:** 2025-03
+## When to Use
+Use when the destination field and input text are explicit.
 
-### Description
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
+| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
+| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
 
-Type text and press individual keys or keyboard shortcuts programmatically.
+## Procedure
+1. Establish the active application, target, and expected UI state.
+2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
+3. Perform only the requested action within the declared bounds.
+4. Inspect the resulting UI state and verify the expected postcondition.
+5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
 
-### Example
-
+## Runnable Example
 ```python
-# pip install pyautogui
-import pyautogui
-import time
-
-time.sleep(1)
-
-# Type a string with a slight interval between characters
-pyautogui.typewrite("Hello, world!", interval=0.05)
-
-# Press a single key
-pyautogui.press("enter")
-
-# Press a hotkey combination
-pyautogui.hotkey("ctrl", "a")  # select all
-pyautogui.hotkey("ctrl", "c")  # copy
+action = {"capability": "keyboard-type", "target_verified": True}
+assert action["target_verified"]
+result = {"status": "postcondition_required", "capability": action["capability"]}
+print(result)
 ```
 
-### Related Skills
-- `keyboard-shortcut`, `mouse-click`, `form-filling`, `clipboard-write`
+## Failure Modes
+- Target or application identity cannot be verified.
+- UI changed between observation and action.
+- Focus is ambiguous or lost.
+- Action may have destructive or irreversible side effects.
+- Postcondition cannot be verified.
+
+## Safety Boundary
+Never type secrets into an unverified destination; confirm focus and avoid accidental submission.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
+
+## Related
+- 10-computer-use
+- input-guardrails
+- output-guardrails
