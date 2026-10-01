@@ -7,6 +7,7 @@ description: "Execute untrusted agent-generated code inside a separately enforce
 added: "2025-03"
 updated: "2026-10"
 version: v2
+related: [input-sanitization, permission-checking, secret-scanning]
 ---
 
 # Sandboxed Execution
