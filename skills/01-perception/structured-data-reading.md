@@ -123,9 +123,9 @@ print(json.dumps(result, indent=2))
 
 ## Evidence
 
-- https://docs.python.org/3/library/json.html
+- https://docs.python.org/3.14/library/json.html
 - https://yaml.org/spec/1.2.2/
-- https://docs.python.org/3/library/xml.etree.elementtree.html
+- https://docs.python.org/3.14/library/xml.etree.elementtree.html
 
 Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
 
