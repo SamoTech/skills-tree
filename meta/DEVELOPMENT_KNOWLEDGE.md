@@ -377,3 +377,10 @@ The selected vertical slice added `GoalRuntime`, integrated it into `UniversalRe
 **Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
 
 **Next:** perform another fresh universal-registry runtime architecture audit. Do not invent a numbered P2.3 requirement and do not add ontology facts without authoritative evidence.
+
+
+## Runtime Facade Boundary Audit — 2026-10-02
+
+After the Goal runtime facade was verified, the public UniversalRegistry access surface was re-audited. Dedicated runtime boundaries now cover Goal, Capability, Skill, Evidence, and Compatibility. Implementation and Adapter remain intentionally implemented in the core runtime because their typed record contracts, initialization validation, defensive snapshots, and relationship checks already provide the required boundary. Graph edges are likewise schema- and relationship-validated before defensive return.
+
+No additional runtime class was invented merely for symmetry. The next work item must come from a deeper invariant or consumer-behavior gap demonstrated by repository evidence.
