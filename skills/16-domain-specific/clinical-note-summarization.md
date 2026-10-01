@@ -3,7 +3,7 @@ title: "Clinical Note Summarization"
 category: 16-domain-specific
 level: advanced
 stability: stable
-description: "Apply clinical note summarization in AI agent workflows."
+description: "Apply clinical note summarization in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
 added: "2025-03"
 ---
 
@@ -40,7 +40,7 @@ follow-up chest X-ray in 48h, no fever."
 print(summarize_note(note))
 ```
 
-### Related Skills
-- [Summarization](../06-communication/summarization.md)
-- [Document Parsing](../01-perception/document-parsing.md)
-- [Structured Output](../06-communication/structured-output.md)
+### Related
+- 16-domain-specific
+- input-guardrails
+- output-guardrails
