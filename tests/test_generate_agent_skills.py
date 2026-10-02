@@ -93,3 +93,21 @@ description: "Real skill."
     report = audit(tmp_path)
     assert report["total"] == 1
     assert report["eligible"] == 1
+
+
+def test_generated_name_rejects_consecutive_hyphens(tmp_path):
+    source = write_skill(
+        tmp_path,
+        "01-test/foo--bar.md",
+        """---
+description: "A valid description."
+---
+
+# Foo
+
+## Evidence
+
+- Evidence
+""",
+    )
+    assert "invalid generated name" in project(source, tmp_path).blockers
