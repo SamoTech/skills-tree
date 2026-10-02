@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 205
-- 🟡 **Enriched** (real description + runnable code): 159
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 206
+- 🟡 **Enriched** (real description + runnable code): 158
 - ⚪ **Stub** (placeholder description or no runnable code): 10
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
@@ -15,7 +15,7 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 29 | 6 | 1 | 0 |
+| `01-perception` | 36 | 30 | 5 | 1 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
 | `03-memory` | 19 | 19 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
@@ -57,6 +57,7 @@
 - [`skills/01-perception/pdf-parsing.md`](skills/01-perception/pdf-parsing.md) — PDF Parsing
 - [`skills/01-perception/screen-reading.md`](skills/01-perception/screen-reading.md) — Screen Reading
 - [`skills/01-perception/sensor-reading.md`](skills/01-perception/sensor-reading.md) — Sensor Reading
+- [`skills/01-perception/social-media-reading.md`](skills/01-perception/social-media-reading.md) — Social Media Reading
 - [`skills/01-perception/spreadsheet-reading.md`](skills/01-perception/spreadsheet-reading.md) — Spreadsheet Reading
 - [`skills/01-perception/structured-data-reading.md`](skills/01-perception/structured-data-reading.md) — Structured Data Reading
 - [`skills/01-perception/table-extraction.md`](skills/01-perception/table-extraction.md) — Table Extraction
@@ -247,7 +248,6 @@
 - [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — no inputs/outputs/failure-modes table
 - [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — missing table or <60 lines
 - [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — missing table or <60 lines
-- [`skills/01-perception/social-media-reading.md`](skills/01-perception/social-media-reading.md) — missing table or <60 lines
 - [`skills/01-perception/time-series-reading.md`](skills/01-perception/time-series-reading.md) — missing table or <60 lines
 - [`skills/02-reasoning/analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — no inputs/outputs/failure-modes table
