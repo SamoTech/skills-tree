@@ -7,6 +7,8 @@ import json
 import re
 from pathlib import Path
 
+from tools.generate_agent_skills import project
+
 NAME_RE = re.compile(r"^(?!.*--)[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$")
 FM_RE = re.compile(r"^---\n(.*?)\n---\n?", re.DOTALL)
 
@@ -80,7 +82,7 @@ def reconcile(root: Path) -> dict:
         if current["source"]:
             source_packages.setdefault(current["source"], []).append(current)
 
-    matched, inferred, missing, rename_needed = [], [], [], []
+    matched, inferred, missing, rename_needed, drifted, blocked_existing = [], [], [], [], [], []
     for source, record in by_source.items():
         expected = desired[source]
         candidates = source_packages.get(source, [])
@@ -88,14 +90,31 @@ def reconcile(root: Path) -> dict:
             current = candidates[0]
             item = {"source": source, "package": current["package"], "expected_package": expected, "match": "provenance"}
             matched.append(item)
+            canonical = project(root / source, root)
+            expected_content = canonical.content.rstrip() + "\n"
+            actual_content = (root / current["path"]).read_text(encoding="utf-8")
+            if canonical.eligible and actual_content != expected_content:
+                drifted.append({"source": source, "package": current["package"], "reason": "content-differs-from-deterministic-projection"})
+            elif not canonical.eligible:
+                blocked_existing.append({"source": source, "package": current["package"], "blockers": list(canonical.blockers)})
             if current["package"] != expected:
                 rename_needed.append(item)
         elif len(candidates) > 1:
             raise ValueError(f"multiple packages declare canonical source {source!r}")
         elif expected in existing and not existing[expected]["source"]:
-            inferred.append({"source": source, "package": expected, "match": "name-only"})
+            inferred_item = {"source": source, "package": expected, "match": "name-only"}
+            inferred.append(inferred_item)
+            canonical = project(root / source, root)
+            if canonical.eligible:
+                actual_content = (root / existing[expected]["path"]).read_text(encoding="utf-8")
+                expected_content = canonical.content.rstrip() + "\n"
+                if actual_content != expected_content:
+                    drifted.append({"source": source, "package": expected, "reason": "content-differs-from-deterministic-projection"})
+            else:
+                blocked_existing.append({"source": source, "package": expected, "blockers": list(canonical.blockers)})
         else:
-            missing.append({"source": source, "package": expected})
+            canonical = project(root / source, root)
+            missing.append({"source": source, "package": expected, "eligible": canonical.eligible, "blockers": list(canonical.blockers)})
 
     extras, stale, ambiguous = [], [], []
     mapped_packages = {item["package"] for item in matched}
@@ -122,6 +141,10 @@ def reconcile(root: Path) -> dict:
         "matched_by_name_only": inferred,
         "missing": missing,
         "rename_needed": rename_needed,
+        "drifted": drifted,
+        "blocked_existing": blocked_existing,
+        "eligible_missing": [item for item in missing if item["eligible"]],
+        "blocked_missing": [item for item in missing if not item["eligible"]],
         "extra": extras,
         "stale": stale,
         "ambiguous": ambiguous,
