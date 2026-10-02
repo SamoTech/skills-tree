@@ -1,13 +1,16 @@
 # Skills Tree — Executable Product Roadmap
 
-> Strategic roadmap for the AI-agent capability registry.
+> Strategic roadmap for the Skills Tree product mission.
 > Effective: 2026-10-02
 > Canonical source: `skills/`
-> Strategic mission: `meta/COO_MASTER_MISSION.md`
+> Product mission: `meta/PRODUCT_MISSION.md`
+> Execution mission: `meta/COO_MASTER_MISSION.md`
 
 ## Product outcome
 
-Skills Tree is successful when an AI agent can reliably discover an appropriate capability, understand its contract, determine its evidence and freshness, identify dependencies and compatibility, consume a standard representation, and verify the evidence behind it.
+Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
+
+Roadmap work must strengthen AI discovery, human usability, reliable consumption, trust/evidence, distribution, sharing, contribution, and organic GitHub adoption.
 
 Raw skill count and raw stub count are engineering measurements, not product objectives.
 
