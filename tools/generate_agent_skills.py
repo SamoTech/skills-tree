@@ -64,6 +64,7 @@ def project(source: Path, root: Path, name_override: str | None = None) -> Skill
     fm, body = parse_frontmatter(text)
     name = normalize_name(name_override or source.stem)
     description = clean_description(fm.get("description", ""))
+    body = "\n".join(line.rstrip() for line in body.splitlines())
     category = source.parent.name
     blockers: list[str] = []
 
