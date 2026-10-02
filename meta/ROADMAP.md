@@ -224,3 +224,12 @@ PR #243 merged as `40fb35aa6c54438f08062c89c118815262b6fe98` after the final val
 The quality-report workflow was hardened with a trusted post-merge `pull_request_target: closed` trigger. The live generated report now confirms 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid; category 14-security has 13 battle-tested and 0 stubs.
 
 **Next:** continue with the remaining 13 verified stubs, selecting the next batch by evidence, safety, and agent utility rather than directory order.
+
+
+## AI Source Discovery Slice — 2026-10-02
+
+The product mission now has an explicit public discovery surface for AI agents and developers: root `llms.txt`, `docs/AI_DISCOVERY.md`, README AI-source guidance, the existing machine-readable `docs/api/skills.json`, and the existing `agent-skills/` compatibility layer.
+
+This is a discovery/documentation layer only. It does not create a competing catalog or declare the future `/.well-known/agent-skills/index.json` live. The latter remains gated on deterministic generation, validation, provenance, publication reproducibility, and SHA-256 verification.
+
+**Next:** validate this discovery surface in CI, then continue toward generated Agent Skills/discovery artifacts only when the repository's distribution completion gate is satisfied.
