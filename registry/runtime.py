@@ -97,6 +97,10 @@ class UniversalRegistry:
         """Return one validated Goal by canonical ID."""
         return self._goal_runtime.resolve_goal(goal_id)
 
+    def capabilities_for_goal(self, goal_id: str) -> list[CapabilityRecord]:
+        """Return validated Capabilities linked to a Goal in deterministic order."""
+        return self._goal_runtime.capabilities_for_goal(goal_id)
+
     def skills_for_goal(self, goal_id: str) -> list[dict[str, Any]]:
         """Return canonical Skills reachable from a Goal in deterministic order."""
         return self._goal_runtime.skills_for_goal(goal_id)
