@@ -18,10 +18,19 @@ def parse_frontmatter(text: str) -> dict[str, str]:
     if not match:
         return {}
     result = {}
+    section = ""
     for line in match.group(1).splitlines():
-        if ":" in line and not line.startswith((" ", "\t")):
-            key, value = line.split(":", 1)
-            result[key.strip()] = value.strip().strip('"').strip("'")
+        if ":" not in line:
+            continue
+        if line.startswith((" ", "\t")):
+            key, value = line.strip().split(":", 1)
+            if section == "metadata" and key.strip() == "source":
+                result["source"] = value.strip().strip('"').strip("'")
+            continue
+        key, value = line.split(":", 1)
+        key = key.strip()
+        result[key] = value.strip().strip('"').strip("'")
+        section = key if key == "metadata" else ""
     return result
 
 def canonical_files(root: Path) -> list[Path]:
