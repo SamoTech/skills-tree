@@ -2,17 +2,20 @@ name: Apply Agent Skills Reconciliation
 
 on:
   push:
+  pull_request:
+    types: [opened, synchronize]
 
 permissions:
   contents: write
 
 jobs:
   reconcile-and-generate:
-    if: "github.ref == 'refs/heads/feat/agent-skills-deterministic-generation' && !contains(github.event.head_commit.message, '[agent-skills-generated]')"
+    if: "(github.ref == 'refs/heads/feat/agent-skills-deterministic-generation' || github.head_ref == 'feat/agent-skills-deterministic-generation') && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) && !contains(github.event.head_commit.message || '', '[agent-skills-generated]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0
       - name: Apply verified reconciliation
         run: python tools/apply_agent_skills_reconciliation.py
