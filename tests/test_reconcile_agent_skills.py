@@ -1,4 +1,4 @@
-from tools.reconcile_agent_skills import desired_names
+from tools.reconcile_agent_skills import desired_names, reconcile
 
 def test_collision_names_are_deterministic():
     records = [
@@ -23,3 +23,28 @@ metadata:
 ---
 """)
     assert fm["source"] == "skills/01-test/example.md"
+
+
+def test_reconcile_prefers_provenance_over_package_name(tmp_path):
+    canonical = tmp_path / "skills" / "04-action-execution"
+    canonical.mkdir(parents=True)
+    (canonical / "clipboard-ops.md").write_text(
+        "# Clipboard Ops\n\n## Evidence\n\n- Evidence\n", encoding="utf-8"
+    )
+    package = tmp_path / "agent-skills" / "clipboard-operations"
+    package.mkdir(parents=True)
+    (package / "SKILL.md").write_text(
+        """---
+name: clipboard-operations
+description: Clipboard operations.
+metadata:
+  source: skills/04-action-execution/clipboard-ops.md
+---
+# Clipboard Operations
+""",
+        encoding="utf-8",
+    )
+    report = reconcile(tmp_path)
+    assert report["matched_by_provenance"][0]["package"] == "clipboard-operations"
+    assert report["rename_needed"][0]["expected_package"] == "clipboard-ops"
+    assert report["extra"] == []
