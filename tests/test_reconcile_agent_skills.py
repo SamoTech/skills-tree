@@ -48,3 +48,20 @@ metadata:
     assert report["matched_by_provenance"][0]["package"] == "clipboard-operations"
     assert report["rename_needed"][0]["expected_package"] == "clipboard-ops"
     assert report["extra"] == []
+
+
+def test_legacy_collision_aliases_have_explicit_sources(tmp_path):
+    package = tmp_path / "agent-skills" / "web-search"
+    package.mkdir(parents=True)
+    (package / "SKILL.md").write_text(
+        """---
+name: web-search
+description: Web search.
+---
+## Evidence
+See the canonical tool.
+""",
+        encoding="utf-8",
+    )
+    report = reconcile(tmp_path)
+    assert report["extra"] == []
