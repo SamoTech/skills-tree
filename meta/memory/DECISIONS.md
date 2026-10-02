@@ -619,3 +619,13 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Evidence:** GitHub Actions regenerated `meta/QUALITY-REPORT.md` as commit `ac8aacb5982018d2ee57a2953924dd74a9013e20` after merged PR #244. The generated report verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid.
 
 **Status:** LOCKED.
+
+
+# DECISION-2026-10-02-CAPABILITY-SKILL-SYMMETRY
+DECISION-ID: DECISION-2026-10-02-CAPABILITY-SKILL-SYMMETRY
+Topic: Universal Registry Capability/Skill relationship integrity
+Decision: Enforce reciprocal Capability → Skill and Skill → Capability declarations during UniversalRegistry semantic integrity validation. The relationship is represented in both canonical entity records, so contradictory declarations must be rejected before typed runtime access. Keep the existing graph validator responsible for graph-edge semantics rather than duplicating graph policy in the entity check.
+Confidence: HIGH
+Evidence IDs: RUNTIME-AUDIT-2026-10-02, PR-247
+Status: PROPOSED — verification pending
+Reopen Conditions: Reopen if the canonical registry contract removes the reciprocal relationship, the relationship becomes single-source, or authoritative runtime/graph architecture establishes a different invariant boundary.
