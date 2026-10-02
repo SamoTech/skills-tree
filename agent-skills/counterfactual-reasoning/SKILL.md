@@ -1,23 +1,123 @@
 ---
 name: counterfactual-reasoning
-description: Analyze bounded alternative scenarios using explicit interventions and causal assumptions.
-license: MIT
+description: Analyze bounded alternative scenarios by identifying the factual world, intervention, causal assumptions, and differences in outcomes.
 metadata:
   source: skills/02-reasoning/counterfactual-reasoning.md
+  category: 02-reasoning
   version: "v2"
 ---
 
-# counterfactual-reasoning
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-counterfactual-reasoning.json)
 
-Use this skill to produce a bounded, auditable reasoning result. State assumptions, preserve uncertainty, and verify material conclusions.
+# Counterfactual Reasoning
 
-## Failure modes
+**Category:** `reasoning`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
+**Version:** v2
 
-- Confounding: identify variables that weaken the counterfactual.
-- Underdetermination: report multiple plausible models.
+---
+
+## Description
+
+Reason about hypothetical alternative histories: "What would have happened if X had been different?" Counterfactual reasoning underpins causal inference, debugging, root-cause analysis, and policy evaluation. It requires building a causal model of the world and then intervening on specific variables.
+
+---
+
+## Counterfactual vs. Hypothetical
+
+| Type | Premise | Example |
+|---|---|---|
+| **Counterfactual** | Contrary to known fact | "If I hadn't deployed Friday, the outage wouldn't have happened" |
+| **Hypothetical** | Unknown outcome | "If we launch in Q3, will revenue increase?" |
+| **Semifactual** | Same outcome under changed antecedent | "Even if the tests had passed, the bug would still ship" |
+
+---
+
+## Reasoning Steps
+
+1. **Identify the factual world** — what actually happened
+2. **Define the intervention** — which variable to change
+3. **Build a causal model** — what depends on what (DAG)
+4. **Propagate the change** — follow causal edges forward
+5. **Compare outcomes** — contrast actual vs. counterfactual world
+
+---
+
+## Example — Root Cause Analysis
+
+```
+Fact: Service latency spiked at 14:32. Deployment happened at 14:30.
+
+Counterfactual question: Would latency have spiked if the deployment hadn't occurred?
+
+Causal chain:
+  deployment → new DB query pattern → full table scan → high latency
+
+Counterfactual world (no deployment):
+  No new query pattern → no full table scan → latency stays normal
+
+Conclusion: Deployment IS the root cause (latency spike counterfactually depends on it).
+```
+
+---
+
+## Prompt Pattern
+
+```
+Given the following situation:
+[ACTUAL EVENTS]
+
+Answer this counterfactual question:
+[WHAT IF X HAD BEEN DIFFERENT?]
+
+Steps:
+1. Identify what changed
+2. Trace the causal chain forward
+3. State what would be different in the outcome
+4. Note any confounders that might weaken the counterfactual
+```
+
+---
+
+## Failure Modes
+
+- **Ignoring confounders** — a third variable causes both X and Y; changing X wouldn't change Y
+- **Butterfly effect fallacy** — over-extending the causal chain to implausible extremes
+- **Hindsight bias** — assuming the counterfactual was obvious before the fact
+- **Underdetermination** — multiple interventions could produce the same counterfactual outcome
+
+---
+
+## Related Skills
+
+- [Causal Reasoning](causal.md)
+- [Hypothesis Generation](hypothesis-generation.md)
+- [Risk Assessment](risk-assessment.md)
+- [Self-Correction](self-correction.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
 
 ## Evidence
 
 - https://agentskills.io/specification
 
-Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

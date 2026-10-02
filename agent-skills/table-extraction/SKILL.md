@@ -1,26 +1,62 @@
 ---
 name: table-extraction
 description: Extract tables from documents, images, and web content into structured rows and columns while detecting merged cells, missing headers, and uncertain boundaries.
-license: MIT
 metadata:
   source: skills/01-perception/table-extraction.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-table-extraction.json)
+
 # Table Extraction
+Category: perception | Level: intermediate | Stability: stable | Version: v1
 
-1. Identify whether the table is text-based, rendered, scanned, or DOM-based.
-2. Extract headers, rows, merged cells, spans, and units.
-3. Preserve the source page, region, or DOM location.
-4. Distinguish empty cells from missing cells.
-5. Validate column counts and data types after extraction.
-6. Mark uncertain boundaries rather than silently shifting values between columns.
+## Description
+Detect and extract tabular data from documents, images, and web pages into structured formats (CSV, JSON, DataFrame).
 
-## Failure modes
+## Inputs
+- `source`: file path, URL, or base64 image
+- `output_format`: `json` | `csv` | `dataframe`
 
-- Merged cells: preserve row/column spans before flattening.
-- Borderless tables: use alignment and repeated structure but mark low confidence.
-- OCR errors: retain source coordinates and require verification for material values.
+## Outputs
+- List of tables, each as a 2D array with headers
+
+## Example
+```python
+import anthropic, base64, json
+client = anthropic.Anthropic()
+with open("report.pdf", "rb") as f:
+    data = base64.b64encode(f.read()).decode()
+response = client.messages.create(
+    model="claude-opus-4-5",
+    max_tokens=2048,
+    messages=[{"role": "user", "content": [
+        {"type": "document", "source": {"type": "base64", "media_type": "application/pdf", "data": data}},
+        {"type": "text", "text": "Extract all tables as JSON arrays with headers as keys."}
+    ]}]
+)
+tables = json.loads(response.content[0].text)
+```
+
+## Frameworks
+| Framework | Method |
+|---|---|
+| LangChain | `UnstructuredTableTransformer` |
+| LlamaIndex | `TableReader` |
+| Raw API | Vision + structured output prompt |
+
+## Failure Modes
+- Merged cells break column alignment
+- Rotated tables in scanned PDFs
+- Borderless tables confused with plain text
+
+## Related
+- `pdf-parsing.md` · `structured-data-reading.md` · `ocr.md`
+
+## Changelog
+- v1 (2026-04): Initial entry
+
 
 ## Evidence
 

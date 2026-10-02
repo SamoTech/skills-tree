@@ -1,9 +1,10 @@
 ---
 name: subagent-delegation
-description: Decompose a task into bounded subtasks, delegate them to specialized agents, and aggregate results with explicit ownership and verification. Use explicit budgets, provenance, uncertainty handling, and postcondition verification.
+description: Decompose a task into bounded subtasks, delegate them to specialized agents, and aggregate results with explicit ownership and verification.
+metadata:
+  source: skills/09-agentic-patterns/subagent-delegation.md
+  category: 09-agentic-patterns
 ---
-
-# Subagent Delegation
 
 ## Description
 
@@ -11,30 +12,24 @@ Decompose a task into bounded subtasks, delegate them to specialized agents, and
 
 ## When to Use
 
-Use when the pattern's objective and acceptance criteria are observable.
+Use when the pattern has a measurable objective, explicit acceptance criteria, and a bounded execution budget.
 
-## Inputs / Outputs
+## Inputs / Outputs / Failure Modes
 
-- Inputs: validated task context, pattern configuration, authorization, and execution bounds.
-- Outputs: structured result with provenance, assumptions, and unresolved uncertainty where material.
+| Area | Contract |
+|---|---|
+| Inputs | task decomposition, subagent roles, budgets, interfaces, and aggregation criteria. |
+| Outputs | subtask results, provenance, conflicts, and verified aggregate result. |
+| Failure modes | Ambiguous objective, budget exhaustion, correlated model errors, unsupported evidence, stale state, or acceptance without a reproducible postcondition. |
 
 ## Procedure
 
-1. Define objective and termination criteria.
-2. Validate inputs and authorization boundaries.
-3. Execute within explicit budgets.
-4. Preserve provenance.
-5. Verify the result.
-6. Report uncertainty and conflicts.
-
-## Failure Modes
-
-- Ambiguous objective.
-- Budget exhaustion.
-- Correlated outputs treated as independent evidence.
-- Unsupported or stale evidence.
-- Unauthorized state mutation.
-- Unverified completion.
+1. Define the objective, evaluation criteria, state representation, and termination condition.
+2. Validate inputs, role boundaries, and the evidence boundary.
+3. Execute within explicit compute, tool, depth, data, or agent budgets.
+4. Preserve provenance for candidates, subagents, memories, and tool observations.
+5. Verify the selected result against the declared criteria before acceptance.
+6. Report conflicts, uncertainty, failed branches, and incomplete evidence.
 
 ## Runnable Example
 
@@ -44,9 +39,18 @@ assert pattern["validated"] and pattern["budget"] > 0
 print({"status": "bounded_execution", "capability": pattern["capability"]})
 ```
 
+## Failure Modes
+
+- Objective or acceptance criterion is ambiguous.
+- Budget is exhausted without a verified result.
+- Correlated model outputs are treated as independent evidence.
+- Stale or unsupported evidence is accepted.
+- The pattern mutates state outside its authorization boundary.
+- Completion is reported without a reproducible postcondition.
+
 ## Evidence
 
-Canonical repository skill: skills/09-agentic-patterns/subagent-delegation.md. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Pattern-specific claims require reproducible implementation evidence or authoritative primary documentation.
+Canonical repository skill: this file. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Pattern-specific claims require reproducible implementation evidence or authoritative primary documentation; generated reasoning is not evidence by itself.
 
 ## Related
 

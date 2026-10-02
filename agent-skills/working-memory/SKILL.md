@@ -1,9 +1,10 @@
 ---
 name: working-memory
-description: Maintain bounded active task state, intermediate results, errors, and checkpoints during a multi-step agent workflow. Use explicit provenance, retention boundaries, uncertainty handling, and verification.
+description: Maintain bounded active task state, intermediate results, errors, and checkpoints during a multi-step agent workflow.
+metadata:
+  source: skills/03-memory/working-memory.md
+  category: 03-memory
 ---
-
-# Working Memory
 
 ## Description
 
@@ -11,30 +12,24 @@ Maintain bounded active task state, intermediate results, errors, and checkpoint
 
 ## When to Use
 
-Use when memory state must persist across steps or sessions and its scope and verification rules are explicit.
+Use when memory state must persist across steps or sessions and the workflow can define ownership, provenance, retention, and verification rules.
 
-## Inputs / Outputs
+## Inputs / Outputs / Failure Modes
 
-- Inputs: validated memory candidates, task context, provenance, authorization, and retention constraints.
-- Outputs: scoped memory state with provenance, uncertainty, and verification status.
+| Area | Contract |
+|---|---|
+| Inputs | goal, current state, completed steps, tool results, errors, and checkpoint policy. |
+| Outputs | validated working state, checkpoint, next action, and failure context. |
+| Failure modes | Stale memory, unsupported inference, conflicting records, unauthorized retention, context growth, or acceptance without revalidation. |
 
 ## Procedure
 
-1. Define scope, owner, retention, and acceptance criteria.
-2. Validate candidates and preserve provenance.
-3. Apply freshness, confidence, conflict, and size bounds.
-4. Retrieve only task-relevant state.
+1. Define the memory scope, owner, retention rule, and acceptance criteria.
+2. Validate incoming memory candidates and preserve their provenance.
+3. Apply explicit freshness, confidence, conflict, and size bounds.
+4. Retrieve only the memory relevant to the current task.
 5. Revalidate memory before treating it as authoritative when material.
-6. Record updates and unresolved uncertainty.
-
-## Failure Modes
-
-- Stale or unsupported memory.
-- Inference stored as fact.
-- Conflicting records silently merged.
-- Unauthorized retention.
-- Context or storage exhaustion.
-- Required revalidation skipped.
+6. Record updates, conflicts, and unresolved uncertainty.
 
 ## Runnable Example
 
@@ -44,9 +39,22 @@ assert memory["validated"] and memory["budget"] > 0
 print({"status": "bounded_memory_operation", "capability": memory["capability"]})
 ```
 
+## Failure Modes
+
+- Memory is stale or its provenance cannot be established.
+- A model-generated inference is stored as an explicit user fact.
+- Conflicting records are silently merged.
+- Retention exceeds the declared scope or authorization.
+- Memory growth exhausts context or storage budgets.
+- A stored procedure or fact is used without required revalidation.
+
+## Safety Boundary
+
+Treat memory as state, not truth. Preserve provenance and scope. Do not store sensitive or personal information unless explicitly authorized by the governing application policy, and honor correction or deletion requirements.
+
 ## Evidence
 
-Canonical repository skill: skills/03-memory/working-memory.md. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Stored memory is not evidence by itself.
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Memory-specific claims require reproducible implementation evidence or authoritative repository evidence; stored memory is not evidence by itself.
 
 ## Related
 

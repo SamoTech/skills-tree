@@ -1,31 +1,58 @@
 ---
 name: conversation-history-reading
-description: Normalize multi-turn conversation exports while preserving roles, ordering, timestamps, and provider metadata. Use before context selection, summarization, or memory injection.
-license: MIT
+description: Normalize multi-turn conversation exports into a consistent message representation while preserving roles, timestamps, ordering, and provider-specific metadata. Use it before context selection, summarization, or memory injection.
 metadata:
   source: skills/01-perception/conversation-history-reading.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-conversation-history-reading.json)
+
 # Conversation History Reading
+Category: perception | Level: basic | Stability: stable | Version: v1
 
-1. Detect the source format and preserve the original records.
-2. Normalize provider-specific role names into a documented internal representation.
-3. Preserve message ordering and timestamps when available.
-4. Separate message content from metadata and tool results.
-5. Select only the context required for the downstream task.
-6. Bound token and record counts; do not inject an entire history by default.
+## Description
+Load and structure multi-turn conversation histories from various formats (JSON, plain text, CSV exports) for context injection or analysis.
 
-## Failure modes
+## Inputs
+- `source`: file path or list of message dicts
+- `format`: `openai` | `anthropic` | `plain` | `auto`
 
-- Provider role mismatch: map roles explicitly and retain the original role in metadata.
-- Missing timestamps: preserve source ordering and mark time as unavailable.
-- Context overflow: summarize or retrieve relevant windows rather than truncating silently.
+## Outputs
+- Normalized message list: `[{role, content, timestamp}]`
+
+## Example
+```python
+import json
+with open("chat_export.json") as f:
+    raw = json.load(f)
+messages = [{"role": m["role"], "content": m["content"], "ts": m.get("created_at")} for m in raw["messages"]]
+```
+
+## Frameworks
+| Framework | Method |
+|---|---|
+| LangChain | `ChatMessageHistory`, `FileChatMessageHistory` |
+| LlamaIndex | `ChatMemoryBuffer` |
+| mem0 | `memory.get_all()` |
+
+## Failure Modes
+- Role names differ across providers (`human` vs `user`)
+- Token limit exceeded when injecting full history
+
+## Related
+- `text-reading.md` · `memory-injection.md` (03-memory)
+
+## Changelog
+- v1 (2026-04): Initial entry
+
 
 ## Evidence
 
-- https://platform.openai.com/docs/guides/text
-- https://docs.anthropic.com/en/api/messages
-- https://agentskills.io/specification
+The skill's implementation guidance is grounded in the following primary references:
+- OpenAI conversation/message concepts: https://platform.openai.com/docs/guides/text
+- Anthropic Messages API concepts: https://docs.anthropic.com/en/api/messages
+- Agent Skills progressive-disclosure guidance: https://agentskills.io/specification
 
-Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

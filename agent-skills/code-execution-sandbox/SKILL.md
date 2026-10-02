@@ -1,30 +1,57 @@
 ---
 name: code-execution-sandbox
-description: Repository-backed code skill for code execution sandbox.
-license: MIT
+description: Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls.
 metadata:
   source: skills/05-code/code-execution-sandbox.md
-  version: "v2"
+  category: 05-code
 ---
 
-# code-execution-sandbox
+# Code Execution Sandbox
 
-1. Load explicit requirements and repository context.
-2. Apply the skill procedure without bypassing validation or security controls.
-3. Verify outputs against observable acceptance criteria.
-4. Report evidence and unresolved limitations.
+## Description
+
+Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls.
+
+## When to Use
+
+- Use when the code task has explicit acceptance criteria.
+- Preserve repository conventions and existing security gates.
+- Verify behavior before reporting completion.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Requirements | Code or analysis | Ambiguous requirement |
+| Repository context | Compatible change | Convention mismatch |
+| Tests/evidence | Verification result | Regression |
+| Security constraints | Safe implementation | Gate bypass |
+
+## Runnable Example
+
+```python
+limits = {'timeout': 5, 'network': False, 'filesystem': 'isolated'}
+assert limits['timeout'] > 0 and limits['network'] is False
+print('sandbox policy validated')
+```
 
 ## Failure modes
 
-- Inventing requirements or behavior.
-- Making unrelated changes.
-- Skipping verification.
-- Claiming success without evidence.
+- Implementing behavior not supported by the requirements.
+- Changing unrelated code.
+- Skipping regression or security verification.
+- Claiming correctness without evidence.
+
+## Related
+
+- `shell-command.md`
+- `process-management.md`
+- `output-guardrails.md`
 
 ## Evidence
 
-- skills/05-code/code-execution-sandbox.md
 - AI_CONSTITUTION.md
 - AGENTS.md
+- Repository validation and security workflows
 
 Evidence status: repository-backed implementation guidance; no benchmark claim.

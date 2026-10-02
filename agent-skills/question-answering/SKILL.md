@@ -1,9 +1,10 @@
 ---
 name: question-answering
-description: Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns. Preserve evidence boundaries, uncertainty, and requested output constraints.
+description: Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns.
+metadata:
+  source: skills/06-communication/question-answering.md
+  category: 06-communication
 ---
-
-# Question Answering
 
 ## Description
 
@@ -11,30 +12,24 @@ Answer questions using the declared evidence boundary and distinguish retrieved 
 
 ## When to Use
 
-Use when the communication objective, audience, and acceptance criteria are explicit.
+Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit.
 
-## Inputs / Outputs
+## Inputs / Outputs / Failure Modes
 
-- Inputs: task intent, audience, constraints, evidence boundary, and source material where applicable.
-- Outputs: structured communication result with assumptions, provenance, and unresolved uncertainty where material.
+| Area | Contract |
+|---|---|
+| Inputs | question, context or evidence sources, and answer constraints. |
+| Outputs | answer with supporting evidence and uncertainty where material. |
+| Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. |
 
 ## Procedure
 
-1. Parse purpose, audience, constraints, and evidence boundary.
-2. Resolve precedence among explicit requirements.
-3. Produce the requested communication.
-4. Check facts, format, terminology, tone, and omissions.
-5. Verify the result against the declared criteria.
-6. Clarify material ambiguity rather than guessing.
-
-## Failure Modes
-
-- Ambiguous or conflicting requirements.
-- Unsupported claims or fabricated sources.
-- Constraint or format mismatch.
-- Tone/persona overriding factual accuracy or safety.
-- Source meaning changed during transformation.
-- Unverified completion.
+1. Parse the requested purpose, audience, constraints, and evidence boundary.
+2. Resolve precedence between explicit requirements and defaults.
+3. Draft or construct the response while preserving source meaning and provenance.
+4. Check factual claims, required format, terminology, tone, and omissions.
+5. Verify the result against the declared acceptance criteria.
+6. Ask a focused clarification question when unresolved ambiguity could materially change the result.
 
 ## Runnable Example
 
@@ -44,9 +39,22 @@ assert task["validated"] and task["budget"] > 0
 print({"status": "contract_checked", "capability": task["capability"]})
 ```
 
+## Failure Modes
+
+- User intent is ambiguous or materially underspecified.
+- Claims are presented without supporting evidence.
+- Constraints conflict and precedence is unclear.
+- Style or persona instructions override factual accuracy or safety boundaries.
+- Translation or paraphrase changes the source meaning.
+- Completion is reported without checking the requested format or postcondition.
+
+## Safety Boundary
+
+Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary.
+
 ## Evidence
 
-Canonical repository skill: skills/06-communication/question-answering.md. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Generated prose is not evidence by itself.
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself.
 
 ## Related
 

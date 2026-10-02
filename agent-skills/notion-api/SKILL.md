@@ -1,37 +1,51 @@
 ---
 name: notion-api
-description: Use notion api as a bounded agent capability with validated inputs, least-privilege access, and verified results.
+description: Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification.
+metadata:
+  source: skills/07-tool-use/notion-api.md
+  category: 07-tool-use
 ---
 
 # Notion API
 
 ## Description
-Use notion api only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
+Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification.
 
 ## When to Use
-Use when the workflow explicitly requires notion api and the target resource is authorized.
+Use this capability when the workflow explicitly requires notion api and the target account, document, channel, or provider is authorized.
 
-## Inputs / Outputs
-- Inputs: validated task data, provider identifiers, and authorization context.
-- Outputs: structured provider result and evidence sufficient for downstream verification.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Permission, rate-limit, transport, or provider failures.
-- Credential or private-data exposure.
-- Unverified side effects.
+| Area | Guidance |
+|---|---|
+| Authentication | Use least-privilege credentials managed outside source code. |
+| Scope | Bound the operation to the intended resource and task. |
+| Inputs | Validate identifiers, content, filters, and required fields. |
+| Outputs | Preserve structured provider results needed by downstream steps. |
+| Verification | Re-check important reads or mutations when correctness matters. |
+| Privacy | Minimize exposure and retention of sensitive content. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
 
 ## Runnable Example
 
 ```python
-capability = "notion-api"
-assert capability
-print("validate provider contract before invocation")
+import os
+request = {"tool": "notion-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
+## Failure modes
+- Hard-coding credentials or exposing them in logs.
+- Assuming provider fields or identifiers are portable across accounts.
+- Performing side effects without validating authorization and current state.
+- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
+- Using unbounded pagination or retries.
+
 ## Evidence
-Repository-backed guidance. See the canonical skill at skills/07-tool-use/notion-api.md and its provider documentation.
+Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
 
 ## Related
-- 07-tool-use
 - tool-guardrails
+- function-calling
+- approval-before-destructive-tools

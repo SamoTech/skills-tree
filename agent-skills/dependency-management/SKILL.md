@@ -1,27 +1,45 @@
 ---
 name: dependency-management
 description: Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes.
-license: MIT
 metadata:
   source: skills/05-code/dependency-management.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Dependency Management
+## Description
+Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes. Preserve lockfile integrity and verify application behavior after updates.
 
-1. Inspect manifests, lockfiles, runtime constraints, and repository policy.
-2. Define the exact dependency change and compatibility boundary.
-3. Update manifests and lockfiles reproducibly.
-4. Run relevant build, dependency, and regression validation.
-5. Check the diff for unintended transitive or platform changes.
-6. Record verification and recovery evidence.
+## When to Use
+Use for dependency additions, removals, upgrades, downgrades, lockfile refreshes, and compatibility remediation.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Manifest, lockfile, runtime constraints, compatibility requirements, and tests. |
+| Outputs | Reproducible dependency state with verification evidence. |
+| Failure modes | Unbounded upgrades, lockfile drift, incompatible transitive changes, or missing rollback. |
+
+## Runnable Example
+
+```python
+from pathlib import Path
+
+for name in ('package.json', 'pyproject.toml', 'requirements.txt'):
+    p = Path(name)
+    print(name, 'present=' + str(p.exists()))
+```
 
 ## Failure modes
-- Unbounded or incompatible upgrades.
-- Manifest and lockfile drift.
-- Missing regression validation.
-- No recovery path for high-impact changes.
+- Updating without respecting runtime constraints.
+- Committing inconsistent manifests and lockfiles.
+- Skipping compatibility and regression tests.
+- Making irreversible changes without recovery evidence.
+
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/05-code/dependency-management.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

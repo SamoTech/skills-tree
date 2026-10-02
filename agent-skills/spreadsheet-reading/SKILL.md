@@ -1,26 +1,56 @@
 ---
 name: spreadsheet-reading
 description: Read XLSX, CSV, and ODS workbooks into bounded structured data while preserving sheet names, headers, formulas or cached values, and workbook metadata.
-license: MIT
 metadata:
   source: skills/01-perception/spreadsheet-reading.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-spreadsheet-reading.json)
+
 # Spreadsheet Reading
+Category: perception | Level: basic | Stability: stable | Version: v1
 
-1. Detect the workbook format before selecting a parser.
-2. Enumerate sheets before reading large workbooks.
-3. Preserve headers, formulas, cached values, hidden-sheet state, and sheet names when relevant.
-4. Bound rows, columns, file size, and total processing time.
-5. Treat formulas and external links as data; never execute workbook macros as part of reading.
-6. Report merged cells and ambiguous headers.
+## Description
+Read XLSX, CSV, and ODS spreadsheets into DataFrames or dict structures, handling multi-sheet workbooks.
 
-## Failure modes
+## Inputs
+- `path`: file path
+- `sheet`: sheet name or index (optional)
+- `header_row`: int (default 0)
 
-- Formula values stale or absent: distinguish formula expressions from cached results.
-- Merged headers: preserve the original structure before normalization.
-- Malicious workbook content: parse without enabling macros or active content.
+## Outputs
+- `data`: list of dicts or pandas DataFrame
+- `sheets`: list of sheet names
+
+## Example
+```python
+import pandas as pd
+xls = pd.ExcelFile("report.xlsx")
+for sheet in xls.sheet_names:
+    df = xls.parse(sheet)
+    print(f"{sheet}: {df.shape}")
+```
+
+## Frameworks
+| Framework | Method |
+|---|---|
+| Python | `pandas`, `openpyxl` |
+| LlamaIndex | `PandasExcelReader` |
+| LangChain | `UnstructuredExcelLoader` |
+
+## Failure Modes
+- Merged header cells create unnamed columns
+- Hidden rows/columns included by default
+- Dates read as float serial numbers in older XLSX
+
+## Related
+- `structured-data-reading.md` · `table-extraction.md`
+
+## Changelog
+- v1 (2026-04): Initial entry
+
 
 ## Evidence
 

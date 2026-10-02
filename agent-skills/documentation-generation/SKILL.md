@@ -1,27 +1,45 @@
 ---
 name: documentation-generation
 description: Generate technical documentation from verified repository behavior, interfaces, configuration, and implementation evidence.
-license: MIT
 metadata:
   source: skills/05-code/documentation-generation.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Documentation Generation
+## Description
+Generate technical documentation from verified repository behavior, interfaces, configuration, and implementation evidence. Documentation must describe what the repository actually supports and must not invent APIs or capabilities.
 
-1. Inspect implementation, interfaces, configuration, tests, and existing documentation.
-2. Identify the exact behavior and prerequisites supported by evidence.
-3. Draft documentation that matches current repository behavior.
-4. Cross-check commands, paths, interfaces, and examples against the source.
-5. Update required state documentation when implementation changes affect it.
-6. Record verification evidence.
+## When to Use
+Use when README, API, architecture, configuration, runbook, or developer documentation must be created or refreshed.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Source, configuration, interfaces, tests, and existing documentation. |
+| Outputs | Accurate documentation with traceable repository evidence. |
+| Failure modes | Stale claims, invented interfaces, missing prerequisites, or documentation drift. |
+
+## Runnable Example
+
+```python
+from pathlib import Path
+
+readme = Path('README.md')
+print('README exists:', readme.exists())
+print('documentation must follow verified repository behavior')
+```
 
 ## Failure modes
-- Invented APIs or unsupported capabilities.
-- Stale examples or prerequisites.
-- Documentation drift after implementation changes.
-- Unsupported verification claims.
+- Documenting assumptions as facts.
+- Omitting prerequisites or operational constraints.
+- Updating implementation without updating required documentation.
+- Claiming verification that was not performed.
+
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/05-code/documentation-generation.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

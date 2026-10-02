@@ -1,30 +1,161 @@
 ---
 name: database-reading
-description: Inspect database schemas and answer bounded read-only questions over retrieved rows while protecting user-controlled values. Use for schema-aware analytical agent workflows.
-license: MIT
+description: Inspect database schemas and answer bounded questions over retrieved rows while separating query generation from execution and protecting user-controlled values. Use it for read-only analytical workflows and schema-aware agent tools.
 metadata:
   source: skills/01-perception/database-reading.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-database-reading.json)
+
 # Database Reading
 
-1. Inspect or receive the minimum schema required for the question.
-2. Generate a read-only query constrained to the relevant tables and columns.
-3. Parameterize all user-controlled values; never interpolate them into SQL.
-4. Apply row, time, and cost limits.
-5. Execute with a least-privilege read-only identity where possible.
-6. Return the query, bounded result, and assumptions needed to reproduce the answer.
+**Category:** `perception`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2025-03
+**Last Updated:** 2026-04
 
-## Failure modes
+---
 
-- SQL injection: use parameter binding and reject arbitrary statement execution.
-- Large scans: apply limits, filters, and query budgets.
-- Sensitive data exposure: minimize selected columns and redact secrets or personal data.
+## Description
+
+Read and interpret data from relational databases (PostgreSQL, MySQL, SQLite), NoSQL stores (MongoDB, DynamoDB), and time-series databases. The agent generates and executes queries, inspects schema structures, and converts raw rows into natural-language summaries or structured JSON. Supports schema introspection, sample-based profiling, and query explanation.
+
+---
+
+## Inputs
+
+| Input | Type | Required | Description |
+|---|---|---|---|
+| `connection` | `object` | ✅ | DB connection object or DSN string |
+| `question` | `string` | ✅ | Natural-language question about the data |
+| `schema_hint` | `dict` | ❌ | Pre-fetched schema to skip introspection |
+
+---
+
+## Outputs
+
+| Output | Type | Description |
+|---|---|---|
+| `sql` | `string` | Generated SQL query |
+| `rows` | `list` | Raw result rows |
+| `answer` | `string` | Natural-language answer to the question |
+
+---
+
+## Example
+
+```python
+import anthropic
+import sqlite3
+import json
+
+client = anthropic.Anthropic()
+
+def query_database_with_nl(db_path: str, question: str) -> str:
+    """Answer a natural-language question against a SQLite database."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+
+    # Introspect schema
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    tables = [row[0] for row in cursor.fetchall()]
+    schema = {}
+    for table in tables:
+        cursor.execute(f"PRAGMA table_info({table})")
+        schema[table] = [row[1] for row in cursor.fetchall()]
+
+    # Generate SQL via Claude
+    sql_response = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=512,
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Schema: {json.dumps(schema)}\n"
+                f"Question: {question}\n"
+                "Return ONLY a valid SQLite SELECT query, no explanation."
+            )
+        }]
+    )
+    sql = sql_response.content[0].text.strip().strip("```sql").strip("```").strip()
+
+    # Execute and summarize
+    cursor.execute(sql)
+    rows = cursor.fetchmany(50)
+    conn.close()
+
+    summary = client.messages.create(
+        model="claude-opus-4-5",
+        max_tokens=512,
+        messages=[{
+            "role": "user",
+            "content": (
+                f"Question: {question}\n"
+                f"SQL: {sql}\n"
+                f"Results ({len(rows)} rows): {rows}\n"
+                "Answer concisely based on these results."
+            )
+        }]
+    )
+    return summary.content[0].text
+
+answer = query_database_with_nl("sales.db", "Which product had the highest revenue last month?")
+print(answer)
+```
+
+---
+
+## Frameworks & Models
+
+| Framework / Model | Implementation | Since |
+|---|---|---|
+| LangChain | `SQLDatabaseChain` / `create_sql_agent` | v0.1 |
+| LangGraph | Tool node wrapping DB cursor | v0.1 |
+| Claude claude-opus-4-5 | Direct text prompt with schema | 2024-06 |
+
+---
+
+## Notes
+
+- Always parameterize any user-supplied values before executing generated SQL
+- Limit result sets (`LIMIT 50`) to avoid flooding the context window
+- For large schemas, send only relevant tables rather than the full schema
+- Never expose database credentials in prompts
+
+---
+
+## Related Skills
+
+- [Structured Data Reading](structured-data-reading.md) — CSV/JSON/YAML parsing
+- [API Response Parsing](api-response-parsing.md) — for REST API data sources
+- [Text Reading](text-reading.md) — general text extraction
+
+---
+
+## Changelog
+
+| Date | Change |
+|---|---|
+| `2026-04` | Expanded from stub: full description, I/O table, NL-to-SQL example, security notes |
+| `2025-03` | Initial stub entry |
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
 
 ## Evidence
 
-- https://docs.python.org/3/library/sqlite3.html
-- https://docs.python.org/3/library/sqlite3.html#how-to-use-placeholders-to-bind-values-in-sql-queries
+The skill's implementation guidance is grounded in the following primary references:
+- Python sqlite3 documentation: https://github.com/python/cpython/blob/3.14/Doc/library/sqlite3.rst
+- Python sqlite3 parameter substitution guidance: https://github.com/python/cpython/blob/3.14/Doc/library/sqlite3.rst#how-to-use-placeholders-to-bind-values-in-sql-queries
 
-Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

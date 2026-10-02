@@ -1,31 +1,132 @@
 ---
 name: document-parsing
-description: Extract text, tables, and metadata from office and web documents with format-specific parsers and explicit handling for corrupt, protected, scanned, and mixed-content files.
-license: MIT
+description: Extract text, tables, and metadata from common office and web documents using format-specific parsers, with explicit handling for corrupt, protected, scanned, and mixed-content inputs.
 metadata:
   source: skills/01-perception/document-parsing.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-document-parsing.json)
+
 # Document Parsing
 
-1. Detect the document format before choosing a parser.
-2. Extract text, tables, metadata, and embedded media separately.
-3. Preserve page, slide, sheet, or paragraph boundaries when available.
-4. Detect corrupt, protected, scanned, and image-only inputs and route them to the appropriate fallback.
-5. Keep parser dependencies pinned and review known security advisories.
-6. Return provenance for extracted content.
+**Category:** `perception`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2025-03
+**Version:** v2
 
-## Failure modes
+---
 
-- Corrupt archive: catch parser errors and stop rather than guessing.
-- Scanned/image-only document: route to OCR and mark OCR-derived content.
-- Formula or rendering differences: distinguish cached values from formulas and rendered output.
+## Description
+
+Parse structured office documents — DOCX, XLSX, PPTX, HTML, CSV — extracting text, tables, images, and embedded metadata. Production systems must handle corrupt files, password-protected docs, mixed encodings, and scanned PDFs gracefully.
+
+---
+
+## Input / Output
+
+| Input | Output |
+|---|---|
+| `.docx` / `.odt` | Paragraph list, table list, image refs, style map |
+| `.xlsx` / `.csv` | Sheet names → DataFrame, formula values (not formulas) |
+| `.pptx` | Slide-by-slide text + speaker notes + image captions |
+| `.html` | Cleaned prose via Trafilatura or Readability |
+| Mixed zip bundle | Per-file structured JSON |
+
+---
+
+## Implementation
+
+### Python — DOCX
+
+```python
+from docx import Document
+from docx.oxml.ns import qn
+
+def parse_docx(path: str) -> dict:
+    doc = Document(path)
+    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
+    tables = []
+    for table in doc.tables:
+        rows = [[cell.text for cell in row.cells] for row in table.rows]
+        tables.append(rows)
+    return {"paragraphs": paragraphs, "tables": tables}
+```
+
+### Python — XLSX
+
+```python
+import openpyxl
+
+def parse_xlsx(path: str) -> dict:
+    wb = openpyxl.load_workbook(path, data_only=True)
+    sheets = {}
+    for name in wb.sheetnames:
+        ws = wb[name]
+        sheets[name] = [[cell.value for cell in row] for row in ws.iter_rows()]
+    return sheets
+```
+
+### LangChain loaders
+
+```python
+from langchain_community.document_loaders import (
+    Docx2txtLoader, UnstructuredExcelLoader, UnstructuredPowerPointLoader
+)
+
+loader = Docx2txtLoader("report.docx")
+docs = loader.load()  # List[Document] with page_content + metadata
+```
+
+---
+
+## Frameworks
+
+| Library | Best For | Notes |
+|---|---|---|
+| `python-docx` | DOCX structure | Tables, styles, headers/footers |
+| `openpyxl` | XLSX (no formulas) | `data_only=True` resolves cached values |
+| `python-pptx` | PPTX slides | Per-slide text + notes |
+| `unstructured` | Mixed document types | Unified API, handles edge cases |
+| `trafilatura` | HTML → clean prose | Best-in-class noise removal |
+| LangChain loaders | Agent integration | Wrap all of the above |
+
+---
+
+## Edge Cases
+
+- **Password-protected files** — catch `BadZipFile` / `PermissionError`; prompt user for password via `msoffcrypto-tool`
+- **Corrupt files** — wrap in try/except and fallback to `unstructured`
+- **Scanned DOCX** (images only) — detect zero paragraphs, route to OCR pipeline
+- **Mixed encodings** — use `chardet` to detect encoding before reading CSV
+- **Merged table cells** — `python-docx` exposes merged cells via `cell.spans`
+
+---
+
+## Related Skills
+
+- [PDF Parsing](pdf-parsing.md)
+- [Structured Data Reading](structured-data-reading.md)
+- [OCR](ocr.md)
+- [Email Parsing](email-parsing.md)
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
 
 ## Evidence
 
-- https://python-docx.readthedocs.io/
-- https://openpyxl.readthedocs.io/
-- https://python.langchain.com/docs/concepts/document_loaders/
+The skill's implementation guidance is grounded in the following primary references:
+- python-docx documentation: https://python-docx.readthedocs.io/
+- openpyxl documentation: https://openpyxl.readthedocs.io/
+- LangChain document loaders: https://python.langchain.com/docs/concepts/document_loaders/
 
-Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

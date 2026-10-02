@@ -1,27 +1,45 @@
 ---
 name: unit-test-generation
 description: Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts.
-license: MIT
 metadata:
   source: skills/05-code/unit-test-generation.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Unit Test Generation
+## Description
+Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts. Tests should be deterministic, readable, and aligned with repository conventions.
 
-1. Read the behavior contract and existing test conventions.
-2. Identify normal, boundary, and failure cases.
-3. Create deterministic tests with meaningful assertions.
-4. Mock only dependencies that are outside the unit boundary.
-5. Run the focused tests and the relevant broader suite.
-6. Record verification evidence.
+## When to Use
+Use when a unit-level behavior needs regression coverage or when implementation changes require focused tests.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Function or component contract, dependencies, expected behavior, and edge cases. |
+| Outputs | Deterministic unit tests with meaningful assertions. |
+| Failure modes | Weak assertions, excessive mocking, missing boundaries, or flaky setup. |
+
+## Runnable Example
+
+```python
+def add(a: int, b: int) -> int:
+    return a + b
+
+assert add(2, 3) == 5
+assert add(0, 0) == 0
+```
 
 ## Failure modes
-- Testing implementation details.
-- Missing boundary cases.
-- Excessive mocking.
-- Weak assertions or flaky setup.
+- Testing implementation details instead of behavior.
+- Missing boundary and failure cases.
+- Over-mocking dependencies needed to establish behavior.
+- Tests that pass without meaningful assertions.
+
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/05-code/unit-test-generation.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

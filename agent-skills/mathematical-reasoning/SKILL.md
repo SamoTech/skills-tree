@@ -1,23 +1,54 @@
 ---
 name: mathematical-reasoning
-description: Solve bounded mathematical problems with assumptions, equations, units, checks, and a verifiable result.
-license: MIT
+description: Solve bounded mathematical problems with explicit assumptions, equations, units, intermediate checks, and a verifiable final result.
 metadata:
   source: skills/02-reasoning/mathematical-reasoning.md
+  category: 02-reasoning
   version: "v2"
 ---
 
-# mathematical-reasoning
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-mathematical-reasoning.json)
 
-Use this skill to produce a bounded, auditable reasoning result. State assumptions, preserve uncertainty, and verify material conclusions.
+# Mathematical Reasoning
 
-## Failure modes
+**Category:** `reasoning`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2025-03
 
-- Unit inconsistency: normalize units before calculation.
-- Arithmetic error: independently verify material calculations.
+### Description
+
+Solve mathematical problems step-by-step — arithmetic, algebra, calculus, statistics, and logic puzzles.
+
+### Example
+
+```
+Q: If a train travels 120km in 1.5 hours, what is its speed in m/s?
+Step 1: Speed = 120km / 1.5h = 80 km/h
+Step 2: Convert: 80 * 1000 / 3600 = 22.22 m/s
+Answer: ≈ 22.22 m/s
+```
+
+### Frameworks
+
+- Chain of Thought prompting
+- Wolfram Alpha tool
+- Python `sympy`, `math` via code execution
+- OpenAI o3 / o4-mini (native math reasoning)
+
+### Related Skills
+
+- [Chain of Thought](chain-of-thought.md)
+- [Calculator](../07-tool-use/calculator.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
 
 ## Evidence
 
 - https://agentskills.io/specification
 
-Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

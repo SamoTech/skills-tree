@@ -1,37 +1,57 @@
 ---
 name: wikipedia-api
-description: Use wikipedia api as a bounded agent capability with validated inputs, least-privilege access, and verified results.
+description: Retrieve encyclopedia content through the MediaWiki API with bounded queries, page identifiers, continuation handling, and source attribution.
+metadata:
+  source: skills/07-tool-use/wikipedia-api.md
+  category: 07-tool-use
 ---
 
 # Wikipedia API
 
 ## Description
-Use wikipedia api only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
+Retrieve encyclopedia content through the MediaWiki API with bounded queries, page identifiers, continuation handling, and source attribution.
 
 ## When to Use
-Use when the workflow explicitly requires wikipedia api and the target resource is authorized.
+Use this capability only when the workflow requires wikipedia api, the target account or resource is authorized, and the provider contract is documented.
 
-## Inputs / Outputs
-- Inputs: validated task data, documented provider parameters, and authorization context.
-- Outputs: structured provider result and evidence sufficient for downstream verification.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Permission, rate-limit, transport, or provider failures.
-- Credential or private-data exposure.
-- Unverified side effects.
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
 
 ## Runnable Example
 
 ```python
-capability = "wikipedia-api"
-assert capability
-print("validate provider contract before invocation")
+import os
+
+request = {
+    "capability": "wikipedia-api",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
+
 ## Evidence
-Repository-backed guidance. See the canonical skill at skills/07-tool-use/wikipedia-api.md and its cited provider documentation.
+- Provider documentation: https://www.mediawiki.org/wiki/API:Main_page
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
 ## Related
-- 07-tool-use
 - tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails

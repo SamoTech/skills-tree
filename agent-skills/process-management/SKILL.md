@@ -1,30 +1,53 @@
 ---
 name: process-management
 description: Manage a local process with explicit command scope, timeout, environment, output limits, and termination policy.
-license: MIT
 metadata:
   source: skills/04-action-execution/process-management.md
-  version: "v2"
+  category: 04-action-execution
 ---
 
-# process-management
+# Process Management
 
-1. Verify the target, scope, and authorization before acting.
-2. Apply explicit bounds for input, duration, resources, and external effects.
-3. Execute only the requested operation.
-4. Verify the resulting state when the action has consequential effects.
+## Description
+
+Manage a local process with explicit command scope, timeout, environment, output limits, and termination policy.
+
+## When to Use
+
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
+
+```python
+import subprocess
+p = subprocess.Popen(["python", "-c", "print('ok')"], stdout=subprocess.PIPE, text=True)
+out, _ = p.communicate(timeout=10)
+print(p.returncode, out.strip())
+```
 
 ## Failure modes
 
-- Acting on an ambiguous or stale target.
-- Exceeding configured resource or time bounds.
-- Leaking sensitive input or environment data.
-- Reporting success without postcondition evidence.
+Out-of-scope termination; no timeout; unnecessary secret inheritance; incomplete success evidence.
+
+## Related
+
+- `shell-command.md`
+- `assertion.md`
+- `approval-before-destructive-tools.md`
 
 ## Evidence
 
-- skills/04-action-execution/process-management.md
 - AI_CONSTITUTION.md
 - AGENTS.md
-
-Evidence status: repository-backed implementation guidance; no benchmark claim.
+- Repository security and validation workflows

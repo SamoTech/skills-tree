@@ -1,26 +1,43 @@
 ---
 name: a2a-tool
 description: Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes.
-license: MIT
 metadata:
   source: skills/07-tool-use/a2a-tool.md
-  version: "v2"
+  category: 07-tool-use
 ---
 
-# A2a Tool
+## Description
+Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. Inspect the target protocol and repository conventions before making calls.
 
-1. Identify the documented tool contract and authorization boundary.
-2. Validate the request shape and required inputs.
-3. Invoke only the intended interface.
-4. Validate the response and resulting state.
-5. Record evidence of the completed operation.
+## When to Use
+Use when one agent invokes another agent or agent-facing service through a defined tool interface.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Tool contract, request payload, authorization context, and expected result. |
+| Outputs | Validated response and evidence of the resulting state. |
+| Failure modes | Invalid payloads, unauthorized actions, protocol mismatch, or unverified outcomes. |
+
+## Runnable Example
+
+```python
+request = {"action": "inspect", "target": "repository"}
+assert "action" in request
+print("validate tool contracts before invocation")
+```
 
 ## Failure modes
-- Undocumented interface usage.
-- Invalid or excessive request data.
-- Unverified outcomes.
-- Authorization boundary violations.
+- Calling an undocumented interface.
+- Sending incomplete or excessive data.
+- Treating an acknowledgement as proof of completion.
+- Ignoring authorization boundaries.
+
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/07-tool-use/a2a-tool.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

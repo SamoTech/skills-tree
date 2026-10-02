@@ -1,26 +1,53 @@
 ---
 name: time-series-reading
 description: Load time-indexed data from files, databases, or APIs, normalize timestamps and sampling intervals, and produce analysis-ready series without hiding missing or irregular observations.
-license: MIT
 metadata:
   source: skills/01-perception/time-series-reading.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-time-series-reading.json)
+
 # Time Series Reading
+Category: perception | Level: intermediate | Stability: stable | Version: v1
 
-1. Identify the timestamp field, timezone, frequency, and units.
-2. Parse timestamps with explicit timezone handling.
-3. Detect duplicate, missing, out-of-order, and irregular observations.
-4. Resample only when the analysis requires it and document the aggregation method.
-5. Preserve raw observations when producing normalized series.
-6. Do not interpolate missing data unless explicitly requested.
+## Description
+Load and parse time-indexed data streams from files, databases, or APIs into analysis-ready structures.
 
-## Failure modes
+## Inputs
+- `source`: CSV, Parquet, InfluxDB, or API endpoint
+- `timestamp_col`: column name
+- `resample`: optional frequency string (e.g., `"1H"`)
 
-- DST transitions: use timezone-aware timestamps and report ambiguous/nonexistent times.
-- Irregular sampling: distinguish observed cadence from resampled cadence.
-- Missing observations: preserve missingness rather than presenting interpolation as measured data.
+## Outputs
+- DatetimeIndex DataFrame with numeric columns
+
+## Example
+```python
+import pandas as pd
+df = pd.read_csv("metrics.csv", parse_dates=["timestamp"], index_col="timestamp")
+df = df.resample("1H").mean().interpolate()
+print(df.describe())
+```
+
+## Frameworks
+| Framework | Method |
+|---|---|
+| Python | `pandas`, `polars` |
+| TimescaleDB | SQL with `time_bucket()` |
+| InfluxDB | Flux query language |
+
+## Failure Modes
+- Irregular sampling intervals cause resampling artifacts
+- DST transitions create duplicate or missing timestamps
+
+## Related
+- `structured-data-reading.md` · `sensor-reading.md`
+
+## Changelog
+- v1 (2026-04): Initial entry
+
 
 ## Evidence
 

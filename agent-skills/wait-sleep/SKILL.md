@@ -1,30 +1,54 @@
 ---
 name: wait-sleep
 description: Pause for a bounded duration or polling interval without treating elapsed time as proof of state.
-license: MIT
 metadata:
   source: skills/04-action-execution/wait-sleep.md
-  version: "v2"
+  category: 04-action-execution
 ---
 
-# wait-sleep
+# Wait Sleep
 
-1. Verify the target, scope, and authorization before acting.
-2. Apply explicit bounds for input, duration, resources, and external effects.
-3. Execute only the requested operation.
-4. Verify the resulting state when the action has consequential effects.
+## Description
+
+Pause for a bounded duration or polling interval without treating elapsed time as proof of state.
+
+## When to Use
+
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
+
+```python
+import time
+def bounded_wait(seconds, maximum=30):
+    if not 0 <= seconds <= maximum: raise ValueError("out of bounds")
+    time.sleep(seconds)
+    print("wait completed")
+```
 
 ## Failure modes
 
-- Acting on an ambiguous or stale target.
-- Exceeding configured resource or time bounds.
-- Leaking sensitive input or environment data.
-- Reporting success without postcondition evidence.
+Long fixed waits; unbounded polling; busy waiting; assuming time proves state.
+
+## Related
+
+- `assertion.md`
+- `process-management.md`
+- `automation-review.md`
 
 ## Evidence
 
-- skills/04-action-execution/wait-sleep.md
 - AI_CONSTITUTION.md
 - AGENTS.md
-
-Evidence status: repository-backed implementation guidance; no benchmark claim.
+- Repository security and validation workflows

@@ -1,37 +1,63 @@
 ---
 name: jira-api
-description: Use Jira REST APIs for bounded issue retrieval and project operations. Validate fields and permissions, minimize query scope, and re-read important mutations.
+description: Use Jira REST APIs from agents to inspect and manage issues with explicit authorization, field validation, and outcome verification.
+metadata:
+  source: skills/07-tool-use/jira-api.md
+  category: 07-tool-use
 ---
 
 # Jira API
 
 ## Description
-Use Jira REST APIs for bounded issue retrieval and project operations. Validate fields and permissions, minimize query scope, and re-read important mutations.
+Use Jira REST APIs as an agent tool for issue retrieval and controlled project operations. Treat issue creation, edits, transitions, and comments as external side effects that require validated inputs and post-action verification.
 
 ## When to Use
-Use this capability when the workflow explicitly requires jira api and the target interface is documented and authorized.
+- Search or retrieve Jira issues needed for an agent workflow.
+- Create or update issues when the workflow has authority to modify the project.
+- Add structured comments or transitions using documented Jira fields.
 
-## Inputs / Outputs
-- Inputs: validated task data, documented tool parameters, and authorization context.
-- Outputs: structured provider result plus evidence needed to verify the outcome.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Missing permissions, unavailable provider, rate limits, or transport failures.
-- Credential exposure or excessive tool scope.
-- Treating an acknowledgement as proof of a completed side effect.
+| Area | Guidance |
+|---|---|
+| Authentication | Use a short-lived or least-privilege credential where supported. |
+| Project | Validate the target project key before writing. |
+| Issue fields | Validate required fields against the target Jira instance. |
+| Query | Bound JQL and pagination; avoid unbounded result sets. |
+| Output | Issue key, status, fields, and response metadata required by the workflow. |
+| Verification | Re-read the affected issue after mutations. |
+| Failure modes | Permission denial, invalid field, transition mismatch, rate limit, or stale issue state. |
 
 ## Runnable Example
 
 ```python
-request = {"capability": "jira-api", "validated": True}
-assert request["validated"]
-print("invoke only after validating the tool contract")
+import os, requests
+
+base = os.environ["JIRA_BASE_URL"].rstrip("/")
+auth = (os.environ["JIRA_EMAIL"], os.environ["JIRA_API_TOKEN"])
+r = requests.get(
+    f"{base}/rest/api/3/myself",
+    auth=auth,
+    headers={"Accept": "application/json"},
+    timeout=20,
+)
+r.raise_for_status()
+print(r.json()["accountId"])
 ```
 
+## Failure modes
+- Assuming custom fields have the same identifiers across Jira instances.
+- Mutating an issue without checking current state and permissions.
+- Accepting a 2xx response without verifying the resulting issue.
+- Logging authorization headers or tokens.
+- Using broad JQL when only a bounded issue set is required.
+
 ## Evidence
-Repository-backed guidance; see the canonical skill under skills/07-tool-use/jira-api.md and its cited provider documentation.
+- Atlassian Jira REST API documentation: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/
+- Repository schema and validation workflows define the local skill contract.
 
 ## Related
-- 07-tool-use
+- linear-api
+- github-api
 - tool-guardrails
+- approval-before-destructive-tools

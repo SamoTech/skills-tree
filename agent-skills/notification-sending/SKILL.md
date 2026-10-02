@@ -1,30 +1,52 @@
 ---
 name: notification-sending
 description: Deliver an approved notification through a configured channel with validated destination and content.
-license: MIT
 metadata:
   source: skills/04-action-execution/notification-sending.md
-  version: "v2"
+  category: 04-action-execution
 ---
 
-# notification-sending
+# Notification Sending
 
-1. Verify the target, scope, and authorization before acting.
-2. Apply explicit bounds for input, duration, resources, and external effects.
-3. Execute only the requested operation.
-4. Verify the resulting state when the action has consequential effects.
+## Description
+
+Deliver an approved notification through a configured channel with validated destination and content.
+
+## When to Use
+
+- Execute an explicitly approved action.
+- Use when the target and scope can be verified.
+- Verify the resulting state when the action is consequential.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Target and action | Execution result | Invalid target |
+| Scope/authorization | Allowed action | Unauthorized action |
+| Timeout/bounds | Controlled execution | Resource exhaustion |
+| Postcondition | Verified state | Silent failure |
+
+## Runnable Example
+
+```python
+def build_notification(destination, message):
+    if not destination or not message: raise ValueError("missing input")
+    return {"destination": destination, "message": message}
+```
 
 ## Failure modes
 
-- Acting on an ambiguous or stale target.
-- Exceeding configured resource or time bounds.
-- Leaking sensitive input or environment data.
-- Reporting success without postcondition evidence.
+Ambiguous destination; sensitive content leakage; duplicate delivery; uncontrolled urgency.
+
+## Related
+
+- `email-sending.md`
+- `assertion.md`
+- `tool-guardrails.md`
 
 ## Evidence
 
-- skills/04-action-execution/notification-sending.md
 - AI_CONSTITUTION.md
 - AGENTS.md
-
-Evidence status: repository-backed implementation guidance; no benchmark claim.
+- Repository security and validation workflows
