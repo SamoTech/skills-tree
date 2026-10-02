@@ -69,8 +69,14 @@ def existing_packages(root: Path) -> dict[str, dict]:
     result = {}
     for path in sorted((root / "agent-skills").glob("*/SKILL.md")):
         package = path.parent.name
-        fm = parse_frontmatter(path.read_text(encoding="utf-8"))
-        result[package] = {"package": package, "path": path.relative_to(root).as_posix(), "frontmatter_name": fm.get("name", ""), "source": fm.get("source", ""), "description": fm.get("description", "")}
+        text = path.read_text(encoding="utf-8")
+        fm = parse_frontmatter(text)
+        source = fm.get("source", "")
+        if not source:
+            explicit = re.findall(r"(?im)^\s*(?:canonical source|canonical skill):\s*`?(skills/[^`\s]+\.md)", text)
+            if len(set(explicit)) == 1:
+                source = explicit[0]
+        result[package] = {"package": package, "path": path.relative_to(root).as_posix(), "frontmatter_name": fm.get("name", ""), "source": source, "description": fm.get("description", "")}
     return result
 
 def reconcile(root: Path) -> dict:
