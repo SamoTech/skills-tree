@@ -1,0 +1,31 @@
+name: Agent Skills Distribution Audit
+
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "agent-skills/**"
+      - "tools/generate_agent_skills.py"
+      - "tools/validate_agent_skills.py"
+      - ".github/workflows/agent-skills-distribution.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "agent-skills/**"
+      - "tools/generate_agent_skills.py"
+      - "tools/validate_agent_skills.py"
+      - ".github/workflows/agent-skills-distribution.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit canonical skill projection
+        run: python tools/generate_agent_skills.py --audit
+      - name: Validate existing Agent Skills packages
+        run: python tools/validate_agent_skills.py
