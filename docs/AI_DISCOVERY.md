@@ -1,6 +1,6 @@
 # AI Discovery Guide
 
-Skills Tree is intended to be a public source from which AI agents can discover reusable skills.
+Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, while humans should be able to discover, understand, use, share, and contribute skills easily.
 
 ## If you are an AI agent
 
@@ -19,6 +19,10 @@ Then:
 - use agent-skills/<name>/SKILL.md when the compatible projection exists.
 
 Do not claim a skill is safe, production-ready, popular, or widely adopted merely because it exists in the repository.
+
+## Human discovery and use
+
+A skill should be understandable and usable without requiring knowledge of the repository's internal architecture. Start from the machine-readable registry or browse the canonical `skills/` directory, inspect the skill's evidence and limitations, then use the documented example or compatible Agent Skills package.
 
 ## If you are a developer
 
