@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 202
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 205
 - 🟡 **Enriched** (real description + runnable code): 159
-- ⚪ **Stub** (placeholder description or no runnable code): 13
+- ⚪ **Stub** (placeholder description or no runnable code): 10
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -17,7 +17,7 @@
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
 | `01-perception` | 36 | 29 | 6 | 1 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
-| `03-memory` | 19 | 16 | 0 | 3 | 0 |
+| `03-memory` | 19 | 19 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
 | `05-code` | 28 | 5 | 22 | 1 | 0 |
 | `06-communication` | 15 | 15 | 0 | 0 | 0 |
@@ -112,9 +112,12 @@
 - [`skills/03-memory/long-term-memory.md`](skills/03-memory/long-term-memory.md) — Long-Term Memory
 - [`skills/03-memory/memory-injection.md`](skills/03-memory/memory-injection.md) — Memory Injection
 - [`skills/03-memory/memory-summarization.md`](skills/03-memory/memory-summarization.md) — Memory Summarization
+- [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — Procedural Memory
 - [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — Procedural Memory
 - [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
+- [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — Semantic Memory
 - [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
+- [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — User Profile Memory
 - [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — User Profile
 - [`skills/03-memory/vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — Vector Store Retrieval
 - [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — Working Memory
@@ -404,9 +407,6 @@
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
 - [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — no fenced runnable code example (>=3 non-blank lines)
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — description matches placeholder pattern: 'Apply security scanning in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — description matches placeholder pattern: 'Apply wolfram alpha api in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — description matches placeholder pattern: 'Apply rag in AI agent workflows'
