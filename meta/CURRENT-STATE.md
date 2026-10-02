@@ -57,7 +57,7 @@
 - Quality evidence: generated repository reports.
 - External dashboards and Vercel deployments are not authoritative.
 
-## Product mission alignment — IN PROGRESS — 2026-10-02
+## Product mission alignment — VERIFIED — 2026-10-02
 
 The governing product mission is now:
 
@@ -65,11 +65,11 @@ The governing product mission is now:
 
 `meta/PRODUCT_MISSION.md` is the canonical mission document. Active governance, roadmap, discovery, distribution, and public-source documentation are being synchronized to it. Historical strategy and decision records retain their original wording where they document prior decisions; they are not treated as the current product mission unless explicitly superseded.
 
-PR #250 is the active discovery-alignment implementation and must remain subject to full CI verification before merge.
+PR #250 discovery alignment is merged and its mission/discovery documentation is now part of the verified product baseline.
 
 ## Next mandatory action
 
-Perform another fresh universal-registry runtime architecture audit after the verified runtime schema-validation slice. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Perform a fresh universal-registry runtime architecture audit after the verified deterministic Agent Skills corpus. The next engineering slice must be evidence-backed and must not reopen completed runtime or distribution work. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
@@ -124,3 +124,20 @@ Exact-head CI passed: Agent Skills Distribution Audit, Validate Agent Skills, Te
 **Current boundary:** this is a verified projection/audit contract, not full-corpus Agent Skills compliance. The repository does not declare `/.well-known/agent-skills/index.json` live. SHA-256 publication and discovery-index generation remain gated on successful artifact reconciliation, provenance validation, reproducible publication, and served-byte integrity checks.
 
 **Next:** reconcile the 280 existing packages against canonical provenance, resolve the eight canonical name collisions, then generate only eligible canonical projections in independently verifiable batches.
+
+
+## Deterministic Agent Skills Corpus — VERIFIED — 2026-10-02
+
+PR #264 merged the deterministic canonical-to-Agent-Skills corpus as commit `892a4d747e588cf2876e45ba3effcdd031fd9592`.
+
+Verified generation run:
+- 374 canonical skill entries scanned.
+- 250 eligible canonical projections generated.
+- 124 canonical entries remained blocked and were not generated.
+- 288 Agent Skills packages exist on `main`: 250 eligible projections, 37 retained blocked existing packages, and the intentional auxiliary `skills-tree-registry` package.
+- 10 canonical name-collision groups were reconciled with deterministic category-qualified projection names where eligible.
+- Agent Skills validation passed after generation.
+- Reconciliation passed with `git diff --check`.
+- Final PR checks passed: Agent Skills validation/distribution audit, Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, and repository graph validation.
+
+The corpus is now a verified deterministic projection of the canonical source. `/.well-known/agent-skills/index.json` remains intentionally unpublished until served-byte integrity, provenance, reproducibility, and SHA-256 publication gates are implemented and verified.
