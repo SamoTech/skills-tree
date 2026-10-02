@@ -638,3 +638,48 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Status:** IN VERIFICATION — implementation merged to the development branch; exact-head CI pending.
 
 **Reopen Conditions:** Reopen if repository tests or architecture evidence show that Goal-to-Capability is intentionally excluded from typed runtime traversal, or if the runtime boundary introduces non-deterministic, mutable, or duplicated relationship behavior.
+
+
+# DECISION-2026-10-02-AI-SOURCE-DISCOVERY
+
+DECISION-ID: DECISION-2026-10-02-AI-SOURCE-DISCOVERY
+Topic: Make Skills Tree directly discoverable as a public AI skill source
+
+Decision: Add a root `llms.txt`, an AI discovery guide, and explicit README/AGENTS retrieval instructions that point agents to the generated `docs/api/skills.json` registry, canonical `skills/` source, and compatible `agent-skills/` projections. Keep `skills/` canonical and do not declare the future `/.well-known/agent-skills/index.json` live until its deterministic generation, validation, provenance, reproducibility, and SHA-256 integrity gates exist.
+
+Confidence: HIGH
+
+Evidence IDs: DECISION-004, docs/AGENT_SKILLS_DISTRIBUTION.md, meta/COO_MASTER_MISSION.md, meta/ROADMAP.md, agent-skills/skills-tree-registry/SKILL.md
+
+Status: LOCKED
+
+Reopen Conditions: Reopen if the Agent Skills distribution contract or canonical source-of-truth architecture changes.
+
+
+# DECISION-2026-10-02-PRODUCT-MISSION
+
+**Decision-ID:** DECISION-2026-10-02-PRODUCT-MISSION
+
+**Topic:** Establish the governing product mission for Skills Tree.
+
+**Decision:** The primary product mission is:
+
+> **Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.**
+
+All active product, architecture, roadmap, documentation, distribution, and automation work must align with this mission.
+
+**Product outcomes:** AI discovery; human discovery and use; reliable consumption; sharing and contribution; organic GitHub discovery and adoption through genuine utility.
+
+**Source-of-truth rule:** `skills/` remains canonical. `docs/api/skills.json` and `agent-skills/` remain projections. No generated artifact may become a competing catalog.
+
+**Trust rule:** Public discoverability must not be represented as proof of safety, production readiness, popularity, adoption, or universal applicability. Claims require evidence.
+
+**Growth rule:** “Viral on GitHub” is treated as a product objective to build the conditions for organic discovery, reuse, sharing, and contribution. It is not a claim or guaranteed outcome, and the repository must not fabricate engagement signals.
+
+**Canonical document:** `meta/PRODUCT_MISSION.md`.
+
+**Confidence:** HIGH
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only if the Human Owner changes the product direction or repository evidence demonstrates that this mission no longer produces the intended product outcome.

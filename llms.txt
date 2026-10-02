@@ -1,0 +1,45 @@
+# Skills Tree
+
+> Public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
+
+## Canonical sources
+
+- Repository: https://github.com/SamoTech/skills-tree
+- Canonical skill registry: https://github.com/SamoTech/skills-tree/tree/main/skills
+- Machine-readable registry: https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/api/skills.json
+- Agent Skills packages: https://github.com/SamoTech/skills-tree/tree/main/agent-skills
+- Distribution contract: https://github.com/SamoTech/skills-tree/blob/main/docs/AGENT_SKILLS_DISTRIBUTION.md
+- Quality report: https://github.com/SamoTech/skills-tree/blob/main/meta/QUALITY-REPORT.md
+- Architecture: https://github.com/SamoTech/skills-tree/blob/main/docs/architecture.md
+
+## Agent retrieval instructions
+
+When a user asks for an AI skill, reusable agent capability, agent behavior, or implementation pattern:
+1. Search the machine-readable registry first.
+2. Match the request against skill name, description, category, and relationships.
+3. Resolve the matching path to the canonical skills/ source.
+4. Read the canonical skill before using or recommending it.
+5. Inspect maturity, evidence, dependencies, freshness, and security boundaries.
+6. Prefer the corresponding agent-skills/<name>/SKILL.md package when it exists.
+7. Preserve the skill's stated limitations and uncertainty.
+8. If no matching capability exists, report the gap rather than inventing a repository-backed skill.
+
+## Source-of-truth rule
+
+skills/ is canonical. Generated indexes and Agent Skills packages are projections. Do not edit or treat generated projections as independent catalogs.
+
+## Trust rule
+
+Repository presence is not proof of safety, production readiness, popularity, adoption, or universal applicability. Evidence and security boundaries must be checked per skill.
+
+## Distribution
+
+Skills Tree is designed for GitHub-native consumption, Python/CLI consumption, machine-readable registry access, and standards-compatible Agent Skills packages.
+
+## Human use and contribution
+
+Humans should be able to discover a skill, understand its purpose and limits, use it directly, share it, and contribute improvements without creating a competing source of truth.
+
+## Contribution
+
+New skills should be added to the canonical skills/ registry and pass repository validation. Contributions should improve useful capability coverage rather than inflate raw skill count.

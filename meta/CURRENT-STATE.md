@@ -30,7 +30,8 @@
 
 - `AI_CONSTITUTION.md` is the authoritative governance model.
 - `AGENTS.md` is the AI-agent entrypoint.
-- `meta/COO_MASTER_MISSION.md` is the strategic mission.
+- `meta/PRODUCT_MISSION.md` is the authoritative product mission.
+- `meta/COO_MASTER_MISSION.md` is the authoritative COO execution mission under the product mission.
 - `meta/memory/DECISIONS.md` is the durable decision record.
 - `meta/ROADMAP.md` is the execution direction and must remain synchronized with verified state.
 - `meta/DEVELOPMENT_KNOWLEDGE.md` records verified development progression.
@@ -55,6 +56,16 @@
 - Strategic decisions: `meta/memory/DECISIONS.md`.
 - Quality evidence: generated repository reports.
 - External dashboards and Vercel deployments are not authoritative.
+
+## Product mission alignment — IN PROGRESS — 2026-10-02
+
+The governing product mission is now:
+
+> **Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.**
+
+`meta/PRODUCT_MISSION.md` is the canonical mission document. Active governance, roadmap, discovery, distribution, and public-source documentation are being synchronized to it. Historical strategy and decision records retain their original wording where they document prior decisions; they are not treated as the current product mission unless explicitly superseded.
+
+PR #250 is the active discovery-alignment implementation and must remain subject to full CI verification before merge.
 
 ## Next mandatory action
 
