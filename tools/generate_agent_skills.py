@@ -141,6 +141,7 @@ def main() -> int:
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--audit", action="store_true")
     parser.add_argument("--write", action="store_true")
+    parser.add_argument("--write-eligible", action="store_true", help="write only eligible canonical projections")
     parser.add_argument("--check", action="store_true", help="fail if any canonical entry is blocked")
     args = parser.parse_args()
 
@@ -151,20 +152,21 @@ def main() -> int:
     if args.check and (report["blocked"] or report["name_collisions"]):
         return 1
 
-    if args.write:
+    if args.write or args.write_eligible:
         projections = [
             project(path, root)
             for path in sorted(path for path in (root / "skills").rglob("*.md") if path.name.lower() != "readme.md")
         ]
-        if any(not item.eligible for item in projections):
+        if args.write and any(not item.eligible for item in projections):
             print("Refusing to generate blocked canonical skills. Run --audit for details.", file=sys.stderr)
             return 2
         if report["name_collisions"]:
             print("Refusing to generate colliding skill names.", file=sys.stderr)
             return 2
-        for item in projections:
+        to_write = [item for item in projections if item.eligible] if args.write_eligible else projections
+        for item in to_write:
             write_projection(root, item)
-        print(f"Generated {len(projections)} Agent Skills packages.", file=sys.stderr)
+        print(f"Generated {len(to_write)} Agent Skills packages.", file=sys.stderr)
     return 0
 
 

@@ -29,3 +29,5 @@ jobs:
         run: python tools/generate_agent_skills.py --audit
       - name: Validate existing Agent Skills packages
         run: python tools/validate_agent_skills.py
+      - name: Reconcile canonical and existing packages
+        run: python tools/reconcile_agent_skills.py
