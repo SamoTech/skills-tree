@@ -2,15 +2,13 @@ name: Apply Agent Skills Reconciliation
 
 on:
   push:
-    branches:
-      - feat/agent-skills-provenance-reconciliation
 
 permissions:
   contents: write
 
 jobs:
   reconcile-and-generate:
-    if: "!contains(github.event.head_commit.message, '[agent-skills-generated]')"
+    if: "github.ref == 'refs/heads/feat/agent-skills-deterministic-generation' && !contains(github.event.head_commit.message, '[agent-skills-generated]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
