@@ -113,3 +113,23 @@ def test_project_accepts_collision_safe_name(tmp_path):
     assert item.eligible
     assert item.name == "web-web-search"
     assert "name: web-web-search" in item.content
+
+
+def test_projection_strips_trailing_whitespace(tmp_path):
+    source = write_skill(
+        tmp_path,
+        "01-test/whitespace.md",
+        """---
+description: "Whitespace."
+---
+
+# Whitespace  
+
+## Evidence  
+
+- Evidence  
+""",
+    )
+    item = project(source, tmp_path)
+    assert item.eligible
+    assert all(not line.endswith(" ") for line in item.content.splitlines())
