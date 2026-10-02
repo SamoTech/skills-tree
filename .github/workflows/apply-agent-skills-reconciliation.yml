@@ -1,5 +1,7 @@
 name: Apply Agent Skills Reconciliation
 
+# Dedicated corpus-generation branch execution is intentionally gated below.
+
 on:
   push:
   pull_request:
