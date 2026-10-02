@@ -619,3 +619,22 @@ Reopen Conditions: Reopen if the repository governance model, canonical skill pr
 **Evidence:** GitHub Actions regenerated `meta/QUALITY-REPORT.md` as commit `ac8aacb5982018d2ee57a2953924dd74a9013e20` after merged PR #244. The generated report verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid.
 
 **Status:** LOCKED.
+
+
+## DECISION-2026-10-02-GOAL-CAPABILITY-RUNTIME-ACCESS
+
+**Decision-ID:** DECISION-2026-10-02-GOAL-CAPABILITY-RUNTIME-ACCESS
+
+**Topic:** Expose typed Goal-to-Capability traversal through the UniversalRegistry runtime.
+
+**Finding:** The canonical ontology defines the Goal → Capability → Skill traversal, and `GoalRuntime` already provides Goal resolution and Goal-to-Skill traversal, but consumers had no typed `capabilities_for_goal()` accessor and therefore could fall back to the raw Goal record structure for the immediate relationship.
+
+**Decision:** Add deterministic read-only `GoalRuntime.capabilities_for_goal()`, expose `UniversalRegistry.capabilities_for_goal()`, and make `skills_for_goal()` reuse the validated Capability boundary. Preserve defensive snapshots, deterministic ordering, existing validation, and the no-new-claims boundary.
+
+**Confidence:** HIGH
+
+**Evidence IDs:** `meta/IMPLEMENTATION_ONTOLOGY.md`, `meta/DEVELOPMENT_KNOWLEDGE.md`, `registry/goal.py`, `tests/test_universal_registry_runtime.py`
+
+**Status:** IN VERIFICATION — implementation merged to the development branch; exact-head CI pending.
+
+**Reopen Conditions:** Reopen if repository tests or architecture evidence show that Goal-to-Capability is intentionally excluded from typed runtime traversal, or if the runtime boundary introduces non-deterministic, mutable, or duplicated relationship behavior.
