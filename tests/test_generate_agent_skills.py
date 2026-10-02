@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from tools.generate_agent_skills import audit, project, clean_description, normalize_name
+from tools.generate_agent_skills import NAME_RE, audit, project, clean_description, normalize_name
 
 
 def write_skill(root: Path, rel: str, content: str) -> Path:
@@ -98,19 +98,6 @@ description: "Real skill."
     assert report["eligible"] == 1
 
 
-def test_generated_name_rejects_consecutive_hyphens(tmp_path):
-    source = write_skill(
-        tmp_path,
-        "01-test/foo--bar.md",
-        """---
-description: "A valid description."
----
-
-# Foo
-
-## Evidence
-
-- Evidence
-""",
-    )
-    assert "invalid generated name" in project(source, tmp_path).blockers
+def test_agent_skills_name_rejects_consecutive_hyphens():
+    assert NAME_RE.fullmatch("foo--bar") is None
+    assert NAME_RE.fullmatch("foo-bar") is not None
