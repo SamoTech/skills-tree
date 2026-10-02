@@ -109,7 +109,7 @@ def project(source: Path, root: Path) -> SkillProjection:
 
 def audit(root: Path) -> dict:
     source_root = root / "skills"
-    files = sorted(source_root.rglob("*.md"))
+    files = sorted(path for path in source_root.rglob("*.md") if path.name.lower() != "readme.md")
     projections = [project(path, root) for path in files]
     collisions: dict[str, list[str]] = {}
     for item in projections:
@@ -156,7 +156,7 @@ def main() -> int:
     if args.write:
         projections = [
             project(path, root)
-            for path in sorted((root / "skills").rglob("*.md"))
+            for path in sorted(path for path in (root / "skills").rglob("*.md") if path.name.lower() != "readme.md")
         ]
         if any(not item.eligible for item in projections):
             print("Refusing to generate blocked canonical skills. Run --audit for details.", file=sys.stderr)
