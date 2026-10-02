@@ -414,3 +414,14 @@ Authoritative references were added for OWASP logging/authorization/secrets guid
 **Automation verification:** the hardened `quality-report.yml` post-merge trigger regenerated `meta/QUALITY-REPORT.md` as GitHub Actions commit `ac8aacb5982018d2ee57a2953924dd74a9013e20`. The generated report verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid; category 14-security is fully migrated at 13 battle-tested, 0 stubs.
 
 **Next:** use the generated report as the authoritative baseline for the remaining 13-stub migration backlog.
+
+
+## Universal Registry Capability/Skill Symmetry Audit — 2026-10-02
+
+A fresh runtime audit after the registry data-schema validation slice found one missing integrity invariant: the registry declared Capability → Skill and Skill → Capability relationships, but runtime validation enforced only the Capability → Skill direction. This allowed contradictory reciprocal declarations to pass initialization.
+
+The smallest corrective slice adds a semantic symmetry check in `UniversalRegistry._validate_integrity()` and a regression test that removes the reciprocal Skill capability reference and requires deterministic rejection. No schema, canonical registry data, ontology records, or external claims were changed.
+
+**Verification status:** implementation committed on PR #247; repository CI pending. This section must not be treated as verified until the PR's authoritative checks pass and the resulting main state is re-read.
+
+**Next audit target after verification:** re-inspect remaining bidirectional and cross-entity runtime invariants, especially relationships represented in both entity records and graph edges, without duplicating graph policy unnecessarily.
