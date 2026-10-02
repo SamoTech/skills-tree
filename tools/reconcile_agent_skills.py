@@ -1,0 +1,114 @@
+#!/usr/bin/env python3
+"""Reconcile canonical Skills Tree entries with existing Agent Skills packages."""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+from pathlib import Path
+
+NAME_RE = re.compile(r"^(?!.*--)[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$")
+FM_RE = re.compile(r"^---\n(.*?)\n---\n?", re.DOTALL)
+
+def normalize(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+def parse_frontmatter(text: str) -> dict[str, str]:
+    match = FM_RE.match(text)
+    if not match:
+        return {}
+    result = {}
+    for line in match.group(1).splitlines():
+        if ":" in line and not line.startswith((" ", "\t")):
+            key, value = line.split(":", 1)
+            result[key.strip()] = value.strip().strip('"').strip("'")
+    return result
+
+def canonical_files(root: Path) -> list[Path]:
+    return sorted(p for p in (root / "skills").rglob("*.md") if p.name.lower() != "readme.md")
+
+def canonical_records(root: Path) -> list[dict]:
+    records = []
+    for path in canonical_files(root):
+        rel = path.relative_to(root).as_posix()
+        category_dir = path.parent.name
+        category = re.sub(r"^\d+-", "", category_dir)
+        stem = path.stem
+        records.append({"source": rel, "id": stem, "base_name": normalize(stem), "category": category, "category_dir": category_dir})
+    return records
+
+def desired_names(records: list[dict]) -> tuple[dict[str, str], dict[str, list[str]]]:
+    groups = {}
+    for record in records:
+        groups.setdefault(record["base_name"], []).append(record)
+    desired, collisions = {}, {}
+    for base, group in groups.items():
+        if len(group) == 1:
+            desired[group[0]["source"]] = base
+            continue
+        collisions[base] = [r["source"] for r in group]
+        for record in group:
+            candidate = normalize(f'{record["category"]}-{base}')
+            desired[record["source"]] = candidate if NAME_RE.fullmatch(candidate) else normalize(f'{record["category_dir"]}-{base}')
+    return desired, collisions
+
+def existing_packages(root: Path) -> dict[str, dict]:
+    result = {}
+    for path in sorted((root / "agent-skills").glob("*/SKILL.md")):
+        package = path.parent.name
+        fm = parse_frontmatter(path.read_text(encoding="utf-8"))
+        result[package] = {"package": package, "path": path.relative_to(root).as_posix(), "frontmatter_name": fm.get("name", ""), "source": fm.get("source", ""), "description": fm.get("description", "")}
+    return result
+
+def reconcile(root: Path) -> dict:
+    records = canonical_records(root)
+    desired, collisions = desired_names(records)
+    existing = existing_packages(root)
+    by_source = {r["source"]: r for r in records}
+    by_desired = {desired[src]: src for src in desired}
+    matched, inferred, missing = [], [], []
+    for source in by_source:
+        package = desired[source]
+        current = existing.get(package)
+        if current and current["source"] == source:
+            matched.append({"source": source, "package": package, "match": "provenance"})
+        elif current and not current["source"]:
+            inferred.append({"source": source, "package": package, "match": "name-only"})
+        else:
+            missing.append({"source": source, "package": package})
+    extras, stale, ambiguous = [], [], []
+    for package, current in existing.items():
+        source = current["source"]
+        if source and source not in by_source:
+            stale.append(current)
+        elif package not in by_desired:
+            extras.append(current)
+        elif source and source != by_desired[package]:
+            ambiguous.append({"package": package, "declared_source": source, "canonical_source": by_desired[package]})
+    return {
+        "canonical_count": len(records),
+        "existing_package_count": len(existing),
+        "matched_by_provenance": matched,
+        "matched_by_name_only": inferred,
+        "missing": missing,
+        "extra": extras,
+        "stale": stale,
+        "ambiguous": ambiguous,
+        "collisions": collisions,
+        "collision_resolution": {source: desired[source] for sources in collisions.values() for source in sources},
+    }
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+    report = reconcile(args.root.resolve())
+    rendered = json.dumps(report, indent=2, sort_keys=True)
+    if args.output:
+        args.output.write_text(rendered + "\n", encoding="utf-8")
+    print(rendered)
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())
