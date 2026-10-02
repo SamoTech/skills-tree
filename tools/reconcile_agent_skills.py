@@ -11,6 +11,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools.generate_agent_skills import project
 
+LEGACY_SOURCE_ALIASES = {
+    "github-api": "skills/07-tool-use/github-api.md",
+    "web-search": "skills/07-tool-use/web-search.md",
+}
+
 NAME_RE = re.compile(r"^(?!.*--)[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$")
 FM_RE = re.compile(r"^---\n(.*?)\n---\n?", re.DOTALL)
 
@@ -76,6 +81,8 @@ def existing_packages(root: Path) -> dict[str, dict]:
             explicit = re.findall(r"(?im)^\s*(?:canonical source|canonical skill):\s*`?(skills/[^`\s]+\.md)", text)
             if len(set(explicit)) == 1:
                 source = explicit[0]
+        if not source and package in LEGACY_SOURCE_ALIASES:
+            source = LEGACY_SOURCE_ALIASES[package]
         result[package] = {"package": package, "path": path.relative_to(root).as_posix(), "frontmatter_name": fm.get("name", ""), "source": source, "description": fm.get("description", "")}
     return result
 
