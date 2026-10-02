@@ -1,6 +1,6 @@
 # Skills Tree
 
-> Public, machine-discoverable source of reusable AI-agent skills and capability definitions.
+> Public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
 
 ## Canonical sources
 
@@ -35,6 +35,10 @@ Repository presence is not proof of safety, production readiness, popularity, ad
 ## Distribution
 
 Skills Tree is designed for GitHub-native consumption, Python/CLI consumption, machine-readable registry access, and standards-compatible Agent Skills packages.
+
+## Human use and contribution
+
+Humans should be able to discover a skill, understand its purpose and limits, use it directly, share it, and contribute improvements without creating a competing source of truth.
 
 ## Contribution
 
