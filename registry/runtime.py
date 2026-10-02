@@ -387,6 +387,12 @@ class UniversalRegistry:
                     raise ValueError(f"Dangling skill implementation reference: {implementation_id}")
 
         for capability in capabilities.values():
+            for skill_id in capability.get("skills", []):
+                if capability["id"] not in skills[skill_id].get("capabilities", []):
+                    raise ValueError(
+                        f"Capability/skill linkage is not symmetric: "
+                        f"{capability['id']} -> {skill_id}"
+                    )
             for implementation_id in capability.get("implementations", []):
                 if implementation_id not in implementations:
                     raise ValueError(f"Dangling capability implementation reference: {implementation_id}")
