@@ -31,12 +31,19 @@ class GoalRuntime:
             raise KeyError(f"Unknown goal: {goal_id}")
         return deepcopy(matches[0])
 
+    def capabilities_for_goal(self, goal_id: str) -> list[dict[str, Any]]:
+        """Return Capabilities linked to a Goal in deterministic order."""
+        goal = self.resolve_goal(goal_id)
+        return [
+            self.registry.resolve_capability(capability_id)
+            for capability_id in sorted(goal["capabilities"])
+        ]
+
     def skills_for_goal(self, goal_id: str) -> list[dict[str, Any]]:
         """Return canonical Skills reachable from a Goal in deterministic order."""
-        goal = self.resolve_goal(goal_id)
         skill_ids = {
             skill_id
-            for capability_id in goal["capabilities"]
-            for skill_id in self.registry.resolve_capability(capability_id)["skills"]
+            for capability in self.capabilities_for_goal(goal_id)
+            for skill_id in capability["skills"]
         }
         return [self.registry.resolve_skill(skill_id) for skill_id in sorted(skill_ids)]

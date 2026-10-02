@@ -45,3 +45,12 @@ MCP remains a Protocol. No compatibility or ecosystem claims are added.
 ## Next Action
 
 Run focused regression and required CI on `phase2/evidence-contract-runtime-20260919`. If green, open a PR, verify its exact head and all required checks, merge only the green head SHA, then verify the resulting `main` HEAD. If CI fails, inspect the actual failed job/log and make only the smallest architectural correction on the existing branch.
+
+
+## State Reconciliation — 2026-10-02
+
+A fresh post-schema runtime/consumer audit identified a narrow missing typed Goal→Capability access path. The development branch `feat/goal-capability-runtime-boundary` adds `GoalRuntime.capabilities_for_goal()`, exposes `UniversalRegistry.capabilities_for_goal()`, and routes `skills_for_goal()` through the validated Capability boundary.
+
+No registry entities or ecosystem claims were changed. No numbered P2.3 item was invented.
+
+Verification remains pending exact-head CI and required repository checks.

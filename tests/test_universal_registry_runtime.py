@@ -32,6 +32,21 @@ def test_registry_resolution_is_deterministic() -> None:
     assert first == second
 
 
+def test_capabilities_for_goal_are_deterministic() -> None:
+    registry = UniversalRegistry(REGISTRY)
+    capabilities = registry.capabilities_for_goal("goal/software-engineering")
+    assert [item["id"] for item in capabilities] == ["capability/code-quality"]
+
+
+def test_capabilities_for_goal_returns_independent_snapshots() -> None:
+    registry = UniversalRegistry(REGISTRY)
+    capabilities = registry.capabilities_for_goal("goal/software-engineering")
+    capabilities[0]["skills"].clear()
+    assert registry.capabilities_for_goal("goal/software-engineering")[0]["skills"] == [
+        "05-code/code-review"
+    ]
+
+
 def test_registry_rejects_unknown_goal() -> None:
     registry = UniversalRegistry(REGISTRY)
 
