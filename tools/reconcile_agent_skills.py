@@ -75,31 +75,53 @@ def reconcile(root: Path) -> dict:
     existing = existing_packages(root)
     by_source = {r["source"]: r for r in records}
     by_desired = {desired[src]: src for src in desired}
-    matched, inferred, missing = [], [], []
-    for source in by_source:
-        package = desired[source]
-        current = existing.get(package)
-        if current and current["source"] == source:
-            matched.append({"source": source, "package": package, "match": "provenance"})
-        elif current and not current["source"]:
-            inferred.append({"source": source, "package": package, "match": "name-only"})
-        else:
-            missing.append({"source": source, "package": package})
-    extras, stale, ambiguous = [], [], []
+    source_packages = {}
     for package, current in existing.items():
+        if current["source"]:
+            source_packages.setdefault(current["source"], []).append(current)
+
+    matched, inferred, missing, rename_needed = [], [], [], []
+    for source, record in by_source.items():
+        expected = desired[source]
+        candidates = source_packages.get(source, [])
+        if len(candidates) == 1:
+            current = candidates[0]
+            item = {"source": source, "package": current["package"], "expected_package": expected, "match": "provenance"}
+            matched.append(item)
+            if current["package"] != expected:
+                rename_needed.append(item)
+        elif len(candidates) > 1:
+            raise ValueError(f"multiple packages declare canonical source {source!r}")
+        elif expected in existing and not existing[expected]["source"]:
+            inferred.append({"source": source, "package": expected, "match": "name-only"})
+        else:
+            missing.append({"source": source, "package": expected})
+
+    extras, stale, ambiguous = [], [], []
+    mapped_packages = {item["package"] for item in matched}
+    for package, current in existing.items():
+        if package in mapped_packages:
+            continue
         source = current["source"]
         if source and source not in by_source:
             stale.append(current)
         elif package not in by_desired:
             extras.append(current)
-        elif source and source != by_desired[package]:
-            ambiguous.append({"package": package, "declared_source": source, "canonical_source": by_desired[package]})
+        elif not source:
+            inferred_sources = [src for src, name in desired.items() if name == package]
+            if inferred_sources:
+                continue
+            extras.append(current)
+        else:
+            ambiguous.append({"package": package, "declared_source": source})
+
     return {
         "canonical_count": len(records),
         "existing_package_count": len(existing),
         "matched_by_provenance": matched,
         "matched_by_name_only": inferred,
         "missing": missing,
+        "rename_needed": rename_needed,
         "extra": extras,
         "stale": stale,
         "ambiguous": ambiguous,
