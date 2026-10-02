@@ -86,7 +86,6 @@ def project(source: Path, root: Path) -> SkillProjection:
         "---\n"
         f"name: {name}\n"
         f"description: {description}\n"
-        "license: MIT\n"
         "metadata:\n"
         f"  source: {source.relative_to(root).as_posix()}\n"
         f"  category: {category}\n"
