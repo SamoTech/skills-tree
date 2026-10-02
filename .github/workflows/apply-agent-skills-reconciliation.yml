@@ -3,7 +3,7 @@ name: Apply Agent Skills Reconciliation
 on:
   push:
     branches:
-      - feat/agent-skills-provenance-reconciliation
+      - feat/agent-skills-deterministic-generation
 
 permissions:
   contents: write
