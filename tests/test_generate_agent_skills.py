@@ -38,7 +38,7 @@ version: v2
 
 
 def test_badges_are_removed_from_machine_description():
-    assert clean_description("[![status](badge.svg)](https://example.test) Real description.") == "Real description."
+    assert (\n        clean_description("[![status](badge.svg)](https://example.test) Real description.")\n        == "Real description."\n    )
 
 
 def test_audit_reports_missing_evidence_and_collisions(tmp_path):
