@@ -13,7 +13,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-NAME_RE = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$")
+NAME_RE = re.compile(r"^(?!.*--)[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?[a-z0-9]$|^[a-z0-9]$")
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n?", re.DOTALL)
 PLACEHOLDER_RE = re.compile(r"(?i)^(stub|todo|tbd|placeholder|coming soon|add description)[.! ]*$")
 BADGE_RE = re.compile(r"!\[[^\]]*\]\([^)]*\)|\[[^\]]+\]\([^)]*badge[^)]*\)", re.I)
