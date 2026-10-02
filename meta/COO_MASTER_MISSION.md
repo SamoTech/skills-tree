@@ -7,17 +7,13 @@
 
 ## Mission
 
-Transform Skills Tree from an AI skill registry into trusted, continuously maintained, machine-discoverable capability infrastructure for AI agents and systems.
+The governing product mission is defined in `meta/PRODUCT_MISSION.md`:
 
-The product must let an agent or developer:
+> **Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.**
 
-1. Discover a capability.
-2. Understand its contract, limits, dependencies, and provenance.
-3. Evaluate evidence, freshness, validation, and interoperability.
-4. Consume a deterministic machine-readable or Agent Skills-compatible representation.
-5. Maintain the capability through automated detection of drift, staleness, duplication, incompatibility, and security risk.
+The COO translates that mission into repository execution. The product must make skill discovery, understanding, use, sharing, and contribution reliable for both machines and humans.
 
-The objective is not maximum skill count. It is maximum verified utility and trust per capability.
+The objective is not maximum skill count. It is useful, trustworthy, discoverable, reusable skills and the infrastructure that makes them easy to find and consume.
 
 ## COO operating authority
 
@@ -225,6 +221,16 @@ A meaningful change is incomplete until implementation, verification, security r
 
 ## Definition of success
 
-An AI agent can reliably discover an appropriate capability, understand what it does, determine how trustworthy and current it is, identify dependencies and compatibility, consume it in a standard format, and verify the evidence behind it.
+Success is measured against the governing product mission:
+
+- AI agents can reliably discover an appropriate skill here.
+- Humans can quickly find and understand useful skills.
+- Skills can be consumed through clear, reproducible paths.
+- Evidence, limitations, freshness, dependencies, and security boundaries are visible.
+- Users can share and reference skills easily.
+- Contributors can improve the canonical source without creating competing catalogs.
+- Organic GitHub discovery and adoption grow because the repository is useful and reusable.
+
+No metric may be treated as proof of popularity or adoption without evidence.
 
 That is the product the COO must continuously build.
