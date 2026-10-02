@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Skills Tree is the canonical source repository for the project's AI-agent skill registry. The repository must support two distinct consumption modes without creating competing sources of truth:
+Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
+
+The repository is the canonical source for the project's AI-agent skill registry. The repository must support two distinct consumption modes without creating competing sources of truth:
 
 1. GitHub-native consumption from the repository.
 2. Web distribution through a machine-readable registry and, in the next distribution phase, the Agent Skills discovery format.
