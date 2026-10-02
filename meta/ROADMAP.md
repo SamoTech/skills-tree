@@ -105,9 +105,19 @@ Inspect → classify → identify evidence → identify demand → identify depe
 
 A migration is incomplete if it only adds frontmatter.
 
-## Phase 4 — Agent Skills distribution
+## Phase 4 — Agent Skills distribution — VERIFIED CORPUS BASELINE
 
-Expand `agent-skills/` for high-value canonical skills.
+The deterministic canonical-to-Agent-Skills projection is now generated and verified for the full currently eligible corpus.
+
+Verified state:
+- 374 canonical entries scanned.
+- 250 eligible projections generated.
+- 124 canonical entries remain blocked.
+- 288 total Agent Skills packages remain on `main`, including retained blocked legacy packages and the intentional registry helper.
+- Collision-safe naming is deterministic and validator-compatible.
+- Reconciliation, Agent Skills validation, security, graph, build, and test gates passed on the final corpus PR.
+
+Remaining Phase 4 work is distribution hardening and publication, not regeneration of the already verified corpus.
 
 Requirements:
 - deterministic generation
@@ -189,7 +199,7 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies Phase 0 governance/registry foundation work, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The immediate Phase 2 engineering direction is a fresh universal-registry runtime architecture audit; no numbered P2.3 requirement is defined.
+The repository's live development record verifies the governance/registry foundation and the deterministic Agent Skills corpus projection, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The deterministic Agent Skills corpus is now a verified distribution baseline. The next distribution decision is whether the remaining evidence gates justify implementing `/.well-known/agent-skills/index.json`; otherwise continue the fresh universal-registry architecture audit. No numbered P2.3 requirement is defined.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
