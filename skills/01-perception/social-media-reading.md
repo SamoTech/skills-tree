@@ -26,8 +26,9 @@ Fetch and parse posts, threads, and metadata from social media APIs and exported
 
 ## Example
 ```python
+import os
 import praw
-reddit = praw.Reddit(client_id="...", client_secret="...", user_agent="bot/1.0")
+reddit = praw.Reddit(client_id=os.environ["REDDIT_CLIENT_ID"], client_secret=os.environ["REDDIT_CLIENT_SECRET"], user_agent=os.environ.get("REDDIT_USER_AGENT", "skills-tree-agent"))
 for post in reddit.subreddit("python").hot(limit=10):
     print(post.title, post.score, post.url)
 ```
