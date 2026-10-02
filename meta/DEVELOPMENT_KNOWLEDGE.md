@@ -414,3 +414,16 @@ Authoritative references were added for OWASP logging/authorization/secrets guid
 **Automation verification:** the hardened `quality-report.yml` post-merge trigger regenerated `meta/QUALITY-REPORT.md` as GitHub Actions commit `ac8aacb5982018d2ee57a2953924dd74a9013e20`. The generated report verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid; category 14-security is fully migrated at 13 battle-tested, 0 stubs.
 
 **Next:** use the generated report as the authoritative baseline for the remaining 13-stub migration backlog.
+
+
+## Post-P2.2 Goal Capability Traversal Slice — 2026-10-02
+
+A fresh consumer-behavior audit identified a concrete runtime surface gap in the universal traversal contract. The repository documents the deterministic path `Goal → Capability → Skill → Implementation → Adapter`, but `GoalRuntime` exposed only `resolve_goal()` and `skills_for_goal()`. Consumers needing the immediate Goal→Capability relationship still had to inspect the Goal record directly.
+
+The selected vertical slice adds typed deterministic `capabilities_for_goal()` access to `GoalRuntime` and `UniversalRegistry`. `skills_for_goal()` now obtains its Capability inputs through that runtime boundary, preserving deterministic ordering and defensive snapshots while avoiding duplicated raw-storage traversal.
+
+Behavioral coverage adds deterministic Capability resolution from `goal/software-engineering` and snapshot-isolation coverage.
+
+No registry records or external ecosystem claims were added. No numbered P2.3 requirement was invented.
+
+**Verification status:** implementation and focused tests are present on the development branch; required CI has not yet been established for the branch.
