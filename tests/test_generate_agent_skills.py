@@ -71,3 +71,4 @@ description: "Same"
     assert report["blocked"] == 1
     assert "missing Evidence section" in report["blockers"]["skills/01-test/First.md"]
     assert "first" in report["name_collisions"]
+\n\ndef test_audit_excludes_category_readmes(tmp_path):\n    write_skill(tmp_path, "01-test/README.md", "# Category README")\n    write_skill(tmp_path, "01-test/real-skill.md", "---\\ndescription: \\\"Real skill.\\\"\\n---\\n\\n# Real\\n\\n## Evidence\\n\\n- Evidence\\n")\n    report = audit(tmp_path)\n    assert report["total"] == 1\n    assert report["eligible"] == 1\n
