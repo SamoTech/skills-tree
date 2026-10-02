@@ -126,3 +126,14 @@ The structural schema catches malformed field types and required-shape violation
 **Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`; exact-head Test Suite, Security Scan, PR Checks, and Build & Verify Wheel passed.
 
 **Status:** VERIFIED. No registry records, ontology claims, compatibility facts, or external ecosystem claims were added.
+
+
+## Post-P2.2 Goal Capability Traversal Audit — 2026-10-02
+
+A fresh consumer-behavior audit found a narrow Goal runtime gap: the canonical ontology and target traversal begin with `Goal → Capability → Skill`, and `GoalRuntime` already validates Goal resolution and Goal-to-Skill traversal, but the public runtime had no typed `capabilities_for_goal()` accessor.
+
+The selected slice adds `GoalRuntime.capabilities_for_goal()`, exposes it through `UniversalRegistry`, and makes `skills_for_goal()` reuse that validated Capability boundary. This removes the remaining need for Goal consumers to inspect the Goal record's raw `capabilities` collection when they need the immediate typed relationship.
+
+No registry entities, provider/platform/framework/model/adapter/compatibility claims, graph semantics, or MCP classifications are changed. No numbered P2.3 item is introduced.
+
+Verification is pending PR CI and exact-head repository checks.
