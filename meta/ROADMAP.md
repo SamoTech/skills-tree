@@ -236,4 +236,12 @@ The product mission now has an explicit public discovery surface for AI agents a
 This is a discovery/documentation layer only. It does not create a competing catalog or declare the future `/.well-known/agent-skills/index.json` live. The latter remains gated on deterministic generation, validation, provenance, publication reproducibility, and SHA-256 verification.
 
 **Next:** validate this discovery surface in CI, then continue toward generated Agent Skills/discovery artifacts only when the repository's distribution completion gate is satisfied.
-\n\n## Agent Skills Distribution Contract — 2026-10-02\n\nThe first executable distribution slice is now staged in PR #251. `tools/generate_agent_skills.py` defines deterministic canonical-to-package projection rules, evidence/description/name/size gates, collision detection, and an explicit write boundary. `.github/workflows/agent-skills-distribution.yml` performs a read-only corpus audit and validates existing packages.\n\nThis does not mark Phase 4 complete. Full-corpus projection remains blocked until the audit output is reviewed, eligible artifacts are generated reproducibly, provenance is validated, and discovery-index integrity can be verified.\n\n**Next:** run the merged audit against the full canonical corpus, classify every blocker, then migrate/generate eligible packages in independently verifiable batches.\n
+\n\n## Agent Skills Distribution Contract — VERIFIED IMPLEMENTATION — 2026-10-02
+
+PR #251 established the executable distribution contract and merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
+
+The verified audit baseline is 374 canonical skill entries, 250 currently eligible for projection, 124 blocked, and eight deterministic-name collisions. Existing `agent-skills/` contains 280 validator-passing packages, which require provenance reconciliation before they are treated as generated projections.
+
+The deterministic projector, read-only audit workflow, validator, regression tests, and exact-head CI gates are verified. This does not complete Phase 4 and does not publish `/.well-known/agent-skills/index.json`.
+
+**Next:** reconcile existing packages, resolve canonical collisions, then generate eligible projections in independently verifiable batches. Only after artifact/provenance reconciliation should discovery-index and SHA-256 publication work begin.

@@ -111,4 +111,16 @@ A fresh runtime/consumer audit identified a missing typed Goal→Capability acce
 Focused regression coverage verifies deterministic Goal-to-Capability traversal and defensive snapshot behavior.
 
 **Verification status:** pending branch CI and exact-head validation. This slice is not marked VERIFIED until those checks are available.
-\n\n## Deterministic Agent Skills Projection — IN PROGRESS — 2026-10-02\n\nPR #251 introduces the first executable canonical-to-Agent-Skills projection contract. The canonical source remains `skills/`; `tools/generate_agent_skills.py` deterministically derives package names, descriptions, provenance metadata, and package content, while refusing blocked entries. The tool has explicit read-only audit and write modes. Regression tests cover deterministic output, description cleanup, missing-evidence blockers, and name collisions.\n\nA dedicated read-only CI workflow audits the canonical corpus and validates existing `agent-skills/` packages. No CI job mutates contributor branches.\n\n**Current boundary:** this is an audit/projection contract, not full-corpus compliance. The repository does not yet declare `/.well-known/agent-skills/index.json` live. SHA-256 publication and discovery-index generation remain gated on successful corpus projection, provenance validation, reproducible publication, and served-byte integrity checks.\n\n**Next:** merge only after exact-head CI verification, then use the audit output to classify the canonical corpus before generating additional packages.\n
+\n\n## Deterministic Agent Skills Projection — VERIFIED — 2026-10-02
+
+PR #251 established and verified the first executable canonical-to-Agent-Skills projection contract, then merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
+
+The canonical source remains `skills/`. `tools/generate_agent_skills.py` deterministically derives package names, descriptions, provenance metadata, and package content, while refusing blocked entries. Generation has an explicit write mode; CI performs a read-only audit. The Agent Skills validator also enforces the current name constraint, including the prohibition on consecutive hyphens.
+
+The verified corpus audit found 374 canonical skill entries after excluding category `README.md` files: 250 currently pass the projection gates and 124 are blocked. Eight deterministic-name collisions remain across canonical entries and must be resolved before full-corpus generation. The existing repository contains 280 validated Agent Skills packages; these are not assumed to be canonical projections until provenance reconciliation is completed.
+
+Exact-head CI passed: Agent Skills Distribution Audit, Validate Agent Skills, Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Auto Label, and Validate Skills Graph. Dependabot Review Gate was skipped.
+
+**Current boundary:** this is a verified projection/audit contract, not full-corpus Agent Skills compliance. The repository does not declare `/.well-known/agent-skills/index.json` live. SHA-256 publication and discovery-index generation remain gated on successful artifact reconciliation, provenance validation, reproducible publication, and served-byte integrity checks.
+
+**Next:** reconcile the 280 existing packages against canonical provenance, resolve the eight canonical name collisions, then generate only eligible canonical projections in independently verifiable batches.

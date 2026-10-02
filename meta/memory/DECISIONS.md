@@ -693,8 +693,8 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 
 **Decision:** Keep `skills/` as the sole canonical source and introduce a deterministic projection tool that derives standards-compatible `agent-skills/<name>/SKILL.md` packages only from canonical entries that pass explicit evidence, description, naming, collision, and size gates. CI performs a read-only corpus audit; generation requires an explicit write mode and refuses blocked entries. Do not publish `/.well-known/agent-skills/index.json` until generated artifacts, provenance, validation, reproducibility, and SHA-256 integrity are verified together.
 
-**Evidence:** PR #251 implementation; `tools/generate_agent_skills.py`; `tests/test_generate_agent_skills.py`; `docs/AGENT_SKILLS_DISTRIBUTION.md`; `SECURITY.md`; `meta/PRODUCT_MISSION.md`.
+**Evidence:** PR #251; merge commit `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`; exact-head CI matrix; `tools/generate_agent_skills.py`; `tools/generate_agent_skills.py`; `tests/test_generate_agent_skills.py`; `docs/AGENT_SKILLS_DISTRIBUTION.md`; `SECURITY.md`; `meta/PRODUCT_MISSION.md`.
 
-**Status:** IN PROGRESS — executable contract and CI audit introduced; full-corpus projection is not yet claimed.
+**Status:** LOCKED — executable contract verified and merged as PR #251; full-corpus projection is not yet claimed.
 
 **Reopen Conditions:** Reopen if the Agent Skills specification changes materially, canonical skill metadata becomes structurally incompatible, generated projections cannot remain deterministic, or security evidence requires a stronger publication boundary.
