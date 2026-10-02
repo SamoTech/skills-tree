@@ -1,27 +1,44 @@
 ---
 name: sql-query-generation
 description: Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling.
-license: MIT
 metadata:
   source: skills/05-code/sql-query-generation.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Sql Query Generation
+## Description
+Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling. Inspect the actual schema and query conventions before writing queries.
 
-1. Inspect the actual schema and database dialect.
-2. Define required columns, filters, joins, ordering, and edge cases.
-3. Generate parameterized SQL rather than unsafe interpolation.
-4. Validate syntax and result shape against the target database.
-5. Check query behavior for empty and boundary cases.
-6. Record verification evidence.
+## When to Use
+Use when a task requires a query, migration query, reporting query, or database interaction.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Schema, required result, dialect, parameters, and performance constraints. |
+| Outputs | Validated SQL with safe parameter handling and evidence. |
+| Failure modes | Wrong schema assumptions, injection-prone interpolation, incorrect joins, or inefficient queries. |
+
+## Runnable Example
+
+```python
+query = 'SELECT id, name FROM users WHERE status = ?'
+parameter = 'active'
+print(query)
+print('parameter:', parameter)
+```
 
 ## Failure modes
-- Wrong schema assumptions.
-- Unsafe interpolation.
-- Dialect mismatch.
-- Incorrect result shape or joins.
+- Guessing table or column names.
+- Interpolating untrusted values into SQL.
+- Ignoring dialect differences.
+- Failing to test result shape and edge cases.
+
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/05-code/sql-query-generation.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

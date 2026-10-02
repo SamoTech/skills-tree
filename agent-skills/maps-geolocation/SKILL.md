@@ -1,37 +1,65 @@
 ---
 name: maps-geolocation
-description: Use mapping APIs for geocoding, place search, distance, and routing with validated coordinates, explicit scope, privacy minimization, and result verification.
+description: Use geocoding, place search, distance, and routing APIs with explicit geographic scope, provider attribution, and coordinate validation.
+metadata:
+  source: skills/07-tool-use/maps-geolocation.md
+  category: 07-tool-use
 ---
 
 # Maps & Geolocation
 
 ## Description
-Use mapping APIs for geocoding, place search, distance, and routing with validated coordinates, explicit scope, privacy minimization, and result verification.
+Use mapping and geolocation services as an agent tool for address lookup, geocoding, reverse geocoding, place discovery, distance calculations, and routing. Treat coordinates and addresses as location-sensitive data and validate them before downstream actions.
 
 ## When to Use
-Use this capability when the workflow explicitly requires maps & geolocation and the target interface is documented and authorized.
+- Convert a user-approved address into coordinates.
+- Resolve coordinates into a human-readable location.
+- Find places or calculate a route using a documented provider.
+- Supply normalized location data to another tool.
 
-## Inputs / Outputs
-- Inputs: validated task data, documented tool parameters, and authorization context.
-- Outputs: structured provider result plus evidence needed to verify the outcome.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Missing permissions, unavailable provider, rate limits, or transport failures.
-- Credential exposure or excessive tool scope.
-- Treating an acknowledgement as proof of a completed side effect.
+| Area | Guidance |
+|---|---|
+| Address | Preserve user-provided text and provider-specific normalization separately. |
+| Coordinates | Validate latitude and longitude ranges before use. |
+| Search scope | Apply country, region, radius, or bounding-box constraints when appropriate. |
+| Output | Coordinates, place identifiers, address components, distance, or route geometry. |
+| Privacy | Minimize retention and avoid exposing precise location unnecessarily. |
+| Verification | Check result confidence and provider status before acting. |
+| Failure modes | Ambiguous address, no result, quota error, stale place data, or incorrect coordinate assumptions. |
 
 ## Runnable Example
 
 ```python
-request = {"capability": "maps-geolocation", "validated": True}
-assert request["validated"]
-print("invoke only after validating the tool contract")
+import os, requests
+
+r = requests.get(
+    "https://maps.googleapis.com/maps/api/geocode/json",
+    params={"address": "Giza, Egypt", "key": os.environ["MAPS_API_KEY"]},
+    timeout=20,
+)
+r.raise_for_status()
+body = r.json()
+assert body["status"] == "OK" and body["results"]
+location = body["results"][0]["geometry"]["location"]
+assert -90 <= location["lat"] <= 90
+assert -180 <= location["lng"] <= 180
+print(location)
 ```
 
+## Failure modes
+- Conflating a place name with a precise address.
+- Assuming the first geocoding result is always correct.
+- Retaining precise coordinates beyond the workflow need.
+- Omitting provider terms, attribution, or usage limits.
+- Using stale coordinates for safety-critical navigation.
+
 ## Evidence
-Repository-backed guidance; see the canonical skill under skills/07-tool-use/maps-geolocation.md and its cited provider documentation.
+- Google Maps Platform Geocoding documentation: https://developers.google.com/maps/documentation/geocoding/overview
+- Repository schema and validation workflows define local conformance requirements.
 
 ## Related
-- 07-tool-use
-- tool-guardrails
+- custom-api-wrapper
+- web-search
+- input-guardrails

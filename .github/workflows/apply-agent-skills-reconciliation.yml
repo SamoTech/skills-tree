@@ -1,5 +1,7 @@
 name: Apply Agent Skills Reconciliation
 
+# Deterministic corpus generation trigger. User-authored retrigger after generated commit.
+
 on:
   push:
   pull_request:

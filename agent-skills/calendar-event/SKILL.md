@@ -1,29 +1,58 @@
 ---
 name: calendar-event
 description: Create a calendar event representation with explicit time zone, duration, participants, and confirmation boundaries.
-license: MIT
 metadata:
   source: skills/04-action-execution/calendar-event.md
-  version: "v2"
+  category: 04-action-execution
 ---
 
 # Calendar Event
 
-1. Resolve start, end, and time zone explicitly.
-2. Validate summary, location, and attendee fields.
-3. Assign a stable event identifier where duplicate prevention matters.
-4. Keep external calendar writes behind the required approval boundary.
+## Description
+
+Construct or submit a calendar event while preserving time zone, duration, attendees, and summary. External calendar writes should remain explicit actions with duplicate-prevention controls.
+
+## When to Use
+
+- Preparing an iCalendar event for import.
+- Creating an event through a calendar API.
+- Translating an approved scheduling request into structured data.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Start/end time | Calendar event | Ambiguous time zone |
+| Summary/location | Event fields | Missing data |
+| Attendees | Participant list | Invalid address |
+| Stable event ID | Idempotent identity | Duplicate event |
+
+## Runnable example
+
+```python
+from datetime import datetime, timezone
+
+start = datetime(2026, 9, 30, 15, 0, tzinfo=timezone.utc)
+end = datetime(2026, 9, 30, 16, 0, tzinfo=timezone.utc)
+event = {"summary": "Project review", "start": start.isoformat(), "end": end.isoformat()}
+print(event)
+```
 
 ## Failure modes
 
-- Ambiguous time zone.
-- Duplicate event creation.
+- Omitting a time zone and silently shifting the meeting.
+- Creating duplicates without a stable identifier.
 - Sending invitations when only a draft was requested.
+- Trusting ambiguous attendee data.
+
+## Related
+
+- form-submission.md
+- assertion.md
+- email-sending.md
 
 ## Evidence
 
-- skills/04-action-execution/calendar-event.md
 - AI_CONSTITUTION.md
 - AGENTS.md
-
-Evidence status: repository-backed implementation guidance; no benchmark claim.
+- Repository security and validation workflows

@@ -1,27 +1,48 @@
 ---
 name: db-schema-design
 description: Design database schemas from explicit data requirements, relationships, constraints, and access patterns.
-license: MIT
 metadata:
   source: skills/05-code/db-schema-design.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Db Schema Design
+## Description
+Design database schemas from explicit data requirements, relationships, constraints, and access patterns. Inspect existing models, migrations, indexes, and application queries before changing a schema. Preserve compatibility and verify migrations.
 
-1. Inspect the current schema, migrations, queries, constraints, and explicit requirements.
-2. Model entities, relationships, keys, nullability, indexes, and integrity constraints.
-3. Choose the smallest compatible schema change and define migration and rollback behavior.
-4. Implement the migration without bypassing repository controls.
-5. Run schema, migration, and relevant application tests.
-6. Record verification evidence.
+## When to Use
+Use when a task requires a new schema, a schema change, normalization decision, constraint, index, or migration plan.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Requirements, existing schema, access patterns, migrations, and constraints. |
+| Outputs | A justified schema or migration with verification evidence. |
+| Failure modes | Data loss, incompatible migrations, missing constraints, or unsupported assumptions. |
+
+## Runnable Example
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Field:
+    name: str
+    nullable: bool = False
+
+fields = [Field("id"), Field("created_at")]
+print([f.name for f in fields])
+```
 
 ## Failure modes
-- Data loss or destructive migration without recovery.
-- Missing constraints or incompatible interfaces.
-- Designing from assumptions instead of repository evidence.
-- Skipping migration validation.
+- Designing without inspecting the current schema.
+- Introducing destructive changes without a recovery path.
+- Ignoring query patterns and constraints.
+- Claiming migration safety without executing validation.
+
+## Related
+- [AI Constitution](../../AI_CONSTITUTION.md)
+- [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
 
 ## Evidence
-Canonical skill: skills/05-code/db-schema-design.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in the repository governance and validation model; no external benchmark claim is made.

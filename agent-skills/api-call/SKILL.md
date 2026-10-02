@@ -1,29 +1,64 @@
 ---
 name: api-call
 description: Execute authenticated HTTP API requests with explicit timeouts, bounded retries, response validation, and secret-safe error handling.
-license: MIT
 metadata:
   source: skills/04-action-execution/api-call.md
-  version: "v2"
+  category: 04-action-execution
 ---
 
 # API Call
 
-1. Validate method, URL, authentication reference, timeout, and retry policy.
-2. Use explicit authentication and never embed credentials in source or logs.
-3. Retry only operations whose semantics permit retry, using bounded attempts.
-4. Validate the response before returning it to downstream agent steps.
+## Description
+
+Execute an HTTP API operation as an agent action while making authentication, timeout, retry, idempotency, and response validation explicit. Credentials must come from secret-safe configuration and must never be embedded in source or logs.
+
+## When to Use
+
+- Calling REST or GraphQL services.
+- Creating or updating remote resources.
+- Integrating an external action into an agent workflow.
+
+## Inputs / outputs / failure modes
+
+| Input | Output | Failure mode |
+|---|---|---|
+| Method, URL, headers, body | Status and parsed response | Invalid request |
+| Secret/token reference | Authenticated request | Missing credential |
+| Timeout and retry policy | Bounded execution | Retry exhaustion |
+| Idempotency policy | Safe retry decision | Duplicate side effect |
+
+## Runnable example
+
+```python
+import json
+import urllib.request
+
+def api_call(url, token, method="GET", body=None, timeout=20):
+    data = None if body is None else json.dumps(body).encode()
+    req = urllib.request.Request(url, data=data, method=method,
+        headers={"Authorization": f"Bearer {token}", "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as response:
+        return response.status, json.load(response)
+
+status, result = api_call("https://example.invalid/items", "TOKEN")
+print(status, result)
+```
 
 ## Failure modes
 
-- Retry non-idempotent mutations without an idempotency strategy.
-- Log authorization headers or secret-bearing payloads.
+- Retry non-idempotent mutations without an idempotency key.
+- Log authorization headers or secret-bearing response data.
 - Use unbounded retries or no timeout.
+- Treat HTTP success as proof that the response schema is valid.
+
+## Related
+
+- http-request.md
+- ../01-perception/api-response-parsing.md
+- ../07-tool-use/tool-guardrails.md
 
 ## Evidence
 
-- skills/04-action-execution/api-call.md
 - AI_CONSTITUTION.md
 - AGENTS.md
-
-Evidence status: implementation guidance is repository-backed; no performance benchmark is claimed.
+- Repository security and validation workflows

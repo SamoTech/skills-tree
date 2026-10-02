@@ -1,9 +1,10 @@
 ---
 name: url-fetching
-description: Fetch authorized web resources with explicit redirect, size, content-type, timeout, and origin constraints. Use explicit authorization, bounded execution, provenance, and postcondition verification.
+description: Fetch authorized web resources with explicit redirect, size, content-type, timeout, and origin constraints.
+metadata:
+  source: skills/11-web/url-fetching.md
+  category: 11-web
 ---
-
-# URL Fetching
 
 ## Description
 
@@ -11,30 +12,24 @@ Fetch authorized web resources with explicit redirect, size, content-type, timeo
 
 ## When to Use
 
-Use only within an authorized web scope with explicit origin and session boundaries.
+Use only within an authorized web scope with explicit origin, session, data, and action boundaries.
 
-## Inputs / Outputs
+## Inputs / Outputs / Failure Modes
 
-- Inputs: authorized resource, policy constraints, session context, and resource limits.
-- Outputs: verified web artifact or state with provenance and failure context.
+| Area | Contract |
+|---|---|
+| Inputs | authorized URL, request policy, timeout, size limit, and accepted content types. |
+| Outputs | fetched resource metadata, bounded content, and request outcome. |
+| Failure modes | Wrong origin, unsafe redirect, oversized response, stale page state, credential leakage, access-control bypass, or unverified postcondition. |
 
 ## Procedure
 
-1. Establish authorized scope.
-2. Validate target and redirects.
-3. Execute within explicit resource bounds.
-4. Preserve provenance and protect secrets.
-5. Verify the final resource or state.
-6. Stop at access-control or authorization boundaries.
-
-## Failure Modes
-
-- Unauthorized or unexpected origin.
-- Redirect escapes scope.
-- Resource bounds exceeded.
-- Credentials or session data exposed.
-- Access controls bypassed.
-- Final state unverified.
+1. Establish the authorized origin and resource scope.
+2. Validate redirects, content type, size, and session boundaries.
+3. Execute with explicit timeout, page, script, or artifact limits.
+4. Preserve provenance and avoid logging secrets or sensitive session state.
+5. Verify the final resource or authenticated state before reporting success.
+6. Stop when authorization or security boundaries are encountered.
 
 ## Runnable Example
 
@@ -44,9 +39,22 @@ assert task["authorized"] and task["budget"] > 0
 print({"status": "bounded_web_operation", "capability": task["capability"]})
 ```
 
+## Failure Modes
+
+- Authorization or final origin cannot be verified.
+- Redirects leave the allowed scope.
+- Response or screenshot exceeds resource bounds.
+- Credentials, cookies, or tokens are exposed.
+- Authentication or anti-bot controls are bypassed.
+- Final state is not verified.
+
+## Safety Boundary
+
+Do not bypass authentication, CAPTCHA/anti-bot controls, paywalls, rate limits, robots restrictions, or other access controls. Never hard-code, log, or return passwords, session tokens, or private cookies.
+
 ## Evidence
 
-Canonical repository skill: skills/11-web/url-fetching.md. Repository schema, validation workflows, Agent Skills contract, and security gates define local conformance. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
+Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Web-specific claims require reproducible implementation evidence or authoritative primary documentation.
 
 ## Related
 

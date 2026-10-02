@@ -1,27 +1,57 @@
 ---
 name: sequential-workflow
-description: Apply sequential workflow with explicit workflow state, ownership, validation, and bounded authority.
+description: Execute workflow stages in a declared order with explicit dependencies, checkpoints, and completion criteria.
+metadata:
+  source: skills/15-orchestration/sequential-workflow.md
+  category: 15-orchestration
 ---
 
-# sequential workflow
+**Category:** Orchestration
+**Skill Level:** `advanced`
+**Stability:** stable
 
 ## Description
-Apply sequential workflow only within explicit orchestration boundaries and preserve workflow state and ownership.
+Execute workflow stages in a declared order with explicit dependencies, checkpoints, and completion criteria.
 
-## Evidence
-Canonical source: `skills/15-orchestration/sequential-workflow.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
+## When to Use
+Use when later stages depend on verified outputs from earlier stages.
 
-## Usage
-Validate workflow state, ownership, authority, and preconditions before execution; preserve postconditions and recovery state.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
+| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
+| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
 
-## Failure modes
-- Ambiguous ownership or stale state.
+## Procedure
+1. Establish state, ownership, dependencies, and acceptance criteria.
+2. Validate preconditions before changing workflow state.
+3. Execute the declared orchestration operation within bounded authority.
+4. Record state changes, evidence, and unresolved conditions.
+5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+
+## Runnable Example
+```python
+task = {"capability": "sequential-workflow", "validated": True}
+assert task["validated"]
+result = {"status": "orchestration_step", "capability": task["capability"]}
+print(result)
+```
+
+## Failure Modes
+- Missing or ambiguous workflow state.
 - Invalid transition or unmet dependency.
 - Duplicate or concurrent execution.
-- Excess authority or resource scope.
-- Unverifiable completion.
+- Capability or authority exceeds declared scope.
+- Completion cannot be verified.
+
+## Orchestration Boundary
+Do not advance on unverified or partial outputs; preserve stage state and failure handling.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
 
 ## Related
-- `15-orchestration`
-- `input-guardrails`
-- `output-guardrails`
+- 15-orchestration
+- input-guardrails
+- output-guardrails

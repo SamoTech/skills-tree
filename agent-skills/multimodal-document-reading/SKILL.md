@@ -1,26 +1,52 @@
 ---
 name: multimodal-document-reading
 description: Process documents containing text, images, tables, and diagrams while preserving content order, page boundaries, and extraction provenance.
-license: MIT
 metadata:
   source: skills/01-perception/multimodal-document-reading.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-multimodal-document-reading.json)
+
 # Multimodal Document Reading
+Category: perception | Level: intermediate | Stability: stable | Version: v1
 
-1. Detect the document format and available content layers.
-2. Extract text, images, tables, and diagrams as separate typed elements.
-3. Preserve page, slide, or sheet coordinates where supported.
-4. Maintain reading order and mark uncertain ordering.
-5. Route scanned or image-only regions through OCR or vision processing.
-6. Return provenance for each extracted element.
+## Description
+Process documents containing mixed content — text, images, tables, and diagrams — in a single parsing pass.
 
-## Failure modes
+## Inputs
+- `file`: PDF, DOCX, or PPTX path
+- `extract_images`: bool
 
-- Multi-column order errors: preserve layout coordinates and validate reading order.
-- Missing text layer: use OCR and mark OCR-derived content.
-- Embedded active content: treat macros/scripts as untrusted and never execute them during extraction.
+## Outputs
+- Ordered content blocks: `{type: text|image|table, content, page}`
+
+## Example
+```python
+from unstructured.partition.auto import partition
+elements = partition(filename="report.pdf", strategy="hi_res", extract_images_in_pdf=True)
+for el in elements:
+    print(el.category, str(el)[:80])
+```
+
+## Frameworks
+| Framework | Method |
+|---|---|
+| Python | `unstructured`, `pdfplumber` |
+| LlamaIndex | `LlamaParse` |
+| LangChain | `UnstructuredFileLoader` |
+
+## Failure Modes
+- Two-column PDFs read left-then-right across columns
+- Embedded fonts corrupt text layer
+
+## Related
+- `pdf-parsing.md` · `image-understanding.md` · `table-extraction.md`
+
+## Changelog
+- v1 (2026-04): Initial entry
+
 
 ## Evidence
 

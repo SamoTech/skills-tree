@@ -1,27 +1,45 @@
 ---
 name: debugging
 description: Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes.
-license: MIT
 metadata:
   source: skills/05-code/debugging.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Debugging
+## Description
+Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes. Preserve existing behavior outside the defect and use repository evidence rather than speculation.
 
-1. Load the repository state and the exact failure report.
-2. Reproduce the defect using the smallest reliable case.
-3. Inspect relevant source, configuration, logs, and tests.
-4. Identify and document the root cause before changing code.
-5. Implement the smallest compatible fix and add regression coverage when appropriate.
-6. Run relevant validation and record evidence.
+## When to Use
+Use when a software failure, regression, unexpected result, or reproducible defect must be investigated and corrected.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Failure symptoms, reproduction steps, source, logs, configuration, and tests. |
+| Outputs | Root-cause analysis, minimal fix, and verification evidence. |
+| Failure modes | Non-reproducible symptoms, misleading evidence, unrelated changes, or incomplete regression testing. |
+
+## Runnable Example
+
+```python
+from pathlib import Path
+
+root = Path('.')
+print('repository:', root.resolve())
+print('inspect logs, source, and tests before changing code')
+```
 
 ## Failure modes
-- Treating symptoms as root cause.
-- Making unrelated changes.
-- Skipping regression verification.
-- Weakening validators or security controls.
+- Fixing symptoms without establishing a root cause.
+- Changing unrelated code while debugging.
+- Ignoring regression coverage.
+- Disabling validators to hide a defect.
+
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/05-code/debugging.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

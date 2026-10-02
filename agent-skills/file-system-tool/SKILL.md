@@ -1,25 +1,50 @@
 ---
 name: file-system-tool
 description: Operate on files through explicit paths, scope checks, content validation, and reversible changes.
-license: MIT
 metadata:
   source: skills/07-tool-use/file-system-tool.md
-  version: "v2"
+  category: 07-tool-use
 ---
 
-# File System Tool
+## Description
+Operate on files through explicit paths, scope checks, content validation, and reversible changes. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
 
-1. Inspect the documented interface and repository contract.
-2. Validate inputs and authorization boundaries.
-3. Invoke only the intended operation.
-4. Validate the response and resulting state.
-5. Record verification evidence.
+## When to Use
+Use when the repository task explicitly requires this tool capability.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
+| Outputs | Verified result with concise evidence. |
+| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
+
+## Runnable Example
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class Request:
+    action: str
+
+request = Request(action="inspect")
+assert request.action
+print("validate the tool contract before invocation")
+```
 
 ## Failure modes
-- Undocumented interface usage.
-- Invalid inputs or excessive permissions.
-- Unverified outcomes.
+- Calling an undocumented interface.
+- Sending invalid or excessive data.
+- Exposing credentials or secrets.
+- Treating an acknowledgement as proof of completion.
+- Skipping repository validation.
+
+## Related
+- 07-tool-use
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/07-tool-use/file-system-tool.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

@@ -1,27 +1,45 @@
 ---
 name: refactoring
 description: Restructure code to improve maintainability or design while preserving documented behavior and interfaces.
-license: MIT
 metadata:
   source: skills/05-code/refactoring.md
-  version: "v2"
+  category: 05-code
 ---
 
-# Refactoring
+## Description
+Restructure code to improve maintainability or design while preserving documented behavior and interfaces. Refactoring is evidence-driven: establish current behavior, make a bounded change, and verify equivalence.
 
-1. Establish current behavior and the explicit refactoring goal.
-2. Inspect tests, interfaces, and affected dependencies.
-3. Make a small structural change without changing intended behavior.
-4. Run focused tests and repository validation.
-5. Review the diff for scope creep and interface changes.
-6. Record verification evidence.
+## When to Use
+Use when structure, duplication, coupling, readability, or maintainability needs improvement without changing intended behavior.
+
+## Inputs / outputs / failure modes
+
+| Area | Guidance |
+|---|---|
+| Inputs | Current implementation, tests, interfaces, and explicit design goal. |
+| Outputs | Cleaner structure with preserved behavior and verification evidence. |
+| Failure modes | Scope creep, hidden behavior changes, incomplete coverage, or API breakage. |
+
+## Runnable Example
+
+```python
+def normalize_name(value: str) -> str:
+    return ' '.join(value.split())
+
+print(normalize_name('  example   name '))
+print('refactor only after behavior is understood')
+```
 
 ## Failure modes
-- Scope creep.
-- Hidden behavior changes.
-- Reduced test coverage.
-- Unverified equivalence.
+- Combining refactoring with unrelated feature work.
+- Changing public behavior unintentionally.
+- Removing tests instead of preserving coverage.
+- Reporting equivalence without verification.
+
+## Related
+- 05-code
+- AI_CONSTITUTION.md
+- meta/AGENT_OPERATING_MODEL.md
 
 ## Evidence
-Canonical skill: skills/05-code/refactoring.md
-Repository governance: AI_CONSTITUTION.md
+Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

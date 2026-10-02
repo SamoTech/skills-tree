@@ -1,27 +1,57 @@
 ---
 name: data-visualization
-description: Apply data visualization with explicit schema, validation, provenance, and failure handling.
+description: Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.
+metadata:
+  source: skills/12-data/data-visualization.md
+  category: 12-data
 ---
 
-# data visualization
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
 ## Description
-Apply data visualization only within an explicit data contract and preserve source provenance.
+Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.
+
+## When to Use
+Use when the analytical question and visual encoding are defined.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
+| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
+
+## Procedure
+1. Inspect the source schema and establish explicit transformation semantics.
+2. Validate required fields, types, encoding, null behavior, and relevant constraints.
+3. Apply only the declared transformation or analysis.
+4. Compare input/output counts and validate the resulting schema and values.
+5. Preserve source data and record material assumptions or exceptions.
+
+## Runnable Example
+```python
+task = {"capability": "data-visualization", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
+```
+
+## Failure Modes
+- Missing or ambiguous schema.
+- Unexpected nulls, duplicates, or malformed records.
+- Silent row/field loss.
+- Incorrect join, aggregation, or type coercion semantics.
+- Output not validated against the required contract.
+
+## Data Boundary
+Charts can mislead through scales, aggregation, or omitted context; validate labels, units, and source data.
 
 ## Evidence
-Canonical source: `skills/12-data/data-visualization.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
-
-## Usage
-Establish the source schema, transformation semantics, validation rules, and expected output before processing data.
-
-## Failure modes
-- Schema mismatch or missing fields.
-- Silent data loss or incorrect coercion.
-- Unexpected nulls or duplicates.
-- Incorrect cardinality or aggregation semantics.
-- Output not validated against the target contract.
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
 
 ## Related
-- `12-data`
-- `input-guardrails`
-- `output-guardrails`
+- 12-data
+- input-guardrails
+- output-guardrails

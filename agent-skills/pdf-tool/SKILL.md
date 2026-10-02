@@ -1,37 +1,51 @@
 ---
 name: pdf-tool
-description: Use pdf tool as a bounded agent capability with validated inputs, least-privilege access, and verified results.
+description: Extract and inspect PDF content while preserving page context, detecting scanned documents, and verifying extraction quality.
+metadata:
+  source: skills/07-tool-use/pdf-tool.md
+  category: 07-tool-use
 ---
 
 # PDF Tool
 
 ## Description
-Use pdf tool only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
+Extract and inspect PDF content while preserving page context, detecting scanned documents, and verifying extraction quality.
 
 ## When to Use
-Use when the workflow explicitly requires pdf tool and the target resource is authorized.
+Use this capability when the workflow explicitly requires pdf tool and the target account, document, channel, or provider is authorized.
 
-## Inputs / Outputs
-- Inputs: validated task data, provider identifiers, and authorization context.
-- Outputs: structured provider result and evidence sufficient for downstream verification.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Permission, rate-limit, transport, or provider failures.
-- Credential or private-data exposure.
-- Unverified side effects.
+| Area | Guidance |
+|---|---|
+| Authentication | Use least-privilege credentials managed outside source code. |
+| Scope | Bound the operation to the intended resource and task. |
+| Inputs | Validate identifiers, content, filters, and required fields. |
+| Outputs | Preserve structured provider results needed by downstream steps. |
+| Verification | Re-check important reads or mutations when correctness matters. |
+| Privacy | Minimize exposure and retention of sensitive content. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
 
 ## Runnable Example
 
 ```python
-capability = "pdf-tool"
-assert capability
-print("validate provider contract before invocation")
+import os
+request = {"tool": "pdf-tool", "authorized": bool(os.getenv("TOOL_AUTH"))}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
+## Failure modes
+- Hard-coding credentials or exposing them in logs.
+- Assuming provider fields or identifiers are portable across accounts.
+- Performing side effects without validating authorization and current state.
+- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
+- Using unbounded pagination or retries.
+
 ## Evidence
-Repository-backed guidance. See the canonical skill at skills/07-tool-use/pdf-tool.md and its provider documentation.
+Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
 
 ## Related
-- 07-tool-use
 - tool-guardrails
+- function-calling
+- approval-before-destructive-tools

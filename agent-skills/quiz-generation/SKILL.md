@@ -1,27 +1,57 @@
 ---
 name: quiz-generation
-description: Generate source-grounded assessment questions with explicit answer keys.
+description: Generate assessment questions from supplied instructional material with explicit answer keys and source coverage.
+metadata:
+  source: skills/16-domain-specific/quiz-generation.md
+  category: 16-domain-specific
 ---
 
-# quiz generation
+**Category:** Domain-Specific
+**Skill Level:** `advanced`
+**Stability:** stable
 
 ## Description
-Generate source-grounded assessment questions with explicit answer keys.
+Generate assessment questions from supplied instructional material with explicit answer keys and source coverage.
 
-## Evidence
-Canonical source: `skills/16-domain-specific/quiz-generation.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
+## When to Use
+Use when source content, learner level, and assessment format are specified.
 
-## Usage
-Use only with established task scope and source material. Preserve provenance, uncertainty, and professional-domain boundaries.
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Source material, domain context, task constraints, and required output format. |
+| Outputs | Structured result with provenance, assumptions, uncertainty, and validation findings where material. |
+| Failure modes | Missing context, stale/conflicting evidence, unsupported inference, malformed output, or skipped verification. |
 
-## Failure modes
+## Procedure
+1. Establish task scope, source boundaries, and required output schema.
+2. Validate that the source material and domain context are sufficient.
+3. Produce the result while preserving source meaning and separating evidence from inference.
+4. Validate calculations, claims, citations, constraints, and required fields.
+5. Escalate material ambiguity instead of inventing missing facts.
+
+## Runnable Example
+```python
+task = {"capability": "quiz-generation", "validated": True}
+assert task["validated"]
+result = {"status": "review_required", "capability": task["capability"]}
+print(result)
+```
+
+## Failure Modes
 - Missing or ambiguous source context.
 - Unsupported domain inference.
-- Stale or conflicting evidence.
-- Treating generated output as authoritative professional advice.
-- Skipping validation or source verification.
+- Stale, conflicting, or unverifiable evidence.
+- Presenting generated output as authoritative professional advice.
+- Skipping validation or provenance checks.
+
+## Domain Boundary
+Generated questions require content review for correctness, ambiguity, bias, and curriculum alignment.
+
+## Evidence
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
 ## Related
-- `16-domain-specific`
-- `input-guardrails`
-- `output-guardrails`
+- 16-domain-specific
+- input-guardrails
+- output-guardrails

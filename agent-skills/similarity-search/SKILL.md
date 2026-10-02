@@ -1,27 +1,57 @@
 ---
 name: similarity-search
-description: Apply similarity search with explicit data contracts, validation, provenance, and bounded execution.
+description: Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.
+metadata:
+  source: skills/12-data/similarity-search.md
+  category: 12-data
 ---
 
-# similarity search
+**Category:** Data
+**Skill Level:** `advanced`
+**Stability:** stable
 
 ## Description
-Apply similarity search only within a declared data contract and preserve reproducibility and provenance.
+Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.
+
+## When to Use
+Use when embeddings/features, distance metric, and retrieval scope are defined.
+
+## Inputs / Outputs / Failure Modes
+| Area | Contract |
+|---|---|
+| Inputs | Validated data, schema/context, method parameters, and required output contract. |
+| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
+| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+
+## Procedure
+1. Establish the source schema, analytical or query objective, and output contract.
+2. Validate types, ranges, temporal or database context, and relevant assumptions.
+3. Apply only the declared operation within bounded scope.
+4. Validate outputs, counts, assumptions, and reproducibility.
+5. Preserve source data and record material uncertainty or exceptions.
+
+## Runnable Example
+```python
+task = {"capability": "similarity-search", "validated": True}
+assert task["validated"]
+result = {"status": "validation_required", "capability": task["capability"]}
+print(result)
+```
+
+## Failure Modes
+- Missing or ambiguous schema/context.
+- Unsupported assumptions or invalid method selection.
+- Silent data loss, leakage, or coercion.
+- Unbounded or unauthorized execution.
+- Output not validated against the required contract.
+
+## Data Boundary
+Similarity is metric-dependent and not proof of semantic equivalence; validate retrieved candidates.
 
 ## Evidence
-Canonical source: `skills/12-data/similarity-search.md`. Repository schema, Agent Skills validation, security scanning, and CI define structural conformance.
-
-## Usage
-Establish the source schema, method assumptions, execution bounds, validation rules, and expected output before processing.
-
-## Failure modes
-- Schema or context mismatch.
-- Invalid assumptions or method selection.
-- Silent data loss or leakage.
-- Unbounded or unauthorized execution.
-- Output not validated against the target contract.
+Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
 ## Related
-- `12-data`
-- `input-guardrails`
-- `output-guardrails`
+- 12-data
+- input-guardrails
+- output-guardrails

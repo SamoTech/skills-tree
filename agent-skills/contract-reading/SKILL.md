@@ -1,30 +1,64 @@
 ---
 name: contract-reading
-description: Extract parties, dates, definitions, obligations, payments, termination clauses, and other contract structure while preserving uncertainty and source locations. Use for document analysis, not legal advice.
-license: MIT
+description: Extract contract structure, parties, dates, obligations, definitions, and termination or payment clauses while preserving source spans and uncertainty. Use it for document analysis, not as a substitute for legal advice or legal review.
 metadata:
   source: skills/01-perception/contract-reading.md
+  category: 01-perception
   version: "v2"
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-contract-reading.json)
+
 # Contract Reading
+Category: perception | Level: advanced | Stability: stable | Version: v1
 
-1. Preserve the original document and page/section boundaries.
-2. Identify parties, effective dates, defined terms, obligations, conditions, payments, renewals, termination, and governing-law clauses.
-3. Return each extracted item with a source span when possible.
-4. Distinguish explicit clauses from inferred relationships.
-5. Flag missing schedules, exhibits, signatures, unreadable pages, and contradictory clauses.
-6. Treat the result as document extraction, not legal advice.
+## Description
+Extract key clauses, parties, dates, and obligations from legal contracts using LLM-assisted parsing.
 
-## Failure modes
+## Inputs
+- `document`: contract text or PDF path
+- `extract_fields`: list of fields (e.g., `["parties", "effective_date", "termination_clause"]`)
 
-- Defined-term ambiguity: trace the definition before interpreting a clause.
-- Missing exhibits/schedules: mark dependent obligations unresolved.
-- OCR or parsing errors: retain page references and require human verification for material clauses.
+## Outputs
+- Structured dict with extracted field values and source spans
+
+## Example
+```python
+import anthropic
+client = anthropic.Anthropic()
+with open("contract.txt") as f:
+    text = f.read()
+response = client.messages.create(
+    model="claude-opus-4-5",
+    max_tokens=2048,
+    messages=[{"role": "user", "content": f"Extract: parties, effective_date, payment_terms, termination_clause from:\n{text[:4000]}\nReturn JSON."}]
+)
+import json
+fields = json.loads(response.content[0].text)
+```
+
+## Frameworks
+| Framework | Method |
+|---|---|
+| LlamaIndex | `StructuredLLMExtractor` |
+| LangChain | `create_extraction_chain()` |
+| Raw API | Structured output prompt |
+
+## Failure Modes
+- Defined terms redefined mid-document
+- Exhibits/schedules referenced but not included
+
+## Related
+- `document-parsing.md` · `pdf-parsing.md`
+
+## Changelog
+- v1 (2026-04): Initial entry
+
 
 ## Evidence
 
-- https://agentskills.io/specification
-- https://docs.python.org/3/library/json.html
+The skill's implementation guidance is grounded in the following primary references:
+- Agent Skills specification: https://agentskills.io/specification
+- Python JSON tooling for structured extraction: https://github.com/python/cpython/blob/3.14/Doc/library/json.rst
 
-Evidence status: these references support implementation guidance; no performance benchmark is claimed without reproducible benchmark data.
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.

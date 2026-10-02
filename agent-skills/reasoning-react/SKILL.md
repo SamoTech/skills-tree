@@ -1,5 +1,5 @@
 ---
-name: react
+name: reasoning-react
 description: Alternate bounded reasoning decisions with authorized tool actions and observations.
 license: MIT
 metadata:

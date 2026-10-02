@@ -1,37 +1,64 @@
 ---
 name: mcp-tool
-description: Expose or consume Model Context Protocol tools through explicit schemas, least-privilege permissions, bounded arguments, and verified results.
+description: Expose or consume Model Context Protocol tools through explicit schemas, bounded permissions, and verified tool results.
+metadata:
+  source: skills/07-tool-use/mcp-tool.md
+  category: 07-tool-use
 ---
 
 # MCP Tool
 
 ## Description
-Expose or consume Model Context Protocol tools through explicit schemas, least-privilege permissions, bounded arguments, and verified results.
+Use the Model Context Protocol (MCP) to expose tools or connect an agent to MCP servers through a standardized tool interface. Tool names, descriptions, input schemas, permissions, and returned content must be treated as an explicit contract rather than inferred behavior.
 
 ## When to Use
-Use this capability when the workflow explicitly requires mcp tool and the target interface is documented and authorized.
+- Expose a local or remote capability to an MCP-compatible client.
+- Discover and invoke tools through an MCP server.
+- Build an agent workflow that must remain portable across MCP-compatible clients.
 
-## Inputs / Outputs
-- Inputs: validated task data, documented tool parameters, and authorization context.
-- Outputs: structured provider result plus evidence needed to verify the outcome.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Missing permissions, unavailable provider, rate limits, or transport failures.
-- Credential exposure or excessive tool scope.
-- Treating an acknowledgement as proof of a completed side effect.
+| Area | Guidance |
+|---|---|
+| Server | Identify the intended MCP server and transport before invocation. |
+| Tool schema | Validate the declared name, description, and input schema. |
+| Arguments | Construct only schema-valid arguments from trusted workflow state. |
+| Permissions | Grant the minimum capability required by the task. |
+| Output | Preserve structured content and distinguish errors from successful results. |
+| Verification | Independently verify important side effects after a tool call. |
+| Failure modes | Schema mismatch, unavailable server, transport failure, authorization error, or unsafe tool exposure. |
 
 ## Runnable Example
 
 ```python
-request = {"capability": "mcp-tool", "validated": True}
-assert request["validated"]
-print("invoke only after validating the tool contract")
+# pip install mcp
+from mcp.server.fastmcp import FastMCP
+
+server = FastMCP("skills-tree-demo")
+
+@server.tool()
+def add(a: int, b: int) -> int:
+    """Add two validated integers."""
+    return a + b
+
+if __name__ == "__main__":
+    server.run()
 ```
 
+## Failure modes
+- Publishing a tool without an explicit input schema.
+- Giving an MCP server access to secrets or destructive capabilities it does not need.
+- Trusting tool descriptions as authorization.
+- Treating a successful transport response as proof of a completed side effect.
+- Failing to bound filesystem, network, or command execution capabilities.
+
 ## Evidence
-Repository-backed guidance; see the canonical skill under skills/07-tool-use/mcp-tool.md and its cited provider documentation.
+- Model Context Protocol specification and documentation: https://modelcontextprotocol.io/
+- Python MCP SDK documentation: https://github.com/modelcontextprotocol/python-sdk
+- Repository schema and validation workflows define local conformance requirements.
 
 ## Related
-- 07-tool-use
 - tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- specialist-agent-routing

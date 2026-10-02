@@ -1,37 +1,57 @@
 ---
 name: vector-db-tool
-description: Use vector db tool as a bounded agent capability with validated inputs, least-privilege access, and verified results.
+description: Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls.
+metadata:
+  source: skills/07-tool-use/vector-db-tool.md
+  category: 07-tool-use
 ---
 
 # Vector DB Tool
 
 ## Description
-Use vector db tool only through a documented and authorized interface. Validate inputs, keep credentials outside prompts and source, and verify important outcomes.
+Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls.
 
 ## When to Use
-Use when the workflow explicitly requires vector db tool and the target resource is authorized.
+Use this capability only when the workflow requires vector db tool, the target account or resource is authorized, and the provider contract is documented.
 
-## Inputs / Outputs
-- Inputs: validated task data, documented provider parameters, and authorization context.
-- Outputs: structured provider result and evidence sufficient for downstream verification.
+## Inputs / outputs / failure modes
 
-## Failure Modes
-- Invalid or ambiguous inputs.
-- Permission, rate-limit, transport, or provider failures.
-- Credential or private-data exposure.
-- Unverified side effects.
+| Area | Guidance |
+|---|---|
+| Authentication | Keep credentials outside source code and prompts; use least privilege. |
+| Scope | Bound the target resource, operation, and result set. |
+| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
+| Outputs | Preserve structured results and provider identifiers needed downstream. |
+| Verification | Re-read or otherwise verify important outcomes and side effects. |
+| Safety | Apply authorization, rate limits, and sensitive-data controls. |
+| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
 
 ## Runnable Example
 
 ```python
-capability = "vector-db-tool"
-assert capability
-print("validate provider contract before invocation")
+import os
+
+request = {
+    "capability": "vector-db-tool",
+    "authorized": bool(os.getenv("TOOL_AUTH")),
+}
+assert request["authorized"]
+print("validated tool invocation")
 ```
 
+## Failure modes
+- Hard-coding credentials or placing secrets in tool arguments.
+- Assuming provider identifiers or schemas are portable across accounts.
+- Performing mutations without authorization and current-state checks.
+- Treating a successful API response as proof of the desired business outcome.
+- Using unbounded retries, pagination, or result sets.
+
 ## Evidence
-Repository-backed guidance. See the canonical skill at skills/07-tool-use/vector-db-tool.md and its cited provider documentation.
+- Provider documentation: https://docs.pinecone.io/guides/get-started/overview
+- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
 ## Related
-- 07-tool-use
 - tool-guardrails
+- function-calling
+- approval-before-destructive-tools
+- input-guardrails

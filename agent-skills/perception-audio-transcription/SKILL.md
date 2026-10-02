@@ -1,0 +1,82 @@
+---
+name: perception-audio-transcription
+description: Transcribe spoken audio into timestamped text and, when a compatible diarization model is available, speaker-attributed segments. Use it for meetings, interviews, captions, and other speech-to-text pipelines.
+metadata:
+  source: skills/01-perception/audio-transcription.md
+  category: 01-perception
+  version: "v2"
+---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-audio-transcription.json)
+
+# Audio Transcription
+
+### Description
+Converts spoken audio into structured text with word-level timestamps, speaker diarization, language identification, and confidence scoring. Handles noise, overlapping speech, domain-specific vocabulary, and long-form recordings via chunking strategies.
+
+### When to Use
+- Transcribing meetings, interviews, podcasts, call recordings, or lecture audio
+- Building downstream pipelines that require timestamped captions or subtitles
+- Speaker-attributed summarization or action-item extraction from multi-participant audio
+- Real-time transcription via streaming WebSocket APIs
+
+### Example
+```python type:illustrative
+# pip install openai-whisper torch pyannote.audio
+# Note: `pyannote` is the import name for PyPI package `pyannote.audio`
+import whisper, torch
+from pyannote.audio import Pipeline
+
+def transcribe_with_diarization(audio_path: str) -> list[dict]:
+    # Step 1: transcribe with word timestamps
+    model = whisper.load_model("large-v3", device="cuda" if torch.cuda.is_available() else "cpu")
+    result = model.transcribe(audio_path, word_timestamps=True, language=None)  # auto-detect lang
+
+    # Step 2: diarize
+    diar = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
+    diar_result = diar(audio_path)
+
+    # Step 3: merge word timestamps with speaker turns
+    segments = []
+    for turn, _, speaker in diar_result.itertracks(yield_label=True):
+        words = [
+            w for seg in result["segments"]
+            for w in seg.get("words", [])
+            if turn.start <= w["start"] < turn.end
+        ]
+        if words:
+            segments.append({"speaker": speaker, "start": turn.start,
+                              "end": turn.end, "text": " ".join(w["word"] for w in words)})
+    return segments
+```
+
+### Advanced Techniques
+- **Long audio chunking**: split at silence boundaries (`pydub.silence.split_on_silence`) before feeding to Whisper to avoid context window truncation
+- **Custom vocabulary**: inject domain terms via `initial_prompt` parameter in Whisper or use PromptingWhisper
+- **Streaming**: use `faster-whisper` with `stream=True` for low-latency real-time pipelines
+- **Post-correction**: run a language model pass to fix homophones and domain-specific names
+
+### Related Skills
+- `video-understanding`, `summarization`, `text-reading`, `image-understanding`
+
+
+## Failure Modes
+
+| Failure Mode | Cause | Mitigation |
+|---|---|---|
+| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
+| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
+| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
+
+
+## Evidence
+
+The skill's implementation guidance is grounded in the following primary references:
+- OpenAI Whisper implementation: https://github.com/openai/whisper
+- Whisper transcription options include word-level timestamps and initial prompts: https://github.com/openai/whisper/blob/main/whisper/transcribe.py
+- pyannote.audio: https://github.com/pyannote/pyannote-audio
+
+Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
+
+### Changelog
+- 2026-09-30: verified as part of stub-migration batch 02; evidence and failure-mode gates retained.

@@ -1,23 +1,140 @@
 ---
 name: constraint-satisfaction
-description: Find assignments satisfying explicit variables, domains, and constraints.
-license: MIT
+description: Find assignments that satisfy explicit variables, domains, and constraints, reporting conflicts or unsatisfied constraints when no solution exists.
 metadata:
   source: skills/02-reasoning/constraint-satisfaction.md
+  category: 02-reasoning
   version: "v2"
 ---
 
-# constraint-satisfaction
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-constraint-satisfaction.json)
 
-Use this skill to produce a bounded, auditable reasoning result. State assumptions, preserve uncertainty, and verify material conclusions.
+# Constraint Satisfaction
 
-## Failure modes
+**Category:** `reasoning`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
+**Version:** v2
 
-- Unsatisfiable constraints: report the conflicting constraints.
-- Search explosion: bound candidate space and iterations.
+---
+
+## Description
+
+Find values for a set of variables that simultaneously satisfy all given constraints. CSP reasoning is used in scheduling, configuration, planning, and any task where multiple hard requirements must hold at once.
+
+---
+
+## Formal Definition
+
+A CSP has three components:
+- **Variables** `X = {X₁, X₂, ..., Xₙ}` — what we are assigning values to
+- **Domains** `D = {D₁, D₂, ..., Dₙ}` — possible values per variable
+- **Constraints** `C` — restrictions on combinations of variable assignments
+
+A **solution** is an assignment where every variable has a value from its domain and every constraint is satisfied.
+
+---
+
+## Example — Meeting Scheduler
+
+```
+Variables:  Alice_slot, Bob_slot, Carol_slot
+Domains:    {Mon9, Mon10, Mon11, Tue9, Tue10}
+Constraints:
+  - All three must share the same slot (meeting constraint)
+  - Alice unavailable Mon9, Mon10
+  - Bob unavailable Tue10
+  - Carol unavailable Mon11
+
+Backtrack search:
+  Try Mon9  → Alice fails ✗
+  Try Mon10 → Alice fails ✗
+  Try Mon11 → Carol fails ✗
+  Try Tue9  → All available ✓  → SOLUTION: Tue9
+```
+
+---
+
+## Solving Strategies
+
+| Strategy | When to Use | Complexity |
+|---|---|---|
+| Backtracking search | Small/medium domains | Exponential worst-case |
+| Arc consistency (AC-3) | Reduce domains before search | O(ed³) |
+| Forward checking | Prune as you assign | Polynomial per step |
+| LP/MIP solvers | Numeric constraints | Polynomial (LP) |
+| SAT solvers | Boolean constraints | NP-complete, fast heuristics |
+
+---
+
+## Python Example (python-constraint)
+
+```python
+from constraint import Problem
+
+problem = Problem()
+problem.addVariables(["Alice", "Bob", "Carol"],
+                     ["Mon9","Mon10","Mon11","Tue9","Tue10"])
+
+# All must meet at same time
+problem.addConstraint(lambda a, b, c: a == b == c, ["Alice", "Bob", "Carol"])
+# Individual unavailabilities
+problem.addConstraint(lambda a: a not in ["Mon9", "Mon10"], ["Alice"])
+problem.addConstraint(lambda b: b != "Tue10", ["Bob"])
+problem.addConstraint(lambda c: c != "Mon11", ["Carol"])
+
+solutions = problem.getSolutions()
+print(solutions)  # [{'Alice': 'Tue9', 'Bob': 'Tue9', 'Carol': 'Tue9'}]
+```
+
+---
+
+## LLM Prompt Pattern
+
+```
+Variables: [list each variable]
+Domains:   [list valid values per variable]
+Constraints:
+  1. [constraint 1]
+  2. [constraint 2]
+  ...
+
+Find an assignment satisfying ALL constraints.
+Show your work: for each candidate, check each constraint.
+If no solution exists, explain which constraints conflict.
+```
+
+---
+
+## Related Skills
+
+- [Planning](planning.md)
+- [Mathematical Reasoning](mathematical-reasoning.md)
+- [Decision Making](decision-making.md)
+- [Task Decomposition](task-decomposition.md)
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
+
+## Evidence
+
+- https://agentskills.io/specification
+- https://github.com/openai/openai-python
+
+Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+
+## Failure Modes
+
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints.
+- Resource explosion: bound candidate counts, iterations, recursion, and external tool calls.
 
 ## Evidence
 
 - https://agentskills.io/specification
 
-Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
