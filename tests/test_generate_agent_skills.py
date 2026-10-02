@@ -107,7 +107,7 @@ def test_project_accepts_collision_safe_name(tmp_path):
     source = write_skill(
         tmp_path,
         "11-web/web-search.md",
-        """# Web Search\n\n## Evidence\n\nRepository-backed evidence.\n""",
+        """---\ndescription: "Web search."\n---\n\n# Web Search\n\n## Evidence\n\nRepository-backed evidence.\n""",
     )
     item = project(source, tmp_path, name_override="web-web-search")
     assert item.eligible
