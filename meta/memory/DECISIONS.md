@@ -698,3 +698,46 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Status:** LOCKED — executable contract verified and merged as PR #251; full-corpus projection is not yet claimed.
 
 **Reopen Conditions:** Reopen if the Agent Skills specification changes materially, canonical skill metadata becomes structurally incompatible, generated projections cannot remain deterministic, or security evidence requires a stronger publication boundary.
+
+
+## DECISION-2026-10-02-AGENT-SKILLS-CORPUS-RECONCILIATION
+
+**Decision-ID:** DECISION-2026-10-02-AGENT-SKILLS-CORPUS-RECONCILIATION
+
+**Topic:** Reconcile the existing Agent Skills packages against the canonical registry before deterministic generation.
+
+**Decision:** Treat `skills/` as the sole canonical source. Reconcile existing `agent-skills/` packages by canonical provenance first, explicit legacy aliases second, and package-name inference only when provenance is absent. Resolve canonical name collisions deterministically with category-qualified projection names. Preserve blocked existing packages and the intentional `skills-tree-registry` auxiliary package rather than silently deleting them.
+
+**Evidence:** Reconciliation tooling and CI; PR #253 control-plane merge; final corpus PR #264; verified final `main` state contains 288 packages with 250 eligible projections, 37 retained blocked existing packages, and one intentional auxiliary package.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the canonical source-of-truth model changes, the Agent Skills specification changes materially, or provenance evidence demonstrates an incorrect mapping.
+
+## DECISION-2026-10-02-AGENT-SKILLS-PROJECTION-SAFETY-GATES
+
+**Decision-ID:** DECISION-2026-10-02-AGENT-SKILLS-PROJECTION-SAFETY-GATES
+
+**Topic:** Make deterministic Agent Skills generation compatible with validation and repository hygiene gates.
+
+**Decision:** Generated projections must use collision-safe package names, rewrite renamed package frontmatter to match directory names, remove secret-shaped credential literals from canonical examples, normalize trailing whitespace in projections, pass Agent Skills validation, and pass `git diff --check`. Canonical source files remain authoritative; normalization is projection-only except for canonical examples that violate repository security validation.
+
+**Evidence:** PR #260 fixed collision-safe projection naming; PR #261 fixed rename frontmatter and a secret-shaped canonical example; PR #263 normalized projection whitespace. All three exact-head CI matrices passed before merge.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the Agent Skills specification, repository validator, or canonical content contract changes and requires a stronger or different projection boundary.
+
+## DECISION-2026-10-02-AGENT-SKILLS-CORPUS-COMPLETION
+
+**Decision-ID:** DECISION-2026-10-02-AGENT-SKILLS-CORPUS-COMPLETION
+
+**Topic:** Establish the verified deterministic Agent Skills corpus baseline.
+
+**Decision:** The current eligible Agent Skills corpus is the deterministic projection of all canonical skills that pass the repository projection gates. The verified baseline is 374 canonical entries scanned, 250 eligible projections generated, 124 canonical entries blocked, and 288 total Agent Skills packages retained on `main` including blocked legacy packages and the intentional registry helper.
+
+**Evidence:** Generation run for PR #264 reported exactly 250 generated eligible canonical packages; the generation job passed reconciliation, Agent Skills validation, and `git diff --check`; final PR checks passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Agent Skills Distribution Audit, and graph validation. Merge commit: `892a4d747e588cf2876e45ba3effcdd031fd9592`.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if canonical eligibility rules change, Agent Skills specification changes materially, or a later reproducible audit finds corpus drift.
