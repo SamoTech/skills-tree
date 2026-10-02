@@ -33,10 +33,11 @@ def apply(root: Path) -> tuple[int, int]:
             pass
 
     generated = 0
+    desired_names = report["collision_resolution"]
     for source in sorted(
         p for p in (root / "skills").rglob("*.md") if p.name.lower() != "readme.md"
     ):
-        item = project(source, root)
+        item = project(source, root, name_override=desired_names.get(source.as_posix()))
         if item.eligible:
             write_projection(root, item)
             generated += 1
