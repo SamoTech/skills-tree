@@ -17,11 +17,11 @@ Then inspect the relevant architecture, testing, security, deployment, and roadm
 
 ## Strategic objective
 
-Skills Tree is being developed as a trusted, continuously maintained, machine-discoverable source of useful and actively demanded AI-agent capabilities.
+Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
 
-The product objective is not maximum skill count. The COO optimizes for utility, evidence, freshness, interoperability, provenance, security, discoverability, and reproducibility.
+This is the primary product purpose. The authoritative product mission is `meta/PRODUCT_MISSION.md`; `meta/COO_MASTER_MISSION.md` defines the COO execution model under that mission.
 
-The authoritative strategic mission is `meta/COO_MASTER_MISSION.md`.
+The COO optimizes for AI discoverability, human usability, reliable consumption, evidence, freshness, interoperability, provenance, security, reproducibility, contribution, sharing, and organic GitHub adoption.
 
 ## Authority
 
@@ -103,6 +103,10 @@ Before leaving:
 - State remaining work.
 - Identify the next action.
 
+
+## Mission synchronization directive
+
+All active product, architecture, roadmap, documentation, distribution, and automation work must align with `meta/PRODUCT_MISSION.md`. Historical documents may preserve superseded wording when clearly retained as historical records.
 
 ## AI discovery directive
 
