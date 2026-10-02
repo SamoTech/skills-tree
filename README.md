@@ -17,9 +17,13 @@
 <!-- HIGHLIGHTS_END -->
 
 
-### AI Engineering Operating System
+### The Public AI Skills Source
 
-**The open, dependency-mapped knowledge graph for AI agents.**
+**Skills Tree is a public, trusted, machine-discoverable source of AI skills.**
+
+AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
+
+The repository remains an evidence-backed, dependency-aware knowledge graph and distribution system for making those skills discoverable and reusable.
 
 | 374 Skills | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
@@ -135,9 +139,9 @@ Skills Tree fixes that. → [Read the full problem statement](docs/WHY_SKILLS_TR
 
 ## What This Is
 
-**Skills Tree is the shared operating system for AI agent capabilities.**
+**Skills Tree is a public source of AI skills built for both AI discovery and human use.**
 
-A living, versioned, community-powered index of everything an agent can do — at its best, documented with working code, real benchmarks, failure modes, and evolution history.
+A living, versioned, community-powered collection of AI skills and capability definitions. Skills are documented with practical usage, evidence, failure modes, limitations, and evolution history where supported by repository evidence.
 
 Battle-tested skills (🟢 verified) are production-ready and copy-paste safe. Yellow/unscanned skills are the community's TODO list — open files, real problem space, and the clearest signal of where contributions are most useful.
 
@@ -353,14 +357,13 @@ See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 
 ---
 
-## Vision
+## Product Mission
 
-> AI agents are becoming teammates, not tools.
+> Skills Tree is a public, trusted, machine-discoverable source of AI skills.
 >
-> Skills Tree is the shared foundation they run on — a living OS of capabilities
-> that the community builds, tests, and evolves together.
+> AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
 >
-> Every skill added here saves every agent builder who comes after you.
+> The project grows through genuine utility, reuse, sharing, contribution, and GitHub discovery—not fabricated popularity claims.
 
 ---
 
