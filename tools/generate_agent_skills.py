@@ -59,10 +59,10 @@ def clean_description(value: str) -> str:
     return value
 
 
-def project(source: Path, root: Path) -> SkillProjection:
+def project(source: Path, root: Path, name_override: str | None = None) -> SkillProjection:
     text = source.read_text(encoding="utf-8")
     fm, body = parse_frontmatter(text)
-    name = normalize_name(source.stem)
+    name = normalize_name(name_override or source.stem)
     description = clean_description(fm.get("description", ""))
     category = source.parent.name
     blockers: list[str] = []

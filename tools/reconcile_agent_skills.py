@@ -105,7 +105,7 @@ def reconcile(root: Path) -> dict:
             current = candidates[0]
             item = {"source": source, "package": current["package"], "expected_package": expected, "match": "provenance"}
             matched.append(item)
-            canonical = project(root / source, root)
+            canonical = project(root / source, root, name_override=expected)
             expected_content = canonical.content.rstrip() + "\n"
             actual_content = (root / current["path"]).read_text(encoding="utf-8")
             if canonical.eligible and actual_content != expected_content:
