@@ -91,3 +91,12 @@ Each migrated skill now has a concrete description, explicit I/O contract, runna
 **Generated-artifact verification:** the hardened quality-report workflow regenerated `meta/QUALITY-REPORT.md` after the merged documentation PR. The live generated report now verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid. Category 14-security is 13 battle-tested, 0 stubs.
 
 **Status:** VERIFIED — implementation, generated corpus report, and public documentation are synchronized.
+
+
+## Goal Capability Runtime Access — In Verification — 2026-10-02
+
+A fresh runtime/consumer audit identified a missing typed Goal→Capability accessor. The development branch now adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
+
+Focused regression coverage verifies deterministic Goal-to-Capability traversal and defensive snapshot behavior.
+
+**Verification status:** pending branch CI and exact-head validation. This slice is not marked VERIFIED until those checks are available.
