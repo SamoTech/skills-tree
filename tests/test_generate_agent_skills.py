@@ -101,3 +101,15 @@ description: "Real skill."
 def test_agent_skills_name_rejects_consecutive_hyphens():
     assert NAME_RE.fullmatch("foo--bar") is None
     assert NAME_RE.fullmatch("foo-bar") is not None
+
+
+def test_project_accepts_collision_safe_name(tmp_path):
+    source = write_skill(
+        tmp_path,
+        "11-web/web-search.md",
+        """# Web Search\n\n## Evidence\n\nRepository-backed evidence.\n""",
+    )
+    item = project(source, tmp_path, name_override="web-web-search")
+    assert item.eligible
+    assert item.name == "web-web-search"
+    assert "name: web-web-search" in item.content
