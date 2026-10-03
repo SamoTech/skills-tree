@@ -495,3 +495,10 @@ Post-merge evidence: PR #299 merged as `7302d0780b2857bdd2f54363a2e6158eafc45292
 ## 2026-10-03 — Discovery registry context
 
 The generated machine-readable skill index now projects optional UniversalRegistry context only for exact registered canonical skills. The projection preserves canonical source ownership, exposes explicit capability/implementation/evidence/provenance/freshness references when declared, and does not infer context for uncovered skills. The search index remains a search-only corpus.
+
+
+## 2026-10-03 — Discovery registry context verification
+
+PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb`. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, and Auto Label. The wheel gate also executed the installed CLI search successfully.
+
+The focused registry-context test exposed an unrelated pre-existing schema/artifact date-format mismatch (`docs/api/skills-schema.json` accepts `YYYY-MM` while some generated `added`/`last_updated` values contain day-level dates or fixture text). The mismatch was not broadened into this PR; it is now a separate audit finding. Future schema reconciliation must derive its contract from the canonical generator and corpus rather than weakening tests.
