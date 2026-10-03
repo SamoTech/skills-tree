@@ -66,3 +66,18 @@ def test_registry_rejects_graph_reference_not_declared_by_source(tmp_path: Path)
 
     with pytest.raises(ValueError, match="Invalid typed graph endpoint"):
         UniversalRegistry(registry_path)
+
+
+def test_registry_rejects_schema_valid_but_runtime_unsupported_relationship(tmp_path: Path) -> None:
+    graph = json.loads((ROOT / "graph" / "universal_graph.json").read_text(encoding="utf-8"))
+    edge = graph["edges"][0].copy()
+    edge["relationship_type"] = "alternative_to"
+    graph["edges"].append(edge)
+
+    registry_path = _materialize_runtime_fixture(tmp_path, graph)
+
+    with pytest.raises(
+        ValueError,
+        match="Unsupported universal graph relationship: alternative_to",
+    ):
+        UniversalRegistry(registry_path)
