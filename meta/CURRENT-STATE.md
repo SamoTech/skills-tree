@@ -211,3 +211,15 @@ PR #293 merged additive `registry_context` propagation onto required and optiona
 The discovery audit found that docs/api/skills.json was not consuming the verified UniversalRegistry context. PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb` and adds optional registry_context for the three exact registered skills only, with no synthetic membership or evidence. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed the required CI matrix, including Test Suite on Python 3.11/3.12/3.13 and installed-wheel verification.
 
 During validation, the new focused test exposed an existing schema/artifact date-format mismatch in unrelated `added`/`last_updated` fields. The test was narrowed to the registry_context sub-schema; the date-format drift remains a separate audit finding and was not changed in PR #300.
+
+
+## Generated Discovery Projection Audit — VERIFIED — 2026-10-03
+
+PR #301 corrected canonical Kanban date metadata and PR #302 reconciled `docs/api/skills.json` and `docs/api/skills.yaml`; the affected projection now reports `added: 2026-10` and `last_updated: 2026-10`.
+
+The remaining machine-readable projection audit found:
+- `agent-skills/` already has a read-only reconciliation/audit gate on canonical `skills/**` changes; no duplicate drift checker is warranted.
+- `docs/api/jsonld/` is an SEO/presentation projection generated from the same skill index. It does not implement ranking, trust, evidence, or registry semantics, so `registry_context` was intentionally not duplicated into JSON-LD.
+- `/.well-known/agent-skills/index.json` remains unpublished. Its existing gate correctly requires deterministic generation, provenance validation, reproducible publication, served-byte verification, and SHA-256 integrity before activation.
+
+**Next:** audit the existing Agent Skills provenance/collision reconciliation state against the current canonical corpus before any discovery-index publication work.
