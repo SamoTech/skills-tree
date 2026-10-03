@@ -7,11 +7,12 @@ version: v3
 added: "2025-03"
 updated: "2026-10-03"
 description: "Convert speech audio into timestamped text while preserving timing, language metadata, and source traceability for captions, search, summarization, and extraction."
----
+
+related: [text-reading, video-understanding, summarization]---
 
 # Audio Transcription
 
-## Purpose
+## Description
 
 Convert an audio file into structured transcript segments. A useful pipeline preserves timestamps and enough source metadata to trace generated text back to the recording. Transcription is extraction, not independent fact verification.
 
@@ -73,7 +74,7 @@ print(f"segments={len(transcript['segments'])}")
 
 Evidence status: implementation guidance is grounded in the cited primary implementation. No accuracy or benchmark claim is made.
 
-## Related Skills
+## Related
 
 - text-reading
 - video-understanding
