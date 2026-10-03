@@ -894,6 +894,6 @@ Topic: Make the canonical generated search projection consumable by the installa
 Decision: Keep the generated search corpus single-source in content and format. The existing builder produces identical bytes for the static web projection at docs/search-index.json and the package runtime projection at data/search-index.json. cli/search_runtime.py owns only deterministic artifact discovery/loading, resolving the source checkout asset or the installed wheel data directory. It does not define a second index, parser, or ranking algorithm.
 Confidence: HIGH
 Evidence: tools/build_search_index.py, pyproject.toml data-files, .github/workflows/generate-search-index.yml, .github/workflows/build-and-verify.yml, tests/test_search_index_contract.py, cli/search_runtime.py.
-Status: VERIFIED ON BRANCH — exact-head CI pending.
+Status: VERIFIED — PR #298 merged as `8c5de33d2f3fb6054b122c9f52f381257066993f`; exact-head Test Suite, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, and Auto Label passed.
 Reopen Conditions: Reopen if packaging cannot reliably deliver the projection, if source/package bytes diverge, or if a different authoritative search data contract supersedes this boundary.
 
