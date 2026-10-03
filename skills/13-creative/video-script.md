@@ -7,7 +7,8 @@ version: v2
 added: "2025-03"
 description: "Create timed video scripts with hooks, narration, on-screen text, visual cues, and calls to action while keeping factual claims traceable to the source brief."
 
-related: [blog-writing, presentation-gen, social-media-post]---
+related: [blog-writing, presentation-gen, social-media-post]
+---
 
 # Video Script
 
