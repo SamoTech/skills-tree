@@ -886,3 +886,14 @@ Confidence: HIGH
 Evidence: PR #296 merged as `c66def14c5c21f348275978042e8c9d07ad43086`; exact-head Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label passed.
 Status: LOCKED
 Reopen Conditions: Reopen if search projection format, canonical source, packaging contract, or runtime consumer architecture changes.
+
+# DECISION-2026-10-03-SEARCH-PACKAGING-BOUNDARY
+
+DECISION-ID: DECISION-2026-10-03-SEARCH-PACKAGING-BOUNDARY
+Topic: Make the canonical generated search projection consumable by the installable CLI
+Decision: Keep the generated search corpus single-source in content and format. The existing builder produces identical bytes for the static web projection at docs/search-index.json and the package runtime projection at data/search-index.json. cli/search_runtime.py owns only deterministic artifact discovery/loading, resolving the source checkout asset or the installed wheel data directory. It does not define a second index, parser, or ranking algorithm.
+Confidence: HIGH
+Evidence: tools/build_search_index.py, pyproject.toml data-files, .github/workflows/generate-search-index.yml, .github/workflows/build-and-verify.yml, tests/test_search_index_contract.py, cli/search_runtime.py.
+Status: VERIFIED ON BRANCH — exact-head CI pending.
+Reopen Conditions: Reopen if packaging cannot reliably deliver the projection, if source/package bytes diverge, or if a different authoritative search data contract supersedes this boundary.
+
