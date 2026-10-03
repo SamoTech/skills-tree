@@ -5,9 +5,9 @@
 ## Summary
 
 - **Total skill files:** 375
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 207
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 215
 - 🟡 **Enriched** (real description + runnable code): 158
-- ⚪ **Stub** (placeholder description or no runnable code): 10
+- ⚪ **Stub** (placeholder description or no runnable code): 2
 - ❌ **Invalid** (schema/frontmatter problems): 0
 
 ## Per-category breakdown
@@ -15,19 +15,19 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
 |---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 30 | 5 | 1 | 0 |
+| `01-perception` | 36 | 31 | 5 | 0 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
 | `03-memory` | 19 | 19 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
-| `05-code` | 28 | 5 | 22 | 1 | 0 |
+| `05-code` | 28 | 6 | 22 | 0 | 0 |
 | `06-communication` | 15 | 15 | 0 | 0 | 0 |
-| `07-tool-use` | 33 | 11 | 21 | 1 | 0 |
+| `07-tool-use` | 33 | 12 | 21 | 0 | 0 |
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 23 | 12 | 10 | 1 | 0 |
+| `09-agentic-patterns` | 23 | 13 | 10 | 0 | 0 |
 | `10-computer-use` | 20 | 0 | 20 | 0 | 0 |
 | `11-web` | 17 | 17 | 0 | 0 | 0 |
 | `12-data` | 18 | 1 | 17 | 0 | 0 |
-| `13-creative` | 14 | 10 | 0 | 4 | 0 |
+| `13-creative` | 14 | 14 | 0 | 0 | 0 |
 | `14-security` | 13 | 13 | 0 | 0 | 0 |
 | `15-orchestration` | 28 | 10 | 18 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 |
@@ -36,6 +36,7 @@
 ## 🟢 Battle-tested skills (start here as a user)
 
 - [`skills/01-perception/api-response-parsing.md`](skills/01-perception/api-response-parsing.md) — API Response Parsing
+- [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — Audio Transcription
 - [`skills/01-perception/binary-file-reading.md`](skills/01-perception/binary-file-reading.md) — Binary File Reading
 - [`skills/01-perception/calendar-parsing.md`](skills/01-perception/calendar-parsing.md) — Calendar Parsing
 - [`skills/01-perception/chart-reading.md`](skills/01-perception/chart-reading.md) — Chart Reading
@@ -138,6 +139,7 @@
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
 - [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
+- [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — Security Scanning
 - [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — Argument Construction
 - [`skills/06-communication/citation-attribution.md`](skills/06-communication/citation-attribution.md) — Citation & Attribution
 - [`skills/06-communication/clarification-seeking.md`](skills/06-communication/clarification-seeking.md) — Clarification Seeking
@@ -163,6 +165,7 @@
 - [`skills/07-tool-use/openai-api.md`](skills/07-tool-use/openai-api.md) — OpenAI API
 - [`skills/07-tool-use/tool-guardrails.md`](skills/07-tool-use/tool-guardrails.md) — Tool Guardrails
 - [`skills/07-tool-use/tool-review-loops.md`](skills/07-tool-use/tool-review-loops.md) — Tool Review Loops
+- [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — Wolfram Alpha API
 - [`skills/07-tool-use/xquik-api.md`](skills/07-tool-use/xquik-api.md) — Xquik API
 - [`skills/08-multimodal/3d-scene-understanding.md`](skills/08-multimodal/3d-scene-understanding.md) — 3D Scene Understanding
 - [`skills/08-multimodal/audio-classification.md`](skills/08-multimodal/audio-classification.md) — Audio Classification
@@ -186,6 +189,7 @@
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
 - [`skills/09-agentic-patterns/memory-augmented.md`](skills/09-agentic-patterns/memory-augmented.md) — Memory-Augmented Agent
 - [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
+- [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG — Retrieval-Augmented Generation
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
 - [`skills/09-agentic-patterns/subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — Subagent Delegation
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-travel Debugging
@@ -218,6 +222,10 @@
 - [`skills/13-creative/lyrics-writing.md`](skills/13-creative/lyrics-writing.md) — Lyrics Writing
 - [`skills/13-creative/meme-generation.md`](skills/13-creative/meme-generation.md) — Meme Generation
 - [`skills/13-creative/music-composition.md`](skills/13-creative/music-composition.md) — Music Composition
+- [`skills/13-creative/presentation-gen.md`](skills/13-creative/presentation-gen.md) — Presentation Generation
+- [`skills/13-creative/social-media-post.md`](skills/13-creative/social-media-post.md) — Social Media Post
+- [`skills/13-creative/svg-generation.md`](skills/13-creative/svg-generation.md) — SVG Generation
+- [`skills/13-creative/video-script.md`](skills/13-creative/video-script.md) — Video Script
 - [`skills/14-security/approval-before-destructive-tools.md`](skills/14-security/approval-before-destructive-tools.md) — Approval Before Destructive Tools
 - [`skills/14-security/audit-logging.md`](skills/14-security/audit-logging.md) — Audit Logging
 - [`skills/14-security/harm-detection.md`](skills/14-security/harm-detection.md) — Harm Detection
@@ -407,14 +415,6 @@
 ## ⚪ Stubs
 
 - [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/01-perception/audio-transcription.md`](skills/01-perception/audio-transcription.md) — no fenced runnable code example (>=3 non-blank lines)
-- [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — description matches placeholder pattern: 'Apply security scanning in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — description matches placeholder pattern: 'Apply wolfram alpha api in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — description matches placeholder pattern: 'Apply rag in AI agent workflows'
-- [`skills/13-creative/presentation-gen.md`](skills/13-creative/presentation-gen.md) — description matches placeholder pattern: 'Apply presentation gen in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/social-media-post.md`](skills/13-creative/social-media-post.md) — description matches placeholder pattern: 'Apply social media post in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/svg-generation.md`](skills/13-creative/svg-generation.md) — description matches placeholder pattern: 'Apply svg generation in AI agent workflows'; no inputs/outputs/failure-modes table
-- [`skills/13-creative/video-script.md`](skills/13-creative/video-script.md) — description matches placeholder pattern: 'Apply video script in AI agent workflows'; no inputs/outputs/failure-modes table
 - [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
 
 ## Definitions
