@@ -199,20 +199,18 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies the governance/registry foundation and the deterministic Agent Skills corpus projection, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The deterministic Agent Skills corpus is a verified distribution baseline. The Universal Registry now has verified benchmark, freshness, graph fail-closed, recommendation-context, and blueprint-context boundaries. No numbered P2.3 requirement is defined. The next foundational work is the remaining machine-readable discovery consumer audit before any new CLI search implementation.
+The repository's live development record verifies the governance/registry foundation and the deterministic Agent Skills corpus projection, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The deterministic Agent Skills corpus is a verified distribution baseline. The Universal Registry now has verified benchmark, freshness, graph fail-closed, recommendation-context, and blueprint-context boundaries. Issue #86 CLI search is also verified and merged via PR #299. No numbered P2.3 requirement is defined. The next foundational work is a fresh audit of remaining machine-readable discovery consumers and projection context boundaries.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
 ## Current execution queue
 
 1. Complete observable Phase 0 control-plane reconciliation and record any connector-visible limitations without silently changing high-impact repository governance.
-2. Verify the deterministic ranking/query contract for Issue #86 and its CLI consumer against the existing search projection and runtime loader. The contract is recorded in `meta/SEARCH_CLI_CONTRACT.md`.
-3. Complete focused/full CI validation, wheel installation verification, and runtime CLI execution for `skills-tree search` before merging the implementation branch.
-4. After merge, reconcile live issue #86, current-state, decision memory, development knowledge, and CLI/API discovery documentation.
-5. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
-6. Synchronize decision memory, architecture documentation, development knowledge, current state, and handoff state whenever verified architecture or consumer behavior changes.
-7. Re-verify live `main`, generated artifacts, authoritative documentation, and applicable CI evidence before selecting the next slice.
-8. Resume strategic capability-intelligence work only when the foundational consumer path is sufficiently established by evidence.
+2. Re-audit remaining machine-readable discovery consumers and generated projections for canonical-source alignment, provenance/evidence/freshness context, deterministic behavior, and runtime/package boundaries. Do not add context that duplicates or contradicts UniversalRegistry semantics.
+3. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
+4. Synchronize decision memory, architecture documentation, development knowledge, current state, and handoff state whenever verified architecture or consumer behavior changes.
+5. Re-verify live `main`, generated artifacts, authoritative documentation, and applicable CI evidence before selecting the next slice.
+6. Resume strategic capability-intelligence work only when the foundational consumer path is sufficiently established by evidence.
 
 ### Mandatory execution invariant
 
