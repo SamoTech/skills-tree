@@ -170,3 +170,18 @@ The final #273 head was `4477d33d846c68d71b666e6c283c8787312e023f`; its required
 The gate is deterministic and changed-skill scoped. It blocks selected placeholder/marketing filler patterns, warns on unsupported absolute/generic claims, ignores fenced code/frontmatter, and does not attempt LLM-based style classification.
 
 **Status:** VERIFIED — the quality gate and review fixes are merged. Historical corpus cleanup remains a separate evidence-driven migration and is not implied by this gate.
+
+
+## Universal Graph Relationship Runtime Boundary — 2026-10-03
+
+A fresh universal-registry audit after the verified freshness boundary found that the Universal Graph schema intentionally contains deferred relationship vocabulary beyond the six relationships currently implemented semantically by runtime.
+
+Before this slice, schema-valid deferred relationships could pass the runtime validator through a silent fallback. The correction preserves the forward-compatible schema vocabulary but fails closed on any relationship without an explicit runtime semantic validator.
+
+No canonical graph edge was changed and no new relationship semantics were invented.
+
+**Branch:** `runtime/graph-relationship-boundary-20261003`
+
+**Status:** IMPLEMENTED ON BRANCH — focused behavioral regression coverage is added; exact-head CI and merge are pending.
+
+**Next:** verify exact-head CI, review/governance state, merge if all gates pass, then re-audit live `main`. The CLI `search` documentation/implementation mismatch remains the next independent consumer gap after this slice.

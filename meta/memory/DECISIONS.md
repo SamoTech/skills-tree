@@ -792,6 +792,23 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 
 **Evidence:** `meta/EVIDENCE_MODEL.md`, `meta/ROADMAP.md`, `meta/POST_20261003_FRESHNESS_RUNTIME_AUDIT.md`, `meta/universal-registry-data.schema.json`, `registry/runtime.py`, and focused regression tests.
 
-**Status:** PROPOSED — implementation pending local validation and exact-head CI verification.
+**Status:** VERIFIED — PR #281 merged as `a26a1dabac28da3cc598ad85ddf655b8b1b5b108`; exact-head validation passed before merge.
 
 **Reopen Conditions:** Reopen if repository evidence shows freshness is intentionally excluded from universal registry consumption, if the evidence model changes, or if a stronger versioned freshness contract supersedes this boundary.
+
+
+## DECISION-2026-10-03-UNIVERSAL-GRAPH-RELATIONSHIP-BOUNDARY
+
+**Decision-ID:** DECISION-2026-10-03-UNIVERSAL-GRAPH-RELATIONSHIP-BOUNDARY
+
+**Topic:** Fail closed on Universal Graph relationship types that are declared by schema but not yet semantically implemented by runtime.
+
+**Finding:** The Universal Graph schema intentionally declares a broader relationship vocabulary than the current graph data uses. Repository architecture documentation says deferred relationships require deterministic generation and validation rules before introduction. The runtime previously accepted unsupported schema-valid relationship types through a silent fallback path.
+
+**Decision:** Keep the declared schema vocabulary unchanged as the forward-compatible contract, but make the runtime-supported relationship set explicit and reject every schema-valid relationship without an implemented semantic validator. Do not invent semantics for deferred relationships.
+
+**Evidence:** `meta/POST_20261003_GRAPH_RELATIONSHIP_RUNTIME_AUDIT.md`, `meta/universal-graph.schema.json`, `docs/architecture/UNIVERSAL_REGISTRY_AUDIT.md`, `registry/runtime.py`, and `tests/test_graph_relationship_integrity.py`.
+
+**Status:** VERIFIED ON BRANCH — implementation and focused regression coverage are present; exact-head CI and merge remain pending.
+
+**Reopen Conditions:** Reopen when repository evidence justifies introducing a deferred relationship and provides explicit endpoint semantics, deterministic generation rules, provenance requirements, and behavioral tests.

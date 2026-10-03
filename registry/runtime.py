@@ -266,7 +266,15 @@ class UniversalRegistry:
 
     @staticmethod
     def _validate_graph_relationships(edges: list[dict[str, Any]], entities: dict[str, list[dict[str, Any]]]) -> None:
-        """Enforce semantic source/target/reference rules for currently used graph relationships."""
+        """Enforce semantic rules for runtime-supported graph relationships."""
+        supported_relationships = {
+            "requires_capability",
+            "enables_skill",
+            "realized_by",
+            "exposed_through",
+            "adapted_to",
+            "supported_by_evidence",
+        }
         by_id = {
             record["id"]: record
             for records in entities.values()
@@ -278,6 +286,10 @@ class UniversalRegistry:
             target_id = edge["target"]
             source_type = edge["source_type"]
             target_type = edge["target_type"]
+            if relationship not in supported_relationships:
+                raise ValueError(
+                    f"Unsupported universal graph relationship: {relationship}"
+                )
             if source_id not in by_id or target_id not in by_id:
                 raise ValueError(f"Invalid typed graph endpoint: {source_id} -> {target_id}")
             source = by_id[source_id]
@@ -307,8 +319,6 @@ class UniversalRegistry:
                     and target_type == "evidence"
                     and target_id in source.get("evidence", [])
                 )
-            else:
-                continue
 
             if not valid:
                 raise ValueError(
