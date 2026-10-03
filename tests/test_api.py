@@ -206,6 +206,12 @@ class TestBlueprint:
         assert "required_skills" in data
         assert "learning_path" in data
 
+    def test_blueprint_skill_entries_expose_registry_context_field(self):
+        r = client.post("/blueprint", json={"goal": "Coding Agent"})
+        assert r.status_code == 200
+        for skill in r.json()["required_skills"] + r.json()["optional_skills"]:
+            assert "registry_context" in skill
+
     def test_blueprint_id_format(self):
         r = client.post("/blueprint", json={"goal": "Coding Agent"})
         data = r.json()
