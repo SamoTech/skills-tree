@@ -929,3 +929,19 @@ Evidence: tools/export_skills.py, registry/universal_registry.json, registry/run
 Status: VERIFIED — PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb`. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, and Auto Label. The wheel gate also executed installed CLI search successfully.
 
 Reopen Conditions: Reopen if UniversalRegistry coverage becomes corpus-wide, the discovery projection becomes a runtime registry consumer, or an authoritative machine-readable discovery contract supersedes this projection boundary.
+
+
+# DECISION-2026-10-03-DISCOVERY-DATE-PROJECTION-RECONCILIATION
+
+DECISION-ID: DECISION-2026-10-03-DISCOVERY-DATE-PROJECTION-RECONCILIATION
+Topic: Correct canonical date metadata and reconcile generated API projections
+
+Finding: `skills/15-orchestration/kanban-task-management.md` had correct YAML frontmatter but malformed legacy body metadata combining Added and Last Updated on one line. The exporter consumed that body value and produced an invalid `added` value in docs/api/skills.json and docs/api/skills.yaml.
+
+Decision: Correct the canonical source metadata, add a regression test, then reconcile the affected generated JSON/YAML projections. Do not weaken the schema to accept malformed source metadata. Keep generated artifacts subordinate to the canonical source and existing export workflow.
+
+Evidence: PR #301 merged as `ff3943efeb49e40466b3bc408c87b4de820c1728`; PR #302 merged as `32cee4e430dc5c8ebf495e84048fd15e1e5404d2`. PR #301 exact-head CI passed the full applicable validation matrix; PR #302 passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, and PR Checks. Main artifacts now report `added: 2026-10` and `last_updated: 2026-10` for the affected skill.
+
+Status: VERIFIED — MAIN
+
+Reopen Conditions: Reopen if the export workflow regenerates a divergent value, if the exporter changes its source precedence, or if another canonical skill exhibits the same cross-field metadata contamination pattern.
