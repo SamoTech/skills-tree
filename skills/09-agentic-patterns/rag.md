@@ -118,7 +118,6 @@ Do not infer production readiness from a single benchmark.
 ## Evidence
 
 - Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks: https://arxiv.org/abs/2005.11401
-- OpenAI retrieval example: https://developers.openai.com/cookbook/examples/vector_databases/read_and_query_chroma_data
 - LangChain retrieval concepts: https://python.langchain.com/docs/concepts/retrieval/
 
 Evidence status: references support the architecture and evaluation concepts. No performance ranking or production-readiness claim is made.
