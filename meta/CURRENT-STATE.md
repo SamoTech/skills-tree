@@ -28,6 +28,7 @@
 - The Benchmark runtime slice is verified: `UniversalRegistry` exposes deterministic `resolve_benchmark()` and `benchmarks_for_entity()` under `meta/benchmark-contract.schema.json`; this defines evaluation contracts, not benchmark results.
 - The Universal Graph runtime fail-closed boundary is verified on merged `main`: only semantically implemented relationship types are accepted; schema-valid deferred relationships are rejected.
 - Recommendation and blueprint consumers expose additive `registry_context` derived from `UniversalRegistry`, preserving provenance/evidence/freshness/implementation context without changing ranking semantics.
+- The generated search projection now has an explicit `meta/search-index.schema.json` contract and regression coverage for schema validity, duplicate IDs, canonical file resolution, and path parity with `docs/api/skills.json`. A real stale-projection defect for `kanban-task-management.md` was detected by that gate and reconciled before merge.
 - The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
 - `skills/15-orchestration/kanban-task-management.md` is present on `main` as a verified canonical skill addition. It remains `stability: experimental` and `version: v1`; no stronger maturity claim is implied.
 - No numbered P2.3 requirement is currently defined. The next Phase 2 slice must come from a fresh architecture audit.
@@ -79,7 +80,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-Re-audit the remaining machine-readable discovery consumer surfaces after the verified recommendation and blueprint `registry_context` slices. Start with generated `docs/api/skills.json`, generated `docs/search-index.json`, and their canonical builders. Determine whether a shared deterministic runtime boundary can expose registry context/provenance without creating a parallel index or ranking system. Only after that audit, and after the documentation gate is clean, address Issue #86 (`skills-tree search`) with the existing search primitives if the gap remains.
+Re-audit the remaining machine-readable discovery consumer surfaces after the verified search-projection contract. Next focus on the runtime/package boundary: determine how a reusable search consumer can access canonical/generated search data after wheel installation without making `docs/` a hidden runtime dependency or introducing a second ranking/index implementation. Only after that contract is verified should Issue #86 (`skills-tree search`) receive an implementation slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 

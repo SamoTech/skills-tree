@@ -52,7 +52,7 @@ Reconcile current operational documentation with merged Universal Registry runti
 - PR #295 was squash-merged to `main` as `40fa0613e13e560634c574885d18d46c16e06816` after the exact-head CI matrix passed.
 
 ### NEXT_AGENT
-Re-read live `main`, verify the remaining machine-readable discovery consumer surfaces, and continue from the documented execution queue. Do not reopen the reconciled documentation work unless later repository evidence creates new drift.
+Re-read live `main`, verify the newly merged search-projection contract, then audit source-checkout versus installed-wheel data availability before implementing Issue #86. Do not reopen the reconciled projection contract unless later evidence shows new drift.
 
 ### SUCCESS CRITERIA
 - [ ] Documentation diff contains only justified state reconciliation.
