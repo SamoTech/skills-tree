@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from datetime import datetime
 import json
 from pathlib import Path
 from typing import Any, TypedDict
@@ -37,6 +38,14 @@ class ImplementationRecord(TypedDict):
     status: str
 
 
+class FreshnessRecord(TypedDict):
+    """Normative runtime shape for optional entity freshness metadata."""
+    last_reviewed_at: str
+    review_due_at: str
+    basis: str
+    stale_conditions: list[str]
+
+
 class AdapterRecord(TypedDict):
     """Normative runtime shape for a registered Adapter."""
     id: str
@@ -63,12 +72,13 @@ class UniversalRegistry:
         self._data = json.loads(self.path.read_text(encoding="utf-8"))
         self._validate_registry_schema()
         self._validate_integrity()
+        self._validate_freshness()
         self._validate_implementation_contracts()
         self._validate_adapter_contracts()
         self._validate_evidence_contracts()
         self._validate_benchmark_contracts()
         self._validate_graph_contract()
-        compatibility_schema_path = self.path.parent.parent / "meta" / "compatibility-model.schema.json"
+        compatibility_schema_path = self._meta_path("compatibility-model.schema.json")
         compatibility_schema = json.loads(compatibility_schema_path.read_text(encoding="utf-8"))
         self._compatibility_runtime = CompatibilityRuntime(self._data, compatibility_schema)
         self._evidence_runtime = EvidenceRuntime(self._data)
@@ -77,9 +87,25 @@ class UniversalRegistry:
         self._capability_runtime = CapabilityRuntime(self)
         self._goal_runtime = GoalRuntime(self)
 
+    def _meta_path(self, filename: str) -> Path:
+        """Resolve registry-adjacent metadata, falling back to the package repository."""
+        candidate = self.path.parent.parent / "meta" / filename
+        if candidate.is_file():
+            return candidate
+        return Path(__file__).resolve().parents[1] / "meta" / filename
+
     @property
     def data(self) -> dict[str, Any]:
         return deepcopy(self._data)
+
+    def freshness_for_entity(self, entity_id: str) -> FreshnessRecord | None:
+        """Return declared freshness metadata for an entity, if present."""
+        for records in self._data["entities"].values():
+            for record in records:
+                if record["id"] == entity_id:
+                    freshness = record.get("freshness")
+                    return deepcopy(freshness) if freshness is not None else None
+        raise KeyError(f"Unknown entity: {entity_id}")
 
 
     def resolve_evidence(self, evidence_id: str) -> EvidenceRecord:
@@ -191,6 +217,8 @@ class UniversalRegistry:
         graph = getattr(self, "_graph_data", None)
         if graph is None:
             graph_path = self.path.parent.parent / "graph" / "universal_graph.json"
+            if not graph_path.is_file():
+                graph_path = Path(__file__).resolve().parents[1] / "graph" / "universal_graph.json"
             graph = json.loads(graph_path.read_text(encoding="utf-8"))
         entities = self._data["entities"]
         collection_types = {
@@ -227,7 +255,9 @@ class UniversalRegistry:
     def _validate_graph_contract(self) -> None:
         """Validate the typed universal graph against its normative JSON Schema."""
         graph_path = self.path.parent.parent / "graph" / "universal_graph.json"
-        schema_path = self.path.parent.parent / "meta" / "universal-graph.schema.json"
+        if not graph_path.is_file():
+            graph_path = Path(__file__).resolve().parents[1] / "graph" / "universal_graph.json"
+        schema_path = self._meta_path("universal-graph.schema.json")
         graph = json.loads(graph_path.read_text(encoding="utf-8"))
         schema = json.loads(schema_path.read_text(encoding="utf-8"))
         Draft202012Validator(schema).validate(graph)
@@ -286,9 +316,26 @@ class UniversalRegistry:
                     f"-{relationship}-> {target_id} ({target_type})"
                 )
 
+    def _validate_freshness(self) -> None:
+        """Validate optional freshness metadata without imposing a corpus-wide migration."""
+        for records in self._data["entities"].values():
+            for record in records:
+                freshness = record.get("freshness")
+                if freshness is None:
+                    continue
+                reviewed = datetime.fromisoformat(freshness["last_reviewed_at"].replace("Z", "+00:00"))
+                due = datetime.fromisoformat(freshness["review_due_at"].replace("Z", "+00:00"))
+                if reviewed.tzinfo is None or due.tzinfo is None:
+                    raise ValueError(f"Freshness timestamps must be timezone-aware: {record['id']}")
+                if due < reviewed:
+                    raise ValueError(
+                        f"Freshness review_due_at precedes last_reviewed_at: {record['id']}"
+                    )
+
+
     def _validate_implementation_contracts(self) -> None:
         """Validate every registered Implementation against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "implementation-contract.schema.json"
+        schema_path = self._meta_path("implementation-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         evidence = {item["id"]: item for item in self._data["entities"]["evidence"]}
@@ -312,7 +359,7 @@ class UniversalRegistry:
 
     def _validate_evidence_contracts(self) -> None:
         """Validate every registered Evidence record against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "evidence-contract.schema.json"
+        schema_path = self._meta_path("evidence-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         for evidence in self._data["entities"]["evidence"]:
@@ -320,7 +367,7 @@ class UniversalRegistry:
 
     def _validate_benchmark_contracts(self) -> None:
         """Validate every registered Benchmark against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "benchmark-contract.schema.json"
+        schema_path = self._meta_path("benchmark-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         entity_ids = {
@@ -338,7 +385,7 @@ class UniversalRegistry:
 
     def _validate_adapter_contracts(self) -> None:
         """Validate every registered Adapter against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "adapter-contract.schema.json"
+        schema_path = self._meta_path("adapter-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         evidence = {item["id"]: item for item in self._data["entities"]["evidence"]}
