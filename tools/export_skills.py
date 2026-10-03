@@ -250,7 +250,7 @@ SKILL_SCHEMA = {
                 "provenance": {"type": "object"},
                 "freshness": {"type": ["object", "null"]}
             },
-            "additionalProperties": false
+            "additionalProperties": False
         },
     },
     "additionalProperties": False,
