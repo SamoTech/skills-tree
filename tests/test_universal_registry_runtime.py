@@ -196,3 +196,51 @@ def test_registry_rejects_schema_invalid_entity_types(tmp_path: Path) -> None:
 
     with pytest.raises(ValidationError):
         UniversalRegistry(broken)
+
+
+def test_freshness_for_entity_returns_declared_snapshot(tmp_path: Path) -> None:
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    data["entities"]["goals"][0]["freshness"] = {
+        "last_reviewed_at": "2026-10-01T00:00:00Z",
+        "review_due_at": "2026-11-01T00:00:00Z",
+        "basis": "repository-maintenance review",
+        "stale_conditions": ["dependency contract changes"],
+    }
+    target = tmp_path / "freshness.json"
+    target.write_text(json.dumps(data), encoding="utf-8")
+
+    registry = UniversalRegistry(target)
+    freshness = registry.freshness_for_entity(data["entities"]["goals"][0]["id"])
+
+    assert freshness is not None
+    assert freshness["review_due_at"] == "2026-11-01T00:00:00Z"
+    freshness["stale_conditions"].append("mutated")
+    assert "mutated" not in registry.freshness_for_entity(data["entities"]["goals"][0]["id"])["stale_conditions"]
+
+
+def test_freshness_for_unknown_entity_is_rejected() -> None:
+    registry = UniversalRegistry(REGISTRY)
+
+    with pytest.raises(KeyError, match="Unknown entity"):
+        registry.freshness_for_entity("entity/missing")
+
+
+def test_freshness_is_optional_for_legacy_entities() -> None:
+    registry = UniversalRegistry(REGISTRY)
+
+    assert registry.freshness_for_entity("goal/research-and-analysis") is None
+
+
+def test_freshness_review_due_cannot_precede_last_reviewed(tmp_path: Path) -> None:
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    data["entities"]["goals"][0]["freshness"] = {
+        "last_reviewed_at": "2026-11-01T00:00:00Z",
+        "review_due_at": "2026-10-01T00:00:00Z",
+        "basis": "repository-maintenance review",
+        "stale_conditions": ["dependency contract changes"],
+    }
+    target = tmp_path / "invalid-freshness.json"
+    target.write_text(json.dumps(data), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="review_due_at precedes last_reviewed_at"):
+        UniversalRegistry(target)
