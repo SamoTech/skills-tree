@@ -490,3 +490,8 @@ Fresh documentation preflight found `meta/PYPI_RELEASE_PLAN.md` describing an ob
 Issue #86 now has a deterministic lexical search contract in `meta/SEARCH_CLI_CONTRACT.md`. `cli/search_engine.py` consumes only the loaded generated documents; it does not create a second index, parser, or semantic ranking layer. Verification must include focused tests, full CI, wheel installation, and actual installed `skills-tree search` execution.
 
 Post-merge evidence: PR #299 merged as `7302d0780b2857bdd2f54363a2e6158eafc45292`. Exact-head Test Suite passed on Python 3.11/3.12/3.13; Security Scan, PR Checks, Build & Verify Wheel, and Auto Label passed. Build & Verify also installed the produced wheel and successfully executed `skills-tree search "memory" --limit 1 --format json`. An earlier wheel run exposed the missing runtime `jsonschema` dependency; that dependency was declared explicitly before the successful verification.
+
+
+## 2026-10-03 — Discovery registry context
+
+The generated machine-readable skill index now projects optional UniversalRegistry context only for exact registered canonical skills. The projection preserves canonical source ownership, exposes explicit capability/implementation/evidence/provenance/freshness references when declared, and does not infer context for uncovered skills. The search index remains a search-only corpus.
