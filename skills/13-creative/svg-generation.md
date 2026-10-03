@@ -5,7 +5,6 @@ level: advanced
 stability: stable
 version: v2
 added: "2025-03"
-updated: "2026-10-03"
 description: "Generate and validate SVG markup for icons, diagrams, and simple illustrations with explicit viewBox, element, accessibility, and sanitization constraints."
 
 related: [image-generation, logo-design, code-generation]---
