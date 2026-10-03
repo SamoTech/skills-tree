@@ -7,11 +7,12 @@ version: v2
 added: "2025-03"
 updated: "2026-10-03"
 description: "Generate and validate SVG markup for icons, diagrams, and simple illustrations with explicit viewBox, element, accessibility, and sanitization constraints."
----
+
+related: [image-generation, logo-design, code-generation]---
 
 # SVG Generation
 
-## Purpose
+## Description
 
 Produce SVG documents that are structurally valid and constrained for their intended rendering context. Generation and validation are separate steps.
 
@@ -72,7 +73,7 @@ print(validate_svg(svg))
 
 Evidence status: references support the structural guidance. No rendering compatibility guarantee is made.
 
-## Related Skills
+## Related
 
 - image-generation
 - logo-design
