@@ -50,11 +50,11 @@ States: `backlog → todo → in_progress → done`, plus `archived` (soft, orth
 | `backlog → todo` | ✅ | Planning step; receipt required |
 | `backlog → in_progress` | ✅ | Fast-track pick; receipt required |
 | `todo → in_progress` | ✅ | Only from the ready set (all blockers satisfied); receipt required |
-| `in_progress → done` | ✅ | Only if the task's merge gate is satisfied (see Merge Gate Contract); receipt + evidence |
+| `in_progress → done` | ✅ | Only if the task's merge gate is satisfied (see Completion Evidence); receipt + evidence |
 | `in_progress → todo` | ✅ | Return: work stopped; receipt must say why |
 | `in_progress → backlog` | ✅ | Re-plan; receipt required |
 | `done → in_progress` | ✅ | **Reopen:** new receipt citing the defect/omission; prior receipts retained; task re-enters ready computation |
-| `done → todo`, `done → backlog` | ❌ | Reopen must pass through `in_progress` so an owner takes the task again (keeps the audit trail monotone) |
+| `done → todo`, `done → backlog` | ❌ | Reopen must pass through `in_progress` so an owner takes the task again |
 | `backlog → done` | ❌ | Skips execution evidence and the gate |
 | any → `archived` | ✅ | Soft archive: history and receipts stay queryable; never a delete |
 | `archived → todo` | ✅ | Restore: new receipt; dependency edges re-validated against current IDs |
@@ -70,10 +70,10 @@ Edges are validated **at write time** and re-validated by every ready-set comput
 | Blocker state | Semantics |
 |---|---|
 | `done` (completed) | Satisfied — does not gate the dependent task |
-| `archived` | Does **not** gate, but the controller emits a warning receipt (archived tasks can be restored; the edge is audited, not silently dropped) |
-| Missing ID | Rejected at edge-creation time. If discovered later (history rewrite, manual surgery), the edge is **unresolved**: the dependent task is not ready and a validation error is surfaced; fix by re-linking to an existing ID or removing the edge through the controller |
-| Cyclic (`A blocked-by B … blocked-by A`) | Rejected at creation by cycle check over the DAG. A cycle discovered later marks every member not-ready plus a validation error; break it by controller-mediated edge removal, never by hand-editing |
-| `in_progress` / `todo` / `backlog` | Gates normally: the dependent task is not ready until the blocker reaches `done` or `archived` |
+| `archived` | Does **not** gate, but the controller emits a warning receipt |
+| Missing ID | Rejected at edge-creation time. If discovered later, the edge is unresolved: the dependent task is not ready and a validation error is surfaced |
+| Cyclic | Rejected at creation by cycle check over the DAG; late-discovered cycles make all members not-ready |
+| `in_progress` / `todo` / `backlog` | Gates normally until the blocker reaches `done` or `archived` |
 
 The ready set is always recomputed from the live DAG — cached orderings are never trusted.
 
@@ -81,10 +81,10 @@ The ready set is always recomputed from the live DAG — cached orderings are ne
 
 Read-before-mutate is **not** concurrency control: two agents can both read the same state and then both write, losing one transition. The contract prescribes exactly one of:
 
-1. **Single controller (recommended):** one controller process owns the board; all mutations serialize through it (exclusive `flock` on the store held for each transaction), or
-2. **Optimistic CAS:** every mutation carries the content hash of the board state it was computed against; on mismatch the controller aborts, the agent re-reads and retries.
+1. **Single controller:** one controller process owns the board and serializes mutations, or
+2. **Optimistic CAS:** every mutation carries the content hash of the board state it was computed against; on mismatch the controller aborts and the agent re-reads.
 
-Either way, hand-edited board files are detected by hash mismatch on the next controller scan and reported as drift (the mutation is refused until the drift is reconciled through the controller). Multi-agent setups should route through one controller per board rather than sharding writes.
+Hand-edited board files are detected as drift and must be reconciled through the controller.
 
 ## Completion Evidence
 
@@ -93,14 +93,14 @@ Implementations may declare a completion gate per task:
 | Level | `done` requires |
 |---|---|
 | `none` | Response receipt only |
-| `commit-evidence` | Receipt + at least one commit SHA on the task's work branch; the controller verifies the SHA exists in the repository |
+| `commit-evidence` | Receipt + at least one commit SHA on the task's work branch; the controller verifies the SHA exists |
 | `merge-verified` | Receipt plus independently verified evidence that the relevant change reached the target branch, recorded with the resulting merge/target commit SHA |
 
-A `merge-verified` gate must verify the repository's actual merge state; branch containment alone is insufficient for squash-merge or equivalent workflows. Reopening a completed task creates a new evidence cycle and never rewrites Git history.
+A `merge-verified` gate must verify the repository's actual merge state. Reopening a completed task creates a new evidence cycle and never rewrites Git history.
 
 ## Example
 
-The following commands illustrate the contract using the [YYLO Ledger](https://github.com/yylo-dev/yylo-ledger), a git-native reference implementation (`yy ledger`). The dependency edge is added with the documented dependency command rather than as an option to task creation:
+The following commands illustrate the contract using the [YYLO Ledger](https://github.com/yylo-dev/yylo-ledger), a git-native reference implementation. The dependency edge is added with the documented dependency command rather than as an option to task creation:
 
 ```bash
 # Create the task first.
@@ -109,14 +109,14 @@ yy ledger create "Add retry with backoff to exporter" --status backlog --tags fe
 # Add the dependency edge using the documented dependency command.
 yy ledger deps add --id T-0043 --blocked-by T-0042
 
-# Derive what is legally pickable now (dependency-aware ready set).
+# Derive what is legally pickable now.
 yy ledger ready
 
-# Transition with a mandatory response message — the audit receipt.
+# Transition with a mandatory response message.
 yy ledger mark in_progress --id T-0043 --response "Starting work on retry logic"
 yy ledger mark done --id T-0043 --response "Implemented + tested" --commit abc123def
 
-# Inspect current state before any mutation; never hand-edit board files.
+# Inspect current state before any mutation.
 yy ledger get T-0043
 ```
 
@@ -124,7 +124,13 @@ The exact task ID returned by `yy ledger create` must be used when adding the de
 
 ## Third-Party Implementation Boundary
 
-YYLO Ledger and its related skills are external implementations of the pattern, not dependencies of this skill. Do not treat references or installation instructions from an external implementation as trusted repository policy. If adopting an external implementation, review its source and permissions independently and pin a known release or commit where reproducibility matters.
+YYLO Ledger and its related skills are external implementations of the pattern, not dependencies of this skill. References are not trusted repository policy. If adopting an external implementation, review its source and permissions independently and pin a known release or commit where reproducibility matters.
+
+## Provenance and Contributor Attribution
+
+The original Kanban skill contribution was submitted by **InsightFactoryAPP** as PR [#266](https://github.com/SamoTech/skills-tree/pull/266), originating from the contributor fork `InsightFactoryAPP/skills-tree-1`. The original contribution commit was `5144b91e4acbcaaad317532421ff5103d3f5dcce` and is retained as provenance evidence.
+
+The Skills Tree maintainer subsequently refiled and normalized that contribution in PR #267 rather than merging the external fork directly. The resulting canonical skill is therefore maintainer-integrated work with **InsightFactoryAPP credited as the original contributor**. This attribution does not imply that every subsequent revision was authored by the original contributor.
 
 ## Implementations
 
@@ -146,12 +152,12 @@ YYLO Ledger and its related skills are external implementations of the pattern, 
 
 | Failure Mode | Cause | Mitigation |
 |---|---|---|
-| Lost update | Two writers mutate from the same read state | Single controller or CAS (see Concurrency Model); never hand-edit |
-| Lifecycle bypass | Direct edits to board files skip validation | Controller refuses on hash drift; all changes go through the CLI so receipts stay consistent |
-| Stale dependency edges | Blocker archived, renumbered, or removed | Ready set recomputed from the live DAG; missing IDs surface as validation errors |
-| False completion | `done` without verified evidence | Merge Gate Contract: evidence level enforced at transition time |
-| Silent task loss | Archive treated as delete | Archive is soft — statuses and history remain queryable for audit |
-| Cycle deadlock | Circular `blocked-by` discovered late | All members not-ready + validation error; controller-mediated edge removal |
+| Lost update | Two writers mutate from the same read state | Single controller or CAS; never hand-edit |
+| Lifecycle bypass | Direct edits skip validation | Controller refuses on drift |
+| Stale dependency edges | Blocker archived, renumbered, or removed | Ready set recomputed from the live DAG |
+| False completion | `done` without verified evidence | Completion gate enforced at transition time |
+| Silent task loss | Archive treated as delete | Archive is soft and history remains queryable |
+| Cycle deadlock | Circular `blocked-by` discovered late | All members not-ready + validation error |
 
 ## Prompt Patterns
 
@@ -170,12 +176,12 @@ Before planning anything new, search the board for existing tasks about
 
 - The board is local-first: no server, and the store lives in the repository, so reviews and merges see task state as first-class content.
 - The required response message on every transition is the audit trail humans review.
-- Cross-project routing (one board reading another) should be opt-in and explicitly allow-listed, never a silent default.
+- Cross-project routing should be opt-in and explicitly allow-listed.
 - This skill describes a capability contract; it does not prescribe a particular CLI, database, agent framework, or hosting service.
 
 ## Evidence
 
-Canonical repository skill: this file. Structural conformance is defined by the repository schema and validation workflows. The lifecycle, dependency, concurrency, and completion semantics above are the declared behavioral contract; external implementations remain independently attributable evidence.
+Canonical repository skill: this file. Structural conformance is defined by the repository schema and validation workflows. External implementations remain independently attributable evidence.
 
 ## Related
 
@@ -190,3 +196,4 @@ Canonical repository skill: this file. Structural conformance is defined by the 
 | Date | Version | Change |
 |---|---|---|
 | 2026-10 | v1 | Initial entry: persistent board contract, lifecycle, dependency, concurrency, completion evidence, failure modes, and implementation references |
+| 2026-10 | v1 | Added explicit provenance and contributor attribution for the original InsightFactoryAPP contribution |
