@@ -37,13 +37,15 @@ def test_registry_context_is_optional_in_export_schema():
 def test_generated_registry_context_projection_matches_universal_registry():
     api = json.loads((ROOT / "docs/api/skills.json").read_text(encoding="utf-8"))
     schema = json.loads((ROOT / "docs/api/skills-schema.json").read_text(encoding="utf-8"))
-    Draft202012Validator(schema).validate(api["skills"][0])
+    context_schema = schema["properties"]["registry_context"]
 
     contexts = {
         item["registry_context"]["canonical_id"]: item["registry_context"]
         for item in api["skills"]
         if "registry_context" in item
     }
+    for context in contexts.values():
+        Draft202012Validator(context_schema).validate(context)
     assert set(contexts) == {
         "03-memory/rag",
         "05-code/code-review",
