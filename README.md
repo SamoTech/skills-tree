@@ -93,10 +93,6 @@ skills-tree validate
 
 The historical `skills_tree.SkillsTree` Python API is not currently implemented in the repository. Search is currently generated from canonical `skills/` content into `docs/search-index.json` for the static web experience. See [Python API Status](docs/api.md) and [CLI Reference](docs/cli.md) for the verified boundaries.
 
-Or use the CLI:
-
-```bash
-```
 
 → Full install guide: **[docs/installation.md](docs/installation.md)** · Quick start: **[docs/quickstart.md](docs/quickstart.md)**
 
@@ -155,7 +151,7 @@ Quality classifications are repository validation states, not proof of productio
 │                   (Python package)                      │
 ├─────────────┬───────────────────┬───────────────────────┤
 │   CLI       │   Python API      │   MCP Server          │
-│ (Typer)     │ (SkillsTree class)│ (tools/mcp/)          │
+│ (Typer)     │ (FastAPI/Pydantic)│ (tools/mcp/)          │
 ├─────────────┴───────────────────┴───────────────────────┤
 │              Skills Data Layer (Markdown + YAML)        │
 │  skills/  │  systems/  │  blueprints/  │  benchmarks/   │
