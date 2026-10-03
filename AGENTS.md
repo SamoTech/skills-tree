@@ -15,6 +15,24 @@ Read these files before meaningful work:
 
 Then inspect the relevant architecture, testing, security, deployment, and roadmap documents for the task.
 
+## Mandatory Documentation Preflight — HARD GATE
+
+Before any meaningful implementation, review, merge, audit, or completion decision:
+
+1. Read the authoritative governance and state documents listed above.
+2. Verify `meta/CURRENT-STATE.md`, `meta/ROADMAP.md`, and relevant decision records against live `main`, current implementation, generated artifacts, and recent CI/PR evidence.
+3. Treat documentation drift as a blocking engineering condition. Synchronize the authoritative documentation before starting unrelated feature work unless an urgent safety/security issue requires otherwise.
+4. Do not trust a historical document, cached report, prior agent handoff, or conversation memory as current state without live repository verification.
+5. Keep historical records historical: do not rewrite old decisions merely to make them match today’s state. Add a current decision/state record when needed.
+6. A task cannot be reported `COMPLETE` while this preflight has unresolved documentation drift.
+7. Every substantial cycle must end with a re-read/re-audit of the affected authoritative documents and a clear next action.
+
+Required execution boundary:
+
+`READ → VERIFY LIVE STATE → AUDIT DOCUMENTATION DRIFT → SYNCHRONIZE → RE-READ → EXECUTE → TEST → VERIFY → DOCUMENT → RE-READ → COMPLETE`
+
+If the preflight fails, status is `VERIFIED — DOCUMENTATION PENDING` or `IN PROGRESS`, never `COMPLETE`.
+
 ## Strategic objective
 
 Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
@@ -58,7 +76,8 @@ Documentation closes the loop.
 - Do not expose private chain-of-thought; provide structured inputs, outputs, assumptions, evidence, verification, and concise conclusions instead.
 - Do not weaken validation or security gates to make CI green.
 - Do not introduce vendor lock-in, hosted control planes, or competing sources of truth without a documented architectural decision.
-- Do not declare meaningful work complete while required documentation is missing.
+- Do not declare meaningful work complete while required documentation is missing or stale.
+- Treat unresolved authoritative documentation drift as a blocking condition for unrelated implementation work.
 - Record significant decisions in meta/memory/DECISIONS.md.
 - Update meta/CURRENT-STATE.md when verified repository state changes materially.
 - Update meta/ROADMAP.md when roadmap state changes.

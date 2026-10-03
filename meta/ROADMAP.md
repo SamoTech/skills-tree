@@ -206,13 +206,17 @@ The strategic phases below remain the long-term product direction. They must not
 ## Current execution queue
 
 1. Complete any remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
-2. Verify and merge the Universal Graph relationship runtime boundary only after exact-head CI and review/governance gates pass.
+2. Re-audit the merged Universal Graph relationship runtime boundary and the broader universal-registry consumer surface from the verified benchmark, anti-slop, freshness, graph-integrity, and provenance/evidence baseline.
 3. Re-audit the merged universal-registry runtime and consumer surface from the verified benchmark, anti-slop, freshness, and graph-integrity baseline.
 4. Reconcile the remaining CLI search documentation/implementation gap (Issue #86) using existing search/runtime primitives; do not duplicate search logic.
 5. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
 6. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle.
-7. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
+7. Re-verify live `main`, CI, generated artifacts, and authoritative documentation before selecting the next slice.
 8. Resume strategic capability-intelligence and demand-driven work only when the foundational runtime path is sufficiently established by evidence.
+
+### Mandatory execution invariant
+
+Documentation synchronization is a hard precondition for meaningful agent work. Every agent must pass the Documentation Preflight defined in `AI_CONSTITUTION.md` and `AGENTS.md`. If authoritative documentation is stale, synchronize it before unrelated implementation work unless an urgent safety/security condition requires immediate action. Unresolved documentation drift prevents `COMPLETE`.
 
 ## Definition of done
 

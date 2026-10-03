@@ -827,3 +827,20 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Status:** VERIFIED — operating policy adopted and documentation update prepared.
 
 **Reopen Conditions:** Reopen if the Human Owner changes this policy, repository control-plane rules require approval, or evidence shows automated gates are insufficient for a specific change class.
+
+
+# DECISION-2026-10-03-DOCUMENTATION-SYNCHRONIZATION-GATE
+
+**Decision-ID:** DECISION-2026-10-03-DOCUMENTATION-SYNCHRONIZATION-GATE
+
+**Topic:** Make authoritative documentation synchronization a mandatory agent execution gate.
+
+**Finding:** The live implementation and generated quality report had advanced beyond stale operational snapshots and roadmap queue entries. Existing governance already required documentation, but the pre-execution behavior was not explicit enough to force agents to verify and reconcile documentation before unrelated work.
+
+**Decision:** Require every agent performing meaningful repository work to complete a live Documentation Preflight: read the authoritative governance/state documents, verify current-state and roadmap claims against live main, implementation, generated artifacts, and recent CI/PR evidence, synchronize drift before unrelated feature work, re-read the affected documents, and only then execute. Unresolved documentation drift prevents a task from being reported COMPLETE.
+
+**Evidence:** AI_CONSTITUTION.md, AGENTS.md, meta/CURRENT-STATE.md, meta/ROADMAP.md, meta/QUALITY-REPORT.md, and live main commit af176a061abfa84401176043cd04ad2704736f47.
+
+**Status:** LOCKED.
+
+**Reopen Conditions:** Reopen only if the repository adopts a stronger equivalent documentation-control mechanism or the authoritative source-of-truth architecture changes.

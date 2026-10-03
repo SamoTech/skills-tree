@@ -114,7 +114,7 @@ Strategic decisions are not silently replaced by implementation preference.
 
 For normal repository pull requests, the authoritative merge gate is verified automated validation: the exact PR HEAD must pass the required repository CI/test and security checks, the change must satisfy the documented engineering invariants, and no unresolved blocking failure may remain. Human approval is not required as a separate merge condition unless a specific repository control-plane rule or higher-priority decision explicitly requires it. The COO may merge when these automated gates are satisfied.
 
-9. COO Execution Record
+## 9. COO Execution Record
 
 Significant execution work must preserve:
 - Objective
@@ -131,7 +131,21 @@ Significant execution work must preserve:
 
 The existing agent handoff and memory protocols may carry these fields.
 
-## 10. Documentation Gate
+
+## 10. Mandatory Agent Documentation Preflight Gate
+
+Before an agent performs meaningful repository work, it MUST complete this preflight against the live repository, not against chat history:
+1. Read `AI_CONSTITUTION.md` and `AGENTS.md`.
+2. Read `meta/PRODUCT_MISSION.md`, `meta/COO_MASTER_MISSION.md`, `meta/CURRENT-STATE.md`, `meta/memory/DECISIONS.md`, `meta/ROADMAP.md`, and `meta/AGENT_HANDOFF_PROTOCOL.md`.
+3. Identify the authoritative documents relevant to the task and verify that their stated current state is consistent with live `main`, current code, generated artifacts, and recent merged PR/CI evidence.
+4. If authoritative documentation is stale or contradictory, stop feature execution and perform documentation synchronization first unless a higher-priority safety issue requires immediate action.
+5. Do not use stale documentation as authority merely because it appears in the repository; implementation and live verification determine whether documentation is current.
+6. Record material synchronization findings in the appropriate current-state, roadmap, decision, architecture, or handoff document in the same change cycle.
+7. Only after the preflight passes may the agent proceed to implementation or declare a task COMPLETE.
+
+A task that skips this preflight is `IN PROGRESS`, not COMPLETE.
+
+## 11. Documentation Gate
 
 Before reporting a meaningful task as COMPLETE:
 - [ ] Implementation complete
@@ -149,13 +163,13 @@ If a required item is missing, use IN PROGRESS, BLOCKED, PARTIALLY COMPLETE, IMP
 
 Never report COMPLETE when required documentation is missing.
 
-## 11. Handoff and Session Close
+## 12. Handoff and Session Close
 
 Every departing agent must leave enough repository documentation for the next agent to determine what happened, why, what changed, what was verified, what failed, what remains, and which decision governs the next action.
 
 Before ending substantial work, the COO must inspect repository state, verify results, synchronize documentation, update status, record decisions, update the roadmap when applicable, and define the next action.
 
-## 12. Code/Documentation Conflicts
+## 13. Code/Documentation Conflicts
 
 Do not guess when implementation and documentation disagree.
 
@@ -166,7 +180,7 @@ Determine:
 
 Synchronize them. Escalate strategic conflicts to the CEO/CIO.
 
-## 13. Non-Negotiable Rule
+## 14. Non-Negotiable Rule
 
 NO SIGNIFICANT DECISION, CHANGE, OR VERIFIED STATE MAY REMAIN UNDOCUMENTED.
 

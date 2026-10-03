@@ -9,9 +9,10 @@
 - Latest verified implementation synchronization: Goal runtime facade integration merged to `main` as `3290ebc88060fca07e944cd31ad31d392982ca3d`; Capability runtime facade remains verified at `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`; Skill runtime facade remains verified at `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
-- Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 375 skill files: 207 battle-tested, 158 enriched, 10 stubs, 0 invalid.
+- Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 375 skill files: 216 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional test fixture.
 - Quality-report figures are current only at the generated-report verification point; historical verification sections retain their original counts.
 - `main` current HEAD is intentionally verified from the live Git ref during each execution cycle; this snapshot does not hard-code its own future commit.
+- Latest documentation synchronization was verified on 2026-10-03 after quality-report regeneration at `af176a061abfa84401176043cd04ad2704736f47`.
 
 ## Current verified architecture state
 
@@ -69,9 +70,13 @@ The governing product mission is now:
 
 PR #250 discovery alignment is merged and its mission/discovery documentation is now part of the verified product baseline.
 
+## Documentation synchronization status
+
+**VERIFIED — synchronized 2026-10-03.** Current-state and roadmap documentation now reflect the generated quality report and merged Universal Graph runtime boundary. Historical records remain historical and are not rewritten solely to match current state.
+
 ## Next mandatory action
 
-Perform a fresh universal-registry runtime architecture audit after the verified deterministic Agent Skills corpus. The next engineering slice must be evidence-backed and must not reopen completed runtime or distribution work. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Perform a fresh universal-registry runtime architecture audit after the verified deterministic Agent Skills corpus. Every agent must first pass the mandatory Documentation Preflight defined in `AI_CONSTITUTION.md` and `AGENTS.md`. The next engineering slice must be evidence-backed and must not reopen completed runtime or distribution work. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
