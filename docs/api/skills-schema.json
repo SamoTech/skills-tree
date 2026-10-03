@@ -102,6 +102,61 @@
       "items": {
         "type": "string"
       }
+    },
+    "registry_context": {
+      "type": "object",
+      "required": [
+        "canonical_id",
+        "version",
+        "canonical",
+        "capability_ids",
+        "implementation_ids",
+        "evidence_ids",
+        "provenance"
+      ],
+      "properties": {
+        "canonical_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "canonical": {
+          "type": "boolean",
+          "const": true
+        },
+        "capability_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "implementation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "provenance": {
+          "type": "object"
+        },
+        "freshness": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
