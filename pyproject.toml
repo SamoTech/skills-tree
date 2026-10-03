@@ -29,6 +29,7 @@ dependencies = [
     "networkx>=3.0",
     "markdown>=3.5",
     "requests>=2.31",
+    "jsonschema>=4.23",
 ]
 
 [project.optional-dependencies]
