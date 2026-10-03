@@ -72,7 +72,10 @@
           "$ref": "#/$defs/evidenceList"
         },
         "benchmarks": {
-          "$ref": "#/$defs/entityList"
+          "type": "array",
+          "items": {
+            "$ref": "https://github.com/SamoTech/skills-tree/blob/main/meta/benchmark-contract.schema.json#/$defs/benchmark"
+          }
         },
         "architectures": {
           "$ref": "#/$defs/entityList"
