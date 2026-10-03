@@ -75,7 +75,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Documentation synchronization status
 
-**DRIFT IDENTIFIED — 2026-10-03 preflight.** Live `main` is ahead of parts of the operational documentation: the graph boundary is merged, recommendation and blueprint registry context are merged, and the PyPI release contract is synchronized. This cycle reconciles the remaining current-state, roadmap, architecture, decision-memory, discovery, and handoff records without rewriting historical entries.
+**VERIFIED — synchronized in this documentation cycle.** The preflight found stale operational statements about merged graph/consumer work; those discrepancies are reconciled here without rewriting historical entries.
 
 ## Next mandatory action
 
