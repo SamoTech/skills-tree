@@ -38,7 +38,7 @@ related: [dependency-management, security-scanning, code-execution-sandbox]---
 > **Phase 3 of the Dependency Watchdog pipeline.**
 > Closes the gap between *Package Exists* (🟡 Yellow) and *Code Runs* (🟢 Green).
 
-## The Execution Gap
+## Description
 
 The AST Sweep (Phase 1) confirms that a skill's declared packages exist on PyPI
 and are free of known CVEs. But existence ≠ execution. A package might:
@@ -326,7 +326,7 @@ ephemeral runner model is the primary and sufficient containment strategy.
 
 ---
 
-## Related Infrastructure
+## Related
 
 | Component | Role |
 |---|---|
