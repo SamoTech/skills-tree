@@ -63,7 +63,7 @@ The Dependency Auditor solves this by **running the code**, not just scanning it
 │     e. subprocess.run(snippet, venv python, timeout=30s)        │
 │     f. Emit verdict: "pass" | "fail" | "skip"                   │
 │  3. Write badge JSONs for passing skills                        │
-│  4. Open a verification PR for human sign-off (Yellow → Green)  │
+│  4. Open a verification PR for CI-gated Yellow → Green promotion  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -210,9 +210,7 @@ def audit_skill(skill_path: str, deps: list[str], snippets: list[str]) -> AuditR
 
 ## The Human-in-the-Loop Contract
 
-The badge **never promotes itself**. A passing audit produces a *patch* — a
-proposed frontmatter diff — which is committed to a new branch and opened as
-a Pull Request. A maintainer must review and merge it.
+The badge is not written directly into canonical skill content. A passing audit produces a proposed badge artifact on a new branch and opens a Pull Request. The exact PR HEAD is merged only when required repository CI, security, tests, and invariants pass.
 
 This is the critical security feature. Without it, a snippet that passes due
 to a flaky network call or a temporary PyPI outage could silently award a
@@ -296,9 +294,9 @@ This skill (`dependency-auditor.md`) is itself subject to the badge pipeline it 
 
 - Its own `httpx` and `packaging` imports are scanned by the AST Sweep → Yellow badge
 - The Dependency Auditor runs its own snippets in an isolated venv
-- If they pass → a verification PR is opened → a maintainer merges → Green badge
+- If they pass → a verification PR is opened → exact-head repository CI gates the merge → Green badge
 
-The tool that audits the repository is audited by the repository.
+The tool that audits the repository is itself audited by the repository.
 This is the self-healing property of the infrastructure.
 
 ---
