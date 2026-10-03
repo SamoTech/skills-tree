@@ -271,3 +271,11 @@ Be kind, constructive, and welcoming. We follow the [Contributor Covenant v2.1](
 ---
 
 *Made with ❤️ by [Ossama Hashim](https://github.com/SamoTech) and contributors.*
+
+## Anti-Slop Standard
+
+Skills Tree rejects content that is plausible-looking but low-information, placeholder-driven, or marketing-style without technical substance. New or modified skills must contain concrete procedures, constraints, failure modes, runnable examples, or other verifiable technical detail appropriate to the skill.
+
+The deterministic anti-slop gate (tools/check_antislop.py) blocks placeholder language and common marketing filler in changed skills. It also reports absolute claims and generic value statements for review. The gate is deliberately rule-based and does not attempt to judge writing style with an LLM.
+
+Do not add prose merely to increase line count. Do not claim production readiness, guarantees, benchmark results, adoption, or superiority without evidence. Prefer precise scope, explicit limitations, reproducible examples, and evidence-backed claims.
