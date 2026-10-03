@@ -5,7 +5,6 @@ level: advanced
 stability: stable
 version: v2
 added: "2025-03"
-updated: "2026-10-03"
 description: "Create timed video scripts with hooks, narration, on-screen text, visual cues, and calls to action while keeping factual claims traceable to the source brief."
 
 related: [blog-writing, presentation-gen, social-media-post]---
