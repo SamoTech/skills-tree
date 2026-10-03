@@ -80,7 +80,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-Re-audit the remaining machine-readable discovery consumer surfaces after the verified recommendation and blueprint `registry_context` slices. Start with generated `docs/api/skills.json`, generated `docs/search-index.json`, and their canonical builders. Determine whether a shared deterministic runtime boundary can expose registry context/provenance without creating a parallel index or ranking system. Only after that audit, and after the documentation gate is clean, address Issue #86 (`skills-tree search`) with the existing search primitives if the gap remains.
+Re-audit the remaining machine-readable discovery consumer surfaces after the verified search-projection contract. Next focus on the runtime/package boundary: determine how a reusable search consumer can access canonical/generated search data after wheel installation without making `docs/` a hidden runtime dependency or introducing a second ranking/index implementation. Only after that contract is verified should Issue #86 (`skills-tree search`) receive an implementation slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
