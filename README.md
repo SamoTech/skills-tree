@@ -10,9 +10,9 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — September 28, 2026
+## 📆 This Week's Highlights — October 3, 2026
 
-> No skill changes this week. Open a PR to get started!
+> The current corpus contains 375 skill files, including one intentional test fixture classified separately from production skills.
 
 <!-- HIGHLIGHTS_END -->
 
@@ -25,9 +25,9 @@ AI agents should be able to find the right skill here, and humans should be able
 
 The repository remains an evidence-backed, dependency-aware knowledge graph and distribution system for making those skills discoverable and reusable.
 
-| 374 Skills | 780+ Connections | MIT Licensed |
+| 375 Skill Files | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
-| Versioned & benchmarked | Dependency-mapped | Community-governed |
+| Versioned & evidence-backed | Dependency-mapped | Community-governed |
 
 **Need an AI skill? Start here.** Search the machine-readable registry, inspect the canonical skill, then use the Agent Skills package when available.
 
@@ -96,9 +96,6 @@ The historical `skills_tree.SkillsTree` Python API is not currently implemented 
 Or use the CLI:
 
 ```bash
-skills-tree search "memory injection"
-skills-tree show rag
-skills-tree list --category reasoning
 ```
 
 → Full install guide: **[docs/installation.md](docs/installation.md)** · Quick start: **[docs/quickstart.md](docs/quickstart.md)**
@@ -144,7 +141,7 @@ Skills Tree fixes that. → [Read the full problem statement](docs/WHY_SKILLS_TR
 
 A living, versioned, community-powered collection of AI skills and capability definitions. Skills are documented with practical usage, evidence, failure modes, limitations, and evolution history where supported by repository evidence.
 
-Battle-tested skills (🟢 verified) are production-ready and copy-paste safe. Yellow/unscanned skills are the community's TODO list — open files, real problem space, and the clearest signal of where contributions are most useful.
+Quality classifications are repository validation states, not proof of production readiness or universal safety. Inspect each skill's evidence, freshness, dependencies, limitations, and security boundaries before use.
 
 → [Real-world use cases](docs/USE_CASES.md) · [Why Skills Tree vs alternatives](docs/WHY_SKILLS_TREE.md#competitive-positioning)
 
