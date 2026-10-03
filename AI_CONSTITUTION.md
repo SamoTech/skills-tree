@@ -110,7 +110,11 @@ Reopen Conditions:
 
 Strategic decisions are not silently replaced by implementation preference.
 
-## 8. COO Execution Record
+## 8. Merge Authorization
+
+For normal repository pull requests, the authoritative merge gate is verified automated validation: the exact PR HEAD must pass the required repository CI/test and security checks, the change must satisfy the documented engineering invariants, and no unresolved blocking failure may remain. Human approval is not required as a separate merge condition unless a specific repository control-plane rule or higher-priority decision explicitly requires it. The COO may merge when these automated gates are satisfied.
+
+9. COO Execution Record
 
 Significant execution work must preserve:
 - Objective
@@ -127,7 +131,7 @@ Significant execution work must preserve:
 
 The existing agent handoff and memory protocols may carry these fields.
 
-## 9. Documentation Gate
+## 10. Documentation Gate
 
 Before reporting a meaningful task as COMPLETE:
 - [ ] Implementation complete
@@ -145,13 +149,13 @@ If a required item is missing, use IN PROGRESS, BLOCKED, PARTIALLY COMPLETE, IMP
 
 Never report COMPLETE when required documentation is missing.
 
-## 10. Handoff and Session Close
+## 11. Handoff and Session Close
 
 Every departing agent must leave enough repository documentation for the next agent to determine what happened, why, what changed, what was verified, what failed, what remains, and which decision governs the next action.
 
 Before ending substantial work, the COO must inspect repository state, verify results, synchronize documentation, update status, record decisions, update the roadmap when applicable, and define the next action.
 
-## 11. Code/Documentation Conflicts
+## 12. Code/Documentation Conflicts
 
 Do not guess when implementation and documentation disagree.
 
@@ -162,7 +166,7 @@ Determine:
 
 Synchronize them. Escalate strategic conflicts to the CEO/CIO.
 
-## 12. Non-Negotiable Rule
+## 13. Non-Negotiable Rule
 
 NO SIGNIFICANT DECISION, CHANGE, OR VERIFIED STATE MAY REMAIN UNDOCUMENTED.
 
