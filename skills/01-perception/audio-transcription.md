@@ -3,95 +3,86 @@ title: "Audio Transcription"
 category: 01-perception
 level: intermediate
 stability: stable
-version: v2
+version: v3
 added: "2025-03"
-description: "Transcribe spoken audio into timestamped text and, when a compatible diarization model is available, speaker-attributed segments. Use it for meetings, interviews, captions, and other speech-to-text pipelines."
-dependencies:
-  - package: openai-whisper
-    min_version: "20231117"
-    tested_version: "20231117"
-    confidence: verified
-  - package: torch
-    min_version: "2.1.0"
-    tested_version: "2.3.0"
-    confidence: verified
-code_blocks:
-  - id: "example-diarization"
-    type: illustrative
-    note: "pyannote.audio requires HuggingFace token and model download — illustrative only"
+updated: "2026-10-03"
+description: "Convert speech audio into timestamped text while preserving timing, language metadata, and source traceability for captions, search, summarization, and extraction."
 ---
-
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-audio-transcription.json)
 
 # Audio Transcription
 
-### Description
-Converts spoken audio into structured text with word-level timestamps, speaker diarization, language identification, and confidence scoring. Handles noise, overlapping speech, domain-specific vocabulary, and long-form recordings via chunking strategies.
+## Purpose
 
-### When to Use
-- Transcribing meetings, interviews, podcasts, call recordings, or lecture audio
-- Building downstream pipelines that require timestamped captions or subtitles
-- Speaker-attributed summarization or action-item extraction from multi-participant audio
-- Real-time transcription via streaming WebSocket APIs
+Convert an audio file into structured transcript segments. A useful pipeline preserves timestamps and enough source metadata to trace generated text back to the recording. Transcription is extraction, not independent fact verification.
 
-### Example
-```python type:illustrative
-# pip install openai-whisper torch pyannote.audio
-# Note: `pyannote` is the import name for PyPI package `pyannote.audio`
-import whisper, torch
-from pyannote.audio import Pipeline
+## Inputs / Outputs
 
-def transcribe_with_diarization(audio_path: str) -> list[dict]:
-    # Step 1: transcribe with word timestamps
-    model = whisper.load_model("large-v3", device="cuda" if torch.cuda.is_available() else "cpu")
-    result = model.transcribe(audio_path, word_timestamps=True, language=None)  # auto-detect lang
+| Item | Type | Required | Notes |
+|---|---|---:|---|
+| Audio path | str | yes | Local audio readable by the process |
+| Model | str | yes | Installed Whisper model identifier |
+| Language | str or None | no | Omit for model language detection |
+| Output segments | list[dict] | yes | Start, end, and text per segment |
+| Output language | str or None | no | Detected language when available |
 
-    # Step 2: diarize
-    diar = Pipeline.from_pretrained("pyannote/speaker-diarization-3.1")
-    diar_result = diar(audio_path)
+## Runnable Example
 
-    # Step 3: merge word timestamps with speaker turns
-    segments = []
-    for turn, _, speaker in diar_result.itertracks(yield_label=True):
-        words = [
-            w for seg in result["segments"]
-            for w in seg.get("words", [])
-            if turn.start <= w["start"] < turn.end
-        ]
-        if words:
-            segments.append({"speaker": speaker, "start": turn.start,
-                              "end": turn.end, "text": " ".join(w["word"] for w in words)})
-    return segments
+```python
+import json
+from pathlib import Path
+import whisper
+
+def transcribe(path: str, model_name: str = "base") -> dict:
+    model = whisper.load_model(model_name)
+    result = model.transcribe(path, fp16=False)
+    return {
+        "source": str(Path(path)),
+        "language": result.get("language"),
+        "segments": [
+            {"start": round(s["start"], 3), "end": round(s["end"], 3), "text": s["text"].strip()}
+            for s in result.get("segments", [])
+        ],
+    }
+
+transcript = transcribe("meeting.wav")
+Path("meeting.transcript.json").write_text(json.dumps(transcript, indent=2), encoding="utf-8")
+print(f"segments={len(transcript['segments'])}")
 ```
 
-### Advanced Techniques
-- **Long audio chunking**: split at silence boundaries (`pydub.silence.split_on_silence`) before feeding to Whisper to avoid context window truncation
-- **Custom vocabulary**: inject domain terms via `initial_prompt` parameter in Whisper or use PromptingWhisper
-- **Streaming**: use `faster-whisper` with `stream=True` for low-latency real-time pipelines
-- **Post-correction**: run a language model pass to fix homophones and domain-specific names
+## Engineering Rules
 
-### Related Skills
-- `video-understanding`, `summarization`, `text-reading`, `image-understanding`
-
+- Bound maximum file size and duration before processing.
+- Preserve the source identifier and transcription model in application metadata.
+- For long recordings, chunk without losing absolute timestamps.
+- Speaker diarization is a separate component; do not imply speaker identity from plain transcription.
+- Treat transcript text as extracted data until independently verified.
 
 ## Failure Modes
 
-| Failure Mode | Cause | Mitigation |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Untrusted input causes incorrect extraction | Malformed, adversarial, or incomplete source data | Validate structure, bound input size, preserve source provenance, and reject ambiguous results when required |
-| Model or parser overstates certainty | Heuristic extraction is treated as authoritative | Return source spans or structured evidence and distinguish extraction from verification |
-| Context or resource exhaustion | Large files, histories, responses, or media are processed without limits | Apply size, time, row, page, or token limits and process incrementally |
-
+| Wrong language | Automatic detection uncertainty | Supply language when known and retain detected value |
+| Hallucinated text | Ambiguous or poor audio | Preserve timestamps and verify critical segments |
+| Truncated recording | Operational limits | Process bounded chunks with absolute time offsets |
+| Resource exhaustion | Large model or media | Select model size explicitly and enforce limits |
 
 ## Evidence
 
-The skill's implementation guidance is grounded in the following primary references:
-- OpenAI Whisper implementation: https://github.com/openai/whisper
-- Whisper transcription options include word-level timestamps and initial prompts: https://github.com/openai/whisper/blob/main/whisper/transcribe.py
-- pyannote.audio: https://github.com/pyannote/pyannote-audio
+- Whisper implementation: https://github.com/openai/whisper
+- Whisper transcription implementation: https://github.com/openai/whisper/blob/main/whisper/transcribe.py
 
-Evidence status: implementation guidance verified against the cited documentation; no benchmark claim is made unless a reproducible benchmark is included in this file.
+Evidence status: implementation guidance is grounded in the cited primary implementation. No accuracy or benchmark claim is made.
 
-### Changelog
-- 2026-09-30: verified as part of stub-migration batch 02; evidence and failure-mode gates retained.
+## Related Skills
+
+- text-reading
+- video-understanding
+- summarization
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial entry |
+| v2 | 2026-04 | Structured transcription guidance |
+| v3 | 2026-10 | Added runnable batch pipeline and explicit failure boundaries |
