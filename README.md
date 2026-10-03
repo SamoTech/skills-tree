@@ -76,21 +76,22 @@ The repository remains an evidence-backed, dependency-aware knowledge graph and 
 
 ---
 
-## ⚡ Quick Install
+## ⚡ Current Usage
+
+The verified repository interfaces are the canonical Markdown skill catalog, generated machine-readable artifacts, the FastAPI service, and the Typer CLI.
+
+For a local checkout:
 
 ```bash
-pip install skills-tree
+pip install -e .
+skills-tree goals
+skills-tree skills
+skills-tree recommend --goal "Coding Agent"
+skills-tree blueprint --goal "Coding Agent"
+skills-tree validate
 ```
 
-```python
-# Query the skills taxonomy programmatically
-from skills_tree import SkillsTree
-
-st = SkillsTree()
-skill = st.get("rag")           # fetch a skill by ID
-results = st.search("memory")   # full-text search across 369 skills
-cats = st.categories()          # list all 17 categories
-```
+The historical `skills_tree.SkillsTree` Python API is not currently implemented in the repository. Search is currently generated from canonical `skills/` content into `docs/search-index.json` for the static web experience. See [Python API Status](docs/api.md) and [CLI Reference](docs/cli.md) for the verified boundaries.
 
 Or use the CLI:
 
