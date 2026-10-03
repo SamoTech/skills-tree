@@ -5,7 +5,6 @@ level: advanced
 stability: stable
 version: v2
 added: "2025-03"
-updated: "2026-10-03"
 description: "Generate structured presentation plans with slide purpose, evidence-backed content, speaker notes, and visual direction while keeping claims traceable to supplied source material."
 
 related: [blog-writing, structured-output, svg-generation]---
