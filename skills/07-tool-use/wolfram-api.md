@@ -5,7 +5,6 @@ level: intermediate
 stability: stable
 version: v2
 added: "2025-03"
-updated: "2026-10-03"
 description: "Call the Wolfram Alpha query API for computational knowledge and mathematics while validating response structure, preserving tool errors, and protecting API credentials."
 
 related: [calculator, mathematical-reasoning, api-call, structured-output]---
