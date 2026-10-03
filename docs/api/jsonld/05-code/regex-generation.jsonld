@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/regex-generation.md",
-  "name": "Regex Generation",
-  "headline": "Regex Generation",
-  "description": "Apply regex generation in AI agent workflows.",
+  "name": "regex-generation",
+  "headline": "regex-generation",
+  "description": "Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/regex-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "regex-generation",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/text-reading.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, regex, code, skills tree, LLM skill, generation",
+  "datePublished": "2026-09-01",
+  "keywords": "code, generation, LLM skill, regex, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Regex Generation",
-    "description": "An AI agent skill for regex generation."
+    "name": "regex-generation",
+    "description": "An AI agent skill for regex-generation."
   }
 }

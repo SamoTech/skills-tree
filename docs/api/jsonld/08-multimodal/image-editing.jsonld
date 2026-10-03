@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-editing.md",
-  "name": "Image Editing",
-  "headline": "Image Editing",
-  "description": "Apply image editing and generation operations in AI agent workflows.",
+  "name": "image-editing",
+  "headline": "image-editing",
+  "description": "Apply an explicitly scoped image transformation while preserving the requested regions and verifying the resulting artifact.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-editing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "image-editing",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "08-multimodal",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks",
-    "Dependencies",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
     "Failure Modes",
-    "Related",
-    "Changelog"
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -76,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, editing, image, multimodal",
+  "keywords": "LLM skill, editing, multimodal, skills tree, image, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Image Editing",
-    "description": "An AI agent skill for image editing."
+    "name": "image-editing",
+    "description": "An AI agent skill for image-editing."
   }
 }

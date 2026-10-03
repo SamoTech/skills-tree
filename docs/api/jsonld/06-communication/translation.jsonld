@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "translation",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, translation, LLM skill, communication",
+  "keywords": "LLM skill, translation, communication, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Translation",

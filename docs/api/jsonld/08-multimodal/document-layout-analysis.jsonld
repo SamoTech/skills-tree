@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/document-layout-analysis.md",
-  "name": "Document Layout Analysis",
-  "headline": "Document Layout Analysis",
-  "description": "Apply document layout analysis in AI agent workflows.",
+  "name": "document-layout-analysis",
+  "headline": "document-layout-analysis",
+  "description": "Identify document regions, reading order, tables, figures, and layout structure before downstream extraction.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/document-layout-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,29 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "document-layout-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/document-parsing.md",
-    "../01-perception/ocr.md",
-    "../01-perception/table-extraction.md",
-    "../01-perception/pdf-parsing.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, analysis, LLM skill, document, layout, multimodal",
+  "keywords": "analysis, LLM skill, layout, multimodal, skills tree, document, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Document Layout Analysis",
-    "description": "An AI agent skill for document layout analysis."
+    "name": "document-layout-analysis",
+    "description": "An AI agent skill for document-layout-analysis."
   }
 }

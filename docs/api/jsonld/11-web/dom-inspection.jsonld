@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/dom-inspection.md",
-  "name": "DOM Inspection",
-  "headline": "DOM Inspection",
-  "description": "Apply dom inspection in AI agent workflows.",
+  "name": "dom-inspection",
+  "headline": "dom-inspection",
+  "description": "Inspect the live DOM of an authorized page to identify elements, attributes, text, structure, and relationships.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/dom-inspection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "dom-inspection",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, dom, inspection, skills tree, LLM skill",
+  "keywords": "LLM skill, web, dom, skills tree, inspection, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "DOM Inspection",
-    "description": "An AI agent skill for dom inspection."
+    "name": "dom-inspection",
+    "description": "An AI agent skill for dom-inspection."
   }
 }

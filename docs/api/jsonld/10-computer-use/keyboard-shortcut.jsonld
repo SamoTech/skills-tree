@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-shortcut.md",
-  "name": "Keyboard Shortcut",
-  "headline": "Keyboard Shortcut",
-  "description": "Apply keyboard shortcut in AI agent workflows.",
+  "name": "keyboard-shortcut",
+  "headline": "keyboard-shortcut",
+  "description": "Execute a specified keyboard shortcut against the verified active application and UI context.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-shortcut.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "keyboard-shortcut",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, shortcut, AI agent, skills tree, LLM skill, keyboard, computer",
+  "keywords": "shortcut, keyboard, LLM skill, use, computer, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Keyboard Shortcut",
-    "description": "An AI agent skill for keyboard shortcut."
+    "name": "keyboard-shortcut",
+    "description": "An AI agent skill for keyboard-shortcut."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-management.md",
-  "name": "Dependency Management",
-  "headline": "Dependency Management",
-  "description": "Apply dependency management in AI agent workflows.",
+  "name": "dependency-management",
+  "headline": "dependency-management",
+  "description": "Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-management.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "dependency-management",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, management, dependency",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, skills tree, AI agent, management, dependency",
   "about": {
     "@type": "Thing",
-    "name": "Dependency Management",
-    "description": "An AI agent skill for dependency management."
+    "name": "dependency-management",
+    "description": "An AI agent skill for dependency-management."
   }
 }

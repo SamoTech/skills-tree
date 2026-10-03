@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/git-operations.md",
-  "name": "Git Operations",
-  "headline": "Git Operations",
-  "description": "Apply git operations in AI agent workflows.",
+  "name": "git-operations",
+  "headline": "git-operations",
+  "description": "Perform Git operations with explicit branch, commit, merge, and recovery intent while preserving repository history and state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/git-operations.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "git-operations",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../04-action-execution/shell-command.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, operations, git",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, operations, skills tree, git, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Git Operations",
-    "description": "An AI agent skill for git operations."
+    "name": "git-operations",
+    "description": "An AI agent skill for git-operations."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-joining.md",
-  "name": "Data Joining",
-  "headline": "Data Joining",
-  "description": "Apply data joining in AI agent workflows.",
+  "name": "data-joining",
+  "headline": "data-joining",
+  "description": "Combine datasets using explicit keys and join semantics while checking cardinality and unmatched records.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-joining.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "data-joining",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, joining, AI agent, LLM skill, data",
+  "keywords": "LLM skill, AI agent, data, skills tree, joining",
   "about": {
     "@type": "Thing",
-    "name": "Data Joining",
-    "description": "An AI agent skill for data joining."
+    "name": "data-joining",
+    "description": "An AI agent skill for data-joining."
   }
 }

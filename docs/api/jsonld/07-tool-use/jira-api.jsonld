@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/jira-api.md",
   "name": "Jira API",
   "headline": "Jira API",
-  "description": "Apply jira api in AI agent workflows.",
+  "description": "Use Jira REST APIs from agents to inspect and manage issues with explicit authorization, field validation, and outcome verification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/jira-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "jira-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, api, jira",
+  "datePublished": "2026-09-01",
+  "keywords": "api, LLM skill, use, AI agent, tool, skills tree, jira",
   "about": {
     "@type": "Thing",
     "name": "Jira API",

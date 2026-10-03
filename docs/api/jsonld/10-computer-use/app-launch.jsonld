@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/app-launch.md",
-  "name": "Application Launch",
-  "headline": "Application Launch",
-  "description": "Apply application launch in AI agent workflows.",
+  "name": "app-launch",
+  "headline": "app-launch",
+  "description": "Launch a specified desktop application using an explicit application identifier or verified path.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/app-launch.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "app-launch",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, LLM skill, launch, computer, app",
+  "keywords": "app, LLM skill, use, computer, skills tree, AI agent, launch",
   "about": {
     "@type": "Thing",
-    "name": "Application Launch",
-    "description": "An AI agent skill for application launch."
+    "name": "app-launch",
+    "description": "An AI agent skill for app-launch."
   }
 }

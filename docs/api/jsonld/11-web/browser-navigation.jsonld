@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/browser-navigation.md",
-  "name": "Browser Navigation",
-  "headline": "Browser Navigation",
-  "description": "Apply browser navigation in AI agent workflows.",
+  "name": "browser-navigation",
+  "headline": "browser-navigation",
+  "description": "Navigate an authorized browser session through explicit URLs and page-state transitions while verifying destination state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/browser-navigation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "browser-navigation",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, skills tree, browser, navigation, LLM skill",
+  "keywords": "browser, navigation, LLM skill, web, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Browser Navigation",
-    "description": "An AI agent skill for browser navigation."
+    "name": "browser-navigation",
+    "description": "An AI agent skill for browser-navigation."
   }
 }

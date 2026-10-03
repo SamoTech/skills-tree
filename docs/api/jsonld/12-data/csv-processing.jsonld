@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/csv-processing.md",
-  "name": "CSV Processing",
-  "headline": "CSV Processing",
-  "description": "Apply CSV processing in AI agent workflows.",
+  "name": "csv-processing",
+  "headline": "csv-processing",
+  "description": "Read, validate, transform, and export CSV data while preserving schema and row-level integrity.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/csv-processing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "csv-processing",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "csv, AI agent, skills tree, LLM skill, data, processing",
+  "keywords": "LLM skill, data, processing, skills tree, csv, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "CSV Processing",
-    "description": "An AI agent skill for csv processing."
+    "name": "csv-processing",
+    "description": "An AI agent skill for csv-processing."
   }
 }

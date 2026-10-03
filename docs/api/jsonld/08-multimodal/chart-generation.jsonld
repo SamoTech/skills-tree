@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/chart-generation.md",
-  "name": "Chart / Diagram Generation",
-  "headline": "Chart / Diagram Generation",
-  "description": "Apply chart and diagram generation in AI agent workflows.",
+  "name": "chart-generation",
+  "headline": "chart-generation",
+  "description": "Generate charts or diagrams from validated structured data using an explicit chart specification and semantic checks.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/chart-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "chart-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../12-data/data-visualization.md",
-    "../01-perception/chart-reading.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, chart, multimodal, generation",
+  "keywords": "generation, LLM skill, multimodal, skills tree, AI agent, chart",
   "about": {
     "@type": "Thing",
-    "name": "Chart / Diagram Generation",
-    "description": "An AI agent skill for chart / diagram generation."
+    "name": "chart-generation",
+    "description": "An AI agent skill for chart-generation."
   }
 }

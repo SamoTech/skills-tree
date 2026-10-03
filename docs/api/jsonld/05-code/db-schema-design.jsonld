@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/db-schema-design.md",
-  "name": "Database Schema Design",
-  "headline": "Database Schema Design",
-  "description": "Apply database schema design in AI agent workflows.",
+  "name": "db-schema-design",
+  "headline": "db-schema-design",
+  "description": "Design database schemas from explicit data requirements, relationships, constraints, and access patterns.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/db-schema-design.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,35 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "db-schema-design",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [
-    "../04-action-execution/database-write.md"
+    "../../AI_CONSTITUTION.md",
+    "../../meta/AGENT_OPERATING_MODEL.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, schema, LLM skill, design, db",
+  "datePublished": "2026-09-01",
+  "keywords": "code, design, LLM skill, schema, skills tree, db, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Database Schema Design",
-    "description": "An AI agent skill for database schema design."
+    "name": "db-schema-design",
+    "description": "An AI agent skill for db-schema-design."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/vm-interaction.md",
-  "name": "Virtual Machine Interaction",
-  "headline": "Virtual Machine Interaction",
-  "description": "Apply virtual machine interaction in AI agent workflows.",
+  "name": "vm-interaction",
+  "headline": "vm-interaction",
+  "description": "Interact with a verified virtual-machine display using bounded input actions and explicit VM identity.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/vm-interaction.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "vm-interaction",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "interaction, use, AI agent, skills tree, LLM skill, vm, computer",
+  "keywords": "interaction, LLM skill, use, computer, skills tree, AI agent, vm",
   "about": {
     "@type": "Thing",
-    "name": "Virtual Machine Interaction",
-    "description": "An AI agent skill for virtual machine interaction."
+    "name": "vm-interaction",
+    "description": "An AI agent skill for vm-interaction."
   }
 }

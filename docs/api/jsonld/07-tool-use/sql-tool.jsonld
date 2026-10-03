@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/sql-tool.md",
   "name": "SQL Tool",
   "headline": "SQL Tool",
-  "description": "Apply sql tool in AI agent workflows.",
+  "description": "Execute bounded SQL through an authorized database tool using parameterized queries, least privilege, transaction boundaries, and result validation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/sql-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "sql-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/sql-query-generation.md",
-    "../01-perception/database-reading.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, sql",
+  "datePublished": "2026-09-01",
+  "keywords": "sql, LLM skill, use, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "SQL Tool",

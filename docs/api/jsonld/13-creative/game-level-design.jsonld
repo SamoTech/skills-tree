@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/game-level-design.md",
   "name": "game-level-design",
   "headline": "game-level-design",
-  "description": "Apply game level design in AI agent workflows.",
+  "description": "Design playable level layouts or specifications with explicit geometry, pacing, challenge, navigation, and reward constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/game-level-design.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "game-level-design",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/structured-output.md",
-    "../05-code/algorithm-design.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "game, AI agent, skills tree, level, LLM skill, design, creative",
+  "keywords": "design, LLM skill, game, skills tree, level, creative, AI agent",
   "about": {
     "@type": "Thing",
     "name": "game-level-design",

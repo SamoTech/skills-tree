@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/sql-execution.md",
-  "name": "SQL Query Execution",
-  "headline": "SQL Query Execution",
-  "description": "Apply sql query execution in AI agent workflows.",
+  "name": "sql-execution",
+  "headline": "sql-execution",
+  "description": "Execute bounded SQL against an explicitly identified database, schema, and authorized query scope.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/sql-execution.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "sql-execution",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/sql-query-generation.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, AI agent, skills tree, LLM skill, data, sql",
+  "keywords": "sql, LLM skill, AI agent, data, skills tree, execution",
   "about": {
     "@type": "Thing",
-    "name": "SQL Query Execution",
-    "description": "An AI agent skill for sql query execution."
+    "name": "sql-execution",
+    "description": "An AI agent skill for sql-execution."
   }
 }

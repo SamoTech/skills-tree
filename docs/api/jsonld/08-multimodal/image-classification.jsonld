@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-classification.md",
-  "name": "Image Classification",
-  "headline": "Image Classification",
-  "description": "Apply image classification in AI agent workflows.",
+  "name": "image-classification",
+  "headline": "image-classification",
+  "description": "Assign an image to a declared label set using validated preprocessing and calibrated confidence where available.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-classification.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "image-classification",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/image-understanding.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "classification, AI agent, skills tree, LLM skill, image, multimodal",
+  "keywords": "LLM skill, multimodal, skills tree, image, AI agent, classification",
   "about": {
     "@type": "Thing",
-    "name": "Image Classification",
-    "description": "An AI agent skill for image classification."
+    "name": "image-classification",
+    "description": "An AI agent skill for image-classification."
   }
 }

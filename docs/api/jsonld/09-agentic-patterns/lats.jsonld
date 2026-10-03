@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/lats.md",
-  "name": "LATS (Language Agent Tree Search)",
-  "headline": "LATS (Language Agent Tree Search)",
-  "description": "Combines ToT tree search with reflection-based branch evaluation. The current best-performing single-agent reasoning architecture on hard benchmarks.",
+  "name": "lats",
+  "headline": "lats",
+  "description": "Combine tree search, tool use, and reflective evaluation to explore candidate actions under a bounded search budget.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/lats.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "lats",
-  "skillVersion": "v1",
+  "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
     "Description",
     "When to Use",
-    "Related Skills",
-    "Changelog"
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -71,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, patterns, agentic, lats",
+  "keywords": "LLM skill, agentic, skills tree, AI agent, lats, patterns",
   "about": {
     "@type": "Thing",
-    "name": "LATS (Language Agent Tree Search)",
-    "description": "An AI agent skill for lats (language agent tree search)."
+    "name": "lats",
+    "description": "An AI agent skill for lats."
   }
 }

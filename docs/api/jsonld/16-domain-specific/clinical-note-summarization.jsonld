@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/clinical-note-summarization.md",
   "name": "clinical-note-summarization",
   "headline": "clinical-note-summarization",
-  "description": "Apply clinical note summarization in AI agent workflows.",
+  "description": "Apply clinical note summarization in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/clinical-note-summarization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,25 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "clinical-note-summarization",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
   "sections": [],
-  "relatedSkills": [
-    "../06-communication/summarization.md",
-    "../01-perception/document-parsing.md",
-    "../06-communication/structured-output.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "domain, summarization, AI agent, skills tree, clinical, LLM skill, note, specific",
+  "keywords": "clinical, domain, LLM skill, skills tree, summarization, specific, note, AI agent",
   "about": {
     "@type": "Thing",
     "name": "clinical-note-summarization",

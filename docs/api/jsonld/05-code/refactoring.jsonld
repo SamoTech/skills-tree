@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/refactoring.md",
-  "name": "Refactoring",
-  "headline": "Refactoring",
-  "description": "Apply refactoring in AI agent workflows.",
+  "name": "refactoring",
+  "headline": "refactoring",
+  "description": "Restructure code to improve maintainability or design while preserving documented behavior and interfaces.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/refactoring.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "refactoring",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, code, LLM skill, refactoring",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, refactoring, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Refactoring",
+    "name": "refactoring",
     "description": "An AI agent skill for refactoring."
   }
 }

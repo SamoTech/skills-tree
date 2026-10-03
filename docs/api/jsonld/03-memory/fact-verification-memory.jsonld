@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/fact-verification-memory.md",
-  "name": "Fact Verification Memory",
-  "headline": "Fact Verification Memory",
-  "description": "Apply fact verification memory in AI agent workflows.",
+  "name": "fact-verification-memory",
+  "headline": "fact-verification-memory",
+  "description": "Maintain a versioned cache of verified, contradicted, and unresolved claims with provenance and freshness metadata.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/fact-verification-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "fact-verification-memory",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/self-correction.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, verification, memory, fact",
+  "keywords": "memory, LLM skill, fact, skills tree, verification, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Fact Verification Memory",
-    "description": "An AI agent skill for fact verification memory."
+    "name": "fact-verification-memory",
+    "description": "An AI agent skill for fact-verification-memory."
   }
 }

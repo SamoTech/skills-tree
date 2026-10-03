@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/portfolio-analysis.md",
   "name": "portfolio-analysis",
   "headline": "portfolio-analysis",
-  "description": "Apply portfolio analysis in AI agent workflows.",
+  "description": "Analyze supplied portfolio holdings and return/risk inputs using explicit assumptions and reproducible calculations.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/portfolio-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "portfolio-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/risk-assessment.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "AI agent, domain, skills tree, analysis, LLM skill, portfolio, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, analysis, LLM skill, portfolio, skills tree, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "portfolio-analysis",

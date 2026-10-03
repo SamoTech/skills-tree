@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/question-answering.md",
-  "name": "Question Answering",
-  "headline": "Question Answering",
-  "description": "Apply question answering in AI agent workflows.",
+  "name": "question-answering",
+  "headline": "question-answering",
+  "description": "Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/question-answering.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "question-answering",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
-  "relatedSkills": [
-    "../03-memory/rag.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, question, LLM skill, communication, answering",
+  "keywords": "LLM skill, communication, answering, question, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Question Answering",
-    "description": "An AI agent skill for question answering."
+    "name": "question-answering",
+    "description": "An AI agent skill for question-answering."
   }
 }

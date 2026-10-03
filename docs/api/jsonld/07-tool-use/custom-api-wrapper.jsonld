@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/custom-api-wrapper.md",
-  "name": "Custom API Wrapper",
-  "headline": "Custom API Wrapper",
-  "description": "Apply custom api wrapper in AI agent workflows.",
+  "name": "custom-api-wrapper",
+  "headline": "custom-api-wrapper",
+  "description": "Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/custom-api-wrapper.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "custom-api-wrapper",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../04-action-execution/http-request.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, custom, tool, LLM skill, api, wrapper",
+  "datePublished": "2026-09-01",
+  "keywords": "api, LLM skill, use, wrapper, tool, skills tree, custom, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Custom API Wrapper",
-    "description": "An AI agent skill for custom api wrapper."
+    "name": "custom-api-wrapper",
+    "description": "An AI agent skill for custom-api-wrapper."
   }
 }

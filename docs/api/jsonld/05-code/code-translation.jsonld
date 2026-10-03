@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-translation.md",
-  "name": "Code Translation",
-  "headline": "Code Translation",
-  "description": "Apply code translation in AI agent workflows.",
+  "name": "code-translation",
+  "headline": "code-translation",
+  "description": "Translate source code between programming languages while preserving behavior, interfaces, and documented constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-translation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,35 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "code-translation",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
+  "relatedSkills": [
+    "../../AI_CONSTITUTION.md",
+    "../../meta/AGENT_OPERATING_MODEL.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, code, translation, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, translation, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Code Translation",
-    "description": "An AI agent skill for code translation."
+    "name": "code-translation",
+    "description": "An AI agent skill for code-translation."
   }
 }

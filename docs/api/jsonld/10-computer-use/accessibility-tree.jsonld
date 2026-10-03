@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/accessibility-tree.md",
-  "name": "Accessibility Tree Navigation",
-  "headline": "Accessibility Tree Navigation",
-  "description": "Apply accessibility tree navigation in AI agent workflows.",
+  "name": "accessibility-tree",
+  "headline": "accessibility-tree",
+  "description": "Interpret an accessibility tree to identify roles, names, states, and actionable UI targets.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/accessibility-tree.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "accessibility-tree",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tree, LLM skill, computer, accessibility",
+  "keywords": "LLM skill, use, computer, accessibility, skills tree, tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Accessibility Tree Navigation",
-    "description": "An AI agent skill for accessibility tree navigation."
+    "name": "accessibility-tree",
+    "description": "An AI agent skill for accessibility-tree."
   }
 }

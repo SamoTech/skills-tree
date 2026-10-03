@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/sendgrid-api.md",
   "name": "SendGrid API",
   "headline": "SendGrid API",
-  "description": "Apply sendgrid api in AI agent workflows.",
+  "description": "Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/sendgrid-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "sendgrid-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../04-action-execution/email-sending.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "sendgrid, use, AI agent, skills tree, tool, LLM skill, api",
+  "datePublished": "2026-09-01",
+  "keywords": "api, LLM skill, use, sendgrid, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "SendGrid API",

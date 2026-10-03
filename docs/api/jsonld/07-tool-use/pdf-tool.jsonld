@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/pdf-tool.md",
   "name": "PDF Tool",
   "headline": "PDF Tool",
-  "description": "Apply pdf tool in AI agent workflows.",
+  "description": "Extract and inspect PDF content while preserving page context, detecting scanned documents, and verifying extraction quality.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/pdf-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "pdf-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/pdf-parsing.md",
-    "../01-perception/document-parsing.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, pdf, tool, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "pdf, use, LLM skill, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "PDF Tool",

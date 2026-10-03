@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag-pipeline.md",
-  "name": "RAG Pipeline",
-  "headline": "RAG Pipeline",
-  "description": "Apply rag pipeline in AI agent workflows.",
+  "name": "rag-pipeline",
+  "headline": "rag-pipeline",
+  "description": "Construct a retrieval-augmented generation pipeline with explicit ingestion, indexing, retrieval, grounding, generation, and verification stages.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag-pipeline.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,33 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "rag-pipeline",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
-  "relatedSkills": [
-    "../03-memory/rag.md",
-    "../07-tool-use/vector-db-tool.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, patterns, pipeline, rag, agentic",
+  "keywords": "pipeline, LLM skill, agentic, rag, skills tree, AI agent, patterns",
   "about": {
     "@type": "Thing",
-    "name": "RAG Pipeline",
-    "description": "An AI agent skill for rag pipeline."
+    "name": "rag-pipeline",
+    "description": "An AI agent skill for rag-pipeline."
   }
 }

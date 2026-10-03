@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/performance-profiling.md",
-  "name": "Performance Profiling",
-  "headline": "Performance Profiling",
-  "description": "Apply performance profiling in AI agent workflows.",
+  "name": "performance-profiling",
+  "headline": "performance-profiling",
+  "description": "Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/performance-profiling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "performance-profiling",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, performance, code, skills tree, profiling, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, performance, skills tree, AI agent, profiling",
   "about": {
     "@type": "Thing",
-    "name": "Performance Profiling",
-    "description": "An AI agent skill for performance profiling."
+    "name": "performance-profiling",
+    "description": "An AI agent skill for performance-profiling."
   }
 }

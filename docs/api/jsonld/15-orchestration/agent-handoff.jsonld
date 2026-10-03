@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-handoff.md",
-  "name": "Agent Handoff",
-  "headline": "Agent Handoff",
-  "description": "Apply agent handoff in AI agent workflows.",
+  "name": "agent-handoff",
+  "headline": "agent-handoff",
+  "description": "Transfer an active task between agents with a complete state snapshot, pending actions, evidence, and acceptance criteria.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-handoff.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "agent-handoff",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Orchestration Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, handoff, orchestration, agent",
+  "keywords": "handoff, agent, LLM skill, orchestration, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Agent Handoff",
-    "description": "An AI agent skill for agent handoff."
+    "name": "agent-handoff",
+    "description": "An AI agent skill for agent-handoff."
   }
 }

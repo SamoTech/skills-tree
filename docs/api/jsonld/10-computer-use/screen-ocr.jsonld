@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screen-ocr.md",
-  "name": "Screen Region OCR",
-  "headline": "Screen Region OCR",
-  "description": "Apply screen region ocr in AI agent workflows.",
+  "name": "screen-ocr",
+  "headline": "screen-ocr",
+  "description": "Extract visible text from a verified screen region using OCR while preserving location and uncertainty.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screen-ocr.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "screen-ocr",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, ocr, screen, LLM skill, computer",
+  "keywords": "LLM skill, use, screen, computer, skills tree, AI agent, ocr",
   "about": {
     "@type": "Thing",
-    "name": "Screen Region OCR",
-    "description": "An AI agent skill for screen region ocr."
+    "name": "screen-ocr",
+    "description": "An AI agent skill for screen-ocr."
   }
 }

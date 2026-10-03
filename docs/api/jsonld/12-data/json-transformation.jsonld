@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/json-transformation.md",
-  "name": "JSON Transformation",
-  "headline": "JSON Transformation",
-  "description": "Apply json transformation in AI agent workflows.",
+  "name": "json-transformation",
+  "headline": "json-transformation",
+  "description": "Transform JSON structures between explicit schemas while preserving required fields and data types.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/json-transformation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "json-transformation",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/structured-data-reading.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, transformation, LLM skill, json, data",
+  "keywords": "LLM skill, data, json, skills tree, AI agent, transformation",
   "about": {
     "@type": "Thing",
-    "name": "JSON Transformation",
-    "description": "An AI agent skill for json transformation."
+    "name": "json-transformation",
+    "description": "An AI agent skill for json-transformation."
   }
 }

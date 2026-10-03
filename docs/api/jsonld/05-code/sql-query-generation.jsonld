@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/sql-query-generation.md",
-  "name": "SQL Query Generation",
-  "headline": "SQL Query Generation",
-  "description": "Apply sql query generation in AI agent workflows.",
+  "name": "sql-query-generation",
+  "headline": "sql-query-generation",
+  "description": "Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/sql-query-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "sql-query-generation",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../12-data/sql-execution.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, query, generation, sql",
+  "datePublished": "2026-09-01",
+  "keywords": "sql, code, generation, LLM skill, query, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "SQL Query Generation",
-    "description": "An AI agent skill for sql query generation."
+    "name": "sql-query-generation",
+    "description": "An AI agent skill for sql-query-generation."
   }
 }

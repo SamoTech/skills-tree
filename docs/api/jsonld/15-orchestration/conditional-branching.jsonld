@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/conditional-branching.md",
   "name": "conditional-branching",
   "headline": "conditional-branching",
-  "description": "Apply conditional branching in AI agent workflows.",
+  "description": "Route workflow execution using explicit conditions, predicates, and mutually understood branch outcomes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/conditional-branching.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "conditional-branching",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/decision-making.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Orchestration Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "AI agent, skills tree, branching, LLM skill, orchestration, conditional",
+  "datePublished": "2025-03-01",
+  "keywords": "conditional, LLM skill, orchestration, skills tree, AI agent, branching",
   "about": {
     "@type": "Thing",
     "name": "conditional-branching",

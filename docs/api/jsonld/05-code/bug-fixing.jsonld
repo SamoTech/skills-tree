@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/bug-fixing.md",
   "name": "Bug Fixing",
   "headline": "Bug Fixing",
-  "description": "Take a failing test or stack trace and produce a minimal patch that makes the test pass. Loops on test execution until green or budget exhausted, with each retry conditioned on the new failure output.",
+  "description": "Fix a reproducible defect by isolating the failing behavior, making the smallest safe change, and verifying regression coverage.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/bug-fixing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,34 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "bug-fixing",
-  "skillVersion": "v3",
+  "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
     "Description",
     "When to Use",
-    "Inputs / Outputs",
+    "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Failure Modes",
-    "Variants",
-    "Frameworks & Models",
-    "Model Comparison",
-    "Related Skills",
-    "Changelog"
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
-  "relatedSkills": [
-    "../09-agentic-patterns/reflection.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, bug, LLM skill, fixing",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, fixing, skills tree, AI agent, bug",
   "about": {
     "@type": "Thing",
     "name": "Bug Fixing",

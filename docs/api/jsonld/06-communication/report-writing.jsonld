@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/report-writing.md",
-  "name": "Report Writing",
-  "headline": "Report Writing",
-  "description": "Apply report writing in AI agent workflows.",
+  "name": "report-writing",
+  "headline": "report-writing",
+  "description": "Produce a structured report that separates evidence, analysis, assumptions, findings, and actions according to the requested audience and format.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/report-writing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "report-writing",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, writing, LLM skill, communication, report",
+  "keywords": "LLM skill, communication, report, writing, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Report Writing",
-    "description": "An AI agent skill for report writing."
+    "name": "report-writing",
+    "description": "An AI agent skill for report-writing."
   }
 }

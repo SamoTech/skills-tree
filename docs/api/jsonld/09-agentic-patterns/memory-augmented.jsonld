@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/memory-augmented.md",
-  "name": "Memory-Augmented Agent",
-  "headline": "Memory-Augmented Agent",
-  "description": "Apply memory-augmented agent in AI agent workflows.",
+  "name": "memory-augmented",
+  "headline": "memory-augmented",
+  "description": "Use persistent external memory across interactions while separating retrieval, current context, memory writes, and verification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/memory-augmented.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,33 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "memory-augmented",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
-  "relatedSkills": [
-    "../03-memory/long-term-memory.md",
-    "../07-tool-use/vector-db-tool.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, patterns, memory, agentic, augmented",
+  "keywords": "memory, LLM skill, augmented, agentic, skills tree, AI agent, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Memory-Augmented Agent",
-    "description": "An AI agent skill for memory-augmented agent."
+    "name": "memory-augmented",
+    "description": "An AI agent skill for memory-augmented."
   }
 }

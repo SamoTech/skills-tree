@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/notion-api.md",
   "name": "Notion API",
   "headline": "Notion API",
-  "description": "Apply notion api in AI agent workflows.",
+  "description": "Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/notion-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "notion-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/structured-output.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, notion, api",
+  "datePublished": "2026-09-01",
+  "keywords": "api, LLM skill, use, tool, skills tree, notion, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Notion API",

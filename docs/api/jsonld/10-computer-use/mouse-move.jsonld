@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/mouse-move.md",
-  "name": "Mouse Move",
-  "headline": "Mouse Move",
-  "description": "Apply mouse move in AI agent workflows.",
+  "name": "mouse-move",
+  "headline": "mouse-move",
+  "description": "Move the pointer to a verified UI target using semantic or coordinate-based targeting.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/mouse-move.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "mouse-move",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, mouse, LLM skill, move, computer",
+  "keywords": "mouse, use, move, LLM skill, computer, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Mouse Move",
-    "description": "An AI agent skill for mouse move."
+    "name": "mouse-move",
+    "description": "An AI agent skill for mouse-move."
   }
 }

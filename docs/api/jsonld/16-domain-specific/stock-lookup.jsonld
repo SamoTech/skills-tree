@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/stock-lookup.md",
   "name": "stock-lookup",
   "headline": "stock-lookup",
-  "description": "Apply stock lookup in AI agent workflows.",
+  "description": "Retrieve and normalize supplied or connected market-data results for a requested security, preserving timestamp and source context.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/stock-lookup.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "stock-lookup",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../12-data/time-series.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "domain, AI agent, stock, skills tree, lookup, LLM skill, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, LLM skill, stock, lookup, skills tree, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "stock-lookup",

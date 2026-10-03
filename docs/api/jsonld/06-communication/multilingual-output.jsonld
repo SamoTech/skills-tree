@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/multilingual-output.md",
-  "name": "Multilingual Output",
-  "headline": "Multilingual Output",
-  "description": "Apply multilingual output in AI agent workflows.",
+  "name": "multilingual-output",
+  "headline": "multilingual-output",
+  "description": "Produce output in a declared target language while preserving semantic content, terminology, register, and explicit formatting constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/multilingual-output.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "multilingual-output",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, multilingual, LLM skill, communication, output",
+  "keywords": "output, LLM skill, multilingual, communication, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Multilingual Output",
-    "description": "An AI agent skill for multilingual output."
+    "name": "multilingual-output",
+    "description": "An AI agent skill for multilingual-output."
   }
 }

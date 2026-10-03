@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/video-frame-extraction.md",
-  "name": "Video Frame Extraction",
-  "headline": "Video Frame Extraction",
-  "description": "Apply video frame extraction in AI agent workflows.",
+  "name": "video-frame-extraction",
+  "headline": "video-frame-extraction",
+  "description": "Extract representative or task-specific video frames using bounded sampling and preserve exact timestamps and source provenance.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/video-frame-extraction.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "video-frame-extraction",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/image-understanding.md",
-    "../01-perception/video-understanding.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, video, extraction, LLM skill, frame, multimodal",
+  "keywords": "LLM skill, frame, video, multimodal, skills tree, extraction, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Video Frame Extraction",
-    "description": "An AI agent skill for video frame extraction."
+    "name": "video-frame-extraction",
+    "description": "An AI agent skill for video-frame-extraction."
   }
 }

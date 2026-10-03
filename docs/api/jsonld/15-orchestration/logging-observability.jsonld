@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/logging-observability.md",
   "name": "logging-observability",
   "headline": "logging-observability",
-  "description": "Apply logging observability in AI agent workflows.",
+  "description": "Instrument agent workflows with structured logs, correlation identifiers, metrics, and traceable state transitions.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/logging-observability.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "logging-observability",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
-  "sections": [],
-  "relatedSkills": [
-    "../14-security/audit-logging.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Orchestration Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "logging, AI agent, skills tree, LLM skill, orchestration, observability",
+  "datePublished": "2025-03-01",
+  "keywords": "LLM skill, logging, observability, orchestration, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "logging-observability",

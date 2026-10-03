@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
-  "name": "Dependency Auditor",
-  "headline": "Dependency Auditor",
-  "description": "Installs, imports, and executes a skill's declared dependencies in an isolated venv — returning a pass/fail verdict and tested version map used to promote Yellow badges to Green.",
+  "name": "dependency-auditor",
+  "headline": "dependency-auditor",
+  "description": "Audit project dependencies for declared usage, version constraints, known risk signals, and unnecessary or inconsistent packages.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "dependency-auditor",
-  "skillVersion": "v2",
+  "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
     "Description",
-    "What It Does",
     "When to Use",
-    "Inputs / Outputs",
+    "Inputs / outputs / failure modes",
     "Runnable Example",
-    "GitHub Actions Integration",
-    "Failure Modes",
-    "Pipeline Position",
-    "Dogfooding Note",
-    "Related Skills",
-    "Changelog"
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -77,11 +73,11 @@
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, dependency, auditor",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, skills tree, auditor, AI agent, dependency",
   "about": {
     "@type": "Thing",
-    "name": "Dependency Auditor",
-    "description": "An AI agent skill for dependency auditor."
+    "name": "dependency-auditor",
+    "description": "An AI agent skill for dependency-auditor."
   }
 }

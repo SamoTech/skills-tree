@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/double-click.md",
-  "name": "Double Click",
-  "headline": "Double Click",
-  "description": "Apply double click in AI agent workflows.",
+  "name": "double-click",
+  "headline": "double-click",
+  "description": "Perform a double-click on a verified UI target using semantic or coordinate-based targeting.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/double-click.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "double-click",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, click, AI agent, skills tree, LLM skill, double, computer",
+  "keywords": "LLM skill, use, computer, double, skills tree, AI agent, click",
   "about": {
     "@type": "Thing",
-    "name": "Double Click",
-    "description": "An AI agent skill for double click."
+    "name": "double-click",
+    "description": "An AI agent skill for double-click."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/similarity-search.md",
-  "name": "Similarity Search",
-  "headline": "Similarity Search",
-  "description": "Apply similarity search in AI agent workflows.",
+  "name": "similarity-search",
+  "headline": "similarity-search",
+  "description": "Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/similarity-search.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "similarity-search",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
-  "relatedSkills": [
-    "../03-memory/rag.md",
-    "../07-tool-use/vector-db-tool.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, similarity, search, data",
+  "keywords": "LLM skill, AI agent, data, skills tree, similarity, search",
   "about": {
     "@type": "Thing",
-    "name": "Similarity Search",
-    "description": "An AI agent skill for similarity search."
+    "name": "similarity-search",
+    "description": "An AI agent skill for similarity-search."
   }
 }

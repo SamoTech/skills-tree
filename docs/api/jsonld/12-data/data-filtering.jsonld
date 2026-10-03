@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-filtering.md",
-  "name": "Data Filtering",
-  "headline": "Data Filtering",
-  "description": "Apply data filtering in AI agent workflows.",
+  "name": "data-filtering",
+  "headline": "data-filtering",
+  "description": "Filter datasets using explicit predicates while preserving reproducibility and row-selection semantics.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-filtering.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "data-filtering",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, filtering, LLM skill, data",
+  "keywords": "LLM skill, data, filtering, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Data Filtering",
-    "description": "An AI agent skill for data filtering."
+    "name": "data-filtering",
+    "description": "An AI agent skill for data-filtering."
   }
 }

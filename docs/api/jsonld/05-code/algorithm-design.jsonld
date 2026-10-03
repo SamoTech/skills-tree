@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/algorithm-design.md",
   "name": "Algorithm Design",
   "headline": "Algorithm Design",
-  "description": "Apply algorithm design in AI agent workflows.",
+  "description": "Design an algorithm from explicit requirements, constraints, invariants, complexity targets, and testable acceptance criteria.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/algorithm-design.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "algorithm-design",
   "skillVersion": null,
-  "skillLevel": "advanced",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Advanced",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, algorithm, design",
+  "datePublished": "2026-09-01",
+  "keywords": "algorithm, design, code, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Algorithm Design",

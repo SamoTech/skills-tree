@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/github-api.md",
-  "name": "GitHub API (Code)",
-  "headline": "GitHub API (Code)",
-  "description": "Apply github api (code) in AI agent workflows.",
+  "name": "github-api",
+  "headline": "github-api",
+  "description": "Work with GitHub APIs using documented endpoints, authentication boundaries, pagination, error handling, and least-privilege access.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/github-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "github-api",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../07-tool-use/github-api.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, api, github",
+  "datePublished": "2026-09-01",
+  "keywords": "code, api, LLM skill, github, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "GitHub API (Code)",
-    "description": "An AI agent skill for github api (code)."
+    "name": "github-api",
+    "description": "An AI agent skill for github-api."
   }
 }

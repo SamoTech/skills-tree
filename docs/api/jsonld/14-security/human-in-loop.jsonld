@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/human-in-loop.md",
-  "name": "human-in-loop",
-  "headline": "human-in-loop",
-  "description": "Apply human in loop in AI agent workflows.",
+  "name": "Human In Loop",
+  "headline": "Human In Loop",
+  "description": "Pause high-risk agent actions for explicit human approval with deny-by-default timeouts, auditable decisions, and safe resume or abort behavior.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/human-in-loop.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "human-in-loop",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "14-security",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Design Rules",
+    "References",
+    "Related Skills"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +74,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, in, security, LLM skill, human, loop",
+  "keywords": "human, LLM skill, loop, skills tree, in, AI agent, security",
   "about": {
     "@type": "Thing",
-    "name": "human-in-loop",
-    "description": "An AI agent skill for human-in-loop."
+    "name": "Human In Loop",
+    "description": "An AI agent skill for human in loop."
   }
 }

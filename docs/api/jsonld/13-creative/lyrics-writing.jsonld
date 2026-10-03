@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/lyrics-writing.md",
   "name": "lyrics-writing",
   "headline": "lyrics-writing",
-  "description": "Apply lyrics writing in AI agent workflows.",
+  "description": "Write original song lyrics with declared structure, meter, rhyme, theme, and genre constraints while avoiding unauthorized reproduction of existing lyrics.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/lyrics-writing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "lyrics-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/tone-adjustment.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "lyrics, AI agent, skills tree, writing, LLM skill, creative",
+  "keywords": "LLM skill, AI agent, writing, skills tree, creative, lyrics",
   "about": {
     "@type": "Thing",
     "name": "lyrics-writing",

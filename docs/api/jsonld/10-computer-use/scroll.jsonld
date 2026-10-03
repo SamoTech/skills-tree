@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/scroll.md",
-  "name": "Scroll",
-  "headline": "Scroll",
-  "description": "Apply scroll in AI agent workflows.",
+  "name": "scroll",
+  "headline": "scroll",
+  "description": "Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/scroll.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "scroll",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
-  "relatedSkills": [
-    "../11-web/browser-navigation.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, LLM skill, scroll, computer",
+  "keywords": "LLM skill, use, scroll, computer, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Scroll",
+    "name": "scroll",
     "description": "An AI agent skill for scroll."
   }
 }

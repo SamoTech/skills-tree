@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/email-drafting.md",
-  "name": "Email Drafting",
-  "headline": "Email Drafting",
-  "description": "Apply email drafting in AI agent workflows.",
+  "name": "email-drafting",
+  "headline": "email-drafting",
+  "description": "Draft a clear email that matches the requested purpose, audience, tone, and action while preserving supplied facts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/email-drafting.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "email-drafting",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
-  "relatedSkills": [
-    "../04-action-execution/email-sending.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, drafting, communication, email",
+  "keywords": "drafting, LLM skill, communication, email, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Email Drafting",
-    "description": "An AI agent skill for email drafting."
+    "name": "email-drafting",
+    "description": "An AI agent skill for email-drafting."
   }
 }

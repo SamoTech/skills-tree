@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "file-system-reading",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, system, reading, LLM skill, file, perception",
+  "keywords": "system, LLM skill, skills tree, file, AI agent, perception, reading",
   "about": {
     "@type": "Thing",
     "name": "File System Reading",

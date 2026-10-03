@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/maps-geolocation.md",
   "name": "Maps & Geolocation",
   "headline": "Maps & Geolocation",
-  "description": "Apply maps & geolocation in AI agent workflows.",
+  "description": "Use geocoding, place search, distance, and routing APIs with explicit geographic scope, provider attribution, and coordinate validation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/maps-geolocation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "maps-geolocation",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, maps, geolocation",
+  "datePublished": "2026-09-01",
+  "keywords": "LLM skill, use, tool, maps, skills tree, geolocation, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Maps & Geolocation",

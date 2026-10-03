@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/medical-literature-search.md",
   "name": "medical-literature-search",
   "headline": "medical-literature-search",
-  "description": "Apply medical literature search in AI agent workflows.",
+  "description": "Structure biomedical literature searches from a defined clinical/research question using explicit search terms, evidence boundaries, and source traceability.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/medical-literature-search.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,25 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "medical-literature-search",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../11-web/web-search.md",
-    "../03-memory/rag.md",
-    "../06-communication/citation-attribution.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "literature, domain, medical, AI agent, skills tree, LLM skill, search, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, literature, LLM skill, AI agent, medical, skills tree, specific, search",
   "about": {
     "@type": "Thing",
     "name": "medical-literature-search",

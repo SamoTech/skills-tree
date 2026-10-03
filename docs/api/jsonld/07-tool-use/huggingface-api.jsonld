@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/huggingface-api.md",
-  "name": "HuggingFace API",
-  "headline": "HuggingFace API",
-  "description": "Apply huggingface api in AI agent workflows.",
+  "name": "Hugging Face API",
+  "headline": "Hugging Face API",
+  "description": "Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/huggingface-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "huggingface-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../12-data/embedding-generation.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, huggingface, api",
+  "datePublished": "2026-09-01",
+  "keywords": "api, LLM skill, use, tool, huggingface, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "HuggingFace API",
-    "description": "An AI agent skill for huggingface api."
+    "name": "Hugging Face API",
+    "description": "An AI agent skill for hugging face api."
   }
 }

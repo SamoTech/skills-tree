@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/debugging.md",
-  "name": "Debugging",
-  "headline": "Debugging",
-  "description": "Apply debugging in AI agent workflows.",
+  "name": "debugging",
+  "headline": "debugging",
+  "description": "Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/debugging.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "debugging",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/self-correction.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, code, LLM skill, debugging",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, debugging, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Debugging",
+    "name": "debugging",
     "description": "An AI agent skill for debugging."
   }
 }

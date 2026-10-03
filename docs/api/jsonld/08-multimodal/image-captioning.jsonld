@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-captioning.md",
-  "name": "Image Captioning",
-  "headline": "Image Captioning",
-  "description": "Apply image captioning in AI agent workflows.",
+  "name": "image-captioning",
+  "headline": "image-captioning",
+  "description": "Produce grounded image descriptions that distinguish visible content from inference and preserve uncertainty.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/image-captioning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "image-captioning",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/image-understanding.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "captioning, AI agent, skills tree, LLM skill, image, multimodal",
+  "keywords": "LLM skill, multimodal, skills tree, image, AI agent, captioning",
   "about": {
     "@type": "Thing",
-    "name": "Image Captioning",
-    "description": "An AI agent skill for image captioning."
+    "name": "image-captioning",
+    "description": "An AI agent skill for image-captioning."
   }
 }

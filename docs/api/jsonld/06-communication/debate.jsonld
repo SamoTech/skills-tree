@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/debate.md",
-  "name": "Debate",
-  "headline": "Debate",
-  "description": "Apply debate in AI agent workflows.",
+  "name": "debate",
+  "headline": "debate",
+  "description": "Present and test competing positions using explicit claims, evidence, rebuttals, and uncertainty without treating rhetorical confidence as proof.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/debate.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "debate",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
-  "relatedSkills": [
-    "../09-agentic-patterns/debate-pattern.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "debate, skills tree, AI agent, LLM skill, communication",
+  "keywords": "LLM skill, debate, communication, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Debate",
+    "name": "debate",
     "description": "An AI agent skill for debate."
   }
 }

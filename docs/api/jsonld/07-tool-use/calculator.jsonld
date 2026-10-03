@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/calculator.md",
-  "name": "Calculator",
-  "headline": "Calculator",
-  "description": "Apply calculator in AI agent workflows.",
+  "name": "calculator",
+  "headline": "calculator",
+  "description": "Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/calculator.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "calculator",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/mathematical-reasoning.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, calculator",
+  "datePublished": "2026-09-01",
+  "keywords": "calculator, LLM skill, use, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Calculator",
+    "name": "calculator",
     "description": "An AI agent skill for calculator."
   }
 }

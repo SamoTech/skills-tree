@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/bootstrapping.md",
-  "name": "Bootstrapping",
-  "headline": "Bootstrapping",
-  "description": "Apply bootstrapping in AI agent workflows.",
+  "name": "bootstrapping",
+  "headline": "bootstrapping",
+  "description": "Generate controlled synthetic training or demonstration data to improve a model or agent without treating self-generated data as independent ground truth.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/bootstrapping.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "bootstrapping",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "bootstrapping, AI agent, skills tree, LLM skill, patterns, agentic",
+  "keywords": "LLM skill, agentic, bootstrapping, skills tree, AI agent, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Bootstrapping",
+    "name": "bootstrapping",
     "description": "An AI agent skill for bootstrapping."
   }
 }

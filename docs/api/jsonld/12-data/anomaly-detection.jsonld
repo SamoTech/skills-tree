@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/anomaly-detection.md",
-  "name": "Anomaly Detection",
-  "headline": "Anomaly Detection",
-  "description": "Apply anomaly detection in AI agent workflows.",
+  "name": "anomaly-detection",
+  "headline": "anomaly-detection",
+  "description": "Identify unusual observations in supplied datasets using explicit baselines, thresholds, or statistical criteria.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/anomaly-detection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "anomaly-detection",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, anomaly, detection, LLM skill, data",
+  "keywords": "anomaly, LLM skill, data, detection, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Anomaly Detection",
-    "description": "An AI agent skill for anomaly detection."
+    "name": "anomaly-detection",
+    "description": "An AI agent skill for anomaly-detection."
   }
 }

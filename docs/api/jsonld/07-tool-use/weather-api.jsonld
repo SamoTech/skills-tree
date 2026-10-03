@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/weather-api.md",
   "name": "Weather API",
   "headline": "Weather API",
-  "description": "Apply weather api in AI agent workflows.",
+  "description": "Retrieve weather observations or forecasts through a documented API with explicit location, time window, units, freshness, and provider-status handling.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/weather-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "weather-api",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/structured-data-reading.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, api, weather",
+  "datePublished": "2026-09-01",
+  "keywords": "api, LLM skill, use, weather, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Weather API",

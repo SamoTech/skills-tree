@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/iac-generation.md",
   "name": "iac-generation",
   "headline": "iac-generation",
-  "description": "Apply iac generation in AI agent workflows.",
+  "description": "Draft Infrastructure as Code from a declared infrastructure specification, with explicit assumptions, review points, and deployment-safety boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/iac-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "iac-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/code-generation.md",
-    "../05-code/cicd-generation.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "AI agent, domain, skills tree, generation, iac, LLM skill, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, generation, LLM skill, iac, skills tree, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "iac-generation",

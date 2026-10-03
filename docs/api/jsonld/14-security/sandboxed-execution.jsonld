@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/sandboxed-execution.md",
-  "name": "sandboxed-execution",
-  "headline": "sandboxed-execution",
-  "description": "Apply sandboxed execution in AI agent workflows.",
+  "name": "Sandboxed Execution",
+  "headline": "Sandboxed Execution",
+  "description": "Execute untrusted agent-generated code inside a separately enforced isolation boundary with resource, filesystem, network, and timeout controls.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/sandboxed-execution.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "sandboxed-execution",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "14-security",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/code-execution-sandbox.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Design Rules",
+    "References",
+    "Related Skills"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "execution, sandboxed, AI agent, skills tree, security, LLM skill",
+  "datePublished": "2025-03-01",
+  "keywords": "LLM skill, AI agent, skills tree, execution, security, sandboxed",
   "about": {
     "@type": "Thing",
-    "name": "sandboxed-execution",
-    "description": "An AI agent skill for sandboxed-execution."
+    "name": "Sandboxed Execution",
+    "description": "An AI agent skill for sandboxed execution."
   }
 }

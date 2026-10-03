@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/constitutional-ai.md",
-  "name": "Constitutional AI",
-  "headline": "Constitutional AI",
-  "description": "Apply constitutional ai in AI agent workflows.",
+  "name": "constitutional-ai",
+  "headline": "constitutional-ai",
+  "description": "Apply a declared set of principles to critique and revise generated outputs without treating those principles as universal law.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/constitutional-ai.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "constitutional-ai",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, ai, skills tree, LLM skill, patterns, constitutional, agentic",
+  "keywords": "LLM skill, agentic, ai, skills tree, AI agent, constitutional, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Constitutional AI",
-    "description": "An AI agent skill for constitutional ai."
+    "name": "constitutional-ai",
+    "description": "An AI agent skill for constitutional-ai."
   }
 }

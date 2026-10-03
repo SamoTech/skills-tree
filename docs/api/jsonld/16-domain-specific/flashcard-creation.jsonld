@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/flashcard-creation.md",
   "name": "flashcard-creation",
   "headline": "flashcard-creation",
-  "description": "Apply flashcard creation in AI agent workflows.",
+  "description": "Convert supplied learning material into concise study cards while preserving source meaning, avoiding unsupported facts, and making difficulty or recall prompts explicit.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/flashcard-creation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "flashcard-creation",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/summarization.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "domain, AI agent, skills tree, flashcard, creation, LLM skill, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, LLM skill, creation, skills tree, specific, flashcard, AI agent",
   "about": {
     "@type": "Thing",
     "name": "flashcard-creation",

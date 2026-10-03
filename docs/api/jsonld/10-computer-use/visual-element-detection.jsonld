@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/visual-element-detection.md",
-  "name": "Visual Element Detection",
-  "headline": "Visual Element Detection",
-  "description": "Apply visual element detection in AI agent workflows.",
+  "name": "visual-element-detection",
+  "headline": "visual-element-detection",
+  "description": "Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/visual-element-detection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "visual-element-detection",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, element, AI agent, skills tree, detection, LLM skill, computer, visual",
+  "keywords": "LLM skill, use, element, computer, detection, skills tree, visual, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Visual Element Detection",
-    "description": "An AI agent skill for visual element detection."
+    "name": "visual-element-detection",
+    "description": "An AI agent skill for visual-element-detection."
   }
 }

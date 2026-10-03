@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/audio-transcription.md",
-  "name": "Audio Transcription",
-  "headline": "Audio Transcription",
-  "description": "Apply audio transcription in AI agent workflows.",
+  "name": "audio-transcription",
+  "headline": "audio-transcription",
+  "description": "Transcribe speech audio into timestamped text while preserving uncertainty, speaker boundaries when available, and non-speech events.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/audio-transcription.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "audio-transcription",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/audio-transcription.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "audio, AI agent, skills tree, LLM skill, multimodal, transcription",
+  "keywords": "LLM skill, audio, multimodal, skills tree, transcription, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Audio Transcription",
-    "description": "An AI agent skill for audio transcription."
+    "name": "audio-transcription",
+    "description": "An AI agent skill for audio-transcription."
   }
 }

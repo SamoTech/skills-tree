@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/browser-tool.md",
-  "name": "Browser Tool",
-  "headline": "Browser Tool",
-  "description": "Apply browser tool in AI agent workflows.",
+  "name": "browser-tool",
+  "headline": "browser-tool",
+  "description": "Use browser automation through explicit navigation, interaction, extraction, and verification steps.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/browser-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "browser-tool",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../11-web/browser-navigation.md",
-    "../11-web/web-scraping.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, browser, tool, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "browser, LLM skill, use, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Browser Tool",
-    "description": "An AI agent skill for browser tool."
+    "name": "browser-tool",
+    "description": "An AI agent skill for browser-tool."
   }
 }

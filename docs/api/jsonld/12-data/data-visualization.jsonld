@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-visualization.md",
-  "name": "Data Visualization",
-  "headline": "Data Visualization",
-  "description": "Apply data visualization in AI agent workflows.",
+  "name": "data-visualization",
+  "headline": "data-visualization",
+  "description": "Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-visualization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "data-visualization",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, visualization, LLM skill, data",
+  "keywords": "visualization, LLM skill, data, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Data Visualization",
-    "description": "An AI agent skill for data visualization."
+    "name": "data-visualization",
+    "description": "An AI agent skill for data-visualization."
   }
 }

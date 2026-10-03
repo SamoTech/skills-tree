@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-generation.md",
   "name": "Code Generation",
   "headline": "Code Generation",
-  "description": "Generate runnable code from a natural-language spec, optional context (existing files), and optional tests. Validate with a quick AST + import check before returning so the caller never receives obviously broken code.",
+  "description": "Generate maintainable code from explicit requirements, interfaces, constraints, tests, and repository conventions.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,34 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "code-generation",
-  "skillVersion": "v3",
+  "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
     "Description",
     "When to Use",
-    "Inputs / Outputs",
+    "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Failure Modes",
-    "Variants",
-    "Frameworks & Models",
-    "Model Comparison",
-    "Related Skills",
-    "Changelog"
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
-  "relatedSkills": [
-    "../07-tool-use/function-calling.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, code, LLM skill, generation",
+  "datePublished": "2026-09-01",
+  "keywords": "code, generation, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Code Generation",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-interpreter-agent.md",
   "name": "Code Interpreter Agent",
   "headline": "Code Interpreter Agent",
-  "description": "Use a sandboxed code execution tool to run Python, analyse data, and produce charts inside an agent workflow.",
+  "description": "Run iterative code analysis or execution with explicit state, tool boundaries, output limits, and verification between iterations.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-interpreter-agent.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,31 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "code-interpreter-agent",
-  "skillVersion": "v2",
-  "skillLevel": "intermediate",
+  "skillVersion": null,
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Failure Modes",
-    "Prompt Patterns",
-    "Model Comparison",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
     "Related",
-    "Changelog"
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "AI agent, interpreter, code, skills tree, LLM skill, agent",
+  "datePublished": "2026-09-01",
+  "keywords": "code, agent, LLM skill, interpreter, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Code Interpreter Agent",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/data-labeling.md",
   "name": "data-labeling",
   "headline": "data-labeling",
-  "description": "Apply data labeling in AI agent workflows.",
+  "description": "Apply data labeling in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/data-labeling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,25 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "data-labeling",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
   "sections": [],
-  "relatedSkills": [
-    "../12-data/data-cleaning.md",
-    "../06-communication/structured-output.md",
-    "../12-data/embedding-generation.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "domain, AI agent, skills tree, LLM skill, labeling, data, specific",
+  "keywords": "domain, LLM skill, data, skills tree, labeling, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "data-labeling",

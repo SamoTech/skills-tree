@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/cookie-management.md",
-  "name": "Cookie / Session Management",
-  "headline": "Cookie / Session Management",
-  "description": "Apply cookie / session management in AI agent workflows.",
+  "name": "cookie-management",
+  "headline": "cookie-management",
+  "description": "Manage cookies and browser session state within an authorized domain while preserving credential and session-token boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/cookie-management.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "cookie-management",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "cookie, AI agent, web, skills tree, LLM skill, management",
+  "keywords": "cookie, LLM skill, web, skills tree, AI agent, management",
   "about": {
     "@type": "Thing",
-    "name": "Cookie / Session Management",
-    "description": "An AI agent skill for cookie / session management."
+    "name": "cookie-management",
+    "description": "An AI agent skill for cookie-management."
   }
 }

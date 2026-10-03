@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/linting-formatting.md",
-  "name": "Linting & Formatting",
-  "headline": "Linting & Formatting",
-  "description": "Apply linting & formatting in AI agent workflows.",
+  "name": "linting-formatting",
+  "headline": "linting-formatting",
+  "description": "Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/linting-formatting.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "linting-formatting",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, linting, LLM skill, formatting",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, linting, skills tree, AI agent, formatting",
   "about": {
     "@type": "Thing",
-    "name": "Linting & Formatting",
-    "description": "An AI agent skill for linting & formatting."
+    "name": "linting-formatting",
+    "description": "An AI agent skill for linting-formatting."
   }
 }

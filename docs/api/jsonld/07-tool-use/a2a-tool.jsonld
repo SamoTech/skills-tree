@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/a2a-tool.md",
-  "name": "Agent-to-Agent Tool (A2A)",
-  "headline": "Agent-to-Agent Tool (A2A)",
-  "description": "Apply agent-to-agent tool (a2a) in AI agent workflows.",
+  "name": "a2a-tool",
+  "headline": "a2a-tool",
+  "description": "Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/a2a-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "a2a-tool",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../15-orchestration/subagent-spawning.md",
-    "../15-orchestration/agent-handoff.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, a2a, AI agent, skills tree, tool, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "LLM skill, use, a2a, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Agent-to-Agent Tool (A2A)",
-    "description": "An AI agent skill for agent-to-agent tool (a2a)."
+    "name": "a2a-tool",
+    "description": "An AI agent skill for a2a-tool."
   }
 }

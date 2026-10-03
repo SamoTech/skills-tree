@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/persona-adoption.md",
-  "name": "Persona Adoption",
-  "headline": "Persona Adoption",
-  "description": "Apply persona adoption in AI agent workflows.",
+  "name": "persona-adoption",
+  "headline": "persona-adoption",
+  "description": "Apply a declared communication role or style without inventing authority, credentials, facts, or permissions that the role does not establish.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/persona-adoption.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "persona-adoption",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, adoption, persona, LLM skill, communication",
+  "keywords": "persona, LLM skill, communication, adoption, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Persona Adoption",
-    "description": "An AI agent skill for persona adoption."
+    "name": "persona-adoption",
+    "description": "An AI agent skill for persona-adoption."
   }
 }

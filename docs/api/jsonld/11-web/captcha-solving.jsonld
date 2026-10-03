@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/captcha-solving.md",
-  "name": "CAPTCHA Solving",
-  "headline": "CAPTCHA Solving",
-  "description": "Apply captcha solving in AI agent workflows.",
+  "name": "captcha-solving",
+  "headline": "captcha-solving",
+  "description": "Handle CAPTCHA encounters in authorized automation by detecting the challenge and escalating to an approved human or site-provided verification path.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/captcha-solving.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "captcha-solving",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, skills tree, captcha, LLM skill, solving",
+  "keywords": "LLM skill, web, captcha, skills tree, AI agent, solving",
   "about": {
     "@type": "Thing",
-    "name": "CAPTCHA Solving",
-    "description": "An AI agent skill for captcha solving."
+    "name": "captcha-solving",
+    "description": "An AI agent skill for captcha-solving."
   }
 }

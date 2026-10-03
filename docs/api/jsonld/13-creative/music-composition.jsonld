@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/music-composition.md",
-  "name": "Pipe to abc2midi or abcjs for playback",
-  "headline": "Pipe to abc2midi or abcjs for playback",
-  "description": "Apply pipe to abc2midi or abcjs for playback in AI agent workflows.",
+  "name": "music-composition",
+  "headline": "music-composition",
+  "description": "Specify original musical material using notation or event structures under declared key, tempo, meter, harmony, and instrumentation constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/music-composition.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "music-composition",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/structured-output.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, composition, music, creative",
+  "keywords": "music, LLM skill, skills tree, creative, composition, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Pipe to abc2midi or abcjs for playback",
-    "description": "An AI agent skill for pipe to abc2midi or abcjs for playback."
+    "name": "music-composition",
+    "description": "An AI agent skill for music-composition."
   }
 }

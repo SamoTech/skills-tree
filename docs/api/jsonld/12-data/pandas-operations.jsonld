@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/pandas-operations.md",
-  "name": "Pandas Operations",
-  "headline": "Pandas Operations",
-  "description": "Apply pandas operations in AI agent workflows.",
+  "name": "pandas-operations",
+  "headline": "pandas-operations",
+  "description": "Apply reproducible pandas transformations to validated tabular data while preserving schema and row-count expectations.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/pandas-operations.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "pandas-operations",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, operations, pandas, data",
+  "keywords": "LLM skill, operations, data, pandas, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Pandas Operations",
-    "description": "An AI agent skill for pandas operations."
+    "name": "pandas-operations",
+    "description": "An AI agent skill for pandas-operations."
   }
 }

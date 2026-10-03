@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/meme-generation.md",
   "name": "meme-generation",
   "headline": "meme-generation",
-  "description": "Apply meme generation in AI agent workflows.",
+  "description": "Create original meme concepts by matching a topic and tone to a visual/caption structure without relying on deceptive or unauthorized personal imagery.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/meme-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "meme-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, creative, generation, meme",
+  "keywords": "generation, LLM skill, meme, skills tree, creative, AI agent",
   "about": {
     "@type": "Thing",
     "name": "meme-generation",

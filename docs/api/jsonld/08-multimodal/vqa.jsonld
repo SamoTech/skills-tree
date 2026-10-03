@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/vqa.md",
-  "name": "Visual Question Answering (VQA)",
-  "headline": "Visual Question Answering (VQA)",
-  "description": "Apply visual question answering (VQA) in AI agent workflows.",
+  "name": "vqa",
+  "headline": "vqa",
+  "description": "Answer questions about an image or visual scene using only supported visual evidence and explicitly marking ambiguity.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/08-multimodal/vqa.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "vqa",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "08-multimodal",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/image-understanding.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, LLM skill, vqa, multimodal",
+  "keywords": "vqa, LLM skill, multimodal, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Visual Question Answering (VQA)",
-    "description": "An AI agent skill for visual question answering (vqa)."
+    "name": "vqa",
+    "description": "An AI agent skill for vqa."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/file-system-tool.md",
-  "name": "File System Tool",
-  "headline": "File System Tool",
-  "description": "Apply file system tool in AI agent workflows.",
+  "name": "file-system-tool",
+  "headline": "file-system-tool",
+  "description": "Operate on files through explicit paths, scope checks, content validation, and reversible changes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/file-system-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "file-system-tool",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/file-system-reading.md",
-    "../04-action-execution/file-write.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, system, tool, LLM skill, file",
+  "datePublished": "2026-09-01",
+  "keywords": "system, LLM skill, use, tool, skills tree, file, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "File System Tool",
-    "description": "An AI agent skill for file system tool."
+    "name": "file-system-tool",
+    "description": "An AI agent skill for file-system-tool."
   }
 }

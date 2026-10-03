@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/nosql-query.md",
-  "name": "NoSQL Query",
-  "headline": "NoSQL Query",
-  "description": "Apply nosql query in AI agent workflows.",
+  "name": "nosql-query",
+  "headline": "nosql-query",
+  "description": "Construct and validate NoSQL queries against an explicit document or key-value schema and query contract.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/nosql-query.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "nosql-query",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
-  "relatedSkills": [
-    "../07-tool-use/vector-db-tool.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, query, data, nosql",
+  "keywords": "nosql, LLM skill, query, data, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "NoSQL Query",
-    "description": "An AI agent skill for nosql query."
+    "name": "nosql-query",
+    "description": "An AI agent skill for nosql-query."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/form-filling.md",
-  "name": "Form Filling",
-  "headline": "Form Filling",
-  "description": "Apply form filling in AI agent workflows.",
+  "name": "form-filling",
+  "headline": "form-filling",
+  "description": "Populate authorized web forms using explicit field mappings and verify validation or submission outcomes before proceeding.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/form-filling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "form-filling",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "form, AI agent, web, skills tree, LLM skill, filling",
+  "keywords": "LLM skill, web, form, skills tree, filling, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Form Filling",
-    "description": "An AI agent skill for form filling."
+    "name": "form-filling",
+    "description": "An AI agent skill for form-filling."
   }
 }

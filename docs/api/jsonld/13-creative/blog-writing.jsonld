@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/blog-writing.md",
   "name": "blog-writing",
   "headline": "blog-writing",
-  "description": "Apply blog writing in AI agent workflows.",
+  "description": "Produce a structured blog article that matches the requested audience, purpose, length, voice, and factual boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/blog-writing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "blog-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/summarization.md",
-    "../06-communication/structured-output.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, writing, LLM skill, blog, creative",
+  "keywords": "LLM skill, blog, writing, skills tree, creative, AI agent",
   "about": {
     "@type": "Thing",
     "name": "blog-writing",

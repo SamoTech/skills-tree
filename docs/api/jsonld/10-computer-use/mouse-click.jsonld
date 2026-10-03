@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/mouse-click.md",
-  "name": "Mouse Click",
-  "headline": "Mouse Click",
-  "description": "Apply mouse click in AI agent workflows.",
+  "name": "mouse-click",
+  "headline": "mouse-click",
+  "description": "Click a verified UI target using semantic or coordinate-based targeting with postcondition verification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/mouse-click.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "mouse-click",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, click, AI agent, skills tree, mouse, LLM skill, computer",
+  "keywords": "mouse, use, LLM skill, computer, skills tree, AI agent, click",
   "about": {
     "@type": "Thing",
-    "name": "Mouse Click",
-    "description": "An AI agent skill for mouse click."
+    "name": "mouse-click",
+    "description": "An AI agent skill for mouse-click."
   }
 }

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/event-triggers.md",
   "name": "event-triggers",
   "headline": "event-triggers",
-  "description": "Apply event triggers in AI agent workflows.",
+  "description": "Start workflow actions from explicit events, filters, deduplication rules, and authorization boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/event-triggers.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "event-triggers",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Orchestration Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "triggers, AI agent, skills tree, LLM skill, orchestration, event",
+  "keywords": "LLM skill, event, triggers, orchestration, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "event-triggers",

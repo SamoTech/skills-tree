@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/parallel-execution.md",
-  "name": "Parallel Task Execution",
-  "headline": "Parallel Task Execution",
-  "description": "Apply parallel task execution in AI agent workflows.",
+  "name": "parallel-execution",
+  "headline": "parallel-execution",
+  "description": "Run independent workflow branches concurrently while defining isolation, synchronization, failure aggregation, and join semantics.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/parallel-execution.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "parallel-execution",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Orchestration Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, AI agent, skills tree, LLM skill, parallel, orchestration",
+  "keywords": "LLM skill, AI agent, orchestration, skills tree, execution, parallel",
   "about": {
     "@type": "Thing",
-    "name": "Parallel Task Execution",
-    "description": "An AI agent skill for parallel task execution."
+    "name": "parallel-execution",
+    "description": "An AI agent skill for parallel-execution."
   }
 }

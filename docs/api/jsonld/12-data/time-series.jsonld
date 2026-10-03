@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/time-series.md",
-  "name": "Time Series Analysis",
-  "headline": "Time Series Analysis",
-  "description": "Apply time series analysis in AI agent workflows.",
+  "name": "time-series",
+  "headline": "time-series",
+  "description": "Analyze or transform ordered time-series data using explicit frequency, time zone, window, and forecasting assumptions.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/time-series.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "time-series",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, time, LLM skill, data, series",
+  "keywords": "LLM skill, data, skills tree, time, AI agent, series",
   "about": {
     "@type": "Thing",
-    "name": "Time Series Analysis",
-    "description": "An AI agent skill for time series analysis."
+    "name": "time-series",
+    "description": "An AI agent skill for time-series."
   }
 }

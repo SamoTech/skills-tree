@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-aggregation.md",
-  "name": "Data Aggregation",
-  "headline": "Data Aggregation",
-  "description": "Apply data aggregation in AI agent workflows.",
+  "name": "data-aggregation",
+  "headline": "data-aggregation",
+  "description": "Aggregate records by declared dimensions using explicit metrics, filters, and null-handling rules.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-aggregation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "data-aggregation",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, LLM skill, data, aggregation",
+  "keywords": "LLM skill, AI agent, data, skills tree, aggregation",
   "about": {
     "@type": "Thing",
-    "name": "Data Aggregation",
-    "description": "An AI agent skill for data aggregation."
+    "name": "data-aggregation",
+    "description": "An AI agent skill for data-aggregation."
   }
 }

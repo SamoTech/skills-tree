@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-review.md",
   "name": "Code Review",
   "headline": "Code Review",
-  "description": "Automates structured code review — bugs, security, performance, style — returning severity-graded findings, a quality score, and suggested fixes.",
+  "description": "Review code against correctness, security, maintainability, tests, interfaces, and repository conventions, reporting evidence-backed findings.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-review.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "code-review",
-  "skillVersion": "v3",
+  "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
     "Description",
-    "What It Does",
     "When to Use",
-    "Inputs / Outputs",
+    "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Diff-Mode Example",
-    "Batch Review (Multiple Files)",
-    "CI/CD Integration",
-    "Failure Modes",
-    "Related Skills",
-    "Changelog"
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -77,8 +73,8 @@
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, code, LLM skill, review",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, review, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Code Review",

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-fetching.md",
-  "name": "URL Fetching",
-  "headline": "URL Fetching",
-  "description": "Apply url fetching in AI agent workflows.",
+  "name": "url-fetching",
+  "headline": "url-fetching",
+  "description": "Fetch authorized web resources with explicit redirect, size, content-type, timeout, and origin constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-fetching.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "url-fetching",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, url, skills tree, LLM skill, fetching",
+  "keywords": "LLM skill, web, fetching, url, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "URL Fetching",
-    "description": "An AI agent skill for url fetching."
+    "name": "url-fetching",
+    "description": "An AI agent skill for url-fetching."
   }
 }

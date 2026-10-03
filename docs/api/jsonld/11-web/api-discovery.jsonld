@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/api-discovery.md",
-  "name": "API Endpoint Discovery",
-  "headline": "API Endpoint Discovery",
-  "description": "Apply api endpoint discovery in AI agent workflows.",
+  "name": "api-discovery",
+  "headline": "api-discovery",
+  "description": "Discover web API requests from an authorized browser session and characterize their method, endpoint, parameters, and response contract.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/api-discovery.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "api-discovery",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, web, skills tree, LLM skill, discovery, api",
+  "keywords": "api, LLM skill, web, skills tree, discovery, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "API Endpoint Discovery",
-    "description": "An AI agent skill for api endpoint discovery."
+    "name": "api-discovery",
+    "description": "An AI agent skill for api-discovery."
   }
 }

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/seo-optimization.md",
   "name": "seo-optimization",
   "headline": "seo-optimization",
-  "description": "Apply seo optimization in AI agent workflows.",
+  "description": "Audit and improve supplied page content against explicit search, metadata, linking, and technical constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/seo-optimization.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "seo-optimization",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../11-web/web-scraping.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "AI agent, domain, optimization, skills tree, LLM skill, seo, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "optimization, domain, seo, LLM skill, skills tree, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "seo-optimization",

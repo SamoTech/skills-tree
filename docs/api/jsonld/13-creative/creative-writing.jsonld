@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/creative-writing.md",
   "name": "creative-writing",
   "headline": "creative-writing",
-  "description": "Apply creative writing in AI agent workflows.",
+  "description": "Generate original fiction or prose within declared genre, voice, structure, and content constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/creative-writing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "creative-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/persona-adoption.md",
-    "../06-communication/tone-adjustment.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, writing, LLM skill, creative",
+  "keywords": "LLM skill, writing, skills tree, creative, AI agent",
   "about": {
     "@type": "Thing",
     "name": "creative-writing",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/linear-api.md",
   "name": "Linear API",
   "headline": "Linear API",
-  "description": "Apply linear api in AI agent workflows.",
+  "description": "Use Linear's GraphQL API from agents for bounded issue and project operations with typed queries and verified mutations.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/linear-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,21 +52,29 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "linear-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "api, use, AI agent, skills tree, tool, LLM skill, linear",
+  "datePublished": "2026-09-01",
+  "keywords": "api, linear, use, LLM skill, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Linear API",

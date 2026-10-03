@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/product-description.md",
   "name": "product-description",
   "headline": "product-description",
-  "description": "Apply product description in AI agent workflows.",
+  "description": "Transform verified product attributes into channel-appropriate product descriptions without inventing specifications or claims.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/product-description.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "product-description",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../13-creative/copywriting.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "domain, AI agent, description, product, skills tree, LLM skill, specific",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, LLM skill, AI agent, skills tree, specific, product, description",
   "about": {
     "@type": "Thing",
     "name": "product-description",

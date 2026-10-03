@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/statistical-analysis.md",
-  "name": "Statistical Analysis",
-  "headline": "Statistical Analysis",
-  "description": "Apply statistical analysis in AI agent workflows.",
+  "name": "statistical-analysis",
+  "headline": "statistical-analysis",
+  "description": "Apply declared statistical methods to validated data with explicit assumptions, estimands, and uncertainty reporting.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/statistical-analysis.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "statistical-analysis",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, analysis, LLM skill, statistical, data",
+  "keywords": "analysis, LLM skill, data, skills tree, statistical, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Statistical Analysis",
-    "description": "An AI agent skill for statistical analysis."
+    "name": "statistical-analysis",
+    "description": "An AI agent skill for statistical-analysis."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/user-profile.md",
-  "name": "User Profile",
-  "headline": "User Profile",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-user-profile.json)",
+  "name": "user-profile",
+  "headline": "user-profile",
+  "description": "Maintain explicitly supplied or high-confidence user preferences and constraints with provenance, scope, retention, and correction controls.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/user-profile.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "user-profile",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -60,13 +60,14 @@
   "categoryDir": "03-memory",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks & Models",
-    "Notes",
-    "Related Skills",
-    "Changelog"
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -75,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, user, LLM skill, memory, profile",
+  "keywords": "memory, LLM skill, profile, skills tree, user, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "User Profile",
-    "description": "An AI agent skill for user profile."
+    "name": "user-profile",
+    "description": "An AI agent skill for user-profile."
   }
 }

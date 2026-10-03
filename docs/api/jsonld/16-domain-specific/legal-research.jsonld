@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/legal-research.md",
   "name": "legal-research",
   "headline": "legal-research",
-  "description": "Apply legal research in AI agent workflows.",
+  "description": "Organize jurisdiction-aware legal research from supplied or authoritative legal sources, preserving citations, dates, and uncertainty.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/legal-research.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "legal-research",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/citation-attribution.md",
-    "../11-web/web-search.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "AI agent, domain, skills tree, research, LLM skill, specific, legal",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, LLM skill, legal, skills tree, research, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "legal-research",

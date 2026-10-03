@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "automation-review",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -73,7 +73,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "AI agent, skills tree, LLM skill, automation, orchestration, review",
+  "keywords": "LLM skill, review, automation, orchestration, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Automation Review",

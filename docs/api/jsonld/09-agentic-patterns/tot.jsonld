@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/tot.md",
-  "name": "Tree of Thought (ToT)",
-  "headline": "Tree of Thought (ToT)",
-  "description": "Generate multiple candidate next-steps, score each, and search the highest-scoring branch — a tree search over the model's reasoning space, not a linear chain.",
+  "name": "tot",
+  "headline": "tot",
+  "description": "Generate multiple candidate reasoning branches, evaluate them with an explicit criterion, and expand promising branches under a bounded search budget.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/tot.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,17 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "tot",
-  "skillVersion": "v3",
+  "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
     "Description",
     "When to Use",
-    "Related Skills",
-    "Changelog"
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -71,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, patterns, agentic, tot",
+  "keywords": "LLM skill, agentic, tot, skills tree, AI agent, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Tree of Thought (ToT)",
-    "description": "An AI agent skill for tree of thought (tot)."
+    "name": "tot",
+    "description": "An AI agent skill for tot."
   }
 }

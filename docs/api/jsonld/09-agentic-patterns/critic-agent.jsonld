@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/critic-agent.md",
-  "name": "Critic Agent",
-  "headline": "Critic Agent",
-  "description": "Apply critic agent in AI agent workflows.",
+  "name": "critic-agent",
+  "headline": "critic-agent",
+  "description": "Use a separate critic role to inspect an agent output against explicit criteria and return actionable findings for revision or acceptance.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/critic-agent.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "critic-agent",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, patterns, agent, agentic, critic",
+  "keywords": "critic, agent, LLM skill, agentic, skills tree, AI agent, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Critic Agent",
-    "description": "An AI agent skill for critic agent."
+    "name": "critic-agent",
+    "description": "An AI agent skill for critic-agent."
   }
 }

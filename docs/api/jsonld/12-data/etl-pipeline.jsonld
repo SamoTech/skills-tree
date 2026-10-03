@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/etl-pipeline.md",
-  "name": "ETL Pipeline",
-  "headline": "ETL Pipeline",
-  "description": "Apply etl pipeline in AI agent workflows.",
+  "name": "etl-pipeline",
+  "headline": "etl-pipeline",
+  "description": "Design or execute bounded extract-transform-load workflows with explicit source, transformation, destination, and validation contracts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/etl-pipeline.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "etl-pipeline",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, etl, pipeline, data",
+  "keywords": "pipeline, LLM skill, data, skills tree, AI agent, etl",
   "about": {
     "@type": "Thing",
-    "name": "ETL Pipeline",
-    "description": "An AI agent skill for etl pipeline."
+    "name": "etl-pipeline",
+    "description": "An AI agent skill for etl-pipeline."
   }
 }

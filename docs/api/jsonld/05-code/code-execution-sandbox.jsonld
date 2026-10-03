@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-execution-sandbox.md",
-  "name": "Code Execution (Sandbox)",
-  "headline": "Code Execution (Sandbox)",
-  "description": "Apply code execution (sandbox) in AI agent workflows.",
+  "name": "Code Execution Sandbox",
+  "headline": "Code Execution Sandbox",
+  "description": "Execute untrusted or generated code inside an isolated bounded environment with resource, filesystem, network, and timeout controls.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-execution-sandbox.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "code-execution-sandbox",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../04-action-execution/shell-command.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "execution, AI agent, skills tree, code, sandbox, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, skills tree, AI agent, sandbox, execution",
   "about": {
     "@type": "Thing",
-    "name": "Code Execution (Sandbox)",
-    "description": "An AI agent skill for code execution (sandbox)."
+    "name": "Code Execution Sandbox",
+    "description": "An AI agent skill for code execution sandbox."
   }
 }

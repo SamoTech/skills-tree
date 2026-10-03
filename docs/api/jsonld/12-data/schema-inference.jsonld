@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/schema-inference.md",
-  "name": "Data Schema Inference",
-  "headline": "Data Schema Inference",
-  "description": "Apply data schema inference in AI agent workflows.",
+  "name": "schema-inference",
+  "headline": "schema-inference",
+  "description": "Infer candidate data schemas from representative records while distinguishing observed fields from inferred types or optionality.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/schema-inference.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "schema-inference",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Data Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "inference, AI agent, skills tree, schema, LLM skill, data",
+  "keywords": "LLM skill, data, schema, inference, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Data Schema Inference",
-    "description": "An AI agent skill for data schema inference."
+    "name": "schema-inference",
+    "description": "An AI agent skill for schema-inference."
   }
 }

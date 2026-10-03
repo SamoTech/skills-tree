@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/tool-use-loop.md",
-  "name": "Tool-Use Loop",
-  "headline": "Tool-Use Loop",
-  "description": "A parallel-tool variant of ReAct where multiple tools may be called simultaneously in each step.",
+  "name": "tool-use-loop",
+  "headline": "tool-use-loop",
+  "description": "Run a bounded agent loop that can dispatch multiple independent tool calls in one step and reconcile their observations before continuing.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/tool-use-loop.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,16 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "tool-use-loop",
-  "skillVersion": "v1",
+  "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
     "Description",
-    "Related Skills",
-    "Changelog"
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -70,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, tool, LLM skill, patterns, loop, agentic",
+  "keywords": "LLM skill, use, agentic, tool, loop, skills tree, AI agent, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Tool-Use Loop",
-    "description": "An AI agent skill for tool-use loop."
+    "name": "tool-use-loop",
+    "description": "An AI agent skill for tool-use-loop."
   }
 }

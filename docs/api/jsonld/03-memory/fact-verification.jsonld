@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/fact-verification.md",
-  "name": "Fact Verification",
-  "headline": "Fact Verification",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-fact-verification.json)",
+  "name": "fact-verification",
+  "headline": "fact-verification",
+  "description": "Evaluate factual claims against declared evidence sources and classify them as verified, contradicted, unverified, or uncertain.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/fact-verification.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "fact-verification",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -60,27 +60,26 @@
   "categoryDir": "03-memory",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks & Models",
-    "Notes",
-    "Related Skills",
-    "Changelog"
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
-  "relatedSkills": [
-    "../02-reasoning/abductive.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, LLM skill, verification, memory, fact",
+  "keywords": "memory, LLM skill, fact, skills tree, verification, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Fact Verification",
-    "description": "An AI agent skill for fact verification."
+    "name": "fact-verification",
+    "description": "An AI agent skill for fact-verification."
   }
 }

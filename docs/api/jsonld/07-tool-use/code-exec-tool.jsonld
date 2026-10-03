@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/code-exec-tool.md",
-  "name": "Code Execution Tool",
-  "headline": "Code Execution Tool",
-  "description": "Apply code execution tool in AI agent workflows.",
+  "name": "code-exec-tool",
+  "headline": "code-exec-tool",
+  "description": "Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/code-exec-tool.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "code-exec-tool",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../05-code/code-execution-sandbox.md",
-    "../14-security/sandboxed-execution.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "use, exec, AI agent, code, skills tree, tool, LLM skill",
+  "datePublished": "2026-09-01",
+  "keywords": "code, exec, LLM skill, use, tool, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Code Execution Tool",
-    "description": "An AI agent skill for code execution tool."
+    "name": "code-exec-tool",
+    "description": "An AI agent skill for code-exec-tool."
   }
 }

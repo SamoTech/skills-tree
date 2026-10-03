@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/instruction-following.md",
-  "name": "Instruction Following",
-  "headline": "Instruction Following",
-  "description": "Apply instruction following in AI agent workflows.",
+  "name": "instruction-following",
+  "headline": "instruction-following",
+  "description": "Execute multi-constraint instructions while checking scope, precedence, format, and acceptance criteria before producing output.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/instruction-following.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "instruction-following",
   "skillVersion": null,
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "06-communication",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "following, instruction, AI agent, skills tree, LLM skill, communication",
+  "keywords": "instruction, LLM skill, following, communication, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Instruction Following",
-    "description": "An AI agent skill for instruction following."
+    "name": "instruction-following",
+    "description": "An AI agent skill for instruction-following."
   }
 }

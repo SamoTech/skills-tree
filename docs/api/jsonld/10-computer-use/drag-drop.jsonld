@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/drag-drop.md",
-  "name": "Drag and Drop",
-  "headline": "Drag and Drop",
-  "description": "Apply drag and drop in AI agent workflows.",
+  "name": "drag-drop",
+  "headline": "drag-drop",
+  "description": "Move a verified UI object from a source target to a destination target using controlled drag-and-drop.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/drag-drop.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "drag-drop",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, drag, LLM skill, drop, computer",
+  "keywords": "LLM skill, use, computer, drag, drop, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Drag and Drop",
-    "description": "An AI agent skill for drag and drop."
+    "name": "drag-drop",
+    "description": "An AI agent skill for drag-drop."
   }
 }

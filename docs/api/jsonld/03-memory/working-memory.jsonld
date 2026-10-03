@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/working-memory.md",
-  "name": "Working Memory",
-  "headline": "Working Memory",
-  "description": "Apply working memory in AI agent workflows.",
+  "name": "working-memory",
+  "headline": "working-memory",
+  "description": "Maintain bounded active task state, intermediate results, errors, and checkpoints during a multi-step agent workflow.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/working-memory.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "working-memory",
   "skillVersion": null,
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, LLM skill, memory, working",
+  "keywords": "memory, working, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Working Memory",
-    "description": "An AI agent skill for working memory."
+    "name": "working-memory",
+    "description": "An AI agent skill for working-memory."
   }
 }

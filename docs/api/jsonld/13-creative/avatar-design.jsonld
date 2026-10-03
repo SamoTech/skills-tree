@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/avatar-design.md",
   "name": "avatar-design",
   "headline": "avatar-design",
-  "description": "Apply avatar design in AI agent workflows.",
+  "description": "Create a coherent character or avatar design specification covering visual traits, role, personality, backstory, and generation constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/avatar-design.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "avatar-design",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/persona-adoption.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "avatar, AI agent, skills tree, LLM skill, design, creative",
+  "keywords": "design, LLM skill, skills tree, creative, avatar, AI agent",
   "about": {
     "@type": "Thing",
     "name": "avatar-design",

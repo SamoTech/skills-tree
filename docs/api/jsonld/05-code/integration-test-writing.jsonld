@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/integration-test-writing.md",
-  "name": "Integration Test Writing",
-  "headline": "Integration Test Writing",
-  "description": "Apply integration test writing in AI agent workflows.",
+  "name": "integration-test-writing",
+  "headline": "integration-test-writing",
+  "description": "Create integration tests that verify interactions between real application components, external boundaries, persistence, or services.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/integration-test-writing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "integration-test-writing",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "integration, AI agent, skills tree, code, writing, LLM skill, test",
+  "datePublished": "2026-09-01",
+  "keywords": "code, LLM skill, test, writing, skills tree, AI agent, integration",
   "about": {
     "@type": "Thing",
-    "name": "Integration Test Writing",
-    "description": "An AI agent skill for integration test writing."
+    "name": "integration-test-writing",
+    "description": "An AI agent skill for integration-test-writing."
   }
 }

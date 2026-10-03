@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/procedural.md",
-  "name": "Procedural Memory",
-  "headline": "Procedural Memory",
-  "description": "![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-procedural.json)",
+  "name": "procedural",
+  "headline": "procedural",
+  "description": "Store and retrieve reusable step-by-step procedures with versioning, applicability checks, and verification before execution.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/03-memory/procedural.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "procedural",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -60,13 +60,14 @@
   "categoryDir": "03-memory",
   "sections": [
     "Description",
-    "Inputs",
-    "Outputs",
-    "Example",
-    "Frameworks & Models",
-    "Notes",
-    "Related Skills",
-    "Changelog"
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -75,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, AI agent, LLM skill, procedural, memory",
+  "keywords": "memory, LLM skill, skills tree, procedural, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Procedural Memory",
-    "description": "An AI agent skill for procedural memory."
+    "name": "procedural",
+    "description": "An AI agent skill for procedural."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/terminal-interaction.md",
-  "name": "Terminal / Shell Interaction",
-  "headline": "Terminal / Shell Interaction",
-  "description": "Apply terminal / shell interaction in AI agent workflows.",
+  "name": "terminal-interaction",
+  "headline": "terminal-interaction",
+  "description": "Interact with a verified terminal window using explicit commands, context, and output checks.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/terminal-interaction.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "terminal-interaction",
   "skillVersion": null,
-  "skillLevel": "intermediate",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "interaction, use, AI agent, skills tree, LLM skill, computer, terminal",
+  "keywords": "interaction, LLM skill, use, computer, terminal, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "Terminal / Shell Interaction",
-    "description": "An AI agent skill for terminal / shell interaction."
+    "name": "terminal-interaction",
+    "description": "An AI agent skill for terminal-interaction."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/self-play.md",
-  "name": "Self-Play",
-  "headline": "Self-Play",
-  "description": "Apply self-play in AI agent workflows.",
+  "name": "self-play",
+  "headline": "self-play",
+  "description": "Train or improve an agent through controlled adversarial interaction between role-separated policies or prompts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/self-play.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "self-play",
   "skillVersion": null,
   "skillLevel": "advanced",
-  "skillStability": "experimental",
+  "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, agentic, skills tree, play, LLM skill, patterns, self",
+  "keywords": "LLM skill, self, agentic, skills tree, AI agent, play, patterns",
   "about": {
     "@type": "Thing",
-    "name": "Self-Play",
+    "name": "self-play",
     "description": "An AI agent skill for self-play."
   }
 }

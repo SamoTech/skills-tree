@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/js-execution.md",
-  "name": "JavaScript Execution",
-  "headline": "JavaScript Execution",
-  "description": "Apply javascript execution in AI agent workflows.",
+  "name": "js-execution",
+  "headline": "js-execution",
+  "description": "Execute explicitly scoped JavaScript in an authorized page context for supported inspection or interaction tasks without bypassing security controls.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/js-execution.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,23 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "js-execution",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "11-web",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +76,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "execution, AI agent, web, skills tree, LLM skill, js",
+  "keywords": "LLM skill, web, AI agent, skills tree, js, execution",
   "about": {
     "@type": "Thing",
-    "name": "JavaScript Execution",
-    "description": "An AI agent skill for javascript execution."
+    "name": "js-execution",
+    "description": "An AI agent skill for js-execution."
   }
 }

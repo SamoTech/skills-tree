@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screenshot-capture.md",
-  "name": "Screenshot Capture",
-  "headline": "Screenshot Capture",
-  "description": "Apply screenshot capture in AI agent workflows.",
+  "name": "screenshot-capture",
+  "headline": "screenshot-capture",
+  "description": "Capture a screenshot of a verified screen or region for observation, evidence, or postcondition checking.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screenshot-capture.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "screenshot-capture",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, screenshot, LLM skill, capture, computer",
+  "keywords": "LLM skill, use, computer, skills tree, screenshot, AI agent, capture",
   "about": {
     "@type": "Thing",
-    "name": "Screenshot Capture",
-    "description": "An AI agent skill for screenshot capture."
+    "name": "screenshot-capture",
+    "description": "An AI agent skill for screenshot-capture."
   }
 }

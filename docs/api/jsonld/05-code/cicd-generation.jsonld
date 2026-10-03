@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/cicd-generation.md",
-  "name": "CI/CD Pipeline Generation",
-  "headline": "CI/CD Pipeline Generation",
-  "description": "Apply ci/cd pipeline generation in AI agent workflows.",
+  "name": "Cicd Generation",
+  "headline": "Cicd Generation",
+  "description": "Generate CI/CD configuration from explicit build, test, security, artifact, and deployment requirements without weakening gates.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/cicd-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,32 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "cicd-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / outputs / failure modes",
+    "Runnable Example",
+    "Failure modes",
+    "Related",
+    "Evidence"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "AI agent, skills tree, code, LLM skill, cicd, generation",
+  "datePublished": "2026-09-01",
+  "keywords": "code, generation, LLM skill, cicd, skills tree, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "CI/CD Pipeline Generation",
-    "description": "An AI agent skill for ci/cd pipeline generation."
+    "name": "Cicd Generation",
+    "description": "An AI agent skill for cicd generation."
   }
 }

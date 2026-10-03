@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
   "name": "invoice-processing",
   "headline": "invoice-processing",
-  "description": "Apply invoice processing in AI agent workflows.",
+  "description": "Extract and validate invoice fields from supplied invoice text or structured OCR output, including arithmetic and field-consistency checks.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,25 +52,31 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "invoice-processing",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
-  "sections": [],
-  "relatedSkills": [
-    "../01-perception/ocr.md",
-    "../01-perception/document-parsing.md",
-    "../12-data/data-cleaning.md"
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Domain Boundary",
+    "Evidence",
+    "Related"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2026-04-01",
-  "keywords": "domain, AI agent, skills tree, LLM skill, specific, processing, invoice",
+  "datePublished": "2025-03-01",
+  "keywords": "domain, LLM skill, invoice, processing, skills tree, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "invoice-processing",

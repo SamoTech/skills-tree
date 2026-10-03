@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
-  "name": "Keyboard Type",
-  "headline": "Keyboard Type",
-  "description": "Apply keyboard typing in AI agent workflows.",
+  "name": "keyboard-type",
+  "headline": "keyboard-type",
+  "description": "Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,24 +52,34 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:16:10Z",
+  "dateModified": "2026-10-03T03:57:57Z",
   "skillId": "keyboard-type",
   "skillVersion": null,
-  "skillLevel": "basic",
+  "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
-  "sections": [],
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Safety Boundary",
+    "Evidence",
+    "Related"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Beginner",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "use, AI agent, skills tree, LLM skill, type, keyboard, computer",
+  "keywords": "keyboard, LLM skill, use, computer, skills tree, AI agent, type",
   "about": {
     "@type": "Thing",
-    "name": "Keyboard Type",
-    "description": "An AI agent skill for keyboard type."
+    "name": "keyboard-type",
+    "description": "An AI agent skill for keyboard-type."
   }
 }
