@@ -8,11 +8,12 @@ added: "2025-03"
 updated: "2026-10-03"
 description: "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval."
 tags: [rag, retrieval, embeddings, knowledge-base, grounding]
----
+
+related: [memory-injection, web-search, knowledge-graph-reading, vector-store-retrieval]---
 
 # RAG — Retrieval-Augmented Generation
 
-## Purpose
+## Description
 
 RAG separates knowledge retrieval from language generation. The system retrieves relevant source material at query time, supplies that material to the generator, and preserves source references so the answer can be inspected.
 
@@ -118,12 +119,12 @@ Do not infer production readiness from a single benchmark.
 ## Evidence
 
 - Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks: https://arxiv.org/abs/2005.11401
-- OpenAI retrieval example: https://cookbook.openai.com/examples/vector_databases/read_and_query_chroma_data
+- OpenAI retrieval example: https://developers.openai.com/cookbook/examples/vector_databases/read_and_query_chroma_data
 - LangChain retrieval concepts: https://python.langchain.com/docs/concepts/retrieval/
 
 Evidence status: references support the architecture and evaluation concepts. No performance ranking or production-readiness claim is made.
 
-## Related Skills
+## Related
 
 - memory-injection
 - web-search
