@@ -79,7 +79,7 @@ Reopen Conditions: Reopen if the Agent Skills discovery specification materially
 # DECISION-005
 DECISION-ID: DECISION-005
 Topic: CI and dependency automation security hardening
-Decision: Skill validation must be read-only, and Dependabot must not auto-approve or auto-merge dependency updates. Automated jobs may propose changes, but the exact green HEAD requires maintainer review before merge.
+Decision: Skill validation must be read-only. Dependency changes may merge through the repository CI-gated merge rule when the exact HEAD passes required validation, security, tests, and invariants; no separate maintainer approval is required unless a higher-priority control-plane rule applies.
 Confidence: HIGH
 Evidence IDs: SEC-001, SEC-002
 Status: LOCKED

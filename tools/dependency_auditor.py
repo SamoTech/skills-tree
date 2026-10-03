@@ -184,55 +184,58 @@ def parse_frontmatter(text: str) -> dict:
 
 
 def parse_dependencies(text: str) -> list[Dependency]:
-    """Extract dependency blocks from frontmatter."""
+    """Extract canonical `dependencies` metadata, with legacy `deps` compatibility."""
     m = FRONTMATTER_RE.match(text)
     if not m:
         return []
     block = m.group(1)
-
     deps: list[Dependency] = []
-    lines = block.splitlines()
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        pkg_match = re.match(r"^\s+-\s+package:\s*(\S+)", line)
-        if pkg_match:
-            pkg_name = pkg_match.group(1).strip('"\'')
-            dep = Dependency(package=pkg_name)
-            # Look ahead for version/confidence/import_name sub-keys
-            j = i + 1
-            while j < len(lines) and re.match(r"^\s{2,}\S", lines[j]):
-                sub = re.match(r"^\s+(version|confidence|import_name):\s*(.+)", lines[j])
-                if sub:
-                    key, val = sub.group(1), sub.group(2).strip().strip('"\'')
-                    if key == "version":
-                        dep.version = val
-                    elif key == "confidence":
-                        dep.confidence = val
-                    elif key == "import_name":
-                        dep.import_name = val
-                j += 1
-            deps.append(dep)
-            i = j
-        else:
-            i += 1
+    in_dependencies = False
+    current: Dependency | None = None
+    for raw in block.splitlines():
+        line = raw.rstrip()
+        if re.match(r"^(dependencies|deps):\s*$", line):
+            in_dependencies = True
+            current = None
+            continue
+        if in_dependencies and re.match(r"^[A-Za-z][\w-]*:", line):
+            in_dependencies = False
+            current = None
+        if not in_dependencies:
+            continue
+        item = re.match(r"^\s+-\s+package:\s*([^#]+)", line)
+        if item:
+            current = Dependency(package=item.group(1).strip().strip("\"'"))
+            deps.append(current)
+            continue
+        if current is None:
+            continue
+        field = re.match(r"^\s+(min_version|tested_version|version|confidence|import_name):\s*(.+)", line)
+        if field:
+            key, value = field.group(1), field.group(2).split("#", 1)[0].strip().strip("\"'")
+            if key in {"tested_version", "version"}:
+                current.version = value
+            elif key == "confidence":
+                current.confidence = value
+            elif key == "import_name":
+                current.import_name = value
     return deps
 
-
-def extract_first_snippet(text: str) -> Optional[str]:
-    """Return the first Python code block from the skill body."""
+def extract_python_snippets(text: str) -> list[str]:
+    """Return executable Python fences; explicitly illustrative fences are skipped."""
     body_start = 0
     if text.startswith("---"):
         end = text.find("---", 3)
         if end != -1:
             body_start = end + 3
-
     body = text[body_start:]
-    m = re.search(r"```python\n(.*?)```", body, re.DOTALL)
-    if m:
-        return m.group(1)
-    return None
-
+    snippets: list[str] = []
+    for match in re.finditer(r"```(?P<info>[^\n]*)\n(?P<body>.*?)```", body, re.DOTALL):
+        info = match.group("info").strip().lower()
+        if not info.startswith("python") or "type: illustrative" in info:
+            continue
+        snippets.append(textwrap.dedent(match.group("body")))
+    return snippets
 
 # ---------------------------------------------------------------------------
 # Audit logic
@@ -317,44 +320,41 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
             print(f"    ERROR: {result.error}")
             return result
 
-        # Run first snippet (if any)
-        snippet = extract_first_snippet(text)
-        if snippet is None:
+        # Run every executable snippet; explicitly illustrative blocks are skipped.
+        snippets = extract_python_snippets(text)
+        if not snippets:
             result.snippet_skipped = True
-            print("    OK   (no snippet to run)")
+            print("    OK   (no executable Python snippet to run)")
             return result
 
-        # Write snippet to temp file and execute in a locked-down environment.
-        snippet_file = Path(tmpdir) / "snippet.py"
-        snippet_file.write_text(textwrap.dedent(snippet), encoding="utf-8")
-
-        # Build minimal env: venv Python on PATH, tmpdir as HOME, NO CI secrets.
-        # This prevents a malicious snippet from reading ANTHROPIC_API_KEY,
-        # GITHUB_TOKEN, AWS_* or any other credential present on the runner.
         safe_environment = _safe_env(venv_dir, tmpdir)
-
-        try:
-            proc = subprocess.run(
-                [str(python), str(snippet_file)],
-                capture_output=True,
-                text=True,
-                timeout=SNIPPET_TIMEOUT,
-                env=safe_environment,          # <── isolated: no CI secrets
-                cwd=tmpdir,                    # <── working dir inside tmpdir only
-            )
-            if proc.returncode != 0:
-                result.error = f"snippet failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
+        for index, snippet in enumerate(snippets, start=1):
+            snippet_file = Path(tmpdir) / f"snippet-{index}.py"
+            snippet_file.write_text(snippet, encoding="utf-8")
+            try:
+                proc = subprocess.run(
+                    [str(python), str(snippet_file)],
+                    capture_output=True,
+                    text=True,
+                    timeout=SNIPPET_TIMEOUT,
+                    env=safe_environment,
+                    cwd=tmpdir,
+                )
+            except subprocess.TimeoutExpired:
+                result.error = f"snippet {index} timed out after {SNIPPET_TIMEOUT}s"
                 print(f"    FAIL (snippet): {result.error}")
                 return result
-            result.snippet_ok = True
-            print("    OK   (snippet ran successfully)")
-        except subprocess.TimeoutExpired:
-            # Timeout is not a hard failure for snippets that block on I/O
-            result.snippet_skipped = True
-            print(f"    SKIP (snippet timed out after {SNIPPET_TIMEOUT}s — treating as pass)")
-        except Exception as exc:
-            result.error = f"snippet exception: {exc}"
-            print(f"    ERROR: {result.error}")
+            except Exception as exc:
+                result.error = f"snippet {index} exception: {exc}"
+                print(f"    ERROR: {result.error}")
+                return result
+            if proc.returncode != 0:
+                result.error = f"snippet {index} failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
+                print(f"    FAIL (snippet): {result.error}")
+                return result
+
+        result.snippet_ok = True
+        print(f"    OK   ({len(snippets)} executable snippet(s) ran successfully)")
 
     return result
 
@@ -392,7 +392,7 @@ def write_pr_body(
         "## \U0001f7e2 Dependency Auditor \u2014 Verification Report",
         "",
         "> Auto-generated by `dependency-auditor.yml`. "
-        "**Do not merge without reviewing each skill.**",
+        "**Merge only the exact validated HEAD after required CI/security/test gates pass.**",
         "",
         "| Metric | Count |",
         "|---|---|",
@@ -431,7 +431,7 @@ def write_pr_body(
 
     lines += [
         "---",
-        "> **Human review required.** Verify each proposed skill before approving this PR.",
+        "> **CI validation required.** Merge only the exact PR HEAD after required validation, security, tests, and invariants pass.",
     ]
 
     pr_body_path.write_text("\n".join(lines), encoding="utf-8")
@@ -564,6 +564,7 @@ def main() -> int:
         write_pr_body(results, args.pr_body, dry_run=True)
 
     return 0
+
 
 
 if __name__ == "__main__":

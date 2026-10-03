@@ -1,37 +1,33 @@
 ---
 title: "Dependency Auditor"
-category: infrastructure
-phase: 3
-stability: stable
-added: "2025-03"
+category: 17-infrastructure
 level: advanced
+stability: stable
+version: v2
+added: "2025-03"
+description: "Audit declared skill dependencies and executable examples in isolated environments, producing reproducible pass/fail evidence without silently promoting trust state."
 tags:
   - dependency-management
-  - badge-pipeline
-  - execution-gap
   - security
   - devops
   - ci-cd
-  - venv
-  - sbom
-deps:
-  - httpx
-  - packaging
-badge: machine-inferred · 2 pkgs
-badge_key: skills-17-infrastructure-dependency-auditor
-description: >
-  Closes the Execution Gap between "package exists on PyPI" (Yellow badge)
-  and "code actually runs" (Green badge). Spins up an isolated venv per skill,
-  installs its declared dependencies, executes the skill's Python snippets,
-  and proposes a human-reviewed PR to promote the badge from Yellow → Green.
-  Implements the Human-in-the-Loop contract: the badge never promotes itself.
-author: "@SamoTech"
-updated: "2026-04-13"
+dependencies:
+  - package: httpx
+    confidence: machine-inferred
+  - package: packaging
+    confidence: machine-inferred
+related:
+  - dependency-management
+  - security-scanning
+  - code-execution-sandbox
 ---
-
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)
 
 # Dependency Auditor
+
+## Description
+
+Audit declared external dependencies and executable skill examples in isolated environments. The auditor records pass/fail evidence and proposes badge artifacts without directly changing canonical trust state.
 
 > **Phase 3 of the Dependency Watchdog pipeline.**
 > Closes the gap between *Package Exists* (🟡 Yellow) and *Code Runs* (🟢 Green).
@@ -263,7 +259,7 @@ def write_verification_pr_body(results: list[AuditResult]) -> str:
         "",
         "> This PR was opened automatically by `dependency-auditor.yml`.",
         "> A maintainer must review and merge to promote badges from Yellow \u2192 Green.",
-        "> **Do not merge** if any skill listed here has changed since this PR was opened.",
+        "> **Do not merge** if any skill listed here has changed since this PR was opened; the exact PR HEAD must be revalidated.",
         "",
         "## Proposed Promotions (Yellow \u2192 \U0001f7e2 Green)",
         "",
