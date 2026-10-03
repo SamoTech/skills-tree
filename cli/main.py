@@ -127,11 +127,13 @@ def search(
     """Search skills using the canonical generated search projection."""
     try:
         documents = load_search_index()
+    except (FileNotFoundError, OSError, ValueError) as exc:
+        _error(f"Search data unavailable: {exc}", code=2)
+
+    try:
         results = search_documents(query, documents, limit=limit)
     except ValueError as exc:
         _error(str(exc), code=1)
-    except (FileNotFoundError, OSError) as exc:
-        _error(f"Search data unavailable: {exc}", code=2)
 
     _output(results, fmt)
 
