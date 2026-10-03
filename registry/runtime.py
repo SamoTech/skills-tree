@@ -354,8 +354,10 @@ class UniversalRegistry:
 
         implementation_path = schema_path.parent / "implementation-contract.schema.json"
         adapter_path = schema_path.parent / "adapter-contract.schema.json"
+        benchmark_path = schema_path.parent / "benchmark-contract.schema.json"
         implementation_schema = json.loads(implementation_path.read_text(encoding="utf-8"))
         adapter_schema = json.loads(adapter_path.read_text(encoding="utf-8"))
+        benchmark_schema = json.loads(benchmark_path.read_text(encoding="utf-8"))
 
         registry = Registry().with_resource(
             schema["$id"],
@@ -366,6 +368,9 @@ class UniversalRegistry:
         ).with_resource(
             adapter_schema["$id"],
             Resource.from_contents(adapter_schema),
+        ).with_resource(
+            benchmark_schema["$id"],
+            Resource.from_contents(benchmark_schema),
         )
         Draft202012Validator(schema, registry=registry).validate(self._data)
 
