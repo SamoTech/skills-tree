@@ -10,6 +10,7 @@ from typing import Any, TypedDict
 from jsonschema import Draft202012Validator
 from referencing import Registry, Resource
 
+from .benchmark import BenchmarkRecord, BenchmarkRuntime
 from .capability import CapabilityRecord, CapabilityRuntime
 from .compatibility import CompatibilityRecord, CompatibilityRuntime
 from .evidence import EvidenceRecord, EvidenceRuntime
@@ -65,11 +66,13 @@ class UniversalRegistry:
         self._validate_implementation_contracts()
         self._validate_adapter_contracts()
         self._validate_evidence_contracts()
+        self._validate_benchmark_contracts()
         self._validate_graph_contract()
         compatibility_schema_path = self.path.parent.parent / "meta" / "compatibility-model.schema.json"
         compatibility_schema = json.loads(compatibility_schema_path.read_text(encoding="utf-8"))
         self._compatibility_runtime = CompatibilityRuntime(self._data, compatibility_schema)
         self._evidence_runtime = EvidenceRuntime(self._data)
+        self._benchmark_runtime = BenchmarkRuntime(self._data)
         self._skill_runtime = SkillRuntime(self)
         self._capability_runtime = CapabilityRuntime(self)
         self._goal_runtime = GoalRuntime(self)
@@ -92,6 +95,20 @@ class UniversalRegistry:
         }:
             raise KeyError(f"Unknown entity: {entity_id}")
         return self._evidence_runtime.evidence_for_entity(entity_id)
+
+    def resolve_benchmark(self, benchmark_id: str) -> BenchmarkRecord:
+        """Return one validated Benchmark record by canonical ID."""
+        return self._benchmark_runtime.resolve_benchmark(benchmark_id)
+
+    def benchmarks_for_entity(self, entity_id: str) -> list[BenchmarkRecord]:
+        """Return Benchmarks explicitly scoped to an entity in deterministic order."""
+        if entity_id not in {
+            record["id"]
+            for records in self._data["entities"].values()
+            for record in records
+        }:
+            raise KeyError(f"Unknown entity: {entity_id}")
+        return self._benchmark_runtime.benchmarks_for_entity(entity_id)
 
     def resolve_goal(self, goal_id: str) -> GoalRecord:
         """Return one validated Goal by canonical ID."""
@@ -300,6 +317,14 @@ class UniversalRegistry:
         validator = Draft202012Validator(contract)
         for evidence in self._data["entities"]["evidence"]:
             validator.validate({"contract_version": "1.0", "evidence": evidence})
+
+    def _validate_benchmark_contracts(self) -> None:
+        """Validate every registered Benchmark against the normative contract."""
+        schema_path = self.path.parent.parent / "meta" / "benchmark-contract.schema.json"
+        contract = json.loads(schema_path.read_text(encoding="utf-8"))
+        validator = Draft202012Validator(contract)
+        for benchmark in self._data["entities"]["benchmarks"]:
+            validator.validate({"contract_version": "1.0", "benchmark": benchmark})
 
     def _validate_adapter_contracts(self) -> None:
         """Validate every registered Adapter against the normative contract."""
