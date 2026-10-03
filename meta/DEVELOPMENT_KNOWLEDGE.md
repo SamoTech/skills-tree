@@ -2,7 +2,7 @@
 
 **Status:** Governing development knowledge for the Universal Agent Knowledge Layer
 **Version:** 1.0
-**Updated:** 2026-09-18
+**Updated:** 2026-10-03
 **Authority:** This document records the development model, architecture direction, execution rules, and verified implementation state. It complements `meta/PROJECT_CONSTITUTION.md`, `meta/AGENT_OPERATING_MODEL.md`, and the machine-readable registry contract in `meta/universal-registry.schema.json`.
 
 ## 1. Mission
@@ -281,7 +281,7 @@ The repository also contains real MCP assets including `mcp/`, `examples/mcp-ser
 
 **Current mandatory action:**
 
-Perform the next fresh universal-registry runtime architecture and consumer-behavior audit from the verified benchmark and anti-slop baseline. Do not reopen completed runtime/distribution work and do not invent a P2.3 requirement without repository evidence.
+Perform the next fresh universal-registry consumer audit against the merged benchmark, anti-slop, freshness, graph-integrity, recommendation-context, and blueprint-context baseline. Focus on remaining machine-readable discovery projections and the canonical search pipeline. Do not invent a P2.3 requirement or duplicate the existing search index.
 
 ## 10. Vertical-Slice Strategy
 

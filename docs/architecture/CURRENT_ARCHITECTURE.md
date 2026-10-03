@@ -39,7 +39,7 @@ Transport
 
 ## Universal registry runtime slice
 
-The registry now has a small machine-readable seed containing real repository-backed Goals, Capabilities, and canonical Skills. `registry/runtime.py` provides a read-only deterministic facade for Goal → Capability → Skill resolution and rejects duplicate IDs, missing universal metadata, non-canonical skills, and dangling references.
+The registry now has a machine-readable seed containing repository-backed Goals, Capabilities, canonical Skills, audited Implementation/Adapter records, Evidence, Compatibility, Freshness metadata, and Benchmark definitions. `registry/runtime.py` provides a read-only deterministic facade for Goal → Capability → Skill resolution and rejects duplicate IDs, missing universal metadata, non-canonical skills, and dangling references.
 
 The registry is a read-only deterministic runtime boundary. It now validates registry data, provenance/evidence links, freshness metadata, implementation/adapter contracts, benchmark definitions, compatibility facts, and the supported Universal Graph relationships. Unsupported graph relationships fail closed.
 
@@ -65,12 +65,11 @@ BlueprintGenerator consumes the recommendation result and taxonomy. Architecture
 
 ## Remaining architecture gaps
 
-- Promote Capability from taxonomy-derived data to authoritative registry data without creating divergent mappings.
-- Introduce first audited Implementation and Adapter records with provenance.
-- Add typed cross-entity graph edges and deterministic generation rules.
-- Expand registry-backed consumer coverage beyond recommendation eligibility and context propagation.
-- Increase evidence-backed implementation/adapter coverage without inferring unsupported claims.
+- Complete the transition from taxonomy-backed recommendation inputs to broader authoritative registry consumption without creating divergent mappings.
+- Expand registry-backed consumer coverage beyond recommendation and blueprint context, especially generated machine-readable discovery/search surfaces.
+- Increase evidence-backed Implementation/Adapter coverage without inferring unsupported claims.
 - Define a machine-readable universal architecture output contract.
+- Keep deferred graph relationships outside the trusted runtime boundary until deterministic semantics and behavioral tests exist.
 
 ## Migration constraint
 

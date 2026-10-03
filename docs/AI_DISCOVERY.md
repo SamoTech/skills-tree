@@ -32,15 +32,15 @@ For current discovery, use the canonical repository skill files and generated ma
 
 For CLI usage, see [CLI Reference](cli.md).
 
-Then discover skills from the repository artifacts:
+Then discover skills from the verified machine-readable and CLI surfaces:
 
-```python
-from skills_tree import SkillsTree
-
-tree = SkillsTree()
-results = tree.search("your capability")
-skill = tree.get("skill-id")
+```bash
+skills-tree skills
+skills-tree recommend --goal "Coding Agent"
+skills-tree blueprint --goal "Coding Agent"
 ```
+
+For raw machine-readable discovery, consume `docs/api/skills.json` and resolve each returned canonical path under `skills/`. The repository also generates `docs/search-index.json` from `skills/` for the static web search experience. `skills-tree search` is not yet a verified CLI command; Issue #86 tracks that implementation gap and any implementation must reuse the canonical search data rather than creating a second index or ranking system.
 
 Or browse directly:
 

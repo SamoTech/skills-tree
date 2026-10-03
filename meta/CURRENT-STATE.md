@@ -6,7 +6,7 @@
 
 - Snapshot date: 2026-10-03
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
-- Latest verified implementation synchronization: Goal runtime facade integration merged to `main` as `3290ebc88060fca07e944cd31ad31d392982ca3d`; Capability runtime facade remains verified at `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`; Skill runtime facade remains verified at `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
+- Latest verified runtime sequence on `main` includes the benchmark runtime (`db474059fbe0efa56ca167a7108146323c9cf857`), anti-slop gate (`90f9422954936e054adc630ad723e6165074492c`), Universal Graph fail-closed boundary (`c8e1c536f8abfd860ddf41cefeff15b88518d095`), recommendation registry context (PR #292), and blueprint registry context (PR #293). Live `main` remains authoritative and must be resolved before each execution cycle.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 375 skill files: 216 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional test fixture.
@@ -25,6 +25,9 @@
 - The post-P2.2 Skill runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_skill()` and `capabilities_for_skill()`, and delegates `implementations_for_skill()` through the existing validated `SkillRuntime`.
 - The post-P2.2 Capability runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_capability()`, `implementations_for_capability()`, and `adapters_for_capability()` through the existing validated `CapabilityRuntime`.
 - The post-P2.2 Goal runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_goal()` and `skills_for_goal()` through the dedicated validated `GoalRuntime`.
+- The Benchmark runtime slice is verified: `UniversalRegistry` exposes deterministic `resolve_benchmark()` and `benchmarks_for_entity()` under `meta/benchmark-contract.schema.json`; this defines evaluation contracts, not benchmark results.
+- The Universal Graph runtime fail-closed boundary is verified on merged `main`: only semantically implemented relationship types are accepted; schema-valid deferred relationships are rejected.
+- Recommendation and blueprint consumers expose additive `registry_context` derived from `UniversalRegistry`, preserving provenance/evidence/freshness/implementation context without changing ranking semantics.
 - The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
 - `skills/15-orchestration/kanban-task-management.md` is present on `main` as a verified canonical skill addition. It remains `stability: experimental` and `version: v1`; no stronger maturity claim is implied.
 - No numbered P2.3 requirement is currently defined. The next Phase 2 slice must come from a fresh architecture audit.
@@ -72,11 +75,11 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Documentation synchronization status
 
-**VERIFIED — synchronized 2026-10-03.** Current-state and roadmap documentation now reflect the generated quality report and merged Universal Graph runtime boundary. Historical records remain historical and are not rewritten solely to match current state.
+**VERIFIED — synchronized in this documentation cycle.** The preflight found stale operational statements about merged graph/consumer work; those discrepancies are reconciled here without rewriting historical entries.
 
 ## Next mandatory action
 
-Perform a fresh universal-registry runtime architecture audit after the verified deterministic Agent Skills corpus. Every agent must first pass the mandatory Documentation Preflight defined in `AI_CONSTITUTION.md` and `AGENTS.md`. The next engineering slice must be evidence-backed and must not reopen completed runtime or distribution work. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
+Re-audit the remaining machine-readable discovery consumer surfaces after the verified recommendation and blueprint `registry_context` slices. Start with generated `docs/api/skills.json`, generated `docs/search-index.json`, and their canonical builders. Determine whether a shared deterministic runtime boundary can expose registry context/provenance without creating a parallel index or ranking system. Only after that audit, and after the documentation gate is clean, address Issue #86 (`skills-tree search`) with the existing search primitives if the gap remains.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
@@ -177,33 +180,21 @@ The gate is deterministic and changed-skill scoped. It blocks selected placehold
 **Status:** VERIFIED — the quality gate and review fixes are merged. Historical corpus cleanup remains a separate evidence-driven migration and is not implied by this gate.
 
 
-## Universal Graph Relationship Runtime Boundary — 2026-10-03
+## Universal Graph Relationship Runtime Boundary — VERIFIED ON MAIN — 2026-10-03
 
-A fresh universal-registry audit after the verified freshness boundary found that the Universal Graph schema intentionally contains deferred relationship vocabulary beyond the six relationships currently implemented semantically by runtime.
-
-Before this slice, schema-valid deferred relationships could pass the runtime validator through a silent fallback. The correction preserves the forward-compatible schema vocabulary but fails closed on any relationship without an explicit runtime semantic validator.
-
-No canonical graph edge was changed and no new relationship semantics were invented.
-
-**Branch:** `runtime/graph-relationship-boundary-20261003`
-
-**Status:** IMPLEMENTED ON BRANCH — focused behavioral regression coverage is added; exact-head CI and merge are pending.
-
-**Next:** verify exact-head CI, review/governance state, merge if all gates pass, then re-audit live `main`. The CLI `search` documentation/implementation mismatch remains the next independent consumer gap after this slice.
+PR #283 was merged to `main` as `c8e1c536f8abfd860ddf41cefeff15b88518d095` after exact-head verification. The runtime preserves the forward-compatible schema vocabulary but rejects schema-valid relationship types lacking explicit runtime semantics. No new graph relationship or evidence was invented.
 
 
 ## Registry Consumer Context — Verified 2026-10-03
 
 The recommendation API now exposes additive registry_context for registered canonical skills. The context is derived from UniversalRegistry and includes canonical identity, provenance, explicitly linked evidence references, declared freshness when present, and registered implementation IDs. It does not create ranking or trust scores and does not infer evidence. Unregistered legacy recommendation entries may have null registry_context.
 
-Verification target: exact PR HEAD CI, security, build, and API regression tests.
-
-Next: audit BlueprintGenerator and other machine-readable consumer surfaces for equivalent registry-context propagation.
+Verification: PR #292 merged the recommendation consumer context; focused API regression coverage is present. Next: audit remaining machine-readable discovery projections for equivalent registry context and provenance propagation.
 
 
-## Blueprint Consumer Context — Verified in current development cycle
+## Blueprint Consumer Context — VERIFIED ON MAIN — 2026-10-03
 
-The blueprint API now propagates the same additive registry_context to required and optional skill entries after BlueprintGenerator output. This preserves the generator and ranking boundaries while exposing canonical provenance/evidence/freshness/implementation context to blueprint consumers.
+PR #293 merged additive `registry_context` propagation onto required and optional blueprint skill entries. The field is descriptive and does not change blueprint generation, architecture selection, or ranking.
 
 
 ## PyPI Release Contract Synchronization — VERIFIED — 2026-10-03
