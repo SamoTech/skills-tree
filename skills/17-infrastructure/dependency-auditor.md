@@ -20,7 +20,6 @@ deps:
 badge: machine-inferred · 2 pkgs
 badge_key: skills-17-infrastructure-dependency-auditor
 description: >
-  Audits declared dependencies and runnable skill examples in isolated environments, records reproducible pass/fail/skip evidence, and proposes reviewed verification changes without silently promoting trust state.
   Closes the Execution Gap between "package exists on PyPI" (Yellow badge)
   and "code actually runs" (Green badge). Spins up an isolated venv per skill,
   installs its declared dependencies, executes the skill's Python snippets,
@@ -28,8 +27,7 @@ description: >
   Implements the Human-in-the-Loop contract: the badge never promotes itself.
 author: "@SamoTech"
 updated: "2026-04-13"
-
-related: [dependency-management, security-scanning, code-execution-sandbox]---
+---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)
 
@@ -38,7 +36,7 @@ related: [dependency-management, security-scanning, code-execution-sandbox]---
 > **Phase 3 of the Dependency Watchdog pipeline.**
 > Closes the gap between *Package Exists* (🟡 Yellow) and *Code Runs* (🟢 Green).
 
-## Description
+## The Execution Gap
 
 The AST Sweep (Phase 1) confirms that a skill's declared packages exist on PyPI
 and are free of known CVEs. But existence ≠ execution. A package might:
@@ -326,7 +324,7 @@ ephemeral runner model is the primary and sufficient containment strategy.
 
 ---
 
-## Related
+## Related Infrastructure
 
 | Component | Role |
 |---|---|
