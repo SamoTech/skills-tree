@@ -64,6 +64,12 @@ print("two")
     assert all("illustrative" not in snippet for snippet in snippets)
 
 
+def test_build_specs_preserves_pinned_versions() -> None:
+    from tools.dependency_auditor import build_pip_specs
+
+    assert build_pip_specs([Dependency(package="httpx", version="0.28.1"), Dependency(package="packaging")]) == ["httpx==0.28.1", "packaging"]
+
+
 def test_timeout_cannot_become_a_pass() -> None:
     result = AuditResult(
         skill_path=Path("skills/example.md"),
