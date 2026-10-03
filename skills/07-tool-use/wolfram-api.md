@@ -7,7 +7,8 @@ version: v2
 added: "2025-03"
 description: "Call the Wolfram Alpha query API for computational knowledge and mathematics while validating response structure, preserving tool errors, and protecting API credentials."
 
-related: [calculator, mathematical-reasoning, api-call, structured-output]---
+related: [calculator, mathematical-reasoning, api-call, structured-output]
+---
 
 # Wolfram Alpha API
 
