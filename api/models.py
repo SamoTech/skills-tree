@@ -14,6 +14,22 @@ from pydantic import BaseModel, Field, field_validator
 # Shared / primitive models
 # ---------------------------------------------------------------------------
 
+class RegistryEvidenceRef(BaseModel):
+    id: str
+    type: str
+    source: str
+
+
+class RegistrySkillContext(BaseModel):
+    canonical_id: str
+    version: str
+    canonical: bool
+    provenance: Dict[str, Any]
+    evidence: List[RegistryEvidenceRef] = Field(default_factory=list)
+    freshness: Optional[Dict[str, Any]] = None
+    implementation_ids: List[str] = Field(default_factory=list)
+
+
 class SkillSummary(BaseModel):
     id: str = Field(..., description="Canonical skill ID (e.g. 'skill:rag-retrieval')")
     name: str = Field(..., description="Human-readable skill name")
@@ -26,6 +42,7 @@ class SkillSummary(BaseModel):
     evidence: Optional[Dict[str, Any]] = Field(default_factory=dict)
     score_breakdown: Optional[Dict[str, float]] = Field(default_factory=dict)
     stability: Optional[str] = None
+    registry_context: Optional[RegistrySkillContext] = None
 
 
 class GoalSummary(BaseModel):
