@@ -741,3 +741,22 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if canonical eligibility rules change, Agent Skills specification changes materially, or a later reproducible audit finds corpus drift.
+
+
+## DECISION-2026-10-03-BEHAVIORAL-EVALUATION-RUNTIME
+
+**Decision-ID:** DECISION-2026-10-03-BEHAVIORAL-EVALUATION-RUNTIME
+
+**Topic:** Establish the smallest universal-registry boundary for reproducible behavioral evaluation.
+
+**Finding:** Provenance, Evidence, registry integrity, memory-safety skills, and action-governance skills are already represented and validated at their existing boundaries. Benchmarks are already a first-class registry collection, but they were covered only by the generic entity schema and had no dedicated typed runtime facade.
+
+**Decision:** Add a dedicated Benchmark contract and read-only runtime boundary without adding benchmark records or external claims. Require task, inputs, expected behavior, evaluation criteria, test data, methodology, historical results, and provenance; optionally scope a benchmark to explicit entity subjects. Expose deterministic resolve_benchmark() and benchmarks_for_entity() access through UniversalRegistry.
+
+**Confidence:** HIGH
+
+**Evidence IDs:** meta/POST_20261003_BEHAVIORAL_EVALUATION_AUDIT.md, meta/ROADMAP.md, meta/EVIDENCE_MODEL.md, registry/runtime.py, meta/universal-registry-data.schema.json
+
+**Status:** PROPOSED — pending exact-head behavioral/CI verification and merge.
+
+**Reopen Conditions:** Reopen if repository evidence shows Benchmark is intentionally excluded from typed runtime consumption, if the benchmark contract conflicts with an authoritative existing contract, or if tests reveal non-deterministic or mutable runtime behavior.
