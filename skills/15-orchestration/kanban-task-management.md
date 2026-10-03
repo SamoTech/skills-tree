@@ -25,7 +25,8 @@ tags:
 **Skill Level:** Intermediate
 **Stability:** experimental
 **Version:** v1
-**Added:** 2026-09 · **Last Updated:** 2026-10
+**Added:** 2026-10
+**Last Updated:** 2026-10
 
 ## Description
 
