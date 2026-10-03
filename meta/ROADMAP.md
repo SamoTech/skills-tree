@@ -206,9 +206,9 @@ The strategic phases below remain the long-term product direction. They must not
 ## Current execution queue
 
 1. Complete observable Phase 0 control-plane reconciliation and record any connector-visible limitations without silently changing high-impact repository governance.
-2. Establish the ranking/query behavior contract for Issue #86 using the existing search projection and runtime loader. Specify deterministic tokenization, matching fields, field weighting, tie-breaking, and output contract before implementing ranking code.
-3. Implement the smallest deterministic search consumer over the canonical generated documents; do not create a second index format or parser.
-4. Add CLI behavioral tests plus installed-wheel verification before merging `skills-tree search`.
+2. Verify the deterministic ranking/query contract for Issue #86 and its CLI consumer against the existing search projection and runtime loader. The contract is recorded in `meta/SEARCH_CLI_CONTRACT.md`.
+3. Complete focused/full CI validation, wheel installation verification, and runtime CLI execution for `skills-tree search` before merging the implementation branch.
+4. After merge, reconcile live issue #86, current-state, decision memory, development knowledge, and CLI/API discovery documentation.
 5. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
 6. Synchronize decision memory, architecture documentation, development knowledge, current state, and handoff state whenever verified architecture or consumer behavior changes.
 7. Re-verify live `main`, generated artifacts, authoritative documentation, and applicable CI evidence before selecting the next slice.

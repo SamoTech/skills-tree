@@ -897,3 +897,19 @@ Evidence: tools/build_search_index.py, pyproject.toml data-files, .github/workfl
 Status: VERIFIED — PR #298 merged as `8c5de33d2f3fb6054b122c9f52f381257066993f`; exact-head Test Suite, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, and Auto Label passed.
 Reopen Conditions: Reopen if packaging cannot reliably deliver the projection, if source/package bytes diverge, or if a different authoritative search data contract supersedes this boundary.
 
+
+
+# DECISION-2026-10-03-CLI-SEARCH-RANKING-CONTRACT
+
+DECISION-ID: DECISION-2026-10-03-CLI-SEARCH-RANKING-CONTRACT
+Topic: Deterministic CLI search behavior over the canonical generated search projection
+
+Finding: The repository contains a validated generated search corpus and an installable runtime loader, but no existing Python ranking implementation or verified web ranking semantics that can be reused. Issue #86 requires ranked keyword search without specifying ranking behavior.
+
+Decision: Implement one deterministic lexical consumer over the canonical generated documents. Tokenize Unicode words with case-folding; use OR matching across title, tags, category, description, and body; weight fields 8/6/4/3/1 respectively; count each distinct query token at most once per field; sort by descending score, case-folded title, then canonical ID; default to 20 results with a 1–100 limit; return stable result fields and existing CLI output formats. Do not add a second index, parser, embedding layer, fuzzy matching, trust score, or undocumented filters.
+
+Evidence: meta/SEARCH_CLI_CONTRACT.md, cli/search_engine.py, cli/search_runtime.py, tests/test_search_engine.py, tests/test_search_cli.py, tools/build_search_index.py, and Issue #86.
+
+Status: IMPLEMENTED ON BRANCH — focused and full verification plus merge remain pending.
+
+Reopen Conditions: Reopen if verified canonical search behavior appears elsewhere, the generated search projection changes shape, or evidence shows this lexical contract does not satisfy the authoritative CLI requirement.

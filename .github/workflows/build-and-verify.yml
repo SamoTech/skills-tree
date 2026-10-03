@@ -103,6 +103,24 @@ jobs:
               sys.exit(1)
           PYEOF
 
+      - name: Verify installed CLI search
+        run: |
+          python -m pip install "$WHL"
+          skills-tree search "memory" --limit 1 --format json > /tmp/skills-tree-search.json
+          python - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("/tmp/skills-tree-search.json").read_text())
+          if not isinstance(data, list) or not data:
+              raise SystemExit("FAIL — installed skills-tree search returned no results")
+          required = {"id", "title", "category", "level", "stability", "description", "score"}
+          missing = required - set(data[0])
+          if missing:
+              raise SystemExit(f"FAIL — installed search result missing fields: {sorted(missing)}")
+          print("PASS — installed wheel search command executed and returned a valid result.")
+          PYEOF
+
       - name: twine check (metadata validation)
         run: twine check dist/*
 

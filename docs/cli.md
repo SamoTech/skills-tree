@@ -12,6 +12,18 @@ pip install -e .
 
 The current CLI surface is the following.
 
+## `skills-tree search`
+
+Searches the canonical generated skill corpus with deterministic lexical ranking.
+
+```bash
+skills-tree search "memory injection"
+skills-tree search "vision" --limit 10 --format table
+```
+
+The command consumes `data/search-index.json` through `cli/search_runtime.py`; it does not build a second index or parse Markdown at runtime. Ranking and tie-breaking are defined in [`meta/SEARCH_CLI_CONTRACT.md`](../meta/SEARCH_CLI_CONTRACT.md).
+
+
 ## `skills-tree recommend`
 
 Get skill recommendations for a goal.
@@ -54,13 +66,13 @@ skills-tree validate
 skills-tree validate --goal "Coding Agent"
 ```
 
-## Search status
+## Search implementation status
 
-`skills-tree search` is not currently implemented in `cli/main.py`.
+`skills-tree search` is implemented in `cli/main.py` and consumes the existing generated search projection through `cli/search_runtime.py`.
 
-The repository does have a canonical search-index generation pipeline in `tools/build_search_index.py` and `.github/workflows/generate-search-index.yml`. The generated `docs/search-index.json` is used by the static web experience.
+The canonical generation pipeline remains `skills/**/*.md` → `tools/build_search_index.py` → identical `docs/search-index.json` and `data/search-index.json` projections. Runtime search does not create another index or parse Markdown.
 
-Issue #86 tracks the CLI search implementation gap. A future CLI command must reuse the existing canonical search/data layer rather than introducing a parallel index or ranking implementation. The remaining design work is the deterministic query/ranking contract, not another data source.
+Issue #86 is therefore an implemented CLI consumer. Its deterministic tokenization, field weights, ranking, tie-breaking, and output contract are defined in [`meta/SEARCH_CLI_CONTRACT.md`](../meta/SEARCH_CLI_CONTRACT.md).
 
 ## Output formats
 

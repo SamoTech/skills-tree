@@ -483,3 +483,8 @@ The repository governance was strengthened with a mandatory Documentation Prefli
 ## 2026-10-03 — Release documentation drift audit
 
 Fresh documentation preflight found `meta/PYPI_RELEASE_PLAN.md` describing an obsolete 1.0.0/manual-token/publish.yml release process. The executable repository contract is now semantic-release plus `.github/workflows/zero-touch-release.yml`, with tag/version verification, build verification, and PyPI OIDC Trusted Publishing. The plan was synchronized without changing release runtime behavior.
+
+
+## 2026-10-03 — CLI Search Consumer
+
+Issue #86 now has a deterministic lexical search contract in `meta/SEARCH_CLI_CONTRACT.md`. `cli/search_engine.py` consumes only the loaded generated documents; it does not create a second index, parser, or semantic ranking layer. Verification must include focused tests, full CI, wheel installation, and actual installed `skills-tree search` execution.
