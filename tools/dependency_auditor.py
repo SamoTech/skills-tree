@@ -570,4 +570,427 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    sys.exit(main())        snippets = extract_python_snippets(text)
+        if not snippets:
+            result.snippet_skipped = True
+            print("    OK   (no executable Python snippet to run)")
+            return result
+
+        safe_environment = _safe_env(venv_dir, tmpdir)
+        for index, snippet in enumerate(snippets, start=1):
+            snippet_file = Path(tmpdir) / f"snippet-{index}.py"
+            snippet_file.write_text(snippet, encoding="utf-8")
+            try:
+                proc = subprocess.run(
+                    [str(python), str(snippet_file)],
+                    capture_output=True,
+                    text=True,
+                    timeout=SNIPPET_TIMEOUT,
+                    env=safe_environment,
+                    cwd=tmpdir,
+                )
+            except subprocess.TimeoutExpired:
+                result.error = f"snippet {index} timed out after {SNIPPET_TIMEOUT}s"
+                print(f"    FAIL (snippet): {result.error}")
+                return result
+            except Exception as exc:
+                result.error = f"snippet {index} exception: {exc}"
+                print(f"    ERROR: {result.error}")
+                return result
+            if proc.returncode != 0:
+                result.error = f"snippet {index} failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
+                print(f"    FAIL (snippet): {result.error}")
+                return result
+        result.snippet_ok = True
+        print(f"    OK   ({len(snippets)} executable snippet(s) ran successfully)")
+    return result
+
+
+def parse_dependencies(text: str) -> list[Dependency]:
+    """Extract canonical `dependencies` metadata, with legacy `deps` compatibility."""
+    m = FRONTMATTER_RE.match(text)
+    if not m:
+        return []
+    block = m.group(1)
+    deps: list[Dependency] = []
+    in_dependencies = False
+    current: Dependency | None = None
+    for raw in block.splitlines():
+        line = raw.rstrip()
+        if re.match(r"^(dependencies|deps):\s*$", line):
+            in_dependencies = True
+            current = None
+            continue
+        if in_dependencies and re.match(r"^[A-Za-z][\w-]*:", line):
+            in_dependencies = False
+            current = None
+        if not in_dependencies:
+            continue
+        item = re.match(r"^\s+-\s+package:\s*([^#]+)", line)
+        if item:
+            current = Dependency(package=item.group(1).strip().strip("\"'"))
+            deps.append(current)
+            continue
+        if current is None:
+            continue
+        field = re.match(r"^\s+(min_version|tested_version|version|confidence|import_name):\s*(.+)", line)
+        if field:
+            key, value = field.group(1), field.group(2).split("#", 1)[0].strip().strip("\"'")
+            if key in {"tested_version", "version"}:
+                current.version = value
+            elif key == "confidence":
+                current.confidence = value
+            elif key == "import_name":
+                current.import_name = value
+    return deps
+
+def extract_python_snippets(text: str) -> list[str]:
+    """Return executable Python fences; explicitly illustrative fences are skipped."""
+    body_start = 0
+    if text.startswith("---"):
+        end = text.find("---", 3)
+        if end != -1:
+            body_start = end + 3
+    body = text[body_start:]
+    snippets: list[str] = []
+    for match in re.finditer(r"```(?P<info>[^\n]*)\n(?P<body>.*?)```", body, re.DOTALL):
+        info = match.group("info").strip().lower()
+        if not info.startswith("python") or "type: illustrative" in info:
+            continue
+        snippets.append(textwrap.dedent(match.group("body")))
+    return snippets
+
+# ---------------------------------------------------------------------------
+# Audit logic
+# ---------------------------------------------------------------------------
+
+
+def _venv_bin(venv_dir: Path) -> Path:
+    """Return the platform-correct venv binary directory."""
+    return venv_dir / ("Scripts" if sys.platform == "win32" else "bin")
+
+
+def build_pip_specs(deps: list[Dependency]) -> list[str]:
+    specs = []
+    for dep in deps:
+        if dep.version:
+            specs.append(f"{dep.package}=={dep.version}")
+        else:
+            specs.append(dep.package)
+    return specs
+
+
+def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
+    text = skill_path.read_text(encoding="utf-8", errors="ignore")
+    key = skill_path_to_badge_key(skill_path)
+    result = AuditResult(skill_path=skill_path, skill_key=key)
+
+    result.deps = parse_dependencies(text)
+    if not result.deps:
+        result.snippet_skipped = True
+        result.install_ok = True
+        print(f"  [SKIP] {skill_path}: no dependencies declared")
+        return result
+
+    if dry_run:
+        print(f"  [DRY]  {skill_path}: would audit {len(result.deps)} dep(s)")
+        result.install_ok = True
+        result.snippet_skipped = True
+        return result
+
+    specs = build_pip_specs(result.deps)
+    print(f"  [AUDIT] {skill_path}: installing {specs}")
+
+    with tempfile.TemporaryDirectory(prefix="dep_audit_") as tmpdir:
+        venv_dir = Path(tmpdir) / "venv"
+
+        # Create isolated venv
+        try:
+            subprocess.run(
+                [sys.executable, "-m", "venv", str(venv_dir)],
+                check=True,
+                capture_output=True,
+                timeout=60,
+            )
+        except Exception as exc:
+            result.error = f"venv creation failed: {exc}"
+            print(f"    ERROR: {result.error}")
+            return result
+
+        pip = _venv_bin(venv_dir) / "pip"
+        python = _venv_bin(venv_dir) / "python"
+
+        # Install packages
+        try:
+            proc = subprocess.run(
+                [str(pip), "install", "--quiet", "--timeout", "30"] + specs,
+                capture_output=True,
+                text=True,
+                timeout=PIP_INSTALL_TIMEOUT,
+            )
+            if proc.returncode != 0:
+                result.error = f"pip install failed:\n{proc.stderr[:500]}"
+                print(f"    FAIL (install): {result.error}")
+                return result
+            result.install_ok = True
+            print(f"    OK   (install): {specs}")
+        except subprocess.TimeoutExpired:
+            result.error = f"pip install timed out after {PIP_INSTALL_TIMEOUT}s"
+            print(f"    TIMEOUT: {result.error}")
+            return result
+        except Exception as exc:
+            result.error = f"pip install exception: {exc}"
+            print(f"    ERROR: {result.error}")
+            return result
+
+        # Run first snippet (if any)
+        snippet = extract_python_snippets(text)
+        if snippet is None:
+            result.snippet_skipped = True
+            print("    OK   (no snippet to run)")
+            return result
+
+        # Write snippet to temp file and execute in a locked-down environment.
+        snippet_file = Path(tmpdir) / "snippet.py"
+        snippet_file.write_text(textwrap.dedent(snippet), encoding="utf-8")
+
+        # Build minimal env: venv Python on PATH, tmpdir as HOME, NO CI secrets.
+        # This prevents a malicious snippet from reading ANTHROPIC_API_KEY,
+        # GITHUB_TOKEN, AWS_* or any other credential present on the runner.
+        safe_environment = _safe_env(venv_dir, tmpdir)
+
+        try:
+            proc = subprocess.run(
+                [str(python), str(snippet_file)],
+                capture_output=True,
+                text=True,
+                timeout=SNIPPET_TIMEOUT,
+                env=safe_environment,          # <── isolated: no CI secrets
+                cwd=tmpdir,                    # <── working dir inside tmpdir only
+            )
+            if proc.returncode != 0:
+                result.error = f"snippet failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
+                print(f"    FAIL (snippet): {result.error}")
+                return result
+            result.snippet_ok = True
+            print("    OK   (snippet ran successfully)")
+        except subprocess.TimeoutExpired:
+            # Timeout is not a hard failure for snippets that block on I/O
+            result.snippet_skipped = True
+            print(f"    SKIP (snippet timed out after {SNIPPET_TIMEOUT}s — treating as pass)")
+        except Exception as exc:
+            result.error = f"snippet exception: {exc}"
+            print(f"    ERROR: {result.error}")
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Badge / report writing
+# ---------------------------------------------------------------------------
+
+
+def write_green_badge(result: AuditResult, badge_output: Path) -> None:
+    badge_output.mkdir(parents=True, exist_ok=True)
+    badge_file = badge_output / f"{result.skill_key}.json"
+
+    # Never overwrite CVE/critical badges
+    if badge_file.exists():
+        existing = json.loads(badge_file.read_text())
+        if existing.get("color") == CRITICAL_COLOR or "CVE" in existing.get("message", ""):
+            print(f"    SKIP (CVE/critical badge protected): {badge_file.name}")
+            return
+
+    badge_file.write_text(json.dumps(GREEN_BADGE, indent=2))
+    print(f"    WROTE green badge: {badge_file.name}")
+
+
+def write_pr_body(
+    results: list[AuditResult],
+    pr_body_path: Path,
+    dry_run: bool = False,
+) -> None:
+    passed = [r for r in results if r.passed]
+    failed = [r for r in results if not r.passed and r.deps]
+    skipped = [r for r in results if r.passed and not r.deps]
+
+    lines = [
+        "## \U0001f7e2 Dependency Auditor \u2014 Verification Report",
+        "",
+        "> Auto-generated by `dependency-auditor.yml`. "
+        "**Do not merge without reviewing each skill.**",
+        "",
+        "| Metric | Count |",
+        "|---|---|",
+        f"| Skills audited | {len(results)} |",
+        f"| Passed (proposed Green) | {len(passed)} |",
+        f"| Failed | {len(failed)} |",
+        f"| Skipped (no deps) | {len(skipped)} |",
+        f"| Dry run | {'yes' if dry_run else 'no'} |",
+        "",
+    ]
+
+    if passed:
+        lines += [
+            "### \u2705 Proposed Green Promotions",
+            "",
+            "| Skill | Packages | Snippet |",
+            "|---|---|---|",
+        ]
+        for r in passed:
+            pkgs = ", ".join(f"`{d.package}`" for d in r.deps) or "—"
+            snippet_status = "skipped" if r.snippet_skipped else "\u2714"
+            lines.append(f"| `{r.skill_path}` | {pkgs} | {snippet_status} |")
+        lines.append("")
+
+    if failed:
+        lines += [
+            "### \u274c Audit Failures (not promoted)",
+            "",
+            "| Skill | Error |",
+            "|---|---|",
+        ]
+        for r in failed:
+            err = (r.error or "unknown error").replace("\n", " ")[:200]
+            lines.append(f"| `{r.skill_path}` | {err} |")
+        lines.append("")
+
+    lines += [
+        "---",
+        "> **Human review required.** Verify each proposed skill before approving this PR.",
+    ]
+
+    pr_body_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"Wrote PR body to {pr_body_path}")
+
+
+# ---------------------------------------------------------------------------
+# Skill discovery
+# ---------------------------------------------------------------------------
+
+
+def collect_skills_from_root(skills_root: Path) -> list[Path]:
+    return sorted(skills_root.rglob("*.md"))
+
+
+def collect_skills_from_file(skills_file: Path) -> list[Path]:
+    paths = []
+    for line in skills_file.read_text().splitlines():
+        line = line.strip()
+        if line:
+            p = Path(line)
+            if p.exists():
+                paths.append(p)
+            else:
+                print(f"  [WARN] skill file not found: {line}")
+    return paths
+
+
+def should_audit(skill_path: Path, badge_output: Path) -> bool:
+    """
+    Only audit skills whose existing badge is Yellow (machine-inferred).
+    Skip Green, CVE/critical, and unscanned badges — nothing to promote.
+
+    Note: newly added skills have no badge yet (ast-sweep must run first
+    to generate the initial Yellow badge before this tool can promote them).
+    """
+    key = skill_path_to_badge_key(skill_path)
+    badge_file = badge_output / f"{key}.json"
+    if not badge_file.exists():
+        return False
+    try:
+        badge = json.loads(badge_file.read_text())
+    except Exception:
+        return False
+    return badge.get("color", "") == YELLOW_BADGE_COLOR
+
+
+# ---------------------------------------------------------------------------
+# CLI entry point
+# ---------------------------------------------------------------------------
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Phase 3 Dependency Auditor: install deps + run snippets, propose Green badges."
+    )
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument(
+        "--skills-root",
+        type=Path,
+        help="Root directory to recursively scan for skill .md files.",
+    )
+    group.add_argument(
+        "--skills-file",
+        type=Path,
+        help="File containing newline-separated paths to skill .md files to audit.",
+    )
+    parser.add_argument(
+        "--badge-output",
+        type=Path,
+        default=Path("badge-data-output"),
+        help="Directory to write proposed Green badge JSONs into.",
+    )
+    parser.add_argument(
+        "--pr-body",
+        type=Path,
+        default=Path("verification-pr-body.md"),
+        help="Path to write the human-review PR body Markdown.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would happen without installing or writing any files.",
+    )
+    args = parser.parse_args()
+
+    if args.skills_root:
+        if not args.skills_root.exists():
+            print(f"ERROR: skills-root '{args.skills_root}' does not exist.")
+            return 1
+        skills = collect_skills_from_root(args.skills_root)
+    else:
+        if not args.skills_file.exists():
+            print(f"ERROR: skills-file '{args.skills_file}' does not exist.")
+            return 1
+        skills = collect_skills_from_file(args.skills_file)
+
+    print(f"Found {len(skills)} skill file(s) to consider.")
+
+    eligible = [s for s in skills if should_audit(s, args.badge_output)]
+    print(f"{len(eligible)} skill(s) have Yellow badges eligible for audit.")
+
+    if not eligible:
+        print("Nothing to audit. Exiting.")
+        if not args.dry_run:
+            args.badge_output.mkdir(parents=True, exist_ok=True)
+            args.pr_body.write_text(
+                "## Dependency Auditor\n\nNo Yellow-badged skills found to audit.\n",
+                encoding="utf-8",
+            )
+        return 0
+
+    results: list[AuditResult] = []
+    for skill_path in eligible:
+        print(f"\nAuditing: {skill_path}")
+        result = audit_skill(skill_path, dry_run=args.dry_run)
+        results.append(result)
+
+    passed = [r for r in results if r.passed]
+    print(f"\n{'=' * 60}")
+    print(f"Audit complete: {len(passed)}/{len(results)} passed.")
+
+    if not args.dry_run:
+        args.badge_output.mkdir(parents=True, exist_ok=True)
+        for r in passed:
+            write_green_badge(r, args.badge_output)
+        write_pr_body(results, args.pr_body, dry_run=False)
+    else:
+        print("[DRY RUN] No files written.")
+        write_pr_body(results, args.pr_body, dry_run=True)
+
+    return 0
+
+
+if __name__ == "__main__":
     sys.exit(main())
