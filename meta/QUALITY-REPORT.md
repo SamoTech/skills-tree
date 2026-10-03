@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 374
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 206
+- **Total skill files:** 375
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 207
 - 🟡 **Enriched** (real description + runnable code): 158
 - ⚪ **Stub** (placeholder description or no runnable code): 10
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -29,7 +29,7 @@
 | `12-data` | 18 | 1 | 17 | 0 | 0 |
 | `13-creative` | 14 | 10 | 0 | 4 | 0 |
 | `14-security` | 13 | 13 | 0 | 0 | 0 |
-| `15-orchestration` | 27 | 9 | 18 | 0 | 0 |
+| `15-orchestration` | 28 | 10 | 18 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 |
 | `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
 
@@ -234,6 +234,7 @@
 - [`skills/15-orchestration/automation-review.md`](skills/15-orchestration/automation-review.md) — Automation Review
 - [`skills/15-orchestration/documentation-drift-resolution.md`](skills/15-orchestration/documentation-drift-resolution.md) — Documentation Drift Resolution
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
+- [`skills/15-orchestration/kanban-task-management.md`](skills/15-orchestration/kanban-task-management.md) — Kanban Task Management
 - [`skills/15-orchestration/langgraph-checkpointing.md`](skills/15-orchestration/langgraph-checkpointing.md) — LangGraph Checkpointing
 - [`skills/15-orchestration/multi-agent-run-config.md`](skills/15-orchestration/multi-agent-run-config.md) — Multi-Agent Run Config
 - [`skills/15-orchestration/repository-state-load.md`](skills/15-orchestration/repository-state-load.md) — Repository State Load
