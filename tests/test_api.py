@@ -130,6 +130,22 @@ class TestRecommend:
         assert "learning_path" in data
         assert "calibration_applied" in data
 
+    def test_recommend_exposes_registry_context_without_inventing_evidence(self):
+        r = client.post("/recommend", json={"goal": "Coding Agent"})
+        assert r.status_code == 200
+        contexts = [
+            skill["registry_context"]
+            for skill in r.json()["required_skills"] + r.json()["optional_skills"]
+            if skill["registry_context"] is not None
+        ]
+        assert contexts, "registered recommendation should expose registry context"
+        for context in contexts:
+            assert context["canonical"] is True
+            assert context["canonical_id"]
+            assert context["provenance"]["source"]
+            assert isinstance(context["evidence"], list)
+            assert isinstance(context["implementation_ids"], list)
+
     def test_recommend_calibration_applied(self):
         r = client.post("/recommend", json={"goal": "Coding Agent"})
         data = r.json()
