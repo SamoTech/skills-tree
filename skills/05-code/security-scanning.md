@@ -7,11 +7,12 @@ version: v2
 added: "2025-03"
 updated: "2026-10-03"
 description: "Detect source vulnerabilities, dependency advisories, and exposed secrets with separate scanners and enforce explicit severity thresholds in CI."
----
+
+related: [secret-scanning, dependency-management, code-review, secure-coding]---
 
 # Security Scanning
 
-## Purpose
+## Description
 
 Security scanning is a layered verification step. Source analysis, dependency analysis, and secret detection have different coverage boundaries. A clean result from one scanner is not proof that an application is secure.
 
@@ -68,7 +69,7 @@ PY
 
 Evidence status: references support the scanning guidance. No complete-coverage or security-certification claim is made.
 
-## Related Skills
+## Related
 
 - secret-scanning
 - dependency-management
