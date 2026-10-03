@@ -440,3 +440,12 @@ A review finding in PR #267 identified an inaccurate YYLO dependency-creation ex
 **Verification:** PR #267 final head `e8b866c75438e9456f6e11a6ee196cc979eb52da` passed Validate Skills, Schema Enforcement, Security Scan, PR Checks, Test Suite, Build & Verify Wheel, Validate Skills Graph, Check Links, AST Sweep, Skill Upgrade Detector, Skill Quality Report, and Agent Skills Distribution Audit. The pull request was squash-merged to `main` as `8a242e37e9bd5a9e694d4e2ede7fa1c9674be03c`.
 
 **Integrity note:** PR #247 was closed without merge because its Capability↔Skill symmetry fix was already present on current `main`. No duplicate runtime patch was introduced.
+
+
+## Universal Registry Behavioral-Evaluation Audit — 2026-10-03
+
+A fresh architecture/consumer audit followed the verified Goal runtime facade and registry data-schema validation. Provenance, Evidence, integrity, memory-safety guidance, and action-governance skills are already covered by existing repository contracts or skills. The concrete remaining boundary gap was Benchmark: the registry contains a first-class benchmarks collection, but it used only the generic entity schema and had no typed runtime facade.
+
+The selected smallest slice adds meta/benchmark-contract.schema.json, binds entities.benchmarks to that contract, adds BenchmarkRuntime, and exposes deterministic resolve_benchmark() plus benchmarks_for_entity() through UniversalRegistry. The test fixture is synthetic and repository-local; no benchmark result, ranking, model claim, or external ecosystem claim is introduced.
+
+**Verification status:** implementation and focused regression tests are on branch runtime/benchmark-integrity-slice; exact-head CI is pending.
