@@ -5,7 +5,6 @@ level: intermediate
 stability: stable
 version: v4
 added: "2025-03"
-updated: "2026-10-03"
 description: "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval."
 tags: [rag, retrieval, embeddings, knowledge-base, grounding]
 
