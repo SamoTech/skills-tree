@@ -812,3 +812,18 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Status:** VERIFIED ON BRANCH — implementation and focused regression coverage are present; exact-head CI and merge remain pending.
 
 **Reopen Conditions:** Reopen when repository evidence justifies introducing a deferred relationship and provides explicit endpoint semantics, deterministic generation rules, provenance requirements, and behavioral tests.
+
+
+## DECISION-2026-10-03-AUTOMATED-CI-MERGE-AUTHORIZATION
+
+**Decision-ID:** DECISION-2026-10-03-AUTOMATED-CI-MERGE-AUTHORIZATION
+
+**Topic:** Pull-request merge authorization
+
+**Decision:** For normal repository pull requests, a verified exact HEAD that passes the required CI/test/security gates and satisfies the documented engineering invariants is sufficient authorization for merge. A separate human approval is not required unless an explicit repository control-plane rule or higher-priority decision requires it.
+
+**Evidence:** User/CEO-CIO decision recorded 2026-10-03; PR #283 exact-head CI passed and was merged without human review as c8e1c536f8abfd860ddf41cefeff15b88518d095; AI_CONSTITUTION.md; AGENTS.md.
+
+**Status:** VERIFIED — operating policy adopted and documentation update prepared.
+
+**Reopen Conditions:** Reopen if the Human Owner changes this policy, repository control-plane rules require approval, or evidence shows automated gates are insufficient for a specific change class.

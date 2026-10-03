@@ -79,7 +79,7 @@ Before merging a meaningful PR:
 7. Record significant decisions and the resulting state.
 8. Merge only when the repository's stated gates are satisfied.
 
-A mergeable GitHub status alone is not proof of semantic correctness.
+A mergeable GitHub status alone is not proof of semantic correctness. For normal PRs, once the exact HEAD passes the required CI/test/security gates and the repository's documented invariants are satisfied, merge without waiting for a human approval. A human review is not an additional merge gate unless an explicit repository control-plane rule or higher-priority decision requires it.
 
 ## Completion Status
 
