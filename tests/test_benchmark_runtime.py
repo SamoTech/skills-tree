@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
+from jsonschema.exceptions import ValidationError
 
 from registry.runtime import UniversalRegistry
 
@@ -128,5 +129,5 @@ def test_benchmark_definition_lists_must_not_be_empty(tmp_path: Path) -> None:
     benchmark = _benchmark_fixture()
     benchmark["inputs"] = []
     target = _write_registry_fixture(tmp_path, benchmark)
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError, match="is too short"):
         UniversalRegistry(target)
