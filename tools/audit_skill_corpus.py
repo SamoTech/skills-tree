@@ -138,6 +138,7 @@ def render_markdown(records: list[AuditRecord]) -> str:
         f"- Enriched: **{quality['enriched']}**",
         f"- Stub: **{quality['stub']}**",
         f"- Invalid: **{quality['invalid']}**",
+        f"- Test fixtures: **{quality['test_fixture']}**",
         f"- Duplicated titles: **{findings['duplicated-title']}**",
         f"- Duplicated descriptions: **{findings['duplicated-description']}**",
         f"- Stale version declarations: **{findings['stale-version']}**",
@@ -156,7 +157,7 @@ def render_markdown(records: list[AuditRecord]) -> str:
             for r in sorted(problem_records, key=lambda item: item.path)
         )
     lines.extend(["", "## Quality classification", "", "| Quality | Count |", "|---|---:|"])
-    for key in ("battle_tested", "enriched", "stub", "invalid"):
+    for key in ("battle_tested", "enriched", "stub", "invalid", "test_fixture"):
         lines.append(f"| {key} | {quality[key]} |")
     lines.append("")
     return "\n".join(lines)
