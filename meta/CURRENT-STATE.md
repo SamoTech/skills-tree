@@ -206,6 +206,8 @@ PR #293 merged additive `registry_context` propagation onto required and optiona
 `meta/PYPI_RELEASE_PLAN.md` was reconciled with the executable release path. The repository version is currently `1.68.0` in `pyproject.toml`. Production publication is performed by `.github/workflows/zero-touch-release.yml` using GitHub OIDC Trusted Publishing and the `pypi` environment. The historical `publish.yml` / `PYPI_API_TOKEN` / `1.0.0` instructions are no longer treated as current release instructions.
 
 
-## Machine-Readable Discovery Registry Context — IMPLEMENTED ON BRANCH — 2026-10-03
+## Machine-Readable Discovery Registry Context — VERIFIED ON MAIN — 2026-10-03
 
-The discovery audit found that docs/api/skills.json was not consuming the verified UniversalRegistry context. The branch adds an optional registry_context projection for the three exact registered skills only, with no synthetic membership or evidence. Exact-head CI remains the verification gate before merge.
+The discovery audit found that docs/api/skills.json was not consuming the verified UniversalRegistry context. PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb` and adds optional registry_context for the three exact registered skills only, with no synthetic membership or evidence. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed the required CI matrix, including Test Suite on Python 3.11/3.12/3.13 and installed-wheel verification.
+
+During validation, the new focused test exposed an existing schema/artifact date-format mismatch in unrelated `added`/`last_updated` fields. The test was narrowed to the registry_context sub-schema; the date-format drift remains a separate audit finding and was not changed in PR #300.
