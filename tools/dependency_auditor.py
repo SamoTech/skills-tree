@@ -184,55 +184,58 @@ def parse_frontmatter(text: str) -> dict:
 
 
 def parse_dependencies(text: str) -> list[Dependency]:
-    """Extract dependency blocks from frontmatter."""
+    """Extract canonical `dependencies` metadata, with legacy `deps` compatibility."""
     m = FRONTMATTER_RE.match(text)
     if not m:
         return []
     block = m.group(1)
-
     deps: list[Dependency] = []
-    lines = block.splitlines()
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        pkg_match = re.match(r"^\s+-\s+package:\s*(\S+)", line)
-        if pkg_match:
-            pkg_name = pkg_match.group(1).strip('"\'')
-            dep = Dependency(package=pkg_name)
-            # Look ahead for version/confidence/import_name sub-keys
-            j = i + 1
-            while j < len(lines) and re.match(r"^\s{2,}\S", lines[j]):
-                sub = re.match(r"^\s+(version|confidence|import_name):\s*(.+)", lines[j])
-                if sub:
-                    key, val = sub.group(1), sub.group(2).strip().strip('"\'')
-                    if key == "version":
-                        dep.version = val
-                    elif key == "confidence":
-                        dep.confidence = val
-                    elif key == "import_name":
-                        dep.import_name = val
-                j += 1
-            deps.append(dep)
-            i = j
-        else:
-            i += 1
+    in_dependencies = False
+    current: Dependency | None = None
+    for raw in block.splitlines():
+        line = raw.rstrip()
+        if re.match(r"^(dependencies|deps):\s*$", line):
+            in_dependencies = True
+            current = None
+            continue
+        if in_dependencies and re.match(r"^[A-Za-z][\w-]*:", line):
+            in_dependencies = False
+            current = None
+        if not in_dependencies:
+            continue
+        item = re.match(r"^\s+-\s+package:\s*([^#]+)", line)
+        if item:
+            current = Dependency(package=item.group(1).strip().strip("\"'"))
+            deps.append(current)
+            continue
+        if current is None:
+            continue
+        field = re.match(r"^\s+(min_version|tested_version|version|confidence|import_name):\s*(.+)", line)
+        if field:
+            key, value = field.group(1), field.group(2).split("#", 1)[0].strip().strip("\"'")
+            if key in {"tested_version", "version"}:
+                current.version = value
+            elif key == "confidence":
+                current.confidence = value
+            elif key == "import_name":
+                current.import_name = value
     return deps
 
-
-def extract_first_snippet(text: str) -> Optional[str]:
-    """Return the first Python code block from the skill body."""
+def extract_python_snippets(text: str) -> list[str]:
+    """Return executable Python fences; explicitly illustrative fences are skipped."""
     body_start = 0
     if text.startswith("---"):
         end = text.find("---", 3)
         if end != -1:
             body_start = end + 3
-
     body = text[body_start:]
-    m = re.search(r"```python\n(.*?)```", body, re.DOTALL)
-    if m:
-        return m.group(1)
-    return None
-
+    snippets: list[str] = []
+    for match in re.finditer(r"```(?P<info>[^\n]*)\n(?P<body>.*?)```", body, re.DOTALL):
+        info = match.group("info").strip().lower()
+        if not info.startswith("python") or "type: illustrative" in info:
+            continue
+        snippets.append(textwrap.dedent(match.group("body")))
+    return snippets
 
 # ---------------------------------------------------------------------------
 # Audit logic
@@ -318,7 +321,7 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
             return result
 
         # Run first snippet (if any)
-        snippet = extract_first_snippet(text)
+        snippet = extract_python_snippets(text)
         if snippet is None:
             result.snippet_skipped = True
             print("    OK   (no snippet to run)")
