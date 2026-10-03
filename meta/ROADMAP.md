@@ -1,7 +1,7 @@
 # Skills Tree — Executable Product Roadmap
 
 > Strategic roadmap for the Skills Tree product mission.
-> Effective: 2026-10-02
+> Effective: 2026-10-03
 > Canonical source: `skills/`
 > Product mission: `meta/PRODUCT_MISSION.md`
 > Execution mission: `meta/COO_MASTER_MISSION.md`
@@ -199,24 +199,20 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies the governance/registry foundation and the deterministic Agent Skills corpus projection, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The deterministic Agent Skills corpus is now a verified distribution baseline. The next distribution decision is whether the remaining evidence gates justify implementing `/.well-known/agent-skills/index.json`; otherwise continue the fresh universal-registry architecture audit. No numbered P2.3 requirement is defined.
+The repository's live development record verifies the governance/registry foundation and the deterministic Agent Skills corpus projection, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The deterministic Agent Skills corpus is now a verified distribution baseline. The deterministic Agent Skills corpus is a verified distribution baseline. The Universal Registry now has verified benchmark, freshness, graph fail-closed, recommendation-context, and blueprint-context boundaries. No numbered P2.3 requirement is defined. The next foundational work is the remaining machine-readable discovery consumer audit before any new CLI search implementation.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
 ## Current execution queue
 
-1. Complete any remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
-2. Re-audit the merged Universal Graph relationship runtime boundary and the broader universal-registry consumer surface from the verified benchmark, anti-slop, freshness, graph-integrity, and provenance/evidence baseline.
-3. Re-audit the merged universal-registry runtime and consumer surface from the verified benchmark, anti-slop, freshness, and graph-integrity baseline.
-4. Reconcile the remaining CLI search documentation/implementation gap (Issue #86) using existing search/runtime primitives; do not duplicate search logic.
+1. Complete observable Phase 0 control-plane reconciliation and record any connector-visible limitations without silently changing high-impact repository governance.
+2. Re-audit remaining machine-readable discovery projections (`docs/api/skills.json`, `docs/search-index.json`, and their builders) for registry context, provenance, evidence, freshness, and deterministic consumer behavior.
+3. Define the smallest reusable search/discovery runtime boundary only if the audit proves one is missing; reuse existing canonical search data and do not create a parallel ranking/index implementation.
+4. Reconcile Issue #86 (`skills-tree search`) from the audited canonical search primitive, with contract tests and packaging/runtime verification.
 5. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
-6. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle.
-7. Re-verify live `main`, CI, generated artifacts, and authoritative documentation before selecting the next slice.
-8. Resume strategic capability-intelligence and demand-driven work only when the foundational runtime path is sufficiently established by evidence.
-
-9. Verify registry consumer-context propagation in recommendation, blueprint, and machine-readable discovery surfaces without introducing unsupported ranking or trust semantics.
-10. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle when consumer boundaries change.
-11. Audit remaining machine-readable discovery projections for equivalent registry context and provenance propagation.
+6. Synchronize decision memory, architecture documentation, development knowledge, current state, and handoff state whenever verified architecture or consumer behavior changes.
+7. Re-verify live `main`, generated artifacts, authoritative documentation, and applicable CI evidence before selecting the next slice.
+8. Resume strategic capability-intelligence work only when the foundational consumer path is sufficiently established by evidence.
 
 ### Mandatory execution invariant
 
