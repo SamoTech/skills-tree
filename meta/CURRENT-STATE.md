@@ -204,3 +204,8 @@ Next: audit BlueprintGenerator and other machine-readable consumer surfaces for 
 ## Blueprint Consumer Context — Verified in current development cycle
 
 The blueprint API now propagates the same additive registry_context to required and optional skill entries after BlueprintGenerator output. This preserves the generator and ranking boundaries while exposing canonical provenance/evidence/freshness/implementation context to blueprint consumers.
+
+
+## PyPI Release Contract Synchronization — VERIFIED — 2026-10-03
+
+`meta/PYPI_RELEASE_PLAN.md` was reconciled with the executable release path. The repository version is currently `1.68.0` in `pyproject.toml`. Production publication is performed by `.github/workflows/zero-touch-release.yml` using GitHub OIDC Trusted Publishing and the `pypi` environment. The historical `publish.yml` / `PYPI_API_TOKEN` / `1.0.0` instructions are no longer treated as current release instructions.

@@ -844,3 +844,13 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Status:** LOCKED.
 
 **Reopen Conditions:** Reopen only if the repository adopts a stronger equivalent documentation-control mechanism or the authoritative source-of-truth architecture changes.
+
+
+# DECISION-2026-10-03-PYPI-RELEASE-CONTRACT
+DECISION-ID: DECISION-2026-10-03-PYPI-RELEASE-CONTRACT
+Topic: PyPI release documentation follows the executable zero-touch pipeline
+Decision: Treat `.github/workflows/zero-touch-release.yml` and `pyproject.toml` as the authoritative release implementation. `meta/PYPI_RELEASE_PLAN.md` must describe semantic-release, tag/version verification, wheel verification, GitHub OIDC Trusted Publishing, and the `pypi` environment. Historical API-token/manual-publish instructions must not be presented as current procedure.
+Confidence: HIGH
+Evidence IDs: PYPI-RELEASE-WORKFLOW-20261003, PYPROJECT-20261003
+Status: LOCKED
+Reopen Conditions: Reopen only if the executable release workflow or versioning architecture changes.

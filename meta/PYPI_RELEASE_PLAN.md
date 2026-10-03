@@ -1,211 +1,120 @@
-# Architect PyPI Release Plan
+# PyPI Release and Distribution Contract
 
-Sprint: **C-11**
+Status: current repository release contract, verified 2026-10-03.
 
----
+This document describes the release mechanism actually configured in the repository. Historical C-11 planning material is intentionally replaced here because it no longer describes the executable release path.
 
-## Package Structure
+## Package identity
 
-```
-skills-tree/
-├── api/                     # FastAPI service layer (C-09)
-│   ├── __init__.py
-│   ├── main.py
-│   ├── models.py
-│   ├── dependencies.py
-│   └── routes/
-│       ├── health.py
-│       ├── goals.py
-│       ├── skills.py
-│       ├── recommend.py
-│       └── blueprint.py
-├── cli/                     # CLI layer (C-11)  ← new
-│   ├── __init__.py
-│   └── main.py
-├── mcp/                     # MCP server layer (C-10)
-│   ├── __init__.py
-│   ├── server.py
-│   └── tools.py
-├── tools/                   # Engine layer (C-01 – C-08)
-│   ├── architect.py
-│   └── ranking_calibrator.py
-├── pyproject.toml           # Package manifest (C-11)  ← new
-├── README.md
-└── LICENSE
-```
+- Project: `skills-tree`
+- Repository: `SamoTech/skills-tree`
+- Python requirement: `>=3.11`
+- Repository version at this audit: `1.68.0`
+- Version source of truth: `pyproject.toml [project].version`
+- Console entry point: `skills-tree = cli.main:app`
 
-The installable distributions ships four namespaces: `api`, `cli`, `mcp`, `tools`.
-Data files (`*.md`, `*.json`) bundled via `package-data` in `pyproject.toml`.
-
----
+The repository package is a beta-stage installable distribution. Release readiness is determined by the executable CI/release gates, not by this document.
 
 ## Versioning
 
-Architect follows **Semantic Versioning 2.0** (`MAJOR.MINOR.PATCH`).
+The repository uses semantic-release configuration in `pyproject.toml`.
 
-| Component | Meaning |
-|---|---|
-| `MAJOR` | Breaking API or CLI contract changes |
-| `MINOR` | New commands, endpoints, or MCP tools (backwards-compatible) |
-| `PATCH` | Bug fixes, calibration tweaks, doc updates |
+Relevant commit classification:
+- `feat` → minor release
+- `fix`, `perf`, `refactor` → patch release
+- other allowed tags may participate according to semantic-release configuration
+- release commits use `chore(release): v{version} [skip ci]`
+- tags use `v{version}`
 
-Current version: **`1.0.0`** (set in `pyproject.toml`).
+The version in `pyproject.toml` and the release tag must agree before an artifact is built.
 
-Version is the single source of truth — mirrored into the API `/health` response via `version` field in `api/routes/health.py`.
+## Executable release pipeline
 
----
+The authoritative workflow is:
 
-## Release Workflow
+`.github/workflows/zero-touch-release.yml`
 
-### 1. Pre-release checklist
+It runs on every push to `main` and performs:
+
+1. Semantic-release version calculation.
+2. Verification of the resulting version/tag state.
+3. Checkout of the release tag.
+4. Build of sdist and wheel.
+5. `twine check`.
+6. Verification that required runtime assets are present in the wheel.
+7. PyPI publication through GitHub OIDC Trusted Publishing.
+8. Attachment of the built artifacts to the GitHub Release.
+
+If semantic-release determines that there is no releasable change, downstream build/publish jobs are skipped.
+
+## Trusted Publishing
+
+PyPI publication does not use the historical `PYPI_API_TOKEN` workflow described in older documentation.
+
+The executable workflow uses:
+- GitHub Actions OIDC
+- job-level `id-token: write` on the PyPI publishing job
+- PyPI environment: `pypi`
+- workflow filename: `zero-touch-release.yml`
+- publisher repository: `SamoTech/skills-tree`
+
+The workflow contains an OIDC pre-flight check that verifies the repository and workflow identity before publication.
+
+No long-lived PyPI API token is required by the current release workflow.
+
+## Build verification
+
+The release workflow builds both:
+- source distribution
+- Python wheel
+
+It verifies the wheel contains these required runtime assets:
+
+- `data/SKILLS_GRAPH.json`
+- `meta/GOAL_TAXONOMY.md`
+- `benchmarks/INDEX.json`
+
+It also runs `twine check` and checks for a matching CHANGELOG entry.
+
+The normal PR CI remains a separate prerequisite for repository changes. A successful release workflow does not replace the repository's test, security, build, integrity, provenance, and documentation gates.
+
+## Developer validation
+
+Before a release-bearing change is merged, use the repository's normal validation gates. The executable CLI boundary currently includes:
 
 ```bash
-# Run full test suite
-pytest tests/ -v
-
-# Validate CLI end-to-end
 pip install -e .
 skills-tree validate
 skills-tree recommend --goal "Coding Agent"
-
-# Confirm version bump
-grep version pyproject.toml
+skills-tree blueprint --goal "Coding Agent"
 ```
 
-### 2. Build distributions
+The repository does not currently expose the historical `skills-tree search`, `show`, `list`, or `categories` commands.
+
+## Installation
+
+Published releases can be installed with:
 
 ```bash
-pip install build
-python -m build
-# produces:
-#   dist/skills_tree-1.0.0.tar.gz        (sdist)
-#   dist/skills_tree-1.0.0-py3-none-any.whl (wheel)
-```
-
-### 3. Publish to TestPyPI (staging)
-
-```bash
-pip install twine
-twine upload --repository testpypi dist/*
-# Verify:
-pip install -i https://test.pypi.org/simple/ skills-tree==1.0.0
-skills-tree --help
-```
-
-### 4. Publish to PyPI (production)
-
-```bash
-twine upload dist/*
-```
-
-CI publishing via GitHub Actions (`.github/workflows/publish.yml`) using the `PYPI_API_TOKEN` repository secret.
-
----
-
-## PyPI Publishing
-
-### GitHub Actions workflow
-
-```yaml
-# .github/workflows/publish.yml
-name: Publish to PyPI
-on:
-  push:
-    tags: ['v*.*.*']
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: pip install build twine
-      - run: python -m build
-      - run: twine upload dist/*
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-```
-
-### Trusted Publisher (recommended)
-
-Configure PyPI Trusted Publisher (OIDC) at `pypi.org/manage/account/publishing/`
-to remove the need for a long-lived `PYPI_API_TOKEN`:
-
-- **Owner:** SamoTech
-- **Repository:** skills-tree
-- **Workflow:** `publish.yml`
-- **Environment:** `pypi`
-
----
-
-## Install Command
-
-```bash
-# From PyPI (once published)
 pip install skills-tree
+```
 
-# Development install from source
+Development installation:
+
+```bash
 git clone https://github.com/SamoTech/skills-tree
 cd skills-tree
 pip install -e .[dev]
-
-# Verify
-skills-tree --help
-skills-tree validate
 ```
 
----
+For an agent consuming Skills Tree as a knowledge source, the canonical discovery guidance is to inspect `docs/api/skills.json`, then open the canonical skill file and verify evidence, dependencies, security boundaries, and freshness before relying on it.
 
-## Upgrade Strategy
+## Upgrade strategy
 
-```bash
-# Check current version
-pip show skills-tree
+Consumers that require a controlled compatibility boundary should pin an explicit release version rather than relying on an unbounded latest install.
 
-# Upgrade
-pip install --upgrade skills-tree
+The repository does not claim that a version pin alone establishes skill safety or production readiness; consumers must inspect the relevant skill evidence and limitations.
 
-# Pin to major version (for stability)
-pip install "skills-tree>=1.0,<2.0"
-```
+## Historical material
 
-### Deprecation policy
-
-- CLI flags: deprecated in a `MINOR` release, removed in the next `MAJOR`.
-- API endpoints: versioned under `/v1/` path prefix starting from `v2.0.0`.
-- MCP tool contracts: tool `name` field is stable; `input_schema` changes follow minor versioning.
-
----
-
-## Package Size Estimate
-
-| Component | Size (approx) |
-|---|---|
-| Source code (`.py`) | ~85 KB |
-| Meta / data files (`.md`, `.json`) | ~450 KB |
-| **sdist total** | ~535 KB |
-| **wheel total** | ~95 KB |
-
----
-
-## Post-release Validation
-
-```bash
-pip install skills-tree==1.0.0
-skills-tree validate
-skills-tree recommend --goal "Coding Agent"
-```
-
-Expected output for `recommend`:
-```json
-{
-  "goal": "Coding Agent",
-  "goal_id": "G01",
-  "confidence_score": 0.86,
-  "required_skills": [...],
-  "optional_skills": [...],
-  "learning_path": [...],
-  "calibration_applied": true
-}
-```
+Older references to `publish.yml`, `PYPI_API_TOKEN`, TestPyPI staging, version `1.0.0`, or a manual `twine upload` production step are historical planning material and are not the current executable release contract.
