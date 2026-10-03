@@ -5,7 +5,6 @@ level: advanced
 stability: stable
 version: v2
 added: "2025-03"
-updated: "2026-10-03"
 description: "Create platform-specific social posts from a source brief while preserving factual claims, audience constraints, character limits, and disclosure requirements."
 
 related: [copywriting, tone-adjustment, structured-output]---
