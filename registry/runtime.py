@@ -217,6 +217,8 @@ class UniversalRegistry:
         graph = getattr(self, "_graph_data", None)
         if graph is None:
             graph_path = self.path.parent.parent / "graph" / "universal_graph.json"
+            if not graph_path.is_file():
+                graph_path = Path(__file__).resolve().parents[1] / "graph" / "universal_graph.json"
             graph = json.loads(graph_path.read_text(encoding="utf-8"))
         entities = self._data["entities"]
         collection_types = {
@@ -253,6 +255,8 @@ class UniversalRegistry:
     def _validate_graph_contract(self) -> None:
         """Validate the typed universal graph against its normative JSON Schema."""
         graph_path = self.path.parent.parent / "graph" / "universal_graph.json"
+        if not graph_path.is_file():
+            graph_path = Path(__file__).resolve().parents[1] / "graph" / "universal_graph.json"
         schema_path = self._meta_path("universal-graph.schema.json")
         graph = json.loads(graph_path.read_text(encoding="utf-8"))
         schema = json.loads(schema_path.read_text(encoding="utf-8"))
