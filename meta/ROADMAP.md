@@ -206,11 +206,13 @@ The strategic phases below remain the long-term product direction. They must not
 ## Current execution queue
 
 1. Complete any remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
-2. Perform a fresh universal-registry runtime architecture and consumer-behavior audit after the verified runtime data-schema validation slice.
+2. Perform the next fresh universal-registry runtime architecture and consumer-behavior audit from the verified benchmark/anti-slop baseline.
 3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
-4. Update decision memory, architecture documentation, development knowledge, roadmap, and current state in the same cycle.
-5. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
-6. Resume strategic capability-intelligence and demand-driven work only when the foundational runtime path is sufficiently established by evidence.
+4. Repair and verify the supporting release-package workflow if its current failure is confirmed by live CI evidence; do not weaken release permissions or validation.
+5. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
+6. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle.
+7. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
+8. Resume strategic capability-intelligence and demand-driven work only when the foundational runtime path is sufficiently established by evidence.
 
 ## Definition of done
 
@@ -227,6 +229,22 @@ The existing `meta/universal-registry.schema.json` is preserved as the ontology/
 
 **Next:** fresh runtime/consumer invariant audit. No numbered P2.3 requirement is created.
 
+
+## Behavioral Evaluation Runtime — Verified Implementation 2026-10-03
+
+PR #272 established the dedicated Benchmark contract and typed runtime boundary identified by the post-schema universal-registry audit. The contract validates reproducible evaluation definitions, benchmark subjects are checked against registered entity IDs, and `UniversalRegistry` exposes deterministic `resolve_benchmark()` and `benchmarks_for_entity()` access.
+
+PR #274 supplied the final contract-integrity and regression-test fixes. The final exact head `4738303caeb6a9129af8a0f84cab4219aade5084` passed the required CI matrix before merge.
+
+This establishes benchmark-definition infrastructure only. It does not represent benchmark results, rankings, production readiness, or external evaluation evidence.
+
+## Anti-Slop Quality Gate — Verified Implementation 2026-10-03
+
+PR #273 established deterministic anti-slop enforcement for changed skills, with PR #275 resolving rename detection and lowercase lifecycle-state false positives.
+
+The final #273 head `4477d33d846c68d71b666e6c283c8787312e023f` passed its required CI matrix before merge. The gate is scoped to changed skills and is not a retroactive corpus-cleanup claim.
+
+**Next:** continue the fresh universal-registry architecture audit; do not treat these slices as permission to invent a new phase requirement.
 
 ## Security Corpus Migration — Verified Implementation 2026-10-02
 
