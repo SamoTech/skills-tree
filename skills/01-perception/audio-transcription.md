@@ -7,7 +7,8 @@ version: v3
 added: "2025-03"
 description: "Convert speech audio into timestamped text while preserving timing, language metadata, and source traceability for captions, search, summarization, and extraction."
 
-related: [text-reading, video-understanding, summarization]---
+related: [text-reading, video-understanding, summarization]
+---
 
 # Audio Transcription
 
