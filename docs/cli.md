@@ -60,7 +60,7 @@ skills-tree validate --goal "Coding Agent"
 
 The repository does have a canonical search-index generation pipeline in `tools/build_search_index.py` and `.github/workflows/generate-search-index.yml`. The generated `docs/search-index.json` is used by the static web experience.
 
-Issue #86 tracks the CLI search implementation gap. A future CLI command must reuse the existing canonical search/data layer rather than introducing a parallel index or ranking implementation.
+Issue #86 tracks the CLI search implementation gap. A future CLI command must reuse the existing canonical search/data layer rather than introducing a parallel index or ranking implementation. The remaining design work is the deterministic query/ranking contract, not another data source.
 
 ## Output formats
 
