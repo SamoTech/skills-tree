@@ -78,7 +78,7 @@ class UniversalRegistry:
         self._validate_evidence_contracts()
         self._validate_benchmark_contracts()
         self._validate_graph_contract()
-        compatibility_schema_path = self.path.parent.parent / "meta" / "compatibility-model.schema.json"
+        compatibility_schema_path = self._meta_path("compatibility-model.schema.json")
         compatibility_schema = json.loads(compatibility_schema_path.read_text(encoding="utf-8"))
         self._compatibility_runtime = CompatibilityRuntime(self._data, compatibility_schema)
         self._evidence_runtime = EvidenceRuntime(self._data)
@@ -86,6 +86,13 @@ class UniversalRegistry:
         self._skill_runtime = SkillRuntime(self)
         self._capability_runtime = CapabilityRuntime(self)
         self._goal_runtime = GoalRuntime(self)
+
+    def _meta_path(self, filename: str) -> Path:
+        """Resolve registry-adjacent metadata, falling back to the package repository."""
+        candidate = self.path.parent.parent / "meta" / filename
+        if candidate.is_file():
+            return candidate
+        return Path(__file__).resolve().parents[1] / "meta" / filename
 
     @property
     def data(self) -> dict[str, Any]:
@@ -246,7 +253,7 @@ class UniversalRegistry:
     def _validate_graph_contract(self) -> None:
         """Validate the typed universal graph against its normative JSON Schema."""
         graph_path = self.path.parent.parent / "graph" / "universal_graph.json"
-        schema_path = self.path.parent.parent / "meta" / "universal-graph.schema.json"
+        schema_path = self._meta_path("universal-graph.schema.json")
         graph = json.loads(graph_path.read_text(encoding="utf-8"))
         schema = json.loads(schema_path.read_text(encoding="utf-8"))
         Draft202012Validator(schema).validate(graph)
@@ -324,7 +331,7 @@ class UniversalRegistry:
 
     def _validate_implementation_contracts(self) -> None:
         """Validate every registered Implementation against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "implementation-contract.schema.json"
+        schema_path = self._meta_path("implementation-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         evidence = {item["id"]: item for item in self._data["entities"]["evidence"]}
@@ -348,7 +355,7 @@ class UniversalRegistry:
 
     def _validate_evidence_contracts(self) -> None:
         """Validate every registered Evidence record against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "evidence-contract.schema.json"
+        schema_path = self._meta_path("evidence-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         for evidence in self._data["entities"]["evidence"]:
@@ -356,7 +363,7 @@ class UniversalRegistry:
 
     def _validate_benchmark_contracts(self) -> None:
         """Validate every registered Benchmark against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "benchmark-contract.schema.json"
+        schema_path = self._meta_path("benchmark-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         entity_ids = {
@@ -374,7 +381,7 @@ class UniversalRegistry:
 
     def _validate_adapter_contracts(self) -> None:
         """Validate every registered Adapter against the normative contract."""
-        schema_path = self.path.parent.parent / "meta" / "adapter-contract.schema.json"
+        schema_path = self._meta_path("adapter-contract.schema.json")
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
         evidence = {item["id"]: item for item in self._data["entities"]["evidence"]}
