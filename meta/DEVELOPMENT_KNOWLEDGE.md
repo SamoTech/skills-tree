@@ -427,3 +427,14 @@ Behavioral coverage adds deterministic Capability resolution from `goal/software
 No registry records or external ecosystem claims were added. No numbered P2.3 requirement was invented.
 
 **Verification status:** implementation and focused tests are present on the development branch; required CI has not yet been established for the branch.
+
+
+## Kanban Task Management Skill — Verified 2026-10-03
+
+PR #267 added the canonical `skills/15-orchestration/kanban-task-management.md` skill to `main`. The skill defines a portable file-backed Kanban contract for persistent agent task state, explicit lifecycle transitions, dependency-aware ready-set computation, controller/CAS concurrency control, transition receipts, and completion evidence gates. YYLO is documented only as an external reference implementation.
+
+A review finding in PR #267 identified an inaccurate YYLO dependency-creation example. The example was corrected to create the task first and then add the dependency with the documented `yy ledger deps add` command, using the task ID actually returned by creation.
+
+**Verification:** PR #267 final head `e8b866c75438e9456f6e11a6ee196cc979eb52da` passed Validate Skills, Schema Enforcement, Security Scan, PR Checks, Test Suite, Build & Verify Wheel, Validate Skills Graph, Check Links, AST Sweep, Skill Upgrade Detector, Skill Quality Report, and Agent Skills Distribution Audit. The pull request was squash-merged to `main` as `8a242e37e9bd5a9e694d4e2ede7fa1c9674be03c`.
+
+**Integrity note:** PR #247 was closed without merge because its Capability↔Skill symmetry fix was already present on current `main`. No duplicate runtime patch was introduced.
