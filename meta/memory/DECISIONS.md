@@ -792,7 +792,7 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 
 **Evidence:** `meta/EVIDENCE_MODEL.md`, `meta/ROADMAP.md`, `meta/POST_20261003_FRESHNESS_RUNTIME_AUDIT.md`, `meta/universal-registry-data.schema.json`, `registry/runtime.py`, and focused regression tests.
 
-**Status:** PROPOSED — implementation pending local validation and exact-head CI verification.
+**Status:** VERIFIED — PR #281 merged as `a26a1dabac28da3cc598ad85ddf655b8b1b5b108`; exact-head validation passed before merge.
 
 **Reopen Conditions:** Reopen if repository evidence shows freshness is intentionally excluded from universal registry consumption, if the evidence model changes, or if a stronger versioned freshness contract supersedes this boundary.
 
