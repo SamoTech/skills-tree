@@ -4,7 +4,14 @@
   "title": "AI Agent Skill",
   "description": "Schema for a single AI Agent Skill file in the SamoTech/skills-tree repository.",
   "type": "object",
-  "required": ["title", "category", "level", "stability", "added", "description"],
+  "required": [
+    "title",
+    "category",
+    "level",
+    "stability",
+    "added",
+    "description"
+  ],
   "properties": {
     "title": {
       "type": "string",
@@ -36,12 +43,22 @@
     "level": {
       "type": "string",
       "description": "Skill difficulty level",
-      "enum": ["basic", "intermediate", "advanced", "experimental"]
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced",
+        "experimental"
+      ]
     },
     "stability": {
       "type": "string",
       "description": "How stable/mature this skill is",
-      "enum": ["stable", "evolving", "experimental", "deprecated"]
+      "enum": [
+        "stable",
+        "evolving",
+        "experimental",
+        "deprecated"
+      ]
     },
     "version": {
       "type": "string",
@@ -70,34 +87,111 @@
     "tags": {
       "type": "array",
       "description": "Short searchable tags associated with the skill",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "related": {
       "type": "array",
       "description": "Related skill identifiers or file slugs",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "related_skills": {
       "type": "array",
       "description": "List of related skill file paths relative to the skills/ root",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "prerequisites": {
       "type": "array",
       "description": "Skill identifiers that should be learned first",
-      "items": { "type": "string" }
+      "items": {
+        "type": "string"
+      }
     },
     "frameworks": {
       "type": "array",
       "description": "Frameworks or models that implement this skill",
       "items": {
         "type": "object",
-        "required": ["name", "url"],
+        "required": [
+          "name",
+          "url"
+        ],
         "properties": {
-          "name": { "type": "string" },
-          "url": { "type": "string", "format": "uri" },
-          "implementation": { "type": "string" },
-          "since": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "implementation": {
+            "type": "string"
+          },
+          "since": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Declared external package dependencies used by executable skill examples.",
+      "items": {
+        "type": "object",
+        "required": [
+          "package"
+        ],
+        "properties": {
+          "package": {
+            "type": "string"
+          },
+          "min_version": {
+            "type": "string"
+          },
+          "tested_version": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "machine-inferred",
+              "verified"
+            ]
+          },
+          "import_name": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "deps": {
+      "type": "array",
+      "description": "Legacy dependency field retained only for migration compatibility.",
+      "items": {
+        "type": "object",
+        "required": [
+          "package"
+        ],
+        "properties": {
+          "package": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "string"
+          },
+          "import_name": {
+            "type": "string"
+          }
         },
         "additionalProperties": false
       }
