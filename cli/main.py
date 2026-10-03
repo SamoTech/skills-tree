@@ -44,6 +44,8 @@ from rich.console import Console
 from rich.table import Table
 
 from api.main import app as _api_app
+from cli.search_engine import DEFAULT_LIMIT, MAX_LIMIT, search_documents
+from cli.search_runtime import load_search_index
 
 # ---------------------------------------------------------------------------
 # Typer app
@@ -107,6 +109,31 @@ def _print_table(data: Any) -> None:
 def _error(msg: str, code: int = 1) -> None:
     console.print(f"[bold red]Error:[/bold red] {msg}")
     raise typer.Exit(code=code)
+
+
+# ---------------------------------------------------------------------------
+# search
+# ---------------------------------------------------------------------------
+
+@app.command()
+def search(
+    query: str = typer.Argument(..., help="Keyword query to search the canonical skill corpus"),
+    limit: int = typer.Option(
+        DEFAULT_LIMIT, "--limit", "-n", min=1, max=MAX_LIMIT,
+        help=f"Maximum results to return (1-{MAX_LIMIT})",
+    ),
+    fmt: str = typer.Option("json", "--format", "-f", help="Output format: json | pretty | table"),
+) -> None:
+    """Search skills using the canonical generated search projection."""
+    try:
+        documents = load_search_index()
+        results = search_documents(query, documents, limit=limit)
+    except ValueError as exc:
+        _error(str(exc), code=1)
+    except (FileNotFoundError, OSError) as exc:
+        _error(f"Search data unavailable: {exc}", code=2)
+
+    _output(results, fmt)
 
 
 # ---------------------------------------------------------------------------
