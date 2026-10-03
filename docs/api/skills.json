@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-03T17:35:41Z",
+  "generated": "2026-10-03T18:20:47Z",
   "count": 375,
   "skills": [
     {
@@ -8123,7 +8123,7 @@
       "level": "intermediate",
       "stability": "experimental",
       "version": "v1",
-      "added": "2026-09 · **Last Updated:** 2026-10",
+      "added": "2026-10",
       "last_updated": "2026-10",
       "sections": [
         "Description",
