@@ -7,7 +7,8 @@ version: v2
 added: "2025-03"
 description: "Generate and validate SVG markup for icons, diagrams, and simple illustrations with explicit viewBox, element, accessibility, and sanitization constraints."
 
-related: [image-generation, logo-design, code-generation]---
+related: [image-generation, logo-design, code-generation]
+---
 
 # SVG Generation
 
