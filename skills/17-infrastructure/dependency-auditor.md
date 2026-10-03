@@ -20,6 +20,7 @@ deps:
 badge: machine-inferred · 2 pkgs
 badge_key: skills-17-infrastructure-dependency-auditor
 description: >
+  Audits declared dependencies and runnable skill examples in isolated environments, records reproducible pass/fail/skip evidence, and proposes reviewed verification changes without silently promoting trust state.
   Closes the Execution Gap between "package exists on PyPI" (Yellow badge)
   and "code actually runs" (Green badge). Spins up an isolated venv per skill,
   installs its declared dependencies, executes the skill's Python snippets,
