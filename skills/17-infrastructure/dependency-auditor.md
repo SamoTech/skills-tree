@@ -25,6 +25,10 @@ related:
 
 # Dependency Auditor
 
+## Description
+
+Audit declared external dependencies and executable skill examples in isolated environments. The auditor records pass/fail evidence and proposes badge artifacts without directly changing canonical trust state.
+
 > **Phase 3 of the Dependency Watchdog pipeline.**
 > Closes the gap between *Package Exists* (🟡 Yellow) and *Code Runs* (🟢 Green).
 
