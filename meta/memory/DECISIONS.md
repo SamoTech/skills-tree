@@ -913,3 +913,19 @@ Evidence: meta/SEARCH_CLI_CONTRACT.md, cli/search_engine.py, cli/search_runtime.
 Status: VERIFIED — PR #299 merged as `7302d0780b2857bdd2f54363a2e6158eafc45292`. Exact-head Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label passed. The wheel gate also executed `skills-tree search` from the installed wheel successfully.
 
 Reopen Conditions: Reopen if verified canonical search behavior appears elsewhere, the generated search projection changes shape, or evidence shows this lexical contract does not satisfy the authoritative CLI requirement.
+
+
+# DECISION-2026-10-03-DISCOVERY-REGISTRY-CONTEXT
+
+DECISION-ID: DECISION-2026-10-03-DISCOVERY-REGISTRY-CONTEXT
+Topic: Optional UniversalRegistry context in the generated machine-readable skill discovery projection
+
+Finding: docs/api/skills.json is generated directly from canonical skills/ and did not expose the already-verified UniversalRegistry context. The UniversalRegistry currently covers only three canonical skills, so projecting context for the full corpus would require inventing unsupported registry membership or evidence.
+
+Decision: Add optional registry_context only when a canonical skill has an exact registry skill record. Project canonical ID/version, canonical flag, capability IDs, implementation IDs, evidence IDs derived from explicit Evidence.supports, declared provenance, and declared freshness when present. Leave unregistered skills without synthetic context. Keep docs/search-index.json a search corpus rather than a second registry catalog.
+
+Evidence: tools/export_skills.py, registry/universal_registry.json, registry/runtime.py, docs/api/skills.json, docs/api/skills-schema.json, tests/test_export_registry_context.py, docs/DISCOVERY_REGISTRY_CONTEXT.md.
+
+Status: IMPLEMENTED ON BRANCH — exact-head CI and merge pending.
+
+Reopen Conditions: Reopen if UniversalRegistry coverage becomes corpus-wide, the discovery projection becomes a runtime registry consumer, or an authoritative machine-readable discovery contract supersedes this projection boundary.
