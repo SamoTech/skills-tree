@@ -458,3 +458,16 @@ The selected smallest slice adds meta/benchmark-contract.schema.json, binds enti
 - The live main merge commits are `db474059fbe0efa56ca167a7108146323c9cf857` for benchmark runtime and `90f9422954936e054adc630ad723e6165074492c` for anti-slop.
 - The merged main commits above currently have no associated workflow runs exposed by the available commit workflow-run endpoint. This is not treated as post-merge CI success; the exact PR-head CI evidence remains the verification evidence for those merges.
 - The next engineering action remains the fresh universal-registry runtime/consumer audit. The audit must start from live main and confirm coverage before introducing another contract/runtime slice.
+
+
+## Universal Graph Relationship Runtime Boundary — 2026-10-03
+
+A fresh post-freshness audit found a semantic fail-open path in the typed Universal Graph runtime. The graph schema declares a forward-compatible relationship vocabulary, while the runtime has explicit semantics only for the six relationships currently used by the canonical graph.
+
+The previous fallback silently accepted schema-valid deferred relationships. The selected correction preserves the schema vocabulary but makes the runtime-supported set explicit and rejects unsupported relationship types before endpoint/reference semantics are evaluated.
+
+No new graph relationship was invented and the canonical eight graph edges were left unchanged.
+
+**Verification target:** the existing graph remains valid; a synthetic schema-valid "alternative_to" edge fails deterministically with "Unsupported universal graph relationship: alternative_to".
+
+**Engineering lesson:** a broad schema vocabulary is not evidence of runtime support. Forward-compatible enum values must remain outside the trusted runtime boundary until their semantic invariants are implemented and tested.
