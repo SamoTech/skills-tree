@@ -255,7 +255,7 @@ def write_verification_pr_body(results: list[AuditResult]) -> str:
         "",
         "> This PR was opened automatically by `dependency-auditor.yml`.",
         "> A maintainer must review and merge to promote badges from Yellow \u2192 Green.",
-        "> **Do not merge** if any skill listed here has changed since this PR was opened.",
+        "> **Do not merge** if any skill listed here has changed since this PR was opened; the exact PR HEAD must be revalidated.",
         "",
         "## Proposed Promotions (Yellow \u2192 \U0001f7e2 Green)",
         "",
