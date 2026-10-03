@@ -281,7 +281,7 @@ The repository also contains real MCP assets including `mcp/`, `examples/mcp-ser
 
 **Current mandatory action:**
 
-Perform the next fresh universal-registry consumer audit against the merged benchmark, anti-slop, freshness, graph-integrity, recommendation-context, and blueprint-context baseline. Focus on remaining machine-readable discovery projections and the canonical search pipeline. Do not invent a P2.3 requirement or duplicate the existing search index.
+The search projection contract is now verified: `meta/search-index.schema.json` validates `docs/search-index.json`, regression tests enforce canonical-path parity with `docs/api/skills.json`, and a real stale Kanban entry was detected and reconciled. The next audit must establish the source/package runtime boundary needed for a reusable search consumer. Do not implement `skills-tree search` until installed-wheel data availability and ranking/index ownership are explicitly verified.
 
 ## 10. Vertical-Slice Strategy
 
