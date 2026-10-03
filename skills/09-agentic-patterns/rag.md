@@ -3,148 +3,138 @@ title: RAG — Retrieval-Augmented Generation
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
+version: v4
 added: "2025-03"
-description: "Apply rag in AI agent workflows."
-version: v3
-tags: [rag, retrieval, embeddings, knowledge-base]
-updated: 2026-04
+description: "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval."
+tags: [rag, retrieval, embeddings, knowledge-base, grounding]
+
+related: [memory-injection, web-search, knowledge-graph-reading, vector-store-retrieval]
 ---
-
-
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-rag.json)
 
 # RAG — Retrieval-Augmented Generation
 
-## What It Does
+## Description
 
-RAG grounds model responses in external knowledge by retrieving relevant documents at query time and injecting them into the prompt. The model uses the retrieved context to answer — preventing hallucination and enabling up-to-date or domain-specific knowledge without fine-tuning.
+RAG separates knowledge retrieval from language generation. The system retrieves relevant source material at query time, supplies that material to the generator, and preserves source references so the answer can be inspected.
 
-**Pipeline:** Query → Embed → Retrieve top-K → Inject → Generate → Cite
+RAG is a grounding architecture, not a guarantee against hallucination.
 
-## When to Use
+## Pipeline
 
-- Questions over private or proprietary knowledge bases
-- Up-to-date information (news, docs, code, policies)
-- Reducing hallucination on factual questions
-- Any domain where the model lacks sufficient training data
+```
+source ingestion
+    -> chunking
+    -> indexing
+    -> query
+    -> retrieval
+    -> optional reranking
+    -> context assembly
+    -> generation
+    -> citation / validation
+```
 
 ## Inputs / Outputs
 
-| Field | Type | Description |
-|---|---|---|
-| `query` | `str` | User's question |
-| `documents` | `list[str]` | Corpus to index (or pre-indexed vector store) |
-| `top_k` | `int` | Number of chunks to retrieve (default: 5) |
-| `chunk_size` | `int` | Tokens per chunk (default: 512) |
-| → `answer` | `str` | Grounded, cited answer |
-| → `sources` | `list[str]` | Retrieved chunks used |
+| Item | Type | Required | Notes |
+|---|---|---:|---|
+| Query | str | yes | User task or information need |
+| Corpus | documents | yes | Sources with stable identifiers |
+| Retriever | callable | yes | Returns ranked source chunks |
+| Generator | callable | yes | Produces answer from bounded context |
+| Answer | str | yes | Generated response |
+| Sources | list[str] | yes | Source IDs supplied to generator |
+| Retrieval scores | list[float] | recommended | Diagnostics only |
 
 ## Runnable Example
 
+This deterministic example uses lexical retrieval instead of pseudo-random vectors. It demonstrates the retrieval boundary without pretending to be a production embedding system.
+
 ```python
-import anthropic
-import numpy as np
-from typing import List, Tuple
+import re
+from collections import Counter
 
-client = anthropic.Anthropic()
+DOCUMENTS = {
+    "policy": "Skills Tree stores canonical skills in the skills directory.",
+    "registry": "The universal registry provides validated machine-readable capability access.",
+    "search": "The search index is generated from skill Markdown into docs/search-index.json.",
+}
 
-# --- Step 1: Chunk documents ---
-def chunk_text(text: str, chunk_size: int = 512) -> List[str]:
-    words = text.split()
-    return [
-        " ".join(words[i:i + chunk_size])
-        for i in range(0, len(words), chunk_size)
-    ]
+def tokenize(text: str) -> list[str]:
+    return re.findall(r"[a-z0-9]+", text.lower())
 
-# --- Step 2: Embed chunks ---
-def embed(texts: List[str]) -> np.ndarray:
-    # Production: use voyage-3 or text-embedding-3-small
-    # Demo: random vectors (replace with real embeddings)
-    return np.random.rand(len(texts), 256)
+def retrieve(query: str, documents: dict[str, str], top_k: int = 2):
+    q = Counter(tokenize(query))
+    scored = []
+    for doc_id, text in documents.items():
+        d = Counter(tokenize(text))
+        score = sum(min(q[token], d[token]) for token in q)
+        if score:
+            scored.append((doc_id, float(score)))
+    return sorted(scored, key=lambda item: (-item[1], item[0]))[:top_k]
 
-# --- Step 3: Retrieve top-K ---
-def retrieve(query: str, chunks: List[str], embeddings: np.ndarray, top_k: int = 5) -> List[str]:
-    query_vec = embed([query])[0]
-    scores = embeddings @ query_vec / (
-        np.linalg.norm(embeddings, axis=1) * np.linalg.norm(query_vec) + 1e-8
-    )
-    top_indices = np.argsort(scores)[::-1][:top_k]
-    return [chunks[i] for i in top_indices]
-
-# --- Step 4: Generate with context ---
-def rag(query: str, documents: List[str], top_k: int = 5) -> dict:
-    # Index
-    chunks = []
-    for doc in documents:
-        chunks.extend(chunk_text(doc))
-    embeddings = embed(chunks)
-
-    # Retrieve
-    relevant = retrieve(query, chunks, embeddings, top_k)
-    context = "\n\n---\n\n".join(f"[{i+1}] {c}" for i, c in enumerate(relevant))
-
-    # Generate
-    response = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1024,
-        system="""Answer the question using ONLY the provided context.
-Cite sources as [1], [2], etc.
-If the answer is not in the context, say: 'I don't have enough context to answer this.'""",
-        messages=[{
-            "role": "user",
-            "content": f"Context:\n{context}\n\nQuestion: {query}"
-        }]
-    )
-
+def build_context(query: str) -> dict:
+    hits = retrieve(query, DOCUMENTS)
     return {
-        "answer": response.content[0].text,
-        "sources": relevant
+        "query": query,
+        "sources": [doc_id for doc_id, _ in hits],
+        "context": "\n".join(DOCUMENTS[doc_id] for doc_id, _ in hits),
     }
 
-# Usage
-docs = [
-    "Skills Tree is a community-powered AI agent skill OS with 515+ production-ready skills across 16 categories.",
-    "The project includes systems, blueprints, benchmarks, and labs for building production AI agents.",
-    "Every skill file includes a description, typed I/O, runnable code, failure modes, and a version history."
-]
-result = rag("What does Skills Tree include?", docs)
-print(result["answer"])
+print(build_context("Where is the canonical search index generated?"))
 ```
 
-## RAG Variants
+## Retrieval Design
 
-| Variant | Description | When to Use |
-|---|---|---|
-| **Naive RAG** | Embed → retrieve → generate | Simple Q&A, baseline |
-| **HyDE** | Generate hypothetical answer, embed that to retrieve | Low-recall corpora, +12% recall |
-| **Multi-query** | Generate N query variants, merge results | Ambiguous questions |
-| **Rerank** | Retrieve 20, rerank to top 5 with cross-encoder | Precision-critical tasks |
-| **GraphRAG** | Build knowledge graph, traverse for context | Complex entity relationships |
-| **Corrective RAG** | Evaluate retrieved docs, web-search if poor quality | Dynamic/recent info needed |
+- Preserve stable document IDs and source locations.
+- Chunk according to document structure rather than arbitrary token counts alone.
+- Apply authorization, tenant, language, and document-type filters where required.
+- Keep retrieved context bounded.
+- Treat lexical, dense, hybrid, and reranked retrieval as separate components with independently measurable behavior.
+- Do not treat a retrieval score as a probability of correctness.
+- When sources conflict, expose the conflict instead of selecting one silently.
+
+## Generation Contract
+
+A generator should receive the query, bounded retrieved context, source identifiers, and explicit instructions for missing or conflicting evidence.
+
+Validate that every cited source identifier was actually retrieved. Citation presence alone does not prove support for the underlying claim.
 
 ## Failure Modes
 
-| Failure | Cause | Fix |
+| Failure | Cause | Mitigation |
 |---|---|---|
-| Retrieves irrelevant chunks | Poor embedding or chunk boundaries | Try HyDE; fix chunking strategy |
-| Ignores retrieved context | Model over-relies on training data | Reinforce with "use ONLY context" in system prompt |
-| Hallucinated citations | Model invents [3] that doesn't exist | Number chunks explicitly, validate in post-processing |
-| Chunk too large | Model ignores middle of long chunks | Keep chunks ≤ 512 tokens; use sentence boundaries |
+| Irrelevant retrieval | Weak query/index or poor chunking | Measure retrieval behavior and tune the index |
+| Missing evidence | Relevant source not retrieved | Broaden retrieval or report insufficient context |
+| Citation fabrication | Generator invents source IDs | Validate cited IDs against retrieved sources |
+| Context overload | Too many or oversized chunks | Bound context and rerank |
+| Stale knowledge | Index is not refreshed | Track source freshness and rebuild deterministically |
+| Conflicting sources | Incompatible corpus claims | Preserve provenance and surface the conflict |
 
-## Blueprint
+## Evaluation
 
-For a full production-ready RAG stack: → [`blueprints/rag-stack.md`](../../blueprints/rag-stack.md)
+Measure retrieval and generation separately. Retrieval can use recall@k, precision@k, or ranking metrics against a fixed evaluation set. Generation should separately assess factual support, citation correctness, refusal behavior, and completeness.
 
-## Related Skills
+Do not infer production readiness from a single benchmark.
 
-- [`memory-injection.md`](../03-memory/memory-injection.md) — User-specific memory
-- [`react.md`](../02-reasoning/react.md) — Use RAG as a tool inside ReAct
-- [`web-search.md`](../11-web/web-search.md) — Live retrieval from the web
+## Evidence
+
+- Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks: https://arxiv.org/abs/2005.11401
+- LangChain retrieval concepts: https://python.langchain.com/docs/concepts/retrieval/
+
+Evidence status: references support the architecture and evaluation concepts. No performance ranking or production-readiness claim is made.
+
+## Related
+
+- memory-injection
+- web-search
+- knowledge-graph-reading
+- vector-store-retrieval
 
 ## Changelog
 
 | Version | Date | Change |
 |---|---|---|
-| v1 | 2025-01 | Initial entry |
-| v2 | 2025-06 | Added HyDE, reranking variants |
-| v3 | 2026-04 | Full runnable pipeline, variants table, blueprint link |
+| v1 | 2025-03 | Initial entry |
+| v2 | 2025-06 | Added retrieval variants |
+| v3 | 2026-04 | Added runnable example |
+| v4 | 2026-10 | Removed pseudo-random embeddings and separated retrieval/generation contracts |

@@ -1,51 +1,87 @@
 ---
-title: "Svg Generation"
+title: "SVG Generation"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply svg generation in AI agent workflows."
+version: v2
 added: "2025-03"
+description: "Generate and validate SVG markup for icons, diagrams, and simple illustrations with explicit viewBox, element, accessibility, and sanitization constraints."
+
+related: [image-generation, logo-design, code-generation]
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-svg-generation.json)
+# SVG Generation
 
-**Category:** Creative
-**Skill Level:** Advanced
-**Stability:** stable
-**Added:** 2025-03
+## Description
 
-### Description
-Produces valid, optimised SVG markup for icons, illustrations, data charts, and infographics. Understands SVG path commands (`M`, `L`, `C`, `A`), `<defs>`, `<use>`, gradients, masks, and SMIL/CSS animations.
+Produce SVG documents that are structurally valid and constrained for their intended rendering context. Generation and validation are separate steps.
 
-### Example
+## Inputs / Outputs
+
+| Item | Type | Required | Notes |
+|---|---|---:|---|
+| SVG specification | dict | yes | Dimensions, viewBox, allowed elements |
+| Content | SVG string | yes | Generated document |
+| Validation result | bool | yes | Structural/policy checks |
+| Sanitized SVG | SVG string | recommended | Safe output for untrusted contexts |
+
+## Runnable Example
+
 ```python
-import anthropic
+from xml.etree import ElementTree as ET
 
-client = anthropic.Anthropic()
+SVG_NS = "http://www.w3.org/2000/svg"
 
-prompt = """
-Generate a minimal SVG logo for a company called 'Nexus' — a tech startup.
-Requirements:
-- viewBox="0 0 64 64"
-- Uses only path and circle elements
-- Monochrome (currentColor)
-- Represents interconnected nodes
-- Output ONLY the SVG markup, no explanation
-"""
+def validate_svg(svg: str) -> bool:
+    root = ET.fromstring(svg)
+    if root.tag != f"{{{SVG_NS}}}svg":
+        raise ValueError("root is not svg")
+    if not root.get("viewBox"):
+        raise ValueError("viewBox is required")
+    allowed = {"svg", "path", "circle", "rect", "g", "title", "desc"}
+    for element in root.iter():
+        name = element.tag.rsplit("}", 1)[-1]
+        if name not in allowed:
+            raise ValueError(f"unsupported element: {name}")
+    return True
 
-message = client.messages.create(
-    model="claude-opus-4-5",
-    max_tokens=1024,
-    messages=[{"role": "user", "content": prompt}]
-)
-
-svg_code = message.content[0].text
-with open("nexus-logo.svg", "w") as f:
-    f.write(svg_code)
-print("SVG saved to nexus-logo.svg")
+svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Node</title><circle cx="32" cy="32" r="16"/></svg>'
+print(validate_svg(svg))
 ```
 
-### Related Skills
-- [Image Generation](../08-multimodal/image-generation.md)
-- [Logo/Brand Design](logo-design.md)
-- [Code Generation](../05-code/code-generation.md)
+## Security Rules
+
+- Treat generated SVG as untrusted when it can originate from users or models.
+- Apply an allowlist of elements and attributes for untrusted contexts.
+- Remove active content or external references when the rendering environment does not permit them.
+- Validate namespace, dimensions, and viewBox before publishing.
+- Keep accessibility metadata such as title/description where appropriate.
+
+## Failure Modes
+
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Invalid XML | Malformed generation | Parse before use |
+| Unsafe content | Active/external SVG features | Sanitize with an explicit allowlist |
+| Broken scaling | Missing or inconsistent viewBox | Require and validate viewBox |
+| Accessibility loss | Missing title/description | Validate required metadata for the target context |
+
+## Evidence
+
+- SVG specification overview: https://www.w3.org/TR/SVG2/
+- XML parsing documentation: https://docs.python.org/3/library/xml.etree.elementtree.html
+
+Evidence status: references support the structural guidance. No rendering compatibility guarantee is made.
+
+## Related
+
+- image-generation
+- logo-design
+- code-generation
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial entry |
+| v2 | 2026-10 | Added validation, security boundaries, and deterministic example |
