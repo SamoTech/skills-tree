@@ -760,3 +760,20 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Status:** PROPOSED — pending exact-head behavioral/CI verification and merge.
 
 **Reopen Conditions:** Reopen if repository evidence shows Benchmark is intentionally excluded from typed runtime consumption, if the benchmark contract conflicts with an authoritative existing contract, or if tests reveal non-deterministic or mutable runtime behavior.
+
+
+# DECISION-2026-10-03-REGISTRY-FRESHNESS-BOUNDARY
+
+**Decision-ID:** DECISION-2026-10-03-REGISTRY-FRESHNESS-BOUNDARY
+
+**Topic:** Expose existing freshness semantics through the universal registry without forcing a corpus-wide migration.
+
+**Finding:** The evidence model defines last reviewed, review due, freshness basis, and known stale conditions, but the universal registry generic entity contract and runtime had no normalized freshness boundary.
+
+**Decision:** Add an optional schema-validated freshness object to universal registry entities and expose deterministic read-only `freshness_for_entity()` access. Preserve legacy entities without freshness declarations and reject internally inconsistent freshness timestamps. Do not calculate a trust/freshness score or infer currentness from wall-clock time.
+
+**Evidence:** `meta/EVIDENCE_MODEL.md`, `meta/ROADMAP.md`, `meta/POST_20261003_FRESHNESS_RUNTIME_AUDIT.md`, `meta/universal-registry-data.schema.json`, `registry/runtime.py`, and focused regression tests.
+
+**Status:** PROPOSED — implementation pending local validation and exact-head CI verification.
+
+**Reopen Conditions:** Reopen if repository evidence shows freshness is intentionally excluded from universal registry consumption, if the evidence model changes, or if a stronger versioned freshness contract supersedes this boundary.
