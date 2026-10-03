@@ -199,3 +199,8 @@ The recommendation API now exposes additive registry_context for registered cano
 Verification target: exact PR HEAD CI, security, build, and API regression tests.
 
 Next: audit BlueprintGenerator and other machine-readable consumer surfaces for equivalent registry-context propagation.
+
+
+## Blueprint Consumer Context — Verified in current development cycle
+
+The blueprint API now propagates the same additive registry_context to required and optional skill entries after BlueprintGenerator output. This preserves the generator and ranking boundaries while exposing canonical provenance/evidence/freshness/implementation context to blueprint consumers.

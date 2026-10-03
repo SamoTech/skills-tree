@@ -30,4 +30,6 @@ def blueprint(body: BlueprintRequest) -> BlueprintResponse:
         raise HTTPException(status_code=404, detail=result["error"])
 
     bp = generator.generate(body.goal, result, taxonomy)
+    for skill in bp.get("required_skills", []) + bp.get("optional_skills", []):
+        skill["registry_context"] = engine.consumption_context_for_skill(skill.get("id"))
     return BlueprintResponse(**bp)

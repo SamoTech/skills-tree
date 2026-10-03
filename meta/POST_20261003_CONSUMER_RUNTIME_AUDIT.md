@@ -48,7 +48,7 @@ Required validation:
 
 ## Remaining gap
 
-The next evidence-backed consumer audit should inspect BlueprintGenerator and other machine-readable discovery surfaces for equivalent registry-context propagation. No trust ranking should be introduced merely to make the context look more complete.
+The blueprint API consumer was audited next. It now propagates the same registry_context after BlueprintGenerator output, without changing blueprint generation semantics. Other machine-readable discovery surfaces remain for the next audit. No trust ranking should be introduced merely to make the context look more complete.
 
 ## Source of truth
 

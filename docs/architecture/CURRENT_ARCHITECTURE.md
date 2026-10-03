@@ -61,7 +61,7 @@ The universal registry runtime is not yet inserted into this production recommen
 
 ## Blueprint execution
 
-BlueprintGenerator consumes the recommendation result and taxonomy. Architecture selection is still primarily driven by goal-category mappings. The universal capability graph is not yet the primary architecture path.
+BlueprintGenerator consumes the recommendation result and taxonomy. Architecture selection remains primarily driven by goal-category mappings. The blueprint API now propagates additive registry_context onto required and optional skill entries after generation. This context is descriptive and does not change architecture selection or ranking.
 
 ## Remaining architecture gaps
 
