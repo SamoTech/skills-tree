@@ -144,11 +144,12 @@ class TestRecommend:
         assert context["canonical_id"] == "05-code/code-review"
         assert context["canonical"] is True
         assert context["provenance"]["source"] == "skills/05-code/code-review.md"
-        assert [item["id"] for item in context["evidence"]] == [
+        assert context["evidence"] == []
+        assert context["implementation_ids"] == ["implementation/code-reviewer-system"]
+        assert [item["id"] for item in context["implementation_evidence"]["implementation/code-reviewer-system"]] == [
             "evidence/code-reviewer-runtime",
             "evidence/code-reviewer-system-source",
         ]
-        assert context["implementation_ids"] == ["implementation/code-reviewer-system"]
 
     def test_recommend_calibration_applied(self):
         r = client.post("/recommend", json={"goal": "Coding Agent"})
