@@ -149,3 +149,12 @@ Verified generation run:
 - Final PR checks passed: Agent Skills validation/distribution audit, Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, and repository graph validation.
 
 The corpus is now a verified deterministic projection of the canonical source. `/.well-known/agent-skills/index.json` remains intentionally unpublished until served-byte integrity, provenance, reproducibility, and SHA-256 publication gates are implemented and verified.
+
+
+## Universal Registry Behavioral-Evaluation Audit — 2026-10-03
+
+A fresh universal-registry architecture and consumer-behavior audit completed the mandatory post-schema-validation review. Provenance, Evidence, integrity, memory safety, and action governance are already represented at their appropriate repository boundaries. The audit identified one concrete remaining machine-readable consumer gap: the first-class benchmarks registry collection had no dedicated contract or typed runtime facade.
+
+The selected slice is implemented on runtime/benchmark-integrity-slice: meta/benchmark-contract.schema.json, BenchmarkRuntime, UniversalRegistry benchmark accessors, and focused behavioral tests. No production benchmark records or external claims were added.
+
+**Status:** PENDING exact-head CI verification and merge.
