@@ -5,33 +5,34 @@
 ## Summary
 
 - **Total skill files:** 375
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 215
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 216
 - 🟡 **Enriched** (real description + runnable code): 158
-- ⚪ **Stub** (placeholder description or no runnable code): 2
+- ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
+- 🔧 **Test fixture** (intentional non-production fixture): 1
 
 ## Per-category breakdown
 
-| Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid |
-|---|---|---|---|---|---|
-| `00-sandbox` | 1 | 0 | 0 | 1 | 0 |
-| `01-perception` | 36 | 31 | 5 | 0 | 0 |
-| `02-reasoning` | 46 | 38 | 8 | 0 | 0 |
-| `03-memory` | 19 | 19 | 0 | 0 | 0 |
-| `04-action-execution` | 21 | 11 | 10 | 0 | 0 |
-| `05-code` | 28 | 6 | 22 | 0 | 0 |
-| `06-communication` | 15 | 15 | 0 | 0 | 0 |
-| `07-tool-use` | 33 | 12 | 21 | 0 | 0 |
-| `08-multimodal` | 14 | 14 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 23 | 13 | 10 | 0 | 0 |
-| `10-computer-use` | 20 | 0 | 20 | 0 | 0 |
-| `11-web` | 17 | 17 | 0 | 0 | 0 |
-| `12-data` | 18 | 1 | 17 | 0 | 0 |
-| `13-creative` | 14 | 14 | 0 | 0 | 0 |
-| `14-security` | 13 | 13 | 0 | 0 | 0 |
-| `15-orchestration` | 28 | 10 | 18 | 0 | 0 |
-| `16-domain-specific` | 28 | 1 | 27 | 0 | 0 |
-| `17-infrastructure` | 1 | 0 | 0 | 1 | 0 |
+| Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid | 🔧 Fixture |
+|---|---|---|---|---|---|---|
+| `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
+| `01-perception` | 36 | 31 | 5 | 0 | 0 | 0 |
+| `02-reasoning` | 46 | 38 | 8 | 0 | 0 | 0 |
+| `03-memory` | 19 | 19 | 0 | 0 | 0 | 0 |
+| `04-action-execution` | 21 | 11 | 10 | 0 | 0 | 0 |
+| `05-code` | 28 | 6 | 22 | 0 | 0 | 0 |
+| `06-communication` | 15 | 15 | 0 | 0 | 0 | 0 |
+| `07-tool-use` | 33 | 12 | 21 | 0 | 0 | 0 |
+| `08-multimodal` | 14 | 14 | 0 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 23 | 13 | 10 | 0 | 0 | 0 |
+| `10-computer-use` | 20 | 0 | 20 | 0 | 0 | 0 |
+| `11-web` | 17 | 17 | 0 | 0 | 0 | 0 |
+| `12-data` | 18 | 1 | 17 | 0 | 0 | 0 |
+| `13-creative` | 14 | 14 | 0 | 0 | 0 | 0 |
+| `14-security` | 13 | 13 | 0 | 0 | 0 | 0 |
+| `15-orchestration` | 28 | 10 | 18 | 0 | 0 | 0 |
+| `16-domain-specific` | 28 | 1 | 27 | 0 | 0 | 0 |
+| `17-infrastructure` | 1 | 1 | 0 | 0 | 0 | 0 |
 
 ## 🟢 Battle-tested skills (start here as a user)
 
@@ -250,6 +251,7 @@
 - [`skills/15-orchestration/stateful-agent-graphs.md`](skills/15-orchestration/stateful-agent-graphs.md) — Stateful Agent Graphs
 - [`skills/15-orchestration/thread-based-resume.md`](skills/15-orchestration/thread-based-resume.md) — Thread-Based Resume
 - [`skills/16-domain-specific/compliance-review-workflows.md`](skills/16-domain-specific/compliance-review-workflows.md) — Compliance Review Workflows
+- [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — Dependency Auditor
 
 ## 🟡 Enriched skills
 
@@ -414,12 +416,20 @@
 
 ## ⚪ Stubs
 
-- [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — description is empty; no fenced runnable code example (>=3 non-blank lines); no inputs/outputs/failure-modes table
-- [`skills/17-infrastructure/dependency-auditor.md`](skills/17-infrastructure/dependency-auditor.md) — description too short (1 < 30 chars)
+_None._
+
+## 🔧 Test fixtures
+
+- [`skills/00-sandbox/pipeline-test.md`](skills/00-sandbox/pipeline-test.md) — Pipeline Test Fixture; intentional pipeline fixture
+
+## ❌ Invalid
+
+_None._
 
 ## Definitions
 
 - **Battle-tested**: real description, fenced runnable code (>=3 lines), a Markdown table, and >=60 lines.
 - **Enriched**: real description and a fenced runnable code block.
 - **Stub**: placeholder/empty/too-short description or no runnable code.
+- **Test fixture**: intentional non-production file used to exercise repository validation pipelines; not counted as a production skill-quality stub.
 - **Invalid**: missing required frontmatter or metadata violates the authoritative schema enums/patterns.
