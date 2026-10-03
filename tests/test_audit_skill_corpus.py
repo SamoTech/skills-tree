@@ -28,7 +28,7 @@ def test_whole_corpus_audit_returns_one_record_per_skill() -> None:
     paths = [path for path in paths if path.name.lower() != "readme.md"]
     records = audit_skill_files(paths)
     assert len(records) == len(paths)
-    assert all(record.quality in {"battle_tested", "enriched", "stub", "invalid"} for record in records)
+    assert all(record.quality in {"battle_tested", "enriched", "stub", "invalid", "test_fixture"} for record in records)
 
 
 def test_existing_corpus_has_no_broken_python_examples() -> None:
