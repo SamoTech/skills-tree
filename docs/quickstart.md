@@ -12,65 +12,31 @@ The historical `skills_tree.SkillsTree` Python API is not currently implemented 
 
 ## 2. Use the CLI
 
+The verified CLI currently exposes `recommend`, `blueprint`, `goals`, `skills`, and `validate`. See [CLI Reference](cli.md) for the current boundary.
+
 ```bash
-# Search for a skill
-skills-tree search "memory injection"
-
-# Show a full skill spec
-skills-tree show rag
-
-# List all skills in a category
-skills-tree list --category reasoning
-
-# List all 17 categories
-skills-tree categories
+skills-tree goals
+skills-tree skills
+skills-tree recommend --goal "Coding Agent"
+skills-tree blueprint --goal "Coding Agent"
+skills-tree validate
 ```
 
-## 3. Use the Python API
+## 3. Machine-readable discovery
 
-```python
-from skills_tree import SkillsTree
+Use the generated registry for deterministic discovery, then inspect the canonical skill before use:
 
-st = SkillsTree()
-
-# Get a skill by ID
-skill = st.get("rag")
-print(skill.title)       # "Retrieval-Augmented Generation"
-print(skill.level)       # "intermediate"
-print(skill.stability)   # "stable"
-print(skill.version)     # "v3"
-
-# Search skills
-results = st.search("memory")
-for r in results:
-    print(r.id, r.title)
-
-# List all categories
-categories = st.categories()
-for cat in categories:
-    print(cat.id, cat.name, cat.skill_count)
-
-# Get all skills in a category
-memory_skills = st.get_category("memory")
+```text
+docs/api/skills.json
+skills/<category>/<skill>.md
+agent-skills/<name>/SKILL.md
 ```
+
+See [Python API Status](api.md) for the verified boundary. The historical `skills_tree.SkillsTree` API is not currently implemented.
 
 ## 4. Use the MCP Server
 
-Skills Tree includes a built-in MCP server for agent-to-agent capability discovery:
-
-```bash
-# Start MCP server
-skills-tree mcp serve --port 8080
-```
-
-```python
-# Query from an agent
-import httpx
-
-resp = httpx.get("http://localhost:8080/skills/search", params={"q": "web search"})
-for skill in resp.json()["results"]:
-    print(skill["id"], skill["title"])
-```
+The repository contains MCP-related examples and skills, but the current verified CLI does not expose an `mcp serve` command. Verify the example implementation before relying on it.
 
 ## 5. Browse the Taxonomy
 
