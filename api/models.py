@@ -28,6 +28,7 @@ class RegistrySkillContext(BaseModel):
     evidence: List[RegistryEvidenceRef] = Field(default_factory=list)
     freshness: Optional[Dict[str, Any]] = None
     implementation_ids: List[str] = Field(default_factory=list)
+    implementation_evidence: Dict[str, List[RegistryEvidenceRef]] = Field(default_factory=dict)
 
 
 class SkillSummary(BaseModel):
