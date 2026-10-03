@@ -5,7 +5,6 @@ level: advanced
 stability: stable
 version: v2
 added: "2025-03"
-updated: "2026-10-03"
 description: "Detect source vulnerabilities, dependency advisories, and exposed secrets with separate scanners and enforce explicit severity thresholds in CI."
 
 related: [secret-scanning, dependency-management, code-review, secure-coding]---
