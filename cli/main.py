@@ -7,6 +7,7 @@ Exposes every Architect capability as a first-class terminal command.
 
 Commands
 --------
+skills-tree search      <query> [--limit <n>] [--format <fmt>]
 skills-tree recommend   --goal <str> [--experience <lvl>] [--time-budget <hrs>] [--format <fmt>]
 skills-tree blueprint   --goal <str> [--format <fmt>]
 skills-tree goals       [--format <fmt>]
