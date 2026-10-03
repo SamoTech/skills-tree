@@ -129,5 +129,5 @@ def test_benchmark_definition_lists_must_not_be_empty(tmp_path: Path) -> None:
     benchmark = _benchmark_fixture()
     benchmark["inputs"] = []
     target = _write_registry_fixture(tmp_path, benchmark)
-    with pytest.raises(ValidationError, match="is too short"):
+    with pytest.raises(ValidationError, match="should be non-empty"):
         UniversalRegistry(target)
