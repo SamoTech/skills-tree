@@ -281,7 +281,7 @@ The repository also contains real MCP assets including `mcp/`, `examples/mcp-ser
 
 **Current mandatory action:**
 
-Perform the Phase 2 post-P2.2 architectural audit and document the next vertical slice from an evidence-backed gap. Do not reopen completed P1 work and do not invent a P2.3 requirement without repository evidence.
+Perform the next fresh universal-registry runtime architecture and consumer-behavior audit from the verified benchmark and anti-slop baseline. Do not reopen completed runtime/distribution work and do not invent a P2.3 requirement without repository evidence.
 
 ## 10. Vertical-Slice Strategy
 
@@ -449,3 +449,12 @@ A fresh architecture/consumer audit followed the verified Goal runtime facade an
 The selected smallest slice adds meta/benchmark-contract.schema.json, binds entities.benchmarks to that contract, adds BenchmarkRuntime, and exposes deterministic resolve_benchmark() plus benchmarks_for_entity() through UniversalRegistry. The test fixture is synthetic and repository-local; no benchmark result, ranking, model claim, or external ecosystem claim is introduced.
 
 **Verification status:** implementation and focused regression tests are on branch runtime/benchmark-integrity-slice; exact-head CI is pending.
+
+
+## Verified development update — 2026-10-03
+
+- PR #272 established the dedicated Benchmark contract and typed BenchmarkRuntime boundary; PR #274 supplied the final contract-integrity and regression-test fixes. The final #272 head `4738303caeb6a9129af8a0f84cab4219aade5084` passed its required CI matrix before merge.
+- PR #273 established deterministic anti-slop enforcement for changed canonical skills; PR #275 resolved rename detection and lowercase lifecycle-state false positives. The final #273 head `4477d33d846c68d71b666e6c283c8787312e023f` passed its required CI matrix before merge.
+- The live main merge commits are `db474059fbe0efa56ca167a7108146323c9cf857` for benchmark runtime and `90f9422954936e054adc630ad723e6165074492c` for anti-slop.
+- The merged main commits above currently have no associated workflow runs exposed by the available commit workflow-run endpoint. This is not treated as post-merge CI success; the exact PR-head CI evidence remains the verification evidence for those merges.
+- The next engineering action remains the fresh universal-registry runtime/consumer audit. The audit must start from live main and confirm coverage before introducing another contract/runtime slice.

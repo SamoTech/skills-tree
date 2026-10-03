@@ -11,7 +11,7 @@
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 375 skill files: 207 battle-tested, 158 enriched, 10 stubs, 0 invalid.
 - Quality-report figures are current only at the generated-report verification point; historical verification sections retain their original counts.
-- `main` current HEAD was verified from the live Git ref as `a3609bebfdf54b0ccc6735e81588619a355e4aba` at the latest snapshot check.
+- `main` current HEAD is intentionally verified from the live Git ref during each execution cycle; this snapshot does not hard-code its own future commit.
 
 ## Current verified architecture state
 
@@ -155,6 +155,18 @@ The corpus is now a verified deterministic projection of the canonical source. `
 
 A fresh universal-registry architecture and consumer-behavior audit completed the mandatory post-schema-validation review. Provenance, Evidence, integrity, memory safety, and action governance are already represented at their appropriate repository boundaries. The audit identified one concrete remaining machine-readable consumer gap: the first-class benchmarks registry collection had no dedicated contract or typed runtime facade.
 
-The selected slice is implemented on runtime/benchmark-integrity-slice: meta/benchmark-contract.schema.json, BenchmarkRuntime, UniversalRegistry benchmark accessors, and focused behavioral tests. No production benchmark records or external claims were added.
+The selected slice was implemented with `meta/benchmark-contract.schema.json`, `BenchmarkRuntime`, `UniversalRegistry` benchmark accessors, and focused behavioral tests. No production benchmark records or external claims were added.
 
-**Status:** PENDING exact-head CI verification and merge.
+PR #272 merged after the review-fix PR #274 was incorporated. The final exact head was `4738303caeb6a9129af8a0f84cab4219aade5084`; the final PR CI matrix passed Test Suite, Security Scan, PR Checks, Build & Verify Wheel, and Auto Label. The merged main commit is `db474059fbe0efa56ca167a7108146323c9cf857`.
+
+**Status:** VERIFIED — implementation, contract validation, behavioral tests, provenance boundary, and exact-head CI were verified before merge.
+
+## Anti-Slop Quality Gate — 2026-10-03
+
+PR #273 established the deterministic anti-slop quality gate for changed skills. PR #275 supplied the targeted review fixes for rename detection and case-sensitive placeholder handling; #275 was incorporated into #273.
+
+The final #273 head was `4477d33d846c68d71b666e6c283c8787312e023f`; its required CI matrix passed, including Security Scan, Test Suite, Build & Verify Wheel, PR Checks, Validate Skills Graph, Skill Quality Report, and Auto Label. The merged main commit is `90f9422954936e054adc630ad723e6165074492c`.
+
+The gate is deterministic and changed-skill scoped. It blocks selected placeholder/marketing filler patterns, warns on unsupported absolute/generic claims, ignores fenced code/frontmatter, and does not attempt LLM-based style classification.
+
+**Status:** VERIFIED — the quality gate and review fixes are merged. Historical corpus cleanup remains a separate evidence-driven migration and is not implied by this gate.

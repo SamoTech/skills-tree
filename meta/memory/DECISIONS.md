@@ -743,7 +743,25 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 **Reopen Conditions:** Reopen if canonical eligibility rules change, Agent Skills specification changes materially, or a later reproducible audit finds corpus drift.
 
 
-## DECISION-2026-10-03-BEHAVIORAL-EVALUATION-RUNTIME
+## DECISION-2026-10-03-ANTI-SLOP-QUALITY-GATE
+
+**Decision-ID:** DECISION-2026-10-03-ANTI-SLOP-QUALITY-GATE
+
+**Topic:** Enforce deterministic anti-slop quality rules on changed canonical skills.
+
+**Finding:** Existing schema, quality, evidence, provenance, and security gates did not explicitly reject selected low-information placeholder and marketing filler in newly changed skill prose.
+
+**Decision:** Add a deterministic changed-skill anti-slop gate. Block selected placeholder and marketing-filler patterns; warn on unsupported absolute and generic value claims; ignore fenced code and frontmatter; include renamed skills in changed-file detection; and keep placeholder matching case-sensitive so legitimate lowercase lifecycle states such as `todo` are not rejected.
+
+**Evidence:** PR #273 with targeted review-fix PR #275; final #273 head `4477d33d846c68d71b666e6c283c8787312e023f`; required CI matrix passed before merge as `90f9422954936e054adc630ad723e6165074492c`.
+
+**Scope boundary:** The gate is changed-skill enforcement. Historical corpus findings require a separate evidence-driven migration and are not silently reclassified by this decision.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if deterministic false positives/negatives materially undermine the gate, the canonical skill contract changes, or a replacement content-quality architecture is adopted.
+
+# DECISION-2026-10-03-BEHAVIORAL-EVALUATION-RUNTIME
 
 **Decision-ID:** DECISION-2026-10-03-BEHAVIORAL-EVALUATION-RUNTIME
 
@@ -757,7 +775,7 @@ All active product, architecture, roadmap, documentation, distribution, and auto
 
 **Evidence IDs:** meta/POST_20261003_BEHAVIORAL_EVALUATION_AUDIT.md, meta/ROADMAP.md, meta/EVIDENCE_MODEL.md, registry/runtime.py, meta/universal-registry-data.schema.json
 
-**Status:** PROPOSED — pending exact-head behavioral/CI verification and merge.
+**Status:** LOCKED — merged and exact-head CI verified.
 
 **Reopen Conditions:** Reopen if repository evidence shows Benchmark is intentionally excluded from typed runtime consumption, if the benchmark contract conflicts with an authoritative existing contract, or if tests reveal non-deterministic or mutable runtime behavior.
 
