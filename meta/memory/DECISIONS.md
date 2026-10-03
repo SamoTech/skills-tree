@@ -926,6 +926,6 @@ Decision: Add optional registry_context only when a canonical skill has an exact
 
 Evidence: tools/export_skills.py, registry/universal_registry.json, registry/runtime.py, docs/api/skills.json, docs/api/skills-schema.json, tests/test_export_registry_context.py, docs/DISCOVERY_REGISTRY_CONTEXT.md.
 
-Status: IMPLEMENTED ON BRANCH — exact-head CI and merge pending.
+Status: VERIFIED — PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb`. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, and Auto Label. The wheel gate also executed installed CLI search successfully.
 
 Reopen Conditions: Reopen if UniversalRegistry coverage becomes corpus-wide, the discovery projection becomes a runtime registry consumer, or an authoritative machine-readable discovery contract supersedes this projection boundary.
