@@ -319,10 +319,6 @@ class UniversalRegistry:
                     and target_type == "evidence"
                     and target_id in source.get("evidence", [])
                 )
-            else:
-                raise ValueError(
-                    f"Unsupported universal graph relationship: {relationship}"
-                )
 
             if not valid:
                 raise ValueError(
