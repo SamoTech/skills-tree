@@ -1,6 +1,6 @@
 # Current Architecture
 
-This document describes the implementation observed at the 2026-09-17 audit baseline and the first incremental universal-registry runtime slice.
+This document describes the verified implementation baseline as of 2026-10-03. Historical audit sections remain historical; the runtime and consumer boundaries below describe the current architecture.
 
 ## Runtime layers
 
@@ -11,6 +11,7 @@ Canonical sources
   meta/frameworks.md
   data/SKILLS_GRAPH.json
   benchmarks/INDEX.json
+  docs/api/skills.json (generated discovery projection)
 
 Universal registry boundary
   meta/universal-registry.schema.json
@@ -40,9 +41,9 @@ Transport
 
 The registry now has a small machine-readable seed containing real repository-backed Goals, Capabilities, and canonical Skills. `registry/runtime.py` provides a read-only deterministic facade for Goal → Capability → Skill resolution and rejects duplicate IDs, missing universal metadata, non-canonical skills, and dangling references.
 
-This is intentionally an additive compatibility layer. Existing skill files, graph generation, recommendation behavior, API contracts, and MCP contracts remain unchanged.
+The registry is a read-only deterministic runtime boundary. It now validates registry data, provenance/evidence links, freshness metadata, implementation/adapter contracts, benchmark definitions, compatibility facts, and the supported Universal Graph relationships. Unsupported graph relationships fail closed.
 
-Implementations, Tools, Models, Platforms, Frameworks, Adapters, Evidence, Benchmarks, and Architectures are present as empty typed collections in the seed until audited source records can be introduced. Empty is preferred to invented compatibility claims.
+The runtime contains audited records only where repository evidence exists. Empty or absent evidence is preserved as such rather than inferred.
 
 ## Recommendation execution
 
@@ -62,14 +63,14 @@ The universal registry runtime is not yet inserted into this production recommen
 
 BlueprintGenerator consumes the recommendation result and taxonomy. Architecture selection is still primarily driven by goal-category mappings. The universal capability graph is not yet the primary architecture path.
 
-## Remaining P1 gaps
+## Remaining architecture gaps
 
 - Promote Capability from taxonomy-derived data to authoritative registry data without creating divergent mappings.
 - Introduce first audited Implementation and Adapter records with provenance.
 - Add typed cross-entity graph edges and deterministic generation rules.
-- Add registry-backed eligibility and compatibility filtering before recommendation ranking.
-- Define versioned evidence and benchmark records.
-- Introduce a machine-readable universal architecture output contract.
+- Expand registry-backed consumer coverage beyond recommendation eligibility and context propagation.
+- Increase evidence-backed implementation/adapter coverage without inferring unsupported claims.
+- Define a machine-readable universal architecture output contract.
 
 ## Migration constraint
 

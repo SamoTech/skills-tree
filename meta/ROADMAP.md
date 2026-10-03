@@ -214,6 +214,9 @@ The strategic phases below remain the long-term product direction. They must not
 7. Re-verify live `main`, CI, generated artifacts, and authoritative documentation before selecting the next slice.
 8. Resume strategic capability-intelligence and demand-driven work only when the foundational runtime path is sufficiently established by evidence.
 
+9. Verify registry consumer-context propagation in recommendation, blueprint, and machine-readable discovery surfaces without introducing unsupported ranking or trust semantics.
+10. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle when consumer boundaries change.
+
 ### Mandatory execution invariant
 
 Documentation synchronization is a hard precondition for meaningful agent work. Every agent must pass the Documentation Preflight defined in `AI_CONSTITUTION.md` and `AGENTS.md`. If authoritative documentation is stale, synchronize it before unrelated implementation work unless an urgent safety/security condition requires immediate action. Unresolved documentation drift prevents `COMPLETE`.

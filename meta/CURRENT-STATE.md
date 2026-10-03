@@ -190,3 +190,12 @@ No canonical graph edge was changed and no new relationship semantics were inven
 **Status:** IMPLEMENTED ON BRANCH — focused behavioral regression coverage is added; exact-head CI and merge are pending.
 
 **Next:** verify exact-head CI, review/governance state, merge if all gates pass, then re-audit live `main`. The CLI `search` documentation/implementation mismatch remains the next independent consumer gap after this slice.
+
+
+## Registry Consumer Context — Verified 2026-10-03
+
+The recommendation API now exposes additive registry_context for registered canonical skills. The context is derived from UniversalRegistry and includes canonical identity, provenance, explicitly linked evidence references, declared freshness when present, and registered implementation IDs. It does not create ranking or trust scores and does not infer evidence. Unregistered legacy recommendation entries may have null registry_context.
+
+Verification target: exact PR HEAD CI, security, build, and API regression tests.
+
+Next: audit BlueprintGenerator and other machine-readable consumer surfaces for equivalent registry-context propagation.

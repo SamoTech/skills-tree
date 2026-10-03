@@ -130,6 +130,27 @@ class TestRecommend:
         assert "learning_path" in data
         assert "calibration_applied" in data
 
+    def test_recommend_exposes_registry_context_field(self):
+        r = client.post("/recommend", json={"goal": "Coding Agent"})
+        assert r.status_code == 200
+        for skill in r.json()["required_skills"] + r.json()["optional_skills"]:
+            assert "registry_context" in skill
+
+    def test_registry_context_uses_explicit_registry_evidence(self):
+        from api.dependencies import get_engine
+
+        context = get_engine().consumption_context_for_skill("code-review")
+        assert context is not None
+        assert context["canonical_id"] == "05-code/code-review"
+        assert context["canonical"] is True
+        assert context["provenance"]["source"] == "skills/05-code/code-review.md"
+        assert context["evidence"] == []
+        assert context["implementation_ids"] == ["implementation/code-reviewer-system"]
+        assert [item["id"] for item in context["implementation_evidence"]["implementation/code-reviewer-system"]] == [
+            "evidence/code-reviewer-runtime",
+            "evidence/code-reviewer-system-source",
+        ]
+
     def test_recommend_calibration_applied(self):
         r = client.post("/recommend", json={"goal": "Coding Agent"})
         data = r.json()

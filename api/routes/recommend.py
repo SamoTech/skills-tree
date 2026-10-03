@@ -67,6 +67,7 @@ def recommend(body: RecommendRequest) -> RecommendResponse:
             evidence=s.get("evidence", {}),
             score_breakdown=s.get("score_breakdown", {}),
             stability=s.get("stability"),
+            registry_context=engine.consumption_context_for_skill(skill_id),
         )
 
     required_skills = [_to_summary(skill_id, i + 1, req_scores[skill_id]) for i, skill_id in enumerate(req_ids)]

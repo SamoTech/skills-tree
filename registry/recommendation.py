@@ -88,6 +88,38 @@ class RegistryRecommendationEngine(RecommendationEngine):
             skill["rank"] = rank
         return result
 
+    def consumption_context_for_skill(self, skill_id: str) -> dict[str, Any] | None:
+        """Return deterministic registry context for a recommended canonical skill."""
+        if self.registry is None:
+            return None
+        normalized_id = self._normalize_skill_id(skill_id)
+        if normalized_id is None:
+            return None
+        skill = self.registry.resolve_skill(normalized_id)
+        evidence = self.registry.evidence_for_entity(normalized_id)
+        implementations = self.registry.implementations_for_skill(normalized_id)
+        implementation_evidence = {
+            item["id"]: [
+                {"id": evidence["id"], "type": evidence["type"], "source": evidence["source"]}
+                for evidence in self.registry.evidence_for_entity(item["id"])
+            ]
+            for item in implementations
+        }
+        freshness = self.registry.freshness_for_entity(normalized_id)
+        return {
+            "canonical_id": normalized_id,
+            "version": skill["version"],
+            "canonical": skill["canonical"],
+            "provenance": skill["provenance"],
+            "evidence": [
+                {"id": item["id"], "type": item["type"], "source": item["source"]}
+                for item in evidence
+            ],
+            "freshness": freshness,
+            "implementation_ids": [item["id"] for item in implementations],
+            "implementation_evidence": implementation_evidence,
+        }
+
     def _eligibility_candidates(
         self, skill_ids: list[str], target: dict[str, str] | None
     ) -> tuple[list[str], dict[str, set[str]]]:
