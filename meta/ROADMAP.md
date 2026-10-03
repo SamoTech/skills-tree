@@ -206,9 +206,9 @@ The strategic phases below remain the long-term product direction. They must not
 ## Current execution queue
 
 1. Complete any remaining Phase 0 control-plane reconciliation observable through available APIs and explicitly record unavailable settings; do not silently change high-impact repository governance.
-2. Perform the next fresh universal-registry runtime architecture and consumer-behavior audit from the verified benchmark/anti-slop baseline.
-3. Implement the smallest evidence-backed schema → runtime → behavioral-test slice identified by that audit.
-4. Repair and verify the supporting release-package workflow if its current failure is confirmed by live CI evidence; do not weaken release permissions or validation.
+2. Verify and merge the Universal Graph relationship runtime boundary only after exact-head CI and review/governance gates pass.
+3. Re-audit the merged universal-registry runtime and consumer surface from the verified benchmark, anti-slop, freshness, and graph-integrity baseline.
+4. Reconcile the remaining CLI search documentation/implementation gap (Issue #86) using existing search/runtime primitives; do not duplicate search logic.
 5. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
 6. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle.
 7. Re-verify live `main`, CI, generated artifacts, and documentation before selecting the next slice.
@@ -273,3 +273,16 @@ The verified audit baseline is 374 canonical skill entries, 250 currently eligib
 The deterministic projector, read-only audit workflow, validator, regression tests, and exact-head CI gates are verified. This does not complete Phase 4 and does not publish `/.well-known/agent-skills/index.json`.
 
 **Next:** reconcile existing packages, resolve canonical collisions, then generate eligible projections in independently verifiable batches. Only after artifact/provenance reconciliation should discovery-index and SHA-256 publication work begin.
+
+
+## Universal Graph Relationship Runtime Boundary — 2026-10-03
+
+A fresh post-freshness audit identified a fail-open semantic boundary: the graph schema declares deferred relationship types, while runtime semantics currently cover only the six relationships used by the canonical graph. The runtime previously accepted unsupported schema-valid relationships silently.
+
+The selected correction keeps the schema vocabulary unchanged but makes runtime-supported relationships explicit and rejects unsupported relationship types. No new graph semantics or graph records are introduced.
+
+**Branch:** `runtime/graph-relationship-boundary-20261003`
+
+**Verification status:** implementation and focused regression coverage are present; exact-head CI and merge are pending.
+
+**Next after merge:** re-audit the merged runtime, then address the independently verified CLI `search` gap.
