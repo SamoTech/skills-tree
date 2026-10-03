@@ -1,97 +1,67 @@
 # CLI Reference
 
-Skills Tree ships with a command-line interface built with [Typer](https://typer.tiangolo.com/).
+Skills Tree currently ships a Typer CLI implemented in `cli/main.py`.
 
-## Installation
+## Installation from the repository
 
-```bash
-pip install skills-tree
-```
-
-## Commands
-
-### `skills-tree search`
-
-Search for skills by keyword.
+The repository currently supports local installation through the project packaging configuration:
 
 ```bash
-skills-tree search "memory injection"
-skills-tree search "rag" --limit 10
-skills-tree search "web" --category web
+pip install -e .
 ```
 
-**Options:**
+The current CLI surface is the following.
 
-| Option | Description | Default |
-|---|---|---|
-| `--limit` | Maximum results to return | 20 |
-| `--category` | Filter by category ID | None |
-| `--level` | Filter by level (beginner/intermediate/advanced) | None |
-| `--badge` | Filter by badge (verified/reviewed/stub) | None |
+## `skills-tree recommend`
 
----
-
-### `skills-tree show`
-
-Display the full specification of a skill.
+Get skill recommendations for a goal.
 
 ```bash
-skills-tree show rag
-skills-tree show memory-injection --format json
+skills-tree recommend --goal "Coding Agent"
+skills-tree recommend --goal "RAG Assistant" --experience intermediate --time-budget 80
 ```
 
-**Options:**
+## `skills-tree blueprint`
 
-| Option | Description | Default |
-|---|---|---|
-| `--format` | Output format: `text`, `json`, `yaml` | `text` |
-
----
-
-### `skills-tree list`
-
-List skills, optionally filtered.
+Generate an architecture blueprint for a goal.
 
 ```bash
-skills-tree list
-skills-tree list --category reasoning
-skills-tree list --badge verified
+skills-tree blueprint --goal "Coding Agent"
 ```
 
----
+## `skills-tree goals`
 
-### `skills-tree categories`
-
-List all 17 skill categories.
+List taxonomy goals.
 
 ```bash
-skills-tree categories
+skills-tree goals
 ```
 
----
+## `skills-tree skills`
 
-### `skills-tree mcp serve`
-
-Start the MCP server for agent-to-agent capability discovery.
+List graph skills.
 
 ```bash
-skills-tree mcp serve
-skills-tree mcp serve --port 8080 --host 0.0.0.0
+skills-tree skills
 ```
 
-**Options:**
+## `skills-tree validate`
 
-| Option | Description | Default |
-|---|---|---|
-| `--port` | Port to listen on | 8000 |
-| `--host` | Host to bind to | `127.0.0.1` |
-
----
-
-### `skills-tree --version`
-
-Print the installed version.
+Run CLI/API health checks, with optional goal-specific recommendation and blueprint validation.
 
 ```bash
-skills-tree --version
+skills-tree validate
+skills-tree validate --goal "Coding Agent"
 ```
+
+## Search status
+
+`skills-tree search` is not currently implemented in `cli/main.py`.
+
+The repository does have a canonical search-index generation pipeline in `tools/build_search_index.py` and `.github/workflows/generate-search-index.yml`. The generated `docs/search-index.json` is used by the static web experience.
+
+Issue #86 tracks the CLI search implementation gap. A future CLI command must reuse the existing canonical search/data layer rather than introducing a parallel index or ranking implementation.
+
+## Output formats
+
+The implemented commands support the formats documented by their source options: `json`, `pretty`, and `table` where applicable.
