@@ -7,7 +7,8 @@ version: v2
 added: "2025-03"
 description: "Detect source vulnerabilities, dependency advisories, and exposed secrets with separate scanners and enforce explicit severity thresholds in CI."
 
-related: [secret-scanning, dependency-management, code-review, secure-coding]---
+related: [secret-scanning, dependency-management, code-review, secure-coding]
+---
 
 # Security Scanning
 
