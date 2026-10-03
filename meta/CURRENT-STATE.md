@@ -4,13 +4,14 @@
 
 ## Verified snapshot
 
-- Snapshot date: 2026-10-02
+- Snapshot date: 2026-10-03
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
 - Latest verified implementation synchronization: Goal runtime facade integration merged to `main` as `3290ebc88060fca07e944cd31ad31d392982ca3d`; Capability runtime facade remains verified at `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`; Skill runtime facade remains verified at `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
 - Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
 - Invalid: 0 at the last verified quality-report point.
+- `main` current HEAD verified after PR #267 merge: `8a242e37e9bd5a9e694d4e2ede7fa1c9674be03c`.
 
 ## Current verified architecture state
 
@@ -24,6 +25,7 @@
 - The post-P2.2 Capability runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_capability()`, `implementations_for_capability()`, and `adapters_for_capability()` through the existing validated `CapabilityRuntime`.
 - The post-P2.2 Goal runtime facade slice is verified: `UniversalRegistry` exposes typed deterministic `resolve_goal()` and `skills_for_goal()` through the dedicated validated `GoalRuntime`.
 - The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
+- `skills/15-orchestration/kanban-task-management.md` is now present on `main` as a verified canonical skill addition. It remains `stability: experimental` and `version: v1`; no stronger maturity claim is implied.
 - No numbered P2.3 requirement is currently defined. The next Phase 2 slice must come from a fresh architecture audit.
 
 ## Governance and documentation state
@@ -72,6 +74,10 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 Perform a fresh universal-registry runtime architecture audit after the verified deterministic Agent Skills corpus. The next engineering slice must be evidence-backed and must not reopen completed runtime or distribution work. Identify the highest-value remaining missing invariant or consumer-behavior gap, confirm it is not already covered by the contract, registry, graph, evidence, compatibility, skill, or runtime layers, then implement the smallest evidence-backed schema → runtime → behavioral-test slice.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
+
+## Kanban Skill Addition — VERIFIED — 2026-10-03
+
+PR #267 was squash-merged after the final exact-head CI matrix passed. The merged skill is canonical under `skills/15-orchestration/` and did not create a competing generated catalog. The only review defect found was a third-party CLI example mismatch; it was corrected before merge and the review thread was resolved.
 
 ## Handoff
 
