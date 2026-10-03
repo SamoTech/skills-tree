@@ -281,7 +281,7 @@ The repository also contains real MCP assets including `mcp/`, `examples/mcp-ser
 
 **Current mandatory action:**
 
-The search projection contract is now verified: `meta/search-index.schema.json` validates `docs/search-index.json`, regression tests enforce canonical-path parity with `docs/api/skills.json`, and a real stale Kanban entry was detected and reconciled. The next audit must establish the source/package runtime boundary needed for a reusable search consumer. Do not implement `skills-tree search` until installed-wheel data availability and ranking/index ownership are explicitly verified.
+The search projection contract is now verified: `meta/search-index.schema.json` validates `docs/search-index.json`, regression tests enforce canonical-path parity with `docs/api/skills.json`, and a real stale Kanban entry was detected and reconciled. The source/package runtime boundary is now explicit through `cli/search_runtime.py` and packaged `data/search-index.json`; the remaining gap is the deterministic query/ranking contract for Issue #86. Do not implement a second index or parser.
 
 ## 10. Vertical-Slice Strategy
 

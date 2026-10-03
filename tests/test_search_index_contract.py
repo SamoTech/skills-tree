@@ -45,3 +45,30 @@ def test_search_index_entries_resolve_to_canonical_skill_files():
     for doc in documents:
         canonical = ROOT / "skills" / f"{doc['id']}.md"
         assert canonical.is_file(), f"search entry does not resolve to canonical skill: {doc['id']}"
+
+PACKAGE_INDEX = ROOT / "data" / "search-index.json"
+
+def test_packaged_search_projection_matches_web_projection():
+    assert PACKAGE_INDEX.read_bytes() == SEARCH_INDEX.read_bytes()
+
+
+def test_search_runtime_resolves_canonical_projection():
+    from cli.search_runtime import load_search_index, search_index_path
+
+    assert search_index_path() == PACKAGE_INDEX
+    documents = load_search_index()
+    assert len(documents) > 0
+    assert documents[0]["id"]
+
+def test_search_runtime_falls_back_to_installed_data(monkeypatch, tmp_path):
+    from cli import search_runtime
+
+    installed = tmp_path / "data" / "search-index.json"
+    installed.parent.mkdir()
+    installed.write_bytes(PACKAGE_INDEX.read_bytes())
+
+    monkeypatch.setattr(search_runtime, "_source_checkout_path", lambda: tmp_path / "missing.json")
+    monkeypatch.setattr(search_runtime, "_installed_path", lambda: installed)
+
+    assert search_runtime.search_index_path() == installed
+    assert search_runtime.load_search_index()[0]["id"]

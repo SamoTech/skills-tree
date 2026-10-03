@@ -47,13 +47,14 @@ jobs:
         run: |
           python tools/build_search_index.py \
             --skills-root skills/ \
-            --output docs/search-index.json
+            --output docs/search-index.json \
+            --package-output data/search-index.json
 
       - name: Commit search index
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add docs/search-index.json
+          git add docs/search-index.json data/search-index.json
           git diff --staged --quiet && echo "Index unchanged." && exit 0
           git commit -m "chore(search): rebuild search index [skip ci]"
           for attempt in 1 2 3 4 5; do

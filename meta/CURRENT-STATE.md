@@ -80,7 +80,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-Re-audit the remaining machine-readable discovery consumer surfaces after the verified search-projection contract. Next focus on the runtime/package boundary: determine how a reusable search consumer can access canonical/generated search data after wheel installation without making `docs/` a hidden runtime dependency or introducing a second ranking/index implementation. Only after that contract is verified should Issue #86 (`skills-tree search`) receive an implementation slice.
+The source/package runtime boundary for the existing search projection is now implemented: `cli/search_runtime.py` resolves `data/search-index.json` from the source checkout or installed wheel data directory, and the wheel gate requires that asset. The next action is to define the deterministic query/ranking behavior contract for Issue #86 before implementing `skills-tree search`. No second ranking/index implementation is authorized.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 

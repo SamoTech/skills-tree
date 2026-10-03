@@ -3,7 +3,7 @@
 build_search_index.py
 
 Builds a Lunr.js-compatible JSON search index from all skill Markdown files.
-Output is written to docs/search-index.json (or the path given by --output).
+Output is written to docs/search-index.json (or the path given by --output). The generated artifact is also mirrored to data/search-index.json so the installable CLI can consume the same projection without making docs/ a runtime dependency.
 
 The index format is a flat JSON array of document objects that the static
 site's client-side Lunr.js instance can consume directly via lunr.Index.load()
@@ -156,7 +156,12 @@ def main() -> None:
     parser.add_argument(
         "--output",
         default="docs/search-index.json",
-        help="Destination path for the generated JSON index (default: docs/search-index.json)",
+        help="Destination path for the web JSON index (default: docs/search-index.json)",
+    )
+    parser.add_argument(
+        "--package-output",
+        default="data/search-index.json",
+        help="Destination path for the installable package projection (default: data/search-index.json)",
     )
     args = parser.parse_args()
 
@@ -178,12 +183,17 @@ def main() -> None:
 
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text(
-        json.dumps(documents, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    payload = json.dumps(documents, ensure_ascii=False, indent=2) + "\n"
+    output_path.write_text(payload, encoding="utf-8")
 
-    print(f"Done. {len(documents)} document(s) written to '{output_path}'.")
+    package_path = Path(args.package_output)
+    package_path.parent.mkdir(parents=True, exist_ok=True)
+    package_path.write_text(payload, encoding="utf-8")
+
+    print(
+        f"Done. {len(documents)} document(s) written to "
+        f"'{output_path}' and '{package_path}'."
+    )
 
 
 if __name__ == "__main__":
