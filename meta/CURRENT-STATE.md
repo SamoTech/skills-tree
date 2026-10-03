@@ -204,3 +204,8 @@ PR #293 merged additive `registry_context` propagation onto required and optiona
 ## PyPI Release Contract Synchronization — VERIFIED — 2026-10-03
 
 `meta/PYPI_RELEASE_PLAN.md` was reconciled with the executable release path. The repository version is currently `1.68.0` in `pyproject.toml`. Production publication is performed by `.github/workflows/zero-touch-release.yml` using GitHub OIDC Trusted Publishing and the `pypi` environment. The historical `publish.yml` / `PYPI_API_TOKEN` / `1.0.0` instructions are no longer treated as current release instructions.
+
+
+## Machine-Readable Discovery Registry Context — IMPLEMENTED ON BRANCH — 2026-10-03
+
+The discovery audit found that docs/api/skills.json was not consuming the verified UniversalRegistry context. The branch adds an optional registry_context projection for the three exact registered skills only, with no synthetic membership or evidence. Exact-head CI remains the verification gate before merge.

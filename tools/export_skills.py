@@ -19,6 +19,7 @@ import glob
 import json
 import datetime
 from datetime import timezone
+from copy import deepcopy
 
 try:
     import yaml
@@ -54,6 +55,49 @@ FRONTMATTER_FIELDS = [
     ("last_updated", r"\*\*Last Updated:\*\*\s*`?([^`\n]+)`?"),
 ]
 
+
+
+
+def _load_universal_registry() -> dict:
+    """Load the canonical UniversalRegistry seed for optional discovery context."""
+    path = os.path.join("registry", "universal_registry.json")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            data = json.load(fh)
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"[export] WARNING: universal registry unavailable: {exc}")
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def _registry_context_for_skill(skill: dict, registry: dict) -> dict | None:
+    """Return descriptive registry context only when the skill is registered."""
+    entities = registry.get("entities", {})
+    registry_id = f"{skill.get('category_dir')}/{skill['id']}"
+    record = next(
+        (item for item in entities.get("skills", []) if item.get("id") == registry_id),
+        None,
+    )
+    if record is None:
+        return None
+
+    evidence_ids = sorted(
+        item["id"]
+        for item in entities.get("evidence", [])
+        if registry_id in item.get("supports", [])
+    )
+    context = {
+        "canonical_id": record["id"],
+        "version": record["version"],
+        "canonical": record["canonical"],
+        "capability_ids": sorted(record.get("capabilities", [])),
+        "implementation_ids": sorted(record.get("implementations", [])),
+        "evidence_ids": evidence_ids,
+        "provenance": deepcopy(record["provenance"]),
+    }
+    if record.get("freshness") is not None:
+        context["freshness"] = deepcopy(record["freshness"])
+    return context
 
 def parse_skill(filepath: str) -> dict:
     """Extract metadata from a single skill markdown file."""
@@ -153,11 +197,16 @@ def build_index() -> list:
     when included they pollute the public API with null-everywhere entries.
     """
     skills = []
+    registry = _load_universal_registry()
     for filepath in sorted(glob.glob("skills/**/*.md", recursive=True)):
         if os.path.basename(filepath).lower() == "readme.md":
             continue
         try:
-            skills.append(parse_skill(filepath))
+            skill = parse_skill(filepath)
+            registry_context = _registry_context_for_skill(skill, registry)
+            if registry_context is not None:
+                skill["registry_context"] = registry_context
+            skills.append(skill)
         except Exception as exc:  # noqa: BLE001
             print(f"[export] WARNING: could not parse {filepath}: {exc}")
     return skills
@@ -188,6 +237,21 @@ SKILL_SCHEMA = {
         "last_updated": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}$"},
         "sections":     {"type": "array", "items": {"type": "string"}},
         "related":      {"type": "array", "items": {"type": "string"}},
+        "registry_context": {
+            "type": "object",
+            "required": ["canonical_id", "version", "canonical", "capability_ids", "implementation_ids", "evidence_ids", "provenance"],
+            "properties": {
+                "canonical_id": {"type": "string"},
+                "version": {"type": "string"},
+                "canonical": {"type": "boolean", "const": True},
+                "capability_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": True},
+                "implementation_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": True},
+                "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": True},
+                "provenance": {"type": "object"},
+                "freshness": {"type": ["object", "null"]}
+            },
+            "additionalProperties": False
+        },
     },
     "additionalProperties": False,
 }

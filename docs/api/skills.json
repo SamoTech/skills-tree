@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-03T03:57:56Z",
+  "generated": "2026-10-03T17:35:41Z",
   "count": 375,
   "skills": [
     {
@@ -2406,7 +2406,21 @@
         "../11-web/web-search.md",
         "../12-data/embedding-generation.md"
       ],
-      "category_dir": "03-memory"
+      "category_dir": "03-memory",
+      "registry_context": {
+        "canonical_id": "03-memory/rag",
+        "version": "1.0",
+        "canonical": true,
+        "capability_ids": [
+          "capability/knowledge-retrieval"
+        ],
+        "implementation_ids": [],
+        "evidence_ids": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/03-memory/rag.md"
+        }
+      }
     },
     {
       "id": "semantic-memory",
@@ -3262,7 +3276,23 @@
         "Evidence"
       ],
       "related": [],
-      "category_dir": "05-code"
+      "category_dir": "05-code",
+      "registry_context": {
+        "canonical_id": "05-code/code-review",
+        "version": "1.0",
+        "canonical": true,
+        "capability_ids": [
+          "capability/code-quality"
+        ],
+        "implementation_ids": [
+          "implementation/code-reviewer-system"
+        ],
+        "evidence_ids": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/05-code/code-review.md"
+        }
+      }
     },
     {
       "id": "code-search",
@@ -6699,7 +6729,21 @@
         "../03-memory/rag.md",
         "../04-action-execution/http-request.md"
       ],
-      "category_dir": "11-web"
+      "category_dir": "11-web",
+      "registry_context": {
+        "canonical_id": "11-web/web-search",
+        "version": "3",
+        "canonical": true,
+        "capability_ids": [
+          "capability/web-retrieval"
+        ],
+        "implementation_ids": [],
+        "evidence_ids": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/11-web/web-search.md"
+        }
+      }
     },
     {
       "id": "anomaly-detection",
