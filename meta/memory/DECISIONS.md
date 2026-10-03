@@ -875,3 +875,14 @@ Confidence: HIGH
 Evidence IDs: PR-283, tests/test_graph_relationship_integrity.py, registry/runtime.py
 Status: LOCKED
 Reopen Conditions: Reopen if a later graph architecture change supersedes or modifies the supported relationship set.
+
+
+# DECISION-2026-10-03-SEARCH-PROJECTION-CONTRACT
+
+DECISION-ID: DECISION-2026-10-03-SEARCH-PROJECTION-CONTRACT
+Topic: Search projection integrity before CLI search
+Decision: Establish `docs/search-index.json` as a validated generated projection, not an independent catalog. The projection is governed by `meta/search-index.schema.json`; tests require unique IDs, canonical file resolution, and exact path parity with `docs/api/skills.json`. A stale projection entry was detected for `skills/15-orchestration/kanban-task-management.md` and reconciled before merge. CLI search remains deferred until the installed-wheel/source-checkout runtime data boundary is audited.
+Confidence: HIGH
+Evidence: PR #296 merged as `c66def14c5c21f348275978042e8c9d07ad43086`; exact-head Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label passed.
+Status: LOCKED
+Reopen Conditions: Reopen if search projection format, canonical source, packaging contract, or runtime consumer architecture changes.
