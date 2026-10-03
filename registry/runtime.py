@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from datetime import datetime
 import json
 from pathlib import Path
 from typing import Any, TypedDict
@@ -37,6 +38,14 @@ class ImplementationRecord(TypedDict):
     status: str
 
 
+class FreshnessRecord(TypedDict):
+    """Normative runtime shape for optional entity freshness metadata."""
+    last_reviewed_at: str
+    review_due_at: str
+    basis: str
+    stale_conditions: list[str]
+
+
 class AdapterRecord(TypedDict):
     """Normative runtime shape for a registered Adapter."""
     id: str
@@ -63,6 +72,7 @@ class UniversalRegistry:
         self._data = json.loads(self.path.read_text(encoding="utf-8"))
         self._validate_registry_schema()
         self._validate_integrity()
+        self._validate_freshness()
         self._validate_implementation_contracts()
         self._validate_adapter_contracts()
         self._validate_evidence_contracts()
@@ -80,6 +90,15 @@ class UniversalRegistry:
     @property
     def data(self) -> dict[str, Any]:
         return deepcopy(self._data)
+
+    def freshness_for_entity(self, entity_id: str) -> FreshnessRecord | None:
+        """Return declared freshness metadata for an entity, if present."""
+        for records in self._data["entities"].values():
+            for record in records:
+                if record["id"] == entity_id:
+                    freshness = record.get("freshness")
+                    return deepcopy(freshness) if freshness is not None else None
+        raise KeyError(f"Unknown entity: {entity_id}")
 
 
     def resolve_evidence(self, evidence_id: str) -> EvidenceRecord:
@@ -285,6 +304,23 @@ class UniversalRegistry:
                     f"Invalid graph relationship semantics: {source_id} ({source_type}) "
                     f"-{relationship}-> {target_id} ({target_type})"
                 )
+
+    def _validate_freshness(self) -> None:
+        """Validate optional freshness metadata without imposing a corpus-wide migration."""
+        for records in self._data["entities"].values():
+            for record in records:
+                freshness = record.get("freshness")
+                if freshness is None:
+                    continue
+                reviewed = datetime.fromisoformat(freshness["last_reviewed_at"].replace("Z", "+00:00"))
+                due = datetime.fromisoformat(freshness["review_due_at"].replace("Z", "+00:00"))
+                if reviewed.tzinfo is None or due.tzinfo is None:
+                    raise ValueError(f"Freshness timestamps must be timezone-aware: {record['id']}")
+                if due < reviewed:
+                    raise ValueError(
+                        f"Freshness review_due_at precedes last_reviewed_at: {record['id']}"
+                    )
+
 
     def _validate_implementation_contracts(self) -> None:
         """Validate every registered Implementation against the normative contract."""
