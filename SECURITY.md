@@ -165,7 +165,7 @@ The repository applies these rules to distributed skills:
 2. Installation commands must not be presented as mandatory agent behavior unless the dependency and trust boundary are explicitly documented and the dependency is pinned or otherwise reproducibly identified.
 3. Skill content must not request secrets, disable security controls, weaken authentication, or execute destructive actions without an explicit safety boundary and human-approval path where appropriate.
 4. CI must not mutate contributor branches as part of validation. Validation should be read-only; generated artifacts should be reconciled through an explicit release or PR path.
-5. Automated dependency updates must not auto-approve or auto-merge into `main`. A maintainer reviews the exact green HEAD.
+5. Automated dependency changes may merge only through the repository CI-gated merge rule: exact HEAD, required validation, security, tests, and repository invariants must pass. No separate human approval is required unless a higher-priority control-plane rule applies.
 6. A "battle-tested" quality label means the repository quality criteria were met. It is not a blanket trust or malware guarantee.
 
 For the planned Agent Skills standard distribution, each published artifact will carry a stable name, description, source path, version/provenance information, and SHA-256 integrity digest. The discovery surface will follow the `/.well-known/agent-skills/index.json` model and will be generated from the same canonical source rather than maintained by hand.
