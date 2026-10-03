@@ -1,107 +1,38 @@
-# Python API Reference
+# Python API Status
 
-The `skills_tree` Python package provides a clean API for programmatic access to the skill taxonomy.
+## Current repository state
 
-## Installation
+The repository currently does not contain a verified implementation of the historical `skills_tree.SkillsTree` Python package documented in older project material.
 
-```bash
-pip install skills-tree
-```
+A repository search for the `SkillsTree` implementation and its methods did not identify a canonical source module or package directory on `main`. The current `pyproject.toml` exposes the `skills-tree` console entry point through `cli.main:app`, not through a `skills_tree` package implementation.
 
-## `SkillsTree`
+Therefore the historical `SkillsTree.get()`, `SkillsTree.search()`, `SkillsTree.categories()`, `SkillsTree.get_category()`, and `SkillsTree.recommend()` API examples are not treated as current repository capabilities.
 
-The main entry point.
+## Canonical search implementation
 
-```python
-from skills_tree import SkillsTree
+Search currently exists as a repository/web data pipeline rather than as the historical Python API:
 
-st = SkillsTree()
-```
+1. `tools/build_search_index.py` reads canonical Markdown skill files under `skills/`.
+2. It produces `docs/search-index.json`.
+3. `.github/workflows/generate-search-index.yml` regenerates that index when skill content changes.
+4. The generated index is intended for the static site's client-side search.
 
-### `SkillsTree.get(skill_id: str) -> Skill`
+This is the only search implementation verified in the current repository audit.
 
-Fetch a skill by its ID.
+## CLI relationship
 
-```python
-skill = st.get("rag")
-print(skill.title)      # "Retrieval-Augmented Generation"
-print(skill.category)   # "memory"
-print(skill.version)    # "v3"
-print(skill.badge)      # "verified"
-```
+The current CLI in `cli/main.py` exposes:
 
-**Raises:** `SkillNotFound` if the skill ID does not exist.
+- `recommend`
+- `blueprint`
+- `goals`
+- `skills`
+- `validate`
 
----
+It does not currently expose `skills-tree search`.
 
-### `SkillsTree.search(query: str, limit: int = 20) -> list[Skill]`
+Issue #86 remains the tracked implementation gap for a CLI search command. A future implementation should consume an existing canonical search/data primitive rather than creating a second indexing or ranking system.
 
-Full-text search across all skill titles, descriptions, and tags.
+## Evidence boundary
 
-```python
-results = st.search("memory injection", limit=5)
-for skill in results:
-    print(skill.id, skill.title, skill.badge)
-```
-
----
-
-### `SkillsTree.categories() -> list[Category]`
-
-List all 17 skill categories.
-
-```python
-categories = st.categories()
-for cat in categories:
-    print(cat.id, cat.name, cat.skill_count)
-```
-
----
-
-### `SkillsTree.get_category(category_id: str) -> list[Skill]`
-
-Get all skills in a specific category.
-
-```python
-memory_skills = st.get_category("memory")
-```
-
----
-
-### `SkillsTree.recommend(task: str, top_k: int = 5) -> list[Skill]`
-
-Recommend skills for a given task description using semantic similarity.
-
-```python
-recommendations = st.recommend(
-    "I need to build an agent that remembers user preferences",
-    top_k=5
-)
-```
-
----
-
-## Data Models
-
-### `Skill`
-
-| Field | Type | Description |
-|---|---|---|
-| `id` | `str` | Unique skill identifier (slug) |
-| `title` | `str` | Human-readable skill name |
-| `category` | `str` | Parent category ID |
-| `level` | `str` | `beginner`, `intermediate`, or `advanced` |
-| `stability` | `str` | `experimental`, `beta`, or `stable` |
-| `version` | `str` | Current version (e.g. `v3`) |
-| `badge` | `str` | `verified`, `reviewed`, or `stub` |
-| `tags` | `list[str]` | Associated tags |
-| `related` | `list[str]` | Related skill IDs |
-| `content` | `str` | Full Markdown content |
-
-### `Category`
-
-| Field | Type | Description |
-|---|---|---|
-| `id` | `str` | Category identifier (e.g. `memory`) |
-| `name` | `str` | Display name |
-| `skill_count` | `int` | Number of skills in this category |
+This page intentionally records the current verified state instead of preserving undocumented API claims as if they were implemented. Historical references to the former `SkillsTree` API should be treated as planning or legacy documentation until a concrete implementation, tests, packaging evidence, and runtime verification exist.
