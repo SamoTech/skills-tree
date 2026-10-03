@@ -910,6 +910,6 @@ Decision: Implement one deterministic lexical consumer over the canonical genera
 
 Evidence: meta/SEARCH_CLI_CONTRACT.md, cli/search_engine.py, cli/search_runtime.py, tests/test_search_engine.py, tests/test_search_cli.py, tools/build_search_index.py, and Issue #86.
 
-Status: IMPLEMENTED ON BRANCH — focused and full verification plus merge remain pending.
+Status: VERIFIED — PR #299 merged as `7302d0780b2857bdd2f54363a2e6158eafc45292`. Exact-head Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label passed. The wheel gate also executed `skills-tree search` from the installed wheel successfully.
 
 Reopen Conditions: Reopen if verified canonical search behavior appears elsewhere, the generated search projection changes shape, or evidence shows this lexical contract does not satisfy the authoritative CLI requirement.
