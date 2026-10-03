@@ -110,13 +110,15 @@ Each migrated skill now has a concrete description, explicit I/O contract, runna
 **Status:** VERIFIED — implementation, generated corpus report, and public documentation are synchronized.
 
 
-## Goal Capability Runtime Access — In Verification — 2026-10-02
+## Goal Capability Runtime Access — VERIFIED — 2026-10-02
 
-A fresh runtime/consumer audit identified a missing typed Goal→Capability accessor. The development branch now adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
+A fresh runtime/consumer audit identified a missing typed Goal→Capability accessor. The implementation adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
 
 Focused regression coverage verifies deterministic Goal-to-Capability traversal and defensive snapshot behavior.
 
-**Verification status:** pending branch CI and exact-head validation. This slice is not marked VERIFIED until those checks are available.
+**Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
+
+**Status:** VERIFIED — the typed Goal→Capability runtime path is live on `main`.
 \n\n## Deterministic Agent Skills Projection — VERIFIED — 2026-10-02
 
 PR #251 established and verified the first executable canonical-to-Agent-Skills projection contract, then merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.

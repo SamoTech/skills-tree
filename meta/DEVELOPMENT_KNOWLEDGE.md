@@ -426,7 +426,9 @@ Behavioral coverage adds deterministic Capability resolution from `goal/software
 
 No registry records or external ecosystem claims were added. No numbered P2.3 requirement was invented.
 
-**Verification status:** implementation and focused tests are present on the development branch; required CI has not yet been established for the branch.
+**Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
+
+**Status:** VERIFIED — the typed Goal→Capability runtime boundary is merged to `main`, covered by deterministic traversal and defensive-snapshot tests, and routed through the validated Capability boundary.
 
 
 ## Kanban Task Management Skill — Verified 2026-10-03
