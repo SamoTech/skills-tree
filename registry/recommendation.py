@@ -98,6 +98,13 @@ class RegistryRecommendationEngine(RecommendationEngine):
         skill = self.registry.resolve_skill(normalized_id)
         evidence = self.registry.evidence_for_entity(normalized_id)
         implementations = self.registry.implementations_for_skill(normalized_id)
+        implementation_evidence = {
+            item["id"]: [
+                {"id": evidence["id"], "type": evidence["type"], "source": evidence["source"]}
+                for evidence in self.registry.evidence_for_entity(item["id"])
+            ]
+            for item in implementations
+        }
         freshness = self.registry.freshness_for_entity(normalized_id)
         return {
             "canonical_id": normalized_id,
@@ -110,6 +117,7 @@ class RegistryRecommendationEngine(RecommendationEngine):
             ],
             "freshness": freshness,
             "implementation_ids": [item["id"] for item in implementations],
+            "implementation_evidence": implementation_evidence,
         }
 
     def _eligibility_candidates(
