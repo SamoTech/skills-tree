@@ -244,7 +244,7 @@ SKILL_SCHEMA = {
                 "canonical_id": {"type": "string"},
                 "version": {"type": "string"},
                 "canonical": {"type": "boolean", "const": True},
-                "capability_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+                "capability_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": True},
                 "implementation_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
                 "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
                 "provenance": {"type": "object"},
