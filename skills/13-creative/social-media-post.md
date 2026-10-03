@@ -7,7 +7,8 @@ version: v2
 added: "2025-03"
 description: "Create platform-specific social posts from a source brief while preserving factual claims, audience constraints, character limits, and disclosure requirements."
 
-related: [copywriting, tone-adjustment, structured-output]---
+related: [copywriting, tone-adjustment, structured-output]
+---
 
 # Social Media Post
 
