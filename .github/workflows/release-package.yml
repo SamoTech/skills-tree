@@ -27,12 +27,57 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # ── 1. Checkout full history so export_skills.py can walk all files ──────
+      # ── 1. Checkout full history so tags and export_skills.py are available ─
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # ── 2. Python env ─────────────────────────────────────────────────────────
+      # ── 2. Resolve and validate the package tag ───────────────────────────────
+      - name: Resolve tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.tag }}" ]; then
+            TAG="${{ inputs.tag }}"
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="$(git describe --tags --abbrev=0)"
+          else
+            TAG="${GITHUB_REF_NAME}"
+          fi
+
+          case "$TAG" in
+            v*.*.*) ;;
+            *)
+              echo "ERROR: expected a release tag matching v*.*.*; got: $TAG"
+              exit 1
+              ;;
+          esac
+
+          git fetch --tags --force
+          git rev-parse "$TAG^{commit}" >/dev/null
+          echo "name=$TAG" >> "$GITHUB_OUTPUT"
+
+      # ── 3. Checkout the exact release tag ─────────────────────────────────────
+      - name: Checkout release tag
+        run: git checkout --detach "${{ steps.tag.outputs.name }}"
+
+      - name: Verify tag commit
+        id: verify
+        run: |
+          TAG="${{ steps.tag.outputs.name }}"
+          TAG_SHA="$(git rev-parse "$TAG^{commit}")"
+          HEAD_SHA="$(git rev-parse HEAD)"
+
+          if [ "$TAG_SHA" != "$HEAD_SHA" ]; then
+            echo "ERROR: checked-out commit does not match release tag"
+            echo "tag commit : $TAG_SHA"
+            echo "HEAD       : $HEAD_SHA"
+            exit 1
+          fi
+
+          echo "commit_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+          echo "Verified release tag $TAG -> $HEAD_SHA"
+
+      # ── 4. Python env ─────────────────────────────────────────────────────────
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -41,25 +86,15 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # ── 3. Regenerate skills.json / skills.yaml so the zip is always fresh ───
+      # ── 5. Regenerate skills.json / skills.yaml so the zip is always fresh ───
       - name: Regenerate skills API export
         run: python3 tools/export_skills.py
 
-      # ── 4. Determine the tag name ─────────────────────────────────────────────
-      - name: Resolve tag
-        id: tag
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.tag }}" ]; then
-            echo "name=${{ inputs.tag }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "name=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
-          fi
-
-      # ── 5. Build the release zip + MANIFEST.json ──────────────────────────────
+      # ── 6. Build the release zip + MANIFEST.json ──────────────────────────────
       - name: Build release package
         run: python3 tools/package_release.py --tag "${{ steps.tag.outputs.name }}"
         env:
-          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_SHA: ${{ steps.verify.outputs.commit_sha }}
 
       # ── 6. Show what we're shipping ───────────────────────────────────────────
       - name: Inspect artifact
@@ -73,7 +108,7 @@ jobs:
           echo "=== Zip contents (top-level) ==="
           unzip -l dist/skills-tree-*.zip | head -40
 
-      # ── 7. Create or update the GitHub Release and upload the asset ───────────
+      # ── 9. Create or update the GitHub Release and upload the asset ───────────
       - name: Upload to GitHub Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
