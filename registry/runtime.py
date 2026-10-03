@@ -323,8 +323,18 @@ class UniversalRegistry:
         schema_path = self.path.parent.parent / "meta" / "benchmark-contract.schema.json"
         contract = json.loads(schema_path.read_text(encoding="utf-8"))
         validator = Draft202012Validator(contract)
+        entity_ids = {
+            record["id"]
+            for records in self._data["entities"].values()
+            for record in records
+        }
         for benchmark in self._data["entities"]["benchmarks"]:
             validator.validate({"contract_version": "1.0", "benchmark": benchmark})
+            for subject_id in benchmark.get("subjects", []):
+                if subject_id not in entity_ids:
+                    raise ValueError(
+                        f"Benchmark subject references unknown entity: {benchmark['id']} -> {subject_id}"
+                    )
 
     def _validate_adapter_contracts(self) -> None:
         """Validate every registered Adapter against the normative contract."""
