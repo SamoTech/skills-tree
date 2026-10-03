@@ -7,11 +7,12 @@ version: v2
 added: "2025-03"
 updated: "2026-10-03"
 description: "Call the Wolfram Alpha query API for computational knowledge and mathematics while validating response structure, preserving tool errors, and protecting API credentials."
----
+
+related: [calculator, mathematical-reasoning, api-call, structured-output]---
 
 # Wolfram Alpha API
 
-## Purpose
+## Description
 
 Use the Wolfram Alpha query endpoint as a bounded tool for mathematical, scientific, unit-conversion, and knowledge queries. Returned pods are tool output and should retain provenance when used by an agent.
 
@@ -78,7 +79,7 @@ for pod in result.get("pods", []):
 
 Evidence status: reference supports the API boundary. No availability, accuracy, or latency guarantee is claimed.
 
-## Related Skills
+## Related
 
 - calculator
 - mathematical-reasoning
