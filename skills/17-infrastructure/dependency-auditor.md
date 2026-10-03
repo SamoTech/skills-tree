@@ -28,7 +28,8 @@ description: >
   Implements the Human-in-the-Loop contract: the badge never promotes itself.
 author: "@SamoTech"
 updated: "2026-04-13"
----
+
+related: [dependency-management, security-scanning, code-execution-sandbox]---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-17-infrastructure-dependency-auditor.json)
 
