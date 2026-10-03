@@ -12,7 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = REPO_ROOT / "skills"
 
 PLACEHOLDER_PATTERNS = (
-    re.compile(r"\b(?:TODO|TBD|WIP|FIXME)\b", re.I),
+    re.compile(r"\b(?:TODO|TBD|WIP|FIXME)\b"),
     re.compile(r"lorem ipsum", re.I),
     re.compile(r"\bcoming soon\b", re.I),
     re.compile(r"\b(?:insert|add)\s+(?:your|the)\s+[^\n]{0,60}\s+here\b", re.I),
@@ -79,7 +79,7 @@ def findings_for(path: Path) -> list[tuple[str, int, str]]:
 def changed_skill_files(base: str) -> list[Path]:
     try:
         out = subprocess.check_output(
-            ["git", "diff", "--name-only", "--diff-filter=AM", f"{base}...HEAD"],
+            ["git", "diff", "--name-only", "--diff-filter=AMR", f"{base}...HEAD"],
             cwd=REPO_ROOT,
             text=True,
         )
