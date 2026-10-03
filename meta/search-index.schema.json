@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://samotech.github.io/skills-tree/meta/search-index.schema.json",
+  "title": "Skills Tree Search Index",
+  "description": "Contract for the generated Lunr-compatible search document corpus. The canonical skill source remains skills/.",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "title",
+      "category",
+      "level",
+      "stability",
+      "tags",
+      "description",
+      "body"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "^[^/\\s]+/[^/\\s]+(?:/[^/\\s]+)*$"
+      },
+      "title": {
+        "type": "string"
+      },
+      "category": {
+        "type": "string"
+      },
+      "level": {
+        "type": "string",
+        "enum": [
+          "basic",
+          "intermediate",
+          "advanced"
+        ]
+      },
+      "stability": {
+        "type": "string",
+        "enum": [
+          "stable",
+          "experimental",
+          "deprecated"
+        ]
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "description": {
+        "type": "string"
+      },
+      "body": {
+        "type": "string"
+      }
+    }
+  }
+}
