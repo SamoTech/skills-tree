@@ -7,11 +7,12 @@ version: v2
 added: "2025-03"
 updated: "2026-10-03"
 description: "Create timed video scripts with hooks, narration, on-screen text, visual cues, and calls to action while keeping factual claims traceable to the source brief."
----
+
+related: [blog-writing, presentation-gen, social-media-post]---
 
 # Video Script
 
-## Purpose
+## Description
 
 Convert a source brief into a production-oriented script. The script should expose timing, narration, visual direction, and on-screen text so downstream editing tools or humans can execute it.
 
@@ -73,7 +74,7 @@ This skill defines a production structure rather than claims about a particular 
 
 Evidence status: no performance, retention, or conversion claim is made.
 
-## Related Skills
+## Related
 
 - blog-writing
 - presentation-gen
