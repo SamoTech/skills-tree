@@ -18,12 +18,12 @@ DOCUMENTS = [
     },
     {
         "id": "05-code/image-pipeline",
-        "title": "Image Pipeline",
+        "title": "Pipeline",
         "category": "05-code",
         "level": "advanced",
         "stability": "stable",
         "tags": ["vision"],
-        "description": "Build image processing pipelines.",
+        "description": "Build processing pipelines.",
         "body": "Pipeline implementation details.",
     },
     {
