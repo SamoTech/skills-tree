@@ -1,44 +1,92 @@
 ---
-title: "Presentation Gen"
+title: "Presentation Generation"
 category: 13-creative
 level: advanced
 stability: stable
-description: "Apply presentation gen in AI agent workflows."
+version: v2
 added: "2025-03"
+updated: "2026-10-03"
+description: "Generate structured presentation plans with slide purpose, evidence-backed content, speaker notes, and visual direction while keeping claims traceable to supplied source material."
 ---
 
-![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-13-creative-presentation-gen.json)
+# Presentation Generation
 
-**Category:** Creative
-**Skill Level:** `advanced`
-**Stability:** stable
-**Added:** 2025-03
+## Purpose
 
-### Description
-Builds presentation outlines and slide-by-slide content with titles, bullet points, speaker notes, and visual suggestions. Adapts structure to pitch decks, educational slides, or technical deep-dives.
+Turn a topic or source pack into a slide-by-slide presentation specification. The output should separate factual claims from interpretation and should identify which source supports important claims.
 
-### Example
+## Inputs / Outputs
+
+| Item | Type | Required | Notes |
+|---|---|---:|---|
+| Topic | str | yes | Presentation subject |
+| Audience | str | yes | Technical level and context |
+| Slide count | int | yes | Desired maximum |
+| Source material | list[dict] | recommended | Evidence for factual claims |
+| Output | list[dict] | yes | Slide title, purpose, content, notes, visual direction |
+
+## Runnable Example
+
 ```python
-import anthropic, json
+from dataclasses import dataclass
 
-client = anthropic.Anthropic()
+@dataclass
+class Slide:
+    number: int
+    title: str
+    purpose: str
+    bullets: list[str]
+    visual: str
 
-def generate_deck(topic: str, slides: int = 8) -> list[dict]:
-    resp = client.messages.create(
-        model="claude-opus-4-5",
-        max_tokens=1200,
-        messages=[{"role": "user", "content": (
-            f"Create a {slides}-slide presentation on '{topic}'.\n"
-            "Return JSON array: [{slide_number, title, bullets: [str], speaker_note, visual_idea}]."
-        )}]
-    )
-    return json.loads(resp.content[0].text)
+def build_outline(topic: str, slides: int = 5) -> list[Slide]:
+    titles = [
+        "Problem",
+        "Context",
+        "Approach",
+        "Evidence",
+        "Decision / Next Step",
+    ]
+    return [
+        Slide(i + 1, title, f"Explain {title.lower()} for {topic}", [], "Choose a visual that supports the slide claim")
+        for i, title in enumerate(titles[:slides])
+    ]
 
-deck = generate_deck("Why RAG beats fine-tuning for enterprise LLMs")
-for s in deck[:2]:
-    print(s["title"], s["bullets"])
+for slide in build_outline("RAG architecture"):
+    print(slide.number, slide.title)
 ```
 
-### Related Skills
-- [Blog Writing](blog-writing.md)
-- [Structured Output](../06-communication/structured-output.md)
+## Quality Rules
+
+- One primary purpose per slide.
+- Keep factual claims traceable to supplied evidence.
+- Do not invent metrics, customer results, or benchmark outcomes.
+- Speaker notes may contain detail omitted from the slide, but must not contradict it.
+- Visual suggestions should communicate structure or evidence, not merely decorate the slide.
+
+## Failure Modes
+
+| Failure | Cause | Mitigation |
+|---|---|---|
+| Unsupported claim | Model fills missing evidence | Mark claim as unsupported or request a source |
+| Overloaded slide | Too many ideas | Enforce one primary purpose |
+| Narrative drift | Slides do not build on each other | Validate outline order against audience objective |
+| Decorative visuals | Visuals do not explain content | Require a stated visual purpose |
+
+## Evidence
+
+This skill describes a generation workflow rather than a factual claim about a specific presentation library. Implementation examples use only Python standard-library constructs.
+
+Evidence status: no performance or engagement claim is made.
+
+## Related Skills
+
+- blog-writing
+- structured-output
+- svg-generation
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| v1 | 2025-03 | Initial entry |
+| v2 | 2026-10 | Added typed output contract, evidence discipline, and deterministic example |
