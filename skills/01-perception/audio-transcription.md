@@ -5,7 +5,6 @@ level: intermediate
 stability: stable
 version: v3
 added: "2025-03"
-updated: "2026-10-03"
 description: "Convert speech audio into timestamped text while preserving timing, language metadata, and source traceability for captions, search, summarization, and extraction."
 
 related: [text-reading, video-understanding, summarization]---
