@@ -8,7 +8,8 @@ added: "2025-03"
 description: "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval."
 tags: [rag, retrieval, embeddings, knowledge-base, grounding]
 
-related: [memory-injection, web-search, knowledge-graph-reading, vector-store-retrieval]---
+related: [memory-injection, web-search, knowledge-graph-reading, vector-store-retrieval]
+---
 
 # RAG — Retrieval-Augmented Generation
 
