@@ -478,3 +478,8 @@ No new graph relationship was invented and the canonical eight graph edges were 
 The post-merge quality regeneration produced the authoritative current corpus state: 375 skills, 216 battle-tested, 158 enriched, 0 stubs, 0 invalid, and 1 intentional test fixture. A documentation audit found stale operational snapshot/roadmap entries that still described pre-migration counts and a pending Universal Graph runtime merge. These were synchronized without rewriting historical records.
 
 The repository governance was strengthened with a mandatory Documentation Preflight in `AI_CONSTITUTION.md` and `AGENTS.md`. Agents must read authoritative state documents, verify them against live implementation/generated artifacts/CI evidence, synchronize drift before unrelated work, re-read the affected documents, and cannot report COMPLETE while the preflight remains unresolved.
+
+
+## 2026-10-03 — Release documentation drift audit
+
+Fresh documentation preflight found `meta/PYPI_RELEASE_PLAN.md` describing an obsolete 1.0.0/manual-token/publish.yml release process. The executable repository contract is now semantic-release plus `.github/workflows/zero-touch-release.yml`, with tag/version verification, build verification, and PyPI OIDC Trusted Publishing. The plan was synchronized without changing release runtime behavior.
