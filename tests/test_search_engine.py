@@ -24,7 +24,7 @@ DOCUMENTS = [
         "stability": "stable",
         "tags": ["vision"],
         "description": "Build processing pipelines.",
-        "body": "Pipeline implementation details.",
+        "body": "Image pipeline implementation details.",
     },
     {
         "id": "05-code/python-tools",
