@@ -61,3 +61,10 @@ Re-read live `main`, verify the newly merged search-projection contract, then au
 - [x] PR merge state is verified.
 - [x] Live `main` is re-read after merge.
 - [x] No unresolved documentation drift remains.
+
+
+### POST_MERGE_SEARCH_RECONCILIATION — 2026-10-03
+
+Issue #86 was implemented and merged as PR #299 (7302d0780b2857bdd2f54363a2e6158eafc45292). Exact-head CI passed Test Suite on Python 3.11/3.12/3.13, Security Scan, PR Checks, Build & Verify Wheel, and Auto Label. The wheel gate executed the installed CLI search successfully. An earlier wheel run exposed the undeclared runtime jsonschema dependency; pyproject.toml was corrected and the final wheel verification passed.
+
+The historical NEXT_AGENT section above remains historical handoff state. Current next work is a fresh audit of remaining machine-readable discovery consumers and generated projections for canonical-source alignment, provenance/evidence/freshness context, deterministic behavior, and runtime/package boundaries.
