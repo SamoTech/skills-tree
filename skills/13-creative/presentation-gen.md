@@ -7,11 +7,12 @@ version: v2
 added: "2025-03"
 updated: "2026-10-03"
 description: "Generate structured presentation plans with slide purpose, evidence-backed content, speaker notes, and visual direction while keeping claims traceable to supplied source material."
----
+
+related: [blog-writing, structured-output, svg-generation]---
 
 # Presentation Generation
 
-## Purpose
+## Description
 
 Turn a topic or source pack into a slide-by-slide presentation specification. The output should separate factual claims from interpretation and should identify which source supports important claims.
 
@@ -78,7 +79,7 @@ This skill describes a generation workflow rather than a factual claim about a s
 
 Evidence status: no performance or engagement claim is made.
 
-## Related Skills
+## Related
 
 - blog-writing
 - structured-output
