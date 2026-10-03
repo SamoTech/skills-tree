@@ -100,22 +100,27 @@ A `merge-verified` gate must verify the repository's actual merge state; branch 
 
 ## Example
 
-Commands from [YYLO Ledger](https://github.com/yylo-dev/yylo-ledger), a git-native reference implementation of this contract (`yy ledger`):
+The following commands illustrate the contract using the [YYLO Ledger](https://github.com/yylo-dev/yylo-ledger), a git-native reference implementation (`yy ledger`). The dependency edge is added with the documented dependency command rather than as an option to task creation:
 
 ```bash
-# Create a task with tags and a dependency edge (validated at write time)
-yy ledger create "Add retry with backoff to exporter" --status backlog --tags feature,backend --blocked-by T-0042
+# Create the task first.
+yy ledger create "Add retry with backoff to exporter" --status backlog --tags feature,backend
 
-# Derive what is legally pickable now (dependency-aware ready set)
+# Add the dependency edge using the documented dependency command.
+yy ledger deps add --id T-0043 --blocked-by T-0042
+
+# Derive what is legally pickable now (dependency-aware ready set).
 yy ledger ready
 
-# Transition with a mandatory response message — the audit receipt
+# Transition with a mandatory response message — the audit receipt.
 yy ledger mark in_progress --id T-0043 --response "Starting work on retry logic"
 yy ledger mark done --id T-0043 --response "Implemented + tested" --commit abc123def
 
-# Inspect current state before any mutation; never hand-edit board files
+# Inspect current state before any mutation; never hand-edit board files.
 yy ledger get T-0043
 ```
+
+The exact task ID returned by `yy ledger create` must be used when adding the dependency; do not assume a preselected ID.
 
 ## Third-Party Implementation Boundary
 
