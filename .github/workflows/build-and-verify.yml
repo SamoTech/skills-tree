@@ -71,6 +71,7 @@ jobs:
               "data/SKILLS_GRAPH.json",
               "meta/GOAL_TAXONOMY.md",
               "benchmarks/INDEX.json",
+              "data/search-index.json",
           ]
           forbidden = [
               "meta/GOAL_TAXONOMY.json",   # was accidentally listed in earlier version; must stay absent
@@ -130,6 +131,7 @@ jobs:
                   "data/SKILLS_GRAPH.json",
                   "meta/GOAL_TAXONOMY.md",
                   "benchmarks/INDEX.json",
+                  "data/search-index.json",
               ]
               with zipfile.ZipFile(whl) as zf:
                   names = zf.namelist()
