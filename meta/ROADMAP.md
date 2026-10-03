@@ -216,6 +216,7 @@ The strategic phases below remain the long-term product direction. They must not
 
 9. Verify registry consumer-context propagation in recommendation, blueprint, and machine-readable discovery surfaces without introducing unsupported ranking or trust semantics.
 10. Update decision memory, architecture documentation, development knowledge, roadmap, current state, and handoff state in the same cycle when consumer boundaries change.
+11. Audit remaining machine-readable discovery projections for equivalent registry context and provenance propagation.
 
 ### Mandatory execution invariant
 
