@@ -320,44 +320,41 @@ def audit_skill(skill_path: Path, dry_run: bool = False) -> AuditResult:
             print(f"    ERROR: {result.error}")
             return result
 
-        # Run first snippet (if any)
-        snippet = extract_python_snippets(text)
-        if snippet is None:
+        # Run every executable snippet; explicitly illustrative blocks are skipped.
+        snippets = extract_python_snippets(text)
+        if not snippets:
             result.snippet_skipped = True
-            print("    OK   (no snippet to run)")
+            print("    OK   (no executable Python snippet to run)")
             return result
 
-        # Write snippet to temp file and execute in a locked-down environment.
-        snippet_file = Path(tmpdir) / "snippet.py"
-        snippet_file.write_text(textwrap.dedent(snippet), encoding="utf-8")
-
-        # Build minimal env: venv Python on PATH, tmpdir as HOME, NO CI secrets.
-        # This prevents a malicious snippet from reading ANTHROPIC_API_KEY,
-        # GITHUB_TOKEN, AWS_* or any other credential present on the runner.
         safe_environment = _safe_env(venv_dir, tmpdir)
-
-        try:
-            proc = subprocess.run(
-                [str(python), str(snippet_file)],
-                capture_output=True,
-                text=True,
-                timeout=SNIPPET_TIMEOUT,
-                env=safe_environment,          # <── isolated: no CI secrets
-                cwd=tmpdir,                    # <── working dir inside tmpdir only
-            )
-            if proc.returncode != 0:
-                result.error = f"snippet failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
+        for index, snippet in enumerate(snippets, start=1):
+            snippet_file = Path(tmpdir) / f"snippet-{index}.py"
+            snippet_file.write_text(snippet, encoding="utf-8")
+            try:
+                proc = subprocess.run(
+                    [str(python), str(snippet_file)],
+                    capture_output=True,
+                    text=True,
+                    timeout=SNIPPET_TIMEOUT,
+                    env=safe_environment,
+                    cwd=tmpdir,
+                )
+            except subprocess.TimeoutExpired:
+                result.error = f"snippet {index} timed out after {SNIPPET_TIMEOUT}s"
                 print(f"    FAIL (snippet): {result.error}")
                 return result
-            result.snippet_ok = True
-            print("    OK   (snippet ran successfully)")
-        except subprocess.TimeoutExpired:
-            # Timeout is not a hard failure for snippets that block on I/O
-            result.snippet_skipped = True
-            print(f"    SKIP (snippet timed out after {SNIPPET_TIMEOUT}s — treating as pass)")
-        except Exception as exc:
-            result.error = f"snippet exception: {exc}"
-            print(f"    ERROR: {result.error}")
+            except Exception as exc:
+                result.error = f"snippet {index} exception: {exc}"
+                print(f"    ERROR: {result.error}")
+                return result
+            if proc.returncode != 0:
+                result.error = f"snippet {index} failed (exit {proc.returncode}):\n{proc.stderr[:500]}"
+                print(f"    FAIL (snippet): {result.error}")
+                return result
+
+        result.snippet_ok = True
+        print(f"    OK   ({len(snippets)} executable snippet(s) ran successfully)")
 
     return result
 
@@ -570,7 +567,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())        snippets = extract_python_snippets(text)
+    sys.exit(main())
         if not snippets:
             result.snippet_skipped = True
             print("    OK   (no executable Python snippet to run)")
