@@ -29,6 +29,7 @@
 - The Universal Graph runtime fail-closed boundary is verified on merged `main`: only semantically implemented relationship types are accepted; schema-valid deferred relationships are rejected.
 - Recommendation and blueprint consumers expose additive `registry_context` derived from `UniversalRegistry`, preserving provenance/evidence/freshness/implementation context without changing ranking semantics.
 - The generated search projection now has an explicit `meta/search-index.schema.json` contract and regression coverage for schema validity, duplicate IDs, canonical file resolution, and path parity with `docs/api/skills.json`. A real stale-projection defect for `kanban-task-management.md` was detected by that gate and reconciled before merge.
+- Issue #86 CLI search is verified on `main`: `cli/search_engine.py` consumes the canonical generated projection via `cli/search_runtime.py`, with deterministic lexical ranking and CLI behavioral coverage. PR #299 merged as `7302d0780b2857bdd2f54363a2e6158eafc45292`.
 - The installable search runtime boundary is verified: `docs/search-index.json` and `data/search-index.json` are identical generated projections, and `cli/search_runtime.py` resolves either the source checkout asset or installed wheel data.
 - Issue #86 search behavior is implemented as a deterministic lexical consumer in `cli/search_engine.py`, with CLI coverage in `tests/test_search_cli.py` and ranking-unit coverage in `tests/test_search_engine.py`.
 - The Evidence slice added no new Evidence records, provenance claims, compatibility facts, provider/platform/framework/model claims, or MCP classifications.
@@ -82,7 +83,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-The source/package runtime boundary and deterministic ranking contract for Issue #86 are now implemented on the active branch. The next mandatory action is verification: run focused search tests, full repository gates, build/install the wheel, and exercise `skills-tree search` from the installed artifact before merge. No second ranking/index implementation is authorized.
+Issue #86 search implementation is now merged and verified. The next mandatory action is a post-merge audit of live `main`, generated search projections, CLI/package behavior, and synchronized documentation; only after that audit should the next roadmap slice be selected. No second search index or ranking implementation is authorized.
 
 Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
 
