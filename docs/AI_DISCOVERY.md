@@ -38,9 +38,10 @@ Then discover skills from the verified machine-readable and CLI surfaces:
 skills-tree skills
 skills-tree recommend --goal "Coding Agent"
 skills-tree blueprint --goal "Coding Agent"
+skills-tree search "memory injection"
 ```
 
-For raw machine-readable discovery, consume `docs/api/skills.json` and resolve each returned canonical path under `skills/`. The repository also generates `docs/search-index.json` from `skills/` for the static web search experience. `skills-tree search` is not yet a verified CLI command; Issue #86 tracks that implementation gap and any implementation must reuse the canonical search data rather than creating a second index or ranking system.
+For raw machine-readable discovery, consume `docs/api/skills.json` and resolve each returned canonical path under `skills/`. The repository also generates identical `docs/search-index.json` and `data/search-index.json` projections from `skills/`. `skills-tree search` consumes that canonical projection through `cli/search_runtime.py`; its deterministic lexical ranking contract is documented in `meta/SEARCH_CLI_CONTRACT.md`.
 
 Or browse directly:
 
