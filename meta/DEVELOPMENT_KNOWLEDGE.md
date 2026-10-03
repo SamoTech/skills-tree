@@ -502,3 +502,10 @@ The generated machine-readable skill index now projects optional UniversalRegist
 PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb`. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, and Auto Label. The wheel gate also executed the installed CLI search successfully.
 
 The focused registry-context test exposed an unrelated pre-existing schema/artifact date-format mismatch (`docs/api/skills-schema.json` accepts `YYYY-MM` while some generated `added`/`last_updated` values contain day-level dates or fixture text). The mismatch was not broadened into this PR; it is now a separate audit finding. Future schema reconciliation must derive its contract from the canonical generator and corpus rather than weakening tests.
+
+
+## 2026-10-03 — Generated discovery artifact reconciliation
+
+PR #301 corrected the canonical Kanban body metadata and PR #302 synchronized the generated `docs/api/skills.json` and `docs/api/skills.yaml` projections. PR #301 exact-head CI passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, Agent Skills Distribution Audit, Schema Enforcement, Check Links, Skill Quality Report, Validate Skills, AST Sweep, Skill Upgrade Detector, and Auto Label. PR #302 passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, and PR Checks before merge.
+
+The resulting machine-readable projection now matches the canonical source for the affected date fields. The next audit target is the `agent-skills/` projection and its provenance/canonical-source boundary.
