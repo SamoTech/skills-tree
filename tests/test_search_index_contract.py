@@ -59,3 +59,16 @@ def test_search_runtime_resolves_canonical_projection():
     documents = load_search_index()
     assert len(documents) > 0
     assert documents[0]["id"]
+
+def test_search_runtime_falls_back_to_installed_data(monkeypatch, tmp_path):
+    from cli import search_runtime
+
+    installed = tmp_path / "data" / "search-index.json"
+    installed.parent.mkdir()
+    installed.write_bytes(PACKAGE_INDEX.read_bytes())
+
+    monkeypatch.setattr(search_runtime, "_source_checkout_path", lambda: tmp_path / "missing.json")
+    monkeypatch.setattr(search_runtime, "_installed_path", lambda: installed)
+
+    assert search_runtime.search_index_path() == installed
+    assert search_runtime.load_search_index()[0]["id"]
