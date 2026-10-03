@@ -5,11 +5,13 @@ on:
     paths:
       - 'skills/**/*.md'
       - 'tools/check_skill_quality.py'
+      - 'tools/check_antislop.py'
   push:
     branches: [main]
     paths:
       - 'skills/**/*.md'
       - 'tools/check_skill_quality.py'
+      - 'tools/check_antislop.py'
   # API-driven merges in this repository can complete without a usable
   # post-merge push-triggered quality run. Regenerate from trusted main after
   # every merged PR while checking out only the default branch.
@@ -53,6 +55,12 @@ jobs:
             --no-write \
             --enforce-new-stubs \
             --base "origin/$BASE_REF"
+      - name: Reject anti-slop errors in changed skills
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          python3 tools/check_antislop.py --changed-only --base "origin/$BASE_REF"
+
 
   publish:
     name: Regenerate QUALITY-REPORT.md
