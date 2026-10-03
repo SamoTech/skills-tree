@@ -3,7 +3,7 @@
 build_search_index.py
 
 Builds a Lunr.js-compatible JSON search index from all skill Markdown files.
-Output is written to docs/search-index.json (or the path given by --output).
+Output is written to docs/search-index.json (or the path given by --output). The generated artifact is also mirrored to data/search-index.json so the installable CLI can consume the same projection without making docs/ a runtime dependency.
 
 The index format is a flat JSON array of document objects that the static
 site's client-side Lunr.js instance can consume directly via lunr.Index.load()
