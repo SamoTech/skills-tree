@@ -66,7 +66,7 @@ exclude = ["tests*", "evaluation*", "docs*", "meta*", "benchmarks*", "assets*", 
 # meta/GOAL_TAXONOMY.json intentionally absent — file does not exist.
 # ---------------------------------------------------------------------------
 [tool.setuptools.data-files]
-"data"       = ["data/SKILLS_GRAPH.json"]
+"data"       = ["data/SKILLS_GRAPH.json", "data/search-index.json"]
 "meta"       = ["meta/GOAL_TAXONOMY.md"]
 "benchmarks" = ["benchmarks/INDEX.json"]
 
