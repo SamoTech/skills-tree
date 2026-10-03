@@ -9,9 +9,9 @@
 - Latest verified implementation synchronization: Goal runtime facade integration merged to `main` as `3290ebc88060fca07e944cd31ad31d392982ca3d`; Capability runtime facade remains verified at `8fc4dc8f6423b6b39ec2218f077a9d153b4560da`; Skill runtime facade remains verified at `37b2a529555db2e5db34713ffcb8e3b72083cfb5`.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
-- Quality report: generated counts pending the post-merge quality writer; last verified report remains the documented prior verification point. These figures are not treated as current live counts unless regenerated and verified.
-- Invalid: 0 at the last verified quality-report point.
-- `main` current HEAD at documentation branch creation was verified as `57e580af3a37668633adc8157bfed8218c7845b4`.
+- Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 375 skill files: 207 battle-tested, 158 enriched, 10 stubs, 0 invalid.
+- Quality-report figures are current only at the generated-report verification point; historical verification sections retain their original counts.
+- `main` current HEAD was verified from the live Git ref as `a3609bebfdf54b0ccc6735e81588619a355e4aba` at the latest snapshot check.
 
 ## Current verified architecture state
 
