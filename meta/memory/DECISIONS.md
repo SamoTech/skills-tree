@@ -862,7 +862,7 @@ DECISION-ID: DECISION-2026-10-03-OPERATIONAL-STATE-RECONCILIATION
 Topic: Current operational documentation follows merged runtime and consumer state
 Decision: Treat merged PR state and live implementation as the current execution source. PR #283's Universal Graph fail-closed boundary is merged; PR #292's recommendation registry context and PR #293's blueprint registry context are merged; PR #294 reconciled the PyPI release contract. Historical records that describe these slices as pending remain historical and must not determine current execution state. The next engineering slice is a fresh audit of remaining machine-readable discovery projections and the canonical search pipeline before implementing Issue #86.
 Confidence: HIGH
-Evidence IDs: LIVE-MAIN-20261003, PR-283, PR-292, PR-293, PR-294, docs/AI_DISCOVERY.md, docs/api.md, docs/cli.md
+Evidence: live `main` ref verified at the cycle start; PR #283, PR #292, PR #293, and PR #294; `docs/AI_DISCOVERY.md`; `docs/api.md`; `docs/cli.md`
 Status: LOCKED
 Reopen Conditions: Reopen if live implementation, merged PR state, or authoritative architecture changes.
 
