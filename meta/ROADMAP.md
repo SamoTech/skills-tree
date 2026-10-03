@@ -110,9 +110,9 @@ A migration is incomplete if it only adds frontmatter.
 The deterministic canonical-to-Agent-Skills projection is now generated and verified for the full currently eligible corpus.
 
 Verified state:
-- 374 canonical entries scanned.
-- 250 eligible projections generated.
-- 124 canonical entries remain blocked.
+- 375 canonical skill files are currently present; the intentional sandbox fixture is classified separately and is not an Agent Skills production projection.
+- 250 eligible projections were verified in the 2026-10-02 reconciliation baseline.
+- 124 canonical entries were blocked in that baseline.
 - 288 total Agent Skills packages remain on `main`, including retained blocked legacy packages and the intentional registry helper.
 - Collision-safe naming is deterministic and validator-compatible.
 - Reconciliation, Agent Skills validation, security, graph, build, and test gates passed on the final corpus PR.
