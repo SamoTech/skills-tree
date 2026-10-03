@@ -17,6 +17,8 @@ Search currently exists as a repository/web data pipeline rather than as the his
 3. `.github/workflows/generate-search-index.yml` regenerates that index when skill content changes.
 4. The generated index is intended for the static site's client-side search.
 
+The generated corpus is governed by `meta/search-index.schema.json`. CI also verifies that its IDs resolve to canonical `skills/<id>.md` paths and that its canonical path set matches `docs/api/skills.json`. This makes the search artifact a validated projection rather than an independently maintained catalog.
+
 This is the only search implementation verified in the current repository audit.
 
 ## CLI relationship
