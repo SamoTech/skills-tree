@@ -2,11 +2,13 @@
 
 Get up and running with Skills Tree in under 5 minutes.
 
-## 1. Install
+## 1. Install from the repository
 
 ```bash
-pip install skills-tree
+pip install -e .
 ```
+
+The historical `skills_tree.SkillsTree` Python API is not currently implemented in the repository. Use the verified CLI/API surface documented in [CLI Reference](cli.md).
 
 ## 2. Use the CLI
 
