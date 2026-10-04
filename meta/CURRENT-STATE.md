@@ -223,3 +223,20 @@ The remaining machine-readable projection audit found:
 - `/.well-known/agent-skills/index.json` remains unpublished. Its existing gate correctly requires deterministic generation, provenance validation, reproducible publication, served-byte verification, and SHA-256 integrity before activation.
 
 **Next:** audit the existing Agent Skills provenance/collision reconciliation state against the current canonical corpus before any discovery-index publication work.
+
+## Agent Skills Reconciliation Gate — VERIFIED ON BRANCH — 2026-10-04
+
+A fresh Agent Skills distribution audit identified a governance gap: tools/reconcile_agent_skills.py classified eligible missing projections but exited successfully unless its result was manually interpreted. The branch implementation closes that gap with a read-only --check mode wired into the Agent Skills Distribution workflow.
+
+Current branch verification state:
+
+- 375 canonical skill entries are scanned.
+- 258 currently satisfy the deterministic Agent Skills projection gates.
+- 117 are blocked by the existing eligibility rules.
+- The Agent Skills projection contains 297 packages: 258 deterministic eligible projections, 37 retained blocked packages, 1 intentional auxiliary `skills-tree-registry` package, and 1 legacy compatibility package (`rag`).
+- The newly added Kanban skill is eligible and has a deterministic projection at agent-skills/kanban-task-management/SKILL.md.
+- Reconciliation now classifies eligible missing, projection drift, rename-required, stale/ambiguous provenance, unexpected packages, and unresolved deterministic target-name collisions as check failures.
+- Known canonical collisions remain valid when the existing deterministic category-qualified resolution produces unique target names.
+- No .well-known/agent-skills/index.json publication was introduced.
+
+This state is VERIFIED ON BRANCH pending exact-head CI and merge. It must not be described as merged-main state until those events are verified.
