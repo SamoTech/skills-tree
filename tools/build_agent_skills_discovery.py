@@ -45,10 +45,10 @@ def validate_index(index: dict) -> None:
         raise ValueError("; ".join(error.message for error in errors))
 
     names = [item["name"] for item in index["skills"]]
-    if names != sorted(names):
-        raise ValueError("skills must be sorted by name")
     if len(names) != len(set(names)):
         raise ValueError("discovery index contains duplicate skill names")
+    if names != sorted(names):
+        raise ValueError("skills must be sorted by name")
 
     for item in index["skills"]:
         if not NAME_RE.fullmatch(item["name"]):
