@@ -1,0 +1,29 @@
+name: Demand Signal Collection
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 5 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect public demand signals
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/collect_demand_signals.py --output demand-signals.json
+      - name: Validate collection output
+        run: |
+          python tools/collect_demand_signals.py --check --output demand-signals.json
+      - name: Upload demand snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: demand-signals
+          path: demand-signals.json
+          if-no-files-found: error
