@@ -627,3 +627,13 @@ A fresh audit was completed against live `main` at `168f88d64d8d397fa9d189ebeaa7
 Issue #276 was closed with this evidence-bound conclusion. No numbered P2.3 requirement was invented and no speculative implementation was introduced.
 
 The remaining material blocker is Issue #159: GitHub `main` is currently unprotected with required status checks off, while the connected integration cannot modify the branch-protection control plane. Repository rulesets are currently empty.
+
+## 2026-10-04 — Zero-Touch Release Idempotency Fix
+
+The post-publication release audit found that `.github/workflows/zero-touch-release.yml` treated `pyproject.toml` matching the latest Git tag as evidence that a new release existed. After v1.72.6, ordinary `docs:` commits therefore rebuilt and attempted to upload the already-published v1.72.6 artifacts, producing the expected PyPI `400 File already exists` rejection.
+
+The authoritative release workflow was corrected to use `semantic-release version --print` as the pre-mutation release decision. When the calculated next version equals the current project version, the workflow records `released=false` and skips build, PyPI publication, and GitHub Release attachment. When a real version bump exists, the workflow performs the release and fails closed if the expected tag or stamped project version is inconsistent.
+
+PR #320 merged as `4a09394332a90aa5ec172d3dc2b31fa38b740402`. The resulting patch release v1.72.7 passed Semantic Release, Build & Verify, PyPI OIDC preflight/publication, and GitHub Release asset attachment. The existing single release authority and Trusted Publisher configuration were preserved; no `skip-existing` masking was introduced.
+
+The next verification is an ordinary documentation-only main commit. It must produce a successful semantic-release gate with `released=false` and no build or PyPI publication jobs. This is the regression test for the v1.72.6 failure mode.
