@@ -11,12 +11,12 @@
 
 | Key | Value |
 |---|---|
-| Main HEAD at task baseline | `f77fefde8025bb6e1fce1eea974b505912d906f2` |
+| Main HEAD at task baseline | `9b06e6177dd7504d158626d926b402d47b3a1203` |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
 | Current phase | Discovery and distribution hardening |
 | Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Machine-readable discovery consumer audit |
-| Active branch | None — main verified; next work is the discovery-index publication boundary |
+| Current audit-derived slice | Graph projection governance audit |
+| Active branch | None — main verified; next work is the remaining machine-readable consumer/projection audit |
 | Active governance blocker | None |
 | Current implementation registry | `implementation/code-reviewer-system` |
 | MCP classification | Protocol; not an Implementation |
