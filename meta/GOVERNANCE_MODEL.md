@@ -26,6 +26,6 @@ A GitHub UI state of mergeable is not semantic evidence. Absence of branch prote
 - This model is testable from a clean checkout without private chat history.
 
 ## Control-plane independence
-GitHub branch protection is intentionally outside this project's required completion model. If enabled later, it is an additional control-plane safeguard, not a prerequisite for repository-level correctness or completion.
+GitHub branch protection is not a project completion gate. It is intentionally outside this project's required completion model. If enabled later, it is an additional control-plane safeguard, not a prerequisite for repository-level correctness or completion.
 
 Issue #159 is therefore not an engineering blocker under this governance model. Any future control-plane decision must be recorded as a new decision rather than silently changing this contract.
