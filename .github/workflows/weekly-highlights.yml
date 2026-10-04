@@ -17,6 +17,7 @@ permissions:
 # scheduled triggers do not race when pushing back to main.
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 jobs:

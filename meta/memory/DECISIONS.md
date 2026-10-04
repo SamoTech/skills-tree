@@ -998,3 +998,14 @@ Confidence: HIGH
 Evidence IDs: PR-324, workflow run 37223742787, workflow run 37223742707, meta/GOVERNANCE_MODEL.md, .github/workflows/validate-graph.yml, .github/workflows/zero-touch-release.yml
 Status: IMPLEMENTED — A new exact-head PR is required for verification and merge.
 Reopen Conditions: Reopen if a post-merge writer race, stale-SHA mutation, generated-projection divergence, or release concurrency defect remains after the new contract is merged and verified.
+
+
+# DECISION-2026-10-04-MAIN-WRITER-QUEUE
+DECISION-ID: DECISION-2026-10-04-MAIN-WRITER-QUEUE
+Topic: Preserve pending automated main-writer runs
+Finding: After the writer-race fix was merged, the zero-touch release run was cancelled while waiting on the shared writer concurrency boundary. GitHub Actions concurrency permits only one pending run by default; a newer pending run can replace an older one.
+Decision: The repository-wide `auto-commit-main` writer group must use `queue: max` with `cancel-in-progress: false`, so pending generated/release writers are retained and processed sequentially. Writers still synchronize to live `origin/main` before mutation because queue ordering alone does not make an event SHA current.
+Confidence: HIGH
+Evidence IDs: post-merge main commit `0892cfe20130368ad12655a8ec71616ae97027fd`, workflow run 37223991086, GitHub Actions concurrency documentation.
+Status: IMPLEMENTED — PR verification required before merge.
+Reopen Conditions: Reopen if pending writer runs are still lost, if queue pressure exceeds the repository's acceptable automation latency, or if a stronger repository-native writer scheduler replaces this mechanism.

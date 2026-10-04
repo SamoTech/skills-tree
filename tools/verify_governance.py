@@ -50,9 +50,9 @@ def main():
     # and must synchronize their event checkout to the live main tip before
     # calculating or committing generated state.
     writer_contracts = {
-        "zero-touch-release.yml": ("group: auto-commit-main", "git fetch origin main", "git reset --hard origin/main"),
+        "zero-touch-release.yml": ("group: auto-commit-main", "queue: max", "git fetch origin main", "git reset --hard origin/main"),
         "validate-graph.yml": ("group: auto-commit-main", "git fetch origin main", "git reset --hard origin/main"),
-        "generate-search-index.yml": ("group: auto-commit-main", "git push origin main"),
+        "generate-search-index.yml": ("group: auto-commit-main", "queue: max", "git push origin main"),
         "export-skills.yml": ("group: auto-commit-main", "git push origin main"),
         "update-skill-count.yml": ("group: auto-commit-main", "git push origin main"),
         "sync-badges.yml": ("group: auto-commit-main", "git push origin main"),
@@ -60,7 +60,7 @@ def main():
         "leaderboard.yml": ("group: auto-commit-main", "git push origin main"),
         "weekly-highlights.yml": ("group: auto-commit-main", "git push origin main"),
         "used-in-tracker.yml": ("group: auto-commit-main", "git push origin main"),
-        "quality-report.yml": ("group: auto-commit-main",),
+        "quality-report.yml": ("group: auto-commit-main", "queue: max"),
         "generate-changelog.yml": ("group: auto-commit-main",),
     }
     for workflow, phrases in writer_contracts.items():

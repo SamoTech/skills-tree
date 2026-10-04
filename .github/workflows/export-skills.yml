@@ -21,6 +21,7 @@ permissions:
 # use different groups so they can still run in parallel.
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 jobs:

@@ -23,6 +23,7 @@ permissions:
 
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 jobs:

@@ -12,6 +12,7 @@ on:
 # serialization boundary so release mutation cannot race generated projections.
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 # Workflow-level: read-only.
