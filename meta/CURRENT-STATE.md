@@ -222,7 +222,7 @@ The remaining machine-readable projection audit found:
 - `docs/api/jsonld/` is an SEO/presentation projection generated from the same skill index. It does not implement ranking, trust, evidence, or registry semantics, so `registry_context` was intentionally not duplicated into JSON-LD.
 - `/.well-known/agent-skills/index.json` remains unpublished. Its existing gate correctly requires deterministic generation, provenance validation, reproducible publication, served-byte verification, and SHA-256 integrity before activation.
 
-**Next:** audit and implement the separately gated `/.well-known/agent-skills/index.json` publication boundary using the already-verified deterministic projection; do not create a second generator or reconciler.
+**Next:** audit remaining machine-readable consumers/projections after the verified discovery publication boundary; do not create a second generator, reconciler, search index, or deployment path.
 
 ## Agent Skills Reconciliation Gate — VERIFIED ON MAIN — 2026-10-04
 
@@ -266,3 +266,17 @@ The repository does not claim the root-level `/.well-known/agent-skills/index.js
 No second generator, reconciler, search index, or Pages deployment workflow was introduced.
 
 **Status:** VERIFIED — deterministic discovery generation, provenance/reconciliation, schema validation, artifact integrity, Pages deployment, and served-byte verification are all aligned.
+
+## 2026-10-04 — Graph projection boundary — VERIFIED ON MAIN
+
+PR #315 unified the graph generation and projection governance boundary.
+
+Verified:
+- `tools/build_graph.py` remains the sole graph generator.
+- `validate-graph.yml` is the single graph generation/validation writer; the duplicate `build-graph.yml` workflow was removed.
+- The generated graph is validated against `schema/graph.schema.json` plus the referenced skill and edge schemas, including metadata counts and graph integrity checks.
+- `docs/api/graph.json` is generated from the same graph output as `data/SKILLS_GRAPH.json` and is byte-identical on main (blob SHA `36aa24b193dc89cb1e0a789ef4ff78db2e14e286`).
+- Main graph baseline after regeneration: 375 nodes, 240 edges, 9 REQUIRES edges, 0 warnings.
+- Schema drift found during implementation was corrected for generated `requires_count`, prerequisite arrays, generated `source_method`, and numeric-leading skill slugs.
+
+**Status:** VERIFIED — graph generation, schema validation, integrity checks, and synchronized runtime/UI projections are aligned.
