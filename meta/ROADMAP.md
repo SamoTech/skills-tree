@@ -278,7 +278,9 @@ The deterministic projector, read-only reconciliation workflow, validator, regre
 
 **Status:** Publication implementation is present in `deploy-pages.yml`: the Pages artifact builds `/.well-known/agent-skills/index.json` from `tools/build_agent_skills_discovery.py`, validates the local publication bytes, and verifies the served URL with `tools/verify_agent_skills_discovery.py`. No second generator or reconciler is introduced.
 
-**Next:** perform a live post-merge Pages verification of the published endpoint. Only after that evidence is recorded should demand-intelligence work become the next strategic slice.
+**Verified:** GitHub Pages deployment run `37227197992` for main commit `1b3a5f387a17ce6b57885b06d6f26db060a8784d` completed successfully on 2026-10-04. The `Deploy to GitHub Pages` job and its `Verify served discovery bytes` step both passed. This closes the live discovery publication boundary.
+
+**Next:** Demand Intelligence / Most-Wanted evidence collection.
 
 
 ## Universal Graph Relationship Runtime Boundary — 2026-10-03
