@@ -17,6 +17,7 @@ on:
 # Serialize this generated-main writer with the other workflows that commit to main.
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 permissions:
