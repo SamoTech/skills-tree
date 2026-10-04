@@ -78,14 +78,14 @@ def test_unexpected_package_fails_reconciliation(tmp_path):
     assert "unexpected: 1" in reconciliation_failures(report)
 
 
-def test_resolved_name_collisions_are_machine_checked():
-    from tools.reconcile_agent_skills import desired_names, reconciliation_failures
-
-    records = [
-        {"source": "skills/01-a/foo.md", "id": "foo", "base_name": "foo", "category": "same", "category_dir": "01-a"},
-        {"source": "skills/02-b/foo.md", "id": "foo", "base_name": "foo", "category": "same", "category_dir": "02-b"},
-    ]
-    desired, _ = desired_names(records)
-    report = {"resolved_name_collisions": {"same-foo": [records[0]["source"], records[1]["source"]]}}
-    assert len(set(desired.values())) == 2
+def test_resolved_name_collisions_are_machine_checked(tmp_path):
+    write_skill(tmp_path, "01-same/foo.md")
+    write_skill(tmp_path, "02-same/foo.md")
+    report = reconcile(tmp_path)
+    assert report["resolved_name_collisions"] == {
+        "same-foo": [
+            "skills/01-same/foo.md",
+            "skills/02-same/foo.md",
+        ]
+    }
     assert "resolved_name_collisions: 1" in reconciliation_failures(report)
