@@ -320,9 +320,9 @@ The workflow inventory and release governance documentation are synchronized wit
 The current full-project audit is recorded in `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
 
 Verified current baseline:
-- 375 canonical skills; quality report: 216 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 fixture.
-- 258 eligible Agent Skills projections; 117 blocked; 296 packages.
-- Graph: 375 nodes, 240 edges, 9 REQUIRES edges, 0 warnings; generated graph projections are byte-identical.
+- 376 canonical skills; the new IDE Integration skill is the first demand-driven Phase 3 slice.
+- 259 eligible Agent Skills projections; 117 blocked; 297 packages expected after deterministic projection maintenance.
+- Graph baseline will advance from 375 to 376 nodes after generated projection maintenance; CI must verify the resulting edge and artifact counts.
 - 40 workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
 - JSON-LD, search, Agent Skills reconciliation/discovery, graph, Pages, and release boundaries each have one authoritative writer/generation path.
 - Release consolidation is merged as PR #317 at `262dfea66fb81e5779e93b45884d857f3b10522d`.
