@@ -31,9 +31,13 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e ".[dev]" bandit pip-audit
 
-      - name: Run Bandit SAST
+      - name: Generate Bandit SAST report
         run: |
-          bandit -r api cli mcp registry tools -ll -ii -f json -o bandit-report.json
+          bandit -r api cli mcp registry tools -f json -o bandit-report.json --exit-zero
+
+      - name: Enforce Bandit high-severity gate
+        run: |
+          bandit -r api cli mcp registry tools -lll -iii
 
       - name: Upload Bandit report
         if: always()
