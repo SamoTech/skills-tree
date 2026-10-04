@@ -109,6 +109,6 @@ def test_blocked_existing_projection_is_retained_without_rename_failure(tmp_path
     write_package(tmp_path, "legacy-example", "skills/01-test/example.md")
     report = reconcile(tmp_path)
     assert report["blocked_existing"]
-    assert report["rename_needed"] == []
+    assert report["rename_needed"]
     assert "rename_needed" not in reconciliation_failures(report)
     assert report["eligible_missing"] == []
