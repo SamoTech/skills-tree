@@ -2,128 +2,128 @@
 
 ## Purpose
 
-Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
-
-The repository is the canonical source for the project's AI-agent skill registry. The repository must support two distinct consumption modes without creating competing sources of truth:
-
-1. GitHub-native consumption from the repository.
-2. Web distribution through a machine-readable registry and, in the next distribution phase, the Agent Skills discovery format.
+Skills Tree is a public, trusted, machine-discoverable source of AI skills. The repository supports GitHub-native consumption and a standards-compatible Agent Skills distribution without creating competing sources of truth.
 
 ## Canonical source
 
-The authoritative skill content remains under `skills/`.
+`skills/` is authoritative.
 
-The generated registry at `docs/api/skills.json` is a machine-readable projection of that source. It must never become an independently edited catalog.
+`agent-skills/` is a deterministic compatibility projection generated from eligible canonical entries. It is never an independently authored source of truth.
 
-The repository's governance documents remain authoritative for repository operation; skill content remains authoritative for the capability definitions.
+`docs/api/skills.json` is the machine-readable registry projection. Search projections remain separate search-only artifacts.
 
-## Distribution target
+## Verified Agent Skills baseline — 2026-10-04
 
-The project will expose standards-compatible Agent Skills as:
+- 375 canonical skill entries scanned.
+- 258 eligible deterministic projections.
+- 117 blocked canonical entries.
+- 296 Agent Skills packages.
+- 258 deterministic eligible projections.
+- 37 retained blocked packages.
+- 1 intentional auxiliary package: `skills-tree-registry`.
+- 1 legacy compatibility package: `rag`.
 
-```
-agent-skills/
-└── <skill-name>/
-    └── SKILL.md
-```
+Reconciliation is a read-only CI invariant:
 
-Each distributed `SKILL.md` must contain at least:
+~~~bash
+python tools/reconcile_agent_skills.py --check
+~~~
 
-```yaml
----
-name: skill-name
-description: What the skill does and when an agent should use it.
----
-```
+The gate fails for eligible missing projections, deterministic projection drift, stale or ambiguous provenance, unexpected packages, and unresolved target-name collisions. `rename_needed` is compatibility metadata and is not itself a failure.
 
-The body contains the agent instructions. Supporting scripts, references, or assets are optional and must remain inside the skill's package.
+## Discovery publication contract
 
-This packaging layer is a compatibility projection. It must not replace the canonical `skills/<category>/<skill>.md` registry until a deliberate schema migration is approved.
+The discovery index is generated from the same reconciled Agent Skills projection. It is not hand-authored and does not introduce a second eligibility or package generator.
 
-## GitHub distribution
+~~~bash
+python tools/build_agent_skills_discovery.py \
+  --output site/.well-known/agent-skills/index.json
+~~~
 
-GitHub is already a first-class source because the repository contains version-controlled skill content. GitHub's current `gh skill` tooling discovers Agent Skills using the `skills/*/SKILL.md` convention and can install a specific skill from a repository at a pinned tag or commit.
+The builder:
 
-Until the compatibility projection is complete, users must treat the legacy registry files as repository content rather than claiming that every legacy file is already a standards-compliant `SKILL.md`.
+1. executes the existing reconciliation contract;
+2. reuses canonical projection naming and eligibility logic;
+3. refuses reconciliation failures;
+4. verifies every eligible published `SKILL.md` against the deterministic projection;
+5. computes SHA-256 over the exact published bytes;
+6. emits a stable name-sorted discovery index;
+7. validates the result against `meta/agent-skills-discovery-index.schema.json`.
 
-## Web distribution
+The index uses the documented v0.2.0-compatible fields: `$schema`, `skills[]`, `name`, `type`, `description`, `url`, and `digest`.
 
-The public machine-readable registry is:
+Blocked and legacy-only packages are not published merely because they exist in the repository.
 
-`https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/api/skills.json`
+## Publication artifact
 
-The web distribution roadmap is:
+`.github/workflows/deploy-pages.yml` remains the single Pages deployment authority.
 
-1. Generate standards-compatible `SKILL.md` packages from the canonical registry.
-2. Generate a discovery index at `/.well-known/agent-skills/index.json`.
-3. Compute a SHA-256 digest for every published artifact.
-4. Verify generated artifacts against the index in CI.
-5. Publish the index and artifacts from the same build output.
-6. Never hand-edit the discovery index or its digests.
+The Pages build stages:
 
-The discovery index follows the current v0.2.0 shape: `$schema`, `skills[]`, `name`, `type`, `description`, `url`, and `digest`.
+~~~text
+site/
+├── agent-skills/<name>/SKILL.md
+└── .well-known/agent-skills/index.json
+~~~
 
-## Trust model
+The index and artifacts are produced in the same Pages build output. Local publication verification checks every staged `SKILL.md` digest before upload.
 
-A skill is not trusted merely because it is present in this repository.
+After deployment, the workflow fetches the served index and every advertised skill artifact and verifies the served bytes against the published SHA-256 digests.
 
-The repository quality state describes evidence about the content. Consumers must still review skills that:
+## Hosting boundary
 
-- execute shell commands;
-- install packages;
-- access files, networks, credentials, or external services;
-- change infrastructure;
-- perform destructive actions;
-- instruct an agent to weaken security controls.
+The current site is a GitHub Pages project site at:
 
-External implementations are references, not implicit dependencies.
+`https://samotech.github.io/skills-tree`
 
-## Versioning and integrity
+Therefore the currently verifiable discovery URL is:
 
-Every published skill must be traceable to:
+`https://samotech.github.io/skills-tree/.well-known/agent-skills/index.json`
 
-- the canonical repository path;
-- the skill version;
-- the source commit or release;
-- the generated artifact digest.
+This is intentionally not declared to be the standards root endpoint:
 
-For high-risk skills, distribution must prefer immutable release/tag/commit references over floating branches.
+`https://<domain>/.well-known/agent-skills/index.json`
 
-## Completion gate
+GitHub documents that project Pages sites are served under the repository-name path, while custom domains can change the site root.
 
-A distribution change is not complete until:
+A future root endpoint may be activated only after a verified root-capable user/organization Pages site or custom domain exists and the published URLs are updated accordingly. The repository must not claim root-level discovery while it is hosted as a project site.
 
-- canonical source is valid;
-- generated registry is synchronized;
-- standards-compatible artifacts validate;
-- discovery index validates;
-- every digest matches the served bytes;
-- security scanning passes;
-- documentation and current-state records are updated.
+## Integrity and provenance
 
-## Current state
+Every published skill is traceable to:
 
-The current generated quality report verifies 374 registry skill files: 202 battle-tested, 159 enriched, 13 stubs, and 0 invalid. The separate Agent Skills reconciliation baseline is 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages. Category-level classification is authoritative in `meta/QUALITY-REPORT.md`.
+- its canonical `skills/` source;
+- its deterministic `agent-skills/<name>/SKILL.md` projection;
+- its stable package name;
+- its exact published bytes;
+- its SHA-256 digest.
 
-The standards-compatible distribution layer is intentionally being introduced as a separate projection so the existing corpus can be migrated incrementally without corrupting the canonical registry.
+The publication boundary does not infer trust, evidence, maturity, popularity, or benchmark results from package presence.
 
+## CI completion gates
 
-## Stub migration gate
+A distribution publication is incomplete unless applicable gates pass:
 
-Legacy stubs are migrated incrementally; the current count is authoritative only in the generated quality report. A migrated skill must satisfy all of these before it is treated as a completed migration:
+1. canonical source validation;
+2. Agent Skills validation;
+3. deterministic reconciliation;
+4. deterministic discovery-index generation;
+5. discovery-index schema validation;
+6. local artifact byte/digest verification;
+7. Pages artifact verification;
+8. deployment;
+9. served index and served-artifact digest verification;
+10. synchronized documentation/current-state records.
 
-1. The canonical `skills/<category>/<skill>.md` entry has a non-placeholder description and a real runnable example.
-2. Inputs/outputs and failure modes are explicit.
-3. Evidence references identify primary or authoritative documentation for the implementation claims.
-4. Security-sensitive behavior is bounded and documented; credentials, private endpoints, and hard-coded secrets are prohibited.
-5. A standards-compatible `agent-skills/<skill-name>/SKILL.md` package is generated from the canonical entry.
-6. The package passes `tools/validate_agent_skills.py`.
-7. Benchmark claims are not upgraded to "battle-tested" unless reproducible benchmark evidence exists. Documentation references alone are evidence for implementation guidance, not performance claims.
-8. Migration batches are independently reviewable and rollback-safe; a failed batch does not justify lowering the gate for later batches.
+## Anti-duplication rule
 
-The compatibility package is a projection of the canonical entry. It does not become an independently authored source of truth.
-\n\n## Verified projection baseline — 2026-10-04
+Do not add:
 
-PR #305 merged the reconciliation hardening gate to `main` as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`. The current audit scans 375 canonical entries, with 258 eligible and 117 blocked. The Agent Skills projection contains 296 packages: 258 deterministic eligible projections, 37 retained blocked packages, one intentional auxiliary package, and one legacy compatibility package. Reconciliation now runs as a hard read-only CI invariant.
+- another Agent Skills generator;
+- another reconciliation engine;
+- another search index;
+- a hand-maintained discovery catalog;
+- a second Pages deployment workflow;
+- inferred trust/evidence/ranking fields in the discovery index.
 
-The repository has a verified deterministic Agent Skills projection and reconciliation mechanism, but `/.well-known/agent-skills/index.json` is not live. Publication remains gated on generation from the same verified build output, provenance and reproducibility validation, digest-to-served-byte verification, and end-to-end publication verification.\n
+Future changes must reuse the canonical source and existing deterministic projection/reconciliation boundaries.
