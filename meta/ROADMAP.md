@@ -89,7 +89,7 @@ It is not an objective truth score.
 
 Exit evidence: at least one reproducible signal collection path and a backlog that clearly separates observed evidence from COO judgment.
 
-**2026-10-04 implementation:** the first public GitHub issue-search collector is implemented and scheduled/manual collection produces a raw evidence artifact. The controlled collection run and first evidence review are now complete. The next step is coverage/evidence reconciliation for the observed cohort before selecting any Phase 3 migration. No popularity ranking is justified.
+**2026-10-04 implementation:** the first public GitHub issue-search collector is implemented and scheduled/manual collection produces a raw evidence artifact. The controlled collection run, first evidence review, and coverage/evidence reconciliation are complete. IDE integration is selected as the first Phase 3 migration slice because the demand signal is traceable and canonical coverage lacks a dedicated IDE integration contract. No popularity ranking is used.
 
 ## Phase 3 — High-value skill migration
 
