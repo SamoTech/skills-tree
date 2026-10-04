@@ -65,23 +65,39 @@ jobs:
           pip install jsonschema --quiet
           python - <<'EOF'
           import json
-          import sys
           from pathlib import Path
+          from jsonschema import Draft7Validator, RefResolver
 
-          graph_path = Path("data/SKILLS_GRAPH.json")
+          root = Path(".").resolve()
+          graph_path = root / "data/SKILLS_GRAPH.json"
           if not graph_path.exists():
-              print("SKIP: SKILLS_GRAPH.json not yet generated (dry-run mode).")
-              sys.exit(0)
+              raise SystemExit("SKILLS_GRAPH.json was not generated.")
 
-          data = graph_path.read_text()
-          if data.strip().startswith('"') or not data.strip().startswith('{'):
-              print("ERROR: SKILLS_GRAPH.json is a placeholder string, not valid JSON graph.")
-              sys.exit(1)
+          graph = json.loads(graph_path.read_text(encoding="utf-8"))
+          if not isinstance(graph, dict):
+              raise SystemExit("SKILLS_GRAPH.json is not a JSON object.")
 
-          graph = json.loads(data)
-          node_count = graph.get('meta', {}).get('node_count', 0)
-          edge_count = graph.get('meta', {}).get('edge_count', 0)
-          print(f"Graph valid: {node_count} nodes, {edge_count} edges.")
+          schema = json.loads((root / "schema/graph.schema.json").read_text(encoding="utf-8"))
+          skill_schema = json.loads((root / "schema/skill.schema.json").read_text(encoding="utf-8"))
+          edge_schema = json.loads((root / "schema/edge.schema.json").read_text(encoding="utf-8"))
+          store = {
+              schema["$id"]: schema,
+              skill_schema["$id"]: skill_schema,
+              edge_schema["$id"]: edge_schema,
+          }
+          resolver = RefResolver(schema["$id"], schema, store=store)
+          errors = sorted(Draft7Validator(schema, resolver=resolver).iter_errors(graph), key=lambda e: list(e.path))
+          if errors:
+              for error in errors[:20]:
+                  location = ".".join(str(part) for part in error.path) or "<root>"
+                  print(f"FAIL: {location}: {error.message}")
+              raise SystemExit(f"Graph schema validation failed with {len(errors)} error(s).")
+
+          node_count = graph["meta"]["node_count"]
+          edge_count = graph["meta"]["edge_count"]
+          if node_count != len(graph["nodes"]) or edge_count != len(graph["edges"]):
+              raise SystemExit("Graph metadata counts do not match generated arrays.")
+          print(f"PASS: graph schema and counts valid ({node_count} nodes, {edge_count} edges).")
           EOF
 
       - name: Duplicate node ID check
@@ -243,11 +259,16 @@ jobs:
       - name: Build graph
         run: python tools/build_graph.py
 
+      - name: Sync graph UI projection
+        run: |
+          mkdir -p docs/api
+          cp data/SKILLS_GRAPH.json docs/api/graph.json
+
       - name: Commit updated graph artifacts
         uses: EndBug/add-and-commit@v9
         with:
-          add: 'data/SKILLS_GRAPH.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md'
-          message: 'chore(graph): auto-update generated graph artifacts [skip ci]'
+          add: 'data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md'
+          message: 'chore(graph): auto-update generated graph projections [skip ci]'
           default_author: github_actions
 
   quality-report:
