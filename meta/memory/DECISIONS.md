@@ -985,5 +985,16 @@ Topic: Make bounded agentic execution the repository's core operational behavior
 Decision: AI agents operating on Skills Tree must execute meaningful work as a bounded evidence-driven loop: OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE. Verification failures, regressions, CI failures, and documentation drift become inputs to subsequent cycles. Agents continue autonomously when a safe evidence-backed next action exists, stop as BLOCKED when it does not, and select DONE only after the goal, invariants, tests/CI, generated artifacts, documentation, and final audit are verified. The loop has a default 12-iteration ceiling and must not expose private chain-of-thought. This augments the existing lifecycle and does not create a competing orchestration system.
 Confidence: HIGH
 Evidence IDs: AI_CONSTITUTION.md, AGENTS.md, meta/AGENT_OPERATING_MODEL.md, tools/verify_governance.py
-Status: IMPLEMENTED — NOT VERIFIED on main
+Status: VERIFIED — PR #324 merged to main as `6fa92dd42768395102215a26e22999d6de81c013`; exact-head governance, graph, test, security, build, and PR validation passed.
 Reopen Conditions: Reopen if a stronger repository-native agent orchestration contract supersedes this loop, if bounded execution proves insufficient for real repository work, or if the authority/escalation model changes.
+
+
+# DECISION-2026-10-04-MAIN-WRITER-SERIALIZATION
+DECISION-ID: DECISION-2026-10-04-MAIN-WRITER-SERIALIZATION
+Topic: Prevent stale-SHA races among automated main writers
+Finding: Post-merge verification of PR #324 exposed a real race: the graph writer advanced main while the quality projection and zero-touch release workflows still operated from the original triggering SHA. Graph generation succeeded, but quality failed on a stale upstream SHA and zero-touch release failed when upstream main changed.
+Decision: Treat direct-main generated/release automation as one serialized writer class. Use the shared `auto-commit-main` concurrency group with `cancel-in-progress: false`; synchronize stale event checkouts to live `origin/main` before generation or release mutation; keep `skills/` canonical and generated outputs subordinate projections. The graph writer remains the sole graph projection writer. Do not solve the defect with branch protection or human approval.
+Confidence: HIGH
+Evidence IDs: PR-324, workflow run 37223742787, workflow run 37223742707, meta/GOVERNANCE_MODEL.md, .github/workflows/validate-graph.yml, .github/workflows/zero-touch-release.yml
+Status: IMPLEMENTED — A new exact-head PR is required for verification and merge.
+Reopen Conditions: Reopen if a post-merge writer race, stale-SHA mutation, generated-projection divergence, or release concurrency defect remains after the new contract is merged and verified.
