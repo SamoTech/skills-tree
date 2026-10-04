@@ -977,3 +977,13 @@ Confidence: HIGH
 Evidence IDs: AI_CONSTITUTION.md, AGENTS.md, meta/GOVERNANCE_MODEL.md, tools/verify_governance.py, .github/workflows/governance-gate.yml
 Status: LOCKED
 Reopen Conditions: Reopen only if the owner explicitly chooses a control-plane governance model or repository-local automation proves insufficient for a concrete safety/correctness requirement.
+
+
+# DECISION-2026-10-04-CORE-AGENTIC-EXECUTION-LOOP
+DECISION-ID: DECISION-2026-10-04-CORE-AGENTIC-EXECUTION-LOOP
+Topic: Make bounded agentic execution the repository's core operational behavior
+Decision: AI agents operating on Skills Tree must execute meaningful work as a bounded evidence-driven loop: OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE. Verification failures, regressions, CI failures, and documentation drift become inputs to subsequent cycles. Agents continue autonomously when a safe evidence-backed next action exists, stop as BLOCKED when it does not, and select DONE only after the goal, invariants, tests/CI, generated artifacts, documentation, and final audit are verified. The loop has a default 12-iteration ceiling and must not expose private chain-of-thought. This augments the existing lifecycle and does not create a competing orchestration system.
+Confidence: HIGH
+Evidence IDs: AI_CONSTITUTION.md, AGENTS.md, meta/AGENT_OPERATING_MODEL.md, tools/verify_governance.py
+Status: IMPLEMENTED — NOT VERIFIED on main
+Reopen Conditions: Reopen if a stronger repository-native agent orchestration contract supersedes this loop, if bounded execution proves insufficient for real repository work, or if the authority/escalation model changes.
