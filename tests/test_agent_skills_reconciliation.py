@@ -88,4 +88,12 @@ def test_resolved_name_collisions_are_machine_checked(tmp_path):
             "skills/02-same/foo.md",
         ]
     }
-    assert "resolved_name_collisions: 1" in reconciliation_failures(report)
+    assert report["unresolved_collisions"] == report["resolved_name_collisions"]
+    assert "unresolved_collisions" not in reconciliation_failures(report)
+
+
+def test_unresolved_name_collision_fails_reconciliation(tmp_path):
+    write_skill(tmp_path, "01-same/foo.md")
+    write_skill(tmp_path, "02-same/foo.md")
+    report = reconcile(tmp_path)
+    assert report["unresolved_collisions"]
