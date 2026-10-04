@@ -618,3 +618,12 @@ PR #318 merged as `2ef8a3fe9c987032d614a0e2a026cc4152867204`. The repository-cod
 The audit also reconciled current-state workflow count to 40, synchronized active memory/state, and preserved historical reports without treating them as current architecture. No competing generated source, index, graph, discovery, Pages, or release writer was introduced.
 
 The remaining branch-protection requirement is a GitHub control-plane action tracked by issue #159 and is not marked complete from repository evidence alone.
+
+
+## 2026-10-04 — Post-publication consumer/projection audit closure
+
+A fresh audit was completed against live `main` at `168f88d64d8d397fa9d189ebeaa731a5a461d826`. The audit rechecked the Universal Registry typed runtime boundary, generated discovery/search/graph/JSON-LD projections, Agent Skills reconciliation/discovery, recommendation and blueprint registry context, and the release/security control boundaries. No new evidence-backed invariant gap was found and no competing implementation was justified.
+
+Issue #276 was closed with this evidence-bound conclusion. No numbered P2.3 requirement was invented and no speculative implementation was introduced.
+
+The remaining material blocker is Issue #159: GitHub `main` is currently unprotected with required status checks off, while the connected integration cannot modify the branch-protection control plane. Repository rulesets are currently empty.
