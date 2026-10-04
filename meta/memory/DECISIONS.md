@@ -945,3 +945,20 @@ Evidence: PR #301 merged as `ff3943efeb49e40466b3bc408c87b4de820c1728`; PR #302 
 Status: VERIFIED — MAIN
 
 Reopen Conditions: Reopen if the export workflow regenerates a divergent value, if the exporter changes its source precedence, or if another canonical skill exhibits the same cross-field metadata contamination pattern.
+
+
+# DECISION-2026-10-04-AGENT-SKILLS-RECONCILIATION-GATE
+
+**Decision-ID:** DECISION-2026-10-04-AGENT-SKILLS-RECONCILIATION-GATE
+
+**Topic:** Make canonical-to-Agent-Skills reconciliation a hard CI invariant
+
+**Finding:** The existing reconciler already classified eligible missing projections and projection drift, but its default execution returned success regardless of those findings. A newly eligible canonical skill could therefore be absent from agent-skills/ without failing the distribution workflow. The 2026-10-03 Kanban addition exposed the gap.
+
+**Decision:** Preserve the existing reconciliation model and add a read-only --check mode. The check fails for eligible missing projections, deterministic projection drift, required provenance renames, stale or ambiguous provenance, unexpected packages outside the explicit auxiliary boundary, and duplicate target names after deterministic collision resolution. Known collision groups are not failures when the existing category-qualified naming algorithm resolves them uniquely.
+
+**Evidence:** tools/reconcile_agent_skills.py, .github/workflows/agent-skills-distribution.yml, tests/test_agent_skills_reconciliation.py, agent-skills/kanban-task-management/SKILL.md, and meta/AGENT-SKILLS-RECONCILIATION.md.
+
+**Status:** VERIFIED ON BRANCH — exact-head CI and merge pending.
+
+**Reopen Conditions:** Reopen if the Agent Skills specification, canonical eligibility model, projection naming contract, or auxiliary-package policy changes materially, or if exact-head CI reveals a false positive/negative in the reconciliation gate.
