@@ -97,3 +97,13 @@ def test_unresolved_name_collision_fails_reconciliation(tmp_path):
     write_skill(tmp_path, "02-same/foo.md")
     report = reconcile(tmp_path)
     assert report["unresolved_collisions"]
+
+
+def test_blocked_existing_projection_is_retained_without_rename_failure(tmp_path):
+    write_skill(tmp_path, "01-test/example.md", "# Skill without evidence\n")
+    write_package(tmp_path, "legacy-example", "skills/01-test/example.md")
+    report = reconcile(tmp_path)
+    assert report["blocked_existing"]
+    assert report["rename_needed"] == []
+    assert "rename_needed" not in reconciliation_failures(report)
+    assert report["eligible_missing"] == []
