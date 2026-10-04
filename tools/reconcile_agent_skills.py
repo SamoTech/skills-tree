@@ -130,7 +130,8 @@ def reconcile(root: Path) -> dict:
                 legacy_item = {**legacy, "expected_package": expected, "match": "legacy-compatibility"}
                 legacy_compatibility.append(legacy_item)
                 matched.append(legacy_item)
-                rename_needed.append(legacy_item)
+                if canonical.eligible:
+                    rename_needed.append(legacy_item)
             if canonical.eligible:
                 missing.append({"source": source, "package": expected, "eligible": True, "blockers": [], "reason": "deterministic-projection-missing; legacy-compatibility-package-present"})
             else:
@@ -159,7 +160,6 @@ def reconcile(root: Path) -> dict:
         source = current["source"]
         if source and source not in by_source:
             stale.append(current)
-            extras.append(current)
         elif package not in by_desired:
             extras.append(current)
         elif not source:
@@ -180,7 +180,7 @@ def reconcile(root: Path) -> dict:
         if len(sources) > 1
     }
     unexpected = [
-        item for item in extras
+        item for item in [*extras, *stale]
         if item["package"] not in INTENTIONAL_AUXILIARY_PACKAGES
     ]
 
