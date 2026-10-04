@@ -101,7 +101,7 @@ jobs:
     runs-on: ubuntu-24.04
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout verifier
         uses: actions/checkout@v4
@@ -112,6 +112,6 @@ jobs:
 
       - name: Verify served discovery bytes
         env:
-          PAGES_URL: ${{ steps.deployment.outputs.page_url }
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
           python tools/verify_agent_skills_discovery.py             --index-url "${PAGES_URL%/}/.well-known/agent-skills/index.json"
