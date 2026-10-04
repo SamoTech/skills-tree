@@ -222,7 +222,7 @@ The remaining machine-readable projection audit found:
 - `docs/api/jsonld/` is an SEO/presentation projection generated from the same skill index. It does not implement ranking, trust, evidence, or registry semantics, so `registry_context` was intentionally not duplicated into JSON-LD.
 - `/.well-known/agent-skills/index.json` remains unpublished. Its existing gate correctly requires deterministic generation, provenance validation, reproducible publication, served-byte verification, and SHA-256 integrity before activation.
 
-**Next:** audit the existing Agent Skills provenance/collision reconciliation state against the current canonical corpus before any discovery-index publication work.
+**Next:** audit and implement the separately gated `/.well-known/agent-skills/index.json` publication boundary using the already-verified deterministic projection; do not create a second generator or reconciler.
 
 ## Agent Skills Reconciliation Gate — VERIFIED ON MAIN — 2026-10-04
 
