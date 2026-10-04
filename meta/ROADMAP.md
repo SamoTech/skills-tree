@@ -274,7 +274,7 @@ That historical baseline was superseded by the verified reconciliation state on 
 
 The deterministic projector, read-only reconciliation workflow, validator, regression tests, and exact-head CI gates are verified. Phase 4 reconciliation hardening is complete; `/.well-known/agent-skills/index.json` remains unpublished.
 
-**Next:** reconcile existing packages, resolve canonical collisions, then generate eligible projections in independently verifiable batches. Only after artifact/provenance reconciliation should discovery-index and SHA-256 publication work begin.
+**Next:** audit and implement the separately gated discovery-index publication boundary. Reuse the verified Agent Skills projection and provenance; do not create a second generator or reconciler.
 
 
 ## Universal Graph Relationship Runtime Boundary — 2026-10-03
