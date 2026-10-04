@@ -109,12 +109,13 @@ def reconcile(root: Path) -> dict:
             canonical = project(root / source, root, name_override=expected)
             expected_content = canonical.content.rstrip() + "\n"
             actual_content = (root / current["path"]).read_text(encoding="utf-8")
-            if canonical.eligible and actual_content != expected_content:
-                drifted.append({"source": source, "package": current["package"], "reason": "content-differs-from-deterministic-projection"})
-            elif not canonical.eligible:
+            if canonical.eligible:
+                if actual_content != expected_content:
+                    drifted.append({"source": source, "package": current["package"], "reason": "content-differs-from-deterministic-projection"})
+                if current["package"] != expected:
+                    rename_needed.append(item)
+            else:
                 blocked_existing.append({"source": source, "package": current["package"], "blockers": list(canonical.blockers)})
-            if current["package"] != expected:
-                rename_needed.append(item)
         elif len(candidates) > 1:
             raise ValueError(f"multiple packages declare canonical source {source!r}")
         elif expected in existing and not existing[expected]["source"]:
