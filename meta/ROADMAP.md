@@ -292,9 +292,9 @@ The selected correction keeps the schema vocabulary unchanged but makes runtime-
 
 ## Phase 4 Distribution Hardening — VERIFIED ON MAIN — 2026-10-04
 
-The deterministic Agent Skills corpus exposed a remaining control gap: reconciliation could report an eligible missing projection without making CI fail. The current branch adds the explicit read-only reconciliation gate and regression coverage.
+The deterministic Agent Skills corpus exposed a remaining control gap: reconciliation could report an eligible missing projection without making CI fail. The merged implementation adds the explicit read-only reconciliation gate and regression coverage.
 
-Branch state:
+Verified merged-main state:
 
 - 375 canonical skills scanned.
 - 258 eligible projections.
@@ -305,4 +305,4 @@ Branch state:
 - Unexpected projection drift and unresolved deterministic target-name collisions are now explicit failure categories.
 - .well-known/agent-skills/index.json remains unpublished.
 
-Status is VERIFIED ON BRANCH PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI gates before merge as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
+Status is VERIFIED ON MAIN. PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI gates before merge as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
