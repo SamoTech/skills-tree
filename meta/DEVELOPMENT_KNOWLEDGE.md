@@ -573,3 +573,13 @@ During implementation CI exposed four real schema drift cases: generated `requir
 Final main verification: graph generation produced 375 nodes, 240 edges, 9 REQUIRES edges, and 0 warnings. `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical on main. PR #315 merged as `5c5720d61ed757e7d0f94cdfb3309ac8eb0d213f`; generated graph projections were subsequently refreshed on main as commit `9b06e6177dd7504d158626d926b402d47b3a1203`.
 
 Rule: machine-readable graph consumers must consume the generated graph projection; do not add another graph writer, generator, or parallel graph catalog.
+
+## Verified Slice — JSON-LD Export Governance — 2026-10-04
+
+The audit disproved the documented existence of a dedicated `jsonld-export.yml` workflow on current main. JSON-LD generation is part of `tools/export_skills.py`, and `export-skills.yml` is the single generated-main writer for the API and JSON-LD projections.
+
+The actual gap was trigger/validation coverage: `export-skills.yml` watched `skills/**/*.md` but not `tools/export_skills.py` or `registry/universal_registry.json`, and it committed generated JSON-LD without validating its structural relationship to the canonical `skills.json` registry.
+
+The correction adds a deterministic read-only validator at `tools/verify_jsonld_export.py` plus focused tests. The validator checks JSON validity, TechArticle type, canonical skill ID/name agreement, ItemList ordering/counts, and duplicate URLs. The existing export workflow now invokes it and tracks exporter/registry changes.
+
+Do not add a second JSON-LD generator or workflow. JSON-LD remains a projection of the existing skill export pipeline.
