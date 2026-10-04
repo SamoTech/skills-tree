@@ -594,3 +594,18 @@ The correction preserves the catalog packaging capability but moves it into the 
 This keeps one production release authority, one manual recovery path, and no competing GitHub Release writer.
 
 Rule: release packaging is a projection of the authoritative release pipeline; do not recreate a separate tag-triggered publisher.
+
+
+## Full Repository Re-Audit — 2026-10-04
+
+A fresh audit against live `main` verified the canonical/projection architecture and found no justification for another graph, search, JSON-LD, Agent Skills, discovery, Pages, or release writer.
+
+The current workflow inventory is 40 files. The previous 42 count is historical.
+
+The concrete security finding was that the blocking security workflow enforced Gitleaks but did not enforce Python SAST or dependency vulnerability auditing. The security gate is being hardened with Bandit over `api/`, `cli/`, `mcp/`, `registry/`, and `tools/`, plus `pip-audit --strict` over the installed project environment.
+
+The current generated quality report verifies 375 skills with 0 stubs and 0 invalid entries. The Universal Registry remains intentionally evidence-backed and small; no unsupported entities or ecosystem claims are being added to satisfy the audit.
+
+Control-plane branch protection remains an external blocker because the connected GitHub integration returned HTTP 403 when reading branch protection. Issue #159 remains the tracking authority.
+
+The complete audit evidence is recorded in `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
