@@ -521,7 +521,7 @@ The Kanban skill was the concrete current example. It is eligible under the exis
 
 The important design distinction is that raw canonical collision groups are not themselves errors. The existing category-qualified resolver is the intended deterministic mechanism. Only a collision that survives resolution is invalid.
 
-This keeps skills/ authoritative, avoids a second eligibility registry, and turns reconciliation from an informational report into a machine-enforced invariant without changing blocked legacy packages.
+This keeps skills/ authoritative, avoids a second eligibility registry, and turns reconciliation from an informational report into a machine-enforced invariant without changing blocked legacy packages. PR #305 merged to main as `a9a649481c68bf0dd33447a2238174ebd8b79a4b` after exact-head verification; the merged baseline is 375 canonical skills, 258 eligible, 117 blocked, and 296 Agent Skills packages.
 
 
 Legacy Agent Skills package names are a compatibility concern, not a reason to weaken the deterministic projection contract. When a valid canonical source has an older non-deterministic package name, reconciliation must require the deterministic package to exist while classifying the older package as legacy compatibility. This avoids mass renames while still proving that every eligible canonical skill has its deterministic projection.

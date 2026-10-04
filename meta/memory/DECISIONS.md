@@ -945,3 +945,21 @@ Evidence: PR #301 merged as `ff3943efeb49e40466b3bc408c87b4de820c1728`; PR #302 
 Status: VERIFIED — MAIN
 
 Reopen Conditions: Reopen if the export workflow regenerates a divergent value, if the exporter changes its source precedence, or if another canonical skill exhibits the same cross-field metadata contamination pattern.
+
+
+# DECISION-2026-10-04-AGENT-SKILLS-RECONCILIATION-GATE
+
+DECISION-ID: DECISION-2026-10-04-AGENT-SKILLS-RECONCILIATION-GATE
+Topic: Make canonical-to-Agent-Skills reconciliation a hard CI invariant
+
+Finding: The existing reconciler classified eligible missing projections but its default command returned success regardless of those findings. This allowed a newly eligible canonical skill to be absent from the deterministic Agent Skills projection without failing the distribution workflow.
+
+Decision: Preserve the existing canonical projection and collision-resolution architecture and enforce it through a read-only `--check` mode. The check fails for eligible missing projections, deterministic projection drift, stale or ambiguous provenance, unexpected packages outside the explicit auxiliary boundary, and duplicate target names after deterministic collision resolution. `rename_needed` remains compatibility metadata and is not a standalone failure; an eligible canonical source with only a legacy package still fails until its deterministic projection exists. Resolved source-name collisions remain valid when category-qualified target names are unique. No second generator, index, or semantic search system is introduced.
+
+Confidence: HIGH
+
+Evidence IDs: PR-305, TOOLS-RECONCILE-AGENT-SKILLS, TESTS-AGENT-SKILLS-RECONCILIATION, WORKFLOW-AGENT-SKILLS-DISTRIBUTION
+
+Status: VERIFIED — PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI checks and merged to main as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
+
+Reopen Conditions: Reopen only if the canonical eligibility model, Agent Skills naming/provenance contract, reconciliation semantics, or publication architecture changes materially, or if reproducible evidence demonstrates a false positive or false negative in the gate.

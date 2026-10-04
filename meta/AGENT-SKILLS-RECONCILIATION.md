@@ -21,7 +21,7 @@ The 258 eligible entries are represented by deterministic projections. The 117 b
 
 The 2026-10-03 Kanban canonical skill was added after the original corpus generation commit. It is eligible under the deterministic projection gates and is now reconciled as `agent-skills/kanban-task-management/SKILL.md`. The retained blocked corpus remains unchanged; one verified legacy compatibility package (`rag`) remains alongside its deterministic projection.
 
-The reconciliation CI gate now supports `--check` and fails when an eligible canonical projection is missing, an eligible projection drifts from deterministic generation, an eligible provenance mapping requires an uncommitted rename, or stale/ambiguous provenance is detected. Retained blocked legacy packages are not forced through deterministic renaming. Intentional auxiliary packages and retained blocked packages remain allowed by design.
+The reconciliation CI gate now supports `--check` and fails for eligible missing projections, deterministic projection drift, stale or ambiguous provenance, unexpected packages, and unresolved target-name collisions; `rename_needed` is compatibility metadata and is not itself a failure. Retained blocked legacy packages are not forced through deterministic renaming. Intentional auxiliary packages and retained blocked packages remain allowed by design.
 
 ## Reconciliation contract
 
@@ -106,7 +106,7 @@ The reconciliation command now has an explicit --check mode for CI. The check is
 
 - an eligible canonical skill has no corresponding Agent Skills projection;
 - an eligible projection differs from the deterministic projection generated from its canonical source;
-- canonical provenance maps to a package name that is not the deterministic expected name;
+- an eligible source is missing its deterministic expected package even when a legacy compatibility package exists;
 - stale or ambiguous canonical provenance is present;
 - an unexpected Agent Skills package exists outside the explicitly documented auxiliary package boundary;
 - deterministic collision resolution itself produces a duplicate target name.
