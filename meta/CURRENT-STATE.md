@@ -231,9 +231,9 @@ A fresh Agent Skills distribution audit identified a governance gap: tools/recon
 Current branch verification state:
 
 - 375 canonical skill entries are scanned.
-- 251 currently satisfy the deterministic Agent Skills projection gates.
-- 124 are blocked by the existing eligibility rules.
-- The Agent Skills projection contains 289 packages: 251 eligible projections, 37 retained blocked packages, and 1 intentional auxiliary skills-tree-registry package.
+- 258 currently satisfy the deterministic Agent Skills projection gates.
+- 117 are blocked by the existing eligibility rules.
+- The Agent Skills projection contains 297 packages: 258 deterministic eligible projections, 37 retained blocked packages, 1 intentional auxiliary `skills-tree-registry` package, and 1 legacy compatibility package (`rag`).
 - The newly added Kanban skill is eligible and has a deterministic projection at agent-skills/kanban-task-management/SKILL.md.
 - Reconciliation now classifies eligible missing, projection drift, rename-required, stale/ambiguous provenance, unexpected packages, and unresolved deterministic target-name collisions as check failures.
 - Known canonical collisions remain valid when the existing deterministic category-qualified resolution produces unique target names.
