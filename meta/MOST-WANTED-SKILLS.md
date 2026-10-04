@@ -63,6 +63,36 @@ These records are **observed evidence, not ranked demand**. Closed issues remain
 
 The first production snapshot remains intentionally collected as a workflow artifact before being promoted into a generated machine-readable backlog.
 
+## External corroboration — 2026-10-04
+
+A separate public-source review was performed after the repository-local signal pass. These are corroborating ecosystem signals, not popularity rankings:
+
+| Signal | Public evidence | Relevance to Skills Tree |
+|---|---|---|
+| Agent Skills ecosystem scale | GitSkills reports 3,797,117 `SKILL.md` files across 282,200 public repositories collected in July 2026. | Strong evidence that skill discovery, provenance, quality, reuse, and maintenance are ecosystem-scale problems. |
+| Agent Skills platform adoption | GitHub documents Agent Skills support across Copilot cloud agent, Copilot code review, Copilot CLI, Copilot app, VS Code, and JetBrains IDEs. | Confirms cross-agent/IDE interoperability as a live ecosystem concern. |
+| MCP + Agent Skills composition | MCP documentation describes portable `SKILL.md` packages used to guide MCP server design and says the skills can work with any agent implementing the format. | Supports MCP/skill interoperability as a concrete ecosystem requirement. |
+| Skill retrieval/evolution/governance | Current 2026 Agent Skills survey resources organize the field around skill representation, acquisition, retrieval/selection, evolution/governance, and evaluation. | Supports treating retrieval, evaluation, and governance as first-class capability areas rather than adding raw skill count. |
+| Skill safety/evidence | Research on 40,285 public skills reports concentration, redundancy, supply-demand imbalance, and non-trivial safety risks. | Reinforces evidence, anti-slop, provenance, security boundaries, and quality gates as product differentiators. |
+
+These external signals do **not** establish that any one capability is the next highest-demand skill. They justify the next reconciliation pass: map observed demand signals to existing canonical coverage, evidence tier, freshness, dependency relationships, and implementation gaps.
+
+## First coverage reconciliation — 2026-10-04
+
+The initial repository coverage check shows that the local signal cohort is already substantially represented:
+
+- Memory: canonical coverage exists across short-term, working, episodic, semantic, procedural, long-term, cross-session, cross-thread, forgetting, RAG, vector retrieval, and verification-oriented skills.
+- Code / IDE integration: `05-code/ide-integration.md` exists, alongside code generation, review, debugging, testing, Git, CI/CD, and dependency/security skills.
+- Reasoning: `02-reasoning/` contains broad reasoning, planning, uncertainty, self-correction, reflection, decomposition, and decision-making coverage.
+- Action execution: `04-action-execution/` contains concrete API, filesystem, process, browser/GUI input, notification, database, and form-action skills.
+- Search / discovery: the CLI search and Agent Skills discovery/publication paths are now verified and are not open implementation gaps.
+
+Therefore the observed demand cohort should **not** be converted directly into new skills. The next selection gate is to identify where existing coverage is weakly evidenced, stale, duplicated, or missing runtime/evaluation proof.
+
+The preferred next investigation is **skill evaluation / invocation evidence and retrieval quality**, because external ecosystem evidence points to retrieval/selection, evolution/governance, and evaluation as material concerns while the current repository already has broad raw capability coverage.
+
+
+
 ## Priority model
 
 Use:
