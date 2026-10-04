@@ -78,6 +78,11 @@ def main():
     for phrase in ("gitleaks/gitleaks-action@","bandit -r api cli mcp registry tools -lll -iii","pip-audit --strict"):
         if phrase not in security: fail(f"blocking security control missing: {phrase}")
 
+    demand = workflows.get("demand-signals.yml", "")
+    if not demand: fail("demand signal collection workflow missing")
+    for phrase in ("tools/collect_demand_signals.py", "meta/demand-sources.json", "upload-artifact@v4"):
+        if phrase not in demand: fail(f"demand signal collection contract missing: {phrase}")
+
     pages = workflows.get("deploy-pages.yml", "")
     for phrase in ("tools/build_agent_skills_discovery.py", "site/.well-known/agent-skills/index.json", "tools/verify_agent_skills_discovery.py"):
         if phrase not in pages: fail(f"Agent Skills publication contract missing: {phrase}")
