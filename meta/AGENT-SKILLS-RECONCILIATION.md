@@ -129,3 +129,6 @@ skills/15-orchestration/kanban-task-management.md
 ```
 
 The public `/.well-known/agent-skills/index.json` publication boundary remains unchanged and is not part of this gate.
+
+
+Legacy compatibility packages may retain an older package name for an existing canonical source. They are not the deterministic projection and are not renamed by this gate. The gate instead requires the deterministic expected package to exist for an eligible canonical source; once present, the legacy package is classified as compatibility rather than unexpected drift.
