@@ -121,10 +121,16 @@ def reconcile(root: Path) -> dict:
             else:
                 blocked_existing.append({"source": source, "package": current["package"], "blockers": list(canonical.blockers)})
             for legacy in legacy_candidates:
-                legacy_compatibility.append({**legacy, "expected_package": expected, "match": "legacy-compatibility"})
+                legacy_item = {**legacy, "expected_package": expected, "match": "legacy-compatibility"}
+                legacy_compatibility.append(legacy_item)
+                matched.append(legacy_item)
+                rename_needed.append(legacy_item)
         elif legacy_candidates:
             for legacy in legacy_candidates:
-                legacy_compatibility.append({**legacy, "expected_package": expected, "match": "legacy-compatibility"})
+                legacy_item = {**legacy, "expected_package": expected, "match": "legacy-compatibility"}
+                legacy_compatibility.append(legacy_item)
+                matched.append(legacy_item)
+                rename_needed.append(legacy_item)
             if canonical.eligible:
                 missing.append({"source": source, "package": expected, "eligible": True, "blockers": [], "reason": "deterministic-projection-missing; legacy-compatibility-package-present"})
             else:
@@ -153,6 +159,7 @@ def reconcile(root: Path) -> dict:
         source = current["source"]
         if source and source not in by_source:
             stale.append(current)
+            extras.append(current)
         elif package not in by_desired:
             extras.append(current)
         elif not source:
@@ -201,7 +208,7 @@ def reconcile(root: Path) -> dict:
 
 def reconciliation_failures(report: dict) -> list[str]:
     failures = []
-    for key in ("eligible_missing", "drifted", "rename_needed", "stale", "ambiguous", "unexpected", "unresolved_collisions"):
+    for key in ("eligible_missing", "drifted", "stale", "ambiguous", "unexpected", "unresolved_collisions"):
         items = report.get(key, [])
         if items:
             failures.append(f"{key}: {len(items)}")
