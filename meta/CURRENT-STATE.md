@@ -83,9 +83,11 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-The deterministic Agent Skills discovery publication boundary is now verified on main. The next mandatory action is a fresh audit of the next remaining machine-readable consumer/projection boundary; do not add another generator, reconciler, or search index.
+The post-publication machine-readable consumer/projection audit was completed against live main at `168f88d64d8d397fa9d189ebeaa731a5a461d826`. Existing registry, graph, search, JSON-LD, Agent Skills, recommendation, blueprint, Pages, release, and security boundaries were rechecked and no new evidence-backed invariant gap was found.
 
-Do not invent a numbered P2.3 requirement, reopen completed work, or expand scope merely to create activity.
+Issue #276 was closed after recording that conclusion. Do not invent a numbered P2.3 requirement, reopen completed work, or expand scope merely to create activity. The next engineering slice requires a new concrete defect, contract gap, or governance requirement.
+
+Issue #159 remains the only open high-impact governance blocker: GitHub `main` is currently unprotected with required status checks off, and repository rulesets are empty. The connected integration cannot modify branch protection.
 
 ## Kanban Skill Addition — VERIFIED — 2026-10-03
 
