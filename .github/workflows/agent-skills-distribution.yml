@@ -7,6 +7,7 @@ on:
       - "agent-skills/**"
       - "tools/generate_agent_skills.py"
       - "tools/validate_agent_skills.py"
+      - "tools/reconcile_agent_skills.py"
       - ".github/workflows/agent-skills-distribution.yml"
   push:
     branches: [main]
@@ -30,4 +31,4 @@ jobs:
       - name: Validate existing Agent Skills packages
         run: python tools/validate_agent_skills.py
       - name: Reconcile canonical and existing packages
-        run: python tools/reconcile_agent_skills.py
+        run: python tools/reconcile_agent_skills.py --check
