@@ -955,7 +955,7 @@ Reopen Conditions: Reopen if the export workflow regenerates a divergent value, 
 
 **Finding:** The existing reconciler already classified eligible missing projections and projection drift, but its default execution returned success regardless of those findings. A newly eligible canonical skill could therefore be absent from agent-skills/ without failing the distribution workflow. The 2026-10-03 Kanban addition exposed the gap.
 
-**Decision:** Preserve the existing reconciliation model and add a read-only --check mode. The check fails for eligible missing projections, deterministic projection drift, required provenance renames, stale or ambiguous provenance, unexpected packages outside the explicit auxiliary boundary, and duplicate target names after deterministic collision resolution. Known collision groups are not failures when the existing category-qualified naming algorithm resolves them uniquely.
+**Decision:** Preserve the existing reconciliation model and add a read-only --check mode. The check fails for eligible missing projections, deterministic projection drift, required provenance renames on eligible projections, stale or ambiguous provenance, unexpected packages outside the explicit auxiliary boundary, and duplicate target names after deterministic collision resolution. Retained blocked legacy packages are not forced through deterministic renaming. Known collision groups are not failures when the existing category-qualified naming algorithm resolves them uniquely.
 
 **Evidence:** tools/reconcile_agent_skills.py, .github/workflows/agent-skills-distribution.yml, tests/test_agent_skills_reconciliation.py, agent-skills/kanban-task-management/SKILL.md, and meta/AGENT-SKILLS-RECONCILIATION.md.
 
