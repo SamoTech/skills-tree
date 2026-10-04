@@ -30,7 +30,7 @@ def main():
         if phrase not in agents: fail(f"AGENTS.md lost mandatory clause: {phrase}")
     if "## 4. Documentation Is a Completion Gate" not in constitution: fail("documentation completion gate missing from AI_CONSTITUTION.md")
     if "## 10. Core Agentic Execution Contract" not in constitution: fail("core agentic execution contract missing from AI_CONSTITUTION.md")
-    for phrase in ("OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE","treat failures and regressions as inputs to the next cycle","default loop ceiling is 12 iterations per goal","select \`DONE\` only after goal satisfaction"):
+    for phrase in ("OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE","treat failures and regressions as inputs to the next cycle","default loop ceiling is 12 iterations per goal","select `DONE` only after goal satisfaction"):
         if phrase not in constitution: fail(f"agentic execution invariant missing: {phrase}")
     if "## 11. Mandatory Agent Documentation Preflight Gate" not in constitution: fail("mandatory documentation preflight missing from AI_CONSTITUTION.md")
 
