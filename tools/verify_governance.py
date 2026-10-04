@@ -50,6 +50,7 @@ def main():
     # and must synchronize their event checkout to the live main tip before
     # calculating or committing generated state.
     writer_contracts = {
+        "revoke-phantom-badges.yml": ("group: auto-commit-main", "queue: max", "cancel-in-progress: false"),
         "zero-touch-release.yml": ("group: auto-commit-main", "queue: max", "git fetch origin main", "git reset --hard origin/main"),
         "validate-graph.yml": ("group: auto-commit-main", "git fetch origin main", "git reset --hard origin/main"),
         "generate-search-index.yml": ("group: auto-commit-main", "queue: max", "git push origin main"),
