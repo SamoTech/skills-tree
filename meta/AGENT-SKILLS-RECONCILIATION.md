@@ -98,3 +98,34 @@ That publication remains gated on deterministic index generation, provenance val
 ## Drift rule
 
 Any future change to canonical skill content or eligibility rules must regenerate the affected projection and pass the same validation gates. Hand-editing generated Agent Skills packages is not the source-of-truth workflow.
+
+
+## Reconciliation Gate — VERIFIED ON BRANCH — 2026-10-04
+
+The reconciliation command now has an explicit --check mode for CI. The check is read-only and fails for repository states that invalidate the canonical projection contract:
+
+- an eligible canonical skill has no corresponding Agent Skills projection;
+- an eligible projection differs from the deterministic projection generated from its canonical source;
+- canonical provenance maps to a package name that is not the deterministic expected name;
+- stale or ambiguous canonical provenance is present;
+- an unexpected Agent Skills package exists outside the explicitly documented auxiliary package boundary;
+- deterministic collision resolution itself produces a duplicate target name.
+
+Known canonical name collisions are not failures merely because they exist: they are resolved through the existing deterministic category-qualified naming algorithm. A collision becomes a failure only if the resolved target names are themselves non-unique.
+
+The CI workflow invokes:
+
+```bash
+python tools/reconcile_agent_skills.py --check
+```
+
+The gate remains read-only; generation is still performed explicitly through the canonical generator. No Kanban-specific exception exists in the reconciliation implementation.
+
+The current branch also contains the deterministic projection for:
+
+```text
+skills/15-orchestration/kanban-task-management.md
+→ agent-skills/kanban-task-management/SKILL.md
+```
+
+The public `/.well-known/agent-skills/index.json` publication boundary remains unchanged and is not part of this gate.
