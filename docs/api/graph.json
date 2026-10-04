@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-10-04T18:51:49.655211+00:00",
+    "generated_at": "2026-10-04T19:05:32.713519+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 375,
+    "node_count": 376,
     "edge_count": 240,
     "requires_count": 9,
     "initiative": "INITIATIVE-004"
@@ -2142,6 +2142,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/github-api.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/ide-integration",
+      "title": "IDE Integration",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "stable",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/ide-integration.md",
       "quality_score": null
     },
     {

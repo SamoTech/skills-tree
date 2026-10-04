@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-04T18:51:49.655211+00:00",
-  "node_count": 375,
+  "generated_at": "2026-10-04T19:05:32.713519+00:00",
+  "node_count": 376,
   "edge_count": 240,
   "requires_count": 9,
   "nodes_by_level": {
     "basic": 37,
     "intermediate": 162,
-    "advanced": 176
+    "advanced": 177
   },
   "nodes_by_layer": {
-    "systems": 223,
+    "systems": 224,
     "perception": 36,
     "reasoning": 65,
     "execution": 51
@@ -20,7 +20,7 @@
     "02-reasoning": 46,
     "03-memory": 19,
     "04-action-execution": 21,
-    "05-code": 28,
+    "05-code": 29,
     "06-communication": 15,
     "07-tool-use": 33,
     "08-multimodal": 14,
