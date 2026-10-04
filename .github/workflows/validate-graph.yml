@@ -267,7 +267,19 @@ jobs:
           mkdir -p docs/api
           cp data/SKILLS_GRAPH.json docs/api/graph.json
 
+      - name: Detect graph projection changes
+        id: graph-diff
+        run: |
+          if git diff --quiet -- data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No generated graph projection changes."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Generated graph projections changed."
+          fi
+
       - name: Commit updated graph artifacts
+        if: steps.graph-diff.outputs.changed == 'true'
         uses: EndBug/add-and-commit@v9
         with:
           add: 'data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md'
