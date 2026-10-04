@@ -21,6 +21,7 @@ on:
 # CRITICAL-2 fix: shared group with all other auto-commit workflows.
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 permissions: {}
