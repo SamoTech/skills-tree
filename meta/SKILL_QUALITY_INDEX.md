@@ -1,8 +1,8 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-04T18:52:01.234571+00:00  
-**Total skills scored:** 375  
-**Average score:** 43.0/100  
+**Generated:** 2026-10-04T19:05:41.900656+00:00  
+**Total skills scored:** 376  
+**Average score:** 42.9/100  
 **Stub files (< 150 words):** 5  
 
 ## Score Distribution
@@ -12,7 +12,7 @@
 | A | 80-100 | 2 |
 | B | 65-79 | 22 |
 | C | 45-64 | 92 |
-| D | 25-44 | 258 |
+| D | 25-44 | 259 |
 | F | 0-24 | 1 |
 
 ## Full Registry
@@ -171,6 +171,7 @@
 | `03-memory/procedural-memory` | 43 | D | 8 | 0 | 0 | 10 | 0 | 25 | 474 |
 | `03-memory/semantic-memory` | 43 | D | 8 | 0 | 0 | 10 | 0 | 25 | 504 |
 | `03-memory/user-profile-memory` | 43 | D | 8 | 0 | 0 | 10 | 0 | 25 | 514 |
+| `05-code/ide-integration` | 41 | D | 8 | 0 | 6 | 7 | 0 | 20 | 785 |
 | `13-creative/presentation-gen` | 40 | D | 8 | 0 | 0 | 7 | 0 | 25 | 431 |
 | `13-creative/social-media-post` | 40 | D | 8 | 0 | 0 | 7 | 0 | 25 | 419 |
 | `13-creative/video-script` | 40 | D | 8 | 0 | 0 | 7 | 0 | 25 | 415 |
