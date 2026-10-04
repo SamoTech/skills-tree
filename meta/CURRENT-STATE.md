@@ -354,3 +354,16 @@ The repository now defines a bounded autonomous execution contract for AI agents
 The contract is defined in `meta/AGENT_OPERATING_MODEL.md`, reinforced by `AGENTS.md` and `AI_CONSTITUTION.md`, and checked by `tools/verify_governance.py`. This is an operating contract, not a claim that GitHub or an external hosted agent automatically executes arbitrary future work without an invoking agent runtime.
 
 Status: IMPLEMENTED — NOT VERIFIED on main until the exact-head CI matrix and post-merge governance gate pass.
+
+
+## Core Agentic Execution Loop — VERIFIED — 2026-10-04
+
+PR #324 was merged after the exact final head `8f254754231bd8153efd50ab0e4b1bff4d067cad` passed Governance Gate, Validate Skills Graph, Test Suite on the applicable matrix, Security Scan, PR Checks, Build & Verify Wheel, and related validation. The repository now defines the bounded operational cycle `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`, with failure-driven continuation, a default 12-iteration ceiling, explicit CONTINUE/BLOCKED/DONE states, authority escalation boundaries, and documentation/generated-artifact completion requirements.
+
+**Status:** VERIFIED on main at merge commit `6fa92dd42768395102215a26e22999d6de81c013`.
+
+## Main-Writer Race — DETECTED — 2026-10-04
+
+Post-merge verification exposed a real automation race: the graph writer advanced main while the quality projection and zero-touch release workflows were still operating from the triggering SHA. The graph projection itself completed, but the quality writer failed on stale upstream state and zero-touch release failed when its upstream SHA changed. This is a concurrency/state-reconciliation defect, not a graph-generation defect.
+
+The next loop is therefore the repository-wide main-writer serialization contract: shared `auto-commit-main` concurrency, synchronization to live `origin/main` before mutation, and explicit verification that graph, quality, projection, and release writers cannot operate from stale main state.
