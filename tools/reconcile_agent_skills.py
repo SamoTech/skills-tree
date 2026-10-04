@@ -98,26 +98,37 @@ def reconcile(root: Path) -> dict:
         if current["source"]:
             source_packages.setdefault(current["source"], []).append(current)
 
-    matched, inferred, missing, rename_needed, drifted, blocked_existing = [], [], [], [], [], []
+    matched, inferred, missing, rename_needed, drifted, blocked_existing, legacy_compatibility = [], [], [], [], [], [], []
     for source, record in by_source.items():
         expected = desired[source]
         candidates = source_packages.get(source, [])
-        if len(candidates) == 1:
-            current = candidates[0]
+        canonical = project(root / source, root, name_override=expected)
+        expected_candidates = [item for item in candidates if item["package"] == expected]
+        legacy_candidates = [item for item in candidates if item["package"] != expected]
+
+        if len(expected_candidates) > 1:
+            raise ValueError(f"multiple deterministic packages declare canonical source {source!r}")
+
+        if expected_candidates:
+            current = expected_candidates[0]
             item = {"source": source, "package": current["package"], "expected_package": expected, "match": "provenance"}
             matched.append(item)
-            canonical = project(root / source, root, name_override=expected)
             expected_content = canonical.content.rstrip() + "\n"
             actual_content = (root / current["path"]).read_text(encoding="utf-8")
             if canonical.eligible:
                 if actual_content != expected_content:
                     drifted.append({"source": source, "package": current["package"], "reason": "content-differs-from-deterministic-projection"})
-                if current["package"] != expected:
-                    rename_needed.append(item)
             else:
                 blocked_existing.append({"source": source, "package": current["package"], "blockers": list(canonical.blockers)})
-        elif len(candidates) > 1:
-            raise ValueError(f"multiple packages declare canonical source {source!r}")
+            for legacy in legacy_candidates:
+                legacy_compatibility.append({**legacy, "expected_package": expected, "match": "legacy-compatibility"})
+        elif legacy_candidates:
+            for legacy in legacy_candidates:
+                legacy_compatibility.append({**legacy, "expected_package": expected, "match": "legacy-compatibility"})
+            if canonical.eligible:
+                missing.append({"source": source, "package": expected, "eligible": True, "blockers": [], "reason": "deterministic-projection-missing; legacy-compatibility-package-present"})
+            else:
+                blocked_existing.append({"source": source, "package": legacy_candidates[0]["package"], "blockers": list(canonical.blockers)})
         elif expected in existing and not existing[expected]["source"]:
             inferred_item = {"source": source, "package": expected, "match": "name-only"}
             inferred.append(inferred_item)
@@ -170,6 +181,7 @@ def reconcile(root: Path) -> dict:
         "existing_package_count": len(existing),
         "matched_by_provenance": matched,
         "matched_by_name_only": inferred,
+        "legacy_compatibility": legacy_compatibility,
         "missing": missing,
         "rename_needed": rename_needed,
         "drifted": drifted,
