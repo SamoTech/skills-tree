@@ -289,4 +289,4 @@ A real governance gap was found: the export workflow only triggered on skill con
 
 PR branch `fix/jsonld-export-governance` adds `tools/verify_jsonld_export.py` and focused regression tests. The validator checks JSON validity, one TechArticle per registry skill, matching IDs/names, ItemList positions/counts, and duplicate URLs. `export-skills.yml` now runs the validator and triggers on exporter and registry changes.
 
-Next: verify the PR CI and merge only the exact green head. Do not create a second JSON-LD generator or workflow.
+PR #316 merged as `20ed032bdb83f22ef3bf37debb3004ed8153d9a8` after the required PR CI matrix passed. The validator and workflow trigger changes are now on main. Do not create a second JSON-LD generator or workflow.
