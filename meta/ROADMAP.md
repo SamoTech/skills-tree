@@ -272,7 +272,7 @@ PR #251 established the executable distribution contract and merged to `main` as
 
 That historical baseline was superseded by the verified reconciliation state on 2026-10-04: 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages. PR #305 completed provenance/collision reconciliation and made it enforceable in CI.
 
-The deterministic projector, read-only audit workflow, validator, regression tests, and exact-head CI gates are verified. This does not complete Phase 4 and does not publish `/.well-known/agent-skills/index.json`.
+The deterministic projector, read-only reconciliation workflow, validator, regression tests, and exact-head CI gates are verified. Phase 4 reconciliation hardening is complete; `/.well-known/agent-skills/index.json` remains unpublished.
 
 **Next:** reconcile existing packages, resolve canonical collisions, then generate eligible projections in independently verifiable batches. Only after artifact/provenance reconciliation should discovery-index and SHA-256 publication work begin.
 
