@@ -16,6 +16,7 @@ on:
       - "agent-skills/**"
       - "tools/generate_agent_skills.py"
       - "tools/validate_agent_skills.py"
+      - "tools/reconcile_agent_skills.py"
       - ".github/workflows/agent-skills-distribution.yml"
 
 permissions:
