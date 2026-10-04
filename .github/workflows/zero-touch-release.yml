@@ -8,8 +8,10 @@ on:
   push:
     branches: [main]
 
+# Release is itself a main writer. It shares the repository-wide writer
+# serialization boundary so release mutation cannot race generated projections.
 concurrency:
-  group: zero-touch-release
+  group: auto-commit-main
   cancel-in-progress: false
 
 # Workflow-level: read-only.
@@ -40,6 +42,15 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      # The event SHA can be stale if another serialized writer completed
+      # before this workflow acquired the main-writer lease. Release must
+      # always calculate from the live main tip.
+      - name: Synchronize with latest main
+        run: |
+          git fetch origin main --tags
+          git reset --hard origin/main
+          git fetch --tags --force
 
       - name: Configure git identity
         run: |
