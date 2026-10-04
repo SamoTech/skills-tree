@@ -280,7 +280,7 @@ The deterministic projector, read-only reconciliation workflow, validator, regre
 
 **Verified:** GitHub Pages deployment run `37227197992` for main commit `1b3a5f387a17ce6b57885b06d6f26db060a8784d` completed successfully on 2026-10-04. The `Deploy to GitHub Pages` job and its `Verify served discovery bytes` step both passed. This closes the live discovery publication boundary.
 
-**Next:** Demand Intelligence / Most-Wanted evidence collection.
+**Next:** Reconcile demand evidence against canonical coverage, evidence tiers, freshness, dependencies, and runtime proof. The first preferred investigation is skill evaluation / invocation evidence and retrieval quality; do not add raw skills until an implementation or evidence gap is demonstrated.
 
 
 ## Universal Graph Relationship Runtime Boundary — 2026-10-03
