@@ -44,10 +44,13 @@ def test_check_fails_for_rename_and_stale_provenance(tmp_path):
     write_package(tmp_path, "legacy-example", "skills/01-test/example.md")
     write_package(tmp_path, "stale", "skills/01-test/removed.md")
     report = reconcile(tmp_path)
-    assert report["rename_needed"]
+    assert report["legacy_compatibility"]
+    assert report["eligible_missing"]
+    assert report["rename_needed"] == []
     assert report["stale"]
     failures = reconciliation_failures(report)
-    assert "rename_needed: 1" in failures
+    assert "eligible_missing: 1" in failures
+    assert "rename_needed" not in " ".join(failures)
     assert "stale: 1" in failures
 
 
