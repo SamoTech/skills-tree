@@ -270,7 +270,7 @@ This is a discovery/documentation layer only. It does not create a competing cat
 
 PR #251 established the executable distribution contract and merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
 
-The verified audit baseline is 374 canonical skill entries, 250 currently eligible for projection, 124 blocked, and eight deterministic-name collisions. Existing `agent-skills/` contains 280 validator-passing packages, which require provenance reconciliation before they are treated as generated projections.
+That historical baseline was superseded by the verified reconciliation state on 2026-10-04: 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages. PR #305 completed provenance/collision reconciliation and made it enforceable in CI.
 
 The deterministic projector, read-only audit workflow, validator, regression tests, and exact-head CI gates are verified. This does not complete Phase 4 and does not publish `/.well-known/agent-skills/index.json`.
 
