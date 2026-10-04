@@ -103,7 +103,7 @@ A distribution change is not complete until:
 
 ## Current state
 
-The current generated quality report verifies 374 registry skill files: 202 battle-tested, 159 enriched, 13 stubs, and 0 invalid. Category-level classification is authoritative in `meta/QUALITY-REPORT.md`.
+The current generated quality report verifies 374 registry skill files: 202 battle-tested, 159 enriched, 13 stubs, and 0 invalid. The separate Agent Skills reconciliation baseline is 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages. Category-level classification is authoritative in `meta/QUALITY-REPORT.md`.
 
 The standards-compatible distribution layer is intentionally being introduced as a separate projection so the existing corpus can be migrated incrementally without corrupting the canonical registry.
 
