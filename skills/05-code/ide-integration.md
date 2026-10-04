@@ -18,7 +18,7 @@ Connect an AI coding agent to an IDE or IDE-like development surface so the agen
 
 A useful integration exposes only the operations the agent needs: repository/context inspection, code intelligence, diagnostics, bounded edits, tests/builds, and explicitly authorized run or debug actions. The integration should preserve the distinction between an agent request, an IDE operation, and the resulting repository state.
 
-MCP can provide a portable tool boundary for IDE capabilities; other agent-client protocols may provide equivalent transport or lifecycle semantics. The skill is protocol-neutral at the contract level and does not require a specific IDE, vendor, model, or hosted service.
+MCP can provide a portable tool boundary for IDE capabilities; other agent-client protocols may provide equivalent transport or lifecycle semantics. The skill is protocol-neutral at the contract level and does not require a specific IDE, vendor, model, or hosted service. Prefer an IDE-native structured capability when it provides stronger semantic context or diagnostics than the equivalent raw terminal/file operation.
 
 ## When to Use
 
