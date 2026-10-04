@@ -153,7 +153,8 @@ def reconcile(root: Path) -> dict:
     desired_name_sources = {}
     for source, package in desired.items():
         desired_name_sources.setdefault(package, []).append(source)
-    resolved_name_collisions = {
+    resolved_name_collisions = collisions
+    unresolved_collisions = {
         package: sources
         for package, sources in desired_name_sources.items()
         if len(sources) > 1
@@ -178,11 +179,7 @@ def reconcile(root: Path) -> dict:
         "unexpected": unexpected,
         "stale": stale,
         "resolved_name_collisions": resolved_name_collisions,
-        "unresolved_collisions": {
-            package: sources
-            for package, sources in desired_name_sources.items()
-            if len(sources) > 1
-        },
+        "unresolved_collisions": unresolved_collisions,
         "ambiguous": ambiguous,
         "collisions": collisions,
         "collision_resolution": {source: desired[source] for sources in collisions.values() for source in sources},
