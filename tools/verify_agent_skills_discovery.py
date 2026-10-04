@@ -35,6 +35,9 @@ def verify_local(index: dict, site_root: Path) -> None:
 
 
 def fetch(url: str) -> bytes:
+    parsed = urlparse(url)
+    if parsed.scheme != "https" or not parsed.netloc:
+        raise ValueError(f"refusing non-HTTPS URL: {url}")
     request = Request(url, headers={"User-Agent": "skills-tree-discovery-verifier/1.0"})
     with urlopen(request, timeout=30) as response:
         if response.status != 200:

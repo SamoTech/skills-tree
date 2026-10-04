@@ -306,3 +306,17 @@ Verified merged-main state:
 - .well-known/agent-skills/index.json remains unpublished.
 
 Status is VERIFIED ON MAIN. PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI gates before merge as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
+
+
+## Full Repository Re-Audit — 2026-10-04
+
+The current audit verified the existing canonical/projection boundaries and found no need for a new generator, catalog, reconciler, search index, graph writer, JSON-LD writer, Agent Skills generator, Pages deployment path, or release publisher.
+
+Immediate execution state:
+1. Security-gate hardening is the active implementation slice: blocking Bandit SAST plus `pip-audit --strict`.
+2. Authoritative documentation is being synchronized to the verified 40-workflow inventory and current release baseline.
+3. Issue #276 remains the current universal-registry architecture audit thread; do not invent P2.3 or force registry population beyond evidence-backed coverage.
+4. Issue #159 remains an external GitHub control-plane requirement for branch protection and required status enforcement.
+5. Historical audit documents remain historical evidence and must not be treated as current architecture.
+
+The full evidence record is `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.

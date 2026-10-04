@@ -6,7 +6,6 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
-  issues: write
 jobs:
   gitleaks:
     runs-on: ubuntu-latest
@@ -21,6 +20,36 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
-      - name: Scan docs for accidental secrets
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install security tooling
         run: |
-          echo "Scanning docs/ for accidental secrets..."
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]" bandit pip-audit
+
+      - name: Generate Bandit SAST report
+        run: |
+          bandit -r api cli mcp registry tools -f json -o bandit-report.json --exit-zero
+
+      - name: Enforce Bandit high-severity gate
+        run: |
+          bandit -r api cli mcp registry tools -lll -iii
+
+      - name: Upload Bandit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bandit-report
+          path: bandit-report.json
+          retention-days: 30
+
+      - name: Run pip-audit
+        run: pip-audit --strict
+
+      - name: Verify docs secret scan scope
+        run: |
+          echo "Gitleaks scans the full repository history. Python SAST covers api/, cli/, mcp/, registry/, and tools/. Dependency audit covers the installed project environment."
