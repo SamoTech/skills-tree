@@ -996,7 +996,7 @@ Finding: Post-merge verification of PR #324 exposed a real race: the graph write
 Decision: Treat direct-main generated/release automation as one serialized writer class. Use the shared `auto-commit-main` concurrency group with `cancel-in-progress: false`; synchronize stale event checkouts to live `origin/main` before generation or release mutation; keep `skills/` canonical and generated outputs subordinate projections. The graph writer remains the sole graph projection writer. Do not solve the defect with branch protection or human approval.
 Confidence: HIGH
 Evidence IDs: PR-324, workflow run 37223742787, workflow run 37223742707, meta/GOVERNANCE_MODEL.md, .github/workflows/validate-graph.yml, .github/workflows/zero-touch-release.yml
-Status: IMPLEMENTED — A new exact-head PR is required for verification and merge.
+Status: VERIFIED — PR #325 merged to main as `0892cfe20130368ad12655a8ec71616ae97027fd`; exact-head Governance Gate, Graph, Tests, Security, Build, and PR validation passed. Post-merge writer execution completed without the prior stale-SHA failure.
 Reopen Conditions: Reopen if a post-merge writer race, stale-SHA mutation, generated-projection divergence, or release concurrency defect remains after the new contract is merged and verified.
 
 
@@ -1007,5 +1007,5 @@ Finding: After the writer-race fix was merged, the zero-touch release run was ca
 Decision: The repository-wide `auto-commit-main` writer group must use `queue: max` with `cancel-in-progress: false`, so pending generated/release writers are retained and processed sequentially. Writers still synchronize to live `origin/main` before mutation because queue ordering alone does not make an event SHA current.
 Confidence: HIGH
 Evidence IDs: post-merge main commit `0892cfe20130368ad12655a8ec71616ae97027fd`, workflow run 37223991086, GitHub Actions concurrency documentation.
-Status: IMPLEMENTED — PR verification required before merge.
+Status: VERIFIED — PR #326 merged to main; exact-head Governance Gate, Graph, Tests, Security, Build, and PR validation passed. Post-merge Zero-Touch Release completed successfully and pending writer runs were retained by the lossless queue.
 Reopen Conditions: Reopen if pending writer runs are still lost, if queue pressure exceeds the repository's acceptable automation latency, or if a stronger repository-native writer scheduler replaces this mechanism.
