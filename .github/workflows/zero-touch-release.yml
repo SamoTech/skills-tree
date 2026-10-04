@@ -54,13 +54,11 @@ jobs:
       - name: Install python-semantic-release
         run: pip install 'python-semantic-release>=9.8' --quiet
 
-      - name: Run semantic-release
+      - name: Determine and create semantic release
         id: psr
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          semantic-release version 2>&1 || true
-
           CURRENT=$(python - <<'EOF'
           import tomllib
           with open("pyproject.toml", "rb") as f:
@@ -68,23 +66,45 @@ jobs:
           EOF
           )
 
-          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "none")
-          LATEST_VER="${LATEST_TAG#v}"
+          # Python Semantic Release prints the current version when no release
+          # is due. Compare the calculated next version before mutating the repo.
+          NEXT=$(semantic-release version --print)
 
           echo "current pyproject version : $CURRENT"
-          echo "latest tag version        : $LATEST_VER"
+          echo "calculated next version   : $NEXT"
 
-          if [ "$CURRENT" = "$LATEST_VER" ]; then
-            echo "released=true"    >> "$GITHUB_OUTPUT"
-            echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
-            echo "tag=v$CURRENT"    >> "$GITHUB_OUTPUT"
-            echo "::notice::New release detected: v$CURRENT"
-          else
+          if [ "$NEXT" = "$CURRENT" ]; then
             echo "released=false"   >> "$GITHUB_OUTPUT"
             echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
-            echo "tag="             >> "$GITHUB_OUTPUT"
+            echo "tag=v$CURRENT"    >> "$GITHUB_OUTPUT"
             echo "::notice::No releasable commits — skipping build and publish."
+            exit 0
           fi
+
+          echo "::notice::Creating release v$NEXT"
+          semantic-release version
+
+          EXPECTED_TAG="v$NEXT"
+          if ! git rev-parse --verify "refs/tags/$EXPECTED_TAG" >/dev/null 2>&1; then
+            echo "::error::Semantic release completed without creating expected tag $EXPECTED_TAG"
+            exit 1
+          fi
+
+          RELEASED_VERSION=$(python - <<'EOF'
+          import tomllib
+          with open("pyproject.toml", "rb") as f:
+              print(tomllib.load(f)["project"]["version"])
+          EOF
+          )
+
+          if [ "$RELEASED_VERSION" != "$NEXT" ]; then
+            echo "::error::pyproject.toml version $RELEASED_VERSION does not match released version $NEXT"
+            exit 1
+          fi
+
+          echo "released=true"  >> "$GITHUB_OUTPUT"
+          echo "version=$NEXT"   >> "$GITHUB_OUTPUT"
+          echo "tag=$EXPECTED_TAG" >> "$GITHUB_OUTPUT"
 
   # ---------------------------------------------------------------------------
   # Job 2 — Build & Verify
