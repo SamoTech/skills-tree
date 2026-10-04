@@ -167,16 +167,30 @@ def reconcile(root: Path) -> dict:
         "collision_resolution": {source: desired[source] for sources in collisions.values() for source in sources},
     }
 
+def reconciliation_failures(report: dict) -> list[str]:
+    failures = []
+    for key in ("eligible_missing", "drifted", "rename_needed", "stale", "ambiguous"):
+        items = report.get(key, [])
+        if items:
+            failures.append(f"{key}: {len(items)}")
+    return failures
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--check", action="store_true", help="fail on reconciliation drift that invalidates the canonical projection")
     args = parser.parse_args()
     report = reconcile(args.root.resolve())
     rendered = json.dumps(report, indent=2, sort_keys=True)
     if args.output:
         args.output.write_text(rendered + "\n", encoding="utf-8")
     print(rendered)
+    if args.check:
+        failures = reconciliation_failures(report)
+        if failures:
+            print("Reconciliation check failed: " + ", ".join(failures), file=sys.stderr)
+            return 1
     return 0
 
 if __name__ == "__main__":
