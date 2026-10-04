@@ -17,6 +17,7 @@ LEGACY_SOURCE_ALIASES = {
 }
 
 NAME_RE = re.compile(r"^(?!.*--)[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$")
+INTENTIONAL_AUXILIARY_PACKAGES = {"skills-tree-registry"}
 FM_RE = re.compile(r"^---\n(.*?)\n---\n?", re.DOTALL)
 
 def normalize(value: str) -> str:
@@ -149,6 +150,19 @@ def reconcile(root: Path) -> dict:
         else:
             ambiguous.append({"package": package, "declared_source": source})
 
+    desired_name_sources = {}
+    for source, package in desired.items():
+        desired_name_sources.setdefault(package, []).append(source)
+    resolved_name_collisions = {
+        package: sources
+        for package, sources in desired_name_sources.items()
+        if len(sources) > 1
+    }
+    unexpected = [
+        item for item in extras
+        if item["package"] not in INTENTIONAL_AUXILIARY_PACKAGES
+    ]
+
     return {
         "canonical_count": len(records),
         "existing_package_count": len(existing),
@@ -161,7 +175,9 @@ def reconcile(root: Path) -> dict:
         "eligible_missing": [item for item in missing if item["eligible"]],
         "blocked_missing": [item for item in missing if not item["eligible"]],
         "extra": extras,
+        "unexpected": unexpected,
         "stale": stale,
+        "resolved_name_collisions": resolved_name_collisions,
         "ambiguous": ambiguous,
         "collisions": collisions,
         "collision_resolution": {source: desired[source] for sources in collisions.values() for source in sources},
@@ -169,7 +185,7 @@ def reconcile(root: Path) -> dict:
 
 def reconciliation_failures(report: dict) -> list[str]:
     failures = []
-    for key in ("eligible_missing", "drifted", "rename_needed", "stale", "ambiguous"):
+    for key in ("eligible_missing", "drifted", "rename_needed", "stale", "ambiguous", "unexpected", "resolved_name_collisions"):
         items = report.get(key, [])
         if items:
             failures.append(f"{key}: {len(items)}")
