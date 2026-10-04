@@ -390,3 +390,12 @@ The Agent Skills discovery publication boundary is also implemented in `.github/
 Phase 2 now has its first reproducible public-signal path: `tools/collect_demand_signals.py` reads the explicit `meta/demand-sources.json` query set and records public GitHub issue-search evidence with source ID, query, repository, issue number, URL, state, dates, and labels. `.github/workflows/demand-signals.yml` runs the collector manually or weekly and stores the raw snapshot as an artifact.
 
 The collector deliberately does not infer popularity, adoption, or priority. The curated `meta/MOST-WANTED-SKILLS.md` remains unranked until a controlled collection run is reviewed and capability coverage/evidence gaps are mapped.
+
+
+## Demand Signal Review — VERIFIED OBSERVATION — 2026-10-04
+
+The first controlled public-signal review executed against the configured GitHub issue-search sources. The three configured queries returned raw result counts of 64, 63, and 54; overlap and operational/security issues make these counts unsuitable as popularity or adoption metrics.
+
+The review identified an unranked capability signal cohort around search/discovery (#86), memory (#87), code/IDE integration (#88), reasoning (#90), and action execution (#91). Search/discovery is already implemented and verified; the remaining signals require canonical coverage, evidence-tier, freshness, and dependency-gap analysis before any migration priority is selected.
+
+**Decision:** Do not create a popularity ranking. Use the observed cohort as input to a coverage/evidence reconciliation pass, then select Phase 3 work only where demand and repository gaps intersect.
