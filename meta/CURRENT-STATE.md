@@ -406,3 +406,8 @@ The review identified an unranked capability signal cohort around search/discove
 Coverage/evidence reconciliation selected IDE integration as the first demand-driven Phase 3 slice. The canonical `05-code` directory already covers code generation, review, execution, Git, APIs, debugging, and related capabilities, but no dedicated IDE integration contract existed. The new `skills/05-code/ide-integration.md` defines a protocol-neutral contract around workspace identity, code intelligence, diagnostics, bounded edits, tests/builds, explicit authorization, least privilege, and independent postcondition verification.
 
 The skill cites current public evidence for MCP/IDE integration and explicitly avoids universal compatibility or benchmark claims. CI must determine whether the skill is schema-valid, anti-slop compliant, projection-eligible, and safe to merge.
+
+
+## Discovery Publication Boundary — VERIFIED
+
+Live GitHub Pages verification completed on 2026-10-04. Deployment run `37227197992` for main commit `1b3a5f387a17ce6b57885b06d6f26db060a8784d` succeeded. The deployment job's `Verify served discovery bytes` step also succeeded, proving the published `/.well-known/agent-skills/index.json` endpoint passed the repository's served-byte verifier. The discovery publication boundary is therefore CLOSED as verified. Next strategic slice: Demand Intelligence / Most-Wanted evidence collection.
