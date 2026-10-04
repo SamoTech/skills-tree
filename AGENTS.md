@@ -64,6 +64,8 @@ CEO/CIO decision
 
 Documentation closes the loop.
 
+The COO and specialist agents operate through the bounded Core Agentic Execution Loop defined in `meta/AGENT_OPERATING_MODEL.md`. A failed verification becomes evidence for the next cycle; agents continue autonomously until `DONE` or `BLOCKED`, subject to the documented iteration and authority safeguards.
+
 ## Mandatory Rules
 
 - Inspect current repository state before acting.
