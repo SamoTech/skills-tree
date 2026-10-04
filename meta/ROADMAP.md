@@ -288,3 +288,21 @@ The selected correction keeps the schema vocabulary unchanged but makes runtime-
 **Verification status:** implementation and focused regression coverage are present; exact-head CI and merge are pending.
 
 **Next after merge:** re-audit the merged runtime, then address the independently verified CLI `search` gap.
+
+
+## Phase 4 Distribution Hardening — VERIFIED ON BRANCH — 2026-10-04
+
+The deterministic Agent Skills corpus exposed a remaining control gap: reconciliation could report an eligible missing projection without making CI fail. The current branch adds the explicit read-only reconciliation gate and regression coverage.
+
+Branch state:
+
+- 375 canonical skills scanned.
+- 251 eligible projections.
+- 124 blocked canonical entries.
+- 289 Agent Skills packages, including 37 retained blocked packages and 1 intentional auxiliary package.
+- Kanban is deterministically projected.
+- CI now executes tools/reconcile_agent_skills.py --check.
+- Unexpected projection drift and unresolved deterministic target-name collisions are now explicit failure categories.
+- .well-known/agent-skills/index.json remains unpublished.
+
+Status is VERIFIED ON BRANCH until exact-head CI and merge evidence are available.
