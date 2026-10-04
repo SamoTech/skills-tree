@@ -51,7 +51,7 @@ Run focused regression and required CI on `phase2/evidence-contract-runtime-2026
 
 PR #305 completed the Agent Skills reconciliation gate; PR #306 synchronized the operational documentation and removed the obsolete branch-specific apply workflow; PR #307 removed the remaining stale branch-state wording. The current main baseline is 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages.
 
-The machine-readable discovery audit verified `docs/api/skills.json` as the canonical registry projection, `docs/search-index.json` and `data/search-index.json` as identical search-only projections, and the verified CLI search runtime consuming the generated projection without creating a second index. The remaining gated boundary is `/.well-known/agent-skills/index.json` publication.
+The machine-readable discovery audit verified `docs/api/skills.json` as the canonical registry projection, `docs/search-index.json` and `data/search-index.json` as identical search-only projections, and the verified CLI search runtime consuming the generated projection without creating a second index. The remaining gated boundary is remaining machine-readable consumer/projection audit.
 
 Historical state entries are retained below as history and are not treated as current state.
 
@@ -62,3 +62,13 @@ A fresh post-schema runtime/consumer audit identified a narrow missing typed Goa
 No registry entities or ecosystem claims were changed. No numbered P2.3 item was invented.
 
 Verification remains pending exact-head CI and required repository checks.
+
+## State Reconciliation — 2026-10-04 Graph Projection
+
+PR #315 is merged on main as `5c5720d61ed757e7d0f94cdfb3309ac8eb0d213f`.
+
+The graph boundary is now single-writer and schema-enforced: `tools/build_graph.py` generates the graph, `validate-graph.yml` validates and publishes the generated projections, and the duplicate `build-graph.yml` writer is removed.
+
+`data/SKILLS_GRAPH.json` and `docs/api/graph.json` are synchronized byte-for-byte on main. Current generated graph: 375 nodes, 240 edges, 9 REQUIRES edges, 0 warnings.
+
+Next action is a fresh audit of remaining machine-readable consumers/projections. No additional graph generator, reconciler, search index, or deployment path should be introduced.
