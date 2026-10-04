@@ -1009,3 +1009,14 @@ Confidence: HIGH
 Evidence IDs: post-merge main commit `0892cfe20130368ad12655a8ec71616ae97027fd`, workflow run 37223991086, GitHub Actions concurrency documentation.
 Status: VERIFIED — PR #326 merged to main; exact-head Governance Gate, Graph, Tests, Security, Build, and PR validation passed. Post-merge Zero-Touch Release completed successfully and pending writer runs were retained by the lossless queue.
 Reopen Conditions: Reopen if pending writer runs are still lost, if queue pressure exceeds the repository's acceptable automation latency, or if a stronger repository-native writer scheduler replaces this mechanism.
+
+
+# DECISION-2026-10-04-DEMAND-SIGNAL-REVIEW
+DECISION-ID: DECISION-2026-10-04-DEMAND-SIGNAL-REVIEW
+Topic: First controlled demand-intelligence evidence cohort
+Finding: The first configured public GitHub issue-search collection returned raw result counts of 64, 63, and 54 across three overlapping query groups. Review of the returned issues identified capability signals for search/discovery, memory, code/IDE integration, reasoning, and action execution. The result sets also contain operational/security issues, demonstrating why raw query volume cannot be used as a demand score.
+Decision: Treat these as an unranked evidence cohort. Reconcile each capability against canonical coverage, evidence tier, freshness, dependencies, and implementation gaps before selecting migration priorities. Search/discovery is already implemented and verified and must not be reimplemented merely because issue #86 is a historical demand signal.
+Confidence: MEDIUM-HIGH
+Evidence IDs: meta/demand-sources.json, tools/collect_demand_signals.py, .github/workflows/demand-signals.yml, issues #86, #87, #88, #90, #91, controlled GitHub issue-search run 2026-10-04.
+Status: VERIFIED OBSERVATION — prioritization intentionally deferred until coverage/evidence reconciliation.
+Reopen Conditions: Reopen if a stronger public-signal source invalidates the cohort, if the collector proves non-reproducible, or if current canonical coverage materially changes.
