@@ -1,6 +1,6 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-04T19:05:41.900656+00:00  
+**Generated:** 2026-10-04T19:12:51.525405+00:00  
 **Total skills scored:** 376  
 **Average score:** 42.9/100  
 **Stub files (< 150 words):** 5  
@@ -171,7 +171,7 @@
 | `03-memory/procedural-memory` | 43 | D | 8 | 0 | 0 | 10 | 0 | 25 | 474 |
 | `03-memory/semantic-memory` | 43 | D | 8 | 0 | 0 | 10 | 0 | 25 | 504 |
 | `03-memory/user-profile-memory` | 43 | D | 8 | 0 | 0 | 10 | 0 | 25 | 514 |
-| `05-code/ide-integration` | 41 | D | 8 | 0 | 6 | 7 | 0 | 20 | 785 |
+| `05-code/ide-integration` | 41 | D | 8 | 0 | 6 | 7 | 0 | 20 | 804 |
 | `13-creative/presentation-gen` | 40 | D | 8 | 0 | 0 | 7 | 0 | 25 | 431 |
 | `13-creative/social-media-post` | 40 | D | 8 | 0 | 0 | 7 | 0 | 25 | 419 |
 | `13-creative/video-script` | 40 | D | 8 | 0 | 0 | 7 | 0 | 25 | 415 |
