@@ -13,6 +13,11 @@ def require_file(path):
     if not p.is_file(): fail(f"required governance file is missing: {path}")
     return p.read_text(encoding="utf-8")
 
+def require_path(path):
+    p = ROOT / path
+    if not p.exists(): fail(f"required governance path is missing: {path}")
+    return p
+
 def main():
     agents = require_file("AGENTS.md")
     constitution = require_file("AI_CONSTITUTION.md")
@@ -26,7 +31,7 @@ def main():
     if "## 4. Documentation Is a Completion Gate" not in constitution: fail("documentation completion gate missing from AI_CONSTITUTION.md")
     if "## 10. Mandatory Agent Documentation Preflight Gate" not in constitution: fail("mandatory documentation preflight missing from AI_CONSTITUTION.md")
 
-    for path in ("skills","tools/export_skills.py","tools/build_graph.py","tools/build_search_index.py"): require_file(path)
+    for path in ("skills","tools/export_skills.py","tools/build_graph.py","tools/build_search_index.py"): require_path(path)
 
     release_writers = [name for name,text in workflows.items() if "semantic-release version" in text]
     if release_writers != ["zero-touch-release.yml"]: fail(f"release authority drift: semantic-release mutation found in {release_writers}")
