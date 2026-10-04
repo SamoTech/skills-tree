@@ -79,16 +79,16 @@ def test_unexpected_package_fails_reconciliation(tmp_path):
 
 
 def test_resolved_name_collisions_are_machine_checked(tmp_path):
-    write_skill(tmp_path, "01-same/foo.md")
-    write_skill(tmp_path, "02-same/foo.md")
+    write_skill(tmp_path, "01-alpha/foo.md")
+    write_skill(tmp_path, "02-beta/foo.md")
     report = reconcile(tmp_path)
     assert report["resolved_name_collisions"] == {
-        "same-foo": [
-            "skills/01-same/foo.md",
-            "skills/02-same/foo.md",
+        "foo": [
+            "skills/01-alpha/foo.md",
+            "skills/02-beta/foo.md",
         ]
     }
-    assert report["unresolved_collisions"] == report["resolved_name_collisions"]
+    assert report["unresolved_collisions"] == {}
     assert "unresolved_collisions" not in reconciliation_failures(report)
 
 
