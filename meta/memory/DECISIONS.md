@@ -1020,3 +1020,14 @@ Confidence: MEDIUM-HIGH
 Evidence IDs: meta/demand-sources.json, tools/collect_demand_signals.py, .github/workflows/demand-signals.yml, issues #86, #87, #88, #90, #91, controlled GitHub issue-search run 2026-10-04.
 Status: VERIFIED OBSERVATION — prioritization intentionally deferred until coverage/evidence reconciliation.
 Reopen Conditions: Reopen if a stronger public-signal source invalidates the cohort, if the collector proves non-reproducible, or if current canonical coverage materially changes.
+
+
+# DECISION-2026-10-04-IDE-INTEGRATION-MIGRATION
+DECISION-ID: DECISION-2026-10-04-IDE-INTEGRATION-MIGRATION
+Topic: First demand/evidence-driven Phase 3 migration
+Finding: The controlled demand review surfaced issue #88 requesting IDE integration patterns, pair-programming protocols, and polyglot-agent support. Coverage reconciliation found no dedicated canonical IDE integration skill under `05-code`, while the repository already has adjacent code-generation, code-review, execution, Git, API, and debugging skills. Current public documentation and implementations also demonstrate a real agent↔IDE capability boundary via MCP and IDE-native APIs.
+Decision: Implement one canonical `05-code/ide-integration.md` skill as the first Phase 3 slice. Keep it protocol-neutral, least-privilege, workspace-scoped, and independently verifiable. Do not create separate vendor-specific skills until evidence demonstrates distinct reusable contracts.
+Confidence: HIGH
+Evidence IDs: issue #88, skills/05-code directory audit, GitHub Copilot MCP documentation, public AgentBridge implementation, current Skills Tree governance and evidence model.
+Status: IMPLEMENTED — exact-head CI and projection verification required before merge.
+Reopen Conditions: Reopen if CI finds an existing canonical duplicate, evidence quality proves insufficient, the capability cannot be expressed as a reusable contract, or vendor-specific semantics require a distinct skill.

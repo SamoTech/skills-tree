@@ -8,8 +8,8 @@
 
 | Measure | Count |
 |---|---:|
-| Canonical skill entries scanned | 375 |
-| Eligible canonical projections | 258 |
+| Canonical skill entries scanned | 376 |
+| Eligible canonical projections | 259 |
 | Blocked canonical entries | 117 |
 | Agent Skills packages on the verified main | 296 |
 | Retained blocked existing packages | 37 |
