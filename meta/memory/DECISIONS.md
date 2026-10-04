@@ -962,3 +962,6 @@ Reopen Conditions: Reopen if the export workflow regenerates a divergent value, 
 **Status:** VERIFIED ON BRANCH — exact-head CI and merge pending.
 
 **Reopen Conditions:** Reopen if the Agent Skills specification, canonical eligibility model, projection naming contract, or auxiliary-package policy changes materially, or if exact-head CI reveals a false positive/negative in the reconciliation gate.
+
+
+The gate does not force-renaming of existing legacy Agent Skills packages. For an eligible canonical source with a non-deterministic legacy package, reconciliation requires the deterministic package to exist and classifies the old package as legacy compatibility. This preserves consumers while enforcing deterministic canonical projection completeness.
