@@ -963,3 +963,8 @@ Evidence IDs: PR-305, TOOLS-RECONCILE-AGENT-SKILLS, TESTS-AGENT-SKILLS-RECONCILI
 Status: VERIFIED — PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI checks and merged to main as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
 
 Reopen Conditions: Reopen only if the canonical eligibility model, Agent Skills naming/provenance contract, reconciliation semantics, or publication architecture changes materially, or if reproducible evidence demonstrates a false positive or false negative in the gate.
+
+
+## 2026-10-04 Release Workflow Reconciliation
+
+The previous `release-package.yml` catalog-package publisher is no longer active. Catalog packaging is now part of the authoritative `zero-touch-release.yml` release job. `release.yml` remains manual recovery only. Historical audit references to the deleted workflow are retained as historical evidence and must not be treated as current executable architecture.
