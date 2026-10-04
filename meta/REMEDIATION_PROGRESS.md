@@ -128,3 +128,8 @@
 ---
 
 **Report Generated**: 2026-06-14 16:00 EEST
+
+
+## 2026-10-04 Release Workflow Reconciliation
+
+The previous `release-package.yml` catalog-package publisher is no longer active. Catalog packaging is now part of the authoritative `zero-touch-release.yml` release job. `release.yml` remains manual recovery only. Historical audit references to the deleted workflow are retained as historical evidence and must not be treated as current executable architecture.
