@@ -106,3 +106,11 @@ PR #318 merged as `2ef8a3fe9c987032d614a0e2a026cc4152867204`. The full-project a
 The current architecture retains one authoritative path for each graph, search, JSON-LD, Agent Skills, discovery, Pages, and release projection/deployment boundary. The workflow inventory remains 40 files.
 
 The only unresolved high-impact governance item is GitHub main branch protection, which cannot be changed or independently read through the connected integration; issue #159 remains authoritative for that control-plane action.
+
+## Repository Self-Enforced Governance — 2026-10-04
+
+The owner explicitly rejected GitHub branch protection as a required project control. Repository governance is therefore enforced locally through automated CI and authoritative agent documentation.
+
+`meta/GOVERNANCE_MODEL.md` defines the merge/completion contract. `tools/verify_governance.py` checks documentation preflight clauses, canonical-source boundaries, unique projection/release authorities, anti-slop/new-stub enforcement, security gates, and the explicit branch-protection independence policy. `.github/workflows/governance-gate.yml` executes that verifier on relevant PRs and main pushes.
+
+Historical audit sections that describe Issue #159 as a current blocker remain historical. The current governance state is that no GitHub branch-protection rule is required for repository correctness or completion.
