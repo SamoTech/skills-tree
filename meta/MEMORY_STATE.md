@@ -1,6 +1,6 @@
 # MEMORY STATE
 
-**Last reconciled:** 2026-09-19
+**Last reconciled:** 2026-10-04
 **Current execution source of truth:** `meta/DEVELOPMENT_KNOWLEDGE.md`
 **Governance authority:** `meta/PROJECT_CONSTITUTION.md`
 **Execution model:** `meta/AGENT_OPERATING_MODEL.md`
@@ -11,12 +11,12 @@
 
 | Key | Value |
 |---|---|
-| Main HEAD at task baseline | `28aa3ea1b2ceee1aadfa62fd396bc7fb9c3d0ff5` |
+| Main HEAD at task baseline | `f77fefde8025bb6e1fce1eea974b505912d906f2` |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
-| Current phase | Phase 2 — Implementation Ontology |
+| Current phase | Discovery and distribution hardening |
 | Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Evidence contract runtime enforcement |
-| Active branch | `phase2/evidence-contract-runtime-20260919` |
+| Current audit-derived slice | Machine-readable discovery consumer audit |
+| Active branch | None — main verified; next work is the discovery-index publication boundary |
 | Active governance blocker | None |
 | Current implementation registry | `implementation/code-reviewer-system` |
 | MCP classification | Protocol; not an Implementation |
@@ -46,6 +46,14 @@ MCP remains a Protocol. No compatibility or ecosystem claims are added.
 
 Run focused regression and required CI on `phase2/evidence-contract-runtime-20260919`. If green, open a PR, verify its exact head and all required checks, merge only the green head SHA, then verify the resulting `main` HEAD. If CI fails, inspect the actual failed job/log and make only the smallest architectural correction on the existing branch.
 
+
+## State Reconciliation — 2026-10-04
+
+PR #305 completed the Agent Skills reconciliation gate; PR #306 synchronized the operational documentation and removed the obsolete branch-specific apply workflow; PR #307 removed the remaining stale branch-state wording. The current main baseline is 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages.
+
+The machine-readable discovery audit verified `docs/api/skills.json` as the canonical registry projection, `docs/search-index.json` and `data/search-index.json` as identical search-only projections, and the verified CLI search runtime consuming the generated projection without creating a second index. The remaining gated boundary is `/.well-known/agent-skills/index.json` publication.
+
+Historical state entries are retained below as history and are not treated as current state.
 
 ## State Reconciliation — 2026-10-02
 
