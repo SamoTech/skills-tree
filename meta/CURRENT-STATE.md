@@ -328,3 +328,8 @@ Verified current baseline:
 - GitHub branch-protection state remains a control-plane finding; the connected integration returned HTTP 403 for the branch-protection endpoint, so no new control-plane claim is made.
 
 The stale 42-workflow statement is historical only. Historical audit documents retain prior findings and are not current architecture authority.
+
+
+**Post-audit verification:** PR #318 merged as `2ef8a3fe9c987032d614a0e2a026cc4152867204` after exact-head Security Scan `37201410948` passed Gitleaks, Bandit high-severity/high-confidence enforcement, and `pip-audit --strict`; Test Suite, Build & Verify Wheel, Validate Skills Graph, and PR Checks also passed.
+
+The blocking repository security gate is now materially enforced. The remaining branch-protection finding is control-plane-only and remains tracked separately by issue #159.
