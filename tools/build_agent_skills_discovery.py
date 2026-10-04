@@ -14,8 +14,12 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 
 from jsonschema import Draft202012Validator
 
@@ -28,7 +32,7 @@ from tools.reconcile_agent_skills import (
     reconciliation_failures,
 )
 
-SCHEMA_PATH = Path(__file__).resolve().parents[1] / "meta" / "agent-skills-discovery-index.schema.json"
+SCHEMA_PATH = ROOT / "meta" / "agent-skills-discovery-index.schema.json"
 SCHEMA_URL = "https://raw.githubusercontent.com/SamoTech/skills-tree/main/meta/agent-skills-discovery-index.schema.json"
 DEFAULT_BASE_URL = "https://samotech.github.io/skills-tree"
 DIGEST_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
@@ -107,7 +111,7 @@ def write_index(index: dict, output: Path) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--base-url", default=DEFAULT_BASE_URL)
     parser.add_argument("--check", action="store_true")
