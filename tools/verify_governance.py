@@ -29,7 +29,14 @@ def main():
     for phrase in ("READ → VERIFY LIVE STATE → AUDIT DOCUMENTATION DRIFT → SYNCHRONIZE","COMPLETE requires both implementation and documentation verification.","Do not weaken validation or security gates","Treat `skills/` as the canonical registry source"):
         if phrase not in agents: fail(f"AGENTS.md lost mandatory clause: {phrase}")
     if "## 4. Documentation Is a Completion Gate" not in constitution: fail("documentation completion gate missing from AI_CONSTITUTION.md")
-    if "## 10. Mandatory Agent Documentation Preflight Gate" not in constitution: fail("mandatory documentation preflight missing from AI_CONSTITUTION.md")
+    if "## 10. Core Agentic Execution Contract" not in constitution: fail("core agentic execution contract missing from AI_CONSTITUTION.md")
+    for phrase in ("OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE","treat failures and regressions as inputs to the next cycle","default loop ceiling is 12 iterations per goal","select \`DONE\` only after goal satisfaction"):
+        if phrase not in constitution: fail(f"agentic execution invariant missing: {phrase}")
+    if "## 11. Mandatory Agent Documentation Preflight Gate" not in constitution: fail("mandatory documentation preflight missing from AI_CONSTITUTION.md")
+
+    operating = require_file("meta/AGENT_OPERATING_MODEL.md")
+    for phrase in ("## Core Agentic Execution Loop","Failure-driven continuation","Bounded-loop safeguards","Completion contract","Authority boundary"):
+        if phrase not in operating: fail(f"agent operating loop contract missing: {phrase}")
 
     for path in ("skills","tools/export_skills.py","tools/build_graph.py","tools/build_search_index.py"): require_path(path)
 
