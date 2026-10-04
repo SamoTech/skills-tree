@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/SamoTech/skills-tree/main/meta/agent-skills-discovery-index.schema.json",
+  "title": "Skills Tree Agent Skills Discovery Index",
+  "type": "object",
+  "required": ["$schema", "skills"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {"type": "string", "format": "uri"},
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "type", "description", "url", "digest"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z0-9](?:[a-z0-9-]{0,62}[a-z0-9])?$"},
+          "type": {"const": "skill"},
+          "description": {"type": "string", "minLength": 1, "maxLength": 1024},
+          "url": {"type": "string", "format": "uri-reference"},
+          "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+        }
+      }
+    }
+  }
+}
