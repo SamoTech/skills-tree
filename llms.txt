@@ -7,6 +7,7 @@
 - Repository: https://github.com/SamoTech/skills-tree
 - Canonical skill registry: https://github.com/SamoTech/skills-tree/tree/main/skills
 - Machine-readable registry: https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/api/skills.json
+- Agent Skills discovery index: https://samotech.github.io/skills-tree/.well-known/agent-skills/index.json
 - Agent Skills packages: https://github.com/SamoTech/skills-tree/tree/main/agent-skills
 - Distribution contract: https://github.com/SamoTech/skills-tree/blob/main/docs/AGENT_SKILLS_DISTRIBUTION.md
 - Quality report: https://github.com/SamoTech/skills-tree/blob/main/meta/QUALITY-REPORT.md

@@ -374,3 +374,12 @@ The remediation was implemented through PR #325 (stale-SHA synchronization) and 
 ## Documentation Synchronization — VERIFIED — 2026-10-04
 
 The agentic execution contract, governance model, main-writer serialization, and lossless writer queue are synchronized with the verified live implementation. Historical entries remain explicitly historical; current operational state is represented by the resolved sections above and the durable decisions in `meta/memory/DECISIONS.md`.
+
+
+## Consumer-Path Audit — 2026-10-04
+
+The fresh consumer-path audit found that the previously tracked CLI search gap is already resolved on main. `skills-tree search` uses the canonical generated `data/search-index.json` projection through `cli/search_runtime.py`; deterministic ranking is defined in `meta/SEARCH_CLI_CONTRACT.md`; dedicated CLI, ranking, and projection-contract tests exist. No second search index or runtime Markdown parser is required.
+
+The Agent Skills discovery publication boundary is also implemented in `.github/workflows/deploy-pages.yml`: Pages builds `/.well-known/agent-skills/index.json` from `tools/build_agent_skills_discovery.py`, validates the local publication bytes, and verifies the served URL with `tools/verify_agent_skills_discovery.py`. Repository code evidence therefore shows the publication path is implemented. External live serving is the remaining verification step; do not claim it is live until a successful Pages deployment provides that evidence.
+
+**Decision:** Do not build another search/discovery generator. Complete live Pages verification first; then reassess demand intelligence from evidence.

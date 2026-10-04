@@ -78,6 +78,10 @@ def main():
     for phrase in ("gitleaks/gitleaks-action@","bandit -r api cli mcp registry tools -lll -iii","pip-audit --strict"):
         if phrase not in security: fail(f"blocking security control missing: {phrase}")
 
+    pages = workflows.get("deploy-pages.yml", "")
+    for phrase in ("tools/build_agent_skills_discovery.py", "site/.well-known/agent-skills/index.json", "tools/verify_agent_skills_discovery.py"):
+        if phrase not in pages: fail(f"Agent Skills publication contract missing: {phrase}")
+
     expected={"search":("generate-search-index.yml","build_search_index.py"),"jsonld":("export-skills.yml","export_skills.py"),"agent-skills":("agent-skills-distribution.yml","generate_agent_skills.py"),"graph":("validate-graph.yml","build_graph.py")}
     for label,(workflow,tool) in expected.items():
         if workflow not in workflows or tool not in workflows[workflow]: fail(f"{label} authoritative path missing or drifted: {workflow} / {tool}")
