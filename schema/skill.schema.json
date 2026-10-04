@@ -4,7 +4,14 @@
   "title": "Skill",
   "description": "Canonical schema for a single skill node in the Skills Tree. Schema version 3.1 — adds optional prerequisites field.",
   "type": "object",
-  "required": ["id", "title", "category", "level", "stability", "version"],
+  "required": [
+    "id",
+    "title",
+    "category",
+    "level",
+    "stability",
+    "version"
+  ],
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -26,20 +33,36 @@
     "layer": {
       "type": "string",
       "description": "Architecture layer (Phase F).",
-      "enum": ["perception", "reasoning", "execution", "systems"]
+      "enum": [
+        "perception",
+        "reasoning",
+        "execution",
+        "systems"
+      ]
     },
     "level": {
       "type": "string",
-      "enum": ["basic", "intermediate", "advanced"],
+      "enum": [
+        "basic",
+        "intermediate",
+        "advanced"
+      ],
       "description": "Skill difficulty level."
     },
     "stability": {
       "type": "string",
-      "enum": ["stable", "experimental", "deprecated"],
+      "enum": [
+        "stable",
+        "experimental",
+        "deprecated"
+      ],
       "description": "Stability status of the skill."
     },
     "version": {
-      "type": ["string", "integer"],
+      "type": [
+        "string",
+        "integer"
+      ],
       "description": "Skill content version (e.g. 'v2' or 2)."
     },
     "added": {
@@ -50,7 +73,9 @@
     "tags": {
       "type": "array",
       "description": "Free-form tags for search and filtering.",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "uniqueItems": true
     },
     "prerequisites": {
@@ -61,13 +86,14 @@
         "minLength": 1,
         "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$"
       },
-      "uniqueItems": true,
-      "minItems": 1
+      "uniqueItems": true
     },
     "related_skills": {
       "type": "array",
       "description": "List of related skill IDs (used as edge hints by extract_edges.py). Generates RELATED_TO edges unless dependency language is present in the ## Related Skills section.",
-      "items": { "type": "string" },
+      "items": {
+        "type": "string"
+      },
       "uniqueItems": true
     },
     "source_file": {
@@ -75,7 +101,10 @@
       "description": "Relative path to the source markdown file."
     },
     "quality_score": {
-      "type": ["number", "null"],
+      "type": [
+        "number",
+        "null"
+      ],
       "description": "0-100 quality score assigned by quality_score.py. Null = not yet scored.",
       "minimum": 0,
       "maximum": 100
