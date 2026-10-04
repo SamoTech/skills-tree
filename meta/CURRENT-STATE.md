@@ -290,3 +290,13 @@ A real governance gap was found: the export workflow only triggered on skill con
 PR branch `fix/jsonld-export-governance` adds `tools/verify_jsonld_export.py` and focused regression tests. The validator checks JSON validity, one TechArticle per registry skill, matching IDs/names, ItemList positions/counts, and duplicate URLs. `export-skills.yml` now runs the validator and triggers on exporter and registry changes.
 
 PR #316 merged as `20ed032bdb83f22ef3bf37debb3004ed8153d9a8` after the required PR CI matrix passed. The validator and workflow trigger changes are now on main. Do not create a second JSON-LD generator or workflow.
+
+## 2026-10-04 — Release authority consolidation — VERIFIED
+
+Fresh release-path audit confirmed that `zero-touch-release.yml` is the production release authority and `release.yml` is manual recovery only. The former `release-package.yml` independently triggered on version tags and could create/update the same GitHub Release while the zero-touch pipeline was still completing.
+
+PR consolidation moves catalog ZIP + MANIFEST generation into Job 4 of `zero-touch-release.yml`, alongside the existing wheel/sdist attachment, and removes `release-package.yml`. The production release path therefore has one release writer and one manual recovery workflow.
+
+No semantic-release workflow file exists on current main; semantic-release is executed as Job 1 inside `zero-touch-release.yml`.
+
+**Status:** VERIFIED implementation boundary; final PR CI and post-merge release-path checks are required before treating the change as complete.

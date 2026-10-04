@@ -271,18 +271,34 @@ jobs:
       contents: write
 
     steps:
-      - name: Download dist/
+      - name: Checkout release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.semantic-release.outputs.tag }}
+          fetch-depth: 1
+
+      - name: Download Python dist/
         uses: actions/download-artifact@v4
         with:
           name: dist-${{ needs.semantic-release.outputs.version }}
-          path: dist/
+          path: dist/python
 
-      - name: Attach dist/ to GitHub Release
+      - name: Build catalog release package
+        run: |
+          python3 tools/package_release.py --tag "${{ needs.semantic-release.outputs.tag }}"
+          mv dist/skills-tree-*.zip dist/catalog.zip
+          mv dist/MANIFEST.json dist/catalog-MANIFEST.json
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+
+      - name: Attach all release assets
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.semantic-release.outputs.tag }}
           files: |
-            dist/*.whl
-            dist/*.tar.gz
+            dist/python/*.whl
+            dist/python/*.tar.gz
+            dist/catalog.zip
+            dist/catalog-MANIFEST.json
           token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_unmatched_files: true

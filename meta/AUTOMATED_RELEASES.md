@@ -23,7 +23,7 @@ Repository: **SamoTech/skills-tree** | Mode: **Zero-touch, single pipeline**
 | Build sdist + wheel | zero-touch-release.yml Job 2 |
 | PyPI publish | zero-touch-release.yml Job 3 |
 | GitHub Release creation | semantic-release |
-| Release asset attachment | zero-touch-release.yml Job 4 |
+| Python + catalog release asset attachment | zero-touch-release.yml Job 4 |
 
 **After one-time setup: git commit + git push = full release. Nothing else.**
 
@@ -67,8 +67,9 @@ zero-touch-release.yml  (triggered by push to main)
         │         └─ pypa/gh-action-pypi-publish (OIDC, no token, no secret)
         │
         └─── Job 4: Attach Release Assets   (skipped if released=false)
+                  ├─ build catalog ZIP + MANIFEST from the exact release tag
                   ├─ softprops/action-gh-release
-                  └─ attach .whl + .tar.gz to GitHub Release
+                  └─ attach .whl + .tar.gz + catalog ZIP + MANIFEST to GitHub Release
 ```
 
 ---
@@ -81,7 +82,6 @@ zero-touch-release.yml  (triggered by push to main)
 | `build-and-verify.yml` | push to `main` + PRs | ✅ Packaging sanity check |
 | `clean-install-test.yml` | push to `main` + PRs | ✅ Environment test |
 | `release.yml` | `workflow_dispatch` only | 🔧 Manual recovery for old tags |
-| `semantic-release.yml` | `workflow_dispatch` only | 🔧 Debug override |
 
 ---
 
@@ -207,3 +207,8 @@ Expected PyPI state after recovery: latest = `1.1.1`.
 | Per year | **Zero** |
 | On repo creation | One-time PyPI Trusted Publisher + GitHub Environment setup |
 | On workflow rename | Update PyPI Trusted Publisher workflow filename field |
+
+
+## Release packaging authority
+
+Catalog ZIP packaging is part of `zero-touch-release.yml` Job 4. The former `release-package.yml` tag-triggered writer has been removed because it could race the authoritative release pipeline while creating or updating the same GitHub Release. There is now one production release workflow and one manual PyPI recovery workflow.
