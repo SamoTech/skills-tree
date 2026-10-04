@@ -11,9 +11,13 @@ import json
 import sys
 import urllib.request
 import urllib.error
+from urllib.parse import urlparse
 
 
 def gh_get(url: str, headers: dict) -> list | dict:
+    parsed = urlparse(url)
+    if parsed.scheme != "https" or parsed.netloc != "api.github.com":
+        raise ValueError(f"refusing non-GitHub API URL: {url}")
     req = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read())
