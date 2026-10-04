@@ -106,3 +106,8 @@ Branch protection/ruleset state could not be read through the connected GitHub i
 3. Supersede stale open issues with exact evidence.
 4. Keep issue #276 as the next architecture audit/consumer thread.
 5. Treat branch protection as an external control-plane blocker until independently verified.
+
+
+The security-gate hardening was verified on exact PR #318 head `8468566ef9c608a87aadb5b5eff2fbe294c5dd5c` before merge. Security Scan run `37201410948` passed, including Gitleaks, Bandit high-severity/high-confidence enforcement, and `pip-audit --strict`. Test Suite, Build & Verify Wheel, Validate Skills Graph, and PR Checks also passed. PR #318 merged to main as `2ef8a3fe9c987032d614a0e2a026cc4152867204`.
+
+The audit is therefore COMPLETE for repository-code remediation. The only unresolved high-impact item is the external GitHub branch-protection control tracked by issue #159.
