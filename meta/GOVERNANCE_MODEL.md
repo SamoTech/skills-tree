@@ -29,3 +29,8 @@ A GitHub UI state of mergeable is not semantic evidence. Absence of branch prote
 GitHub branch protection is not a project completion gate. It is intentionally outside this project's required completion model. If enabled later, it is an additional control-plane safeguard, not a prerequisite for repository-level correctness or completion.
 
 Issue #159 is therefore not an engineering blocker under this governance model. Any future control-plane decision must be recorded as a new decision rather than silently changing this contract.
+## Main-writer serialization contract
+
+Direct-main automation that can mutate generated projections or release state is part of one repository-wide writer boundary. These workflows use the shared `auto-commit-main` concurrency group with `cancel-in-progress: false`, and writers whose run was triggered by an earlier main SHA must synchronize to the live `origin/main` tip before generating or mutating state. This prevents stale-checkout non-fast-forward races between graph, quality, search, export, metadata, and release writers.
+
+The graph writer is the canonical generated-graph writer. Its validation job is read-only; only the trusted main generation job writes graph projections. Release mutation is likewise serialized with generated-state writers. A green validation result from a stale event SHA is not sufficient evidence for a main writer; the writer must reconcile against live main before mutation.
