@@ -968,3 +968,12 @@ Reopen Conditions: Reopen only if the canonical eligibility model, Agent Skills 
 ## 2026-10-04 Release Workflow Reconciliation
 
 The previous `release-package.yml` catalog-package publisher is no longer active. Catalog packaging is now part of the authoritative `zero-touch-release.yml` release job. `release.yml` remains manual recovery only. Historical audit references to the deleted workflow are retained as historical evidence and must not be treated as current executable architecture.
+
+# DECISION-2026-10-04-SELF-ENFORCED-GOVERNANCE
+DECISION-ID: DECISION-2026-10-04-SELF-ENFORCED-GOVERNANCE
+Topic: Repository governance without GitHub branch protection
+Decision: Do not require GitHub branch protection, required human approvals, or GitHub rulesets as a prerequisite for repository correctness or completion. The authoritative merge gate is exact-head automated validation plus documented architectural invariants, security checks, and documentation synchronization. Enforce these requirements from repository-local agent instructions and CI so the governance model remains reproducible from a clean checkout.
+Confidence: HIGH
+Evidence IDs: AI_CONSTITUTION.md, AGENTS.md, meta/GOVERNANCE_MODEL.md, tools/verify_governance.py, .github/workflows/governance-gate.yml
+Status: LOCKED
+Reopen Conditions: Reopen only if the owner explicitly chooses a control-plane governance model or repository-local automation proves insufficient for a concrete safety/correctness requirement.
