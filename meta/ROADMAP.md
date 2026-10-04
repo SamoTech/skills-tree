@@ -274,7 +274,9 @@ That historical baseline was superseded by the verified reconciliation state on 
 
 The deterministic projector, read-only reconciliation workflow, validator, regression tests, and exact-head CI gates are verified. Phase 4 reconciliation hardening is complete; `/.well-known/agent-skills/index.json` remains unpublished.
 
-**Next:** audit and implement the separately gated discovery-index publication boundary. Reuse the verified Agent Skills projection and provenance; do not create a second generator or reconciler.
+**Status:** Publication implementation is present in `deploy-pages.yml`: the Pages artifact builds `/.well-known/agent-skills/index.json` from `tools/build_agent_skills_discovery.py`, validates the local publication bytes, and verifies the served URL with `tools/verify_agent_skills_discovery.py`. No second generator or reconciler is introduced.
+
+**Next:** perform a live post-merge Pages verification of the published endpoint. Only after that evidence is recorded should demand-intelligence work become the next strategic slice.
 
 
 ## Universal Graph Relationship Runtime Boundary — 2026-10-03
@@ -287,7 +289,9 @@ The selected correction keeps the schema vocabulary unchanged but makes runtime-
 
 **Verification status:** implementation and focused regression coverage are present; exact-head CI and merge are pending.
 
-**Next after merge:** re-audit the merged runtime, then address the independently verified CLI `search` gap.
+**Status:** The CLI `search` gap is resolved on main and has a deterministic contract plus regression coverage in `tests/test_search_cli.py`, `tests/test_search_engine.py`, and `tests/test_search_index_contract.py`.
+
+**Next:** verify the externally published discovery boundary; do not create another search implementation.
 
 
 ## Phase 4 Distribution Hardening — VERIFIED ON MAIN — 2026-10-04
