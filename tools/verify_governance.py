@@ -80,8 +80,11 @@ def main():
 
     demand = workflows.get("demand-signals.yml", "")
     if not demand: fail("demand signal collection workflow missing")
-    for phrase in ("tools/collect_demand_signals.py", "meta/demand-sources.json", "upload-artifact@v4"):
+    for phrase in ("tools/collect_demand_signals.py", "upload-artifact@v4"):
         if phrase not in demand: fail(f"demand signal collection contract missing: {phrase}")
+    demand_sources = require_file("meta/demand-sources.json")
+    for phrase in ("github_issue_search", "public", "repo:SamoTech/skills-tree"):
+        if phrase not in demand_sources: fail(f"demand signal source contract missing: {phrase}")
 
     pages = workflows.get("deploy-pages.yml", "")
     for phrase in ("tools/build_agent_skills_discovery.py", "site/.well-known/agent-skills/index.json", "tools/verify_agent_skills_discovery.py"):
