@@ -130,8 +130,7 @@ def reconcile(root: Path) -> dict:
                 legacy_item = {**legacy, "expected_package": expected, "match": "legacy-compatibility"}
                 legacy_compatibility.append(legacy_item)
                 matched.append(legacy_item)
-                if canonical.eligible:
-                    rename_needed.append(legacy_item)
+                rename_needed.append(legacy_item)
             if canonical.eligible:
                 missing.append({"source": source, "package": expected, "eligible": True, "blockers": [], "reason": "deterministic-projection-missing; legacy-compatibility-package-present"})
             else:
