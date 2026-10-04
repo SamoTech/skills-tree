@@ -19,6 +19,7 @@ on:
       - '.github/workflows/validate-graph.yml'
 
 # Serialize generated-main writers with the repository-wide main writer group.
+# This workflow is the single graph projection writer; no parallel graph workflow is permitted.
 concurrency:
   group: auto-commit-main
   cancel-in-progress: false
