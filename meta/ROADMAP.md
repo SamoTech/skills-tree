@@ -302,10 +302,10 @@ The deterministic Agent Skills corpus exposed a remaining control gap: reconcili
 
 Verified merged-main state:
 
-- 375 canonical skills scanned.
-- 258 eligible projections.
+- 376 canonical skills scanned after the IDE Integration Phase 3 slice.
+- 259 eligible deterministic projections.
 - 117 blocked canonical entries.
-- 296 Agent Skills packages, including 37 retained blocked packages, 1 intentional auxiliary package, and 1 legacy compatibility package.
+- Agent Skills package count will be reconciled by the deterministic projection workflow.
 - Kanban is deterministically projected.
 - CI now executes tools/reconcile_agent_skills.py --check.
 - Unexpected projection drift and unresolved deterministic target-name collisions are now explicit failure categories.
