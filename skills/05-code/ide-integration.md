@@ -67,7 +67,7 @@ The contract can be implemented through MCP, ACP, IDE-native APIs, extensions, o
 
 ## Runnable Example
 
-~~~~python
+```python
 requested = {
     "workspace": "/workspace/project",
     "capabilities": ["read_symbols", "read_diagnostics", "apply_edit", "run_tests"],
@@ -90,7 +90,7 @@ result = {
     "postcondition": "verified",
 }
 assert result["postcondition"] == "verified"
-~~~~
+```
 
 ## Related
 
