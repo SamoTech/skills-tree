@@ -383,3 +383,10 @@ The fresh consumer-path audit found that the previously tracked CLI search gap i
 The Agent Skills discovery publication boundary is also implemented in `.github/workflows/deploy-pages.yml`: Pages builds `/.well-known/agent-skills/index.json` from `tools/build_agent_skills_discovery.py`, validates the local publication bytes, and verifies the served URL with `tools/verify_agent_skills_discovery.py`. Repository code evidence therefore shows the publication path is implemented. External live serving is the remaining verification step; do not claim it is live until a successful Pages deployment provides that evidence.
 
 **Decision:** Do not build another search/discovery generator. Complete live Pages verification first; then reassess demand intelligence from evidence.
+
+
+## Demand Intelligence — IMPLEMENTED COLLECTION PATH — 2026-10-04
+
+Phase 2 now has its first reproducible public-signal path: `tools/collect_demand_signals.py` reads the explicit `meta/demand-sources.json` query set and records public GitHub issue-search evidence with source ID, query, repository, issue number, URL, state, dates, and labels. `.github/workflows/demand-signals.yml` runs the collector manually or weekly and stores the raw snapshot as an artifact.
+
+The collector deliberately does not infer popularity, adoption, or priority. The curated `meta/MOST-WANTED-SKILLS.md` remains unranked until a controlled collection run is reviewed and capability coverage/evidence gaps are mapped.

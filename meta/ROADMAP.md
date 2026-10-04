@@ -89,6 +89,8 @@ It is not an objective truth score.
 
 Exit evidence: at least one reproducible signal collection path and a backlog that clearly separates observed evidence from COO judgment.
 
+**2026-10-04 implementation:** the first public GitHub issue-search collector is implemented and scheduled/manual collection produces a raw evidence artifact. The next step is a controlled collection run and evidence review before promoting any capability into a ranked Most-Wanted cohort.
+
 ## Phase 3 — High-value skill migration
 
 Replace directory-order migration with demand/evidence-driven selection.

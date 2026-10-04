@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": "skills-tree-issues",
+      "type": "github_issue_search",
+      "scope": "public",
+      "queries": [
+        "repo:SamoTech/skills-tree is:issue (skill OR capability OR feature OR request)",
+        "repo:SamoTech/skills-tree is:issue (search OR discovery OR Agent Skills OR MCP OR RAG)",
+        "repo:SamoTech/skills-tree is:issue (memory OR evaluation OR benchmark OR automation)"
+      ],
+      "purpose": "Collect dated public repository demand signals without treating issue volume as adoption."
+    }
+  ]
+}
