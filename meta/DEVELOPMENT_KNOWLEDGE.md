@@ -583,3 +583,14 @@ The actual gap was trigger/validation coverage: `export-skills.yml` watched `ski
 The correction adds a deterministic read-only validator at `tools/verify_jsonld_export.py` plus focused tests. The validator checks JSON validity, TechArticle type, canonical skill ID/name agreement, ItemList ordering/counts, and duplicate URLs. The existing export workflow now invokes it and tracks exporter/registry changes.
 
 Do not add a second JSON-LD generator or workflow. JSON-LD remains a projection of the existing skill export pipeline.
+
+
+## Verified Slice — Release Authority Consolidation — 2026-10-04
+
+The release audit found a real writer overlap: `release-package.yml` was independently triggered by `v*.*.*` tags and created/updated GitHub Release assets, while `zero-touch-release.yml` was already the authoritative production release pipeline and also wrote the same release.
+
+The correction preserves the catalog packaging capability but moves it into the existing `zero-touch-release.yml` Job 4, using the exact release tag checkout. The catalog ZIP and MANIFEST are now attached in the same authoritative release job as the wheel and sdist. The duplicate tag-triggered workflow was removed.
+
+This keeps one production release authority, one manual recovery path, and no competing GitHub Release writer.
+
+Rule: release packaging is a projection of the authoritative release pipeline; do not recreate a separate tag-triggered publisher.
