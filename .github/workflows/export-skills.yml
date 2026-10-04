@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'skills/**/*.md'
+      - 'tools/export_skills.py'
+      - 'registry/universal_registry.json'
   schedule:
     - cron: '30 4 * * 1'  # Monday 04:30 UTC (after version-stats)
   workflow_dispatch:
@@ -39,6 +41,9 @@ jobs:
 
       - name: Run export
         run: python3 tools/export_skills.py
+
+      - name: Validate generated JSON-LD projection
+        run: python3 tools/verify_jsonld_export.py
 
       - name: Commit exported artifacts
         run: |
