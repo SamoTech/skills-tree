@@ -22,6 +22,7 @@ on:
 # This workflow is the single graph projection writer; no parallel graph workflow is permitted.
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 
 # Default: restrict all permissions to read-only.
