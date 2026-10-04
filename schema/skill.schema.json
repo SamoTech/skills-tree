@@ -17,7 +17,7 @@
     "id": {
       "type": "string",
       "description": "Unique skill identifier. Format: category-slug/skill-slug (e.g. 02-reasoning/causal)",
-      "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$"
+      "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z0-9][a-z0-9-]*$"
     },
     "title": {
       "type": "string",
@@ -84,7 +84,7 @@
       "items": {
         "type": "string",
         "minLength": 1,
-        "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$"
+        "pattern": "^[0-9]{2}-[a-z][a-z0-9-]*/[a-z0-9][a-z0-9-]*$"
       },
       "uniqueItems": true
     },
