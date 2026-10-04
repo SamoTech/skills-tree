@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 375
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 216
+- **Total skill files:** 376
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 217
 - 🟡 **Enriched** (real description + runnable code): 158
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -20,7 +20,7 @@
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 | 0 |
 | `03-memory` | 19 | 19 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 | 0 |
-| `05-code` | 28 | 6 | 22 | 0 | 0 | 0 |
+| `05-code` | 29 | 7 | 22 | 0 | 0 | 0 |
 | `06-communication` | 15 | 15 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 33 | 12 | 21 | 0 | 0 | 0 |
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 | 0 |
@@ -140,6 +140,7 @@
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
 - [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
+- [`skills/05-code/ide-integration.md`](skills/05-code/ide-integration.md) — IDE Integration
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — Security Scanning
 - [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — Argument Construction
 - [`skills/06-communication/citation-attribution.md`](skills/06-communication/citation-attribution.md) — Citation & Attribution
