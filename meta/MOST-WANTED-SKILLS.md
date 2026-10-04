@@ -47,6 +47,8 @@ No capability is ranked here until a reproducible public-signal collection pass 
 
 The first implementation task is therefore to build the signal collection and verification path, then populate this backlog from evidence.
 
+**2026-10-04 status:** `tools/collect_demand_signals.py`, `meta/demand-sources.json`, and the scheduled/manual `.github/workflows/demand-signals.yml` now provide the first reproducible public-signal path. The collector produces raw GitHub issue-search evidence only; it does not assign popularity, adoption, or priority. The first production snapshot is intentionally collected as a workflow artifact before being promoted into the curated backlog.
+
 ## Priority model
 
 Use:
