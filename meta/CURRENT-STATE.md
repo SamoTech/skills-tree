@@ -335,3 +335,13 @@ The stale 42-workflow statement is historical only. Historical audit documents r
 **Post-audit verification:** PR #318 merged as `2ef8a3fe9c987032d614a0e2a026cc4152867204` after exact-head Security Scan `37201410948` passed Gitleaks, Bandit high-severity/high-confidence enforcement, and `pip-audit --strict`; Test Suite, Build & Verify Wheel, Validate Skills Graph, and PR Checks also passed.
 
 The blocking repository security gate is now materially enforced. The remaining branch-protection finding is control-plane-only and remains tracked separately by issue #159.
+
+## 2026-10-04 — Repository self-enforced governance
+
+The repository governance model was audited after the owner explicitly rejected GitHub branch protection as a required control. Repository-local enforcement is now defined in `meta/GOVERNANCE_MODEL.md` and mechanically checked by `tools/verify_governance.py`, invoked by `.github/workflows/governance-gate.yml`.
+
+The governance gate verifies the mandatory agent/documentation preflight, canonical `skills/` source boundary, unique release authority, unique machine-readable projection paths, anti-slop and new-stub enforcement, blocking security controls, and the repository's explicit independence from GitHub branch protection.
+
+Issue #159 is therefore a control-plane decision outside the repository completion model, not an engineering blocker. Its historical references to branch protection remain historical and must not be interpreted as a current project requirement.
+
+**Status:** VERIFIED — repository governance is self-enforced without requiring GitHub branch protection.
