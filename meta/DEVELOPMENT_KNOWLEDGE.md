@@ -609,3 +609,12 @@ The current generated quality report verifies 375 skills with 0 stubs and 0 inva
 Control-plane branch protection remains an external blocker because the connected GitHub integration returned HTTP 403 when reading branch protection. Issue #159 remains the tracking authority.
 
 The complete audit evidence is recorded in `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
+
+
+## Full Repository Re-Audit — FINAL VERIFIED — 2026-10-04
+
+PR #318 merged as `2ef8a3fe9c987032d614a0e2a026cc4152867204`. The repository-code remediation from the full re-audit is complete. Security Scan now blocks on Gitleaks, Bandit high-severity/high-confidence findings, and `pip-audit --strict`. Exact-head Security Scan, Test Suite, Build & Verify Wheel, Validate Skills Graph, and PR Checks all passed before merge.
+
+The audit also reconciled current-state workflow count to 40, synchronized active memory/state, and preserved historical reports without treating them as current architecture. No competing generated source, index, graph, discovery, Pages, or release writer was introduced.
+
+The remaining branch-protection requirement is a GitHub control-plane action tracked by issue #159 and is not marked complete from repository evidence alone.
