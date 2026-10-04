@@ -111,3 +111,14 @@ The result is a prioritization aid, not a claim of objective popularity or unive
 6. Produce the first verified demand cohort.
 7. Convert selected gaps into migration issues/PRs.
 8. Recompute when ecosystem evidence changes.
+
+
+## Agentic Loop — Retrieval/Evaluation Gate — 2026-10-04
+
+**OBSERVE:** The live consumer search path is deterministic lexical retrieval over the canonical generated projection. The contract explicitly excludes semantic search, fuzzy matching, query expansion, and trust/quality scoring unless separately evidenced. Existing recommendation evaluation reports strong historical aggregate results (P@5 0.76, R@10 0.93) but also show recurring cross-goal ranking errors; the stored report is dated 2026-06-15 and therefore is not treated as current runtime evidence.
+
+**ASSESS:** The repository already contains a universal registry runtime with typed evidence/benchmark access, deterministic goal/capability/skill traversal, provenance validation, compatibility checks, and defensive-copy behavior. Therefore there is no justification for adding another retrieval engine or registry. A stronger evidence gap exists in P0 capability evaluation coverage: the repository audit identifies CAP-007 semantic retrieval, CAP-011 self-evaluation, and CAP-014 tool execution as missing evaluation mappings. This finding requires live-state revalidation before implementation because the audit is historical.
+
+**PLAN / DECIDE:** Opened GitHub Issue #335 as the bounded next implementation slice. It requires re-verifying the live evaluation ontology, defining the minimum canonical evaluation contracts using existing ontology/benchmark boundaries, adding executable behavioral tests and CI validation, and synchronizing documentation. Semantic search or new skills remain blocked until retrieval-quality evidence demonstrates a real implementation gap.
+
+**Status:** `INVESTIGATING` — Issue #335. No new skill or competing search implementation is authorized by this loop.
