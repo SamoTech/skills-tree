@@ -48,7 +48,7 @@ def test_check_fails_for_rename_and_stale_provenance(tmp_path):
     assert report["eligible_missing"]
     assert report["legacy_compatibility"]
     assert report["unexpected"]
-    assert report["rename_needed"] == []
+    assert report["rename_needed"]
     assert report["stale"]
     failures = reconciliation_failures(report)
     assert "eligible_missing: 1" in failures
