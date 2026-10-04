@@ -4,7 +4,13 @@
   "title": "Edge",
   "description": "Canonical schema for a directed edge between two skill nodes.",
   "type": "object",
-  "required": ["source", "target", "type", "evidence", "source_file"],
+  "required": [
+    "source",
+    "target",
+    "type",
+    "evidence",
+    "source_file"
+  ],
   "additionalProperties": false,
   "properties": {
     "source": {
@@ -17,7 +23,13 @@
     },
     "type": {
       "type": "string",
-      "enum": ["REQUIRES", "SUPPORTS", "RELATED_TO", "SUBSKILL_OF", "ALTERNATIVE_TO"],
+      "enum": [
+        "REQUIRES",
+        "SUPPORTS",
+        "RELATED_TO",
+        "SUBSKILL_OF",
+        "ALTERNATIVE_TO"
+      ],
       "description": "Semantic relationship type."
     },
     "evidence": {
@@ -31,8 +43,20 @@
     },
     "confidence": {
       "type": "string",
-      "enum": ["high", "medium", "low"],
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
       "description": "Extraction confidence. high = explicit keyword match; medium = contextual; low = inferred."
+    },
+    "source_method": {
+      "type": "string",
+      "enum": [
+        "frontmatter_prerequisite",
+        "related_skills",
+        "body_text"
+      ]
     }
   }
 }
