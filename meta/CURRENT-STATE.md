@@ -411,3 +411,7 @@ The skill cites current public evidence for MCP/IDE integration and explicitly a
 ## Discovery Publication Boundary — VERIFIED
 
 Live GitHub Pages verification completed on 2026-10-04. Deployment run `37227197992` for main commit `1b3a5f387a17ce6b57885b06d6f26db060a8784d` succeeded. The deployment job's `Verify served discovery bytes` step also succeeded, proving the published `/.well-known/agent-skills/index.json` endpoint passed the repository's served-byte verifier. The discovery publication boundary is therefore CLOSED as verified. Next strategic slice: Demand Intelligence / Most-Wanted evidence collection.
+
+## Demand Intelligence — Initial Evidence Pass
+
+The first repository-local demand collection path is present and a controlled public-signal cohort has been recorded. External public-source corroboration on 2026-10-04 shows Agent Skills are an ecosystem-scale concern, with strong activity around discovery, interoperability, retrieval/selection, evaluation, governance, and safety. A coverage reconciliation found that the repository already has broad canonical coverage for the local memory, IDE/code, reasoning, and action-execution demand signals. The next decision gate is therefore evidence/runtime quality rather than raw skill creation. Preferred investigation: skill evaluation/invocation evidence and retrieval quality.
