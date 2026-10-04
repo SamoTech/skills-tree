@@ -4,7 +4,7 @@
 
 ## Verified snapshot
 
-- Snapshot date: 2026-10-03
+- Snapshot date: 2026-10-04
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
 - Latest verified runtime sequence on `main` includes the benchmark runtime (`db474059fbe0efa56ca167a7108146323c9cf857`), anti-slop gate (`90f9422954936e054adc630ad723e6165074492c`), Universal Graph fail-closed boundary (`c8e1c536f8abfd860ddf41cefeff15b88518d095`), recommendation registry context (PR #292), and blueprint registry context (PR #293). Live `main` remains authoritative and must be resolved before each execution cycle.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
@@ -53,7 +53,7 @@
 - Release authority: `zero-touch-release.yml` is the production release pipeline; `release.yml` is retained as manual recovery.
 - Pages authority: `deploy-pages.yml` is the single repository-controlled Pages deployment workflow.
 - Confirmed direct-main generated writers use the shared `auto-commit-main` serialization group with `cancel-in-progress: false`.
-- The live 42-workflow classification is now recorded in `meta/WORKFLOW_INVENTORY.md`.
+- The live workflow inventory is 40 files, as verified in `meta/WORKFLOW_INVENTORY.md`.
 - `validate-graph.yml` permission isolation is implemented and verified: `build-and-validate` is `contents: read`; `generate-main-graph` alone has `contents: write` and runs only on trusted `main` pushes after validation; `quality-report` waits for graph generation before writing its projection.
 - PR #232 CI passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label; Dependabot Review Gate was skipped.
 - GitHub branch inspection currently reports `main` as unprotected with required-status-check enforcement off. This is documented as a control-plane finding; no branch-protection change was made in this cycle.
@@ -311,3 +311,20 @@ The production release boundary is consolidated: `zero-touch-release.yml` is the
 The workflow inventory and release governance documentation are synchronized with the executable architecture.
 
 **Rule:** do not reintroduce a second tag-triggered GitHub Release publisher.
+
+
+## Full Repository Re-Audit — 2026-10-04
+
+The current full-project audit is recorded in `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
+
+Verified current baseline:
+- 375 canonical skills; quality report: 216 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 fixture.
+- 258 eligible Agent Skills projections; 117 blocked; 296 packages.
+- Graph: 375 nodes, 240 edges, 9 REQUIRES edges, 0 warnings; generated graph projections are byte-identical.
+- 40 workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
+- JSON-LD, search, Agent Skills reconciliation/discovery, graph, Pages, and release boundaries each have one authoritative writer/generation path.
+- Release consolidation is merged as PR #317 at `262dfea66fb81e5779e93b45884d857f3b10522d`.
+- The current audit found the security gate was under-scoped: Gitleaks was blocking, but Python SAST and dependency auditing were not part of the blocking security workflow. This is being hardened in the current audit PR.
+- GitHub branch-protection state remains a control-plane finding; the connected integration returned HTTP 403 for the branch-protection endpoint, so no new control-plane claim is made.
+
+The stale 42-workflow statement is historical only. Historical audit documents retain prior findings and are not current architecture authority.
