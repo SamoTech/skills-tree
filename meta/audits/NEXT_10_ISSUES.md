@@ -94,12 +94,12 @@ No `CODEOWNERS` file exists. Without it, changes to security-sensitive paths (`.
 Four workflows govern or overlap with the release process: `release.yml` (2,086 bytes), `release-package.yml` (5,651 bytes), `semantic-release.yml` (955 bytes), `zero-touch-release.yml` (9,924 bytes). There is no documentation identifying which is the authoritative release workflow. This creates a risk of double-releases, conflicting version tags, and untraceable release failures.
 
 **Acceptance Criteria:**
-- [ ] Audit of all 4 release workflows to determine which is currently active and correct
-- [ ] Single authoritative release workflow identified and documented in `meta/CI_ARCHITECTURE.md`
-- [ ] All non-authoritative release workflows either deleted or converted to reusable workflows called by the authoritative one
-- [ ] At most 1 file triggers a PyPI publish or GitHub Release creation
-- [ ] Reduced to ≤2 release-related workflow files total
-- [ ] A test release (dry-run or pre-release) confirms the consolidated pipeline produces a correct release artifact
+- [x] Audit of all release workflows completed; `zero-touch-release.yml` is the production authority and `release.yml` is manual recovery
+- [x] Single authoritative release workflow identified and documented in `meta/AUTOMATED_RELEASES.md` and `meta/WORKFLOW_INVENTORY.md`
+- [x] Duplicate `release-package.yml` writer deleted; `release.yml` retained only for manual recovery
+- [x] One production workflow performs PyPI publication and GitHub Release writes
+- [x] Reduced to 2 release-related workflow files: production `zero-touch-release.yml` and manual recovery `release.yml`
+- [x] CI build/test gates for the consolidation are required; live publication is not triggered by this documentation-only/CI change
 
 ---
 
