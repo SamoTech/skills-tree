@@ -103,7 +103,7 @@ A distribution change is not complete until:
 
 ## Current state
 
-The current generated quality report verifies 374 registry skill files: 202 battle-tested, 159 enriched, 13 stubs, and 0 invalid. Category-level classification is authoritative in `meta/QUALITY-REPORT.md`.
+The current generated quality report verifies 374 registry skill files: 202 battle-tested, 159 enriched, 13 stubs, and 0 invalid. The separate Agent Skills reconciliation baseline is 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages. Category-level classification is authoritative in `meta/QUALITY-REPORT.md`.
 
 The standards-compatible distribution layer is intentionally being introduced as a separate projection so the existing corpus can be migrated incrementally without corrupting the canonical registry.
 
@@ -122,4 +122,8 @@ Legacy stubs are migrated incrementally; the current count is authoritative only
 8. Migration batches are independently reviewable and rollback-safe; a failed batch does not justify lowering the gate for later batches.
 
 The compatibility package is a projection of the canonical entry. It does not become an independently authored source of truth.
-\n\n## Verified projection baseline — 2026-10-02\n\nPR #251 merged the deterministic projection/audit contract as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`. The audit verifies 374 canonical skill entries, with 250 eligible under the current evidence/description/name/size gates and 124 blocked. Eight canonical name collisions must be resolved before a full one-to-one projection can be generated. The repository currently contains 280 validator-passing Agent Skills packages; package provenance has not yet been reconciled against the canonical corpus.\n\nThe repository therefore has a verified projection mechanism, not a claim of full-corpus Agent Skills compliance. The `/.well-known/agent-skills/index.json` publication gate remains closed until generated artifacts, provenance, reproducibility, and SHA-256 integrity are jointly verified.
+\n\n## Verified projection baseline — 2026-10-04
+
+PR #305 merged the reconciliation hardening gate to `main` as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`. The current audit scans 375 canonical entries, with 258 eligible and 117 blocked. The Agent Skills projection contains 296 packages: 258 deterministic eligible projections, 37 retained blocked packages, one intentional auxiliary package, and one legacy compatibility package. Reconciliation now runs as a hard read-only CI invariant.
+
+The repository has a verified deterministic Agent Skills projection and reconciliation mechanism, but `/.well-known/agent-skills/index.json` is not live. Publication remains gated on generation from the same verified build output, provenance and reproducibility validation, digest-to-served-byte verification, and end-to-end publication verification.\n

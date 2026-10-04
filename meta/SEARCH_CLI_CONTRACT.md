@@ -1,6 +1,6 @@
 # CLI Search Query and Ranking Contract
 
-Status: Implemented on branch `feat/cli-search-contract-20261003`; verification required before merge.
+Status: VERIFIED ON MAIN — PR #299 merged as `7302d0780b2857bdd2f54363a2e6158eafc45292`; installable search-runtime verification is complete.
 
 Issue #86 is implemented against the existing generated search projection. The CLI does not build a second index and does not parse canonical Markdown.
 
