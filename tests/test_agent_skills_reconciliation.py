@@ -49,3 +49,43 @@ def test_check_fails_for_rename_and_stale_provenance(tmp_path):
     failures = reconciliation_failures(report)
     assert "rename_needed: 1" in failures
     assert "stale: 1" in failures
+
+
+def test_intentional_auxiliary_package_is_not_unexpected(tmp_path):
+    write_skill(tmp_path, "01-test/example.md")
+    write_package(
+        tmp_path,
+        "skills-tree-registry",
+        "",
+        "# Auxiliary registry helper\n\n## Evidence\n\n- Repository evidence\n",
+    )
+    report = reconcile(tmp_path)
+    assert report["extra"]
+    assert report["unexpected"] == []
+    assert "unexpected" not in reconciliation_failures(report)
+
+
+def test_unexpected_package_fails_reconciliation(tmp_path):
+    write_skill(tmp_path, "01-test/example.md")
+    write_package(
+        tmp_path,
+        "unrelated",
+        "skills/01-test/not-canonical.md",
+        "# Unexpected\n\n## Evidence\n\n- Repository evidence\n",
+    )
+    report = reconcile(tmp_path)
+    assert report["unexpected"]
+    assert "unexpected: 1" in reconciliation_failures(report)
+
+
+def test_resolved_name_collisions_are_machine_checked():
+    from tools.reconcile_agent_skills import desired_names, reconciliation_failures
+
+    records = [
+        {"source": "skills/01-a/foo.md", "id": "foo", "base_name": "foo", "category": "same", "category_dir": "01-a"},
+        {"source": "skills/02-b/foo.md", "id": "foo", "base_name": "foo", "category": "same", "category_dir": "02-b"},
+    ]
+    desired, _ = desired_names(records)
+    report = {"resolved_name_collisions": {"same-foo": [records[0]["source"], records[1]["source"]]}}
+    assert len(set(desired.values())) == 2
+    assert "resolved_name_collisions: 1" in reconciliation_failures(report)
