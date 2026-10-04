@@ -14,11 +14,11 @@ Skills Tree is a public, trusted, machine-discoverable source of AI skills. The 
 
 ## Verified Agent Skills baseline — 2026-10-04
 
-- 375 canonical skill entries scanned.
-- 258 eligible deterministic projections.
+- 376 canonical skill entries scanned.
+- 259 eligible deterministic projections.
 - 117 blocked canonical entries.
 - 296 Agent Skills packages.
-- 258 deterministic eligible projections.
+- 259 deterministic eligible projections.
 - 37 retained blocked packages.
 - 1 intentional auxiliary package: `skills-tree-registry`.
 - 1 legacy compatibility package: `rag`.
