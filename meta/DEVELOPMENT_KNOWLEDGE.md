@@ -509,3 +509,19 @@ The focused registry-context test exposed an unrelated pre-existing schema/artif
 PR #301 corrected the canonical Kanban body metadata and PR #302 synchronized the generated `docs/api/skills.json` and `docs/api/skills.yaml` projections. PR #301 exact-head CI passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, PR Checks, Validate Skills Graph, Agent Skills Distribution Audit, Schema Enforcement, Check Links, Skill Quality Report, Validate Skills, AST Sweep, Skill Upgrade Detector, and Auto Label. PR #302 passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, and PR Checks before merge.
 
 The resulting machine-readable projection now matches the canonical source for the affected date fields. The next audit target is the `agent-skills/` projection and its provenance/canonical-source boundary.
+
+
+## 2026-10-04 — Agent Skills reconciliation hard gate
+
+A fresh corpus audit found that the existing reconciler already computed eligible_missing, but its default command returned success regardless of that result. This meant a newly eligible canonical skill could become absent from the Agent Skills projection without failing the distribution workflow.
+
+The correction is intentionally small: reconciliation remains read-only by default, while --check turns the existing report into an enforcement boundary. The check fails for eligible missing projections, deterministic projection drift, required provenance renames, stale/ambiguous provenance, unexpected packages outside the explicit auxiliary boundary, and duplicate target names after collision resolution.
+
+The Kanban skill was the concrete current example. It is eligible under the existing generator gates and is now represented by its deterministic projection; no Kanban-specific code path was added.
+
+The important design distinction is that raw canonical collision groups are not themselves errors. The existing category-qualified resolver is the intended deterministic mechanism. Only a collision that survives resolution is invalid.
+
+This keeps skills/ authoritative, avoids a second eligibility registry, and turns reconciliation from an informational report into a machine-enforced invariant without changing blocked legacy packages.
+
+
+Legacy Agent Skills package names are a compatibility concern, not a reason to weaken the deterministic projection contract. When a valid canonical source has an older non-deterministic package name, reconciliation must require the deterministic package to exist while classifying the older package as legacy compatibility. This avoids mass renames while still proving that every eligible canonical skill has its deterministic projection.
