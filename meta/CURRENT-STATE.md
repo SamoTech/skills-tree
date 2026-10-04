@@ -347,13 +347,13 @@ Issue #159 is therefore a control-plane decision outside the repository completi
 **Status:** VERIFIED — repository governance is self-enforced without requiring GitHub branch protection.
 
 
-## Core Agentic Execution Loop — IMPLEMENTED — 2026-10-04
+## Core Agentic Execution Loop — IMPLEMENTED — 2026-10-04 — HISTORICAL IMPLEMENTATION RECORD
 
 The repository now defines a bounded autonomous execution contract for AI agents. The canonical cycle is `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`. Verification failures become evidence for the next cycle instead of requiring a new user prompt. The loop has explicit `CONTINUE`, `BLOCKED`, and `DONE` outcomes, a default 12-iteration ceiling, repeated-failure safeguards, authority escalation boundaries, and a completion contract requiring invariant verification, tests/CI, generated-artifact synchronization, and documentation synchronization.
 
 The contract is defined in `meta/AGENT_OPERATING_MODEL.md`, reinforced by `AGENTS.md` and `AI_CONSTITUTION.md`, and checked by `tools/verify_governance.py`. This is an operating contract, not a claim that GitHub or an external hosted agent automatically executes arbitrary future work without an invoking agent runtime.
 
-Status: IMPLEMENTED — NOT VERIFIED on main until the exact-head CI matrix and post-merge governance gate pass.
+Status: VERIFIED — superseded by the exact-head verification recorded immediately below.
 
 
 ## Core Agentic Execution Loop — VERIFIED — 2026-10-04
@@ -362,8 +362,15 @@ PR #324 was merged after the exact final head `8f254754231bd8153efd50ab0e4b1bff4
 
 **Status:** VERIFIED on main at merge commit `6fa92dd42768395102215a26e22999d6de81c013`.
 
-## Main-Writer Race — DETECTED — 2026-10-04
+## Main-Writer Race — DETECTED AND RESOLVED — 2026-10-04
 
 Post-merge verification exposed a real automation race: the graph writer advanced main while the quality projection and zero-touch release workflows were still operating from the triggering SHA. The graph projection itself completed, but the quality writer failed on stale upstream state and zero-touch release failed when its upstream SHA changed. This is a concurrency/state-reconciliation defect, not a graph-generation defect.
 
-The next loop is therefore the repository-wide main-writer serialization contract: shared `auto-commit-main` concurrency, synchronization to live `origin/main` before mutation, and explicit verification that graph, quality, projection, and release writers cannot operate from stale main state.
+The remediation was implemented through PR #325 (stale-SHA synchronization) and PR #326 (lossless `queue: max` writer queue). Exact-head CI passed for both PRs. Post-merge evidence showed graph projection, quality projection, and zero-touch release completing sequentially; zero-touch release completed successfully at version 1.74.0, and the generated graph/quality writer sequence advanced main without the earlier stale-SHA failure.
+
+**Status:** VERIFIED on live main. The repository-wide writer contract is now: shared `auto-commit-main`, `queue: max`, `cancel-in-progress: false`, plus live-main synchronization before mutation.
+
+
+## Documentation Synchronization — VERIFIED — 2026-10-04
+
+The agentic execution contract, governance model, main-writer serialization, and lossless writer queue are synchronized with the verified live implementation. Historical entries remain explicitly historical; current operational state is represented by the resolved sections above and the durable decisions in `meta/memory/DECISIONS.md`.
