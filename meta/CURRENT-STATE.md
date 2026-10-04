@@ -83,9 +83,9 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-Issue #86 search implementation is now merged and verified. The next mandatory action is a post-merge audit of live `main`, generated search projections, CLI/package behavior, and synchronized documentation; only after that audit should the next roadmap slice be selected. No second search index or ranking implementation is authorized.
+The deterministic Agent Skills discovery publication boundary is now verified on main. The next mandatory action is a fresh audit of the next remaining machine-readable consumer/projection boundary; do not add another generator, reconciler, or search index.
 
-Do not invent a numbered P2.3 requirement, reopen completed P1 work, or expand scope merely to create activity.
+Do not invent a numbered P2.3 requirement, reopen completed work, or expand scope merely to create activity.
 
 ## Kanban Skill Addition — VERIFIED — 2026-10-03
 
@@ -240,3 +240,29 @@ Verified merged-main state:
 - No .well-known/agent-skills/index.json publication was introduced.
 
 This state is VERIFIED ON MAIN after PR #305 merge; the next action is a fresh audit of remaining machine-readable discovery consumers.
+
+
+## 2026-10-04 — Agent Skills discovery publication boundary — VERIFIED ON MAIN
+
+The deterministic Agent Skills discovery publication slice is now merged and verified end-to-end.
+
+Verified main:
+- Main HEAD: `e306a810c7cabac25b9f19fa4aeeab2e62ed0e3f`.
+- 375 canonical skill entries remain the source corpus.
+- 258 eligible deterministic Agent Skills projections are published.
+- 117 canonical entries remain blocked.
+- 296 Agent Skills packages remain reconciled under the existing hard gate.
+- The discovery index is generated from the same reconciled projection and validated against `meta/agent-skills-discovery-index.schema.json`.
+- Every published `SKILL.md` digest is SHA-256 over the exact published bytes.
+- Local Pages artifact byte verification passed.
+- GitHub Pages deployment run `37199284169` passed both build and deployment jobs.
+- Served discovery index and every advertised Agent Skills artifact passed served-byte SHA-256 verification.
+
+Current project-site discovery URL:
+`https://samotech.github.io/skills-tree/.well-known/agent-skills/index.json`
+
+The repository does not claim the root-level `/.well-known/agent-skills/index.json` endpoint because the current hosting topology is a GitHub Pages project site. A root endpoint remains a separate hosting/custom-domain control-plane decision.
+
+No second generator, reconciler, search index, or Pages deployment workflow was introduced.
+
+**Status:** VERIFIED — deterministic discovery generation, provenance/reconciliation, schema validation, artifact integrity, Pages deployment, and served-byte verification are all aligned.
