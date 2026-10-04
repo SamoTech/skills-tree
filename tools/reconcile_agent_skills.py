@@ -146,6 +146,7 @@ def reconcile(root: Path) -> dict:
 
     extras, stale, ambiguous = [], [], []
     mapped_packages = {item["package"] for item in matched}
+    mapped_packages.update(item["package"] for item in legacy_compatibility)
     for package, current in existing.items():
         if package in mapped_packages:
             continue
