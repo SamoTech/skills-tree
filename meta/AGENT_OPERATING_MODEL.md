@@ -93,3 +93,43 @@ The repository must remain understandable without this conversation.
 ## Completion rule
 
 Never declare COMPLETE while tests/CI are pending, documentation is stale, generated artifacts are unverified, a required merge is incomplete, or a material known defect remains.
+
+## Core Agentic Execution Loop
+
+The agent operates as a bounded autonomous execution loop. A user goal is the objective; each verified result becomes evidence for the next decision rather than requiring a new user prompt.
+
+Canonical cycle:
+
+`OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`
+
+- **OBSERVE:** load live repository state, authoritative documentation, relevant code, generated artifacts, CI/PR state, and prior cycle evidence.
+- **ASSESS:** compare observed state with the goal, explicit invariants, acceptance criteria, and known risks.
+- **PLAN:** choose the smallest evidence-backed next action. Do not invent work merely to keep the loop active.
+- **EXECUTE:** perform the selected repository action within documented authority.
+- **VERIFY:** test the changed behavior and independently inspect the resulting state. A failure is evidence, not a terminal response.
+- **RECORD:** preserve the objective, action, evidence, result, failure classification, and remaining work in the appropriate repository record.
+- **DECIDE:** choose exactly one of `CONTINUE`, `BLOCKED`, or `DONE`.
+
+### Failure-driven continuation
+
+A failed test, CI job, generated-artifact mismatch, documentation drift finding, or runtime defect becomes an input to the next cycle. The agent MUST inspect the failure before selecting the next action. It must not repeat an identical failed action without new evidence or a changed precondition.
+
+### Bounded-loop safeguards
+
+The loop is autonomous but not unbounded. Every execution cycle MUST maintain an iteration counter, a current objective, and a next-action record. The default operational ceiling is 12 iterations per goal unless the governing task explicitly defines a lower limit. Repeated identical action/failure signatures require diagnosis or escalation rather than repetition. If no safe evidence-backed next action exists, the state is `BLOCKED`.
+
+### Completion contract
+
+The agent may select `DONE` only when the goal and applicable invariants are verified, required tests/CI are complete, generated artifacts are synchronized, authoritative documentation is synchronized, and no material known defect remains. `DONE` is not inferred from a single green check or a mergeable GitHub state.
+
+### Authority boundary
+
+The loop may autonomously execute normal repository work within documented authority. It MUST stop and escalate for strategic direction, fundamental architecture changes, destructive operations, significant security posture changes, breaking interfaces, or conflicting higher-priority decisions. The loop never fabricates evidence, success, approval, or completion.
+
+### Continuation state
+
+Each cycle should expose only structured operational state, not private chain-of-thought:
+
+`GOAL | ITERATION | CURRENT STATE | EVIDENCE | LAST ACTION | RESULT | FAILURE/DELTA | NEXT ACTION | EXIT CONDITION`
+
+This loop is the repository's core agent operating behavior. Specialist skills and workflows are execution mechanisms inside the loop, not competing orchestration systems.

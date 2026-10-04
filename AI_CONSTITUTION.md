@@ -132,7 +132,25 @@ Significant execution work must preserve:
 The existing agent handoff and memory protocols may carry these fields.
 
 
-## 10. Mandatory Agent Documentation Preflight Gate
+## 10. Core Agentic Execution Contract
+
+Meaningful repository work MUST run as a bounded evidence-driven loop rather than a one-shot prompt/response exchange. The canonical cycle is:
+
+`OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`
+
+The agent MUST:
+- derive the next action from live state and evidence;
+- treat failures and regressions as inputs to the next cycle;
+- avoid repeating an identical failed action without new evidence or a changed precondition;
+- maintain an iteration counter and next-action record;
+- stop as `BLOCKED` when no safe evidence-backed action exists;
+- select `DONE` only after goal satisfaction, applicable invariant verification, completed tests/CI, generated-artifact synchronization, documentation synchronization, and final audit;
+- escalate strategic, destructive, security-significant, breaking, or otherwise reserved decisions;
+- expose structured execution state, not private chain-of-thought.
+
+The default loop ceiling is 12 iterations per goal. A task may define a lower ceiling. This contract is operational behavior, not a suggestion.
+
+## 11. Mandatory Agent Documentation Preflight Gate
 
 Before an agent performs meaningful repository work, it MUST complete this preflight against the live repository, not against chat history:
 1. Read `AI_CONSTITUTION.md` and `AGENTS.md`.

@@ -345,3 +345,12 @@ The governance gate verifies the mandatory agent/documentation preflight, canoni
 Issue #159 is therefore a control-plane decision outside the repository completion model, not an engineering blocker. Its historical references to branch protection remain historical and must not be interpreted as a current project requirement.
 
 **Status:** VERIFIED — repository governance is self-enforced without requiring GitHub branch protection.
+
+
+## Core Agentic Execution Loop — IMPLEMENTED — 2026-10-04
+
+The repository now defines a bounded autonomous execution contract for AI agents. The canonical cycle is `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`. Verification failures become evidence for the next cycle instead of requiring a new user prompt. The loop has explicit `CONTINUE`, `BLOCKED`, and `DONE` outcomes, a default 12-iteration ceiling, repeated-failure safeguards, authority escalation boundaries, and a completion contract requiring invariant verification, tests/CI, generated-artifact synchronization, and documentation synchronization.
+
+The contract is defined in `meta/AGENT_OPERATING_MODEL.md`, reinforced by `AGENTS.md` and `AI_CONSTITUTION.md`, and checked by `tools/verify_governance.py`. This is an operating contract, not a claim that GitHub or an external hosted agent automatically executes arbitrary future work without an invoking agent runtime.
+
+Status: IMPLEMENTED — NOT VERIFIED on main until the exact-head CI matrix and post-merge governance gate pass.
