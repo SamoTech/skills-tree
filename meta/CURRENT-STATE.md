@@ -399,3 +399,10 @@ The first controlled public-signal review executed against the configured GitHub
 The review identified an unranked capability signal cohort around search/discovery (#86), memory (#87), code/IDE integration (#88), reasoning (#90), and action execution (#91). Search/discovery is already implemented and verified; the remaining signals require canonical coverage, evidence-tier, freshness, and dependency-gap analysis before any migration priority is selected.
 
 **Decision:** Do not create a popularity ranking. Use the observed cohort as input to a coverage/evidence reconciliation pass, then select Phase 3 work only where demand and repository gaps intersect.
+
+
+## Phase 3 Candidate — IDE Integration — IMPLEMENTED ON BRANCH — 2026-10-04
+
+Coverage/evidence reconciliation selected IDE integration as the first demand-driven Phase 3 slice. The canonical `05-code` directory already covers code generation, review, execution, Git, APIs, debugging, and related capabilities, but no dedicated IDE integration contract existed. The new `skills/05-code/ide-integration.md` defines a protocol-neutral contract around workspace identity, code intelligence, diagnostics, bounded edits, tests/builds, explicit authorization, least privilege, and independent postcondition verification.
+
+The skill cites current public evidence for MCP/IDE integration and explicitly avoids universal compatibility or benchmark claims. CI must determine whether the skill is schema-valid, anti-slop compliant, projection-eligible, and safe to merge.
