@@ -178,6 +178,11 @@ def reconcile(root: Path) -> dict:
         "unexpected": unexpected,
         "stale": stale,
         "resolved_name_collisions": resolved_name_collisions,
+        "unresolved_collisions": {
+            package: sources
+            for package, sources in desired_name_sources.items()
+            if len(sources) > 1
+        },
         "ambiguous": ambiguous,
         "collisions": collisions,
         "collision_resolution": {source: desired[source] for sources in collisions.values() for source in sources},
@@ -185,7 +190,7 @@ def reconcile(root: Path) -> dict:
 
 def reconciliation_failures(report: dict) -> list[str]:
     failures = []
-    for key in ("eligible_missing", "drifted", "rename_needed", "stale", "ambiguous", "unexpected", "resolved_name_collisions"):
+    for key in ("eligible_missing", "drifted", "rename_needed", "stale", "ambiguous", "unexpected", "unresolved_collisions"):
         items = report.get(key, [])
         if items:
             failures.append(f"{key}: {len(items)}")
