@@ -13,6 +13,7 @@ permissions:
   contents: write
 concurrency:
   group: auto-commit-main
+  queue: max
   cancel-in-progress: false
 jobs:
   osv-watch:
