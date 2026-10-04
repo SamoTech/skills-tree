@@ -265,7 +265,7 @@ The product mission now has an explicit public discovery surface for AI agents a
 
 This is a discovery/documentation layer only. It does not create a competing catalog or declare the future `/.well-known/agent-skills/index.json` live. The latter remains gated on deterministic generation, validation, provenance, publication reproducibility, and SHA-256 verification.
 
-**Next:** validate this discovery surface in CI, then continue toward generated Agent Skills/discovery artifacts only when the repository's distribution completion gate is satisfied.
+**Next:** discovery-surface validation is complete; the remaining work is the separately gated `/.well-known/agent-skills/index.json` publication boundary.
 \n\n## Agent Skills Distribution Contract — VERIFIED IMPLEMENTATION — 2026-10-02
 
 PR #251 established the executable distribution contract and merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
