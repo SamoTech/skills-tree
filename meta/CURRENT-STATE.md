@@ -300,3 +300,14 @@ PR consolidation moves catalog ZIP + MANIFEST generation into Job 4 of `zero-tou
 No semantic-release workflow file exists on current main; semantic-release is executed as Job 1 inside `zero-touch-release.yml`.
 
 **Status:** VERIFIED implementation boundary; final PR CI and post-merge release-path checks are required before treating the change as complete.
+
+
+## 2026-10-04 — Release authority consolidation — VERIFIED ON MAIN
+
+PR #317 merged as `262dfea66fb81e5779e93b45884d857f3b10522d`.
+
+The production release boundary is consolidated: `zero-touch-release.yml` is the sole production release writer; `release.yml` remains manual recovery only; catalog ZIP + MANIFEST packaging is now part of zero-touch Job 4; the duplicate tag-triggered `release-package.yml` workflow was removed.
+
+The workflow inventory and release governance documentation are synchronized with the executable architecture.
+
+**Rule:** do not reintroduce a second tag-triggered GitHub Release publisher.
