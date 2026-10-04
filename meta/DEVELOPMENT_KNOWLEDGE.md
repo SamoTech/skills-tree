@@ -525,3 +525,37 @@ This keeps skills/ authoritative, avoids a second eligibility registry, and turn
 
 
 Legacy Agent Skills package names are a compatibility concern, not a reason to weaken the deterministic projection contract. When a valid canonical source has an older non-deterministic package name, reconciliation must require the deterministic package to exist while classifying the older package as legacy compatibility. This avoids mass renames while still proving that every eligible canonical skill has its deterministic projection.
+
+## Verified Slice — Agent Skills Discovery Publication — 2026-10-04
+
+The Agent Skills discovery publication boundary is now an executable, verified projection rather than a roadmap-only requirement.
+
+Canonical and projection boundaries remain unchanged:
+- `skills/` is canonical.
+- `agent-skills/` is deterministic projection.
+- `tools/reconcile_agent_skills.py --check` remains the hard reconciliation invariant.
+- `docs/api/skills.json` remains the machine-readable registry projection.
+- Search projections remain separate and are not reused as discovery catalogs.
+
+Publication implementation:
+- `tools/build_agent_skills_discovery.py` generates a deterministic, name-sorted discovery index from the existing reconciled projection.
+- `meta/agent-skills-discovery-index.schema.json` defines the discovery contract.
+- `tools/verify_agent_skills_discovery.py` verifies exact local or served bytes against SHA-256 digests.
+- `.github/workflows/deploy-pages.yml` remains the only Pages deployment authority and now publishes the Agent Skills artifacts and discovery index in the same build artifact.
+
+Important implementation findings:
+1. Direct execution of a tooling script required an explicit repository-root import path before importing the existing reconciliation module.
+2. MkDocs strict mode exposed a stale link from `docs/cli.md` to a file outside the documentation tree; the link was changed to an absolute GitHub source URL instead of weakening strict mode.
+3. GitHub Pages artifact publication excludes hidden files by default; `.well-known` therefore required `include-hidden-files: true` on `actions/upload-pages-artifact`.
+4. The served-byte verifier is the final publication gate; successful deployment alone is not sufficient evidence.
+
+Final verification:
+- Main HEAD: `e306a810c7cabac25b9f19fa4aeeab2e62ed0e3f`.
+- Pages run: `37199284169`.
+- Build job: success.
+- Deploy job: success.
+- Served discovery verification: success.
+- 258 eligible Agent Skills entries are represented in the deterministic discovery index.
+- Root-level `/.well-known/agent-skills/index.json` is intentionally not claimed because the current GitHub Pages topology is a project site under `/skills-tree`.
+
+**Rule:** future discovery changes must reuse this publication boundary. Do not create another generator, reconciler, index, or deployment path.
