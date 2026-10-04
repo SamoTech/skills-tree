@@ -1920,3 +1920,8 @@ gh run view <run-id>
 **Success Metric**: Grade A- (90/100) by Day 35  
 
 **Status**: 🔴 **READY FOR EXECUTION**
+
+
+## 2026-10-04 Release Workflow Reconciliation
+
+The previous `release-package.yml` catalog-package publisher is no longer active. Catalog packaging is now part of the authoritative `zero-touch-release.yml` release job. `release.yml` remains manual recovery only. Historical audit references to the deleted workflow are retained as historical evidence and must not be treated as current executable architecture.
