@@ -11,11 +11,11 @@
 | Canonical skill entries scanned | 375 |
 | Eligible canonical projections | 258 |
 | Blocked canonical entries | 117 |
-| Agent Skills packages on the verified branch | 297 |
+| Agent Skills packages on the verified main | 296 |
 | Retained blocked existing packages | 37 |
 | Intentional auxiliary package | 1 |
 
-The 258 eligible entries are represented by deterministic projections by the deterministic projection workflow. The 117 blocked canonical entries remain blocked and are not generated.
+The 258 eligible entries are represented by deterministic projections. The 117 blocked canonical entries remain blocked and are not generated.
 
 ## Current reconciliation state
 
@@ -68,18 +68,18 @@ A canonical example that triggered the repository's secret-pattern validator was
 
 ## Final verification
 
-The generation workflow for the corpus reported:
+The exact-head Agent Skills Distribution Audit for PR #305 reported:
 
-- `Renamed 0 legacy Agent Skills packages.`
-- `Generated 251 eligible canonical Agent Skills packages.`
+- `canonical_count: 375`;
+- `existing_package_count: 296`;
+- `eligible_missing: []`;
+- `drifted: []`;
+- `unexpected: []`;
+- `stale: []`;
+- `ambiguous: []`;
+- `unresolved_collisions: {}`.
 
-The final generation verification passed:
-
-- reconciliation;
-- Agent Skills validation;
-- `git diff --check`.
-
-The final user-authored PR head also passed:
+The final PR #305 head also passed:
 
 - Agent Skills validation;
 - Agent Skills Distribution Audit;
@@ -100,7 +100,7 @@ That publication remains gated on deterministic index generation, provenance val
 Any future change to canonical skill content or eligibility rules must regenerate the affected projection and pass the same validation gates. Hand-editing generated Agent Skills packages is not the source-of-truth workflow.
 
 
-## Reconciliation Gate — VERIFIED ON BRANCH — 2026-10-04
+## Reconciliation Gate — VERIFIED ON MAIN — 2026-10-04
 
 The reconciliation command now has an explicit --check mode for CI. The check is read-only and fails for repository states that invalidate the canonical projection contract:
 
@@ -121,7 +121,7 @@ python tools/reconcile_agent_skills.py --check
 
 The gate remains read-only; generation is still performed explicitly through the canonical generator. No Kanban-specific exception exists in the reconciliation implementation.
 
-The current branch also contains the deterministic projection for:
+Main now contains the deterministic projection for:
 
 ```text
 skills/15-orchestration/kanban-task-management.md
