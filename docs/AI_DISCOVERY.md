@@ -43,6 +43,8 @@ skills-tree search "memory injection"
 
 For raw machine-readable discovery, consume `docs/api/skills.json` and resolve each returned canonical path under `skills/`. When present, `registry_context` is descriptive registry metadata derived only from an exact UniversalRegistry record; its absence means the skill is not currently represented in that registry, not that it is unsafe or low quality. The repository also generates identical `docs/search-index.json` and `data/search-index.json` projections from `skills/`. `skills-tree search` consumes that canonical projection through `cli/search_runtime.py`; its deterministic lexical ranking contract is documented in `meta/SEARCH_CLI_CONTRACT.md`.
 
+For standards-style machine discovery, the GitHub Pages deployment builds `/.well-known/agent-skills/index.json` from the verified Agent Skills reconciliation/projector through `tools/build_agent_skills_discovery.py`, validates the publication bytes, and verifies the served URL with `tools/verify_agent_skills_discovery.py`. This is a publication projection, not a second catalog or generator.
+
 Or browse directly:
 
 - Canonical skills: skills/
