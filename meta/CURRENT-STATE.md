@@ -442,3 +442,16 @@ OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmar
 **ACTION:** Follow-up branch `fix/evaluation-gate-self-trigger-20261005` adds `.github/workflows/validate-evaluations.yml` to its own push path filter and synchronizes the decision record with the merged state.
 
 **DECISION:** CONTINUE until the follow-up exact-head CI proves the trigger correction. No benchmark or retrieval implementation is introduced.
+
+
+## P0 Evaluation Contracts — IMPLEMENTED ON BRANCH — 2026-10-05
+
+The existing canonical evaluation ontology now contains explicit evaluation mappings for the three previously unmapped P0 capabilities: CAP-014 tool_execution, CAP-007 semantic_retrieval, and CAP-011 self_evaluation. The mappings reuse the existing evaluation types and benchmark boundary; no new evaluation registry or ontology category was introduced.
+
+CAP-014 uses accuracy, reliability, safety, and latency with a deterministic tool-call benchmark and an independent safety gate. Deployment-trigger correctness is a hard 100% requirement, and structured quality-gate state remains authoritative over LLM interpretation.
+
+CAP-007 uses Recall@5 and Precision@5 with the corpus's existing 100-query evaluation design. The mapping explicitly records that no current benchmark result is claimed until a reproducible run artifact exists.
+
+CAP-011 uses accuracy and hallucination rate plus reliability/user-satisfaction diagnostics. Confidence calibration and ECE are recorded as benchmark diagnostics rather than invented as a new ontology evaluation type. Self-evaluation output cannot independently trigger deployment.
+
+Status: IMPLEMENTED ON BRANCH — CI and exact-head verification pending. Main remains unchanged by this slice.
