@@ -72,11 +72,11 @@ def main() -> int:
         if "failed_skill" in case:
             first = engine.next_after_failure(
                 case["task"], case["required_capabilities"], case["candidates"],
-                case["failed_skill"], case.get("completed_skills")
+                case["failed_skill"], case.get("completed_skills"), case.get("failed_skills")
             )
             second = engine.next_after_failure(
                 case["task"], case["required_capabilities"], case["candidates"],
-                case["failed_skill"], case.get("completed_skills")
+                case["failed_skill"], case.get("completed_skills"), case.get("failed_skills")
             )
         else:
             first = engine.select(
