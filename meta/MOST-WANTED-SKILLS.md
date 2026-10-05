@@ -129,3 +129,11 @@ The result is a prioritization aid, not a claim of objective popularity or unive
 The first evidence-driven investigation found a concrete gap in the existing evaluation boundary. `benchmarks/memory/retrieval-accuracy.md` is dated 2026-04-13 and its published model results have no current reproducible run artifact; its reproduction example uses a newer model identifier than the historical result table. Its related skill links also use the obsolete `skills/memory/...` path rather than the current category-prefixed canonical taxonomy. Separately, `intelligence/ontology/evaluation_ontology.json` is past its declared review due date (`2026-10-03`). The evaluation validation workflow did not previously trigger when that ontology itself changed; this trigger gap was fixed on 2026-10-05.
 
 Issue #336 records the remediation boundary. This is classified as an **evidence/freshness/reproducibility gap**, not evidence that historical benchmark scores are false. No new retrieval skill is selected until the benchmark evidence is reproduced, retired, or explicitly re-qualified.
+
+## Agentic Loop — Evaluation Gate Reconciliation — 2026-10-05
+
+The evaluation workflow now reads the real canonical corpus under `intelligence/corpus/entries/` and explicitly reports the current missing P0 evaluation mappings instead of silently scanning the obsolete `data/corpus/` path. A declared-freshness audit also checks timestamp structure/order and surfaces overdue review dates without rewriting them.
+
+The retrieval benchmark `benchmarks/memory/retrieval-accuracy.md` is now explicitly marked historical. Its canonical skill links were corrected to the current `03-memory` namespace, and the repository benchmark overview no longer treats every historical result as currently reproducible evidence.
+
+No new retrieval skill, search engine, benchmark result, or popularity claim was created. The remaining evidence gap is unchanged: current reproducible retrieval-quality evidence is absent, and CAP-007, CAP-011, and CAP-014 still require authoritative evaluation mappings. Issue #335 and Issue #336 remain the bounded remediation records.
