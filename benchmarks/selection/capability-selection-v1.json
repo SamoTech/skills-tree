@@ -4,11 +4,88 @@
   "benchmark_version": "1.0",
   "description": "Deterministic behavioral cases for capability-based canonical skill selection.",
   "cases": [
-    {"id":"SEL-001","task":"retrieve knowledge for a question","required_capabilities":["capability/knowledge-retrieval"],"candidates":["03-memory/rag","05-code/code-review"],"expected_selected_skill":"03-memory/rag","expected_status":"CONTINUE","expected_next_action":"invoke"},
-    {"id":"SEL-002","task":"execute an agentic retrieval workflow","required_capabilities":["capability/knowledge-retrieval"],"candidates":["09-agentic-patterns/agentic-rag","03-memory/rag"],"completed_skills":["03-memory/rag","09-agentic-patterns/react"],"expected_selected_skill":"09-agentic-patterns/agentic-rag","expected_status":"CONTINUE","expected_next_action":"invoke"},
-    {"id":"SEL-003","task":"execute an agentic retrieval workflow with missing prerequisites","required_capabilities":["capability/knowledge-retrieval"],"candidates":["09-agentic-patterns/agentic-rag"],"completed_skills":[],"expected_selected_skill":"09-agentic-patterns/agentic-rag","expected_status":"CONTINUE","expected_next_action":"invoke_prerequisite"},
-    {"id":"SEL-004","task":"review source code for correctness and maintainability","required_capabilities":["capability/code-quality"],"candidates":["05-code/code-review","11-web/web-search"],"expected_selected_skill":"05-code/code-review","expected_status":"CONTINUE","expected_next_action":"invoke"},
-    {"id":"SEL-005","task":"recover after a failed code review invocation","required_capabilities":["capability/code-quality"],"candidates":["05-code/code-review"],"failed_skill":"05-code/code-review","expected_selected_skill":null,"expected_status":"BLOCKED","expected_next_action":"escalate"},
-    {"id":"SEL-006","task":"recover after one candidate fails","required_capabilities":["capability/knowledge-retrieval"],"candidates":["03-memory/rag","05-code/code-review"],"failed_skill":"03-memory/rag","expected_selected_skill":null,"expected_status":"BLOCKED","expected_next_action":"escalate"}
+    {
+      "id": "SEL-001",
+      "task": "retrieve knowledge for a question",
+      "required_capabilities": [
+        "capability/knowledge-retrieval"
+      ],
+      "candidates": [
+        "03-memory/rag",
+        "05-code/code-review"
+      ],
+      "expected_selected_skill": "03-memory/rag",
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke"
+    },
+    {
+      "id": "SEL-002",
+      "task": "review source code for correctness and maintainability",
+      "required_capabilities": [
+        "capability/code-quality"
+      ],
+      "candidates": [
+        "05-code/code-review",
+        "11-web/web-search"
+      ],
+      "expected_selected_skill": "05-code/code-review",
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke"
+    },
+    {
+      "id": "SEL-003",
+      "task": "retrieve web information",
+      "required_capabilities": [
+        "capability/web-retrieval"
+      ],
+      "candidates": [
+        "11-web/web-search",
+        "05-code/code-review"
+      ],
+      "expected_selected_skill": "11-web/web-search",
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke"
+    },
+    {
+      "id": "SEL-004",
+      "task": "candidate must be registered before invocation",
+      "required_capabilities": [
+        "capability/knowledge-retrieval"
+      ],
+      "candidates": [
+        "09-agentic-patterns/agentic-rag",
+        "03-memory/rag"
+      ],
+      "expected_selected_skill": null,
+      "expected_status": "BLOCKED",
+      "expected_next_action": "escalate"
+    },
+    {
+      "id": "SEL-005",
+      "task": "recover after a failed code review invocation",
+      "required_capabilities": [
+        "capability/code-quality"
+      ],
+      "candidates": [
+        "05-code/code-review"
+      ],
+      "failed_skill": "05-code/code-review",
+      "expected_selected_skill": null,
+      "expected_status": "BLOCKED",
+      "expected_next_action": "escalate"
+    },
+    {
+      "id": "SEL-006",
+      "task": "no candidate covers the required capability",
+      "required_capabilities": [
+        "capability/web-retrieval"
+      ],
+      "candidates": [
+        "05-code/code-review"
+      ],
+      "expected_selected_skill": null,
+      "expected_status": "BLOCKED",
+      "expected_next_action": "escalate"
+    }
   ]
 }
