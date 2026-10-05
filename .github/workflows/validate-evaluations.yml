@@ -95,7 +95,7 @@ jobs:
                   )
               if not entry.get('primary_metrics') and not entry.get('metrics') and not entry.get('evaluation_metrics'):
                   errors.append(f'[{cap_id}] NO METRICS DEFINED')
-              if entry.get('min_required_score') is None and entry.get('threshold') is None:
+              if entry.get('minimum_required_score') is None and entry.get('min_required_score') is None and entry.get('threshold') is None:
                   errors.append(f'[{cap_id}] NO THRESHOLD DEFINED')
               if not str(entry.get('validation_method', '')).strip():
                   errors.append(f'[{cap_id}] VALIDATION_METHOD is empty or missing')
