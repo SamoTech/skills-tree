@@ -137,3 +137,49 @@ The evaluation workflow now reads the real canonical corpus under `intelligence/
 The retrieval benchmark `benchmarks/memory/retrieval-accuracy.md` is now explicitly marked historical. Its canonical skill links were corrected to the current `03-memory` namespace, and the repository benchmark overview no longer treats every historical result as currently reproducible evidence.
 
 No new retrieval skill, search engine, benchmark result, or popularity claim was created. The remaining evidence gap is unchanged: current reproducible retrieval-quality evidence is absent, and CAP-007, CAP-011, and CAP-014 still require authoritative evaluation mappings. Issue #335 and Issue #336 remain the bounded remediation records.
+
+## New demand-gap candidate — Capability-Based Skill Selection — 2026-10-05
+
+A new public-signal review identified a recurring capability request that is not represented by a dedicated canonical skill: **selecting the right skill/capability for a concrete task and routing execution based on task requirements, candidate fit, dependencies, and observed results**.
+
+### Demand signals
+
+| Signal | Evidence | Interpretation |
+|---|---|---|
+| Automated task breakdown + agent orchestration | Public GitHub issue BrianTruong23/kanban-coding-agents#8 requests automated decomposition plus agent assignment based on skills and performance, with dependency visualization. | Direct ecosystem demand for capability-aware routing and dependency-aware orchestration. |
+| Skill selection / routing | Public GitHub issue searches for skill selection, agent routing, and orchestration return recurring active agent-routing and coordination work. | Corroborating signal; individual issue volume is not treated as adoption. |
+| Runtime action decisioning | Public OWASP Agentic Top 10 discussion #802 describes pre-execution authorization, delegation controls, execution binding, and fail-closed runtime decisions. | Strong ecosystem relevance for selecting executable actions under authority and safety constraints. |
+| Skills Tree behavioral gap | Current repository retrieval evidence proves search/retrieval quality, but task-specific competing-skill discrimination, dependency-aware selection, invocation, and next-skill decisions are not yet comprehensively benchmarked. | Internal implementation/evidence gap directly aligned with the demand signal. |
+
+### Coverage reconciliation
+
+Existing Skills Tree coverage already includes specialist-agent routing, role assignment, task decomposition, delegation, conditional branching, agent handoff, dependency graphs, registry eligibility, and deterministic search. Those skills are necessary building blocks but do not provide one canonical contract for **skill-level selection and next-step routing**.
+
+This candidate therefore represents a **narrow missing capability**, not a request to duplicate the existing routing, search, registry, or orchestration frameworks.
+
+### Selected migration
+
+skills/15-orchestration/capability-based-skill-selection.md
+
+Status: **proposed / implementation in progress** on the current branch.
+
+Scope is intentionally limited to:
+
+- required-capability identification;
+- competing-skill discrimination;
+- eligibility/evidence checks;
+- prerequisite resolution;
+- smallest-sufficient skill selection;
+- invocation verification;
+- failure-driven next-skill selection;
+- explicit CONTINUE | BLOCKED | DONE outcome handling.
+
+No popularity claim is made, and no new search or orchestration authority is introduced.
+
+### Priority assessment
+
+**Proposed tier: A — high strategic utility, evidence-backed gap.**
+
+Rationale: the capability directly closes the gap between Skills Tree's now-verified retrieval layer and the product mission that agents should find **and use the right skill**. It also creates a concrete target for the next behavioral evaluation benchmark.
+
+Verification date: 2026-10-05.
