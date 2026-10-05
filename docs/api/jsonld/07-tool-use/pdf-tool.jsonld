@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "pdf-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "pdf, use, LLM skill, tool, skills tree, AI agent",
+  "keywords": "use, pdf, LLM skill, skills tree, AI agent, tool",
   "about": {
     "@type": "Thing",
     "name": "PDF Tool",

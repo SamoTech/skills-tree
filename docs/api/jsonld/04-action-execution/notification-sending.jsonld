@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "notification-sending",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "sending, LLM skill, AI agent, notification, skills tree, action, execution",
+  "keywords": "action, LLM skill, skills tree, AI agent, notification, execution, sending",
   "about": {
     "@type": "Thing",
     "name": "Notification Sending",

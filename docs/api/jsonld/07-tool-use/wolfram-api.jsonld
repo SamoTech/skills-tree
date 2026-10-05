@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/wolfram-api.md",
   "name": "Wolfram Alpha API",
   "headline": "Wolfram Alpha API",
-  "description": "Apply wolfram alpha api in AI agent workflows.",
+  "description": "Call the Wolfram Alpha query API for computational knowledge and mathematics while validating response structure, preserving tool errors, and protecting API credentials.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/wolfram-api.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,30 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "wolfram-api",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
-  "sections": [],
-  "relatedSkills": [
-    "../02-reasoning/mathematical-reasoning.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Agent Rules",
+    "Failure Modes",
+    "Evidence",
+    "Related",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "api, LLM skill, use, wolfram, tool, skills tree, AI agent",
+  "keywords": "use, LLM skill, skills tree, tool, AI agent, api, wolfram",
   "about": {
     "@type": "Thing",
     "name": "Wolfram Alpha API",

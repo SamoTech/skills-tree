@@ -35,11 +35,11 @@
     }
   ],
   "@type": "TechArticle",
-  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/react.md",
-  "name": "ReAct (Reasoning + Acting)",
-  "headline": "ReAct (Reasoning + Acting)",
-  "description": "Interleave Thought → Action → Observation steps in a tool-calling loop until the agent declares Final Answer. The most-used reasoning-with-tools pattern.",
-  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/react.md",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/ide-integration.md",
+  "name": "IDE Integration",
+  "headline": "IDE Integration",
+  "description": "Integrate AI coding agents with an IDE through explicit context, code intelligence, diagnostics, edits, tests, and controlled IDE actions while preserving least privilege and verifiable state.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/ide-integration.md",
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
@@ -53,34 +53,33 @@
   },
   "inLanguage": "en",
   "dateModified": "2026-10-05T11:20:02Z",
-  "skillId": "react",
-  "skillVersion": "v3",
-  "skillLevel": "intermediate",
+  "skillId": "ide-integration",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
   "skillStability": "stable",
-  "categoryDir": "09-agentic-patterns",
+  "categoryDir": "05-code",
   "sections": [
     "Description",
     "When to Use",
-    "Inputs / Outputs",
+    "Inputs / Outputs / Failure Modes",
+    "Procedure",
+    "Security Boundaries",
+    "Compatibility",
     "Runnable Example",
-    "Failure Modes",
-    "Variants",
-    "Related Skills",
-    "Changelog"
+    "Related",
+    "Evidence"
   ],
-  "relatedSkills": [
-    "../02-reasoning/planning.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
-    "name": "Intermediate",
+    "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
-  "datePublished": "2025-03-01",
-  "keywords": "patterns, LLM skill, skills tree, AI agent, react, agentic",
+  "datePublished": "2026-10-01",
+  "keywords": "ide, LLM skill, skills tree, AI agent, code, integration",
   "about": {
     "@type": "Thing",
-    "name": "ReAct (Reasoning + Acting)",
-    "description": "An AI agent skill for react (reasoning + acting)."
+    "name": "IDE Integration",
+    "description": "An AI agent skill for ide integration."
   }
 }

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-03T18:20:47Z",
-  "count": 375,
+  "generated": "2026-10-05T11:20:02Z",
+  "count": 376,
   "skills": [
     {
       "id": "pipeline-test",
@@ -41,16 +41,22 @@
       "id": "audio-transcription",
       "path": "skills/01-perception/audio-transcription.md",
       "name": "Audio Transcription",
-      "description": "Transcribe spoken audio into timestamped text and, when a compatible diarization model is available, speaker-attributed segments. Use it for meetings, interviews, captions, and other speech-to-text pipelines.",
+      "description": "Convert speech audio into timestamped text while preserving timing, language metadata, and source traceability for captions, search, summarization, and extraction.",
       "category": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Engineering Rules",
         "Failure Modes",
-        "Evidence"
+        "Evidence",
+        "Related",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -3531,6 +3537,31 @@
       "category_dir": "05-code"
     },
     {
+      "id": "ide-integration",
+      "path": "skills/05-code/ide-integration.md",
+      "name": "IDE Integration",
+      "description": "Integrate AI coding agents with an IDE through explicit context, code intelligence, diagnostics, edits, tests, and controlled IDE actions while preserving least privilege and verifiable state.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "stable",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs / Failure Modes",
+        "Procedure",
+        "Security Boundaries",
+        "Compatibility",
+        "Runnable Example",
+        "Related",
+        "Evidence"
+      ],
+      "related": [],
+      "category_dir": "05-code"
+    },
+    {
       "id": "integration-test-writing",
       "path": "skills/05-code/integration-test-writing.md",
       "name": "integration-test-writing",
@@ -3672,17 +3703,24 @@
       "id": "security-scanning",
       "path": "skills/05-code/security-scanning.md",
       "name": "Security Scanning",
-      "description": "Apply security scanning in AI agent workflows.",
+      "description": "Detect source vulnerabilities, dependency advisories, and exposed secrets with separate scanners and enforce explicit severity thresholds in CI.",
       "category": "code",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
-      "related": [
-        "../14-security/secret-scanning.md"
+      "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Operating Rules",
+        "Failure Modes",
+        "Evidence",
+        "Related",
+        "Changelog"
       ],
+      "related": [],
       "category_dir": "05-code"
     },
     {
@@ -4841,17 +4879,24 @@
       "id": "wolfram-api",
       "path": "skills/07-tool-use/wolfram-api.md",
       "name": "Wolfram Alpha API",
-      "description": "Apply wolfram alpha api in AI agent workflows.",
+      "description": "Call the Wolfram Alpha query API for computational knowledge and mathematics while validating response structure, preserving tool errors, and protecting API credentials.",
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
-      "related": [
-        "../02-reasoning/mathematical-reasoning.md"
+      "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Agent Rules",
+        "Failure Modes",
+        "Evidence",
+        "Related",
+        "Changelog"
       ],
+      "related": [],
       "category_dir": "07-tool-use"
     },
     {
@@ -5599,30 +5644,27 @@
       "id": "rag",
       "path": "skills/09-agentic-patterns/rag.md",
       "name": "RAG — Retrieval-Augmented Generation",
-      "description": "Apply rag in AI agent workflows.",
+      "description": "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval.",
       "category": "agentic-patterns",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v3",
+      "version": "v4",
       "added": "2025-03",
-      "last_updated": "2026-04",
+      "last_updated": null,
       "sections": [
-        "What It Does",
-        "When to Use",
+        "Description",
+        "Pipeline",
         "Inputs / Outputs",
         "Runnable Example",
-        "RAG Variants",
+        "Retrieval Design",
+        "Generation Contract",
         "Failure Modes",
-        "Blueprint",
-        "Related Skills",
+        "Evaluation",
+        "Evidence",
+        "Related",
         "Changelog"
       ],
-      "related": [
-        "../../blueprints/rag-stack.md",
-        "../03-memory/memory-injection.md",
-        "../02-reasoning/react.md",
-        "../11-web/web-search.md"
-      ],
+      "related": [],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -7452,67 +7494,96 @@
     {
       "id": "presentation-gen",
       "path": "skills/13-creative/presentation-gen.md",
-      "name": "presentation-gen",
-      "description": "Apply presentation gen in AI agent workflows.",
-      "category": "Creative",
+      "name": "Presentation Generation",
+      "description": "Generate structured presentation plans with slide purpose, evidence-backed content, speaker notes, and visual direction while keeping claims traceable to supplied source material.",
+      "category": "creative",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
-      "related": [
-        "../06-communication/structured-output.md"
+      "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Quality Rules",
+        "Failure Modes",
+        "Evidence",
+        "Related",
+        "Changelog"
       ],
+      "related": [],
       "category_dir": "13-creative"
     },
     {
       "id": "social-media-post",
       "path": "skills/13-creative/social-media-post.md",
-      "name": "social-media-post",
-      "description": "Apply social media post in AI agent workflows.",
-      "category": "Creative",
+      "name": "Social Media Post",
+      "description": "Create platform-specific social posts from a source brief while preserving factual claims, audience constraints, character limits, and disclosure requirements.",
+      "category": "creative",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
-      "related": [
-        "../06-communication/tone-adjustment.md"
+      "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Platform Adaptation",
+        "Failure Modes",
+        "Evidence",
+        "Related",
+        "Changelog"
       ],
+      "related": [],
       "category_dir": "13-creative"
     },
     {
       "id": "svg-generation",
       "path": "skills/13-creative/svg-generation.md",
-      "name": "svg-generation",
-      "description": "Apply svg generation in AI agent workflows.",
-      "category": "Creative",
+      "name": "SVG Generation",
+      "description": "Generate and validate SVG markup for icons, diagrams, and simple illustrations with explicit viewBox, element, accessibility, and sanitization constraints.",
+      "category": "creative",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
-      "related": [
-        "../08-multimodal/image-generation.md",
-        "../05-code/code-generation.md"
+      "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Security Rules",
+        "Failure Modes",
+        "Evidence",
+        "Related",
+        "Changelog"
       ],
+      "related": [],
       "category_dir": "13-creative"
     },
     {
       "id": "video-script",
       "path": "skills/13-creative/video-script.md",
-      "name": "video-script",
-      "description": "Apply video script in AI agent workflows.",
-      "category": "Creative",
+      "name": "Video Script",
+      "description": "Create timed video scripts with hooks, narration, on-screen text, visual cues, and calls to action while keeping factual claims traceable to the source brief.",
+      "category": "creative",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Description",
+        "Inputs / Outputs",
+        "Runnable Example",
+        "Production Rules",
+        "Failure Modes",
+        "Evidence",
+        "Related",
+        "Changelog"
+      ],
       "related": [],
       "category_dir": "13-creative"
     },
@@ -8134,6 +8205,7 @@
         "Completion Evidence",
         "Example",
         "Third-Party Implementation Boundary",
+        "Provenance and Contributor Attribution",
         "Implementations",
         "When to Use vs Alternatives",
         "Failure Modes",
@@ -9135,10 +9207,11 @@
       "category": "infrastructure",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
-      "last_updated": "2026-04-13",
+      "last_updated": null,
       "sections": [
+        "Description",
         "The Execution Gap",
         "Architecture",
         "Isolation Strategy",

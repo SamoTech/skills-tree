@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag.md",
   "name": "RAG — Retrieval-Augmented Generation",
   "headline": "RAG — Retrieval-Augmented Generation",
-  "description": "Apply rag in AI agent workflows.",
+  "description": "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,36 +52,33 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "rag",
-  "skillVersion": "v3",
+  "skillVersion": "v4",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
-    "What It Does",
-    "When to Use",
+    "Description",
+    "Pipeline",
     "Inputs / Outputs",
     "Runnable Example",
-    "RAG Variants",
+    "Retrieval Design",
+    "Generation Contract",
     "Failure Modes",
-    "Blueprint",
-    "Related Skills",
+    "Evaluation",
+    "Evidence",
+    "Related",
     "Changelog"
   ],
-  "relatedSkills": [
-    "../../blueprints/rag-stack.md",
-    "../03-memory/memory-injection.md",
-    "../02-reasoning/react.md",
-    "../11-web/web-search.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, agentic, rag, skills tree, AI agent, patterns",
+  "keywords": "rag, patterns, LLM skill, skills tree, AI agent, agentic",
   "about": {
     "@type": "Thing",
     "name": "RAG — Retrieval-Augmented Generation",

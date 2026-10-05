@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "mixture-of-agents",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, of, agentic, agents, skills tree, AI agent, mixture, patterns",
+  "keywords": "patterns, LLM skill, skills tree, AI agent, agents, agentic, mixture, of",
   "about": {
     "@type": "Thing",
     "name": "mixture-of-agents",

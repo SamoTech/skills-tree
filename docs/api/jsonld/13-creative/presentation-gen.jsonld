@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/presentation-gen.md",
-  "name": "presentation-gen",
-  "headline": "presentation-gen",
-  "description": "Apply presentation gen in AI agent workflows.",
+  "name": "Presentation Generation",
+  "headline": "Presentation Generation",
+  "description": "Generate structured presentation plans with slide purpose, evidence-backed content, speaker notes, and visual direction while keeping claims traceable to supplied source material.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/presentation-gen.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,33 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "presentation-gen",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/structured-output.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Quality Rules",
+    "Failure Modes",
+    "Evidence",
+    "Related",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, creative, AI agent, gen, presentation",
+  "keywords": "creative, LLM skill, gen, skills tree, AI agent, presentation",
   "about": {
     "@type": "Thing",
-    "name": "presentation-gen",
-    "description": "An AI agent skill for presentation-gen."
+    "name": "Presentation Generation",
+    "description": "An AI agent skill for presentation generation."
   }
 }

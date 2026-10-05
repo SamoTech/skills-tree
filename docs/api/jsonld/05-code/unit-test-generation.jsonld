@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "unit-test-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "code, generation, LLM skill, test, skills tree, AI agent, unit",
+  "keywords": "LLM skill, generation, unit, AI agent, skills tree, test, code",
   "about": {
     "@type": "Thing",
     "name": "unit-test-generation",

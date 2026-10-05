@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/svg-generation.md",
-  "name": "svg-generation",
-  "headline": "svg-generation",
-  "description": "Apply svg generation in AI agent workflows.",
+  "name": "SVG Generation",
+  "headline": "SVG Generation",
+  "description": "Generate and validate SVG markup for icons, diagrams, and simple illustrations with explicit viewBox, element, accessibility, and sanitization constraints.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/svg-generation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,27 +52,33 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "svg-generation",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../08-multimodal/image-generation.md",
-    "../05-code/code-generation.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Security Rules",
+    "Failure Modes",
+    "Evidence",
+    "Related",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "generation, LLM skill, skills tree, creative, svg, AI agent",
+  "keywords": "creative, LLM skill, generation, skills tree, svg, AI agent",
   "about": {
     "@type": "Thing",
-    "name": "svg-generation",
-    "description": "An AI agent skill for svg-generation."
+    "name": "SVG Generation",
+    "description": "An AI agent skill for svg generation."
   }
 }

@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/social-media-post.md",
-  "name": "social-media-post",
-  "headline": "social-media-post",
-  "description": "Apply social media post in AI agent workflows.",
+  "name": "Social Media Post",
+  "headline": "Social Media Post",
+  "description": "Create platform-specific social posts from a source brief while preserving factual claims, audience constraints, character limits, and disclosure requirements.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/social-media-post.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,26 +52,33 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "social-media-post",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
-  "relatedSkills": [
-    "../06-communication/tone-adjustment.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Platform Adaptation",
+    "Failure Modes",
+    "Evidence",
+    "Related",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, media, social, skills tree, creative, post, AI agent",
+  "keywords": "creative, LLM skill, skills tree, AI agent, post, social, media",
   "about": {
     "@type": "Thing",
-    "name": "social-media-post",
-    "description": "An AI agent skill for social-media-post."
+    "name": "Social Media Post",
+    "description": "An AI agent skill for social media post."
   }
 }

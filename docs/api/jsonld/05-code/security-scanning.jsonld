@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/security-scanning.md",
   "name": "Security Scanning",
   "headline": "Security Scanning",
-  "description": "Apply security scanning in AI agent workflows.",
+  "description": "Detect source vulnerabilities, dependency advisories, and exposed secrets with separate scanners and enforce explicit severity thresholds in CI.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/security-scanning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,23 +52,30 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "security-scanning",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
-  "sections": [],
-  "relatedSkills": [
-    "../14-security/secret-scanning.md"
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Operating Rules",
+    "Failure Modes",
+    "Evidence",
+    "Related",
+    "Changelog"
   ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "code, scanning, LLM skill, skills tree, AI agent, security",
+  "keywords": "scanning, security, LLM skill, skills tree, AI agent, code",
   "about": {
     "@type": "Thing",
     "name": "Security Scanning",

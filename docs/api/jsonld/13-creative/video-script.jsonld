@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/video-script.md",
-  "name": "video-script",
-  "headline": "video-script",
-  "description": "Apply video script in AI agent workflows.",
+  "name": "Video Script",
+  "headline": "Video Script",
+  "description": "Create timed video scripts with hooks, narration, on-screen text, visual cues, and calls to action while keeping factual claims traceable to the source brief.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/video-script.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,13 +52,22 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "video-script",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "13-creative",
-  "sections": [],
+  "sections": [
+    "Description",
+    "Inputs / Outputs",
+    "Runnable Example",
+    "Production Rules",
+    "Failure Modes",
+    "Evidence",
+    "Related",
+    "Changelog"
+  ],
   "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
@@ -66,10 +75,10 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, video, script, skills tree, creative, AI agent",
+  "keywords": "creative, LLM skill, skills tree, script, AI agent, video",
   "about": {
     "@type": "Thing",
-    "name": "video-script",
-    "description": "An AI agent skill for video-script."
+    "name": "Video Script",
+    "description": "An AI agent skill for video script."
   }
 }

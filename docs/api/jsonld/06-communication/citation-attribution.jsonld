@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "citation-attribution",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "attribution, LLM skill, communication, citation, skills tree, AI agent",
+  "keywords": "communication, LLM skill, skills tree, AI agent, attribution, citation",
   "about": {
     "@type": "Thing",
     "name": "citation-attribution",

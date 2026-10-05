@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T03:57:57Z",
+  "dateModified": "2026-10-05T11:20:02Z",
   "skillId": "documentation-drift-resolution",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -73,7 +73,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "LLM skill, documentation, drift, orchestration, skills tree, AI agent, resolution",
+  "keywords": "resolution, drift, documentation, orchestration, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Documentation Drift Resolution",
