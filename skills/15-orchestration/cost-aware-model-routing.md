@@ -6,6 +6,7 @@ stability: experimental
 description: "Select an eligible model using task quality requirements, measured capability, latency constraints, and observed cost rather than defaulting every task to the most expensive model."
 added: "2026-10"
 version: v1
+related: [specialist-agent-routing, retry-backoff, budget-management]
 tags: [model-routing, cost, latency, optimization, orchestration]
 ---
 
