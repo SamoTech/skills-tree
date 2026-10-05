@@ -50,7 +50,7 @@
       "id": "SEL-004",
       "task": "select agentic retrieval and route its canonical prerequisite first",
       "required_capabilities": [
-        "capability/knowledge-retrieval"
+        "capability/agentic-knowledge-retrieval"
       ],
       "candidates": [
         "09-agentic-patterns/agentic-rag",
@@ -91,7 +91,7 @@
       "id": "SEL-007",
       "task": "resume agentic retrieval after the RAG prerequisite is complete",
       "required_capabilities": [
-        "capability/knowledge-retrieval"
+        "capability/agentic-knowledge-retrieval"
       ],
       "candidates": [
         "09-agentic-patterns/agentic-rag",
