@@ -115,7 +115,7 @@ def test_failure_recovery_excludes_all_previous_failures():
         failed_skills=["11-web/web-search"],
     )
     assert result["status"] == "BLOCKED"
-    assert result["next_action"] == {"type": "escalate", "reason": "no_recovery_candidate"}
+    assert result["next_action"] == {"type": "escalate", "reason": "no_sufficient_skill"}
 
 
 def test_failure_recovery_selects_remaining_candidate():
