@@ -523,3 +523,16 @@ This verifies deterministic dependency-aware skill selection for the registered 
 Post-merge workflow runs for `f15c729adf76794fc914f954f74a4964d7dbdd76` were not yet observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
 
 Status: VERIFIED BOUNDED RUNTIME. Next action: use the verified prerequisite-routing boundary as the baseline for the next evidence-driven skill-selection/recovery slice; do not broaden the registry or add orchestration infrastructure without a concrete measured gap.
+
+
+## Behavioral Skill Selection — FAILURE RECOVERY VERIFIED BOUNDED SLICE — 2026-10-05
+
+PR #347 merged to main as `adbbb55c58a853e843883b2cbc14997f315226b7` after exact-head `40cff5782307469b9d9e62733d04841c667b9870` passed Test Suite, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, Validate Skills Graph, and Skill Selection Evidence Benchmark.
+
+The recovery runtime now carries an explicit failed-skill history and excludes all previously failed candidates from subsequent recovery selection. The benchmark and unit tests verify remaining-candidate recovery, terminal escalation when no viable recovery remains, and deterministic replay. This closes the measured repeated-retry defect without adding a second orchestration authority.
+
+LIMITATION: the current Universal Registry does not contain three independently registered, capability-compatible alternatives needed to produce a genuine multi-step A → failure → B → failure → C recovery-chain benchmark. A synthetic chain or registry expansion solely for benchmark convenience would fabricate evidence. Therefore this slice is bounded to history-aware candidate exclusion, single-step recovery, and terminal fail-closed behavior.
+
+Post-merge workflows for `adbbb55c...` were not observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
+
+Status: VERIFIED BOUNDED RECOVERY SLICE. Next justified action: obtain real canonical registry coverage with multiple independently eligible alternatives through existing project evolution, then add a multi-step recovery benchmark only when that evidence exists. No artificial skills or new orchestration framework should be introduced for the benchmark.
