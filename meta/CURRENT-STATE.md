@@ -464,3 +464,14 @@ PR #339 merged to main as c88672e1d19e381aad8137796d4283678e3fc9e1. The canonica
 During exact-head CI, Validate Evaluations exposed two pre-existing validator defects: the gate expected min_required_score while canonical mappings use minimum_required_score, and two existing mappings had stale names for CAP-023 and CAP-025. Both were corrected. Final exact-head CI passed Validate Evaluations, Governance Gate, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped.
 
 The P0 contracts are now structurally linked and CI-validated. This does not constitute current benchmark success: CAP-007 explicitly remains without a current reproducible result artifact, and CAP-011 calibration diagnostics remain evidence requirements rather than a fabricated new metric type. The next evidence boundary is reproducible evaluation execution/results, not another ontology or search implementation.
+
+
+## Retrieval Evidence — VERIFIED ON MAIN — 2026-10-05
+
+PR #340 merged to main as `8ae02bd08841a496d19f49cd1092ec5f011c6c6b`. The repository now has a versioned, machine-readable retrieval benchmark registered through the existing `BenchmarkRuntime` contract, a deterministic runner over the canonical `cli.search_engine.search_documents` implementation, and a PR/workflow-dispatch evidence workflow.
+
+Exact-head PR verification passed the Retrieval Evidence Benchmark, Governance Gate, Security Scan, Build & Verify Wheel, Validate Skills Graph, PR Checks, Test Suite on Python 3.11/3.12/3.13, and CodeQL. The retrieval benchmark run `37301951280` produced artifact `retrieval-benchmark-95839c52567c32cad38c0a0038edc01dc0a298f4`.
+
+Current evidence snapshot: 12 benchmark cases, Recall@5 = 1.0000, MRR = 0.9583, deterministic replay = true. Eleven of twelve expected skills ranked first; the RAG case ranked the expected `03-memory/rag` at position 2 behind `09-agentic-patterns/rag`. This is evidence of current deterministic retrieval behavior for the bounded dataset, not a semantic-search, popularity, adoption, or user-satisfaction claim.
+
+Decision: do not change ranking yet. The measured RAG ambiguity is now a concrete candidate for a separate retrieval-quality investigation. Any ranking change requires a broader representative failure corpus and before/after measurement.
