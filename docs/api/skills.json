@@ -1,6 +1,6 @@
 {
   "generated": "2026-10-05T11:20:02Z",
-  "count": 376,
+  "count": 377,
   "skills": [
     {
       "id": "pipeline-test",
@@ -7995,6 +7995,34 @@
       ],
       "related": [],
       "category_dir": "15-orchestration"
+    },
+    {
+      "id": "capability-based-skill-selection",
+      "name": "Capability-Based Skill Selection",
+      "path": "skills/15-orchestration/capability-based-skill-selection.md",
+      "description": "Select and sequence canonical skills for a task by matching required capabilities, discriminating competing candidates, checking eligibility and dependencies, and using execution evidence to choose the next skill.",
+      "category_dir": "15-orchestration",
+      "category": "15-orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Selection Procedure",
+        "Outputs",
+        "Decision Contract",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": []
     },
     {
       "id": "conditional-branching",
