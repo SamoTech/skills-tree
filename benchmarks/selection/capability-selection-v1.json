@@ -48,17 +48,17 @@
     },
     {
       "id": "SEL-004",
-      "task": "candidate must be registered before invocation",
+      "task": "select agentic retrieval and route its canonical prerequisite first",
       "required_capabilities": [
-        "capability/knowledge-retrieval"
+        "capability/agentic-knowledge-retrieval"
       ],
       "candidates": [
         "09-agentic-patterns/agentic-rag",
         "03-memory/rag"
       ],
-      "expected_selected_skill": null,
-      "expected_status": "BLOCKED",
-      "expected_next_action": "escalate"
+      "expected_selected_skill": "09-agentic-patterns/agentic-rag",
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke_prerequisite"
     },
     {
       "id": "SEL-005",
@@ -86,6 +86,25 @@
       "expected_selected_skill": null,
       "expected_status": "BLOCKED",
       "expected_next_action": "escalate"
+    },
+    {
+      "id": "SEL-007",
+      "task": "resume agentic retrieval after the RAG prerequisite is complete",
+      "required_capabilities": [
+        "capability/agentic-knowledge-retrieval"
+      ],
+      "candidates": [
+        "09-agentic-patterns/agentic-rag",
+        "03-memory/rag"
+      ],
+      "completed_skills": [
+        "03-memory/rag",
+        "09-agentic-patterns/cot",
+        "09-agentic-patterns/react"
+      ],
+      "expected_selected_skill": "09-agentic-patterns/agentic-rag",
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke"
     }
   ]
 }

@@ -43,14 +43,46 @@ def test_selects_web_retrieval_skill_over_unrelated_candidate():
     assert result["selected_skill"]["id"] == "11-web/web-search"
 
 
-def test_unknown_candidate_fails_closed():
+def test_routes_registered_prerequisite_before_agentic_rag():
     result = engine().select(
         "agentic retrieval",
-        ["capability/knowledge-retrieval"],
+        ["capability/agentic-knowledge-retrieval"],
         ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
     )
-    assert result["status"] == "BLOCKED"
-    assert result["next_action"]["type"] == "escalate"
+    assert result["selected_skill"]["id"] == "09-agentic-patterns/agentic-rag"
+    assert result["required_prerequisites"] == [
+        "03-memory/rag",
+        "09-agentic-patterns/cot",
+        "09-agentic-patterns/react",
+    ]
+    assert result["next_action"] == {"type": "invoke_prerequisite", "skill_id": "03-memory/rag"}
+
+def test_resumes_agentic_rag_after_first_prerequisite():
+    result = engine().select(
+        "agentic retrieval",
+        ["capability/agentic-knowledge-retrieval"],
+        ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
+        completed_skills=["03-memory/rag"],
+    )
+    assert result["selected_skill"]["id"] == "09-agentic-patterns/agentic-rag"
+    assert result["next_action"] == {"type": "invoke_prerequisite", "skill_id": "09-agentic-patterns/cot"}
+
+def test_invokes_agentic_rag_after_all_prerequisites():
+    result = engine().select(
+        "agentic retrieval",
+        ["capability/agentic-knowledge-retrieval"],
+        ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
+        completed_skills=[
+            "03-memory/rag",
+            "09-agentic-patterns/cot",
+            "09-agentic-patterns/react",
+        ],
+    )
+    assert result["selected_skill"]["id"] == "09-agentic-patterns/agentic-rag"
+    assert result["next_action"] == {
+        "type": "invoke",
+        "skill_id": "09-agentic-patterns/agentic-rag",
+    }
 
 
 def test_failure_without_recovery_candidate_blocks():
