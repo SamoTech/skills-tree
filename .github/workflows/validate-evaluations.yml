@@ -5,6 +5,7 @@ on:
     paths:
       - 'intelligence/ontology/evaluation_ontology.json'
       - 'intelligence/ontology/capability_ontology.json'
+      - 'intelligence/ontology/evaluation_ontology.json'
       - 'data/corpus/**'
   pull_request:
     paths:
