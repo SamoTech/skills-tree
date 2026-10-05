@@ -6,6 +6,7 @@ stability: experimental
 description: "Authenticate remote MCP and agent tools with OAuth while keeping credentials outside skill definitions and enforcing explicit authorization boundaries."
 added: "2026-10"
 version: v1
+related: [mcp-tool, permission-checking, secret-scanning]
 tags: [security, oauth, mcp, authentication, authorization]
 ---
 
