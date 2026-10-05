@@ -1108,3 +1108,14 @@ Result: Exact-head CI passed. The bounded benchmark now verifies target selectio
 Status: VERIFIED BOUNDED RUNTIME
 Limitation: This is evidence for the registered Agentic RAG dependency scenario, not general autonomous planning or arbitrary dependency-graph correctness.
 Reopen Conditions: Reopen if prerequisite routing fails under a new registered dependency pattern, registry capability semantics change, or a concrete measured failure demonstrates that the selection/recovery contract is insufficient.
+
+
+## DECISION-2026-10-05-RECOVERY-FAILURE-HISTORY
+
+**Status:** VERIFIED BOUNDED SLICE
+
+**Evidence:** PR #347; exact head `40cff5782307469b9d9e62733d04841c667b9870`; merge `adbbb55c58a853e843883b2cbc14997f315226b7`; Skill Selection Evidence Benchmark run 37320381751; Test Suite run 37320382230; Security Scan run 37320381979; Build & Verify Wheel run 37320382114.
+
+**Decision:** Preserve the existing SkillSelectionEngine and extend recovery with explicit failed-skill history. Recovery must never blindly retry a previously failed candidate. If remaining candidates are ineligible or do not cover the required capability, the selector remains BLOCKED and escalates.
+
+**Boundary:** Current registry coverage is insufficient for a genuine multi-step A → failure → B → failure → C behavioral benchmark. Do not create synthetic skills or a parallel registry merely to manufacture this evidence. Reopen this boundary when real canonical registry coverage provides multiple independently eligible alternatives for the same capability.
