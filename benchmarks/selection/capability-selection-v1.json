@@ -98,7 +98,9 @@
         "03-memory/rag"
       ],
       "completed_skills": [
-        "03-memory/rag"
+        "03-memory/rag",
+        "09-agentic-patterns/cot",
+        "09-agentic-patterns/react"
       ],
       "expected_selected_skill": "09-agentic-patterns/agentic-rag",
       "expected_status": "CONTINUE",
