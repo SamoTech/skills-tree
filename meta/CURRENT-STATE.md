@@ -490,3 +490,16 @@ The exact-head matrix passed Test Suite on Python 3.11/3.12/3.13, Security Scan,
 During verification, existing generated projection drift was exposed and reconciled: the canonical API/search projections and JSON-LD index were brought back into alignment with the live corpus, and the discovery-count test was updated to track the current verified projection count.
 
 Status: MERGED. Post-merge push workflows are running; their results remain a separate verification boundary until observed.
+
+
+## Behavioral Skill Selection — VERIFIED BOUNDED RUNTIME — 2026-10-05
+
+PR #343 merged to main as `203d4b12e576cbeb5eaa83249cc97d96905b01fc` after exact-head CI passed Test Suite, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, Validate Skills Graph, Retrieval Evidence Benchmark, and the new Skill Selection Evidence Benchmark.
+
+The repository now has `registry/skill_selection.py` as a deterministic registry-backed selection boundary. It resolves explicit required capabilities against registered canonical skills, applies existing eligibility, rejects unknown candidates fail-closed, returns explicit selection/rejection evidence, and emits CONTINUE/BLOCKED next actions. The versioned benchmark `benchmark/skill-selection-v1` currently covers the three skills represented in the Universal Registry plus unknown-candidate, insufficient-capability, and failed-invocation terminal cases.
+
+Current benchmark evidence: 6/6 cases passed with deterministic replay. This verifies the bounded capability-selection behavior only.
+
+LIMITATION: prerequisite routing is implemented in the selector against the existing `REQUIRES` graph API, but it is not yet behaviorally evidenced through the canonical registry because the Universal Registry currently contains only three skill records and no prerequisite-bearing registered skill pair. Do not claim full task → dependency → invocation sequencing as verified until registry coverage and a reproducible prerequisite benchmark exist.
+
+Status: VERIFIED BOUNDED SLICE. Next justified action: reconcile canonical registry skill coverage for prerequisite-bearing skills, then extend the behavioral benchmark without creating a second registry or orchestration authority.

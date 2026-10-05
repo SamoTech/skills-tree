@@ -1082,3 +1082,16 @@ Decision: Add one experimental canonical skill, `15-orchestration/capability-bas
 Evidence IDs: PR #341; merged main `af892ebf9aafd90dedb9d6039974d51c2bf02726`; public GitHub issue `BrianTruong23/kanban-coding-agents#8`; public OWASP Agentic Top 10 discussion `www-project-top-10-for-large-language-model-applications#802`; `meta/MOST-WANTED-SKILLS.md`; exact-head Retrieval Evidence Benchmark run on PR #341.
 Status: VERIFIED — merged after exact-head CI passed. The skill remains experimental pending behavioral evaluation evidence.
 Reopen Conditions: Reopen if behavioral evaluation shows the contract is redundant, insufficiently discriminating, missing required dependencies, or better represented as an existing orchestration skill.
+
+
+# DECISION-2026-10-05-BEHAVIORAL-SKILL-SELECTION
+
+DECISION-ID: DECISION-2026-10-05-BEHAVIORAL-SKILL-SELECTION
+Topic: Establish the first executable behavioral boundary for capability-based skill selection
+Finding: The existing recommendation path operates at Goal/Taxonomy level and does not itself provide a canonical skill-level selection contract with explicit candidate rejection, registry eligibility, terminal failure behavior, and next-action output. A new bounded runtime boundary was therefore justified.
+Decision: Add `registry/skill_selection.py` using the existing UniversalRegistry and EligibilityEngine, plus a versioned deterministic benchmark and CI evidence workflow. Do not create a second registry, search engine, or orchestration authority.
+Evidence IDs: PR #343; merged main `203d4b12e576cbeb5eaa83249cc97d96905b01fc`; Skill Selection Evidence Benchmark run `37310654422`; benchmark dataset `benchmarks/selection/capability-selection-v1.json`.
+Result: 6/6 benchmark cases passed with deterministic replay. The verified slice covers registered capability matching, candidate discrimination, fail-closed unknown candidates, insufficient-capability blocking, and no-recovery failure termination.
+Limitation: The Universal Registry currently contains only three skill records. Prerequisite routing is implemented against the canonical REQUIRES graph API but is not behaviorally verified through a prerequisite-bearing registered skill pair. Full task-to-dependency-to-invocation sequencing remains UNVERIFIED.
+Status: VERIFIED BOUNDED SLICE
+Reopen Conditions: Reopen if benchmark results fail, registry eligibility semantics change, or prerequisite-bearing skill coverage is added and produces contradictory evidence.
