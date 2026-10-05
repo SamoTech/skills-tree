@@ -122,3 +122,10 @@ The result is a prioritization aid, not a claim of objective popularity or unive
 **PLAN / DECIDE:** Opened GitHub Issue #335 as the bounded next implementation slice. It requires re-verifying the live evaluation ontology, defining the minimum canonical evaluation contracts using existing ontology/benchmark boundaries, adding executable behavioral tests and CI validation, and synchronizing documentation. Semantic search or new skills remain blocked until retrieval-quality evidence demonstrates a real implementation gap.
 
 **Status:** `INVESTIGATING` — Issue #335. No new skill or competing search implementation is authorized by this loop.
+
+
+## Retrieval / Evaluation Evidence Audit — 2026-10-05
+
+The first evidence-driven investigation found a concrete gap in the existing evaluation boundary. `benchmarks/memory/retrieval-accuracy.md` is dated 2026-04-13 and its published model results have no current reproducible run artifact; its reproduction example uses a newer model identifier than the historical result table. Its related skill links also use the obsolete `skills/memory/...` path rather than the current category-prefixed canonical taxonomy. Separately, `intelligence/ontology/evaluation_ontology.json` is past its declared review due date (`2026-10-03`). The evaluation validation workflow did not previously trigger when that ontology itself changed; this trigger gap was fixed on 2026-10-05.
+
+Issue #336 records the remediation boundary. This is classified as an **evidence/freshness/reproducibility gap**, not evidence that historical benchmark scores are false. No new retrieval skill is selected until the benchmark evidence is reproduced, retired, or explicitly re-qualified.
