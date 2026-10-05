@@ -47,9 +47,12 @@ jobs:
           path: bandit-report.json
           retention-days: 30
 
+      - name: Remove local editable project before dependency audit
+        run: python -m pip uninstall -y skills-tree
+
       - name: Run pip-audit
-        run: pip-audit --strict --skip-editable
+        run: pip-audit --strict
 
       - name: Verify docs secret scan scope
         run: |
-          echo "Gitleaks scans the full repository history. Python SAST covers api/, cli/, mcp/, registry/, and tools/. Dependency audit excludes the local editable project package and audits its installed third-party dependency set."
+          echo "Gitleaks scans the full repository history. Python SAST covers api/, cli/, mcp/, registry/, and tools/. Dependency audit covers the installed third-party dependency set after removing the local editable project package."
