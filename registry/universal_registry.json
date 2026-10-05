@@ -306,6 +306,43 @@
           "confidence": 1,
           "methodology": "Expected skill IDs are derived directly from canonical skill paths; query text is authored from the corresponding canonical skill title/description and retained as versioned benchmark data."
         }
+      },
+      {
+        "id": "benchmark/skill-selection-v1",
+        "version": "1.0",
+        "name": "Deterministic Capability Skill Selection",
+        "task": "Measure whether explicit capability requirements select the correct canonical skill, route prerequisites, and fail closed when no justified recovery candidate exists.",
+        "inputs": [
+          "Canonical registry registry/universal_registry.json",
+          "Versioned dataset benchmarks/selection/capability-selection-v1.json",
+          "Canonical graph data/SKILLS_GRAPH.json",
+          "registry.skill_selection.SkillSelectionEngine"
+        ],
+        "expected_behavior": [
+          "Select the candidate covering the required capability",
+          "Reject lower-fit or unrelated candidates with explicit reasons",
+          "Route unsatisfied REQUIRES prerequisites before invocation",
+          "Return BLOCKED when no sufficient or recovery candidate exists",
+          "Produce deterministic output for identical inputs"
+        ],
+        "evaluation_criteria": [
+          "100% benchmark case accuracy",
+          "Deterministic replay produces identical structured output"
+        ],
+        "test_data": [
+          "benchmarks/selection/capability-selection-v1.json",
+          "registry/universal_registry.json",
+          "data/SKILLS_GRAPH.json"
+        ],
+        "methodology": "Offline deterministic replay against the canonical registry, eligibility runtime, and skill dependency graph. Cases are repository-authored and assert exact selected skill, status, and next-action type. This is behavioral evidence for the bounded selection contract, not a claim of general semantic understanding or autonomous-agent success.",
+        "historical_results": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "Capability-Based Skill Selection contract and canonical registry/graph",
+          "verified_at": "2026-10-05T12:00:00Z",
+          "confidence": 1,
+          "methodology": "Expected outputs are explicitly versioned in the benchmark dataset and evaluated against the canonical runtime."
+        }
       }
     ],
     "architectures": [],
