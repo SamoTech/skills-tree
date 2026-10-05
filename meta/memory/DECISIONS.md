@@ -1060,3 +1060,14 @@ Decision: Add exactly one evaluation mapping per missing P0 capability, reuse th
 Evidence IDs: PR #339; merged main c88672e1d19e381aad8137796d4283678e3fc9e1; Validate Evaluations run 37300715147; intelligence/ontology/evaluation_ontology.json; .github/workflows/validate-evaluations.yml; CORPUS-001; CORPUS-002.
 Status: VERIFIED — merged and exact-head CI passed.
 Reopen Conditions: Reopen if corpus acceptance requirements change, evaluation types are superseded, or reproducible evidence demonstrates the mappings are materially incorrect or insufficient.
+
+
+# DECISION-2026-10-05-RETRIEVAL-EVIDENCE-BENCHMARK
+DECISION-ID: DECISION-2026-10-05-RETRIEVAL-EVIDENCE-BENCHMARK
+Topic: Establish current reproducible evidence for canonical CLI retrieval quality
+Finding: The canonical deterministic search implementation had no current version-matched retrieval run artifact. Existing recommendation and retrieval benchmark results were historical and could not justify current ranking claims.
+Decision: Reuse the existing Benchmark contract/runtime and canonical CLI search implementation. Add one registered `benchmark/retrieval-cli-v1`, one versioned 12-case repository-authored dataset derived from canonical skill titles/descriptions, one deterministic runner, and one observational CI workflow that uploads the exact result artifact. Do not add embeddings, LLM ranking, a second search implementation, or a new evaluation framework.
+Evidence IDs: PR #340; merged main `8ae02bd08841a496d19f49cd1092ec5f011c6c6b`; Retrieval Evidence Benchmark run `37301951280`; artifact `retrieval-benchmark-95839c52567c32cad38c0a0038edc01dc0a298f4`; result commit `95839c52567c32cad38c0a0038edc01dc0a298f4`; search-index SHA-256 `cca13a4edb3f7b725992d90f7c63b988cd7d303c63150667dfe4e3c64c634e9a`; dataset SHA-256 `c2eca9737387fc75ee0bd2674550022b2aa67aee36924d6593571f0bcaa9e6c0`.
+Result: Recall@5 1.0000; MRR 0.9583; deterministic replay true. RAG case ranked at position 2 behind `09-agentic-patterns/rag`; all other cases ranked first.
+Status: VERIFIED — PR #340 merged after exact-head CI passed.
+Reopen Conditions: Reopen when a broader representative query set is available, when the search projection/ranking contract changes, or when a measured failure case justifies a ranking intervention.
