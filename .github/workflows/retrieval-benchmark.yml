@@ -1,0 +1,47 @@
+name: Retrieval Evidence Benchmark
+
+on:
+  pull_request:
+    paths:
+      - 'cli/search_engine.py'
+      - 'cli/search_runtime.py'
+      - 'data/search-index.json'
+      - 'benchmarks/retrieval/cli-search-v1.json'
+      - 'tools/run_retrieval_benchmark.py'
+      - 'registry/universal_registry.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  retrieval-benchmark:
+    name: Deterministic Retrieval Evidence
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install runtime dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run retrieval benchmark
+        run: |
+          python tools/run_retrieval_benchmark.py \
+            --dataset benchmarks/retrieval/cli-search-v1.json \
+            --index data/search-index.json \
+            --output retrieval-benchmark-result.json
+
+      - name: Upload reproducible result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieval-benchmark-${{ github.sha }}
+          path: retrieval-benchmark-result.json
+          if-no-files-found: error

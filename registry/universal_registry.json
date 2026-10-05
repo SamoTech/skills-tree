@@ -272,7 +272,42 @@
         }
       }
     ],
-    "benchmarks": [],
+    "benchmarks": [
+      {
+        "id": "benchmark/retrieval-cli-v1",
+        "version": "1.0",
+        "name": "Deterministic CLI Retrieval Quality",
+        "task": "Measure whether the canonical deterministic CLI search retrieves the repository skill intended by a bounded set of provenance-backed capability queries.",
+        "inputs": [
+          "Canonical generated search projection data/search-index.json",
+          "Versioned benchmark query dataset benchmarks/retrieval/cli-search-v1.json",
+          "Canonical cli.search_engine.search_documents implementation"
+        ],
+        "expected_behavior": [
+          "Rank the expected canonical skill within the top 5 for each benchmark query when the query is designed from that skill's canonical title/description.",
+          "Produce deterministic results from the same search projection and benchmark dataset.",
+          "Record repository commit, search-index digest, dataset digest, per-query ranks, and aggregate retrieval metrics."
+        ],
+        "evaluation_criteria": [
+          "Recall@5 >= 0.90",
+          "MRR >= 0.80",
+          "Deterministic replay produces identical ranked IDs for identical inputs."
+        ],
+        "test_data": [
+          "benchmarks/retrieval/cli-search-v1.json",
+          "data/search-index.json"
+        ],
+        "methodology": "Offline deterministic replay against the canonical generated search projection using cli.search_engine.search_documents. Queries are manually authored from canonical skill titles/descriptions; expected IDs are the exact canonical skill paths. This benchmark is an evidence instrument, not a popularity or semantic-understanding claim. The workflow records results as an artifact and does not alter ranking or block merges.",
+        "historical_results": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "Canonical skill definitions and deterministic CLI search contract",
+          "verified_at": "2026-10-05T11:10:00Z",
+          "confidence": 1,
+          "methodology": "Expected skill IDs are derived directly from canonical skill paths; query text is authored from the corresponding canonical skill title/description and retained as versioned benchmark data."
+        }
+      }
+    ],
     "architectures": [],
     "protocols": [
       {
