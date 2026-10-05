@@ -1,0 +1,88 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/capability-based-skill-selection.md",
+  "name": "Capability-Based Skill Selection",
+  "headline": "Capability-Based Skill Selection",
+  "description": "Select and sequence canonical skills for a task by matching required capabilities, discriminating competing candidates, checking eligibility and dependencies, and using execution evidence to choose the next skill.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/capability-based-skill-selection.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-05T11:35:00Z",
+  "skillId": "capability-based-skill-selection",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "15-orchestration",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Selection Procedure",
+    "Outputs",
+    "Decision Contract",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "capability, based, skill, selection, AI agent, orchestration, LLM skill, skills tree, routing",
+  "about": {
+    "@type": "Thing",
+    "name": "Capability-Based Skill Selection",
+    "description": "An AI agent skill for capability-based skill selection."
+  }
+}

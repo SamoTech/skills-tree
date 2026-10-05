@@ -8,9 +8,10 @@
       "queries": [
         "repo:SamoTech/skills-tree is:issue (skill OR capability OR feature OR request)",
         "repo:SamoTech/skills-tree is:issue (search OR discovery OR Agent Skills OR MCP OR RAG)",
-        "repo:SamoTech/skills-tree is:issue (memory OR evaluation OR benchmark OR automation)"
+        "repo:SamoTech/skills-tree is:issue (memory OR evaluation OR benchmark OR automation)",
+        "repo:SamoTech/skills-tree is:issue (selection OR routing OR orchestration OR delegation OR task breakdown)"
       ],
-      "purpose": "Collect dated public repository demand signals without treating issue volume as adoption."
+      "purpose": "Collect dated public demand signals without treating issue volume as adoption."
     }
   ]
 }
