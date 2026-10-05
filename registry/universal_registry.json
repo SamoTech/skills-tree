@@ -75,6 +75,34 @@
           "source_type": "repository",
           "source": "skills/05-code/code-review.md"
         }
+      },
+      {
+        "id": "capability/agent-control",
+        "version": "1.0",
+        "name": "Agent Control",
+        "skills": [
+          "09-agentic-patterns/react"
+        ],
+        "implementations": [],
+        "adapters": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/react.md"
+        }
+      },
+      {
+        "id": "capability/reasoning-control",
+        "version": "1.0",
+        "name": "Reasoning Control",
+        "skills": [
+          "09-agentic-patterns/cot"
+        ],
+        "implementations": [],
+        "adapters": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/cot.md"
+        }
       }
     ],
     "skills": [
@@ -130,6 +158,32 @@
         "provenance": {
           "source_type": "repository",
           "source": "skills/09-agentic-patterns/agentic-rag.md"
+        }
+      },
+      {
+        "id": "09-agentic-patterns/react",
+        "version": "3",
+        "canonical": true,
+        "capabilities": [
+          "capability/agent-control"
+        ],
+        "implementations": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/react.md"
+        }
+      },
+      {
+        "id": "09-agentic-patterns/cot",
+        "version": "3",
+        "canonical": true,
+        "capabilities": [
+          "capability/reasoning-control"
+        ],
+        "implementations": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/cot.md"
         }
       }
     ],
@@ -353,7 +407,7 @@
         "provenance": {
           "source_type": "repository",
           "source": "Capability-Based Skill Selection contract and canonical registry/graph",
-          "verified_at": "2026-10-05T12:45:00Z",
+          "verified_at": "2026-10-05T13:00:00Z",
           "confidence": 1,
           "methodology": "Expected outputs are explicitly versioned in the benchmark dataset and evaluated against the canonical runtime."
         }
