@@ -105,6 +105,42 @@
       "expected_selected_skill": "09-agentic-patterns/agentic-rag",
       "expected_status": "CONTINUE",
       "expected_next_action": "invoke"
+    },
+    {
+      "id": "SEL-008",
+      "task": "recover after a failed code review without retrying the failed skill",
+      "required_capabilities": [
+        "capability/code-quality"
+      ],
+      "candidates": [
+        "05-code/code-review",
+        "11-web/web-search"
+      ],
+      "failed_skill": "05-code/code-review",
+      "failed_skills": [
+        "05-code/code-review"
+      ],
+      "expected_selected_skill": null,
+      "expected_status": "BLOCKED",
+      "expected_next_action": "escalate"
+    },
+    {
+      "id": "SEL-009",
+      "task": "recover using a remaining candidate after a previous failure",
+      "required_capabilities": [
+        "capability/web-retrieval"
+      ],
+      "candidates": [
+        "11-web/web-search",
+        "05-code/code-review"
+      ],
+      "failed_skill": "05-code/code-review",
+      "failed_skills": [
+        "05-code/code-review"
+      ],
+      "expected_selected_skill": "11-web/web-search",
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke"
     }
   ]
 }
