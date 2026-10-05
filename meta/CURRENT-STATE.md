@@ -415,3 +415,8 @@ Live GitHub Pages verification completed on 2026-10-04. Deployment run `37227197
 ## Demand Intelligence — Initial Evidence Pass
 
 The first repository-local demand collection path is present and a controlled public-signal cohort has been recorded. External public-source corroboration on 2026-10-04 shows Agent Skills are an ecosystem-scale concern, with strong activity around discovery, interoperability, retrieval/selection, evaluation, governance, and safety. A coverage reconciliation found that the repository already has broad canonical coverage for the local memory, IDE/code, reasoning, and action-execution demand signals. The next decision gate is therefore evidence/runtime quality rather than raw skill creation. Preferred investigation: skill evaluation/invocation evidence and retrieval quality.
+
+
+## Agentic Loop — Retrieval/Evaluation Evidence — 2026-10-05
+
+OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmark is stale and not currently backed by a reproducible current run; its related canonical skill links are outdated; the evaluation ontology is past review due; and evaluation workflow path filters omitted the ontology itself. EXECUTE fixed the workflow trigger so evaluation-ontology changes now invoke validation. Issue #336 records the remaining evidence remediation: reproduce, retire, or re-qualify the stale benchmark without fabricating new scores. Current decision: **CONTINUE** — the next safe evidence-backed action is benchmark provenance/link repair and deterministic freshness validation.
