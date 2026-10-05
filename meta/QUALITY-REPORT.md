@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 376
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 217
+- **Total skill files:** 377
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 218
 - 🟡 **Enriched** (real description + runnable code): 158
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -30,7 +30,7 @@
 | `12-data` | 18 | 1 | 17 | 0 | 0 | 0 |
 | `13-creative` | 14 | 14 | 0 | 0 | 0 | 0 |
 | `14-security` | 13 | 13 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 28 | 10 | 18 | 0 | 0 | 0 |
+| `15-orchestration` | 29 | 11 | 18 | 0 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 | 0 |
 | `17-infrastructure` | 1 | 1 | 0 | 0 | 0 | 0 |
 
@@ -242,6 +242,7 @@
 - [`skills/14-security/sandboxed-execution.md`](skills/14-security/sandboxed-execution.md) — Sandboxed Execution
 - [`skills/14-security/secret-scanning.md`](skills/14-security/secret-scanning.md) — Secret Scanning
 - [`skills/15-orchestration/automation-review.md`](skills/15-orchestration/automation-review.md) — Automation Review
+- [`skills/15-orchestration/capability-based-skill-selection.md`](skills/15-orchestration/capability-based-skill-selection.md) — Capability-Based Skill Selection
 - [`skills/15-orchestration/documentation-drift-resolution.md`](skills/15-orchestration/documentation-drift-resolution.md) — Documentation Drift Resolution
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
 - [`skills/15-orchestration/kanban-task-management.md`](skills/15-orchestration/kanban-task-management.md) — Kanban Task Management
