@@ -48,8 +48,8 @@ jobs:
           retention-days: 30
 
       - name: Run pip-audit
-        run: pip-audit --strict
+        run: pip-audit --strict --skip-editable
 
       - name: Verify docs secret scan scope
         run: |
-          echo "Gitleaks scans the full repository history. Python SAST covers api/, cli/, mcp/, registry/, and tools/. Dependency audit covers the installed project environment."
+          echo "Gitleaks scans the full repository history. Python SAST covers api/, cli/, mcp/, registry/, and tools/. Dependency audit excludes the local editable project package and audits its installed third-party dependency set."
