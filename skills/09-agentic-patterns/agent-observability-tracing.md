@@ -6,6 +6,7 @@ stability: experimental
 description: "Instrument agent runs so model calls, skill versions, tool calls, latency, failures, and costs can be reconstructed from correlated telemetry."
 added: "2026-10"
 version: v1
+related: [audit-logging, mcp-tool, agent-evaluation]
 tags: [observability, tracing, telemetry, agents, opentelemetry]
 ---
 
