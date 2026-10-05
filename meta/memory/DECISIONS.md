@@ -1071,3 +1071,14 @@ Evidence IDs: PR #340; merged main `8ae02bd08841a496d19f49cd1092ec5f011c6c6b`; R
 Result: Recall@5 1.0000; MRR 0.9583; deterministic replay true. RAG case ranked at position 2 behind `09-agentic-patterns/rag`; all other cases ranked first.
 Status: VERIFIED — PR #340 merged after exact-head CI passed.
 Reopen Conditions: Reopen when a broader representative query set is available, when the search projection/ranking contract changes, or when a measured failure case justifies a ranking intervention.
+
+
+# DECISION-2026-10-05-CAPABILITY-BASED-SKILL-SELECTION
+
+DECISION-ID: DECISION-2026-10-05-CAPABILITY-BASED-SKILL-SELECTION
+Topic: Add the missing canonical skill-selection contract identified by demand/evidence reconciliation
+Finding: Public demand signals include automated task breakdown, agent assignment based on skills/performance, dependency-aware orchestration, and runtime action decisioning. Skills Tree already covers search, specialist routing, role assignment, task decomposition, delegation, dependencies, eligibility, and orchestration primitives, but it lacked a dedicated skill-level contract for competing-skill discrimination, prerequisite resolution, invocation verification, and next-skill selection.
+Decision: Add one experimental canonical skill, `15-orchestration/capability-based-skill-selection`, without creating a second search engine, registry, or orchestration authority. The contract must select the smallest sufficient skill set, reject ineligible/competing candidates with reasons, resolve prerequisites, verify outcomes, and choose the next action from observed results. Register the demand signal in `meta/MOST-WANTED-SKILLS.md` and extend the reproducible demand collector with selection/routing/orchestration/task-breakdown queries.
+Evidence IDs: PR #341; merged main `af892ebf9aafd90dedb9d6039974d51c2bf02726`; public GitHub issue `BrianTruong23/kanban-coding-agents#8`; public OWASP Agentic Top 10 discussion `www-project-top-10-for-large-language-model-applications#802`; `meta/MOST-WANTED-SKILLS.md`; exact-head Retrieval Evidence Benchmark run on PR #341.
+Status: VERIFIED — merged after exact-head CI passed. The skill remains experimental pending behavioral evaluation evidence.
+Reopen Conditions: Reopen if behavioral evaluation shows the contract is redundant, insufficiently discriminating, missing required dependencies, or better represented as an existing orchestration skill.
