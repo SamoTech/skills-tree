@@ -147,7 +147,7 @@
       "type": "recovery_chain",
       "task": "recover through multiple invocation failures without retrying prior failures",
       "required_capabilities": [
-        "capability/web-retrieval"
+        "capability/knowledge-retrieval"
       ],
       "candidates": [
         "11-web/web-search",
@@ -159,8 +159,8 @@
         "05-code/code-review"
       ],
       "expected_selected_skill": "03-memory/rag",
-      "expected_status": "BLOCKED",
-      "expected_next_action": "escalate"
+      "expected_status": "CONTINUE",
+      "expected_next_action": "invoke"
     }
   ]
 }
