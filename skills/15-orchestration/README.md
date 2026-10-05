@@ -18,6 +18,7 @@ Orchestration skills enable agents to **coordinate, delegate, and manage multi-a
 | [Task Queue Management](task-queue.md) | Advanced | Manage ordered queues of pending tasks |
 | [Consensus Voting](consensus-voting.md) | Advanced | Multiple agents vote on a decision |
 | [Role Assignment](role-assignment.md) | Intermediate | Assign specialized roles to agents |
+| [Capability-Based Skill Selection](capability-based-skill-selection.md) | Advanced | Select and sequence the right canonical skill using task capabilities, competing candidates, dependencies, evidence, and execution results |
 | [Workflow State Machine](state-machine.md) | Advanced | Model workflows as finite state machines |
 | [Event-Driven Triggers](event-triggers.md) | Advanced | Trigger agents in response to events |
 | [Hierarchical Agent Tree](hierarchical-tree.md) | Advanced | Manage tree of orchestrator and worker agents |
