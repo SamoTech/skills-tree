@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:42:32Z",
+  "dateModified": "2026-10-05T11:46:55Z",
   "skillId": "mcts",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, patterns, LLM skill, skills tree, agentic, mcts",
+  "keywords": "skills tree, patterns, mcts, AI agent, agentic, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "mcts",

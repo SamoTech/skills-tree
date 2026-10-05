@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:42:32Z",
+  "dateModified": "2026-10-05T11:46:55Z",
   "skillId": "markdown-parsing",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -81,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, markdown, LLM skill, skills tree, perception, parsing",
+  "keywords": "markdown, parsing, skills tree, perception, AI agent, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Markdown Parsing",

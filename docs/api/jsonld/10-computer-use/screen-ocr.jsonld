@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:42:32Z",
+  "dateModified": "2026-10-05T11:46:55Z",
   "skillId": "screen-ocr",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "AI agent, screen, LLM skill, skills tree, use, computer, ocr",
+  "keywords": "computer, ocr, skills tree, screen, AI agent, use, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "screen-ocr",
