@@ -36,6 +36,14 @@ Reduce an agent's active context when it approaches a configured budget while pr
 6. Validate the compacted state against the active task before resuming.
 7. If critical state cannot be preserved, stop and recover from an authoritative checkpoint instead of guessing.
 
+## Runnable Example
+```python
+state = {"task": "deploy", "status": "in_progress", "evidence": ["tests-pass"]}
+summary = {"active_task": state["task"], "status": state["status"], "evidence": state["evidence"]}
+assert summary["status"] != "done"
+print(summary)
+```
+
 ## Failure Modes
 - Repeated compaction with no net reduction.
 - Loss of active task or user constraints.
