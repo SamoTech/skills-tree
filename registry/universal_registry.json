@@ -48,8 +48,7 @@
         "version": "1.0",
         "name": "Knowledge Retrieval",
         "skills": [
-          "03-memory/rag",
-          "09-agentic-patterns/agentic-rag"
+          "03-memory/rag"
         ],
         "implementations": [],
         "adapters": [],
@@ -103,6 +102,20 @@
           "source_type": "repository",
           "source": "skills/09-agentic-patterns/cot.md"
         }
+      },
+      {
+        "id": "capability/agentic-knowledge-retrieval",
+        "version": "1.0",
+        "name": "Agentic Knowledge Retrieval",
+        "skills": [
+          "09-agentic-patterns/agentic-rag"
+        ],
+        "implementations": [],
+        "adapters": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/agentic-rag.md"
+        }
       }
     ],
     "skills": [
@@ -152,7 +165,7 @@
         "version": "2",
         "canonical": true,
         "capabilities": [
-          "capability/knowledge-retrieval"
+          "capability/agentic-knowledge-retrieval"
         ],
         "implementations": [],
         "provenance": {
