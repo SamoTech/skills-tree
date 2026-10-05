@@ -1095,3 +1095,16 @@ Result: 6/6 benchmark cases passed with deterministic replay. The verified slice
 Limitation: The Universal Registry currently contains only three skill records. Prerequisite routing is implemented against the canonical REQUIRES graph API but is not behaviorally verified through a prerequisite-bearing registered skill pair. Full task-to-dependency-to-invocation sequencing remains UNVERIFIED.
 Status: VERIFIED BOUNDED SLICE
 Reopen Conditions: Reopen if benchmark results fail, registry eligibility semantics change, or prerequisite-bearing skill coverage is added and produces contradictory evidence.
+
+
+# DECISION-2026-10-05-PREREQUISITE-ROUTING
+
+DECISION-ID: DECISION-2026-10-05-PREREQUISITE-ROUTING
+Topic: Verify dependency-aware skill selection against registered prerequisite-bearing skills
+Finding: The initial behavioral selection slice proved capability matching and fail-closed selection but could not verify prerequisite routing because the Universal Registry lacked a prerequisite-bearing registered skill pair. Adding Agentic RAG, CoT, and ReAct exposed an ontology collision when Agentic RAG inherited the general knowledge-retrieval capability; that would have made selection ambiguous and altered baseline registry resolution.
+Decision: Represent Agentic RAG under a distinct `capability/agentic-knowledge-retrieval` capability, retain general knowledge-retrieval for baseline RAG, register the prerequisite-bearing skills needed by the canonical graph, and implement deterministic transitive `REQUIRES` traversal with cycle/unregistered-prerequisite fail-closed behavior. Extend the existing selection benchmark rather than creating another orchestration authority.
+Evidence IDs: PR #345; exact-head `8200b0f359e35293121189cdf2dd263ce96252db`; merged main `f15c729adf76794fc914f954f74a4964d7dbdd76`; Skill Selection Evidence Benchmark run `37317066498`; Test Suite run `37317066396`; Security Scan run `37317066520`; Build & Verify Wheel run `37317066342`; Retrieval Evidence Benchmark run `37317066571`.
+Result: Exact-head CI passed. The bounded benchmark now verifies target selection, ordered transitive prerequisites, partial-completion resume, and terminal invocation after prerequisites.
+Status: VERIFIED BOUNDED RUNTIME
+Limitation: This is evidence for the registered Agentic RAG dependency scenario, not general autonomous planning or arbitrary dependency-graph correctness.
+Reopen Conditions: Reopen if prerequisite routing fails under a new registered dependency pattern, registry capability semantics change, or a concrete measured failure demonstrates that the selection/recovery contract is insufficient.
