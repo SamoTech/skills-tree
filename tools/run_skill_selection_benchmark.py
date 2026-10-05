@@ -34,7 +34,17 @@ def main() -> int:
     rows = []
     passed = 0
     for case in cases:
-        if "failed_skill" in case:
+        if case.get("type") == "recovery_chain":
+            failed = []
+            observed = None
+            for failed_skill in case["failure_sequence"]:
+                observed = engine.next_after_failure(
+                    case["task"], case["required_capabilities"], case["candidates"],
+                    failed_skill, failed_skills=failed,
+                )
+                failed.append(failed_skill)
+            assert observed is not None
+        elif "failed_skill" in case:
             observed = engine.next_after_failure(
                 case["task"], case["required_capabilities"], case["candidates"],
                 case["failed_skill"], case.get("completed_skills"), case.get("failed_skills")
