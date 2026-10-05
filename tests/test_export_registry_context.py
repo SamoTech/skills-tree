@@ -49,6 +49,9 @@ def test_generated_registry_context_projection_matches_universal_registry():
     assert set(contexts) == {
         "03-memory/rag",
         "05-code/code-review",
+        "09-agentic-patterns/agentic-rag",
+        "09-agentic-patterns/cot",
+        "09-agentic-patterns/react",
         "11-web/web-search",
     }
     assert contexts["05-code/code-review"]["implementation_ids"] == [

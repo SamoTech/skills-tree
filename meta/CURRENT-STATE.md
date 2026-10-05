@@ -503,3 +503,23 @@ Current benchmark evidence: 6/6 cases passed with deterministic replay. This ver
 LIMITATION: prerequisite routing is implemented in the selector against the existing `REQUIRES` graph API, but it is not yet behaviorally evidenced through the canonical registry because the Universal Registry currently contains only three skill records and no prerequisite-bearing registered skill pair. Do not claim full task → dependency → invocation sequencing as verified until registry coverage and a reproducible prerequisite benchmark exist.
 
 Status: VERIFIED BOUNDED SLICE. Next justified action: reconcile canonical registry skill coverage for prerequisite-bearing skills, then extend the behavioral benchmark without creating a second registry or orchestration authority.
+
+
+## Behavioral Skill Selection — PREREQUISITE ROUTING VERIFIED BOUNDED SLICE — 2026-10-05
+
+PR #345 merged to main as `f15c729adf76794fc914f954f74a4964d7dbdd76` after exact-head `8200b0f359e35293121189cdf2dd263ce96252db` passed the applicable CI matrix, including Test Suite, Security Scan, Build & Verify Wheel, PR Checks, Retrieval Evidence Benchmark, and Skill Selection Evidence Benchmark.
+
+The selection runtime now resolves transitive `REQUIRES` prerequisites deterministically, detects prerequisite cycles, fails closed when a graph prerequisite is not registered, and emits the next prerequisite before target invocation. The registry boundary now represents Agentic RAG, CoT, and ReAct with explicit capabilities; Agentic RAG is separated from general knowledge retrieval through `capability/agentic-knowledge-retrieval`, preventing the registry expansion from changing baseline RAG capability resolution.
+
+Current bounded behavioral evidence covers:
+- Agentic RAG selection over baseline RAG for the explicit agentic capability.
+- Ordered prerequisite routing: RAG → CoT → ReAct before Agentic RAG invocation.
+- Resume behavior after partial prerequisite completion.
+- Target invocation only after all declared prerequisites are complete.
+- Fail-closed behavior for invalid prerequisite graphs.
+
+This verifies deterministic dependency-aware skill selection for the registered Agentic RAG scenario. It does not establish general autonomous task understanding, arbitrary graph correctness, or full task → capability → skill → invocation → verification → next-skill autonomy.
+
+Post-merge workflow runs for `f15c729adf76794fc914f954f74a4964d7dbdd76` were not yet observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
+
+Status: VERIFIED BOUNDED RUNTIME. Next action: use the verified prerequisite-routing boundary as the baseline for the next evidence-driven skill-selection/recovery slice; do not broaden the registry or add orchestration infrastructure without a concrete measured gap.
