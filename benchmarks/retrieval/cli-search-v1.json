@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "benchmark/retrieval-cli-v1",
+  "benchmark_version": "1.0",
+  "description": "Versioned retrieval cases for the canonical deterministic CLI search implementation.",
+  "cases": [
+    {"id":"RET-001","query":"web search with freshness constraints source tracking and result verification","expected_skill_id":"07-tool-use/web-search"},
+    {"id":"RET-002","query":"retrieval augmented generation for knowledge retrieval","expected_skill_id":"03-memory/rag"},
+    {"id":"RET-003","query":"review code for correctness security maintainability tests and repository conventions","expected_skill_id":"05-code/code-review"},
+    {"id":"RET-004","query":"diagnose software defects by reproducing failures and identifying root causes","expected_skill_id":"05-code/debugging"},
+    {"id":"RET-005","query":"fix a reproducible defect with the smallest safe change and regression coverage","expected_skill_id":"05-code/bug-fixing"},
+    {"id":"RET-006","query":"use GitHub REST APIs for repository issues pull requests and verified mutations","expected_skill_id":"07-tool-use/github-api"},
+    {"id":"RET-007","query":"perform deterministic calculations with explicit inputs units assumptions and verifiable outputs","expected_skill_id":"07-tool-use/calculator"},
+    {"id":"RET-008","query":"read and mutate authorized Notion pages databases and blocks with schema validation","expected_skill_id":"07-tool-use/notion-api"},
+    {"id":"RET-009","query":"use authorized Slack APIs for bounded workspace operations and verified side effects","expected_skill_id":"07-tool-use/slack-api"},
+    {"id":"RET-010","query":"extract and inspect PDF content while preserving page context and verifying extraction quality","expected_skill_id":"07-tool-use/pdf-tool"},
+    {"id":"RET-011","query":"execute code in an explicitly scoped runtime while validating inputs outputs resource limits and side effects","expected_skill_id":"07-tool-use/code-exec-tool"},
+    {"id":"RET-012","query":"perform Git operations with explicit branch commit merge and recovery intent","expected_skill_id":"05-code/git-operations"}
+  ]
+}
