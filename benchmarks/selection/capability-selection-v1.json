@@ -141,6 +141,26 @@
       "expected_selected_skill": "11-web/web-search",
       "expected_status": "CONTINUE",
       "expected_next_action": "invoke"
+    },
+    {
+      "id": "SEL-010",
+      "type": "recovery_chain",
+      "task": "recover through multiple invocation failures without retrying prior failures",
+      "required_capabilities": [
+        "capability/web-retrieval"
+      ],
+      "candidates": [
+        "11-web/web-search",
+        "05-code/code-review",
+        "03-memory/rag"
+      ],
+      "failure_sequence": [
+        "11-web/web-search",
+        "05-code/code-review"
+      ],
+      "expected_selected_skill": "03-memory/rag",
+      "expected_status": "BLOCKED",
+      "expected_next_action": "escalate"
     }
   ]
 }
