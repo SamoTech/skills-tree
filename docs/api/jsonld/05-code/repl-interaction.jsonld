@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:50:14Z",
+  "dateModified": "2026-10-05T13:33:24Z",
   "skillId": "repl-interaction",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "LLM skill, repl, code, AI agent, skills tree, interaction",
+  "keywords": "code, repl, interaction, LLM skill, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "repl-interaction",

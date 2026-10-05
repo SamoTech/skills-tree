@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-05T12:50:14Z",
+  "generated": "2026-10-05T13:33:23Z",
   "count": 381,
   "skills": [
     {
@@ -5401,7 +5401,21 @@
         "Changelog"
       ],
       "related": [],
-      "category_dir": "09-agentic-patterns"
+      "category_dir": "09-agentic-patterns",
+      "registry_context": {
+        "canonical_id": "09-agentic-patterns/agentic-rag",
+        "version": "2",
+        "canonical": true,
+        "capability_ids": [
+          "capability/agentic-knowledge-retrieval"
+        ],
+        "implementation_ids": [],
+        "evidence_ids": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/agentic-rag.md"
+        }
+      }
     },
     {
       "id": "bootstrapping",
@@ -5478,7 +5492,21 @@
         "../02-reasoning/planning.md",
         "../02-reasoning/self-consistency.md"
       ],
-      "category_dir": "09-agentic-patterns"
+      "category_dir": "09-agentic-patterns",
+      "registry_context": {
+        "canonical_id": "09-agentic-patterns/cot",
+        "version": "3",
+        "canonical": true,
+        "capability_ids": [
+          "capability/reasoning-control"
+        ],
+        "implementation_ids": [],
+        "evidence_ids": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/cot.md"
+        }
+      }
     },
     {
       "id": "critic-agent",
@@ -5741,7 +5769,21 @@
       "related": [
         "../02-reasoning/planning.md"
       ],
-      "category_dir": "09-agentic-patterns"
+      "category_dir": "09-agentic-patterns",
+      "registry_context": {
+        "canonical_id": "09-agentic-patterns/react",
+        "version": "3",
+        "canonical": true,
+        "capability_ids": [
+          "capability/agent-control"
+        ],
+        "implementation_ids": [],
+        "evidence_ids": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/react.md"
+        }
+      }
     },
     {
       "id": "reflection",

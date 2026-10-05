@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:50:14Z",
+  "dateModified": "2026-10-05T13:33:24Z",
   "skillId": "pipeline-test",
   "skillVersion": "v1",
   "skillLevel": "basic",
@@ -68,7 +68,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-06-22-01",
-  "keywords": "test, LLM skill, sandbox, pipeline, AI agent, skills tree",
+  "keywords": "LLM skill, AI agent, skills tree, pipeline, sandbox, test",
   "about": {
     "@type": "Thing",
     "name": "Pipeline Test Fixture",

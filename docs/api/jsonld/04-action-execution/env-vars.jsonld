@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:50:14Z",
+  "dateModified": "2026-10-05T13:33:24Z",
   "skillId": "env-vars",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "env, execution, vars, LLM skill, AI agent, action, skills tree",
+  "keywords": "execution, LLM skill, AI agent, skills tree, vars, action, env",
   "about": {
     "@type": "Thing",
     "name": "Environment Variables",

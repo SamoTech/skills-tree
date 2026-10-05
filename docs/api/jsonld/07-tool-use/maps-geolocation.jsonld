@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:50:14Z",
+  "dateModified": "2026-10-05T13:33:24Z",
   "skillId": "maps-geolocation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "maps, LLM skill, geolocation, tool, use, AI agent, skills tree",
+  "keywords": "geolocation, LLM skill, AI agent, tool, use, skills tree, maps",
   "about": {
     "@type": "Thing",
     "name": "Maps & Geolocation",
