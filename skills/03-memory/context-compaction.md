@@ -6,6 +6,7 @@ stability: experimental
 description: "Compress long agent context while preserving active task state, user constraints, tool dependencies, and evidence required for correct continuation."
 added: "2026-10"
 version: v1
+related: [short-term-memory, working-memory, state-machine]
 tags: [memory, context, compression, compaction, long-running-agents]
 ---
 
