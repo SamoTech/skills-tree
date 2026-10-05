@@ -1,5 +1,7 @@
 # Changelog
 
+- **Added** [add demand-driven skill expansion batch 01](https://github.com/SamoTech/skills-tree/pull/342) by @SamoTech (#342) — 2026-10-05
+
 - **Fixed** [harden dependency auditor contract](https://github.com/SamoTech/skills-tree/pull/287) by @SamoTech (#287) — 2026-10-03
 
 - **Added** [migrate stub skills to evidence-backed Agent Skills](https://github.com/SamoTech/skills-tree/pull/164) by @SamoTech (#164) — 2026-09-30
