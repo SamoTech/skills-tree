@@ -455,3 +455,12 @@ CAP-007 uses Recall@5 and Precision@5 with the corpus's existing 100-query evalu
 CAP-011 uses accuracy and hallucination rate plus reliability/user-satisfaction diagnostics. Confidence calibration and ECE are recorded as benchmark diagnostics rather than invented as a new ontology evaluation type. Self-evaluation output cannot independently trigger deployment.
 
 Status: IMPLEMENTED ON BRANCH — CI and exact-head verification pending. Main remains unchanged by this slice.
+
+
+## P0 Evaluation Contracts — VERIFIED ON MAIN — 2026-10-05
+
+PR #339 merged to main as c88672e1d19e381aad8137796d4283678e3fc9e1. The canonical evaluation ontology now contains mappings for the remaining P0 capabilities CAP-014 tool_execution, CAP-007 semantic_retrieval, and CAP-011 self_evaluation. No new evaluation framework, ontology category, or retrieval implementation was introduced.
+
+During exact-head CI, Validate Evaluations exposed two pre-existing validator defects: the gate expected min_required_score while canonical mappings use minimum_required_score, and two existing mappings had stale names for CAP-023 and CAP-025. Both were corrected. Final exact-head CI passed Validate Evaluations, Governance Gate, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped.
+
+The P0 contracts are now structurally linked and CI-validated. This does not constitute current benchmark success: CAP-007 explicitly remains without a current reproducible result artifact, and CAP-011 calibration diagnostics remain evidence requirements rather than a fabricated new metric type. The next evidence boundary is reproducible evaluation execution/results, not another ontology or search implementation.
