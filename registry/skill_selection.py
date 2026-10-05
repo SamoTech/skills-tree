@@ -145,8 +145,10 @@ class SkillSelectionEngine:
         candidates: list[str],
         failed_skill: str,
         completed_skills: list[str] | None = None,
+        failed_skills: list[str] | None = None,
     ) -> dict[str, Any]:
-        alternatives = [item for item in candidates if item != failed_skill]
+        previously_failed = set(failed_skills or []) | {failed_skill}
+        alternatives = [item for item in candidates if item not in previously_failed]
         if not alternatives:
             return {
                 "status": "BLOCKED",
@@ -158,7 +160,11 @@ class SkillSelectionEngine:
                 "task": task,
             }
         result = self.select(task, required_capabilities, alternatives, completed_skills=completed_skills)
-        result["failure_recovery"] = {"failed_skill": failed_skill, "reason": "invocation_failed"}
+        result["failure_recovery"] = {
+            "failed_skill": failed_skill,
+            "failed_skills": sorted(previously_failed),
+            "reason": "invocation_failed",
+        }
         return result
 
     def _prerequisites(self, skill_id: str) -> list[str]:
