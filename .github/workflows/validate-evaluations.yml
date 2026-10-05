@@ -5,13 +5,12 @@ on:
     paths:
       - 'intelligence/ontology/evaluation_ontology.json'
       - 'intelligence/ontology/capability_ontology.json'
-      - 'intelligence/ontology/evaluation_ontology.json'
-      - 'data/corpus/**'
+      - 'intelligence/corpus/entries/**/*.json'
   pull_request:
     paths:
       - 'intelligence/ontology/evaluation_ontology.json'
       - 'intelligence/ontology/capability_ontology.json'
-      - 'data/corpus/**'
+      - 'intelligence/corpus/entries/**/*.json'
   workflow_dispatch:
 
 permissions:
@@ -37,134 +36,180 @@ jobs:
 
       - name: Validate evaluation ontology against capability ontology
         run: |
-          python - <<'EOF'
+          python - <<'PYEOF'
           import json
-          import sys
           import os
+          import sys
 
           EVAL_PATH = 'intelligence/ontology/evaluation_ontology.json'
-          CAP_PATH  = 'intelligence/ontology/capability_ontology.json'
-
-          errors = []
-          warnings = []
+          CAP_PATH = 'intelligence/ontology/capability_ontology.json'
 
           if not os.path.exists(EVAL_PATH):
               print(f'SKIP: {EVAL_PATH} not found — no evaluations to validate yet')
               sys.exit(0)
-
           if not os.path.exists(CAP_PATH):
               print(f'ERROR: {CAP_PATH} not found — cannot validate evaluations without capability registry')
               sys.exit(1)
 
-          with open(EVAL_PATH) as f:
+          with open(EVAL_PATH, encoding='utf-8') as f:
               eval_data = json.load(f)
-          with open(CAP_PATH) as f:
+          with open(CAP_PATH, encoding='utf-8') as f:
               cap_data = json.load(f)
 
           cap_registry = {}
-          capabilities = cap_data.get('capabilities', cap_data if isinstance(cap_data, list) else [])
-          if isinstance(cap_data, dict) and 'capabilities' not in cap_data:
-              for k, v in cap_data.items():
-                  if k.startswith('CAP-'):
-                      cap_registry[k] = v if isinstance(v, dict) else {'name': v}
-          else:
-              for cap in capabilities:
+          if isinstance(cap_data, dict) and 'capabilities' in cap_data:
+              for cap in cap_data['capabilities']:
                   cap_registry[cap['cap_id']] = cap
+          elif isinstance(cap_data, list):
+              for cap in cap_data:
+                  cap_registry[cap['cap_id']] = cap
+          else:
+              for key, value in cap_data.items():
+                  if key.startswith('CAP-'):
+                      cap_registry[key] = value if isinstance(value, dict) else {'name': value}
 
-          evaluations = eval_data.get('evaluations', eval_data if isinstance(eval_data, list) else [])
+          evaluations = eval_data.get(
+              'capability_evaluation_mappings',
+              eval_data.get('evaluations', eval_data if isinstance(eval_data, list) else [])
+          )
           if not evaluations:
-              print('WARN: evaluation_ontology.json contains no evaluation entries')
-              sys.exit(0)
+              print('ERROR: evaluation ontology contains no capability evaluation mappings')
+              sys.exit(1)
 
-          REQUIRED_FIELDS = ['cap_id', 'name', 'validation_method']
-          METRIC_FIELDS   = ['primary_metrics']
-          THRESHOLD_FIELDS = ['min_required_score']
-
-          print(f'Checking {len(evaluations)} evaluation entries against {len(cap_registry)} registered capabilities...')
-          print()
-
+          errors = []
           for entry in evaluations:
               cap_id = entry.get('cap_id', 'UNKNOWN')
               eval_name = entry.get('name', '')
-              for field in REQUIRED_FIELDS:
-                  if field not in entry or not entry[field]:
+              for field in ('cap_id', 'name', 'validation_method'):
+                  if not entry.get(field):
                       errors.append(f'[{cap_id}] MISSING REQUIRED FIELD: {field}')
               if cap_id not in cap_registry:
                   errors.append(f'[{cap_id}] CAPABILITY DOES NOT EXIST in capability_ontology.json')
                   continue
               canonical_name = cap_registry[cap_id].get('name', '')
-              if eval_name and canonical_name and eval_name != canonical_name:
-                  errors.append(f'[{cap_id}] NAME MISMATCH — eval_ontology has "{eval_name}" but capability_ontology has "{canonical_name}"')
-              has_metrics = any(entry.get(f) for f in METRIC_FIELDS) or entry.get('metrics') or entry.get('evaluation_metrics')
-              if not has_metrics:
-                  errors.append(f'[{cap_id}] NO METRICS DEFINED — at least one metric required')
-              has_threshold = any(entry.get(f) is not None for f in THRESHOLD_FIELDS) or entry.get('threshold') is not None
-              if not has_threshold:
-                  errors.append(f'[{cap_id}] NO THRESHOLD DEFINED — min_required_score or threshold required')
-              if not entry.get('validation_method', '').strip():
+              if eval_name != canonical_name:
+                  errors.append(
+                      f'[{cap_id}] NAME MISMATCH — eval_ontology has "{eval_name}" '
+                      f'but capability_ontology has "{canonical_name}"'
+                  )
+              if not entry.get('primary_metrics') and not entry.get('metrics') and not entry.get('evaluation_metrics'):
+                  errors.append(f'[{cap_id}] NO METRICS DEFINED')
+              if entry.get('min_required_score') is None and entry.get('threshold') is None:
+                  errors.append(f'[{cap_id}] NO THRESHOLD DEFINED')
+              if not str(entry.get('validation_method', '')).strip():
                   errors.append(f'[{cap_id}] VALIDATION_METHOD is empty or missing')
 
-          print('--- RESULTS ---')
           if errors:
-              print(f'FAILED: {len(errors)} error(s) found')
-              for e in errors:
-                  print(f'  ERROR: {e}')
+              print(f'FAILED: {len(errors)} evaluation ontology error(s)')
+              for error in errors:
+                  print(f'  ERROR: {error}')
               sys.exit(1)
-          print(f'PASSED: All {len(evaluations)} evaluation entries are valid')
-          print('  - All cap_ids exist in capability_ontology')
-          print('  - All names match canonical capability names')
-          print('  - All entries have metrics and thresholds defined')
-          print('  - All entries have a validation method')
-          EOF
+
+          print(f'PASSED: {len(evaluations)} evaluation mappings are structurally linked to canonical capabilities')
+          PYEOF
 
       - name: Check P0 capabilities are evaluated
         run: |
-          python - <<'EOF'
+          python - <<'PYEOF'
           import json
           import sys
-          import os
-          import glob
+          from pathlib import Path
 
-          EVAL_PATH   = 'intelligence/ontology/evaluation_ontology.json'
-          CORPUS_GLOB = 'data/corpus/*.json'
+          eval_path = Path('intelligence/ontology/evaluation_ontology.json')
+          corpus_dir = Path('intelligence/corpus/entries')
 
-          if not os.path.exists(EVAL_PATH):
-              print('SKIP: evaluation_ontology.json not found')
+          if not eval_path.exists():
+              print(f'SKIP: {eval_path} not found')
               sys.exit(0)
-          corpus_files = glob.glob(CORPUS_GLOB)
+
+          corpus_files = sorted(corpus_dir.rglob('*.json'))
           if not corpus_files:
-              print('SKIP: No corpus entries found in data/corpus/')
-              sys.exit(0)
-          with open(EVAL_PATH) as f:
-              eval_data = json.load(f)
-          evaluated_caps = set()
-          evaluations = eval_data.get('evaluations', eval_data if isinstance(eval_data, list) else [])
-          for e in evaluations:
-              evaluated_caps.add(e.get('cap_id'))
-          p0_unmapped = []
+              print(f'ERROR: No corpus entries found under {corpus_dir}')
+              sys.exit(1)
+
+          eval_data = json.loads(eval_path.read_text(encoding='utf-8'))
+          evaluations = eval_data.get('capability_evaluation_mappings', eval_data.get('evaluations', []))
+          evaluated_caps = {
+              entry.get('cap_id')
+              for entry in evaluations
+              if entry.get('cap_id')
+          }
+
+          missing = []
           for corpus_file in corpus_files:
-              with open(corpus_file) as f:
-                  corpus = json.load(f)
-              entry_id = corpus.get('corpus_id', os.path.basename(corpus_file))
-              for cap in corpus.get('required_capabilities', []):
-                  if cap.get('priority') == 'P0':
-                      cap_id = cap.get('cap_id')
-                      if cap_id and cap_id not in evaluated_caps:
-                          p0_unmapped.append(f'{entry_id}: {cap_id} ({cap.get("name", "")})')
-          if p0_unmapped:
-              print(f'WARNING: {len(p0_unmapped)} P0 capability(ies) have no evaluation mapping:')
-              for item in p0_unmapped:
+              corpus = json.loads(corpus_file.read_text(encoding='utf-8'))
+              entry_id = corpus.get('entry_id', corpus_file.stem)
+              for capability in corpus.get('required_capabilities', []):
+                  if capability.get('tier') == 'P0' and capability.get('cap_id') not in evaluated_caps:
+                      missing.append(
+                          f"{entry_id}: {capability.get('cap_id')} ({capability.get('name', '')})"
+                      )
+
+          if missing:
+              print(f'WARNING: {len(missing)} P0 capability(ies) have no evaluation mapping')
+              for item in missing:
                   print(f'  WARN: {item}')
-              print('These capabilities should be prioritized for evaluation authoring.')
-              print('This step does not fail the build but requires remediation before production deploy.')
+              print('P0 mapping remains an evidence gap; no coverage claim is made.')
           else:
               print('PASSED: All P0 capabilities in corpus have evaluation mappings')
-          EOF
+          PYEOF
+
+      - name: Validate declared evaluation freshness
+        run: |
+          python - <<'PYEOF'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          now = datetime.now(timezone.utc)
+          paths = [
+              Path('intelligence/ontology/evaluation_ontology.json'),
+              *sorted(Path('intelligence/corpus/entries').rglob('*.json')),
+          ]
+          errors = []
+          overdue = []
+
+          for path in paths:
+              data = json.loads(path.read_text(encoding='utf-8'))
+              last = data.get('last_reviewed_at')
+              due = data.get('review_due_at')
+              if not last or not due:
+                  errors.append(f'{path}: missing last_reviewed_at or review_due_at')
+                  continue
+
+              try:
+                  reviewed = datetime.fromisoformat(last.replace('Z', '+00:00'))
+                  review_due = datetime.fromisoformat(due.replace('Z', '+00:00'))
+              except ValueError as exc:
+                  errors.append(f'{path}: invalid timestamp: {exc}')
+                  continue
+
+              if reviewed.tzinfo is None or review_due.tzinfo is None:
+                  errors.append(f'{path}: freshness timestamps must include timezone')
+              if review_due < reviewed:
+                  errors.append(f'{path}: review_due_at precedes last_reviewed_at')
+              if review_due < now:
+                  overdue.append(f'{path}: review_due_at={due}')
+
+          if errors:
+              print(f'FAILED: {len(errors)} freshness metadata error(s)')
+              for error in errors:
+                  print(f'  ERROR: {error}')
+              raise SystemExit(1)
+
+          if overdue:
+              print(f'WARNING: {len(overdue)} evaluation/corpus record(s) are past their declared review_due_at')
+              for item in overdue:
+                  print(f'  WARN: {item}')
+              print('No review dates are rewritten automatically; overdue status remains explicit evidence of freshness debt.')
+          else:
+              print(f'PASSED: freshness metadata is structurally valid and not overdue for {len(paths)} records')
+          PYEOF
 
       - name: Summary
         if: always()
         run: |
           echo "Evaluation validation complete."
-          echo "See step outputs above for detailed results."
-          echo "Reference: meta/audits/EVALUATION_ONTOLOGY_FINAL_AUDIT.md"
-          echo "Reference: meta/audits/P0_EVALUATION_COVERAGE_FINAL.md"
+          echo "Evaluation ontology linkage, P0 coverage, and declared freshness were checked."
+          echo "P0 and freshness warnings remain evidence signals and do not fabricate coverage or currentness."
+          echo "Reference: meta/MOST-WANTED-SKILLS.md"

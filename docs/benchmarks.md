@@ -1,6 +1,6 @@
 # Benchmarks
 
-All benchmarks in Skills Tree are reproducible: they include methodology, datasets, and test scripts.
+Benchmark pages describe methodology, datasets, and reproduction material where available. A published result is **current reproducible evidence only when a version-matched run artifact is recorded**. Older result tables and example scripts without a matching run artifact remain historical evidence and must not be treated as current performance or adoption claims.
 
 ## Available Benchmarks
 
@@ -24,6 +24,8 @@ All benchmarks in Skills Tree are reproducible: they include methodology, datase
 | Function calling | ToolBench | Claude 3.7 | +6% accuracy | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/tool-use/function-calling-comparison.md) |
 
 ## Reproducing a Benchmark
+
+The example below demonstrates the repository's reproduction convention; it does not establish that every historical result on this page can be reproduced today.
 
 ```bash
 git clone https://github.com/SamoTech/skills-tree.git

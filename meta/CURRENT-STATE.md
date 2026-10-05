@@ -420,3 +420,15 @@ The first repository-local demand collection path is present and a controlled pu
 ## Agentic Loop — Retrieval/Evaluation Evidence — 2026-10-05
 
 OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmark is stale and not currently backed by a reproducible current run; its related canonical skill links are outdated; the evaluation ontology is past review due; and evaluation workflow path filters omitted the ontology itself. EXECUTE fixed the workflow trigger so evaluation-ontology changes now invoke validation. Issue #336 records the remaining evidence remediation: reproduce, retire, or re-qualify the stale benchmark without fabricating new scores. Current decision: **CONTINUE** — the next safe evidence-backed action is benchmark provenance/link repair and deterministic freshness validation.
+
+## Agentic Loop — Evaluation Gate Reconciliation — 2026-10-05
+
+**OBSERVE:** Live main has a deterministic lexical CLI search path and a typed Benchmark runtime, but no current reproducible retrieval-quality run. The legacy recommendation evaluator is historical and is not current runtime evidence. The current evaluation ontology contains seven mappings and remains overdue for review; CAP-007, CAP-011, and CAP-014 are still absent from the ontology mapping set.
+
+**ASSESS:** The evaluation workflow was checking the wrong corpus location (`data/corpus/**`) and therefore could not reliably measure P0 evaluation coverage. Its warning-only behavior did not convert missing mappings into a false completion claim, so the safest correction is to point the check at the canonical `intelligence/corpus/entries/**` path and report missing P0 mappings explicitly without inventing evaluations. A declared-freshness check was added to detect malformed/inconsistent timestamps and surface overdue review dates without rewriting them automatically.
+
+**EXECUTE:** The evaluation workflow was corrected on branch `fix/evaluation-evidence-gate-20261005`; the stale retrieval benchmark was qualified as historical, its current canonical skill links were repaired, and the benchmark index documentation no longer claims every result is currently reproducible.
+
+**VERIFICATION:** No benchmark result was regenerated and no current retrieval score was claimed. The repository still requires benchmark provenance/reproduction or explicit retirement/re-qualification for the stale retrieval evidence, and authoritative P0 mappings for CAP-007/CAP-011/CAP-014 remain outstanding. These are tracked evidence gaps, not fabricated failures or success claims.
+
+**DECISION:** CONTINUE / BLOCKED boundary remains evidence-driven. The next safe action after CI verification is to address Issue #336/Issue #335 only with reproducible benchmark evidence or an explicit evidence disposition; no new retrieval implementation is justified yet.

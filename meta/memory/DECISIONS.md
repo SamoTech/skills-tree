@@ -1031,3 +1031,12 @@ Confidence: HIGH
 Evidence IDs: issue #88, skills/05-code directory audit, GitHub Copilot MCP documentation, public AgentBridge implementation, current Skills Tree governance and evidence model.
 Status: IMPLEMENTED — exact-head CI and projection verification required before merge.
 Reopen Conditions: Reopen if CI finds an existing canonical duplicate, evidence quality proves insufficient, the capability cannot be expressed as a reusable contract, or vendor-specific semantics require a distinct skill.
+
+# DECISION-2026-10-05-EVALUATION-EVIDENCE-GATE-RECONCILIATION
+DECISION-ID: DECISION-2026-10-05-EVALUATION-EVIDENCE-GATE-RECONCILIATION
+Topic: Reconcile evaluation validation with canonical corpus and historical retrieval evidence
+Finding: The evaluation validator was checking the obsolete `data/corpus/` location while authoritative corpus entries live under `intelligence/corpus/entries/`. The evaluation ontology contains seven mappings, while P0 capabilities CAP-007, CAP-011, and CAP-014 remain unmapped. The retrieval benchmark `benchmarks/memory/retrieval-accuracy.md` has historical results without a current version-matched run artifact.
+Decision: Keep `intelligence/ontology/evaluation_ontology.json` and the existing Benchmark contract/runtime as authoritative evaluation boundaries. Correct `validate-evaluations.yml` to inspect the canonical corpus path, surface missing P0 mappings, and validate declared freshness metadata without rewriting review dates. Qualify the stale retrieval benchmark as historical and do not claim current retrieval quality until reproducible evidence is recorded. Do not create a second evaluation framework or search implementation.
+Evidence IDs: live main `a61af71fc4e47593bd430039a9362d4ae31756ce`; `meta/EVIDENCE_MODEL.md`; `intelligence/ontology/evaluation_ontology.json`; `intelligence/corpus/entries/`; Issue #335; Issue #336; `benchmarks/memory/retrieval-accuracy.md`.
+Status: IMPLEMENTED ON BRANCH — exact-head CI verification pending.
+Reopen Conditions: Reopen if the canonical corpus/evaluation paths change, the Benchmark contract is superseded, current reproducible benchmark evidence becomes available, or a concrete retrieval-ranking failure case is measured.
