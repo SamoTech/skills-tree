@@ -35,6 +35,15 @@ Route a task to the least-cost eligible model that satisfies quality, capability
 5. Preserve a deterministic fallback policy for timeout, quota, or quality failure.
 6. Measure actual outcome and cost; update routing evidence only from observed results.
 
+## Runnable Example
+```python
+models = [{"name": "small", "quality": 0.91, "cost": 1.0}, {"name": "large", "quality": 0.98, "cost": 4.0}]
+eligible = [m for m in models if m["quality"] >= 0.90]
+selected = min(eligible, key=lambda m: m["cost"])
+assert selected["name"] == "small"
+print(selected)
+```
+
 ## Failure Modes
 - Choosing a cheap but incapable model.
 - Using stale or guessed pricing.
