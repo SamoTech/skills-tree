@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:20:02Z",
+  "dateModified": "2026-10-05T11:42:32Z",
   "skillId": "video-understanding",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -69,7 +69,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "understanding, perception, LLM skill, skills tree, AI agent, video",
+  "keywords": "AI agent, understanding, LLM skill, skills tree, perception, video",
   "about": {
     "@type": "Thing",
     "name": "Video Understanding",

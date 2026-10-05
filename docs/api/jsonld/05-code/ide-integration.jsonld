@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:20:02Z",
+  "dateModified": "2026-10-05T11:42:32Z",
   "skillId": "ide-integration",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "ide, LLM skill, skills tree, AI agent, code, integration",
+  "keywords": "AI agent, LLM skill, ide, skills tree, integration, code",
   "about": {
     "@type": "Thing",
     "name": "IDE Integration",

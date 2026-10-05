@@ -1,5 +1,5 @@
-generated: '2026-10-05T11:20:02Z'
-count: 376
+generated: '2026-10-05T11:42:32Z'
+count: 377
 skills:
 - id: pipeline-test
   path: skills/00-sandbox/pipeline-test.md
@@ -7324,6 +7324,34 @@ skills:
   - Evidence
   - Related
   related: []
+  category_dir: 15-orchestration
+- id: capability-based-skill-selection
+  path: skills/15-orchestration/capability-based-skill-selection.md
+  name: Capability-Based Skill Selection
+  description: Select and sequence canonical skills for a task by matching required
+    capabilities, discriminating competing candidates, checking eligibility and dependencies,
+    and using execution evidence to choose the next skill.
+  category: orchestration
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Selection Procedure
+  - Outputs
+  - Decision Contract
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related:
+  - ../09-agentic-patterns/subagent-delegation.md
   category_dir: 15-orchestration
 - id: conditional-branching
   path: skills/15-orchestration/conditional-branching.md
