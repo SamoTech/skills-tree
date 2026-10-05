@@ -1,6 +1,6 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-05T12:38:54.342888+00:00  
+**Generated:** 2026-10-05T13:56:39.874524+00:00  
 **Total skills scored:** 381  
 **Average score:** 42.9/100  
 **Stub files (< 150 words):** 5  
