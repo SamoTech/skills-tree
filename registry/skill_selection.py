@@ -102,7 +102,19 @@ class SkillSelectionEngine:
             }
 
         selected_id = scored[0]["id"]
-        prerequisites = self._prerequisites(selected_id)
+        try:
+            prerequisites = self._prerequisites(selected_id)
+        except (KeyError, ValueError) as exc:
+            return {
+                "status": "BLOCKED",
+                "selected_skill": None,
+                "required_prerequisites": [],
+                "rejected_candidates": self._dedupe_rejections(rejected),
+                "next_action": {"type": "escalate", "reason": "invalid_prerequisite_graph"},
+                "evidence_requirements": ["canonical_registry_membership", "dependency_graph_integrity"],
+                "task": task,
+                "dependency_error": str(exc),
+            }
         pending = [item for item in prerequisites if item not in completed]
 
         if pending:
@@ -150,9 +162,39 @@ class SkillSelectionEngine:
         return result
 
     def _prerequisites(self, skill_id: str) -> list[str]:
+        """Return a deterministic transitive prerequisite execution plan."""
         if self.graph is None:
             return []
-        return sorted(item["id"] for item in self.graph.get_dependencies(skill_id, "REQUIRES"))
+
+        registered = {
+            item["id"]
+            for item in self.registry.data["entities"].get("skills", [])
+        }
+        visiting: set[str] = set()
+        visited: set[str] = set()
+        ordered: list[str] = []
+
+        def visit(node_id: str) -> None:
+            if node_id in visited:
+                return
+            if node_id in visiting:
+                raise ValueError(f"Prerequisite cycle detected: {node_id}")
+            visiting.add(node_id)
+            dependencies = sorted(
+                item["id"]
+                for item in self.graph.get_dependencies(node_id, "REQUIRES")
+            )
+            for dependency in dependencies:
+                if dependency not in registered:
+                    raise KeyError(f"Unregistered prerequisite: {node_id} -> {dependency}")
+                visit(dependency)
+                if dependency not in ordered:
+                    ordered.append(dependency)
+            visiting.remove(node_id)
+            visited.add(node_id)
+
+        visit(skill_id)
+        return ordered
 
     @staticmethod
     def _dedupe_rejections(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
