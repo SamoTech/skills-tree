@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "multilingual-output",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "multilingual, skills tree, communication, AI agent, LLM skill, output",
+  "keywords": "multilingual, output, LLM skill, skills tree, AI agent, communication",
   "about": {
     "@type": "Thing",
     "name": "multilingual-output",

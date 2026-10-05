@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "evidence-verification",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, verification, AI agent, LLM skill, orchestration, evidence",
+  "keywords": "evidence, verification, LLM skill, orchestration, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Evidence Verification",

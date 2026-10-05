@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "vector-db-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, AI agent, use, vector, LLM skill, tool, db",
+  "keywords": "tool, LLM skill, vector, db, skills tree, AI agent, use",
   "about": {
     "@type": "Thing",
     "name": "Vector DB Tool",

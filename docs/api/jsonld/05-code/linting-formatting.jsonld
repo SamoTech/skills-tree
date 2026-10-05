@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "linting-formatting",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "formatting, skills tree, AI agent, linting, LLM skill, code",
+  "keywords": "code, LLM skill, linting, formatting, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "linting-formatting",

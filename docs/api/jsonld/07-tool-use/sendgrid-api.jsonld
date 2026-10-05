@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "sendgrid-api",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, sendgrid, api, AI agent, use, LLM skill, tool",
+  "keywords": "tool, api, LLM skill, sendgrid, skills tree, AI agent, use",
   "about": {
     "@type": "Thing",
     "name": "SendGrid API",

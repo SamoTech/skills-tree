@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-05T11:46:55Z",
-  "count": 377,
+  "generated": "2026-10-05T12:32:41Z",
+  "count": 381,
   "skills": [
     {
       "id": "pipeline-test",
@@ -2102,6 +2102,31 @@
         "Model Comparison",
         "Related",
         "Changelog"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "context-compaction",
+      "path": "skills/03-memory/context-compaction.md",
+      "name": "Context Compaction",
+      "description": "Compress long agent context while preserving active task state, user constraints, tool dependencies, and evidence required for correct continuation.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Recovery Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "03-memory"
@@ -5328,6 +5353,31 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "agent-observability-tracing",
+      "path": "skills/09-agentic-patterns/agent-observability-tracing.md",
+      "name": "Agent Observability Tracing",
+      "description": "Instrument agent runs so model calls, skill versions, tool calls, latency, failures, and costs can be reconstructed from correlated telemetry.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Security Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "agentic-rag",
       "path": "skills/09-agentic-patterns/agentic-rag.md",
       "name": "Agentic RAG",
@@ -7734,6 +7784,31 @@
       "category_dir": "14-security"
     },
     {
+      "id": "mcp-oauth-authentication",
+      "path": "skills/14-security/mcp-oauth-authentication.md",
+      "name": "MCP OAuth Authentication",
+      "description": "Authenticate remote MCP and agent tools with OAuth while keeping credentials outside skill definitions and enforcing explicit authorization boundaries.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Security Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
       "id": "output-guardrails",
       "path": "skills/14-security/output-guardrails.md",
       "name": "Output Guardrails",
@@ -8070,6 +8145,31 @@
         "Runnable Example",
         "Failure Modes",
         "Orchestration Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "cost-aware-model-routing",
+      "path": "skills/15-orchestration/cost-aware-model-routing.md",
+      "name": "Cost-Aware Model Routing",
+      "description": "Select an eligible model using task quality requirements, measured capability, latency constraints, and observed cost rather than defaulting every task to the most expensive model.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
         "Evidence",
         "Related"
       ],

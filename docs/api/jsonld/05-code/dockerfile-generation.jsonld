@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "dockerfile-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, generation, AI agent, LLM skill, dockerfile, code",
+  "keywords": "code, generation, LLM skill, skills tree, AI agent, dockerfile",
   "about": {
     "@type": "Thing",
     "name": "dockerfile-generation",

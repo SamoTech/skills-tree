@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "json-schema-validation",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -78,7 +78,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, json, perception, validation, AI agent, LLM skill, schema",
+  "keywords": "validation, perception, schema, json, LLM skill, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "JSON Schema Validation",

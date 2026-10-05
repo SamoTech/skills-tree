@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T11:46:55Z",
+  "dateModified": "2026-10-05T12:32:42Z",
   "skillId": "code-translation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -77,7 +77,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, AI agent, translation, LLM skill, code",
+  "keywords": "code, LLM skill, translation, skills tree, AI agent",
   "about": {
     "@type": "Thing",
     "name": "code-translation",
