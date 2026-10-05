@@ -1050,3 +1050,13 @@ Decision: Add exactly one evaluation mapping per missing P0 capability to the ex
 Evidence IDs: intelligence/ontology/evaluation_ontology.json; intelligence/corpus/entries/support/CORPUS-001.json; intelligence/corpus/entries/engineering/CORPUS-002.json; Issue #335; Issue #336.
 Status: IMPLEMENTED ON BRANCH — exact-head CI verification pending.
 Reopen Conditions: Reopen if the canonical corpus acceptance requirements change, an existing evaluation type supersedes these mappings, or reproducible evidence demonstrates that a mapping is materially incorrect or insufficient.
+
+
+# DECISION-2026-10-05-P0-EVALUATION-CONTRACTS
+DECISION-ID: DECISION-2026-10-05-P0-EVALUATION-CONTRACTS
+Topic: Add canonical evaluation mappings for the remaining P0 capabilities
+Finding: CAP-007 semantic_retrieval, CAP-014 tool_execution, and CAP-011 self_evaluation were P0 requirements in the canonical corpus but had no capability evaluation mappings. The existing validation gate also contained a field-name mismatch and two stale capability names that were exposed when the new mappings were added.
+Decision: Add exactly one evaluation mapping per missing P0 capability, reuse the existing evaluation types and benchmark boundary, correct the validator to recognize the canonical minimum_required_score field, and reconcile CAP-023/CAP-025 names with the capability ontology. Keep retrieval currentness explicitly unclaimed until a reproducible run artifact exists. Treat confidence calibration/ECE as diagnostics for CAP-011 rather than creating a new ontology metric. Keep structured quality-gate state authoritative for tool execution and deployment decisions.
+Evidence IDs: PR #339; merged main c88672e1d19e381aad8137796d4283678e3fc9e1; Validate Evaluations run 37300715147; intelligence/ontology/evaluation_ontology.json; .github/workflows/validate-evaluations.yml; CORPUS-001; CORPUS-002.
+Status: VERIFIED — merged and exact-head CI passed.
+Reopen Conditions: Reopen if corpus acceptance requirements change, evaluation types are superseded, or reproducible evidence demonstrates the mappings are materially incorrect or insufficient.
