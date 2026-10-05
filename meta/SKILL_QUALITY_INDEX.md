@@ -1,8 +1,8 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-05T11:22:38.433025+00:00  
-**Total skills scored:** 376  
-**Average score:** 42.9/100  
+**Generated:** 2026-10-05T11:43:47.905016+00:00  
+**Total skills scored:** 377  
+**Average score:** 43.0/100  
 **Stub files (< 150 words):** 5  
 
 ## Score Distribution
@@ -11,7 +11,7 @@
 |---|---|---|
 | A | 80-100 | 2 |
 | B | 65-79 | 22 |
-| C | 45-64 | 92 |
+| C | 45-64 | 93 |
 | D | 25-44 | 259 |
 | F | 0-24 | 1 |
 
@@ -116,6 +116,7 @@
 | `03-memory/vector-store-retrieval` | 53 | C | 8 | 0 | 4 | 7 | 9 | 25 | 1082 |
 | `07-tool-use/openai-api` | 53 | C | 8 | 0 | 4 | 7 | 9 | 25 | 856 |
 | `12-data/embedding-generation` | 53 | C | 8 | 0 | 4 | 7 | 9 | 25 | 1078 |
+| `15-orchestration/capability-based-skill-selection` | 53 | C | 8 | 0 | 0 | 10 | 10 | 25 | 1064 |
 | `02-reasoning/mathematical-reasoning` | 52 | C | 13 | 0 | 6 | 7 | 6 | 20 | 197 |
 | `09-agentic-patterns/rag` | 52 | C | 16 | 0 | 4 | 7 | 0 | 25 | 740 |
 | `17-infrastructure/dependency-auditor` | 51 | C | 20 | 0 | 4 | 7 | 0 | 20 | 1365 |
