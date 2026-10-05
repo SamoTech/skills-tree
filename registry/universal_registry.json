@@ -299,20 +299,6 @@
         ],
         "methodology": "Offline deterministic replay against the canonical generated search projection using cli.search_engine.search_documents. Queries are manually authored from canonical skill titles/descriptions; expected IDs are the exact canonical skill paths. This benchmark is an evidence instrument, not a popularity or semantic-understanding claim. The workflow records results as an artifact and does not alter ranking or block merges.",
         "historical_results": [],
-        "subjects": [
-          "11-web/web-search",
-          "03-memory/rag",
-          "05-code/code-review",
-          "05-code/debugging",
-          "05-code/bug-fixing",
-          "07-tool-use/github-api",
-          "07-tool-use/calculator",
-          "07-tool-use/notion-api",
-          "07-tool-use/slack-api",
-          "07-tool-use/pdf-tool",
-          "07-tool-use/code-exec-tool",
-          "05-code/git-operations"
-        ],
         "provenance": {
           "source_type": "repository",
           "source": "Canonical skill definitions and deterministic CLI search contract",
