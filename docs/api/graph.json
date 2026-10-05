@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-10-05T11:43:31.386336+00:00",
+    "generated_at": "2026-10-05T12:31:54.524286+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 377,
+    "node_count": 381,
     "edge_count": 245,
     "requires_count": 9,
     "initiative": "INITIATIVE-004"
@@ -1272,6 +1272,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/agent-sessions.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/context-compaction",
+      "title": "Context Compaction",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/context-compaction.md",
       "quality_score": null
     },
     {
@@ -3255,6 +3270,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/agent-observability-tracing",
+      "title": "Agent Observability Tracing",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-observability-tracing.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/agentic-rag",
       "title": "Agentic RAG",
       "category": "09-agentic-patterns",
@@ -4705,6 +4735,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/mcp-oauth-authentication",
+      "title": "MCP OAuth Authentication",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/mcp-oauth-authentication.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/output-guardrails",
       "title": "Output Guardrails",
       "category": "14-security",
@@ -4912,6 +4957,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/consensus-voting.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/cost-aware-model-routing",
+      "title": "Cost-Aware Model Routing",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/cost-aware-model-routing.md",
       "quality_score": null
     },
     {
