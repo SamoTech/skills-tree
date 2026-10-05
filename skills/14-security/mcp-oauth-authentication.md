@@ -36,6 +36,15 @@ Authenticate a remote MCP server or agent-facing service through OAuth without e
 6. On expiry or invalidation, fail closed and require the defined re-authentication path.
 7. Record non-secret authentication evidence sufficient to diagnose failures.
 
+## Runnable Example
+```python
+session = {"authenticated": True, "scopes": {"mcp.read"}}
+required = "mcp.read"
+authorized = session["authenticated"] and required in session["scopes"]
+assert authorized
+print({"authorized": authorized})
+```
+
 ## Failure Modes
 - OAuth succeeds but the MCP session exposes no authorized tools.
 - Stale or revoked refresh token.
