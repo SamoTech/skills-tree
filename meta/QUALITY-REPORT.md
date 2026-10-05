@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 377
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 218
+- **Total skill files:** 381
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 222
 - 🟡 **Enriched** (real description + runnable code): 158
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -18,19 +18,19 @@
 | `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
 | `01-perception` | 36 | 31 | 5 | 0 | 0 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 | 0 |
-| `03-memory` | 19 | 19 | 0 | 0 | 0 | 0 |
+| `03-memory` | 20 | 20 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 | 0 |
 | `05-code` | 29 | 7 | 22 | 0 | 0 | 0 |
 | `06-communication` | 15 | 15 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 33 | 12 | 21 | 0 | 0 | 0 |
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 23 | 13 | 10 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 24 | 14 | 10 | 0 | 0 | 0 |
 | `10-computer-use` | 20 | 0 | 20 | 0 | 0 | 0 |
 | `11-web` | 17 | 17 | 0 | 0 | 0 | 0 |
 | `12-data` | 18 | 1 | 17 | 0 | 0 | 0 |
 | `13-creative` | 14 | 14 | 0 | 0 | 0 | 0 |
-| `14-security` | 13 | 13 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 29 | 11 | 18 | 0 | 0 | 0 |
+| `14-security` | 14 | 14 | 0 | 0 | 0 | 0 |
+| `15-orchestration` | 30 | 12 | 18 | 0 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 | 0 |
 | `17-infrastructure` | 1 | 1 | 0 | 0 | 0 | 0 |
 
@@ -106,6 +106,7 @@
 - [`skills/02-reasoning/tree-of-thought.md`](skills/02-reasoning/tree-of-thought.md) — Tree of Thought
 - [`skills/02-reasoning/uncertainty-quantification.md`](skills/02-reasoning/uncertainty-quantification.md) — Uncertainty Quantification
 - [`skills/03-memory/agent-sessions.md`](skills/03-memory/agent-sessions.md) — Agent Sessions
+- [`skills/03-memory/context-compaction.md`](skills/03-memory/context-compaction.md) — Context Compaction
 - [`skills/03-memory/cross-session-persistence.md`](skills/03-memory/cross-session-persistence.md) — Cross-Session Persistence
 - [`skills/03-memory/cross-thread-memory.md`](skills/03-memory/cross-thread-memory.md) — Cross-Thread Memory
 - [`skills/03-memory/episodic-memory.md`](skills/03-memory/episodic-memory.md) — Episodic Memory
@@ -185,6 +186,7 @@
 - [`skills/08-multimodal/vqa.md`](skills/08-multimodal/vqa.md) — Visual Question Answering
 - [`skills/09-agentic-patterns/agent-as-tool.md`](skills/09-agentic-patterns/agent-as-tool.md) — Agent as Tool
 - [`skills/09-agentic-patterns/agent-handoffs.md`](skills/09-agentic-patterns/agent-handoffs.md) — Agent Handoffs
+- [`skills/09-agentic-patterns/agent-observability-tracing.md`](skills/09-agentic-patterns/agent-observability-tracing.md) — Agent Observability Tracing
 - [`skills/09-agentic-patterns/agentic-rag.md`](skills/09-agentic-patterns/agentic-rag.md) — Agentic RAG
 - [`skills/09-agentic-patterns/bootstrapping.md`](skills/09-agentic-patterns/bootstrapping.md) — Bootstrapping
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
@@ -234,6 +236,7 @@
 - [`skills/14-security/human-in-loop.md`](skills/14-security/human-in-loop.md) — Human In Loop
 - [`skills/14-security/input-guardrails.md`](skills/14-security/input-guardrails.md) — Input Guardrails
 - [`skills/14-security/input-sanitization.md`](skills/14-security/input-sanitization.md) — Input Sanitization
+- [`skills/14-security/mcp-oauth-authentication.md`](skills/14-security/mcp-oauth-authentication.md) — MCP OAuth Authentication
 - [`skills/14-security/output-guardrails.md`](skills/14-security/output-guardrails.md) — Output Guardrails
 - [`skills/14-security/permission-checking.md`](skills/14-security/permission-checking.md) — Permission Checking
 - [`skills/14-security/privacy-preservation.md`](skills/14-security/privacy-preservation.md) — Privacy Preservation
@@ -243,6 +246,7 @@
 - [`skills/14-security/secret-scanning.md`](skills/14-security/secret-scanning.md) — Secret Scanning
 - [`skills/15-orchestration/automation-review.md`](skills/15-orchestration/automation-review.md) — Automation Review
 - [`skills/15-orchestration/capability-based-skill-selection.md`](skills/15-orchestration/capability-based-skill-selection.md) — Capability-Based Skill Selection
+- [`skills/15-orchestration/cost-aware-model-routing.md`](skills/15-orchestration/cost-aware-model-routing.md) — Cost-Aware Model Routing
 - [`skills/15-orchestration/documentation-drift-resolution.md`](skills/15-orchestration/documentation-drift-resolution.md) — Documentation Drift Resolution
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
 - [`skills/15-orchestration/kanban-task-management.md`](skills/15-orchestration/kanban-task-management.md) — Kanban Task Management
