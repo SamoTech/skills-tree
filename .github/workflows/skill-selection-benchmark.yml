@@ -1,0 +1,43 @@
+name: Skill Selection Evidence Benchmark
+
+on:
+  pull_request:
+    paths:
+      - 'registry/skill_selection.py'
+      - 'registry/universal_registry.json'
+      - 'data/SKILLS_GRAPH.json'
+      - 'benchmarks/selection/capability-selection-v1.json'
+      - 'tools/run_skill_selection_benchmark.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  skill-selection-benchmark:
+    name: Capability Skill Selection Evidence
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install runtime dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Run selection benchmark
+        run: |
+          python tools/run_skill_selection_benchmark.py \
+            --dataset benchmarks/selection/capability-selection-v1.json \
+            --registry registry/universal_registry.json \
+            --graph data/SKILLS_GRAPH.json \
+            --output skill-selection-benchmark-result.json
+      - name: Upload reproducible result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-selection-benchmark-${{ github.sha }}
+          path: skill-selection-benchmark-result.json
+          if-no-files-found: error
