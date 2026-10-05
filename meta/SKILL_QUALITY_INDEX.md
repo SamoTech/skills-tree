@@ -1,8 +1,8 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-05T11:43:47.905016+00:00  
-**Total skills scored:** 377  
-**Average score:** 43.0/100  
+**Generated:** 2026-10-05T12:32:08.012761+00:00  
+**Total skills scored:** 381  
+**Average score:** 42.9/100  
 **Stub files (< 150 words):** 5  
 
 ## Score Distribution
@@ -12,7 +12,7 @@
 | A | 80-100 | 2 |
 | B | 65-79 | 22 |
 | C | 45-64 | 93 |
-| D | 25-44 | 259 |
+| D | 25-44 | 263 |
 | F | 0-24 | 1 |
 
 ## Full Registry
@@ -198,6 +198,7 @@
 | `07-tool-use/weather-api` | 37 | D | 8 | 0 | 2 | 7 | 0 | 20 | 293 |
 | `07-tool-use/web-search` | 37 | D | 8 | 0 | 2 | 7 | 0 | 20 | 293 |
 | `07-tool-use/wikipedia-api` | 37 | D | 8 | 0 | 2 | 7 | 0 | 20 | 289 |
+| `03-memory/context-compaction` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 420 |
 | `03-memory/fact-verification-memory` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 355 |
 | `03-memory/fact-verification` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 353 |
 | `03-memory/procedural` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 350 |
@@ -283,6 +284,7 @@
 | `08-multimodal/video-description` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 332 |
 | `08-multimodal/video-frame-extraction` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 334 |
 | `08-multimodal/vqa` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 334 |
+| `09-agentic-patterns/agent-observability-tracing` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 403 |
 | `09-agentic-patterns/bootstrapping` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 327 |
 | `09-agentic-patterns/constitutional-ai` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 345 |
 | `09-agentic-patterns/critic-agent` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 349 |
@@ -356,12 +358,14 @@
 | `13-creative/lyrics-writing` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 343 |
 | `13-creative/meme-generation` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 348 |
 | `13-creative/music-composition` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 340 |
+| `14-security/mcp-oauth-authentication` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 425 |
 | `15-orchestration/agent-communication` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 294 |
 | `15-orchestration/agent-handoff` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 301 |
 | `15-orchestration/automation-review` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 321 |
 | `15-orchestration/budget-management` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 298 |
 | `15-orchestration/conditional-branching` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 287 |
 | `15-orchestration/consensus-voting` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 294 |
+| `15-orchestration/cost-aware-model-routing` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 407 |
 | `15-orchestration/documentation-drift-resolution` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 275 |
 | `15-orchestration/event-triggers` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 288 |
 | `15-orchestration/evidence-verification` | 35 | D | 8 | 0 | 0 | 7 | 0 | 20 | 235 |
