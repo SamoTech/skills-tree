@@ -467,7 +467,7 @@
     },
     {
       "cap_id": "CAP-023",
-      "name": "structured_data_generation",
+      "name": "human_in_loop_escalation",
       "primary_metrics": [
         "ET-001",
         "ET-007",
@@ -491,7 +491,7 @@
     },
     {
       "cap_id": "CAP-025",
-      "name": "multi_modal_understanding",
+      "name": "pii_detection_and_redaction",
       "primary_metrics": [
         "ET-001",
         "ET-008",
