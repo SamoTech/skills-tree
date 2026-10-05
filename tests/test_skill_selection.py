@@ -25,27 +25,32 @@ def test_selects_capability_match_over_unrelated_candidate():
     assert result["next_action"]["type"] == "invoke"
 
 
-def test_routes_missing_prerequisite_before_dependent_skill():
+def test_selects_code_quality_skill_over_unrelated_candidate():
     result = engine().select(
-        "run agentic retrieval",
-        ["capability/knowledge-retrieval"],
-        ["09-agentic-patterns/agentic-rag"],
+        "review code",
+        ["capability/code-quality"],
+        ["05-code/code-review", "11-web/web-search"],
     )
-    assert result["selected_skill"]["id"] == "09-agentic-patterns/agentic-rag"
-    assert result["next_action"] == {
-        "type": "invoke_prerequisite",
-        "skill_id": "03-memory/rag",
-    }
+    assert result["selected_skill"]["id"] == "05-code/code-review"
 
 
-def test_invokes_dependent_skill_after_prerequisites_complete():
+def test_selects_web_retrieval_skill_over_unrelated_candidate():
     result = engine().select(
-        "run agentic retrieval",
-        ["capability/knowledge-retrieval"],
-        ["09-agentic-patterns/agentic-rag"],
-        completed_skills=["03-memory/rag", "09-agentic-patterns/react"],
+        "search web",
+        ["capability/web-retrieval"],
+        ["11-web/web-search", "05-code/code-review"],
     )
-    assert result["next_action"]["type"] == "invoke"
+    assert result["selected_skill"]["id"] == "11-web/web-search"
+
+
+def test_unknown_candidate_fails_closed():
+    result = engine().select(
+        "agentic retrieval",
+        ["capability/knowledge-retrieval"],
+        ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
+    )
+    assert result["status"] == "BLOCKED"
+    assert result["next_action"]["type"] == "escalate"
 
 
 def test_failure_without_recovery_candidate_blocks():
@@ -54,6 +59,16 @@ def test_failure_without_recovery_candidate_blocks():
         ["capability/code-quality"],
         ["05-code/code-review"],
         "05-code/code-review",
+    )
+    assert result["status"] == "BLOCKED"
+    assert result["next_action"]["type"] == "escalate"
+
+
+def test_no_candidate_covers_required_capability():
+    result = engine().select(
+        "search web",
+        ["capability/web-retrieval"],
+        ["05-code/code-review"],
     )
     assert result["status"] == "BLOCKED"
     assert result["next_action"]["type"] == "escalate"
