@@ -3,6 +3,7 @@ name: Validate Evaluations
 on:
   push:
     paths:
+      - '.github/workflows/validate-evaluations.yml'
       - 'intelligence/ontology/evaluation_ontology.json'
       - 'intelligence/ontology/capability_ontology.json'
       - 'intelligence/corpus/entries/**/*.json'

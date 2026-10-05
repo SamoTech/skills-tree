@@ -432,3 +432,13 @@ OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmar
 **VERIFICATION:** No benchmark result was regenerated and no current retrieval score was claimed. The repository still requires benchmark provenance/reproduction or explicit retirement/re-qualification for the stale retrieval evidence, and authoritative P0 mappings for CAP-007/CAP-011/CAP-014 remain outstanding. These are tracked evidence gaps, not fabricated failures or success claims.
 
 **DECISION:** CONTINUE / BLOCKED boundary remains evidence-driven. The next safe action after CI verification is to address Issue #336/Issue #335 only with reproducible benchmark evidence or an explicit evidence disposition; no new retrieval implementation is justified yet.
+
+## Post-Merge Verification — Evaluation Gate Self-Trigger — 2026-10-05
+
+**OBSERVED:** PR #337 merged to `main` as `4b1c1b9ffc28bcbecc3b899da8cbb58af7de65ec`. Exact-head PR checks passed, including Test Suite, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, and CodeQL. Post-merge Governance Gate also passed.
+
+**NEW GAP:** The merged `validate-evaluations.yml` workflow did not include itself in its `push.paths` filter. Therefore the workflow was authoritative but did not self-trigger when the workflow definition itself changed. This is a CI trigger defect, not evidence of evaluation correctness.
+
+**ACTION:** Follow-up branch `fix/evaluation-gate-self-trigger-20261005` adds `.github/workflows/validate-evaluations.yml` to its own push path filter and synchronizes the decision record with the merged state.
+
+**DECISION:** CONTINUE until the follow-up exact-head CI proves the trigger correction. No benchmark or retrieval implementation is introduced.
