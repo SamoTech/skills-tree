@@ -104,3 +104,28 @@ def test_no_candidate_covers_required_capability():
     )
     assert result["status"] == "BLOCKED"
     assert result["next_action"]["type"] == "escalate"
+
+
+def test_failure_recovery_excludes_all_previous_failures():
+    result = engine().next_after_failure(
+        "recover web research",
+        ["capability/web-retrieval"],
+        ["11-web/web-search", "05-code/code-review"],
+        "11-web/web-search",
+        failed_skills=["11-web/web-search"],
+    )
+    assert result["status"] == "BLOCKED"
+    assert result["next_action"] == {"type": "escalate", "reason": "no_sufficient_skill"}
+
+
+def test_failure_recovery_selects_remaining_candidate():
+    result = engine().next_after_failure(
+        "recover web research",
+        ["capability/web-retrieval"],
+        ["11-web/web-search", "05-code/code-review"],
+        "05-code/code-review",
+        failed_skills=["05-code/code-review"],
+    )
+    assert result["selected_skill"]["id"] == "11-web/web-search"
+    assert result["next_action"] == {"type": "invoke", "skill_id": "11-web/web-search"}
+    assert result["failure_recovery"]["failed_skills"] == ["05-code/code-review"]
