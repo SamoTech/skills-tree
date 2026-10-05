@@ -46,7 +46,7 @@ def test_selects_web_retrieval_skill_over_unrelated_candidate():
 def test_routes_registered_prerequisite_before_agentic_rag():
     result = engine().select(
         "agentic retrieval",
-        ["capability/knowledge-retrieval"],
+        ["capability/agentic-knowledge-retrieval"],
         ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
     )
     assert result["selected_skill"]["id"] == "09-agentic-patterns/agentic-rag"
@@ -60,7 +60,7 @@ def test_routes_registered_prerequisite_before_agentic_rag():
 def test_resumes_agentic_rag_after_first_prerequisite():
     result = engine().select(
         "agentic retrieval",
-        ["capability/knowledge-retrieval"],
+        ["capability/agentic-knowledge-retrieval"],
         ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
         completed_skills=["03-memory/rag"],
     )
@@ -70,7 +70,7 @@ def test_resumes_agentic_rag_after_first_prerequisite():
 def test_invokes_agentic_rag_after_all_prerequisites():
     result = engine().select(
         "agentic retrieval",
-        ["capability/knowledge-retrieval"],
+        ["capability/agentic-knowledge-retrieval"],
         ["09-agentic-patterns/agentic-rag", "03-memory/rag"],
         completed_skills=[
             "03-memory/rag",
