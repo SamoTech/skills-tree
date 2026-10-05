@@ -48,7 +48,8 @@
         "version": "1.0",
         "name": "Knowledge Retrieval",
         "skills": [
-          "03-memory/rag"
+          "03-memory/rag",
+          "09-agentic-patterns/agentic-rag"
         ],
         "implementations": [],
         "adapters": [],
@@ -116,6 +117,19 @@
         "provenance": {
           "source_type": "repository",
           "source": "skills/05-code/code-review.md"
+        }
+      },
+      {
+        "id": "09-agentic-patterns/agentic-rag",
+        "version": "2",
+        "canonical": true,
+        "capabilities": [
+          "capability/knowledge-retrieval"
+        ],
+        "implementations": [],
+        "provenance": {
+          "source_type": "repository",
+          "source": "skills/09-agentic-patterns/agentic-rag.md"
         }
       }
     ],
@@ -334,12 +348,12 @@
           "registry/universal_registry.json",
           "data/SKILLS_GRAPH.json"
         ],
-        "methodology": "Offline deterministic replay against the canonical registry and eligibility runtime. The current version intentionally tests only the three skills registered in the universal registry plus fail-closed handling of an unregistered candidate. Prerequisite routing remains an unverified evidence gap until prerequisite-bearing skills are represented in the canonical registry. This is bounded behavioral evidence, not a claim of general semantic understanding or autonomous-agent success.",
+        "methodology": "Offline deterministic replay against the canonical registry and eligibility runtime. The current version covers registered capability matches, explicit fail-closed handling, one prerequisite-bearing registered skill (agentic-rag), and terminal recovery behavior. Prerequisite routing is evidenced only for the registered Agentic RAG -> RAG dependency represented in the canonical graph. This is bounded behavioral evidence, not a claim of general semantic understanding or autonomous-agent success.",
         "historical_results": [],
         "provenance": {
           "source_type": "repository",
           "source": "Capability-Based Skill Selection contract and canonical registry/graph",
-          "verified_at": "2026-10-05T12:00:00Z",
+          "verified_at": "2026-10-05T12:45:00Z",
           "confidence": 1,
           "methodology": "Expected outputs are explicitly versioned in the benchmark dataset and evaluated against the canonical runtime."
         }
