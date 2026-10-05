@@ -1040,3 +1040,13 @@ Decision: Keep `intelligence/ontology/evaluation_ontology.json` and the existing
 Evidence IDs: pre-merge main `a61af71fc4e47593bd430039a9362d4ae31756ce`; merged main `4b1c1b9ffc28bcbecc3b899da8cbb58af7de65ec`; `meta/EVIDENCE_MODEL.md`; `intelligence/ontology/evaluation_ontology.json`; `intelligence/corpus/entries/`; Issue #335; Issue #336; `benchmarks/memory/retrieval-accuracy.md`.
 Status: IMPLEMENTED AND MERGED — PR #337 exact-head CI passed; post-merge Governance Gate passed. The evaluation workflow's self-trigger path was then identified as missing and is addressed by the follow-up change.
 Reopen Conditions: Reopen if the canonical corpus/evaluation paths change, the Benchmark contract is superseded, current reproducible benchmark evidence becomes available, or a concrete retrieval-ranking failure case is measured.
+
+
+# DECISION-2026-10-05-P0-EVALUATION-CONTRACTS
+DECISION-ID: DECISION-2026-10-05-P0-EVALUATION-CONTRACTS
+Topic: Add canonical evaluation mappings for the remaining P0 capabilities
+Finding: CAP-007 semantic_retrieval, CAP-014 tool_execution, and CAP-011 self_evaluation are P0 requirements in the canonical corpus but had no capability evaluation mappings in the canonical evaluation ontology. Existing corpus entries already define concrete acceptance requirements for these capabilities.
+Decision: Add exactly one evaluation mapping per missing P0 capability to the existing evaluation ontology. Reuse existing ET-001/002/003/005/007/008/009/010/012 metrics and the existing benchmark/evidence boundary. Keep retrieval currentness explicitly unclaimed until a reproducible run artifact exists. Treat confidence calibration/ECE as diagnostic evidence for CAP-011 rather than creating a new ontology metric. Keep structured quality-gate state authoritative for tool execution and deployment decisions.
+Evidence IDs: intelligence/ontology/evaluation_ontology.json; intelligence/corpus/entries/support/CORPUS-001.json; intelligence/corpus/entries/engineering/CORPUS-002.json; Issue #335; Issue #336.
+Status: IMPLEMENTED ON BRANCH — exact-head CI verification pending.
+Reopen Conditions: Reopen if the canonical corpus acceptance requirements change, an existing evaluation type supersedes these mappings, or reproducible evidence demonstrates that a mapping is materially incorrect or insufficient.
