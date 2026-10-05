@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-05T11:22:27.339617+00:00",
+    "generated_at": "2026-10-05T11:43:31.386336+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 376,
-    "edge_count": 240,
+    "node_count": 377,
+    "edge_count": 245,
     "requires_count": 9,
     "initiative": "INITIATIVE-004"
   },
@@ -4870,6 +4870,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/capability-based-skill-selection",
+      "title": "Capability-Based Skill Selection",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/conditional-branching",
       "title": "Conditional Branching",
       "category": "15-orchestration",
@@ -7512,6 +7527,46 @@
       "type": "RELATED_TO",
       "evidence": "[Input Sanitization](input-sanitization.md)",
       "source_file": "skills/14-security/secret-scanning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/capability-based-skill-selection",
+      "target": "15-orchestration/specialist-agent-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Specialist Agent Routing](specialist-agent-routing.md)",
+      "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/capability-based-skill-selection",
+      "target": "15-orchestration/role-assignment",
+      "type": "RELATED_TO",
+      "evidence": "[Role Assignment](role-assignment.md)",
+      "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/capability-based-skill-selection",
+      "target": "15-orchestration/conditional-branching",
+      "type": "RELATED_TO",
+      "evidence": "[Conditional Branching](conditional-branching.md)",
+      "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/capability-based-skill-selection",
+      "target": "15-orchestration/agent-handoff",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Handoff](agent-handoff.md)",
+      "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/capability-based-skill-selection",
+      "target": "09-agentic-patterns/subagent-delegation",
+      "type": "RELATED_TO",
+      "evidence": "[Subagent Delegation](../09-agentic-patterns/subagent-delegation.md)",
+      "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
       "confidence": "high"
     },
     {
