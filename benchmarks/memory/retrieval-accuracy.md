@@ -111,5 +111,5 @@ print(result)
 
 ## 🔗 Related
 
-- Skill: [`skills/03-memory/memory-injection.md`](../../skills/memory/memory-injection.md)
-- Related skill: [`skills/03-memory/fact-verification.md`](../../skills/memory/fact-verification.md)
+- Skill: [`skills/03-memory/memory-injection.md`](../../skills/03-memory/memory-injection.md)
+- Related skill: [`skills/03-memory/fact-verification.md`](../../skills/03-memory/fact-verification.md)
