@@ -36,6 +36,14 @@ Create correlated telemetry for agent execution so a complete run can be reconst
 6. Redact secrets and sensitive payloads before export.
 7. Verify that an induced failure can be reconstructed from telemetry alone.
 
+## Runnable Example
+```python
+trace = {"trace_id": "run-001", "skill": "agent-observability-tracing", "version": "v1"}
+trace["events"] = [{"kind": "tool", "name": "search", "status": "ok"}]
+assert trace["trace_id"] and trace["events"]
+print(trace)
+```
+
 ## Failure Modes
 - Missing correlation IDs break call-chain reconstruction.
 - Skill/version attribution is absent or inferred incorrectly.
