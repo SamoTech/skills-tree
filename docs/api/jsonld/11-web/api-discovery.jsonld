@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "api-discovery",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "discovery, web, AI agent, api, LLM skill, skills tree",
+  "keywords": "web, LLM skill, discovery, api, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "api-discovery",

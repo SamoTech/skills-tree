@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "keyboard-input",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "AI agent, LLM skill, execution, input, skills tree, action, keyboard",
+  "keywords": "execution, LLM skill, input, AI agent, keyboard, action, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Keyboard Input",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "kanban-task-management",
   "skillVersion": "v1",
   "skillLevel": "intermediate",
@@ -84,7 +84,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "orchestration, AI agent, task, LLM skill, skills tree, kanban, management",
+  "keywords": "management, kanban, orchestration, LLM skill, task, AI agent, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Create the task first.",

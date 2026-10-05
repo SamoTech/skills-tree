@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "self-consistency",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -81,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "self, AI agent, LLM skill, skills tree, reasoning, consistency",
+  "keywords": "consistency, LLM skill, reasoning, AI agent, self, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Self-Consistency",

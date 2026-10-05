@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "clinical-note-summarization",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "clinical, AI agent, LLM skill, specific, skills tree, domain, note, summarization",
+  "keywords": "LLM skill, summarization, clinical, domain, AI agent, note, skills tree, specific",
   "about": {
     "@type": "Thing",
     "name": "clinical-note-summarization",

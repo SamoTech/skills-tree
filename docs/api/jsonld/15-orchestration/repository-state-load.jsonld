@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "repository-state-load",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -73,7 +73,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "orchestration, state, AI agent, repository, LLM skill, skills tree, load",
+  "keywords": "state, orchestration, LLM skill, repository, AI agent, load, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Repository State Load",

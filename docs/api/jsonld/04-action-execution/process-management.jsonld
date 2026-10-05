@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:37:57Z",
+  "dateModified": "2026-10-05T12:50:14Z",
   "skillId": "process-management",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "process, AI agent, LLM skill, execution, skills tree, action, management",
+  "keywords": "management, execution, LLM skill, AI agent, action, skills tree, process",
   "about": {
     "@type": "Thing",
     "name": "Process Management",
