@@ -475,3 +475,18 @@ Exact-head PR verification passed the Retrieval Evidence Benchmark, Governance G
 Current evidence snapshot: 12 benchmark cases, Recall@5 = 1.0000, MRR = 0.9583, deterministic replay = true. Eleven of twelve expected skills ranked first; the RAG case ranked the expected `03-memory/rag` at position 2 behind `09-agentic-patterns/rag`. This is evidence of current deterministic retrieval behavior for the bounded dataset, not a semantic-search, popularity, adoption, or user-satisfaction claim.
 
 Decision: do not change ranking yet. The measured RAG ambiguity is now a concrete candidate for a separate retrieval-quality investigation. Any ranking change requires a broader representative failure corpus and before/after measurement.
+
+
+## Demand-Gap Skill Selection — VERIFIED MERGED — 2026-10-05
+
+PR #341 merged to main as `af892ebf9aafd90dedb9d6039974d51c2bf02726` after exact-head CI passed.
+
+The demand reconciliation identified a narrow missing capability: canonical skill-level selection and next-step routing. Existing coverage already included deterministic search, specialist-agent routing, role assignment, task decomposition, delegation, dependency traversal, registry eligibility, and orchestration primitives, but no dedicated contract for discriminating competing skills, resolving prerequisites, verifying invocation, and selecting the next skill from observed results.
+
+Added `skills/15-orchestration/capability-based-skill-selection.md` as an experimental canonical skill and its deterministic `agent-skills/capability-based-skill-selection/SKILL.md` projection. The demand collector now includes selection/routing/orchestration/task-breakdown signals, and `meta/MOST-WANTED-SKILLS.md` records the evidence-backed demand gap.
+
+The exact-head matrix passed Test Suite on Python 3.11/3.12/3.13, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, Validate Skills, Validate Agent Skills, Agent Skills Distribution Audit, Validate Skills Graph, Schema Enforcement, Check Links, AST Sweep, Skill Upgrade Detector, Dependency Auditor, and Retrieval Evidence Benchmark.
+
+During verification, existing generated projection drift was exposed and reconciled: the canonical API/search projections and JSON-LD index were brought back into alignment with the live corpus, and the discovery-count test was updated to track the current verified projection count.
+
+Status: MERGED. Post-merge push workflows are running; their results remain a separate verification boundary until observed.
