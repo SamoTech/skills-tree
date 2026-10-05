@@ -9,3 +9,6 @@ Use OAuth for remote MCP authentication without placing credentials in skill fil
 
 ## Verification
 Verify identity, granted scopes, authorized tool access, token-expiry handling, and absence of secrets in logs and generated artifacts.
+
+## Evidence
+Public 2026 MCP/Codex/Hermes issues document remote MCP OAuth interoperability, authentication contracts, token state, and login failures. The canonical skill is authoritative.
