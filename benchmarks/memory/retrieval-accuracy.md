@@ -2,14 +2,18 @@
 id: bench-memory-retrieval
 title: Memory Retrieval Accuracy Benchmark
 category: memory
-skill: memory-injection
+skill: 03-memory/memory-injection
 version: v1
 author: OssamaHashim
 updated: 2026-04-13
+status: historical — not a current reproducible result
 tags: [memory, retrieval, benchmark, model-comparison]
 ---
 
 # Benchmark: Memory Retrieval Accuracy
+
+> **Evidence status (2026-10-05):** The result table below is historical evidence from the benchmark's 2026-04-13 snapshot. No current reproducible run artifact is present in the repository, and the example runner uses a later model identifier (`claude-sonnet-4-5`) than the historical result table. Treat the published scores as historical observations, not current model or retrieval-quality claims, until a version-matched run is produced and recorded.
+
 
 > Measures how accurately a model retrieves and applies injected memory facts when answering questions, including multi-hop retrieval across multiple memory entries.
 
@@ -107,5 +111,5 @@ print(result)
 
 ## 🔗 Related
 
-- Skill: [`skills/memory/memory-injection.md`](../../skills/memory/memory-injection.md)
-- Related skill: [`skills/memory/fact-verification.md`](../../skills/memory/fact-verification.md)
+- Skill: [`skills/03-memory/memory-injection.md`](../../skills/memory/memory-injection.md)
+- Related skill: [`skills/03-memory/fact-verification.md`](../../skills/memory/fact-verification.md)
