@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T12:32:42Z",
+  "dateModified": "2026-10-05T12:37:57Z",
   "skillId": "documentation-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "code, documentation, generation, LLM skill, skills tree, AI agent",
+  "keywords": "AI agent, generation, LLM skill, code, skills tree, documentation",
   "about": {
     "@type": "Thing",
     "name": "documentation-generation",
