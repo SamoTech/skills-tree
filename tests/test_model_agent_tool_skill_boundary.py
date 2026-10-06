@@ -21,7 +21,7 @@ def test_model_agent_tool_skill_boundary_is_machine_and_doc_consistent():
     assert "authorization" in skill_description
 
     for entity_type in ("capability", "skill", "tool", "model"):
-        assert entity_type in registry_schema["entity_types"]
+        assert entity_type in registry_schema["properties"]["entity_types"]["properties"]
 
     assert "**Capability**" in glossary
     assert "**Model**" in glossary
