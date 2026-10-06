@@ -540,10 +540,12 @@ Status: VERIFIED BOUNDED SECURITY CONTRACT. Next action: reconcile any generated
 
 ## Evaluation Ontology Freshness Review — VERIFIED — 2026-10-06
 
-A live consistency audit reviewed `intelligence/ontology/evaluation_ontology.json` against the canonical capability ontology and both current corpus entries (`CORPUS-001`, `CORPUS-002`). The ontology contains 12 evaluation types and 10 capability mappings; all referenced `ET-*` identifiers resolve, capability mapping IDs are unique, mapping names resolve to canonical capabilities, and all eight P0 capabilities are explicitly mapped. No new evaluation type, ontology category, registry, or benchmark framework was introduced.
+A live consistency audit reviewed `intelligence/ontology/evaluation_ontology.json` against the canonical capability ontology and both current corpus entries (`CORPUS-001`, `CORPUS-002`). The ontology contains 12 evaluation types and 12 capability mappings after the repair. All referenced `ET-*` identifiers resolve, capability mapping IDs are unique, mapping names resolve to canonical capabilities, and all ten P0 capabilities required by the current corpus are explicitly mapped. No new evaluation type, ontology category, registry, or benchmark framework was introduced.
 
 The only verified issue was freshness metadata: `last_reviewed_at` was `2026-07-05` and `review_due_at` was `2026-10-03`. After the integrity audit passed, the review metadata was refreshed to `2026-10-06` with the existing 90-day review cadence, due `2027-01-04`.
 
 Evidence: live ontology audit on main baseline `537c30944bdf2163f0ac3350ff4661a66ba85f8e`; 12/12 evaluation references resolve; 8/8 P0 mappings present; no duplicate or unknown mapping IDs. This review does not claim empirical quality of evaluation metrics or benchmark results.
 
-Status: VERIFIED BOUNDED FRESHNESS REVIEW. Next: return to Demand Intelligence and select only a new gap supported by current evidence; do not add raw skills merely to increase count.
+CI exposed two additional corpus P0 capabilities not covered by the initial live snapshot: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. The existing ontology boundary was extended with mappings for those capabilities using only existing ET-012, ET-001, ET-005, and ET-007 metrics. No new metric type or evaluation framework was introduced.
+
+Status: REPAIR IN PROGRESS — exact-head CI identified a real P0 mapping gap. Next: re-run the full exact-head CI matrix; merge only if all applicable gates pass, then record the verified 10/10 P0 coverage on main.
