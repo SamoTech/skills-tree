@@ -72,3 +72,22 @@ def test_empty_observation_set_is_not_pass(tmp_path, monkeypatch):
     assert result["status"] == "NO_OBSERVATIONS"
     assert result["metrics"]["expected_activation_rate"] is None
     assert result["metrics"]["invocation_evidence_rate"] is None
+
+
+def test_empty_observation_set_fails_closed_at_process_boundary(tmp_path, monkeypatch):
+    observations = tmp_path / "observations.json"
+    observations.write_text('{"schema_version":"1.0","runs":[]}\\n', encoding="utf-8")
+    output = tmp_path / "result.json"
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_skill_activation_benchmark.py",
+            "--dataset", str(ROOT / "benchmarks/activation/skill-activation-v1.json"),
+            "--observations", str(observations),
+            "--output", str(output),
+        ],
+    )
+
+    assert main() == 2
+    result = json.loads(output.read_text(encoding="utf-8"))
+    assert result["status"] == "NO_OBSERVATIONS"
