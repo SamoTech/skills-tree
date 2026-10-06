@@ -31,7 +31,7 @@ def verify_workflow_inventory(workflows_dir: Path, inventory_text: str) -> None:
         inventory_text,
         flags=re.MULTILINE,
     )
-    declared_match = re.search(r"\\*\\*Live workflow files:\\*\\* (\\d+)", inventory_text)
+    declared_match = re.search(r"\*\*Live workflow files:\*\* (\d+)", inventory_text)
     if declared_match is None:
         fail("workflow inventory missing declared live workflow count")
     declared = int(declared_match.group(1))
