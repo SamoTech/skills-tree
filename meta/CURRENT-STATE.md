@@ -549,3 +549,14 @@ Evidence: live ontology audit on main baseline `537c30944bdf2163f0ac3350ff4661a6
 CI exposed two additional corpus P0 capabilities not covered by the initial live snapshot: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. The existing ontology boundary was extended with mappings for those capabilities using only existing ET-012, ET-001, ET-005, and ET-007 metrics. No new metric type or evaluation framework was introduced.
 
 Status: VERIFIED ON MAIN — PR #354 merged as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head applicable CI passed Governance Gate, Validate Evaluations, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped. The canonical corpus now has evaluation mappings for all 10 P0 capabilities. Next: return to Demand Intelligence and select only a new evidence-backed gap.
+
+
+## Demand Intelligence — Skill Activation / Invocation Evidence — 2026-10-06
+
+Live reconciliation of the current selection runtime and benchmark against fresh public ecosystem evidence identified a new bounded gap: real user-request skill activation/invocation is not behaviorally measured. The existing `benchmark/skill-selection-v1` verifies explicit capability-to-skill selection, prerequisite routing, and failure recovery, but it does not measure natural-language trigger reliability, false activation, collision behavior, repeated fresh-session variance, or actual invocation evidence.
+
+External evidence includes addyosmani/agent-skills #620 (direct prompts with repeated 0/6 owning-skill activation and a measured description improvement), Hermes #82253 (2/3 activation on an identical message across fresh sessions), Hermes #96704 (activation/effectiveness evaluation gap), and Google skill-reach (routing/collision evaluation).
+
+Issue #357 is the authoritative current investigation record. Decision: measure activation/invocation first using existing project boundaries; do not add a new skill, search engine, or routing authority without measured failure evidence.
+
+Status: INVESTIGATING. Next executable action: design and run a bounded activation/invocation benchmark, then decide whether the result requires skill-description remediation, runtime/evaluation improvement, or no change.
