@@ -1,6 +1,6 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-06T13:37:19.666196+00:00  
+**Generated:** 2026-10-06T14:12:55.400886+00:00  
 **Total skills scored:** 382  
 **Average score:** 42.9/100  
 **Stub files (< 150 words):** 5  
@@ -92,7 +92,7 @@
 | `02-reasoning/meta-prompting` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 590 |
 | `02-reasoning/planning-decomposition` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 588 |
 | `02-reasoning/planning` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 842 |
-| `02-reasoning/reasoning-under-uncertainty` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 634 |
+| `02-reasoning/reasoning-under-uncertainty` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 638 |
 | `02-reasoning/step-back-prompting` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 550 |
 | `04-action-execution/file-write` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 618 |
 | `06-communication/paraphrasing` | 54 | C | 8 | 0 | 4 | 7 | 10 | 25 | 643 |
