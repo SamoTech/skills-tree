@@ -79,3 +79,45 @@ def test_hermes_adapter_does_not_infer_execution_from_selection(tmp_path):
     )
     payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["runs"] == []
+
+
+def test_hermes_adapter_preserves_selection_when_execution_differs(tmp_path):
+    raw = tmp_path / "hermes.jsonl"
+    raw.write_text(
+        "\n".join(
+            [
+                json.dumps({
+                    "hook_event_name": "post_tool_call",
+                    "tool_name": "skill_view",
+                    "args": {"name": "11-web/web-search"},
+                    "session_id": "sess-1",
+                }),
+                json.dumps({
+                    "hook_event_name": "on_skill_lifecycle",
+                    "action": "loaded",
+                    "skill_name": "05-code/code-review",
+                    "session_id": "sess-1",
+                }),
+            ]
+        ) + "\n",
+        encoding="utf-8",
+    )
+    output = tmp_path / "observations.json"
+    subprocess.run(
+        [
+            sys.executable,
+            str(TOOL),
+            str(raw),
+            "--case-map",
+            json.dumps({"sess-1": "ACT-002"}),
+            "--output",
+            str(output),
+        ],
+        check=True,
+    )
+    payload = json.loads(output.read_text(encoding="utf-8"))
+    assert payload["runs"]
+    assert {e["skill_id"] for e in payload["runs"][0]["events"]} == {
+        "11-web/web-search",
+        "05-code/code-review",
+    }
