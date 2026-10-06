@@ -1188,5 +1188,5 @@ Decision: Add a bounded trace-based activation benchmark using the existing Benc
 Implementation: `benchmarks/activation/skill-activation-v1.json`, `tools/run_skill_activation_benchmark.py`, `tests/test_skill_activation_benchmark.py`, and registry entry `benchmark/skill-activation-v1`.
 Evidence boundary: The runner accepts externally captured `skill_selection` and `skill_execution` events. It never simulates model routing, infers activation from prompt text, or treats an empty observation set as PASS. Synthetic fixtures are test coverage only, not empirical evidence.
 Result: Measurement infrastructure is implemented; empirical activation reliability remains UNVERIFIED pending real agent-runtime traces.
-Status: IMPLEMENTED — EMPIRICAL EVIDENCE PENDING.
+Status: VERIFIED ON MAIN — PR #359 merged as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`; EMPIRICAL EVIDENCE PENDING.
 Reopen Conditions: Reopen if real traces cannot be represented by the existing event contract, or if measured failures demonstrate a concrete runtime/description gap requiring architectural change.
