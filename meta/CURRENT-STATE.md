@@ -563,7 +563,7 @@ External evidence includes addyosmani/agent-skills #620 (direct prompts with rep
 
 Issue #357 is the authoritative current investigation record. Decision: measure activation/invocation first using existing project boundaries; do not add a new skill, search engine, or routing authority without measured failure evidence.
 
-Status: INVESTIGATING. Next executable action: design and run a bounded activation/invocation benchmark, then decide whether the result requires skill-description remediation, runtime/evaluation improvement, or no change.
+Status: HISTORICAL — this investigation state was superseded by the verified activation benchmark, Hermes adapter/capture instrumentation, and fail-closed/partial corpus contracts. Real runtime evidence remains pending.
 
 
 ## Skill Activation / Invocation Evidence Benchmark — VERIFIED ON MAIN — 2026-10-06
@@ -617,8 +617,8 @@ Fresh public evidence identified silent zero-run benchmark failure as a reusable
 
 PR #365 applies the minimum remediation: zero observed cases now return exit code 2 while still writing the explicit `NO_OBSERVATIONS` result. Existing observed-trace metrics and partial-corpus reporting are unchanged.
 
-Status: IN PROGRESS — exact-head CI pending. This is not an activation-result claim.
-Next executable action: verify PR #365 exact-head CI, merge only after all applicable gates pass, then continue demand/evidence reconciliation.
+Status: VERIFIED — PR #365 merged as `d39d899e23e8614eb11971953541cda9bd7dec9f` after exact-head applicable CI passed. This is not an activation-result claim.
+Next executable action: continue real-runtime activation evidence collection and evidence-integrity hardening.
 ## Full-Project Live Reconciliation — 2026-10-06
 
 Live main now contains the verified Model/Agent/Tool/Capability/Skill semantic boundary from PR #368, the Hermes activation adapter/capture instrumentation from PRs #363/#364, and the fail-closed zero-observation benchmark behavior from PR #365.
@@ -630,4 +630,4 @@ Governance: GitHub branch protection is not a project completion gate under the 
 Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #371 implements this contract.
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
-Next executable action after PR #369 verification: close/reconcile Issue #366, then continue the real-runtime activation evidence collection path; separately address the DevLens README writer finding tracked in Issue #370.
+Next executable action after PR #371/#374 verification: collect real-runtime activation evidence for Issue #357; separately resolve the DevLens writer risk (Issue #370) and unknown/duplicate observation integrity risk (Issue #372).
