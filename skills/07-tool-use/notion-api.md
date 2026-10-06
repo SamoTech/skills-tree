@@ -14,7 +14,7 @@ related: [07-tool-use, 04-action-execution]
 Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification.
 
 ## When to Use
-Use this capability when the workflow explicitly requires notion api and the target account, document, channel, or provider is authorized.
+Use this skill when the workflow explicitly requires notion api and the target account, document, channel, or provider is authorized.
 
 ## Inputs / outputs / failure modes
 
