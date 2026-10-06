@@ -1165,3 +1165,15 @@ Evidence IDs: PR #354; merged main `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`; V
 Result: All 10 P0 capabilities required by the canonical corpus now have evaluation mappings. The existing 12 evaluation types and Benchmark boundary were preserved; exactly two mappings were added for CAP-018 and CAP-027.
 Status: VERIFIED ON MAIN
 Reopen Conditions: Reopen if a corpus P0 capability becomes unmapped, evaluation semantics change, or new evidence shows either mapping is materially insufficient.
+
+
+# DECISION-2026-10-06-SKILL-ACTIVATION-EVIDENCE
+
+DECISION-ID: DECISION-2026-10-06-SKILL-ACTIVATION-EVIDENCE
+Topic: Prioritize activation/invocation evidence over adding another skill
+Finding: Current Skills Tree behaviorally verifies explicit capability-based selection, prerequisite routing, and failure recovery, but lacks a benchmark for natural-language skill activation, false activation, collision handling, repeated fresh-session variance, and direct invocation evidence.
+External Evidence: addyosmani/agent-skills #620; NousResearch/hermes-agent #82253; NousResearch/hermes-agent #96704; Google skill-reach; all reviewed 2026-10-06.
+Decision: Treat this as an evaluation/invocation evidence gap. Build a bounded benchmark on existing discovery/selection/observability surfaces before changing skill descriptions or runtime routing. Do not create a new skill, search engine, or routing authority unless measured failures establish a concrete implementation gap.
+Repository Evidence: `registry/skill_selection.py`; `benchmarks/selection/capability-selection-v1.json`; `tools/run_skill_selection_benchmark.py`; existing agent observability tracing skills.
+Status: INVESTIGATING — Issue #357.
+Reopen Conditions: Reopen the decision if benchmark evidence shows the current runtime cannot support reliable activation measurement without a new canonical boundary.
