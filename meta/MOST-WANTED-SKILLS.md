@@ -223,3 +223,28 @@ The freshness audit initially exposed two real P0 evaluation gaps in CORPUS-001:
 PR #354 merged to main as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head CI passed Validate Evaluations, Governance Gate, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped. The canonical corpus now has evaluation mappings for all 10 P0 capabilities.
 
 This closes the current P0 evaluation-mapping evidence gap. It does not claim empirical benchmark quality for those mappings; behavioral evidence remains a separate lifecycle step.
+
+
+## New demand-gap candidate — Skill Activation / Invocation Evidence — 2026-10-06
+
+A fresh public-source reconciliation identified a distinct capability/evidence boundary: whether the skill expected for a real user request actually activates and is invoked reliably, rather than merely being selectable after explicit capability requirements are supplied.
+
+### External demand signals
+
+| Signal | Evidence | Interpretation |
+|---|---|---|
+| Real routing misses | addyosmani/agent-skills issue #620 reports multiple direct task prompts where the owning skills fired 0/6 times, while one description change moved test-driven-development from 0/6 to 6/6 on target prompts with 0/24 adjacent false activations. | Direct evidence of activation reliability and false-activation evaluation demand. |
+| Fresh-session variance | NousResearch/hermes-agent issue #82253 reports an identical message loading the expected skill in 2/3 fresh sessions and proposes a repeatable activation harness. | Direct evidence that invocation is probabilistic and needs repeated-run measurement. |
+| Evaluation boundary | Hermes #96704 describes skill efficacy/activation as an unmeasured lifecycle boundary and treats activation measurement as a prerequisite to broader efficacy evaluation. | Supports measuring activation before changing skill content or runtime behavior. |
+| Routing/collision evaluation | Google skill-reach describes evaluation of skill routing, collision detection, and multi-step trajectory. | Independent ecosystem corroboration that routing/selection needs behavioral evaluation, not only post-invocation tests. |
+
+### Internal coverage reconciliation
+
+Skills Tree already has deterministic capability-based selection, prerequisite routing, failure recovery, observability tracing, and a bounded 9-case selection benchmark. The benchmark begins with explicit `required_capabilities`; it does not measure natural-language trigger reliability, must-not-fire behavior, collision cases, fresh-session variance, or direct evidence that the expected skill was actually invoked.
+
+### Decision
+
+This is classified as an **evaluation/invocation evidence gap**, not a missing raw skill. Issue #357 records the bounded investigation. The next implementation should reuse existing discovery/selection and observability boundaries to build an activation/invocation benchmark. No new search engine, routing authority, or skill should be added unless measured failures prove one is necessary.
+
+Status: **INVESTIGATING — Issue #357**.
+Verification date: 2026-10-06.
