@@ -615,3 +615,8 @@ PR #365 applies the minimum remediation: zero observed cases now return exit cod
 
 Status: IN PROGRESS — exact-head CI pending. This is not an activation-result claim.
 Next executable action: verify PR #365 exact-head CI, merge only after all applicable gates pass, then continue demand/evidence reconciliation.
+## Activation Corpus Completeness — 2026-10-06
+
+Issue #366 decision implemented on branch: activation benchmark results now distinguish NO_OBSERVATIONS, PARTIAL, and COMPLETE. COMPLETE requires every dataset case to satisfy its declared repetitions value (currently 4 cases × 3 repetitions = 12 observations). Metrics are unchanged; partial evidence remains reportable but cannot be treated as a complete empirical corpus.
+
+Next executable action: verify PR for exact-head CI, merge only after applicable gates pass, then use the explicit COMPLETE status for empirical activation conclusions when real Hermes traces exist.
