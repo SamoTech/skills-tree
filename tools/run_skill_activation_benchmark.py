@@ -30,6 +30,26 @@ def load_observations(path: Path, schema_path: Path) -> list[dict]:
     return data["runs"]
 
 
+
+def validate_observation_integrity(runs: list[dict], cases: list[dict]) -> None:
+    known_case_ids = {case["id"] for case in cases}
+    seen_run_ids: set[str] = set()
+    unknown_cases: list[str] = []
+
+    for run in runs:
+        run_id = run["run_id"]
+        if run_id in seen_run_ids:
+            raise ValueError(f"duplicate observation run_id: {run_id}")
+        seen_run_ids.add(run_id)
+
+        case_id = run["case_id"]
+        if case_id not in known_case_ids:
+            unknown_cases.append(case_id)
+
+    if unknown_cases:
+        unknown = sorted(set(unknown_cases))
+        raise ValueError(f"observation case_id is not present in selected dataset: {unknown}")
+
 def event_ids(run: dict, kind: str) -> set[str]:
     result = set()
     for event in run.get("events", []):
@@ -50,6 +70,7 @@ def main() -> int:
     observations_path = Path(args.observations)
     cases = json.loads(dataset_path.read_text(encoding="utf-8"))["cases"]
     runs = load_observations(observations_path, Path(args.observation_schema))
+    validate_observation_integrity(runs, cases)
 
     by_case: dict[str, list[dict]] = defaultdict(list)
     for run in runs:
@@ -100,7 +121,7 @@ def main() -> int:
             "activation_rate": round(sum(case_activation) / observed, 4) if observed else None,
             "invocation_evidence_rate": round(sum(case_invocation) / observed, 4) if observed else None,
             "activation_variance": (max(case_activation) - min(case_activation)) if observed else None,
-            "status": "OBSERVED" if observed else "NO_OBSERVATIONS"
+            "status": ("COMPLETE" if observed >= required_repetitions else ("PARTIAL" if observed else "NO_OBSERVATIONS"))
         })
 
     total_runs = sum(len(v) for v in by_case.values())
