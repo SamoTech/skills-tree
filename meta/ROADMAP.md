@@ -328,3 +328,14 @@ Immediate execution state:
 5. Historical audit documents remain historical evidence and must not be treated as current architecture.
 
 The full evidence record is `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
+
+
+## Demand Intelligence — Activation Evidence Gate — 2026-10-06
+
+The preferred demand/evidence investigation is now executable. The repository contains a bounded trace-based benchmark for real skill activation and invocation evidence, using existing discovery/selection and observability boundaries.
+
+**Current state:** harness implemented; empirical routing evidence pending.
+
+**Required next step:** collect real structured traces from a compatible agent runtime for `benchmark/skill-activation-v1`, then record expected activation rate, false activation rate, invocation-evidence rate, and repeated-run variance.
+
+**Decision rule:** measured failures may justify skill-description remediation or runtime/evaluation changes; absence of measured failures does not justify new capability creation. No new search engine or routing authority is permitted by this slice.
