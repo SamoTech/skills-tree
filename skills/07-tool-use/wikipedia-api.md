@@ -14,7 +14,7 @@ related: [07-tool-use, 14-security]
 Retrieve encyclopedia content through the MediaWiki API with bounded queries, page identifiers, continuation handling, and source attribution.
 
 ## When to Use
-Use this capability only when the workflow requires wikipedia api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires wikipedia api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
