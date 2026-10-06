@@ -536,3 +536,16 @@ LIMITATION: the current Universal Registry does not contain three independently 
 Post-merge workflows for `adbbb55c...` were not observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
 
 Status: VERIFIED BOUNDED RECOVERY SLICE. Next justified action: obtain real canonical registry coverage with multiple independently eligible alternatives through existing project evolution, then add a multi-step recovery benchmark only when that evidence exists. No artificial skills or new orchestration framework should be introduced for the benchmark.
+
+
+## Agent Skill Security Audit — VERIFIED ON MAIN — 2026-10-06
+
+PR #350 merged to main as `436c15c745e1747e3ec1e931dccacea1ca013c7c` after exact-head CI passed Governance Gate, Skill Upgrade Detector, Agent Skills Distribution Audit, Schema Enforcement, Auto Label, Skill Quality Report, Validate Skills, Build & Verify Wheel, Check Links, PR Checks, AST Sweep, Validate Skills Graph, Security Scan, and Test Suite. Dependabot Review Gate was skipped.
+
+Demand/evidence reconciliation identified a narrow security boundary missing from the canonical corpus: pre-installation/pre-execution auditing of a complete agent skill package. Existing security skills already cover sandboxed execution, secret scanning, permission checking, input sanitization, audit logging, and human approval; the new contract composes those controls and does not introduce a second scanner or authorization authority.
+
+Added `skills/14-security/agent-skill-security-audit.md`. The contract covers package inventory, declared-vs-observed behavior, credential access, network egress, permission overreach, obfuscation, sandbox requirements, evidence locations, and fail-closed disposition. It explicitly states that static audit output is evidence rather than a safety guarantee and that audit success does not grant execution authorization.
+
+Post-merge workflow runs for `436c15c745e1747e3ec1e931dccacea1ca013c7c` were not observable at documentation-sync time; exact-head PR CI is the authoritative pre-merge evidence. The skill remains experimental pending any future behavioral/security evaluation evidence.
+
+Status: VERIFIED BOUNDED SECURITY CONTRACT. Next action: reconcile any generated projection/quality workflow results on live main, then return to Demand Intelligence only where a concrete evidence or implementation gap remains.
