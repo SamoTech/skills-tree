@@ -15,7 +15,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `dependabot-auto-merge.yml` | Supporting automation | Dependabot PR handling |
 | `dependency-auditor.yml` | Maintenance automation | Dependency/security audit with repository side effects |
 | `deploy-pages.yml` | Authoritative Pages deployment | Single repository-controlled Pages deployment |
-| `devlens.yml` | Manual maintenance/diagnostic | Repository health assessment |
+| `devlens.yml` | Manual read-only diagnostic | Repository health assessment; no repository writes |
 | `export-skills.yml` | Generated-main writer | Published skill export + JSON-LD projection |
 | `generate-blueprint.yml` | Supporting artifact generation | Blueprint generation |
 | `generate-changelog.yml` | Generated-main writer | Generated changelog |

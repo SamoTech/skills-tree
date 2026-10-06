@@ -1244,3 +1244,9 @@ Topic: Distinguish partial activation evidence from a complete empirical corpus
 Decision: Make benchmark result status first-class: NO_OBSERVATIONS when no case has evidence, PARTIAL when observed evidence does not satisfy every case repetition contract, and COMPLETE only when every case meets its declared repetitions. Current complete corpus requirement is 4 cases × 3 repetitions = 12 observations.
 Status: VERIFIED ON MAIN — PR #371 merged as `3dd21558d4ad6b223908a2cd05c431f678ce6036` after exact-head applicable CI passed.
 Reopen Conditions: Reopen if a future benchmark contract intentionally changes case weighting or repetition policy.
+DECISION-ID: DECISION-2026-10-06-DEVLENS-READONLY
+Topic: Isolate DevLens from authoritative repository writes
+Decision: DevLens remains a manual diagnostic only. It must not write README.md or any repository projection, and its workflow must retain read-only permissions. The public README must not carry stale externally generated health snapshots.
+Evidence IDs: Issue #370; .github/workflows/devlens.yml; tools/verify_governance.py; meta/WORKFLOW_INVENTORY.md.
+Status: IMPLEMENTED ON BRANCH — awaiting exact-head CI.
+Reopen Conditions: Reopen only if DevLens is intentionally integrated into a documented authoritative projection boundary with the same writer serialization and governance controls.
