@@ -248,3 +248,29 @@ This is classified as an **evaluation/invocation evidence gap**, not a missing r
 
 Status: **INVESTIGATING — Issue #357**.
 Verification date: 2026-10-06.
+
+
+## Skill Activation / Invocation Evidence — HARNESS IMPLEMENTED — 2026-10-06
+
+Issue #357 has been converted into an executable measurement boundary without adding a raw skill or routing engine.
+
+### Implemented evidence instrument
+
+- Dataset: `benchmarks/activation/skill-activation-v1.json`
+- Runner: `tools/run_skill_activation_benchmark.py`
+- Tests: `tests/test_skill_activation_benchmark.py`
+- Registry benchmark: `benchmark/skill-activation-v1`
+
+The benchmark measures expected-skill activation, forbidden/false activation, collision cases, repeated-run activation variance, and explicit invocation evidence from runtime traces. It requires `skill_selection` and `skill_execution` events and refuses to infer activation from prompt text.
+
+### Evidence status
+
+**IMPLEMENTATION:** VERIFIED IN BRANCH.
+
+**EMPIRICAL ACTIVATION:** NOT YET VERIFIED. No real agent-runtime trace corpus has been recorded in the repository, so no activation-rate or reliability claim is made. Synthetic test fixtures validate only the evaluator's mechanics.
+
+### Decision boundary
+
+Do not modify skill descriptions, routing behavior, search, or add a new skill based only on external reports. First collect real traces, run the benchmark, and use measured failures as the next decision gate.
+
+Next action: capture repeated fresh-session traces for the four versioned cases and record the resulting benchmark artifact as evidence.
