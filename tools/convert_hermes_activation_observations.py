@@ -83,8 +83,7 @@ def main() -> int:
             continue
         selected = grouped[key]["selected"]
         executed = grouped[key]["executed"]
-        common = selected & executed
-        if not common:
+        if not selected and not executed:
             continue
         events_out = []
         for skill_id in sorted(selected):
