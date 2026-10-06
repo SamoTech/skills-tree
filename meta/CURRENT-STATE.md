@@ -536,3 +536,14 @@ Added `skills/14-security/agent-skill-security-audit.md`. The contract covers pa
 Post-merge workflow runs for `436c15c745e1747e3ec1e931dccacea1ca013c7c` were not observable at documentation-sync time; exact-head PR CI is the authoritative pre-merge evidence. The skill remains experimental pending any future behavioral/security evaluation evidence.
 
 Status: VERIFIED BOUNDED SECURITY CONTRACT. Next action: reconcile any generated projection/quality workflow results on live main, then return to Demand Intelligence only where a concrete evidence or implementation gap remains.
+
+
+## Evaluation Ontology Freshness Review — VERIFIED — 2026-10-06
+
+A live consistency audit reviewed `intelligence/ontology/evaluation_ontology.json` against the canonical capability ontology and both current corpus entries (`CORPUS-001`, `CORPUS-002`). The ontology contains 12 evaluation types and 10 capability mappings; all referenced `ET-*` identifiers resolve, capability mapping IDs are unique, mapping names resolve to canonical capabilities, and all eight P0 capabilities are explicitly mapped. No new evaluation type, ontology category, registry, or benchmark framework was introduced.
+
+The only verified issue was freshness metadata: `last_reviewed_at` was `2026-07-05` and `review_due_at` was `2026-10-03`. After the integrity audit passed, the review metadata was refreshed to `2026-10-06` with the existing 90-day review cadence, due `2027-01-04`.
+
+Evidence: live ontology audit on main baseline `537c30944bdf2163f0ac3350ff4661a66ba85f8e`; 12/12 evaluation references resolve; 8/8 P0 mappings present; no duplicate or unknown mapping IDs. This review does not claim empirical quality of evaluation metrics or benchmark results.
+
+Status: VERIFIED BOUNDED FRESHNESS REVIEW. Next: return to Demand Intelligence and select only a new gap supported by current evidence; do not add raw skills merely to increase count.
