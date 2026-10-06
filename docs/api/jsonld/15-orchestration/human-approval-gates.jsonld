@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T06:32:40Z",
+  "dateModified": "2026-10-06T09:47:28Z",
   "skillId": "human-approval-gates",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "skills tree, LLM skill, orchestration, approval, gates, AI agent, human",
+  "keywords": "LLM skill, AI agent, human, gates, skills tree, orchestration, approval",
   "about": {
     "@type": "Thing",
     "name": "Human Approval Gates",

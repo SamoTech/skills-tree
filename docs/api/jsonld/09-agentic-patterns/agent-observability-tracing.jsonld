@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T06:32:40Z",
+  "dateModified": "2026-10-06T09:47:28Z",
   "skillId": "agent-observability-tracing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "skills tree, LLM skill, tracing, observability, agentic, agent, AI agent, patterns",
+  "keywords": "LLM skill, AI agent, agentic, observability, agent, skills tree, tracing, patterns",
   "about": {
     "@type": "Thing",
     "name": "Agent Observability Tracing",
