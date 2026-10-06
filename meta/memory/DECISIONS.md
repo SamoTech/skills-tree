@@ -1175,8 +1175,8 @@ Finding: Current Skills Tree behaviorally verifies explicit capability-based sel
 External Evidence: addyosmani/agent-skills #620; NousResearch/hermes-agent #82253; NousResearch/hermes-agent #96704; Google skill-reach; all reviewed 2026-10-06.
 Decision: Treat this as an evaluation/invocation evidence gap. Build a bounded benchmark on existing discovery/selection/observability surfaces before changing skill descriptions or runtime routing. Do not create a new skill, search engine, or routing authority unless measured failures establish a concrete implementation gap.
 Repository Evidence: `registry/skill_selection.py`; `benchmarks/selection/capability-selection-v1.json`; `tools/run_skill_selection_benchmark.py`; existing agent observability tracing skills.
-Status: INVESTIGATING — Issue #357.
-Reopen Conditions: Reopen the decision if benchmark evidence shows the current runtime cannot support reliable activation measurement without a new canonical boundary.
+Status: VERIFIED BOUNDED BENCHMARK + OBSERVATION CONTRACT — Issue #357; empirical evidence pending.
+Reopen Conditions: Reopen if real traces expose a semantic limitation in the benchmark or require a new canonical boundary.
 
 
 # DECISION-2026-10-06-SKILL-ACTIVATION-BENCHMARK
