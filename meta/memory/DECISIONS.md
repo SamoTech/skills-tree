@@ -1231,5 +1231,5 @@ Finding: Existing architecture already separates these entities in the universal
 Source insight: The project article on AI Skills emphasizes a reusable Skill as procedural guidance and distinguishes it from the inference Model, the executing Agent, and the Tool action surface.
 Decision: Treat Capability as the outcome-level "what"; Skill as reusable procedural "how"; Model as inference engine; Tool as callable action/data surface; Agent as the coordinating system. Skills may guide an agent but do not grant authorization. Selection, invocation/load, and downstream task efficacy remain separate evidence boundaries.
 Scope: Update semantic schema descriptions, glossary definitions, and current architecture documentation without changing runtime routing, permissions, or entity IDs.
-Status: IMPLEMENTED ON BRANCH — PR pending CI verification.
+Status: VERIFIED ON MAIN — PR #365 merged as `d39d899e23e8614eb11971953541cda9bd7dec9f` after exact-head applicable CI passed.
 Reopen Conditions: Reopen if executable registry/runtime evidence requires a different entity relationship or if a schema consumer cannot preserve this distinction.
