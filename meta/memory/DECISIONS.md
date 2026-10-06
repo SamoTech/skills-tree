@@ -1220,7 +1220,7 @@ Topic: Prevent silent success when the activation benchmark receives no observat
 Finding: The activation runner emitted a NO_OBSERVATIONS result but returned process exit code 0, so a caller could treat missing evidence as a successful benchmark execution.
 External Evidence: anthropics/skills#1383 documents silent benchmark failure modes caused by zero discovered runs and recommends loud failure instead of writing misleading empty results.
 Decision: Return exit code 2 when zero benchmark cases have observations. Preserve the machine-readable NO_OBSERVATIONS result so the evidence state remains explicit. Do not change routing, activation metrics for observed traces, or partial-corpus reporting.
-Status: IMPLEMENTED — PR #365 pending exact-head CI verification.
+Status: VERIFIED ON MAIN — PR #365 merged as d39d899e23e8614eb11971953541cda9bd7dec9f after exact-head applicable CI passed.
 Reopen Conditions: Reopen if a downstream benchmark contract requires a different process-level status model or if zero-observation invocations must remain successful for a documented orchestration reason.
 
 # DECISION-2026-10-06-MODEL-AGENT-TOOL-SKILL-BOUNDARY
