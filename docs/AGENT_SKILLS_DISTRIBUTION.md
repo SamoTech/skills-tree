@@ -12,13 +12,13 @@ Skills Tree is a public, trusted, machine-discoverable source of AI skills. The 
 
 `docs/api/skills.json` is the machine-readable registry projection. Search projections remain separate search-only artifacts.
 
-## Verified Agent Skills baseline — 2026-10-04
+## Verified Agent Skills baseline — 2026-10-06
 
-- 376 canonical skill entries scanned.
-- 259 eligible deterministic projections.
-- 117 blocked canonical entries.
-- 296 Agent Skills packages.
-- 259 deterministic eligible projections.
+- 382 canonical skill entries scanned.
+- 264 eligible deterministic projections.
+- 118 blocked canonical entries.
+- 302 Agent Skills packages.
+- 264 deterministic eligible projections.
 - 37 retained blocked packages.
 - 1 intentional auxiliary package: `skills-tree-registry`.
 - 1 legacy compatibility package: `rag`.
@@ -127,3 +127,11 @@ Do not add:
 - inferred trust/evidence/ranking fields in the discovery index.
 
 Future changes must reuse the canonical source and existing deterministic projection/reconciliation boundaries.
+
+## Live reconciliation verification — 2026-10-06
+
+The latest exact-head Agent Skills Distribution Audit verified 382 canonical entries, 264 eligible projections, 118 blocked canonical entries, and 302 existing Agent Skills packages.
+
+Reconciliation reported no eligible missing projections, deterministic projection drift, stale entries, unexpected packages, ambiguous provenance, or unresolved target-name collisions.
+
+The older 2026-10-04 baseline is superseded by this live verified baseline; historical records elsewhere remain historical.
