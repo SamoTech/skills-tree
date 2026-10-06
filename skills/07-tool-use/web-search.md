@@ -14,7 +14,7 @@ related: [07-tool-use, 14-security]
 Use a web-search service as a bounded retrieval tool with explicit queries, freshness constraints, source tracking, and result verification.
 
 ## When to Use
-Use this capability only when the workflow requires web search, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires web search, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
