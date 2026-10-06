@@ -1140,6 +1140,17 @@ Topic: Re-qualify evaluation ontology freshness without expanding the evaluation
 Finding: The canonical evaluation ontology review date had expired (`2026-10-03`), while live integrity checks showed all 12 evaluation types are internally resolvable, mapping IDs are unique, mapping names resolve to the canonical capability ontology, and all eight P0 capabilities have explicit mappings.
 Decision: Preserve the existing evaluation ontology and Benchmark boundary. Refresh only the verified freshness metadata after the integrity audit, using the existing 90-day review cadence. Do not add evaluation types, registries, benchmark frameworks, or skills as part of this maintenance slice.
 Evidence IDs: live `intelligence/ontology/evaluation_ontology.json`; `intelligence/ontology/capability_ontology.json`; `CORPUS-001`; `CORPUS-002`; main baseline `537c30944bdf2163f0ac3350ff4661a66ba85f8e`.
-Result: 12/12 evaluation references resolve; 0 duplicate mapping IDs; 0 unknown mapping IDs; 8/8 P0 capability mappings present. Freshness metadata refreshed to `2026-10-06`, due `2027-01-04`.
-Status: VERIFIED BOUNDED FRESHNESS REVIEW
+Result: Initial audit confirmed 12/12 evaluation references, 0 duplicate mapping IDs, and 0 unknown mapping IDs, but exact-head CI then exposed two corpus P0 capabilities absent from the mapping set: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. Existing ET metrics were sufficient, so the ontology was extended with exactly two mappings. Freshness metadata remains reviewed `2026-10-06`, due `2027-01-04`.
+Status: REPAIR IN PROGRESS — exact-head CI identified a real P0 coverage gap
 Reopen Conditions: Reopen if evaluation ontology structure, capability mappings, metric semantics, corpus requirements, or reproducibility evidence changes materially.
+
+
+# DECISION-2026-10-06-P0-EVALUATION-COVERAGE-REPAIR
+
+DECISION-ID: DECISION-2026-10-06-P0-EVALUATION-COVERAGE-REPAIR
+Topic: Add the two P0 evaluation mappings exposed by exact-head validation
+Finding: Validate Evaluations on PR #354 found CORPUS-001 P0 capabilities CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging` had no evaluation mappings. This is a genuine canonical coverage gap, not a validator defect.
+Decision: Add exactly two mappings to the existing evaluation ontology. CAP-018 uses ET-012 with ET-007 as secondary evidence for multi-turn coherence and continuity. CAP-027 uses ET-001 with ET-005 and ET-007 for log completeness, audit-query latency, and logging reliability. Do not add new metric types, registries, or benchmark frameworks.
+Evidence IDs: PR #354; Validate Evaluations run 37441839608; job 112197207764; CORPUS-001; intelligence/ontology/evaluation_ontology.json; intelligence/ontology/capability_ontology.json.
+Status: REPAIR IN PROGRESS — pending exact-head CI verification.
+Reopen Conditions: Reopen if the corpus acceptance requirements or evaluation semantics require a metric not expressible through the existing ontology, or if exact-head validation rejects the mappings for a substantive contract reason.
