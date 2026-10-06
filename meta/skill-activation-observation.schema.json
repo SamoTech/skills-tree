@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/SamoTech/skills-tree/blob/main/meta/skill-activation-observation.schema.json",
   "title": "Skills Tree Skill Activation Observation Contract",
-  "description": "Machine-readable contract for externally captured agent traces consumed by benchmark/skill-activation-v1.",
+  "description": "Machine-readable contract for externally captured agent traces consumed by benchmark/skill-activation-v1. The selected dataset is the closed case universe and run_id values must be unique within an observation corpus.",
   "type": "object",
   "required": ["schema_version", "runs"],
   "additionalProperties": false,
