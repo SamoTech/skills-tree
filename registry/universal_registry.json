@@ -424,6 +424,46 @@
           "confidence": 1,
           "methodology": "Expected outputs are explicitly versioned in the benchmark dataset and evaluated against the canonical runtime."
         }
+      },
+      {
+        "id": "benchmark/skill-activation-v1",
+        "version": "1.0",
+        "name": "Trace-Based Skill Activation and Invocation Evidence",
+        "task": "Measure observed natural-language skill activation, false activation, repeated-run variance, collision behavior, and explicit invocation evidence from agent runtime traces.",
+        "inputs": [
+          "Versioned dataset benchmarks/activation/skill-activation-v1.json",
+          "Externally captured agent trace observations containing skill_selection and skill_execution events"
+        ],
+        "expected_behavior": [
+          "Measure whether the expected skill was selected for each prompt case",
+          "Measure whether forbidden skills were selected",
+          "Measure repeated-run activation variance",
+          "Require explicit skill execution events for invocation evidence",
+          "Never infer activation from prompt text or deterministic fixtures"
+        ],
+        "evaluation_criteria": [
+          "Expected activation rate is computed only from observed runs",
+          "False activation rate is computed only from observed forbidden selections",
+          "Invocation evidence rate requires explicit skill_execution events",
+          "NO_OBSERVATIONS is never reported as PASS"
+        ],
+        "test_data": [
+          "benchmarks/activation/skill-activation-v1.json"
+        ],
+        "methodology": "Trace-based offline evaluation. The benchmark definition is deterministic, but empirical activation evidence must come from an external agent runtime emitting structured skill selection and execution events. The runner measures observed rates and variance without simulating or inferring model routing.",
+        "historical_results": [],
+        "subjects": [
+          "03-memory/rag",
+          "05-code/code-review",
+          "11-web/web-search"
+        ],
+        "provenance": {
+          "source_type": "experimental",
+          "source": "Issue #357 and repository agent-observability-tracing contract",
+          "verified_at": "2026-10-06T10:00:00Z",
+          "confidence": 1,
+          "methodology": "Cases are bounded to registered canonical skills and external evidence requirements documented in Issue #357."
+        }
       }
     ],
     "architectures": [],
