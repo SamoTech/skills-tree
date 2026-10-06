@@ -1175,8 +1175,8 @@ Finding: Current Skills Tree behaviorally verifies explicit capability-based sel
 External Evidence: addyosmani/agent-skills #620; NousResearch/hermes-agent #82253; NousResearch/hermes-agent #96704; Google skill-reach; all reviewed 2026-10-06.
 Decision: Treat this as an evaluation/invocation evidence gap. Build a bounded benchmark on existing discovery/selection/observability surfaces before changing skill descriptions or runtime routing. Do not create a new skill, search engine, or routing authority unless measured failures establish a concrete implementation gap.
 Repository Evidence: `registry/skill_selection.py`; `benchmarks/selection/capability-selection-v1.json`; `tools/run_skill_selection_benchmark.py`; existing agent observability tracing skills.
-Status: INVESTIGATING — Issue #357.
-Reopen Conditions: Reopen the decision if benchmark evidence shows the current runtime cannot support reliable activation measurement without a new canonical boundary.
+Status: VERIFIED BOUNDED BENCHMARK + OBSERVATION CONTRACT — Issue #357; empirical evidence pending.
+Reopen Conditions: Reopen if real traces expose a semantic limitation in the benchmark or require a new canonical boundary.
 
 
 # DECISION-2026-10-06-SKILL-ACTIVATION-BENCHMARK
@@ -1190,3 +1190,15 @@ Evidence boundary: The runner accepts externally captured `skill_selection` and 
 Result: Measurement infrastructure is implemented; empirical activation reliability remains UNVERIFIED pending real agent-runtime traces.
 Status: VERIFIED ON MAIN — PR #359 merged as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`; EMPIRICAL EVIDENCE PENDING.
 Reopen Conditions: Reopen if real traces cannot be represented by the existing event contract, or if measured failures demonstrate a concrete runtime/description gap requiring architectural change.
+
+
+# DECISION-2026-10-06-ACTIVATION-OBSERVATION-CONTRACT
+
+DECISION-ID: DECISION-2026-10-06-ACTIVATION-OBSERVATION-CONTRACT
+Topic: Formalize the input contract for real skill activation evidence
+Finding: The activation benchmark runner required structured `skill_selection` and `skill_execution` observations, but the accepted payload shape was previously implicit in code/tests.
+Decision: Add `meta/skill-activation-observation.schema.json` and validate all benchmark observations against it before metric calculation. Reuse the existing Agent Observability Tracing event concepts; do not add a routing runtime, inference mechanism, or second telemetry authority.
+Evidence boundary: The schema accepts observed selection/execution events only. It explicitly rejects inferred activation event kinds. Synthetic fixtures validate schema mechanics, not empirical routing behavior.
+Result: External agent runtimes now have a machine-readable input contract for `benchmark/skill-activation-v1`. Empirical activation reliability remains unverified pending real traces.
+Status: VERIFIED ON MAIN after merge; EMPIRICAL EVIDENCE PENDING.
+Reopen Conditions: Reopen if a compatible runtime cannot express its observed selection/execution events through this contract, or if measured evidence requires materially different semantics.

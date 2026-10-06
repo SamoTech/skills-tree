@@ -576,3 +576,12 @@ The evaluator deliberately does not simulate model routing or infer activation f
 Metrics: expected activation rate, false activation rate, invocation-evidence rate, and repeated-run activation variance.
 
 Next executable action: obtain real structured traces from a compatible agent runtime, run the benchmark, record the evidence, then decide whether failures justify skill-description, runtime, or evaluation changes.
+
+
+## Activation Observation Contract — IMPLEMENTED — 2026-10-06
+
+The activation benchmark now has an explicit machine-readable observation contract at `meta/skill-activation-observation.schema.json`. `tools/run_skill_activation_benchmark.py` validates external trace payloads against this schema before calculating activation, false-activation, variance, and invocation-evidence metrics. This closes the interoperability/contract gap between an external agent runtime and the benchmark without introducing a routing runtime or new authority.
+
+Empirical activation reliability remains UNVERIFIED: no real runtime trace corpus has been recorded in the repository. Synthetic fixtures remain evaluator tests only.
+
+Next executable action: capture repeated fresh-session traces from a compatible external agent runtime that emits `skill_selection` and `skill_execution` events conforming to the schema, then run `benchmark/skill-activation-v1` and record the resulting evidence.

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SamoTech/skills-tree/blob/main/meta/skill-activation-observation.schema.json",
+  "title": "Skills Tree Skill Activation Observation Contract",
+  "description": "Machine-readable contract for externally captured agent traces consumed by benchmark/skill-activation-v1.",
+  "type": "object",
+  "required": ["schema_version", "runs"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0" },
+    "runs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/run" }
+    }
+  },
+  "$defs": {
+    "run": {
+      "type": "object",
+      "required": ["run_id", "case_id", "events"],
+      "additionalProperties": false,
+      "properties": {
+        "run_id": { "type": "string", "minLength": 1 },
+        "case_id": { "type": "string", "pattern": "^ACT-[0-9]{3}$" },
+        "trace_id": { "type": "string", "minLength": 1 },
+        "events": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/event" }
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["kind", "skill_id"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["skill_selection", "skill_execution"]
+        },
+        "skill_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._/-]*$"
+        },
+        "skill_version": { "type": "string", "minLength": 1 },
+        "status": { "type": "string", "minLength": 1 },
+        "observed_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

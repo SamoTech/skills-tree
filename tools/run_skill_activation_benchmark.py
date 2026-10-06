@@ -14,19 +14,20 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
+from jsonschema import Draft202012Validator
+
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def load_observations(path: Path) -> list[dict]:
+def load_observations(path: Path, schema_path: Path) -> list[dict]:
     data = json.loads(path.read_text(encoding="utf-8"))
-    if data.get("schema_version") != "1.0":
-        raise ValueError("unsupported observation schema_version")
-    runs = data.get("runs")
-    if not isinstance(runs, list):
-        raise ValueError("observations.runs must be a list")
-    return runs
+    schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    errors = sorted(Draft202012Validator(schema).iter_errors(data), key=lambda e: list(e.path))
+    if errors:
+        raise ValueError(f"observations do not match schema: {errors[0].message}")
+    return data["runs"]
 
 
 def event_ids(run: dict, kind: str) -> set[str]:
@@ -41,13 +42,14 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", default="benchmarks/activation/skill-activation-v1.json")
     parser.add_argument("--observations", required=True)
+    parser.add_argument("--observation-schema", default="meta/skill-activation-observation.schema.json")
     parser.add_argument("--output", default="skill-activation-benchmark-result.json")
     args = parser.parse_args()
 
     dataset_path = Path(args.dataset)
     observations_path = Path(args.observations)
     cases = json.loads(dataset_path.read_text(encoding="utf-8"))["cases"]
-    runs = load_observations(observations_path)
+    runs = load_observations(observations_path, Path(args.observation_schema))
 
     by_case: dict[str, list[dict]] = defaultdict(list)
     for run in runs:

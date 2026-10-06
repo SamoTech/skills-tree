@@ -274,3 +274,12 @@ The benchmark measures expected-skill activation, forbidden/false activation, co
 Do not modify skill descriptions, routing behavior, search, or add a new skill based only on external reports. First collect real traces, run the benchmark, and use measured failures as the next decision gate.
 
 Next action: capture repeated fresh-session traces for the four versioned cases and record the resulting benchmark artifact as evidence.
+
+
+## Activation Observation Contract — VERIFIED IMPLEMENTATION — 2026-10-06
+
+The activation/invocation evidence gap now has both a benchmark and a machine-readable observation boundary. `meta/skill-activation-observation.schema.json` defines the accepted external trace shape; the benchmark runner validates against it before calculating metrics.
+
+This is an evidence/interop improvement, not a new skill or routing authority. No empirical activation-rate claim is made until real agent-runtime traces are collected.
+
+Next action: collect repeated fresh-session observations from a compatible runtime and record the benchmark result.
