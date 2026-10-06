@@ -562,9 +562,9 @@ Issue #357 is the authoritative current investigation record. Decision: measure 
 Status: INVESTIGATING. Next executable action: design and run a bounded activation/invocation benchmark, then decide whether the result requires skill-description remediation, runtime/evaluation improvement, or no change.
 
 
-## Skill Activation / Invocation Evidence Benchmark — IMPLEMENTED HARNESS — 2026-10-06
+## Skill Activation / Invocation Evidence Benchmark — VERIFIED ON MAIN — 2026-10-06
 
-Issue #357 was advanced from investigation to an executable evidence instrument without introducing a new routing authority. The branch `evidence/skill-activation-benchmark-20261006` adds:
+Issue #357 was advanced from investigation to an executable evidence instrument without introducing a new routing authority. PR #359 merged this measurement boundary to `main` as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`. It adds:
 
 - `benchmarks/activation/skill-activation-v1.json` — four bounded natural-language cases covering expected activation, must-not-activate behavior, collision groups, and repeated runs.
 - `tools/run_skill_activation_benchmark.py` — trace-based evaluator for explicit `skill_selection` and `skill_execution` events.
