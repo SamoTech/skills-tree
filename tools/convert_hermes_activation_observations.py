@@ -47,11 +47,14 @@ def skill_name(event: dict) -> str | None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("input")
-    parser.add_argument("--case-id", action="append", required=True)
+    parser.add_argument("--case-map", required=True, help="JSON object mapping session/task correlation keys to ACT-### case IDs")
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
 
     events = load_events(Path(args.input))
+    case_map = json.loads(args.case_map)
+    if not isinstance(case_map, dict):
+        raise ValueError("--case-map must be a JSON object")
     grouped: dict[str, dict[str, set[str]]] = defaultdict(
         lambda: {"selected": set(), "executed": set()}
     )
@@ -74,10 +77,10 @@ def main() -> int:
                 grouped[key]["executed"].add(str(loaded))
 
     runs = []
-    for index, case_id in enumerate(args.case_id, 1):
-        if index > len(grouped):
-            break
-        key = sorted(grouped)[index - 1]
+    for index, key in enumerate(sorted(grouped), 1):
+        case_id = case_map.get(key)
+        if not isinstance(case_id, str) or not case_id:
+            continue
         selected = grouped[key]["selected"]
         executed = grouped[key]["executed"]
         common = selected & executed
