@@ -14,7 +14,7 @@ The observer records only explicit `skill_view` and `on_skill_lifecycle(action=l
 
 ## Convert
 
-Map each captured correlation to its ACT case explicitly, then run `tools/convert_hermes_activation_observations.py` and `tools/run_skill_activation_benchmark.py`. A missing trace corpus is not PASS. Do not manufacture events.
+Map each captured correlation to its ACT case explicitly, then run `tools/convert_hermes_activation_observations.py` and `tools/run_skill_activation_benchmark.py`. A missing trace corpus is not PASS. Do not manufacture events. Every converted run must use a case_id from `benchmark/skill-activation-v1` and a unique run_id within the corpus.
 
 ## Evidence boundary
 
