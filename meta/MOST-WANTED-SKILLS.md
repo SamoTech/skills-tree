@@ -308,3 +308,6 @@ Activation empirical evidence remains pending. Issue #357 has no real agent-runt
 Evaluation-harness integrity is therefore separated from missing-skill demand: do not add or rewrite skills merely to improve activation before real runtime evidence exists.
 
 Issue #370 tracks a separate governance risk: the manual DevLens workflow can mutate README.md outside the repository writer serialization contract, and the visible DevLens block is stale.
+## Activation observation integrity remediation — 2026-10-06
+
+Issue #372 is being remediated by closing the observation universe to the selected dataset and requiring unique run identities. This prevents evidence contamination before empirical activation claims are made.
