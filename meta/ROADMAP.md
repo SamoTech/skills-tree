@@ -18,9 +18,9 @@ Raw skill count and raw stub count are engineering measurements, not product obj
 
 Security > Correctness > Canonical architecture > Discovery > Evidence > Freshness > Interoperability > Quality > Developer experience > Cosmetic improvements.
 
-## Phase 0 — Governance stabilization — ACTIVE — final reconciliation
+## Phase 0 — Governance stabilization — VERIFIED — 2026-10-06
 
-1. Maintain the live 42-file workflow inventory and classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, or generated-main writer.
+1. Maintain the live 45-file workflow inventory and classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, evidence benchmark, or generated-main writer.
 2. Maintain exactly one authoritative Pages deployment.
 3. Maintain exactly one authoritative release architecture.
 4. Consolidate generated-main writers where technically safe.
@@ -31,6 +31,25 @@ Security > Correctness > Canonical architecture > Discovery > Evidence > Freshne
 9. Harden the identified `validate-graph.yml` PR permission boundary without weakening trusted-main graph generation. **VERIFIED 2026-10-02:** validation is read-only; trusted-main graph generation is isolated to a write-scoped job; quality generation depends on graph generation.
 
 Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, verified permission boundaries, and no undocumented automation ownership.
+
+## Current Live Audit — 2026-10-06
+
+The final repository audit verified the current main control plane and canonical/projection boundaries.
+
+- 45 GitHub Actions workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
+- PRs #368, #371, #374, #375, #376, #377, and #379 were merged after exact-head applicable CI passed.
+- DevLens is diagnostic-only and cannot write repository state; the stale README health snapshot was removed.
+- Activation evidence integrity is fail-closed for unknown dataset case IDs and duplicate run IDs; incomplete corpora are classified PARTIAL rather than COMPLETE.
+- The quality corpus contains 382 files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
+- Agent Skills reconciliation verifies 264 eligible canonical projections, 118 blocked entries, and 302 existing packages.
+- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+- Remaining material evidence gaps are Issue #357 (real runtime activation traces) and Issue #336 (retrieval evidence freshness/reproducibility).
+
+This current block governs execution selection. Older dated roadmap entries remain historical records.
+
+## Phase 0 Exit Interpretation
+
+The repository-local Phase 0 controls are verified. Ongoing maintenance consists of keeping workflow inventory, generated-writer classification, documentation state, and evidence boundaries synchronized with live main. GitHub branch protection is intentionally outside the project-local completion gate.
 
 ## Phase 1 — Registry foundation — VERIFIED — completed foundation
 
