@@ -222,7 +222,7 @@ PR #301 corrected canonical Kanban date metadata and PR #302 reconciled `docs/ap
 The remaining machine-readable projection audit found:
 - `agent-skills/` already has a read-only reconciliation/audit gate on canonical `skills/**` changes; no duplicate drift checker is warranted.
 - `docs/api/jsonld/` is an SEO/presentation projection generated from the same skill index. It does not implement ranking, trust, evidence, or registry semantics, so `registry_context` was intentionally not duplicated into JSON-LD.
-- `/.well-known/agent-skills/index.json` remains unpublished. Its existing gate correctly requires deterministic generation, provenance validation, reproducible publication, served-byte verification, and SHA-256 integrity before activation.
+- `/.well-known/agent-skills/index.json` is published and verified live; deployment run `37227197992` passed the served-byte verification gate.
 
 **Next:** audit remaining machine-readable consumers/projections after the verified discovery publication boundary; do not create a second generator, reconciler, search index, or deployment path.
 
@@ -401,7 +401,7 @@ The review identified an unranked capability signal cohort around search/discove
 **Decision:** Do not create a popularity ranking. Use the observed cohort as input to a coverage/evidence reconciliation pass, then select Phase 3 work only where demand and repository gaps intersect.
 
 
-## Phase 3 Candidate — IDE Integration — IMPLEMENTED ON BRANCH — 2026-10-04
+## Phase 3 Candidate — IDE Integration — VERIFIED ON MAIN — 2026-10-04
 
 Coverage/evidence reconciliation selected IDE integration as the first demand-driven Phase 3 slice. The canonical `05-code` directory already covers code generation, review, execution, Git, APIs, debugging, and related capabilities, but no dedicated IDE integration contract existed. The new `skills/05-code/ide-integration.md` defines a protocol-neutral contract around workspace identity, code intelligence, diagnostics, bounded edits, tests/builds, explicit authorization, least privilege, and independent postcondition verification.
 
@@ -442,19 +442,6 @@ OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmar
 **ACTION:** Follow-up branch `fix/evaluation-gate-self-trigger-20261005` adds `.github/workflows/validate-evaluations.yml` to its own push path filter and synchronizes the decision record with the merged state.
 
 **DECISION:** CONTINUE until the follow-up exact-head CI proves the trigger correction. No benchmark or retrieval implementation is introduced.
-
-
-## P0 Evaluation Contracts — IMPLEMENTED ON BRANCH — 2026-10-05
-
-The existing canonical evaluation ontology now contains explicit evaluation mappings for the three previously unmapped P0 capabilities: CAP-014 tool_execution, CAP-007 semantic_retrieval, and CAP-011 self_evaluation. The mappings reuse the existing evaluation types and benchmark boundary; no new evaluation registry or ontology category was introduced.
-
-CAP-014 uses accuracy, reliability, safety, and latency with a deterministic tool-call benchmark and an independent safety gate. Deployment-trigger correctness is a hard 100% requirement, and structured quality-gate state remains authoritative over LLM interpretation.
-
-CAP-007 uses Recall@5 and Precision@5 with the corpus's existing 100-query evaluation design. The mapping explicitly records that no current benchmark result is claimed until a reproducible run artifact exists.
-
-CAP-011 uses accuracy and hallucination rate plus reliability/user-satisfaction diagnostics. Confidence calibration and ECE are recorded as benchmark diagnostics rather than invented as a new ontology evaluation type. Self-evaluation output cannot independently trigger deployment.
-
-Status: IMPLEMENTED ON BRANCH — CI and exact-head verification pending. Main remains unchanged by this slice.
 
 
 ## P0 Evaluation Contracts — VERIFIED ON MAIN — 2026-10-05
