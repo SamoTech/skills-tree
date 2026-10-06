@@ -44,7 +44,7 @@ MCP remains a Protocol. No compatibility or ecosystem claims are added.
 
 ## Next Action
 
-Run focused regression and required CI on `phase2/evidence-contract-runtime-20260919`. If green, open a PR, verify its exact head and all required checks, merge only the green head SHA, then verify the resulting `main` HEAD. If CI fails, inspect the actual failed job/log and make only the smallest architectural correction on the existing branch.
+Collect real runtime activation traces for Issue #357 and produce the 12-observation evidence corpus. In parallel, resolve Issue #336 through a reproducible current retrieval benchmark or explicit qualification/retirement of its historical result set. Keep current state, workflow inventory, generated projections, and decision memory synchronized after each verified change.
 
 
 ## State Reconciliation — 2026-10-04
@@ -122,3 +122,12 @@ Current verified repository baseline: 45 workflow files; 382 quality-corpus skil
 PR #377 and PR #379 are merged and their exact-head applicable CI passed. DevLens is read-only and activation observation integrity is fail-closed.
 
 Remaining material work is evidence-driven: Issue #357 requires real runtime traces before activation/reliability claims; Issue #336 requires a current reproducible retrieval benchmark or explicit qualification/retirement of stale results.
+## Current Live Baseline — 2026-10-06
+
+Main execution authority is live `main` after PR #379 (`290cb3495d1905615501471e4e1b3bec86301a7b`) plus generated-only maintenance commits.
+
+Repository baseline: 45 workflow files; 382 quality-corpus skill files including one intentional sandbox fixture; 381 production/public canonical skills across 17 categories; 264 eligible Agent Skills projections; 118 blocked entries; 302 packages.
+
+Completed audit remediations include DevLens read-only isolation (#370 / PR #377), activation observation integrity (#372 / PR #379), README writer repair (#373 / PR #374), and semantic Model/Agent/Tool/Capability/Skill boundaries (#368).
+
+Open evidence items are #357 and #336. No current P0 implementation/security blocker was identified.
