@@ -9,7 +9,7 @@ Runs idempotently. Updates four things in README.md:
 3. The battle-tested / stub split (`**<X> skills are battle-tested today.**`)
    and the matching `**<Y> are stubs**`. Values come from
    `tools/check_skill_quality.py`.
-4. The per-category table under `## 🗂️ The 17 Skill Categories` (if present).
+4. The category heading (`## 🗂️ The <N> Skill Categories`) and per-category table (if present).
    Each row's third column (Skills count) is updated to the live count.
 
 Run from repo root:
@@ -91,6 +91,13 @@ def patch_text(text: str, counts: dict) -> str:
         r"\*\*\d+ are stubs\*\*",
         f"**{stub} are stubs**",
         text,
+    )
+
+    text = re.sub(
+        r"^## 🗂️ The \d+ Skill Categories$",
+        f"## 🗂️ The {cats} Skill Categories",
+        text,
+        flags=re.MULTILINE,
     )
 
     # Patch the per-category table line-by-line. Each row of the form
