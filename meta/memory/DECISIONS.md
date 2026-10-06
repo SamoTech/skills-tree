@@ -1222,3 +1222,12 @@ External Evidence: anthropics/skills#1383 documents silent benchmark failure mod
 Decision: Return exit code 2 when zero benchmark cases have observations. Preserve the machine-readable NO_OBSERVATIONS result so the evidence state remains explicit. Do not change routing, activation metrics for observed traces, or partial-corpus reporting.
 Status: IMPLEMENTED — PR #365 pending exact-head CI verification.
 Reopen Conditions: Reopen if a downstream benchmark contract requires a different process-level status model or if zero-observation invocations must remain successful for a documented orchestration reason.
+# DECISION-2026-10-06-ACTIVATION-CORPUS-COMPLETENESS
+
+DECISION-ID: DECISION-2026-10-06-ACTIVATION-CORPUS-COMPLETENESS
+Topic: Distinguish partial activation evidence from a complete empirical corpus
+Decision: Make benchmark result status first-class: NO_OBSERVATIONS when no case has evidence, PARTIAL when at least one case is observed but one or more cases have fewer observations than the dataset-declared repetitions, and COMPLETE only when every case meets its declared repetition count. Keep activation/invocation metrics unchanged and do not make partial evidence invalid; require downstream empirical conclusions to use COMPLETE evidence.
+Confidence: HIGH
+Evidence IDs: ACTIVATION-OBS-001, ISSUE-366
+Status: IMPLEMENTED ON BRANCH — PR pending CI verification.
+Reopen Conditions: Reopen if a future benchmark contract intentionally permits a different completion rule, such as weighted cases or variable repetition policies.
