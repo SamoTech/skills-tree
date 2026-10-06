@@ -283,3 +283,17 @@ The activation/invocation evidence gap now has both a benchmark and a machine-re
 This is an evidence/interop improvement, not a new skill or routing authority. No empirical activation-rate claim is made until real agent-runtime traces are collected.
 
 Next action: collect repeated fresh-session observations from a compatible runtime and record the benchmark result.
+## New evaluation-quality gap — Fail-Closed Benchmark Outcomes — 2026-10-06
+
+Fresh public evidence from anthropics/skills#1383 identifies silent evaluator failure modes where missing or invalid benchmark execution can be interpreted as a valid zero result. Skills Tree's activation runner already labels an empty trace corpus NO_OBSERVATIONS, but previously returned process exit code 0, allowing automation to treat the run as successful.
+
+### Internal reconciliation
+
+The activation benchmark is an evidence instrument, not a model simulator. An empty observation corpus therefore cannot be a successful execution state. Partial observed corpora remain reportable because they can contain useful evidence for selected cases; completeness is a separate contract decision.
+
+### Decision
+
+Classify this as an evaluation-harness integrity gap, not a new skill. The bounded remediation is to fail closed at the process boundary when zero cases have observations, while preserving the existing NO_OBSERVATIONS result record. Do not alter activation metrics or routing behavior.
+
+Status: IN PROGRESS — PR #365.
+Verification date: 2026-10-06.
