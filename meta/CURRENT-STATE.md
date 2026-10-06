@@ -636,3 +636,8 @@ Next executable action: collect real-runtime activation evidence for Issue #357;
 Full-project audit identified `devlens.yml` as a manual README writer outside the repository-wide generated-main boundary. The workflow is now diagnostic-only: `contents: read`, `security-events: read`, and `update_readme: false`. The stale DevLens snapshot was removed from README.md.
 
 Governance verification now fails if DevLens regains repository write permission or README mutation. This closes the direct DevLens writer risk; it does not make DevLens an authoritative health metric.
+## Activation Observation Integrity — IMPLEMENTED ON BRANCH — 2026-10-06
+
+The activation benchmark now fails closed before metric calculation when an observation case_id is outside the selected dataset or when run_id is duplicated. Case-level status is aligned with completion_status so partial evidence cannot be represented as OBSERVED.
+
+This is evidence-integrity hardening only. No routing, skill definition, or metric formula changed.

@@ -1250,3 +1250,9 @@ Decision: DevLens remains a manual diagnostic only. It must not write README.md 
 Evidence IDs: Issue #370; .github/workflows/devlens.yml; tools/verify_governance.py; meta/WORKFLOW_INVENTORY.md.
 Status: IMPLEMENTED ON BRANCH — awaiting exact-head CI.
 Reopen Conditions: Reopen only if DevLens is intentionally integrated into a documented authoritative projection boundary with the same writer serialization and governance controls.
+DECISION-ID: DECISION-2026-10-06-ACTIVATION-OBSERVATION-INTEGRITY
+Topic: Prevent invalid or duplicated runtime observations from contaminating activation evidence
+Decision: Reject observations whose case_id is not present in the selected benchmark dataset and reject duplicate run_id values before metric calculation. Preserve existing metric formulas and benchmark case semantics.
+Evidence IDs: Issue #372; meta/skill-activation-observation.schema.json; tools/run_skill_activation_benchmark.py; tests/test_skill_activation_benchmark.py.
+Status: IMPLEMENTED ON BRANCH — awaiting exact-head CI.
+Reopen Conditions: Reopen if the observation contract intentionally permits cross-dataset observations or multi-record run identities.

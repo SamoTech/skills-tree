@@ -311,3 +311,6 @@ Issue #370 tracks a separate governance risk: the manual DevLens workflow can mu
 ## DevLens governance remediation — 2026-10-06
 
 Issue #370 is being remediated by making DevLens diagnostic-only and removing its stale README snapshot. The remaining active evidence gaps are #357 (real runtime activation traces) and #372 (activation observation integrity). Retrieval evidence freshness remains tracked in #336.
+## Activation observation integrity remediation — 2026-10-06
+
+Issue #372 is being remediated by closing the observation universe to the selected dataset and requiring unique run identities. This prevents evidence contamination before empirical activation claims are made.
