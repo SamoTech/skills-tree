@@ -136,7 +136,7 @@ The evaluation workflow now reads the real canonical corpus under `intelligence/
 
 The retrieval benchmark `benchmarks/memory/retrieval-accuracy.md` is now explicitly marked historical. Its canonical skill links were corrected to the current `03-memory` namespace, and the repository benchmark overview no longer treats every historical result as currently reproducible evidence.
 
-No new retrieval skill, search engine, or popularity claim was created. Current bounded retrieval evidence is now verified by the 12-case deterministic benchmark (Recall@5 1.0000, MRR 0.9583, deterministic replay true). The remaining retrieval-quality boundary is broader representative failure coverage; the measured RAG ambiguity must not trigger ranking changes without that evidence. CAP-007, CAP-011, and CAP-014 evaluation mappings are now verified on main. Issue #335 and Issue #336 remain historical remediation records.
+No new retrieval skill, search engine, or popularity claim was created. Current bounded retrieval evidence is now verified by the 12-case deterministic benchmark (Recall@5 1.0000, MRR 0.9583, deterministic replay true). The remaining retrieval-quality boundary is broader representative failure coverage; the measured RAG ambiguity must not trigger ranking changes without that evidence. CAP-007, CAP-011, and CAP-014 evaluation mappings are now verified on main. Issue #335 is historical remediation; Issue #336 remains an open evidence/freshness/reproducibility gap and is not treated as a current retrieval-quality result.
 
 ## New demand-gap candidate — Capability-Based Skill Selection — 2026-10-05
 
@@ -307,10 +307,15 @@ Activation empirical evidence remains pending. Issue #357 has no real agent-runt
 
 Evaluation-harness integrity is therefore separated from missing-skill demand: do not add or rewrite skills merely to improve activation before real runtime evidence exists.
 
-Issue #370 tracks a separate governance risk: the manual DevLens workflow can mutate README.md outside the repository writer serialization contract, and the visible DevLens block is stale.
+Issue #370 is now completed by PR #377: DevLens is diagnostic-only and cannot mutate README.md.
 ## DevLens governance remediation — 2026-10-06
 
-Issue #370 is being remediated by making DevLens diagnostic-only and removing its stale README snapshot. The remaining active evidence gaps are #357 (real runtime activation traces) and #372 (activation observation integrity). Retrieval evidence freshness remains tracked in #336.
+Issue #370 is resolved by PR #377. The remaining active evidence gaps are #357 (real runtime activation traces) and #336 (retrieval benchmark freshness/reproducibility). Issue #372 is resolved by PR #379.
 ## Activation observation integrity remediation — 2026-10-06
 
-Issue #372 is being remediated by closing the observation universe to the selected dataset and requiring unique run identities. This prevents evidence contamination before empirical activation claims are made.
+Issue #372 is resolved by PR #379: the observation universe is closed to the selected dataset and run identities must be unique before metric calculation.
+## Final Live Audit State — 2026-10-06
+
+Resolved governance/evidence implementation gaps: #370 (DevLens writer isolation) and #372 (activation observation integrity).
+
+Remaining active evidence work: #357 real runtime activation traces and #336 retrieval benchmark freshness/reproducibility. No raw skill addition is justified by either gap without new measured implementation evidence.
