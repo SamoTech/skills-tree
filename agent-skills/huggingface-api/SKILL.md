@@ -12,7 +12,7 @@ metadata:
 Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation.
 
 ## When to Use
-Use this capability only when the workflow requires hugging face api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires hugging face api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
