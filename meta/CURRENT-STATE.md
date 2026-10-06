@@ -57,7 +57,7 @@
 - Release authority: `zero-touch-release.yml` is the production release pipeline; `release.yml` is retained as manual recovery.
 - Pages authority: `deploy-pages.yml` is the single repository-controlled Pages deployment workflow.
 - Confirmed direct-main generated writers use the shared `auto-commit-main` serialization group with `cancel-in-progress: false`.
-- The live workflow inventory is 40 files, as verified in `meta/WORKFLOW_INVENTORY.md`.
+- The live workflow inventory is 45 files, as verified by a 2026-10-06 git-tree audit and reconciled in `meta/WORKFLOW_INVENTORY.md`.
 - `validate-graph.yml` permission isolation is implemented and verified: `build-and-validate` is `contents: read`; `generate-main-graph` alone has `contents: write` and runs only on trusted `main` pushes after validation; `quality-report` waits for graph generation before writing its projection.
 - PR #232 CI passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label; Dependabot Review Gate was skipped.
 - GitHub branch inspection currently reports `main` as unprotected with required-status-check enforcement off. This is documented as a control-plane finding; no branch-protection change was made in this cycle.
@@ -630,14 +630,21 @@ Governance: GitHub branch protection is not a project completion gate under the 
 Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #371 implements this contract.
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
-Next executable action: collect real-runtime activation evidence for Issue #357; separately resolve the DevLens writer risk (Issue #370), unknown/duplicate observation integrity risk (Issue #372), and retrieval benchmark freshness/reproducibility (Issue #336).
-## DevLens Writer Isolation — IMPLEMENTED ON BRANCH — 2026-10-06
+Next executable action: collect real-runtime activation evidence for Issue #357, resolve the retrieval benchmark freshness/reproducibility gap in Issue #336, and maintain the 45-workflow inventory against live `main`. Issues #370 and #372 are completed.
+## DevLens Writer Isolation — VERIFIED ON MAIN — 2026-10-06
 
-Full-project audit identified `devlens.yml` as a manual README writer outside the repository-wide generated-main boundary. The workflow is now diagnostic-only: `contents: read`, `security-events: read`, and `update_readme: false`. The stale DevLens snapshot was removed from README.md.
+Full-project audit identified `devlens.yml` as a manual README writer outside the repository-wide generated-main boundary. PR #377 merged as `5a25ef13751e4a43ce2a92226198c2b24232ecf3` with the workflow reduced to diagnostic-only: `contents: read`, `security-events: read`, and `update_readme: false`. The stale DevLens snapshot was removed from README.md.
 
 Governance verification now fails if DevLens regains repository write permission or README mutation. This closes the direct DevLens writer risk; it does not make DevLens an authoritative health metric.
-## Activation Observation Integrity — IMPLEMENTED ON BRANCH — 2026-10-06
+## Activation Observation Integrity — VERIFIED ON MAIN — 2026-10-06
 
-The activation benchmark now fails closed before metric calculation when an observation case_id is outside the selected dataset or when run_id is duplicated. Case-level status is aligned with completion_status so partial evidence cannot be represented as OBSERVED.
+The activation benchmark now fails closed before metric calculation when an observation case_id is outside the selected dataset or when run_id is duplicated. PR #379 merged as `290cb3495d1905615501471e4e1b3bec86301a7b`. Case-level status is aligned with completion_status so partial evidence cannot be represented as OBSERVED.
 
 This is evidence-integrity hardening only. No routing, skill definition, or metric formula changed.
+## Final Full-Project Audit Reconciliation — 2026-10-06
+
+The live main audit has no open pull requests. PRs #368, #371, #374, #375, #376, #377, and #379 were verified through exact-head CI before merge. The final evidence hardening merges are #377 (DevLens writer isolation) and #379 (activation observation integrity).
+
+Current production/public corpus distinction: `meta/QUALITY-REPORT.md` reports 382 total skill files including one intentional `00-sandbox` fixture; the public canonical production corpus contains 381 skills across 17 categories. Agent Skills reconciliation currently reports 264 eligible canonical projections, 118 blocked canonical entries, and 302 existing Agent Skills packages. Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+
+Current remaining evidence gaps are intentionally not represented as completion claims: Issue #357 requires real external agent-runtime traces before activation/reliability claims; Issue #336 requires a current reproducible retrieval benchmark or explicit retirement/qualification of stale results. No new skill, search engine, or routing authority is justified by the present evidence.
