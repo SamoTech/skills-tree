@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:52:06Z",
+  "dateModified": "2026-10-06T14:13:24Z",
   "skillId": "data-filtering",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, filtering, AI agent, data",
+  "keywords": "skills tree, AI agent, data, filtering, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "data-filtering",

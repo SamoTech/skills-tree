@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:52:06Z",
+  "dateModified": "2026-10-06T14:13:24Z",
   "skillId": "financial-statement",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "financial, LLM skill, statement, skills tree, domain, specific, AI agent",
+  "keywords": "skills tree, AI agent, specific, financial, statement, domain, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "financial-statement",

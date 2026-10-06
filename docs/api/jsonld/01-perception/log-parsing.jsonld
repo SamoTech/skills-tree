@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:52:06Z",
+  "dateModified": "2026-10-06T14:13:24Z",
   "skillId": "log-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -79,7 +79,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, skills tree, perception, log, parsing, AI agent",
+  "keywords": "log, skills tree, perception, AI agent, parsing, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Log Parsing",

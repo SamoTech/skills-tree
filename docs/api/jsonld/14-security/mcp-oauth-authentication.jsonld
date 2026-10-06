@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:52:06Z",
+  "dateModified": "2026-10-06T14:13:24Z",
   "skillId": "mcp-oauth-authentication",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "LLM skill, security, authentication, skills tree, mcp, oauth, AI agent",
+  "keywords": "oauth, skills tree, mcp, AI agent, authentication, LLM skill, security",
   "about": {
     "@type": "Thing",
     "name": "MCP OAuth Authentication",

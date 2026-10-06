@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:52:06Z",
+  "dateModified": "2026-10-06T14:13:24Z",
   "skillId": "analogical",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "analogical, LLM skill, skills tree, reasoning, AI agent",
+  "keywords": "reasoning, skills tree, AI agent, analogical, LLM skill",
   "about": {
     "@type": "Thing",
     "name": "Analogical Reasoning",
