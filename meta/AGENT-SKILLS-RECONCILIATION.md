@@ -19,7 +19,7 @@ The 264 eligible entries are represented by deterministic projections. The 118 b
 
 ## Current reconciliation state
 
-The 2026-10-03 Kanban canonical skill was added after the original corpus generation commit. It is eligible under the deterministic projection gates and is now reconciled as `agent-skills/kanban-task-management/SKILL.md`. The retained blocked corpus remains unchanged; one verified legacy compatibility package (`rag`) remains alongside its deterministic projection.
+The 2026-10-03 Kanban canonical skill was added after the original corpus generation commit and is now reconciled under the deterministic projection gates. The current exact-head audit reports no legacy compatibility packages; older `rag` references are historical and are not part of the current package set.
 
 The reconciliation CI gate now supports `--check` and fails for eligible missing projections, deterministic projection drift, stale or ambiguous provenance, unexpected packages, and unresolved target-name collisions; `rename_needed` is compatibility metadata and is not itself a failure. Retained blocked legacy packages are not forced through deterministic renaming. Intentional auxiliary packages and retained blocked packages remain allowed by design.
 
