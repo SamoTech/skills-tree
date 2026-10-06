@@ -136,7 +136,7 @@ The evaluation workflow now reads the real canonical corpus under `intelligence/
 
 The retrieval benchmark `benchmarks/memory/retrieval-accuracy.md` is now explicitly marked historical. Its canonical skill links were corrected to the current `03-memory` namespace, and the repository benchmark overview no longer treats every historical result as currently reproducible evidence.
 
-No new retrieval skill, search engine, benchmark result, or popularity claim was created. The remaining evidence gap is unchanged: current reproducible retrieval-quality evidence is absent, and CAP-007, CAP-011, and CAP-014 still require authoritative evaluation mappings. Issue #335 and Issue #336 remain the bounded remediation records.
+No new retrieval skill, search engine, or popularity claim was created. Current bounded retrieval evidence is now verified by the 12-case deterministic benchmark (Recall@5 1.0000, MRR 0.9583, deterministic replay true). The remaining retrieval-quality boundary is broader representative failure coverage; the measured RAG ambiguity must not trigger ranking changes without that evidence. CAP-007, CAP-011, and CAP-014 evaluation mappings are now verified on main. Issue #335 and Issue #336 remain historical remediation records.
 
 ## New demand-gap candidate — Capability-Based Skill Selection — 2026-10-05
 
@@ -205,7 +205,7 @@ Existing sandboxed execution, secret scanning, permission checking, input saniti
 
 `skills/14-security/agent-skill-security-audit.md`
 
-Status: implementation in progress on the current branch.
+Status: VERIFIED ON MAIN — PR #350 merged as `436c15c745e1747e3ec1e931dccacea1ca013c7c` with exact-head CI passed.
 
 ### Priority assessment
 
