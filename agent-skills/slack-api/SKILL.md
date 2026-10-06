@@ -12,7 +12,7 @@ metadata:
 Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects.
 
 ## When to Use
-Use this capability when the workflow explicitly requires slack api and the target account, document, channel, or provider is authorized.
+Use this skill when the workflow explicitly requires slack api and the target account, document, channel, or provider is authorized.
 
 ## Inputs / outputs / failure modes
 
