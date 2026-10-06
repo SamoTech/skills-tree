@@ -34,7 +34,7 @@ AI agents should be able to find the right skill here, and humans should be able
 
 The repository remains an evidence-backed, dependency-aware knowledge graph and distribution system for making those skills discoverable and reusable.
 
-| 375 Skill Files | 780+ Connections | MIT Licensed |
+| 381 Skill Files | 780+ Connections | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & evidence-backed | Dependency-mapped | Community-governed |
 
