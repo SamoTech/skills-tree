@@ -265,7 +265,7 @@ The benchmark measures expected-skill activation, forbidden/false activation, co
 
 ### Evidence status
 
-**IMPLEMENTATION:** VERIFIED IN BRANCH.
+**IMPLEMENTATION:** VERIFIED ON MAIN — PR #359 merged as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`.
 
 **EMPIRICAL ACTIVATION:** NOT YET VERIFIED. No real agent-runtime trace corpus has been recorded in the repository, so no activation-rate or reliability claim is made. Synthetic test fixtures validate only the evaluator's mechanics.
 
