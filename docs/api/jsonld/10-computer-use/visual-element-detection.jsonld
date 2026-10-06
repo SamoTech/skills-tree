@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:47:28Z",
+  "dateModified": "2026-10-06T09:52:06Z",
   "skillId": "visual-element-detection",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, computer, use, element, visual, skills tree, detection",
+  "keywords": "computer, LLM skill, skills tree, visual, detection, element, use, AI agent",
   "about": {
     "@type": "Thing",
     "name": "visual-element-detection",

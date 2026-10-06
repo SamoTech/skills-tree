@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:47:28Z",
+  "dateModified": "2026-10-06T09:52:06Z",
   "skillId": "browser-navigation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "browser, LLM skill, web, AI agent, navigation, skills tree",
+  "keywords": "LLM skill, skills tree, navigation, web, browser, AI agent",
   "about": {
     "@type": "Thing",
     "name": "browser-navigation",

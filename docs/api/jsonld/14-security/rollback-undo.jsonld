@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:47:28Z",
+  "dateModified": "2026-10-06T09:52:06Z",
   "skillId": "rollback-undo",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "rollback, LLM skill, AI agent, undo, security, skills tree",
+  "keywords": "LLM skill, security, rollback, skills tree, undo, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Rollback / Undo",

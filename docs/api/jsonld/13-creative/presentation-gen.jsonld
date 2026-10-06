@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:47:28Z",
+  "dateModified": "2026-10-06T09:52:06Z",
   "skillId": "presentation-gen",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "LLM skill, AI agent, gen, creative, skills tree, presentation",
+  "keywords": "LLM skill, creative, skills tree, presentation, gen, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Presentation Generation",

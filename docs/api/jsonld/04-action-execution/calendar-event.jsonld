@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T09:47:28Z",
+  "dateModified": "2026-10-06T09:52:06Z",
   "skillId": "calendar-event",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "event, AI agent, LLM skill, execution, skills tree, action, calendar",
+  "keywords": "LLM skill, execution, skills tree, action, calendar, AI agent, event",
   "about": {
     "@type": "Thing",
     "name": "Calendar Event",
