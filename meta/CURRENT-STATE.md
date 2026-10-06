@@ -4,17 +4,21 @@
 
 ## Verified snapshot
 
-- Snapshot date: 2026-10-04
+- Snapshot date: 2026-10-06
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
 - Latest verified runtime sequence on `main` includes the benchmark runtime (`db474059fbe0efa56ca167a7108146323c9cf857`), anti-slop gate (`90f9422954936e054adc630ad723e6165074492c`), Universal Graph fail-closed boundary (`c8e1c536f8abfd860ddf41cefeff15b88518d095`), recommendation registry context (PR #292), and blueprint registry context (PR #293). Live `main` remains authoritative and must be resolved before each execution cycle.
 - PR #223 remains the implementation baseline for the post-P2.2 Evidence runtime slice, merged as `642e968879e9b6bfc8e7f9b2a44d12544585fc18`.
 - PR #224 merged on 2026-10-01 and synchronized the affected P2 architecture, development knowledge, audit, decision memory, and current-state documentation.
-- Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 375 skill files: 216 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional test fixture.
+- Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 382 skill files: 223 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional test fixture.
 - Quality-report figures are current only at the generated-report verification point; historical verification sections retain their original counts.
 - `main` current HEAD is intentionally verified from the live Git ref during each execution cycle; this snapshot does not hard-code its own future commit.
-- Latest documentation synchronization was verified on 2026-10-03 after quality-report regeneration at `af176a061abfa84401176043cd04ad2704736f47`.
+- Latest documentation synchronization was verified on 2026-10-06 during the live full-project audit; generated quality state is 382 skills and current Agent Skills reconciliation is 382 canonical / 264 eligible / 118 blocked / 302 packages.
 
 ## Current verified architecture state
+
+- Current Agent Skills baseline: 382 canonical entries, 264 eligible deterministic projections, 118 blocked canonical entries, and 302 existing Agent Skills packages; the current exact-head reconciliation audit reports no eligible missing projections, deterministic drift, stale entries, unexpected packages, or unresolved collisions.
+- Current graph baseline: 382 nodes and 250 edges; `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical.
+- Current search baseline: `data/search-index.json` and `docs/search-index.json` are byte-identical.
 
 - The canonical skill source is `skills/`.
 - The universal registry is a read-only, deterministic machine-readable capability layer with typed runtime access.
@@ -615,3 +619,15 @@ PR #365 applies the minimum remediation: zero observed cases now return exit cod
 
 Status: IN PROGRESS — exact-head CI pending. This is not an activation-result claim.
 Next executable action: verify PR #365 exact-head CI, merge only after all applicable gates pass, then continue demand/evidence reconciliation.
+## Full-Project Live Reconciliation — 2026-10-06
+
+Live main now contains the verified Model/Agent/Tool/Capability/Skill semantic boundary from PR #368, the Hermes activation adapter/capture instrumentation from PRs #363/#364, and the fail-closed zero-observation benchmark behavior from PR #365.
+
+Current generated corpus evidence: `meta/QUALITY-REPORT.md` reports 382 skill files (223 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional fixture). The Agent Skills Distribution Audit on the current PR #368 head verified 382 canonical entries and 302 existing Agent Skills packages with no eligible missing projections, projection drift, stale entries, unexpected packages, or unresolved collisions. `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical at 382 nodes / 250 edges; `data/search-index.json` and `docs/search-index.json` are byte-identical.
+
+Governance: GitHub branch protection is not a project completion gate under the current repository-local governance decision; obsolete Issue #159 is closed as not planned. The remaining material activation investigation is Issue #357, which still lacks a real Hermes trace corpus.
+
+Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #371 implements this contract.
+
+Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
+Next executable action after PR #369 verification: close/reconcile Issue #366, then continue the real-runtime activation evidence collection path; separately address the DevLens README writer finding tracked in Issue #370.

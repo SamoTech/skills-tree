@@ -297,3 +297,14 @@ Classify this as an evaluation-harness integrity gap, not a new skill. The bound
 
 Status: IN PROGRESS — PR #365.
 Verification date: 2026-10-06.
+## 2026-10-06 Live project reconciliation
+
+Current implementation/evidence state now includes the semantic Model/Agent/Tool/Capability/Skill boundary, Hermes activation observation adapter and real-trace capture instrumentation, and fail-closed activation benchmarking.
+
+Current corpus baseline verified by CI: 382 canonical skill files; 302 existing Agent Skills packages; no eligible missing projections, deterministic projection drift, stale entries, unexpected packages, or unresolved collisions on the verified PR #368 head.
+
+Activation empirical evidence remains pending. Issue #357 has no real agent-runtime trace corpus. The bounded benchmark now distinguishes NO_OBSERVATIONS, PARTIAL, and COMPLETE; COMPLETE requires 12 observations (4 cases × 3 repetitions).
+
+Evaluation-harness integrity is therefore separated from missing-skill demand: do not add or rewrite skills merely to improve activation before real runtime evidence exists.
+
+Issue #370 tracks a separate governance risk: the manual DevLens workflow can mutate README.md outside the repository writer serialization contract, and the visible DevLens block is stale.

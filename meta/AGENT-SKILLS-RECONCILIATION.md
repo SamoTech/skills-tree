@@ -1,21 +1,21 @@
 # Agent Skills Reconciliation and Corpus Baseline
 
-**Verified:** 2026-10-04  
+**Verified:** 2026-10-06  
 **Canonical source:** `skills/`  
-**Merged corpus:** `892a4d747e588cf2876e45ba3effcdd031fd9592`
+**Verified main baseline:** current main after PR #368 merge; exact-head reconciliation verified 2026-10-06
 
 ## Verified counts
 
 | Measure | Count |
 |---|---:|
-| Canonical skill entries scanned | 376 |
-| Eligible canonical projections | 259 |
-| Blocked canonical entries | 117 |
-| Agent Skills packages on the verified main | 296 |
+| Canonical skill entries scanned | 382 |
+| Eligible canonical projections | 264 |
+| Blocked canonical entries | 118 |
+| Agent Skills packages on the verified main | 302 |
 | Retained blocked existing packages | 37 |
 | Intentional auxiliary package | 1 |
 
-The 258 eligible entries are represented by deterministic projections. The 117 blocked canonical entries remain blocked and are not generated.
+The 264 eligible entries are represented by deterministic projections. The 118 blocked canonical entries remain blocked and are not generated.
 
 ## Current reconciliation state
 
@@ -132,3 +132,10 @@ The public `/.well-known/agent-skills/index.json` publication boundary remains u
 
 
 Legacy compatibility packages may retain an older package name for an existing canonical source. They are not the deterministic projection and are not renamed by this gate. The gate instead requires the deterministic expected package to exist for an eligible canonical source; once present, the legacy package is classified as compatibility rather than unexpected drift.
+## Live reconciliation refresh — 2026-10-06
+
+The current exact-head Agent Skills Distribution Audit for PR #368 verified the live corpus at 382 canonical entries and 302 existing packages, with 264 eligible canonical projections and 118 blocked canonical entries.
+
+The audit returned eligible_missing: [], drifted: [], unexpected: [], stale: [], ambiguous: [], and unresolved_collisions: {}.
+
+The current state replaces the older 2026-10-04 counts above; historical audit sections remain historical.
