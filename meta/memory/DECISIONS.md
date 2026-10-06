@@ -1119,3 +1119,15 @@ Reopen Conditions: Reopen if prerequisite routing fails under a new registered d
 **Decision:** Preserve the existing SkillSelectionEngine and extend recovery with explicit failed-skill history. Recovery must never blindly retry a previously failed candidate. If remaining candidates are ineligible or do not cover the required capability, the selector remains BLOCKED and escalates.
 
 **Boundary:** Current registry coverage is insufficient for a genuine multi-step A → failure → B → failure → C behavioral benchmark. Do not create synthetic skills or a parallel registry merely to manufacture this evidence. Reopen this boundary when real canonical registry coverage provides multiple independently eligible alternatives for the same capability.
+
+
+# DECISION-2026-10-06-AGENT-SKILL-SECURITY-AUDIT
+
+DECISION-ID: DECISION-2026-10-06-AGENT-SKILL-SECURITY-AUDIT
+Topic: Add the missing pre-installation/pre-execution security-audit contract for agent skills
+Finding: Demand/evidence reconciliation identified direct ecosystem concern around auditing agent skills before installation, including declared-vs-observed behavior, credential access, exfiltration, obfuscation, bundled scripts/hooks, and permission declarations. Skills Tree already had sandboxing, secret scanning, permission checking, input sanitization, audit logging, and human approval, but no dedicated canonical contract for auditing a complete skill package before execution.
+Decision: Add experimental `skills/14-security/agent-skill-security-audit.md` and record the demand signal in `meta/MOST-WANTED-SKILLS.md`. Reuse existing security controls and preserve the boundary between evidence and authorization; do not create a second scanner, registry, ontology, or authorization authority.
+Evidence IDs: PR #350; merged main `436c15c745e1747e3ec1e931dccacea1ca013c7c`; exact-head CI runs 37422390762, 37422390882, 37422390775, 37422390740, 37422390824, 37422390793, 37422390811, 37422390802, 37422390790, 37422390739, 37422390769, 37422390800, 37422390773, and 37422390805; OWASP Secure Agent Playbook issue #21; 2026 malicious-agent-skill detection research.
+Result: Exact-head applicable CI passed. The new skill is a bounded contract, not a claim of complete malware detection or universal safety.
+Status: VERIFIED BOUNDED SECURITY CONTRACT
+Reopen Conditions: Reopen if security evaluation exposes missing audit dimensions, if the ecosystem contract changes materially, or if a measured implementation gap requires executable audit tooling rather than guidance.
