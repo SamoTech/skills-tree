@@ -31,3 +31,10 @@ def test_model_agent_tool_skill_boundary_is_machine_and_doc_consistent():
     assert "Capability = what needs to be done" in architecture
     assert "Skill = reusable procedural guidance" in architecture
     assert "authorization remains a separate runtime/security concern" in architecture
+
+
+def test_readme_new_skill_language_matches_entity_boundary():
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+    assert "A reusable procedural skill not yet indexed" in readme
+    assert "A capability not yet indexed" not in readme
