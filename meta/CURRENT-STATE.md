@@ -615,3 +615,15 @@ PR #365 applies the minimum remediation: zero observed cases now return exit cod
 
 Status: IN PROGRESS — exact-head CI pending. This is not an activation-result claim.
 Next executable action: verify PR #365 exact-head CI, merge only after all applicable gates pass, then continue demand/evidence reconciliation.
+## Full-Project Live Reconciliation — 2026-10-06
+
+Live main now contains the verified Model/Agent/Tool/Capability/Skill semantic boundary from PR #368, the Hermes activation adapter/capture instrumentation from PRs #363/#364, and the fail-closed zero-observation benchmark behavior from PR #365.
+
+Current generated corpus evidence: `meta/QUALITY-REPORT.md` reports 382 skill files (223 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional fixture). The Agent Skills Distribution Audit on the current PR #368 head verified 382 canonical entries and 302 existing Agent Skills packages with no eligible missing projections, projection drift, stale entries, unexpected packages, or unresolved collisions. `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical at 382 nodes / 250 edges; `data/search-index.json` and `docs/search-index.json` are byte-identical.
+
+Governance: GitHub branch protection is not a project completion gate under the current repository-local governance decision; obsolete Issue #159 is closed as not planned. The remaining material activation investigation is Issue #357, which still lacks a real Hermes trace corpus.
+
+Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #369 implements this contract.
+
+Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
+Next executable action after PR #369 verification: close/reconcile Issue #366, then continue the real-runtime activation evidence collection path; separately address the DevLens README writer finding tracked in Issue #370.
