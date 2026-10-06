@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 381
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 222
+- **Total skill files:** 382
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 223
 - 🟡 **Enriched** (real description + runnable code): 158
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -29,7 +29,7 @@
 | `11-web` | 17 | 17 | 0 | 0 | 0 | 0 |
 | `12-data` | 18 | 1 | 17 | 0 | 0 | 0 |
 | `13-creative` | 14 | 14 | 0 | 0 | 0 | 0 |
-| `14-security` | 14 | 14 | 0 | 0 | 0 | 0 |
+| `14-security` | 15 | 15 | 0 | 0 | 0 | 0 |
 | `15-orchestration` | 30 | 12 | 18 | 0 | 0 | 0 |
 | `16-domain-specific` | 28 | 1 | 27 | 0 | 0 | 0 |
 | `17-infrastructure` | 1 | 1 | 0 | 0 | 0 | 0 |
@@ -230,6 +230,7 @@
 - [`skills/13-creative/social-media-post.md`](skills/13-creative/social-media-post.md) — Social Media Post
 - [`skills/13-creative/svg-generation.md`](skills/13-creative/svg-generation.md) — SVG Generation
 - [`skills/13-creative/video-script.md`](skills/13-creative/video-script.md) — Video Script
+- [`skills/14-security/agent-skill-security-audit.md`](skills/14-security/agent-skill-security-audit.md) — Agent Skill Security Audit
 - [`skills/14-security/approval-before-destructive-tools.md`](skills/14-security/approval-before-destructive-tools.md) — Approval Before Destructive Tools
 - [`skills/14-security/audit-logging.md`](skills/14-security/audit-logging.md) — Audit Logging
 - [`skills/14-security/harm-detection.md`](skills/14-security/harm-detection.md) — Harm Detection
