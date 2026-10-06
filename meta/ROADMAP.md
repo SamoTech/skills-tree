@@ -334,7 +334,7 @@ The full evidence record is `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
 
 The preferred demand/evidence investigation is now executable. The repository contains a bounded trace-based benchmark for real skill activation and invocation evidence, using existing discovery/selection and observability boundaries.
 
-**Current state:** harness implemented; empirical routing evidence pending.
+**Current state:** harness verified on main; empirical routing evidence pending.
 
 **Required next step:** collect real structured traces from a compatible agent runtime for `benchmark/skill-activation-v1`, then record expected activation rate, false activation rate, invocation-evidence rate, and repeated-run variance.
 
