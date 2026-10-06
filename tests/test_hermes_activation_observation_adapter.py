@@ -78,7 +78,10 @@ def test_hermes_adapter_does_not_infer_execution_from_selection(tmp_path):
         check=True,
     )
     payload = json.loads(output.read_text(encoding="utf-8"))
-    assert payload["runs"] == []
+    assert payload["runs"]
+    events = payload["runs"][0]["events"]
+    assert [event["kind"] for event in events] == ["skill_selection"]
+    assert events[0]["skill_id"] == "03-memory/rag"
 
 
 def test_hermes_adapter_preserves_selection_when_execution_differs(tmp_path):
