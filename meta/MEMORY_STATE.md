@@ -1,6 +1,6 @@
 # MEMORY STATE
 
-**Last reconciled:** 2026-10-04
+**Last reconciled:** 2026-10-06
 **Current execution source of truth:** `meta/DEVELOPMENT_KNOWLEDGE.md`
 **Governance authority:** `meta/PROJECT_CONSTITUTION.md`
 **Execution model:** `meta/AGENT_OPERATING_MODEL.md`
@@ -11,13 +11,13 @@
 
 | Key | Value |
 |---|---|
-| Main feature baseline | `262dfea66fb81e5779e93b45884d857f3b10522d` (PR #317 release consolidation) |
+| Main feature baseline | `290cb3495d1905615501471e4e1b3bec86301a7b` (PR #379 activation-observation integrity merge) |
 | Verified roadmap | P1.1–P1.11 + P2.1 + P2.2 |
-| Current phase | Discovery and distribution hardening |
-| Highest verified roadmap item | P2.2 — Typed runtime access and validation |
-| Current audit-derived slice | Full repository re-audit and security-gate hardening |
-| Active branch | None — main verified; next work is the remaining machine-readable consumer/projection audit |
-| Active governance blocker | None |
+| Current phase | Final audit reconciliation → evidence-driven runtime verification |
+| Highest verified roadmap item | P2.2 plus verified distribution/evidence governance; no numbered P2.3 is invented |
+| Current audit-derived slice | Final 2026-10-06 live audit and evidence-gap selection |
+| Active branch | None — main verified; next work is real activation traces and retrieval evidence freshness |
+| Active governance blocker | None; GitHub branch protection is explicitly outside the project-local completion gate |
 | Current implementation registry | `implementation/code-reviewer-system` (single audited Implementation) |
 | MCP classification | Protocol; not an Implementation |
 | New claims policy | No provider/platform/framework/model/adapter/compatibility claims without authoritative provenance |
@@ -114,3 +114,11 @@ The owner explicitly rejected GitHub branch protection as a required project con
 `meta/GOVERNANCE_MODEL.md` defines the merge/completion contract. `tools/verify_governance.py` checks documentation preflight clauses, canonical-source boundaries, unique projection/release authorities, anti-slop/new-stub enforcement, security gates, and the explicit branch-protection independence policy. `.github/workflows/governance-gate.yml` executes that verifier on relevant PRs and main pushes.
 
 Historical audit sections that describe Issue #159 as a current blocker remain historical. The current governance state is that no GitHub branch-protection rule is required for repository correctness or completion.
+
+## Final Live State — 2026-10-06
+
+Current verified repository baseline: 45 workflow files; 382 quality-corpus skill files including one intentional sandbox fixture; 381 production/public canonical skills across 17 categories; 264 eligible Agent Skills projections; 118 blocked canonical entries; 302 existing Agent Skills packages; graph projections synchronized at 382 nodes / 250 edges; search projections synchronized.
+
+PR #377 and PR #379 are merged and their exact-head applicable CI passed. DevLens is read-only and activation observation integrity is fail-closed.
+
+Remaining material work is evidence-driven: Issue #357 requires real runtime traces before activation/reliability claims; Issue #336 requires a current reproducible retrieval benchmark or explicit qualification/retirement of stale results.
