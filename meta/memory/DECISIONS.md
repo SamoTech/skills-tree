@@ -1222,3 +1222,14 @@ External Evidence: anthropics/skills#1383 documents silent benchmark failure mod
 Decision: Return exit code 2 when zero benchmark cases have observations. Preserve the machine-readable NO_OBSERVATIONS result so the evidence state remains explicit. Do not change routing, activation metrics for observed traces, or partial-corpus reporting.
 Status: IMPLEMENTED — PR #365 pending exact-head CI verification.
 Reopen Conditions: Reopen if a downstream benchmark contract requires a different process-level status model or if zero-observation invocations must remain successful for a documented orchestration reason.
+
+# DECISION-2026-10-06-MODEL-AGENT-TOOL-SKILL-BOUNDARY
+
+DECISION-ID: DECISION-2026-10-06-MODEL-AGENT-TOOL-SKILL-BOUNDARY
+Topic: Establish a shared conceptual boundary for Model, Agent, Tool, Capability, and Skill
+Finding: Existing architecture already separates these entities in the universal registry, but human-readable schema/glossary definitions could still make Skill sound equivalent to Capability.
+Source insight: The project article on AI Skills emphasizes a reusable Skill as procedural guidance and distinguishes it from the inference Model, the executing Agent, and the Tool action surface.
+Decision: Treat Capability as the outcome-level "what"; Skill as reusable procedural "how"; Model as inference engine; Tool as callable action/data surface; Agent as the coordinating system. Skills may guide an agent but do not grant authorization. Selection, invocation/load, and downstream task efficacy remain separate evidence boundaries.
+Scope: Update semantic schema descriptions, glossary definitions, and current architecture documentation without changing runtime routing, permissions, or entity IDs.
+Status: IMPLEMENTED ON BRANCH — PR pending CI verification.
+Reopen Conditions: Reopen if executable registry/runtime evidence requires a different entity relationship or if a schema consumer cannot preserve this distinction.
