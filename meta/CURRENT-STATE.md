@@ -631,3 +631,8 @@ Activation evidence contract: zero observations are a process failure; partial t
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
 Next executable action: collect real-runtime activation evidence for Issue #357; separately resolve the DevLens writer risk (Issue #370), unknown/duplicate observation integrity risk (Issue #372), and retrieval benchmark freshness/reproducibility (Issue #336).
+## Activation Observation Integrity — IMPLEMENTED ON BRANCH — 2026-10-06
+
+The activation benchmark now treats the selected dataset as the closed case universe and requires unique observation `run_id` values within each corpus. Unknown case IDs and duplicate run IDs fail closed before metric calculation. Case-level `status` now matches `completion_status`.
+
+This is evidence-integrity hardening only. No routing, skill definition, or activation metric formula changed.
