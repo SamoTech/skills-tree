@@ -131,10 +131,10 @@ A migration is incomplete if it only adds frontmatter.
 The deterministic canonical-to-Agent-Skills projection is now generated and verified for the full currently eligible corpus.
 
 Verified state:
-- 375 canonical skill files are currently present; the intentional sandbox fixture is classified separately and is not an Agent Skills production projection.
-- 250 eligible projections were verified in the 2026-10-02 reconciliation baseline.
-- 124 canonical entries were blocked in that baseline.
-- 288 total Agent Skills packages remain on `main`, including retained blocked legacy packages and the intentional registry helper.
+- 382 files are present in the quality corpus, including one intentional `00-sandbox` fixture; the production/public canonical corpus contains 381 skills across 17 categories.
+- 264 canonical entries are eligible for deterministic Agent Skills projection.
+- 118 canonical entries are blocked by the existing eligibility/reconciliation contract.
+- 302 Agent Skills packages are present on the verified main baseline.
 - Collision-safe naming is deterministic and validator-compatible.
 - Reconciliation, Agent Skills validation, security, graph, build, and test gates passed on the final corpus PR.
 
@@ -224,14 +224,13 @@ The repository's live development record verifies the governance/registry founda
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
-## Current execution queue
+## Current execution queue — 2026-10-06
 
-1. Complete observable Phase 0 control-plane reconciliation and record any connector-visible limitations without silently changing high-impact repository governance.
-2. Re-audit remaining machine-readable discovery consumers and generated projections for canonical-source alignment, provenance/evidence/freshness context, deterministic behavior, and runtime/package boundaries. Do not add context that duplicates or contradicts UniversalRegistry semantics.
-3. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
-4. Synchronize decision memory, architecture documentation, development knowledge, current state, and handoff state whenever verified architecture or consumer behavior changes.
-5. Re-verify live `main`, generated artifacts, authoritative documentation, and applicable CI evidence before selecting the next slice.
-6. Resume strategic capability-intelligence work only when the foundational consumer path is sufficiently established by evidence.
+1. Collect real Hermes/runtime activation traces for Issue #357; the required corpus is 4 cases × 3 fresh-session repetitions.
+2. Resolve Issue #336 by producing a reproducible current retrieval benchmark or explicitly qualifying/retiring the stale historical result set; do not fabricate current scores.
+3. Keep the 45-workflow inventory, generated projections, evidence contracts, and project-brain documentation synchronized with live `main`.
+4. Re-audit only when new evidence changes a boundary; do not create a new search engine, routing authority, or bulk skill migration without measured need.
+5. Re-verify exact-head CI and generated-only follow-up commits before declaring any substantial slice complete.
 
 ### Mandatory execution invariant
 
