@@ -432,7 +432,8 @@
         "task": "Measure observed natural-language skill activation, false activation, repeated-run variance, collision behavior, and explicit invocation evidence from agent runtime traces.",
         "inputs": [
           "Versioned dataset benchmarks/activation/skill-activation-v1.json",
-          "Externally captured agent trace observations containing skill_selection and skill_execution events"
+          "Externally captured agent trace observations containing skill_selection and skill_execution events",
+          "Machine-readable observation contract meta/skill-activation-observation.schema.json"
         ],
         "expected_behavior": [
           "Measure whether the expected skill was selected for each prompt case",
@@ -450,7 +451,7 @@
         "test_data": [
           "benchmarks/activation/skill-activation-v1.json"
         ],
-        "methodology": "Trace-based offline evaluation. The benchmark definition is deterministic, but empirical activation evidence must come from an external agent runtime emitting structured skill selection and execution events. The runner measures observed rates and variance without simulating or inferring model routing.",
+        "methodology": "Trace-based offline evaluation. The benchmark definition is deterministic, while empirical activation evidence must come from an external agent runtime emitting events that conform to meta/skill-activation-observation.schema.json. The runner validates the observation payload before measuring rates and variance. It does not simulate or infer model routing.",
         "historical_results": [],
         "subjects": [
           "03-memory/rag",
