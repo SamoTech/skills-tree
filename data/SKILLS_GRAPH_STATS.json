@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-10-05T13:56:28.886632+00:00",
-  "node_count": 381,
-  "edge_count": 245,
+  "generated_at": "2026-10-06T06:34:09.067914+00:00",
+  "node_count": 382,
+  "edge_count": 250,
   "requires_count": 9,
   "nodes_by_level": {
     "basic": 37,
     "intermediate": 162,
-    "advanced": 182
+    "advanced": 183
   },
   "nodes_by_layer": {
-    "systems": 228,
+    "systems": 229,
     "perception": 36,
     "reasoning": 66,
     "execution": 51
@@ -29,13 +29,13 @@
     "11-web": 17,
     "12-data": 18,
     "13-creative": 14,
-    "14-security": 14,
+    "14-security": 15,
     "15-orchestration": 30,
     "16-domain-specific": 28,
     "17-infrastructure": 1
   },
   "edges_by_type": {
-    "RELATED_TO": 236,
+    "RELATED_TO": 241,
     "REQUIRES": 9
   }
 }

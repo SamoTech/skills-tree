@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-05T13:56:28.886632+00:00",
+    "generated_at": "2026-10-06T06:34:09.067914+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 381,
-    "edge_count": 245,
+    "node_count": 382,
+    "edge_count": 250,
     "requires_count": 9,
     "initiative": "INITIATIVE-004"
   },
@@ -4645,6 +4645,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/agent-skill-security-audit",
+      "title": "Agent Skill Security Audit",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agent-skill-security-audit.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/approval-before-destructive-tools",
       "title": "Approval Before Destructive Tools",
       "category": "14-security",
@@ -7339,6 +7354,46 @@
       "type": "RELATED_TO",
       "evidence": "[Similarity Search](similarity-search.md)",
       "source_file": "skills/12-data/embedding-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-skill-security-audit",
+      "target": "14-security/sandboxed-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Sandboxed Execution](sandboxed-execution.md)",
+      "source_file": "skills/14-security/agent-skill-security-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-skill-security-audit",
+      "target": "14-security/secret-scanning",
+      "type": "RELATED_TO",
+      "evidence": "[Secret Scanning](secret-scanning.md)",
+      "source_file": "skills/14-security/agent-skill-security-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-skill-security-audit",
+      "target": "14-security/permission-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Permission Checking](permission-checking.md)",
+      "source_file": "skills/14-security/agent-skill-security-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-skill-security-audit",
+      "target": "14-security/input-sanitization",
+      "type": "RELATED_TO",
+      "evidence": "[Input Sanitization](input-sanitization.md)",
+      "source_file": "skills/14-security/agent-skill-security-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-skill-security-audit",
+      "target": "14-security/audit-logging",
+      "type": "RELATED_TO",
+      "evidence": "[Audit Logging](audit-logging.md)",
+      "source_file": "skills/14-security/agent-skill-security-audit.md",
       "confidence": "high"
     },
     {
