@@ -1,7 +1,7 @@
 # Skill Quality Index
 
-**Generated:** 2026-10-05T13:56:39.874524+00:00  
-**Total skills scored:** 381  
+**Generated:** 2026-10-06T06:34:20.283781+00:00  
+**Total skills scored:** 382  
 **Average score:** 42.9/100  
 **Stub files (< 150 words):** 5  
 
@@ -11,7 +11,7 @@
 |---|---|---|
 | A | 80-100 | 2 |
 | B | 65-79 | 22 |
-| C | 45-64 | 93 |
+| C | 45-64 | 94 |
 | D | 25-44 | 263 |
 | F | 0-24 | 1 |
 
@@ -53,6 +53,7 @@
 | `01-perception/video-understanding` | 60 | C | 13 | 0 | 10 | 17 | 0 | 20 | 404 |
 | `02-reasoning/chain-of-thought` | 60 | C | 13 | 0 | 10 | 17 | 0 | 20 | 297 |
 | `03-memory/memory-injection` | 60 | C | 8 | 0 | 10 | 7 | 10 | 25 | 981 |
+| `14-security/agent-skill-security-audit` | 60 | C | 8 | 0 | 7 | 10 | 10 | 25 | 938 |
 | `02-reasoning/decision-making` | 59 | C | 13 | 0 | 10 | 7 | 9 | 20 | 233 |
 | `11-web/web-scraping` | 58 | C | 8 | 0 | 8 | 7 | 10 | 25 | 947 |
 | `02-reasoning/hypothesis-generation` | 56 | C | 13 | 0 | 6 | 7 | 10 | 20 | 172 |
