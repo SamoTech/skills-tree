@@ -1242,5 +1242,5 @@ Reopen Conditions: Reopen if a later exact-head CI audit shows corpus/projection
 DECISION-ID: DECISION-2026-10-06-ACTIVATION-CORPUS-COMPLETENESS
 Topic: Distinguish partial activation evidence from a complete empirical corpus
 Decision: Make benchmark result status first-class: NO_OBSERVATIONS when no case has evidence, PARTIAL when observed evidence does not satisfy every case repetition contract, and COMPLETE only when every case meets its declared repetitions. Current complete corpus requirement is 4 cases × 3 repetitions = 12 observations.
-Status: IMPLEMENTED ON BRANCH — PR #369 pending exact-head CI verification.
+Status: IMPLEMENTED ON BRANCH — PR #371 pending exact-head CI verification.
 Reopen Conditions: Reopen if a future benchmark contract intentionally changes case weighting or repetition policy.
