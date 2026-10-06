@@ -594,7 +594,7 @@ The activation evidence boundary now includes a deterministic interoperability a
 The adapter maps only observed events:
 - Hermes post_tool_call with tool_name=skill_view → skill_selection.
 - Hermes on_skill_lifecycle with action=loaded → skill_execution.
-- Both must share an explicit session/task correlation and the run must be mapped explicitly to an ACT-* case. Selection-only evidence is discarded rather than treated as execution.
+- Both must share an explicit session/task correlation and the run must be mapped explicitly to an ACT-* case. Selection-only evidence is preserved as selection evidence; execution evidence is independently preserved when observed. Mismatched selection/execution is intentionally retained so false activation and invocation gaps remain measurable.
 
 The adapter does not infer activation from prompts, aggregate .usage.json counters, or missing events. It does not add routing authority or change runtime behavior.
 
