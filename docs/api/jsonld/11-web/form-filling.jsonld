@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "form-filling",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "filling, LLM skill, form, web, AI agent, skills tree",
+  "keywords": "skills tree, filling, form, LLM skill, AI agent, web",
   "about": {
     "@type": "Thing",
     "name": "form-filling",

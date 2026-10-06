@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "context-compaction",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "compaction, LLM skill, AI agent, skills tree, context, memory",
+  "keywords": "skills tree, context, compaction, memory, LLM skill, AI agent",
   "about": {
     "@type": "Thing",
     "name": "Context Compaction",

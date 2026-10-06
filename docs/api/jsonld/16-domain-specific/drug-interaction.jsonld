@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "drug-interaction",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -66,7 +66,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-04-01",
-  "keywords": "interaction, specific, domain, LLM skill, AI agent, skills tree, drug",
+  "keywords": "skills tree, domain, LLM skill, specific, drug, AI agent, interaction",
   "about": {
     "@type": "Thing",
     "name": "drug-interaction",

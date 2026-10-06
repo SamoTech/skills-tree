@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "log-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "log, analysis, specific, domain, LLM skill, AI agent, skills tree",
+  "keywords": "skills tree, log, domain, LLM skill, analysis, specific, AI agent",
   "about": {
     "@type": "Thing",
     "name": "log-analysis",

@@ -1,5 +1,5 @@
-generated: '2026-10-05T13:33:23Z'
-count: 381
+generated: '2026-10-06T06:32:40Z'
+count: 382
 skills:
 - id: pipeline-test
   path: skills/00-sandbox/pipeline-test.md
@@ -7029,6 +7029,30 @@ skills:
   - Changelog
   related: []
   category_dir: 13-creative
+- id: agent-skill-security-audit
+  path: skills/14-security/agent-skill-security-audit.md
+  name: Agent Skill Security Audit
+  description: Audit an agent skill and its bundled resources before installation
+    or execution, checking declared behavior, permissions, credential access, network
+    egress, obfuscation, and sandbox requirements.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: 2026-10
+  sections:
+  - Description
+  - Inputs / Outputs
+  - Audit Procedure
+  - Runnable Example
+  - Failure Modes
+  - Design Rules
+  - References
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
 - id: approval-before-destructive-tools
   path: skills/14-security/approval-before-destructive-tools.md
   name: Approval Before Destructive Tools

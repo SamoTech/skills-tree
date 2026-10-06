@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "conversation-history-reading",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "perception, reading, LLM skill, AI agent, history, conversation, skills tree",
+  "keywords": "skills tree, reading, perception, LLM skill, conversation, AI agent, history",
   "about": {
     "@type": "Thing",
     "name": "Conversation History Reading",

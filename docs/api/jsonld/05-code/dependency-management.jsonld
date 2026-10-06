@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "dependency-management",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "management, code, LLM skill, AI agent, skills tree, dependency",
+  "keywords": "skills tree, LLM skill, management, dependency, code, AI agent",
   "about": {
     "@type": "Thing",
     "name": "dependency-management",

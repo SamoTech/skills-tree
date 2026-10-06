@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-05T13:33:24Z",
+  "dateModified": "2026-10-06T06:32:40Z",
   "skillId": "capability-based-skill-selection",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -81,7 +81,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "based, orchestration, LLM skill, selection, AI agent, skills tree, skill, capability",
+  "keywords": "skills tree, selection, LLM skill, orchestration, based, AI agent, skill, capability",
   "about": {
     "@type": "Thing",
     "name": "Capability-Based Skill Selection",
