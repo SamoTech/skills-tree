@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   security-events: read
 
 jobs:
@@ -15,6 +15,6 @@ jobs:
         uses: SamoTech/devlens@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          update_readme: 'true'
+          update_readme: 'false'
           readme_branch: ''
           badge_style: flat-square
