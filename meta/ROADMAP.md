@@ -274,7 +274,7 @@ PR #251 established the executable distribution contract and merged to `main` as
 
 That historical baseline was superseded by the verified reconciliation state on 2026-10-04: 375 canonical entries, 258 eligible, 117 blocked, and 296 Agent Skills packages. PR #305 completed provenance/collision reconciliation and made it enforceable in CI.
 
-The deterministic projector, read-only reconciliation workflow, validator, regression tests, and exact-head CI gates are verified. Phase 4 reconciliation hardening is complete; `/.well-known/agent-skills/index.json` remains unpublished.
+The deterministic projector, read-only reconciliation workflow, validator, regression tests, and exact-head CI gates are verified. Phase 4 reconciliation hardening is complete; `/.well-known/agent-skills/index.json` is published and verified live; the discovery publication boundary is closed.
 
 **Status:** Publication implementation is present in `deploy-pages.yml`: the Pages artifact builds `/.well-known/agent-skills/index.json` from `tools/build_agent_skills_discovery.py`, validates the local publication bytes, and verifies the served URL with `tools/verify_agent_skills_discovery.py`. No second generator or reconciler is introduced.
 
@@ -311,7 +311,7 @@ Verified merged-main state:
 - Kanban is deterministically projected.
 - CI now executes tools/reconcile_agent_skills.py --check.
 - Unexpected projection drift and unresolved deterministic target-name collisions are now explicit failure categories.
-- .well-known/agent-skills/index.json remains unpublished.
+- `/.well-known/agent-skills/index.json` is published and verified live.
 
 Status is VERIFIED ON MAIN. PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI gates before merge as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
 
