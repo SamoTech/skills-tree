@@ -1236,7 +1236,7 @@ Reopen Conditions: Reopen if executable registry/runtime evidence requires a dif
 DECISION-ID: DECISION-2026-10-06-LIVE-RECONCILIATION-382
 Topic: Current main corpus and governance reconciliation
 Decision: Treat 382 canonical skill files, 302 Agent Skills packages, byte-identical 382-node/250-edge graph projections, and byte-identical search projections as the current generated baseline verified by CI on 2026-10-06. Preserve older count snapshots only as historical records.
-Status: VERIFIED ON CURRENT MAIN before PR #369 merge.
+Status: SUPERSEDED BY CURRENT MAIN RECONCILIATION — the verified current baseline remains 382 total quality-corpus files including the intentional fixture, 381 production/public canonical skills, 264 eligible projections, 118 blocked entries, and 302 Agent Skills packages.
 Reopen Conditions: Reopen if a later exact-head CI audit shows corpus/projection drift.
 
 DECISION-ID: DECISION-2026-10-06-ACTIVATION-CORPUS-COMPLETENESS
@@ -1248,11 +1248,17 @@ DECISION-ID: DECISION-2026-10-06-DEVLENS-READONLY
 Topic: Isolate DevLens from authoritative repository writes
 Decision: DevLens remains a manual diagnostic only. It must not write README.md or any repository projection, and its workflow must retain read-only permissions. The public README must not carry stale externally generated health snapshots.
 Evidence IDs: Issue #370; .github/workflows/devlens.yml; tools/verify_governance.py; meta/WORKFLOW_INVENTORY.md.
-Status: IMPLEMENTED ON BRANCH — awaiting exact-head CI.
+Status: VERIFIED ON MAIN — PR #377 merged as `5a25ef13751e4a43ce2a92226198c2b24232ecf3` after exact-head applicable CI passed.
 Reopen Conditions: Reopen only if DevLens is intentionally integrated into a documented authoritative projection boundary with the same writer serialization and governance controls.
 DECISION-ID: DECISION-2026-10-06-ACTIVATION-OBSERVATION-INTEGRITY
 Topic: Prevent invalid or duplicated runtime observations from contaminating activation evidence
 Decision: Reject observations whose case_id is not present in the selected benchmark dataset and reject duplicate run_id values before metric calculation. Preserve existing metric formulas and benchmark case semantics.
 Evidence IDs: Issue #372; meta/skill-activation-observation.schema.json; tools/run_skill_activation_benchmark.py; tests/test_skill_activation_benchmark.py.
-Status: IMPLEMENTED ON BRANCH — awaiting exact-head CI.
+Status: VERIFIED ON MAIN — PR #379 merged as `290cb3495d1905615501471e4e1b3bec86301a7b` after exact-head applicable CI passed.
 Reopen Conditions: Reopen if the observation contract intentionally permits cross-dataset observations or multi-record run identities.
+DECISION-ID: DECISION-2026-10-06-FINAL-AUDIT-RECONCILIATION
+Topic: Final live repository audit baseline and remaining work
+Decision: Treat live main as the sole current execution authority. Current verified baseline is 45 workflow files, 382 quality-corpus skill files including one intentional sandbox fixture, 381 production/public canonical skills across 17 categories, 264 eligible Agent Skills projections, 118 blocked canonical entries, 302 existing Agent Skills packages, byte-identical graph projections (382 nodes / 250 edges), and byte-identical search projections. The remaining material work is evidence-driven: collect real runtime traces for Issue #357 and refresh/qualify retrieval evidence in Issue #336. Do not create new skills, search engines, or routing authorities without measured implementation evidence.
+Evidence IDs: live git tree audit 2026-10-06; `meta/QUALITY-REPORT.md`; Agent Skills reconciliation CI; graph/search projection SHAs; PRs #377 and #379.
+Status: VERIFIED ON CURRENT MAIN.
+Reopen Conditions: Reopen if live main, CI, or reproducible evidence materially changes the baseline or remaining gaps.
