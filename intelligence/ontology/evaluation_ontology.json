@@ -611,7 +611,7 @@
         "deployment_safety": "No deployment may be triggered solely from self-evaluation output; structured quality-gate state remains authoritative."
       },
       "dataset_requirements": "Minimum 100 assessment pairs with predeclared ground truth; confidence bins and review-gate outcomes must be recorded for every case."
-    }
+    },
     {
       "cap_id": "CAP-018",
       "name": "multi_turn_dialogue_management",
