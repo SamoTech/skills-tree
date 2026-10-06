@@ -12,7 +12,7 @@ metadata:
 Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification.
 
 ## When to Use
-Use this capability only when the workflow requires stripe api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires stripe api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
