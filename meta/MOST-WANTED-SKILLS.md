@@ -214,3 +214,12 @@ Status: VERIFIED ON MAIN — PR #350 merged as `436c15c745e1747e3ec1e931dccacea1
 Rationale: this closes a trust boundary directly related to Skills Tree product trust and composes with existing security controls instead of introducing a competing scanner or authorization system.
 
 Verification date: 2026-10-06.
+
+
+## Evaluation Ontology / P0 Coverage Repair — VERIFIED — 2026-10-06
+
+The freshness audit initially exposed two real P0 evaluation gaps in CORPUS-001: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. Both were mapped using existing evaluation types; no new evaluation framework or metric type was introduced.
+
+PR #354 merged to main as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head CI passed Validate Evaluations, Governance Gate, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped. The canonical corpus now has evaluation mappings for all 10 P0 capabilities.
+
+This closes the current P0 evaluation-mapping evidence gap. It does not claim empirical benchmark quality for those mappings; behavioral evidence remains a separate lifecycle step.
