@@ -21,7 +21,7 @@ Skills Tree is a public, trusted, machine-discoverable source of AI skills. The 
 - 264 deterministic eligible projections.
 - 37 retained blocked packages.
 - 1 intentional auxiliary package: `skills-tree-registry`.
-- 1 legacy compatibility package: `rag`.
+- 0 legacy compatibility packages in the latest exact-head reconciliation audit; historical compatibility references are retained only in historical records.
 
 Reconciliation is a read-only CI invariant:
 
