@@ -1244,3 +1244,9 @@ Topic: Distinguish partial activation evidence from a complete empirical corpus
 Decision: Make benchmark result status first-class: NO_OBSERVATIONS when no case has evidence, PARTIAL when observed evidence does not satisfy every case repetition contract, and COMPLETE only when every case meets its declared repetitions. Current complete corpus requirement is 4 cases × 3 repetitions = 12 observations.
 Status: VERIFIED ON MAIN — PR #371 merged as `3dd21558d4ad6b223908a2cd05c431f678ce6036` after exact-head applicable CI passed.
 Reopen Conditions: Reopen if a future benchmark contract intentionally changes case weighting or repetition policy.
+DECISION-ID: DECISION-2026-10-06-ACTIVATION-OBSERVATION-INTEGRITY
+Topic: Prevent invalid or duplicated runtime observations from contaminating activation evidence
+Decision: Reject observations whose case_id is not present in the selected benchmark dataset and reject duplicate run_id values before metric calculation. Preserve the existing metric formulas and benchmark case semantics.
+Evidence IDs: Issue #372; meta/skill-activation-observation.schema.json; tools/run_skill_activation_benchmark.py; tests/test_skill_activation_benchmark.py.
+Status: IMPLEMENTED ON BRANCH — awaiting exact-head CI.
+Reopen Conditions: Reopen if the observation contract intentionally permits cross-dataset observations or multi-record run identities.
