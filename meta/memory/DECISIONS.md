@@ -1202,3 +1202,14 @@ Evidence boundary: The schema accepts observed selection/execution events only. 
 Result: External agent runtimes now have a machine-readable input contract for `benchmark/skill-activation-v1`. Empirical activation reliability remains unverified pending real traces.
 Status: VERIFIED ON MAIN after merge; EMPIRICAL EVIDENCE PENDING.
 Reopen Conditions: Reopen if a compatible runtime cannot express its observed selection/execution events through this contract, or if measured evidence requires materially different semantics.
+
+
+# DECISION-2026-10-06-HERMES-ACTIVATION-ADAPTER
+
+DECISION-ID: DECISION-2026-10-06-HERMES-ACTIVATION-ADAPTER
+Topic: Establish a deterministic interoperability path from Hermes observer evidence to the existing activation benchmark
+Finding: Hermes exposes authoritative post_tool_call evidence for skill_view and on_skill_lifecycle evidence for action=loaded, with session/task correlation. The existing Skills Tree benchmark requires explicit skill_selection and skill_execution observations.
+Decision: Add one deterministic converter, tools/convert_hermes_activation_observations.py, that maps only these observed events into the existing observation contract. Require explicit correlation and explicit ACT-case mapping; discard only runs with no observed selection or execution events. Preserve mismatched selection/execution evidence so false activation and invocation gaps remain measurable. Do not infer activation, use aggregate counters as execution evidence, or add a routing/runtime authority.
+Evidence IDs: Hermes Event Hooks documentation; Hermes tools/skill_usage.py; Skills Tree meta/skill-activation-observation.schema.json; Issue #357.
+Status: IMPLEMENTED — empirical traces still pending.
+Reopen Conditions: Reopen if Hermes changes the authoritative hook semantics, the observation contract changes, or real traces demonstrate that the mapping is insufficient.

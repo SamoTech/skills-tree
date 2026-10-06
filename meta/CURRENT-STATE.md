@@ -585,3 +585,17 @@ The activation benchmark now has an explicit machine-readable observation contra
 Empirical activation reliability remains UNVERIFIED: no real runtime trace corpus has been recorded in the repository. Synthetic fixtures remain evaluator tests only.
 
 Next executable action: capture repeated fresh-session traces from a compatible external agent runtime that emits `skill_selection` and `skill_execution` events conforming to the schema, then run `benchmark/skill-activation-v1` and record the resulting evidence.
+
+
+## Hermes Activation Observation Adapter — IMPLEMENTED — 2026-10-06
+
+The activation evidence boundary now includes a deterministic interoperability adapter at tools/convert_hermes_activation_observations.py. It consumes explicit Hermes observer-hook JSONL evidence and emits the existing meta/skill-activation-observation.schema.json shape.
+
+The adapter maps only observed events:
+- Hermes post_tool_call with tool_name=skill_view → skill_selection.
+- Hermes on_skill_lifecycle with action=loaded → skill_execution.
+- Both must share an explicit session/task correlation and the run must be mapped explicitly to an ACT-* case. Selection-only evidence is preserved as selection evidence; execution evidence is independently preserved when observed. Mismatched selection/execution is intentionally retained so false activation and invocation gaps remain measurable.
+
+The adapter does not infer activation from prompts, aggregate .usage.json counters, or missing events. It does not add routing authority or change runtime behavior.
+
+Status: IMPLEMENTED — empirical evidence remains UNVERIFIED until real Hermes traces are collected and the resulting 12-run corpus passes schema validation and benchmark execution.
