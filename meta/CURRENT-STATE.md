@@ -560,3 +560,19 @@ External evidence includes addyosmani/agent-skills #620 (direct prompts with rep
 Issue #357 is the authoritative current investigation record. Decision: measure activation/invocation first using existing project boundaries; do not add a new skill, search engine, or routing authority without measured failure evidence.
 
 Status: INVESTIGATING. Next executable action: design and run a bounded activation/invocation benchmark, then decide whether the result requires skill-description remediation, runtime/evaluation improvement, or no change.
+
+
+## Skill Activation / Invocation Evidence Benchmark — IMPLEMENTED HARNESS — 2026-10-06
+
+Issue #357 was advanced from investigation to an executable evidence instrument without introducing a new routing authority. The branch `evidence/skill-activation-benchmark-20261006` adds:
+
+- `benchmarks/activation/skill-activation-v1.json` — four bounded natural-language cases covering expected activation, must-not-activate behavior, collision groups, and repeated runs.
+- `tools/run_skill_activation_benchmark.py` — trace-based evaluator for explicit `skill_selection` and `skill_execution` events.
+- `tests/test_skill_activation_benchmark.py` — deterministic parser/metric regression coverage using synthetic fixtures only.
+- `benchmark/skill-activation-v1` — registered in the existing Benchmark runtime boundary.
+
+The evaluator deliberately does not simulate model routing or infer activation from prompt text. `NO_OBSERVATIONS` is an explicit non-PASS state. Therefore the repository now has an activation/invocation measurement boundary, but **no empirical activation-rate claim is made yet** because real agent-runtime traces have not been supplied.
+
+Metrics: expected activation rate, false activation rate, invocation-evidence rate, and repeated-run activation variance.
+
+Next executable action: obtain real structured traces from a compatible agent runtime, run the benchmark, record the evidence, then decide whether failures justify skill-description, runtime, or evaluation changes.

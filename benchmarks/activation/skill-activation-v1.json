@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "benchmark/skill-activation-v1",
+  "benchmark_version": "1.0",
+  "description": "Trace-based evidence cases for natural-language skill activation, false activation, collision behavior, repeated-run variance, and invocation evidence.",
+  "cases": [
+    {
+      "id": "ACT-001",
+      "prompt": "I need to retrieve factual knowledge about this topic.",
+      "expected_skill": "03-memory/rag",
+      "must_not_activate": ["05-code/code-review", "11-web/web-search"],
+      "collision_group": null,
+      "repetitions": 3
+    },
+    {
+      "id": "ACT-002",
+      "prompt": "Review this source code for correctness and maintainability.",
+      "expected_skill": "05-code/code-review",
+      "must_not_activate": ["03-memory/rag", "11-web/web-search"],
+      "collision_group": null,
+      "repetitions": 3
+    },
+    {
+      "id": "ACT-003",
+      "prompt": "Find current information on the web and cite the sources.",
+      "expected_skill": "11-web/web-search",
+      "must_not_activate": ["03-memory/rag", "05-code/code-review"],
+      "collision_group": "retrieval-choice",
+      "repetitions": 3
+    },
+    {
+      "id": "ACT-004",
+      "prompt": "Explain how to review this code without actually reviewing or modifying it.",
+      "expected_skill": "05-code/code-review",
+      "must_not_activate": ["11-web/web-search", "03-memory/rag"],
+      "collision_group": "code-review-boundary",
+      "repetitions": 3
+    }
+  ]
+}

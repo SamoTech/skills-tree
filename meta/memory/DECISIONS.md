@@ -1177,3 +1177,16 @@ Decision: Treat this as an evaluation/invocation evidence gap. Build a bounded b
 Repository Evidence: `registry/skill_selection.py`; `benchmarks/selection/capability-selection-v1.json`; `tools/run_skill_selection_benchmark.py`; existing agent observability tracing skills.
 Status: INVESTIGATING — Issue #357.
 Reopen Conditions: Reopen the decision if benchmark evidence shows the current runtime cannot support reliable activation measurement without a new canonical boundary.
+
+
+# DECISION-2026-10-06-SKILL-ACTIVATION-BENCHMARK
+
+DECISION-ID: DECISION-2026-10-06-SKILL-ACTIVATION-BENCHMARK
+Topic: Implement activation/invocation measurement without inventing a routing runtime
+Finding: The repository has deterministic capability selection and an observability contract for skill selection/execution, but no canonical benchmark consumes actual agent trace evidence for natural-language activation.
+Decision: Add a bounded trace-based activation benchmark using the existing Benchmark runtime and observability event contract. The benchmark definition covers expected activation, forbidden activation, collision cases, repeated-run variance, and explicit invocation evidence.
+Implementation: `benchmarks/activation/skill-activation-v1.json`, `tools/run_skill_activation_benchmark.py`, `tests/test_skill_activation_benchmark.py`, and registry entry `benchmark/skill-activation-v1`.
+Evidence boundary: The runner accepts externally captured `skill_selection` and `skill_execution` events. It never simulates model routing, infers activation from prompt text, or treats an empty observation set as PASS. Synthetic fixtures are test coverage only, not empirical evidence.
+Result: Measurement infrastructure is implemented; empirical activation reliability remains UNVERIFIED pending real agent-runtime traces.
+Status: IMPLEMENTED — EMPIRICAL EVIDENCE PENDING.
+Reopen Conditions: Reopen if real traces cannot be represented by the existing event contract, or if measured failures demonstrate a concrete runtime/description gap requiring architectural change.
