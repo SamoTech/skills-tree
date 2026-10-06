@@ -1213,3 +1213,15 @@ Decision: Add one deterministic converter, tools/convert_hermes_activation_obser
 Evidence IDs: Hermes Event Hooks documentation; Hermes tools/skill_usage.py; Skills Tree meta/skill-activation-observation.schema.json; Issue #357.
 Status: IMPLEMENTED — empirical traces still pending.
 Reopen Conditions: Reopen if Hermes changes the authoritative hook semantics, the observation contract changes, or real traces demonstrate that the mapping is insufficient.
+
+
+# DECISION-2026-10-06-MODEL-AGENT-TOOL-SKILL-BOUNDARY
+
+DECISION-ID: DECISION-2026-10-06-MODEL-AGENT-TOOL-SKILL-BOUNDARY
+Topic: Establish a shared conceptual boundary for Model, Agent, Tool, Capability, and Skill
+Finding: Existing architecture already separates these entities in the universal registry, but human-readable schema/glossary definitions could still make Skill sound equivalent to Capability.
+Source insight: The project article on AI Skills emphasizes a reusable Skill as procedural guidance and distinguishes it from the inference Model, the executing Agent, and the Tool action surface.
+Decision: Treat Capability as the outcome-level "what"; Skill as reusable procedural "how"; Model as inference engine; Tool as callable action/data surface; Agent as the coordinating system. Skills may guide an agent but do not grant authorization. Selection, invocation/load, and downstream task efficacy remain separate evidence boundaries.
+Scope: Update semantic schema descriptions, glossary definitions, and current architecture documentation without changing runtime routing, permissions, or entity IDs.
+Status: IMPLEMENTED ON BRANCH — PR pending CI verification.
+Reopen Conditions: Reopen if executable registry/runtime evidence requires a different entity relationship or if a schema consumer cannot preserve this distinction.
