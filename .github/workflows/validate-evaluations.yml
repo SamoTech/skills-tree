@@ -147,10 +147,11 @@ jobs:
                       )
 
           if missing:
-              print(f'WARNING: {len(missing)} P0 capability(ies) have no evaluation mapping')
+              print(f'FAILED: {len(missing)} P0 capability(ies) have no evaluation mapping')
               for item in missing:
-                  print(f'  WARN: {item}')
-              print('P0 mapping remains an evidence gap; no coverage claim is made.')
+                  print(f'  ERROR: {item}')
+              print('P0 evaluation mapping is a mandatory integrity gate; refusing to pass with missing mappings.')
+              sys.exit(1)
           else:
               print('PASSED: All P0 capabilities in corpus have evaluation mappings')
           PYEOF
