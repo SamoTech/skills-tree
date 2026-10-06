@@ -1213,3 +1213,12 @@ Decision: Add one deterministic converter, tools/convert_hermes_activation_obser
 Evidence IDs: Hermes Event Hooks documentation; Hermes tools/skill_usage.py; Skills Tree meta/skill-activation-observation.schema.json; Issue #357.
 Status: IMPLEMENTED — empirical traces still pending.
 Reopen Conditions: Reopen if Hermes changes the authoritative hook semantics, the observation contract changes, or real traces demonstrate that the mapping is insufficient.
+# DECISION-2026-10-06-BENCHMARK-FAIL-CLOSED
+
+DECISION-ID: DECISION-2026-10-06-BENCHMARK-FAIL-CLOSED
+Topic: Prevent silent success when the activation benchmark receives no observations
+Finding: The activation runner emitted a NO_OBSERVATIONS result but returned process exit code 0, so a caller could treat missing evidence as a successful benchmark execution.
+External Evidence: anthropics/skills#1383 documents silent benchmark failure modes caused by zero discovered runs and recommends loud failure instead of writing misleading empty results.
+Decision: Return exit code 2 when zero benchmark cases have observations. Preserve the machine-readable NO_OBSERVATIONS result so the evidence state remains explicit. Do not change routing, activation metrics for observed traces, or partial-corpus reporting.
+Status: IMPLEMENTED — PR #365 pending exact-head CI verification.
+Reopen Conditions: Reopen if a downstream benchmark contract requires a different process-level status model or if zero-observation invocations must remain successful for a documented orchestration reason.

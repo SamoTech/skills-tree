@@ -607,3 +607,11 @@ PR #364 merged the real-trace capture boundary as `ebb150dfb0f0ad6ddb3d2426cb81d
 The observer records only explicit Hermes `post_tool_call` / `skill_view` and `on_skill_lifecycle(action=loaded)` evidence with session/task correlation. It intentionally excludes prompts, model output, tool results, and aggregate usage counters. This is capture instrumentation, not a benchmark result.
 
 Current blocker: no real Hermes trace corpus has been captured in this repository. The next executable action is operational capture of 12 fresh-session observations (4 cases × 3 repetitions), explicit ACT-case mapping, conversion, schema validation, and benchmark execution. Do not claim empirical reliability before that evidence exists.
+## Evaluation Harness Integrity — FAIL-CLOSED GAP — 2026-10-06
+
+Fresh public evidence identified silent zero-run benchmark failure as a reusable evaluation-harness integrity risk. Internal audit confirmed `tools/run_skill_activation_benchmark.py` reported `NO_OBSERVATIONS` while returning exit code 0.
+
+PR #365 applies the minimum remediation: zero observed cases now return exit code 2 while still writing the explicit `NO_OBSERVATIONS` result. Existing observed-trace metrics and partial-corpus reporting are unchanged.
+
+Status: IN PROGRESS — exact-head CI pending. This is not an activation-result claim.
+Next executable action: verify PR #365 exact-head CI, merge only after all applicable gates pass, then continue demand/evidence reconciliation.

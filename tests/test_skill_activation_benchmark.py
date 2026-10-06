@@ -67,8 +67,9 @@ def test_empty_observation_set_is_not_pass(tmp_path, monkeypatch):
         ],
     )
 
-    assert main() == 0
+    assert main() == 2
     result = json.loads(output.read_text(encoding="utf-8"))
     assert result["status"] == "NO_OBSERVATIONS"
     assert result["metrics"]["expected_activation_rate"] is None
     assert result["metrics"]["invocation_evidence_rate"] is None
+
