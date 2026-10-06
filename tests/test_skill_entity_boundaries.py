@@ -43,3 +43,12 @@ def test_skill_security_boundary_does_not_grant_authorization():
                 violations.append(str(path.relative_to(ROOT)))
 
     assert violations == []
+
+
+def test_skill_template_describes_how_not_how_the_agent_can_do_it():
+    template = (ROOT / "meta/skill-template.md").read_text(encoding="utf-8")
+
+    assert "reusable procedure" in template
+    assert "what capability it supports" in template
+    assert "what this skill enables an agent to do" not in template
+    assert "reliably activate this skill" not in template
