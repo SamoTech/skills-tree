@@ -1233,3 +1233,14 @@ Decision: Treat Capability as the outcome-level "what"; Skill as reusable proced
 Scope: Update semantic schema descriptions, glossary definitions, and current architecture documentation without changing runtime routing, permissions, or entity IDs.
 Status: VERIFIED ON MAIN — PR #365 merged as `d39d899e23e8614eb11971953541cda9bd7dec9f` after exact-head applicable CI passed.
 Reopen Conditions: Reopen if executable registry/runtime evidence requires a different entity relationship or if a schema consumer cannot preserve this distinction.
+DECISION-ID: DECISION-2026-10-06-LIVE-RECONCILIATION-382
+Topic: Current main corpus and governance reconciliation
+Decision: Treat 382 canonical skill files, 302 Agent Skills packages, byte-identical 382-node/250-edge graph projections, and byte-identical search projections as the current generated baseline verified by CI on 2026-10-06. Preserve older count snapshots only as historical records.
+Status: VERIFIED ON CURRENT MAIN before PR #369 merge.
+Reopen Conditions: Reopen if a later exact-head CI audit shows corpus/projection drift.
+
+DECISION-ID: DECISION-2026-10-06-ACTIVATION-CORPUS-COMPLETENESS
+Topic: Distinguish partial activation evidence from a complete empirical corpus
+Decision: Make benchmark result status first-class: NO_OBSERVATIONS when no case has evidence, PARTIAL when observed evidence does not satisfy every case repetition contract, and COMPLETE only when every case meets its declared repetitions. Current complete corpus requirement is 4 cases × 3 repetitions = 12 observations.
+Status: IMPLEMENTED ON BRANCH — PR #369 pending exact-head CI verification.
+Reopen Conditions: Reopen if a future benchmark contract intentionally changes case weighting or repetition policy.
