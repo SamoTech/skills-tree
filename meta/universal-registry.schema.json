@@ -91,7 +91,7 @@
     },
     "compatibilityDefinition": {
       "allOf": [
-        { "$ref": "#/$defs/entityDefinition", "description": "A reusable, platform-agnostic procedural guidance/instruction entity that helps an agent perform one or more capabilities; distinct from models, tools, runtimes, and authorization." },
+        { "$ref": "#/$defs/entityDefinition" },
         {
           "type": "object",
           "required": ["id", "version", "name", "provenance", "subject", "target", "status", "evidence"],
@@ -121,7 +121,7 @@
     },
     "skillDefinition": {
       "allOf": [
-        { "$ref": "#/$defs/entityDefinition" },
+        { "$ref": "#/$defs/entityDefinition", "description": "A reusable, platform-agnostic procedural guidance/instruction entity that helps an agent perform one or more capabilities; distinct from models, tools, runtimes, and authorization." },
         {
           "type": "object",
           "required": ["canonical", "capabilities", "implementations"],
