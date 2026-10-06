@@ -653,7 +653,7 @@
         "fail_criteria": "Any required event or field is missing, incorrectly attributed, unredacted where prohibited, duplicated contrary to the event contract, or audit-query latency exceeds 500ms."
       },
       "dataset_requirements": "Minimum 100 scripted interactions with explicit expected log receipts, including normal, escalation, retrieval, tool-use, and failure paths. Include at least one PII-redaction verification case."
-    },
+    }
   ],
   "evaluation_execution_protocol": {
     "pre_deployment_gates": {
