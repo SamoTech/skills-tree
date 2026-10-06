@@ -630,4 +630,4 @@ Governance: GitHub branch protection is not a project completion gate under the 
 Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #371 implements this contract.
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
-Next executable action after PR #371/#374 verification: collect real-runtime activation evidence for Issue #357; separately resolve the DevLens writer risk (Issue #370) and unknown/duplicate observation integrity risk (Issue #372).
+Next executable action: collect real-runtime activation evidence for Issue #357; separately resolve the DevLens writer risk (Issue #370), unknown/duplicate observation integrity risk (Issue #372), and retrieval benchmark freshness/reproducibility (Issue #336).
