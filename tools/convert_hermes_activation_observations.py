@@ -4,8 +4,8 @@
 The adapter consumes JSON Lines emitted by Hermes observer hooks. It never infers
 activation from prompts, usage counters, or prose. A skill_selection event is
 created only from an observed post_tool_call for skill_view; a skill_execution
-event is created only from an observed on_skill_lifecycle action=loaded. Both
-events must be present for the same run/session correlation before a run is emitted.
+event is created only from an observed on_skill_lifecycle action=loaded. Selection-only
+or execution-only observations are preserved so missing or mismatched evidence remains measurable.
 """
 
 from __future__ import annotations
