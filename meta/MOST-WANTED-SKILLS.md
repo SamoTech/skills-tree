@@ -183,3 +183,34 @@ No popularity claim is made, and no new search or orchestration authority is int
 Rationale: the capability directly closes the gap between Skills Tree's now-verified retrieval layer and the product mission that agents should find **and use the right skill**. It also creates a concrete target for the next behavioral evaluation benchmark.
 
 Verification date: 2026-10-05.
+
+
+## New demand-gap candidate — Agent Skill Security Audit — 2026-10-06
+
+A fresh ecosystem evidence pass identified a security capability that is not represented by a dedicated canonical skill: auditing an agent skill package itself before installation or execution. Existing Skills Tree security coverage includes sandboxing, secret scanning, permission checking, input sanitization, audit logging, and human approval, but those are controls around execution rather than a dedicated pre-installation audit contract.
+
+### Demand signals
+
+| Signal | Evidence | Interpretation |
+|---|---|---|
+| Agent-skill security auditing | OWASP Secure Agent Playbook issue #21 proposes an explicit Audit an agent skill play covering metadata/instruction consistency, shadow behavior, credential access, exfiltration, obfuscation, bundled scripts, hooks, and permission declarations. | Direct ecosystem demand for a pre-installation skill-audit procedure. |
+| Malicious skill detection | 2026 research describes static and dynamic analysis of public agent skills and reports confirmed malicious examples. | Strong evidence that skill-package trust assessment is a distinct security problem. |
+| Skills Tree internal coverage gap | Existing 14-security skills cover execution controls but no dedicated contract was found for auditing a complete third-party skill package before installation. | Concrete canonical capability gap; does not justify a second security framework. |
+
+### Coverage reconciliation
+
+Existing sandboxed execution, secret scanning, permission checking, input sanitization, and audit logging remain the implementation building blocks. The missing boundary is the pre-installation/pre-execution audit decision, including declared-vs-observed behavior, package inventory, evidence locations, sandbox requirements, and an explicit non-guarantee that passing static checks means safe.
+
+### Selected migration
+
+`skills/14-security/agent-skill-security-audit.md`
+
+Status: implementation in progress on the current branch.
+
+### Priority assessment
+
+**Proposed tier: A — high security utility, evidence-backed gap.**
+
+Rationale: this closes a trust boundary directly related to Skills Tree product trust and composes with existing security controls instead of introducing a competing scanner or authorization system.
+
+Verification date: 2026-10-06.
