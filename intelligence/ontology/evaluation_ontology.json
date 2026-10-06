@@ -3,8 +3,8 @@
   "$version": "1.0",
   "ontology_id": "EVAL-ONTOLOGY-001",
   "created_at": "2026-07-05T00:00:00Z",
-  "last_reviewed_at": "2026-07-05T00:00:00Z",
-  "review_due_at": "2026-10-03T00:00:00Z",
+  "last_reviewed_at": "2026-10-06T00:00:00Z",
+  "review_due_at": "2027-01-04T00:00:00Z",
   "description": "Canonical authority defining how agent capabilities are measured, scored, and validated across all corpus entries, goal classes, and deployment gates. All evaluation references in corpus entries and goal_ontology.json must resolve to a type defined in this file.",
   "evaluation_types": [
     {
