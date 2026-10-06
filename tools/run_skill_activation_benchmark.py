@@ -79,6 +79,7 @@ def main() -> int:
             case_invocation.append(invocation_hit)
             case_false.append(false_hit)
 
+        required_repetitions = int(case.get("repetitions", 1))
         observed = len(case_runs)
         if observed:
             observed_cases += 1
@@ -90,6 +91,8 @@ def main() -> int:
         rows.append({
             "id": case["id"],
             "observed_runs": observed,
+            "required_repetitions": required_repetitions,
+            "completion_status": ("COMPLETE" if observed >= required_repetitions else ("PARTIAL" if observed else "NO_OBSERVATIONS")),
             "expected_skill": case["expected_skill"],
             "activation_hits": sum(case_activation),
             "invocation_evidence_hits": sum(case_invocation),
@@ -101,16 +104,31 @@ def main() -> int:
         })
 
     total_runs = sum(len(v) for v in by_case.values())
+    complete_cases = sum(
+        1 for case in cases if len(by_case.get(case["id"], [])) >= int(case.get("repetitions", 1))
+    )
+    partial_cases = sum(
+        1 for case in cases if 0 < len(by_case.get(case["id"], [])) < int(case.get("repetitions", 1))
+    )
+    if not observed_cases:
+        overall_status = "NO_OBSERVATIONS"
+    elif complete_cases == len(cases):
+        overall_status = "COMPLETE"
+    else:
+        overall_status = "PARTIAL"
     result = {
         "schema_version": "1.0",
         "benchmark_id": "benchmark/skill-activation-v1",
         "benchmark_version": "1.0",
-        "status": "OBSERVED" if observed_cases else "NO_OBSERVATIONS",
+        "status": overall_status,
         "dataset_sha256": sha256(dataset_path),
         "observation_sha256": sha256(observations_path),
         "metrics": {
             "cases": len(cases),
             "observed_cases": observed_cases,
+            "complete_cases": complete_cases,
+            "partial_cases": partial_cases,
+            "required_runs": sum(int(case.get("repetitions", 1)) for case in cases),
             "runs": total_runs,
             "expected_activation_rate": round(activation_hits / total_runs, 4) if total_runs else None,
             "false_activation_rate": round(false_activations / total_runs, 4) if total_runs else None,
@@ -118,7 +136,7 @@ def main() -> int:
             "max_activation_variance": max(variance_values) if variance_values else None
         },
         "cases_detail": rows,
-        "interpretation": "Measures observed routing/activation and explicit invocation evidence from runtime traces. It does not infer activation from prompt text, simulate model behavior, or claim general agent success. NO_OBSERVATIONS is not PASS."
+        "interpretation": "Measures observed routing/activation and explicit invocation evidence from runtime traces. It does not infer activation from prompt text, simulate model behavior, or claim general agent success. NO_OBSERVATIONS and PARTIAL are not complete empirical corpora; COMPLETE requires every dataset case to meet its declared repetitions contract."
     }
     Path(args.output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
