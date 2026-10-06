@@ -548,4 +548,4 @@ Evidence: live ontology audit on main baseline `537c30944bdf2163f0ac3350ff4661a6
 
 CI exposed two additional corpus P0 capabilities not covered by the initial live snapshot: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. The existing ontology boundary was extended with mappings for those capabilities using only existing ET-012, ET-001, ET-005, and ET-007 metrics. No new metric type or evaluation framework was introduced.
 
-Status: REPAIR IN PROGRESS — exact-head CI identified a real P0 mapping gap. Next: re-run the full exact-head CI matrix; merge only if all applicable gates pass, then record the verified 10/10 P0 coverage on main.
+Status: VERIFIED ON MAIN — PR #354 merged as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head applicable CI passed Governance Gate, Validate Evaluations, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped. The canonical corpus now has evaluation mappings for all 10 P0 capabilities. Next: return to Demand Intelligence and select only a new evidence-backed gap.
