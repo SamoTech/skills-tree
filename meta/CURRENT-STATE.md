@@ -599,3 +599,11 @@ The adapter maps only observed events:
 The adapter does not infer activation from prompts, aggregate .usage.json counters, or missing events. It does not add routing authority or change runtime behavior.
 
 Status: IMPLEMENTED — empirical evidence remains UNVERIFIED until real Hermes traces are collected and the resulting 12-run corpus passes schema validation and benchmark execution.
+
+## Hermes Real-Trace Capture Instrumentation — VERIFIED ON MAIN — 2026-10-06
+
+PR #364 merged the real-trace capture boundary as `ebb150dfb0f0ad6ddb3d2426cb81d7d7c31579ac`. It adds `benchmarks/activation/hermes_skill_activation_observer.py` and `benchmarks/activation/HERMES-TRACE-CAPTURE.md`.
+
+The observer records only explicit Hermes `post_tool_call` / `skill_view` and `on_skill_lifecycle(action=loaded)` evidence with session/task correlation. It intentionally excludes prompts, model output, tool results, and aggregate usage counters. This is capture instrumentation, not a benchmark result.
+
+Current blocker: no real Hermes trace corpus has been captured in this repository. The next executable action is operational capture of 12 fresh-session observations (4 cases × 3 repetitions), explicit ACT-case mapping, conversion, schema validation, and benchmark execution. Do not claim empirical reliability before that evidence exists.
