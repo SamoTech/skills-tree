@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from tools.run_skill_activation_benchmark import main
 
 
@@ -117,3 +119,94 @@ def test_complete_activation_corpus_is_distinguished(tmp_path, monkeypatch):
     assert result["metrics"]["complete_cases"] == 4
     assert result["metrics"]["partial_cases"] == 0
     assert result["metrics"]["runs"] == 12
+
+
+def write_custom_observations(path: Path, runs: list[dict]) -> None:
+    path.write_text(
+        json.dumps({"schema_version": "1.0", "runs": runs}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def test_unknown_case_id_fails_closed(tmp_path, monkeypatch):
+    observations = tmp_path / "observations.json"
+    write_custom_observations(
+        observations,
+        [{
+            "run_id": "run-unknown",
+            "case_id": "ACT-999",
+            "events": [
+                {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
+            ],
+        }],
+    )
+    output = tmp_path / "result.json"
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_skill_activation_benchmark.py",
+            "--dataset", str(ROOT / "benchmarks/activation/skill-activation-v1.json"),
+            "--observations", str(observations),
+            "--output", str(output),
+        ],
+    )
+
+    with pytest.raises(ValueError, match="not present in selected dataset"):
+        main()
+    assert not output.exists()
+
+
+def test_duplicate_run_id_fails_closed(tmp_path, monkeypatch):
+    observations = tmp_path / "observations.json"
+    duplicate = {
+        "run_id": "run-duplicate",
+        "case_id": "ACT-001",
+        "events": [
+            {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
+        ],
+    }
+    write_custom_observations(observations, [duplicate, dict(duplicate)])
+    output = tmp_path / "result.json"
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_skill_activation_benchmark.py",
+            "--dataset", str(ROOT / "benchmarks/activation/skill-activation-v1.json"),
+            "--observations", str(observations),
+            "--output", str(output),
+        ],
+    )
+
+    with pytest.raises(ValueError, match="duplicate observation run_id"):
+        main()
+    assert not output.exists()
+
+
+def test_case_status_matches_completion_status_for_partial_case(tmp_path, monkeypatch):
+    observations = tmp_path / "observations.json"
+    write_custom_observations(
+        observations,
+        [{
+            "run_id": "run-partial",
+            "case_id": "ACT-001",
+            "events": [
+                {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
+            ],
+        }],
+    )
+    output = tmp_path / "result.json"
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_skill_activation_benchmark.py",
+            "--dataset", str(ROOT / "benchmarks/activation/skill-activation-v1.json"),
+            "--observations", str(observations),
+            "--output", str(output),
+        ],
+    )
+
+    assert main() == 0
+    result = json.loads(output.read_text(encoding="utf-8"))
+    row = next(row for row in result["cases_detail"] if row["id"] == "ACT-001")
+    assert row["completion_status"] == "PARTIAL"
+    assert row["status"] == "PARTIAL"
