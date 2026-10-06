@@ -563,7 +563,7 @@ External evidence includes addyosmani/agent-skills #620 (direct prompts with rep
 
 Issue #357 is the authoritative current investigation record. Decision: measure activation/invocation first using existing project boundaries; do not add a new skill, search engine, or routing authority without measured failure evidence.
 
-Status: INVESTIGATING. Next executable action: design and run a bounded activation/invocation benchmark, then decide whether the result requires skill-description remediation, runtime/evaluation improvement, or no change.
+Status: HISTORICAL — this investigation state was superseded by the verified activation benchmark, Hermes adapter, and real-trace capture instrumentation. Empirical activation evidence is still pending real runtime traces.
 
 
 ## Skill Activation / Invocation Evidence Benchmark — VERIFIED ON MAIN — 2026-10-06
