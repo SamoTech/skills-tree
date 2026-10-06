@@ -42,6 +42,11 @@ def main():
 
     release_writers = [name for name,text in workflows.items() if "semantic-release version" in text]
     if release_writers != ["zero-touch-release.yml"]: fail(f"release authority drift: semantic-release mutation found in {release_writers}")
+    devlens = workflows.get("devlens.yml", "")
+    if not devlens: fail("DevLens workflow missing")
+    if "contents: write" in devlens: fail("DevLens must remain read-only")
+    if "update_readme: 'true'" in devlens: fail("DevLens must not mutate README.md")
+
     zero = workflows.get("zero-touch-release.yml", "")
     for phrase in ("NEXT=$(semantic-release version --print)","if: needs.semantic-release.outputs.released == 'true'","id-token: write"):
         if phrase not in zero: fail(f"zero-touch release contract missing: {phrase}")
