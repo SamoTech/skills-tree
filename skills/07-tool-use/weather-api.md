@@ -14,7 +14,7 @@ related: [07-tool-use, 14-security]
 Retrieve weather observations or forecasts through a documented API with explicit location, time window, units, freshness, and provider-status handling.
 
 ## When to Use
-Use this capability only when the workflow requires weather api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires weather api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
