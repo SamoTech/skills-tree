@@ -11,7 +11,8 @@ Key terms, acronyms, and concepts used throughout the Skills Tree. Terms are lis
 | Term | Definition |
 |---|---|
 | **Action** | A concrete operation performed by an agent in the world (e.g., click, API call, file write) |
-| **Agent** | An AI system that perceives its environment, reasons about it, and takes actions to achieve a goal |
+| **Capability** | An outcome-level ability a system or agent needs or provides; it describes what can be done, independent of the specific skill or implementation used |
+| **Agent** | A system that coordinates one or more models, skills, tools, and state to achieve a goal through an agentic loop |
 | **Agentic Loop** | The core cycle agents run: perceive → reason → act → observe → repeat |
 | **Autonomy Level** | How independently an agent operates: from copilot (human-in-loop) to fully autonomous |
 | **Computer Use** | The ability of an agent to interact with GUIs, desktop apps, and OS-level interfaces |
@@ -20,9 +21,9 @@ Key terms, acronyms, and concepts used throughout the Skills Tree. Terms are lis
 | **Orchestration** | Coordinating multiple agents or tools to complete a complex, multi-step task |
 | **Perception** | The ability to read and interpret inputs: text, images, audio, files, screen state |
 | **Reasoning** | The ability to think, plan, and decide — typically via CoT, ReAct, or MCTS |
-| **Skill** | A discrete, reusable capability an agent can invoke to complete a subtask |
+| **Skill** | Reusable procedural knowledge, instructions, and task guidance that an agent can load or invoke to perform a type of task; it is not a model, tool, permission grant, or raw capability |
 | **Task Decomposition** | Breaking a high-level goal into smaller, manageable sub-tasks |
-| **Tool** | An external function, API, or service the agent can call to extend its capabilities |
+| **Tool** | An externally callable function, API, or service that exposes an action or data operation to an agent; tool authorization belongs to the runtime/security boundary |
 
 ---
 
@@ -55,7 +56,8 @@ Key terms, acronyms, and concepts used throughout the Skills Tree. Terms are lis
 | **Fine-tuning** | Further training a pre-trained model on task-specific data to improve performance |
 | **Function Calling** | A model feature for emitting structured JSON to invoke external tools or APIs |
 | **Hallucination** | When a model generates plausible-sounding but factually incorrect or fabricated content |
-| **LLM** | Large Language Model — the core neural reasoning engine powering most modern agents |
+| **LLM** | Large Language Model — a class of model used as an inference engine inside many agents |
+| **Model** | The inference engine that generates reasoning, decisions, or outputs for an agent; a model is not itself an agent, skill, or tool |
 | **Prompt** | The input instruction or context given to an LLM to elicit a response |
 | **Prompt Engineering** | The practice of crafting effective prompts to elicit desired model behavior |
 | **Structured Output** | Model responses constrained to a specific schema (JSON, XML, etc.) via grammar or logit bias |
