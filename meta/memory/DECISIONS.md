@@ -1131,3 +1131,15 @@ Evidence IDs: PR #350; merged main `436c15c745e1747e3ec1e931dccacea1ca013c7c`; e
 Result: Exact-head applicable CI passed. The new skill is a bounded contract, not a claim of complete malware detection or universal safety.
 Status: VERIFIED BOUNDED SECURITY CONTRACT
 Reopen Conditions: Reopen if security evaluation exposes missing audit dimensions, if the ecosystem contract changes materially, or if a measured implementation gap requires executable audit tooling rather than guidance.
+
+
+# DECISION-2026-10-06-EVALUATION-ONTOLOGY-FRESHNESS
+
+DECISION-ID: DECISION-2026-10-06-EVALUATION-ONTOLOGY-FRESHNESS
+Topic: Re-qualify evaluation ontology freshness without expanding the evaluation architecture
+Finding: The canonical evaluation ontology review date had expired (`2026-10-03`), while live integrity checks showed all 12 evaluation types are internally resolvable, mapping IDs are unique, mapping names resolve to the canonical capability ontology, and all eight P0 capabilities have explicit mappings.
+Decision: Preserve the existing evaluation ontology and Benchmark boundary. Refresh only the verified freshness metadata after the integrity audit, using the existing 90-day review cadence. Do not add evaluation types, registries, benchmark frameworks, or skills as part of this maintenance slice.
+Evidence IDs: live `intelligence/ontology/evaluation_ontology.json`; `intelligence/ontology/capability_ontology.json`; `CORPUS-001`; `CORPUS-002`; main baseline `537c30944bdf2163f0ac3350ff4661a66ba85f8e`.
+Result: 12/12 evaluation references resolve; 0 duplicate mapping IDs; 0 unknown mapping IDs; 8/8 P0 capability mappings present. Freshness metadata refreshed to `2026-10-06`, due `2027-01-04`.
+Status: VERIFIED BOUNDED FRESHNESS REVIEW
+Reopen Conditions: Reopen if evaluation ontology structure, capability mappings, metric semantics, corpus requirements, or reproducibility evidence changes materially.
