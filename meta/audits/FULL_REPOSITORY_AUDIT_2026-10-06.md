@@ -4,7 +4,7 @@
 
 ## Executive disposition
 
-Repository core is operational and evidence-backed. The latest verified main is `50e2c2a6797a471cbc0c678cc403e56ee3c9f875` (PR #374 merge commit). There are currently no open pull requests.
+Repository core is operational and evidence-backed. The final verified main after PR #379 is `290cb3495d1905615501471e4e1b3bec86301a7b` before subsequent generated-only maintenance commits. There are currently no open pull requests.
 
 Canonical source remains `skills/`. The semantic boundary is now explicit and enforced:
 
@@ -46,13 +46,13 @@ Issue #357 remains the main empirical investigation. The repository now has:
 
 No real Hermes runtime trace corpus exists yet. Therefore no empirical activation-rate, false-activation, invocation-reliability, or general efficacy claim is valid.
 
-Issue #372 is a newly identified evidence-integrity hardening gap: unknown case IDs and duplicate `run_id` values can currently contaminate or inflate the benchmark corpus and should be rejected before metric calculation.
+Issue #372 was resolved by PR #379. The benchmark now rejects unknown case IDs and duplicate `run_id` values before metric calculation.
 
 ## Governance / writer audit
 
 Issue #159 was closed as `not_planned` because branch protection is not part of the current project-local completion model.
 
-Issue #370 remains open: `.github/workflows/devlens.yml` can write README with `contents: write` and `update_readme: true` outside the serialized generated-main writer contract, and the current README DevLens block is stale (2026-09-30).
+Issue #370 was resolved by PR #377. `.github/workflows/devlens.yml` is now a read-only diagnostic with `contents: read` and `update_readme: false`; the stale DevLens README block was removed.
 
 Issue #373 is addressed by PR #374. The obsolete `docs/index.html` write path was removed and README counting was unified under `tools/update_readme_counts.py`.
 
@@ -68,13 +68,33 @@ CodeQL on the #374 merge head was still running at the last snapshot; no failure
 
 Current reconciliation and distribution documents were refreshed to the 2026-10-06 baseline. Historical sections are retained as historical evidence.
 
-Remaining documentation risk is the stale DevLens block and any generated README count refresh that depends on the next applicable writer trigger. These are tracked, not hidden.
+Documentation risk from the DevLens block is resolved. The live workflow inventory is now explicitly reconciled to 45 files; historical 40/42 counts remain only in dated records.
 
-## Decision
+## Final decision
 
-Do not add new skills merely to increase corpus size. The next highest-value work is:
+Do not add new skills merely to increase corpus size. The current implementation/security/governance gaps from this audit are resolved. The next highest-value work is evidence collection:
 
-1. Resolve Issue #370 (DevLens writer isolation).
-2. Resolve Issue #372 (unknown/duplicate activation observation rejection).
-3. Collect real Hermes traces for Issue #357.
-4. Only then use measured failures to justify skill-description, routing, evaluation, or new capability work.
+1. Collect real Hermes traces for Issue #357 and run the 12-observation activation corpus.
+2. Resolve the retrieval freshness/reproducibility boundary in Issue #336 without manufacturing current scores.
+3. Keep the 45-workflow inventory, generated projections, and project-brain documentation synchronized with live main.
+
+## Final Reconciliation — 2026-10-06
+
+### Current verified baseline
+- 45 workflow files in `.github/workflows/`; inventory reconciled in `meta/WORKFLOW_INVENTORY.md`.
+- 382 quality-corpus skill files, including one intentional `00-sandbox` fixture; 381 production/public canonical skills across 17 categories.
+- 264 eligible Agent Skills projections, 118 blocked canonical entries, and 302 existing Agent Skills packages; current reconciliation reports no missing eligible projections, drift, stale entries, unexpected packages, ambiguous provenance, or unresolved collisions.
+- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+
+### Resolved audit findings
+- PR #374 repaired the README skill-count writer and removed the obsolete `docs/index.html` path.
+- PR #377 isolated DevLens as read-only and removed its stale public snapshot.
+- PR #379 made activation observation integrity fail-closed for unknown cases and duplicate run IDs.
+- PRs #368 and #371 established the Model/Agent/Tool/Capability/Skill boundary and explicit NO_OBSERVATIONS / PARTIAL / COMPLETE benchmark status.
+
+### Remaining evidence gaps
+- Issue #357: real runtime activation traces are still absent, so activation/reliability/effectiveness claims remain unverified.
+- Issue #336: historical retrieval benchmark results remain explicitly historical and need a reproducible current run or explicit qualification/retirement.
+
+### Final audit verdict
+No current P0 implementation or security blocker was found in the verified repository state. No new routing authority, search implementation, or bulk skill creation is justified by the evidence reviewed. The project should continue through the evidence-first loop rather than optimize for raw skill count.
