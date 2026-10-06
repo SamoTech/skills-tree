@@ -1,6 +1,6 @@
 # Current Architecture
 
-This document describes the verified implementation baseline as of 2026-10-03. Historical audit sections remain historical; the runtime and consumer boundaries below describe the current architecture.
+This document describes the verified implementation baseline as of 2026-10-06. Historical audit sections remain historical; the runtime and consumer boundaries below describe the current architecture.
 
 ## Runtime layers
 
@@ -36,6 +36,39 @@ Transport
   mcp/tools.py
   cli/main.py
 ```
+
+## Conceptual entity boundaries
+
+Skills Tree treats these concepts as distinct layers and must not collapse them into one entity:
+
+```text
+Goal / user objective
+        │
+        ▼
+Capability = what needs to be done
+        │
+        ▼
+Skill = reusable procedural guidance for how to do it
+        │
+        ▼
+Implementation = concrete realization
+        │
+        ▼
+Tool / Runtime = callable action or execution surface
+```
+
+The **Model** is the inference engine used by the Agent; it is neither the Skill nor the Tool. The **Agent** is the coordinator that uses models, skills, tools, state, and evidence to execute an agentic loop.
+
+Boundary rules:
+
+- A capability describes the outcome or ability required; it is not a skill document.
+- A skill provides reusable instructions, procedures, constraints, examples, and task-specific knowledge; it does not itself grant permissions.
+- A model performs inference/generation; model association is compatibility/support metadata, not proof that a skill is implemented or effective.
+- A tool exposes an action or data interface; authorization remains a separate runtime/security concern.
+- An agent coordinates the model, selected skills, tools, state, and verification steps.
+- Skill selection, skill loading/invocation, and downstream task success are separate evidence events and must not be conflated.
+
+This distinction is consistent with the universal registry entity model and the activation/invocation evidence boundary. It is an architectural contract, not a claim about any single vendor runtime.
 
 ## Universal registry runtime slice
 

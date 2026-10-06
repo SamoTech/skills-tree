@@ -14,7 +14,7 @@ related: [07-tool-use, 14-security]
 Use Twilio APIs for authorized messaging and communications with validated destinations, rate controls, secret-safe credentials, and delivery-state handling.
 
 ## When to Use
-Use this capability only when the workflow requires twilio api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires twilio api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 

@@ -335,7 +335,7 @@ Every documented battle-tested skill includes: ✅ typed inputs/outputs · ✅ r
 
 | Type | What It Is | PR Title Format |
 |---|---|---|
-| **New Skill** | A capability not yet indexed | `feat: add [skill] to [category]` |
+| **New Skill** | A reusable procedural skill not yet indexed | `feat: add [skill] to [category]` |
 | **Skill Upgrade** | Bump v1→v2 with better content | `improve: [skill] — v1→v2` |
 | **Benchmark** | Head-to-head with real numbers | `benchmark: [skill-a] vs [skill-b]` |
 | **System / Blueprint** | Multi-skill workflow or architecture | `system: add [name]` |

@@ -12,7 +12,7 @@ metadata:
 Query documented news APIs with bounded searches, explicit freshness windows, source metadata, pagination limits, and verified responses.
 
 ## When to Use
-Use this capability when the workflow explicitly requires news api and the target account, document, channel, or provider is authorized.
+Use this skill when the workflow explicitly requires news api and the target account, document, channel, or provider is authorized.
 
 ## Inputs / outputs / failure modes
 

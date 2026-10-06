@@ -15,7 +15,7 @@
 
 ## Description
 
-One to three sentences describing **what this skill enables an agent to do**, why it matters, and in what context it is typically used.
+One to three sentences describing **the reusable procedure, guidance, or task-specific knowledge this skill provides**, what capability it supports, why it matters, and in what context it is typically used.
 
 ---
 
@@ -106,7 +106,7 @@ List every framework, library, or model that implements or supports this skill:
 
 ## Prompt Patterns
 
-> Reusable prompt templates that reliably activate this skill. Use `{variable}` for dynamic slots.
+> Reusable prompt templates intended to select or invoke this skill. Do not claim reliable activation without runtime evidence. Use `{variable}` for dynamic slots.
 
 ### Pattern 1 — Basic Invocation
 ```

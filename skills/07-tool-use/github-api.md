@@ -14,7 +14,7 @@ related: [07-tool-use, 14-security]
 Use GitHub REST APIs for bounded repository, issue, pull-request, and metadata operations with explicit scopes and verified mutations.
 
 ## When to Use
-Use this capability only when the workflow requires github api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires github api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 

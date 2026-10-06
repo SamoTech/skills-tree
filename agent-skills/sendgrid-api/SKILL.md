@@ -12,7 +12,7 @@ metadata:
 Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification.
 
 ## When to Use
-Use this capability when the workflow explicitly requires sendgrid api and the target account, document, channel, or provider is authorized.
+Use this skill when the workflow explicitly requires sendgrid api and the target account, document, channel, or provider is authorized.
 
 ## Inputs / outputs / failure modes
 

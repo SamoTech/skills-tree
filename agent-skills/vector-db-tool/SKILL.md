@@ -12,7 +12,7 @@ metadata:
 Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls.
 
 ## When to Use
-Use this capability only when the workflow requires vector db tool, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires vector db tool, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 

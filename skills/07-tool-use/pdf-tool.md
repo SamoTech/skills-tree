@@ -14,7 +14,7 @@ related: [07-tool-use, 04-action-execution]
 Extract and inspect PDF content while preserving page context, detecting scanned documents, and verifying extraction quality.
 
 ## When to Use
-Use this capability when the workflow explicitly requires pdf tool and the target account, document, channel, or provider is authorized.
+Use this skill when the workflow explicitly requires pdf tool and the target account, document, channel, or provider is authorized.
 
 ## Inputs / outputs / failure modes
 

@@ -17,7 +17,7 @@ updated: "2026-06"
 
 ## Description
 
-Reasoning Under Uncertainty (RuU) is the agent capability to:
+Reasoning Under Uncertainty (RuU) is a structured reasoning procedure for an agent to:
 
 1. **Explicitly represent uncertainty** — "I am 70% confident this is correct"
 2. **Hedge conclusions appropriately** — distinguish facts from inferences from guesses

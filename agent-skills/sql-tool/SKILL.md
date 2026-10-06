@@ -12,7 +12,7 @@ metadata:
 Execute bounded SQL through an authorized database tool using parameterized queries, least privilege, transaction boundaries, and result validation.
 
 ## When to Use
-Use this capability only when the workflow requires sql tool, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires sql tool, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
