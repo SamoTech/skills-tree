@@ -12,7 +12,7 @@ metadata:
 Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs.
 
 ## When to Use
-Use this capability only when the workflow requires google workspace api, the target account or resource is authorized, and the provider contract is documented.
+Use this skill only when the workflow requires google workspace api, the target account or resource is authorized, and the provider contract is documented.
 
 ## Inputs / outputs / failure modes
 
