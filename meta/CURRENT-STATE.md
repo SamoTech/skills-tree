@@ -631,3 +631,8 @@ Activation evidence contract: zero observations are a process failure; partial t
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
 Next executable action: collect real-runtime activation evidence for Issue #357; separately resolve the DevLens writer risk (Issue #370), unknown/duplicate observation integrity risk (Issue #372), and retrieval benchmark freshness/reproducibility (Issue #336).
+## DevLens Writer Isolation — IMPLEMENTED ON BRANCH — 2026-10-06
+
+Full-project audit identified `devlens.yml` as a manual README writer outside the repository-wide generated-main boundary. The workflow is now diagnostic-only: `contents: read`, `security-events: read`, and `update_readme: false`. The stale DevLens snapshot was removed from README.md.
+
+Governance verification now fails if DevLens regains repository write permission or README mutation. This closes the direct DevLens writer risk; it does not make DevLens an authoritative health metric.
