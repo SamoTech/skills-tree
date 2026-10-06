@@ -627,7 +627,7 @@ Current generated corpus evidence: `meta/QUALITY-REPORT.md` reports 382 skill fi
 
 Governance: GitHub branch protection is not a project completion gate under the current repository-local governance decision; obsolete Issue #159 is closed as not planned. The remaining material activation investigation is Issue #357, which still lacks a real Hermes trace corpus.
 
-Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #369 implements this contract.
+Activation evidence contract: zero observations are a process failure; partial traces are explicitly classified as PARTIAL; empirical completion is COMPLETE only when all 4 benchmark cases meet their declared 3 repetitions (12 observations total). PR #371 implements this contract.
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
 Next executable action after PR #369 verification: close/reconcile Issue #366, then continue the real-runtime activation evidence collection path; separately address the DevLens README writer finding tracked in Issue #370.
