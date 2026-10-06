@@ -3,8 +3,8 @@
   "$version": "1.0",
   "ontology_id": "EVAL-ONTOLOGY-001",
   "created_at": "2026-07-05T00:00:00Z",
-  "last_reviewed_at": "2026-07-05T00:00:00Z",
-  "review_due_at": "2026-10-03T00:00:00Z",
+  "last_reviewed_at": "2026-10-06T00:00:00Z",
+  "review_due_at": "2027-01-04T00:00:00Z",
   "description": "Canonical authority defining how agent capabilities are measured, scored, and validated across all corpus entries, goal classes, and deployment gates. All evaluation references in corpus entries and goal_ontology.json must resolve to a type defined in this file.",
   "evaluation_types": [
     {
@@ -611,6 +611,48 @@
         "deployment_safety": "No deployment may be triggered solely from self-evaluation output; structured quality-gate state remains authoritative."
       },
       "dataset_requirements": "Minimum 100 assessment pairs with predeclared ground truth; confidence bins and review-gate outcomes must be recorded for every case."
+    },
+    {
+      "cap_id": "CAP-018",
+      "name": "multi_turn_dialogue_management",
+      "primary_metrics": [
+        "ET-012"
+      ],
+      "secondary_metrics": [
+        "ET-007"
+      ],
+      "minimum_required_score": 0.88,
+      "evaluation_frequency": "pre_deployment + monthly_in_production",
+      "validation_method": "multi_turn_coherence_human_eval",
+      "scoring_model": {
+        "primary_metric": "ET-012 user_satisfaction normalized human-rubric score for context retention and dialogue coherence",
+        "test_design": "Evaluate 30 scripted multi-turn conversations of 10-20 turns covering context retention, reference to prior turns, avoidance of repeated questions, and topic continuity. Use at least two independent evaluators per conversation and adjudicate material disagreements.",
+        "pass_criteria": "Mean normalized dialogue-coherence and context-retention score >= 0.88 with no critical context-loss pattern recurring across the evaluation set.",
+        "fail_criteria": "Mean score < 0.88 or repeated critical context-loss behavior that materially breaks task continuity."
+      },
+      "dataset_requirements": "Minimum 30 scripted multi-turn conversations spanning short, medium, and long contexts; retain per-dimension rubric scores and inter-rater agreement."
+    },
+    {
+      "cap_id": "CAP-027",
+      "name": "compliance_logging",
+      "primary_metrics": [
+        "ET-001"
+      ],
+      "secondary_metrics": [
+        "ET-005",
+        "ET-007"
+      ],
+      "minimum_required_score": 1.0,
+      "evaluation_frequency": "pre_deployment + continuous_in_production",
+      "validation_method": "log_completeness_compliance_audit",
+      "scoring_model": {
+        "primary_metric": "ET-001 log-event completeness and field correctness against a predeclared interaction ground truth",
+        "secondary_metrics": "ET-005 audit-query latency and ET-007 logging reliability",
+        "test_design": "Run 100 scripted agent interactions with known inputs, outputs, retrievals, tool calls, and escalation decisions. Verify that every required post-redaction event and field is recorded exactly once or according to the declared event contract. Exercise a compliance audit query over a bounded customer/date range.",
+        "pass_criteria": "100% required log completeness and field correctness; compliance audit query latency <= 500ms; no unhandled logging failure.",
+        "fail_criteria": "Any required event or field is missing, incorrectly attributed, unredacted where prohibited, duplicated contrary to the event contract, or audit-query latency exceeds 500ms."
+      },
+      "dataset_requirements": "Minimum 100 scripted interactions with explicit expected log receipts, including normal, escalation, retrieval, tool-use, and failure paths. Include at least one PII-redaction verification case."
     }
   ],
   "evaluation_execution_protocol": {
