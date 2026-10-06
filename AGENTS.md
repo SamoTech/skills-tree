@@ -62,7 +62,7 @@ CEO/CIO decision
   -> COO report
   -> CEO/CIO
 
-Documentation closes the loop.
+Documentation closes the loop. The authoritative documentation set is the project's persistent **brain**: it carries verified state, decisions, architecture, evidence, risks, boundaries, and the next executable action so a new agent can continue without prior conversation context.
 
 The COO and specialist agents operate through the bounded Core Agentic Execution Loop defined in `meta/AGENT_OPERATING_MODEL.md`. A failed verification becomes evidence for the next cycle; agents continue autonomously until `DONE` or `BLOCKED`, subject to the documented iteration and authority safeguards.
 
@@ -79,6 +79,7 @@ The COO and specialist agents operate through the bounded Core Agentic Execution
 - Do not weaken validation or security gates to make CI green.
 - Do not introduce vendor lock-in, hosted control planes, or competing sources of truth without a documented architectural decision.
 - Do not declare meaningful work complete while required documentation is missing or stale.
+- Treat authoritative documentation as a continuously maintained project brain, not as post-hoc reporting. Update it in the same delivery cycle whenever verified state, decisions, architecture, evidence, risks, or next action changes.
 - Treat unresolved authoritative documentation drift as a blocking condition for unrelated implementation work.
 - Record significant decisions in meta/memory/DECISIONS.md.
 - Update meta/CURRENT-STATE.md when verified repository state changes materially.
