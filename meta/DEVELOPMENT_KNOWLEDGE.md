@@ -2,7 +2,7 @@
 
 **Status:** Governing development knowledge for the Universal Agent Knowledge Layer
 **Version:** 1.0
-**Updated:** 2026-10-03
+**Updated:** 2026-10-06
 **Authority:** This document records the development model, architecture direction, execution rules, and verified implementation state. It complements `meta/PROJECT_CONSTITUTION.md`, `meta/AGENT_OPERATING_MODEL.md`, and the machine-readable registry contract in `meta/universal-registry.schema.json`.
 
 ## 1. Mission
@@ -637,3 +637,21 @@ The authoritative release workflow was corrected to use `semantic-release versio
 PR #320 merged as `4a09394332a90aa5ec172d3dc2b31fa38b740402`. The resulting patch release v1.72.7 passed Semantic Release, Build & Verify, PyPI OIDC preflight/publication, and GitHub Release asset attachment. The existing single release authority and Trusted Publisher configuration were preserved; no `skip-existing` masking was introduced.
 
 The next verification is an ordinary documentation-only main commit. It must produce a successful semantic-release gate with `released=false` and no build or PyPI publication jobs. This is the regression test for the v1.72.6 failure mode.
+
+## Final Live Audit Reconciliation — 2026-10-06
+
+The latest live audit supersedes only the active-state claims above where they conflict with current main; older dated paragraphs remain historical records.
+
+Current verified control baseline:
+- 45 GitHub Actions workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
+- `skills/` remains the canonical source; generated Agent Skills, graph, search, and JSON-LD artifacts remain projections.
+- The quality corpus contains 382 skill files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
+- Agent Skills reconciliation currently verifies 264 eligible projections, 118 blocked canonical entries, and 302 existing packages.
+- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+- DevLens is read-only and not an authoritative repository writer.
+- Activation benchmark evidence is fail-closed for zero observations, partial versus complete corpus status is explicit, and unknown case IDs / duplicate run IDs are rejected.
+
+Current evidence boundary:
+- Issue #357 remains open for real agent-runtime activation traces. No empirical activation/reliability claim is valid without those traces.
+- Issue #336 remains open for retrieval evidence freshness/reproducibility. The historical `benchmarks/memory/retrieval-accuracy.md` result table is not current evidence.
+- No new skill, search engine, routing authority, or competing projection generator is justified by the current evidence.

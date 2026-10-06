@@ -18,9 +18,9 @@ Raw skill count and raw stub count are engineering measurements, not product obj
 
 Security > Correctness > Canonical architecture > Discovery > Evidence > Freshness > Interoperability > Quality > Developer experience > Cosmetic improvements.
 
-## Phase 0 — Governance stabilization — ACTIVE — final reconciliation
+## Phase 0 — Governance stabilization — VERIFIED — 2026-10-06
 
-1. Maintain the live 42-file workflow inventory and classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, or generated-main writer.
+1. Maintain the live 45-file workflow inventory and classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, evidence benchmark, or generated-main writer.
 2. Maintain exactly one authoritative Pages deployment.
 3. Maintain exactly one authoritative release architecture.
 4. Consolidate generated-main writers where technically safe.
@@ -31,6 +31,25 @@ Security > Correctness > Canonical architecture > Discovery > Evidence > Freshne
 9. Harden the identified `validate-graph.yml` PR permission boundary without weakening trusted-main graph generation. **VERIFIED 2026-10-02:** validation is read-only; trusted-main graph generation is isolated to a write-scoped job; quality generation depends on graph generation.
 
 Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, verified permission boundaries, and no undocumented automation ownership.
+
+## Current Live Audit — 2026-10-06
+
+The final repository audit verified the current main control plane and canonical/projection boundaries.
+
+- 45 GitHub Actions workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
+- PRs #368, #371, #374, #375, #376, #377, and #379 were merged after exact-head applicable CI passed.
+- DevLens is diagnostic-only and cannot write repository state; the stale README health snapshot was removed.
+- Activation evidence integrity is fail-closed for unknown dataset case IDs and duplicate run IDs; incomplete corpora are classified PARTIAL rather than COMPLETE.
+- The quality corpus contains 382 files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
+- Agent Skills reconciliation verifies 264 eligible canonical projections, 118 blocked entries, and 302 existing packages.
+- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+- Remaining material evidence gaps are Issue #357 (real runtime activation traces) and Issue #336 (retrieval evidence freshness/reproducibility).
+
+This current block governs execution selection. Older dated roadmap entries remain historical records.
+
+## Phase 0 Exit Interpretation
+
+The repository-local Phase 0 controls are verified. Ongoing maintenance consists of keeping workflow inventory, generated-writer classification, documentation state, and evidence boundaries synchronized with live main. GitHub branch protection is intentionally outside the project-local completion gate.
 
 ## Phase 1 — Registry foundation — VERIFIED — completed foundation
 
@@ -112,10 +131,10 @@ A migration is incomplete if it only adds frontmatter.
 The deterministic canonical-to-Agent-Skills projection is now generated and verified for the full currently eligible corpus.
 
 Verified state:
-- 375 canonical skill files are currently present; the intentional sandbox fixture is classified separately and is not an Agent Skills production projection.
-- 250 eligible projections were verified in the 2026-10-02 reconciliation baseline.
-- 124 canonical entries were blocked in that baseline.
-- 288 total Agent Skills packages remain on `main`, including retained blocked legacy packages and the intentional registry helper.
+- 382 files are present in the quality corpus, including one intentional `00-sandbox` fixture; the production/public canonical corpus contains 381 skills across 17 categories.
+- 264 canonical entries are eligible for deterministic Agent Skills projection.
+- 118 canonical entries are blocked by the existing eligibility/reconciliation contract.
+- 302 Agent Skills packages are present on the verified main baseline.
 - Collision-safe naming is deterministic and validator-compatible.
 - Reconciliation, Agent Skills validation, security, graph, build, and test gates passed on the final corpus PR.
 
@@ -205,14 +224,13 @@ The repository's live development record verifies the governance/registry founda
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
-## Current execution queue
+## Current execution queue — 2026-10-06
 
-1. Complete observable Phase 0 control-plane reconciliation and record any connector-visible limitations without silently changing high-impact repository governance.
-2. Re-audit remaining machine-readable discovery consumers and generated projections for canonical-source alignment, provenance/evidence/freshness context, deterministic behavior, and runtime/package boundaries. Do not add context that duplicates or contradicts UniversalRegistry semantics.
-3. Reconcile legacy open issues against the current roadmap without closing valid requirements merely because they are old.
-4. Synchronize decision memory, architecture documentation, development knowledge, current state, and handoff state whenever verified architecture or consumer behavior changes.
-5. Re-verify live `main`, generated artifacts, authoritative documentation, and applicable CI evidence before selecting the next slice.
-6. Resume strategic capability-intelligence work only when the foundational consumer path is sufficiently established by evidence.
+1. Collect real Hermes/runtime activation traces for Issue #357; the required corpus is 4 cases × 3 fresh-session repetitions.
+2. Resolve Issue #336 by producing a reproducible current retrieval benchmark or explicitly qualifying/retiring the stale historical result set; do not fabricate current scores.
+3. Keep the 45-workflow inventory, generated projections, evidence contracts, and project-brain documentation synchronized with live `main`.
+4. Re-audit only when new evidence changes a boundary; do not create a new search engine, routing authority, or bulk skill migration without measured need.
+5. Re-verify exact-head CI and generated-only follow-up commits before declaring any substantial slice complete.
 
 ### Mandatory execution invariant
 

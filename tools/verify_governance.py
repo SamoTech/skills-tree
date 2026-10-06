@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Verify repository-level governance contracts without GitHub branch protection."""
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -18,13 +19,41 @@ def require_path(path):
     if not p.exists(): fail(f"required governance path is missing: {path}")
     return p
 
+
+def verify_workflow_inventory(workflows_dir: Path, inventory_text: str) -> None:
+    actual = sorted(
+        p.name
+        for p in workflows_dir.iterdir()
+        if p.is_file() and p.suffix in {'.yml', '.yaml'}
+    )
+    listed = re.findall(
+        "^\\| `([^`]+\\.(?:yml|yaml))` \\|",
+        inventory_text,
+        flags=re.MULTILINE,
+    )
+    declared_match = re.search(r"\*\*Live workflow files:\*\* (\d+)", inventory_text)
+    if declared_match is None:
+        fail("workflow inventory missing declared live workflow count")
+    declared = int(declared_match.group(1))
+    if len(listed) != len(set(listed)):
+        duplicates = sorted({name for name in listed if listed.count(name) > 1})
+        fail(f"workflow inventory contains duplicate entries: {duplicates}")
+    if declared != len(actual):
+        fail(f"workflow inventory count drift: declares {declared}, live tree contains {len(actual)} workflow files")
+    listed_sorted = sorted(listed)
+    if listed_sorted != actual:
+        missing = sorted(set(actual) - set(listed_sorted))
+        stale = sorted(set(listed_sorted) - set(actual))
+        fail(f"workflow inventory content drift: missing={missing or []}; stale={stale or []}")
 def main():
     agents = require_file("AGENTS.md")
     constitution = require_file("AI_CONSTITUTION.md")
     require_file("meta/CURRENT-STATE.md")
     require_file("meta/memory/DECISIONS.md")
     workflows_dir = ROOT / ".github/workflows"
-    workflows = {p.name: p.read_text(encoding="utf-8") for p in workflows_dir.glob("*.yml")}
+    workflows = {p.name: p.read_text(encoding="utf-8") for p in workflows_dir.iterdir() if p.is_file() and p.suffix in {".yml", ".yaml"}}
+    workflow_inventory = require_file("meta/WORKFLOW_INVENTORY.md")
+    verify_workflow_inventory(workflows_dir, workflow_inventory)
 
     for phrase in ("READ → VERIFY LIVE STATE → AUDIT DOCUMENTATION DRIFT → SYNCHRONIZE","COMPLETE requires both implementation and documentation verification.","Do not weaken validation or security gates","Treat `skills/` as the canonical registry source"):
         if phrase not in agents: fail(f"AGENTS.md lost mandatory clause: {phrase}")
