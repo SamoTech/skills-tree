@@ -48,15 +48,15 @@ The COO may recommend an option with evidence. The CEO/CIO makes the decision.
 
 Once made, a significant CEO/CIO decision becomes part of authoritative repository documentation.
 
-## 4. Documentation Is a Completion Gate
+## 4. Documentation Is the Project Brain and a Completion Gate
 
-Every meaningful repository change MUST be reflected in the appropriate authoritative documentation before, during, or immediately after the change.
+Every meaningful repository change MUST be reflected in the appropriate authoritative documentation in the same delivery cycle. Documentation synchronization is part of the change, not a later reporting task.
 
 A task is not complete until required documentation has been updated.
 
 Code without corresponding operational documentation is an incomplete change.
 
-Documentation is the persistent organizational memory. Agents must not rely on previous chats, private context, assumptions, undocumented decisions, or contradictory comments when authoritative repository documentation exists.
+Documentation is the project's persistent organizational memory and operational brain. It must continuously preserve verified state, decisions, architecture, evidence, risks, boundaries, unresolved blockers, and the next executable action. Agents must not rely on previous chats, private context, assumptions, undocumented decisions, or contradictory comments when authoritative repository documentation exists.
 
 ## 5. Authoritative Documentation Map
 
