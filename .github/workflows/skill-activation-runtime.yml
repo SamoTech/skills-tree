@@ -26,9 +26,20 @@ jobs:
       - name: Install Hermes Agent
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
-          HERMES_INSTALL_VERBOSE: "1"
         run: |
-          curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --non-interactive --skip-browser --skip-computer-use
+          set -euo pipefail
+          export UV_NO_CONFIG=1
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          export PATH="$HOME/.local/bin:$PATH"
+          git clone --depth 1 https://github.com/NousResearch/hermes-agent.git "$HERMES_HOME/hermes-agent"
+          uv venv "$HERMES_HOME/venv" --python 3.11
+          uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]"
+          mkdir -p "$HOME/.local/bin"
+          cat > "$HOME/.local/bin/hermes" <<EOF
+          #!/usr/bin/env bash
+          exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
+          EOF
+          chmod +x "$HOME/.local/bin/hermes"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           "$HOME/.local/bin/hermes" --version
 
