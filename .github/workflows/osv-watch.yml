@@ -51,3 +51,13 @@ jobs:
           else
             echo "Open automation PR already exists for $GENERATED_BRANCH."
           fi
+      - name: Upload OSV report
+        uses: actions/upload-artifact@v4
+        with:
+          name: osv-report
+          path: osv-report.json
+
+      - name: Summary
+        run: |
+          echo "### OSV Watch Summary" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f osv-report.json ]; then python3 tools/osv_watch_summary.py >> "$GITHUB_STEP_SUMMARY"; fi

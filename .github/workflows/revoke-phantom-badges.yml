@@ -147,6 +147,7 @@ jobs:
           PYEOF
 
       - name: Publish generated changes through protected-main PR
+        if: steps.changed.outputs.has_skills == 'true' && steps.phantoms.outputs.count != '0'
         env:
           GENERATED_BRANCH: automation/generated-phantom-badges
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

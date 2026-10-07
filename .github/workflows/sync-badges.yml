@@ -71,3 +71,8 @@ jobs:
           else
             echo "Open automation PR already exists for $GENERATED_BRANCH."
           fi
+      - name: Summary
+        run: |
+          BADGE_COUNT=$(ls docs/badges/*.json 2>/dev/null | wc -l || echo 0)
+          echo "### 🏷️ Badge Sync" >> "$GITHUB_STEP_SUMMARY"
+          echo "Total badge files: ${BADGE_COUNT}" >> "$GITHUB_STEP_SUMMARY"
