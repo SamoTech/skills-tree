@@ -33,7 +33,7 @@ import argparse
 import json
 import re
 import sys
-from pathlib import Path
+\nREPO_ROOT = Path(__file__).resolve().parent.parent\nsys.path.insert(0, str(REPO_ROOT))\nfrom tools.skill_corpus import iter_public_skill_files\nfrom pathlib import Path
 
 try:
     import yaml  # PyYAML — installed in CI via: pip install PyYAML==6.0.3
@@ -101,10 +101,7 @@ def build_index(skills_root: Path) -> list[dict]:
     """Walk *skills_root* and return a list of search document dicts."""
     documents: list[dict] = []
 
-    for md_file in sorted(skills_root.rglob("*.md")):
-        # Skip category README files — they are navigational, not skill pages
-        if md_file.name == "README.md":
-            continue
+    for md_file in iter_public_skill_files(skills_root):
 
         try:
             text = md_file.read_text(encoding="utf-8", errors="ignore")
