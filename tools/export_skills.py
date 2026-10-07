@@ -16,6 +16,11 @@ Usage:
 import os
 import re
 import glob
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from tools.skill_corpus import iter_public_skill_files
 import json
 import datetime
 from datetime import timezone
@@ -198,9 +203,8 @@ def build_index() -> list:
     """
     skills = []
     registry = _load_universal_registry()
-    for filepath in sorted(glob.glob("skills/**/*.md", recursive=True)):
-        if os.path.basename(filepath).lower() == "readme.md":
-            continue
+    for filepath in iter_public_skill_files(Path("skills")):
+        filepath = str(filepath)
         try:
             skill = parse_skill(filepath)
             registry_context = _registry_context_for_skill(skill, registry)
