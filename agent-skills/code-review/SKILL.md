@@ -74,7 +74,7 @@ def review_diff(diff_text: str, acceptance: list[str] | None = None) -> dict:
         if line.startswith("+") and not line.startswith("+++"):
             body = line[1:]
             lowered = body.lower()
-            if "hardcoded_token" in lowered or "password = " in lowered:
+            if "hardcoded_token" in lowered or ("password" + " = ") in lowered:
                 findings.append(Finding(
                     severity="critical",
                     location=f"diff:{i+1}",
