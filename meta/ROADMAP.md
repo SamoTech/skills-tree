@@ -235,17 +235,17 @@ The repository's live development record verifies the governance/registry founda
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
-## Current execution queue — 2026-10-06
+## Current execution queue — 2026-10-07
 
-1. Collect real Hermes/runtime activation traces for Issue #357; the required corpus is 4 cases × 3 fresh-session repetitions.
-2. Resolve Issue #336 by producing a reproducible current retrieval benchmark or explicitly qualifying/retiring the stale historical result set; do not fabricate current scores.
-3. Keep the 45-workflow inventory, generated projections, evidence contracts, and project-brain documentation synchronized with live `main`.
-4. Re-audit only when new evidence changes a boundary; do not create a new search engine, routing authority, or bulk skill migration without measured need.
-5. Re-verify exact-head CI and generated-only follow-up commits before declaring any substantial slice complete.
+1. Synchronize the project brain and public README counts.
+2. Enforce the 381-skill public projection boundary while retaining the 382-file quality/test corpus.
+3. Run retrieval and skill-selection evidence for canonical `skills/**` changes against branch-generated projections.
+4. Verify generated public projections and exact-head CI after merge.
+5. Collect Issue #357's 12 real independent runtime observations.
+6. Decide on Skill-description, routing/runtime, or evaluation changes only if those observations produce measured failures.
 
-### Mandatory execution invariant
+Issue #336 is resolved and must not remain in the active execution queue.
 
-Documentation synchronization is a hard precondition for meaningful agent work. Every agent must pass the Documentation Preflight defined in `AI_CONSTITUTION.md` and `AGENTS.md`. If authoritative documentation is stale, synchronize it before unrelated implementation work unless an urgent safety/security condition requires immediate action. Unresolved documentation drift prevents `COMPLETE`.
 
 ## Definition of done
 
