@@ -33,7 +33,11 @@ import argparse
 import json
 import re
 import sys
-\nREPO_ROOT = Path(__file__).resolve().parent.parent\nsys.path.insert(0, str(REPO_ROOT))\nfrom tools.skill_corpus import iter_public_skill_files\nfrom pathlib import Path
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from tools.skill_corpus import iter_public_skill_files
 
 try:
     import yaml  # PyYAML — installed in CI via: pip install PyYAML==6.0.3
