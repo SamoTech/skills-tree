@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-07T09:18:21.783720+00:00",
+  "generated_at": "2026-10-07T12:29:01.930348+00:00",
   "node_count": 381,
-  "edge_count": 249,
+  "edge_count": 255,
   "requires_count": 8,
   "nodes_by_level": {
-    "basic": 37,
     "intermediate": 162,
+    "basic": 36,
     "advanced": 183
   },
   "nodes_by_layer": {
-    "systems": 228,
     "perception": 36,
     "reasoning": 66,
+    "systems": 228,
     "execution": 51
   },
   "nodes_by_category": {
@@ -34,7 +34,7 @@
     "17-infrastructure": 1
   },
   "edges_by_type": {
-    "RELATED_TO": 241,
-    "REQUIRES": 9
+    "RELATED_TO": 247,
+    "REQUIRES": 8
   }
 }
