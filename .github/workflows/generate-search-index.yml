@@ -11,6 +11,8 @@ on:
     paths:
       - 'skills/**/*.md'
       - 'meta/skill-schema.json'
+      - 'tools/build_search_index.py'
+      - 'tools/skill_corpus.py'
   workflow_dispatch:
 
 concurrency:
