@@ -6,6 +6,17 @@
 > Product mission: `meta/PRODUCT_MISSION.md`
 > Execution mission: `meta/COO_MASTER_MISSION.md`
 
+## Current Execution Block — 2026-10-07
+
+1. Synchronize authoritative project-state documents and public README counts.
+2. Keep `00-sandbox` in the quality/test corpus while excluding it from public API, search, graph, and JSON-LD projections.
+3. Trigger retrieval and skill-selection evidence when canonical `skills/**` changes, using branch-generated projections rather than stale generated artifacts.
+4. Verify generated projections and exact-head CI after remediation.
+5. Execute Issue #357's 4 cases × 3 repetitions as 12 real independent runtime observations.
+6. Only measured activation failures may justify changes to Skill descriptions, routing/runtime behavior, or evaluation infrastructure.
+
+No new Skill, search engine, routing authority, or competing projection generator is justified without measured evidence.
+
 ## Product outcome
 
 Skills Tree is a public, trusted, machine-discoverable source of AI skills. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
