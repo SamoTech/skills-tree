@@ -35,6 +35,10 @@ import re
 import sys
 from pathlib import Path
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from tools.skill_corpus import iter_public_skill_files
+
 try:
     import yaml  # PyYAML — installed in CI via: pip install PyYAML==6.0.3
 except ImportError:  # pragma: no cover
@@ -101,10 +105,7 @@ def build_index(skills_root: Path) -> list[dict]:
     """Walk *skills_root* and return a list of search document dicts."""
     documents: list[dict] = []
 
-    for md_file in sorted(skills_root.rglob("*.md")):
-        # Skip category README files — they are navigational, not skill pages
-        if md_file.name == "README.md":
-            continue
+    for md_file in iter_public_skill_files(skills_root):
 
         try:
             text = md_file.read_text(encoding="utf-8", errors="ignore")

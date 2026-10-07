@@ -1,5 +1,19 @@
 # Skills Tree — Live Repository State
 
+## Current Live Reconciliation — 2026-10-07
+
+This block supersedes stale active-state wording elsewhere in this historical snapshot.
+
+- Quality/test corpus: 382 files, including one intentional `00-sandbox` fixture; public production corpus: 381 Skills across 17 categories.
+- Agent Skills reconciliation: 382 canonical, 264 eligible, 118 blocked, 302 existing packages; no projection drift or unexpected packages.
+- Graph projections: 382 nodes / 250 edges and internally synchronized; public-boundary remediation will reduce public projections to 381.
+- Retrieval evidence gap (#336) is resolved and bounded to its reproducible benchmark.
+- Activation evidence (#357) remains the material empirical gap: the contract and trace-integrity gates are verified, but 12 real independent runtime observations are still required.
+- PR #383 trace-integrity hardening and PR #388 manual capture support are merged; neither is runtime activation evidence.
+- Current remediation covers documentation synchronization, the 381-skill public projection boundary, and benchmark triggers for canonical Skill changes.
+- No Skill definitions or routing logic are changed by this remediation.
+
+
 > Maintained as a point-in-time operational snapshot. This file records verified state used for engineering and governance decisions.
 
 ## Verified snapshot
@@ -60,7 +74,7 @@
 - The live workflow inventory is 45 files, as verified by a 2026-10-06 git-tree audit and reconciled in `meta/WORKFLOW_INVENTORY.md`.
 - `validate-graph.yml` permission isolation is implemented and verified: `build-and-validate` is `contents: read`; `generate-main-graph` alone has `contents: write` and runs only on trusted `main` pushes after validation; `quality-report` waits for graph generation before writing its projection.
 - PR #232 CI passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label; Dependabot Review Gate was skipped.
-- GitHub branch inspection currently reports `main` as unprotected with required-status-check enforcement off. This is documented as a control-plane finding; no branch-protection change was made in this cycle.
+- GitHub control-plane settings are a separate verification boundary; the connected integration cannot independently verify all branch-protection settings. Repository-local governance and recent human-owner evidence must not be represented as API-verified state.
 
 ## Source of truth
 
@@ -87,11 +101,11 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-The post-publication machine-readable consumer/projection audit was completed against live main at `168f88d64d8d397fa9d189ebeaa731a5a461d826`. Existing registry, graph, search, JSON-LD, Agent Skills, recommendation, blueprint, Pages, release, and security boundaries were rechecked and no new evidence-backed invariant gap was found.
+1. Merge the public-boundary and evaluation-trigger remediation through the normal PR/CI gate.
+2. Verify generated public projections contain 381 production Skills and exclude `00-sandbox/pipeline-test`.
+3. Execute Issue #357's 12 real independent runtime observations.
+4. Do not change Skill definitions or routing unless measured activation evidence justifies it.
 
-Issue #276 was closed after recording that conclusion. Do not invent a numbered P2.3 requirement, reopen completed work, or expand scope merely to create activity. The next engineering slice requires a new concrete defect, contract gap, or governance requirement.
-
-Issue #159 remains the only open high-impact governance blocker: GitHub `main` is currently unprotected with required status checks off, and repository rulesets are empty. The connected integration cannot modify branch protection.
 
 ## Kanban Skill Addition — VERIFIED — 2026-10-03
 

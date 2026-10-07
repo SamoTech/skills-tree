@@ -121,13 +121,14 @@ Current verified repository baseline: 45 workflow files; 382 quality-corpus skil
 
 PR #377 and PR #379 are merged and their exact-head applicable CI passed. DevLens is read-only and activation observation integrity is fail-closed.
 
-Remaining material work is evidence-driven: Issue #357 requires real runtime traces before activation/reliability claims; Issue #336 requires a current reproducible retrieval benchmark or explicit qualification/retirement of stale results.
-## Current Live Baseline — 2026-10-06
+Remaining material work is evidence-driven: Issue #357 requires real runtime traces before activation/reliability claims; Issue #336 is resolved through the reproducible version-matched retrieval benchmark and historical qualification.
+## Current Live Baseline — 2026-10-07
 
-Main execution authority is live `main` after PR #379 (`290cb3495d1905615501471e4e1b3bec86301a7b`) plus generated-only maintenance commits.
+Main execution authority is live `main`; current remediation is staged on a dedicated branch.
 
 Repository baseline: 45 workflow files; 382 quality-corpus skill files including one intentional sandbox fixture; 381 production/public canonical skills across 17 categories; 264 eligible Agent Skills projections; 118 blocked entries; 302 packages.
 
-Completed audit remediations include DevLens read-only isolation (#370 / PR #377), activation observation integrity (#372 / PR #379), README writer repair (#373 / PR #374), and semantic Model/Agent/Tool/Capability/Skill boundaries (#368).
+Completed evidence remediations include retrieval evidence reconciliation (#336), activation observation integrity (#383), and manual activation capture support (#388). The remaining material empirical gap is Issue #357: 12 real independent runtime observations.
 
-Open evidence items are #357 and #336. No current P0 implementation/security blocker was identified.
+Current execution order is public projection boundary → evaluation-trigger coverage → generated projection verification → exact-head CI → real activation observations. No Skill-definition or routing change is justified before measured activation failures.
+
