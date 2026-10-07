@@ -113,7 +113,7 @@ jobs:
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           GITHUB_TOKEN: ${{ github.token }}
-          COPILOT_GITHUB_TOKEN: ${{ github.token }}
+          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN || github.token }}
           GH_TOKEN: ${{ github.token }}
         run: |
           set +e
