@@ -87,22 +87,15 @@ jobs:
               body = parts[2].lstrip() if len(parts) == 3 else text
               out = home / "skills" / runtime_name
               out.mkdir(parents=True, exist_ok=True)
-              skill = (
-                  "---
-"
-                  f"name: {runtime_name}
-"
-                  f"description: {description}
-"
-                  "metadata:
-"
-                  f"  skills_tree_canonical_id: {canonical_id}
-"
-                  "---
-
-"
-                  + body
-              )
+              skill = "\n".join([
+                  "---",
+                  f"name: {runtime_name}",
+                  f"description: {description}",
+                  "metadata:",
+                  f"  skills_tree_canonical_id: {canonical_id}",
+                  "---",
+                  "",
+              ]) + body
               (out / "SKILL.md").write_text(skill, encoding="utf-8")
           PY
 
@@ -130,8 +123,7 @@ jobs:
           from pathlib import Path
           cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
           out = Path(__import__("os").environ["RUNNER_TEMP"]) / "activation-cases.json"
-          out.write_text(json.dumps(cases, indent=2) + "
-")
+          out.write_text(json.dumps(cases, indent=2) + chr(10))
           PY
 
           python - <<'PY'
@@ -172,8 +164,7 @@ jobs:
                       print(proc.stdout[-4000:])
                       print(f"exit_code={proc.returncode}")
                   except Exception as exc:
-                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}
-", encoding="utf-8")
+                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}" + chr(10), encoding="utf-8")
                       print(f"runner exception: {exc}")
 
           PY
@@ -229,8 +220,7 @@ jobs:
 
           out = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json"
           out.write_text(
-              json.dumps({"schema_version": "1.0", "runs": runs}, indent=2) + "
-",
+              json.dumps({"schema_version": "1.0", "runs": runs}, indent=2) + chr(10),
               encoding="utf-8",
           )
           print(out.read_text())
@@ -239,7 +229,7 @@ jobs:
       - name: Run activation benchmark
         id: benchmark
         run: |
-          python tools/run_skill_activation_benchmark.py             --observations "$RUNNER_TEMP/skill-activation-observations.json"             --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
+          python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
 
       - name: Write evidence summary
         if: always()
