@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "runs": [
+    {
+      "run_id": "manual-act001-r1",
+      "case_id": "ACT-001",
+      "trace_id": "REPLACE-with-unique-session-id-1",
+      "events": [
+        {
+          "kind": "skill_selection",
+          "skill_id": "03-memory/rag",
+          "status": "observed"
+        },
+        {
+          "kind": "skill_execution",
+          "skill_id": "03-memory/rag",
+          "status": "observed"
+        }
+      ]
+    },
+    {
+      "run_id": "manual-act001-r2",
+      "case_id": "ACT-001",
+      "trace_id": "REPLACE-with-unique-session-id-2",
+      "events": []
+    }
+  ]
+}
