@@ -1,0 +1,278 @@
+name: Real Skill Activation Evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'benchmarks/activation/**'
+      - 'meta/skill-activation-observation.schema.json'
+      - 'tools/run_skill_activation_benchmark.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  copilot-requests: write
+
+jobs:
+  activation-evidence:
+    name: Collect 12 Real Skill Activation Observations
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install Hermes Agent
+        run: |
+          curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/hermes" --version
+
+      - name: Install GitHub Copilot CLI
+        run: |
+          npm install -g @github/copilot
+          copilot --version
+
+      - name: Install activation observer plugin
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          mkdir -p "$HERMES_HOME/plugins/skills-tree-activation-observer"
+          cp benchmarks/activation/hermes_skill_activation_observer.py "$HERMES_HOME/plugins/skills-tree-activation-observer/__init__.py"
+          cat > "$HERMES_HOME/plugins/skills-tree-activation-observer/plugin.yaml" <<'YAML'
+          name: skills-tree-activation-observer
+          kind: standalone
+          version: 1.0.0
+          description: Capture explicit Skills Tree activation lifecycle evidence for benchmark runs.
+          YAML
+          HERMES_HOME="$HERMES_HOME" hermes plugins enable skills-tree-activation-observer
+
+      - name: Install the three benchmark Skills into Hermes
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import os
+
+          root = Path.cwd()
+          home = Path(os.environ["HERMES_HOME"])
+          specs = {
+              "skills-tree-rag": (
+                  "03-memory/rag",
+                  "skills/03-memory/rag.md",
+                  "Retrieve and ground answers in a private corpus using retrieval-augmented generation. Use for private or known-source retrieval, grounding, and citation.",
+              ),
+              "skills-tree-code-review": (
+                  "05-code/code-review",
+                  "skills/05-code/code-review.md",
+                  "Review concrete source code or code changes for correctness, security, maintainability, tests, and repository conventions.",
+              ),
+              "skills-tree-web-search": (
+                  "11-web/web-search",
+                  "skills/11-web/web-search.md",
+                  "Search the open web for current information, ranked sources, freshness, and citations.",
+              ),
+          }
+
+          for runtime_name, (canonical_id, source_rel, description) in specs.items():
+              source = root / source_rel
+              text = source.read_text(encoding="utf-8")
+              parts = text.split("---", 2)
+              body = parts[2].lstrip() if len(parts) == 3 else text
+              out = home / "skills" / runtime_name
+              out.mkdir(parents=True, exist_ok=True)
+              skill = (
+                  "---
+"
+                  f"name: {runtime_name}
+"
+                  f"description: {description}
+"
+                  "metadata:
+"
+                  f"  skills_tree_canonical_id: {canonical_id}
+"
+                  "---
+
+"
+                  + body
+              )
+              (out / "SKILL.md").write_text(skill, encoding="utf-8")
+          PY
+
+      - name: Verify runtime skill inventory
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
+          grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
+          grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
+          grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
+
+      - name: Run 12 independent fresh-session observations
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          GITHUB_TOKEN: ${{ github.token }}
+          COPILOT_GITHUB_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          mkdir -p "$RUNNER_TEMP/activation-traces"
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
+          out = Path(__import__("os").environ["RUNNER_TEMP"]) / "activation-cases.json"
+          out.write_text(json.dumps(cases, indent=2) + "
+")
+          PY
+
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+          import subprocess
+          from pathlib import Path
+
+          cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
+          trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
+          hermes_home = Path(os.environ["HERMES_HOME"])
+
+          for case in cases:
+              for repetition in range(1, int(case["repetitions"]) + 1):
+                  trace_id = f'{case["id"]}-r{repetition}'
+                  trace_path = trace_root / f"{trace_id}.jsonl"
+                  trace_path.unlink(missing_ok=True)
+
+                  for dirname in ("sessions", "memories"):
+                      shutil.rmtree(hermes_home / dirname, ignore_errors=True)
+
+                  env = os.environ.copy()
+                  env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
+                  env["HERMES_HOME"] = str(hermes_home)
+
+                  print(f"=== {trace_id} ===")
+                  try:
+                      proc = subprocess.run(
+                          ["hermes", "chat", "-q", case["prompt"], "--provider", "copilot-acp", "--model", "copilot-acp"],
+                          env=env,
+                          text=True,
+                          stdout=subprocess.PIPE,
+                          stderr=subprocess.STDOUT,
+                          timeout=180,
+                      )
+                      (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
+                      print(proc.stdout[-4000:])
+                      print(f"exit_code={proc.returncode}")
+                  except Exception as exc:
+                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}
+", encoding="utf-8")
+                      print(f"runner exception: {exc}")
+
+          PY
+
+      - name: Convert explicit runtime traces to benchmark observations
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
+          mapping = {
+              "skills-tree-rag": "03-memory/rag",
+              "skills-tree-code-review": "05-code/code-review",
+              "skills-tree-web-search": "11-web/web-search",
+          }
+
+          runs = []
+          for trace_path in sorted(trace_root.glob("ACT-*.jsonl")):
+              trace_id = trace_path.stem
+              case_id = trace_id.split("-r", 1)[0]
+              selected, executed = set(), set()
+
+              for line in trace_path.read_text(encoding="utf-8").splitlines():
+                  if not line.strip():
+                      continue
+                  event = json.loads(line)
+                  if event.get("hook_event_name") == "post_tool_call" and event.get("tool_name") == "skill_view":
+                      name = (event.get("args") or {}).get("name")
+                      if name in mapping:
+                          selected.add(mapping[name])
+                  if event.get("hook_event_name") == "on_skill_lifecycle" and event.get("action") == "loaded":
+                      name = event.get("skill_name")
+                      if name in mapping:
+                          executed.add(mapping[name])
+
+              events = [
+                  {"kind": "skill_selection", "skill_id": skill, "status": "observed"}
+                  for skill in sorted(selected)
+              ]
+              events.extend(
+                  {"kind": "skill_execution", "skill_id": skill, "status": "observed"}
+                  for skill in sorted(executed)
+              )
+
+              runs.append({
+                  "run_id": trace_id,
+                  "case_id": case_id,
+                  "trace_id": trace_id,
+                  "events": events,
+              })
+
+          out = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json"
+          out.write_text(
+              json.dumps({"schema_version": "1.0", "runs": runs}, indent=2) + "
+",
+              encoding="utf-8",
+          )
+          print(out.read_text())
+          PY
+
+      - name: Run activation benchmark
+        id: benchmark
+        run: |
+          python tools/run_skill_activation_benchmark.py             --observations "$RUNNER_TEMP/skill-activation-observations.json"             --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
+
+      - name: Write evidence summary
+        if: always()
+        run: |
+          echo "## Real skill activation evidence" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$RUNNER_TEMP/skill-activation-benchmark-result.json" ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, os
+          from pathlib import Path
+          p=Path(os.environ["RUNNER_TEMP"])/"skill-activation-benchmark-result.json"
+          d=json.loads(p.read_text())
+          print(f"- Status: **{d['status']}**")
+          print(f"- Runs: **{d['metrics']['runs']} / {d['metrics']['required_runs']}**")
+          print(f"- Observed cases: **{d['metrics']['observed_cases']} / {d['metrics']['cases']}**")
+          print(f"- Invocation evidence rate: **{d['metrics']['invocation_evidence_rate']}**")
+          PY
+          else
+            echo "- Benchmark result was not produced." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload activation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-activation-evidence-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/activation-traces/
+            ${{ runner.temp }}/skill-activation-observations.json
+            ${{ runner.temp }}/skill-activation-benchmark-result.json
+            ${{ runner.temp }}/hermes-skills.txt
+          if-no-files-found: warn
+
+      - name: Enforce complete 12-observation corpus
+        if: steps.benchmark.outcome == 'failure'
+        run: exit 1
