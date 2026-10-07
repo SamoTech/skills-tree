@@ -1269,3 +1269,17 @@ Finding: Issue #336 identified a stale 2026-04-13 model-comparison benchmark, ob
 Decision: Close Issue #336 as resolved for its stated evidence/freshness/reproducibility scope. Preserve the old model-comparison results as historical evidence and do not treat the bounded 12-case result as broad semantic-search or user-quality evidence. Broader representative retrieval failure coverage remains a future evidence question.
 Status: VERIFIED BOUNDED RETRIEVAL EVIDENCE — Issue #336 resolved.
 Reopen Conditions: Reopen when the retrieval/search projection or ranking contract changes, broader representative queries expose a measured failure requiring intervention, or freshness/reproducibility debt recurs.
+
+## DECISION-2026-10-07-PUBLIC-BOUNDARY-AND-EVALUATION-GATES
+
+**Topic:** Separate the quality/test corpus from public projections and close canonical-Skill evaluation bypasses.
+
+**Decision:** Keep `skills/00-sandbox/` available for pipeline testing, but exclude that category from public API, search, graph, and JSON-LD projections. Centralize the public corpus boundary so projection generators cannot drift independently. Retrieval and skill-selection evidence workflows must trigger for canonical `skills/**` changes and evaluate branch-generated projections rather than stale generated artifacts.
+
+**Confidence:** HIGH
+
+**Evidence IDs:** FULL-AUDIT-2026-10-07, PR-383, PR-388, Issue-336, Issue-357
+
+**Status:** IN PROGRESS — implementation staged on remediation branch.
+
+**Reopen Conditions:** Reopen if the Human Owner intentionally promotes `00-sandbox` into the public taxonomy or if measured evaluation evidence shows the trigger/projection contract is insufficient.
