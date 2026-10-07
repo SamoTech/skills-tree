@@ -44,7 +44,7 @@ MCP remains a Protocol. No compatibility or ecosystem claims are added.
 
 ## Next Action
 
-Collect real runtime activation traces for Issue #357 and produce the 12-observation evidence corpus. In parallel, resolve Issue #336 through a reproducible current retrieval benchmark or explicit qualification/retirement of its historical result set. Keep current state, workflow inventory, generated projections, and decision memory synchronized after each verified change.
+Collect real runtime activation traces for Issue #357 and produce the 12-observation evidence corpus. Issue #336 is resolved through the reproducible 12-case retrieval benchmark and explicit qualification of the stale historical model-comparison result set. Keep current state, workflow inventory, generated projections, and decision memory synchronized after each verified change.
 
 
 ## State Reconciliation — 2026-10-04

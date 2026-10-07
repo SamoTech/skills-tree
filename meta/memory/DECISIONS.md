@@ -1262,3 +1262,10 @@ Decision: Treat live main as the sole current execution authority. Current verif
 Evidence IDs: live git tree audit 2026-10-06; `meta/QUALITY-REPORT.md`; Agent Skills reconciliation CI; graph/search projection SHAs; PRs #377 and #379.
 Status: VERIFIED ON CURRENT MAIN.
 Reopen Conditions: Reopen if live main, CI, or reproducible evidence materially changes the baseline or remaining gaps.
+
+DECISION-ID: DECISION-2026-10-07-RETRIEVAL-EVIDENCE-RECONCILIATION
+Topic: Close retrieval evidence freshness/reproducibility gap
+Finding: Issue #336 identified a stale 2026-04-13 model-comparison benchmark, obsolete skill-path references, an overdue evaluation review date, and a missing ontology-trigger path. The live repository now explicitly qualifies the old benchmark as historical, uses canonical `03-memory` references, validates the evaluation ontology on ontology changes, and records a reproducible version-matched 12-case retrieval benchmark artifact with Recall@5 1.0000, MRR 0.9583, and deterministic replay true.
+Decision: Close Issue #336 as resolved for its stated evidence/freshness/reproducibility scope. Preserve the old model-comparison results as historical evidence and do not treat the bounded 12-case result as broad semantic-search or user-quality evidence. Broader representative retrieval failure coverage remains a future evidence question.
+Status: VERIFIED BOUNDED RETRIEVAL EVIDENCE — Issue #336 resolved.
+Reopen Conditions: Reopen when the retrieval/search projection or ranking contract changes, broader representative queries expose a measured failure requiring intervention, or freshness/reproducibility debt recurs.
