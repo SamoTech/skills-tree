@@ -74,7 +74,7 @@ This block supersedes stale active-state wording elsewhere in this historical sn
 - The live workflow inventory is 45 files, as verified by a 2026-10-06 git-tree audit and reconciled in `meta/WORKFLOW_INVENTORY.md`.
 - `validate-graph.yml` permission isolation is implemented and verified: `build-and-validate` is `contents: read`; `generate-main-graph` alone has `contents: write` and runs only on trusted `main` pushes after validation; `quality-report` waits for graph generation before writing its projection.
 - PR #232 CI passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label; Dependabot Review Gate was skipped.
-- GitHub branch inspection currently reports `main` as unprotected with required-status-check enforcement off. This is documented as a control-plane finding; no branch-protection change was made in this cycle.
+- GitHub control-plane settings are a separate verification boundary; the connected integration cannot independently verify all branch-protection settings. Repository-local governance and recent human-owner evidence must not be represented as API-verified state.
 
 ## Source of truth
 
@@ -101,11 +101,11 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Next mandatory action
 
-The post-publication machine-readable consumer/projection audit was completed against live main at `168f88d64d8d397fa9d189ebeaa731a5a461d826`. Existing registry, graph, search, JSON-LD, Agent Skills, recommendation, blueprint, Pages, release, and security boundaries were rechecked and no new evidence-backed invariant gap was found.
+1. Merge the public-boundary and evaluation-trigger remediation through the normal PR/CI gate.
+2. Verify generated public projections contain 381 production Skills and exclude `00-sandbox/pipeline-test`.
+3. Execute Issue #357's 12 real independent runtime observations.
+4. Do not change Skill definitions or routing unless measured activation evidence justifies it.
 
-Issue #276 was closed after recording that conclusion. Do not invent a numbered P2.3 requirement, reopen completed work, or expand scope merely to create activity. The next engineering slice requires a new concrete defect, contract gap, or governance requirement.
-
-Issue #159 remains the only open high-impact governance blocker: GitHub `main` is currently unprotected with required status checks off, and repository rulesets are empty. The connected integration cannot modify branch protection.
 
 ## Kanban Skill Addition — VERIFIED — 2026-10-03
 
