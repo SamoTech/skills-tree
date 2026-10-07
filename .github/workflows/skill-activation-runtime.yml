@@ -111,22 +111,38 @@ jobs:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
           mkdir -p "$HERMES_HOME"
-          cat > "$HERMES_HOME/config.yaml" <<YAML
-          model:
-            provider: custom
-            default: "$HERMES_LOCAL_MODEL"
-            base_url: "http://127.0.0.1:11434/v1"
-          YAML
-          HERMES_HOME="$HERMES_HOME" hermes doctor
+          HERMES_HOME="$HERMES_HOME" hermes config set model "custom/$HERMES_LOCAL_MODEL"
+          HERMES_HOME="$HERMES_HOME" hermes config set model.base_url "http://127.0.0.1:11434/v1"
+          HERMES_HOME="$HERMES_HOME" hermes config set model.provider "custom"
+          HERMES_HOME="$HERMES_HOME" hermes config set model.default "$HERMES_LOCAL_MODEL"
+          HERMES_HOME="$HERMES_HOME" hermes config get model
+          HERMES_HOME="$HERMES_HOME" hermes config get model.base_url
 
-      - name: Verify runtime skill inventory
+      - name: Verify runtime connectivity
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
+          curl -fsS http://127.0.0.1:11434/api/tags >/dev/null
           HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
+
+      - name: Validate observation corpus against schema
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          obs = json.loads((Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json").read_text())
+          schema = json.loads(Path("meta/skill-activation-observation.schema.json").read_text())
+          errors = list(Draft202012Validator(schema).iter_errors(obs))
+          if errors:
+              print(errors[0].message)
+              raise SystemExit(1)
+          print("PASS: observation corpus matches schema.")
+          PY
 
       - name: Run 12 independent fresh-session observations
         env:
