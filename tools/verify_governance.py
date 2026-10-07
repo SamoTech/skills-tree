@@ -80,31 +80,44 @@ def main():
     for phrase in ("NEXT=$(semantic-release version --print)","if: needs.semantic-release.outputs.released == 'true'","id-token: write"):
         if phrase not in zero: fail(f"zero-touch release contract missing: {phrase}")
 
-    # All direct-main generated/release writers share one serialization boundary
-    # and must synchronize their event checkout to the live main tip before
-    # calculating or committing generated state.
-    writer_contracts = {
-        "revoke-phantom-badges.yml": ("group: auto-commit-main", "queue: max", "cancel-in-progress: false"),
-        "osv-watch.yml": ("group: auto-commit-main", "queue: max", "cancel-in-progress: false"),
-        "zero-touch-release.yml": ("group: auto-commit-main", "queue: max", "git fetch origin main", "git reset --hard origin/main"),
-        "validate-graph.yml": ("group: auto-commit-main", "git fetch origin main", "git reset --hard origin/main"),
-        "generate-search-index.yml": ("group: auto-commit-main", "queue: max", "git push origin main"),
-        "export-skills.yml": ("group: auto-commit-main", "git push origin main"),
-        "update-skill-count.yml": ("group: auto-commit-main", "git push origin main"),
-        "sync-badges.yml": ("group: auto-commit-main", "git push origin main"),
-        "version-stats.yml": ("group: auto-commit-main", "git push origin main"),
-        "leaderboard.yml": ("group: auto-commit-main", "git push origin main"),
-        "weekly-highlights.yml": ("group: auto-commit-main", "git push origin main"),
-        "used-in-tracker.yml": ("group: auto-commit-main", "git push origin main"),
-        "quality-report.yml": ("group: auto-commit-main", "queue: max"),
-        "generate-changelog.yml": ("group: auto-commit-main",),
+    # Protected-main generated writers must publish through dedicated automation
+    # branches and normal PRs. Direct pushes to main are forbidden by contract.
+    protected_generated_writers = {
+        "revoke-phantom-badges.yml": "automation/generated-phantom-badges",
+        "osv-watch.yml": "automation/generated-osv-badges",
+        "validate-graph.yml": "automation/generated-graph",
+        "generate-search-index.yml": "automation/generated-search-index",
+        "export-skills.yml": "automation/generated-skill-api",
+        "update-skill-count.yml": "automation/generated-skill-count",
+        "sync-badges.yml": "automation/generated-badges",
+        "version-stats.yml": "automation/generated-version-stats",
+        "leaderboard.yml": "automation/generated-leaderboard",
+        "weekly-highlights.yml": "automation/generated-weekly-highlights",
+        "used-in-tracker.yml": "automation/generated-used-in",
+        "quality-report.yml": "automation/generated-quality-report",
+        "generate-changelog.yml": "automation/generated-changelog",
     }
-    for workflow, phrases in writer_contracts.items():
+    for workflow, generated_branch in protected_generated_writers.items():
         text = workflows.get(workflow, "")
         if not text:
-            fail(f"main writer workflow missing: {workflow}")
+            fail(f"protected-main writer workflow missing: {workflow}")
+        for phrase in ("group: auto-commit-main", f"GENERATED_BRANCH: {generated_branch}", 'git push --force origin HEAD:"$GENERATED_BRANCH"', "gh pr create", "base main"):
+            if phrase not in text:
+                fail(f"protected-main writer contract missing in {workflow}: {phrase}")
+        if "git push origin main" in text:
+            fail(f"protected-main writer still contains direct main push: {workflow}")
+
+    # Other release infrastructure may still synchronize against main, but it
+    # must not be mistaken for a generated projection writer.
+    for workflow, phrases in {
+        "zero-touch-release.yml": ("group: auto-commit-main", "git fetch origin main", "git reset --hard origin/main"),
+    }.items():
+        text = workflows.get(workflow, "")
+        if not text:
+            fail(f"release workflow missing: {workflow}")
         for phrase in phrases:
-            if phrase not in text: fail(f"main writer contract missing in {workflow}: {phrase}")
+            if phrase not in text:
+                fail(f"release contract missing in {workflow}: {phrase}")
 
     quality = workflows.get("quality-report.yml", "")
     if "check_antislop.py --changed-only --base" not in quality: fail("blocking anti-slop gate missing")

@@ -47,12 +47,22 @@ jobs:
         run: |
           python3 tools/generate_changelog.py
 
-      - name: Commit changelog
+      - name: Publish generated changes through protected-main PR
+        env:
+          GENERATED_BRANCH: automation/generated-changelog
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add meta/CHANGELOG.md
-          git diff --staged --quiet && echo 'No changelog changes.' && exit 0
-          git commit -m 'chore(changelog): auto-update CHANGELOG.md [skip ci]'
-          git pull --rebase
-          git push
+          git diff --staged --quiet && echo "No generated changes." && exit 0
+          git commit -m "chore(changelog): auto-update CHANGELOG.md [skip ci]"
+          git push --force origin HEAD:"$GENERATED_BRANCH"
+
+          if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
+            gh pr create               --base main               --head "$GENERATED_BRANCH"               --title "chore(changelog): auto-update CHANGELOG.md"               --body "Publish the generated changelog entry through a protected-main PR.
+
+          This automation branch exists because main is protected. Merge only through the normal PR checks."
+          else
+            echo "Open automation PR already exists for $GENERATED_BRANCH."
+          fi
