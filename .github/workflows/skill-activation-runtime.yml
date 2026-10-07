@@ -24,8 +24,11 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install Hermes Agent
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_INSTALL_VERBOSE: "1"
         run: |
-          curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+          curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash -s -- --non-interactive --skip-browser --skip-computer-use
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           "$HOME/.local/bin/hermes" --version
 
