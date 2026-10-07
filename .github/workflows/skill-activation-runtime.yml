@@ -41,7 +41,7 @@ jobs:
 
       - name: Install activation observer plugin
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_HOME: ${{ runner.temp }}/hermes-template
         run: |
           mkdir -p "$HERMES_HOME/plugins/skills-tree-activation-observer"
           cp benchmarks/activation/hermes_skill_activation_observer.py "$HERMES_HOME/plugins/skills-tree-activation-observer/__init__.py"
@@ -55,7 +55,7 @@ jobs:
 
       - name: Install the three benchmark Skills into Hermes
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_HOME: ${{ runner.temp }}/hermes-template
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -102,7 +102,7 @@ jobs:
 
       - name: Verify runtime skill inventory
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_HOME: ${{ runner.temp }}/hermes-template
         run: |
           HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
@@ -111,50 +111,46 @@ jobs:
 
       - name: Run 12 independent fresh-session observations
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_TEMPLATE_HOME: ${{ runner.temp }}/hermes-template
           GITHUB_TOKEN: ${{ github.token }}
           COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN || github.token }}
           GH_TOKEN: ${{ github.token }}
         run: |
           set +e
-          mkdir -p "$RUNNER_TEMP/activation-traces"
+          mkdir -p "${RUNNER_TEMP}/activation-traces" "${RUNNER_TEMP}/activation-homes"
 
           python - <<'PY'
-          import json
-          from pathlib import Path
-          cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
-          out = Path(__import__("os").environ["RUNNER_TEMP"]) / "activation-cases.json"
-          out.write_text(json.dumps(cases, indent=2) + chr(10))
-          PY
-
-          python - <<'PY'
-          import json
-          import os
-          import shutil
-          import subprocess
+          import json, os, shutil, subprocess
           from pathlib import Path
 
           cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
+          template = Path(os.environ["HERMES_TEMPLATE_HOME"])
           trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
-          hermes_home = Path(os.environ["HERMES_HOME"])
+          homes_root = Path(os.environ["RUNNER_TEMP"]) / "activation-homes"
 
           for case in cases:
               for repetition in range(1, int(case["repetitions"]) + 1):
                   trace_id = f'{case["id"]}-r{repetition}'
                   trace_path = trace_root / f"{trace_id}.jsonl"
+                  home = homes_root / trace_id
                   trace_path.unlink(missing_ok=True)
-
-                  for dirname in ("sessions", "memories"):
-                      shutil.rmtree(hermes_home / dirname, ignore_errors=True)
+                  shutil.rmtree(home, ignore_errors=True)
+                  shutil.copytree(template, home)
 
                   env = os.environ.copy()
                   env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
-                  env["HERMES_HOME"] = str(hermes_home)
+                  env["HERMES_HOME"] = str(home)
 
                   print(f"=== {trace_id} ===")
                   try:
                       proc = subprocess.run(
-                          ["hermes", "chat", "-q", case["prompt"], "--provider", "copilot-acp", "--model", "copilot-acp"],
+                          [
+                              "hermes", "chat", "--oneshot", "--quiet",
+                              "--toolsets", "skills",
+                              "--provider", "copilot-acp",
+                              "--model", "copilot-acp",
+                              "--query", case["prompt"],
+                          ],
                           env=env,
                           text=True,
                           stdout=subprocess.PIPE,
@@ -165,9 +161,8 @@ jobs:
                       print(proc.stdout[-4000:])
                       print(f"exit_code={proc.returncode}")
                   except Exception as exc:
-                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}" + chr(10), encoding="utf-8")
+                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}\n", encoding="utf-8")
                       print(f"runner exception: {exc}")
-
           PY
 
       - name: Convert explicit runtime traces to benchmark observations
@@ -231,6 +226,20 @@ jobs:
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
+
+      - name: Enforce complete 12-observation corpus
+        if: steps.benchmark.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-benchmark-result.json"
+          d = json.loads(p.read_text())
+          m = d["metrics"]
+          print(json.dumps({"status": d["status"], "metrics": m}, indent=2))
+          if d["status"] != "COMPLETE" or m["runs"] != 12 or m["complete_cases"] != 4:
+              raise SystemExit("COMPLETE 4x3 activation corpus was not obtained.")
+          PY
 
       - name: Write evidence summary
         if: always()
