@@ -23,21 +23,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-
-      - name: Install Hermes Agent
+      - name: Install local Ollama runtime
         run: |
-          curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          "$HOME/.local/bin/hermes" --version
-
-      - name: Install GitHub Copilot CLI
-        run: |
-          npm install -g @github/copilot
-          copilot --version
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:11434/api/tags >/dev/null && break
+            sleep 2
+          done
+          MODEL="qwen3.5:4b"
+          if ! ollama pull "$MODEL"; then
+            MODEL="qwen3:4b"
+            ollama pull "$MODEL"
+          fi
+          echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
+          ollama list
 
       - name: Install activation observer plugin
         env:
@@ -100,6 +100,19 @@ jobs:
               (out / "SKILL.md").write_text(skill, encoding="utf-8")
           PY
 
+      - name: Configure Hermes for local Ollama
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          mkdir -p "$HERMES_HOME"
+          cat > "$HERMES_HOME/config.yaml" <<YAML
+          model:
+            provider: custom
+            default: "$HERMES_LOCAL_MODEL"
+            base_url: "http://127.0.0.1:11434/v1"
+          YAML
+          HERMES_HOME="$HERMES_HOME" hermes doctor
+
       - name: Verify runtime skill inventory
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
@@ -112,9 +125,7 @@ jobs:
       - name: Run 12 independent fresh-session observations
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
-          GITHUB_TOKEN: ${{ github.token }}
-          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN || github.token }}
-          GH_TOKEN: ${{ github.token }}
+          HERMES_STREAM_READ_TIMEOUT: '1800'
         run: |
           set +e
           mkdir -p "$RUNNER_TEMP/activation-traces"
@@ -154,7 +165,7 @@ jobs:
                   print(f"=== {trace_id} ===")
                   try:
                       proc = subprocess.run(
-                          ["hermes", "chat", "-q", case["prompt"], "--provider", "copilot-acp", "--model", "copilot-acp"],
+                          ["hermes", "chat", "-q", case["prompt"], "--provider", "custom", "--model", os.environ["HERMES_LOCAL_MODEL"]],
                           env=env,
                           text=True,
                           stdout=subprocess.PIPE,
