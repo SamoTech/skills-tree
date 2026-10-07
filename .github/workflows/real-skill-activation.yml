@@ -1,0 +1,103 @@
+name: Real Skill Activation Evidence
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/real-skill-activation.yml'
+      - 'tools/run_real_hermes_activation.py'
+      - 'tools/convert_hermes_activation_observations.py'
+      - 'tools/run_skill_activation_benchmark.py'
+      - 'benchmarks/activation/**'
+      - 'meta/skill-activation-observation.schema.json'
+      - 'skills/03-memory/rag.md'
+      - 'skills/05-code/code-review.md'
+      - 'skills/11-web/web-search.md'
+permissions:
+  contents: write
+concurrency:
+  group: real-skill-activation
+  cancel-in-progress: false
+jobs:
+  activation-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: {fetch-depth: 1}
+      - name: Install Python dependencies
+        run: python3 -m pip install --disable-pip-version-check jsonschema
+      - name: Install Hermes Agent
+        run: |
+          export HERMES_HOME="$RUNNER_TEMP/hermes-bootstrap"
+          echo "HERMES_HOME=$HERMES_HOME" >> "$GITHUB_ENV"
+          curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/hermes" --version
+      - name: Install llama.cpp
+        run: |
+          curl -LsSf https://llama.app/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          "$HOME/.local/bin/llama" --version
+      - name: Start local model runtime
+        run: |
+          mkdir -p "$RUNNER_TEMP/activation-runtime"
+          llama serve -hf ggml-org/Qwen3-1.7B-GGUF:Q4_K_M --port 8080 > "$RUNNER_TEMP/activation-runtime/llama.log" 2>&1 &
+          echo $! > "$RUNNER_TEMP/activation-runtime/llama.pid"
+          for attempt in $(seq 1 90); do
+            if curl --fail --silent http://127.0.0.1:8080/health > /dev/null; then exit 0; fi
+            sleep 2
+          done
+          cat "$RUNNER_TEMP/activation-runtime/llama.log"
+          exit 1
+      - name: Collect 12 independent Hermes observations
+        run: |
+          rm -rf activation-runtime-output
+          python3 tools/run_real_hermes_activation.py             --dataset benchmarks/activation/skill-activation-v1.json             --output-dir activation-runtime-output             --model ggml-org/Qwen3-1.7B-GGUF:Q4_K_M             --base-url http://127.0.0.1:8080/v1
+      - name: Convert explicit Hermes observer events
+        run: |
+          python3 tools/convert_hermes_activation_observations.py             activation-runtime-output/hermes-activation-observations.jsonl             --case-map "$(cat activation-runtime-output/case-map.json)"             --output activation-runtime-output/skill-activation-observations.json
+      - name: Run activation benchmark
+        run: |
+          python3 tools/run_skill_activation_benchmark.py             --dataset benchmarks/activation/skill-activation-v1.json             --observations activation-runtime-output/skill-activation-observations.json             --output activation-runtime-output/skill-activation-benchmark-result.json
+      - name: Require complete 12-run corpus
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path("activation-runtime-output/skill-activation-benchmark-result.json").read_text())
+          metrics=result["metrics"]
+          print(json.dumps({"status":result["status"],"metrics":metrics},indent=2))
+          if result["status"]!="COMPLETE" or metrics["runs"]!=12 or metrics["complete_cases"]!=4:
+              raise SystemExit("Activation evidence is not a complete 4x3 corpus; no empirical claim is permitted.")
+          PY
+      - name: Publish evidence branch
+        if: success()
+        env:
+          GENERATED_BRANCH: evidence/skill-activation-v1
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p meta/evidence
+          cp activation-runtime-output/skill-activation-observations.json meta/evidence/skill-activation-observations.json
+          cp activation-runtime-output/skill-activation-benchmark-result.json meta/evidence/skill-activation-benchmark-result.json
+          git add meta/evidence/
+          git diff --staged --quiet && echo "Evidence already recorded." && exit 0
+          git commit -m "evidence(activation): record real Hermes skill activation corpus [skip ci]"
+          git push --force origin HEAD:"$GENERATED_BRANCH"
+          if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
+            gh pr create --base main --head "$GENERATED_BRANCH"               --title "evidence(activation): record real Hermes skill activation corpus"               --body "Record the complete 4-case x 3-repetition Hermes activation evidence produced by the protected runtime workflow.
+
+The corpus contains only explicit observer events and benchmark results. It does not modify Skill definitions or routing."
+          fi
+      - name: Upload raw activation evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skill-activation-v1-runtime-evidence
+          path: |
+            activation-runtime-output/
+            ${{ runner.temp }}/activation-runtime/llama.log
+          if-no-files-found: warn
+          retention-days: 30
