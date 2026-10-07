@@ -70,7 +70,7 @@ CI runs automatically and validates your frontmatter. A maintainer reviews withi
 
 | Type | What It Is | Where | PR Title Format |
 |---|---|---|---|
-| **New Skill** | A capability not yet in the index | `skills/XX-category/` | `feat: add [skill] to [category]` |
+| **New Skill** | A reusable procedural skill not yet in the index | `skills/XX-category/` | `feat: add [skill] to [category]` |
 | **Skill Upgrade** | Bump v1→v2 or v2→v3 with better content | Same file | `improve: [skill] — v1→v2` |
 | **Benchmark** | Head-to-head with real numbers | `benchmarks/category/` | `benchmark: [skill-a] vs [skill-b]` |
 | **System / Blueprint** | Multi-skill workflow or architecture | `systems/` or `blueprints/` | `system: add [name]` / `blueprint: add [name]` |
