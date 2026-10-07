@@ -34,6 +34,7 @@ def load_observations(path: Path, schema_path: Path) -> list[dict]:
 def validate_observation_integrity(runs: list[dict], cases: list[dict]) -> None:
     known_case_ids = {case["id"] for case in cases}
     seen_run_ids: set[str] = set()
+    seen_trace_ids: set[str] = set()
     unknown_cases: list[str] = []
 
     for run in runs:
@@ -41,6 +42,11 @@ def validate_observation_integrity(runs: list[dict], cases: list[dict]) -> None:
         if run_id in seen_run_ids:
             raise ValueError(f"duplicate observation run_id: {run_id}")
         seen_run_ids.add(run_id)
+
+        trace_id = run["trace_id"]
+        if trace_id in seen_trace_ids:
+            raise ValueError(f"duplicate observation trace_id: {trace_id}")
+        seen_trace_ids.add(trace_id)
 
         case_id = run["case_id"]
         if case_id not in known_case_ids:
