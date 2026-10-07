@@ -16,7 +16,7 @@
   "$defs": {
     "run": {
       "type": "object",
-      "required": ["run_id", "case_id", "events"],
+      "required": ["run_id", "case_id", "trace_id", "events"],
       "additionalProperties": false,
       "properties": {
         "run_id": { "type": "string", "minLength": 1 },
