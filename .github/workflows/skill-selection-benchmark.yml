@@ -8,6 +8,9 @@ on:
       - 'data/SKILLS_GRAPH.json'
       - 'benchmarks/selection/capability-selection-v1.json'
       - 'tools/run_skill_selection_benchmark.py'
+      - 'skills/**/*.md'
+      - 'tools/build_graph.py'
+      - 'tools/skill_corpus.py'
   workflow_dispatch:
 
 permissions:
@@ -28,6 +31,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -e .
+      - name: Build branch graph projection
+        run: |
+          python tools/build_graph.py --output data/SKILLS_GRAPH.json
+
       - name: Run selection benchmark
         run: |
           python tools/run_skill_selection_benchmark.py \
