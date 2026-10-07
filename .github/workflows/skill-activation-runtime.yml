@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   activation-evidence:
@@ -226,6 +226,45 @@ jobs:
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
+
+      - name: Publish runtime diagnostics branch
+        if: always()
+        env:
+          DIAGNOSTIC_BRANCH: evidence/skill-activation-v1-attempt
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p meta/evidence/activation-attempt
+          if [ -d "${RUNNER_TEMP}/activation-traces" ]; then
+            cp -a "${RUNNER_TEMP}/activation-traces/." meta/evidence/activation-attempt/ || true
+          fi
+          for file in skill-activation-observations.json skill-activation-benchmark-result.json hermes-skills.txt; do
+            if [ -f "${RUNNER_TEMP}/$file" ]; then
+              cp "${RUNNER_TEMP}/$file" "meta/evidence/activation-attempt/$file"
+            fi
+          done
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path("meta/evidence/activation-attempt")
+          result = root / "skill-activation-benchmark-result.json"
+          status = "NO_RESULT"
+          metrics = {}
+          if result.exists():
+              data = json.loads(result.read_text())
+              status = data.get("status", "UNKNOWN")
+              metrics = data.get("metrics", {})
+          (root / "runtime-status.json").write_text(json.dumps({
+              "workflow_sha": os.environ.get("GITHUB_SHA"),
+              "status": status,
+              "metrics": metrics,
+          }, indent=2) + chr(10))
+          PY
+          git add meta/evidence/activation-attempt
+          git diff --staged --quiet && exit 0
+          git commit -m "evidence(activation): record runtime attempt diagnostics [skip ci]"
+          git push --force origin HEAD:"$DIAGNOSTIC_BRANCH"
 
       - name: Enforce complete 12-observation corpus
         if: steps.benchmark.outcome == 'success'
