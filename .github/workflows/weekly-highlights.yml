@@ -41,6 +41,7 @@ jobs:
         run: python3 tools/weekly_highlights.py
 
       - name: Publish generated changes through protected-main PR
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           GENERATED_BRANCH: automation/generated-weekly-highlights
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
