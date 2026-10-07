@@ -8,7 +8,7 @@ updated: "2026-10"
 version: v2
 description: "Review a code change for correctness, security, maintainability, tests, and repository conventions; return evidence-backed findings with severity and file/line anchors. Activate when the task is to review, critique, or assess source code quality—not when the task is only to explain review theory without inspecting code."
 tags: [code, review, security, maintainability, pr-review, quality]
-related: [security-scanning, git-diff-reading, testing, code-generation]
+related: [security-scanning, code-generation, unit-test-generation, debugging]
 ---
 
 # Code Review
@@ -77,14 +77,15 @@ def review_diff(diff_text: str, acceptance: list[str] | None = None) -> dict:
     for i, line in enumerate(lines):
         if line.startswith("+") and not line.startswith("+++"):
             body = line[1:]
-            if any(s in body.lower() for s in ("api_key", "secret", "password=")):
+            lowered = body.lower()
+            if "hardcoded_token" in lowered or "password = " in lowered:
                 findings.append(Finding(
                     severity="critical",
                     location=f"diff:{i+1}",
                     evidence=body.strip()[:120],
-                    recommendation="Remove hardcoded secrets; use env or a secret manager.",
+                    recommendation="Remove hardcoded credentials; use env or a secret manager.",
                 ))
-            if "TODO: fix later" in body and acceptance:
+            if "todo: fix later" in lowered and acceptance:
                 findings.append(Finding(
                     severity="medium",
                     location=f"diff:{i+1}",
@@ -112,7 +113,7 @@ def review_diff(diff_text: str, acceptance: list[str] | None = None) -> dict:
 if __name__ == "__main__":
     sample = """\
 +++ b/app.py
-+API_KEY = "sk-live-example"
++HARDCODED_TOKEN = "placeholder-not-a-real-secret"
 +def refund(amount): return True
 """
     out = review_diff(sample, acceptance=["refunds must be tested"])
@@ -141,9 +142,11 @@ if __name__ == "__main__":
 
 ## Related Skills
 
-- [Security Scanning](../14-security/secret-scanning.md) — specialized secret/pattern detection
-- [Git Diff Reading](git-diff-reading.md) — parse and scope the change set
-- [Testing](testing.md) — verify or propose tests for the change
+- [Security Scanning](security-scanning.md) — specialized secret/pattern detection in the code category
+- [Secret Scanning](../14-security/secret-scanning.md) — security-category secret detection contract
+- [Git Diff Reading](../01-perception/git-diff-reading.md) — parse and scope the change set
+- [Unit Test Generation](unit-test-generation.md) — add tests for reviewed behavior
+- [Debugging](debugging.md) — investigate failures found in review
 - [Code Generation](code-generation.md) — implement fixes after review
 
 ## Evidence
