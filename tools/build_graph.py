@@ -41,6 +41,8 @@ from pathlib import Path
 # Paths (relative to repo root)
 # ---------------------------------------------------------------------------
 REPO_ROOT = Path(__file__).parent.parent
+sys.path.insert(0, str(REPO_ROOT))
+from tools.skill_corpus import is_public_category
 SKILLS_DIR = REPO_ROOT / "skills"
 DATA_DIR = REPO_ROOT / "data"
 META_DIR = REPO_ROOT / "meta"
