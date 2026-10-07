@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T09:18:21.783720+00:00",
+    "generated_at": "2026-10-07T12:29:01.930348+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 381,
-    "edge_count": 249,
+    "edge_count": 255,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -1984,7 +1984,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -3470,7 +3470,7 @@
     },
     {
       "id": "09-agentic-patterns/rag",
-      "title": "RAG — Retrieval-Augmented Generation",
+      "title": "RAG \u2014 Retrieval-Augmented Generation",
       "category": "09-agentic-patterns",
       "layer": "systems",
       "level": "intermediate",
@@ -7017,6 +7017,54 @@
       "type": "RELATED_TO",
       "evidence": "[Audit Logging](../14-security/audit-logging.md)",
       "source_file": "skills/04-action-execution/http-request.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-review",
+      "target": "05-code/security-scanning",
+      "type": "RELATED_TO",
+      "evidence": "[Security Scanning](security-scanning.md)",
+      "source_file": "skills/05-code/code-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-review",
+      "target": "14-security/secret-scanning",
+      "type": "RELATED_TO",
+      "evidence": "[Secret Scanning](../14-security/secret-scanning.md)",
+      "source_file": "skills/05-code/code-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-review",
+      "target": "01-perception/git-diff-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Git Diff Reading](../01-perception/git-diff-reading.md)",
+      "source_file": "skills/05-code/code-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-review",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/code-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-review",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/code-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-review",
+      "target": "05-code/code-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Code Generation](code-generation.md)",
+      "source_file": "skills/05-code/code-review.md",
       "confidence": "high"
     },
     {
