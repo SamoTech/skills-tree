@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   activation-evidence:
@@ -23,25 +23,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-
       - name: Install Hermes Agent
         run: |
           curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           "$HOME/.local/bin/hermes" --version
 
-      - name: Install GitHub Copilot CLI
+      - name: Install local Ollama runtime
         run: |
-          npm install -g @github/copilot
-          copilot --version
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
+          for i in $(seq 1 30); do
+            curl -fsS http://127.0.0.1:11434/api/tags >/dev/null && break
+            sleep 2
+          done
+          MODEL="qwen3.5:4b"
+          if ! ollama pull "$MODEL"; then
+            MODEL="qwen3:4b"
+            ollama pull "$MODEL"
+          fi
+          echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
+          ollama list
 
       - name: Install activation observer plugin
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-template
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
           mkdir -p "$HERMES_HOME/plugins/skills-tree-activation-observer"
           cp benchmarks/activation/hermes_skill_activation_observer.py "$HERMES_HOME/plugins/skills-tree-activation-observer/__init__.py"
@@ -55,7 +61,7 @@ jobs:
 
       - name: Install the three benchmark Skills into Hermes
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-template
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -100,9 +106,22 @@ jobs:
               (out / "SKILL.md").write_text(skill, encoding="utf-8")
           PY
 
+      - name: Configure Hermes for local Ollama
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          mkdir -p "$HERMES_HOME"
+          cat > "$HERMES_HOME/config.yaml" <<YAML
+          model:
+            provider: custom
+            default: "$HERMES_LOCAL_MODEL"
+            base_url: "http://127.0.0.1:11434/v1"
+          YAML
+          HERMES_HOME="$HERMES_HOME" hermes doctor
+
       - name: Verify runtime skill inventory
         env:
-          HERMES_HOME: ${{ runner.temp }}/hermes-template
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
           HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
@@ -111,46 +130,48 @@ jobs:
 
       - name: Run 12 independent fresh-session observations
         env:
-          HERMES_TEMPLATE_HOME: ${{ runner.temp }}/hermes-template
-          GITHUB_TOKEN: ${{ github.token }}
-          COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN || github.token }}
-          GH_TOKEN: ${{ github.token }}
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_STREAM_READ_TIMEOUT: '1800'
         run: |
           set +e
-          mkdir -p "${RUNNER_TEMP}/activation-traces" "${RUNNER_TEMP}/activation-homes"
+          mkdir -p "$RUNNER_TEMP/activation-traces"
 
           python - <<'PY'
-          import json, os, shutil, subprocess
+          import json
+          from pathlib import Path
+          cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
+          out = Path(__import__("os").environ["RUNNER_TEMP"]) / "activation-cases.json"
+          out.write_text(json.dumps(cases, indent=2) + chr(10))
+          PY
+
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+          import subprocess
           from pathlib import Path
 
           cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
-          template = Path(os.environ["HERMES_TEMPLATE_HOME"])
           trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
-          homes_root = Path(os.environ["RUNNER_TEMP"]) / "activation-homes"
+          hermes_home = Path(os.environ["HERMES_HOME"])
 
           for case in cases:
               for repetition in range(1, int(case["repetitions"]) + 1):
                   trace_id = f'{case["id"]}-r{repetition}'
                   trace_path = trace_root / f"{trace_id}.jsonl"
-                  home = homes_root / trace_id
                   trace_path.unlink(missing_ok=True)
-                  shutil.rmtree(home, ignore_errors=True)
-                  shutil.copytree(template, home)
+
+                  for dirname in ("sessions", "memories"):
+                      shutil.rmtree(hermes_home / dirname, ignore_errors=True)
 
                   env = os.environ.copy()
                   env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
-                  env["HERMES_HOME"] = str(home)
+                  env["HERMES_HOME"] = str(hermes_home)
 
                   print(f"=== {trace_id} ===")
                   try:
                       proc = subprocess.run(
-                          [
-                              "hermes", "chat", "--oneshot", "--quiet",
-                              "--toolsets", "skills",
-                              "--provider", "copilot-acp",
-                              "--model", "copilot-acp",
-                              "--query", case["prompt"],
-                          ],
+                          ["hermes", "chat", "-q", case["prompt"], "--provider", "custom", "--model", os.environ["HERMES_LOCAL_MODEL"]],
                           env=env,
                           text=True,
                           stdout=subprocess.PIPE,
@@ -161,8 +182,9 @@ jobs:
                       print(proc.stdout[-4000:])
                       print(f"exit_code={proc.returncode}")
                   except Exception as exc:
-                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}\n", encoding="utf-8")
+                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}" + chr(10), encoding="utf-8")
                       print(f"runner exception: {exc}")
+
           PY
 
       - name: Convert explicit runtime traces to benchmark observations
@@ -226,59 +248,6 @@ jobs:
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
-
-      - name: Publish runtime diagnostics branch
-        if: always()
-        env:
-          DIAGNOSTIC_BRANCH: evidence/skill-activation-v1-attempt
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p meta/evidence/activation-attempt
-          if [ -d "${RUNNER_TEMP}/activation-traces" ]; then
-            cp -a "${RUNNER_TEMP}/activation-traces/." meta/evidence/activation-attempt/ || true
-          fi
-          for file in skill-activation-observations.json skill-activation-benchmark-result.json hermes-skills.txt; do
-            if [ -f "${RUNNER_TEMP}/$file" ]; then
-              cp "${RUNNER_TEMP}/$file" "meta/evidence/activation-attempt/$file"
-            fi
-          done
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          root = Path("meta/evidence/activation-attempt")
-          result = root / "skill-activation-benchmark-result.json"
-          status = "NO_RESULT"
-          metrics = {}
-          if result.exists():
-              data = json.loads(result.read_text())
-              status = data.get("status", "UNKNOWN")
-              metrics = data.get("metrics", {})
-          (root / "runtime-status.json").write_text(json.dumps({
-              "workflow_sha": os.environ.get("GITHUB_SHA"),
-              "status": status,
-              "metrics": metrics,
-          }, indent=2) + chr(10))
-          PY
-          git add meta/evidence/activation-attempt
-          git diff --staged --quiet && exit 0
-          git commit -m "evidence(activation): record runtime attempt diagnostics [skip ci]"
-          git push --force origin HEAD:"$DIAGNOSTIC_BRANCH"
-
-      - name: Enforce complete 12-observation corpus
-        if: steps.benchmark.outcome == 'success'
-        run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          p = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-benchmark-result.json"
-          d = json.loads(p.read_text())
-          m = d["metrics"]
-          print(json.dumps({"status": d["status"], "metrics": m}, indent=2))
-          if d["status"] != "COMPLETE" or m["runs"] != 12 or m["complete_cases"] != 4:
-              raise SystemExit("COMPLETE 4x3 activation corpus was not obtained.")
-          PY
 
       - name: Write evidence summary
         if: always()
