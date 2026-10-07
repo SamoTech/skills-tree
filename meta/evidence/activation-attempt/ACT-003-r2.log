@@ -1,0 +1,8 @@
+hermes: preparing dependencies for this data root (the checkout's updates belong to /home/runner/.hermes)...
+hermes: source-update completion failed: dependency environment is missing or outside this install: /home/runner/work/_temp/hermes-template/installs/096885f0e90d3dd1/environments/a8d30586fd894e39bd757a2d2e6c78f0/venv; running with the previous dependencies — run `hermes update` to finish it
+hermes: repairing the recorded dependency environment...
+Using CPython 3.14.7 interpreter at: /home/runner/.hermes/tools/python-3.14.7+20260901-linux-x64/bin/python3
+Creating virtual environment at: venv
+Activate with: venv/bin/activate
+hermes: dependency repair failed: venv: recorded dependency lock is missing; refusing to drop plugins — retry, or run `hermes pm doctor`; run `hermes pm repair`
+hermes: dependency environment is missing or outside this install: /home/runner/work/_temp/hermes-template/installs/096885f0e90d3dd1/environments/a8d30586fd894e39bd757a2d2e6c78f0/venv; run `hermes pm repair`

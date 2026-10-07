@@ -1,0 +1,10 @@
+                        Installed Skills                         
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━━━┓
+┃ Name                    ┃ Category ┃ Source ┃ Trust ┃ Status  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━━━┩
+│ skills-tree-code-review │          │ local  │ local │ enabled │
+│ skills-tree-rag         │          │ local  │ local │ enabled │
+│ skills-tree-web-search  │          │ local  │ local │ enabled │
+└─────────────────────────┴──────────┴────────┴───────┴─────────┘
+0 hub-installed, 0 builtin, 3 local — 3 enabled, 0 disabled
+

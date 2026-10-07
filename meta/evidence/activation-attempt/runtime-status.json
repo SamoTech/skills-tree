@@ -1,0 +1,16 @@
+{
+  "workflow_sha": "7ccd30ebcd9f49c61a011bb6c028dd1dc2c8a41c",
+  "status": "NO_OBSERVATIONS",
+  "metrics": {
+    "cases": 4,
+    "observed_cases": 0,
+    "complete_cases": 0,
+    "partial_cases": 0,
+    "required_runs": 12,
+    "runs": 0,
+    "expected_activation_rate": null,
+    "false_activation_rate": null,
+    "invocation_evidence_rate": null,
+    "max_activation_variance": null
+  }
+}

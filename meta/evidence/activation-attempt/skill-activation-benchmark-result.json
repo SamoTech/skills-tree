@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "benchmark/skill-activation-v1",
+  "benchmark_version": "1.0",
+  "status": "NO_OBSERVATIONS",
+  "dataset_sha256": "81d27ef13bca6c361367ba3670b2aef0477ca6c3ed197bc36139d510247727ec",
+  "observation_sha256": "8a30b0584d53a31bea40eb52c4bff114048a52690bea430841ae424426d7b2b0",
+  "metrics": {
+    "cases": 4,
+    "observed_cases": 0,
+    "complete_cases": 0,
+    "partial_cases": 0,
+    "required_runs": 12,
+    "runs": 0,
+    "expected_activation_rate": null,
+    "false_activation_rate": null,
+    "invocation_evidence_rate": null,
+    "max_activation_variance": null
+  },
+  "cases_detail": [
+    {
+      "id": "ACT-001",
+      "observed_runs": 0,
+      "required_repetitions": 3,
+      "completion_status": "NO_OBSERVATIONS",
+      "expected_skill": "03-memory/rag",
+      "activation_hits": 0,
+      "invocation_evidence_hits": 0,
+      "false_activation_hits": 0,
+      "activation_rate": null,
+      "invocation_evidence_rate": null,
+      "activation_variance": null,
+      "status": "NO_OBSERVATIONS"
+    },
+    {
+      "id": "ACT-002",
+      "observed_runs": 0,
+      "required_repetitions": 3,
+      "completion_status": "NO_OBSERVATIONS",
+      "expected_skill": "05-code/code-review",
+      "activation_hits": 0,
+      "invocation_evidence_hits": 0,
+      "false_activation_hits": 0,
+      "activation_rate": null,
+      "invocation_evidence_rate": null,
+      "activation_variance": null,
+      "status": "NO_OBSERVATIONS"
+    },
+    {
+      "id": "ACT-003",
+      "observed_runs": 0,
+      "required_repetitions": 3,
+      "completion_status": "NO_OBSERVATIONS",
+      "expected_skill": "11-web/web-search",
+      "activation_hits": 0,
+      "invocation_evidence_hits": 0,
+      "false_activation_hits": 0,
+      "activation_rate": null,
+      "invocation_evidence_rate": null,
+      "activation_variance": null,
+      "status": "NO_OBSERVATIONS"
+    },
+    {
+      "id": "ACT-004",
+      "observed_runs": 0,
+      "required_repetitions": 3,
+      "completion_status": "NO_OBSERVATIONS",
+      "expected_skill": "05-code/code-review",
+      "activation_hits": 0,
+      "invocation_evidence_hits": 0,
+      "false_activation_hits": 0,
+      "activation_rate": null,
+      "invocation_evidence_rate": null,
+      "activation_variance": null,
+      "status": "NO_OBSERVATIONS"
+    }
+  ],
+  "interpretation": "Measures observed routing/activation and explicit invocation evidence from runtime traces. It does not infer activation from prompt text, simulate model behavior, or claim general agent success. NO_OBSERVATIONS and PARTIAL are not complete empirical corpora; COMPLETE requires every dataset case to meet its declared repetitions contract."
+}
