@@ -1,21 +1,20 @@
 {
   "generated_at": "2026-10-07T09:18:21.783720+00:00",
-  "node_count": 382,
-  "edge_count": 250,
-  "requires_count": 9,
+  "node_count": 381,
+  "edge_count": 249,
+  "requires_count": 8,
   "nodes_by_level": {
     "basic": 37,
     "intermediate": 162,
     "advanced": 183
   },
   "nodes_by_layer": {
-    "systems": 229,
+    "systems": 228,
     "perception": 36,
     "reasoning": 66,
     "execution": 51
   },
   "nodes_by_category": {
-    "00-sandbox": 1,
     "01-perception": 36,
     "02-reasoning": 46,
     "03-memory": 20,
