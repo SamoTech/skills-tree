@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from tools.build_search_index import build_index as build_search_index
+from tools.export_skills import build_index as build_export_index
 from tools.skill_corpus import (
     is_public_category,
     is_public_skill_path,
@@ -30,3 +32,16 @@ def test_public_skill_path_boundary_is_explicit():
     assert is_public_skill_path(
         root / "05-code/code-review.md", root
     )
+
+
+def test_export_projection_excludes_sandbox_fixture():
+    entries = build_export_index()
+    paths = {entry["path"] for entry in entries}
+    assert "skills/00-sandbox/pipeline-test.md" not in paths
+
+
+def test_search_projection_excludes_sandbox_fixture():
+    entries = build_search_index(Path("skills"))
+    ids = {entry["id"] for entry in entries}
+    assert "00-sandbox/pipeline-test" not in ids
+    assert "05-code/code-review" in ids
