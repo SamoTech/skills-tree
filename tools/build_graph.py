@@ -371,7 +371,7 @@ def main():
         if not cat_dir.is_dir():
             continue
         category = cat_dir.name
-        if not re.match(r"^[0-9]{2}-", category):
+        if not re.match(r"^[0-9]{2}-", category) or not is_public_category(category):
             continue
 
         for md_file in sorted(cat_dir.glob("*.md")):
@@ -388,7 +388,7 @@ def main():
         if not cat_dir.is_dir():
             continue
         category = cat_dir.name
-        if not re.match(r"^[0-9]{2}-", category):
+        if not re.match(r"^[0-9]{2}-", category) or not is_public_category(category):
             continue
         for md_file in sorted(cat_dir.glob("*.md")):
             if md_file.name == "README.md":
