@@ -9,6 +9,9 @@ on:
       - 'benchmarks/retrieval/cli-search-v1.json'
       - 'tools/run_retrieval_benchmark.py'
       - 'registry/universal_registry.json'
+      - 'skills/**/*.md'
+      - 'tools/build_search_index.py'
+      - 'tools/skill_corpus.py'
   workflow_dispatch:
 
 permissions:
@@ -32,11 +35,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e .
 
+      - name: Build branch search projection
+        run: |
+          python tools/build_search_index.py \
+            --skills-root skills/ \
+            --output /tmp/search-index.json \
+            --package-output /tmp/search-index-package.json
+
       - name: Run retrieval benchmark
         run: |
           python tools/run_retrieval_benchmark.py \
             --dataset benchmarks/retrieval/cli-search-v1.json \
-            --index data/search-index.json \
+            --index /tmp/search-index.json \
             --output retrieval-benchmark-result.json
 
       - name: Upload reproducible result artifact
