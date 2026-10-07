@@ -1,5 +1,19 @@
 # Skills Tree — Live Repository State
 
+## Current Live Reconciliation — 2026-10-07
+
+This block supersedes stale active-state wording elsewhere in this historical snapshot.
+
+- Quality/test corpus: 382 files, including one intentional `00-sandbox` fixture; public production corpus: 381 Skills across 17 categories.
+- Agent Skills reconciliation: 382 canonical, 264 eligible, 118 blocked, 302 existing packages; no projection drift or unexpected packages.
+- Graph projections: 382 nodes / 250 edges and internally synchronized; public-boundary remediation will reduce public projections to 381.
+- Retrieval evidence gap (#336) is resolved and bounded to its reproducible benchmark.
+- Activation evidence (#357) remains the material empirical gap: the contract and trace-integrity gates are verified, but 12 real independent runtime observations are still required.
+- PR #383 trace-integrity hardening and PR #388 manual capture support are merged; neither is runtime activation evidence.
+- Current remediation covers documentation synchronization, the 381-skill public projection boundary, and benchmark triggers for canonical Skill changes.
+- No Skill definitions or routing logic are changed by this remediation.
+
+
 > Maintained as a point-in-time operational snapshot. This file records verified state used for engineering and governance decisions.
 
 ## Verified snapshot
