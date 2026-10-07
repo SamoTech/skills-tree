@@ -128,22 +128,6 @@ jobs:
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
-      - name: Validate observation corpus against schema
-        run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          from jsonschema import Draft202012Validator
-
-          obs = json.loads((Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json").read_text())
-          schema = json.loads(Path("meta/skill-activation-observation.schema.json").read_text())
-          errors = list(Draft202012Validator(schema).iter_errors(obs))
-          if errors:
-              print(errors[0].message)
-              raise SystemExit(1)
-          print("PASS: observation corpus matches schema.")
-          PY
-
       - name: Run 12 independent fresh-session observations
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
@@ -259,6 +243,23 @@ jobs:
           )
           print(out.read_text())
           PY
+
+      - name: Validate observation corpus against schema
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          obs = json.loads((Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json").read_text())
+          schema = json.loads(Path("meta/skill-activation-observation.schema.json").read_text())
+          errors = list(Draft202012Validator(schema).iter_errors(obs))
+          if errors:
+              print(errors[0].message)
+              raise SystemExit(1)
+          print("PASS: observation corpus matches schema.")
+          PY
+
 
       - name: Run activation benchmark
         id: benchmark
