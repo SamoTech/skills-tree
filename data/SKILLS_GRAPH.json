@@ -3,29 +3,12 @@
     "generated_at": "2026-10-07T09:18:21.783720+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 382,
-    "edge_count": 250,
-    "requires_count": 9,
+    "node_count": 381,
+    "edge_count": 249,
+    "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
   "nodes": [
-    {
-      "id": "00-sandbox/pipeline-test",
-      "title": "Pipeline Test Fixture",
-      "category": "00-sandbox",
-      "layer": "systems",
-      "level": "basic",
-      "stability": "experimental",
-      "version": "v1",
-      "added": "2026-06-22",
-      "tags": [],
-      "prerequisites": [
-        "02-reasoning/chain-of-thought"
-      ],
-      "related_skills": [],
-      "source_file": "skills/00-sandbox/pipeline-test.md",
-      "quality_score": null
-    },
     {
       "id": "01-perception/api-response-parsing",
       "title": "API Response Parsing",
@@ -3487,7 +3470,7 @@
     },
     {
       "id": "09-agentic-patterns/rag",
-      "title": "RAG \u2014 Retrieval-Augmented Generation",
+      "title": "RAG — Retrieval-Augmented Generation",
       "category": "09-agentic-patterns",
       "layer": "systems",
       "level": "intermediate",
@@ -7683,15 +7666,6 @@
       "evidence": "[Subagent Delegation](../09-agentic-patterns/subagent-delegation.md)",
       "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
       "confidence": "high"
-    },
-    {
-      "source": "00-sandbox/pipeline-test",
-      "target": "02-reasoning/chain-of-thought",
-      "type": "REQUIRES",
-      "evidence": "prerequisites: 02-reasoning/chain-of-thought",
-      "source_file": "skills/00-sandbox/pipeline-test.md",
-      "confidence": "high",
-      "source_method": "frontmatter_prerequisite"
     },
     {
       "source": "02-reasoning/planning-decomposition",
