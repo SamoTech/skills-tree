@@ -16,6 +16,7 @@ def write_observations(path: Path) -> None:
             {
                 "run_id": "fixture-1",
                 "case_id": "ACT-001",
+                "trace_id": "trace-1",
                 "events": [
                     {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
                     {"kind": "skill_execution", "skill_id": "03-memory/rag", "status": "ok"}
@@ -24,6 +25,7 @@ def write_observations(path: Path) -> None:
             {
                 "run_id": "fixture-2",
                 "case_id": "ACT-001",
+                "trace_id": "trace-2",
                 "events": [
                     {"kind": "skill_selection", "skill_id": "05-code/code-review", "status": "selected"}
                 ]
@@ -92,6 +94,7 @@ def test_complete_activation_corpus_is_distinguished(tmp_path, monkeypatch):
             runs.append({
                 "run_id": f"complete-{run_number}",
                 "case_id": case["id"],
+                "trace_id": f"complete-trace-{run_number}",
                 "events": [
                     {"kind": "skill_selection", "skill_id": case["expected_skill"], "status": "selected"},
                     {"kind": "skill_execution", "skill_id": case["expected_skill"], "status": "ok"},
@@ -135,6 +138,7 @@ def test_unknown_case_id_fails_closed(tmp_path, monkeypatch):
         [{
             "run_id": "run-unknown",
             "case_id": "ACT-999",
+            "trace_id": "trace-unknown",
             "events": [
                 {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
             ],
@@ -161,6 +165,7 @@ def test_duplicate_run_id_fails_closed(tmp_path, monkeypatch):
     duplicate = {
         "run_id": "run-duplicate",
         "case_id": "ACT-001",
+        "trace_id": "trace-duplicate",
         "events": [
             {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
         ],
@@ -189,6 +194,7 @@ def test_case_status_matches_completion_status_for_partial_case(tmp_path, monkey
         [{
             "run_id": "run-partial",
             "case_id": "ACT-001",
+            "trace_id": "trace-partial",
             "events": [
                 {"kind": "skill_selection", "skill_id": "03-memory/rag", "status": "selected"},
             ],
@@ -210,3 +216,27 @@ def test_case_status_matches_completion_status_for_partial_case(tmp_path, monkey
     row = next(row for row in result["cases_detail"] if row["id"] == "ACT-001")
     assert row["completion_status"] == "PARTIAL"
     assert row["status"] == "PARTIAL"
+
+
+def test_duplicate_trace_id_fails_closed(tmp_path, monkeypatch):
+    observations = tmp_path / "observations.json"
+    write_custom_observations(
+        observations,
+        [
+            {"run_id": "run-1", "case_id": "ACT-001", "trace_id": "same-trace", "events": []},
+            {"run_id": "run-2", "case_id": "ACT-001", "trace_id": "same-trace", "events": []},
+        ],
+    )
+    output = tmp_path / "result.json"
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_skill_activation_benchmark.py",
+            "--dataset", str(ROOT / "benchmarks/activation/skill-activation-v1.json"),
+            "--observations", str(observations),
+            "--output", str(output),
+        ],
+    )
+    with pytest.raises(ValueError, match="duplicate observation trace_id"):
+        main()
+    assert not output.exists()
