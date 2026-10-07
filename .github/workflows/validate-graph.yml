@@ -260,9 +260,9 @@ jobs:
         with:
           python-version: '3.11'
 
-      # The workflow run was triggered by a specific push SHA. Another
-      # serialized main writer may have completed before this writer starts,
-      # so generated projections must always be based on the live main tip.
+      # Protected main is a PR-only boundary. Generate from the live main tip
+      # and publish the deterministic projection to a dedicated automation
+      # branch; never attempt a direct main push.
       - name: Synchronize with latest main
         run: |
           git fetch origin main
@@ -287,15 +287,24 @@ jobs:
             echo "Generated graph projections changed."
           fi
 
-      - name: Commit updated graph artifacts
+      - name: Publish generated graph branch
         if: steps.graph-diff.outputs.changed == 'true'
+        env:
+          GENERATED_BRANCH: automation/generated-graph
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md
           git diff --cached --quiet && echo "No generated graph projection changes." && exit 0
-          git commit -m "chore(graph): auto-update generated graph projections [skip ci]"
-          git push origin HEAD:main
+          git commit -m "chore(graph): refresh generated graph projections"
+          git fetch origin "$GENERATED_BRANCH" || true
+          git push --force-with-lease origin HEAD:"$GENERATED_BRANCH"
+          {
+            echo "### Generated graph projection"
+            echo ""
+            echo "Generated projections were published to `$GENERATED_BRANCH` because `main` is protected."
+            echo "Open a normal pull request from that branch to `main`; required PR checks remain authoritative."
+          } >> "$GITHUB_STEP_SUMMARY"
 
   quality-report:
     name: Skill Quality Score
@@ -303,7 +312,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [build-and-validate, generate-main-graph]
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -313,9 +322,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      # generate-main-graph may have advanced main after this workflow's
-      # triggering SHA. Rebase the quality projection onto the live tip before
-      # calculating or committing generated state.
       - name: Synchronize with latest main
         run: |
           git fetch origin main
@@ -324,9 +330,7 @@ jobs:
       - name: Generate quality index
         run: python tools/quality_score.py
 
-      - name: Commit quality index
-        uses: EndBug/add-and-commit@v9
-        with:
-          add: 'meta/SKILL_QUALITY_INDEX.md'
-          message: 'chore(quality): auto-update skill quality index [skip ci]'
-          default_author: github_actions
+      - name: Verify quality projection generation
+        run: |
+          test -f meta/SKILL_QUALITY_INDEX.md
+          echo "Quality projection generated successfully; protected main remains read-only."
