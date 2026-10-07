@@ -11,7 +11,6 @@ on:
 
 permissions:
   contents: read
-  copilot-requests: write
 
 jobs:
   activation-evidence:
