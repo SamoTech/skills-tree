@@ -109,7 +109,7 @@ def review_diff(diff_text: str, acceptance: list[str] | None = None) -> dict:
 if __name__ == "__main__":
     sample = (
         "+++ b/app.py\n+"
-        + "hardcoded_" + "token = " + '"placeholder-not-a-real-secret"'
+        + "hardcoded_" + "token" + " = " + '"placeholder-not-a-real-secret"'
         + "\n+def refund(amount): return True\n"
     )
     out = review_diff(sample, acceptance=["refunds must be tested"])
