@@ -43,7 +43,7 @@ The final repository audit verified the current main control plane and canonical
 - The quality corpus contains 382 files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
 - Agent Skills reconciliation verifies 264 eligible canonical projections, 118 blocked entries, and 302 existing packages.
 - Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
-- Remaining material evidence gaps are Issue #357 (real runtime activation traces) and Issue #336 (retrieval evidence freshness/reproducibility).
+- Remaining material evidence gap is Issue #357 (real runtime activation traces). Issue #336 retrieval evidence freshness/reproducibility is resolved by the version-matched deterministic benchmark and explicit historical qualification.
 
 This current block governs execution selection. Older dated roadmap entries remain historical records.
 
