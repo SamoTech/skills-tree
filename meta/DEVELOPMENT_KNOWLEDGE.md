@@ -653,5 +653,5 @@ Current verified control baseline:
 
 Current evidence boundary:
 - Issue #357 remains open for real agent-runtime activation traces. No empirical activation/reliability claim is valid without those traces.
-- Issue #336 remains open for retrieval evidence freshness/reproducibility. The historical `benchmarks/memory/retrieval-accuracy.md` result table is not current evidence.
+- Issue #336 is resolved for the identified freshness/reproducibility gap. The historical `benchmarks/memory/retrieval-accuracy.md` result table remains explicitly non-current; current bounded retrieval evidence is supplied by the version-matched 12-case deterministic benchmark artifact.
 - No new skill, search engine, routing authority, or competing projection generator is justified by the current evidence.
