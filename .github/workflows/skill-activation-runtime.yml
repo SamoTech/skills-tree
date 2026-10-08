@@ -38,7 +38,7 @@ jobs:
           cat > "$HOME/.local/bin/hermes" <<EOF
           #!/usr/bin/env bash
           export HERMES_DISABLE_LAZY_INSTALLS=1
-exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
+          exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
           EOF
           chmod +x "$HOME/.local/bin/hermes"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
