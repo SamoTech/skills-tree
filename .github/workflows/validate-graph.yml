@@ -346,16 +346,3 @@ This automation branch exists because main is protected. Merge only through the 
         run: |
           test -f meta/SKILL_QUALITY_INDEX.md
           echo "Quality projection generated successfully; protected main remains read-only."
-; then
-            gh pr create               --base main               --head "$GENERATED_BRANCH"               --title "chore(graph): refresh generated graph projections"               --body "Refresh generated graph projections from the canonical skill source.
-
-This automation branch exists because main is protected. Merge only through the normal PR checks."
-          else
-            echo "Open automation PR already exists for $GENERATED_BRANCH."
-          fi
-
-          {
-            echo "### Generated graph projection"
-            echo ""
-            echo "Generated projections were published to `$GENERATED_BRANCH` and are gated by the normal PR checks."
-          } >> "$GITHUB_STEP_SUMMARY"
