@@ -182,6 +182,8 @@ jobs:
               session_home = trace_root / f"{trace_id}-hermes-home"
               shutil.rmtree(session_home, ignore_errors=True)
               shutil.copytree(base_home, session_home)
+              for dirname in ("sessions", "memories"):
+                  shutil.rmtree(session_home / dirname, ignore_errors=True)
 
               env = os.environ.copy()
               env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
