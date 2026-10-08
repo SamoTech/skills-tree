@@ -35,7 +35,7 @@ jobs:
           uv venv "$HERMES_HOME/venv" --python 3.11
           uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]" httpx ruamel.yaml python-dotenv rich
           mkdir -p "$HOME/.local/bin"
-          cat > "$HOME/.local/bin/hermes" <<EOF
+          cat > "$HOME/.local/bin/hermes" <<'EOF'
           #!/usr/bin/env bash
           export HERMES_DISABLE_LAZY_INSTALLS=1
           exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
