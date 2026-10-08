@@ -38,8 +38,9 @@ jobs:
           cat > "$HOME/.local/bin/hermes" <<'EOF'
           #!/usr/bin/env bash
           export HERMES_DISABLE_LAZY_INSTALLS=1
-          exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
+          exec "${HERMES_RUNTIME_HOME:?HERMES_RUNTIME_HOME must be set}/venv/bin/python" -m hermes_cli.main "$@"
           EOF
+          echo "HERMES_RUNTIME_HOME=$HERMES_HOME" >> "$GITHUB_ENV"
           chmod +x "$HOME/.local/bin/hermes"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           echo "HERMES_DISABLE_LAZY_INSTALLS=1" >> "$GITHUB_ENV"
@@ -181,13 +182,20 @@ jobs:
 
               session_home = trace_root / f"{trace_id}-hermes-home"
               shutil.rmtree(session_home, ignore_errors=True)
-              shutil.copytree(base_home, session_home)
-              for dirname in ("sessions", "memories"):
-                  shutil.rmtree(session_home / dirname, ignore_errors=True)
+              session_home.mkdir(parents=True, exist_ok=True)
+
+              # Keep the installed runtime and static benchmark assets shared.
+              # Only Hermes HOME state is isolated per observation. Copy only the
+              # non-secret config so enabled plugins and runtime settings remain
+              # identical; do not copy .env, auth, databases, sessions, or logs.
+              (session_home / "config.yaml").write_bytes((base_home / "config.yaml").read_bytes())
+              for dirname in ("plugins", "skills"):
+                  (session_home / dirname).symlink_to(base_home / dirname, target_is_directory=True)
 
               env = os.environ.copy()
               env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
               env["HERMES_HOME"] = str(session_home)
+              env["HERMES_RUNTIME_HOME"] = str(base_home)
 
               print(f"=== START {trace_id} ===", flush=True)
               try:
@@ -331,7 +339,8 @@ jobs:
         with:
           name: skill-activation-evidence-${{ github.sha }}
           path: |
-            ${{ runner.temp }}/activation-traces/
+            ${{ runner.temp }}/activation-traces/*.jsonl
+            ${{ runner.temp }}/activation-traces/*.log
             ${{ runner.temp }}/skill-activation-observations.json
             ${{ runner.temp }}/skill-activation-benchmark-result.json
             ${{ runner.temp }}/hermes-skills.txt
