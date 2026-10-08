@@ -339,7 +339,8 @@ jobs:
         with:
           name: skill-activation-evidence-${{ github.sha }}
           path: |
-            ${{ runner.temp }}/activation-traces/
+            ${{ runner.temp }}/activation-traces/*.jsonl
+            ${{ runner.temp }}/activation-traces/*.log
             ${{ runner.temp }}/skill-activation-observations.json
             ${{ runner.temp }}/skill-activation-benchmark-result.json
             ${{ runner.temp }}/hermes-skills.txt
