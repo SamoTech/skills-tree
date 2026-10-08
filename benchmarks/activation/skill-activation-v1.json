@@ -6,7 +6,7 @@
   "cases": [
     {
       "id": "ACT-001",
-      "prompt": "I need to retrieve factual knowledge from my local knowledge base about this project and cite the relevant source.",
+      "prompt": "Use the appropriate installed skill to retrieve factual knowledge from my local knowledge base about this project and cite the relevant source.",
       "expected_skill": "03-memory/rag",
       "must_not_activate": ["05-code/code-review", "11-web/web-search"],
       "collision_group": null,
@@ -14,7 +14,7 @@
     },
     {
       "id": "ACT-002",
-      "prompt": "Review this Python function for correctness and maintainability: def add(a, b): return a + b",
+      "prompt": "Use the appropriate installed skill to review this Python function for correctness and maintainability: def add(a, b): return a + b",
       "expected_skill": "05-code/code-review",
       "must_not_activate": ["03-memory/rag", "11-web/web-search"],
       "collision_group": null,
@@ -22,7 +22,7 @@
     },
     {
       "id": "ACT-003",
-      "prompt": "Find the current stable Node.js release on the web and cite the sources.",
+      "prompt": "Use the appropriate installed skill to find the current stable Node.js release on the web and cite the sources.",
       "expected_skill": "11-web/web-search",
       "must_not_activate": ["03-memory/rag", "05-code/code-review"],
       "collision_group": "retrieval-choice",
@@ -30,7 +30,7 @@
     },
     {
       "id": "ACT-004",
-      "prompt": "Explain how I should review this Python function for correctness and maintainability without reviewing or modifying it: def add(a, b): return a + b",
+      "prompt": "Use the appropriate installed skill to explain how I should review this Python function for correctness and maintainability, without reviewing or modifying the function itself: def add(a, b): return a + b",
       "expected_skill": "05-code/code-review",
       "must_not_activate": ["11-web/web-search", "03-memory/rag"],
       "collision_group": "code-review-boundary",
