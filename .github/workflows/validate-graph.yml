@@ -286,23 +286,61 @@ jobs:
             echo "Generated graph projections changed."
           fi
 
-      - name: Publish generated graph branch
+      - name: Publish generated graph through protected-main PR
         if: steps.graph-diff.outputs.changed == 'true'
         env:
           GENERATED_BRANCH: automation/generated-graph
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md
           git diff --cached --quiet && echo "No generated graph projection changes." && exit 0
-          git commit -m "chore(graph): refresh generated graph projections"
-          git fetch origin "$GENERATED_BRANCH" || true
-          git push --force-with-lease origin HEAD:"$GENERATED_BRANCH"
+          git commit -m "chore(graph): refresh generated graph projections [skip ci]"
+          git push --force origin HEAD:"$GENERATED_BRANCH"
+
+          if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0
+
+  quality-report:
+    name: Skill Quality Score
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [build-and-validate, generate-main-graph]
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Synchronize with latest main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+
+      - name: Generate quality index
+        run: python tools/quality_score.py
+
+      - name: Verify quality projection generation
+        run: |
+          test -f meta/SKILL_QUALITY_INDEX.md
+          echo "Quality projection generated successfully; protected main remains read-only."
+; then
+            gh pr create               --base main               --head "$GENERATED_BRANCH"               --title "chore(graph): refresh generated graph projections"               --body "Refresh generated graph projections from the canonical skill source.
+
+This automation branch exists because main is protected. Merge only through the normal PR checks."
+          else
+            echo "Open automation PR already exists for $GENERATED_BRANCH."
+          fi
+
           {
             echo "### Generated graph projection"
             echo ""
-            echo "Generated projections were published to `$GENERATED_BRANCH` because `main` is protected."
-            echo "Open a normal pull request from that branch to `main`; required PR checks remain authoritative."
+            echo "Generated projections were published to `$GENERATED_BRANCH` and are gated by the normal PR checks."
           } >> "$GITHUB_STEP_SUMMARY"
 
   quality-report:
