@@ -157,55 +157,77 @@ jobs:
 
           python - <<'PY'
           import json
-          from pathlib import Path
-          cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
-          out = Path(__import__("os").environ["RUNNER_TEMP"]) / "activation-cases.json"
-          out.write_text(json.dumps(cases, indent=2) + chr(10))
-          PY
-
-          python - <<'PY'
-          import json
           import os
           import shutil
           import subprocess
+          from concurrent.futures import ThreadPoolExecutor, as_completed
           from pathlib import Path
 
           cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
           trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
-          hermes_home = Path(os.environ["HERMES_HOME"])
+          base_home = Path(os.environ["HERMES_HOME"])
+          model = os.environ["HERMES_LOCAL_MODEL"]
 
+          runs = []
           for case in cases:
               for repetition in range(1, int(case["repetitions"]) + 1):
-                  trace_id = f'{case["id"]}-r{repetition}'
-                  trace_path = trace_root / f"{trace_id}.jsonl"
-                  trace_path.unlink(missing_ok=True)
+                  runs.append((case, repetition))
 
-                  for dirname in ("sessions", "memories"):
-                      shutil.rmtree(hermes_home / dirname, ignore_errors=True)
+          def run_observation(item):
+              case, repetition = item
+              trace_id = f'{case["id"]}-r{repetition}'
+              trace_path = trace_root / f"{trace_id}.jsonl"
+              trace_path.unlink(missing_ok=True)
 
-                  env = os.environ.copy()
-                  env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
-                  env["HERMES_HOME"] = str(hermes_home)
+              session_home = trace_root / f"{trace_id}-hermes-home"
+              shutil.rmtree(session_home, ignore_errors=True)
+              shutil.copytree(base_home, session_home)
+              for dirname in ("sessions", "memories"):
+                  shutil.rmtree(session_home / dirname, ignore_errors=True)
 
-                  print(f"=== {trace_id} ===")
-                  try:
-                      proc = subprocess.run(
-                          ["hermes", "chat", "-q", case["prompt"], "--provider", "custom", "--model", os.environ["HERMES_LOCAL_MODEL"]],
-                          env=env,
-                          text=True,
-                          stdout=subprocess.PIPE,
-                          stderr=subprocess.STDOUT,
-                          timeout=300,
-                      )
-                      (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
-                      print(proc.stdout[-4000:])
-                      print(f"exit_code={proc.returncode}")
-                  except Exception as exc:
-                      (trace_root / f"{trace_id}.log").write_text(f"runner exception: {exc}" + chr(10), encoding="utf-8")
-                      print(f"runner exception: {exc}")
+              env = os.environ.copy()
+              env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
+              env["HERMES_HOME"] = str(session_home)
+
+              print(f"=== START {trace_id} ===", flush=True)
+              try:
+                  proc = subprocess.run(
+                      ["hermes", "chat", "-q", case["prompt"], "--provider", "custom", "--model", model],
+                      env=env,
+                      text=True,
+                      stdout=subprocess.PIPE,
+                      stderr=subprocess.STDOUT,
+                      timeout=300,
+                  )
+                  (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
+                  print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
+                  return trace_id, proc.returncode
+              except subprocess.TimeoutExpired as exc:
+                  output = exc.stdout or ""
+                  if isinstance(output, bytes):
+                      output = output.decode("utf-8", errors="replace")
+                  (trace_root / f"{trace_id}.log").write_text(
+                      output + "\nrunner exception: timeout after 300s\n",
+                      encoding="utf-8",
+                  )
+                  print(f"=== TIMEOUT {trace_id} after 300s ===", flush=True)
+                  return trace_id, 124
+              except Exception as exc:
+                  (trace_root / f"{trace_id}.log").write_text(
+                      f"runner exception: {exc}\n",
+                      encoding="utf-8",
+                  )
+                  print(f"=== ERROR {trace_id}: {exc} ===", flush=True)
+                  return trace_id, 125
+
+          max_workers = 3
+          with ThreadPoolExecutor(max_workers=max_workers) as pool:
+              futures = [pool.submit(run_observation, item) for item in runs]
+              for future in as_completed(futures):
+                  trace_id, rc = future.result()
+                  print(f"completed {trace_id} rc={rc}", flush=True)
 
           PY
-
       - name: Convert explicit runtime traces to benchmark observations
         run: |
           python - <<'PY'
