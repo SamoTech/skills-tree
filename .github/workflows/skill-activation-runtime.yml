@@ -17,7 +17,7 @@ jobs:
   activation-evidence:
     name: Collect 12 Real Skill Activation Observations
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
       - name: Checkout
@@ -53,9 +53,9 @@ jobs:
             curl -fsS http://127.0.0.1:11434/api/tags >/dev/null && break
             sleep 2
           done
-          MODEL="qwen3.5:4b"
+          MODEL="qwen3:8b"
           if ! ollama pull "$MODEL"; then
-            MODEL="qwen3:4b"
+            MODEL="qwen3.5:9b"
             ollama pull "$MODEL"
           fi
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
@@ -72,8 +72,12 @@ jobs:
           kind: standalone
           version: 1.0.0
           description: Capture explicit Skills Tree activation lifecycle evidence for benchmark runs.
+          provides_hooks:
+            - post_tool_call
+            - on_skill_lifecycle
           YAML
           HERMES_HOME="$HERMES_HOME" hermes plugins enable skills-tree-activation-observer
+          HERMES_HOME="$HERMES_HOME" hermes plugins doctor "$HERMES_HOME/plugins/skills-tree-activation-observer" --ci
 
       - name: Install the three benchmark Skills into Hermes
         env:
@@ -192,7 +196,7 @@ jobs:
                           text=True,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.STDOUT,
-                          timeout=180,
+                          timeout=300,
                       )
                       (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                       print(proc.stdout[-4000:])
