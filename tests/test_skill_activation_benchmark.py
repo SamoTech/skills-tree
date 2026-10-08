@@ -48,7 +48,7 @@ def test_activation_benchmark_requires_explicit_observations(tmp_path, monkeypat
         ],
     )
 
-    assert main() == 0
+    assert main() == 2
     result = json.loads(output.read_text(encoding="utf-8"))
     assert result["status"] == "PARTIAL"
     assert result["metrics"]["expected_activation_rate"] == 0.5
@@ -211,7 +211,7 @@ def test_case_status_matches_completion_status_for_partial_case(tmp_path, monkey
         ],
     )
 
-    assert main() == 0
+    assert main() == 2
     result = json.loads(output.read_text(encoding="utf-8"))
     row = next(row for row in result["cases_detail"] if row["id"] == "ACT-001")
     assert row["completion_status"] == "PARTIAL"
