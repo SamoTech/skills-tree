@@ -33,7 +33,7 @@ jobs:
           export PATH="$HOME/.local/bin:$PATH"
           git clone --depth 1 https://github.com/NousResearch/hermes-agent.git "$HERMES_HOME/hermes-agent"
           uv venv "$HERMES_HOME/venv" --python 3.11
-          uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]" httpx
+          uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]" httpx ruamel.yaml
           mkdir -p "$HOME/.local/bin"
           cat > "$HOME/.local/bin/hermes" <<EOF
           #!/usr/bin/env bash
