@@ -167,7 +167,7 @@ def main() -> int:
     }
     Path(args.output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
-    if not observed_cases:
+    if overall_status != "COMPLETE":
         return 2
     return 0
 
