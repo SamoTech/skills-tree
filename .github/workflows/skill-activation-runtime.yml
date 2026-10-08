@@ -32,7 +32,7 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
           export PATH="$HOME/.local/bin:$PATH"
           git clone --depth 1 https://github.com/NousResearch/hermes-agent.git "$HERMES_HOME/hermes-agent"
-          uv venv "$HERMES_HOME/venv" --python 3.11
+          uv venv "$HERMES_HOME/venv" --python 3.14
           uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]" httpx ruamel.yaml python-dotenv rich
           mkdir -p "$HOME/.local/bin"
           cat > "$HOME/.local/bin/hermes" <<'EOF'
@@ -275,7 +275,6 @@ jobs:
               raise SystemExit(1)
           print("PASS: observation corpus matches schema.")
           PY
-
 
       - name: Run activation benchmark
         id: benchmark
