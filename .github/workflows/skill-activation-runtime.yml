@@ -33,14 +33,16 @@ jobs:
           export PATH="$HOME/.local/bin:$PATH"
           git clone --depth 1 https://github.com/NousResearch/hermes-agent.git "$HERMES_HOME/hermes-agent"
           uv venv "$HERMES_HOME/venv" --python 3.11
-          uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]"
+          uv pip install --python "$HERMES_HOME/venv/bin/python" -e "$HERMES_HOME/hermes-agent[all]" httpx
           mkdir -p "$HOME/.local/bin"
           cat > "$HOME/.local/bin/hermes" <<EOF
           #!/usr/bin/env bash
-          exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
+          export HERMES_DISABLE_LAZY_INSTALLS=1
+exec "$HERMES_HOME/venv/bin/python" -m hermes_cli.main "$@"
           EOF
           chmod +x "$HOME/.local/bin/hermes"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          echo "HERMES_DISABLE_LAZY_INSTALLS=1" >> "$GITHUB_ENV"
           "$HOME/.local/bin/hermes" --version
 
       - name: Install local Ollama runtime
