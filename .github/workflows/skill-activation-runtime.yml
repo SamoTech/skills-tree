@@ -48,6 +48,8 @@ jobs:
       - name: Install local Ollama runtime
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
+          export OLLAMA_CONTEXT_LENGTH=65536
+          echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
           ollama serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
           for i in $(seq 1 30); do
             curl -fsS http://127.0.0.1:11434/api/tags >/dev/null && break
