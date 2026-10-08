@@ -20,10 +20,10 @@ def _write(event: dict[str, Any]) -> None:
         handle.write(json.dumps(event, sort_keys=True) + "\n")
         handle.flush()
 
-def on_tool_call(tool_name: str, params: Any, result: Any, **kwargs: Any) -> None:
-    if tool_name != "skill_view" or not isinstance(params, dict):
+def on_tool_call(tool_name: str, args: Any, result: Any, **kwargs: Any) -> None:
+    if tool_name != "skill_view" or not isinstance(args, dict):
         return
-    name = params.get("name")
+    name = args.get("name")
     if not name:
         return
     _write({"hook_event_name": "post_tool_call", "tool_name": "skill_view", "args": {"name": str(name)}, "session_id": str(kwargs.get("session_id") or ""), "task_id": str(kwargs.get("task_id") or "")})
