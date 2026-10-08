@@ -300,7 +300,23 @@ jobs:
           git commit -m "chore(graph): refresh generated graph projections [skip ci]"
           git push --force origin HEAD:"$GENERATED_BRANCH"
 
-          if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0
+          if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
+            gh pr create \
+              --base main \
+              --head "$GENERATED_BRANCH" \
+              --title "chore(graph): refresh generated graph projections" \
+              --body "Refresh generated graph projections from the canonical skill source.
+
+This automation branch exists because main is protected. Merge only through the normal PR checks."
+          else
+            echo "Open automation PR already exists for $GENERATED_BRANCH."
+          fi
+
+          {
+            echo "### Generated graph projection"
+            echo
+            echo "Generated projections were published to `$GENERATED_BRANCH` and are gated by the normal PR checks."
+          } >> "$GITHUB_STEP_SUMMARY"
 
   quality-report:
     name: Skill Quality Score
@@ -343,32 +359,3 @@ This automation branch exists because main is protected. Merge only through the 
             echo ""
             echo "Generated projections were published to `$GENERATED_BRANCH` and are gated by the normal PR checks."
           } >> "$GITHUB_STEP_SUMMARY"
-
-  quality-report:
-    name: Skill Quality Score
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: [build-and-validate, generate-main-graph]
-    permissions:
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Synchronize with latest main
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-
-      - name: Generate quality index
-        run: python tools/quality_score.py
-
-      - name: Verify quality projection generation
-        run: |
-          test -f meta/SKILL_QUALITY_INDEX.md
-          echo "Quality projection generated successfully; protected main remains read-only."
