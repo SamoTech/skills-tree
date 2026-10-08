@@ -185,7 +185,10 @@ jobs:
               session_home.mkdir(parents=True, exist_ok=True)
 
               # Keep the installed runtime and static benchmark assets shared.
-              # Only Hermes HOME state is isolated per observation.
+              # Only Hermes HOME state is isolated per observation. Copy only the
+              # non-secret config so enabled plugins and runtime settings remain
+              # identical; do not copy .env, auth, databases, sessions, or logs.
+              (session_home / "config.yaml").write_bytes((base_home / "config.yaml").read_bytes())
               for dirname in ("plugins", "skills"):
                   (session_home / dirname).symlink_to(base_home / dirname, target_is_directory=True)
 
