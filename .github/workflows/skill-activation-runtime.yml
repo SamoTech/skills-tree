@@ -189,16 +189,16 @@ jobs:
           source = runtime_file.read_text(encoding="utf-8")
           anchor = "    try:\n        # Validate before the ':' dispatch"
           guard = (
-              "    try:\\n"
-              "        allowed_benchmark_skills = {\\n"
-              "            \"skills-tree-rag\",\\n"
-              "            \"skills-tree-code-review\",\\n"
-              "            \"skills-tree-web-search\",\\n"
-              "        }\\n"
-              "        if name not in allowed_benchmark_skills:\\n"
-              "            return _fail(\\n"
-              "                f\"Skill '{name}' is outside the activation benchmark allowlist.\"\\n"
-              "            )\\n"
+              "    try:\n"
+              "        allowed_benchmark_skills = {\n"
+              "            \"skills-tree-rag\",\n"
+              "            \"skills-tree-code-review\",\n"
+              "            \"skills-tree-web-search\",\n"
+              "        }\n"
+              "        if name not in allowed_benchmark_skills:\n"
+              "            return _fail(\n"
+              "                f\"Skill '{name}' is outside the activation benchmark allowlist.\"\n"
+              "            )\n"
               "        # Validate before the ':' dispatch"
           )
           if anchor not in source:
