@@ -96,7 +96,7 @@ jobs:
             exit 1
           fi
 
-          MODEL="qwen2.5:7b"
+          MODEL="qwen3.5:4b"
 
           # Ollama's registry can return transient 5xx responses while resolving
           # manifests or finalizing a large layer. Retry the same pull so Ollama
@@ -306,6 +306,34 @@ jobs:
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
+      - name: Warm model and verify allocated context before qualification
+        env:
+          HERMES_LOCAL_MODEL: ${{ env.HERMES_LOCAL_MODEL }}
+        run: |
+          set -euo pipefail
+          # Force-load the exact model with an explicit 64K context before the
+          # slow routing qualification. Fail fast if Ollama cannot allocate it.
+          curl -fsS http://127.0.0.1:11434/api/generate \
+            -H 'Content-Type: application/json' \
+            -d "{\"model\":\"$HERMES_LOCAL_MODEL\",\"prompt\":\"Reply with exactly OK.\",\"stream\":false,\"keep_alive\":\"10m\",\"options\":{\"num_ctx\":65536,\"num_predict\":8}}" \
+            > "$RUNNER_TEMP/ollama-context-preflight.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "ollama-context-preflight.json"
+          data = json.loads(p.read_text(encoding="utf-8"))
+          if data.get("error"):
+              raise SystemExit(f"Ollama model warmup failed: {data['error']}")
+          if not isinstance(data.get("response"), str) or not data["response"].strip():
+              raise SystemExit("Ollama returned no response during context preflight.")
+          print("PASS: exact model completed a warmup request with num_ctx=65536.")
+          PY
+          ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
+          grep -E 'qwen3\\.5:4b.*65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || {
+            echo "FAIL: Ollama did not allocate 65536 context for $HERMES_LOCAL_MODEL before qualification." >&2
+            exit 1
+          }
+
       - name: Qualify Hermes skill routing before the full benchmark
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
@@ -395,8 +423,6 @@ jobs:
 
           print("PASS: all four routing qualification cases passed; starting the 12-observation benchmark.", flush=True)
           PY
-          ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
-          grep -q '65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || { echo "Ollama did not load Qwen2.5 7B at the required 64K runtime context." >&2; exit 1; }
 
       - name: Run 12 independent fresh-session observations
         env:
