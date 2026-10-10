@@ -189,12 +189,7 @@ jobs:
           ln -s "$HERMES_HOME/plugins" "$SMOKE_HOME/plugins"
           ln -s "$HERMES_HOME/skills" "$SMOKE_HOME/skills"
           set +e
-          HERMES_HOME="$SMOKE_HOME" \\
-            HERMES_RUNTIME_HOME="$HERMES_HOME" \\
-            SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" \\
-            timeout --signal=TERM --kill-after=10s 120s \\
-            hermes chat -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" \\
-            > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
+          HERMES_HOME="$SMOKE_HOME" HERMES_RUNTIME_HOME="$HERMES_HOME" SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" timeout --signal=TERM --kill-after=10s 120s hermes chat -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
           rc=$?
           set -e
           cat "$RUNNER_TEMP/hermes-smoke.log"
