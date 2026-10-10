@@ -110,15 +110,15 @@ jobs:
               echo "PASS: ollama pull succeeded on attempt $attempt."
               tail -n 20 "$pull_log"
               break
-            fi
-
-            pull_rc=$?
-            echo "WARN: ollama pull attempt $attempt failed (exit=$pull_rc)." >&2
-            tail -n 40 "$pull_log" >&2 || true
-            if [ "$attempt" -lt 4 ]; then
-              delay=$((attempt * 15))
-              echo "Retrying the same model pull in $delay seconds; completed Ollama blobs are retained."
-              sleep "$delay"
+            else
+              pull_rc=$?
+              echo "WARN: ollama pull attempt $attempt failed (exit=$pull_rc)." >&2
+              tail -n 40 "$pull_log" >&2 || true
+              if [ "$attempt" -lt 4 ]; then
+                delay=$((attempt * 15))
+                echo "Retrying the same model pull in $delay seconds; completed Ollama blobs are retained."
+                sleep "$delay"
+              fi
             fi
           done
 
