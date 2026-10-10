@@ -101,7 +101,10 @@ def main() -> int:
             executed = event_ids(run, "skill_execution")
             expected_hit = case["expected_skill"] in selected
             invocation_hit = case["expected_skill"] in executed
-            false_hit = bool(selected & set(case["must_not_activate"]))
+            # Each case asks for exactly one skill. Treat every additional selected
+            # skill as a false activation, including skills outside the three mapped
+            # benchmark skills; the trace converter preserves those as unmapped/<name>.
+            false_hit = bool(selected - {case["expected_skill"]})
             case_activation.append(expected_hit)
             case_invocation.append(invocation_hit)
             case_false.append(false_hit)

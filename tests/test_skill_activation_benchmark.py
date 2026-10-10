@@ -321,3 +321,21 @@ def test_complete_corpus_with_missing_invocation_evidence_fails_acceptance(tmp_p
     assert result["acceptance"]["status"] == "FAIL"
     assert "invocation evidence rate must be 1.0" in result["acceptance"]["failures"]
     assert exit_code == 2
+
+
+
+def test_unmapped_skill_selection_is_a_false_activation(tmp_path, monkeypatch):
+    runs = complete_observation_runs()
+    # A runtime skill outside the benchmark mapping must not be silently ignored.
+    runs[0]["events"].append({
+        "kind": "skill_selection",
+        "skill_id": "unmapped/hermes-agent-skill-authoring",
+        "status": "selected",
+    })
+
+    exit_code, result = run_benchmark_with_runs(tmp_path, monkeypatch, runs)
+
+    assert result["metrics"]["false_activation_rate"] > 0
+    assert result["acceptance"]["status"] == "FAIL"
+    assert "false activation rate must be 0.0" in result["acceptance"]["failures"]
+    assert exit_code == 2

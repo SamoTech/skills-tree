@@ -344,11 +344,21 @@ jobs:
           from pathlib import Path
 
           trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
+          import re
+
           mapping = {
               "skills-tree-rag": "03-memory/rag",
               "skills-tree-code-review": "05-code/code-review",
               "skills-tree-web-search": "11-web/web-search",
           }
+
+          def observed_skill_id(name):
+              if name in mapping:
+                  return mapping[name]
+              # Preserve out-of-scope skill loads instead of silently dropping them.
+              # The evaluator treats any non-expected skill selection as a false activation.
+              safe_name = re.sub(r"[^a-z0-9._/-]+", "-", name.lower()).strip("-")
+              return "unmapped/" + safe_name
 
           runs = []
           for trace_path in sorted(trace_root.glob("ACT-*.jsonl")):
@@ -362,12 +372,12 @@ jobs:
                   event = json.loads(line)
                   if event.get("hook_event_name") == "post_tool_call" and event.get("tool_name") == "skill_view":
                       name = (event.get("args") or {}).get("name")
-                      if name in mapping:
-                          selected.add(mapping[name])
+                      if isinstance(name, str) and name:
+                          selected.add(observed_skill_id(name))
                   if event.get("hook_event_name") == "on_skill_lifecycle" and event.get("action") == "loaded":
                       name = event.get("skill_name")
-                      if name in mapping:
-                          executed.add(mapping[name])
+                      if isinstance(name, str) and name:
+                          executed.add(observed_skill_id(name))
 
               events = [
                   {"kind": "skill_selection", "skill_id": skill, "status": "observed"}
