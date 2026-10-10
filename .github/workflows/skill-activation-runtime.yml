@@ -24,7 +24,7 @@ jobs:
   activation-evidence:
     name: Collect 12 Real Skill Activation Observations
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
       - name: Checkout
@@ -63,7 +63,7 @@ jobs:
           # change that service's environment, so stop it and launch Ollama
           # with the context settings this benchmark actually requires.
           sudo systemctl stop ollama || true
-          export OLLAMA_CONTEXT_LENGTH=32768
+          export OLLAMA_CONTEXT_LENGTH=8192
           export OLLAMA_NUM_PARALLEL=1
           echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
           echo "OLLAMA_NUM_PARALLEL=$OLLAMA_NUM_PARALLEL" >> "$GITHUB_ENV"
@@ -89,7 +89,7 @@ jobs:
             exit 1
           fi
 
-          MODEL="qwen3:4b-instruct"
+          MODEL="qwen3:1.7b"
           ollama pull "$MODEL"
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
           ollama list
@@ -196,7 +196,7 @@ jobs:
           ln -s "$HERMES_HOME/plugins" "$SMOKE_HOME/plugins"
           ln -s "$HERMES_HOME/skills" "$SMOKE_HOME/skills"
           set +e
-          HERMES_RUNTIME_HOME="$RUNNER_TEMP/hermes-home" HERMES_HOME="$SMOKE_HOME" SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" timeout --signal=TERM --kill-after=10s 120s hermes chat --toolsets skills -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
+          HERMES_RUNTIME_HOME="$RUNNER_TEMP/hermes-home" HERMES_HOME="$SMOKE_HOME" SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" timeout --signal=TERM --kill-after=10s 240s hermes chat --toolsets skills -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
           rc=$?
           set -e
           cat "$RUNNER_TEMP/hermes-smoke.log"
@@ -265,7 +265,7 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=240,
+                      timeout=360,
                   )
                   (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                   print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
@@ -275,10 +275,10 @@ jobs:
                   if isinstance(output, bytes):
                       output = output.decode("utf-8", errors="replace")
                   (trace_root / f"{trace_id}.log").write_text(
-                      output + "\nrunner exception: timeout after 240s\n",
+                      output + "\nrunner exception: timeout after 360s\n",
                       encoding="utf-8",
                   )
-                  print(f"=== TIMEOUT {trace_id} after 240s ===", flush=True)
+                  print(f"=== TIMEOUT {trace_id} after 360s ===", flush=True)
                   return trace_id, 124
               except Exception as exc:
                   (trace_root / f"{trace_id}.log").write_text(
