@@ -160,6 +160,34 @@ jobs:
               (out / "SKILL.md").write_text(skill, encoding="utf-8")
           PY
 
+      - name: Restrict skill catalog to benchmark skills
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+          HERMES_RUNTIME_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          set -euo pipefail
+          # Hermes bundles many unrelated skills; hide them so the small local
+          # model routes among this benchmark's three canonical skills rather
+          # than hallucinating unrelated skill names. Preserve Hermes essentials.
+          "$HERMES_HOME/venv/bin/python" - <<'PY'
+          import os
+          from agent.skill_utils import ESSENTIAL_SKILLS
+          from hermes_cli.config import load_config, save_config
+          from tools.skills_tool import _find_all_skills
+
+          allowed = {"skills-tree-rag", "skills-tree-code-review", "skills-tree-web-search"} | set(ESSENTIAL_SKILLS)
+          catalog = _find_all_skills(skip_disabled=True)
+          disabled = sorted({item["name"] for item in catalog if item["name"] not in allowed})
+          config = load_config()
+          config.setdefault("skills", {})["disabled"] = disabled
+          save_config(config)
+          print(f"Disabled {len(disabled)} unrelated skills; retained {sorted(allowed)}")
+          PY
+          HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
+          grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
+          grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
+          grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
+
       - name: Configure Hermes for local Ollama
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
@@ -202,7 +230,7 @@ jobs:
           ln -s "$HERMES_HOME/plugins" "$SMOKE_HOME/plugins"
           ln -s "$HERMES_HOME/skills" "$SMOKE_HOME/skills"
           set +e
-          HERMES_RUNTIME_HOME="$RUNNER_TEMP/hermes-home" HERMES_HOME="$SMOKE_HOME" SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" timeout --signal=TERM --kill-after=10s 240s hermes chat --toolsets skills --skills "skills-tree-rag,skills-tree-code-review,skills-tree-web-search" -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
+          HERMES_RUNTIME_HOME="$RUNNER_TEMP/hermes-home" HERMES_HOME="$SMOKE_HOME" SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" timeout --signal=TERM --kill-after=10s 240s hermes chat --toolsets skills -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
           rc=$?
           set -e
           cat "$RUNNER_TEMP/hermes-smoke.log"
@@ -268,7 +296,7 @@ jobs:
               print(f"=== START {trace_id} ===", flush=True)
               try:
                   proc = subprocess.run(
-                      ["hermes", "chat", "--toolsets", "skills", "--skills", "skills-tree-rag,skills-tree-code-review,skills-tree-web-search", "-q", case["prompt"], "--provider", "custom", "--model", model],
+                      ["hermes", "chat", "--toolsets", "skills", "-q", case["prompt"], "--provider", "custom", "--model", model],
                       env=env,
                       text=True,
                       stdout=subprocess.PIPE,
