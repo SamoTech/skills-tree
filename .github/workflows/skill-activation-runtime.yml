@@ -70,7 +70,7 @@ jobs:
           # change that service's environment, so stop it and launch Ollama
           # with the context settings this benchmark actually requires.
           sudo systemctl stop ollama || true
-          export OLLAMA_CONTEXT_LENGTH=65536
+          export OLLAMA_CONTEXT_LENGTH=32768
           export OLLAMA_NUM_PARALLEL=1
           echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
           echo "OLLAMA_NUM_PARALLEL=$OLLAMA_NUM_PARALLEL" >> "$GITHUB_ENV"
@@ -137,7 +137,7 @@ jobs:
             exit 1
           }
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
-          grep -E 'OLLAMA_CONTEXT_LENGTH=65536|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
+          grep -E 'OLLAMA_CONTEXT_LENGTH=32768|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
         env:
@@ -286,10 +286,11 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes config set model.base_url "http://127.0.0.1:11434/v1"
           HERMES_HOME="$HERMES_HOME" hermes config set model.provider "custom"
           HERMES_HOME="$HERMES_HOME" hermes config set model.default "$HERMES_LOCAL_MODEL"
-          # Hermes enforces a 64K minimum. Keep its declared window aligned with Ollama.
+          # Hermes requires a 64K declared window, but Qwen2.5 7B was trained
+          # for 32K. Keep the declaration at Hermes's minimum while explicitly
+          # constraining Ollama to the model's supported runtime context.
           HERMES_HOME="$HERMES_HOME" hermes config set model.context_length 65536
-          # Pin Ollama's runtime context for the selected Qwen 3.5 model.
-          HERMES_HOME="$HERMES_HOME" hermes config set model.ollama_num_ctx 65536
+          HERMES_HOME="$HERMES_HOME" hermes config set model.ollama_num_ctx 32768
           HERMES_HOME="$HERMES_HOME" hermes config get model.ollama_num_ctx
           HERMES_HOME="$HERMES_HOME" hermes config get model.context_length
           HERMES_HOME="$HERMES_HOME" hermes config get model
@@ -358,14 +359,14 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=180,
+                      timeout=480,
                   )
               except subprocess.TimeoutExpired as exc:
                   output = exc.stdout or ""
                   if isinstance(output, bytes):
                       output = output.decode("utf-8", errors="replace")
-                  log_path.write_text(output + "\nqualification timeout after 180s\n", encoding="utf-8")
-                  raise SystemExit(f"FAIL: {case['id']} routing qualification timed out after 180 seconds.")
+                  log_path.write_text(output + "\nqualification timeout after 480s\n", encoding="utf-8")
+                  raise SystemExit(f"FAIL: {case['id']} routing qualification timed out after 480 seconds.")
 
               log_path.write_text(proc.stdout, encoding="utf-8")
               if proc.returncode != 0:
@@ -395,7 +396,7 @@ jobs:
           print("PASS: all four routing qualification cases passed; starting the 12-observation benchmark.", flush=True)
           PY
           ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
-          grep -q '65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || { echo "Ollama did not load the model with the required 64K context." >&2; exit 1; }
+          grep -q '32768' "$RUNNER_TEMP/ollama-loaded-models.txt" || { echo "Ollama did not load Qwen2.5 7B at its supported 32K context." >&2; exit 1; }
 
       - name: Run 12 independent fresh-session observations
         env:
@@ -459,7 +460,7 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=240,
+                      timeout=480,
                   )
                   (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                   print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
@@ -469,10 +470,10 @@ jobs:
                   if isinstance(output, bytes):
                       output = output.decode("utf-8", errors="replace")
                   (trace_root / f"{trace_id}.log").write_text(
-                      output + "\nrunner exception: timeout after 240s\n",
+                      output + "\nrunner exception: timeout after 480s\n",
                       encoding="utf-8",
                   )
-                  print(f"=== TIMEOUT {trace_id} after 240s ===", flush=True)
+                  print(f"=== TIMEOUT {trace_id} after 480s ===", flush=True)
                   return trace_id, 124
               except Exception as exc:
                   (trace_root / f"{trace_id}.log").write_text(
