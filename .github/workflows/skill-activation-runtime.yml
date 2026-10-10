@@ -132,7 +132,7 @@ jobs:
           # Confirm the exact requested model is present before exposing it to
           # later steps. A successful command without a listed model is invalid.
           ollama list | tee "$RUNNER_TEMP/ollama-model-list.txt"
-          grep -Eq "^qwen2\.5:7b[[:space:]]" "$RUNNER_TEMP/ollama-model-list.txt" || {
+          grep -Eq "^qwen3[.]5:4b[[:space:]]" "$RUNNER_TEMP/ollama-model-list.txt" || {
             echo "FAIL: $MODEL is not present after a successful pull." >&2
             exit 1
           }
@@ -307,8 +307,6 @@ jobs:
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
       - name: Warm model and verify allocated context before qualification
-        env:
-          HERMES_LOCAL_MODEL: ${{ env.HERMES_LOCAL_MODEL }}
         run: |
           set -euo pipefail
           # Force-load the exact model with an explicit 64K context before the
@@ -329,7 +327,7 @@ jobs:
           print("PASS: exact model completed a warmup request with num_ctx=65536.")
           PY
           ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
-          grep -E 'qwen3\\.5:4b.*65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || {
+          grep -E 'qwen3[.]5:4b.*65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || {
             echo "FAIL: Ollama did not allocate 65536 context for $HERMES_LOCAL_MODEL before qualification." >&2
             exit 1
           }
