@@ -97,9 +97,46 @@ jobs:
           fi
 
           MODEL="qwen2.5:7b"
-          ollama pull "$MODEL"
+
+          # Ollama's registry can return transient 5xx responses while resolving
+          # manifests or finalizing a large layer. Retry the same pull so Ollama
+          # can reuse completed blobs; never continue without a verified model.
+          pull_succeeded=0
+          for attempt in 1 2 3 4; do
+            pull_log="$RUNNER_TEMP/ollama-pull-attempt-$attempt.log"
+            echo "Pulling $MODEL (attempt $attempt/4)..."
+            if ollama pull "$MODEL" >"$pull_log" 2>&1; then
+              pull_succeeded=1
+              echo "PASS: ollama pull succeeded on attempt $attempt."
+              tail -n 20 "$pull_log"
+              break
+            fi
+
+            pull_rc=$?
+            echo "WARN: ollama pull attempt $attempt failed (exit=$pull_rc)." >&2
+            tail -n 40 "$pull_log" >&2 || true
+            if [ "$attempt" -lt 4 ]; then
+              delay=$((attempt * 15))
+              echo "Retrying the same model pull in $delay seconds; completed Ollama blobs are retained."
+              sleep "$delay"
+            fi
+          done
+
+          if [ "$pull_succeeded" -ne 1 ]; then
+            echo "FAIL: unable to pull $MODEL after four attempts." >&2
+            echo "Ollama server log:" >&2
+            tail -n 100 "$RUNNER_TEMP/ollama.log" >&2 || true
+            exit 1
+          fi
+
+          # Confirm the exact requested model is present before exposing it to
+          # later steps. A successful command without a listed model is invalid.
+          ollama list | tee "$RUNNER_TEMP/ollama-model-list.txt"
+          grep -Eq "^qwen2\.5:7b[[:space:]]" "$RUNNER_TEMP/ollama-model-list.txt" || {
+            echo "FAIL: $MODEL is not present after a successful pull." >&2
+            exit 1
+          }
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
-          ollama list
           grep -E 'OLLAMA_CONTEXT_LENGTH=65536|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
@@ -578,6 +615,8 @@ jobs:
             ${{ runner.temp }}/activation-qualification/*.jsonl
             ${{ runner.temp }}/activation-qualification/*.log
             ${{ runner.temp }}/ollama-loaded-models.txt
+            ${{ runner.temp }}/ollama-model-list.txt
+            ${{ runner.temp }}/ollama-pull-attempt-*.log
             ${{ runner.temp }}/ollama.log
           if-no-files-found: warn
 
