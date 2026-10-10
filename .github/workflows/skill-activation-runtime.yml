@@ -93,7 +93,7 @@ jobs:
           ollama pull "$MODEL"
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
           ollama list
-          grep -E 'OLLAMA_CONTEXT_LENGTH=32768|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
+          grep -E 'OLLAMA_CONTEXT_LENGTH=8192|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
         env:
