@@ -8,6 +8,13 @@ on:
       - 'meta/skill-activation-observation.schema.json'
       - 'tools/run_skill_activation_benchmark.py'
       - '.github/workflows/skill-activation-runtime.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/activation/**'
+      - 'meta/skill-activation-observation.schema.json'
+      - 'tools/run_skill_activation_benchmark.py'
+      - '.github/workflows/skill-activation-runtime.yml'
   workflow_dispatch:
 
 permissions:
@@ -201,6 +208,7 @@ jobs:
           echo "PASS: Hermes completed a minimal request through local Ollama."
 
       - name: Run 12 independent fresh-session observations
+        if: github.event_name != 'pull_request'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           HERMES_STREAM_READ_TIMEOUT: '1800'
@@ -289,6 +297,7 @@ jobs:
 
           PY
       - name: Convert explicit runtime traces to benchmark observations
+        if: github.event_name != 'pull_request'
         run: |
           python - <<'PY'
           import json
@@ -346,6 +355,7 @@ jobs:
           PY
 
       - name: Validate observation corpus against schema
+        if: github.event_name != 'pull_request'
         run: |
           python - <<'PY'
           import json, os
@@ -362,6 +372,7 @@ jobs:
           PY
 
       - name: Run activation benchmark
+        if: github.event_name != 'pull_request'
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
