@@ -63,7 +63,7 @@ jobs:
           # change that service's environment, so stop it and launch Ollama
           # with the context settings this benchmark actually requires.
           sudo systemctl stop ollama || true
-          export OLLAMA_CONTEXT_LENGTH=8192
+          export OLLAMA_CONTEXT_LENGTH=65536
           export OLLAMA_NUM_PARALLEL=1
           echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
           echo "OLLAMA_NUM_PARALLEL=$OLLAMA_NUM_PARALLEL" >> "$GITHUB_ENV"
@@ -93,7 +93,7 @@ jobs:
           ollama pull "$MODEL"
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
           ollama list
-          grep -E 'OLLAMA_CONTEXT_LENGTH=8192|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
+          grep -E 'OLLAMA_CONTEXT_LENGTH=65536|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
         env:
@@ -169,6 +169,9 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes config set model.base_url "http://127.0.0.1:11434/v1"
           HERMES_HOME="$HERMES_HOME" hermes config set model.provider "custom"
           HERMES_HOME="$HERMES_HOME" hermes config set model.default "$HERMES_LOCAL_MODEL"
+          # Hermes enforces a 64K minimum. Keep its declared window aligned with Ollama.
+          HERMES_HOME="$HERMES_HOME" hermes config set model.context_length 65536
+          HERMES_HOME="$HERMES_HOME" hermes config get model.context_length
           HERMES_HOME="$HERMES_HOME" hermes config get model
           HERMES_HOME="$HERMES_HOME" hermes config get model.base_url
 
@@ -206,6 +209,8 @@ jobs:
             exit "$rc"
           fi
           echo "PASS: Hermes completed a minimal request through local Ollama."
+          ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
+          grep -q '65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || { echo 'Ollama did not load the model with the required 64K context.' >&2; exit 1; }
 
       - name: Run 12 independent fresh-session observations
         if: github.event_name != 'pull_request'
