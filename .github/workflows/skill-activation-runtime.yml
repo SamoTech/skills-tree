@@ -181,12 +181,53 @@ jobs:
           config = load_config()
           config.setdefault("skills", {})["disabled"] = disabled
           save_config(config)
+
+          # Enforce the benchmark's closed skill universe at the actual skill_view
+          # tool boundary too. Catalog filtering alone is not an authorization check:
+          # a model can still request a name that is not listed.
+          runtime_file = home / "hermes-agent" / "tools" / "skills_tool.py"
+          source = runtime_file.read_text(encoding="utf-8")
+          anchor = "    try:\n        # Validate before the ':' dispatch"
+          guard = """    try:
+        allowed_benchmark_skills = {
+            "skills-tree-rag",
+            "skills-tree-code-review",
+            "skills-tree-web-search",
+        }
+        if name not in allowed_benchmark_skills:
+            return _fail(
+                f"Skill '{name}' is outside the activation benchmark allowlist."
+            )
+        # Validate before the ':' dispatch"""
+          if anchor not in source:
+              raise SystemExit("Could not install activation benchmark skill_view allowlist: upstream source anchor changed.")
+          runtime_file.write_text(source.replace(anchor, guard, 1), encoding="utf-8")
+
           print(f"Disabled {len(disabled)} unrelated skills; retained {sorted(allowed)}")
+          print("Installed strict skill_view allowlist for the three benchmark runtime names.")
           PY
           HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
+          "$HERMES_HOME/venv/bin/python" - <<'PY'
+          from tools.skills_tool import skill_view
+
+          allowed = {
+              "skills-tree-rag": "RAG",
+              "skills-tree-code-review": "Code Review",
+              "skills-tree-web-search": "Web Search",
+          }
+          for name, expected_heading in allowed.items():
+              result = skill_view(name)
+              if expected_heading not in result:
+                  raise SystemExit(f"Allowed benchmark skill failed direct load: {name}")
+
+          forbidden = skill_view("hermes-agent-skill-authoring")
+          if "outside the activation benchmark allowlist" not in forbidden:
+              raise SystemExit("Forbidden skill_view request was not blocked.")
+          print("PASS: skill_view loads all three allowed skills and rejects an out-of-scope skill.")
+          PY
 
       - name: Configure Hermes for local Ollama
         env:
