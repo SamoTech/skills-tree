@@ -175,6 +175,36 @@ jobs:
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
+      - name: Smoke-test Hermes against local Ollama before benchmark
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          set -euo pipefail
+          # Fail fast if the exact Hermes-to-Ollama path used by the benchmark
+          # cannot complete a minimal request. Do not spend 48 minutes repeating
+          # a runtime startup/provider failure across all 12 observations.
+          SMOKE_HOME="$RUNNER_TEMP/hermes-smoke-home"
+          mkdir -p "$SMOKE_HOME"
+          cp "$HERMES_HOME/config.yaml" "$SMOKE_HOME/config.yaml"
+          ln -s "$HERMES_HOME/plugins" "$SMOKE_HOME/plugins"
+          ln -s "$HERMES_HOME/skills" "$SMOKE_HOME/skills"
+          set +e
+          HERMES_HOME="$SMOKE_HOME" \\
+            HERMES_RUNTIME_HOME="$HERMES_HOME" \\
+            SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" \\
+            timeout --signal=TERM --kill-after=10s 120s \\
+            hermes chat -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" \\
+            > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/hermes-smoke.log"
+          if [ "$rc" -ne 0 ]; then
+            echo "Hermes smoke test failed (exit=$rc); Ollama server log follows:" >&2
+            cat "$RUNNER_TEMP/ollama.log" >&2 || true
+            exit "$rc"
+          fi
+          echo "PASS: Hermes completed a minimal request through local Ollama."
+
       - name: Run 12 independent fresh-session observations
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
@@ -371,6 +401,8 @@ jobs:
             ${{ runner.temp }}/skill-activation-observations.json
             ${{ runner.temp }}/skill-activation-benchmark-result.json
             ${{ runner.temp }}/hermes-skills.txt
+            ${{ runner.temp }}/ollama.log
+            ${{ runner.temp }}/hermes-smoke.log
           if-no-files-found: warn
 
       - name: Enforce complete 12-observation corpus
