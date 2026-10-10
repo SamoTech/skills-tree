@@ -171,6 +171,7 @@ jobs:
           # than hallucinating unrelated skill names. Preserve Hermes essentials.
           "$HERMES_HOME/venv/bin/python" - <<'PY'
           import os
+          from pathlib import Path
           from agent.skill_utils import ESSENTIAL_SKILLS
           from hermes_cli.config import load_config, save_config
           from tools.skills_tool import _find_all_skills
@@ -185,6 +186,7 @@ jobs:
           # Enforce the benchmark's closed skill universe at the actual skill_view
           # tool boundary too. Catalog filtering alone is not an authorization check:
           # a model can still request a name that is not listed.
+          home = Path(os.environ["HERMES_HOME"])
           runtime_file = home / "hermes-agent" / "tools" / "skills_tool.py"
           source = runtime_file.read_text(encoding="utf-8")
           anchor = "    try:\n        # Validate before the ':' dispatch"
