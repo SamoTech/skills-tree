@@ -273,7 +273,7 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=360,
+                      timeout=240,
                   )
                   (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                   print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
@@ -283,10 +283,10 @@ jobs:
                   if isinstance(output, bytes):
                       output = output.decode("utf-8", errors="replace")
                   (trace_root / f"{trace_id}.log").write_text(
-                      output + "\nrunner exception: timeout after 360s\n",
+                      output + "\nrunner exception: timeout after 240s\n",
                       encoding="utf-8",
                   )
-                  print(f"=== TIMEOUT {trace_id} after 360s ===", flush=True)
+                  print(f"=== TIMEOUT {trace_id} after 240s ===", flush=True)
                   return trace_id, 124
               except Exception as exc:
                   (trace_root / f"{trace_id}.log").write_text(
