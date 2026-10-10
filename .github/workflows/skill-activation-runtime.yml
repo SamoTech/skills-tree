@@ -8,6 +8,13 @@ on:
       - 'meta/skill-activation-observation.schema.json'
       - 'tools/run_skill_activation_benchmark.py'
       - '.github/workflows/skill-activation-runtime.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'benchmarks/activation/**'
+      - 'meta/skill-activation-observation.schema.json'
+      - 'tools/run_skill_activation_benchmark.py'
+      - '.github/workflows/skill-activation-runtime.yml'
   workflow_dispatch:
 
 permissions:
@@ -17,7 +24,7 @@ jobs:
   activation-evidence:
     name: Collect 12 Real Skill Activation Observations
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
       - name: Checkout
@@ -56,7 +63,7 @@ jobs:
           # change that service's environment, so stop it and launch Ollama
           # with the context settings this benchmark actually requires.
           sudo systemctl stop ollama || true
-          export OLLAMA_CONTEXT_LENGTH=32768
+          export OLLAMA_CONTEXT_LENGTH=65536
           export OLLAMA_NUM_PARALLEL=1
           echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
           echo "OLLAMA_NUM_PARALLEL=$OLLAMA_NUM_PARALLEL" >> "$GITHUB_ENV"
@@ -82,11 +89,11 @@ jobs:
             exit 1
           fi
 
-          MODEL="qwen3:4b-instruct"
+          MODEL="qwen3.5:2b"
           ollama pull "$MODEL"
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
           ollama list
-          grep -E 'OLLAMA_CONTEXT_LENGTH=32768|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
+          grep -E 'OLLAMA_CONTEXT_LENGTH=65536|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
         env:
@@ -162,6 +169,12 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes config set model.base_url "http://127.0.0.1:11434/v1"
           HERMES_HOME="$HERMES_HOME" hermes config set model.provider "custom"
           HERMES_HOME="$HERMES_HOME" hermes config set model.default "$HERMES_LOCAL_MODEL"
+          # Hermes enforces a 64K minimum. Keep its declared window aligned with Ollama.
+          HERMES_HOME="$HERMES_HOME" hermes config set model.context_length 65536
+          # Explicitly pass num_ctx to Ollama; its loaded context stayed at 40,960 despite the server env.
+          HERMES_HOME="$HERMES_HOME" hermes config set model.ollama_num_ctx 65536
+          HERMES_HOME="$HERMES_HOME" hermes config get model.ollama_num_ctx
+          HERMES_HOME="$HERMES_HOME" hermes config get model.context_length
           HERMES_HOME="$HERMES_HOME" hermes config get model
           HERMES_HOME="$HERMES_HOME" hermes config get model.base_url
 
@@ -175,7 +188,35 @@ jobs:
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
+      - name: Smoke-test Hermes against local Ollama before benchmark
+        env:
+          HERMES_HOME: ${{ runner.temp }}/hermes-home
+        run: |
+          set -euo pipefail
+          # Fail fast if the exact Hermes-to-Ollama path used by the benchmark
+          # cannot complete a minimal request. Do not spend 48 minutes repeating
+          # a runtime startup/provider failure across all 12 observations.
+          SMOKE_HOME="$RUNNER_TEMP/hermes-smoke-home"
+          mkdir -p "$SMOKE_HOME"
+          cp "$HERMES_HOME/config.yaml" "$SMOKE_HOME/config.yaml"
+          ln -s "$HERMES_HOME/plugins" "$SMOKE_HOME/plugins"
+          ln -s "$HERMES_HOME/skills" "$SMOKE_HOME/skills"
+          set +e
+          HERMES_RUNTIME_HOME="$RUNNER_TEMP/hermes-home" HERMES_HOME="$SMOKE_HOME" SKILLS_TREE_HERMES_TRACE="$RUNNER_TEMP/hermes-smoke-trace.jsonl" timeout --signal=TERM --kill-after=10s 240s hermes chat --toolsets skills -q "Reply with exactly OK." --provider custom --model "$HERMES_LOCAL_MODEL" > "$RUNNER_TEMP/hermes-smoke.log" 2>&1
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/hermes-smoke.log"
+          if [ "$rc" -ne 0 ]; then
+            echo "Hermes smoke test failed (exit=$rc); Ollama server log follows:" >&2
+            cat "$RUNNER_TEMP/ollama.log" >&2 || true
+            exit "$rc"
+          fi
+          echo "PASS: Hermes completed a minimal request through local Ollama."
+          ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
+          grep -q '65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || { echo 'Ollama did not load the model with the required 64K context.' >&2; exit 1; }
+
       - name: Run 12 independent fresh-session observations
+        if: github.event_name != 'pull_request'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           HERMES_STREAM_READ_TIMEOUT: '1800'
@@ -227,12 +268,12 @@ jobs:
               print(f"=== START {trace_id} ===", flush=True)
               try:
                   proc = subprocess.run(
-                      ["hermes", "chat", "-q", case["prompt"], "--provider", "custom", "--model", model],
+                      ["hermes", "chat", "--toolsets", "skills", "-q", case["prompt"], "--provider", "custom", "--model", model],
                       env=env,
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=240,
+                      timeout=360,
                   )
                   (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                   print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
@@ -242,10 +283,10 @@ jobs:
                   if isinstance(output, bytes):
                       output = output.decode("utf-8", errors="replace")
                   (trace_root / f"{trace_id}.log").write_text(
-                      output + "\nrunner exception: timeout after 240s\n",
+                      output + "\nrunner exception: timeout after 360s\n",
                       encoding="utf-8",
                   )
-                  print(f"=== TIMEOUT {trace_id} after 240s ===", flush=True)
+                  print(f"=== TIMEOUT {trace_id} after 360s ===", flush=True)
                   return trace_id, 124
               except Exception as exc:
                   (trace_root / f"{trace_id}.log").write_text(
@@ -264,6 +305,7 @@ jobs:
 
           PY
       - name: Convert explicit runtime traces to benchmark observations
+        if: github.event_name != 'pull_request'
         run: |
           python - <<'PY'
           import json
@@ -321,6 +363,7 @@ jobs:
           PY
 
       - name: Validate observation corpus against schema
+        if: github.event_name != 'pull_request'
         run: |
           python - <<'PY'
           import json, os
@@ -337,6 +380,7 @@ jobs:
           PY
 
       - name: Run activation benchmark
+        if: github.event_name != 'pull_request'
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
@@ -371,6 +415,8 @@ jobs:
             ${{ runner.temp }}/skill-activation-observations.json
             ${{ runner.temp }}/skill-activation-benchmark-result.json
             ${{ runner.temp }}/hermes-skills.txt
+            ${{ runner.temp }}/ollama.log
+            ${{ runner.temp }}/hermes-smoke.log
           if-no-files-found: warn
 
       - name: Enforce complete 12-observation corpus
