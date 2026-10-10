@@ -50,8 +50,9 @@ jobs:
       - name: Install local Ollama runtime
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
-          export OLLAMA_CONTEXT_LENGTH=65536
+          export OLLAMA_CONTEXT_LENGTH=8192
           echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
+          echo "OLLAMA_NUM_PARALLEL=1" >> "$GITHUB_ENV"
           ollama serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
           for i in $(seq 1 30); do
             curl -fsS http://127.0.0.1:11434/api/tags >/dev/null && break
@@ -206,7 +207,7 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=300,
+                      timeout=240,
                   )
                   (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                   print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
@@ -216,10 +217,10 @@ jobs:
                   if isinstance(output, bytes):
                       output = output.decode("utf-8", errors="replace")
                   (trace_root / f"{trace_id}.log").write_text(
-                      output + "\nrunner exception: timeout after 300s\n",
+                      output + "\nrunner exception: timeout after 240s\n",
                       encoding="utf-8",
                   )
-                  print(f"=== TIMEOUT {trace_id} after 300s ===", flush=True)
+                  print(f"=== TIMEOUT {trace_id} after 240s ===", flush=True)
                   return trace_id, 124
               except Exception as exc:
                   (trace_root / f"{trace_id}.log").write_text(
@@ -229,7 +230,7 @@ jobs:
                   print(f"=== ERROR {trace_id}: {exc} ===", flush=True)
                   return trace_id, 125
 
-          max_workers = 3
+          max_workers = 1
           with ThreadPoolExecutor(max_workers=max_workers) as pool:
               futures = [pool.submit(run_observation, item) for item in runs]
               for future in as_completed(futures):
