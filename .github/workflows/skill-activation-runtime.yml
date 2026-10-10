@@ -171,6 +171,9 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes config set model.default "$HERMES_LOCAL_MODEL"
           # Hermes enforces a 64K minimum. Keep its declared window aligned with Ollama.
           HERMES_HOME="$HERMES_HOME" hermes config set model.context_length 65536
+          # Explicitly pass num_ctx to Ollama; its loaded context stayed at 40,960 despite the server env.
+          HERMES_HOME="$HERMES_HOME" hermes config set model.ollama_num_ctx 65536
+          HERMES_HOME="$HERMES_HOME" hermes config get model.ollama_num_ctx
           HERMES_HOME="$HERMES_HOME" hermes config get model.context_length
           HERMES_HOME="$HERMES_HOME" hermes config get model
           HERMES_HOME="$HERMES_HOME" hermes config get model.base_url
