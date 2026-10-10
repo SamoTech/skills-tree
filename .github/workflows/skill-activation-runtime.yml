@@ -428,6 +428,10 @@ jobs:
           print(f"- Runs: **{d['metrics']['runs']} / {d['metrics']['required_runs']}**")
           print(f"- Observed cases: **{d['metrics']['observed_cases']} / {d['metrics']['cases']}**")
           print(f"- Invocation evidence rate: **{d['metrics']['invocation_evidence_rate']}**")
+          print(f"- False activation rate: **{d['metrics']['false_activation_rate']}**")
+          print(f"- Acceptance: **{d.get('acceptance', {}).get('status', 'NOT_EVALUATED')}**")
+          for failure in d.get('acceptance', {}).get('failures', []):
+              print(f"  - FAIL: {failure}")
           PY
           else
             echo "- Benchmark result was not produced." >> "$GITHUB_STEP_SUMMARY"
@@ -448,6 +452,37 @@ jobs:
             ${{ runner.temp }}/hermes-smoke.log
           if-no-files-found: warn
 
-      - name: Enforce complete 12-observation corpus
-        if: steps.benchmark.outcome == 'failure'
-        run: exit 1
+      - name: Enforce benchmark acceptance contract
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          result_path = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-benchmark-result.json"
+          if not result_path.exists():
+              raise SystemExit("FAIL: benchmark result is missing.")
+          result = json.loads(result_path.read_text(encoding="utf-8"))
+          metrics = result.get("metrics", {})
+          acceptance = result.get("acceptance", {})
+          required_runs = metrics.get("required_runs")
+          runs = metrics.get("runs")
+          failures = list(acceptance.get("failures", []))
+          if result.get("status") != "COMPLETE":
+              failures.append(f"corpus status must be COMPLETE, got {result.get('status')}")
+          if runs != required_runs:
+              failures.append(f"observation count must equal required_runs ({required_runs}), got {runs}")
+          if metrics.get("expected_activation_rate") != 1.0:
+              failures.append("expected_activation_rate must equal 1.0")
+          if metrics.get("false_activation_rate") != 0.0:
+              failures.append("false_activation_rate must equal 0.0")
+          if metrics.get("invocation_evidence_rate") != 1.0:
+              failures.append("invocation_evidence_rate must equal 1.0")
+          if acceptance.get("status") != "PASS" or failures:
+              print("FAIL: benchmark acceptance contract not satisfied.")
+              for failure in dict.fromkeys(failures):
+                  print(f"- {failure}")
+              raise SystemExit(1)
+          print(f"PASS: exact {required_runs}-observation corpus meets all activation and invocation gates.")
+          PY

@@ -240,3 +240,84 @@ def test_duplicate_trace_id_fails_closed(tmp_path, monkeypatch):
     with pytest.raises(ValueError, match="duplicate observation trace_id"):
         main()
     assert not output.exists()
+
+
+
+def complete_observation_runs() -> list[dict]:
+    cases = json.loads(
+        (ROOT / "benchmarks/activation/skill-activation-v1.json").read_text(encoding="utf-8")
+    )["cases"]
+    runs = []
+    run_number = 1
+    for case in cases:
+        for _ in range(case["repetitions"]):
+            runs.append({
+                "run_id": f"negative-fixture-{run_number}",
+                "case_id": case["id"],
+                "trace_id": f"negative-trace-{run_number}",
+                "events": [
+                    {"kind": "skill_selection", "skill_id": case["expected_skill"], "status": "selected"},
+                    {"kind": "skill_execution", "skill_id": case["expected_skill"], "status": "ok"},
+                ],
+            })
+            run_number += 1
+    return runs
+
+
+def run_benchmark_with_runs(tmp_path, monkeypatch, runs: list[dict]) -> tuple[int, dict]:
+    observations = tmp_path / "observations.json"
+    write_custom_observations(observations, runs)
+    output = tmp_path / "result.json"
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "run_skill_activation_benchmark.py",
+            "--dataset", str(ROOT / "benchmarks/activation/skill-activation-v1.json"),
+            "--observations", str(observations),
+            "--output", str(output),
+        ],
+    )
+    exit_code = main()
+    return exit_code, json.loads(output.read_text(encoding="utf-8"))
+
+
+def test_complete_corpus_with_false_activation_fails_acceptance(tmp_path, monkeypatch):
+    runs = complete_observation_runs()
+    # ACT-001 must never select code-review; preserve all 12 observations.
+    runs[0]["events"].append({
+        "kind": "skill_selection",
+        "skill_id": "05-code/code-review",
+        "status": "selected",
+    })
+
+    exit_code, result = run_benchmark_with_runs(tmp_path, monkeypatch, runs)
+
+    assert len(runs) == 12
+    assert result["status"] == "COMPLETE"
+    assert result["metrics"]["runs"] == result["metrics"]["required_runs"] == 12
+    assert result["metrics"]["false_activation_rate"] > 0
+    assert result["acceptance"]["status"] == "FAIL"
+    assert "false activation rate must be 0.0" in result["acceptance"]["failures"]
+    assert exit_code == 2
+
+
+def test_complete_corpus_with_missing_invocation_evidence_fails_acceptance(tmp_path, monkeypatch):
+    runs = complete_observation_runs()
+    # Keep ACT-003's expected selection but remove explicit execution evidence.
+    target = next(
+        run for run in runs
+        if run["case_id"] == "ACT-003" and run["run_id"] == "negative-fixture-7"
+    )
+    target["events"] = [
+        event for event in target["events"]
+        if not (event["kind"] == "skill_execution" and event["skill_id"] == "11-web/web-search")
+    ]
+
+    exit_code, result = run_benchmark_with_runs(tmp_path, monkeypatch, runs)
+
+    assert len(runs) == 12
+    assert result["status"] == "COMPLETE"
+    assert result["metrics"]["invocation_evidence_rate"] < 1.0
+    assert result["acceptance"]["status"] == "FAIL"
+    assert "invocation evidence rate must be 1.0" in result["acceptance"]["failures"]
+    assert exit_code == 2
