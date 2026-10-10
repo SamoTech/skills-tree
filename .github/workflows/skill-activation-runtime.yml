@@ -357,6 +357,8 @@ jobs:
 
           print("PASS: all four routing qualification cases passed; starting the 12-observation benchmark.", flush=True)
           PY
+          ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
+          grep -q '65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || { echo "Ollama did not load the model with the required 64K context." >&2; exit 1; }
 
       - name: Run 12 independent fresh-session observations
         env:
@@ -573,8 +575,10 @@ jobs:
             ${{ runner.temp }}/skill-activation-observations.json
             ${{ runner.temp }}/skill-activation-benchmark-result.json
             ${{ runner.temp }}/hermes-skills.txt
+            ${{ runner.temp }}/activation-qualification/*.jsonl
+            ${{ runner.temp }}/activation-qualification/*.log
+            ${{ runner.temp }}/ollama-loaded-models.txt
             ${{ runner.temp }}/ollama.log
-            ${{ runner.temp }}/hermes-smoke.log
           if-no-files-found: warn
 
       - name: Enforce benchmark acceptance contract
