@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 382
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 223
-- 🟡 **Enriched** (real description + runnable code): 158
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 224
+- 🟡 **Enriched** (real description + runnable code): 157
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -20,7 +20,7 @@
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 | 0 |
 | `03-memory` | 20 | 20 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 | 0 |
-| `05-code` | 29 | 7 | 22 | 0 | 0 | 0 |
+| `05-code` | 29 | 8 | 21 | 0 | 0 | 0 |
 | `06-communication` | 15 | 15 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 33 | 12 | 21 | 0 | 0 | 0 |
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 | 0 |
@@ -141,6 +141,7 @@
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
 - [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
+- [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — Code Review
 - [`skills/05-code/ide-integration.md`](skills/05-code/ide-integration.md) — IDE Integration
 - [`skills/05-code/security-scanning.md`](skills/05-code/security-scanning.md) — Security Scanning
 - [`skills/06-communication/argument-construction.md`](skills/06-communication/argument-construction.md) — Argument Construction
@@ -288,7 +289,6 @@
 - [`skills/05-code/cicd-generation.md`](skills/05-code/cicd-generation.md) — missing table or <60 lines
 - [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — missing table or <60 lines
 - [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — missing table or <60 lines
-- [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — missing table or <60 lines
 - [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — missing table or <60 lines
 - [`skills/05-code/code-translation.md`](skills/05-code/code-translation.md) — missing table or <60 lines
 - [`skills/05-code/db-schema-design.md`](skills/05-code/db-schema-design.md) — missing table or <60 lines
