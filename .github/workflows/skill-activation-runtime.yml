@@ -322,8 +322,11 @@ jobs:
           data = json.loads(p.read_text(encoding="utf-8"))
           if data.get("error"):
               raise SystemExit(f"Ollama model warmup failed: {data['error']}")
-          if not isinstance(data.get("response"), str) or not data["response"].strip():
-              raise SystemExit("Ollama returned no response during context preflight.")
+          # Thinking-capable models may return their generated tokens in a
+          # separate thinking field and leave response empty for a tiny token
+          # budget. The preflight validates completion, not answer quality.
+          if data.get("done") is not True:
+              raise SystemExit("Ollama warmup did not complete.")
           print("PASS: exact model completed a warmup request with num_ctx=65536.")
           PY
           ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
