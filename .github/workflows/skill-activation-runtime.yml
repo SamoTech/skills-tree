@@ -274,6 +274,11 @@ jobs:
               trace_id = f'{case["id"]}-r{repetition}'
               trace_path = trace_root / f"{trace_id}.jsonl"
               trace_path.unlink(missing_ok=True)
+              # Preserve every attempted fresh session, including a valid
+              # negative observation where Hermes never calls skill_view.
+              # Otherwise the converter silently drops sessions with no events,
+              # biasing activation rates and making the corpus incomplete.
+              trace_path.touch()
 
               session_home = trace_root / f"{trace_id}-hermes-home"
               shutil.rmtree(session_home, ignore_errors=True)
