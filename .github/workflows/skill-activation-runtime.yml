@@ -49,19 +49,44 @@ jobs:
 
       - name: Install local Ollama runtime
         run: |
+          set -euo pipefail
           curl -fsSL https://ollama.com/install.sh | sh
-          export OLLAMA_CONTEXT_LENGTH=8192
+
+          # The installer starts a systemd service. Shell exports alone do not
+          # change that service's environment, so stop it and launch Ollama
+          # with the context settings this benchmark actually requires.
+          sudo systemctl stop ollama || true
+          export OLLAMA_CONTEXT_LENGTH=32768
+          export OLLAMA_NUM_PARALLEL=1
           echo "OLLAMA_CONTEXT_LENGTH=$OLLAMA_CONTEXT_LENGTH" >> "$GITHUB_ENV"
-          echo "OLLAMA_NUM_PARALLEL=1" >> "$GITHUB_ENV"
+          echo "OLLAMA_NUM_PARALLEL=$OLLAMA_NUM_PARALLEL" >> "$GITHUB_ENV"
           ollama serve > "$RUNNER_TEMP/ollama.log" 2>&1 &
-          for i in $(seq 1 30); do
-            curl -fsS http://127.0.0.1:11434/api/tags >/dev/null && break
+          OLLAMA_PID=$!
+          echo "$OLLAMA_PID" > "$RUNNER_TEMP/ollama.pid"
+
+          ready=0
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:11434/api/tags >/dev/null; then
+              ready=1
+              break
+            fi
+            if ! kill -0 "$OLLAMA_PID" 2>/dev/null; then
+              cat "$RUNNER_TEMP/ollama.log"
+              exit 1
+            fi
             sleep 2
           done
+          if [ "$ready" -ne 1 ]; then
+            cat "$RUNNER_TEMP/ollama.log"
+            echo "Ollama API did not become ready within 120 seconds." >&2
+            exit 1
+          fi
+
           MODEL="qwen3:4b-instruct"
           ollama pull "$MODEL"
           echo "HERMES_LOCAL_MODEL=$MODEL" >> "$GITHUB_ENV"
           ollama list
+          grep -E 'OLLAMA_CONTEXT_LENGTH=32768|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
         env:
