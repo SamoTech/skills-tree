@@ -2,7 +2,8 @@ name: Validate Skills Graph
 
 on:
   push:
-    branches: [main]
+    branches: [main, fix/activation-routing-benchmark]
+  workflow_dispatch:
     paths:
       - 'skills/**'
       - 'schema/**'
