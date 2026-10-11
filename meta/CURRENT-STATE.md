@@ -21,7 +21,7 @@ This is the active operational state. Older dated sections below are historical 
 4. Audit the end-to-end consumer path `Discover → Select → Resolve → Understand → Invoke → Verify`, separating deterministic lexical retrieval/selection evidence from empirical runtime evidence. Do not introduce a semantic-search engine or new skills unless reproducible results identify a specific gap.
 
 > Maintained as a point-in-time operational snapshot. Live GitHub refs, generated artifacts, and exact workflow runs are the evidence source.
-fied snapshot
+## Verified snapshot
 
 - Snapshot date: 2026-10-06
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
