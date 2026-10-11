@@ -12,7 +12,7 @@
 2. Preserve the corpus boundary: 382 quality/test files including one intentional sandbox fixture; 381 public canonical skills across 17 categories.
 3. Keep graph projections at 381 nodes / 255 edges and verify byte identity between data/SKILLS_GRAPH.json and docs/api/graph.json; keep the two search projections byte-identical.
 4. Re-run the existing Agent Skills reconciliation gate on current main before refreshing its eligibility counts in active state documents.
-5. Investigate activation qualification discrepancy: PR run #38118997645 passed 12 observations and acceptance; post-merge main run #38123797916 failed qualification before observations. Both commits have the same Git tree.
+5. Investigate activation qualification discrepancy: PR run #38118997645 passed 12 observations and acceptance; post-merge main run #38123797916 failed qualification before observations. The PR head and merge commit differ in their Git trees and include additional merge-side workflow/benchmark changes; hardware allocation also differed (the failed run was CPU-only). These observations do not yet isolate one root cause.
 6. Do not modify skill descriptions, routing, runtime behavior, or add skills until repeatable activation evidence isolates a measured defect.
 
 Issue #336 retrieval freshness/reproducibility is resolved. No duplicate projection generator or competing search implementation is justified.
@@ -56,7 +56,7 @@ The final repository audit verified the current main control plane and canonical
 - At that historical audit point, graph projections were recorded at 382 nodes / 250 edges; the current 2026-10-11 baseline is 381 nodes / 255 edges as recorded in the active block above.
 - Remaining material evidence gap is Issue #357 (real runtime activation traces). Issue #336 retrieval evidence freshness/reproducibility is resolved by the version-matched deterministic benchmark and explicit historical qualification.
 
-This current block governs execution selection. Older dated roadmap entries remain historical records.
+The **Current Execution Block — 2026-10-11** above governs execution selection. This dated audit and older entries below are historical records.
 
 ## Phase 0 Exit Interpretation
 
