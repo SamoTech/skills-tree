@@ -48,22 +48,40 @@ jobs:
 
           accelerator_found=0
           if command -v nvidia-smi >/dev/null 2>&1; then
-            if nvidia-smi -L >> "$report" 2>&1; then
-              accelerator_found=1
+            nvidia_output="$RUNNER_TEMP/nvidia-smi-preflight.txt"
+            if nvidia-smi -L > "$nvidia_output" 2>&1; then
+              cat "$nvidia_output" >> "$report"
+              if grep -Eq '^GPU [0-9]+:' "$nvidia_output"; then
+                accelerator_found=1
+              fi
+            else
+              cat "$nvidia_output" >> "$report"
             fi
           else
             echo "nvidia-smi: unavailable" >> "$report"
           fi
           if command -v rocm-smi >/dev/null 2>&1; then
-            if rocm-smi >> "$report" 2>&1; then
-              accelerator_found=1
+            rocm_output="$RUNNER_TEMP/rocm-smi-preflight.txt"
+            if rocm-smi --showproductname > "$rocm_output" 2>&1; then
+              cat "$rocm_output" >> "$report"
+              if grep -Eq 'GPU\[[0-9]+\]' "$rocm_output"; then
+                accelerator_found=1
+              fi
+            else
+              cat "$rocm_output" >> "$report"
             fi
           else
             echo "rocm-smi: unavailable" >> "$report"
           fi
           if command -v rocminfo >/dev/null 2>&1; then
-            if rocminfo >> "$report" 2>&1; then
-              accelerator_found=1
+            rocminfo_output="$RUNNER_TEMP/rocminfo-preflight.txt"
+            if rocminfo > "$rocminfo_output" 2>&1; then
+              cat "$rocminfo_output" >> "$report"
+              if grep -Eiq 'Device Type:[[:space:]]*GPU' "$rocminfo_output"; then
+                accelerator_found=1
+              fi
+            else
+              cat "$rocminfo_output" >> "$report"
             fi
           else
             echo "rocminfo: unavailable" >> "$report"
