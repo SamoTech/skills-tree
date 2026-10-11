@@ -18,6 +18,7 @@ on:
       - "tools/validate_agent_skills.py"
       - "tools/reconcile_agent_skills.py"
       - ".github/workflows/agent-skills-distribution.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
