@@ -1,6 +1,18 @@
 name: Skill Selection Evidence Benchmark
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'registry/skill_selection.py'
+      - 'registry/universal_registry.json'
+      - 'data/SKILLS_GRAPH.json'
+      - 'benchmarks/selection/capability-selection-v1.json'
+      - 'tools/run_skill_selection_benchmark.py'
+      - 'skills/**/*.md'
+      - 'tools/build_graph.py'
+      - 'tools/skill_corpus.py'
+      - '.github/workflows/skill-selection-benchmark.yml'
   pull_request:
     paths:
       - 'registry/skill_selection.py'
@@ -11,6 +23,7 @@ on:
       - 'skills/**/*.md'
       - 'tools/build_graph.py'
       - 'tools/skill_corpus.py'
+      - '.github/workflows/skill-selection-benchmark.yml'
   workflow_dispatch:
 
 permissions:
