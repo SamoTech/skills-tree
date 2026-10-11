@@ -11,6 +11,11 @@ import run_cap007_retrieval_benchmark as runner
 import validate_cap007_dataset as validator
 
 QUERY_TYPES = ["exact_match", "paraphrase", "multi_hop", "no_relevant_document"]
+SCHEMA_PATH = ROOT / "benchmarks" / "retrieval" / "cap007-dataset.schema.json"
+
+
+def load_schema() -> dict:
+    return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
 
 
 def write_skills_tree(tmp_path: Path) -> Path:
@@ -22,7 +27,7 @@ def write_skills_tree(tmp_path: Path) -> Path:
     return skills_root
 
 
-def write_dataset(tmp_path: Path, count: int = 100, dangling: bool = False, duplicate: bool = False) -> Path:
+def write_dataset(tmp_path: Path, name: str = "cap007-dataset.json", count: int = 100, dangling: bool = False, duplicate: bool = False) -> Path:
     cases = []
     for i in range(1, count + 1):
         query_type = QUERY_TYPES[(i - 1) % 4]
@@ -32,8 +37,9 @@ def write_dataset(tmp_path: Path, count: int = 100, dangling: bool = False, dupl
             expected = []
         else:
             expected = ["07-tool-use/web-search"]
+        case_id = f"CAP007-TEST-{i:03d}" if not (duplicate and i == count) else "CAP007-TEST-001"
         cases.append({
-            "case_id": f"CAP007-TEST-{i:03d}" if not (duplicate and i == count) else "CAP007-TEST-001",
+            "case_id": case_id,
             "query": f"Synthetic schema test support query {i}",
             "query_type": query_type,
             "expected_skill_ids": expected,
@@ -57,13 +63,9 @@ def write_dataset(tmp_path: Path, count: int = 100, dangling: bool = False, dupl
         },
         "cases": cases,
     }
-    path = tmp_path / "cap007-dataset.json"
+    path = tmp_path / name
     path.write_text(json.dumps(dataset, indent=2), encoding="utf-8")
     return path
-
-
-def load_schema() -> dict:
-    return json.loads((ROOT / "benchmarks" / "retrieval" / "cap007-dataset.schema.json").read_text(encoding="utf-8"))
 
 
 def test_validator_accepts_valid_dataset(tmp_path):
@@ -106,15 +108,16 @@ def test_validator_rejects_fewer_than_100_cases(tmp_path):
 
 def test_validator_main_returns_exit_codes(tmp_path):
     skills_root = write_skills_tree(tmp_path)
-    dataset_path = write_dataset(tmp_path)
+    valid_path = write_dataset(tmp_path, name="valid.json")
+    invalid_path = write_dataset(tmp_path, name="invalid.json", count=99)
     assert validator.main([
-        "--dataset", str(dataset_path),
+        "--dataset", str(valid_path),
+        "--schema", str(SCHEMA_PATH),
         "--skills-root", str(skills_root),
     ]) == 0
-    bad_path = write_dataset(tmp_path, count=99)
-    bad_path = bad_path.rename(tmp_path / "bad.json") if False else bad_path
     assert validator.main([
-        "--dataset", str(bad_path),
+        "--dataset", str(invalid_path),
+        "--schema", str(SCHEMA_PATH),
         "--skills-root", str(skills_root),
     ]) == 1
 
@@ -156,6 +159,7 @@ def test_runner_returns_not_run_for_invalid_dataset(tmp_path, monkeypatch):
     output_path = tmp_path / "cap007-result.json"
     exit_code = runner.main([
         "--dataset", str(dataset_path),
+        "--schema", str(SCHEMA_PATH),
         "--skills-root", str(skills_root),
         "--index", str(index_path),
         "--output", str(output_path),
