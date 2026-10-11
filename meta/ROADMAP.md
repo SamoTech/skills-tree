@@ -53,7 +53,7 @@ The final repository audit verified the current main control plane and canonical
 - Activation evidence integrity is fail-closed for unknown dataset case IDs and duplicate run IDs; incomplete corpora are classified PARTIAL rather than COMPLETE.
 - The quality corpus contains 382 files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
 - Agent Skills reconciliation verifies 264 eligible canonical projections, 118 blocked entries, and 302 existing packages.
-- At that historical audit point, graph projections were recorded at 382 nodes / 250 edges; the current 2026-10-11 baseline is 381 nodes / 255 edges as recorded in the active block above.
+- At that historical audit point, graph projections were recorded at 382 nodes / 250 edges; the current 2026-10-11 baseline is 381 nodes / 255 edges as recorded in the Current Execution Block above.
 - Remaining material evidence gap is Issue #357 (real runtime activation traces). Issue #336 retrieval evidence freshness/reproducibility is resolved by the version-matched deterministic benchmark and explicit historical qualification.
 
 The **Current Execution Block — 2026-10-11** above governs execution selection. This dated audit and older entries below are historical records.
