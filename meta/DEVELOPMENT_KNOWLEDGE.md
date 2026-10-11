@@ -2,7 +2,7 @@
 
 **Status:** Governing development knowledge for the Universal Agent Knowledge Layer
 **Version:** 1.0
-**Updated:** 2026-10-06
+**Updated:** 2026-10-11
 **Authority:** This document records the development model, architecture direction, execution rules, and verified implementation state. It complements `meta/PROJECT_CONSTITUTION.md`, `meta/AGENT_OPERATING_MODEL.md`, and the machine-readable registry contract in `meta/universal-registry.schema.json`.
 
 ## 1. Mission
@@ -638,7 +638,7 @@ PR #320 merged as `4a09394332a90aa5ec172d3dc2b31fa38b740402`. The resulting patc
 
 The next verification is an ordinary documentation-only main commit. It must produce a successful semantic-release gate with `released=false` and no build or PyPI publication jobs. This is the regression test for the v1.72.6 failure mode.
 
-## Final Live Audit Reconciliation — 2026-10-06
+## Previous Live Audit Reconciliation — 2026-10-06 (historical)
 
 The latest live audit supersedes only the active-state claims above where they conflict with current main; older dated paragraphs remain historical records.
 
@@ -655,3 +655,27 @@ Current evidence boundary:
 - Issue #357 remains open for real agent-runtime activation traces. No empirical activation/reliability claim is valid without those traces.
 - Issue #336 is resolved for the identified freshness/reproducibility gap. The historical `benchmarks/memory/retrieval-accuracy.md` result table remains explicitly non-current; current bounded retrieval evidence is supplied by the version-matched 12-case deterministic benchmark artifact.
 - No new skill, search engine, routing authority, or competing projection generator is justified by the current evidence.
+
+## Current Live Audit Reconciliation — 2026-10-11
+
+This section supersedes the active-state claims in older dated audits where they conflict with current main.
+
+Current verified control baseline:
+- Main was verified at d36848cb827f9749e9209212061d4d59e2d72cc5 at the start of this audit.
+- The quality corpus contains 382 skill files including one intentional sandbox fixture; the public production registry contains 381 canonical skills across 17 categories.
+- The graph is 381 nodes / 255 edges (8 REQUIRES, 247 RELATED_TO); data/SKILLS_GRAPH.json and docs/api/graph.json are byte-identical. Graph stats/report agree with the graph JSON.
+- data/search-index.json and docs/search-index.json are byte-identical. The machine-readable public skills registry contains 381 entries.
+- The repository tree contains 302 Agent Skills package manifests. The last detailed reconciliation report is dated 2026-10-06 (264 eligible, 118 blocked); re-run its gate on current main before asserting exact-head eligibility or drift status.
+- PR #431 passed applicable PR checks and refreshed graph projection timestamps without changing graph topology.
+
+Activation evidence status:
+- PR run [#38118997645](https://github.com/SamoTech/skills-tree/actions/runs/38118997645) passed routing qualification, 12 independent fresh-session observations, observation schema validation, benchmark acceptance, and artifact upload.
+- Post-merge main run [#38123797916](https://github.com/SamoTech/skills-tree/actions/runs/38123797916) failed during routing qualification; the 12-observation step and benchmark were skipped.
+- The successful PR commit and failed main commit have the same Git tree. The outcome difference is therefore not attributable to a source-tree difference from those runs alone; runtime/environment nondeterminism remains a hypothesis, not a proven cause.
+- Issue #336 retrieval freshness/reproducibility remains resolved. Issue #357 activation evidence is not considered reliably green on main until qualification passes on main and the discrepancy is explained.
+
+Next executable actions:
+1. Finish the documentation synchronization PR and validate it at exact head.
+2. Run the existing Agent Skills reconciliation gate on current main; do not create a second reconciler.
+3. Re-run/inspect activation qualification on main and preserve artifacts/logs. Change runtime behavior only when observations isolate a reproducible defect.
+4. Re-read current state and roadmap after the evidence runs; do not begin unrelated feature work before these gates are reconciled.
