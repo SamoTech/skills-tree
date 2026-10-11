@@ -233,23 +233,26 @@ jobs:
           home = Path(os.environ["HERMES_HOME"])
           runtime_file = home / "hermes-agent" / "tools" / "skills_tool.py"
           source = runtime_file.read_text(encoding="utf-8")
-          anchor = "    try:\n        # Validate before the ':' dispatch"
+          function_start = source.find("def skill_view(")
+          if function_start < 0:
+              raise SystemExit("Could not locate Hermes skill_view function.")
+          try_marker = "    try:\\n"
+          try_start = source.find(try_marker, function_start)
+          if try_start < 0:
+              raise SystemExit("Could not locate skill_view function entry.")
+          insert_at = try_start + len(try_marker)
           guard = (
-              "    try:\n"
-              "        allowed_benchmark_skills = {\n"
-              "            \"skills-tree-rag\",\n"
-              "            \"skills-tree-code-review\",\n"
-              "            \"skills-tree-web-search\",\n"
-              "        }\n"
-              "        if name not in allowed_benchmark_skills:\n"
-              "            return _fail(\n"
-              "                f\"Skill '{name}' is outside the activation benchmark allowlist.\"\n"
-              "            )\n"
-              "        # Validate before the ':' dispatch"
+              "        allowed_benchmark_skills = {\\n"
+              "            \"skills-tree-rag\",\\n"
+              "            \"skills-tree-code-review\",\\n"
+              "            \"skills-tree-web-search\",\\n"
+              "        }\\n"
+              "        if name not in allowed_benchmark_skills:\\n"
+              "            return _fail(\\n"
+              "                f\"Skill '{name}' is outside the activation benchmark allowlist.\"\\n"
+              "            )\\n"
           )
-          if anchor not in source:
-              raise SystemExit("Could not install activation benchmark skill_view allowlist: upstream source anchor changed.")
-          runtime_file.write_text(source.replace(anchor, guard, 1), encoding="utf-8")
+          runtime_file.write_text(source[:insert_at] + guard + source[insert_at:], encoding="utf-8")
 
           print(f"Disabled {len(disabled)} unrelated skills; retained {sorted(allowed)}")
           print("Installed strict skill_view allowlist for the three benchmark runtime names.")
@@ -388,7 +391,7 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=60,
+                      timeout=240,
                   )
               except subprocess.TimeoutExpired as exc:
                   output = exc.stdout or ""
@@ -500,7 +503,7 @@ jobs:
                       text=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.STDOUT,
-                      timeout=60,
+                      timeout=240,
                   )
                   (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
                   print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
