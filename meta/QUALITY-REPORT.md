@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 382
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 224
+- **Total skill files:** 384
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 226
 - 🟡 **Enriched** (real description + runnable code): 157
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -18,13 +18,13 @@
 | `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
 | `01-perception` | 36 | 31 | 5 | 0 | 0 | 0 |
 | `02-reasoning` | 46 | 38 | 8 | 0 | 0 | 0 |
-| `03-memory` | 20 | 20 | 0 | 0 | 0 | 0 |
+| `03-memory` | 21 | 21 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 21 | 11 | 10 | 0 | 0 | 0 |
 | `05-code` | 29 | 8 | 21 | 0 | 0 | 0 |
 | `06-communication` | 15 | 15 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 33 | 12 | 21 | 0 | 0 | 0 |
 | `08-multimodal` | 14 | 14 | 0 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 24 | 14 | 10 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 25 | 15 | 10 | 0 | 0 | 0 |
 | `10-computer-use` | 20 | 0 | 20 | 0 | 0 | 0 |
 | `11-web` | 17 | 17 | 0 | 0 | 0 | 0 |
 | `12-data` | 18 | 1 | 17 | 0 | 0 | 0 |
@@ -118,6 +118,7 @@
 - [`skills/03-memory/memory-summarization.md`](skills/03-memory/memory-summarization.md) — Memory Summarization
 - [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — Procedural Memory
 - [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — Procedural Memory
+- [`skills/03-memory/progressive-skill-loading.md`](skills/03-memory/progressive-skill-loading.md) — Progressive Skill Loading
 - [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
 - [`skills/03-memory/semantic-memory.md`](skills/03-memory/semantic-memory.md) — Semantic Memory
 - [`skills/03-memory/short-term-memory.md`](skills/03-memory/short-term-memory.md) — Short-Term Memory
@@ -196,6 +197,7 @@
 - [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG — Retrieval-Augmented Generation
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/skill-quality-evaluation.md`](skills/09-agentic-patterns/skill-quality-evaluation.md) — Skill Quality Evaluation
 - [`skills/09-agentic-patterns/subagent-delegation.md`](skills/09-agentic-patterns/subagent-delegation.md) — Subagent Delegation
 - [`skills/09-agentic-patterns/time-travel-debugging.md`](skills/09-agentic-patterns/time-travel-debugging.md) — Time-travel Debugging
 - [`skills/09-agentic-patterns/tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — Tool-Use Loop

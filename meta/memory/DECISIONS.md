@@ -1446,3 +1446,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if newer dated public evidence contradicts the recorded demand signals, if a duplicate canonical contract is discovered, if the post-merge regenerated projections reveal drift for the two new entries, or if measured use shows the tier-B loading contract needs revision.
+
+## DECISION-2026-10-11-QUALITY-REPORT-REPUBLISH
+
+**Topic:** Republishing the post-PR #467 regenerated quality report and recording the cycle's generated-projection reconciliation.
+
+**Decision:** The trusted `check_skill_quality.py` workflow committed its post-PR #467 output to `automation/generated-quality-report` (`0a9aed6e47d8e2e81293695508f84e8954523f6c`, 2026-10-11T19:35:23Z: 384 files, 226 battle-tested, 157 enriched, 0 stubs, 0 invalid, 1 intentional test fixture, including both PR #467 skills), but its PR-creation step stranded in the #447 family. Publish that workflow output to `meta/QUALITY-REPORT.md` through the documented user-authored-recommit workaround (PR #465 pattern); the pushed file is the workflow's own output and is not agent-generated. The graph rebuild was already published through bot PR #468 (owner-merged, `686327447bc09bea413bde5059bfa75c1cd86fb1`; 383 nodes / 263 edges verified on `main`, byte-identical projections, blob `d418ace3d6960113c45f848a2773cc3f02107527`). The search-index rebuild did not run after the API-driven squash merge (`automation/generated-search-index` remains at `058ff132258d45db4ab1dd384369549aada9f7d1`); the committed search projection stays stale at 381 entries pending a trusted rebuild (owner-side workflow dispatch or the next skills-touching push to `main`) and must not be agent-generated.
+
+**Confidence:** HIGH — content identity, branch heads, and blob SHAs verified against live refs in this cycle.
+
+**Evidence IDs:** automation/generated-quality-report@`0a9aed6e47d8`; PR #468; PR #465 precedent; issue #447; PR #467; issue #466; meta/CURRENT-STATE.md post-#467 generated-artifact reconciliation; meta/ROADMAP.md automation follow-up.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if a trusted search-index rebuild contradicts the recorded staleness, if a fresh trusted regeneration diverges from the republished report, or if the #447 resolution changes the republish policy.
