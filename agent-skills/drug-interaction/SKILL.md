@@ -1,39 +1,44 @@
 ---
 name: drug-interaction
-description: Apply drug interaction as a bounded domain-specific AI capability with explicit scope, validation, and uncertainty handling.
+description: Apply drug interaction in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.
+metadata:
+  source: skills/16-domain-specific/drug-interaction.md
+  category: 16-domain-specific
 ---
 
-# drug interaction
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-drug-interaction.json)
 
-## Description
-Apply this domain-specific capability only within its declared scope. Preserve source context, validate inputs and outputs, and avoid unsupported certainty.
+**Category:** Domain-Specific
+**Skill Level:** `advanced`
+**Stability:** stable
+**Added:** 2026-04
 
-## When to Use
-Use when the workflow explicitly requires this capability and the relevant domain, jurisdiction, and source material are established.
+### Description
+Detects clinically significant drug-drug and drug-food interactions by checking pairs and combinations against curated interaction databases. Classifies severity (contraindicated / major / moderate / minor), explains the mechanism, and suggests safe alternatives where available.
 
-## Inputs / Outputs
-- Inputs: validated source material, domain context, task constraints.
-- Outputs: structured result with assumptions or uncertainty where material.
-
-## Failure Modes
-- Missing or ambiguous source context.
-- Unsupported inference or domain-rule mismatch.
-- Stale or conflicting evidence.
-- Presenting generated output as professional advice without appropriate authorization.
-- Skipping output verification.
-
-## Runnable Example
-
+### Example
 ```python
-task = {"capability": "drug-interaction", "validated": True}
-assert task["validated"]
-print("execute within declared domain scope")
+DRUG_DB = {
+    frozenset(["warfarin", "ibuprofen"]): {"severity": "major", "effect": "increased bleeding risk"},
+    frozenset(["ssri", "tramadol"]): {"severity": "contraindicated", "effect": "serotonin syndrome"},
+    frozenset(["metformin", "alcohol"]): {"severity": "moderate", "effect": "lactic acidosis risk"},
+}
+
+def check_interactions(drugs: list[str]) -> list[dict]:
+    drugs = [d.lower() for d in drugs]
+    findings = []
+    for pair, info in DRUG_DB.items():
+        if pair.issubset(set(drugs)):
+            findings.append({"pair": list(pair), **info})
+    return findings or [{"result": "no known interactions"}]
+
+print(check_interactions(["Warfarin", "Ibuprofen", "Metformin"]))
 ```
 
 ## Evidence
-Canonical repository skill: skills/16-domain-specific/drug-interaction.md. Repository schema and validation workflows define local conformance.
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
-## Related
+### Related
 - 16-domain-specific
 - input-guardrails
 - output-guardrails

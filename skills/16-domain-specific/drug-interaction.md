@@ -37,6 +37,9 @@ def check_interactions(drugs: list[str]) -> list[dict]:
 print(check_interactions(["Warfarin", "Ibuprofen", "Metformin"]))
 ```
 
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
 ### Related
 - 16-domain-specific
 - input-guardrails

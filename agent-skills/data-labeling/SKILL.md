@@ -1,39 +1,50 @@
 ---
 name: data-labeling
-description: Apply data labeling as a bounded domain-specific AI capability with explicit scope, validation, and uncertainty handling.
+description: Apply data labeling in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.
+metadata:
+  source: skills/16-domain-specific/data-labeling.md
+  category: 16-domain-specific
 ---
 
-# data labeling
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-data-labeling.json)
 
-## Description
-Apply this domain-specific capability only within its declared scope. Preserve source context, validate inputs and outputs, and avoid unsupported certainty.
+**Category:** Domain-Specific
+**Skill Level:** `advanced`
+**Stability:** stable
+**Added:** 2026-04
 
-## When to Use
-Use when the workflow explicitly requires this capability and the relevant domain, jurisdiction, and source material are established.
+### Description
+Assigns category labels, span annotations, bounding boxes, or structured metadata to datasets for supervised ML training. Manages taxonomy versioning, confidence scoring, and inter-annotator consistency checks at scale.
 
-## Inputs / Outputs
-- Inputs: validated source material, domain context, task constraints.
-- Outputs: structured result with assumptions or uncertainty where material.
-
-## Failure Modes
-- Missing or ambiguous source context.
-- Unsupported inference or domain-rule mismatch.
-- Stale or conflicting evidence.
-- Presenting generated output as professional advice without appropriate authorization.
-- Skipping output verification.
-
-## Runnable Example
-
+### Example
 ```python
-task = {"capability": "data-labeling", "validated": True}
-assert task["validated"]
-print("execute within declared domain scope")
+import anthropic, json
+
+client = anthropic.Anthropic()
+
+TAXONOMY = ["billing", "technical_support", "feature_request", "complaint", "compliment"]
+
+def label_batch(texts: list[str]) -> list[dict]:
+    batch = json.dumps(texts)
+    prompt = (
+        f"Classify each text into one of: {TAXONOMY}.\n"
+        "Return JSON array: [{{text, label, confidence_0_to_1}}].\n\n"
+        f"Texts: {batch}"
+    )
+    resp = client.messages.create(
+        model="claude-opus-4-5", max_tokens=800,
+        messages=[{"role": "user", "content": prompt}]
+    )
+    return json.loads(resp.content[0].text)
+
+samples = ["I can't log into my account", "Loving the new dashboard!", "Please add dark mode"]
+print(label_batch(samples))
 ```
 
 ## Evidence
-Canonical repository skill: skills/16-domain-specific/data-labeling.md. Repository schema and validation workflows define local conformance.
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
-## Related
+### Related
 - 16-domain-specific
 - input-guardrails
 - output-guardrails

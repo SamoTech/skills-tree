@@ -40,6 +40,9 @@ def analyse(revenue, cogs, opex, current_assets, current_liabilities, total_debt
 print(analyse(500_000, 200_000, 100_000, 120_000, 60_000, 80_000, 200_000))
 ```
 
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
 ### Related
 - 16-domain-specific
 - input-guardrails

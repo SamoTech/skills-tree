@@ -1,39 +1,49 @@
 ---
 name: alert-triage
-description: Apply alert triage as a bounded domain-specific AI capability with explicit scope, validation, and uncertainty handling.
+description: Apply alert triage in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.
+metadata:
+  source: skills/16-domain-specific/alert-triage.md
+  category: 16-domain-specific
 ---
 
-# alert triage
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-alert-triage.json)
 
-## Description
-Apply this domain-specific capability only within its declared scope. Preserve source context, validate inputs and outputs, and avoid unsupported certainty.
+**Category:** Domain-Specific
+**Skill Level:** `advanced`
+**Stability:** stable
+**Added:** 2026-04
 
-## When to Use
-Use when the workflow explicitly requires this capability and the relevant domain, jurisdiction, and source material are established.
+### Description
+Classifies, deduplicates, and prioritises monitoring alerts from sources like PagerDuty, Datadog, or Prometheus. Suppresses noise, identifies correlated root causes, routes to the correct team, and generates concise summaries for on-call engineers.
 
-## Inputs / Outputs
-- Inputs: validated source material, domain context, task constraints.
-- Outputs: structured result with assumptions or uncertainty where material.
-
-## Failure Modes
-- Missing or ambiguous source context.
-- Unsupported inference or domain-rule mismatch.
-- Stale or conflicting evidence.
-- Presenting generated output as professional advice without appropriate authorization.
-- Skipping output verification.
-
-## Runnable Example
-
+### Example
 ```python
-task = {"capability": "alert-triage", "validated": True}
-assert task["validated"]
-print("execute within declared domain scope")
+from typing import List
+
+ALERT_WEIGHTS = {"critical": 3, "warning": 2, "info": 1}
+
+def triage_alerts(alerts: List[dict]) -> List[dict]:
+    # Deduplicate by name, keep highest severity
+    seen = {}
+    for alert in alerts:
+        name = alert["name"]
+        if name not in seen or ALERT_WEIGHTS[alert["severity"]] > ALERT_WEIGHTS[seen[name]["severity"]]:
+            seen[name] = alert
+    return sorted(seen.values(), key=lambda a: -ALERT_WEIGHTS[a["severity"]])
+
+alerts = [
+    {"name": "db_down", "severity": "critical", "service": "postgres"},
+    {"name": "db_down", "severity": "warning", "service": "postgres"},
+    {"name": "cpu_high", "severity": "warning", "service": "api"},
+    {"name": "disk_low", "severity": "info", "service": "worker"},
+]
+print(triage_alerts(alerts))
 ```
 
 ## Evidence
-Canonical repository skill: skills/16-domain-specific/alert-triage.md. Repository schema and validation workflows define local conformance.
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
-## Related
+### Related
 - 16-domain-specific
 - input-guardrails
 - output-guardrails

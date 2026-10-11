@@ -40,6 +40,9 @@ contract = "Liability is capped at fees paid. Company may modify terms at any ti
 print(flag_clauses(contract))
 ```
 
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
 ### Related
 - 16-domain-specific
 - input-guardrails
