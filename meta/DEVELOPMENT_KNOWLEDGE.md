@@ -642,12 +642,12 @@ The next verification is an ordinary documentation-only main commit. It must pro
 
 The latest live audit supersedes only the active-state claims above where they conflict with current main; older dated paragraphs remain historical records.
 
-Current verified control baseline:
-- 45 GitHub Actions workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
+Control baseline verified at the 2026-10-06 audit point:
+- 45 GitHub Actions workflow files were present and classified in `meta/WORKFLOW_INVENTORY.md`.
 - `skills/` remains the canonical source; generated Agent Skills, graph, search, and JSON-LD artifacts remain projections.
 - The quality corpus contains 382 skill files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
 - Agent Skills reconciliation currently verifies 264 eligible projections, 118 blocked canonical entries, and 302 existing packages.
-- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+- Graph projections were byte-identical at 382 nodes / 250 edges at that audit point; search projections were byte-identical.
 - DevLens is read-only and not an authoritative repository writer.
 - Activation benchmark evidence is fail-closed for zero observations, partial versus complete corpus status is explicit, and unknown case IDs / duplicate run IDs are rejected.
 
