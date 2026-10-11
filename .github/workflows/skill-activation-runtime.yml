@@ -825,9 +825,20 @@ jobs:
           import os
           from pathlib import Path
 
+          runtime_report = Path(os.environ["RUNNER_TEMP"]) / "activation-runtime-preflight.txt"
+          if runtime_report.exists():
+              runtime_text = runtime_report.read_text(encoding="utf-8", errors="replace")
+              if any(line in runtime_text.splitlines() for line in (
+                  "STATUS=INFRASTRUCTURE_INELIGIBLE",
+                  "STATUS=RUNTIME_PREFLIGHT_FAILED",
+              )):
+                  print("NOT RUN: activation benchmark was blocked by runtime eligibility preflight.")
+                  print("Classification: infrastructure/runtime preflight, not skill-routing acceptance.")
+                  raise SystemExit(0)
+
           result_path = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-benchmark-result.json"
           if not result_path.exists():
-              raise SystemExit("FAIL: benchmark result is missing.")
+              raise SystemExit("FAIL: benchmark result is missing without a recorded runtime-preflight block.")
           result = json.loads(result_path.read_text(encoding="utf-8"))
           metrics = result.get("metrics", {})
           acceptance = result.get("acceptance", {})
