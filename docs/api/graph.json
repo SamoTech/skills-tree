@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-11T08:09:26.204018+00:00",
+    "generated_at": "2026-10-11T18:19:13.553696+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 381,
-    "edge_count": 255,
+    "node_count": 383,
+    "edge_count": 263,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -1435,6 +1435,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/procedural.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/progressive-skill-loading",
+      "title": "Progressive Skill Loading",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/progressive-skill-loading.md",
       "quality_score": null
     },
     {
@@ -3528,6 +3543,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/self-play.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/skill-quality-evaluation",
+      "title": "Skill Quality Evaluation",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/skill-quality-evaluation.md",
       "quality_score": null
     },
     {
@@ -6868,6 +6898,38 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/progressive-skill-loading",
+      "target": "03-memory/context-compaction",
+      "type": "RELATED_TO",
+      "evidence": "[Context Compaction](context-compaction.md)",
+      "source_file": "skills/03-memory/progressive-skill-loading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/progressive-skill-loading",
+      "target": "03-memory/working-memory",
+      "type": "RELATED_TO",
+      "evidence": "[Working Memory](working-memory.md)",
+      "source_file": "skills/03-memory/progressive-skill-loading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/progressive-skill-loading",
+      "target": "15-orchestration/capability-based-skill-selection",
+      "type": "RELATED_TO",
+      "evidence": "[Capability-Based Skill Selection](../15-orchestration/capability-based-skill-selection.md)",
+      "source_file": "skills/03-memory/progressive-skill-loading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/progressive-skill-loading",
+      "target": "15-orchestration/budget-management",
+      "type": "RELATED_TO",
+      "evidence": "[Budget Management](../15-orchestration/budget-management.md)",
+      "source_file": "skills/03-memory/progressive-skill-loading.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/rag",
       "target": "03-memory/vector-store-retrieval",
       "type": "RELATED_TO",
@@ -7305,6 +7367,38 @@
       "type": "RELATED_TO",
       "evidence": "[Planning](../02-reasoning/planning.md)",
       "source_file": "skills/09-agentic-patterns/react.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/skill-quality-evaluation",
+      "target": "14-security/agent-skill-security-audit",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Skill Security Audit](../14-security/agent-skill-security-audit.md)",
+      "source_file": "skills/09-agentic-patterns/skill-quality-evaluation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/skill-quality-evaluation",
+      "target": "15-orchestration/capability-based-skill-selection",
+      "type": "RELATED_TO",
+      "evidence": "[Capability-Based Skill Selection](../15-orchestration/capability-based-skill-selection.md)",
+      "source_file": "skills/09-agentic-patterns/skill-quality-evaluation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/skill-quality-evaluation",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/skill-quality-evaluation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/skill-quality-evaluation",
+      "target": "15-orchestration/evidence-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Evidence Verification](../15-orchestration/evidence-verification.md)",
+      "source_file": "skills/09-agentic-patterns/skill-quality-evaluation.md",
       "confidence": "high"
     },
     {
