@@ -637,7 +637,7 @@ Next executable action: continue real-runtime activation evidence collection and
 
 Live main now contains the verified Model/Agent/Tool/Capability/Skill semantic boundary from PR #368, the Hermes activation adapter/capture instrumentation from PRs #363/#364, and the fail-closed zero-observation benchmark behavior from PR #365.
 
-Current generated corpus evidence: `meta/QUALITY-REPORT.md` reports 382 skill files (223 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional fixture). The Agent Skills Distribution Audit on the current PR #368 head verified 382 canonical entries and 302 existing Agent Skills packages with no eligible missing projections, projection drift, stale entries, unexpected packages, or unresolved collisions. `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical at 382 nodes / 250 edges; `data/search-index.json` and `docs/search-index.json` are byte-identical.
+At the 2026-10-06 audit point, `meta/QUALITY-REPORT.md` reported 382 skill files (223 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional fixture). The Agent Skills Distribution Audit on the PR #368 head verified 382 corpus entries and 302 existing packages. The graph projections at that point were byte-identical at 382 nodes / 250 edges, and the search projections were byte-identical.
 
 Governance: GitHub branch protection is not a project completion gate under the current repository-local governance decision; obsolete Issue #159 is closed as not planned. The remaining material activation investigation is Issue #357, which still lacks a real Hermes trace corpus.
 
@@ -659,6 +659,6 @@ This is evidence-integrity hardening only. No routing, skill definition, or metr
 
 The live main audit has no open pull requests. PRs #368, #371, #374, #375, #376, #377, and #379 were verified through exact-head CI before merge. The final evidence hardening merges are #377 (DevLens writer isolation) and #379 (activation observation integrity).
 
-Current production/public corpus distinction: `meta/QUALITY-REPORT.md` reports 382 total skill files including one intentional `00-sandbox` fixture; the public canonical production corpus contains 381 skills across 17 categories. Agent Skills reconciliation currently reports 264 eligible canonical projections, 118 blocked canonical entries, and 302 existing Agent Skills packages. Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+At the 2026-10-06 audit point, the quality report contained 382 skill files including one intentional `00-sandbox` fixture; the public canonical production corpus contained 381 skills across 17 categories. The reconciliation report recorded 264 eligible canonical projections, 118 blocked entries, and 302 existing Agent Skills packages. Graph projections were byte-identical at 382 nodes / 250 edges; search projections were byte-identical.
 
 Current remaining evidence gap: Issue #357 requires real external agent-runtime traces before activation/reliability claims. Issue #336 is resolved: the stale model-comparison benchmark is explicitly historical, canonical references and evaluation triggers were repaired, and a version-matched 12-case deterministic retrieval benchmark produced a reproducible artifact. No new skill, search engine, or routing authority is justified by the present evidence.
