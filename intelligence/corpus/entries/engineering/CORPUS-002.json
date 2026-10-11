@@ -3,8 +3,8 @@
   "$version": "1.0",
   "entry_id": "CORPUS-002",
   "created_at": "2026-07-05T00:00:00Z",
-  "last_reviewed_at": "2026-07-05T00:00:00Z",
-  "review_due_at": "2026-10-03T00:00:00Z",
+  "last_reviewed_at": "2026-10-11T00:00:00Z",
+  "review_due_at": "2027-01-09T00:00:00Z",
   "goal": {
     "text": "Build a CI/CD Pipeline Automation Agent that monitors code repositories for new commits and pull requests, executes build and test workflows, interprets test failures and static analysis results, determines whether a build should be promoted or blocked, reports findings back to the developer in natural language, and triggers deployment to the appropriate environment when all quality gates pass.",
     "goal_id": "GOAL-002",
