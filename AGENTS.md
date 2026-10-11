@@ -11,7 +11,8 @@ Read these files before meaningful work:
 4. meta/CURRENT-STATE.md — verified current state.
 5. meta/memory/DECISIONS.md — authoritative decisions.
 6. meta/AGENT_HANDOFF_PROTOCOL.md — handoff requirements.
-7. CONTRIBUTING.md — contribution and quality rules.
+7. meta/AGENT_EXECUTION_PLAYBOOK.md — concrete step-by-step cycle procedure (work-item selection, pre-push verification, exact-head CI gate, merge, post-merge, reporting).
+8. CONTRIBUTING.md — contribution and quality rules.
 
 Then inspect the relevant architecture, testing, security, deployment, and roadmap documents for the task.
 
@@ -100,6 +101,7 @@ Before merging a meaningful PR:
 6. Confirm documentation requirements.
 7. Record significant decisions and the resulting state.
 8. Merge only when the repository's stated gates are satisfied.
+9. Follow `meta/AGENT_EXECUTION_PLAYBOOK.md` for the concrete branch, verification, CI-gate, merge, and post-merge procedure.
 
 A mergeable GitHub status alone is not proof of semantic correctness. For normal PRs, once the exact HEAD passes the required CI/test/security gates and the repository's documented invariants are satisfied, merge without waiting for a human approval. A human review is not an additional merge gate unless an explicit repository control-plane rule or higher-priority decision requires it.
 

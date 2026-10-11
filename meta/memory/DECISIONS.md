@@ -1405,3 +1405,16 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only if the exact-head distribution audit reports any remaining name-only match, drift, or validation failure; if `project()` changes such that the packages no longer match its output; or if the provenance requirement is redefined such that the standing Evidence statement is no longer sufficient for projection eligibility.
+## DECISION-2026-10-11-AGENT-EXECUTION-PLAYBOOK
+
+**Topic:** Record the concrete perpetual-development execution procedure as a standing playbook so any AI agent can operate the repository without prior conversation context.
+
+**Decision:** Add `meta/AGENT_EXECUTION_PLAYBOOK.md`, distilling the verified cycle procedure from recent practice (PRs #459, #461): select only agent-executable items and keep human-only/infrastructure-blocked items tracked with their blockers recorded; branch from verified `main` with a tracking issue; require pre-push byte-exact verification for generated or transcribed content, including validating any generator reimplementation against a known-good pair on `main`; gate on exact-head CI where every check is `success` or a documented `skipped` and a mergeable GitHub status alone is insufficient; synchronize `meta/CURRENT-STATE.md`, `meta/ROADMAP.md`, and `meta/memory/DECISIONS.md` in the same PR cycle with honest boundaries; squash-merge with the expected head SHA; verify post-merge and report with evidence proportional to each claim. Cross-reference the playbook from `AGENTS.md` (reading list and PR/Merge discipline) and `meta/AGENT_OPERATING_MODEL.md` (mandatory state loading and Core Agentic Execution Loop). Modernize `meta/AGENT_HANDOFF_PROTOCOL.md`: the packet format remains for multi-agent missions, the current handoff targets are the synchronized governance records, and the 2026-06 examples are marked historical with their obsolete file references explained. The playbook documents existing verified practice only — it grants no new authority, adds no automation, and makes no empirical claim.
+
+**Confidence:** HIGH.
+
+**Evidence IDs:** PR #463; issue [#462](https://github.com/SamoTech/skills-tree/issues/462); meta/AGENT_EXECUTION_PLAYBOOK.md; AGENTS.md; meta/AGENT_OPERATING_MODEL.md; meta/AGENT_HANDOFF_PROTOCOL.md; PR #459; PR #461 (worked references).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the governance contract changes the preflight or merge gates, if a gate named in the playbook is renamed or removed, or if verified practice shows a playbook step is unsafe or incomplete; as standing documentation, the playbook must be re-synchronized in any cycle that changes a procedure it records.
