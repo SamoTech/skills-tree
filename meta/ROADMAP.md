@@ -6,16 +6,16 @@
 > Product mission: `meta/PRODUCT_MISSION.md`
 > Execution mission: `meta/COO_MASTER_MISSION.md`
 
-## Current Execution Block — 2026-10-07
+## Current Execution Block — 2026-10-11
 
-1. Synchronize authoritative project-state documents and public README counts.
-2. Keep `00-sandbox` in the quality/test corpus while excluding it from public API, search, graph, and JSON-LD projections.
-3. Trigger retrieval and skill-selection evidence when canonical `skills/**` changes, using branch-generated projections rather than stale generated artifacts.
-4. Verify generated projections and exact-head CI after remediation.
-5. Execute Issue #357's 4 cases × 3 repetitions as 12 real independent runtime observations.
-6. Only measured activation failures may justify changes to Skill descriptions, routing/runtime behavior, or evaluation infrastructure.
+1. Complete the documentation synchronization PR against verified live main state.
+2. Preserve the corpus boundary: 382 quality/test files including one intentional sandbox fixture; 381 public canonical skills across 17 categories.
+3. Keep graph projections at 381 nodes / 255 edges and verify byte identity between data/SKILLS_GRAPH.json and docs/api/graph.json; keep the two search projections byte-identical.
+4. Re-run the existing Agent Skills reconciliation gate on current main before refreshing its eligibility counts in active state documents.
+5. Investigate activation qualification discrepancy: PR run #38118997645 passed 12 observations and acceptance; post-merge main run #38123797916 failed qualification before observations. Both commits have the same Git tree.
+6. Do not modify skill descriptions, routing, runtime behavior, or add skills until repeatable activation evidence isolates a measured defect.
 
-No new Skill, search engine, routing authority, or competing projection generator is justified without measured evidence.
+Issue #336 retrieval freshness/reproducibility is resolved. No duplicate projection generator or competing search implementation is justified.
 
 ## Product outcome
 
@@ -43,7 +43,7 @@ Security > Correctness > Canonical architecture > Discovery > Evidence > Freshne
 
 Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, verified permission boundaries, and no undocumented automation ownership.
 
-## Current Live Audit — 2026-10-06
+## Previous Live Audit — 2026-10-06 (historical)
 
 The final repository audit verified the current main control plane and canonical/projection boundaries.
 
@@ -53,7 +53,7 @@ The final repository audit verified the current main control plane and canonical
 - Activation evidence integrity is fail-closed for unknown dataset case IDs and duplicate run IDs; incomplete corpora are classified PARTIAL rather than COMPLETE.
 - The quality corpus contains 382 files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
 - Agent Skills reconciliation verifies 264 eligible canonical projections, 118 blocked entries, and 302 existing packages.
-- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+- At that historical audit point, graph projections were recorded at 382 nodes / 250 edges; the current 2026-10-11 baseline is 381 nodes / 255 edges as recorded in the active block above.
 - Remaining material evidence gap is Issue #357 (real runtime activation traces). Issue #336 retrieval evidence freshness/reproducibility is resolved by the version-matched deterministic benchmark and explicit historical qualification.
 
 This current block governs execution selection. Older dated roadmap entries remain historical records.
@@ -231,11 +231,11 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies the governance/registry foundation and the deterministic Agent Skills corpus projection, P1.1–P1.11, P2.1, P2.2, the post-P2.2 Evidence runtime integration, the post-P2.2 Compatibility runtime integration, the verified Skill runtime facade integration, the verified Capability runtime facade integration, and the verified Goal runtime facade integration. The `validate-graph.yml` permission boundary is now hardened and CI-verified. Remaining Phase 0 work is limited to control-plane reconciliation/limitations and any material security findings discovered by inspection. The deterministic Agent Skills corpus is a verified distribution baseline. The Universal Registry now has verified benchmark, freshness, graph fail-closed, recommendation-context, and blueprint-context boundaries. Issue #86 CLI search is also verified and merged via PR #299. No numbered P2.3 requirement is defined. The next foundational work is a fresh audit of remaining machine-readable discovery consumers and projection context boundaries.
+The repository's live development record verifies the governance/registry foundation, P1.1–P1.11, P2.1, P2.2, the post-P2.2 runtime integrations, graph fail-closed validation, recommendation/blueprint context, and CLI search. No numbered P2.3 requirement is defined. The immediate execution queue is governed by the 2026-10-11 block above: documentation synchronization, current-head Agent Skills reconciliation, and resolution of the activation qualification discrepancy before unrelated feature work.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
-## Current execution queue — 2026-10-07
+## Previous execution queue — 2026-10-07 (historical)
 
 1. Synchronize the project brain and public README counts.
 2. Enforce the 381-skill public projection boundary while retaining the 382-file quality/test corpus.
