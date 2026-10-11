@@ -30,7 +30,86 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Preflight runner accelerator availability
+        id: accelerator_preflight
+        run: |
+          set -u
+          report="$RUNNER_TEMP/activation-runtime-preflight.txt"
+          mkdir -p "$RUNNER_TEMP"
+          {
+            echo "STATUS=CHECKING_ACCELERATOR"
+            echo "RUNNER_OS=${RUNNER_OS:-unknown}"
+            echo "RUNNER_ARCH=${RUNNER_ARCH:-unknown}"
+            echo "ImageOS=${ImageOS:-unknown}"
+            echo "ImageVersion=${ImageVersion:-unknown}"
+            echo "Kernel: $(uname -a)"
+            echo "GPU probe output:"
+          } > "$report"
+
+          accelerator_found=0
+          if command -v nvidia-smi >/dev/null 2>&1; then
+            nvidia_output="$RUNNER_TEMP/nvidia-smi-preflight.txt"
+            if nvidia-smi -L > "$nvidia_output" 2>&1; then
+              cat "$nvidia_output" >> "$report"
+              if grep -Eq '^GPU [0-9]+:' "$nvidia_output"; then
+                accelerator_found=1
+              fi
+            else
+              cat "$nvidia_output" >> "$report"
+            fi
+          else
+            echo "nvidia-smi: unavailable" >> "$report"
+          fi
+          if command -v rocm-smi >/dev/null 2>&1; then
+            rocm_output="$RUNNER_TEMP/rocm-smi-preflight.txt"
+            if rocm-smi --showproductname > "$rocm_output" 2>&1; then
+              cat "$rocm_output" >> "$report"
+              if grep -Eq 'GPU\[[0-9]+\]' "$rocm_output"; then
+                accelerator_found=1
+              fi
+            else
+              cat "$rocm_output" >> "$report"
+            fi
+          else
+            echo "rocm-smi: unavailable" >> "$report"
+          fi
+          if command -v rocminfo >/dev/null 2>&1; then
+            rocminfo_output="$RUNNER_TEMP/rocminfo-preflight.txt"
+            if rocminfo > "$rocminfo_output" 2>&1; then
+              cat "$rocminfo_output" >> "$report"
+              if grep -Eiq 'Device Type:[[:space:]]*GPU' "$rocminfo_output"; then
+                accelerator_found=1
+              fi
+            else
+              cat "$rocminfo_output" >> "$report"
+            fi
+          else
+            echo "rocminfo: unavailable" >> "$report"
+          fi
+
+          if [ "$accelerator_found" -ne 1 ]; then
+            {
+              echo "STATUS=INFRASTRUCTURE_INELIGIBLE"
+              echo "REASON=No supported NVIDIA/AMD accelerator was detected before dependency installation or model download."
+            } >> "$report"
+            {
+              echo "## Activation benchmark runtime eligibility"
+              echo "- Status: **INFRASTRUCTURE_INELIGIBLE**"
+              echo "- Reason: no supported NVIDIA/AMD accelerator was detected on this runner."
+              echo "- The Hermes routing qualification and all 12 observations were not started."
+              echo "- This is an infrastructure eligibility result, not a skill-routing failure."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+            cat "$report"
+            exit 0
+          fi
+
+          echo "STATUS=ACCELERATOR_DETECTED; model allocation still requires verification after warmup." >> "$report"
+          echo "eligible=true" >> "$GITHUB_OUTPUT"
+          cat "$report"
+
       - name: Install Hermes Agent
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -62,6 +141,7 @@ jobs:
           "$HOME/.local/bin/hermes" --version
 
       - name: Install local Ollama runtime
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         run: |
           set -euo pipefail
           curl -fsSL https://ollama.com/install.sh | sh
@@ -140,6 +220,7 @@ jobs:
           grep -E 'OLLAMA_CONTEXT_LENGTH=65536|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -158,6 +239,7 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes plugins doctor "$HERMES_HOME/plugins/skills-tree-activation-observer" --ci
 
       - name: Install the three benchmark Skills into Hermes
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -205,6 +287,7 @@ jobs:
           PY
 
       - name: Restrict skill catalog to benchmark skills
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           HERMES_RUNTIME_HOME: ${{ runner.temp }}/hermes-home
@@ -281,6 +364,7 @@ jobs:
           PY
 
       - name: Configure Hermes for local Ollama
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -300,6 +384,7 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes config get model.base_url
 
       - name: Verify runtime connectivity
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -310,6 +395,7 @@ jobs:
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
       - name: Warm model and verify allocated context before qualification
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         run: |
           set -euo pipefail
           # Force-load the exact model with an explicit 64K context before the
@@ -338,7 +424,66 @@ jobs:
             exit 1
           }
 
+      - name: Verify Ollama actually allocated GPU for the benchmark model
+        id: runtime_accelerator_preflight
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
+        run: |
+          set -u
+          report="$RUNNER_TEMP/activation-runtime-preflight.txt"
+          ps_file="$RUNNER_TEMP/ollama-loaded-models.txt"
+          echo "Ollama model allocation:" >> "$report"
+          cat "$ps_file" >> "$report"
+          if [ ! -s "$ps_file" ]; then
+            {
+              echo "STATUS=RUNTIME_PREFLIGHT_FAILED"
+              echo "REASON=ollama ps returned no model allocation details."
+            } >> "$report"
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+            echo "- Runtime preflight: **RUNTIME_PREFLIGHT_FAILED** — Ollama did not report a loaded model." >> "$GITHUB_STEP_SUMMARY"
+            cat "$report"
+            exit 0
+          fi
+
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          report = Path(os.environ["RUNNER_TEMP"]) / "activation-runtime-preflight.txt"
+          ps_file = Path(os.environ["RUNNER_TEMP"]) / "ollama-loaded-models.txt"
+          lines = ps_file.read_text(encoding="utf-8", errors="replace").splitlines()
+          model_lines = [line for line in lines if "qwen3.5:4b" in line]
+          if not model_lines:
+              status = "RUNTIME_PREFLIGHT_FAILED"
+              reason = "The expected qwen3.5:4b model was not present in ollama ps output."
+          else:
+              allocation = model_lines[0]
+              mixed = re.search(r"(\d+)%\s*/\s*(\d+)%\s+CPU/GPU", allocation, re.IGNORECASE)
+              fully_gpu = re.search(r"\b100%\s+GPU\b", allocation, re.IGNORECASE)
+              gpu_percent = int(mixed.group(2)) if mixed else (100 if fully_gpu else 0)
+              if gpu_percent > 0:
+                  status = "RUNTIME_ELIGIBLE"
+                  reason = f"qwen3.5:4b reports {gpu_percent}% GPU allocation."
+              else:
+                  status = "INFRASTRUCTURE_INELIGIBLE"
+                  reason = "The model is loaded without a verifiable GPU allocation; CPU-only runs are not eligible for this benchmark."
+          with report.open("a", encoding="utf-8") as stream:
+              stream.write(f"STATUS={status}\n")
+              stream.write(f"REASON={reason}\n")
+          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
+          with summary.open("a", encoding="utf-8") as stream:
+              stream.write("## Activation benchmark runtime allocation\n")
+              stream.write(f"- Status: **{status}**\n")
+              stream.write(f"- Evidence: {reason}\n")
+              if status == "INFRASTRUCTURE_INELIGIBLE":
+                  stream.write("- The routing qualification and 12-observation corpus were not started; this is not a skill-routing result.\n")
+          print(f"{status}: {reason}")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as stream:
+              stream.write(f"eligible={'true' if status == 'RUNTIME_ELIGIBLE' else 'false'}\n")
+          PY
+
       - name: Qualify Hermes skill routing before the full benchmark
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -442,6 +587,7 @@ jobs:
           PY
 
       - name: Run 12 independent fresh-session observations
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           HERMES_STREAM_READ_TIMEOUT: '1800'
@@ -551,6 +697,7 @@ jobs:
 
           PY
       - name: Convert explicit runtime traces to benchmark observations
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         run: |
           python - <<'PY'
           import json
@@ -618,6 +765,7 @@ jobs:
           PY
 
       - name: Validate observation corpus against schema
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         run: |
           python - <<'PY'
           import json, os
@@ -634,6 +782,7 @@ jobs:
           PY
 
       - name: Run activation benchmark
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
@@ -642,6 +791,10 @@ jobs:
         if: always()
         run: |
           echo "## Real skill activation evidence" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f "$RUNNER_TEMP/activation-runtime-preflight.txt" ]; then
+            echo "### Runtime preflight evidence" >> "$GITHUB_STEP_SUMMARY"
+            cat "$RUNNER_TEMP/activation-runtime-preflight.txt" >> "$GITHUB_STEP_SUMMARY"
+          fi
           if [ -f "$RUNNER_TEMP/skill-activation-benchmark-result.json" ]; then
             python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
           import json, os
@@ -678,6 +831,7 @@ jobs:
             ${{ runner.temp }}/ollama-model-list.txt
             ${{ runner.temp }}/ollama-pull-attempt-*.log
             ${{ runner.temp }}/ollama.log
+            ${{ runner.temp }}/activation-runtime-preflight.txt
           if-no-files-found: warn
 
       - name: Enforce benchmark acceptance contract
@@ -688,9 +842,20 @@ jobs:
           import os
           from pathlib import Path
 
+          runtime_report = Path(os.environ["RUNNER_TEMP"]) / "activation-runtime-preflight.txt"
+          if runtime_report.exists():
+              runtime_text = runtime_report.read_text(encoding="utf-8", errors="replace")
+              if any(line in runtime_text.splitlines() for line in (
+                  "STATUS=INFRASTRUCTURE_INELIGIBLE",
+                  "STATUS=RUNTIME_PREFLIGHT_FAILED",
+              )):
+                  print("NOT RUN: activation benchmark was blocked by runtime eligibility preflight.")
+                  print("Classification: infrastructure/runtime preflight, not skill-routing acceptance.")
+                  raise SystemExit(0)
+
           result_path = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-benchmark-result.json"
           if not result_path.exists():
-              raise SystemExit("FAIL: benchmark result is missing.")
+              raise SystemExit("FAIL: benchmark result is missing without a recorded runtime-preflight block.")
           result = json.loads(result_path.read_text(encoding="utf-8"))
           metrics = result.get("metrics", {})
           acceptance = result.get("acceptance", {})
