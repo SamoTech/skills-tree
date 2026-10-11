@@ -1,18 +1,18 @@
 # Skills Tree — Live Repository State
 
-## Current Live Reconciliation — 2026-10-07
+## Current Live Reconciliation — 2026-10-11
 
-This block supersedes stale active-state wording elsewhere in this historical snapshot.
+This is the active state summary and supersedes older dated snapshots below. Live GitHub refs, generated artifacts, and exact workflow runs are the evidence source.
 
-- Quality/test corpus: 382 files, including one intentional `00-sandbox` fixture; public production corpus: 381 Skills across 17 categories.
-- Agent Skills reconciliation: 382 canonical, 264 eligible, 118 blocked, 302 existing packages; no projection drift or unexpected packages.
-- Graph projections: 382 nodes / 250 edges and internally synchronized; public-boundary remediation will reduce public projections to 381.
-- Retrieval evidence gap (#336) is resolved and bounded to its reproducible benchmark.
-- Activation evidence (#357) remains the material empirical gap: the contract and trace-integrity gates are verified, but 12 real independent runtime observations are still required.
-- PR #383 trace-integrity hardening and PR #388 manual capture support are merged; neither is runtime activation evidence.
-- Current remediation covers documentation synchronization, the 381-skill public projection boundary, and benchmark triggers for canonical Skill changes.
-- No Skill definitions or routing logic are changed by this remediation.
-
+- Verified main HEAD at audit start: d36848cb827f9749e9209212061d4d59e2d72cc5 (PR #431 graph projection refresh).
+- Quality/test corpus: 382 skill files including one intentional 00-sandbox fixture; public production registry: 381 canonical skills across 17 categories.
+- Agent Skills distribution: live tree contains 302 agent-skills/*/SKILL.md packages. The latest detailed reconciliation report is dated 2026-10-06 and records 264 eligible canonical projections, 118 blocked entries, and 37 retained blocked packages plus one auxiliary package. Re-run the reconciliation gate on the current head before treating those eligibility counts as newly verified.
+- Graph projections: 381 nodes, 255 edges (8 REQUIRES, 247 RELATED_TO), zero validation errors and zero unresolved-target warnings. data/SKILLS_GRAPH.json and docs/api/graph.json are byte-identical; graph stats and report agree.
+- Search projections: data/search-index.json and docs/search-index.json are byte-identical. The public skills registry projection contains 381 entries.
+- PR #431 was merged after all applicable PR checks passed. Its graph change refreshed generated timestamps; it did not change graph topology.
+- Activation evidence is mixed and must remain explicitly qualified. PR workflow run [#38118997645](https://github.com/SamoTech/skills-tree/actions/runs/38118997645), on commit 25031d961e2e7ae44d775802026d1b559582c00e, passed routing qualification, all 12 independent fresh-session observations, corpus validation, benchmark acceptance, and artifact upload. Post-merge main run [#38123797916](https://github.com/SamoTech/skills-tree/actions/runs/38123797916), on c538dce8126746e19d2ded1e3be2e7b9692c9ca5, failed at routing qualification; the 12-observation step and downstream benchmark were skipped. Both commits have the same Git tree, so the run difference is not explained by a source-tree difference. Do not claim the main-branch activation gate is reliably green until the discrepancy is reproduced or explained.
+- Issue #336 retrieval freshness/reproducibility remediation remains resolved by the version-matched deterministic 12-case benchmark; do not reopen it without contrary evidence.
+- Next justified work: synchronize current docs (this PR), re-run the Agent Skills reconciliation gate against current main, then investigate/rerun activation qualification on main. Do not change skill descriptions or routing logic without measured runtime evidence.
 
 > Maintained as a point-in-time operational snapshot. This file records verified state used for engineering and governance decisions.
 
@@ -26,12 +26,12 @@ This block supersedes stale active-state wording elsewhere in this historical sn
 - Quality report: current generated report `meta/QUALITY-REPORT.md` verifies 382 skill files: 223 battle-tested, 158 enriched, 0 stubs, 0 invalid, 1 intentional test fixture.
 - Quality-report figures are current only at the generated-report verification point; historical verification sections retain their original counts.
 - `main` current HEAD is intentionally verified from the live Git ref during each execution cycle; this snapshot does not hard-code its own future commit.
-- Latest documentation synchronization was verified on 2026-10-06 during the live full-project audit; generated quality state is 382 skills and current Agent Skills reconciliation is 382 canonical / 264 eligible / 118 blocked / 302 packages.
+- The active documentation synchronization baseline is recorded in the 2026-10-11 reconciliation block above; dated audit sections below are historical unless explicitly re-verified.
 
 ## Current verified architecture state
 
-- Current Agent Skills baseline: 382 canonical entries, 264 eligible deterministic projections, 118 blocked canonical entries, and 302 existing Agent Skills packages; the current exact-head reconciliation audit reports no eligible missing projections, deterministic drift, stale entries, unexpected packages, or unresolved collisions.
-- Current graph baseline: 382 nodes and 250 edges; `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical.
+- Latest detailed Agent Skills reconciliation report (2026-10-06): 382 corpus entries including the sandbox fixture, 264 eligible deterministic projections, 118 blocked entries, and 302 existing packages. The current tree still contains 302 package manifests; exact-head eligibility/drift status must be re-run before claiming it is freshly verified.
+- Current graph baseline: 381 nodes and 255 edges; `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical.
 - Current search baseline: `data/search-index.json` and `docs/search-index.json` are byte-identical.
 
 - The canonical skill source is `skills/`.
@@ -633,7 +633,7 @@ PR #365 applies the minimum remediation: zero observed cases now return exit cod
 
 Status: VERIFIED — PR #365 merged as `d39d899e23e8614eb11971953541cda9bd7dec9f` after exact-head applicable CI passed. This is not an activation-result claim.
 Next executable action: continue real-runtime activation evidence collection and evidence-integrity hardening.
-## Full-Project Live Reconciliation — 2026-10-06
+## Previous Full-Project Live Reconciliation — 2026-10-06 (historical)
 
 Live main now contains the verified Model/Agent/Tool/Capability/Skill semantic boundary from PR #368, the Hermes activation adapter/capture instrumentation from PRs #363/#364, and the fail-closed zero-observation benchmark behavior from PR #365.
 
@@ -655,7 +655,7 @@ Governance verification now fails if DevLens regains repository write permission
 The activation benchmark now fails closed before metric calculation when an observation case_id is outside the selected dataset or when run_id is duplicated. PR #379 merged as `290cb3495d1905615501471e4e1b3bec86301a7b`. Case-level status is aligned with completion_status so partial evidence cannot be represented as OBSERVED.
 
 This is evidence-integrity hardening only. No routing, skill definition, or metric formula changed.
-## Final Full-Project Audit Reconciliation — 2026-10-06
+## Previous Full-Project Audit Reconciliation — 2026-10-06 (historical)
 
 The live main audit has no open pull requests. PRs #368, #371, #374, #375, #376, #377, and #379 were verified through exact-head CI before merge. The final evidence hardening merges are #377 (DevLens writer isolation) and #379 (activation observation integrity).
 
