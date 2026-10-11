@@ -3,7 +3,6 @@ name: Validate Skills Graph
 on:
   push:
     branches: [main, fix/activation-routing-benchmark]
-  workflow_dispatch:
     paths:
       - 'skills/**'
       - 'schema/**'
@@ -18,6 +17,7 @@ on:
       - 'tools/**'
       - 'data/**'
       - '.github/workflows/validate-graph.yml'
+  workflow_dispatch: {}
 
 # Serialize generated-main writers with the repository-wide main writer group.
 # This workflow is the single graph projection writer; no parallel graph workflow is permitted.
