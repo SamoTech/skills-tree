@@ -1,0 +1,1185 @@
+{
+  "schema_version": "1.0",
+  "verifier_id": "cap011-verifier-v1",
+  "benchmark_id": "cap011-self-evaluation-v1",
+  "dataset_file": "benchmarks/self-evaluation/cap011-dataset-v1.json",
+  "description": "Deterministic ground-truth predicates for cap011-dataset-v1.json. tools/verify_cap011_ground_truth.py re-executes every predicate and must reproduce every case expected_outcome exactly; any mismatch invalidates the dataset.",
+  "checks": [
+    {
+      "case_id": "CAP011-ARITH-001",
+      "predicate_type": "arith",
+      "params": {
+        "a": 128,
+        "b": 347,
+        "op": "add",
+        "claimed": 475
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-002",
+      "predicate_type": "arith",
+      "params": {
+        "a": 9999,
+        "b": 10001,
+        "op": "add",
+        "claimed": 20000
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-003",
+      "predicate_type": "arith",
+      "params": {
+        "a": 50432,
+        "b": 8079,
+        "op": "sub",
+        "claimed": 42353
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-004",
+      "predicate_type": "arith",
+      "params": {
+        "a": 1234,
+        "b": 567,
+        "op": "mul",
+        "claimed": 699678
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-005",
+      "predicate_type": "arith",
+      "params": {
+        "a": 4096,
+        "b": 2048,
+        "op": "mul",
+        "claimed": 8388608
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-006",
+      "predicate_type": "arith",
+      "params": {
+        "a": 1000,
+        "b": 8,
+        "op": "div",
+        "claimed": 125
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-007",
+      "predicate_type": "arith",
+      "params": {
+        "a": 9234,
+        "b": 6,
+        "op": "div",
+        "claimed": 1539
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-008",
+      "predicate_type": "arith",
+      "params": {
+        "a": 456789,
+        "b": 987654,
+        "op": "add",
+        "claimed": 1444443
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-009",
+      "predicate_type": "arith",
+      "params": {
+        "a": 1000000,
+        "b": 999999,
+        "op": "sub",
+        "claimed": 1
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-010",
+      "predicate_type": "arith",
+      "params": {
+        "a": 777,
+        "b": 777,
+        "op": "mul",
+        "claimed": 603729
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-011",
+      "predicate_type": "arith",
+      "params": {
+        "a": 65536,
+        "b": 256,
+        "op": "div",
+        "claimed": 256
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-012",
+      "predicate_type": "arith",
+      "params": {
+        "a": 3,
+        "b": 4,
+        "op": "add",
+        "claimed": 7
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-013",
+      "predicate_type": "arith",
+      "params": {
+        "a": 936,
+        "b": 285,
+        "op": "add",
+        "claimed": 1222
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-014",
+      "predicate_type": "arith",
+      "params": {
+        "a": 51002,
+        "b": 2244,
+        "op": "add",
+        "claimed": 53346
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-015",
+      "predicate_type": "arith",
+      "params": {
+        "a": 8123,
+        "b": 5917,
+        "op": "sub",
+        "claimed": 2205
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-016",
+      "predicate_type": "arith",
+      "params": {
+        "a": 313,
+        "b": 37,
+        "op": "mul",
+        "claimed": 11681
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-017",
+      "predicate_type": "arith",
+      "params": {
+        "a": 812,
+        "b": 47,
+        "op": "mul",
+        "claimed": 38264
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-018",
+      "predicate_type": "arith",
+      "params": {
+        "a": 4536,
+        "b": 7,
+        "op": "div",
+        "claimed": 647
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-019",
+      "predicate_type": "arith",
+      "params": {
+        "a": 9990,
+        "b": 45,
+        "op": "div",
+        "claimed": 212
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-020",
+      "predicate_type": "arith",
+      "params": {
+        "a": 100000,
+        "b": 250001,
+        "op": "add",
+        "claimed": 360001
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-001",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "checkout",
+          "auth",
+          "billing",
+          "notifications"
+        ],
+        "claimed": 4
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-002",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "postgres-primary",
+          "postgres-replica",
+          "redis-cache",
+          "redis-queue",
+          "kafka-broker"
+        ],
+        "claimed": 5
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-003",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "build",
+          "test",
+          "lint",
+          "security-scan",
+          "deploy",
+          "notify"
+        ],
+        "claimed": 6
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-004",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "alice",
+          "bob",
+          "carol",
+          "dave",
+          "erin",
+          "frank",
+          "grace"
+        ],
+        "claimed": 7
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-005",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "alpha",
+          "beta",
+          "gamma",
+          "delta",
+          "epsilon",
+          "zeta",
+          "eta",
+          "theta",
+          "iota"
+        ],
+        "claimed": 9
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-006",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "web",
+          "api",
+          "worker"
+        ],
+        "claimed": 3
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-007",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "p50",
+          "p95",
+          "p99",
+          "mean",
+          "max",
+          "min",
+          "sum",
+          "count"
+        ],
+        "claimed": 8
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-008",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "one",
+          "two",
+          "three",
+          "four",
+          "five"
+        ],
+        "claimed": 6
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-009",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "m1",
+          "m2",
+          "m3",
+          "m4",
+          "m5",
+          "m6"
+        ],
+        "claimed": 5
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-010",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "red",
+          "green",
+          "blue",
+          "cyan",
+          "magenta",
+          "yellow",
+          "black",
+          "white"
+        ],
+        "claimed": 10
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-011",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j"
+        ],
+        "claimed": 11
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-012",
+      "predicate_type": "count",
+      "params": {
+        "items": [
+          "lint",
+          "typecheck",
+          "test",
+          "audit"
+        ],
+        "claimed": 3
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-001",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "postgres-primary",
+          "postgres-replica",
+          "redis-cache"
+        ],
+        "item": "postgres-primary",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-002",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "checkout",
+          "auth",
+          "billing",
+          "notifications"
+        ],
+        "item": "billing",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-003",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "ubuntu-22.04",
+          "ubuntu-24.04",
+          "debian-12",
+          "alpine-3.20"
+        ],
+        "item": "debian-12",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-004",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "gpt-4o",
+          "gpt-4o-mini",
+          "claude-3-5",
+          "llama-3.1-405b"
+        ],
+        "item": "llama-3.1-405b",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-005",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "pytest",
+          "unittest",
+          "hypothesis",
+          "tox"
+        ],
+        "item": "hypothesis",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-006",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "eu-west-1",
+          "us-east-1",
+          "us-west-2",
+          "ap-south-1"
+        ],
+        "item": "us-west-2",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-007",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "red",
+          "green",
+          "blue"
+        ],
+        "item": "blue",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-008",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "postgres-primary",
+          "postgres-replica",
+          "redis-cache"
+        ],
+        "item": "postgres-standby",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-009",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "p50",
+          "p95",
+          "p99"
+        ],
+        "item": "p99.9",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-010",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "ubuntu-22.04",
+          "ubuntu-24.04",
+          "debian-12",
+          "alpine-3.20"
+        ],
+        "item": "alpine",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-011",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "checkout",
+          "auth",
+          "billing",
+          "notifications"
+        ],
+        "item": "audit",
+        "claimed_present": true
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-012",
+      "predicate_type": "membership",
+      "params": {
+        "items": [
+          "redis-cache",
+          "redis-queue",
+          "kafka-broker"
+        ],
+        "item": "redis-queue",
+        "claimed_present": false
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-001",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-01-01",
+        "end": "2026-01-31",
+        "claimed": 30
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-002",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-02-01",
+        "end": "2026-03-01",
+        "claimed": 28
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-003",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2025-12-25",
+        "end": "2026-01-01",
+        "claimed": 7
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-004",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-03-15",
+        "end": "2026-07-04",
+        "claimed": 111
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-005",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2024-02-29",
+        "end": "2025-02-28",
+        "claimed": 365
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-006",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-05-05",
+        "end": "2026-05-05",
+        "claimed": 0
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-007",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2023-06-01",
+        "end": "2026-06-01",
+        "claimed": 1096
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-008",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-04-01",
+        "end": "2026-04-30",
+        "claimed": 30
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-009",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-07-01",
+        "end": "2026-07-31",
+        "claimed": 29
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-010",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-10-01",
+        "end": "2026-12-31",
+        "claimed": 98
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-011",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-01-15",
+        "end": "2026-02-15",
+        "claimed": 32
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-012",
+      "predicate_type": "date_delta",
+      "params": {
+        "start": "2026-08-08",
+        "end": "2026-09-08",
+        "claimed": 29
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-001",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "uppercase",
+        "input": "deploy to production",
+        "claimed": "DEPLOY TO PRODUCTION"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-002",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "reverse",
+        "input": "monitoring",
+        "claimed": "gnirotinom"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-003",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "star_vowels",
+        "input": "cache invalidation",
+        "claimed": "c*ch* *nv*l*d*t**n"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-004",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "sort_chars",
+        "input": "banana",
+        "claimed": "aaabnn"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-005",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "uppercase",
+        "input": "idempotent",
+        "claimed": "IDEMPOTENT"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-006",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "reverse",
+        "input": "kubernetes",
+        "claimed": "setenrebuk"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-007",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "sort_chars",
+        "input": "rollback",
+        "claimed": "abckllor"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-008",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "uppercase",
+        "input": "authentication",
+        "claimed": "AUTHENTICATIOn"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-009",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "reverse",
+        "input": "observability",
+        "claimed": "tyilibavresbo"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-010",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "star_vowels",
+        "input": "authorization",
+        "claimed": "**th*r*z*t*un"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-011",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "sort_chars",
+        "input": "validation",
+        "claimed": "adaiilnotv"
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-012",
+      "predicate_type": "string_transform",
+      "params": {
+        "op": "reverse",
+        "input": "deployment",
+        "claimed": "ntemyolped"
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-001",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          17,
+          3,
+          91,
+          45,
+          62
+        ],
+        "claimed": 91
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-002",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "min",
+        "items": [
+          240,
+          118,
+          77,
+          305,
+          42
+        ],
+        "claimed": 42
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-003",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          1004,
+          1003,
+          1002,
+          1001
+        ],
+        "claimed": 1004
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-004",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "min",
+        "items": [
+          -8,
+          -3,
+          -15,
+          -1
+        ],
+        "claimed": -15
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-005",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          0,
+          0,
+          0,
+          7
+        ],
+        "claimed": 7
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-006",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "min",
+        "items": [
+          512,
+          256,
+          1024,
+          128,
+          64,
+          32
+        ],
+        "claimed": 32
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-007",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          67,
+          68
+        ],
+        "claimed": 68
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-008",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          1004,
+          1003,
+          1002,
+          1001
+        ],
+        "claimed": 1003
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-009",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "min",
+        "items": [
+          240,
+          118,
+          77,
+          305,
+          42
+        ],
+        "claimed": 77
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-010",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          17,
+          3,
+          91,
+          45,
+          62
+        ],
+        "claimed": 62
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-011",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "min",
+        "items": [
+          -8,
+          -3,
+          -15,
+          -1
+        ],
+        "claimed": -8
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-012",
+      "predicate_type": "max_min",
+      "params": {
+        "op": "max",
+        "items": [
+          67,
+          68
+        ],
+        "claimed": 67
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-001",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "http_port": 8080,
+          "https_port": 8443,
+          "grpc_port": 9000
+        },
+        "key": "https_port",
+        "claimed": 8443
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-002",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "replicas_api": 6,
+          "replicas_worker": 12,
+          "replicas_frontend": 3
+        },
+        "key": "replicas_worker",
+        "claimed": 12
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-003",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "ttl_short": 300,
+          "ttl_medium": 3600,
+          "ttl_long": 86400
+        },
+        "key": "ttl_medium",
+        "claimed": 3600
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-004",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "db_connections": 100,
+          "db_timeout_s": 30,
+          "db_pool_min": 10
+        },
+        "key": "db_timeout_s",
+        "claimed": 30
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-005",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "batch_size": 128,
+          "queue_depth": 4096,
+          "workers": 32
+        },
+        "key": "queue_depth",
+        "claimed": 4096
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-006",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "cpu_limit": 4,
+          "memory_gb": 16,
+          "disk_gb": 512
+        },
+        "key": "memory_gb",
+        "claimed": 16
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-007",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "retry_max": 5,
+          "retry_backoff_s": 15,
+          "retry_jitter_ms": 750
+        },
+        "key": "retry_backoff_s",
+        "claimed": 15
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-008",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "http_port": 8080,
+          "https_port": 8443,
+          "grpc_port": 9000
+        },
+        "key": "grpc_port",
+        "claimed": 8080
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-009",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "replicas_api": 6,
+          "replicas_worker": 12,
+          "replicas_frontend": 3
+        },
+        "key": "replicas_api",
+        "claimed": 12
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-010",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "ttl_short": 300,
+          "ttl_medium": 3600,
+          "ttl_long": 86400
+        },
+        "key": "ttl_long",
+        "claimed": 300
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-011",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "batch_size": 128,
+          "queue_depth": 4096,
+          "workers": 32
+        },
+        "key": "workers",
+        "claimed": 128
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-012",
+      "predicate_type": "lookup_join",
+      "params": {
+        "table": {
+          "retry_max": 5,
+          "retry_backoff_s": 15,
+          "retry_jitter_ms": 750
+        },
+        "key": "retry_jitter_ms",
+        "claimed": 5
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-001",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Service inventory: checkout, auth, billing, notifications.",
+          "Deployment region: eu-west-1."
+        ],
+        "cited_value": "billing"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-002",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Release train 2026.10 contains fixes F-101, F-102, F-103.",
+          "No other fixes are included."
+        ],
+        "cited_value": "F-103"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-003",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Measured p95 latency for the search endpoint is 240 ms.",
+          "Measurement window: last 7 days."
+        ],
+        "cited_value": "240 ms"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-004",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Supported Python versions: 3.11, 3.12, 3.13.",
+          "Python 3.10 support was removed in release 2.0."
+        ],
+        "cited_value": "3.12"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-005",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Service inventory: checkout, auth, billing, notifications.",
+          "Deployment region: eu-west-1."
+        ],
+        "cited_value": "audit"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-006",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Release train 2026.10 contains fixes F-101, F-102, F-103.",
+          "No other fixes are included."
+        ],
+        "cited_value": "F-201"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-007",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Measured p95 latency for the search endpoint is 240 ms.",
+          "Measurement window: last 7 days."
+        ],
+        "cited_value": "42 ms"
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-008",
+      "predicate_type": "unsupported_claim",
+      "params": {
+        "inputs": [
+          "Supported Python versions: 3.11, 3.12, 3.13.",
+          "Python 3.10 support was removed in release 2.0."
+        ],
+        "cited_value": "3.14"
+      }
+    }
+  ]
+}
