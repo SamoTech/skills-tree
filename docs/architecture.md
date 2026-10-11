@@ -1,6 +1,6 @@
 # Architecture
 
-Skills Tree is a layered, evidence-backed registry. Canonical Markdown under skills/ is the source of truth; build and validation tools produce deterministic machine-readable projections; the CLI, static documentation UI, external agents, and Agent Skills consumers read those projections. See Python API Status (api.md) for the verified boundary: the historical skills_tree.SkillsTree API is not a current verified capability.
+Skills Tree is a layered, evidence-backed registry. Canonical Markdown under skills/ is the source of truth; build and validation tools produce deterministic machine-readable projections; the CLI, static documentation UI, external agents, and Agent Skills consumers read those projections. See [Python API Status](api.md) for the verified boundary: the historical skills_tree.SkillsTree API is not a current verified capability.
 
 ## System Layers
 
