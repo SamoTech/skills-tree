@@ -47,7 +47,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `validate-agent-skills.yml` | Authoritative validation | Agent Skills distribution validation |
 | `validate-corpus.yml` | Authoritative validation | Structured corpus validation |
 | `validate-evaluations.yml` | Authoritative validation | Evaluation ontology integrity, scenario-specific corpus contract scope/reference validation, P0 coverage, and freshness warnings |
-| `validate-graph.yml` | Authoritative validation + generated writer | Graph validation plus protected-main generated-branch PR; timestamp-only no-op suppression tracked in #450 |
+| `validate-graph.yml` | Authoritative validation + generated writer | Graph validation plus protected-main generated-branch PR; normalized semantic comparison suppresses timestamp/format-only churn; bot-triggered PR checks tracked in #447 |
 | `validate-skills.yml` | Authoritative validation | Skill metadata validation |
 | `verify-taxonomy.yml` | Authoritative validation | Taxonomy verification |
 | `version-stats.yml` | Generated-main writer | Version statistics |

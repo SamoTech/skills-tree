@@ -277,16 +277,60 @@ jobs:
           mkdir -p docs/api
           cp data/SKILLS_GRAPH.json docs/api/graph.json
 
-      - name: Detect graph projection changes
+      - name: Detect semantic graph projection changes
         id: graph-diff
         run: |
-          if git diff --quiet -- data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No generated graph projection changes."
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "Generated graph projections changed."
-          fi
+          python - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+          from pathlib import Path
+
+          paths = [
+              "data/SKILLS_GRAPH.json",
+              "docs/api/graph.json",
+              "data/SKILLS_GRAPH_STATS.json",
+              "meta/GRAPH_BUILD_REPORT.md",
+          ]
+
+          def normalize(path: str, content: str) -> str:
+              if path.endswith(".json"):
+                  data = json.loads(content)
+                  if isinstance(data.get("meta"), dict):
+                      data["meta"].pop("generated_at", None)
+                  data.pop("generated_at", None)
+                  return json.dumps(data, sort_keys=True, separators=(",", ":"))
+              if path == "meta/GRAPH_BUILD_REPORT.md":
+                  return re.sub(
+                      r"(?m)^\*\*Generated:\*\*.*$",
+                      "**Generated:** <normalized>",
+                      content,
+                  )
+              return content
+
+          changed = []
+          for path in paths:
+              baseline = subprocess.run(
+                  ["git", "show", f"HEAD:{path}"],
+                  check=True,
+                  capture_output=True,
+                  text=True,
+                  encoding="utf-8",
+              ).stdout
+              generated = Path(path).read_text(encoding="utf-8")
+              if normalize(path, baseline) != normalize(path, generated):
+                  changed.append(path)
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"changed={'true' if changed else 'false'}\n")
+
+          if changed:
+              print("Semantic graph projection changes:")
+              print("\n".join(f"  - {path}" for path in changed))
+          else:
+              print("No semantic graph projection changes; timestamp/format-only churn suppressed.")
+          PY
 
       - name: Publish generated graph through protected-main PR
         if: steps.graph-diff.outputs.changed == 'true'
@@ -298,7 +342,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/SKILLS_GRAPH.json docs/api/graph.json data/SKILLS_GRAPH_STATS.json meta/GRAPH_BUILD_REPORT.md
           git diff --cached --quiet && echo "No generated graph projection changes." && exit 0
-          git commit -m "chore(graph): refresh generated graph projections [skip ci]"
+          git commit -m "chore(graph): refresh generated graph projections"
           git push --force origin HEAD:"$GENERATED_BRANCH"
 
           if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
