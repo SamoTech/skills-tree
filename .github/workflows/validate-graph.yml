@@ -248,6 +248,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - name: Checkout main
@@ -305,9 +306,7 @@ jobs:
               --base main \
               --head "$GENERATED_BRANCH" \
               --title "chore(graph): refresh generated graph projections" \
-              --body "Refresh generated graph projections from the canonical skill source.
-
-This automation branch exists because main is protected. Merge only through the normal PR checks."
+              --body "Refresh generated graph projections from the canonical skill source. Main remains protected; merge only through normal PR checks."
           else
             echo "Open automation PR already exists for $GENERATED_BRANCH."
           fi
