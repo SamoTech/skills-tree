@@ -2,6 +2,7 @@
 
 **Initiative:** INITIATIVE-010A  
 **Created:** 2026-06-23  
+**Last synchronized:** 2026-10-11  
 **Status:** ACTIVE
 
 ---
@@ -9,6 +10,10 @@
 ## Purpose
 
 Every agent that completes a mission must produce a structured handoff packet. This packet is the only permitted communication channel between agents. It must be written to the repository before the receiving agent begins work.
+
+**Current handoff targets (2026-10-11):** the authoritative, always-synchronized handoff record is the governance documentation set itself — `meta/CURRENT-STATE.md` (verified state and execution sequence), `meta/memory/DECISIONS.md` (decision record), and the tracking issue/PR trail. For standard perpetual-development cycles, `meta/AGENT_EXECUTION_PLAYBOOK.md` defines the concrete procedure, and a completed cycle that leaves synchronized documentation plus an issue summary comment satisfies the handoff requirement. A separate packet below is additionally required when work spans multiple agents, missions, or sessions.
+
+`meta/MEMORY_STATE.md` and `meta/DECISION_LOG.md` are obsolete and MUST NOT be used as handoff targets; the current authoritative records are `meta/CURRENT-STATE.md` and `meta/memory/DECISIONS.md` (see `meta/AGENT_OPERATING_MODEL.md`).
 
 ---
 
@@ -35,7 +40,7 @@ Every agent that completes a mission must produce a structured handoff packet. T
 
 ### FILES_WRITTEN
 - `path/to/output.md` (created | updated)
-- `meta/DECISION_LOG.md` (appended entry D-XXX)
+- `meta/memory/DECISIONS.md` (appended decision record)
 
 ### DECISIONS
 - D-ID: <decision class> — <brief description> — <APPROVED | PROPOSED | REJECTED>
@@ -57,6 +62,8 @@ Every agent that completes a mission must produce a structured handoff packet. T
 ---
 
 ## Handoff Examples
+
+> **Historical note:** the examples below are retained verbatim as records from the 2026-06 initiative phase. Their references to `meta/MEMORY_STATE.md` and `meta/DECISION_LOG.md` were correct then but point to obsolete files today; substitute `meta/CURRENT-STATE.md` and `meta/memory/DECISIONS.md` when writing new packets.
 
 ### Example 1 — Dependency Auditor → Graph Architect
 
@@ -154,4 +161,4 @@ Every agent that completes a mission must produce a structured handoff packet. T
 
 ---
 
-*All agents must use this format. Deviations require Program Director approval.*
+*All agents must use this format for multi-agent missions. Deviations require Program Director approval. For standard perpetual-development cycles, follow `meta/AGENT_EXECUTION_PLAYBOOK.md`.*

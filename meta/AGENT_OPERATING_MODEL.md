@@ -29,6 +29,7 @@ Before meaningful work, read at minimum:
 10. `meta/AGENT_HANDOFF_PROTOCOL.md`
 11. `SECURITY.md`
 12. `CONTRIBUTING.md`
+13. `meta/AGENT_EXECUTION_PLAYBOOK.md`
 
 Then inspect the implementation, schemas, generators, workflows, tests, release mechanisms, generated artifacts, and relevant documentation.
 
@@ -133,3 +134,5 @@ Each cycle should expose only structured operational state, not private chain-of
 `GOAL | ITERATION | CURRENT STATE | EVIDENCE | LAST ACTION | RESULT | FAILURE/DELTA | NEXT ACTION | EXIT CONDITION`
 
 This loop is the repository's core agent operating behavior. Specialist skills and workflows are execution mechanisms inside the loop, not competing orchestration systems.
+
+The concrete, step-by-step procedure for executing this loop against GitHub, CI, and the governance documents is defined in `meta/AGENT_EXECUTION_PLAYBOOK.md`.
