@@ -1,6 +1,19 @@
 name: Retrieval Evidence Benchmark
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'cli/search_engine.py'
+      - 'cli/search_runtime.py'
+      - 'data/search-index.json'
+      - 'benchmarks/retrieval/cli-search-v1.json'
+      - 'tools/run_retrieval_benchmark.py'
+      - 'registry/universal_registry.json'
+      - 'skills/**/*.md'
+      - 'tools/build_search_index.py'
+      - 'tools/skill_corpus.py'
+      - '.github/workflows/retrieval-benchmark.yml'
   pull_request:
     paths:
       - 'cli/search_engine.py'
@@ -12,6 +25,7 @@ on:
       - 'skills/**/*.md'
       - 'tools/build_search_index.py'
       - 'tools/skill_corpus.py'
+      - '.github/workflows/retrieval-benchmark.yml'
   workflow_dispatch:
 
 permissions:

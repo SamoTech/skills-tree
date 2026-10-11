@@ -8,14 +8,15 @@
 
 ## Current Execution Block — 2026-10-11
 
-1. Complete the documentation synchronization PR against verified live main state.
-2. Preserve the corpus boundary: 382 quality/test files including one intentional sandbox fixture; 381 public canonical skills across 17 categories.
-3. Keep graph projections at 381 nodes / 255 edges and verify byte identity between data/SKILLS_GRAPH.json and docs/api/graph.json; keep the two search projections byte-identical.
-4. Re-run the existing Agent Skills reconciliation gate on current main before refreshing its eligibility counts in active state documents.
-5. Investigate activation qualification discrepancy: PR run #38118997645 passed 12 observations and acceptance; post-merge main run #38123797916 failed qualification before observations. The PR head and merge commit share exact Git tree SHA `690573e8ba291badf20185983983b21098124ddf` (verified via the Git Data API), so the run pair shows no committed source-tree difference. `ollama ps` reports 100% CPU on failure versus 57%/43% CPU/GPU on success; [Ollama's FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) defines the latter as model layers allocated across GPU and system memory. The successful worker also advertises AVX-512/AMX CPU flags and an AMX model buffer, while the failed worker advertises AVX2 without those flags and uses CPU/CPU_REPACK buffers. This is strong evidence of runner/backend differences that can affect latency, but it does not prove they caused the missing activation events.
-6. Do not modify skill descriptions, routing, runtime behavior, or add skills until repeatable activation evidence isolates a measured defect.
+1. Preserve the verified corpus boundary: 382 quality/test Markdown files including one intentional sandbox fixture; 381 public canonical skills across 17 categories.
+2. Preserve projection integrity: 381 graph nodes / 255 edges (8 `REQUIRES`, 247 `RELATED_TO`); `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical; the two search projections are byte-identical.
+3. Re-run the Agent Skills reconciliation gate on the exact current main tree. The latest detailed counts (264 eligible, 118 blocked, 302 packages; report dated 2026-10-06) are historical until the gate produces current evidence. Do not regenerate or hand-edit packages merely to refresh counts.
+4. Activation run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) on main concluded `success` only because the GPU preflight correctly classified the runner as `INFRASTRUCTURE_INELIGIBLE`; all qualification and observation steps were skipped. The benchmark was **NOT RUN**. Do not claim acceptance or change skill descriptions/routing/thresholds on this result.
+5. Re-run the deterministic retrieval and capability-selection benchmarks and record their exact-head artifacts and metrics. These are bounded benchmark snapshots, not semantic-search, adoption, or user-satisfaction claims.
+6. Reconcile current evaluation mappings and empirical evidence separately. `CAP-007`, `CAP-011`, and `CAP-014` now have ontology mappings; this does not prove their prescribed 100-case evaluation datasets have been executed or passed.
+7. Continue the consumer audit across `Discover → Select → Resolve → Understand → Invoke → Verify`. Do not add skills, replace lexical search, or add a competing registry unless reproducible evidence identifies a material gap.
 
-Issue #336 retrieval freshness/reproducibility is resolved. No duplicate projection generator or competing search implementation is justified.
+Issue #336 retrieval freshness/reproducibility remains resolved. No duplicate projection generator or competing source of truth is justified.
 
 ## Product outcome
 
