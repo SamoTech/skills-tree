@@ -101,7 +101,10 @@ def main() -> int:
             executed = event_ids(run, "skill_execution")
             expected_hit = case["expected_skill"] in selected
             invocation_hit = case["expected_skill"] in executed
-            false_hit = bool(selected & set(case["must_not_activate"]))
+            # Each case asks for exactly one skill. Treat every additional selected
+            # skill as a false activation, including skills outside the three mapped
+            # benchmark skills; the trace converter preserves those as unmapped/<name>.
+            false_hit = bool(selected - {case["expected_skill"]})
             case_activation.append(expected_hit)
             case_invocation.append(invocation_hit)
             case_false.append(false_hit)
@@ -137,12 +140,33 @@ def main() -> int:
     partial_cases = sum(
         1 for case in cases if 0 < len(by_case.get(case["id"], [])) < int(case.get("repetitions", 1))
     )
+    required_runs = sum(int(case.get("repetitions", 1)) for case in cases)
+    case_counts_exact = all(
+        len(by_case.get(case["id"], [])) == int(case.get("repetitions", 1))
+        for case in cases
+    )
     if not observed_cases:
         overall_status = "NO_OBSERVATIONS"
-    elif complete_cases == len(cases):
+    elif complete_cases == len(cases) and total_runs == required_runs and case_counts_exact:
         overall_status = "COMPLETE"
     else:
         overall_status = "PARTIAL"
+
+    expected_activation_rate = round(activation_hits / total_runs, 4) if total_runs else None
+    false_activation_rate = round(false_activations / total_runs, 4) if total_runs else None
+    invocation_evidence_rate = round(invocation_hits / total_runs, 4) if total_runs else None
+    acceptance_failures = []
+    if overall_status != "COMPLETE":
+        acceptance_failures.append("observation corpus must contain exactly the required repetitions for every case")
+    if total_runs != required_runs:
+        acceptance_failures.append(f"expected exactly {required_runs} observations, got {total_runs}")
+    if expected_activation_rate != 1.0:
+        acceptance_failures.append("expected activation rate must be 1.0")
+    if false_activation_rate != 0.0:
+        acceptance_failures.append("false activation rate must be 0.0")
+    if invocation_evidence_rate != 1.0:
+        acceptance_failures.append("invocation evidence rate must be 1.0")
+
     result = {
         "schema_version": "1.0",
         "benchmark_id": "benchmark/skill-activation-v1",
@@ -155,19 +179,29 @@ def main() -> int:
             "observed_cases": observed_cases,
             "complete_cases": complete_cases,
             "partial_cases": partial_cases,
-            "required_runs": sum(int(case.get("repetitions", 1)) for case in cases),
+            "required_runs": required_runs,
             "runs": total_runs,
-            "expected_activation_rate": round(activation_hits / total_runs, 4) if total_runs else None,
-            "false_activation_rate": round(false_activations / total_runs, 4) if total_runs else None,
-            "invocation_evidence_rate": round(invocation_hits / total_runs, 4) if total_runs else None,
+            "expected_activation_rate": expected_activation_rate,
+            "false_activation_rate": false_activation_rate,
+            "invocation_evidence_rate": invocation_evidence_rate,
             "max_activation_variance": max(variance_values) if variance_values else None
         },
         "cases_detail": rows,
-        "interpretation": "Measures observed routing/activation and explicit invocation evidence from runtime traces. It does not infer activation from prompt text, simulate model behavior, or claim general agent success. NO_OBSERVATIONS and PARTIAL are not complete empirical corpora; COMPLETE requires every dataset case to meet its declared repetitions contract."
+        "acceptance": {
+            "status": "FAIL" if acceptance_failures else "PASS",
+            "failures": acceptance_failures,
+            "criteria": {
+                "exact_required_observation_count": required_runs,
+                "expected_activation_rate": 1.0,
+                "false_activation_rate": 0.0,
+                "invocation_evidence_rate": 1.0
+            }
+        },
+        "interpretation": "Corpus status measures whether the exact declared repetitions contract was met. Acceptance additionally requires every expected skill to be selected and explicitly executed, zero forbidden skill activations, and exactly the required number of independent observations. A complete corpus can therefore fail acceptance."
     }
     Path(args.output).write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
-    if overall_status != "COMPLETE":
+    if overall_status != "COMPLETE" or acceptance_failures:
         return 2
     return 0
 
