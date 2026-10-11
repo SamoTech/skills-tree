@@ -671,7 +671,7 @@ Current verified control baseline:
 Activation evidence status:
 - PR run [#38118997645](https://github.com/SamoTech/skills-tree/actions/runs/38118997645) passed routing qualification, 12 independent fresh-session observations, observation schema validation, benchmark acceptance, and artifact upload.
 - Post-merge main run [#38123797916](https://github.com/SamoTech/skills-tree/actions/runs/38123797916) failed during routing qualification; the 12-observation step and benchmark were skipped.
-- The successful PR head and failing merge commit have different Git trees; the merge-side history includes additional workflow and benchmark changes. The failed artifact's ACT-001 trace is empty and its captured Hermes output stops at `Initializing agent…`; the model was CPU-only in that run, while the successful run reported CPU/GPU execution. This makes runtime/runner sensitivity plausible, but does not prove it is the sole cause or rule out a source-level regression.
+- The successful PR head and failing merge commit share exact Git tree SHA `690573e8ba291badf20185983983b21098124ddf` (verified via the Git Data API). The compare endpoint's divergent commit history did not mean the file snapshots differ. The failed artifact's ACT-001 trace is empty and its captured Hermes output stops at `Initializing agent…`; the model was CPU-only in that run, while the successful run reported CPU/GPU execution. This makes runtime/runner sensitivity plausible, but does not prove it is the sole cause or rule out a source-level regression.
 - Issue #336 retrieval freshness/reproducibility remains resolved. Issue #357 activation evidence is not considered reliably green on main until qualification passes on main and the discrepancy is explained.
 
 Next executable actions:
