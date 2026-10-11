@@ -2,7 +2,7 @@
 
 **Status:** Governing development knowledge for the Universal Agent Knowledge Layer
 **Version:** 1.0
-**Updated:** 2026-10-06
+**Updated:** 2026-10-11
 **Authority:** This document records the development model, architecture direction, execution rules, and verified implementation state. It complements `meta/PROJECT_CONSTITUTION.md`, `meta/AGENT_OPERATING_MODEL.md`, and the machine-readable registry contract in `meta/universal-registry.schema.json`.
 
 ## 1. Mission
@@ -638,16 +638,16 @@ PR #320 merged as `4a09394332a90aa5ec172d3dc2b31fa38b740402`. The resulting patc
 
 The next verification is an ordinary documentation-only main commit. It must produce a successful semantic-release gate with `released=false` and no build or PyPI publication jobs. This is the regression test for the v1.72.6 failure mode.
 
-## Final Live Audit Reconciliation — 2026-10-06
+## Previous Live Audit Reconciliation — 2026-10-06 (historical)
 
 The latest live audit supersedes only the active-state claims above where they conflict with current main; older dated paragraphs remain historical records.
 
-Current verified control baseline:
-- 45 GitHub Actions workflow files are present and classified in `meta/WORKFLOW_INVENTORY.md`.
+Control baseline verified at the 2026-10-06 audit point:
+- 45 GitHub Actions workflow files were present and classified in `meta/WORKFLOW_INVENTORY.md`.
 - `skills/` remains the canonical source; generated Agent Skills, graph, search, and JSON-LD artifacts remain projections.
 - The quality corpus contains 382 skill files including one intentional sandbox fixture; the production/public canonical corpus contains 381 skills across 17 categories.
 - Agent Skills reconciliation currently verifies 264 eligible projections, 118 blocked canonical entries, and 302 existing packages.
-- Graph projections are byte-identical at 382 nodes / 250 edges; search projections are byte-identical.
+- Graph projections were byte-identical at 382 nodes / 250 edges at that audit point; search projections were byte-identical.
 - DevLens is read-only and not an authoritative repository writer.
 - Activation benchmark evidence is fail-closed for zero observations, partial versus complete corpus status is explicit, and unknown case IDs / duplicate run IDs are rejected.
 
@@ -655,3 +655,27 @@ Current evidence boundary:
 - Issue #357 remains open for real agent-runtime activation traces. No empirical activation/reliability claim is valid without those traces.
 - Issue #336 is resolved for the identified freshness/reproducibility gap. The historical `benchmarks/memory/retrieval-accuracy.md` result table remains explicitly non-current; current bounded retrieval evidence is supplied by the version-matched 12-case deterministic benchmark artifact.
 - No new skill, search engine, routing authority, or competing projection generator is justified by the current evidence.
+
+## Current Live Audit Reconciliation — 2026-10-11
+
+This section supersedes the active-state claims in older dated audits where they conflict with current main.
+
+Current verified control baseline:
+- Main was verified at d36848cb827f9749e9209212061d4d59e2d72cc5 at the start of this audit.
+- The quality corpus contains 382 skill files including one intentional sandbox fixture; the public production registry contains 381 canonical skills across 17 categories.
+- The graph is 381 nodes / 255 edges (8 REQUIRES, 247 RELATED_TO); data/SKILLS_GRAPH.json and docs/api/graph.json are byte-identical. Graph stats/report agree with the graph JSON.
+- data/search-index.json and docs/search-index.json are byte-identical. The machine-readable public skills registry contains 381 entries.
+- The repository tree contains 302 Agent Skills package manifests. The last detailed reconciliation report is dated 2026-10-06 (264 eligible, 118 blocked); re-run its gate on current main before asserting exact-head eligibility or drift status.
+- PR #431 passed applicable PR checks and refreshed graph projection timestamps without changing graph topology.
+
+Activation evidence status:
+- PR run [#38118997645](https://github.com/SamoTech/skills-tree/actions/runs/38118997645) passed routing qualification, 12 independent fresh-session observations, observation schema validation, benchmark acceptance, and artifact upload.
+- Post-merge main run [#38123797916](https://github.com/SamoTech/skills-tree/actions/runs/38123797916) failed during routing qualification; the 12-observation step and benchmark were skipped.
+- The successful PR head and failing merge commit share exact Git tree SHA `690573e8ba291badf20185983983b21098124ddf` (verified via the Git Data API). The compare endpoint's divergent commit history did not mean the file snapshots differ. The failed artifact's ACT-001 trace is empty and captured Hermes output stops at `Initializing agent…`. `ollama ps` reports 100% CPU allocation in the failed run versus 57%/43% CPU/GPU in the successful run; [Ollama's FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) defines that split as model layers allocated across GPU and system memory. The successful worker also advertises AVX-512/AMX CPU flags and an AMX model buffer, while the failed worker advertises AVX2 without those flags and uses CPU/CPU_REPACK buffers. These are strong indications of differing runtime allocations/paths that can affect latency, but not proof of the sole cause.
+- Issue #336 retrieval freshness/reproducibility remains resolved. Issue #357 activation evidence is not considered reliably green on main until qualification passes on main and the discrepancy is explained.
+
+Next executable actions:
+1. Finish the documentation synchronization PR and validate it at exact head.
+2. Run the existing Agent Skills reconciliation gate on current main; do not create a second reconciler.
+3. Re-run/inspect activation qualification on main and preserve artifacts/logs. Change runtime behavior only when observations isolate a reproducible defect.
+4. Re-read current state and roadmap after the evidence runs; do not begin unrelated feature work before these gates are reconciled.
