@@ -1,6 +1,6 @@
-# Skills Tree — Live Repository State
+# Skills Tree â Live Repository State
 
-## Current Live Reconciliation — 2026-10-11
+## Current Live Reconciliation â 2026-10-11
 
 This is the active operational state. Older dated sections below are historical unless independently re-verified.
 
@@ -14,14 +14,14 @@ This is the active operational state. Older dated sections below are historical 
 - **Consumer architecture:** `cli/search_engine.py` remains deterministic weighted lexical retrieval over the single canonical generated index (title 8, tags 6, category 4, description 3, body 1). `registry/skill_selection.py` deterministically filters eligibility and scores capability coverage, evidence, freshness, and canonical status. Current evidence does not justify replacing lexical search, adding a competing registry, or creating skills for raw count.
 - **Evaluation contract alignment:** PR #444 added generic evaluation mappings for CAP-006 and CAP-010, corrected CAP-023 to escalation calibration and CAP-025 to PII recall/precision, and added the contract validator/tests. The evaluation ontology now has 14 capability mappings. All 16 corpus evaluation requirements are marked `contract_scope: scenario_specific`; generic-baseline scope requires matching method and minimum threshold, while scenario-specific methods/thresholds may differ without waiving generic or safety gates.
 - **Corpus freshness:** PR #448 completed substantive review of CORPUS-001 and CORPUS-002. Both now have `last_reviewed_at=2026-10-11T00:00:00Z` and `review_due_at=2027-01-09T00:00:00Z`. The corpus analysis report preserves its July snapshot and appends a dated review addendum. Issues #435 (freshness) and #438 (contract alignment) are closed.
-- **Empirical evaluation remains incomplete:** The 12-case lexical retrieval and 9-case selection benchmarks do not satisfy the separate 100-case contracts. No versioned 100-case human-labeled support-query dataset for CAP-007, 100-pair ground-truth calibration dataset for CAP-011, or 100-scenario tool-execution dataset for CAP-014 was found in the current tree. Issue [#436](https://github.com/SamoTech/skills-tree/issues/436) records dataset/harness requirements. Protocol/schema preparation is now merged — the CAP-014 mock fixture and scorer, the CAP-011 ground-truth protocol/schema/tests (PR #455), and the CAP-007 human-labeled retrieval protocol/schema/tests (PR #456) — while no independently labeled dataset or candidate run exists for any of the three contracts. CAP-007 additionally has deterministic dataset-validation and empirical-scoring tooling (PR #458: tools/validate_cap007_dataset.py and tools/run_cap007_retrieval_benchmark.py, with ontology-quoted pass/fail thresholds), so a labeled dataset can be validated and scored without new infrastructure; the human-labeled dataset itself does not yet exist. Do not fabricate labels or claim empirical success.
+- **Empirical evaluation remains incomplete:** The 12-case lexical retrieval and 9-case selection benchmarks do not satisfy the separate 100-case contracts. Issue [#436](https://github.com/SamoTech/skills-tree/issues/436) records dataset/harness requirements. Protocol/schema preparation is merged (CAP-011 protocol/schema/tests PR #455; CAP-007 protocol PR #456; CAP-014 mock fixture and scorer), and tooling now exists for two contracts: CAP-007 has deterministic dataset-validation and empirical-scoring tools (PR #458: tools/validate_cap007_dataset.py and tools/run_cap007_retrieval_benchmark.py, with ontology-quoted pass/fail thresholds), and CAP-011 has a versioned 100-case ground-truth dataset plus fail-closed tooling (PR #459) — `benchmarks/self-evaluation/cap011-dataset-v1.json` (58 pass / 42 fail) is a controlled experiment whose every expected outcome is re-derived mechanically by committed deterministic predicates (`cap011-verifier-v1.json` re-executed by tools/verify_cap011_ground_truth.py), not by human or model opinion, which the CAP-011 protocol explicitly allows as reproducible-test ground truth; its adjudication records name the deterministic verifier as reviewer and the provenance limitations disclose the tasks' AI authorship. No candidate run exists for any of the three contracts: the CAP-007 human-labeled dataset does not exist and cannot be agent-produced, the CAP-011 empirical run requires candidate records with retained raw outputs and hallucination adjudication independent of the candidate, and CAP-014 requires a real candidate runtime. All three empirical contracts remain NOT RUN. Do not fabricate labels or claim empirical success.
 - **Activation remains blocked by infrastructure:** Run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) classified its runner as `INFRASTRUCTURE_INELIGIBLE`; the activation benchmark was NOT RUN. No routing qualification or 12-observation corpus was produced. Issue [#357](https://github.com/SamoTech/skills-tree/issues/357) remains open. Acceptance remains 12 independent fresh-session observations, 100% expected activation, 0% false activation, and 100% invocation evidence.
 - **Generated quality-report automation:** PR #443 added `pull-requests: write`; PR #446 removed `[skip ci]`; PR #445 published the regenerated report through a protected-main PR. Issue [#447](https://github.com/SamoTech/skills-tree/issues/447) tracks remaining `GITHUB_TOKEN` behavior: workflow-created commits can yield `action_required` checks, so the current report PR required a user-authored recommit to obtain valid checks. Do not bypass protected-main requirements.
 - Issue #336 retrieval freshness/reproducibility remains resolved.
 
 ## Current execution sequence
 
-1. **Empirical evaluation datasets and harnesses:** curate and version the 100 human-labeled support queries for CAP-007, the 100 ground-truth assessment pairs for CAP-011, and 100 mocked tool-execution scenarios for CAP-014. Record provenance and ground truth before running them. Track in [#436](https://github.com/SamoTech/skills-tree/issues/436).
+1. **Empirical evaluation datasets and harnesses:** CAP-011 preparation is complete (deterministic 100-case ground-truth dataset, fail-closed verifier, and calibration runner — PR #459), CAP-007 validation/scoring tooling is merged (PR #458), and the CAP-014 mock fixture and scorer are merged. Remaining: the 100 human-labeled support queries for CAP-007 (human-only — the dataset schema requires human-labeled status and forbids agent-produced labels), and candidate runs for CAP-011 and CAP-014 with retained raw outputs and adjudication independent of the candidate system. Record provenance and ground truth before running them. Track in [#436](https://github.com/SamoTech/skills-tree/issues/436).
 2. **Run and record empirical evaluations** only after datasets and methods are independently validated; preserve exact commit, dataset digests, metrics, failure cases, and limitations.
 3. **Real activation/invocation evidence:** resume only on a supported accelerator runner that verifies actual model allocation, then run the existing qualification cases and 12 independent fresh-session observations. Track in [#357](https://github.com/SamoTech/skills-tree/issues/357).
 4. **Close remaining automation debt:** resolve bot-triggered PR check behavior in [#447](https://github.com/SamoTech/skills-tree/issues/447). Timestamp-only graph PR suppression is implemented and verified; issue #450 is closed.
@@ -30,7 +30,7 @@ This is the active operational state. Older dated sections below are historical 
 
 > Maintained as a point-in-time operational snapshot. Live GitHub refs, generated artifacts, and exact workflow runs remain the evidence source.
 
-## Historical snapshot — 2026-10-06
+## Historical snapshot â 2026-10-06
 
 The following dated sections are preserved for audit history; the active operational state and execution sequence are recorded above.
 
@@ -101,7 +101,7 @@ The following dated sections are preserved for audit history; the active operati
 - Quality evidence: generated repository reports.
 - External dashboards and Vercel deployments are not authoritative.
 
-## Product mission alignment — VERIFIED — 2026-10-02
+## Product mission alignment â VERIFIED â 2026-10-02
 
 The governing product mission is now:
 
@@ -113,7 +113,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 
 ## Documentation synchronization status
 
-**VERIFIED — synchronized in this documentation cycle.** The preflight found stale operational statements about merged graph/consumer work; those discrepancies are reconciled here without rewriting historical entries.
+**VERIFIED â synchronized in this documentation cycle.** The preflight found stale operational statements about merged graph/consumer work; those discrepancies are reconciled here without rewriting historical entries.
 
 ## Next mandatory action
 
@@ -123,7 +123,7 @@ PR #250 discovery alignment is merged and its mission/discovery documentation is
 4. Do not change Skill definitions or routing unless measured activation evidence justifies it.
 
 
-## Kanban Skill Addition — VERIFIED — 2026-10-03
+## Kanban Skill Addition â VERIFIED â 2026-10-03
 
 PR #267 was squash-merged after the final exact-head CI matrix passed. The merged skill is canonical under `skills/15-orchestration/` and did not create a competing generated catalog. The only review defect found was a third-party CLI example mismatch; it was corrected before merge and the review thread was resolved.
 
@@ -132,7 +132,7 @@ PR #267 was squash-merged after the final exact-head CI matrix passed. The merge
 A future agent must re-read the authoritative documents and verify live GitHub state before continuing. The repository, not this snapshot alone, remains the final source of truth.
 
 
-## Universal Registry Data Schema Validation — Verified 2026-10-02
+## Universal Registry Data Schema Validation â Verified 2026-10-02
 
 PR #241 added runtime structural validation of the loaded universal registry against the dedicated `meta/universal-registry-data.schema.json` data-instance schema. The existing `meta/universal-registry.schema.json` remains the ontology/contract-definition schema and is not incorrectly used as a seed-data schema.
 
@@ -142,10 +142,10 @@ A regression test rejects a schema-invalid Goal field with the expected `jsonsch
 
 **Verification:** PR #241 merged as `93c50c3616a7c558b483f341f44a91509ed032ca`. Exact-head Security Scan, PR Checks, Test Suite, and Build & Verify Wheel passed; Dependabot Review Gate was skipped.
 
-**Status:** VERIFIED — runtime structural validation is now aligned with the actual registry data shape and existing semantic validation responsibilities.
+**Status:** VERIFIED â runtime structural validation is now aligned with the actual registry data shape and existing semantic validation responsibilities.
 
 
-## Security Skill Migration Batch 01 — Verified 2026-10-02
+## Security Skill Migration Batch 01 â Verified 2026-10-02
 
 A corpus audit found 45 remaining stubs in the generated quality model. The highest-priority remaining cluster was the nine security-category stubs. PR #243 migrated Audit Logging, Harm Detection, Human In Loop, Permission Checking, Privacy Preservation, Rate Limiting, Rollback / Undo, Sandboxed Execution, and Secret Scanning.
 
@@ -155,19 +155,19 @@ Each migrated skill now has a concrete description, explicit I/O contract, runna
 
 **Generated-artifact verification:** the hardened quality-report workflow regenerated `meta/QUALITY-REPORT.md` after the merged documentation PR. The live generated report now verifies 374 skills: 202 battle-tested, 159 enriched, 13 stubs, 0 invalid. Category 14-security is 13 battle-tested, 0 stubs.
 
-**Status:** VERIFIED — implementation, generated corpus report, and public documentation are synchronized.
+**Status:** VERIFIED â implementation, generated corpus report, and public documentation are synchronized.
 
 
-## Goal Capability Runtime Access — VERIFIED — 2026-10-02
+## Goal Capability Runtime Access â VERIFIED â 2026-10-02
 
-A fresh runtime/consumer audit identified a missing typed Goal→Capability accessor. The implementation adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
+A fresh runtime/consumer audit identified a missing typed GoalâCapability accessor. The implementation adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
 
 Focused regression coverage verifies deterministic Goal-to-Capability traversal and defensive snapshot behavior.
 
 **Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
 
-**Status:** VERIFIED — the typed Goal→Capability runtime path is live on `main`.
-\n\n## Deterministic Agent Skills Projection — VERIFIED — 2026-10-02
+**Status:** VERIFIED â the typed GoalâCapability runtime path is live on `main`.
+\n\n## Deterministic Agent Skills Projection â VERIFIED â 2026-10-02
 
 PR #251 established and verified the first executable canonical-to-Agent-Skills projection contract, then merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
 
@@ -182,7 +182,7 @@ Exact-head CI passed: Agent Skills Distribution Audit, Validate Agent Skills, Te
 **Next:** reconcile the 280 existing packages against canonical provenance, resolve the eight canonical name collisions, then generate only eligible canonical projections in independently verifiable batches.
 
 
-## Deterministic Agent Skills Corpus — VERIFIED — 2026-10-02
+## Deterministic Agent Skills Corpus â VERIFIED â 2026-10-02
 
 PR #264 merged the deterministic canonical-to-Agent-Skills corpus as commit `892a4d747e588cf2876e45ba3effcdd031fd9592`.
 
@@ -199,7 +199,7 @@ Verified generation run:
 The corpus is now a verified deterministic projection of the canonical source. `/.well-known/agent-skills/index.json` remains intentionally unpublished until served-byte integrity, provenance, reproducibility, and SHA-256 publication gates are implemented and verified.
 
 
-## Universal Registry Behavioral-Evaluation Audit — 2026-10-03
+## Universal Registry Behavioral-Evaluation Audit â 2026-10-03
 
 A fresh universal-registry architecture and consumer-behavior audit completed the mandatory post-schema-validation review. Provenance, Evidence, integrity, memory safety, and action governance are already represented at their appropriate repository boundaries. The audit identified one concrete remaining machine-readable consumer gap: the first-class benchmarks registry collection had no dedicated contract or typed runtime facade.
 
@@ -207,9 +207,9 @@ The selected slice was implemented with `meta/benchmark-contract.schema.json`, `
 
 PR #272 merged after the review-fix PR #274 was incorporated. The final exact head was `4738303caeb6a9129af8a0f84cab4219aade5084`; the final PR CI matrix passed Test Suite, Security Scan, PR Checks, Build & Verify Wheel, and Auto Label. The merged main commit is `db474059fbe0efa56ca167a7108146323c9cf857`.
 
-**Status:** VERIFIED — implementation, contract validation, behavioral tests, provenance boundary, and exact-head CI were verified before merge.
+**Status:** VERIFIED â implementation, contract validation, behavioral tests, provenance boundary, and exact-head CI were verified before merge.
 
-## Anti-Slop Quality Gate — 2026-10-03
+## Anti-Slop Quality Gate â 2026-10-03
 
 PR #273 established the deterministic anti-slop quality gate for changed skills. PR #275 supplied the targeted review fixes for rename detection and case-sensitive placeholder handling; #275 was incorporated into #273.
 
@@ -217,39 +217,39 @@ The final #273 head was `4477d33d846c68d71b666e6c283c8787312e023f`; its required
 
 The gate is deterministic and changed-skill scoped. It blocks selected placeholder/marketing filler patterns, warns on unsupported absolute/generic claims, ignores fenced code/frontmatter, and does not attempt LLM-based style classification.
 
-**Status:** VERIFIED — the quality gate and review fixes are merged. Historical corpus cleanup remains a separate evidence-driven migration and is not implied by this gate.
+**Status:** VERIFIED â the quality gate and review fixes are merged. Historical corpus cleanup remains a separate evidence-driven migration and is not implied by this gate.
 
 
-## Universal Graph Relationship Runtime Boundary — VERIFIED ON MAIN — 2026-10-03
+## Universal Graph Relationship Runtime Boundary â VERIFIED ON MAIN â 2026-10-03
 
 PR #283 was merged to `main` as `c8e1c536f8abfd860ddf41cefeff15b88518d095` after exact-head verification. The runtime preserves the forward-compatible schema vocabulary but rejects schema-valid relationship types lacking explicit runtime semantics. No new graph relationship or evidence was invented.
 
 
-## Registry Consumer Context — Verified 2026-10-03
+## Registry Consumer Context â Verified 2026-10-03
 
 The recommendation API now exposes additive registry_context for registered canonical skills. The context is derived from UniversalRegistry and includes canonical identity, provenance, explicitly linked evidence references, declared freshness when present, and registered implementation IDs. It does not create ranking or trust scores and does not infer evidence. Unregistered legacy recommendation entries may have null registry_context.
 
 Verification: PR #292 merged the recommendation consumer context; focused API regression coverage is present. Next: audit remaining machine-readable discovery projections for equivalent registry context and provenance propagation.
 
 
-## Blueprint Consumer Context — VERIFIED ON MAIN — 2026-10-03
+## Blueprint Consumer Context â VERIFIED ON MAIN â 2026-10-03
 
 PR #293 merged additive `registry_context` propagation onto required and optional blueprint skill entries. The field is descriptive and does not change blueprint generation, architecture selection, or ranking.
 
 
-## PyPI Release Contract Synchronization — VERIFIED — 2026-10-03
+## PyPI Release Contract Synchronization â VERIFIED â 2026-10-03
 
 `meta/PYPI_RELEASE_PLAN.md` was reconciled with the executable release path. The repository version is currently `1.68.0` in `pyproject.toml`. Production publication is performed by `.github/workflows/zero-touch-release.yml` using GitHub OIDC Trusted Publishing and the `pypi` environment. The historical `publish.yml` / `PYPI_API_TOKEN` / `1.0.0` instructions are no longer treated as current release instructions.
 
 
-## Machine-Readable Discovery Registry Context — VERIFIED ON MAIN — 2026-10-03
+## Machine-Readable Discovery Registry Context â VERIFIED ON MAIN â 2026-10-03
 
 The discovery audit found that docs/api/skills.json was not consuming the verified UniversalRegistry context. PR #300 merged as `4ff041511f2291e826b2a32c2cc72f36f8f023cb` and adds optional registry_context for the three exact registered skills only, with no synthetic membership or evidence. Final head `52ae305ad504416114d7efdd8313eff8f931f57d` passed the required CI matrix, including Test Suite on Python 3.11/3.12/3.13 and installed-wheel verification.
 
 During validation, the new focused test exposed an existing schema/artifact date-format mismatch in unrelated `added`/`last_updated` fields. The test was narrowed to the registry_context sub-schema; the date-format drift remains a separate audit finding and was not changed in PR #300.
 
 
-## Generated Discovery Projection Audit — VERIFIED — 2026-10-03
+## Generated Discovery Projection Audit â VERIFIED â 2026-10-03
 
 PR #301 corrected canonical Kanban date metadata and PR #302 reconciled `docs/api/skills.json` and `docs/api/skills.yaml`; the affected projection now reports `added: 2026-10` and `last_updated: 2026-10`.
 
@@ -260,7 +260,7 @@ The remaining machine-readable projection audit found:
 
 **Next:** audit remaining machine-readable consumers/projections after the verified discovery publication boundary; do not create a second generator, reconciler, search index, or deployment path.
 
-## Agent Skills Reconciliation Gate — VERIFIED ON MAIN — 2026-10-04
+## Agent Skills Reconciliation Gate â VERIFIED ON MAIN â 2026-10-04
 
 A fresh Agent Skills distribution audit identified a governance gap: tools/reconcile_agent_skills.py classified eligible missing projections but exited successfully unless its result was manually interpreted. The merged implementation closes that gap with a read-only --check mode wired into the Agent Skills Distribution workflow.
 
@@ -278,7 +278,7 @@ Verified merged-main state:
 This state is VERIFIED ON MAIN after PR #305 merge; the next action is a fresh audit of remaining machine-readable discovery consumers.
 
 
-## 2026-10-04 — Agent Skills discovery publication boundary — VERIFIED ON MAIN
+## 2026-10-04 â Agent Skills discovery publication boundary â VERIFIED ON MAIN
 
 The deterministic Agent Skills discovery publication slice is now merged and verified end-to-end.
 
@@ -301,9 +301,9 @@ The repository does not claim the root-level `/.well-known/agent-skills/index.js
 
 No second generator, reconciler, search index, or Pages deployment workflow was introduced.
 
-**Status:** VERIFIED — deterministic discovery generation, provenance/reconciliation, schema validation, artifact integrity, Pages deployment, and served-byte verification are all aligned.
+**Status:** VERIFIED â deterministic discovery generation, provenance/reconciliation, schema validation, artifact integrity, Pages deployment, and served-byte verification are all aligned.
 
-## 2026-10-04 — Graph projection boundary — VERIFIED ON MAIN
+## 2026-10-04 â Graph projection boundary â VERIFIED ON MAIN
 
 PR #315 unified the graph generation and projection governance boundary.
 
@@ -315,9 +315,9 @@ Verified:
 - Main graph baseline after regeneration: 375 nodes, 240 edges, 9 REQUIRES edges, 0 warnings.
 - Schema drift found during implementation was corrected for generated `requires_count`, prerequisite arrays, generated `source_method`, and numeric-leading skill slugs.
 
-**Status:** VERIFIED — graph generation, schema validation, integrity checks, and synchronized runtime/UI projections are aligned.
+**Status:** VERIFIED â graph generation, schema validation, integrity checks, and synchronized runtime/UI projections are aligned.
 
-## 2026-10-04 — JSON-LD export governance — VERIFIED
+## 2026-10-04 â JSON-LD export governance â VERIFIED
 
 The machine-readable export audit confirmed that JSON-LD is generated by the existing `tools/export_skills.py` implementation and committed by `export-skills.yml`; no `jsonld-export.yml` workflow exists on current main.
 
@@ -327,7 +327,7 @@ PR branch `fix/jsonld-export-governance` adds `tools/verify_jsonld_export.py` an
 
 PR #316 merged as `20ed032bdb83f22ef3bf37debb3004ed8153d9a8` after the required PR CI matrix passed. The validator and workflow trigger changes are now on main. Do not create a second JSON-LD generator or workflow.
 
-## 2026-10-04 — Release authority consolidation — VERIFIED
+## 2026-10-04 â Release authority consolidation â VERIFIED
 
 Fresh release-path audit confirmed that `zero-touch-release.yml` is the production release authority and `release.yml` is manual recovery only. The former `release-package.yml` independently triggered on version tags and could create/update the same GitHub Release while the zero-touch pipeline was still completing.
 
@@ -338,7 +338,7 @@ No semantic-release workflow file exists on current main; semantic-release is ex
 **Status:** VERIFIED implementation boundary; final PR CI and post-merge release-path checks are required before treating the change as complete.
 
 
-## 2026-10-04 — Release authority consolidation — VERIFIED ON MAIN
+## 2026-10-04 â Release authority consolidation â VERIFIED ON MAIN
 
 PR #317 merged as `262dfea66fb81e5779e93b45884d857f3b10522d`.
 
@@ -349,7 +349,7 @@ The workflow inventory and release governance documentation are synchronized wit
 **Rule:** do not reintroduce a second tag-triggered GitHub Release publisher.
 
 
-## Full Repository Re-Audit — 2026-10-04
+## Full Repository Re-Audit â 2026-10-04
 
 The current full-project audit is recorded in `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
 
@@ -370,7 +370,7 @@ The stale 42-workflow statement is historical only. Historical audit documents r
 
 The blocking repository security gate is now materially enforced. The remaining branch-protection finding is control-plane-only and remains tracked separately by issue #159.
 
-## 2026-10-04 — Repository self-enforced governance
+## 2026-10-04 â Repository self-enforced governance
 
 The repository governance model was audited after the owner explicitly rejected GitHub branch protection as a required control. Repository-local enforcement is now defined in `meta/GOVERNANCE_MODEL.md` and mechanically checked by `tools/verify_governance.py`, invoked by `.github/workflows/governance-gate.yml`.
 
@@ -378,25 +378,25 @@ The governance gate verifies the mandatory agent/documentation preflight, canoni
 
 Issue #159 is therefore a control-plane decision outside the repository completion model, not an engineering blocker. Its historical references to branch protection remain historical and must not be interpreted as a current project requirement.
 
-**Status:** VERIFIED — repository governance is self-enforced without requiring GitHub branch protection.
+**Status:** VERIFIED â repository governance is self-enforced without requiring GitHub branch protection.
 
 
-## Core Agentic Execution Loop — IMPLEMENTED — 2026-10-04 — HISTORICAL IMPLEMENTATION RECORD
+## Core Agentic Execution Loop â IMPLEMENTED â 2026-10-04 â HISTORICAL IMPLEMENTATION RECORD
 
-The repository now defines a bounded autonomous execution contract for AI agents. The canonical cycle is `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`. Verification failures become evidence for the next cycle instead of requiring a new user prompt. The loop has explicit `CONTINUE`, `BLOCKED`, and `DONE` outcomes, a default 12-iteration ceiling, repeated-failure safeguards, authority escalation boundaries, and a completion contract requiring invariant verification, tests/CI, generated-artifact synchronization, and documentation synchronization.
+The repository now defines a bounded autonomous execution contract for AI agents. The canonical cycle is `OBSERVE â ASSESS â PLAN â EXECUTE â VERIFY â RECORD â DECIDE`. Verification failures become evidence for the next cycle instead of requiring a new user prompt. The loop has explicit `CONTINUE`, `BLOCKED`, and `DONE` outcomes, a default 12-iteration ceiling, repeated-failure safeguards, authority escalation boundaries, and a completion contract requiring invariant verification, tests/CI, generated-artifact synchronization, and documentation synchronization.
 
 The contract is defined in `meta/AGENT_OPERATING_MODEL.md`, reinforced by `AGENTS.md` and `AI_CONSTITUTION.md`, and checked by `tools/verify_governance.py`. This is an operating contract, not a claim that GitHub or an external hosted agent automatically executes arbitrary future work without an invoking agent runtime.
 
-Status: VERIFIED — superseded by the exact-head verification recorded immediately below.
+Status: VERIFIED â superseded by the exact-head verification recorded immediately below.
 
 
-## Core Agentic Execution Loop — VERIFIED — 2026-10-04
+## Core Agentic Execution Loop â VERIFIED â 2026-10-04
 
-PR #324 was merged after the exact final head `8f254754231bd8153efd50ab0e4b1bff4d067cad` passed Governance Gate, Validate Skills Graph, Test Suite on the applicable matrix, Security Scan, PR Checks, Build & Verify Wheel, and related validation. The repository now defines the bounded operational cycle `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`, with failure-driven continuation, a default 12-iteration ceiling, explicit CONTINUE/BLOCKED/DONE states, authority escalation boundaries, and documentation/generated-artifact completion requirements.
+PR #324 was merged after the exact final head `8f254754231bd8153efd50ab0e4b1bff4d067cad` passed Governance Gate, Validate Skills Graph, Test Suite on the applicable matrix, Security Scan, PR Checks, Build & Verify Wheel, and related validation. The repository now defines the bounded operational cycle `OBSERVE â ASSESS â PLAN â EXECUTE â VERIFY â RECORD â DECIDE`, with failure-driven continuation, a default 12-iteration ceiling, explicit CONTINUE/BLOCKED/DONE states, authority escalation boundaries, and documentation/generated-artifact completion requirements.
 
 **Status:** VERIFIED on main at merge commit `6fa92dd42768395102215a26e22999d6de81c013`.
 
-## Main-Writer Race — DETECTED AND RESOLVED — 2026-10-04
+## Main-Writer Race â DETECTED AND RESOLVED â 2026-10-04
 
 Post-merge verification exposed a real automation race: the graph writer advanced main while the quality projection and zero-touch release workflows were still operating from the triggering SHA. The graph projection itself completed, but the quality writer failed on stale upstream state and zero-touch release failed when its upstream SHA changed. This is a concurrency/state-reconciliation defect, not a graph-generation defect.
 
@@ -405,12 +405,12 @@ The remediation was implemented through PR #325 (stale-SHA synchronization) and 
 **Status:** VERIFIED on live main. The repository-wide writer contract is now: shared `auto-commit-main`, `queue: max`, `cancel-in-progress: false`, plus live-main synchronization before mutation.
 
 
-## Documentation Synchronization — VERIFIED — 2026-10-04
+## Documentation Synchronization â VERIFIED â 2026-10-04
 
 The agentic execution contract, governance model, main-writer serialization, and lossless writer queue are synchronized with the verified live implementation. Historical entries remain explicitly historical; current operational state is represented by the resolved sections above and the durable decisions in `meta/memory/DECISIONS.md`.
 
 
-## Consumer-Path Audit — 2026-10-04
+## Consumer-Path Audit â 2026-10-04
 
 The fresh consumer-path audit found that the previously tracked CLI search gap is already resolved on main. `skills-tree search` uses the canonical generated `data/search-index.json` projection through `cli/search_runtime.py`; deterministic ranking is defined in `meta/SEARCH_CLI_CONTRACT.md`; dedicated CLI, ranking, and projection-contract tests exist. No second search index or runtime Markdown parser is required.
 
@@ -419,14 +419,14 @@ The Agent Skills discovery publication boundary is also implemented in `.github/
 **Decision:** Do not build another search/discovery generator. Complete live Pages verification first; then reassess demand intelligence from evidence.
 
 
-## Demand Intelligence — IMPLEMENTED COLLECTION PATH — 2026-10-04
+## Demand Intelligence â IMPLEMENTED COLLECTION PATH â 2026-10-04
 
 Phase 2 now has its first reproducible public-signal path: `tools/collect_demand_signals.py` reads the explicit `meta/demand-sources.json` query set and records public GitHub issue-search evidence with source ID, query, repository, issue number, URL, state, dates, and labels. `.github/workflows/demand-signals.yml` runs the collector manually or weekly and stores the raw snapshot as an artifact.
 
 The collector deliberately does not infer popularity, adoption, or priority. The curated `meta/MOST-WANTED-SKILLS.md` remains unranked until a controlled collection run is reviewed and capability coverage/evidence gaps are mapped.
 
 
-## Demand Signal Review — VERIFIED OBSERVATION — 2026-10-04
+## Demand Signal Review â VERIFIED OBSERVATION â 2026-10-04
 
 The first controlled public-signal review executed against the configured GitHub issue-search sources. The three configured queries returned raw result counts of 64, 63, and 54; overlap and operational/security issues make these counts unsuitable as popularity or adoption metrics.
 
@@ -435,27 +435,27 @@ The review identified an unranked capability signal cohort around search/discove
 **Decision:** Do not create a popularity ranking. Use the observed cohort as input to a coverage/evidence reconciliation pass, then select Phase 3 work only where demand and repository gaps intersect.
 
 
-## Phase 3 Candidate — IDE Integration — VERIFIED ON MAIN — 2026-10-04
+## Phase 3 Candidate â IDE Integration â VERIFIED ON MAIN â 2026-10-04
 
 Coverage/evidence reconciliation selected IDE integration as the first demand-driven Phase 3 slice. The canonical `05-code` directory already covers code generation, review, execution, Git, APIs, debugging, and related capabilities, but no dedicated IDE integration contract existed. The new `skills/05-code/ide-integration.md` defines a protocol-neutral contract around workspace identity, code intelligence, diagnostics, bounded edits, tests/builds, explicit authorization, least privilege, and independent postcondition verification.
 
 The skill cites current public evidence for MCP/IDE integration and explicitly avoids universal compatibility or benchmark claims. CI must determine whether the skill is schema-valid, anti-slop compliant, projection-eligible, and safe to merge.
 
 
-## Discovery Publication Boundary — VERIFIED
+## Discovery Publication Boundary â VERIFIED
 
 Live GitHub Pages verification completed on 2026-10-04. Deployment run `37227197992` for main commit `1b3a5f387a17ce6b57885b06d6f26db060a8784d` succeeded. The deployment job's `Verify served discovery bytes` step also succeeded, proving the published `/.well-known/agent-skills/index.json` endpoint passed the repository's served-byte verifier. The discovery publication boundary is therefore CLOSED as verified. Next strategic slice: Demand Intelligence / Most-Wanted evidence collection.
 
-## Demand Intelligence — Initial Evidence Pass
+## Demand Intelligence â Initial Evidence Pass
 
 The first repository-local demand collection path is present and a controlled public-signal cohort has been recorded. External public-source corroboration on 2026-10-04 shows Agent Skills are an ecosystem-scale concern, with strong activity around discovery, interoperability, retrieval/selection, evaluation, governance, and safety. A coverage reconciliation found that the repository already has broad canonical coverage for the local memory, IDE/code, reasoning, and action-execution demand signals. The next decision gate is therefore evidence/runtime quality rather than raw skill creation. Preferred investigation: skill evaluation/invocation evidence and retrieval quality.
 
 
-## Agentic Loop — Retrieval/Evaluation Evidence — 2026-10-05
+## Agentic Loop â Retrieval/Evaluation Evidence â 2026-10-05
 
-OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmark is stale and not currently backed by a reproducible current run; its related canonical skill links are outdated; the evaluation ontology is past review due; and evaluation workflow path filters omitted the ontology itself. EXECUTE fixed the workflow trigger so evaluation-ontology changes now invoke validation. Issue #336 records the remaining evidence remediation: reproduce, retire, or re-qualify the stale benchmark without fabricating new scores. Current decision: **CONTINUE** — the next safe evidence-backed action is benchmark provenance/link repair and deterministic freshness validation.
+OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmark is stale and not currently backed by a reproducible current run; its related canonical skill links are outdated; the evaluation ontology is past review due; and evaluation workflow path filters omitted the ontology itself. EXECUTE fixed the workflow trigger so evaluation-ontology changes now invoke validation. Issue #336 records the remaining evidence remediation: reproduce, retire, or re-qualify the stale benchmark without fabricating new scores. Current decision: **CONTINUE** â the next safe evidence-backed action is benchmark provenance/link repair and deterministic freshness validation.
 
-## Agentic Loop — Evaluation Gate Reconciliation — 2026-10-05
+## Agentic Loop â Evaluation Gate Reconciliation â 2026-10-05
 
 **OBSERVE:** Live main has a deterministic lexical CLI search path and a typed Benchmark runtime, but no current reproducible retrieval-quality run. The legacy recommendation evaluator is historical and is not current runtime evidence. The current evaluation ontology contains seven mappings and remains overdue for review; CAP-007, CAP-011, and CAP-014 are still absent from the ontology mapping set.
 
@@ -467,7 +467,7 @@ OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmar
 
 **DECISION:** CONTINUE / BLOCKED boundary remains evidence-driven. The next safe action after CI verification is to address Issue #336/Issue #335 only with reproducible benchmark evidence or an explicit evidence disposition; no new retrieval implementation is justified yet.
 
-## Post-Merge Verification — Evaluation Gate Self-Trigger — 2026-10-05
+## Post-Merge Verification â Evaluation Gate Self-Trigger â 2026-10-05
 
 **OBSERVED:** PR #337 merged to `main` as `4b1c1b9ffc28bcbecc3b899da8cbb58af7de65ec`. Exact-head PR checks passed, including Test Suite, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, and CodeQL. Post-merge Governance Gate also passed.
 
@@ -478,7 +478,7 @@ OBSERVE/ASSESS found a concrete evidence boundary defect: the retrieval benchmar
 **DECISION:** CONTINUE until the follow-up exact-head CI proves the trigger correction. No benchmark or retrieval implementation is introduced.
 
 
-## P0 Evaluation Contracts — VERIFIED ON MAIN — 2026-10-05
+## P0 Evaluation Contracts â VERIFIED ON MAIN â 2026-10-05
 
 PR #339 merged to main as c88672e1d19e381aad8137796d4283678e3fc9e1. The canonical evaluation ontology now contains mappings for the remaining P0 capabilities CAP-014 tool_execution, CAP-007 semantic_retrieval, and CAP-011 self_evaluation. No new evaluation framework, ontology category, or retrieval implementation was introduced.
 
@@ -487,7 +487,7 @@ During exact-head CI, Validate Evaluations exposed two pre-existing validator de
 The P0 contracts are now structurally linked and CI-validated. This does not constitute current benchmark success: CAP-007 explicitly remains without a current reproducible result artifact, and CAP-011 calibration diagnostics remain evidence requirements rather than a fabricated new metric type. The next evidence boundary is reproducible evaluation execution/results, not another ontology or search implementation.
 
 
-## Retrieval Evidence — VERIFIED ON MAIN — 2026-10-05
+## Retrieval Evidence â VERIFIED ON MAIN â 2026-10-05
 
 PR #340 merged to main as `8ae02bd08841a496d19f49cd1092ec5f011c6c6b`. The repository now has a versioned, machine-readable retrieval benchmark registered through the existing `BenchmarkRuntime` contract, a deterministic runner over the canonical `cli.search_engine.search_documents` implementation, and a PR/workflow-dispatch evidence workflow.
 
@@ -498,7 +498,7 @@ Current evidence snapshot: 12 benchmark cases, Recall@5 = 1.0000, MRR = 0.9583, 
 Decision: do not change ranking yet. The measured RAG ambiguity is now a concrete candidate for a separate retrieval-quality investigation. Any ranking change requires a broader representative failure corpus and before/after measurement.
 
 
-## Demand-Gap Skill Selection — VERIFIED MERGED — 2026-10-05
+## Demand-Gap Skill Selection â VERIFIED MERGED â 2026-10-05
 
 PR #341 merged to main as `af892ebf9aafd90dedb9d6039974d51c2bf02726` after exact-head CI passed.
 
@@ -513,7 +513,7 @@ During verification, existing generated projection drift was exposed and reconci
 Status: MERGED. Post-merge push workflows are running; their results remain a separate verification boundary until observed.
 
 
-## Behavioral Skill Selection — VERIFIED BOUNDED RUNTIME — 2026-10-05
+## Behavioral Skill Selection â VERIFIED BOUNDED RUNTIME â 2026-10-05
 
 PR #343 merged to main as `203d4b12e576cbeb5eaa83249cc97d96905b01fc` after exact-head CI passed Test Suite, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, Validate Skills Graph, Retrieval Evidence Benchmark, and the new Skill Selection Evidence Benchmark.
 
@@ -521,12 +521,12 @@ The repository now has `registry/skill_selection.py` as a deterministic registry
 
 Current benchmark evidence: 6/6 cases passed with deterministic replay. This verifies the bounded capability-selection behavior only.
 
-LIMITATION: prerequisite routing is implemented in the selector against the existing `REQUIRES` graph API, but it is not yet behaviorally evidenced through the canonical registry because the Universal Registry currently contains only three skill records and no prerequisite-bearing registered skill pair. Do not claim full task → dependency → invocation sequencing as verified until registry coverage and a reproducible prerequisite benchmark exist.
+LIMITATION: prerequisite routing is implemented in the selector against the existing `REQUIRES` graph API, but it is not yet behaviorally evidenced through the canonical registry because the Universal Registry currently contains only three skill records and no prerequisite-bearing registered skill pair. Do not claim full task â dependency â invocation sequencing as verified until registry coverage and a reproducible prerequisite benchmark exist.
 
 Status: VERIFIED BOUNDED SLICE. Next justified action: reconcile canonical registry skill coverage for prerequisite-bearing skills, then extend the behavioral benchmark without creating a second registry or orchestration authority.
 
 
-## Behavioral Skill Selection — PREREQUISITE ROUTING VERIFIED BOUNDED SLICE — 2026-10-05
+## Behavioral Skill Selection â PREREQUISITE ROUTING VERIFIED BOUNDED SLICE â 2026-10-05
 
 PR #345 merged to main as `f15c729adf76794fc914f954f74a4964d7dbdd76` after exact-head `8200b0f359e35293121189cdf2dd263ce96252db` passed the applicable CI matrix, including Test Suite, Security Scan, Build & Verify Wheel, PR Checks, Retrieval Evidence Benchmark, and Skill Selection Evidence Benchmark.
 
@@ -534,32 +534,32 @@ The selection runtime now resolves transitive `REQUIRES` prerequisites determini
 
 Current bounded behavioral evidence covers:
 - Agentic RAG selection over baseline RAG for the explicit agentic capability.
-- Ordered prerequisite routing: RAG → CoT → ReAct before Agentic RAG invocation.
+- Ordered prerequisite routing: RAG â CoT â ReAct before Agentic RAG invocation.
 - Resume behavior after partial prerequisite completion.
 - Target invocation only after all declared prerequisites are complete.
 - Fail-closed behavior for invalid prerequisite graphs.
 
-This verifies deterministic dependency-aware skill selection for the registered Agentic RAG scenario. It does not establish general autonomous task understanding, arbitrary graph correctness, or full task → capability → skill → invocation → verification → next-skill autonomy.
+This verifies deterministic dependency-aware skill selection for the registered Agentic RAG scenario. It does not establish general autonomous task understanding, arbitrary graph correctness, or full task â capability â skill â invocation â verification â next-skill autonomy.
 
 Post-merge workflow runs for `f15c729adf76794fc914f954f74a4964d7dbdd76` were not yet observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
 
 Status: VERIFIED BOUNDED RUNTIME. Next action: use the verified prerequisite-routing boundary as the baseline for the next evidence-driven skill-selection/recovery slice; do not broaden the registry or add orchestration infrastructure without a concrete measured gap.
 
 
-## Behavioral Skill Selection — FAILURE RECOVERY VERIFIED BOUNDED SLICE — 2026-10-05
+## Behavioral Skill Selection â FAILURE RECOVERY VERIFIED BOUNDED SLICE â 2026-10-05
 
 PR #347 merged to main as `adbbb55c58a853e843883b2cbc14997f315226b7` after exact-head `40cff5782307469b9d9e62733d04841c667b9870` passed Test Suite, Security Scan, Build & Verify Wheel, Governance Gate, PR Checks, Validate Skills Graph, and Skill Selection Evidence Benchmark.
 
 The recovery runtime now carries an explicit failed-skill history and excludes all previously failed candidates from subsequent recovery selection. The benchmark and unit tests verify remaining-candidate recovery, terminal escalation when no viable recovery remains, and deterministic replay. This closes the measured repeated-retry defect without adding a second orchestration authority.
 
-LIMITATION: the current Universal Registry does not contain three independently registered, capability-compatible alternatives needed to produce a genuine multi-step A → failure → B → failure → C recovery-chain benchmark. A synthetic chain or registry expansion solely for benchmark convenience would fabricate evidence. Therefore this slice is bounded to history-aware candidate exclusion, single-step recovery, and terminal fail-closed behavior.
+LIMITATION: the current Universal Registry does not contain three independently registered, capability-compatible alternatives needed to produce a genuine multi-step A â failure â B â failure â C recovery-chain benchmark. A synthetic chain or registry expansion solely for benchmark convenience would fabricate evidence. Therefore this slice is bounded to history-aware candidate exclusion, single-step recovery, and terminal fail-closed behavior.
 
 Post-merge workflows for `adbbb55c...` were not observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
 
 Status: VERIFIED BOUNDED RECOVERY SLICE. Next justified action: obtain real canonical registry coverage with multiple independently eligible alternatives through existing project evolution, then add a multi-step recovery benchmark only when that evidence exists. No artificial skills or new orchestration framework should be introduced for the benchmark.
 
 
-## Agent Skill Security Audit — VERIFIED ON MAIN — 2026-10-06
+## Agent Skill Security Audit â VERIFIED ON MAIN â 2026-10-06
 
 PR #350 merged to main as `436c15c745e1747e3ec1e931dccacea1ca013c7c` after exact-head CI passed Governance Gate, Skill Upgrade Detector, Agent Skills Distribution Audit, Schema Enforcement, Auto Label, Skill Quality Report, Validate Skills, Build & Verify Wheel, Check Links, PR Checks, AST Sweep, Validate Skills Graph, Security Scan, and Test Suite. Dependabot Review Gate was skipped.
 
@@ -572,7 +572,7 @@ Post-merge workflow runs for `436c15c745e1747e3ec1e931dccacea1ca013c7c` were not
 Status: VERIFIED BOUNDED SECURITY CONTRACT. Next action: reconcile any generated projection/quality workflow results on live main, then return to Demand Intelligence only where a concrete evidence or implementation gap remains.
 
 
-## Evaluation Ontology Freshness Review — VERIFIED — 2026-10-06
+## Evaluation Ontology Freshness Review â VERIFIED â 2026-10-06
 
 A live consistency audit reviewed `intelligence/ontology/evaluation_ontology.json` against the canonical capability ontology and both current corpus entries (`CORPUS-001`, `CORPUS-002`). The ontology contains 12 evaluation types and 12 capability mappings after the repair. All referenced `ET-*` identifiers resolve, capability mapping IDs are unique, mapping names resolve to canonical capabilities, and all ten P0 capabilities required by the current corpus are explicitly mapped. No new evaluation type, ontology category, registry, or benchmark framework was introduced.
 
@@ -582,10 +582,10 @@ Evidence: live ontology audit on main baseline `537c30944bdf2163f0ac3350ff4661a6
 
 CI exposed two additional corpus P0 capabilities not covered by the initial live snapshot: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. The existing ontology boundary was extended with mappings for those capabilities using only existing ET-012, ET-001, ET-005, and ET-007 metrics. No new metric type or evaluation framework was introduced.
 
-Status: VERIFIED ON MAIN — PR #354 merged as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head applicable CI passed Governance Gate, Validate Evaluations, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped. The canonical corpus now has evaluation mappings for all 10 P0 capabilities. Next: return to Demand Intelligence and select only a new evidence-backed gap.
+Status: VERIFIED ON MAIN â PR #354 merged as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head applicable CI passed Governance Gate, Validate Evaluations, Test Suite, Security Scan, Build & Verify Wheel, PR Checks, and Auto Label; Dependabot Review Gate was skipped. The canonical corpus now has evaluation mappings for all 10 P0 capabilities. Next: return to Demand Intelligence and select only a new evidence-backed gap.
 
 
-## Demand Intelligence — Skill Activation / Invocation Evidence — 2026-10-06
+## Demand Intelligence â Skill Activation / Invocation Evidence â 2026-10-06
 
 Live reconciliation of the current selection runtime and benchmark against fresh public ecosystem evidence identified a new bounded gap: real user-request skill activation/invocation is not behaviorally measured. The existing `benchmark/skill-selection-v1` verifies explicit capability-to-skill selection, prerequisite routing, and failure recovery, but it does not measure natural-language trigger reliability, false activation, collision behavior, repeated fresh-session variance, or actual invocation evidence.
 
@@ -593,17 +593,17 @@ External evidence includes addyosmani/agent-skills #620 (direct prompts with rep
 
 Issue #357 is the authoritative current investigation record. Decision: measure activation/invocation first using existing project boundaries; do not add a new skill, search engine, or routing authority without measured failure evidence.
 
-Status: HISTORICAL — this investigation state was superseded by the verified activation benchmark, Hermes adapter/capture instrumentation, and fail-closed/partial corpus contracts. Real runtime evidence remains pending.
+Status: HISTORICAL â this investigation state was superseded by the verified activation benchmark, Hermes adapter/capture instrumentation, and fail-closed/partial corpus contracts. Real runtime evidence remains pending.
 
 
-## Skill Activation / Invocation Evidence Benchmark — VERIFIED ON MAIN — 2026-10-06
+## Skill Activation / Invocation Evidence Benchmark â VERIFIED ON MAIN â 2026-10-06
 
 Issue #357 was advanced from investigation to an executable evidence instrument without introducing a new routing authority. PR #359 merged this measurement boundary to `main` as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`. It adds:
 
-- `benchmarks/activation/skill-activation-v1.json` — four bounded natural-language cases covering expected activation, must-not-activate behavior, collision groups, and repeated runs.
-- `tools/run_skill_activation_benchmark.py` — trace-based evaluator for explicit `skill_selection` and `skill_execution` events.
-- `tests/test_skill_activation_benchmark.py` — deterministic parser/metric regression coverage using synthetic fixtures only.
-- `benchmark/skill-activation-v1` — registered in the existing Benchmark runtime boundary.
+- `benchmarks/activation/skill-activation-v1.json` â four bounded natural-language cases covering expected activation, must-not-activate behavior, collision groups, and repeated runs.
+- `tools/run_skill_activation_benchmark.py` â trace-based evaluator for explicit `skill_selection` and `skill_execution` events.
+- `tests/test_skill_activation_benchmark.py` â deterministic parser/metric regression coverage using synthetic fixtures only.
+- `benchmark/skill-activation-v1` â registered in the existing Benchmark runtime boundary.
 
 The evaluator deliberately does not simulate model routing or infer activation from prompt text. `NO_OBSERVATIONS` is an explicit non-PASS state. Therefore the repository now has an activation/invocation measurement boundary, but **no empirical activation-rate claim is made yet** because real agent-runtime traces have not been supplied.
 
@@ -612,7 +612,7 @@ Metrics: expected activation rate, false activation rate, invocation-evidence ra
 Next executable action: obtain real structured traces from a compatible agent runtime, run the benchmark, record the evidence, then decide whether failures justify skill-description, runtime, or evaluation changes.
 
 
-## Activation Observation Contract — IMPLEMENTED — 2026-10-06
+## Activation Observation Contract â IMPLEMENTED â 2026-10-06
 
 The activation benchmark now has an explicit machine-readable observation contract at `meta/skill-activation-observation.schema.json`. `tools/run_skill_activation_benchmark.py` validates external trace payloads against this schema before calculating activation, false-activation, variance, and invocation-evidence metrics. This closes the interoperability/contract gap between an external agent runtime and the benchmark without introducing a routing runtime or new authority.
 
@@ -621,35 +621,35 @@ Empirical activation reliability remains UNVERIFIED: no real runtime trace corpu
 Next executable action: capture repeated fresh-session traces from a compatible external agent runtime that emits `skill_selection` and `skill_execution` events conforming to the schema, then run `benchmark/skill-activation-v1` and record the resulting evidence.
 
 
-## Hermes Activation Observation Adapter — IMPLEMENTED — 2026-10-06
+## Hermes Activation Observation Adapter â IMPLEMENTED â 2026-10-06
 
 The activation evidence boundary now includes a deterministic interoperability adapter at tools/convert_hermes_activation_observations.py. It consumes explicit Hermes observer-hook JSONL evidence and emits the existing meta/skill-activation-observation.schema.json shape.
 
 The adapter maps only observed events:
-- Hermes post_tool_call with tool_name=skill_view → skill_selection.
-- Hermes on_skill_lifecycle with action=loaded → skill_execution.
+- Hermes post_tool_call with tool_name=skill_view â skill_selection.
+- Hermes on_skill_lifecycle with action=loaded â skill_execution.
 - Both must share an explicit session/task correlation and the run must be mapped explicitly to an ACT-* case. Selection-only evidence is preserved as selection evidence; execution evidence is independently preserved when observed. Mismatched selection/execution is intentionally retained so false activation and invocation gaps remain measurable.
 
 The adapter does not infer activation from prompts, aggregate .usage.json counters, or missing events. It does not add routing authority or change runtime behavior.
 
-Status: IMPLEMENTED — empirical evidence remains UNVERIFIED until real Hermes traces are collected and the resulting 12-run corpus passes schema validation and benchmark execution.
+Status: IMPLEMENTED â empirical evidence remains UNVERIFIED until real Hermes traces are collected and the resulting 12-run corpus passes schema validation and benchmark execution.
 
-## Hermes Real-Trace Capture Instrumentation — VERIFIED ON MAIN — 2026-10-06
+## Hermes Real-Trace Capture Instrumentation â VERIFIED ON MAIN â 2026-10-06
 
 PR #364 merged the real-trace capture boundary as `ebb150dfb0f0ad6ddb3d2426cb81d7d7c31579ac`. It adds `benchmarks/activation/hermes_skill_activation_observer.py` and `benchmarks/activation/HERMES-TRACE-CAPTURE.md`.
 
 The observer records only explicit Hermes `post_tool_call` / `skill_view` and `on_skill_lifecycle(action=loaded)` evidence with session/task correlation. It intentionally excludes prompts, model output, tool results, and aggregate usage counters. This is capture instrumentation, not a benchmark result.
 
-Current blocker: no real Hermes trace corpus has been captured in this repository. The next executable action is operational capture of 12 fresh-session observations (4 cases × 3 repetitions), explicit ACT-case mapping, conversion, schema validation, and benchmark execution. Do not claim empirical reliability before that evidence exists.
-## Evaluation Harness Integrity — FAIL-CLOSED GAP — 2026-10-06
+Current blocker: no real Hermes trace corpus has been captured in this repository. The next executable action is operational capture of 12 fresh-session observations (4 cases Ã 3 repetitions), explicit ACT-case mapping, conversion, schema validation, and benchmark execution. Do not claim empirical reliability before that evidence exists.
+## Evaluation Harness Integrity â FAIL-CLOSED GAP â 2026-10-06
 
 Fresh public evidence identified silent zero-run benchmark failure as a reusable evaluation-harness integrity risk. Internal audit confirmed `tools/run_skill_activation_benchmark.py` reported `NO_OBSERVATIONS` while returning exit code 0.
 
 PR #365 applies the minimum remediation: zero observed cases now return exit code 2 while still writing the explicit `NO_OBSERVATIONS` result. Existing observed-trace metrics and partial-corpus reporting are unchanged.
 
-Status: VERIFIED — PR #365 merged as `d39d899e23e8614eb11971953541cda9bd7dec9f` after exact-head applicable CI passed. This is not an activation-result claim.
+Status: VERIFIED â PR #365 merged as `d39d899e23e8614eb11971953541cda9bd7dec9f` after exact-head applicable CI passed. This is not an activation-result claim.
 Next executable action: continue real-runtime activation evidence collection and evidence-integrity hardening.
-## Previous Full-Project Live Reconciliation — 2026-10-06 (historical)
+## Previous Full-Project Live Reconciliation â 2026-10-06 (historical)
 
 Live main now contains the verified Model/Agent/Tool/Capability/Skill semantic boundary from PR #368, the Hermes activation adapter/capture instrumentation from PRs #363/#364, and the fail-closed zero-observation benchmark behavior from PR #365.
 
@@ -661,17 +661,17 @@ Activation evidence contract: zero observations are a process failure; partial t
 
 Earlier point-in-time audit sections in this file remain historical and must not be read as current counts or current activation status.
 Next executable action: collect real-runtime activation evidence for Issue #357, resolve the retrieval benchmark freshness/reproducibility gap in Issue #336, and maintain the 45-workflow inventory against live `main`. Issues #370 and #372 are completed.
-## DevLens Writer Isolation — VERIFIED ON MAIN — 2026-10-06
+## DevLens Writer Isolation â VERIFIED ON MAIN â 2026-10-06
 
 Full-project audit identified `devlens.yml` as a manual README writer outside the repository-wide generated-main boundary. PR #377 merged as `5a25ef13751e4a43ce2a92226198c2b24232ecf3` with the workflow reduced to diagnostic-only: `contents: read`, `security-events: read`, and `update_readme: false`. The stale DevLens snapshot was removed from README.md.
 
 Governance verification now fails if DevLens regains repository write permission or README mutation. This closes the direct DevLens writer risk; it does not make DevLens an authoritative health metric.
-## Activation Observation Integrity — VERIFIED ON MAIN — 2026-10-06
+## Activation Observation Integrity â VERIFIED ON MAIN â 2026-10-06
 
 The activation benchmark now fails closed before metric calculation when an observation case_id is outside the selected dataset or when run_id is duplicated. PR #379 merged as `290cb3495d1905615501471e4e1b3bec86301a7b`. Case-level status is aligned with completion_status so partial evidence cannot be represented as OBSERVED.
 
 This is evidence-integrity hardening only. No routing, skill definition, or metric formula changed.
-## Previous Full-Project Audit Reconciliation — 2026-10-06 (historical)
+## Previous Full-Project Audit Reconciliation â 2026-10-06 (historical)
 
 The live main audit has no open pull requests. PRs #368, #371, #374, #375, #376, #377, and #379 were verified through exact-head CI before merge. The final evidence hardening merges are #377 (DevLens writer isolation) and #379 (activation observation integrity).
 
