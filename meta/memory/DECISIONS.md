@@ -1344,7 +1344,7 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 
 **Confidence:** HIGH.
 
-**Evidence IDs:** Timestamp-only graph PR #449 was closed; follow-up issue #450. Quality report PR #445 merged after required checks passed; follow-up issue #447 tracks GITHUB_TOKEN check triggering.
+**Evidence IDs:** Timestamp-only graph PR #449 was closed; PR #452 merged and post-merge run [#38137153321](https://github.com/SamoTech/skills-tree/actions/runs/38137153321) confirmed no-op publication was skipped; issue #450 is closed. Quality report PR #445 merged after required checks passed; follow-up issue #447 tracks GITHUB_TOKEN check triggering.
 
 **Status:** LOCKED
 
