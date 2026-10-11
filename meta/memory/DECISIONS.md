@@ -1363,3 +1363,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only when an executed empirical contract contradicts the recorded protocol, or independent evidence justifies a threshold or method change through a new decision record.
+
+## DECISION-2026-10-11-CAP007-EVALUATION-HARNESS
+
+**Topic:** Close the CAP-007 tooling gap so human labels can be validated and scored deterministically.
+
+**Decision:** Add two standalone deterministic tools (PR #458): `tools/validate_cap007_dataset.py` (versioned-schema validation, unique case IDs, all-four-query-type coverage, canonical skill-file resolution, dataset SHA-256, machine-readable report) and `tools/run_cap007_retrieval_benchmark.py` (fail-closed dataset validation, canonical deterministic-engine top-5 runs with latency, micro-averaged set-based Recall@5/Precision@5 with per-query-type breakdown, deterministic replay check, and PASS / NEEDS_INVESTIGATION / OBSERVED_FAILURE status). Pass and fail thresholds are quoted verbatim from the CAP-007 mapping in `intelligence/ontology/evaluation_ontology.json` and are not redefined by the tools. Labels remain human-provided; an unlabeled or invalid dataset returns NOT_RUN, never PASS, and nothing is fabricated.
+
+**Confidence:** HIGH.
+
+**Evidence IDs:** PR #458; issue [#436](https://github.com/SamoTech/skills-tree/issues/436); benchmarks/retrieval/cap007-dataset.schema.json; benchmarks/retrieval/cap007-retrieval-protocol.md; intelligence/ontology/evaluation_ontology.json (CAP-007 mapping); tools/run_retrieval_benchmark.py (established runner pattern).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only when the CAP-007 ontology mapping changes, the metric operationalization must change, or an executed run exposes a harness defect.

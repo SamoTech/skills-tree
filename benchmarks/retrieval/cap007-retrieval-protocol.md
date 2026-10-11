@@ -26,7 +26,7 @@ For every dataset case, retain the raw engine output and record:
 - per-query latency in milliseconds;
 - engine version, index digest, exact commit, and dataset SHA-256.
 
-Report Recall@5, Precision@5, a per-query-type breakdown (exact match, paraphrase, multi-hop, no-relevant-document), and p95 latency. Acceptance thresholds remain those defined by the authoritative evaluation ontology; do not invent thresholds or weaken them.
+Report Recall@5, Precision@5, a per-query-type breakdown (exact match, paraphrase, multi-hop, no-relevant-document), and p95 latency. Acceptance thresholds are those defined by the authoritative CAP-007 mapping in `intelligence/ontology/evaluation_ontology.json`: **pass** requires Recall@5 >= 0.85 AND Precision@5 >= 0.75 AND p95 retrieval latency <= 5000ms; **fail** is Recall@5 < 0.80 OR Precision@5 < 0.70 OR retrieval p95 latency > 5000ms; results between those boundaries are NEEDS_INVESTIGATION. Do not invent thresholds or weaken them.
 
 A run with fewer than 100 labeled cases, missing per-case records, an unverifiable dataset digest, or engine-derived labels is **INCOMPLETE / NOT RUN**, never PASS.
 
@@ -43,3 +43,24 @@ Use queries from genuine support tickets, user questions, public Q&A, or a contr
 5. Score once against the frozen version; retain raw outputs.
 6. Report all metrics, per-query-type breakdown, failure cases, and limitations.
 7. Any label or protocol change creates a new version and requires rescoring.
+
+## Tooling
+
+Two deterministic tools implement this protocol:
+
+```bash
+# Validate a labeled dataset (fail-closed; also computes its SHA-256)
+python tools/validate_cap007_dataset.py --dataset path/to/cap007-dataset.json
+
+# Run the empirical evaluation against the canonical search engine
+python tools/run_cap007_retrieval_benchmark.py \
+  --dataset path/to/cap007-dataset.json \
+  --index data/search-index.json \
+  --output cap007-result.json
+```
+
+The validator enforces the schema, unique case IDs, all-four-query-type coverage, and that every expected skill resolves to a canonical `skills/` file. The runner refuses to run on an unlabeled or invalid dataset (`NOT_RUN`, never PASS), records dataset and index digests, checks deterministic replay, and reports micro-averaged set-based metrics:
+
+- **Recall@5** = total top-5 hits / total expected skills across relevant cases.
+- **Precision@5** = total top-5 hits / total predicted IDs (five per case; `no_relevant_document` cases contribute only to precision).
+- Per-query-type breakdown for all four types, plus p50/p95 wall-clock latency (environment-dependent; record the measurement environment with the result).
