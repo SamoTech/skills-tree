@@ -7,7 +7,7 @@
 **STATUS:** PARTIAL
 
 ### INPUTS
-- Live GitHub `main` at `cd04471fb7dd0517aa934c0bd97ee6fde44bd8de` after PR #437; PR #434 and PR #437 are merged.
+- Live GitHub `main` at `af5a08a627606ac020d28bb432585a3b5d23d308` after PR #439; PRs #434, #437, and #439 are merged.
 - Current governance, mission, operating model, current-state, roadmap, decisions, evidence model, workflow inventory, handoff protocol, and relevant architecture/testing documents.
 - Exact-main CI, Agent Skills reconciliation, retrieval benchmark, skill-selection benchmark, activation runtime, and CodeQL workflow evidence.
 
@@ -42,7 +42,7 @@
 
 ### FILES_WRITTEN
 - PR #434 merged: current-state/roadmap synchronization, workflow inventory, manual Agent Skills audit trigger, retrieval/selection benchmark self-validation and main-push triggers.
-- PR #437 merged the current-state, roadmap, reconciliation report, decision record, and handoff packet. This follow-up audit adds the corpus/ontology contract differences to active state and records Issue #438.
+- PR #437 merged the reconciliation/benchmark evidence; PR #439 merged the corpus/ontology contract audit, decision record, active-state update, and handoff packet. Issues #435, #436, and #438 preserve unresolved follow-up work.
 
 ### DECISIONS
 - Keep the canonical source as `skills/`; do not add duplicate search/index/registry implementations.
