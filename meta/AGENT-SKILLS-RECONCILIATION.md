@@ -4,7 +4,33 @@
 **Canonical source:** `skills/`  
 **Verified main baseline:** current main after PR #368 merge; exact-head reconciliation verified 2026-10-06
 
-## Verified counts
+## Exact-main Reconciliation Gate — 2026-10-11
+
+**Main commit:** `f13420a27b1162faa08c74286779dbc6d71265b6`  
+**Workflow run:** [Agent Skills Distribution Audit #38133298990](https://github.com/SamoTech/skills-tree/actions/runs/38133298990)  
+**Result:** PASS
+
+| Measure | Exact-main result |
+|---|---:|
+| Canonical entries scanned | 382 |
+| Eligible deterministic projections | 264 |
+| Blocked canonical entries | 118 |
+| Existing Agent Skills packages | 302 |
+| Retained blocked existing packages | 37 |
+| Blocked canonical entries without a package | 81 |
+| Package validator failures | 0 |
+| Eligible missing projections | 0 |
+| Projection drift | 0 |
+| Stale packages | 0 |
+| Unexpected packages | 0 |
+| Ambiguous mappings | 0 |
+| Unresolved target-name collisions | 0 |
+
+The audit matched 291 packages by declared provenance and 10 by unique package-name inference under the current fallback contract. The single `skills-tree-registry` package is the documented intentional auxiliary package. No canonical or package content was changed by the audit. Name-only inference is currently allowed, but those 10 packages remain a provenance-hardening opportunity; resolve it through deterministic generation rather than hand-editing projections.
+
+The workflow also completed `tools/validate_agent_skills.py` with 302 packages validated and zero failures. This exact-main result supersedes the older 2026-10-06 reconciliation snapshot below.
+
+## Historical verified counts — 2026-10-06
 
 | Measure | Count |
 |---|---:|
