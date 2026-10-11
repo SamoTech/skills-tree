@@ -2,21 +2,26 @@
 
 ## Current Live Reconciliation — 2026-10-11
 
-This is the active state summary and supersedes older dated snapshots below. Live GitHub refs, generated artifacts, and exact workflow runs are the evidence source.
+This is the active operational state. Older dated sections below are historical unless independently re-verified.
 
-- Verified main HEAD at audit start: d36848cb827f9749e9209212061d4d59e2d72cc5 (PR #431 graph projection refresh).
-- Quality/test corpus: 382 skill files including one intentional 00-sandbox fixture; public production registry: 381 canonical skills across 17 categories.
-- Agent Skills distribution: live tree contains 302 agent-skills/*/SKILL.md packages. The latest detailed reconciliation report is dated 2026-10-06 and records 264 eligible canonical projections, 118 blocked entries, and 37 retained blocked packages plus one auxiliary package. Re-run the reconciliation gate on the current head before treating those eligibility counts as newly verified.
-- Graph projections: 381 nodes, 255 edges (8 REQUIRES, 247 RELATED_TO), zero validation errors and zero unresolved-target warnings. data/SKILLS_GRAPH.json and docs/api/graph.json are byte-identical; graph stats and report agree.
-- Search projections: data/search-index.json and docs/search-index.json are byte-identical. The public skills registry projection contains 381 entries.
-- PR #431 was merged after all applicable PR checks passed. Its graph change refreshed generated timestamps; it did not change graph topology.
-- Activation evidence is mixed and must remain explicitly qualified. PR workflow run [#38118997645](https://github.com/SamoTech/skills-tree/actions/runs/38118997645), on commit 25031d961e2e7ae44d775802026d1b559582c00e, passed routing qualification, all 12 independent fresh-session observations, corpus validation, benchmark acceptance, and artifact upload. Post-merge main run [#38123797916](https://github.com/SamoTech/skills-tree/actions/runs/38123797916), on c538dce8126746e19d2ded1e3be2e7b9692c9ca5, failed at routing qualification; the 12-observation step and downstream benchmark were skipped. The PR head and merge commit share the exact Git tree SHA `690573e8ba291badf20185983983b21098124ddf`, verified through the Git Data API. The compare endpoint's divergent-history/file listing does not indicate a different file snapshot; therefore this run pair provides no evidence of a committed source-tree difference. The failing artifact (11697592062) has an empty ACT-001 qualification trace; its log stops at `Initializing agent…`. `ollama ps` reports 100% CPU allocation for the failed run versus 57%/43% CPU/GPU for the passing run; Ollama's [upstream FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) defines the latter as model layers allocated across GPU and system memory. The passing worker's llama-server log also advertises AVX-512/AMX CPU flags and an AMX model buffer, while the failed worker advertises AVX2 without those flags and uses CPU/CPU_REPACK buffers. The model digest and context size match. This is strong evidence of runtime/runner allocation and instruction-path differences that can affect latency, but it does not prove they caused the missing skill events. Do not claim activation benchmark acceptance on main; do not change skill definitions or relax acceptance gates without repeatable evidence.
-- Issue #336 retrieval freshness/reproducibility remediation remains resolved by the version-matched deterministic 12-case benchmark; do not reopen it without contrary evidence.
-- Next justified work: synchronize current docs (this PR), re-run the Agent Skills reconciliation gate against current main, then investigate/rerun activation qualification on main. Do not change skill descriptions or routing logic without measured runtime evidence.
+- Verified pre-documentation-cycle `main` HEAD: `7aa1cf47fd401f7bb1fb304925b933ca326f7d48`. PR #432 (documentation synchronization) and PR #433 (GPU runtime eligibility preflight) are merged. There were no open pull requests at the start of this cycle.
+- The main push Test Suite run [#38131566429](https://github.com/SamoTech/skills-tree/actions/runs/38131566429) completed successfully on this SHA; Python 3.11, 3.12, and 3.13 jobs passed.
+- Quality/test corpus: 382 Markdown skill files including one intentional `00-sandbox` fixture; public production registry: 381 canonical skills across 17 categories.
+- Agent Skills distribution: 302 `agent-skills/*/SKILL.md` packages are present. The latest detailed reconciliation report is dated 2026-10-06 and reports 264 eligible canonical projections, 118 blocked entries, 37 retained blocked packages, and one auxiliary package. These eligibility figures are historical until the existing reconciliation gate passes on the current main tree.
+- Graph projections were checked against the live tree: 381 nodes, 255 edges (8 `REQUIRES`, 247 `RELATED_TO`), with `data/SKILLS_GRAPH.json` and `docs/api/graph.json` byte-identical. `data/search-index.json` and `docs/search-index.json` are byte-identical. The public registry projection contains 381 entries.
+- Activation run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320), on this main SHA, completed with workflow conclusion `success` because the infrastructure preflight classified the runner as `INFRASTRUCTURE_INELIGIBLE`. Hermes/Ollama installation, model warmup/allocation, routing qualification, all 12 independent observations, corpus validation, and benchmark acceptance were skipped. The log explicitly says the benchmark was **NOT RUN**. This is not activation acceptance evidence.
+- The current evaluation ontology now contains mappings for `CAP-007` (`semantic_retrieval`), `CAP-011` (`self_evaluation`), and `CAP-014` (`tool_execution`). Older July audits saying those mappings are absent are historical and must not be repeated as current mapping state. The mappings specify evaluation contracts; they do not establish that the proposed empirical datasets have been run or passed.
+- Issue #336 retrieval freshness/reproducibility remediation remains resolved; do not reopen it without contrary evidence.
 
-> Maintained as a point-in-time operational snapshot. This file records verified state used for engineering and governance decisions.
+## Current execution sequence
 
-## Verified snapshot
+1. Run the Agent Skills reconciliation gate against the exact current main tree; update the reconciliation report and eligibility counts only from that result.
+2. Re-run deterministic retrieval and capability-selection benchmarks, preserve the run artifacts, and record exact commit, dataset/index digests, metrics, and pass/fail state.
+3. Continue activation qualification only on a runtime that passes accelerator and actual model-allocation preflight. Preserve the existing acceptance contract: 12 independent fresh-session observations, 100% expected activation, 0% false activation, and 100% invocation evidence.
+4. Audit the end-to-end consumer path `Discover → Select → Resolve → Understand → Invoke → Verify`, separating deterministic lexical retrieval/selection evidence from empirical runtime evidence. Do not introduce a semantic-search engine or new skills unless reproducible results identify a specific gap.
+
+> Maintained as a point-in-time operational snapshot. Live GitHub refs, generated artifacts, and exact workflow runs are the evidence source.
+fied snapshot
 
 - Snapshot date: 2026-10-06
 - Live `main`: authoritative and must be verified from the Git ref before execution; this document intentionally does not hard-code `main`'s own current commit because updating this document creates a new `main` commit.
