@@ -1349,3 +1349,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only when a timestamp change is required by a documented consumer contract or a real projection-content difference is present.
+
+## DECISION-2026-10-11-EMPIRICAL-PROTOCOL-PREPARATION
+
+**Topic:** Prepare the empirical evaluation contracts protocol-first without fabricating labels.
+
+**Decision:** Land each empirical contract's dataset schema, protocol, and fail-closed validation tests before any labels are collected. The CAP-014 mock fixture and scorer, the CAP-011 ground-truth protocol/schema/tests (PR #455), and the CAP-007 human-labeled retrieval protocol/schema/tests (PR #456) are merged as preparation only. Labels must originate from independent human or verified provenance; engine-derived labels, agent self-reports, and synthetic fixtures never satisfy the contracts. Empirical status remains NOT RUN for all three contracts until 100-case datasets and candidate runs with retained digests and raw traces exist.
+
+**Confidence:** HIGH.
+
+**Evidence IDs:** PRs #455 and #456; issue [#436](https://github.com/SamoTech/skills-tree/issues/436); benchmarks/self-evaluation/cap011-dataset.schema.json; benchmarks/retrieval/cap007-dataset.schema.json; benchmarks/tool-execution/cap014-mocked-scenarios-v1.json.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only when an executed empirical contract contradicts the recorded protocol, or independent evidence justifies a threshold or method change through a new decision record.
