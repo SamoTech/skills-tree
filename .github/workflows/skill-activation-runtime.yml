@@ -99,14 +99,17 @@ jobs:
               echo "- The Hermes routing qualification and all 12 observations were not started."
               echo "- This is an infrastructure eligibility result, not a skill-routing failure."
             } >> "$GITHUB_STEP_SUMMARY"
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
             cat "$report"
-            exit 1
+            exit 0
           fi
 
           echo "STATUS=ACCELERATOR_DETECTED; model allocation still requires verification after warmup." >> "$report"
+          echo "eligible=true" >> "$GITHUB_OUTPUT"
           cat "$report"
 
       - name: Install Hermes Agent
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -138,6 +141,7 @@ jobs:
           "$HOME/.local/bin/hermes" --version
 
       - name: Install local Ollama runtime
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         run: |
           set -euo pipefail
           curl -fsSL https://ollama.com/install.sh | sh
@@ -216,6 +220,7 @@ jobs:
           grep -E 'OLLAMA_CONTEXT_LENGTH=65536|OLLAMA_NUM_PARALLEL=1' "$RUNNER_TEMP/ollama.log" || true
 
       - name: Install activation observer plugin
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -234,6 +239,7 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes plugins doctor "$HERMES_HOME/plugins/skills-tree-activation-observer" --ci
 
       - name: Install the three benchmark Skills into Hermes
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -281,6 +287,7 @@ jobs:
           PY
 
       - name: Restrict skill catalog to benchmark skills
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           HERMES_RUNTIME_HOME: ${{ runner.temp }}/hermes-home
@@ -357,6 +364,7 @@ jobs:
           PY
 
       - name: Configure Hermes for local Ollama
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -376,6 +384,7 @@ jobs:
           HERMES_HOME="$HERMES_HOME" hermes config get model.base_url
 
       - name: Verify runtime connectivity
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -386,6 +395,7 @@ jobs:
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
 
       - name: Warm model and verify allocated context before qualification
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         run: |
           set -euo pipefail
           # Force-load the exact model with an explicit 64K context before the
@@ -427,9 +437,10 @@ jobs:
               echo "STATUS=RUNTIME_PREFLIGHT_FAILED"
               echo "REASON=ollama ps returned no model allocation details."
             } >> "$report"
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
             echo "- Runtime preflight: **RUNTIME_PREFLIGHT_FAILED** — Ollama did not report a loaded model." >> "$GITHUB_STEP_SUMMARY"
             cat "$report"
-            exit 1
+            exit 0
           fi
 
           python - <<'PY'
@@ -466,11 +477,12 @@ jobs:
               if status == "INFRASTRUCTURE_INELIGIBLE":
                   stream.write("- The routing qualification and 12-observation corpus were not started; this is not a skill-routing result.\n")
           print(f"{status}: {reason}")
-          if status != "RUNTIME_ELIGIBLE":
-              raise SystemExit(1)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as stream:
+              stream.write(f"eligible={'true' if status == 'RUNTIME_ELIGIBLE' else 'false'}\n")
           PY
 
       - name: Qualify Hermes skill routing before the full benchmark
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
@@ -574,6 +586,7 @@ jobs:
           PY
 
       - name: Run 12 independent fresh-session observations
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
           HERMES_STREAM_READ_TIMEOUT: '1800'
@@ -683,6 +696,7 @@ jobs:
 
           PY
       - name: Convert explicit runtime traces to benchmark observations
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         run: |
           python - <<'PY'
           import json
@@ -750,6 +764,7 @@ jobs:
           PY
 
       - name: Validate observation corpus against schema
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         run: |
           python - <<'PY'
           import json, os
@@ -766,6 +781,7 @@ jobs:
           PY
 
       - name: Run activation benchmark
+        if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         id: benchmark
         run: |
           python tools/run_skill_activation_benchmark.py --observations "$RUNNER_TEMP/skill-activation-observations.json" --output "$RUNNER_TEMP/skill-activation-benchmark-result.json"
