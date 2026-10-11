@@ -1,4 +1,4 @@
-# Skills Tree — Executable Product Roadmap
+# Skills Tree â Executable Product Roadmap
 
 > Strategic roadmap for the Skills Tree product mission.
 > Effective: 2026-10-03
@@ -6,13 +6,13 @@
 > Product mission: `meta/PRODUCT_MISSION.md`
 > Execution mission: `meta/COO_MASTER_MISSION.md`
 
-## Current Execution Block — 2026-10-11
+## Current Execution Block â 2026-10-11
 
-1. **Canonical corpus and distribution — verified.** 382 Markdown skill files including one intentional fixture; 381 public canonical skills across 17 categories. The latest exact reconciliation [#38133298990](https://github.com/SamoTech/skills-tree/actions/runs/38133298990) passed on `f13420a27b1162faa08c74286779dbc6d71265b6`; no canonical skill content changed since that run. Result: 264 eligible, 118 blocked, 302 existing packages validated, zero missing eligible projections/drift/stale/unexpected/ambiguous/unresolved collisions. Ten packages use the accepted name-only fallback and remain a provenance-hardening opportunity.
-2. **Retrieval and selection — verified within bounded datasets.** Retrieval [#38133299000](https://github.com/SamoTech/skills-tree/actions/runs/38133299000): 12 cases, Recall@5 1.0, MRR 0.9583, deterministic replay. Selection [#38133298996](https://github.com/SamoTech/skills-tree/actions/runs/38133298996): 9 cases, accuracy 1.0, deterministic replay. These are not substitutes for the separate 100-case empirical contracts.
-3. **Evaluation contracts — aligned.** PR #444 added CAP-006/CAP-010 mappings, corrected CAP-023 and CAP-025 generic methods, introduced `contract_scope`, and added validator/tests. PR #448 reviewed the corpus entries and refreshed freshness dates to 2026-10-11 / 2027-01-09. Issues #435 and #438 are closed.
-4. **Next: empirical evaluation.** Prepare the 100 human-labeled support queries for CAP-007, 100 ground-truth pairs for CAP-011, and 100 mocked tool-execution scenarios for CAP-014. Capture dataset provenance and exact acceptance criteria before execution. Track in [#436](https://github.com/SamoTech/skills-tree/issues/436); do not fabricate labels or claim results from the 12/9-case benchmarks. Protocol/schema preparation is merged (CAP-014 mock fixture and scorer; CAP-011 protocol PR #455; CAP-007 protocol PR #456); the remaining work is the independently labeled datasets and the candidate runs. CAP-007 label-validation and empirical-evaluation harness tooling is added in PR #458 (fail-closed; NOT_RUN without human labels), leaving only the labeled dataset and the run itself.
-5. **Activation — infrastructure-blocked.** Run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) correctly classified the runner as infrastructure-ineligible; the activation benchmark was NOT RUN. Keep acceptance unchanged and resume only on an eligible accelerator runtime ([#357](https://github.com/SamoTech/skills-tree/issues/357)).
+1. **Canonical corpus and distribution â verified.** 382 Markdown skill files including one intentional fixture; 381 public canonical skills across 17 categories. The latest exact reconciliation [#38133298990](https://github.com/SamoTech/skills-tree/actions/runs/38133298990) passed on `f13420a27b1162faa08c74286779dbc6d71265b6`; no canonical skill content changed since that run. Result: 264 eligible, 118 blocked, 302 existing packages validated, zero missing eligible projections/drift/stale/unexpected/ambiguous/unresolved collisions. Ten packages use the accepted name-only fallback and remain a provenance-hardening opportunity.
+2. **Retrieval and selection â verified within bounded datasets.** Retrieval [#38133299000](https://github.com/SamoTech/skills-tree/actions/runs/38133299000): 12 cases, Recall@5 1.0, MRR 0.9583, deterministic replay. Selection [#38133298996](https://github.com/SamoTech/skills-tree/actions/runs/38133298996): 9 cases, accuracy 1.0, deterministic replay. These are not substitutes for the separate 100-case empirical contracts.
+3. **Evaluation contracts â aligned.** PR #444 added CAP-006/CAP-010 mappings, corrected CAP-023 and CAP-025 generic methods, introduced `contract_scope`, and added validator/tests. PR #448 reviewed the corpus entries and refreshed freshness dates to 2026-10-11 / 2027-01-09. Issues #435 and #438 are closed.
+4. **Next: empirical evaluation.** Prepare the 100 human-labeled support queries for CAP-007, 100 ground-truth pairs for CAP-011, and 100 mocked tool-execution scenarios for CAP-014. Capture dataset provenance and exact acceptance criteria before execution. Track in [#436](https://github.com/SamoTech/skills-tree/issues/436); do not fabricate labels or claim results from the 12/9-case benchmarks. Protocol/schema preparation is merged (CAP-014 mock fixture and scorer; CAP-011 protocol PR #455; CAP-007 protocol PR #456); the remaining work is the independently labeled datasets and the candidate runs. CAP-007 label-validation and empirical-evaluation harness tooling is added in PR #458 (fail-closed; NOT_RUN without human labels), leaving only the labeled dataset and the run itself. CAP-011 preparation is complete (PR #459): the versioned 100-case ground-truth dataset `cap011-dataset-v1.json` is a controlled experiment with machine-verifiable outcomes — every expected outcome is re-derived by committed deterministic predicates (`cap011-verifier-v1.json`, re-executed by tools/verify_cap011_ground_truth.py) under the protocol's reproducible-test ground-truth allowance — plus the fail-closed calibration runner tools/run_cap011_calibration_benchmark.py; the remaining work for CAP-011 is the candidate run itself, which requires records from the actual system under test and hallucination adjudication independent of the candidate. No empirical contract has been run; none may be claimed.
+5. **Activation â infrastructure-blocked.** Run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) correctly classified the runner as infrastructure-ineligible; the activation benchmark was NOT RUN. Keep acceptance unchanged and resume only on an eligible accelerator runtime ([#357](https://github.com/SamoTech/skills-tree/issues/357)).
 6. **Automation follow-up.** Timestamp-only graph refresh PR #449 was closed; PR #452 added normalized semantic comparison and post-merge run #38137153321 verified that publication is skipped when only timestamps/format differ. Issue #450 is closed. Quality-report PR creation now works, but bot-created commits can produce `action_required` CI results; issue #447 tracks an approved least-privilege solution.
 7. Preserve the canonical `skills/` source, deterministic lexical search, single generated index, and current capability-selection engine. No semantic-search replacement, competing registry, or raw-count skill additions without a reproducible measured gap.
 
@@ -30,7 +30,7 @@ Raw skill count and raw stub count are engineering measurements, not product obj
 
 Security > Correctness > Canonical architecture > Discovery > Evidence > Freshness > Interoperability > Quality > Developer experience > Cosmetic improvements.
 
-## Phase 0 — Governance stabilization — VERIFIED — 2026-10-06
+## Phase 0 â Governance stabilization â VERIFIED â 2026-10-06
 
 1. Maintain the live 45-file workflow inventory and classify every workflow as authoritative, supporting, manual recovery, scheduled maintenance, evidence benchmark, or generated-main writer.
 2. Maintain exactly one authoritative Pages deployment.
@@ -44,7 +44,7 @@ Security > Correctness > Canonical architecture > Discovery > Evidence > Freshne
 
 Exit evidence: workflow inventory, decision records, current-state update, passing relevant CI, verified permission boundaries, and no undocumented automation ownership.
 
-## Previous Live Audit — 2026-10-06 (historical)
+## Previous Live Audit â 2026-10-06 (historical)
 
 The final repository audit verified the current main control plane and canonical/projection boundaries.
 
@@ -57,13 +57,13 @@ The final repository audit verified the current main control plane and canonical
 - At that historical audit point, graph projections were recorded at 382 nodes / 250 edges; the current 2026-10-11 baseline is 381 nodes / 255 edges as recorded in the Current Execution Block above.
 - Remaining material evidence gap is Issue #357 (real runtime activation traces). Issue #336 retrieval evidence freshness/reproducibility is resolved by the version-matched deterministic benchmark and explicit historical qualification.
 
-The **Current Execution Block — 2026-10-11** above governs execution selection. This dated audit and older entries below are historical records.
+The **Current Execution Block â 2026-10-11** above governs execution selection. This dated audit and older entries below are historical records.
 
 ## Phase 0 Exit Interpretation
 
 The repository-local Phase 0 controls are verified. Ongoing maintenance consists of keeping workflow inventory, generated-writer classification, documentation state, and evidence boundaries synchronized with live main. GitHub branch protection is intentionally outside the project-local completion gate.
 
-## Phase 1 — Registry foundation — VERIFIED — completed foundation
+## Phase 1 â Registry foundation â VERIFIED â completed foundation
 
 Build a backward-compatible machine-readable contract that can evolve without mass-rewriting the corpus.
 
@@ -93,7 +93,7 @@ Deliverables:
 
 Exit evidence: schema/tooling/fixtures demonstrate deterministic validation without weakening existing gates.
 
-## Phase 2 — Capability intelligence — STRATEGIC FOLLOW-ON
+## Phase 2 â Capability intelligence â STRATEGIC FOLLOW-ON
 
 Create and maintain `meta/MOST-WANTED-SKILLS.md` plus a generated machine-readable dataset when the signal collection is reproducible.
 
@@ -114,7 +114,7 @@ Demand must be evidence-backed and privacy-respecting. Search volume must never 
 
 Priority is a transparent decision aid:
 
-`Demand × capability importance × coverage gap × evidence gap × ecosystem relevance`
+`Demand Ã capability importance Ã coverage gap Ã evidence gap Ã ecosystem relevance`
 
 It is not an objective truth score.
 
@@ -122,23 +122,23 @@ Exit evidence: at least one reproducible signal collection path and a backlog th
 
 **2026-10-04 implementation:** the first public GitHub issue-search collector is implemented and scheduled/manual collection produces a raw evidence artifact. The controlled collection run, first evidence review, and coverage/evidence reconciliation are complete. IDE integration is selected as the first Phase 3 migration slice because the demand signal is traceable and canonical coverage lacks a dedicated IDE integration contract. No popularity ranking is used.
 
-## Phase 3 — High-value skill migration
+## Phase 3 â High-value skill migration
 
 Replace directory-order migration with demand/evidence-driven selection.
 
 Corpus tiers:
-- A — high-demand capabilities
-- B — foundational capabilities
-- C — useful/lower-demand capabilities
-- D — experimental/niche
-- E — redundant/obsolete
+- A â high-demand capabilities
+- B â foundational capabilities
+- C â useful/lower-demand capabilities
+- D â experimental/niche
+- E â redundant/obsolete
 
 For each selected skill:
-Inspect → classify → identify evidence → identify demand → identify dependencies → define contract → enrich → validate → create projection → verify → document.
+Inspect â classify â identify evidence â identify demand â identify dependencies â define contract â enrich â validate â create projection â verify â document.
 
 A migration is incomplete if it only adds frontmatter.
 
-## Phase 4 — Agent Skills distribution — VERIFIED CORPUS BASELINE
+## Phase 4 â Agent Skills distribution â VERIFIED CORPUS BASELINE
 
 The deterministic canonical-to-Agent-Skills projection is now generated and verified for the full currently eligible corpus.
 
@@ -164,7 +164,7 @@ Requirements:
 
 Do not claim full-corpus Agent Skills compliance until automated evidence proves it.
 
-## Phase 5 — Deterministic discovery
+## Phase 5 â Deterministic discovery
 
 Evolve the generated registry toward:
 - `skills.json`
@@ -178,7 +178,7 @@ Discovery must support capability, keyword, category, dependency, compatibility,
 
 Evaluate semantic retrieval only after deterministic indexes and metadata contracts are stable.
 
-## Phase 6 — Evidence and benchmark layer
+## Phase 6 â Evidence and benchmark layer
 
 Introduce reproducible benchmark infrastructure for important capability classes.
 
@@ -186,7 +186,7 @@ Every benchmark must define task, inputs, expected behavior, evaluation criteria
 
 Keep benchmark results separate from classifier labels, structural validation, and external adoption evidence.
 
-## Phase 7 — Ecosystem intelligence
+## Phase 7 â Ecosystem intelligence
 
 Use legitimate public signals to detect:
 - emerging capabilities
@@ -198,7 +198,7 @@ Use legitimate public signals to detect:
 
 Never fabricate popularity or adoption.
 
-## Phase 8 — Universal distribution
+## Phase 8 â Universal distribution
 
 Only when deterministic generation, validation, provenance, integrity verification, and reproducible publication exist, publish:
 
@@ -208,7 +208,7 @@ Published artifacts must carry version, provenance, validation status, and SHA-2
 
 ## Continuous operating cadence
 
-Every change: inspect → validate → document → verify.
+Every change: inspect â validate â document â verify.
 
 Weekly:
 - stale skills
@@ -232,11 +232,11 @@ Quarterly:
 
 ## Current verified execution position
 
-The repository's live development record verifies the governance/registry foundation, P1.1–P1.11, P2.1, P2.2, the post-P2.2 runtime integrations, graph fail-closed validation, recommendation/blueprint context, and CLI search. No numbered P2.3 requirement is defined. The immediate execution queue is governed by the 2026-10-11 block above: documentation synchronization, current-head Agent Skills reconciliation, and resolution of the activation qualification discrepancy before unrelated feature work.
+The repository's live development record verifies the governance/registry foundation, P1.1âP1.11, P2.1, P2.2, the post-P2.2 runtime integrations, graph fail-closed validation, recommendation/blueprint context, and CLI search. No numbered P2.3 requirement is defined. The immediate execution queue is governed by the 2026-10-11 block above: documentation synchronization, current-head Agent Skills reconciliation, and resolution of the activation qualification discrepancy before unrelated feature work.
 
 The strategic phases below remain the long-term product direction. They must not be treated as the immediate execution queue when the verified architecture audit identifies a higher-priority foundational gap.
 
-## Previous execution queue — 2026-10-07 (historical)
+## Previous execution queue â 2026-10-07 (historical)
 
 1. Synchronize the project brain and public README counts.
 2. Enforce the 381-skill public projection boundary while retaining the 382-file quality/test corpus.
@@ -253,7 +253,7 @@ Issue #336 is resolved and must not remain in the active execution queue.
 A roadmap item is complete only when implementation, tests/verification, documentation, and current-state evidence all agree.
 
 
-## Verified Runtime Data-Schema Slice — 2026-10-02
+## Verified Runtime Data-Schema Slice â 2026-10-02
 
 The UniversalRegistry now validates the loaded registry against the dedicated `meta/universal-registry-data.schema.json` instance schema before semantic integrity, entity-specific contracts, and graph validation.
 
@@ -264,7 +264,7 @@ The existing `meta/universal-registry.schema.json` is preserved as the ontology/
 **Next:** fresh runtime/consumer invariant audit. No numbered P2.3 requirement is created.
 
 
-## Behavioral Evaluation Runtime — Verified Implementation 2026-10-03
+## Behavioral Evaluation Runtime â Verified Implementation 2026-10-03
 
 PR #272 established the dedicated Benchmark contract and typed runtime boundary identified by the post-schema universal-registry audit. The contract validates reproducible evaluation definitions, benchmark subjects are checked against registered entity IDs, and `UniversalRegistry` exposes deterministic `resolve_benchmark()` and `benchmarks_for_entity()` access.
 
@@ -272,7 +272,7 @@ PR #274 supplied the final contract-integrity and regression-test fixes. The fin
 
 This establishes benchmark-definition infrastructure only. It does not represent benchmark results, rankings, production readiness, or external evaluation evidence.
 
-## Anti-Slop Quality Gate — Verified Implementation 2026-10-03
+## Anti-Slop Quality Gate â Verified Implementation 2026-10-03
 
 PR #273 established deterministic anti-slop enforcement for changed skills, with PR #275 resolving rename detection and lowercase lifecycle-state false positives.
 
@@ -280,7 +280,7 @@ The final #273 head `4477d33d846c68d71b666e6c283c8787312e023f` passed its requir
 
 **Next:** continue the fresh universal-registry architecture audit; do not treat these slices as permission to invent a new phase requirement.
 
-## Security Corpus Migration — Verified Implementation 2026-10-02
+## Security Corpus Migration â Verified Implementation 2026-10-02
 
 The first controlled security corpus migration batch upgraded the nine remaining security stubs in category 14. The batch preserves the canonical `skills/` source and strengthens the evidence-backed migration gate with explicit I/O, failure modes, security boundaries, related metadata, and authoritative references.
 
@@ -291,14 +291,14 @@ The quality-report workflow was hardened with a trusted post-merge `pull_request
 **Next:** continue with the remaining 13 verified stubs, selecting the next batch by evidence, safety, and agent utility rather than directory order.
 
 
-## AI Source Discovery Slice — 2026-10-02
+## AI Source Discovery Slice â 2026-10-02
 
 The product mission now has an explicit public discovery surface for AI agents and developers: root `llms.txt`, `docs/AI_DISCOVERY.md`, README AI-source guidance, the existing machine-readable `docs/api/skills.json`, and the existing `agent-skills/` compatibility layer.
 
 This is a discovery/documentation layer only. It does not create a competing catalog or declare the future `/.well-known/agent-skills/index.json` live. The latter remains gated on deterministic generation, validation, provenance, publication reproducibility, and SHA-256 verification.
 
 **Next:** discovery-surface validation is complete; the remaining work is the separately gated `/.well-known/agent-skills/index.json` publication boundary.
-\n\n## Agent Skills Distribution Contract — VERIFIED IMPLEMENTATION — 2026-10-02
+\n\n## Agent Skills Distribution Contract â VERIFIED IMPLEMENTATION â 2026-10-02
 
 PR #251 established the executable distribution contract and merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
 
@@ -313,7 +313,7 @@ The deterministic projector, read-only reconciliation workflow, validator, regre
 **Next:** Reconcile demand evidence against canonical coverage, evidence tiers, freshness, dependencies, and runtime proof. The first preferred investigation is skill evaluation / invocation evidence and retrieval quality; do not add raw skills until an implementation or evidence gap is demonstrated.
 
 
-## Universal Graph Relationship Runtime Boundary — 2026-10-03
+## Universal Graph Relationship Runtime Boundary â 2026-10-03
 
 A fresh post-freshness audit identified a fail-open semantic boundary: the graph schema declares deferred relationship types, while runtime semantics currently cover only the six relationships used by the canonical graph. The runtime previously accepted unsupported schema-valid relationships silently.
 
@@ -328,7 +328,7 @@ The selected correction keeps the schema vocabulary unchanged but makes runtime-
 **Next:** verify the externally published discovery boundary; do not create another search implementation.
 
 
-## Phase 4 Distribution Hardening — VERIFIED ON MAIN — 2026-10-04
+## Phase 4 Distribution Hardening â VERIFIED ON MAIN â 2026-10-04
 
 The deterministic Agent Skills corpus exposed a remaining control gap: reconciliation could report an eligible missing projection without making CI fail. The merged implementation adds the explicit read-only reconciliation gate and regression coverage.
 
@@ -346,7 +346,7 @@ Verified merged-main state:
 Status is VERIFIED ON MAIN. PR #305 exact head `1c1d70a337f9952cd2c24d555ee9d67bab9cbe30` passed the applicable CI gates before merge as `a9a649481c68bf0dd33447a2238174ebd8b79a4b`.
 
 
-## Full Repository Re-Audit — 2026-10-04
+## Full Repository Re-Audit â 2026-10-04
 
 The current audit verified the existing canonical/projection boundaries and found no need for a new generator, catalog, reconciler, search index, graph writer, JSON-LD writer, Agent Skills generator, Pages deployment path, or release publisher.
 
@@ -360,7 +360,7 @@ Immediate execution state:
 The full evidence record is `meta/audits/FULL_REPOSITORY_AUDIT_2026-10-04.md`.
 
 
-## Demand Intelligence — Activation Evidence Gate — 2026-10-06
+## Demand Intelligence â Activation Evidence Gate â 2026-10-06
 
 The preferred demand/evidence investigation is now executable. The repository contains a bounded trace-based benchmark for real skill activation and invocation evidence, using existing discovery/selection and observability boundaries.
 
@@ -371,8 +371,9 @@ The preferred demand/evidence investigation is now executable. The repository co
 **Decision rule:** measured failures may justify skill-description remediation or runtime/evaluation changes; absence of measured failures does not justify new capability creation. No new search engine or routing authority is permitted by this slice.
 
 
-## Demand Intelligence — Real Activation Evidence Collection — 2026-10-06
+## Demand Intelligence â Real Activation Evidence Collection â 2026-10-06
 
 The activation evidence instrument and its machine-readable observation contract are now implemented on main. The remaining gate is empirical: collect real runtime traces conforming to `meta/skill-activation-observation.schema.json` and evaluate `benchmark/skill-activation-v1`.
 
 Decision rule remains unchanged: measured failures may justify skill-description or runtime/evaluation changes; no raw skill or routing authority should be added without evidence.
+

@@ -1,0 +1,1997 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "cap011-self-evaluation-v1",
+  "dataset_status": "ground_truth_reviewed",
+  "provenance": {
+    "source_type": "controlled_experiment",
+    "created_at": "2026-10-11T15:45:00Z",
+    "label_protocol": "Every expected outcome is derived mechanically by a deterministic predicate (benchmarks/self-evaluation/cap011-verifier-v1.json) that tools/verify_cap011_ground_truth.py re-executes on every validation run. No human or model opinion is used to assert ground truth; the checked-in adjudication records name the deterministic verifier as reviewer. The dataset is a controlled experiment with machine-verifiable outcomes, per the protocol allowance for ground truth independently verified from structured outputs and reproducible tests.",
+    "source_references": [
+      "benchmarks/self-evaluation/cap011-verifier-v1.json",
+      "tools/verify_cap011_ground_truth.py",
+      "benchmarks/self-evaluation/cap011-dataset.schema.json",
+      "intelligence/ontology/evaluation_ontology.json#CAP-011"
+    ],
+    "ground_truth_independent_of_system_under_test": true,
+    "limitations": [
+      "Tasks were constructed by an AI agent (Vibe, operating as repository maintainer under delegated authority) rather than collected from production traffic; the ground truth itself is mechanical and does not depend on that authorship.",
+      "Task difficulty is concentrated on deterministic verification categories (arithmetic, counting, membership, date math, string transforms, extremum, table lookup, evidence support); it does not sample open-ended generation quality.",
+      "This dataset satisfies the CAP-011 dataset contract only as a controlled experiment; the empirical CAP-011 contract remains NOT RUN until a real candidate system is executed with retained raw outputs and independent hallucination adjudication.",
+      "Any candidate system that is the same agent or model family that authored these tasks should disclose that overlap before its run is accepted."
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "CAP011-ARITH-001",
+      "task_input": "Self-assessment task CAP011-ARITH-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 128 + 347 and verify the claimed result. Claimed answer: \"128 + 347 = 475\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 128 + 347 (exact integer division; no rounding is involved).",
+        "Operand A = 128",
+        "Operand B = 347",
+        "Operation = add",
+        "Claimed answer under assessment: \"128 + 347 = 475\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-001"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 128 + 347 is 475, claimed 475. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-002",
+      "task_input": "Self-assessment task CAP011-ARITH-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 9999 + 10001 and verify the claimed result. Claimed answer: \"9999 + 10001 = 20000\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 9999 + 10001 (exact integer division; no rounding is involved).",
+        "Operand A = 9999",
+        "Operand B = 10001",
+        "Operation = add",
+        "Claimed answer under assessment: \"9999 + 10001 = 20000\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-002"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 9999 + 10001 is 20000, claimed 20000. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-003",
+      "task_input": "Self-assessment task CAP011-ARITH-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 50432 − 8079 and verify the claimed result. Claimed answer: \"50432 − 8079 = 42353\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 50432 − 8079 (exact integer division; no rounding is involved).",
+        "Operand A = 50432",
+        "Operand B = 8079",
+        "Operation = sub",
+        "Claimed answer under assessment: \"50432 − 8079 = 42353\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-003"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 50432 − 8079 is 42353, claimed 42353. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-004",
+      "task_input": "Self-assessment task CAP011-ARITH-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 1234 × 567 and verify the claimed result. Claimed answer: \"1234 × 567 = 699678\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 1234 × 567 (exact integer division; no rounding is involved).",
+        "Operand A = 1234",
+        "Operand B = 567",
+        "Operation = mul",
+        "Claimed answer under assessment: \"1234 × 567 = 699678\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-004"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 1234 × 567 is 699678, claimed 699678. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-005",
+      "task_input": "Self-assessment task CAP011-ARITH-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 4096 × 2048 and verify the claimed result. Claimed answer: \"4096 × 2048 = 8388608\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 4096 × 2048 (exact integer division; no rounding is involved).",
+        "Operand A = 4096",
+        "Operand B = 2048",
+        "Operation = mul",
+        "Claimed answer under assessment: \"4096 × 2048 = 8388608\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-005"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 4096 × 2048 is 8388608, claimed 8388608. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-006",
+      "task_input": "Self-assessment task CAP011-ARITH-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 1000 ÷ 8 and verify the claimed result. Claimed answer: \"1000 ÷ 8 = 125\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 1000 ÷ 8 (exact integer division; no rounding is involved).",
+        "Operand A = 1000",
+        "Operand B = 8",
+        "Operation = div",
+        "Claimed answer under assessment: \"1000 ÷ 8 = 125\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-006"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 1000 ÷ 8 is 125, claimed 125. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-007",
+      "task_input": "Self-assessment task CAP011-ARITH-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 9234 ÷ 6 and verify the claimed result. Claimed answer: \"9234 ÷ 6 = 1539\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 9234 ÷ 6 (exact integer division; no rounding is involved).",
+        "Operand A = 9234",
+        "Operand B = 6",
+        "Operation = div",
+        "Claimed answer under assessment: \"9234 ÷ 6 = 1539\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-007"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 9234 ÷ 6 is 1539, claimed 1539. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-008",
+      "task_input": "Self-assessment task CAP011-ARITH-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 456789 + 987654 and verify the claimed result. Claimed answer: \"456789 + 987654 = 1444443\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 456789 + 987654 (exact integer division; no rounding is involved).",
+        "Operand A = 456789",
+        "Operand B = 987654",
+        "Operation = add",
+        "Claimed answer under assessment: \"456789 + 987654 = 1444443\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-008"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 456789 + 987654 is 1444443, claimed 1444443. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-009",
+      "task_input": "Self-assessment task CAP011-ARITH-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 1000000 − 999999 and verify the claimed result. Claimed answer: \"1000000 − 999999 = 1\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 1000000 − 999999 (exact integer division; no rounding is involved).",
+        "Operand A = 1000000",
+        "Operand B = 999999",
+        "Operation = sub",
+        "Claimed answer under assessment: \"1000000 − 999999 = 1\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-009"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 1000000 − 999999 is 1, claimed 1. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-010",
+      "task_input": "Self-assessment task CAP011-ARITH-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 777 × 777 and verify the claimed result. Claimed answer: \"777 × 777 = 603729\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 777 × 777 (exact integer division; no rounding is involved).",
+        "Operand A = 777",
+        "Operand B = 777",
+        "Operation = mul",
+        "Claimed answer under assessment: \"777 × 777 = 603729\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-010"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 777 × 777 is 603729, claimed 603729. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-011",
+      "task_input": "Self-assessment task CAP011-ARITH-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 65536 ÷ 256 and verify the claimed result. Claimed answer: \"65536 ÷ 256 = 256\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 65536 ÷ 256 (exact integer division; no rounding is involved).",
+        "Operand A = 65536",
+        "Operand B = 256",
+        "Operation = div",
+        "Claimed answer under assessment: \"65536 ÷ 256 = 256\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-011"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 65536 ÷ 256 is 256, claimed 256. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-012",
+      "task_input": "Self-assessment task CAP011-ARITH-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 3 + 4 and verify the claimed result. Claimed answer: \"3 + 4 = 7\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 3 + 4 (exact integer division; no rounding is involved).",
+        "Operand A = 3",
+        "Operand B = 4",
+        "Operation = add",
+        "Claimed answer under assessment: \"3 + 4 = 7\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-012"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 3 + 4 is 7, claimed 7. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-013",
+      "task_input": "Self-assessment task CAP011-ARITH-013: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 936 + 285 and verify the claimed result. Claimed answer: \"936 + 285 = 1222\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 936 + 285 (exact integer division; no rounding is involved).",
+        "Operand A = 936",
+        "Operand B = 285",
+        "Operation = add",
+        "Claimed answer under assessment: \"936 + 285 = 1222\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-013"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 936 + 285 is 1221, claimed 1222. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-014",
+      "task_input": "Self-assessment task CAP011-ARITH-014: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 51002 + 2244 and verify the claimed result. Claimed answer: \"51002 + 2244 = 53346\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 51002 + 2244 (exact integer division; no rounding is involved).",
+        "Operand A = 51002",
+        "Operand B = 2244",
+        "Operation = add",
+        "Claimed answer under assessment: \"51002 + 2244 = 53346\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-014"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 51002 + 2244 is 53246, claimed 53346. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-015",
+      "task_input": "Self-assessment task CAP011-ARITH-015: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 8123 − 5917 and verify the claimed result. Claimed answer: \"8123 − 5917 = 2205\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 8123 − 5917 (exact integer division; no rounding is involved).",
+        "Operand A = 8123",
+        "Operand B = 5917",
+        "Operation = sub",
+        "Claimed answer under assessment: \"8123 − 5917 = 2205\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-015"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 8123 − 5917 is 2206, claimed 2205. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-016",
+      "task_input": "Self-assessment task CAP011-ARITH-016: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 313 × 37 and verify the claimed result. Claimed answer: \"313 × 37 = 11681\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 313 × 37 (exact integer division; no rounding is involved).",
+        "Operand A = 313",
+        "Operand B = 37",
+        "Operation = mul",
+        "Claimed answer under assessment: \"313 × 37 = 11681\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-016"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 313 × 37 is 11581, claimed 11681. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-017",
+      "task_input": "Self-assessment task CAP011-ARITH-017: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 812 × 47 and verify the claimed result. Claimed answer: \"812 × 47 = 38264\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 812 × 47 (exact integer division; no rounding is involved).",
+        "Operand A = 812",
+        "Operand B = 47",
+        "Operation = mul",
+        "Claimed answer under assessment: \"812 × 47 = 38264\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-017"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 812 × 47 is 38164, claimed 38264. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-018",
+      "task_input": "Self-assessment task CAP011-ARITH-018: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 4536 ÷ 7 and verify the claimed result. Claimed answer: \"4536 ÷ 7 = 647\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 4536 ÷ 7 (exact integer division; no rounding is involved).",
+        "Operand A = 4536",
+        "Operand B = 7",
+        "Operation = div",
+        "Claimed answer under assessment: \"4536 ÷ 7 = 647\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-018"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 4536 ÷ 7 is 648, claimed 647. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-019",
+      "task_input": "Self-assessment task CAP011-ARITH-019: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 9990 ÷ 45 and verify the claimed result. Claimed answer: \"9990 ÷ 45 = 212\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 9990 ÷ 45 (exact integer division; no rounding is involved).",
+        "Operand A = 9990",
+        "Operand B = 45",
+        "Operation = div",
+        "Claimed answer under assessment: \"9990 ÷ 45 = 212\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-019"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 9990 ÷ 45 is 222, claimed 212. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-020",
+      "task_input": "Self-assessment task CAP011-ARITH-020: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute 100000 + 250001 and verify the claimed result. Claimed answer: \"100000 + 250001 = 360001\"",
+      "evidence_context": [
+        "Verification rule: The claimed result must equal the exact integer result of 100000 + 250001 (exact integer division; no rounding is involved).",
+        "Operand A = 100000",
+        "Operand B = 250001",
+        "Operation = add",
+        "Claimed answer under assessment: \"100000 + 250001 = 360001\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-020"
+        ],
+        "rationale": "Predicate arith re-derived from the case inputs: exact result of 100000 + 250001 is 350001, claimed 360001. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-001",
+      "task_input": "Self-assessment task CAP011-COUNT-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 4 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): checkout\nauth\nbilling\nnotifications",
+        "Claimed answer under assessment: \"The list contains 4 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-001"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 4 items, claimed 4. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-002",
+      "task_input": "Self-assessment task CAP011-COUNT-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 5 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): postgres-primary\npostgres-replica\nredis-cache\nredis-queue\nkafka-broker",
+        "Claimed answer under assessment: \"The list contains 5 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-002"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 5 items, claimed 5. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-003",
+      "task_input": "Self-assessment task CAP011-COUNT-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 6 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): build\ntest\nlint\nsecurity-scan\ndeploy\nnotify",
+        "Claimed answer under assessment: \"The list contains 6 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-003"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 6 items, claimed 6. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-004",
+      "task_input": "Self-assessment task CAP011-COUNT-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 7 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): alice\nbob\ncarol\ndave\nerin\nfrank\ngrace",
+        "Claimed answer under assessment: \"The list contains 7 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-004"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 7 items, claimed 7. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-005",
+      "task_input": "Self-assessment task CAP011-COUNT-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 9 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): alpha\nbeta\ngamma\ndelta\nepsilon\nzeta\neta\ntheta\niota",
+        "Claimed answer under assessment: \"The list contains 9 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-005"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 9 items, claimed 9. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-006",
+      "task_input": "Self-assessment task CAP011-COUNT-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 3 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): web\napi\nworker",
+        "Claimed answer under assessment: \"The list contains 3 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-006"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 3 items, claimed 3. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-007",
+      "task_input": "Self-assessment task CAP011-COUNT-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 8 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): p50\np95\np99\nmean\nmax\nmin\nsum\ncount",
+        "Claimed answer under assessment: \"The list contains 8 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-007"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 8 items, claimed 8. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-008",
+      "task_input": "Self-assessment task CAP011-COUNT-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 6 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): one\ntwo\nthree\nfour\nfive",
+        "Claimed answer under assessment: \"The list contains 6 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-008"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 5 items, claimed 6. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-009",
+      "task_input": "Self-assessment task CAP011-COUNT-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 5 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): m1\nm2\nm3\nm4\nm5\nm6",
+        "Claimed answer under assessment: \"The list contains 5 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-009"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 6 items, claimed 5. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-010",
+      "task_input": "Self-assessment task CAP011-COUNT-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 10 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): red\ngreen\nblue\ncyan\nmagenta\nyellow\nblack\nwhite",
+        "Claimed answer under assessment: \"The list contains 10 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-010"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 8 items, claimed 10. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-011",
+      "task_input": "Self-assessment task CAP011-COUNT-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 11 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): a\nb\nc\nd\ne\nf\ng\nh\ni\nj",
+        "Claimed answer under assessment: \"The list contains 11 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-011"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 10 items, claimed 11. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-012",
+      "task_input": "Self-assessment task CAP011-COUNT-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine how many items the provided list contains. Claimed answer: \"The list contains 3 items.\"",
+      "evidence_context": [
+        "Verification rule: The claimed count must equal the number of items in the provided list.",
+        "Provided list (one item per line): lint\ntypecheck\ntest\naudit",
+        "Claimed answer under assessment: \"The list contains 3 items.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-012"
+        ],
+        "rationale": "Predicate count re-derived from the case inputs: the provided list contains 4 items, claimed 3. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-001",
+      "task_input": "Self-assessment task CAP011-MEMBER-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"postgres-primary\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): postgres-primary\npostgres-replica\nredis-cache",
+        "Claimed answer under assessment: \"The item \"postgres-primary\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-001"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"postgres-primary\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-002",
+      "task_input": "Self-assessment task CAP011-MEMBER-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"billing\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): checkout\nauth\nbilling\nnotifications",
+        "Claimed answer under assessment: \"The item \"billing\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-002"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"billing\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-003",
+      "task_input": "Self-assessment task CAP011-MEMBER-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"debian-12\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): ubuntu-22.04\nubuntu-24.04\ndebian-12\nalpine-3.20",
+        "Claimed answer under assessment: \"The item \"debian-12\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-003"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"debian-12\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-004",
+      "task_input": "Self-assessment task CAP011-MEMBER-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"llama-3.1-405b\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): gpt-4o\ngpt-4o-mini\nclaude-3-5\nllama-3.1-405b",
+        "Claimed answer under assessment: \"The item \"llama-3.1-405b\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-004"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"llama-3.1-405b\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-005",
+      "task_input": "Self-assessment task CAP011-MEMBER-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"hypothesis\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): pytest\nunittest\nhypothesis\ntox",
+        "Claimed answer under assessment: \"The item \"hypothesis\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-005"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"hypothesis\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-006",
+      "task_input": "Self-assessment task CAP011-MEMBER-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"us-west-2\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): eu-west-1\nus-east-1\nus-west-2\nap-south-1",
+        "Claimed answer under assessment: \"The item \"us-west-2\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-006"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"us-west-2\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-007",
+      "task_input": "Self-assessment task CAP011-MEMBER-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"blue\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): red\ngreen\nblue",
+        "Claimed answer under assessment: \"The item \"blue\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-007"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"blue\" is in the list, claimed true. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-008",
+      "task_input": "Self-assessment task CAP011-MEMBER-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"postgres-standby\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): postgres-primary\npostgres-replica\nredis-cache",
+        "Claimed answer under assessment: \"The item \"postgres-standby\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-008"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"postgres-standby\" is not in the list, claimed true. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-009",
+      "task_input": "Self-assessment task CAP011-MEMBER-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"p99.9\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): p50\np95\np99",
+        "Claimed answer under assessment: \"The item \"p99.9\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-009"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"p99.9\" is not in the list, claimed true. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-010",
+      "task_input": "Self-assessment task CAP011-MEMBER-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"alpine\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): ubuntu-22.04\nubuntu-24.04\ndebian-12\nalpine-3.20",
+        "Claimed answer under assessment: \"The item \"alpine\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-010"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"alpine\" is not in the list, claimed true. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-011",
+      "task_input": "Self-assessment task CAP011-MEMBER-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"audit\" appears in the list: true.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): checkout\nauth\nbilling\nnotifications",
+        "Claimed answer under assessment: \"The item \"audit\" appears in the list: true.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-011"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"audit\" is not in the list, claimed true. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-012",
+      "task_input": "Self-assessment task CAP011-MEMBER-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine whether the stated item appears in the provided list (exact string match). Claimed answer: \"The item \"redis-queue\" appears in the list: false.\"",
+      "evidence_context": [
+        "Verification rule: The claim is correct if and only if the stated item is an exact string-match member of the provided list.",
+        "Provided list (one item per line): redis-cache\nredis-queue\nkafka-broker",
+        "Claimed answer under assessment: \"The item \"redis-queue\" appears in the list: false.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-012"
+        ],
+        "rationale": "Predicate membership re-derived from the case inputs: exact membership test: \"redis-queue\" is in the list, claimed false. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-001",
+      "task_input": "Self-assessment task CAP011-DDATE-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-01-01 to 2026-01-31 (end minus start). Claimed answer: \"The difference is 30 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-01-01 and 2026-01-31.",
+        "Start date (UTC): 2026-01-01",
+        "End date (UTC): 2026-01-31",
+        "Claimed answer under assessment: \"The difference is 30 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-001"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 30, claimed 30. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-002",
+      "task_input": "Self-assessment task CAP011-DDATE-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-02-01 to 2026-03-01 (end minus start). Claimed answer: \"The difference is 28 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-02-01 and 2026-03-01.",
+        "Start date (UTC): 2026-02-01",
+        "End date (UTC): 2026-03-01",
+        "Claimed answer under assessment: \"The difference is 28 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-002"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 28, claimed 28. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-003",
+      "task_input": "Self-assessment task CAP011-DDATE-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2025-12-25 to 2026-01-01 (end minus start). Claimed answer: \"The difference is 7 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2025-12-25 and 2026-01-01.",
+        "Start date (UTC): 2025-12-25",
+        "End date (UTC): 2026-01-01",
+        "Claimed answer under assessment: \"The difference is 7 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-003"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 7, claimed 7. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-004",
+      "task_input": "Self-assessment task CAP011-DDATE-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-03-15 to 2026-07-04 (end minus start). Claimed answer: \"The difference is 111 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-03-15 and 2026-07-04.",
+        "Start date (UTC): 2026-03-15",
+        "End date (UTC): 2026-07-04",
+        "Claimed answer under assessment: \"The difference is 111 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-004"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 111, claimed 111. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-005",
+      "task_input": "Self-assessment task CAP011-DDATE-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2024-02-29 to 2025-02-28 (end minus start). Claimed answer: \"The difference is 365 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2024-02-29 and 2025-02-28.",
+        "Start date (UTC): 2024-02-29",
+        "End date (UTC): 2025-02-28",
+        "Claimed answer under assessment: \"The difference is 365 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-005"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 365, claimed 365. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-006",
+      "task_input": "Self-assessment task CAP011-DDATE-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-05-05 to 2026-05-05 (end minus start). Claimed answer: \"The difference is 0 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-05-05 and 2026-05-05.",
+        "Start date (UTC): 2026-05-05",
+        "End date (UTC): 2026-05-05",
+        "Claimed answer under assessment: \"The difference is 0 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-006"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 0, claimed 0. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-007",
+      "task_input": "Self-assessment task CAP011-DDATE-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2023-06-01 to 2026-06-01 (end minus start). Claimed answer: \"The difference is 1096 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2023-06-01 and 2026-06-01.",
+        "Start date (UTC): 2023-06-01",
+        "End date (UTC): 2026-06-01",
+        "Claimed answer under assessment: \"The difference is 1096 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-007"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 1096, claimed 1096. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-008",
+      "task_input": "Self-assessment task CAP011-DDATE-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-04-01 to 2026-04-30 (end minus start). Claimed answer: \"The difference is 30 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-04-01 and 2026-04-30.",
+        "Start date (UTC): 2026-04-01",
+        "End date (UTC): 2026-04-30",
+        "Claimed answer under assessment: \"The difference is 30 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-008"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 29, claimed 30. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-009",
+      "task_input": "Self-assessment task CAP011-DDATE-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-07-01 to 2026-07-31 (end minus start). Claimed answer: \"The difference is 29 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-07-01 and 2026-07-31.",
+        "Start date (UTC): 2026-07-01",
+        "End date (UTC): 2026-07-31",
+        "Claimed answer under assessment: \"The difference is 29 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-009"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 30, claimed 29. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-010",
+      "task_input": "Self-assessment task CAP011-DDATE-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-10-01 to 2026-12-31 (end minus start). Claimed answer: \"The difference is 98 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-10-01 and 2026-12-31.",
+        "Start date (UTC): 2026-10-01",
+        "End date (UTC): 2026-12-31",
+        "Claimed answer under assessment: \"The difference is 98 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-010"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 91, claimed 98. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-011",
+      "task_input": "Self-assessment task CAP011-DDATE-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-01-15 to 2026-02-15 (end minus start). Claimed answer: \"The difference is 32 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-01-15 and 2026-02-15.",
+        "Start date (UTC): 2026-01-15",
+        "End date (UTC): 2026-02-15",
+        "Claimed answer under assessment: \"The difference is 32 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-011"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 31, claimed 32. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-012",
+      "task_input": "Self-assessment task CAP011-DDATE-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Compute the number of whole UTC days from 2026-08-08 to 2026-09-08 (end minus start). Claimed answer: \"The difference is 29 days.\"",
+      "evidence_context": [
+        "Verification rule: The claimed number of days must equal the exact whole-day UTC difference between 2026-08-08 and 2026-09-08.",
+        "Start date (UTC): 2026-08-08",
+        "End date (UTC): 2026-09-08",
+        "Claimed answer under assessment: \"The difference is 29 days.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-012"
+        ],
+        "rationale": "Predicate date_delta re-derived from the case inputs: whole-day UTC difference is 31, claimed 29. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-001",
+      "task_input": "Self-assessment task CAP011-STRT-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"uppercase(\"deploy to production\") = \"DEPLOY TO PRODUCTION\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (uppercase: convert the string to uppercase) to the input string.",
+        "Transform operation: uppercase (convert the string to uppercase)",
+        "Input string: \"deploy to production\"",
+        "Claimed answer under assessment: \"uppercase(\"deploy to production\") = \"DEPLOY TO PRODUCTION\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-001"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"deploy to production\" is \"DEPLOY TO PRODUCTION\", claimed \"DEPLOY TO PRODUCTION\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-002",
+      "task_input": "Self-assessment task CAP011-STRT-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"reverse(\"monitoring\") = \"gnirotinom\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (reverse: reverse the string) to the input string.",
+        "Transform operation: reverse (reverse the string)",
+        "Input string: \"monitoring\"",
+        "Claimed answer under assessment: \"reverse(\"monitoring\") = \"gnirotinom\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-002"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"monitoring\" is \"gnirotinom\", claimed \"gnirotinom\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-003",
+      "task_input": "Self-assessment task CAP011-STRT-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"star_vowels(\"cache invalidation\") = \"c*ch* *nv*l*d*t**n\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (star_vowels: replace every lowercase vowel (a, e, i, o, u) with *) to the input string.",
+        "Transform operation: star_vowels (replace every lowercase vowel (a, e, i, o, u) with *)",
+        "Input string: \"cache invalidation\"",
+        "Claimed answer under assessment: \"star_vowels(\"cache invalidation\") = \"c*ch* *nv*l*d*t**n\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-003"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"cache invalidation\" is \"c*ch* *nv*l*d*t**n\", claimed \"c*ch* *nv*l*d*t**n\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-004",
+      "task_input": "Self-assessment task CAP011-STRT-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"sort_chars(\"banana\") = \"aaabnn\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (sort_chars: sort the characters in ascending codepoint order) to the input string.",
+        "Transform operation: sort_chars (sort the characters in ascending codepoint order)",
+        "Input string: \"banana\"",
+        "Claimed answer under assessment: \"sort_chars(\"banana\") = \"aaabnn\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-004"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"banana\" is \"aaabnn\", claimed \"aaabnn\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-005",
+      "task_input": "Self-assessment task CAP011-STRT-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"uppercase(\"idempotent\") = \"IDEMPOTENT\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (uppercase: convert the string to uppercase) to the input string.",
+        "Transform operation: uppercase (convert the string to uppercase)",
+        "Input string: \"idempotent\"",
+        "Claimed answer under assessment: \"uppercase(\"idempotent\") = \"IDEMPOTENT\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-005"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"idempotent\" is \"IDEMPOTENT\", claimed \"IDEMPOTENT\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-006",
+      "task_input": "Self-assessment task CAP011-STRT-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"reverse(\"kubernetes\") = \"setenrebuk\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (reverse: reverse the string) to the input string.",
+        "Transform operation: reverse (reverse the string)",
+        "Input string: \"kubernetes\"",
+        "Claimed answer under assessment: \"reverse(\"kubernetes\") = \"setenrebuk\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-006"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"kubernetes\" is \"setenrebuk\", claimed \"setenrebuk\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-007",
+      "task_input": "Self-assessment task CAP011-STRT-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"sort_chars(\"rollback\") = \"abckllor\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (sort_chars: sort the characters in ascending codepoint order) to the input string.",
+        "Transform operation: sort_chars (sort the characters in ascending codepoint order)",
+        "Input string: \"rollback\"",
+        "Claimed answer under assessment: \"sort_chars(\"rollback\") = \"abckllor\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-007"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"rollback\" is \"abckllor\", claimed \"abckllor\". The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-008",
+      "task_input": "Self-assessment task CAP011-STRT-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"uppercase(\"authentication\") = \"AUTHENTICATIOn\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (uppercase: convert the string to uppercase) to the input string.",
+        "Transform operation: uppercase (convert the string to uppercase)",
+        "Input string: \"authentication\"",
+        "Claimed answer under assessment: \"uppercase(\"authentication\") = \"AUTHENTICATIOn\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-008"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"authentication\" is \"AUTHENTICATION\", claimed \"AUTHENTICATIOn\". The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-009",
+      "task_input": "Self-assessment task CAP011-STRT-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"reverse(\"observability\") = \"tyilibavresbo\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (reverse: reverse the string) to the input string.",
+        "Transform operation: reverse (reverse the string)",
+        "Input string: \"observability\"",
+        "Claimed answer under assessment: \"reverse(\"observability\") = \"tyilibavresbo\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-009"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"observability\" is \"ytilibavresbo\", claimed \"tyilibavresbo\". The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-010",
+      "task_input": "Self-assessment task CAP011-STRT-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"star_vowels(\"authorization\") = \"**th*r*z*t*un\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (star_vowels: replace every lowercase vowel (a, e, i, o, u) with *) to the input string.",
+        "Transform operation: star_vowels (replace every lowercase vowel (a, e, i, o, u) with *)",
+        "Input string: \"authorization\"",
+        "Claimed answer under assessment: \"star_vowels(\"authorization\") = \"**th*r*z*t*un\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-010"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"authorization\" is \"**th*r*z*t**n\", claimed \"**th*r*z*t*un\". The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-011",
+      "task_input": "Self-assessment task CAP011-STRT-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"sort_chars(\"validation\") = \"adaiilnotv\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (sort_chars: sort the characters in ascending codepoint order) to the input string.",
+        "Transform operation: sort_chars (sort the characters in ascending codepoint order)",
+        "Input string: \"validation\"",
+        "Claimed answer under assessment: \"sort_chars(\"validation\") = \"adaiilnotv\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-011"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"validation\" is \"aadiilnotv\", claimed \"adaiilnotv\". The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-012",
+      "task_input": "Self-assessment task CAP011-STRT-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Apply the stated string transform to the provided input and verify the claimed output. Claimed answer: \"reverse(\"deployment\") = \"ntemyolped\"\"",
+      "evidence_context": [
+        "Verification rule: The claimed output must equal the exact result of applying the stated transform (reverse: reverse the string) to the input string.",
+        "Transform operation: reverse (reverse the string)",
+        "Input string: \"deployment\"",
+        "Claimed answer under assessment: \"reverse(\"deployment\") = \"ntemyolped\"\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-012"
+        ],
+        "rationale": "Predicate string_transform re-derived from the case inputs: exact transform of \"deployment\" is \"tnemyolped\", claimed \"ntemyolped\". The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-001",
+      "task_input": "Self-assessment task CAP011-MAXMIN-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 91.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 17, 3, 91, 45, 62",
+        "Claimed answer under assessment: \"The maximum value is 91.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-001"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 91, claimed 91. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-002",
+      "task_input": "Self-assessment task CAP011-MAXMIN-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the minimum value of the provided list of integers. Claimed answer: \"The minimum value is 42.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact minimum of the provided integer list.",
+        "Provided integer list: 240, 118, 77, 305, 42",
+        "Claimed answer under assessment: \"The minimum value is 42.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-002"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the minimum of the list is 42, claimed 42. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-003",
+      "task_input": "Self-assessment task CAP011-MAXMIN-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 1004.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 1004, 1003, 1002, 1001",
+        "Claimed answer under assessment: \"The maximum value is 1004.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-003"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 1004, claimed 1004. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-004",
+      "task_input": "Self-assessment task CAP011-MAXMIN-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the minimum value of the provided list of integers. Claimed answer: \"The minimum value is -15.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact minimum of the provided integer list.",
+        "Provided integer list: -8, -3, -15, -1",
+        "Claimed answer under assessment: \"The minimum value is -15.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-004"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the minimum of the list is -15, claimed -15. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-005",
+      "task_input": "Self-assessment task CAP011-MAXMIN-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 7.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 0, 0, 0, 7",
+        "Claimed answer under assessment: \"The maximum value is 7.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-005"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 7, claimed 7. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-006",
+      "task_input": "Self-assessment task CAP011-MAXMIN-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the minimum value of the provided list of integers. Claimed answer: \"The minimum value is 32.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact minimum of the provided integer list.",
+        "Provided integer list: 512, 256, 1024, 128, 64, 32",
+        "Claimed answer under assessment: \"The minimum value is 32.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-006"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the minimum of the list is 32, claimed 32. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-007",
+      "task_input": "Self-assessment task CAP011-MAXMIN-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 68.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 67, 68",
+        "Claimed answer under assessment: \"The maximum value is 68.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-007"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 68, claimed 68. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-008",
+      "task_input": "Self-assessment task CAP011-MAXMIN-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 1003.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 1004, 1003, 1002, 1001",
+        "Claimed answer under assessment: \"The maximum value is 1003.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-008"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 1004, claimed 1003. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-009",
+      "task_input": "Self-assessment task CAP011-MAXMIN-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the minimum value of the provided list of integers. Claimed answer: \"The minimum value is 77.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact minimum of the provided integer list.",
+        "Provided integer list: 240, 118, 77, 305, 42",
+        "Claimed answer under assessment: \"The minimum value is 77.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-009"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the minimum of the list is 42, claimed 77. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-010",
+      "task_input": "Self-assessment task CAP011-MAXMIN-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 62.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 17, 3, 91, 45, 62",
+        "Claimed answer under assessment: \"The maximum value is 62.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-010"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 91, claimed 62. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-011",
+      "task_input": "Self-assessment task CAP011-MAXMIN-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the minimum value of the provided list of integers. Claimed answer: \"The minimum value is -8.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact minimum of the provided integer list.",
+        "Provided integer list: -8, -3, -15, -1",
+        "Claimed answer under assessment: \"The minimum value is -8.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-011"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the minimum of the list is -15, claimed -8. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-012",
+      "task_input": "Self-assessment task CAP011-MAXMIN-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Determine the maximum value of the provided list of integers. Claimed answer: \"The maximum value is 67.\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the exact maximum of the provided integer list.",
+        "Provided integer list: 67, 68",
+        "Claimed answer under assessment: \"The maximum value is 67.\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-012"
+        ],
+        "rationale": "Predicate max_min re-derived from the case inputs: the maximum of the list is 68, claimed 67. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-001",
+      "task_input": "Self-assessment task CAP011-LOOKUP-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"https_port\"] = 8443\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): http_port = 8080\nhttps_port = 8443\ngrpc_port = 9000",
+        "Claimed answer under assessment: \"table[\"https_port\"] = 8443\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-001"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"https_port\"] is 8443, claimed 8443. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-002",
+      "task_input": "Self-assessment task CAP011-LOOKUP-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"replicas_worker\"] = 12\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): replicas_api = 6\nreplicas_worker = 12\nreplicas_frontend = 3",
+        "Claimed answer under assessment: \"table[\"replicas_worker\"] = 12\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-002"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"replicas_worker\"] is 12, claimed 12. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-003",
+      "task_input": "Self-assessment task CAP011-LOOKUP-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"ttl_medium\"] = 3600\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): ttl_short = 300\nttl_medium = 3600\nttl_long = 86400",
+        "Claimed answer under assessment: \"table[\"ttl_medium\"] = 3600\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-003"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"ttl_medium\"] is 3600, claimed 3600. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-004",
+      "task_input": "Self-assessment task CAP011-LOOKUP-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"db_timeout_s\"] = 30\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): db_connections = 100\ndb_timeout_s = 30\ndb_pool_min = 10",
+        "Claimed answer under assessment: \"table[\"db_timeout_s\"] = 30\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-004"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"db_timeout_s\"] is 30, claimed 30. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-005",
+      "task_input": "Self-assessment task CAP011-LOOKUP-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"queue_depth\"] = 4096\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): batch_size = 128\nqueue_depth = 4096\nworkers = 32",
+        "Claimed answer under assessment: \"table[\"queue_depth\"] = 4096\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-005"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"queue_depth\"] is 4096, claimed 4096. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-006",
+      "task_input": "Self-assessment task CAP011-LOOKUP-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"memory_gb\"] = 16\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): cpu_limit = 4\nmemory_gb = 16\ndisk_gb = 512",
+        "Claimed answer under assessment: \"table[\"memory_gb\"] = 16\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-006"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"memory_gb\"] is 16, claimed 16. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-007",
+      "task_input": "Self-assessment task CAP011-LOOKUP-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"retry_backoff_s\"] = 15\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): retry_max = 5\nretry_backoff_s = 15\nretry_jitter_ms = 750",
+        "Claimed answer under assessment: \"table[\"retry_backoff_s\"] = 15\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-007"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"retry_backoff_s\"] is 15, claimed 15. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-008",
+      "task_input": "Self-assessment task CAP011-LOOKUP-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"grpc_port\"] = 8080\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): http_port = 8080\nhttps_port = 8443\ngrpc_port = 9000",
+        "Claimed answer under assessment: \"table[\"grpc_port\"] = 8080\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-008"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"grpc_port\"] is 9000, claimed 8080. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-009",
+      "task_input": "Self-assessment task CAP011-LOOKUP-009: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"replicas_api\"] = 12\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): replicas_api = 6\nreplicas_worker = 12\nreplicas_frontend = 3",
+        "Claimed answer under assessment: \"table[\"replicas_api\"] = 12\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-009"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"replicas_api\"] is 6, claimed 12. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-010",
+      "task_input": "Self-assessment task CAP011-LOOKUP-010: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"ttl_long\"] = 300\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): ttl_short = 300\nttl_medium = 3600\nttl_long = 86400",
+        "Claimed answer under assessment: \"table[\"ttl_long\"] = 300\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-010"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"ttl_long\"] is 86400, claimed 300. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-011",
+      "task_input": "Self-assessment task CAP011-LOOKUP-011: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"workers\"] = 128\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): batch_size = 128\nqueue_depth = 4096\nworkers = 32",
+        "Claimed answer under assessment: \"table[\"workers\"] = 128\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-011"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"workers\"] is 32, claimed 128. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-012",
+      "task_input": "Self-assessment task CAP011-LOOKUP-012: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Look up the exact key in the provided table and verify the claimed mapped value. Claimed answer: \"table[\"retry_jitter_ms\"] = 5\"",
+      "evidence_context": [
+        "Verification rule: The claimed value must equal the value mapped to the exact stated key in the provided table.",
+        "Provided table (key = value): retry_max = 5\nretry_backoff_s = 15\nretry_jitter_ms = 750",
+        "Claimed answer under assessment: \"table[\"retry_jitter_ms\"] = 5\"",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-012"
+        ],
+        "rationale": "Predicate lookup_join re-derived from the case inputs: table[\"retry_jitter_ms\"] is 750, claimed 5. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-001",
+      "task_input": "Self-assessment task CAP011-UNSUP-001: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'One of the services in the inventory is billing.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Service inventory: checkout, auth, billing, notifications.",
+        "Deployment region: eu-west-1.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'One of the services in the inventory is billing.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-001"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"billing\" appears in the provided evidence, so the statement is supported. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-002",
+      "task_input": "Self-assessment task CAP011-UNSUP-002: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'Release train 2026.10 contains fix F-103.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Release train 2026.10 contains fixes F-101, F-102, F-103.",
+        "No other fixes are included.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'Release train 2026.10 contains fix F-103.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-002"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"F-103\" appears in the provided evidence, so the statement is supported. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-003",
+      "task_input": "Self-assessment task CAP011-UNSUP-003: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'The measured p95 latency for the search endpoint is 240 ms.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Measured p95 latency for the search endpoint is 240 ms.",
+        "Measurement window: last 7 days.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'The measured p95 latency for the search endpoint is 240 ms.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-003"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"240 ms\" appears in the provided evidence, so the statement is supported. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-004",
+      "task_input": "Self-assessment task CAP011-UNSUP-004: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'Python 3.12 is a supported version.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Supported Python versions: 3.11, 3.12, 3.13.",
+        "Python 3.10 support was removed in release 2.0.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'Python 3.12 is a supported version.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "pass",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-004"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"3.12\" appears in the provided evidence, so the statement is supported. The claimed answer therefore passes verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-005",
+      "task_input": "Self-assessment task CAP011-UNSUP-005: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'One of the services in the inventory is audit.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Service inventory: checkout, auth, billing, notifications.",
+        "Deployment region: eu-west-1.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'One of the services in the inventory is audit.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-005"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"audit\" does not appear in the provided evidence, so the statement is unsupported. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-006",
+      "task_input": "Self-assessment task CAP011-UNSUP-006: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'Release train 2026.10 contains fix F-201.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Release train 2026.10 contains fixes F-101, F-102, F-103.",
+        "No other fixes are included.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'Release train 2026.10 contains fix F-201.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-006"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"F-201\" does not appear in the provided evidence, so the statement is unsupported. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-007",
+      "task_input": "Self-assessment task CAP011-UNSUP-007: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'The measured p95 latency for the search endpoint is 42 ms.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Measured p95 latency for the search endpoint is 240 ms.",
+        "Measurement window: last 7 days.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'The measured p95 latency for the search endpoint is 42 ms.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-007"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"42 ms\" does not appear in the provided evidence, so the statement is unsupported. The claimed answer therefore fails verification."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-008",
+      "task_input": "Self-assessment task CAP011-UNSUP-008: Predict whether the claimed answer below will PASS or FAIL objective verification against the provided evidence. Report your predicted outcome (pass or fail) and your confidence in [0,1]. Task: Assess whether the statement under assessment is fully supported by the provided evidence. Claimed answer: \"The statement is fully supported by the evidence: 'Python 3.14 is listed as supported.\"'",
+      "evidence_context": [
+        "Verification rule: The claimed answer passes verification if and only if the statement under assessment is fully supported by the provided evidence; a statement citing anything absent from the evidence is not supported.",
+        "Supported Python versions: 3.11, 3.12, 3.13.",
+        "Python 3.10 support was removed in release 2.0.",
+        "Claimed answer under assessment: \"The statement is fully supported by the evidence: 'Python 3.14 is listed as supported.\"'",
+        "Ground truth for this case is mechanical: the verifier re-executes the stated rule from the provided inputs."
+      ],
+      "expected_outcome": "fail",
+      "adjudication": {
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "reviewed_at": "2026-10-11T15:45:00Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-008"
+        ],
+        "rationale": "Predicate unsupported_claim re-derived from the case inputs: the cited value \"3.14\" does not appear in the provided evidence, so the statement is unsupported. The claimed answer therefore fails verification."
+      }
+    }
+  ]
+}

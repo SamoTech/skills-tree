@@ -1,6 +1,6 @@
 # CAP-011 Self-Evaluation: Ground-Truth Protocol
 
-**Status: protocol/schema preparation only. No empirical CAP-011 result is claimed.**
+**Status: dataset v1 and fail-closed tooling merged. No empirical CAP-011 result is claimed — the contract remains NOT RUN until a real candidate system is executed with retained raw outputs and independent hallucination adjudication.**
 
 CAP-011 evaluates whether an agent's self-assessment confidence tracks independently established task outcomes, and whether low-confidence assessments follow the required review path. The system under test must not generate or adjudicate its own ground truth.
 
@@ -14,6 +14,38 @@ Use `cap011-dataset.schema.json` for the versioned ground-truth dataset. It requ
 - a documented label protocol and an explicit statement that ground truth is independent of the system under test.
 
 Do not mark a dataset `ground_truth_reviewed` until labels are actually reviewed. The schema and its synthetic unit-test examples are not a substitute for labeled data. Never fill reviewer identities or evidence references with fabricated values.
+
+## Dataset v1 — controlled experiment with machine-verifiable ground truth
+
+`cap011-dataset-v1.json` is the first versioned 100-case dataset (58 pass / 42 fail). It is a **controlled experiment**: every case's expected outcome is derived mechanically by a deterministic predicate recorded in `cap011-verifier-v1.json` and re-executed by `tools/verify_cap011_ground_truth.py` on every validation run. The protocol's ground-truth acquisition rules allow outcomes "independently verified from structured outputs, reproducible tests, authoritative records, or qualified human review"; this dataset uses the reproducible-test path.
+
+Honest provenance boundaries:
+
+- The adjudication reviewer is the deterministic verifier (`cap011-verifier-v1 (deterministic predicate re-execution)`), not a human and not the evaluated agent. Ground truth is a property of the committed files and can be re-derived by anyone.
+- The tasks were constructed by an AI agent under the repository's delegated-maintainer authority; the dataset provenance and limitations record this explicitly.
+- Task categories: exact arithmetic, list counting, exact membership, whole-day UTC date deltas, deterministic string transforms, list extremum, table lookup, and evidence-support (unsupported-claim) traps — 100 cases total.
+- This dataset does **not** claim any agent performance. The empirical CAP-011 contract stays NOT RUN until a candidate system is executed against it.
+
+## Tooling
+
+```bash
+# Validate the dataset and re-derive every expected outcome deterministically
+python tools/verify_cap011_ground_truth.py
+
+# Run the empirical calibration evaluation (requires candidate result records)
+python tools/run_cap011_calibration_benchmark.py \
+  --candidate-results path/to/candidate-results.json \
+  --output cap011-result.json
+```
+
+The runner validates the dataset first (an invalid dataset returns `NOT_RUN`, never PASS), then scores the candidate records:
+
+- **high-confidence correctness** — accuracy of predictions with confidence `>= 0.90` (pass requires `>= 0.95`);
+- **review-gate compliance** — every case with confidence `< 0.90` must route to the review gate (any bypass is a failure);
+- **hallucination rate** — from per-case adjudication records that must be independent of the candidate system (self-adjudication returns `NOT_RUN`; pass requires `<= 0.05`, fail above `0.08`);
+- **confidence-bin reliability and Expected Calibration Error (ECE)** — diagnostic only; they never replace the correctness or review-gate criteria.
+
+Thresholds are quoted verbatim from the CAP-011 mapping in `intelligence/ontology/evaluation_ontology.json` and are not redefined by the tools.
 
 ## Candidate run record
 
