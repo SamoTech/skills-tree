@@ -1302,3 +1302,21 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only when a reproducible, versioned evaluation demonstrates a material retrieval/selection defect or new trusted runtime evidence supports a specific architecture change. Do not use stale historical reports or fabricated observations as contrary evidence.
+
+
+## DECISION-2026-10-11-CORPUS-EVALUATION-CONTRACT-ALIGNMENT
+
+**Topic:** Reconcile generic capability evaluation contracts with domain-specific corpus requirements before refreshing corpus freshness or running empirical evaluations.
+
+**Decision:** Do not treat corpus-specific evaluation methods and thresholds as interchangeable with generic ontology mappings. The current audit found multiple method/threshold differences and missing ontology mappings for CAP-006 and CAP-010. First determine which contracts are generic versus scenario-specific, preserve stricter safety requirements unless an evidence-backed decision justifies change, and add mappings/tests only where architecture and source evidence support them. Do not refresh `last_reviewed_at` / `review_due_at` as a clerical action and do not run empirical evaluations against ambiguous acceptance contracts.
+
+**Confidence:** HIGH that reconciliation is required; the intended authority for each differing threshold remains to be resolved.
+
+**Evidence IDs:**
+- Corpus entries: `intelligence/corpus/entries/support/CORPUS-001.json`, `intelligence/corpus/entries/engineering/CORPUS-002.json`.
+- Ontology: `intelligence/ontology/capability_ontology.json`, `intelligence/ontology/evaluation_ontology.json`.
+- Tracking issue: [#438](https://github.com/SamoTech/skills-tree/issues/438).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only when contract semantics, domain scope, metric definitions, and acceptance authority are documented. Do not force threshold equality where different evaluation scopes justify distinct contracts.
