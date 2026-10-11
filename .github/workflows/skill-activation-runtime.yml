@@ -426,6 +426,7 @@ jobs:
 
       - name: Verify Ollama actually allocated GPU for the benchmark model
         id: runtime_accelerator_preflight
+        if: steps.accelerator_preflight.outputs.eligible == 'true'
         run: |
           set -u
           report="$RUNNER_TEMP/activation-runtime-preflight.txt"
