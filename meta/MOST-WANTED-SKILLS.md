@@ -319,3 +319,65 @@ Issue #372 is resolved by PR #379: the observation universe is closed to the sel
 Resolved governance/evidence implementation gaps: #370 (DevLens writer isolation) and #372 (activation observation integrity).
 
 Remaining active evidence work: #357 real runtime activation traces and #336 retrieval benchmark freshness/reproducibility. No raw skill addition is justified by either gap without new measured implementation evidence.
+
+## New demand-gap candidate — Skill Quality Evaluation — 2026-10-11
+
+A fresh owner-directed demand-gap pass (2026-10-11) identified a recurring capability that is not represented by a dedicated canonical skill: **evaluating the quality of a skill or skill package against a reproducible rubric before it is trusted, installed, or published**.
+
+### Demand signals
+
+| Signal | Evidence | Interpretation |
+|---|---|---|
+| Ecosystem quality variance | The 2026 Agent Skills ecosystem report citing SkillsBench analyzed 47,150 public skills with an average quality score of 6.2/12, and reported that curated skills improved agent pass rates by +16.2 percentage points (https://agentman.ai/blog/agent-skills-ecosystem-report-2026). | Skill quality varies measurably at ecosystem scale; evaluation is a distinct, in-demand capability. |
+| Structured skill review demand | fabiandistler/agents#325 (September 2026) reviews 26 skills against Anthropic skill-authoring guidance and the agentskills.io specification, producing 152 findings (https://github.com/fabiandistler/agents/issues/325; specification: https://agentskills.io/home). | Practitioners actively review skill artifacts against explicit quality criteria. |
+| Internal coverage gap | Existing 14-security/agent-skill-security-audit covers pre-installation security; no canonical contract was found for a scored, reproducible quality evaluation. | Narrow missing capability; does not duplicate the security audit. |
+
+### Coverage reconciliation
+
+Existing Skills Tree coverage includes security auditing, evidence verification, critic agents, and capability-based selection. Those skills are necessary building blocks, but none provides one canonical contract for scoring a skill artifact against named quality dimensions - description fidelity, instruction actionability, runnable-example validity, failure-mode coverage, and evidence strength - with an explicit verdict.
+
+### Selected migration
+
+skills/09-agentic-patterns/skill-quality-evaluation.md
+
+Status: **SELECTED / implementation in progress** on branch feat/demand-gap-skills-20261011 (issue #466).
+
+### Priority assessment
+
+**Proposed tier: A — high strategic utility, evidence-backed gap.**
+
+Rationale: the capability extends Skills Tree's quality-gate differentiator from CI enforcement into a reusable agent-facing contract, and the demand signals are dated and public. No popularity or adoption claim is made.
+
+Verification date: 2026-10-11.
+
+
+## New demand-gap candidate — Progressive Skill Loading — 2026-10-11
+
+The same pass identified a second capability gap: **loading skills into an agent context in escalating tiers so that a large skill library costs a bounded, measured number of tokens**.
+
+### Demand signals
+
+| Signal | Evidence | Interpretation |
+|---|---|---|
+| Skill-layer token cost | anthropics/claude-code#75376 reports that carrying roughly 30-40 skills can consume on the order of 800-1,200 tokens per turn and requests explicit visibility tiers (https://github.com/anthropics/claude-code/issues/75376). | Direct runtime evidence that unbounded skill loading is a measured cost concern. |
+| Progressive disclosure guidance | Microsoft Agent Framework skill documentation directs skills to stay under 5,000 tokens and describes progressive disclosure of skill content (https://learn.microsoft.com/en-us/agent-framework/agents/skills). | Cross-runtime corroboration that tiered skill loading is an expected capability. |
+| Lifecycle survey | A 2026 agent-skills lifecycle survey describes token-budget-aware skill loading as a recurring lifecycle concern (https://redreamality.com/blog/agent-skills-2026-survey-lifecycle-map/). | Corroborating signal; not adoption data. |
+| Internal coverage gap | 03-memory/context-compaction compacts conversation history; no canonical contract was found for tiered loading of the skill layer itself under a token budget. | Narrow missing capability; does not duplicate compaction. |
+
+### Coverage reconciliation
+
+Existing Skills Tree coverage includes context compaction, working memory, budget management, and capability-based selection. None bounds the token cost of the skill layer specifically: metadata-tier loading, measured escalation, and budget-fail-closed behavior for skills are not covered by an existing contract.
+
+### Selected migration
+
+skills/03-memory/progressive-skill-loading.md
+
+Status: **SELECTED / implementation in progress** on branch feat/demand-gap-skills-20261011 (issue #466).
+
+### Priority assessment
+
+**Proposed tier: B — clear utility, evidence-backed gap, narrower blast radius than tier A.**
+
+Rationale: the demand signals are dated and public, but the capability is a runtime-performance contract whose empirical benefit for Skills Tree itself awaits measured use; the skill records that boundary honestly. No popularity or adoption claim is made.
+
+Verification date: 2026-10-11.

@@ -1432,3 +1432,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if either committed copy drifts from the workflow output blob, if a future workflow rebuild strands again without a PR (new #447 evidence), or if the graph/quality automation branches diverge from `main` beyond their documented superseded/no-op status.
+
+## DECISION-2026-10-11-DEMAND-GAP-SKILL-ADDITIONS
+
+**Topic:** Add the most-needed missing skills identified by the owner-directed demand-gap pass (issue #466) under the constitution's reproducible-measured-gap rule.
+
+**Decision:** A dated public-signal pass (2026-10-11) plus coverage reconciliation against the 381-skill canonical corpus, recorded in `meta/MOST-WANTED-SKILLS.md`, selected two missing capabilities: `skills/09-agentic-patterns/skill-quality-evaluation.md` (tier A: reproducible scored evaluation of a skill artifact against named quality dimensions — description fidelity, instruction actionability, runnable-example validity, failure-mode coverage, evidence strength) and `skills/03-memory/progressive-skill-loading.md` (tier B: tiered, budget-bounded loading of the skill layer — metadata first, selected body second, escalation only on measured need, fail-closed on budget overflow). Both are `stability: experimental`, `version: v1`, `added: 2026-10`, with dated public demand evidence in their `## Evidence` sections. Their `agent-skills/` packages are byte-exact deterministic `project()` projections; the reimplemented projection used to generate them was validated byte-exact against the known-good `skills/16-domain-specific/ad-copy.md` ↔ `agent-skills/ad-copy/SKILL.md` pair before push. No popularity or adoption claim is made; passing quality checks is not proof of runtime effectiveness, and the tier-B skill's empirical benefit awaits measured use. Generated graph, search-index, and quality-report projections regenerate post-merge; a stranded rebuild is republished through the documented user-authored-recommit workaround per the #447 family.
+
+**Confidence:** HIGH for implementation and gap evidence; the empirical runtime benefit of `progressive-skill-loading` is deliberately not claimed.
+
+**Evidence IDs:** PR #467; issue [#466](https://github.com/SamTech/skills-tree/issues/466); meta/MOST-WANTED-SKILLS.md; skills/09-agentic-patterns/skill-quality-evaluation.md; skills/03-memory/progressive-skill-loading.md; agent-skills/skill-quality-evaluation/SKILL.md; agent-skills/progressive-skill-loading/SKILL.md; demand sources recorded in the skill Evidence sections (Agentman SkillsBench ecosystem report 2026; fabiandistler/agents#325; anthropics/claude-code#75376; Microsoft Agent Framework skills documentation; 2026 agent-skills lifecycle survey).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if newer dated public evidence contradicts the recorded demand signals, if a duplicate canonical contract is discovered, if the post-merge regenerated projections reveal drift for the two new entries, or if measured use shows the tier-B loading contract needs revision.
