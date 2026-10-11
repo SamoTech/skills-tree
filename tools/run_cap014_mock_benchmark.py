@@ -131,7 +131,7 @@ def score_candidate(dataset: dict[str, Any], candidate: dict[str, Any]) -> dict[
         matches = all(actual.get(field) == expected.get(field) for field in COMPARE_FIELDS)
         if matches:
             correct += 1
-        if expected.get("deployment_trigger") or actual.get("deployment_trigger"):
+        if scenario.get("scenario_type") == "deployment_gate" or expected.get("deployment_trigger") or actual.get("deployment_trigger"):
             deployment_total += 1
             if actual.get("deployment_trigger") == expected.get("deployment_trigger"):
                 deployment_correct += 1
