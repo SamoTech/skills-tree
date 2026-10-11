@@ -1,30 +1,34 @@
 # Architecture
 
-Skills Tree is designed as a layered system: a human-readable data layer (Markdown files), a validation and tooling layer (Python scripts), and a programmatic access layer (CLI + Python API + MCP server).
+Skills Tree is a layered, evidence-backed registry. Canonical Markdown under skills/ is the source of truth; build and validation tools produce deterministic machine-readable projections; the CLI, static documentation UI, external agents, and Agent Skills consumers read those projections. See Python API Status (api.md) for the verified boundary: the historical skills_tree.SkillsTree API is not a current verified capability.
 
 ## System Layers
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                  Consumers                              │
-│  CLI (Typer)  │  Python API  │  MCP Server  │  Docs UI  │
-├──────────────┴─────────────┴─────────────┴────────┤
-│              SkillsTree Python Package                  │
-│  search()  │  get()  │  categories()  │  recommend()  │
-├─────────────────────────────────────────────────────────┤
-│              Skills Data Layer                          │
-│  skills/  │  systems/  │  blueprints/  │  benchmarks/ │
-├─────────────────────────────────────────────────────────┤
-│  Validation & Tooling (tools/, .github/workflows/)      │
-│  Quality scoring │ Schema validation │ Search indexing │
-└─────────────────────────────────────────────────────────┘
+Canonical sources
+  skills/  |  systems/  |  blueprints/  |  benchmarks/
+                       |
+                       v
+Build, validation, and evidence gates
+  tools/  |  tests/  |  .github/workflows/
+                       |
+                       v
+Generated projections (not independent sources)
+  docs/api/skills.json  |  graph.json  |  search indexes
+  agent-skills/         |  Agent Skills discovery index
+                       |
+                       v
+Consumers
+  skills-tree CLI  |  static docs/explorer  |  external agents
 ```
+
+The graph and search projections are generated artifacts. skills/ remains canonical; consumers must not create competing catalogs or indexers. The CLI search runtime consumes the generated search projection.
 
 ## Repository Structure
 
 ```
 skills-tree/
-├── skills/               # 360 atomic skill files
+├── skills/               # 381 public canonical skills (382 quality files including one sandbox fixture)
 │   ├── 01-perception/
 │   ├── 02-reasoning/
 │   ├── 03-memory/
@@ -48,7 +52,7 @@ skills-tree/
 ├── labs/                 # Experimental capabilities
 ├── mcp/                  # MCP server implementation
 ├── cli/                  # CLI entry points (Typer)
-├── api/                  # Python API module
+├── api/                  # API-related modules; see docs/api.md for verified status
 ├── tools/                # Validation & build scripts
 ├── tests/                # pytest test suite
 ├── docs/                 # Documentation site (MkDocs + custom UI)
