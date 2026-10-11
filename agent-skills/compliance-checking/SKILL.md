@@ -1,39 +1,44 @@
 ---
 name: compliance-checking
-description: Apply compliance checking as a bounded domain-specific AI capability with explicit scope, validation, and uncertainty handling.
+description: Apply compliance checking in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.
+metadata:
+  source: skills/16-domain-specific/compliance-checking.md
+  category: 16-domain-specific
 ---
 
-# compliance checking
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-compliance-checking.json)
 
-## Description
-Apply this domain-specific capability only within its declared scope. Preserve source context, validate inputs and outputs, and avoid unsupported certainty.
+**Category:** Domain-Specific
+**Skill Level:** `advanced`
+**Stability:** stable
+**Added:** 2026-04
 
-## When to Use
-Use when the workflow explicitly requires this capability and the relevant domain, jurisdiction, and source material are established.
+### Description
+Verifies that documents, configurations, or processes conform to specified regulatory or policy frameworks such as GDPR, HIPAA, SOC 2, or internal standards. Produces a gap report with severity levels and remediation steps.
 
-## Inputs / Outputs
-- Inputs: validated source material, domain context, task constraints.
-- Outputs: structured result with assumptions or uncertainty where material.
-
-## Failure Modes
-- Missing or ambiguous source context.
-- Unsupported inference or domain-rule mismatch.
-- Stale or conflicting evidence.
-- Presenting generated output as professional advice without appropriate authorization.
-- Skipping output verification.
-
-## Runnable Example
-
+### Example
 ```python
-task = {"capability": "compliance-checking", "validated": True}
-assert task["validated"]
-print("execute within declared domain scope")
+GDPR_CONTROLS = [
+    "privacy_policy_published",
+    "data_retention_policy",
+    "consent_mechanism",
+    "breach_notification_procedure",
+    "dpa_agreements",
+]
+
+def gdpr_gap_check(implemented: list[str]) -> dict:
+    missing = [c for c in GDPR_CONTROLS if c not in implemented]
+    score = (len(GDPR_CONTROLS) - len(missing)) / len(GDPR_CONTROLS)
+    return {"compliance_score": round(score, 2), "gaps": missing,
+            "status": "PASS" if not missing else "FAIL"}
+
+print(gdpr_gap_check(["privacy_policy_published", "consent_mechanism"]))
 ```
 
 ## Evidence
-Canonical repository skill: skills/16-domain-specific/compliance-checking.md. Repository schema and validation workflows define local conformance.
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
-## Related
+### Related
 - 16-domain-specific
 - input-guardrails
 - output-guardrails

@@ -1392,3 +1392,16 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 
 **Reopen Conditions:** Reopen only when the protocol redefines the reproducible-test ground-truth path, a predicate is found non-deterministic, a re-derivation mismatch is discovered, or the harness is shown to mis-score candidate records; any such finding invalidates the dataset version and requires a new version and rescoring.
 
+## DECISION-2026-10-11-AGENT-SKILLS-PROVENANCE-HARDENING
+
+**Topic:** Close the last 10 name-only Agent Skills package matches reported by `tools/reconcile_agent_skills.py` without hand-editing generated packages.
+
+**Decision:** The 10 packages (ad-copy, alert-triage, clinical-note-summarization, compliance-checking, compliance-review-workflows, contract-review, data-labeling, drug-interaction, essay-grading, financial-statement) were stale artifacts from a previous generator template: no `metadata.source`, template bodies, and canonical sources in `skills/16-domain-specific/` that lacked the `## Evidence` section required for projection eligibility. PR #461 adds the repository's established `## Evidence` section (the standing structural-conformance statement already present verbatim in 18 sibling files) to each canonical file and regenerates each package deterministically under the existing `project()` contract; no package was hand-edited. Before pushing, the regeneration reimplemented `project()` byte-exactly and validated it against a known-good canonical-to-package pair on main, and every updated canonical file was verified byte-identical to main except for the inserted Evidence block. The discovery-count test advances 264 to 274 because the 10 canonical skills become eligible. The Evidence text is a structural-conformance statement only; no new empirical, provenance, or adoption claim is made for the 10 skills.
+
+**Confidence:** MEDIUM-HIGH.
+
+**Evidence IDs:** PR #461; issue [#460](https://github.com/SamoTech/skills-tree/issues/460); the 10 canonical files in skills/16-domain-specific/; the 10 packages in agent-skills/; tools/generate_agent_skills.py (project contract); tools/reconcile_agent_skills.py (audit); tools/validate_agent_skills.py; tests/test_agent_skills_discovery.py.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only if the exact-head distribution audit reports any remaining name-only match, drift, or validation failure; if `project()` changes such that the packages no longer match its output; or if the provenance requirement is redefined such that the standing Evidence statement is no longer sufficient for projection eligibility.

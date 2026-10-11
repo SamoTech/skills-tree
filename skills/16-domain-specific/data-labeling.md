@@ -43,6 +43,9 @@ samples = ["I can't log into my account", "Loving the new dashboard!", "Please a
 print(label_batch(samples))
 ```
 
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
+
 ### Related
 - 16-domain-specific
 - input-guardrails

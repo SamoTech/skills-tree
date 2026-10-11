@@ -1,37 +1,75 @@
 ---
 name: compliance-review-workflows
-description: Apply compliance review workflows as a bounded domain-specific AI capability with explicit scope, validation, and uncertainty handling.
+description: Apply compliance review workflows in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.
+metadata:
+  source: skills/16-domain-specific/compliance-review-workflows.md
+  category: 16-domain-specific
+  version: "v2"
 ---
 
-# compliance review workflows
-
+# Compliance Review Workflows
+Category: domain-specific | Level: advanced | Stability: stable | Version: v2
 ## Description
-Apply this domain-specific capability only within its declared scope. Preserve source context, validate inputs and outputs, and avoid unsupported certainty.
 
-## When to Use
-Use when the workflow explicitly requires this capability and the relevant domain, jurisdiction, and source material are established.
+Apply compliance review workflows as a bounded domain-specific capability. Define the task scope, preserve relevant source context, validate inputs and outputs, and avoid claiming domain certainty beyond the available evidence.
 
-## Inputs / Outputs
-- Inputs: validated source material, domain context, task constraints.
-- Outputs: structured result with assumptions or uncertainty where material.
+Compliance review workflows embed mandatory review checkpoints into agent pipelines for regulated domains: financial advice, medical recommendations, legal documents, or marketing copy. The agent drafts content, an interrupt gate surfaces it for compliance review (human or automated policy engine), and execution continues only after sign-off. Full audit trails are maintained for regulatory accountability.
 
-## Failure Modes
-- Missing or ambiguous source context.
-- Unsupported inference or domain-rule mismatch.
-- Stale or conflicting evidence.
-- Presenting generated output as professional advice without appropriate authorization.
-- Skipping output verification.
+## Inputs
+- `draft_output`: agent-generated content requiring review
+- `compliance_policy`: rules the content must satisfy (regulatory, legal, brand)
+- `reviewer`: human compliance officer or automated policy LLM
+- `interrupt_before`: LangGraph node list for compliance checkpoints
+- `audit_store`: append-only log with reviewer ID, timestamp, decision, notes
 
-## Runnable Example
+## Outputs
+- Approved content returned to end user
+- Rejected content returned to agent with specific failure reasons for revision
+- Immutable audit log entry created for every review decision
 
+## Example
 ```python
-task = {"capability": "compliance-review-workflows", "validated": True}
-assert task["validated"]
-print("execute within declared domain scope")
+def compliance_check_node(state):
+    draft = state["draft"]
+    # Automated policy check
+    violations = policy_engine.check(draft)
+    if violations:
+        return {"status": "rejected", "violations": violations}
+    return {"status": "pending_human_review"}
+
+def human_review_node(state):
+    decision = interrupt({
+        "draft": state["draft"],
+        "auto_check": state["status"]
+    })
+    return {"approved": decision["approved"], "reviewer_id": decision["reviewer_id"]}
 ```
 
+## Failure Modes
+| Cause | Symptom | Mitigation |
+|---|---|---|
+| Policy engine misses jurisdiction-specific rules | Non-compliant content approved | Maintain per-jurisdiction rule sets, not one global policy |
+| Reviewer approves without reading | Liability exposure | Require reviewers to annotate specific sections they approved |
+| Audit log tampered or deleted | No evidence for audit | Use append-only, cryptographically signed audit store |
+
+## Prompt Patterns
+**Basic:** `"Draft the document, then pause for compliance review before sending."`
+
+**Chain-of-Thought:** `"Identify all regulatory requirements → generate compliant draft → run automated checks → route for human sign-off."`
+
+**Constrained Output:** `"Never finalise or send output without a recorded approval decision in the audit log."`
+
+## Model Comparison
+| Capability | GPT-4o | Claude 3.7 Sonnet | Gemini 2.0 Flash |
+|---|---|---|---|
+| Regulatory content quality | ✅ Strong | ✅ Very Strong | ⚠️ Moderate |
+| Policy violation detection | ✅ Good | ✅ Strong | ⚠️ Misses edge cases |
+| Audit trail design advice | ✅ Detailed | ✅ Very Detailed | ⚠️ Basic |
+| Multi-jurisdiction awareness | ✅ Good | ✅ Strong | ⚠️ US-centric |
+| Cost | Moderate | Moderate | Low |
+
 ## Evidence
-Canonical repository skill: skills/16-domain-specific/compliance-review-workflows.md. Repository schema and validation workflows define local conformance.
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
 ## Related
 - 16-domain-specific

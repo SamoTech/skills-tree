@@ -1,39 +1,47 @@
 ---
 name: contract-review
-description: Apply contract review as a bounded domain-specific AI capability with explicit scope, validation, and uncertainty handling.
+description: Apply contract review in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling.
+metadata:
+  source: skills/16-domain-specific/contract-review.md
+  category: 16-domain-specific
 ---
 
-# contract review
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-contract-review.json)
 
-## Description
-Apply this domain-specific capability only within its declared scope. Preserve source context, validate inputs and outputs, and avoid unsupported certainty.
+**Category:** Domain-Specific
+**Skill Level:** `advanced`
+**Stability:** stable
+**Added:** 2026-04
 
-## When to Use
-Use when the workflow explicitly requires this capability and the relevant domain, jurisdiction, and source material are established.
+### Description
+Reviews legal contracts to extract key clauses (termination, liability, IP, payment, dispute resolution), flag high-risk provisions, compare against standard policy positions, and produce a structured risk report with recommended redlines.
 
-## Inputs / Outputs
-- Inputs: validated source material, domain context, task constraints.
-- Outputs: structured result with assumptions or uncertainty where material.
-
-## Failure Modes
-- Missing or ambiguous source context.
-- Unsupported inference or domain-rule mismatch.
-- Stale or conflicting evidence.
-- Presenting generated output as professional advice without appropriate authorization.
-- Skipping output verification.
-
-## Runnable Example
-
+### Example
 ```python
-task = {"capability": "contract-review", "validated": True}
-assert task["validated"]
-print("execute within declared domain scope")
+CLAUSE_PATTERNS = {
+    "liability_cap": r"liability.{0,30}capped|limited to.{0,20}fees",
+    "auto_renewal": r"auto.?renew|automatically renew",
+    "unilateral_change": r"(may|can|reserves the right).{0,40}(modify|amend|change)",
+}
+
+import re
+
+def flag_clauses(text: str) -> dict:
+    findings = {}
+    for risk, pattern in CLAUSE_PATTERNS.items():
+        match = re.search(pattern, text, re.I)
+        if match:
+            findings[risk] = match.group(0)
+    return findings
+
+contract = "Liability is capped at fees paid. Company may modify terms at any time."
+print(flag_clauses(contract))
 ```
 
 ## Evidence
-Canonical repository skill: skills/16-domain-specific/contract-review.md. Repository schema and validation workflows define local conformance.
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
-## Related
+### Related
 - 16-domain-specific
 - input-guardrails
 - output-guardrails
