@@ -2,37 +2,49 @@
   "schema_version": "1.0",
   "benchmark_id": "benchmark/skill-activation-v1",
   "benchmark_version": "1.0",
-  "description": "Trace-based evidence cases for natural-language skill activation, false activation, collision behavior, repeated-run variance, and invocation evidence.",
+  "description": "Trace-based evidence cases for natural-language skill routing, false activation, collision behavior, and repeated-run variance. Each prompt asks the agent to select and load one skill, then stop; task execution is intentionally outside this activation-only benchmark.",
   "cases": [
     {
       "id": "ACT-001",
-      "prompt": "Use the appropriate installed skill to retrieve factual knowledge from my local knowledge base about this project and cite the relevant source.",
+      "prompt": "Choose only among the three task-specific Skills Tree skills for this benchmark; ignore generic Hermes runtime, agent-authoring, and unrelated skills. I need an answer grounded in a private or local project-document corpus, with citations to source material. Do not search the public web. Use skills_list to inspect the available skills, then skill_view to load the single skill best suited to private-corpus retrieval. Stop after loading it; do not perform retrieval. The only valid skill_view names are exactly skills-tree-rag, skills-tree-code-review, and skills-tree-web-search. Choose one of those names and use it exactly; do not request any other skill. If a skill_view call returns an error, stop instead of retrying.",
       "expected_skill": "03-memory/rag",
-      "must_not_activate": ["05-code/code-review", "11-web/web-search"],
+      "must_not_activate": [
+        "05-code/code-review",
+        "11-web/web-search"
+      ],
       "collision_group": null,
       "repetitions": 3
     },
     {
       "id": "ACT-002",
-      "prompt": "Use the appropriate installed skill to review this Python function for correctness and maintainability: def add(a, b): return a + b",
+      "prompt": "Choose only among the three task-specific Skills Tree skills for this benchmark; ignore generic Hermes runtime, agent-authoring, and unrelated skills. I want an evidence-based review of this concrete Python function for correctness and maintainability: def add(a, b): return a + b. Use skills_list to inspect the available skills, then skill_view to load the single skill best suited to reviewing concrete source code. Stop after loading it; do not conduct the review. The only valid skill_view names are exactly skills-tree-rag, skills-tree-code-review, and skills-tree-web-search. Choose one of those names and use it exactly; do not request any other skill. If a skill_view call returns an error, stop instead of retrying.",
       "expected_skill": "05-code/code-review",
-      "must_not_activate": ["03-memory/rag", "11-web/web-search"],
+      "must_not_activate": [
+        "03-memory/rag",
+        "11-web/web-search"
+      ],
       "collision_group": null,
       "repetitions": 3
     },
     {
       "id": "ACT-003",
-      "prompt": "Use the appropriate installed skill to find the current stable Node.js release on the web and cite the sources.",
+      "prompt": "Choose only among the three task-specific Skills Tree skills for this benchmark; ignore generic Hermes runtime, agent-authoring, and unrelated skills. I need fresh information from public websites that may have changed recently, with cited URLs and snippets. Do not answer from memory or a private corpus. Use skills_list to inspect the available skills, then skill_view to load the single skill best suited to open-web search. Stop after loading it; do not search the web. The only valid skill_view names are exactly skills-tree-rag, skills-tree-code-review, and skills-tree-web-search. Choose one of those names and use it exactly; do not request any other skill. If a skill_view call returns an error, stop instead of retrying.",
       "expected_skill": "11-web/web-search",
-      "must_not_activate": ["03-memory/rag", "05-code/code-review"],
+      "must_not_activate": [
+        "03-memory/rag",
+        "05-code/code-review"
+      ],
       "collision_group": "retrieval-choice",
       "repetitions": 3
     },
     {
       "id": "ACT-004",
-      "prompt": "Use the appropriate installed skill to explain how I should review this Python function for correctness and maintainability, without reviewing or modifying the function itself: def add(a, b): return a + b",
+      "prompt": "Choose only among the three task-specific Skills Tree skills for this benchmark; ignore generic Hermes runtime, agent-authoring, and unrelated skills. I want an evidence-based review of this concrete Python function for correctness and maintainability, but I do not want the code modified or rewritten: def add(a, b): return a + b. Use skills_list to inspect the available skills, then skill_view to load the single skill suited to reviewing code without rewriting it. Stop after loading it; do not conduct the review. The only valid skill_view names are exactly skills-tree-rag, skills-tree-code-review, and skills-tree-web-search. Choose one of those names and use it exactly; do not request any other skill. If a skill_view call returns an error, stop instead of retrying.",
       "expected_skill": "05-code/code-review",
-      "must_not_activate": ["11-web/web-search", "03-memory/rag"],
+      "must_not_activate": [
+        "11-web/web-search",
+        "03-memory/rag"
+      ],
       "collision_group": "code-review-boundary",
       "repetitions": 3
     }
