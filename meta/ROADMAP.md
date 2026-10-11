@@ -8,15 +8,15 @@
 
 ## Current Execution Block — 2026-10-11
 
-1. Preserve the verified corpus boundary: 382 quality/test Markdown files including one intentional sandbox fixture; 381 public canonical skills across 17 categories.
-2. Preserve projection integrity: 381 graph nodes / 255 edges (8 `REQUIRES`, 247 `RELATED_TO`); `data/SKILLS_GRAPH.json` and `docs/api/graph.json` are byte-identical; the two search projections are byte-identical.
-3. Re-run the Agent Skills reconciliation gate on the exact current main tree. The latest detailed counts (264 eligible, 118 blocked, 302 packages; report dated 2026-10-06) are historical until the gate produces current evidence. Do not regenerate or hand-edit packages merely to refresh counts.
-4. Activation run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) on main concluded `success` only because the GPU preflight correctly classified the runner as `INFRASTRUCTURE_INELIGIBLE`; all qualification and observation steps were skipped. The benchmark was **NOT RUN**. Do not claim acceptance or change skill descriptions/routing/thresholds on this result.
-5. Re-run the deterministic retrieval and capability-selection benchmarks and record their exact-head artifacts and metrics. These are bounded benchmark snapshots, not semantic-search, adoption, or user-satisfaction claims.
-6. Reconcile current evaluation mappings and empirical evidence separately. `CAP-007`, `CAP-011`, and `CAP-014` now have ontology mappings; this does not prove their prescribed 100-case evaluation datasets have been executed or passed.
-7. Continue the consumer audit across `Discover → Select → Resolve → Understand → Invoke → Verify`. Do not add skills, replace lexical search, or add a competing registry unless reproducible evidence identifies a material gap.
+1. **Agent Skills distribution — verified on exact main.** Run [#38133298990](https://github.com/SamoTech/skills-tree/actions/runs/38133298990) passed: 382 canonical entries, 264 eligible, 118 blocked, 302 existing packages; zero eligible-missing, drifted, stale, unexpected, ambiguous, or unresolved-collision findings; all 302 packages validate. Of the packages, 291 matched by provenance, 10 matched by unique package name under the documented fallback, and one auxiliary package is intentionally retained. Do not regenerate or hand-edit packages to refresh counts.
+2. **Retrieval — verified on exact main.** Run [#38133299000](https://github.com/SamoTech/skills-tree/actions/runs/38133299000) passed 12 cases: Recall@5 1.0, MRR 0.9583, deterministic replay true. Dataset and index digests are recorded in Current State and the result artifact is attached to the run.
+3. **Capability selection — verified on exact main.** Run [#38133298996](https://github.com/SamoTech/skills-tree/actions/runs/38133298996) passed 9 cases: accuracy 1.0 and deterministic replay true. Its result artifact is attached to the run.
+4. **Activation — blocked by runtime eligibility.** Latest run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) detected no supported accelerator and skipped qualification/observations. The benchmark was NOT RUN. Preserve Issue #357 and all four acceptance requirements; do not change skill definitions or thresholds based on this infrastructure result.
+5. **Evaluation contracts — mappings present, empirical results absent.** CAP-007, CAP-011, and CAP-014 have current ontology mappings, but the prescribed 100-case datasets/results are not established by the current small retrieval/selection benchmarks. Execute the evidence contracts through [Issue #436](https://github.com/SamoTech/skills-tree/issues/436).
+6. **Freshness — action required.** `CORPUS-001` and `CORPUS-002` review dates are overdue; review and validate them through [Issue #435](https://github.com/SamoTech/skills-tree/issues/435) before refreshing their timestamps.
+7. Keep the verified corpus boundary (382 quality/test files; 381 public canonical skills), graph baseline (381 nodes / 255 edges), byte-identical graph/search projections, and canonical `skills/` source. Do not introduce a semantic-search engine, new skills, or a competing registry absent a reproducible measured gap.
 
-Issue #336 retrieval freshness/reproducibility remains resolved. No duplicate projection generator or competing source of truth is justified.
+Issue #336 retrieval freshness/reproducibility remains resolved. Current exact-main CI, security, build, governance, and both deterministic benchmarks passed after PR #434; the release workflow correctly skipped publication because there were no releasable commits.
 
 ## Product outcome
 

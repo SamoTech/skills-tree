@@ -1283,3 +1283,22 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** IN PROGRESS — implementation staged on remediation branch.
 
 **Reopen Conditions:** Reopen if the Human Owner intentionally promotes `00-sandbox` into the public taxonomy or if measured evaluation evidence shows the trigger/projection contract is insufficient.
+
+
+## DECISION-2026-10-11-RETRIEVAL-EVIDENCE-BOUNDARY
+
+**Topic:** Preserve the deterministic retrieval/selection architecture pending broader empirical evidence.
+
+**Decision:** Keep the existing weighted lexical CLI search and deterministic capability-selection engine as-is. Do not introduce a semantic-search engine, a duplicate search index, a competing registry, or new skills based solely on the current demand cohort. The exact-main 12-case retrieval benchmark and 9-case selection benchmark both pass, but their bounded datasets do not satisfy the separate 100-case empirical contracts for CAP-007 semantic retrieval, CAP-011 self-evaluation, or CAP-014 tool execution. Those empirical contracts remain open and must be evaluated independently.
+
+**Confidence:** HIGH for preserving current architecture; empirical coverage remains incomplete.
+
+**Evidence IDs:**
+- Retrieval benchmark: [run #38133299000](https://github.com/SamoTech/skills-tree/actions/runs/38133299000), 12 cases, Recall@5=1.0, MRR=0.9583, deterministic replay.
+- Selection benchmark: [run #38133298996](https://github.com/SamoTech/skills-tree/actions/runs/38133298996), 9 cases, accuracy=1.0, deterministic replay.
+- Evaluation ontology: CAP-007, CAP-011, and CAP-014 mappings exist but specify larger empirical datasets.
+- Activation run [#38131566320](https://github.com/SamoTech/skills-tree/actions/runs/38131566320) is infrastructure-ineligible and NOT RUN; it is not activation acceptance evidence.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only when a reproducible, versioned evaluation demonstrates a material retrieval/selection defect or new trusted runtime evidence supports a specific architecture change. Do not use stale historical reports or fabricated observations as contrary evidence.
