@@ -1320,3 +1320,32 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only when contract semantics, domain scope, metric definitions, and acceptance authority are documented. Do not force threshold equality where different evaluation scopes justify distinct contracts.
+
+
+## DECISION-2026-10-11-EVALUATION-CONTRACT-SCOPE
+
+**Topic:** Distinguish generic capability baselines from scenario-specific corpus evaluation requirements.
+
+**Decision:** Generic mappings define capability-level evaluation baselines and metric IDs. Corpus evaluation requirements explicitly declare `contract_scope: scenario_specific` and may use different methods/thresholds when they test a distinct domain outcome. Such scenario-specific requirements do not waive generic baselines or independent safety gates. The validator enforces capability identity, mapping presence, metric IDs, thresholds, and scope rules without forcing distinct metrics to have identical thresholds.
+
+**Confidence:** HIGH.
+
+**Evidence IDs:** PR #444; validation run [#38136500633](https://github.com/SamoTech/skills-tree/actions/runs/38136500633); corpus review PR #448.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only with evidence that a scenario-specific metric actually weakens or replaces a generic/safety gate, or a contract definition proves the metrics are equivalent and should match.
+
+## DECISION-2026-10-11-GENERATED-ARTIFACT-NOOP-SUPPRESSION
+
+**Topic:** Avoid generated artifact PRs that change only timestamps.
+
+**Decision:** Do not merge graph projection PRs whose only changes are generated timestamps when nodes, edges, and relationships are unchanged. The graph workflow should compare normalized semantic content before creating a PR. Likewise, generated quality reports must use protected-main PRs with valid required checks; never bypass main protection.
+
+**Confidence:** HIGH.
+
+**Evidence IDs:** Timestamp-only graph PR #449 was closed; follow-up issue #450. Quality report PR #445 merged after required checks passed; follow-up issue #447 tracks GITHUB_TOKEN check triggering.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only when a timestamp change is required by a documented consumer contract or a real projection-content difference is present.
