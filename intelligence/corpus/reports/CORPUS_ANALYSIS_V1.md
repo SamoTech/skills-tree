@@ -1,7 +1,7 @@
 # CORPUS ANALYSIS REPORT V1
 
 **Report ID:** CORPUS-ANALYSIS-001  
-**Generated:** 2026-07-05 (post-remediation regeneration)  
+**Generated:** 2026-07-05 (post-remediation regeneration; historical snapshot — see 2026-10-11 review addendum below)  
 **Corpus entries analyzed:** CORPUS-001, CORPUS-002 (post-remediation)  
 **Ontology version:** capability_ontology.json SHA 5cdcd58d  
 **Status:** POST-REMEDIATION — all CAP-IDs validated against canonical ontology  
@@ -249,3 +249,30 @@ Score drag: evaluation coverage for P0 capabilities remains below the 0.70 targe
 ---
 
 *Report regenerated post-remediation 2026-07-05. Pre-remediation version was computed from CORPUS-002 with incorrect CAP-IDs (CAP-009 mapped to tool_execution, CAP-014 mapped to planning_and_decomposition). This version reflects the corrected CORPUS-002.*
+
+
+---
+
+## 9. Current Review Addendum — 2026-10-11
+
+**Review scope:** CORPUS-001 and CORPUS-002, canonical capability ontology, goal ontology, generic evaluation mappings, scenario-specific evaluation contracts, and the current consumer/evaluation boundary.
+
+### Review outcomes
+
+- Both corpus entries have valid goal classes and canonical capability IDs/names. No duplicate required-capability IDs were found.
+- Each `dependency_order` is an exact permutation of the declared required capabilities. Risk-profile references point to capabilities declared in the same entry.
+- CORPUS-001 declares 9 P0 capabilities; CORPUS-002 declares 7 P0 capabilities. All P0 capabilities have generic evaluation mappings after the CAP-006/CAP-010 mapping additions.
+- Evaluation requirements are explicitly marked `contract_scope: scenario_specific`. Their methods and thresholds can differ from generic capability baselines when they test a distinct domain outcome. They do not waive the generic baseline or any independent safety gate.
+- CAP-006's flake-detection test is retained because its canonical rationale requires historical run memory to distinguish flaky failures from regressions. CAP-010's root-cause consolidation test is retained because it directly tests planning/decomposition.
+- CAP-023's generic mapping is now escalation calibration rather than schema validation. Its generic baseline requires mandatory-escalation recall >= 0.98 and blocks any bypass of mandatory policy.
+- CAP-025's generic mapping is now PII recall/precision rather than cross-modal extraction. Its generic baseline requires overall and per-format PII recall >= 0.99 and false-positive rate <= 0.05.
+- CORPUS-001's CAP-003/CAP-005 scenario thresholds remain at least as strict as their generic baselines. CORPUS-002's CAP-003 failure-classification threshold remains 0.92, above the generic 0.90 baseline.
+- CAP-028's scenario-specific policy-grounding and failure-report accuracy tests remain distinct from the generic output-validation gate. No threshold was silently lowered or overwritten.
+- The evaluation ontology was substantively reviewed on 2026-10-11; its freshness metadata is updated in the evaluation-contract alignment change. This addendum does not claim that any empirical dataset has been executed or passed.
+
+### Freshness
+
+- CORPUS-001: last reviewed 2026-10-11; next review due 2027-01-09.
+- CORPUS-002: last reviewed 2026-10-11; next review due 2027-01-09.
+
+The July 2026 analysis sections above remain as historical findings. Current capability mappings, scenario-specific contract scopes, and review dates are governed by the 2026-10-11 state and validation workflow.
