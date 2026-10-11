@@ -1,12 +1,10 @@
 {
   "$schema": "https://skills-tree.dev/schemas/corpus/v1",
   "$version": "1.0",
-
   "entry_id": "CORPUS-002",
   "created_at": "2026-07-05T00:00:00Z",
   "last_reviewed_at": "2026-07-05T00:00:00Z",
   "review_due_at": "2026-10-03T00:00:00Z",
-
   "goal": {
     "text": "Build a CI/CD Pipeline Automation Agent that monitors code repositories for new commits and pull requests, executes build and test workflows, interprets test failures and static analysis results, determines whether a build should be promoted or blocked, reports findings back to the developer in natural language, and triggers deployment to the appropriate environment when all quality gates pass.",
     "goal_id": "GOAL-002",
@@ -15,7 +13,6 @@
     "domain": "engineering",
     "domain_variant": "devops"
   },
-
   "constraints": {
     "security_tier": "high",
     "max_latency_ms": 120000,
@@ -25,7 +22,6 @@
     "excluded_capability_patterns": [],
     "notes": "The agent operates with write access to deployment infrastructure; any miscategorised test result or incorrect promotion decision has direct production impact. False-negative failure detection (classifying a broken build as passing) is significantly more costly than false-positive blocking. Latency budget of 120 seconds covers the full pipeline analysis and response cycle, excluding the actual test runner execution time which is outside agent scope. Cost cap of $0.15 per run assumes multiple LLM calls for failure triage and report generation; exceeding this consistently signals over-engineering of the triage step."
   },
-
   "required_capabilities": [
     {
       "cap_id": "CAP-001",
@@ -124,7 +120,6 @@
       "without_this": "Agent posts identical triage comments on each pipeline run without awareness of prior iterations. Repeat failures generate duplicate reports. Acceptable for initial deployment but degrades developer experience for long-lived PRs."
     }
   ],
-
   "dependency_order": [
     "CAP-001",
     "CAP-003",
@@ -139,16 +134,18 @@
     "CAP-028",
     "CAP-008"
   ],
-
   "capability_notes": "CAP-014 (tool execution) is the integration point that determines whether the agent is a passive reporter or an active participant in the pipeline. Define the minimum viable tool set before implementation: PR comment API and build log retrieval API are strictly required; deployment trigger API should be behind a confirmation gate until the agent's classification accuracy is validated in production. CAP-006 (long-term memory) is the dependency for flaky test detection — without it, the agent cannot distinguish a flaky failure from a regression. Implement flake detection as a threshold: a test is classified as flaky if it has failed in more than 30% of the last 20 runs without a code change touching its path. CAP-005 (short-term context management) is the primary token budget pressure: a full build log can exceed 200KB. Implement log truncation strategies (first N lines, last N lines, lines containing 'ERROR' or 'FAIL') before passing to the model.",
-
   "risk_profile": {
     "overall_risk": "high",
     "primary_risks": [
       {
         "risk_id": "RISK-001",
         "description": "Incorrect promotion: agent classifies a failed build as passing (false negative) due to a log parsing error or truncation that cut off the failure output. A broken build is promoted to production.",
-        "affected_capabilities": ["CAP-001", "CAP-028", "CAP-011"],
+        "affected_capabilities": [
+          "CAP-001",
+          "CAP-028",
+          "CAP-011"
+        ],
         "severity": "critical",
         "probability": "occasional",
         "mitigation": "Implement a deterministic quality gate check before any LLM-based promotion decision: parse the structured exit codes and test result summaries from the CI platform API as ground truth. LLM triage is for human-readable reporting only; promotion decisions must be gated on structured API data, not on the LLM's interpretation of log text. Never allow LLM output alone to trigger a deployment."
@@ -156,7 +153,10 @@
       {
         "risk_id": "RISK-002",
         "description": "Log truncation causing missed failures: build logs exceed the context window and are truncated. The failure is in the truncated portion. Agent reports a passing build.",
-        "affected_capabilities": ["CAP-001", "CAP-005"],
+        "affected_capabilities": [
+          "CAP-001",
+          "CAP-005"
+        ],
         "severity": "critical",
         "probability": "frequent",
         "mitigation": "Never rely on LLM reading of raw build logs for pass/fail determination (see RISK-001 mitigation). For log summarisation, implement a structured extraction step before LLM input: extract all lines matching ERROR, FAIL, EXCEPTION, FATAL, and test result summary lines. Feed extracted lines to the LLM, not the full log. Document the extraction rules so they can be audited and extended per toolchain."
@@ -164,7 +164,10 @@
       {
         "risk_id": "RISK-003",
         "description": "Flaky test misclassification as regression: a known flaky test fails and the agent blocks the PR, attributing it to the PR author's code change. Developer wastes time investigating a non-issue. Alert fatigue accumulates.",
-        "affected_capabilities": ["CAP-006", "CAP-003"],
+        "affected_capabilities": [
+          "CAP-006",
+          "CAP-003"
+        ],
         "severity": "high",
         "probability": "frequent",
         "mitigation": "Seed the flake database before deploying the agent to developers. Run the CI pipeline on the default branch for 30 days without agent intervention and collect failure rates per test. Pre-populate CAP-006 with this historical data so the agent starts with a calibrated flake model. Set the flake threshold conservatively (>25% failure rate over 20 runs) for initial deployment; adjust based on developer feedback after 2 weeks."
@@ -172,7 +175,11 @@
       {
         "risk_id": "RISK-004",
         "description": "Incorrect suggested fix introduces a new bug: agent generates a hallucinated code suggestion (wrong API signature, deprecated method) that the developer implements, causing a new failure.",
-        "affected_capabilities": ["CAP-017", "CAP-026", "CAP-028"],
+        "affected_capabilities": [
+          "CAP-017",
+          "CAP-026",
+          "CAP-028"
+        ],
         "severity": "high",
         "probability": "occasional",
         "mitigation": "Label all suggested fixes with an explicit confidence and a disclaimer: 'This suggestion is generated and not verified. Review before applying.' Never present a suggested fix as verified. For common, well-understood error types (null pointer, import error, type mismatch), generate fixes. For dependency conflicts, version pinning issues, or complex architectural errors, produce only a diagnosis with a pointer to documentation — do not generate a fix."
@@ -180,66 +187,74 @@
       {
         "risk_id": "RISK-005",
         "description": "Developer adoption failure: agent generates verbose, low-signal PR comments on every minor lint warning. Developers mute the agent or request its removal within the first sprint.",
-        "affected_capabilities": ["CAP-003", "CAP-017"],
+        "affected_capabilities": [
+          "CAP-003",
+          "CAP-017"
+        ],
         "severity": "high",
         "probability": "frequent",
         "mitigation": "Gate agent commentary by severity threshold. For initial deployment: only comment on P0 failures (test failures, security findings, build errors). Do not comment on lint warnings, style issues, or informational messages unless explicitly requested. Add a per-developer opt-in for verbose mode after the baseline is established. Review comment volume weekly in the first month and adjust the threshold if developers are being interrupted more than twice per PR."
       }
     ]
   },
-
   "evaluation_requirements": [
     {
       "capability": "CAP-003",
       "eval_method": "failure_classification_accuracy",
       "pass_threshold": 0.92,
       "dataset_or_approach": "Collect 200 real pipeline failures from the target repository history, labelled by a senior engineer as: test failure, flaky failure, build configuration error, security finding, lint error, or passing run. Measure top-1 classification accuracy >= 0.92. Separately measure security-finding recall >= 0.99 — misclassifying a security finding as a lint error is a critical failure mode.",
-      "priority": "required"
+      "priority": "required",
+      "contract_scope": "scenario_specific"
     },
     {
       "capability": "CAP-014",
       "eval_method": "tool_call_correctness",
       "pass_threshold": 0.99,
       "dataset_or_approach": "Run 100 scripted pipeline events in a staging environment with mocked tool APIs. Verify that: (1) PR comments are posted to the correct PR and commit, (2) deployment triggers are sent to the correct environment, (3) no deployment is triggered when any quality gate status is non-passing. Tool call correctness must be 100% for deployment triggers and >= 0.99 for comment posting.",
-      "priority": "required"
+      "priority": "required",
+      "contract_scope": "scenario_specific"
     },
     {
       "capability": "CAP-028",
       "eval_method": "report_accuracy_human_eval",
-      "pass_threshold": 0.90,
+      "pass_threshold": 0.9,
       "dataset_or_approach": "Human reviewers (senior engineers) evaluate 50 agent-generated failure reports against the actual build logs. Each report is scored on: correct file reference, correct line number, correct error description, and plausibility of suggested fix. Pass threshold: >= 0.90 on file reference and error description accuracy. Line number accuracy target >= 0.85 (acceptable for some log formats that do not expose line numbers).",
-      "priority": "required"
+      "priority": "required",
+      "contract_scope": "scenario_specific"
     },
     {
       "capability": "CAP-006",
       "eval_method": "flake_detection_recall_precision",
       "pass_threshold": 0.85,
       "dataset_or_approach": "Construct a test set of 80 pipeline failures, 40 of which are from known-flaky tests (seeded from 30-day historical data) and 40 from genuine regressions introduced in test branches. Measure flake detection recall >= 0.85 and precision >= 0.80. False positive rate (genuine regression classified as flaky) must be <= 0.10.",
-      "priority": "required"
+      "priority": "required",
+      "contract_scope": "scenario_specific"
     },
     {
       "capability": "CAP-011",
       "eval_method": "promotion_confidence_calibration",
       "pass_threshold": 0.95,
       "dataset_or_approach": "Run 100 pipeline runs where ground truth (pass/fail) is known. Measure that the agent's confidence score is calibrated: runs where the agent reports high confidence (>= 0.90) should be correct >= 0.95 of the time. Runs where the agent flags low confidence should trigger a human review gate. Verify that zero deployments are triggered on any run where a quality gate is in a non-passing state.",
-      "priority": "required"
+      "priority": "required",
+      "contract_scope": "scenario_specific"
     },
     {
       "capability": "CAP-017",
       "eval_method": "developer_utility_survey",
-      "pass_threshold": 0.80,
+      "pass_threshold": 0.8,
       "dataset_or_approach": "After two weeks of shadow deployment (agent generates reports but does not post them), show the reports to the developers who would have received them and ask: 'Would this report have helped you resolve the failure faster?' Target: >= 80% yes responses. Separately measure report length: target <= 300 words for a standard failure report. Reports longer than 500 words are automatically flagged for review.",
-      "priority": "required"
+      "priority": "required",
+      "contract_scope": "scenario_specific"
     },
     {
       "capability": "CAP-010",
       "eval_method": "root_cause_consolidation_test",
       "pass_threshold": 0.85,
       "dataset_or_approach": "Construct 20 cascading failure scenarios where a single root cause (broken import, removed function, schema migration) produces 10-50 downstream test failures. Measure that the agent's report identifies the single root cause as the primary issue in >= 85% of scenarios, rather than listing all downstream failures individually.",
-      "priority": "recommended"
+      "priority": "recommended",
+      "contract_scope": "scenario_specific"
     }
   ],
-
   "effort_estimate": {
     "days_to_implement_from_zero": 28,
     "days_to_implement_with_existing": 14,
@@ -254,7 +269,6 @@
     ],
     "confidence": "estimated"
   },
-
   "validation": {
     "source": "human_architect",
     "confidence": 0.86,
@@ -262,8 +276,18 @@
     "evidence": "Pattern derived from direct design and deployment experience with automated CI triage agents across GitHub Actions and GitLab CI environments. The deterministic promotion gate (RISK-001 mitigation) reflects a hard-learned constraint: an early prototype that allowed LLM output alone to gate promotions produced two incorrect deployments in the first week. Flake detection seeding requirement (RISK-003 mitigation) reflects observed failure mode where agents deployed without historical context blocked valid PRs on known-flaky tests within 48 hours. Developer adoption failure (RISK-005) is the most commonly observed deployment failure mode for CI agents — high comment volume is the primary cause of agent muting.",
     "known_gaps": "This entry covers single-repository pipelines. Monorepo pipelines with selective build graphs (only build affected packages) require additional planning capability to determine which package failures are relevant to a given PR. Multi-cloud deployment targets require environment-specific promotion logic not covered here. Self-hosted runner environments may have API access restrictions that limit tool execution capability."
   },
-
-  "related_entries": ["CORPUS-001"],
+  "related_entries": [
+    "CORPUS-001"
+  ],
   "superseded_by": null,
-  "tags": ["engineering", "devops", "ci-cd", "pipeline", "reactive-agent", "triage", "flake-detection", "deployment"]
+  "tags": [
+    "engineering",
+    "devops",
+    "ci-cd",
+    "pipeline",
+    "reactive-agent",
+    "triage",
+    "flake-detection",
+    "deployment"
+  ]
 }

@@ -109,6 +109,9 @@ jobs:
           print(f'PASSED: {len(evaluations)} evaluation mappings are structurally linked to canonical capabilities')
           PYEOF
 
+      - name: Validate corpus-specific evaluation contracts
+        run: python tools/validate_corpus_evaluation_contracts.py
+
       - name: Check P0 capabilities are evaluated
         run: |
           python - <<'PYEOF'
