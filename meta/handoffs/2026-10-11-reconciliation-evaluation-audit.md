@@ -60,7 +60,7 @@
 
 ### RISKS
 - `CORPUS-001` and `CORPUS-002` freshness reviews are overdue.
-- The 12-case retrieval and 9-case selection benchmarks do not satisfy CAP-007/CAP-011/CAP-014's separate 100-case empirical contracts. Corpus-specific methods/thresholds also differ from generic ontology mappings; CAP-006 and CAP-010 lack ontology mappings despite corpus evaluation requirements.
+- The 12-case retrieval and 9-case selection benchmarks do not satisfy CAP-007/CAP-011/CAP-014's separate 100-case empirical contracts. Corpus-specific methods/thresholds also differ from generic ontology mappings; CAP-006 and CAP-010 lack ontology mappings despite corpus evaluation requirements; CAP-006's `long_term_memory_storage` name conflicts with the corpus method `flake_detection_recall_precision`.
 - Ten Agent Skills packages are reconciled by unique package-name inference rather than explicit provenance; allowed by current contract, but a provenance-hardening opportunity.
 - Real activation/invocation evidence remains blocked on an eligible runtime and must not be fabricated.
 
