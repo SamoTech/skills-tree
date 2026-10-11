@@ -7,7 +7,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 
 | Workflow | Classification | Purpose / disposition |
 |---|---|---|
-| `agent-skills-distribution.yml` | Authoritative validation | Agent Skills distribution audit |
+| `agent-skills-distribution.yml` | Authoritative validation | Agent Skills distribution audit; PR/push/manual reconciliation gate |
 | `ast-sweep.yml` | Scheduled maintenance | AST/repository hygiene |
 | `auto-label.yml` | Supporting automation | Issue/PR labeling |
 | `build-and-verify.yml` | Authoritative validation | Package build and wheel verification |
@@ -29,11 +29,11 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `pr-checks.yml` | Authoritative PR gate | Pull-request checks |
 | `quality-report.yml` | Generated-main writer | Quality projection |
 | `release.yml` | Manual recovery | Existing-tag PyPI republish |
-| `retrieval-benchmark.yml` | Evidence benchmark | Deterministic retrieval evidence |
+| `retrieval-benchmark.yml` | Evidence benchmark | Deterministic retrieval evidence; PR/push/manual run with workflow self-validation |
 | `revoke-phantom-badges.yml` | Generated-main writer | Badge reconciliation |
 | `schema-enforce.yml` | Authoritative validation | Schema enforcement |
 | `security-scan.yml` | Authoritative security gate | Security scanning |
-| `skill-selection-benchmark.yml` | Evidence benchmark | Capability-to-skill selection evidence |
+| `skill-selection-benchmark.yml` | Evidence benchmark | Capability-to-skill selection evidence; PR/push/manual run with workflow self-validation |
 | `skill-upgrade-comment.yml` | Supporting PR automation | Upgrade/review comments |
 | `skill-activation-runtime.yml` | Evidence benchmark | Real Hermes runtime activation/invocation evidence for Issue #357 |
 | `skill-version-badge.yml` | Supporting PR automation | Version/badge labeling |
