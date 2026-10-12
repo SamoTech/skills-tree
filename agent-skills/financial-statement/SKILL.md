@@ -38,6 +38,15 @@ def analyse(revenue, cogs, opex, current_assets, current_liabilities, total_debt
 print(analyse(500_000, 200_000, 100_000, 120_000, 60_000, 80_000, 200_000))
 ```
 
+## Failure Modes
+
+- **Parsing misalignment:** period boundaries, units (thousands vs millions), or currency mismatches producing ratios that are arithmetically correct but economically wrong; re-verify scale and period before computing.
+- **Ratio cherry-picking:** selecting metrics that support a preferred narrative; report the standard ratio set including unfavorable ones.
+- **Trend distortion:** comparing periods affected by accounting-policy changes, restatements, or M&A without adjusting
+or flagging them.
+- **Benchmark incomparability:** peer sets with different fiscal calendars, scale, or business mix treated as comparable.
+- **Narrative overreach:** commentary implying causation or forecasts from ratio movement alone; keep measured computation separate from interpretation.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
