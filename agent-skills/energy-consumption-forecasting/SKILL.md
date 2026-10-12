@@ -85,8 +85,8 @@ Honest boundary: these are implementation references, not adoption or demand evi
 
 ## Related Skills
 
-- [Time Series](time-series.md) — the temporal modeling layer the forecast builds on.
-- [Statistical Analysis](statistical-analysis.md) — the backtesting discipline that calibrates the error bands.
+- [Time Series](../12-data/time-series.md) — the temporal modeling layer the forecast builds on.
+- [Statistical Analysis](../12-data/statistical-analysis.md) — the backtesting discipline that calibrates the error bands.
 
 ## Changelog
 

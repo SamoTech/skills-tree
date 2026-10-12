@@ -88,7 +88,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Audit Logging](audit-logging.md) — the upstream discipline that makes logs reconstructable at all.
-- [Incident Response](incident-response.md) — the process that consumes the reconstructed timeline.
+- [Incident Response](../16-domain-specific/incident-response.md) — the process that consumes the reconstructed timeline.
 
 ## Changelog
 

@@ -89,7 +89,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Copywriting](copywriting.md) — the short-form craft where voice rules are most visible.
-- [Tone Adjustment](tone-adjustment.md) — the per-message modulation that keeps one voice across situations.
+- [Tone Adjustment](../06-communication/tone-adjustment.md) — the per-message modulation that keeps one voice across situations.
 
 ## Changelog
 

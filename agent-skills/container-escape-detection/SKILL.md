@@ -89,7 +89,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Sandboxed Execution](sandboxed-execution.md) — the isolation layer whose boundary this skill watches.
-- [Incident Response](incident-response.md) — the escalation path when an escape is confirmed.
+- [Incident Response](../16-domain-specific/incident-response.md) — the escalation path when an escape is confirmed.
 
 ## Changelog
 

@@ -6,7 +6,7 @@ stability: experimental
 description: "Define a reusable brand voice from values and audience, specifying tone dimensions, vocabulary rules, and example rewrites so all writers sound like one consistent speaker."
 added: "2026-10"
 version: v1
-related: ["copywriting","tone-adjustment"]
+related: ["copywriting","../06-communication/tone-adjustment"]
 ---
 
 # Brand Voice Development
@@ -91,7 +91,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Copywriting](copywriting.md) — the short-form craft where voice rules are most visible.
-- [Tone Adjustment](tone-adjustment.md) — the per-message modulation that keeps one voice across situations.
+- [Tone Adjustment](../06-communication/tone-adjustment.md) — the per-message modulation that keeps one voice across situations.
 
 ## Changelog
 

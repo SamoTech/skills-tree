@@ -6,7 +6,7 @@ stability: experimental
 description: "Forecast electricity or gas demand over short and medium horizons using calendar effects, weather covariates, and load history, with error bands and explicit regime awareness."
 added: "2026-10"
 version: v1
-related: ["time-series","statistical-analysis"]
+related: ["../12-data/time-series","../12-data/statistical-analysis"]
 ---
 
 # Energy Consumption Forecasting
@@ -87,8 +87,8 @@ Honest boundary: these are implementation references, not adoption or demand evi
 
 ## Related Skills
 
-- [Time Series](time-series.md) — the temporal modeling layer the forecast builds on.
-- [Statistical Analysis](statistical-analysis.md) — the backtesting discipline that calibrates the error bands.
+- [Time Series](../12-data/time-series.md) — the temporal modeling layer the forecast builds on.
+- [Statistical Analysis](../12-data/statistical-analysis.md) — the backtesting discipline that calibrates the error bands.
 
 ## Changelog
 

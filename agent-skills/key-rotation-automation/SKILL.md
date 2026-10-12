@@ -94,7 +94,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 
 ## Related Skills
 
-- [Secrets Management](secrets-management.md) — the storage and scoping layer rotated keys live in.
+- [Secrets Management](../17-infrastructure/secrets-management.md) — the storage and scoping layer rotated keys live in.
 - [Audit Logging](audit-logging.md) — the evidence trail every rotation and revocation writes.
 
 ## Changelog

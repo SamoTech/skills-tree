@@ -6,7 +6,7 @@ stability: experimental
 description: "Automate cryptographic key and credential rotation across services with dual-key overlap, staged rollout, and telemetry-verified revocation, eliminating long-lived shared secrets."
 added: "2026-10"
 version: v1
-related: ["secrets-management","audit-logging"]
+related: ["../17-infrastructure/secrets-management","audit-logging"]
 ---
 
 # Key Rotation Automation
@@ -96,7 +96,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 
 ## Related Skills
 
-- [Secrets Management](secrets-management.md) — the storage and scoping layer rotated keys live in.
+- [Secrets Management](../17-infrastructure/secrets-management.md) — the storage and scoping layer rotated keys live in.
 - [Audit Logging](audit-logging.md) — the evidence trail every rotation and revocation writes.
 
 ## Changelog

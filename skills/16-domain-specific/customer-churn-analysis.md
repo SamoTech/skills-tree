@@ -6,7 +6,7 @@ stability: experimental
 description: "Analyze why customers leave by joining behavioral signals with outcomes, scoring churn risk honestly and separating correlation from causation before acting on findings."
 added: "2026-10"
 version: v1
-related: ["review-analysis","cohort-analysis"]
+related: ["review-analysis","../12-data/cohort-analysis"]
 ---
 
 # Customer Churn Analysis
@@ -93,7 +93,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Review Analysis](review-analysis.md) — the qualitative signal layer where dissatisfaction surfaces first.
-- [Cohort Analysis](cohort-analysis.md) — the retention framework churn analysis plugs into.
+- [Cohort Analysis](../12-data/cohort-analysis.md) — the retention framework churn analysis plugs into.
 
 ## Changelog
 

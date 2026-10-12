@@ -6,7 +6,7 @@ stability: experimental
 description: "Detect container breakout attempts by monitoring privileged operations, namespace and capability anomalies, and kernel interface abuse from inside and around the container runtime."
 added: "2026-10"
 version: v1
-related: ["sandboxed-execution","incident-response"]
+related: ["sandboxed-execution","../16-domain-specific/incident-response"]
 ---
 
 # Container Escape Detection
@@ -91,7 +91,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Sandboxed Execution](sandboxed-execution.md) — the isolation layer whose boundary this skill watches.
-- [Incident Response](incident-response.md) — the escalation path when an escape is confirmed.
+- [Incident Response](../16-domain-specific/incident-response.md) — the escalation path when an escape is confirmed.
 
 ## Changelog
 

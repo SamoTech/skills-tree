@@ -6,7 +6,7 @@ stability: experimental
 description: "Rebuild a coherent incident timeline from partial, overlapping, and clock-skewed logs, producing an evidence-backed sequence with provenance and stated confidence per event."
 added: "2026-10"
 version: v1
-related: ["audit-logging","incident-response"]
+related: ["audit-logging","../16-domain-specific/incident-response"]
 ---
 
 # Forensic Log Reconstruction
@@ -90,7 +90,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Audit Logging](audit-logging.md) — the upstream discipline that makes logs reconstructable at all.
-- [Incident Response](incident-response.md) — the process that consumes the reconstructed timeline.
+- [Incident Response](../16-domain-specific/incident-response.md) — the process that consumes the reconstructed timeline.
 
 ## Changelog
 

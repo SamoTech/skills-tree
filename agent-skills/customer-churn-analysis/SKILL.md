@@ -91,7 +91,7 @@ Honest boundary: these are implementation references, not adoption or demand evi
 ## Related Skills
 
 - [Review Analysis](review-analysis.md) — the qualitative signal layer where dissatisfaction surfaces first.
-- [Cohort Analysis](cohort-analysis.md) — the retention framework churn analysis plugs into.
+- [Cohort Analysis](../12-data/cohort-analysis.md) — the retention framework churn analysis plugs into.
 
 ## Changelog
 
