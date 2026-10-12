@@ -1,6 +1,6 @@
 # Graph Build Report
 
-**Generated:** 2026-10-12T07:15:22.470773+00:00  
+**Generated:** 2026-10-12T08:36:04.169010+00:00  
 **Generator:** tools/build_graph.py  
 **Schema Version:** 3.1  
 **Dry Run:** False  
@@ -9,12 +9,12 @@
 
 | Metric | Value |
 |---|---|
-| Total nodes | 438 |
-| Total edges | 383 |
+| Total nodes | 483 |
+| Total edges | 473 |
 | REQUIRES edges | 8 |
 | REQUIRES (frontmatter) | 8 |
 | SUPPORTS edges | 0 |
-| RELATED_TO edges | 375 |
+| RELATED_TO edges | 465 |
 | Validation errors | 0 |
 | Unresolved targets (warnings) | 0 |
 

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-12T07:15:22.470898+00:00",
+    "generated_at": "2026-10-12T08:36:04.169207+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 438,
-    "edge_count": 383,
+    "node_count": 483,
+    "edge_count": 473,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -40,6 +40,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/barcode-qr-scanning",
+      "title": "Barcode and QR Scanning",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/barcode-qr-scanning.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/binary-file-reading",
       "title": "Binary File Reading",
       "category": "01-perception",
@@ -70,6 +85,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/certificate-parsing",
+      "title": "Certificate Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/certificate-parsing.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/chart-reading",
       "title": "Chart Reading",
       "category": "01-perception",
@@ -97,6 +127,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/code-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/config-file-parsing",
+      "title": "Config File Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/config-file-parsing.md",
       "quality_score": null
     },
     {
@@ -280,6 +325,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/iot-telemetry-parsing",
+      "title": "IoT Telemetry Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/iot-telemetry-parsing.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/json-schema-validation",
       "title": "JSON Schema Validation",
       "category": "01-perception",
@@ -337,6 +397,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/markdown-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/metadata-extraction",
+      "title": "Metadata Extraction",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/metadata-extraction.md",
       "quality_score": null
     },
     {
@@ -640,6 +715,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/case-based-reasoning",
+      "title": "Case-Based Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/case-based-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/causal",
       "title": "Causal Reasoning",
       "category": "02-reasoning",
@@ -697,6 +787,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/constraint-satisfaction.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/cost-benefit-analysis",
+      "title": "Cost-Benefit Analysis",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/cost-benefit-analysis.md",
       "quality_score": null
     },
     {
@@ -925,6 +1030,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/pareto-analysis",
+      "title": "Pareto Analysis",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/planning-decomposition",
       "title": "Planning Decomposition",
       "category": "02-reasoning",
@@ -1048,6 +1168,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/resource-allocation",
+      "title": "Resource Allocation",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/resource-allocation.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/risk-assessment",
       "title": "Risk Assessment",
       "category": "02-reasoning",
@@ -1135,6 +1270,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/self-reflection.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/sensitivity-analysis",
+      "title": "Sensitivity Analysis",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/sensitivity-analysis.md",
       "quality_score": null
     },
     {
@@ -1423,6 +1573,36 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/memory-consolidation",
+      "title": "Memory Consolidation",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-consolidation.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/memory-indexing",
+      "title": "Memory Indexing",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-indexing.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/memory-injection",
       "title": "Memory Injection",
       "category": "03-memory",
@@ -1450,6 +1630,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/memory-summarization.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/memory-ttl",
+      "title": "Memory TTL",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-ttl.md",
       "quality_score": null
     },
     {
@@ -1510,6 +1705,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/rag.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/retention-policy",
+      "title": "Retention Policy",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/retention-policy.md",
       "quality_score": null
     },
     {
@@ -1633,6 +1843,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/batch-processing",
+      "title": "Batch Processing",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/batch-processing.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/calendar-event",
       "title": "Calendar Event",
       "category": "04-action-execution",
@@ -1660,6 +1885,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/clipboard-ops.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/compensating-actions",
+      "title": "Compensating Actions",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/compensating-actions.md",
       "quality_score": null
     },
     {
@@ -1798,6 +2038,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/idempotent-retries",
+      "title": "Idempotent Retries",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/idempotent-retries.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/keyboard-input",
       "title": "Keyboard Input",
       "category": "04-action-execution",
@@ -1855,6 +2110,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/process-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/quota-management",
+      "title": "Quota Management",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/quota-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/scheduled-execution",
+      "title": "Scheduled Execution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/scheduled-execution.md",
       "quality_score": null
     },
     {
@@ -2023,6 +2308,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/code-fuzzing",
+      "title": "Code Fuzzing",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/code-fuzzing.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/code-generation",
       "title": "Code Generation",
       "category": "05-code",
@@ -2188,6 +2488,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/error-handling-design",
+      "title": "Error Handling Design",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/error-handling-design.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/git-operations",
       "title": "Git Operations",
       "category": "05-code",
@@ -2260,6 +2575,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/linting-formatting.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/mutation-testing",
+      "title": "Mutation Testing",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/mutation-testing.md",
       "quality_score": null
     },
     {
@@ -2368,6 +2698,36 @@
       "quality_score": null
     },
     {
+      "id": "05-code/static-analysis",
+      "title": "Static Analysis",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/static-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/structured-logging",
+      "title": "Structured Logging",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/structured-logging.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/unit-test-generation",
       "title": "Unit Test Generation",
       "category": "05-code",
@@ -2395,6 +2755,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/argument-construction.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/audience-analysis",
+      "title": "Audience Analysis",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/audience-analysis.md",
       "quality_score": null
     },
     {
@@ -2455,6 +2830,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/email-drafting.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/feedback-delivery",
+      "title": "Feedback Delivery",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/feedback-delivery.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/incident-communication",
+      "title": "Incident Communication",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/incident-communication.md",
       "quality_score": null
     },
     {
@@ -2530,6 +2935,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/persona-adoption.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/plain-language-writing",
+      "title": "Plain Language Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/plain-language-writing.md",
       "quality_score": null
     },
     {
@@ -2650,6 +3070,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/anthropic-api.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/api-pagination",
+      "title": "API Pagination",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/api-pagination.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/api-version-pinning",
+      "title": "API Version Pinning",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/api-version-pinning.md",
       "quality_score": null
     },
     {
@@ -2968,6 +3418,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/streaming-tool-output",
+      "title": "Streaming Tool Output",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/streaming-tool-output.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/stripe-api",
       "title": "Stripe API",
       "category": "07-tool-use",
@@ -2995,6 +3460,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/tool-guardrails.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-output-validation",
+      "title": "Tool Output Validation",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-output-validation.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-result-caching",
+      "title": "Tool Result Caching",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-result-caching.md",
       "quality_score": null
     },
     {
@@ -3448,6 +3943,36 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/agent-checkpointing",
+      "title": "Agent Checkpointing",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-checkpointing.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-failure-taxonomy",
+      "title": "Agent Failure Taxonomy",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-failure-taxonomy.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/agent-handoffs",
       "title": "Agent Handoffs",
       "category": "09-agentic-patterns",
@@ -3496,6 +4021,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/approval-gates",
+      "title": "Approval Gates",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/approval-gates.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/bootstrapping",
       "title": "Bootstrapping",
       "category": "09-agentic-patterns",
@@ -3508,6 +4048,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/bootstrapping.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/bounded-exploration",
+      "title": "Bounded Exploration",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/bounded-exploration.md",
       "quality_score": null
     },
     {
@@ -4658,6 +5213,36 @@
       "quality_score": null
     },
     {
+      "id": "12-data/data-lineage",
+      "title": "Data Lineage",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-lineage.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/data-profiling",
+      "title": "Data Profiling",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-profiling.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/data-summarization",
       "title": "Data Summarization",
       "category": "12-data",
@@ -4670,6 +5255,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-summarization.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/data-validation",
+      "title": "Data Validation",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-validation.md",
       "quality_score": null
     },
     {
@@ -4715,6 +5315,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/etl-pipeline.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/incremental-processing",
+      "title": "Incremental Processing",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/incremental-processing.md",
       "quality_score": null
     },
     {
@@ -6518,6 +7133,36 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/alerting-design",
+      "title": "Alerting Design",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/alerting-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/blue-green-deployment",
+      "title": "Blue-Green Deployment",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/blue-green-deployment.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/container-image-tagging",
       "title": "Container Image Tagging",
       "category": "17-infrastructure",
@@ -6530,6 +7175,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/container-image-tagging.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/declarative-infrastructure",
+      "title": "Declarative Infrastructure",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/declarative-infrastructure.md",
       "quality_score": null
     },
     {
@@ -6591,9 +7251,40 @@
       "related_skills": [],
       "source_file": "skills/17-infrastructure/kubernetes-deployment.md",
       "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/secrets-management",
+      "title": "Secrets Management",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/secrets-management.md",
+      "quality_score": null
     }
   ],
   "edges": [
+    {
+      "source": "01-perception/barcode-qr-scanning",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/barcode-qr-scanning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/barcode-qr-scanning",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/barcode-qr-scanning.md",
+      "confidence": "high"
+    },
     {
       "source": "01-perception/binary-file-reading",
       "target": "01-perception/file-system-reading",
@@ -6648,6 +7339,22 @@
       "type": "RELATED_TO",
       "evidence": "[Structured Data Reading](./structured-data-reading.md)",
       "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/certificate-parsing",
+      "target": "01-perception/network-traffic-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Network Traffic Reading](network-traffic-reading.md)",
+      "source_file": "skills/01-perception/certificate-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/certificate-parsing",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/certificate-parsing.md",
       "confidence": "high"
     },
     {
@@ -6712,6 +7419,22 @@
       "type": "RELATED_TO",
       "evidence": "[File System Reading](file-system-reading.md)",
       "source_file": "skills/01-perception/code-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/config-file-parsing",
+      "target": "01-perception/env-file-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Env File Parsing](env-file-parsing.md)",
+      "source_file": "skills/01-perception/config-file-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/config-file-parsing",
+      "target": "01-perception/json-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[JSON Schema Validation](json-schema-validation.md)",
+      "source_file": "skills/01-perception/config-file-parsing.md",
       "confidence": "high"
     },
     {
@@ -6947,6 +7670,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/iot-telemetry-parsing",
+      "target": "01-perception/sensor-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Sensor Reading](sensor-reading.md)",
+      "source_file": "skills/01-perception/iot-telemetry-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/iot-telemetry-parsing",
+      "target": "01-perception/log-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Log Parsing](log-parsing.md)",
+      "source_file": "skills/01-perception/iot-telemetry-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/json-schema-validation",
       "target": "01-perception/api-response-parsing",
       "type": "RELATED_TO",
@@ -6968,6 +7707,22 @@
       "type": "RELATED_TO",
       "evidence": "[Document Parsing](./document-parsing.md)",
       "source_file": "skills/01-perception/json-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/metadata-extraction",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/metadata-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/metadata-extraction",
+      "target": "01-perception/pdf-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[PDF Parsing](pdf-parsing.md)",
+      "source_file": "skills/01-perception/metadata-extraction.md",
       "confidence": "high"
     },
     {
@@ -7139,6 +7894,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/case-based-reasoning",
+      "target": "02-reasoning/analogical",
+      "type": "RELATED_TO",
+      "evidence": "[Analogical Reasoning](analogical.md)",
+      "source_file": "skills/02-reasoning/case-based-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/case-based-reasoning",
+      "target": "02-reasoning/inductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Inductive Reasoning](inductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/case-based-reasoning.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/causal",
       "target": "02-reasoning/abductive",
       "type": "RELATED_TO",
@@ -7216,6 +7987,22 @@
       "type": "RELATED_TO",
       "evidence": "[Task Decomposition](task-decomposition.md)",
       "source_file": "skills/02-reasoning/constraint-satisfaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/cost-benefit-analysis",
+      "target": "02-reasoning/trade-off-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Trade-off Analysis](trade-off-analysis.md)",
+      "source_file": "skills/02-reasoning/cost-benefit-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/cost-benefit-analysis",
+      "target": "02-reasoning/decision-making",
+      "type": "RELATED_TO",
+      "evidence": "[Decision Making](decision-making.md)",
+      "source_file": "skills/02-reasoning/cost-benefit-analysis.md",
       "confidence": "high"
     },
     {
@@ -7523,6 +8310,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/pareto-analysis",
+      "target": "02-reasoning/prioritization",
+      "type": "RELATED_TO",
+      "evidence": "[Prioritization](prioritization.md)",
+      "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/pareto-analysis",
+      "target": "02-reasoning/trade-off-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Trade-off Analysis](trade-off-analysis.md)",
+      "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/planning-decomposition",
       "target": "09-agentic-patterns/plan-and-execute",
       "type": "RELATED_TO",
@@ -7659,6 +8462,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/resource-allocation",
+      "target": "02-reasoning/prioritization",
+      "type": "RELATED_TO",
+      "evidence": "[Prioritization](prioritization.md)",
+      "source_file": "skills/02-reasoning/resource-allocation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/resource-allocation",
+      "target": "02-reasoning/constraint-satisfaction",
+      "type": "RELATED_TO",
+      "evidence": "[Constraint Satisfaction](constraint-satisfaction.md)",
+      "source_file": "skills/02-reasoning/resource-allocation.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/self-consistency",
       "target": "09-agentic-patterns/cot",
       "type": "RELATED_TO",
@@ -7680,6 +8499,22 @@
       "type": "RELATED_TO",
       "evidence": "[Tree of Thought](../09-agentic-patterns/tot.md)",
       "source_file": "skills/02-reasoning/self-consistency.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/sensitivity-analysis",
+      "target": "02-reasoning/uncertainty-quantification",
+      "type": "RELATED_TO",
+      "evidence": "[Uncertainty Quantification](uncertainty-quantification.md)",
+      "source_file": "skills/02-reasoning/sensitivity-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/sensitivity-analysis",
+      "target": "02-reasoning/risk-assessment",
+      "type": "RELATED_TO",
+      "evidence": "[Risk Assessment](risk-assessment.md)",
+      "source_file": "skills/02-reasoning/sensitivity-analysis.md",
       "confidence": "high"
     },
     {
@@ -7763,6 +8598,38 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/memory-consolidation",
+      "target": "03-memory/memory-summarization",
+      "type": "RELATED_TO",
+      "evidence": "[Memory Summarization](memory-summarization.md)",
+      "source_file": "skills/03-memory/memory-consolidation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-consolidation",
+      "target": "03-memory/episodic-memory",
+      "type": "RELATED_TO",
+      "evidence": "[Episodic Memory](episodic-memory.md)",
+      "source_file": "skills/03-memory/memory-consolidation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-indexing",
+      "target": "03-memory/vector-store-retrieval",
+      "type": "RELATED_TO",
+      "evidence": "[Vector Store Retrieval](vector-store-retrieval.md)",
+      "source_file": "skills/03-memory/memory-indexing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-indexing",
+      "target": "03-memory/semantic-memory",
+      "type": "RELATED_TO",
+      "evidence": "[Semantic Memory](semantic-memory.md)",
+      "source_file": "skills/03-memory/memory-indexing.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/memory-injection",
       "target": "03-memory/working-memory",
       "type": "RELATED_TO",
@@ -7792,6 +8659,22 @@
       "type": "RELATED_TO",
       "evidence": "[Forgetting](forgetting.md)",
       "source_file": "skills/03-memory/memory-injection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-ttl",
+      "target": "03-memory/cache-management",
+      "type": "RELATED_TO",
+      "evidence": "[Cache Management](cache-management.md)",
+      "source_file": "skills/03-memory/memory-ttl.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-ttl",
+      "target": "03-memory/forgetting",
+      "type": "RELATED_TO",
+      "evidence": "[Forgetting](forgetting.md)",
+      "source_file": "skills/03-memory/memory-ttl.md",
       "confidence": "high"
     },
     {
@@ -7859,6 +8742,22 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/retention-policy",
+      "target": "03-memory/forgetting",
+      "type": "RELATED_TO",
+      "evidence": "[Forgetting](forgetting.md)",
+      "source_file": "skills/03-memory/retention-policy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/retention-policy",
+      "target": "03-memory/long-term-memory",
+      "type": "RELATED_TO",
+      "evidence": "[Long-Term Memory](long-term-memory.md)",
+      "source_file": "skills/03-memory/retention-policy.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/short-term-memory",
       "target": "03-memory/memory-injection",
       "type": "RELATED_TO",
@@ -7904,6 +8803,38 @@
       "type": "RELATED_TO",
       "evidence": "[Memory Injection](memory-injection.md)",
       "source_file": "skills/03-memory/vector-store-retrieval.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/batch-processing",
+      "target": "04-action-execution/database-write",
+      "type": "RELATED_TO",
+      "evidence": "[Database Write](database-write.md)",
+      "source_file": "skills/04-action-execution/batch-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/batch-processing",
+      "target": "04-action-execution/api-call",
+      "type": "RELATED_TO",
+      "evidence": "[API Call](api-call.md)",
+      "source_file": "skills/04-action-execution/batch-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/compensating-actions",
+      "target": "04-action-execution/database-write",
+      "type": "RELATED_TO",
+      "evidence": "[Database Write](database-write.md)",
+      "source_file": "skills/04-action-execution/compensating-actions.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/compensating-actions",
+      "target": "04-action-execution/file-delete",
+      "type": "RELATED_TO",
+      "evidence": "[File Delete](file-delete.md)",
+      "source_file": "skills/04-action-execution/compensating-actions.md",
       "confidence": "high"
     },
     {
@@ -7979,6 +8910,54 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/idempotent-retries",
+      "target": "04-action-execution/api-call",
+      "type": "RELATED_TO",
+      "evidence": "[API Call](api-call.md)",
+      "source_file": "skills/04-action-execution/idempotent-retries.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/idempotent-retries",
+      "target": "04-action-execution/webhook-handling",
+      "type": "RELATED_TO",
+      "evidence": "[Webhook Handling](webhook-handling.md)",
+      "source_file": "skills/04-action-execution/idempotent-retries.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/quota-management",
+      "target": "04-action-execution/api-call",
+      "type": "RELATED_TO",
+      "evidence": "[API Call](api-call.md)",
+      "source_file": "skills/04-action-execution/quota-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/quota-management",
+      "target": "04-action-execution/http-request",
+      "type": "RELATED_TO",
+      "evidence": "[HTTP Request](http-request.md)",
+      "source_file": "skills/04-action-execution/quota-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/scheduled-execution",
+      "target": "04-action-execution/wait-sleep",
+      "type": "RELATED_TO",
+      "evidence": "[Wait Sleep](wait-sleep.md)",
+      "source_file": "skills/04-action-execution/scheduled-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/scheduled-execution",
+      "target": "04-action-execution/calendar-event",
+      "type": "RELATED_TO",
+      "evidence": "[Calendar Event](calendar-event.md)",
+      "source_file": "skills/04-action-execution/scheduled-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/webhook-handling",
       "target": "04-action-execution/http-request",
       "type": "RELATED_TO",
@@ -8000,6 +8979,22 @@
       "type": "RELATED_TO",
       "evidence": "[Retry Backoff](../15-orchestration/retry-backoff.md)",
       "source_file": "skills/04-action-execution/webhook-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-fuzzing",
+      "target": "05-code/property-based-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Property-Based Testing](property-based-testing.md)",
+      "source_file": "skills/05-code/code-fuzzing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-fuzzing",
+      "target": "05-code/security-scanning",
+      "type": "RELATED_TO",
+      "evidence": "[Security Scanning](security-scanning.md)",
+      "source_file": "skills/05-code/code-fuzzing.md",
       "confidence": "high"
     },
     {
@@ -8051,6 +9046,38 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/error-handling-design",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/error-handling-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/error-handling-design",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/error-handling-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/mutation-testing",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/mutation-testing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/mutation-testing",
+      "target": "05-code/property-based-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Property-Based Testing](property-based-testing.md)",
+      "source_file": "skills/05-code/mutation-testing.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/property-based-testing",
       "target": "05-code/unit-test-generation",
       "type": "RELATED_TO",
@@ -8072,6 +9099,86 @@
       "type": "RELATED_TO",
       "evidence": "[Assertion](../04-action-execution/assertion.md)",
       "source_file": "skills/05-code/property-based-testing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/static-analysis",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/static-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/static-analysis",
+      "target": "05-code/security-scanning",
+      "type": "RELATED_TO",
+      "evidence": "[Security Scanning](security-scanning.md)",
+      "source_file": "skills/05-code/static-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/structured-logging",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/structured-logging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/structured-logging",
+      "target": "05-code/performance-profiling",
+      "type": "RELATED_TO",
+      "evidence": "[Performance Profiling](performance-profiling.md)",
+      "source_file": "skills/05-code/structured-logging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/audience-analysis",
+      "target": "06-communication/persona-adoption",
+      "type": "RELATED_TO",
+      "evidence": "[Persona Adoption](persona-adoption.md)",
+      "source_file": "skills/06-communication/audience-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/audience-analysis",
+      "target": "06-communication/tone-adjustment",
+      "type": "RELATED_TO",
+      "evidence": "[Tone Adjustment](tone-adjustment.md)",
+      "source_file": "skills/06-communication/audience-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/feedback-delivery",
+      "target": "06-communication/debate",
+      "type": "RELATED_TO",
+      "evidence": "[Debate](debate.md)",
+      "source_file": "skills/06-communication/feedback-delivery.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/feedback-delivery",
+      "target": "06-communication/argument-construction",
+      "type": "RELATED_TO",
+      "evidence": "[Argument Construction](argument-construction.md)",
+      "source_file": "skills/06-communication/feedback-delivery.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/incident-communication",
+      "target": "06-communication/report-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Report Writing](report-writing.md)",
+      "source_file": "skills/06-communication/incident-communication.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/incident-communication",
+      "target": "06-communication/tone-adjustment",
+      "type": "RELATED_TO",
+      "evidence": "[Tone Adjustment](tone-adjustment.md)",
+      "source_file": "skills/06-communication/incident-communication.md",
       "confidence": "high"
     },
     {
@@ -8131,6 +9238,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/plain-language-writing",
+      "target": "06-communication/paraphrasing",
+      "type": "RELATED_TO",
+      "evidence": "[Paraphrasing](paraphrasing.md)",
+      "source_file": "skills/06-communication/plain-language-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/plain-language-writing",
+      "target": "06-communication/summarization",
+      "type": "RELATED_TO",
+      "evidence": "[Summarization](summarization.md)",
+      "source_file": "skills/06-communication/plain-language-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/translation",
       "target": "06-communication/multilingual-output",
       "type": "RELATED_TO",
@@ -8187,6 +9310,38 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/api-pagination",
+      "target": "07-tool-use/custom-api-wrapper",
+      "type": "RELATED_TO",
+      "evidence": "[Custom API Wrapper](custom-api-wrapper.md)",
+      "source_file": "skills/07-tool-use/api-pagination.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/api-pagination",
+      "target": "07-tool-use/stripe-api",
+      "type": "RELATED_TO",
+      "evidence": "[Stripe API](stripe-api.md)",
+      "source_file": "skills/07-tool-use/api-pagination.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/api-version-pinning",
+      "target": "07-tool-use/custom-api-wrapper",
+      "type": "RELATED_TO",
+      "evidence": "[Custom API Wrapper](custom-api-wrapper.md)",
+      "source_file": "skills/07-tool-use/api-version-pinning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/api-version-pinning",
+      "target": "07-tool-use/openai-api",
+      "type": "RELATED_TO",
+      "evidence": "[OpenAI API](openai-api.md)",
+      "source_file": "skills/07-tool-use/api-version-pinning.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/function-calling",
       "target": "07-tool-use/openai-api",
       "type": "RELATED_TO",
@@ -8240,6 +9395,54 @@
       "type": "RELATED_TO",
       "evidence": "[Embedding Generation](../12-data/embedding-generation.md)",
       "source_file": "skills/07-tool-use/openai-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/streaming-tool-output",
+      "target": "07-tool-use/function-calling",
+      "type": "RELATED_TO",
+      "evidence": "[Function Calling](function-calling.md)",
+      "source_file": "skills/07-tool-use/streaming-tool-output.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/streaming-tool-output",
+      "target": "07-tool-use/mcp-tool",
+      "type": "RELATED_TO",
+      "evidence": "[MCP Tool](mcp-tool.md)",
+      "source_file": "skills/07-tool-use/streaming-tool-output.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-output-validation",
+      "target": "07-tool-use/tool-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Schema Design](tool-schema-design.md)",
+      "source_file": "skills/07-tool-use/tool-output-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-output-validation",
+      "target": "07-tool-use/function-calling",
+      "type": "RELATED_TO",
+      "evidence": "[Function Calling](function-calling.md)",
+      "source_file": "skills/07-tool-use/tool-output-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-result-caching",
+      "target": "07-tool-use/tool-review-loops",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Review Loops](tool-review-loops.md)",
+      "source_file": "skills/07-tool-use/tool-result-caching.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-result-caching",
+      "target": "07-tool-use/function-calling",
+      "type": "RELATED_TO",
+      "evidence": "[Function Calling](function-calling.md)",
+      "source_file": "skills/07-tool-use/tool-result-caching.md",
       "confidence": "high"
     },
     {
@@ -8392,6 +9595,70 @@
       "type": "RELATED_TO",
       "evidence": "[Image Editing](image-editing.md)",
       "source_file": "skills/08-multimodal/thumbnail-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-checkpointing",
+      "target": "09-agentic-patterns/time-travel-debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Time-Travel Debugging](time-travel-debugging.md)",
+      "source_file": "skills/09-agentic-patterns/agent-checkpointing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-checkpointing",
+      "target": "09-agentic-patterns/interruptible-agent-flows",
+      "type": "RELATED_TO",
+      "evidence": "[Interruptible Agent Flows](interruptible-agent-flows.md)",
+      "source_file": "skills/09-agentic-patterns/agent-checkpointing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-failure-taxonomy",
+      "target": "09-agentic-patterns/agent-observability-tracing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Observability Tracing](agent-observability-tracing.md)",
+      "source_file": "skills/09-agentic-patterns/agent-failure-taxonomy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-failure-taxonomy",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/agent-failure-taxonomy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/approval-gates",
+      "target": "09-agentic-patterns/interruptible-agent-flows",
+      "type": "RELATED_TO",
+      "evidence": "[Interruptible Agent Flows](interruptible-agent-flows.md)",
+      "source_file": "skills/09-agentic-patterns/approval-gates.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/approval-gates",
+      "target": "09-agentic-patterns/tool-use-loop",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Use Loop](tool-use-loop.md)",
+      "source_file": "skills/09-agentic-patterns/approval-gates.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/bounded-exploration",
+      "target": "09-agentic-patterns/mcts",
+      "type": "RELATED_TO",
+      "evidence": "[MCTS](mcts.md)",
+      "source_file": "skills/09-agentic-patterns/bounded-exploration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/bounded-exploration",
+      "target": "09-agentic-patterns/self-play",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Play](self-play.md)",
+      "source_file": "skills/09-agentic-patterns/bounded-exploration.md",
       "confidence": "high"
     },
     {
@@ -8763,6 +10030,54 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/data-lineage",
+      "target": "12-data/etl-pipeline",
+      "type": "RELATED_TO",
+      "evidence": "[ETL Pipeline](etl-pipeline.md)",
+      "source_file": "skills/12-data/data-lineage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-lineage",
+      "target": "12-data/data-joining",
+      "type": "RELATED_TO",
+      "evidence": "[Data Joining](data-joining.md)",
+      "source_file": "skills/12-data/data-lineage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-profiling",
+      "target": "12-data/statistical-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Statistical Analysis](statistical-analysis.md)",
+      "source_file": "skills/12-data/data-profiling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-profiling",
+      "target": "12-data/data-cleaning",
+      "type": "RELATED_TO",
+      "evidence": "[Data Cleaning](data-cleaning.md)",
+      "source_file": "skills/12-data/data-profiling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-validation",
+      "target": "12-data/data-cleaning",
+      "type": "RELATED_TO",
+      "evidence": "[Data Cleaning](data-cleaning.md)",
+      "source_file": "skills/12-data/data-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-validation",
+      "target": "12-data/schema-inference",
+      "type": "RELATED_TO",
+      "evidence": "[Schema Inference](schema-inference.md)",
+      "source_file": "skills/12-data/data-validation.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/embedding-generation",
       "target": "03-memory/vector-store-retrieval",
       "type": "RELATED_TO",
@@ -8784,6 +10099,22 @@
       "type": "RELATED_TO",
       "evidence": "[Similarity Search](similarity-search.md)",
       "source_file": "skills/12-data/embedding-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/incremental-processing",
+      "target": "12-data/etl-pipeline",
+      "type": "RELATED_TO",
+      "evidence": "[ETL Pipeline](etl-pipeline.md)",
+      "source_file": "skills/12-data/incremental-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/incremental-processing",
+      "target": "12-data/data-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Aggregation](data-aggregation.md)",
+      "source_file": "skills/12-data/incremental-processing.md",
       "confidence": "high"
     },
     {
@@ -9523,6 +10854,38 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/alerting-design",
+      "target": "17-infrastructure/health-check-endpoints",
+      "type": "RELATED_TO",
+      "evidence": "[Health Check Endpoints](health-check-endpoints.md)",
+      "source_file": "skills/17-infrastructure/alerting-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/alerting-design",
+      "target": "17-infrastructure/deployment-rollback",
+      "type": "RELATED_TO",
+      "evidence": "[Deployment Rollback](deployment-rollback.md)",
+      "source_file": "skills/17-infrastructure/alerting-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/blue-green-deployment",
+      "target": "17-infrastructure/deployment-rollback",
+      "type": "RELATED_TO",
+      "evidence": "[Deployment Rollback](deployment-rollback.md)",
+      "source_file": "skills/17-infrastructure/blue-green-deployment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/blue-green-deployment",
+      "target": "17-infrastructure/container-image-tagging",
+      "type": "RELATED_TO",
+      "evidence": "[Container Image Tagging](container-image-tagging.md)",
+      "source_file": "skills/17-infrastructure/blue-green-deployment.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/container-image-tagging",
       "target": "17-infrastructure/kubernetes-deployment",
       "type": "RELATED_TO",
@@ -9536,6 +10899,22 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Auditor](dependency-auditor.md)",
       "source_file": "skills/17-infrastructure/container-image-tagging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/declarative-infrastructure",
+      "target": "17-infrastructure/kubernetes-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Kubernetes Deployment](kubernetes-deployment.md)",
+      "source_file": "skills/17-infrastructure/declarative-infrastructure.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/declarative-infrastructure",
+      "target": "17-infrastructure/container-image-tagging",
+      "type": "RELATED_TO",
+      "evidence": "[Container Image Tagging](container-image-tagging.md)",
+      "source_file": "skills/17-infrastructure/declarative-infrastructure.md",
       "confidence": "high"
     },
     {
@@ -9592,6 +10971,22 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Auditor](dependency-auditor.md)",
       "source_file": "skills/17-infrastructure/kubernetes-deployment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/secrets-management",
+      "target": "17-infrastructure/kubernetes-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Kubernetes Deployment](kubernetes-deployment.md)",
+      "source_file": "skills/17-infrastructure/secrets-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/secrets-management",
+      "target": "17-infrastructure/dependency-auditor",
+      "type": "RELATED_TO",
+      "evidence": "[Dependency Auditor](dependency-auditor.md)",
+      "source_file": "skills/17-infrastructure/secrets-management.md",
       "confidence": "high"
     },
     {
