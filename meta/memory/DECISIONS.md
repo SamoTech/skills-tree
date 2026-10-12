@@ -1616,3 +1616,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen when the owner performs the cleanup or changes this direction.
+
+## DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION
+
+**Topic:** Owner-directed daily demand-driven skill-expansion program.
+
+**Decision:** The repository owner directed on 2026-10-12 a recurring daily expansion program of up to 200 new canonical skills per day, selected from measured demand signals (current AI-agent/AI-tool ecosystem trends and request signals gathered by web research, the configured GitHub demand-sources queries, and `meta/MOST-WANTED-SKILLS.md`). This is an explicit owner override of the measured-gap rule as to volume, consistent with the recorded owner-directed expansion precedents; selection must still cite a real signal per skill and no demand signal may be fabricated. The program executes through the repository's standard batch PR -> full-CI (all checks completed, zero failures) -> exact-head squash-merge cycles, in batches of <=50 skills per PR; all quality gates remain binding (failure-modes ratchet, anti-slop gate, deterministic byte-exact agent-skills packages, security gates, PR boundary, same-cycle documentation sync). Scheduled runs report honest boundaries: actual delivered counts, per-skill selection basis, and reasons for any shortfall. Branches are never deleted per DECISION-2026-10-12-STALE-BRANCH-DEFERRAL.
+
+**Confidence:** HIGH — direct owner instruction recorded 2026-10-12.
+
+**Evidence IDs:** owner instruction 2026-10-12; owner-side agent scheduled task (daily 09:00 Africa/Cairo) created 2026-10-12; meta/MOST-WANTED-SKILLS.md; meta/demand-sources.json; PRs #480, #487, #491, #506, #514 (owner-directed expansion precedents); DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION-WAVE-2.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen when the owner pauses, cancels, or changes the program's daily volume, or if the quality gates prove incompatible with the daily cadence (the gates themselves are never weakened; the program yields instead).
