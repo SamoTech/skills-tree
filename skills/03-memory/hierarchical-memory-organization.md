@@ -9,6 +9,7 @@ version: v1
 related: [memory-indexing, long-term-memory, memory-consolidation]
 tags: [hierarchical, memory, organization, memory]
 ---
+
 # Hierarchical Memory Organization
 
 ## Description

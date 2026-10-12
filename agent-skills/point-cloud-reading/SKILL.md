@@ -6,6 +6,7 @@ metadata:
   category: 01-perception
   version: "v1"
 ---
+
 # Point Cloud Reading
 
 ## Description

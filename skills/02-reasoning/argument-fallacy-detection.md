@@ -9,6 +9,7 @@ version: v1
 related: [argument-structure-analysis, self-correction, debate]
 tags: [argument, fallacy, detection, reasoning]
 ---
+
 # Argument Fallacy Detection
 
 ## Description

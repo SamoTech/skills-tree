@@ -9,6 +9,7 @@ version: v1
 related: [probabilistic-reasoning, decision-making, risk-assessment]
 tags: [expected, utility, analysis, reasoning]
 ---
+
 # Expected Utility Analysis
 
 ## Description

@@ -9,6 +9,7 @@ version: v1
 related: [file-write, file-delete, batch-processing]
 tags: [bulk, file, renaming, action]
 ---
+
 # Bulk File Renaming
 
 ## Description

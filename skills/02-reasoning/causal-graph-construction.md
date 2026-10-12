@@ -9,6 +9,7 @@ version: v1
 related: [causal, root-cause-analysis, counterfactual-reasoning]
 tags: [causal, graph, construction, reasoning]
 ---
+
 # Causal Graph Construction
 
 ## Description

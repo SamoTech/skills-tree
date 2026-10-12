@@ -9,6 +9,7 @@ version: v1
 related: [document-parsing, metadata-extraction, privacy-preservation]
 tags: [redacted, content, detection, perception]
 ---
+
 # Redacted Content Detection
 
 ## Description

@@ -9,6 +9,7 @@ version: v1
 related: [trade-off-analysis, pareto-analysis, decision-making]
 tags: [multi, objective, optimization, reasoning]
 ---
+
 # Multi-Objective Optimization
 
 ## Description

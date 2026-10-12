@@ -9,6 +9,7 @@ version: v1
 related: [hypothesis-generation, sensitivity-analysis, risk-assessment]
 tags: [assumption, mapping, reasoning]
 ---
+
 # Assumption Mapping
 
 ## Description

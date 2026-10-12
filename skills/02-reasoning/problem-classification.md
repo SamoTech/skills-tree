@@ -9,6 +9,7 @@ version: v1
 related: [prioritization, task-decomposition, decision-making]
 tags: [problem, classification, reasoning]
 ---
+
 # Problem Classification
 
 ## Description

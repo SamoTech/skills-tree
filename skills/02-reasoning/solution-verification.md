@@ -9,6 +9,7 @@ version: v1
 related: [self-correction, self-reflection, assertion]
 tags: [solution, verification, reasoning]
 ---
+
 # Solution Verification
 
 ## Description

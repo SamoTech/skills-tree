@@ -9,6 +9,7 @@ version: v1
 related: [retention-policy, user-profile-memory, least-privilege-scoping]
 tags: [need, to, know, memory, memory]
 ---
+
 # Need-to-Know Memory Scoping
 
 ## Description

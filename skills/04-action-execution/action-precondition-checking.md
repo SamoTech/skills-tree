@@ -9,6 +9,7 @@ version: v1
 related: [assertion, quota-management, permission-checking]
 tags: [action, precondition, checking, action]
 ---
+
 # Action Precondition Checking
 
 ## Description

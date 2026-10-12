@@ -9,6 +9,7 @@ version: v1
 related: [vector-store-retrieval, memory-indexing, rag]
 tags: [retrieval, prefetching, memory]
 ---
+
 # Retrieval Prefetching
 
 ## Description

@@ -9,6 +9,7 @@ version: v1
 related: [text-reading, metadata-extraction, structured-data-reading]
 tags: [named, entity, recognition, perception]
 ---
+
 # Named Entity Recognition
 
 ## Description

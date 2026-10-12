@@ -9,6 +9,7 @@ version: v1
 related: [image-understanding, video-understanding, knowledge-graph-reading]
 tags: [scene, graph, construction, perception]
 ---
+
 # Scene Graph Construction
 
 ## Description

@@ -9,6 +9,7 @@ version: v1
 related: [decision-making, prioritization, resource-allocation]
 tags: [satisficing, decision, making, reasoning]
 ---
+
 # Satisficing Decision Making
 
 ## Description

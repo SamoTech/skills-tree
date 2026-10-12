@@ -9,6 +9,7 @@ version: v1
 related: [audio-transcription, iot-telemetry-parsing, time-series-reading]
 tags: [voice, activity, detection, perception]
 ---
+
 # Voice Activity Detection
 
 ## Description

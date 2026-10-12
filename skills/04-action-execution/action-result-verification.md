@@ -9,6 +9,7 @@ version: v1
 related: [assertion, compensating-actions, idempotent-retries]
 tags: [action, result, verification, action]
 ---
+
 # Action Result Verification
 
 ## Description

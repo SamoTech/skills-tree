@@ -9,6 +9,7 @@ version: v1
 related: [calendar-event, scheduled-execution, deadline-propagation]
 tags: [calendar, conflict, detection, action]
 ---
+
 # Calendar Conflict Detection
 
 ## Description

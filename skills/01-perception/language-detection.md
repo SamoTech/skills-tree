@@ -9,6 +9,7 @@ version: v1
 related: [text-reading, social-media-reading, multilingual-output]
 tags: [language, detection, perception]
 ---
+
 # Language Detection
 
 ## Description

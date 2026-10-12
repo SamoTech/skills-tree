@@ -9,6 +9,7 @@ version: v1
 related: [meta-cognition, commonsense, negotiation]
 tags: [theory, of, mind, reasoning, reasoning]
 ---
+
 # Theory of Mind Reasoning
 
 ## Description

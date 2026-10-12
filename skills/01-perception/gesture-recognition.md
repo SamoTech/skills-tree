@@ -9,6 +9,7 @@ version: v1
 related: [video-understanding, sensor-reading, image-understanding]
 tags: [gesture, recognition, perception]
 ---
+
 # Gesture Recognition
 
 ## Description
