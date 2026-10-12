@@ -65,8 +65,8 @@ def trace_redirects(hops, max_hops=10):
         current = nxt
     return chain, "terminal"
 
-hops = {"start": "http://a.example", "http://a.example": "https://a.example",
-        "https://a.example": "https://www.example.com/", "https://www.example.com/": None}
+hops = {"start": "http://example.com/page", "http://example.com/page": "https://example.com/page",
+        "https://example.com/page": "https://www.example.com/", "https://www.example.com/": None}
 chain, status = trace_redirects(hops)
 print(status)
 for source, target in chain:

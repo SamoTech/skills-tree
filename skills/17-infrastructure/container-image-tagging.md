@@ -92,7 +92,7 @@ Tagging identifies artifacts; it does not make them safe. Vulnerability scanning
 
 This skill is grounded in dated public implementation references:
 
-1. The Docker CLI reference for image tagging (https://docs.docker.com/reference/cli/image/tag/).
+1. The Docker CLI reference for image tagging (https://docs.docker.com/reference/cli/docker/image/tag/).
 2. Wikipedia's overview of immutable objects (https://en.wikipedia.org/wiki/Immutable_object).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.

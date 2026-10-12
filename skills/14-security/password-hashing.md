@@ -67,8 +67,8 @@ def verify_password(password, salt, iterations, stored_digest):
 salt = os.urandom(16)
 iterations = 1000  # demonstration cost; production policy is far higher
 stored = hash_password("correct horse", salt, iterations)
-print("correct password:", verify_password("correct horse", salt, iterations, stored))
-print("wrong password:", verify_password("hunter2", salt, iterations, stored))
+print("match:", verify_password("correct horse", salt, iterations, stored))
+print("mismatch:", verify_password("hunter2", salt, iterations, stored))
 ```
 
 ## Failure Modes

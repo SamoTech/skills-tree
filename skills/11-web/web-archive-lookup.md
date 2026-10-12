@@ -50,10 +50,12 @@ Do not use archived copies as a substitute for fetching the live page when curre
 ## Runnable Example
 
 ```python
+ARCHIVE_BASE = "https://web.archive.org"
+
 def wayback_url(url, timestamp):
     """Build a Wayback Machine request URL for a 14-digit timestamp."""
     clean = url.replace("http://", "").replace("https://", "")
-    return f"https://web.archive.org/web/{timestamp}/{clean}"
+    return f"{ARCHIVE_BASE}/web/{timestamp}/{clean}"
 
 def closest_snapshot(snapshots, requested):
     """Select the nearest snapshot at or before the requested timestamp."""

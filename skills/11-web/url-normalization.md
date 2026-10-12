@@ -66,7 +66,7 @@ def normalize_url(url, sort_params=True, strip_fragment=True):
     path = parts.path or "/"
     return urlunsplit((scheme, netloc, path, query, fragment))
 
-raw = "HTTP://Example.COM:443/a/b/?z=1&a=2#frag"
+raw = "https://Example.COM:443/a/b/?z=1&a=2#frag"
 print(normalize_url(raw))
 ```
 
