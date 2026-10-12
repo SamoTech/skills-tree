@@ -66,25 +66,14 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- vetting: bisect round 2 (URLs 1-21) -->
-- <https://en.wikipedia.org/wiki/Apache_Parquet>
-- <https://docs.python.org/3/library/statistics.html>
-- <https://en.wikipedia.org/wiki/Zip_(file_format)>
-- <https://docs.python.org/3/library/zipfile.html>
-- <https://en.wikipedia.org/wiki/QR_code>
-- <https://en.wikipedia.org/wiki/Barcode>
-- <https://en.wikipedia.org/wiki/Curriculum_vitae>
-- <https://docs.python.org/3/library/re.html>
-- <https://docs.python.org/3/library/sqlite3.html>
-- <https://en.wikipedia.org/wiki/Information_schema>
-- <https://en.wikipedia.org/wiki/Syllogism>
-- <https://en.wikipedia.org/wiki/Venn_diagram>
-- <https://en.wikipedia.org/wiki/Game_theory>
-- <https://en.wikipedia.org/wiki/Nash_equilibrium>
-- <https://en.wikipedia.org/wiki/Cognitive_bias>
-- <https://en.wikipedia.org/wiki/Confirmation_bias>
-- <https://en.wikipedia.org/wiki/Entropy_(information_theory)>
-- <https://en.wikipedia.org/wiki/Decision_tree_learning>
-- <https://en.wikipedia.org/wiki/Expected_value>
-- <https://en.wikipedia.org/wiki/Memory_consolidation>
-- <https://en.wikipedia.org/wiki/Spaced_repetition>
+<!-- vetting: bisect round 3 (URLs 22-31) -->
+- <https://en.wikipedia.org/wiki/Relevance_(information_retrieval)>
+- <https://en.wikipedia.org/wiki/Precision_and_recall>
+- <https://en.wikipedia.org/wiki/Conflict_resolution>
+- <https://en.wikipedia.org/wiki/Fact-checking>
+- <https://en.wikipedia.org/wiki/Knowledge_graph>
+- <https://en.wikipedia.org/wiki/Record_linkage>
+- <https://en.wikipedia.org/wiki/Context_window>
+- <https://en.wikipedia.org/wiki/Lossy_compression>
+- <https://en.wikipedia.org/wiki/Rate_limiting>
+- <https://docs.python.org/3/library/concurrent.futures.html>
