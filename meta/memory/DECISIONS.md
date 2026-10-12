@@ -1474,3 +1474,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the hardened triggers still fail to rebuild the index after a merged skills PR, if the weekly self-heal produces unbounded churn, or if a security review requires replacing `pull_request_target` with a narrower mechanism.
+
+## DECISION-2026-10-12-SEARCH-INDEX-REPUBLISH
+
+**Topic:** Republishing the post-#470 regenerated search index after the workflow's `gh pr create` stranded (fifth #447-family instance), using a publication branch pinned to the trusted workflow commit instead of the PR #465/#469 recommit workaround.
+
+**Decision:** Publish the 383-entry regenerated index (blob `8e943d92e63835a9dc84bd062c75e799707f33be`, byte-identical under `data/` and `docs/`) to main via PR #471 from publication branch `chore/publish-search-index-20261012`, created directly from the trusted workflow commit `076e8b744d` rather than via a user-authored recommit: the ~895 KB payload exceeds the agent tooling memory limit for a fetch-and-recommit cycle, while the branch pin preserves the byte-exact workflow output without any agent transcription. Generated-artifact provenance is unchanged — the content is exclusively trusted workflow output.
+
+**Confidence:** HIGH
+
+**Evidence IDs:** automation/generated-search-index@076e8b744d7001e6cfa0a226a8de4086bf40b5d5; PR #470; PR #471; PR #465; PR #469; issue #447; PR #467
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the branch-pinned republication is found to violate the generated-artifact provenance rules in AGENTS.md or AI_CONSTITUTION.md, if the republished projection diverges from `automation/generated-search-index@076e8b744d`, or if the agent tooling memory limit is lifted and the recommit workaround is restored as the sole sanctioned republication path.
