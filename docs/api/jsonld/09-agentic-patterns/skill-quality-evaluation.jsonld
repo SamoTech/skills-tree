@@ -1,0 +1,92 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/skill-quality-evaluation.md",
+  "name": "Skill Quality Evaluation",
+  "headline": "Skill Quality Evaluation",
+  "description": "Evaluate a skill or skill package against measurable quality dimensions - description fidelity, instruction actionability, runnable example validity, failure-mode coverage, and evidence strength - and produce a scored, reproducible verdict before the skill is trusted, installed, or published.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/skill-quality-evaluation.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-12T05:21:30Z",
+  "skillId": "skill-quality-evaluation",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "09-agentic-patterns",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Evaluation Procedure",
+    "Outputs",
+    "Decision Contract",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../14-security/agent-skill-security-audit.md",
+    "../15-orchestration/capability-based-skill-selection.md",
+    "../15-orchestration/evidence-verification.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "agentic, skills tree, quality, AI agent, LLM skill, evaluation, patterns, skill",
+  "about": {
+    "@type": "Thing",
+    "name": "Skill Quality Evaluation",
+    "description": "An AI agent skill for skill quality evaluation."
+  }
+}

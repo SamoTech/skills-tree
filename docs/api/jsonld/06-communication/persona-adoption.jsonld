@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T14:13:24Z",
+  "dateModified": "2026-10-12T05:21:30Z",
   "skillId": "persona-adoption",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "communication, skills tree, AI agent, adoption, LLM skill, persona",
+  "keywords": "skills tree, AI agent, LLM skill, adoption, communication, persona",
   "about": {
     "@type": "Thing",
     "name": "persona-adoption",

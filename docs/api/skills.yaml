@@ -1,5 +1,5 @@
-generated: '2026-10-06T14:13:24Z'
-count: 381
+generated: '2026-10-12T05:21:29Z'
+count: 383
 skills:
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
@@ -2191,6 +2191,36 @@ skills:
   - Related
   related: []
   category_dir: 03-memory
+- id: progressive-skill-loading
+  path: skills/03-memory/progressive-skill-loading.md
+  name: Progressive Skill Loading
+  description: Load skills into an agent context in escalating tiers - registry metadata
+    first, the selected skill body second, and escalation only on measured need -
+    so a large skill library costs a bounded, predictable token budget instead of
+    loading every skill body up front.
+  category: memory
+  level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Loading Procedure
+  - Outputs
+  - Decision Contract
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related:
+  - ../15-orchestration/capability-based-skill-selection.md
+  - ../15-orchestration/budget-management.md
+  category_dir: 03-memory
 - id: rag
   path: skills/03-memory/rag.md
   name: RAG (Retrieval-Augmented Generation)
@@ -2995,23 +3025,33 @@ skills:
 - id: code-review
   path: skills/05-code/code-review.md
   name: Code Review
-  description: Review code against correctness, security, maintainability, tests,
-    interfaces, and repository conventions, reporting evidence-backed findings.
+  description: Review a code change for correctness, security, maintainability, tests,
+    and repository conventions; return evidence-backed findings with severity and
+    file/line anchors. Activate when the task is to review, critique, or assess source
+    code quality—not when the task is only to explain review theory without inspecting
+    code.
   category: code
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
-  last_updated: null
+  last_updated: 2026-10
   sections:
   - Description
   - When to Use
-  - Inputs / outputs / failure modes
+  - Inputs / Outputs
+  - Review Procedure
   - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Security Boundary
+  - Related Skills
   - Evidence
-  related: []
+  - Changelog
+  related:
+  - ../11-web/web-search.md
+  - ../03-memory/rag.md
+  - ../14-security/secret-scanning.md
+  - ../01-perception/git-diff-reading.md
   category_dir: 05-code
   registry_context:
     canonical_id: 05-code/code-review
@@ -5315,6 +5355,37 @@ skills:
   - Evidence
   - Related
   related: []
+  category_dir: 09-agentic-patterns
+- id: skill-quality-evaluation
+  path: skills/09-agentic-patterns/skill-quality-evaluation.md
+  name: Skill Quality Evaluation
+  description: Evaluate a skill or skill package against measurable quality dimensions
+    - description fidelity, instruction actionability, runnable example validity,
+    failure-mode coverage, and evidence strength - and produce a scored, reproducible
+    verdict before the skill is trusted, installed, or published.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Evaluation Procedure
+  - Outputs
+  - Decision Contract
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related:
+  - ../14-security/agent-skill-security-audit.md
+  - ../15-orchestration/capability-based-skill-selection.md
+  - ../15-orchestration/evidence-verification.md
   category_dir: 09-agentic-patterns
 - id: subagent-delegation
   path: skills/09-agentic-patterns/subagent-delegation.md
@@ -8049,7 +8120,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: alert-triage
@@ -8063,7 +8135,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: clinical-note-summarization
@@ -8077,7 +8150,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: compliance-checking
@@ -8091,7 +8165,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: compliance-review-workflows
@@ -8113,6 +8188,7 @@ skills:
   - Failure Modes
   - Prompt Patterns
   - Model Comparison
+  - Evidence
   - Related
   related: []
   category_dir: 16-domain-specific
@@ -8127,7 +8203,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: data-labeling
@@ -8141,7 +8218,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: drug-interaction
@@ -8155,7 +8233,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: essay-grading
@@ -8169,7 +8248,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: financial-statement
@@ -8183,7 +8263,8 @@ skills:
   version: null
   added: 2026-04
   last_updated: null
-  sections: []
+  sections:
+  - Evidence
   related: []
   category_dir: 16-domain-specific
 - id: flashcard-creation
