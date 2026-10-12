@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 539
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 381
-- 🟡 **Enriched** (real description + runnable code): 157
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 383
+- 🟡 **Enriched** (real description + runnable code): 155
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -30,7 +30,7 @@
 | `12-data` | 30 | 13 | 17 | 0 | 0 | 0 |
 | `13-creative` | 26 | 26 | 0 | 0 | 0 | 0 |
 | `14-security` | 28 | 28 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 42 | 24 | 18 | 0 | 0 | 0 |
+| `15-orchestration` | 42 | 26 | 16 | 0 | 0 | 0 |
 | `16-domain-specific` | 40 | 13 | 27 | 0 | 0 | 0 |
 | `17-infrastructure` | 16 | 16 | 0 | 0 | 0 | 0 |
 
@@ -375,6 +375,8 @@
 - [`skills/15-orchestration/distributed-state-replication.md`](skills/15-orchestration/distributed-state-replication.md) — Distributed State Replication
 - [`skills/15-orchestration/documentation-drift-resolution.md`](skills/15-orchestration/documentation-drift-resolution.md) — Documentation Drift Resolution
 - [`skills/15-orchestration/dynamic-team-formation.md`](skills/15-orchestration/dynamic-team-formation.md) — Dynamic Team Formation
+- [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — Evidence Verification
+- [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — Execution Handoff
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
 - [`skills/15-orchestration/idempotency-keys.md`](skills/15-orchestration/idempotency-keys.md) — Idempotency Keys
 - [`skills/15-orchestration/kanban-task-management.md`](skills/15-orchestration/kanban-task-management.md) — Kanban Task Management
@@ -538,8 +540,6 @@
 - [`skills/15-orchestration/conditional-branching.md`](skills/15-orchestration/conditional-branching.md) — missing table or <60 lines
 - [`skills/15-orchestration/consensus-voting.md`](skills/15-orchestration/consensus-voting.md) — missing table or <60 lines
 - [`skills/15-orchestration/event-triggers.md`](skills/15-orchestration/event-triggers.md) — missing table or <60 lines
-- [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — missing table or <60 lines
-- [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — missing table or <60 lines
 - [`skills/15-orchestration/hierarchical-tree.md`](skills/15-orchestration/hierarchical-tree.md) — missing table or <60 lines
 - [`skills/15-orchestration/logging-observability.md`](skills/15-orchestration/logging-observability.md) — missing table or <60 lines
 - [`skills/15-orchestration/parallel-execution.md`](skills/15-orchestration/parallel-execution.md) — missing table or <60 lines
