@@ -1,0 +1,91 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/prompt-caching.md",
+  "name": "Prompt Caching",
+  "headline": "Prompt Caching",
+  "description": "Order prompts so stable content forms a cacheable prefix, place cache breakpoints deliberately, and measure the achieved hit rate instead of assuming caching pays for itself.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/prompt-caching.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-12T06:22:40Z",
+  "skillId": "prompt-caching",
+  "skillVersion": "v1",
+  "skillLevel": "intermediate",
+  "skillStability": "experimental",
+  "categoryDir": "09-agentic-patterns",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Procedure",
+    "Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../15-orchestration/budget-management.md",
+    "../03-memory/context-compaction.md",
+    "../03-memory/progressive-skill-loading.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, agentic, caching, patterns, prompt, skills tree",
+  "about": {
+    "@type": "Thing",
+    "name": "Prompt Caching",
+    "description": "An AI agent skill for prompt caching."
+  }
+}
