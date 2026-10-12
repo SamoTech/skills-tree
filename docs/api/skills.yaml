@@ -1,4 +1,4 @@
-generated: '2026-10-12T12:18:44Z'
+generated: '2026-10-12T21:43:22Z'
 count: 538
 skills:
 - id: api-response-parsing
@@ -1036,6 +1036,7 @@ skills:
   - Example
   - Frameworks & Models
   - Notes
+  - Failure Modes
   - Related Skills
   - Changelog
   related:
@@ -1058,6 +1059,7 @@ skills:
   - Example
   - Frameworks & Models
   - Notes
+  - Failure Modes
   - Related Skills
   - Changelog
   related: []
@@ -1176,6 +1178,7 @@ skills:
   - Example
   - Frameworks & Models
   - Notes
+  - Failure Modes
   - Related Skills
   - Changelog
   related: []
@@ -1332,6 +1335,7 @@ skills:
   - Core Forms
   - Prompt Pattern
   - Common Fallacies to Avoid
+  - Failure Modes
   - Related Skills
   related: []
   category_dir: 02-reasoning
@@ -1485,7 +1489,8 @@ skills:
   version: v2
   added: 2025-03
   last_updated: null
-  sections: []
+  sections:
+  - Failure Modes
   related:
   - ../12-data/statistical-analysis.md
   category_dir: 02-reasoning
@@ -4073,6 +4078,7 @@ skills:
   - Security Boundaries
   - Compatibility
   - Runnable Example
+  - Failure Modes
   - Related
   - Evidence
   related: []
@@ -6723,6 +6729,7 @@ skills:
   added: 2025-03
   last_updated: null
   sections:
+  - Failure Modes
   - Changelog
   related: []
   category_dir: 09-agentic-patterns
@@ -10853,6 +10860,7 @@ skills:
   - Description
   - Runnable example
   - Inputs / outputs / failure modes
+  - Failure Modes
   - Related
   - Evidence
   related: []
@@ -10872,6 +10880,7 @@ skills:
   - Description
   - Runnable example
   - Inputs / outputs / failure modes
+  - Failure Modes
   - Related
   - Evidence
   related: []
@@ -11440,6 +11449,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11455,6 +11465,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11470,6 +11481,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11485,6 +11497,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11523,6 +11536,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11591,6 +11605,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11632,6 +11647,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11675,6 +11691,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -11690,6 +11707,7 @@ skills:
   added: 2026-04
   last_updated: null
   sections:
+  - Failure Modes
   - Evidence
   related: []
   category_dir: 16-domain-specific
@@ -12516,6 +12534,7 @@ skills:
   - The Human-in-the-Loop Contract
   - Recursive Dogfooding
   - 'Security: Network Constraint Model'
+  - Failure Modes
   - Related Infrastructure
   related:
   - ../../meta/badge-states.md

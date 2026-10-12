@@ -52,13 +52,14 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-11T15:53:48Z",
+  "dateModified": "2026-10-12T21:43:22Z",
   "skillId": "clinical-note-summarization",
   "skillVersion": null,
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
   "sections": [
+    "Failure Modes",
     "Evidence"
   ],
   "relatedSkills": [],

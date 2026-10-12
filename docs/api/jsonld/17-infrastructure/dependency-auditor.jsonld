@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T08:30:10Z",
+  "dateModified": "2026-10-12T21:43:22Z",
   "skillId": "dependency-auditor",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -67,6 +67,7 @@
     "The Human-in-the-Loop Contract",
     "Recursive Dogfooding",
     "Security: Network Constraint Model",
+    "Failure Modes",
     "Related Infrastructure"
   ],
   "relatedSkills": [
