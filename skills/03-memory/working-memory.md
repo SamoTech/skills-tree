@@ -66,6 +66,7 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
+<!-- bisect round 1: subset 1-10 -->
 - <https://12factor.net/config>
 - <https://docs.python.org/3/library/configparser.html>
 - <https://en.wikipedia.org/wiki/Aristotle>
@@ -76,13 +77,3 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - <https://docs.python.org/3/library/hmac.html>
 - <https://hypothesis.readthedocs.io/en/latest/>
 - <https://docs.python.org/3/library/unittest.html>
-- <https://en.wikipedia.org/wiki/Minutes>
-- <https://en.wikipedia.org/wiki/Cornell_notes>
-- <https://json-schema.org/learn/getting-started-step-by-step>
-- <https://docs.python.org/3/library/json.html>
-- <https://platform.openai.com/docs/guides/prompt-caching>
-- <https://docs.anthropic.com/en/api/messages>
-- <https://pandas.pydata.org/docs/user_guide/missing_data.html>
-- <https://en.wikipedia.org/wiki/Missing_data>
-- <https://kubernetes.io/docs/concepts/workloads/deployments/>
-- <https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/>
