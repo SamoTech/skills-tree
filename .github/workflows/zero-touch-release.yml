@@ -7,6 +7,15 @@ name: Zero-Touch Release
 on:
   push:
     branches: [main]
+  # Self-heal gate re-check: a push-triggered run can be cancelled while
+  # pending in the repository-wide writer concurrency group (GitHub supersedes
+  # older pending runs when newer runs queue in the same group), silently
+  # dropping a release. The periodic no-op re-check closes that gap: it skips
+  # when the declared version is already tagged and completes any missed
+  # release otherwise. workflow_dispatch adds a manual recovery lever.
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
 
 # Release is itself a main writer. It shares the repository-wide writer
 # serialization boundary so release mutation cannot race generated projections.
