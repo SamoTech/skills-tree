@@ -66,5 +66,5 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- bisect round: deployments only -->
-- <https://kubernetes.io/docs/concepts/workloads/deployments/>
+<!-- bisect round: manage-resources only -->
+- <https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/>
