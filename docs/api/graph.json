@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-12T08:36:04.169207+00:00",
+    "generated_at": "2026-10-12T10:48:45.898127+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 483,
-    "edge_count": 473,
+    "node_count": 493,
+    "edge_count": 493,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -187,6 +187,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/database-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/depth-estimation",
+      "title": "Monocular Depth Estimation",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/depth-estimation.md",
       "quality_score": null
     },
     {
@@ -877,6 +892,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/first-principles-thinking.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/game-theory-strategy",
+      "title": "Game-Theoretic Strategy Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/game-theory-strategy.md",
       "quality_score": null
     },
     {
@@ -1573,6 +1603,21 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/memory-conflict-resolution",
+      "title": "Memory Conflict Resolution",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-conflict-resolution.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/memory-consolidation",
       "title": "Memory Consolidation",
       "category": "03-memory",
@@ -1825,6 +1870,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/api-call.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/archive-extraction",
+      "title": "Archive Extraction",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/archive-extraction.md",
       "quality_score": null
     },
     {
@@ -2398,6 +2458,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/database-migration-writing",
+      "title": "Database Migration Writing",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/database-migration-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/db-schema-design",
       "title": "Db Schema Design",
       "category": "05-code",
@@ -2905,6 +2980,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/multilingual-output.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/negotiation",
+      "title": "Negotiation",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/negotiation.md",
       "quality_score": null
     },
     {
@@ -3583,6 +3673,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/websocket-communication",
+      "title": "WebSocket Communication",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/websocket-communication.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/wikipedia-api",
       "title": "Wikipedia API",
       "category": "07-tool-use",
@@ -3805,6 +3910,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/image-resizing.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/image-super-resolution",
+      "title": "Image Super-Resolution",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/image-super-resolution.md",
       "quality_score": null
     },
     {
@@ -4358,6 +4478,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/tool-invention",
+      "title": "Tool Invention",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/tool-invention.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/tool-use-loop",
       "title": "Tool-Use Loop",
       "category": "09-agentic-patterns",
@@ -4655,6 +4790,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/screen-ocr.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/screen-recording",
+      "title": "Screen Recording",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/screen-recording.md",
       "quality_score": null
     },
     {
@@ -7462,6 +7612,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/depth-estimation",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/depth-estimation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/depth-estimation",
+      "target": "01-perception/video-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Video Understanding](video-understanding.md)",
+      "source_file": "skills/01-perception/depth-estimation.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/document-parsing",
       "target": "01-perception/pdf-parsing",
       "type": "RELATED_TO",
@@ -8118,6 +8284,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/game-theory-strategy",
+      "target": "02-reasoning/decision-making",
+      "type": "RELATED_TO",
+      "evidence": "[Decision Making](decision-making.md)",
+      "source_file": "skills/02-reasoning/game-theory-strategy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/game-theory-strategy",
+      "target": "02-reasoning/probabilistic-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Probabilistic Reasoning](probabilistic-reasoning.md)",
+      "source_file": "skills/02-reasoning/game-theory-strategy.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/goal-decomposition",
       "target": "02-reasoning/planning-decomposition",
       "type": "RELATED_TO",
@@ -8598,6 +8780,22 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/memory-conflict-resolution",
+      "target": "03-memory/episodic-memory",
+      "type": "RELATED_TO",
+      "evidence": "[Episodic Memory](episodic-memory.md)",
+      "source_file": "skills/03-memory/memory-conflict-resolution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-conflict-resolution",
+      "target": "03-memory/fact-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Fact Verification](fact-verification.md)",
+      "source_file": "skills/03-memory/memory-conflict-resolution.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/memory-consolidation",
       "target": "03-memory/memory-summarization",
       "type": "RELATED_TO",
@@ -8803,6 +9001,22 @@
       "type": "RELATED_TO",
       "evidence": "[Memory Injection](memory-injection.md)",
       "source_file": "skills/03-memory/vector-store-retrieval.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/archive-extraction",
+      "target": "04-action-execution/shell-command",
+      "type": "RELATED_TO",
+      "evidence": "[Shell Command](shell-command.md)",
+      "source_file": "skills/04-action-execution/archive-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/archive-extraction",
+      "target": "04-action-execution/batch-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Batch Processing](batch-processing.md)",
+      "source_file": "skills/04-action-execution/archive-extraction.md",
       "confidence": "high"
     },
     {
@@ -9046,6 +9260,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/database-migration-writing",
+      "target": "05-code/db-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[DB Schema Design](db-schema-design.md)",
+      "source_file": "skills/05-code/database-migration-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/database-migration-writing",
+      "target": "05-code/sql-query-generation",
+      "type": "RELATED_TO",
+      "evidence": "[SQL Query Generation](sql-query-generation.md)",
+      "source_file": "skills/05-code/database-migration-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/error-handling-design",
       "target": "05-code/code-review",
       "type": "RELATED_TO",
@@ -9203,6 +9433,22 @@
       "type": "RELATED_TO",
       "evidence": "[Clarification Seeking](clarification-seeking.md)",
       "source_file": "skills/06-communication/meeting-notes.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/negotiation",
+      "target": "06-communication/argument-construction",
+      "type": "RELATED_TO",
+      "evidence": "[Argument Construction](argument-construction.md)",
+      "source_file": "skills/06-communication/negotiation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/negotiation",
+      "target": "06-communication/audience-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Audience Analysis](audience-analysis.md)",
+      "source_file": "skills/06-communication/negotiation.md",
       "confidence": "high"
     },
     {
@@ -9470,6 +9716,22 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/websocket-communication",
+      "target": "07-tool-use/streaming-tool-output",
+      "type": "RELATED_TO",
+      "evidence": "[Streaming Tool Output](streaming-tool-output.md)",
+      "source_file": "skills/07-tool-use/websocket-communication.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/websocket-communication",
+      "target": "07-tool-use/function-calling",
+      "type": "RELATED_TO",
+      "evidence": "[Function Calling](function-calling.md)",
+      "source_file": "skills/07-tool-use/websocket-communication.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/xquik-api",
       "target": "07-tool-use/custom-api-wrapper",
       "type": "RELATED_TO",
@@ -9547,6 +9809,22 @@
       "type": "RELATED_TO",
       "evidence": "[Chart Generation](chart-generation.md)",
       "source_file": "skills/08-multimodal/image-resizing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/image-super-resolution",
+      "target": "08-multimodal/image-resizing",
+      "type": "RELATED_TO",
+      "evidence": "[Image Resizing](image-resizing.md)",
+      "source_file": "skills/08-multimodal/image-super-resolution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/image-super-resolution",
+      "target": "08-multimodal/image-editing",
+      "type": "RELATED_TO",
+      "evidence": "[Image Editing](image-editing.md)",
+      "source_file": "skills/08-multimodal/image-super-resolution.md",
       "confidence": "high"
     },
     {
@@ -9782,6 +10060,22 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/tool-invention",
+      "target": "09-agentic-patterns/tool-use-loop",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Use Loop](tool-use-loop.md)",
+      "source_file": "skills/09-agentic-patterns/tool-invention.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/tool-invention",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/tool-invention.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/app-readiness-probing",
       "target": "10-computer-use/app-launch",
       "type": "RELATED_TO",
@@ -9843,6 +10137,22 @@
       "type": "RELATED_TO",
       "evidence": "[Mouse Click](mouse-click.md)",
       "source_file": "skills/10-computer-use/macro-recording.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/screen-recording",
+      "target": "10-computer-use/screenshot-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Screenshot Capture](screenshot-capture.md)",
+      "source_file": "skills/10-computer-use/screen-recording.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/screen-recording",
+      "target": "10-computer-use/visual-element-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Visual Element Detection](visual-element-detection.md)",
+      "source_file": "skills/10-computer-use/screen-recording.md",
       "confidence": "high"
     },
     {
