@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T23:28:46Z",
   "skillId": "privacy-preservation",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, LLM skill, AI agent, preservation, privacy, security",
+  "keywords": "AI agent, LLM skill, preservation, privacy, security, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Privacy Preservation",

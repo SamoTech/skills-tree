@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-11T18:18:44Z",
   "skillId": "skill-quality-evaluation",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -83,7 +83,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "agentic, skills tree, quality, AI agent, LLM skill, evaluation, patterns, skill",
+  "keywords": "AI agent, LLM skill, agentic, evaluation, patterns, quality, skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Skill Quality Evaluation",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-09-30T12:55:16Z",
   "skillId": "systems-thinking",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, thinking, AI agent, LLM skill, systems, reasoning",
+  "keywords": "AI agent, LLM skill, reasoning, skills tree, systems, thinking",
   "about": {
     "@type": "Thing",
     "name": "Systems Thinking",

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-09-30T10:32:59Z",
   "skillId": "table-extraction",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, perception, table, LLM skill, AI agent, extraction",
+  "keywords": "AI agent, LLM skill, extraction, perception, skills tree, table",
   "about": {
     "@type": "Thing",
     "name": "Table Extraction",

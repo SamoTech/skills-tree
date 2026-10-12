@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-03T08:04:56Z",
   "skillId": "audio-transcription",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, perception, LLM skill, AI agent, transcription, audio",
+  "keywords": "AI agent, LLM skill, audio, perception, skills tree, transcription",
   "about": {
     "@type": "Thing",
     "name": "Audio Transcription",

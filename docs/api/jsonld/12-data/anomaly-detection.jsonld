@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T06:38:19Z",
   "skillId": "anomaly-detection",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, data, AI agent, LLM skill, anomaly, detection",
+  "keywords": "AI agent, LLM skill, anomaly, data, detection, skills tree",
   "about": {
     "@type": "Thing",
     "name": "anomaly-detection",
