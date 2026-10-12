@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-09-30T15:24:11Z",
   "skillId": "mcp-tool",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -74,7 +74,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, mcp, tool, LLM skill, AI agent, use",
+  "keywords": "AI agent, LLM skill, mcp, skills tree, tool, use",
   "about": {
     "@type": "Thing",
     "name": "MCP Tool",

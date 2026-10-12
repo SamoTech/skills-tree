@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T11:12:42Z",
   "skillId": "meme-generation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, meme, creative, AI agent, LLM skill, generation",
+  "keywords": "AI agent, LLM skill, creative, generation, meme, skills tree",
   "about": {
     "@type": "Thing",
     "name": "meme-generation",

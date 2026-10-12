@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T09:37:57Z",
   "skillId": "sitemap-parsing",
   "skillVersion": null,
   "skillLevel": "basic",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, LLM skill, AI agent, web, sitemap, parsing",
+  "keywords": "AI agent, LLM skill, parsing, sitemap, skills tree, web",
   "about": {
     "@type": "Thing",
     "name": "sitemap-parsing",

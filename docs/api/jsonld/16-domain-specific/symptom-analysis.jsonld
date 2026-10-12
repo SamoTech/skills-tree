@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T06:28:04Z",
   "skillId": "symptom-analysis",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, specific, domain, analysis, AI agent, LLM skill, symptom",
+  "keywords": "AI agent, LLM skill, analysis, domain, skills tree, specific, symptom",
   "about": {
     "@type": "Thing",
     "name": "symptom-analysis",

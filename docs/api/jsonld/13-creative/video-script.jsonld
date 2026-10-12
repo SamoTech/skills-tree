@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-03T08:04:56Z",
   "skillId": "video-script",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "video, skills tree, creative, AI agent, LLM skill, script",
+  "keywords": "AI agent, LLM skill, creative, script, skills tree, video",
   "about": {
     "@type": "Thing",
     "name": "Video Script",

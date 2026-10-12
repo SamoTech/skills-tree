@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T06:34:52Z",
   "skillId": "terminal-interaction",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, computer, AI agent, LLM skill, use, interaction, terminal",
+  "keywords": "AI agent, LLM skill, computer, interaction, skills tree, terminal, use",
   "about": {
     "@type": "Thing",
     "name": "terminal-interaction",

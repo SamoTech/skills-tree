@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T06:38:19Z",
   "skillId": "data-visualization",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, data, visualization, AI agent, LLM skill",
+  "keywords": "AI agent, LLM skill, data, skills tree, visualization",
   "about": {
     "@type": "Thing",
     "name": "data-visualization",

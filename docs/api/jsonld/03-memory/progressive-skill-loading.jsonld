@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-11T18:18:44Z",
   "skillId": "progressive-skill-loading",
   "skillVersion": "v1",
   "skillLevel": "intermediate",
@@ -82,7 +82,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "skills tree, AI agent, loading, progressive, LLM skill, memory, skill",
+  "keywords": "AI agent, LLM skill, loading, memory, progressive, skill, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Progressive Skill Loading",

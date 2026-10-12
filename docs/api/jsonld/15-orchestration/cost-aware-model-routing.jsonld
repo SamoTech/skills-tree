@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-05T12:29:25Z",
   "skillId": "cost-aware-model-routing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-10-01",
-  "keywords": "skills tree, aware, orchestration, AI agent, LLM skill, routing, model, cost",
+  "keywords": "AI agent, LLM skill, aware, cost, model, orchestration, routing, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Cost-Aware Model Routing",

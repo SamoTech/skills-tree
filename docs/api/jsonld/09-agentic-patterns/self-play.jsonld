@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T09:17:33Z",
   "skillId": "self-play",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agentic, skills tree, AI agent, LLM skill, self, patterns, play",
+  "keywords": "AI agent, LLM skill, agentic, patterns, play, self, skills tree",
   "about": {
     "@type": "Thing",
     "name": "self-play",

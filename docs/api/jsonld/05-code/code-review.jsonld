@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-07T10:56:22Z",
   "skillId": "code-review",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -82,7 +82,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2026-09-01",
-  "keywords": "skills tree, review, AI agent, LLM skill, code",
+  "keywords": "AI agent, LLM skill, code, review, skills tree",
   "about": {
     "@type": "Thing",
     "name": "Code Review",

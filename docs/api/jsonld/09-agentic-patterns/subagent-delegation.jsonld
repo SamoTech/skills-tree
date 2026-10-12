@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T09:27:26Z",
   "skillId": "subagent-delegation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -75,7 +75,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "agentic, subagent, skills tree, delegation, AI agent, LLM skill, patterns",
+  "keywords": "AI agent, LLM skill, agentic, delegation, patterns, skills tree, subagent",
   "about": {
     "@type": "Thing",
     "name": "subagent-delegation",

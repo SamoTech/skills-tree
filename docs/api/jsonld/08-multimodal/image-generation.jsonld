@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T05:21:30Z",
+  "dateModified": "2026-10-01T09:24:48Z",
   "skillId": "image-generation",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -76,7 +76,7 @@
     "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
   },
   "datePublished": "2025-03-01",
-  "keywords": "skills tree, image, LLM skill, AI agent, multimodal, generation",
+  "keywords": "AI agent, LLM skill, generation, image, multimodal, skills tree",
   "about": {
     "@type": "Thing",
     "name": "image-generation",
