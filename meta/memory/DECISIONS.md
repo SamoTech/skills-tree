@@ -1488,3 +1488,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if run logs show the publish-step failures are not permission-related, if the restored permissions or no-skip-ci commits violate the least-privileged writer contract in `tools/verify_governance.py`, or if bot-created PRs still cannot obtain valid required checks after this change.
+
+## DECISION-2026-10-12-GENERATED-PROJECTION-ATOMIC-REPUBLISH
+
+**Topic:** Atomically republishing the two stale post-#467 generated projections (search index and Skills API export) whose cross-projection consistency contract forbids either landing alone.
+
+**Decision:** Publish both trusted workflow outputs in a single PR (#477) whose publication branch was assembled by branch-level squash merges of `automation/generated-search-index@076e8b744d` (index blob `8e943d92e63835a9dc84bd062c75e799707f33be`, 895,431 bytes, 383 entries, byte-identical under `data/` and `docs/`) and `automation/generated-skill-api@00b73a86` (bot PR #473 content), because `tests/test_search_index_contract.py` requires the search-index count to equal `docs/api/skills.json`'s count and neither projection can merge alone without reddening `main`. Branch-level assembly preserves the byte-exact workflow output without any content passing through the agent — integrity equivalent to the documented user-authored-recommit workaround (PRs #465/#469) — and is used because the ~895 KB index exceeds the agent tooling memory limit for a recommit and the export spans 100+ JSON-LD files. The individually-staged PR #471 and bot PRs #473/#474 are closed as superseded.
+
+**Confidence:** HIGH
+
+**Evidence IDs:** automation/generated-search-index@076e8b744d7001e6cfa0a226a8de4086bf40b5d5; automation/generated-skill-api@00b73a8586a8; PR #472; PR #473; PR #474; PR #477; PR #465; PR #469; issue #447; PR #467
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the branch-level assembly mechanism is found to violate the generated-artifact provenance rules, if the published projections diverge from either automation branch, or if the cross-projection consistency contract is relaxed so single-projection publication becomes permissible.
