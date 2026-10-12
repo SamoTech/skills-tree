@@ -66,7 +66,7 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- vetting: batch-2 evidence URL pool -->
+<!-- vetting: batch-2 URL pool bisect round 1 (first half) -->
 - <https://en.wikipedia.org/wiki/Apache_Parquet>
 - <https://docs.python.org/3/library/statistics.html>
 - <https://en.wikipedia.org/wiki/Zip_(file_format)>
@@ -108,45 +108,3 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - <https://en.wikipedia.org/wiki/Tar_(computing)>
 - <https://docs.python.org/3/library/asyncio.html>
 - <https://en.wikipedia.org/wiki/Asynchrony_(computer_science)>
-- <https://en.wikipedia.org/wiki/Schema_migration>
-- <https://en.wikipedia.org/wiki/Protocol_Buffers>
-- <https://docs.python.org/3/library/struct.html>
-- <https://docs.python.org/3/library/typing.html>
-- <https://en.wikipedia.org/wiki/Type_system>
-- <https://en.wikipedia.org/wiki/Memory_leak>
-- <https://docs.python.org/3/library/tracemalloc.html>
-- <https://en.wikipedia.org/wiki/Software_requirements_specification>
-- <https://en.wikipedia.org/wiki/Technical_writing>
-- <https://en.wikipedia.org/wiki/Negotiation>
-- <https://en.wikipedia.org/wiki/Best_alternative_to_a_negotiated_agreement>
-- <https://en.wikipedia.org/wiki/Nonviolent_Communication>
-- <https://en.wikipedia.org/wiki/Knowledge_base>
-- <https://en.wikipedia.org/wiki/Documentation>
-- <https://en.wikipedia.org/wiki/Earned_value_management>
-- <https://en.wikipedia.org/wiki/Postmortem_documentation>
-- <https://en.wikipedia.org/wiki/Idempotence>
-- <https://en.wikipedia.org/wiki/ACID>
-- <https://docs.python.org/3/library/argparse.html>
-- <https://en.wikipedia.org/wiki/Command-line_interface>
-- <https://en.wikipedia.org/wiki/OAuth>
-- <https://docs.python.org/3/library/secrets.html>
-- <https://en.wikipedia.org/wiki/Fuzzing>
-- <https://en.wikipedia.org/wiki/Speaker_diarisation>
-- <https://docs.python.org/3/library/wave.html>
-- <https://en.wikipedia.org/wiki/Video_editing>
-- <https://en.wikipedia.org/wiki/Non-linear_editing>
-- <https://en.wikipedia.org/wiki/Noise_reduction>
-- <https://en.wikipedia.org/wiki/Closed_captioning>
-- <https://docs.python.org/3/library/datetime.html>
-- <https://en.wikipedia.org/wiki/Image_scaling>
-- <https://en.wikipedia.org/wiki/Thumbnail>
-- <https://en.wikipedia.org/wiki/Transcription_(music)>
-- <https://en.wikipedia.org/wiki/Pitch_detection_algorithm>
-- <https://en.wikipedia.org/wiki/Instrumentation_(computer_science)>
-- <https://en.wikipedia.org/wiki/Benchmark_(computing)>
-- <https://en.wikipedia.org/wiki/Fault_tolerance>
-- <https://en.wikipedia.org/wiki/Watchdog_timer>
-- <https://en.wikipedia.org/wiki/Streaming_data>
-- <https://docs.python.org/3/library/itertools.html>
-- <https://en.wikipedia.org/wiki/Graceful_degradation>
-- <https://en.wikipedia.org/wiki/Exponential_backoff>
