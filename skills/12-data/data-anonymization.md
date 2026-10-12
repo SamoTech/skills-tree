@@ -90,7 +90,7 @@ Anonymization failures cause irreversible privacy harm. Never claim the output i
 
 This skill is grounded in dated public implementation references:
 
-1. The HHS guidance on HIPAA de-identification methods (https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html).
+1. The NIST guide to de-identifying government data sets (https://csrc.nist.gov/pubs/sp/800/188/final).
 2. The NIST Privacy Framework (https://www.nist.gov/privacy-framework).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.

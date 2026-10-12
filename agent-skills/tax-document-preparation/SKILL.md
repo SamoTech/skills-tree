@@ -78,7 +78,7 @@ Tax data is among the most sensitive personal and financial information. Restric
 This skill is grounded in dated public implementation references:
 
 1. The Internal Revenue Service forms and filing resources (https://www.irs.gov/).
-2. The OECD tax policy resources (https://www.oecd.org/).
+2. The Wikipedia overview of taxation as the domain this procedure operates in (https://en.wikipedia.org/wiki/Tax).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
 
