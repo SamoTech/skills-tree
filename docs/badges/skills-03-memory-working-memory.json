@@ -3,5 +3,6 @@
   "label": "deps",
   "message": "unscanned",
   "color": "lightgrey",
-  "style": "flat-square"
+  "style": "flat-square",
+  "_note": "revoked: PR closed without merge"
 }
