@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generated_at": "2026-10-12T12:19:33.113415+00:00",
+    "generated_at": "2026-10-12T22:27:50.165841+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 538,
+    "node_count": 738,
     "edge_count": 583,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
@@ -280,6 +280,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/gesture-recognition",
+      "title": "Gesture Recognition",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/gesture-recognition.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/git-diff-reading",
       "title": "Git Diff Reading",
       "category": "01-perception",
@@ -340,6 +355,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/intent-classification",
+      "title": "Intent Classification",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/intent-classification.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/iot-telemetry-parsing",
       "title": "IoT Telemetry Parsing",
       "category": "01-perception",
@@ -370,6 +400,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/keyphrase-extraction",
+      "title": "Keyphrase Extraction",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/keyphrase-extraction.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/knowledge-graph-reading",
       "title": "Knowledge Graph Reading",
       "category": "01-perception",
@@ -382,6 +427,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/knowledge-graph-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/language-detection",
+      "title": "Language Detection",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/language-detection.md",
       "quality_score": null
     },
     {
@@ -445,6 +505,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/named-entity-recognition",
+      "title": "Named Entity Recognition",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/named-entity-recognition.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/network-traffic-reading",
       "title": "Network Traffic Reading",
       "category": "01-perception",
@@ -457,6 +532,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/network-traffic-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/notification-parsing",
+      "title": "Notification Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/notification-parsing.md",
       "quality_score": null
     },
     {
@@ -490,6 +580,51 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/point-cloud-reading",
+      "title": "Point Cloud Reading",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/point-cloud-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/redacted-content-detection",
+      "title": "Redacted Content Detection",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/redacted-content-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/scene-graph-construction",
+      "title": "Scene Graph Construction",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/scene-graph-construction.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/screen-reading",
       "title": "Screen Reading",
       "category": "01-perception",
@@ -502,6 +637,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/screen-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/sensor-fusion",
+      "title": "Sensor Fusion",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/sensor-fusion.md",
       "quality_score": null
     },
     {
@@ -547,6 +697,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/spreadsheet-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/streaming-asr-partial-parsing",
+      "title": "Streaming ASR Partial Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/streaming-asr-partial-parsing.md",
       "quality_score": null
     },
     {
@@ -640,6 +805,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/voice-activity-detection",
+      "title": "Voice Activity Detection",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/voice-activity-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/xml-parsing",
       "title": "XML Parsing",
       "category": "01-perception",
@@ -667,6 +847,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/abductive.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/adversarial-reasoning",
+      "title": "Adversarial Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/adversarial-reasoning.md",
       "quality_score": null
     },
     {
@@ -700,6 +895,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/argument-fallacy-detection",
+      "title": "Argument Fallacy Detection",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/argument-fallacy-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/argument-structure-analysis",
       "title": "Argument Structure Analysis",
       "category": "02-reasoning",
@@ -712,6 +922,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/argument-structure-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/assumption-mapping",
+      "title": "Assumption Mapping",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/assumption-mapping.md",
       "quality_score": null
     },
     {
@@ -730,6 +955,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/calibrated-forecast-reasoning",
+      "title": "Calibrated Forecast Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/calibrated-forecast-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/case-based-reasoning",
       "title": "Case-Based Reasoning",
       "category": "02-reasoning",
@@ -742,6 +982,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/case-based-reasoning.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/causal-graph-construction",
+      "title": "Causal Graph Construction",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/causal-graph-construction.md",
       "quality_score": null
     },
     {
@@ -877,6 +1132,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/ethical-reasoning.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/expected-utility-analysis",
+      "title": "Expected Utility Analysis",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/expected-utility-analysis.md",
       "quality_score": null
     },
     {
@@ -1030,6 +1300,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/multi-objective-optimization",
+      "title": "Multi-Objective Optimization",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/multi-objective-optimization.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/multi-step-planning",
       "title": "Multi-Step Planning",
       "category": "02-reasoning",
@@ -1138,6 +1423,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/problem-classification",
+      "title": "Problem Classification",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/problem-classification.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/problem-decomposition",
       "title": "Problem Decomposition",
       "category": "02-reasoning",
@@ -1243,6 +1543,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/satisficing-decision-making",
+      "title": "Satisficing Decision Making",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/satisficing-decision-making.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/scenario-planning",
       "title": "Scenario Planning",
       "category": "02-reasoning",
@@ -1333,6 +1648,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/solution-verification",
+      "title": "Solution Verification",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/solution-verification.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/spatial-reasoning",
       "title": "Spatial Reasoning",
       "category": "02-reasoning",
@@ -1408,6 +1738,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/theory-of-mind-reasoning",
+      "title": "Theory of Mind Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/theory-of-mind-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/trade-off-analysis",
       "title": "Trade-off Analysis",
       "category": "02-reasoning",
@@ -1450,6 +1795,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/uncertainty-quantification.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/value-of-information-analysis",
+      "title": "Value of Information Analysis",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/value-of-information-analysis.md",
       "quality_score": null
     },
     {
@@ -1528,6 +1888,21 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/dialogue-state-tracking",
+      "title": "Dialogue State Tracking",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/dialogue-state-tracking.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/episodic-memory",
       "title": "Episodic Memory",
       "category": "03-memory",
@@ -1540,6 +1915,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/episodic-memory.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/episodic-replay-learning",
+      "title": "Episodic Replay Learning",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/episodic-replay-learning.md",
       "quality_score": null
     },
     {
@@ -1573,6 +1963,21 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/failure-memory-recording",
+      "title": "Failure Memory Recording",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/failure-memory-recording.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/forgetting",
       "title": "Forgetting",
       "category": "03-memory",
@@ -1585,6 +1990,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/forgetting.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/hierarchical-memory-organization",
+      "title": "Hierarchical Memory Organization",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/hierarchical-memory-organization.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/knowledge-graph-updates",
+      "title": "Knowledge Graph Updates",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/knowledge-graph-updates.md",
       "quality_score": null
     },
     {
@@ -1663,6 +2098,36 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/memory-provenance-tracking",
+      "title": "Memory Provenance Tracking",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-provenance-tracking.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/memory-quality-auditing",
+      "title": "Memory Quality Auditing",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-quality-auditing.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/memory-summarization",
       "title": "Memory Summarization",
       "category": "03-memory",
@@ -1690,6 +2155,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/memory-ttl.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/need-to-know-memory-scoping",
+      "title": "Need-to-Know Memory Scoping",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/need-to-know-memory-scoping.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/preference-drift-detection",
+      "title": "Preference Drift Detection",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/preference-drift-detection.md",
       "quality_score": null
     },
     {
@@ -1768,6 +2263,36 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/retrieval-prefetching",
+      "title": "Retrieval Prefetching",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/retrieval-prefetching.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/retrieval-relevance-feedback",
+      "title": "Retrieval Relevance Feedback",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/retrieval-relevance-feedback.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/semantic-memory",
       "title": "Semantic Memory",
       "category": "03-memory",
@@ -1780,6 +2305,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/semantic-memory.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/semantic-response-caching",
+      "title": "Semantic Response Caching",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/semantic-response-caching.md",
       "quality_score": null
     },
     {
@@ -1858,6 +2398,81 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/action-concurrency-limiting",
+      "title": "Action Concurrency Limiting",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/action-concurrency-limiting.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/action-cost-estimation",
+      "title": "Action Cost Estimation",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/action-cost-estimation.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/action-dependency-resolution",
+      "title": "Action Dependency Resolution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/action-dependency-resolution.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/action-precondition-checking",
+      "title": "Action Precondition Checking",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/action-precondition-checking.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/action-result-verification",
+      "title": "Action Result Verification",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/action-result-verification.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/api-call",
       "title": "API Call",
       "category": "04-action-execution",
@@ -1903,6 +2518,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/background-job-submission",
+      "title": "Background Job Submission",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/background-job-submission.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/batch-processing",
       "title": "Batch Processing",
       "category": "04-action-execution",
@@ -1915,6 +2545,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/batch-processing.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/bulk-file-renaming",
+      "title": "Bulk File Renaming",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/bulk-file-renaming.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/calendar-conflict-detection",
+      "title": "Calendar Conflict Detection",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/calendar-conflict-detection.md",
       "quality_score": null
     },
     {
@@ -1993,6 +2653,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/dry-run-execution",
+      "title": "Dry-Run Execution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/dry-run-execution.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/email-sending",
       "title": "Email Sending",
       "category": "04-action-execution",
@@ -2050,6 +2725,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/file-delete.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/file-watch-automation",
+      "title": "File Watch Automation",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/file-watch-automation.md",
       "quality_score": null
     },
     {
@@ -2125,6 +2815,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/keyboard-input.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/long-running-action-monitoring",
+      "title": "Long-Running Action Monitoring",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/long-running-action-monitoring.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/message-queue-publishing",
+      "title": "Message Queue Publishing",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/message-queue-publishing.md",
       "quality_score": null
     },
     {
@@ -2323,6 +3043,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/ci-failure-triage",
+      "title": "CI Failure Triage",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/ci-failure-triage.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/cicd-generation",
       "title": "Cicd Generation",
       "category": "05-code",
@@ -2335,6 +3070,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/cicd-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/code-churn-analysis",
+      "title": "Code Churn Analysis",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/code-churn-analysis.md",
       "quality_score": null
     },
     {
@@ -2458,6 +3208,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/codebase-onboarding",
+      "title": "Codebase Onboarding",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/codebase-onboarding.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/database-migration-writing",
       "title": "Database Migration Writing",
       "category": "05-code",
@@ -2578,6 +3343,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/framework-migration",
+      "title": "Framework Migration",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/framework-migration.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/git-operations",
       "title": "Git Operations",
       "category": "05-code",
@@ -2638,6 +3418,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/license-compatibility-checking",
+      "title": "License Compatibility Checking",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/license-compatibility-checking.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/linting-formatting",
       "title": "Linting Formatting",
       "category": "05-code",
@@ -2653,6 +3448,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/monorepo-navigation",
+      "title": "Monorepo Navigation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/monorepo-navigation.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/mutation-testing",
       "title": "Mutation Testing",
       "category": "05-code",
@@ -2665,6 +3475,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/mutation-testing.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/observability-instrumentation",
+      "title": "Observability Instrumentation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/observability-instrumentation.md",
       "quality_score": null
     },
     {
@@ -2743,6 +3568,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/requirement-tracing",
+      "title": "Requirement Tracing",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/requirement-tracing.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/security-scanning",
       "title": "Security Scanning",
       "category": "05-code",
@@ -2758,6 +3598,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/semantic-version-management",
+      "title": "Semantic Version Management",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/semantic-version-management.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/sql-query-generation",
       "title": "Sql Query Generation",
       "category": "05-code",
@@ -2770,6 +3625,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/sql-query-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/stack-trace-analysis",
+      "title": "Stack Trace Analysis",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/stack-trace-analysis.md",
       "quality_score": null
     },
     {
@@ -2800,6 +3670,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/structured-logging.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/test-flakiness-diagnosis",
+      "title": "Test Flakiness Diagnosis",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/test-flakiness-diagnosis.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/type-annotation-generation",
+      "title": "Type Annotation Generation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/type-annotation-generation.md",
       "quality_score": null
     },
     {
@@ -2848,6 +3748,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/changelog-writing",
+      "title": "Changelog Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/changelog-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/citation-attribution",
       "title": "Citation & Attribution",
       "category": "06-communication",
@@ -2878,6 +3793,51 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/community-response-drafting",
+      "title": "Community Response Drafting",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/community-response-drafting.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/conflict-de-escalation-writing",
+      "title": "Conflict De-escalation Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/conflict-de-escalation-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/cross-cultural-communication-adaptation",
+      "title": "Cross-Cultural Communication Adaptation",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/cross-cultural-communication-adaptation.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/debate",
       "title": "Debate",
       "category": "06-communication",
@@ -2905,6 +3865,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/email-drafting.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/faq-generation",
+      "title": "FAQ Generation",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/faq-generation.md",
       "quality_score": null
     },
     {
@@ -2953,6 +3928,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/meeting-decision-recording",
+      "title": "Meeting Decision Recording",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/meeting-decision-recording.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/meeting-notes",
       "title": "Meeting Notes",
       "category": "06-communication",
@@ -2995,6 +3985,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/negotiation.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/onboarding-guide-writing",
+      "title": "Onboarding Guide Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/onboarding-guide-writing.md",
       "quality_score": null
     },
     {
@@ -3058,6 +4063,36 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/reading-level-adaptation",
+      "title": "Reading Level Adaptation",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/reading-level-adaptation.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/release-notes-generation",
+      "title": "Release Notes Generation",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/release-notes-generation.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/report-writing",
       "title": "Report Writing",
       "category": "06-communication",
@@ -3070,6 +4105,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/report-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/response-template-design",
+      "title": "Response Template Design",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/response-template-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/stakeholder-status-updates",
+      "title": "Stakeholder Status Updates",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/stakeholder-status-updates.md",
       "quality_score": null
     },
     {
@@ -3118,6 +4183,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/translation-quality-review",
+      "title": "Translation Quality Review",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/translation-quality-review.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/translation",
       "title": "Translation",
       "category": "06-communication",
@@ -3130,6 +4210,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/translation.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/a2a-agent-card-authoring",
+      "title": "A2A Agent Card Authoring",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/a2a-agent-card-authoring.md",
       "quality_score": null
     },
     {
@@ -3388,6 +4483,36 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/mcp-extensions-authoring",
+      "title": "MCP Extensions Authoring",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/mcp-extensions-authoring.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/mcp-server-lifecycle-management",
+      "title": "MCP Server Lifecycle Management",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/mcp-server-lifecycle-management.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/mcp-tool",
       "title": "MCP Tool",
       "category": "07-tool-use",
@@ -3400,6 +4525,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/mcp-tool.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/multi-provider-redundancy",
+      "title": "Multi-Provider Redundancy",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/multi-provider-redundancy.md",
       "quality_score": null
     },
     {
@@ -3430,6 +4570,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/notion-api.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/offline-tool-fallback",
+      "title": "Offline Tool Fallback",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/offline-tool-fallback.md",
       "quality_score": null
     },
     {
@@ -3538,6 +4693,51 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/tool-argument-construction",
+      "title": "Tool Argument Construction",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-argument-construction.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-behavior-contract-testing",
+      "title": "Tool Behavior Contract Testing",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-behavior-contract-testing.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-deprecation-handling",
+      "title": "Tool Deprecation Handling",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-deprecation-handling.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/tool-guardrails",
       "title": "Tool Guardrails",
       "category": "07-tool-use",
@@ -3550,6 +4750,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/tool-guardrails.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-inventory-cataloging",
+      "title": "Tool Inventory Cataloging",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-inventory-cataloging.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-latency-probing",
+      "title": "Tool Latency Probing",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-latency-probing.md",
       "quality_score": null
     },
     {
@@ -3610,6 +4840,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/tool-schema-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-source-vetting",
+      "title": "Tool Source Vetting",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-source-vetting.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-token-budget-management",
+      "title": "Tool Token Budget Management",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-token-budget-management.md",
       "quality_score": null
     },
     {
@@ -3733,6 +4993,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/3d-asset-generation",
+      "title": "3D Asset Generation",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/3d-asset-generation.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/3d-scene-understanding",
       "title": "3D Scene Understanding",
       "category": "08-multimodal",
@@ -3793,6 +5068,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/audio-sound-effect-generation",
+      "title": "Audio Sound Effect Generation",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/audio-sound-effect-generation.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/audio-transcription",
       "title": "Audio Transcription",
       "category": "08-multimodal",
@@ -3820,6 +5110,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/chart-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/deepfake-detection",
+      "title": "Deepfake Detection",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/deepfake-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/document-figure-description",
+      "title": "Document Figure Description",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/document-figure-description.md",
       "quality_score": null
     },
     {
@@ -3928,6 +5248,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/music-stem-separation",
+      "title": "Music Stem Separation",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/music-stem-separation.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/object-detection",
       "title": "Object Detection",
       "category": "08-multimodal",
@@ -3955,6 +5290,66 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/perceptual-image-hashing.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/realtime-video-frame-analysis",
+      "title": "Realtime Video Frame Analysis",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/realtime-video-frame-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/screenshot-to-code",
+      "title": "Screenshot to Code",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/screenshot-to-code.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/speech-noise-suppression",
+      "title": "Speech Noise Suppression",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/speech-noise-suppression.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/style-reference-image-generation",
+      "title": "Style-Reference Image Generation",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/style-reference-image-generation.md",
       "quality_score": null
     },
     {
@@ -4033,6 +5428,36 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/video-highlight-detection",
+      "title": "Video Highlight Detection",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/video-highlight-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/voice-clone-detection",
+      "title": "Voice Clone Detection",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/voice-clone-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/vqa",
       "title": "Visual Question Answering",
       "category": "08-multimodal",
@@ -4045,6 +5470,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/vqa.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/watermark-detection",
+      "title": "Watermark Detection",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/watermark-detection.md",
       "quality_score": null
     },
     {
@@ -4078,6 +5518,36 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/agent-cost-accounting",
+      "title": "Agent Cost Accounting",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-cost-accounting.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-eval-harness-design",
+      "title": "Agent Eval Harness Design",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-eval-harness-design.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/agent-failure-taxonomy",
       "title": "Agent Failure Taxonomy",
       "category": "09-agentic-patterns",
@@ -4090,6 +5560,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agent-failure-taxonomy.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-fleet-monitoring",
+      "title": "Agent Fleet Monitoring",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-fleet-monitoring.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-halt-conditions",
+      "title": "Agent Halt Conditions",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-halt-conditions.md",
       "quality_score": null
     },
     {
@@ -4123,6 +5623,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/agent-regression-testing",
+      "title": "Agent Regression Testing",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-regression-testing.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/agentic-rag",
       "title": "Agentic RAG",
       "category": "09-agentic-patterns",
@@ -4153,6 +5668,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/approval-gates.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/autonomy-level-scaling",
+      "title": "Autonomy Level Scaling",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/autonomy-level-scaling.md",
       "quality_score": null
     },
     {
@@ -4243,6 +5773,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/debate-pattern.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/goal-contract-checking",
+      "title": "Goal Contract Checking",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/goal-contract-checking.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/inter-agent-protocol-compliance",
+      "title": "Inter-Agent Protocol Compliance",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/inter-agent-protocol-compliance.md",
       "quality_score": null
     },
     {
@@ -4354,6 +5914,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/prompt-version-control",
+      "title": "Prompt Version Control",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/prompt-version-control.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/rag-pipeline",
       "title": "RAG Pipeline",
       "category": "09-agentic-patterns",
@@ -4416,6 +5991,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/reward-hacking-detection",
+      "title": "Reward Hacking Detection",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/reward-hacking-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/self-play",
       "title": "Self-Play",
       "category": "09-agentic-patterns",
@@ -4428,6 +6018,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/self-play.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/skill-gap-detection",
+      "title": "Skill Gap Detection",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/skill-gap-detection.md",
       "quality_score": null
     },
     {
@@ -4523,6 +6128,36 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/trajectory-analysis",
+      "title": "Trajectory Analysis",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/trajectory-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/accessibility-automation-testing",
+      "title": "Accessibility Automation Testing",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/accessibility-automation-testing.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/accessibility-tree",
       "title": "Accessibility Tree",
       "category": "10-computer-use",
@@ -4598,6 +6233,51 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/computer-use-error-recovery",
+      "title": "Computer Use Error Recovery",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/computer-use-error-recovery.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/desktop-app-testing",
+      "title": "Desktop App Testing",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/desktop-app-testing.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/desktop-file-organization",
+      "title": "Desktop File Organization",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/desktop-file-organization.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/desktop-notification-triage",
       "title": "Desktop Notification Triage",
       "category": "10-computer-use",
@@ -4610,6 +6290,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/desktop-notification-triage.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/desktop-spreadsheet-automation",
+      "title": "Desktop Spreadsheet Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/desktop-spreadsheet-automation.md",
       "quality_score": null
     },
     {
@@ -4655,6 +6350,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/file-dialog.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/game-ui-automation",
+      "title": "Game UI Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/game-ui-automation.md",
       "quality_score": null
     },
     {
@@ -4718,6 +6428,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/meeting-app-automation",
+      "title": "Meeting App Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/meeting-app-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/mouse-click",
       "title": "Mouse Click",
       "category": "10-computer-use",
@@ -4763,6 +6488,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/peripheral-device-detection",
+      "title": "Peripheral Device Detection",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/peripheral-device-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/right-click",
       "title": "Right Click",
       "category": "10-computer-use",
@@ -4790,6 +6530,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/screen-ocr.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/screen-reader-output-interpretation",
+      "title": "Screen Reader Output Interpretation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/screen-reader-output-interpretation.md",
       "quality_score": null
     },
     {
@@ -4853,6 +6608,36 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/software-installation-automation",
+      "title": "Software Installation Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/software-installation-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/system-settings-configuration",
+      "title": "System Settings Configuration",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/system-settings-configuration.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/terminal-interaction",
       "title": "Terminal Interaction",
       "category": "10-computer-use",
@@ -4865,6 +6650,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/terminal-interaction.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/terminal-multiplexer-automation",
+      "title": "Terminal Multiplexer Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/terminal-multiplexer-automation.md",
       "quality_score": null
     },
     {
@@ -4973,6 +6773,51 @@
       "quality_score": null
     },
     {
+      "id": "11-web/browser-session-isolation",
+      "title": "Browser Session Isolation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/browser-session-isolation.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/bulk-url-health-checking",
+      "title": "Bulk URL Health Checking",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/bulk-url-health-checking.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/cache-aware-fetching",
+      "title": "Cache Aware Fetching",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/cache-aware-fetching.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/captcha-solving",
       "title": "CAPTCHA Handling",
       "category": "11-web",
@@ -5000,6 +6845,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/cookie-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/cors-policy-review",
+      "title": "CORS Policy Review",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/cors-policy-review.md",
       "quality_score": null
     },
     {
@@ -5045,6 +6905,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/form-filling.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/headless-browser-configuration",
+      "title": "Headless Browser Configuration",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/headless-browser-configuration.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/http-header-analysis",
+      "title": "HTTP Header Analysis",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/http-header-analysis.md",
       "quality_score": null
     },
     {
@@ -5105,6 +6995,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/link-extraction.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/link-rot-detection",
+      "title": "Link Rot Detection",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/link-rot-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/page-diff-monitoring",
+      "title": "Page Diff Monitoring",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/page-diff-monitoring.md",
       "quality_score": null
     },
     {
@@ -5273,6 +7193,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/web-accessibility-auditing",
+      "title": "Web Accessibility Auditing",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-accessibility-auditing.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/web-archive-lookup",
       "title": "Web Archive Lookup",
       "category": "11-web",
@@ -5285,6 +7220,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-archive-lookup.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/web-content-freshness-checking",
+      "title": "Web Content Freshness Checking",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-content-freshness-checking.md",
       "quality_score": null
     },
     {
@@ -5315,6 +7265,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/web-login.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/web-oauth-flow-handling",
+      "title": "Web OAuth Flow Handling",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-oauth-flow-handling.md",
       "quality_score": null
     },
     {
@@ -5363,6 +7328,36 @@
       "quality_score": null
     },
     {
+      "id": "11-web/web-session-replay",
+      "title": "Web Session Replay",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-session-replay.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/ab-test-analysis",
+      "title": "A/B Test Analysis",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/ab-test-analysis.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/anomaly-detection",
       "title": "Anomaly Detection",
       "category": "12-data",
@@ -5375,6 +7370,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/anomaly-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/change-data-capture",
+      "title": "Change Data Capture",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/change-data-capture.md",
       "quality_score": null
     },
     {
@@ -5513,6 +7523,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/data-pipeline-observability",
+      "title": "Data Pipeline Observability",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-pipeline-observability.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/data-profiling",
       "title": "Data Profiling",
       "category": "12-data",
@@ -5525,6 +7550,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-profiling.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/data-quality-scoring",
+      "title": "Data Quality Scoring",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-quality-scoring.md",
       "quality_score": null
     },
     {
@@ -5573,6 +7613,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/document-chunking-strategy",
+      "title": "Document Chunking Strategy",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/document-chunking-strategy.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/embedding-generation",
       "title": "Embedding Generation",
       "category": "12-data",
@@ -5585,6 +7640,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/embedding-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/embedding-model-selection",
+      "title": "Embedding Model Selection",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/embedding-model-selection.md",
       "quality_score": null
     },
     {
@@ -5615,6 +7685,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/feature-engineering.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/funnel-analysis",
+      "title": "Funnel Analysis",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/funnel-analysis.md",
       "quality_score": null
     },
     {
@@ -5708,6 +7793,36 @@
       "quality_score": null
     },
     {
+      "id": "12-data/pii-discovery",
+      "title": "PII Discovery",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/pii-discovery.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/query-optimization",
+      "title": "Query Optimization",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/query-optimization.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/schema-inference",
       "title": "Schema Inference",
       "category": "12-data",
@@ -5720,6 +7835,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/schema-inference.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/schema-registry-management",
+      "title": "Schema Registry Management",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/schema-registry-management.md",
       "quality_score": null
     },
     {
@@ -5813,6 +7943,51 @@
       "quality_score": null
     },
     {
+      "id": "12-data/vector-index-tuning",
+      "title": "Vector Index Tuning",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/vector-index-tuning.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/warehouse-cost-attribution",
+      "title": "Warehouse Cost Attribution",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/warehouse-cost-attribution.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/alt-text-writing",
+      "title": "Alt Text Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/alt-text-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/avatar-design",
       "title": "Avatar Design",
       "category": "13-creative",
@@ -5843,6 +8018,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/brand-guideline-development",
+      "title": "Brand Guideline Development",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/brand-guideline-development.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/brand-voice-development",
       "title": "Brand Voice Development",
       "category": "13-creative",
@@ -5870,6 +8060,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/character-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/character-voice-consistency",
+      "title": "Character Voice Consistency",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/character-voice-consistency.md",
       "quality_score": null
     },
     {
@@ -5963,6 +8168,36 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/grant-proposal-writing",
+      "title": "Grant Proposal Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/grant-proposal-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/icon-set-design",
+      "title": "Icon Set Design",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/icon-set-design.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/image-gen-prompt",
       "title": "Image Generation Prompt",
       "category": "13-creative",
@@ -5975,6 +8210,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/image-gen-prompt.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/interactive-fiction-writing",
+      "title": "Interactive Fiction Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/interactive-fiction-writing.md",
       "quality_score": null
     },
     {
@@ -6053,6 +8303,36 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/newsletter-writing",
+      "title": "Newsletter Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/newsletter-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/pitch-deck-narrative",
+      "title": "Pitch Deck Narrative",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/pitch-deck-narrative.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/plot-structure",
       "title": "Plot Structure",
       "category": "13-creative",
@@ -6128,6 +8408,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/social-calendar-planning",
+      "title": "Social Calendar Planning",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/social-calendar-planning.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/social-media-post",
       "title": "Social Media Post",
       "category": "13-creative",
@@ -6173,6 +8468,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/user-facing-error-copy",
+      "title": "User Facing Error Copy",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/user-facing-error-copy.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/video-script",
       "title": "Video Script",
       "category": "13-creative",
@@ -6203,6 +8513,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/agent-identity-verification",
+      "title": "Agent Identity Verification",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agent-identity-verification.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/agent-skill-security-audit",
       "title": "Agent Skill Security Audit",
       "category": "14-security",
@@ -6215,6 +8540,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/agent-skill-security-audit.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/agentic-attack-surface-mapping",
+      "title": "Agentic Attack Surface Mapping",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agentic-attack-surface-mapping.md",
       "quality_score": null
     },
     {
@@ -6260,6 +8600,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/container-escape-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/data-exfiltration-detection",
+      "title": "Data Exfiltration Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/data-exfiltration-detection.md",
       "quality_score": null
     },
     {
@@ -6320,6 +8675,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/human-in-loop.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/indirect-prompt-injection-detection",
+      "title": "Indirect Prompt Injection Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/indirect-prompt-injection-detection.md",
       "quality_score": null
     },
     {
@@ -6413,6 +8783,51 @@
       "quality_score": null
     },
     {
+      "id": "14-security/mcp-tool-poisoning-detection",
+      "title": "MCP Tool Poisoning Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/mcp-tool-poisoning-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/model-provenance-verification",
+      "title": "Model Provenance Verification",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/model-provenance-verification.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/multi-tenant-isolation-verification",
+      "title": "Multi-Tenant Isolation Verification",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/multi-tenant-isolation-verification.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/output-guardrails",
       "title": "Output Guardrails",
       "category": "14-security",
@@ -6503,6 +8918,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/red-team-automation",
+      "title": "Red Team Automation",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/red-team-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/rollback-undo",
       "title": "Rollback / Undo",
       "category": "14-security",
@@ -6515,6 +8945,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/rollback-undo.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/runtime-behavior-baselining",
+      "title": "Runtime Behavior Baselining",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/runtime-behavior-baselining.md",
       "quality_score": null
     },
     {
@@ -6533,6 +8978,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/sbom-generation-and-review",
+      "title": "SBOM Generation and Review",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/sbom-generation-and-review.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/secret-scanning",
       "title": "Secret Scanning",
       "category": "14-security",
@@ -6545,6 +9005,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/secret-scanning.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/security-header-auditing",
+      "title": "Security Header Auditing",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/security-header-auditing.md",
       "quality_score": null
     },
     {
@@ -6608,6 +9083,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/vulnerability-disclosure-handling",
+      "title": "Vulnerability Disclosure Handling",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/vulnerability-disclosure-handling.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/vulnerability-triage",
       "title": "Vulnerability Triage",
       "category": "14-security",
@@ -6650,6 +9140,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/agent-handoff.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/agent-incident-command",
+      "title": "Agent Incident Command",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/agent-incident-command.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/agent-pool-warming",
+      "title": "Agent Pool Warming",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/agent-pool-warming.md",
       "quality_score": null
     },
     {
@@ -6698,6 +9218,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/canary-agent-deployment",
+      "title": "Canary Agent Deployment",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/canary-agent-deployment.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/capability-based-skill-selection",
       "title": "Capability-Based Skill Selection",
       "category": "15-orchestration",
@@ -6710,6 +9245,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/capability-based-skill-selection.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/chaos-testing-for-agents",
+      "title": "Chaos Testing for Agents",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/chaos-testing-for-agents.md",
       "quality_score": null
     },
     {
@@ -6788,6 +9338,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/cross-protocol-agent-bridging",
+      "title": "Cross Protocol Agent Bridging",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/cross-protocol-agent-bridging.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/dead-letter-queuing",
       "title": "Dead-Letter Queuing",
       "category": "15-orchestration",
@@ -6845,6 +9410,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/documentation-drift-resolution.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/durable-execution-guarantees",
+      "title": "Durable Execution Guarantees",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/durable-execution-guarantees.md",
       "quality_score": null
     },
     {
@@ -6908,6 +9488,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/fleet-wide-config-rollout",
+      "title": "Fleet Wide Config Rollout",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/fleet-wide-config-rollout.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/hierarchical-tree",
       "title": "Hierarchical Tree",
       "category": "15-orchestration",
@@ -6935,6 +9530,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/human-approval-gates.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/human-escalation-routing",
+      "title": "Human Escalation Routing",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/human-escalation-routing.md",
       "quality_score": null
     },
     {
@@ -7118,6 +9728,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/service-level-objective-enforcement",
+      "title": "Service Level Objective Enforcement",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/service-level-objective-enforcement.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/shared-memory",
       "title": "Shared Memory",
       "category": "15-orchestration",
@@ -7238,6 +9863,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/workflow-cost-ceiling",
+      "title": "Workflow Cost Ceiling",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/workflow-cost-ceiling.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/workflow-versioning",
       "title": "Workflow Versioning",
       "category": "15-orchestration",
@@ -7295,6 +9935,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/clinical-note-summarization.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/clinical-trial-protocol-review",
+      "title": "Clinical Trial Protocol Review",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/clinical-trial-protocol-review.md",
       "quality_score": null
     },
     {
@@ -7418,6 +10073,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/ecommerce-product-categorization",
+      "title": "Ecommerce Product Categorization",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/ecommerce-product-categorization.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/energy-consumption-forecasting",
       "title": "Energy Consumption Forecasting",
       "category": "16-domain-specific",
@@ -7430,6 +10100,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/energy-consumption-forecasting.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/esg-report-drafting",
+      "title": "ESG Report Drafting",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/esg-report-drafting.md",
       "quality_score": null
     },
     {
@@ -7475,6 +10160,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/flashcard-creation.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/hr-policy-drafting",
+      "title": "HR Policy Drafting",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/hr-policy-drafting.md",
       "quality_score": null
     },
     {
@@ -7613,6 +10313,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/loan-underwriting-assessment",
+      "title": "Loan Underwriting-Assessment",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/loan-underwriting-assessment.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/log-analysis",
       "title": "Log Analysis",
       "category": "16-domain-specific",
@@ -7673,6 +10388,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/patent-claim-drafting",
+      "title": "Patent Claim Drafting",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/patent-claim-drafting.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/patent-prior-art-search",
       "title": "Patent Prior Art Search",
       "category": "16-domain-specific",
@@ -7688,6 +10418,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/pharmacovigilance-signal-detection",
+      "title": "Pharmacovigilance Signal Detection",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/pharmacovigilance-signal-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/portfolio-analysis",
       "title": "Portfolio Analysis",
       "category": "16-domain-specific",
@@ -7700,6 +10445,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/portfolio-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/procurement-vendor-comparison",
+      "title": "Procurement Vendor Comparison",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/procurement-vendor-comparison.md",
       "quality_score": null
     },
     {
@@ -7733,6 +10493,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/real-estate-listing-analysis",
+      "title": "Real Estate Listing Analysis",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/real-estate-listing-analysis.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/receipt-parsing",
       "title": "Receipt Parsing",
       "category": "16-domain-specific",
@@ -7745,6 +10520,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/receipt-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/regulatory-change-monitoring",
+      "title": "Regulatory Change Monitoring",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/regulatory-change-monitoring.md",
       "quality_score": null
     },
     {
@@ -7823,6 +10613,36 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/supply-chain-visibility-analysis",
+      "title": "Supply Chain Visibility Analysis",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/supply-chain-visibility-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/support-knowledge-base-curation",
+      "title": "Support Knowledge Base Curation",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/support-knowledge-base-curation.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/symptom-analysis",
       "title": "Symptom Analysis",
       "category": "16-domain-specific",
@@ -7898,6 +10718,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/certificate-expiry-management",
+      "title": "Certificate Expiry Management",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/certificate-expiry-management.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/cloud-cost-optimization",
       "title": "Cloud Cost Optimization",
       "category": "17-infrastructure",
@@ -7910,6 +10745,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/cloud-cost-optimization.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/container-image-slimming",
+      "title": "Container Image Slimming",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/container-image-slimming.md",
       "quality_score": null
     },
     {
@@ -7940,6 +10790,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/database-backup-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/database-connection-pool-tuning",
+      "title": "Database Connection Pool Tuning",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/database-connection-pool-tuning.md",
       "quality_score": null
     },
     {
@@ -7988,6 +10853,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/disaster-recovery-drill-automation",
+      "title": "Disaster Recovery Drill Automation",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/disaster-recovery-drill-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/dns-record-management",
       "title": "DNS Record Management",
       "category": "17-infrastructure",
@@ -8000,6 +10880,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/dns-record-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/gpu-scheduling-optimization",
+      "title": "GPU Scheduling Optimization",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/gpu-scheduling-optimization.md",
       "quality_score": null
     },
     {
@@ -8018,6 +10913,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/iac-drift-detection",
+      "title": "IaC Drift Detection",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/iac-drift-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/incident-postmortem-automation",
       "title": "Incident Postmortem Automation",
       "category": "17-infrastructure",
@@ -8030,6 +10940,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/incident-postmortem-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/incident-runbook-generation",
+      "title": "Incident Runbook Generation",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/incident-runbook-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/inference-endpoint-autoscaling",
+      "title": "Inference Endpoint Autoscaling",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/inference-endpoint-autoscaling.md",
       "quality_score": null
     },
     {
@@ -8063,6 +11003,51 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/multi-cloud-failover",
+      "title": "Multi-Cloud Failover",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/multi-cloud-failover.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/observability-stack-configuration",
+      "title": "Observability Stack Configuration",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/observability-stack-configuration.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/queue-infrastructure-provisioning",
+      "title": "Queue Infrastructure Provisioning",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/queue-infrastructure-provisioning.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/secrets-management",
       "title": "Secrets Management",
       "category": "17-infrastructure",
@@ -8075,6 +11060,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/secrets-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/serverless-cold-start-optimization",
+      "title": "Serverless Cold Start Optimization",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/serverless-cold-start-optimization.md",
       "quality_score": null
     },
     {
