@@ -116,7 +116,7 @@ Applying a Deployment manifest grants authority only within the cluster’s own 
 
 This skill is grounded in dated public implementation references:
 
-1. The Kubernetes Deployments documentation (https://kubernetes.io/docs/concepts/workloads/deployments/).
+1. The Kubernetes Deployment controller documentation (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 2. The Kubernetes documentation on managing resources for containers (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
