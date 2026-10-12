@@ -80,7 +80,7 @@ Claims combine medical, financial, and personal data under regulatory protection
 
 This skill is grounded in dated public implementation references:
 
-1. The National Association of Insurance Commissioners resources on claim handling standards (https://www.naic.org/).
+1. The Insurance Information Institute resources on claim handling standards (https://www.iii.org/).
 2. The Wikipedia article on insurance as the domain this procedure operates in (https://en.wikipedia.org/wiki/Insurance).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.

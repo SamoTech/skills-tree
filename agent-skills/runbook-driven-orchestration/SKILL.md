@@ -80,7 +80,7 @@ Runbooks encode privileged operations. Sign and review runbook versions, execute
 This skill is grounded in dated public implementation references:
 
 1. The Ansible automation engine for executable operational procedures (https://github.com/ansible/ansible).
-2. The Google SRE book’s treatment of runbooks and operational automation (https://sre.google/sre/).
+2. The Google SRE book’s treatment of runbooks and operational automation (https://sre.google/books/).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
 

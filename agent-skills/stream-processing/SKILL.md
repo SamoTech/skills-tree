@@ -88,7 +88,7 @@ Streams often carry personal or operational data at high velocity. Scope access 
 This skill is grounded in dated public implementation references:
 
 1. The Apache Kafka documentation covering consumer semantics and delivery guarantees (https://kafka.apache.org/documentation/).
-2. The Apache Flink documentation on event time and watermarks (https://flink.apache.org/docs/stable/).
+2. The Apache Flink documentation on event time and watermarks (https://nightlies.apache.org/flink/flink-docs-stable/).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
 

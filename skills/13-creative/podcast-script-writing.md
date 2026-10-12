@@ -81,7 +81,7 @@ Podcast scripts carry legal exposure: defamation risk from unverified claims, an
 This skill is grounded in dated public implementation references:
 
 1. The Wikipedia article on podcasts as a medium (https://en.wikipedia.org/wiki/Podcast).
-2. The Podlove open-source podcast publishing project (https://github.com/podlove/podlove-podcast-publisher).
+2. The Podlove open-source podcast publishing project (https://github.com/podlove/podlove-publisher).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
 

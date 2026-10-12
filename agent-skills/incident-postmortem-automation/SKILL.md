@@ -78,7 +78,7 @@ Postmortems catalog how systems fail, which makes them sensitive in aggregate. R
 
 This skill is grounded in dated public implementation references:
 
-1. The Google SRE book chapter on postmortem culture (https://sre.google/sre/postmortem-culture/).
+1. The Google SRE book chapter on postmortem culture (https://sre.google/workbook/postmortem-culture/).
 2. The community collection of postmortem templates (https://github.com/dastergon/postmortem-templates).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
