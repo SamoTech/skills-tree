@@ -87,8 +87,7 @@ Label each step: Premise / Given / Modus Ponens / Modus Tollens / Contradiction.
 
 ## Common Fallacies to Avoid
 
-| Fallacy |
- Structure | Why It Fails |
+| Fallacy | Structure | Why It Fails |
 |---|---|---|
 | Affirming the consequent | Q is true → P must be true | Multiple causes can produce Q |
 | Denying the antecedent | P is false → Q must be false | Q may have other causes |

@@ -63,8 +63,7 @@ def causal_analysis(scenario: str, question: str = "") -> dict:
     q_hint = f"\nSpecific question: {question}" if question else ""
 
     response = client.messages.create(
-        m
-odel="claude-opus-4-5",
+        model="claude-opus-4-5",
         max_tokens=2048,
         messages=[{
             "role": "user",
@@ -133,6 +132,5 @@ print(json.dumps(result, indent=2))
 
 | Date | Change |
 |---|---|
-| `2026-04` | Expanded from stub: full description, I/O table
-, conversion-drop case study |
+| `2026-04` | Expanded from stub: full description, I/O table, conversion-drop case study |
 | `2025-03` | Initial stub entry |

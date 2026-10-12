@@ -60,8 +60,7 @@ def reason_by_analogy(target_problem: str, source_domain: str = "") -> dict:
     """
     Solve a problem by finding a structural analogy from another domain.
     """
-    source_hint = f"Draw the analogy from: {s
-ource_domain}\n" if source_domain else ""
+    source_hint = f"Draw the analogy from: {source_domain}\n" if source_domain else ""
 
     response = client.messages.create(
         model="claude-opus-4-5",

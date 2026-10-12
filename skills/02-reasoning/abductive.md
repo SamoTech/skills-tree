@@ -58,8 +58,7 @@ client = anthropic.Anthropic()
 def abductive_analysis(observations: list[str], domain: str = "") -> dict:
     """
     Return ranked hypotheses explaining the given observations.
-    obse
-rvations: list of factual observations (e.g. error messages, symptoms)
+    observations: list of factual observations (e.g. error messages, symptoms)
     """
     obs_text = "\n".join(f"- {o}" for o in observations)
     domain_hint = f"Domain context: {domain}\n" if domain else ""
@@ -128,8 +127,7 @@ print(json.dumps(result, indent=2))
 
 - [Causal Reasoning](causal.md) — determining cause-effect chains
 - [Commonsense Reasoning](commonsense.md) — background world knowledge
-- [Fact Ve
-rification](../03-memory/fact-verification.md) — checking hypothesis claims
+- [Fact Verification](../03-memory/fact-verification.md) — checking hypothesis claims
 
 ---
 

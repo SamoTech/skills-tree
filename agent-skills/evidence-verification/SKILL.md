@@ -42,8 +42,7 @@ git status --short
 
 - **Evidence substitution:** accepting an adjacent artifact (a passing CI run for a different commit, a related document) as proof of the actual claim; match evidence to the exact claim, commit, and artifact.
 - **Assumption laundering:** classifying inferred or reported facts as "verified" without a direct artifact; keep verified, assumed, and unresolved strictly separated.
-- **Incomplete evidence matrix:** verifying positive claims but not absence claims (no regression, no unresolved
-risk); negative claims need named evidence too.
+- **Incomplete evidence matrix:** verifying positive claims but not absence claims (no regression, no unresolved risk); negative claims need named evidence too.
 - **Stale evidence:** reusing evidence collected before a change that could invalidate it; timestamp and re-check evidence at verification time.
 
 ## Related
