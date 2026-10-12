@@ -180,14 +180,16 @@ Quality classifications are repository validation states, not proof of productio
 |---|---|---|---|---|
 | AI agent skill taxonomy | ✅ 493 public skills | ⚠️ Prompt-focused | ❌ Model-focused | ❌ None |
 | Versioned skill evolution | ✅ v1→v2→v3 | ❌ | ❌ | ❌ |
-| Runnable code examples | ✅ Every skill | ⚠️ Some | ⚠️ Some | ❌ |
+| Runnable code examples | ✅ Every skill (CI-gated) | ⚠️ Some | ⚠️ Some | ❌ |
 | Benchmarks included | ✅ Head-to-head | ❌ | ⚠️ Leaderboards | ❌ |
 | MCP server integration | ✅ Built-in | ❌ | ❌ | ❌ |
 | Multi-agent blueprints | ✅ 7+ blueprints | ⚠️ Templates | ❌ | ❌ |
 | CLI + Python API | ✅ Both | ⚠️ Python only | ✅ Both | ❌ |
 | Community-governed | ✅ Open PRs | ⚠️ Curated | ✅ Open | ✅ (yours only) |
-| Failure modes documented | ✅ Every skill | ❌ | ❌ | ❌ |
+| Failure modes documented | ✅ 453/493 skills (2026-10-12) | ❌ | ❌ | ❌ |
 | Free & open source (MIT) | ✅ | ⚠️ Mixed | ✅ | ✅ |
+
+> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes sections are a skill-template standard, not yet a CI gate: 453 of 493 skill files carried a `## Failure Modes` section at the audit date. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents).
 
 ---
 
@@ -271,7 +273,7 @@ skills-tree/
 
 ## A Skill in 60 Seconds
 
-Every skill file is self-contained and production-ready:
+Every skill file is self-contained and versioned:
 
 ````markdown
 # Memory Injection
@@ -290,7 +292,7 @@ client.messages.create(
 ```
 ````
 
-Every documented battle-tested skill includes: ✅ typed inputs/outputs · ✅ runnable Python code · ✅ frameworks table · ✅ failure modes · ✅ version history
+Every battle-tested skill is CI-gated to include a real description, runnable Python code, and documentation tables; the large majority also document failure modes, frameworks, and version history.
 
 ---
 
