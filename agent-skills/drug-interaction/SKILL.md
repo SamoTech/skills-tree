@@ -39,8 +39,7 @@ print(check_interactions(["Warfarin", "Ibuprofen", "Metformin"]))
 
 - **Database staleness:** interactions checked against an outdated database; interaction evidence changes frequently, so record the database version and check date with every result.
 - **Incomplete regimen coverage:** pairwise checks missing multi-drug combinations or modifying factors (renal impairment, pregnancy, food).
-- **Severity misclassification:** mapping a contraindic
-ated pair to a lower class because of an edge-case note; classifications must follow the database's stated hierarchy.
+- **Severity misclassification:** mapping a contraindicated pair to a lower class because of an edge-case note; classifications must follow the database's stated hierarchy.
 - **Explanatory drift:** mechanism or management text going beyond curated database content into clinical recommendation.
 - **Patient-context gaps:** missing weight, age, renal function, or lab context; the output is a screening aid for professionals, never a dosing decision.
 

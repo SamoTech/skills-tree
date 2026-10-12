@@ -47,8 +47,7 @@ print(generate_ad("AI-powered note-taking app", "google"))
 
 - **Policy violations:** generated copy breaching platform ad policies (unsubstantiated claims, restricted categories) that would get ads rejected; check every variant against the live policy for its channel.
 - **Limit miscounting:** variants exceeding character limits after placeholder expansion or emoji width; measure the final rendered length, not the template.
-- **Fal
-se claims:** implying results, statistics, or endorsements the product cannot substantiate; every claim must trace to approved source material.
+- **False claims:** implying results, statistics, or endorsements the product cannot substantiate; every claim must trace to approved source material.
 - **Brand-voice drift:** tone or claim style inconsistent with the documented brand voice and disclaimers.
 - **Audience mismatch:** fluent copy built for the wrong targeting segment or funnel stage.
 

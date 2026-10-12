@@ -43,8 +43,7 @@ print(flag_clauses(contract))
 - **Missed clauses:** extraction focused on common clause types missing unusual or embedded risk provisions (auto-renewal, unilateral amendment, governing law).
 - **Standard-position bias:** comparing against a default playbook without negotiated context; the standard position is a baseline, not a legal requirement.
 - **Hallucinated clause text:** paraphrasing that changes obligations or thresholds; every extracted clause needs a verbatim quote and location.
-- **Jurisdiction overreach:** applying one legal system's a
-ssumptions to a contract governed by another; identify governing law before analysis.
+- **Jurisdiction overreach:** applying one legal system's assumptions to a contract governed by another; identify governing law before analysis.
 - **Not legal advice:** structured risk output supports review; final legal judgment requires a qualified attorney.
 
 ## Evidence

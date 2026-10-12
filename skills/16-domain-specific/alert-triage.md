@@ -55,6 +55,5 @@ The canonical skill file is the authoritative repository implementation. Reposit
 
 ### Related
 - 16-domain-specific
-- i
-nput-guardrails
+- input-guardrails
 - output-guardrails

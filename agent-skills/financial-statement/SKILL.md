@@ -42,8 +42,7 @@ print(analyse(500_000, 200_000, 100_000, 120_000, 60_000, 80_000, 200_000))
 
 - **Parsing misalignment:** period boundaries, units (thousands vs millions), or currency mismatches producing ratios that are arithmetically correct but economically wrong; re-verify scale and period before computing.
 - **Ratio cherry-picking:** selecting metrics that support a preferred narrative; report the standard ratio set including unfavorable ones.
-- **Trend distortion:** comparing periods affected by accounting-policy changes, restatements, or M&A without adjusting
-or flagging them.
+- **Trend distortion:** comparing periods affected by accounting-policy changes, restatements, or M&A without adjusting or flagging them.
 - **Benchmark incomparability:** peer sets with different fiscal calendars, scale, or business mix treated as comparable.
 - **Narrative overreach:** commentary implying causation or forecasts from ratio movement alone; keep measured computation separate from interpretation.
 

@@ -43,8 +43,7 @@ print(summarize_note(note))
 
 - **Critical-detail omission:** compression discarding findings, medication changes, or follow-up actions that alter care; clinically significant items must be preserved or explicitly flagged, never silently dropped.
 - **Meaning-shift paraphrase:** rewording that changes doses, units, or negation; re-verify every number and negation against the source note.
-- **Template distortion:** forcing documentation
-that does not fit the SOAP or problem-oriented structure into wrong sections.
+- **Template distortion:** forcing documentation that does not fit the SOAP or problem-oriented structure into wrong sections.
 - **Source conflation:** merging multiple notes without preserving per-note dates and authors.
 - **Scope boundary:** the output is a condensation for clinical workflows, not a diagnostic or treatment recommendation.
 

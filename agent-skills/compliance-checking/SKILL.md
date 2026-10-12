@@ -41,7 +41,6 @@ print(gdpr_gap_check(["privacy_policy_published", "consent_mechanism"]))
 - **Undocumented-as-compliant:** marking gaps as passing because nothing contradicts them; undocumented controls are unverified, not compliant.
 - **Checklist rigidity:** literal clause matching that misses control intent; a process can satisfy the letter while violating the spirit of a control.
 - **Jurisdiction mismatch:** applying the wrong jurisdiction's requirements or missing extraterritorial scope.
-
 - **Static verdicts:** once-compliant states drifting after process or system changes; verdicts need re-verification dates and change triggers.
 
 ## Evidence
