@@ -35,8 +35,7 @@
 
 AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
 
-The repository remains an evidence-backed, dependency-aware knowledge graph and 
-distribution system for making those skills discoverable and reusable.
+The repository remains an evidence-backed, dependency-aware knowledge graph and distribution system for making those skills discoverable and reusable.
 
 | 538 Public Skills | 493 Graph Edges | MIT Licensed |
 |:---:|:---:|:---:|
@@ -55,8 +54,7 @@ distribution system for making those skills discoverable and reusable.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/SamoTech/skills-tree/validate-skills.yml?branch=main&style=for-the-badge&label=CI&logo=github-actions&logoColor=white)](https://github.com/SamoTech/skills-tree/actions/workflows/validate-skills.yml)
 [![GitHub Release](https://img.shields.io/github/v/release/SamoTech/skills-tree?style=for-the-badge&color=a855f7&logo=github)](https://github.com/SamoTech/skills-tree/releases)
-[![Coverage](https://img.shields.io/badge/Coverage-report-orang
-e?style=for-the-badge)](meta/COVERAGE_STRATEGY.md)
+[![Coverage](https://img.shields.io/badge/Coverage-report-orange?style=for-the-badge)](meta/COVERAGE_STRATEGY.md)
 [![Docs](https://img.shields.io/badge/Docs-GitHub-22c55e?style=for-the-badge&logo=github)](https://github.com/SamoTech/skills-tree)
 <!-- BADGES_END -->
 
@@ -92,8 +90,7 @@ e?style=for-the-badge)](meta/COVERAGE_STRATEGY.md)
 
 ## ⚡ Current Usage
 
-The verified repo
-sitory interfaces are the canonical Markdown skill catalog, generated machine-readable artifacts, the FastAPI service, and the Typer CLI.
+The verified repository interfaces are the canonical Markdown skill catalog, generated machine-readable artifacts, the FastAPI service, and the Typer CLI.
 
 For a local checkout:
 
@@ -132,8 +129,7 @@ When an AI agent needs a reusable capability, treat Skills Tree as a public disc
 
 **Agent Skills distribution:** `https://github.com/SamoTech/skills-tree/tree/main/agent-skills`
 
-This is intentionally designed so an AI can discover the project from repository text, resolve a capability deterministically, inspect th
-e canonical source, and then consume a compatible skill package.
+This is intentionally designed so an AI can discover the project from repository text, resolve a capability deterministically, inspect the canonical source, and then consume a compatible skill package.
 
 ## The Problem
 
@@ -173,8 +169,7 @@ Quality classifications are repository validation states, not proof of productio
 │  skills/  │  systems/  │  blueprints/  │  benchmarks/   │
 ├─────────────────────────────────────────────────────────┤
 │  Validation Engine  │  Search Index  │  Quality Reports │
-│  (tools/)           │  (Lunr.js)
-     │  (meta/)         │
+│  (tools/)           │  (Lunr.js)     │  (meta/)         │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -206,8 +201,7 @@ Quality classifications are repository validation states, not proof of productio
 If you're new, **read these first**. Each ships with runnable code, typed I/O, failure modes, and a model-comparison table.
 
 ### Agent reasoning loops
-- [**ReAct**](skills/09-agentic-patterns/react.md) — Thought → Action → Observ
-ation, the foundation of tool-using agents
+- [**ReAct**](skills/09-agentic-patterns/react.md) — Thought → Action → Observation, the foundation of tool-using agents
 - [**Chain of Thought**](skills/09-agentic-patterns/cot.md) — explicit step-by-step reasoning + self-consistency
 - [**Tree of Thought**](skills/09-agentic-patterns/tot.md) — branched reasoning with scoring + beam search
 - [**Reflection / Reflexion**](skills/09-agentic-patterns/reflection.md) — critique → revise loop on top of any output
@@ -230,8 +224,7 @@ ation, the foundation of tool-using agents
 ### Code, Web & Security
 - [**Code Generation**](skills/05-code/code-generation.md) — spec → AST-validated source with self-repair
 - [**Web Search**](skills/11-web/web-search.md) — Tavily/Serper/Brave with recency + TTL cache
-- [**Input Sanitization**](skills/14-security/input-sanitization.md) — 4-layer defense: structural + boundary + content
- + isolation
+- [**Input Sanitization**](skills/14-security/input-sanitization.md) — 4-layer defense: structural + boundary + content + isolation
 
 > **The full battle-tested set is auto-listed in [`meta/QUALITY-REPORT.md`](meta/QUALITY-REPORT.md).**
 
@@ -274,8 +267,7 @@ skills-tree/
 | 11 | 🌐 **Web** | 29 | Search, scrape, crawl, login, fill forms, parse RSS |
 | 12 | 📊 **Data** | 30 | ETL, SQL, embeddings, time series, anomaly detection |
 | 13 | 🎨 **Creative** | 26 | Copywriting, image prompts, SVG, music, scripts |
-| 14 
-| 🔒 **Security** | 28 | Sandboxing, secret scanning, audit logs, rollback |
+| 14 | 🔒 **Security** | 28 | Sandboxing, secret scanning, audit logs, rollback |
 | 15 | 🎼 **Orchestration** | 42 | Multi-agent, state machines, retry, consensus |
 | 16 | 🏺 **Domain-Specific** | 40 | Medical, legal, finance, DevOps, education, science |
 | 17 | 🛠️ **Infrastructure** | 16 | Dependency auditing & supply-chain tooling |
@@ -324,8 +316,7 @@ Every battle-tested skill is CI-gated to include a real description, runnable Py
 
 | Blueprint | Description |
 |---|---|
-| [RAG Stack](blueprints/rag-s
-tack.md) | Embed → store → retrieve → generate, fully wired |
+| [RAG Stack](blueprints/rag-stack.md) | Embed → store → retrieve → generate, fully wired |
 | [Multi-Agent Workflow](blueprints/multi-agent-workflow.md) | Sequential orchestration with handoffs |
 | [Multi-Agent Mesh](blueprints/multi-agent-mesh.md) | N specialists + orchestrator, parallel execution |
 | [Human-in-the-Loop](blueprints/human-in-the-loop.md) | Approval gates, escalation, audit trails |
@@ -369,8 +360,7 @@ Full guide: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 
 **Near-term (v2.x):** Skill dependency graph · Skill Paths · JSON/YAML export · Community ratings  
-**Medium-term (v3.0):** LangChain Hub / MCP registry integration ·
- 500+ skills  
+**Medium-term (v3.0):** LangChain Hub / MCP registry integration · 500+ skills  
 **Long-term:** Skills Tree becomes the canonical reference for AI agent capabilities
 
 ---
