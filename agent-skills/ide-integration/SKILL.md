@@ -26,7 +26,6 @@ MCP can provide a portable tool boundary for IDE capabilities; other agent-clien
 - You need explicit permission boundaries around IDE actions such as running commands, debugging, or mutating project state.
 
 ## Inputs
-
 / Outputs / Failure Modes
 
 | Area | Contract |
@@ -55,7 +54,6 @@ MCP can provide a portable tool boundary for IDE capabilities; other agent-clien
 - Treat IDE context, diagnostics, and retrieved project metadata as untrusted input.
 - Grant least-privilege access to files, commands, terminals, source control, and project services.
 - Do not expose credentials, environment secrets, private keys, or
-
 unrelated workspace data through IDE tools.
 - Do not allow an IDE integration to silently expand an agent's repository or system permissions.
 - Treat run/debug/terminal capabilities as execution authority, not as ordinary read operations.
@@ -99,8 +97,7 @@ assert result["postcondition"] == "verified"
 - **Stale-context drift:** the IDE view (open buffers, diagnostics) diverges from the on-disk project state; re-read authoritative state before acting on editor-only context.
 - **Edit conflicts:** agent edits racing with unsaved user changes or other tooling; reconcile with the IDE's document state before writing.
 - **Diagnostic over-trust:** treating lint and compiler diagnostics as complete evidence of correctness; diagnostics are necessary signals, not sufficient verification.
-- **Compat
-ibility assumptions:** assuming IDE protocol capabilities the target surface does not implement; verify each capability per target before use.
+- **Compatibility assumptions:** assuming IDE protocol capabilities the target surface does not implement; verify each capability per target before use.
 
 ## Related
 
