@@ -49,9 +49,6 @@ Do not apply to a counterpart that is a fixed procedure with no strategy of its 
 ## Runnable Example
 
 ```python
-def pure_nash equilibria_placeholder(): pass
-```
-```python
 def best_responses(payoffs, profile, player):
     strategies = {s for p in payoffs for s in p}
     me = profile[player]
