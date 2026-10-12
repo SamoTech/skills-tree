@@ -56,7 +56,7 @@ def run_saga(steps, compensations):
             step["action"]()
             done.append(step["name"])
         except Exception as err:
-            log = [f"failed at {step[chr(110)+chr(97)+chr(109)+chr(101)]}: {err}"]
+            log = [f"failed at {step['name']}: {err}"]
             for prev in reversed(done):
                 compensations[prev]()
                 log.append(f"compensated {prev}")
