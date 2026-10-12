@@ -1,0 +1,60 @@
+name: Debug link check
+
+# Temporary diagnostic workflow added by the owner-directed wave-2 batch-2 work.
+# Runs the exact check-links lychee invocation with fail disabled and emits each
+# failing URL as a check-run annotation so the failures are readable without
+# admin log access. Removed once the offending links are identified and fixed.
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/debug-link-check.yml'
+
+permissions: {}
+
+jobs:
+  linkdebug:
+    name: Debug external link failures
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --exclude 'localhost'
+            --exclude '127\.0\.0\.1'
+            --exclude 'example\.com'
+            --timeout 30
+            --max-retries 3
+            'skills/**/*.md'
+          fail: false
+          output: lychee/out.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Emit failure annotations
+        run: |
+          if [ -f lychee/out.md ]; then
+            echo "Lychee report contents:"
+            cat lychee/out.md
+            {
+              echo "# Debug link check report"
+              echo ""
+              echo '```'
+              cat lychee/out.md
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            grep -E 'https?://' lychee/out.md | head -n 20 | while IFS= read -r line; do
+              echo "::error::${line}"
+            done
+          else
+            echo "No lychee output file found (no failures reported or report not written)"
+          fi
