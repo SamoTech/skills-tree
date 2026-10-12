@@ -66,9 +66,6 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- bisect round 2: subset 11-15 -->
-- <https://en.wikipedia.org/wiki/Minutes>
-- <https://en.wikipedia.org/wiki/Cornell_notes>
-- <https://json-schema.org/learn/getting-started-step-by-step>
-- <https://docs.python.org/3/library/json.html>
-- <https://platform.openai.com/docs/guides/prompt-caching>
+<!-- bisect round 3: subset 16-17 -->
+- <https://docs.anthropic.com/en/api/messages>
+- <https://pandas.pydata.org/docs/user_guide/missing_data.html>
