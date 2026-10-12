@@ -22,7 +22,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `generate-blueprint.yml` | Supporting artifact generation | Blueprint generation |
 | `generate-changelog.yml` | Generated-main writer | Generated changelog |
 | `governance-gate.yml` | Authoritative validation | Repository governance contract verification |
-| `generate-search-index.yml` | Generated-main writer | Search index |
+| `generate-search-index.yml` | Generated-main writer | Search index through protected-main PR; redundant triggers (self-path push, merged-PR `pull_request_target` with merged-only guard, weekly self-heal) mirror `quality-report.yml` and close the #447 stranding class |
 | `issue-welcome.yml` | Supporting automation | Issue onboarding |
 | `leaderboard.yml` | Generated-main writer | Leaderboard projection |
 | `osv-watch.yml` | Generated-main writer | OSV/advisory state |
@@ -83,3 +83,7 @@ Any new or modified workflow must be classified in this file in the same change.
 A full git-tree audit of `main` found 46 workflow files. The five workflows newly reconciled into this inventory are `agent-skills-distribution.yml`, `demand-signals.yml`, `governance-gate.yml`, `retrieval-benchmark.yml`, and `skill-selection-benchmark.yml`. The prior `jsonld-export.yml` entry was stale and has been removed from the live inventory.
 
 The inventory is descriptive only; CI and `tools/verify_governance.py` remain the enforcement boundaries.
+
+## Disposition update — 2026-10-11
+
+`generate-search-index.yml` was hardened with `quality-report.yml`'s proven redundant trigger set (self-path push trigger, merged-PR `pull_request_target` with a merged-only job guard and explicit `main` checkout, weekly self-heal schedule) to close the #447 stranding class observed after PR #467. The workflow count and classification are unchanged; the trusted-generator provenance, `auto-commit-main` serialization, and protected-main PR publication path are preserved (PR #470).

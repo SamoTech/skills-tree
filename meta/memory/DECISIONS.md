@@ -1460,3 +1460,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if a trusted search-index rebuild contradicts the recorded staleness, if a fresh trusted regeneration diverges from the republished report, or if the #447 resolution changes the republish policy.
+
+## DECISION-2026-10-11-SEARCH-INDEX-TRIGGER-HARDENING
+
+**Topic:** Closing the search-index stranding class observed after PR #467 by hardening `generate-search-index.yml` triggers.
+
+**Decision:** The post-PR #467 cycle verified that `automation/generated-search-index` never moved (pre-merge head `058ff132258d45db4ab1dd384369549aada9f7d1`) because `generate-search-index.yml` lacked the redundant trigger set that `quality-report.yml` already uses for the same documented reason (API-driven merges can complete without a usable post-merge push-triggered run). Mirror the proven set onto the search-index writer: add `.github/workflows/generate-search-index.yml` to its own push paths, add a `pull_request_target: types: [closed], branches: [main]` trigger with a merged-only job guard (`github.event.pull_request.merged == true`) and an explicit `ref: main` checkout, and add a weekly self-heal schedule (Sunday 03:00 UTC). Provenance is unchanged: the index remains solely the output of `tools/build_search_index.py` under the trusted workflow, published through `automation/generated-search-index` and a protected-main PR; the `auto-commit-main` serialization, the `verify_governance.py` protected-writer contract phrases, and the least-privilege permission shape (`permissions: {}` with job-scoped `contents: write`) are preserved. Reclassify the workflow in `meta/WORKFLOW_INVENTORY.md` in the same change per its own rule. No direct `main` writes and no agent-generated index content are introduced.
+
+**Confidence:** HIGH — the mirrored trigger set is the repository's own proven pattern on `quality-report.yml`, and all enforced governance phrases were checked verbatim against `tools/verify_governance.py`.
+
+**Evidence IDs:** .github/workflows/generate-search-index.yml (pre/post); .github/workflows/quality-report.yml (proven pattern); tools/verify_governance.py; meta/WORKFLOW_INVENTORY.md; issue #447; PR #465 (prior stranding instance); PR #467 (missed trigger instance); PR #469 (quality-report republish precedent); meta/CURRENT-STATE.md post-#467 generated-artifact reconciliation.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the hardened triggers still fail to rebuild the index after a merged skills PR, if the weekly self-heal produces unbounded churn, or if a security review requires replacing `pull_request_target` with a narrower mechanism.
