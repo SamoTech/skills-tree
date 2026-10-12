@@ -6,6 +6,9 @@ stability: stable
 description: Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.
 added: "2025-03"
 version: v2
+related:
+  - 09-agentic-patterns/react
+  - 02-reasoning/planning-decomposition
 prerequisites:
   - 09-agentic-patterns/react
   - 02-reasoning/planning-decomposition
@@ -61,6 +64,7 @@ graph.add_node("executor", executor)
 graph.set_entry_point("planner")
 graph.add_edge("planner", "executor")
 graph.add_conditional_edge
+
 s("executor", should_continue, {END: END, "executor": "executor"})
 app = graph.compile()
 
