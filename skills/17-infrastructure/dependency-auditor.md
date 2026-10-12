@@ -53,7 +53,8 @@ The Dependency Auditor solves this by **running the code**, not just scanning it
 │  dependency-auditor.yml  (GitHub Actions)                       │
 │                                                                 │
 │  trigger: PR touching skills/**/*.md  OR  weekly cron           │
-│                                                                 │
+│                                                               
+  │
 │  1. Find skill files with Yellow badges (machine-inferred)      │
 │  2. For each skill:                                             │
 │     a. Create tempfile.TemporaryDirectory()                     │
@@ -109,7 +110,8 @@ def create_isolated_env(deps: list[str]) -> Path:
 ```
 
 > **Why not a single shared venv for all skills?**
-> Because conflicts between skill deps would produce false results.
+> Because conflicts between skill deps would produce false re
+sults.
 > Skill A might pass *only because* Skill B's dep happened to satisfy its import.
 > Isolation ensures every Green badge is independently earned.
 
@@ -175,7 +177,8 @@ def run_snippet(python: str, snippet: str, timeout: int = 30) -> tuple[bool, str
 def audit_skill(skill_path: str, deps: list[str], snippets: list[str]) -> AuditResult:
     """Full audit lifecycle for a single skill."""
     if not snippets or not deps:
-        return AuditResult(skill_path=skill_path, verdict=Verdict.SKIP)
+        return Audit
+Result(skill_path=skill_path, verdict=Verdict.SKIP)
 
     try:
         python = str(create_isolated_env(deps))
@@ -237,7 +240,8 @@ def generate_verified_frontmatter_patch(result: AuditResult) -> dict:
         "message": "\u2714 verified",
         "color": "22c55e",
         "style": "flat-square",
-        "namedLogo": "checkmarx",
+        "namedLogo"
+: "checkmarx",
         "_meta": {
             "promoted_by": "dependency-auditor",
             "promoted_at": datetime.now(timezone.utc).isoformat(),
@@ -294,7 +298,8 @@ This skill (`dependency-auditor.md`) is itself subject to the badge pipeline it 
 
 - Its own `httpx` and `packaging` imports are scanned by the AST Sweep → Yellow badge
 - The Dependency Auditor runs its own snippets in an isolated venv
-- If they pass → a verification PR is opened → exact-head repository CI gates the merge → Green badge
+- If they pass → a verification
+ PR is opened → exact-head repository CI gates the merge → Green badge
 
 The tool that audits the repository is itself audited by the repository.
 This is the self-healing property of the infrastructure.
@@ -317,6 +322,14 @@ For the current scope — a curated, maintainer-reviewed repository — the
 ephemeral runner model is the primary and sufficient containment strategy.
 
 ---
+
+## Failure Modes
+
+- **Verdict overreach:** recording pass/fail evidence as a trust judgment; the auditor records evidence and proposes badges, it does not change canonical trust state.
+- **Isolation leakage:** network or filesystem egress from the audit environment beyond the documented constraint model invalidates that run's evidence.
+- **Pinned-evidence drift:** verdicts referencing dependency versions that no longer match the resolved lockfile at audit time; record the exact resolved versions.
+- **Transitive blind spots:** auditing declared dependencies only while the exploitable surface lives in transitive or undeclared (phantom) dependencies.
+- **Stale advisories:** advisory databases with lagging or missing entries producing false "no known issues" verdicts; record advisory database version and freshness.
 
 ## Related Infrastructure
 

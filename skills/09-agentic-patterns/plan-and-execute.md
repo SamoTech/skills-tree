@@ -60,7 +60,8 @@ graph.add_node("planner", planner)
 graph.add_node("executor", executor)
 graph.set_entry_point("planner")
 graph.add_edge("planner", "executor")
-graph.add_conditional_edges("executor", should_continue, {END: END, "executor": "executor"})
+graph.add_conditional_edge
+s("executor", should_continue, {END: END, "executor": "executor"})
 app = graph.compile()
 
 result = app.invoke(AgentState(goal="Research and summarize the benefits of RAG"))
@@ -69,6 +70,13 @@ print(result["final_answer"])
 
 ### Related Skills
 - `react`, `planning`, `stateful-agent-graphs`, `agent-handoffs`
+
+## Failure Modes
+
+- **Plan rigidity:** executing a stale task list after the environment or goal changes; replanning must be triggered by explicit failure or change signals, not only by exhaustion of the list.
+- **Planner-executor drift:** the executor reinterprets or silently skips steps; each step needs completion criteria the executor can verify mechanically.
+- **Over-decomposition:** splitting into micro-steps that add coordination overhead and lose sight of the global objective.
+- **Irreversible early steps:** sequencing destructive actions before verification steps, so a late failure cannot be rolled back cheaply.
 
 ## Changelog
 

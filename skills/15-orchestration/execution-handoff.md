@@ -44,6 +44,13 @@ git log -5 --oneline
 | CI/security evidence | Completion state | Gates remain unresolved |
 | Current state and decisions | Continuation packet | Handoff omits material context |
 
+## Failure Modes
+
+- **Handoff information loss:** omitting live decision state (why, what was ruled out, what remains) so the next agent must reconstruct work from scratch.
+- **Unverified-state handoff:** passing along work whose verification step never actually ran, presenting assumptions as completed facts.
+- **Unbounded continuation:** a handoff implying authority or scope the original work never had; state explicit boundaries and blockers.
+- **Documentation drift:** the handoff record describing intent rather than the actual end state; the record must reflect the verified end state, not the plan.
+
 ## Related
 
 - `repository-state-load.md`
