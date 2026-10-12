@@ -66,9 +66,7 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- vetting: bisect round 4 (URLs 32-36) -->
-- <https://en.wikipedia.org/wiki/Secure_Shell>
-- <https://docs.python.org/3/library/subprocess.html>
-- <https://en.wikipedia.org/wiki/Cron>
-- <https://docs.python.org/3/library/sched.html>
-- <https://en.wikipedia.org/wiki/Chunked_transfer_encoding>
+<!-- vetting: bisect round 5 (URLs 37-39) -->
+- <https://docs.python.org/3/library/http.client.html>
+- <https://docs.python.org/3/library/tarfile.html>
+- <https://en.wikipedia.org/wiki/Tar_(computing)>
