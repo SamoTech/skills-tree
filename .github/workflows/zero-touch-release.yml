@@ -85,11 +85,32 @@ jobs:
           echo "current pyproject version : $CURRENT"
           echo "calculated next version   : $NEXT"
 
+          # A version bump whose tag never landed (e.g. a mid-flight writer
+          # failure) must not be treated as "nothing to release": python-
+          # semantic-release derives NEXT from the last existing tag, so an
+          # orphaned bump would otherwise deadlock every later release.
           if [ "$NEXT" = "$CURRENT" ]; then
-            echo "released=false"   >> "$GITHUB_OUTPUT"
+            if git rev-parse --verify --quiet "refs/tags/v$CURRENT" >/dev/null 2>&1; then
+              echo "released=false"   >> "$GITHUB_OUTPUT"
+              echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
+              echo "tag=v$CURRENT"    >> "$GITHUB_OUTPUT"
+              echo "::notice::No releasable commits — skipping build and publish."
+              exit 0
+            fi
+
+            # Recovery: pyproject already declares $CURRENT but tag
+            # v$CURRENT is absent. Complete that orphaned release by
+            # tagging the declared version at the live main tip; the
+            # downstream build/publish jobs then release what main contains.
+            echo "::notice::Tag v$CURRENT is missing while pyproject declares $CURRENT — completing the orphaned release."
+            git tag -a "v$CURRENT" -m "chore(release): v$CURRENT"
+            if ! git push origin "refs/tags/v$CURRENT"; then
+              echo "::error::Failed to push recovery tag v$CURRENT"
+              exit 1
+            fi
+            echo "released=true"    >> "$GITHUB_OUTPUT"
             echo "version=$CURRENT" >> "$GITHUB_OUTPUT"
             echo "tag=v$CURRENT"    >> "$GITHUB_OUTPUT"
-            echo "::notice::No releasable commits — skipping build and publish."
             exit 0
           fi
 
