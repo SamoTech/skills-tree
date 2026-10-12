@@ -1516,3 +1516,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if git-derived dates prove unavailable or misleading in any supported execution environment, if a consumer is found that requires the `generated` field to reflect wall-clock generation time, or if sorted keywords break a downstream contract.
+
+## DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION
+
+**Topic:** Adding 100 new skills across all 17 categories under an explicit repository-owner direction, overriding the roadmap's no-raw-count-additions-without-a-measured-gap rule for this expansion only.
+
+**Decision:** The repository owner directed a 100-skill corpus expansion. This is an owner override of the measured-gap rule (meta/ROADMAP.md item 7), recorded here and annotated in meta/MOST-WANTED-SKILLS.md because no demand signal is claimed: the new entries' Evidence sections cite implementation references only. Execution follows every unchanged gate: canonical files land in skills/<category>/, each eligible entry ships with a byte-exact deterministic project() package in agent-skills/ (the projection port validated against the known-good ad-copy pair before push), the discovery test count is updated in the same PR as the skills and packages, and all generated projections (graph, search index, Skills API export, quality report, README counts, badges) regenerate through trusted workflows post-merge with no generated artifact hand-edited. The expansion lands in three batches: a 10-skill pilot (PR #480), then two follow-up batches, each behind exact-head green CI and squash merge.
+
+**Confidence:** HIGH — the expansion is owner-directed, the gate set is unchanged, and the pilot batch is validated locally against every corpus-wide check before push.
+
+**Evidence IDs:** PR #480 (pilot batch); meta/ROADMAP.md item 7 (measured-gap rule); meta/MOST-WANTED-SKILLS.md owner-directed expansion note; tests/test_agent_skills_discovery.py (count 276 to 286)
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the owner revokes the expansion, if any batch reddens a gate that a batch rollback cannot repair, or if the new entries are later found to violate a contract this decision did not anticipate.
