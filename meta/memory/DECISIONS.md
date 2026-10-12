@@ -1474,3 +1474,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the hardened triggers still fail to rebuild the index after a merged skills PR, if the weekly self-heal produces unbounded churn, or if a security review requires replacing `pull_request_target` with a narrower mechanism.
+
+## DECISION-2026-10-12-GENERATED-WRITER-PR-PERMISSION-RESTORATION
+
+**Topic:** Root-causing and closing the #447 generated-writer PR-creation stranding class by restoring `pull-requests: write` and no-skip-ci automation commits on the affected generated-main writers, and hardening `export-skills.yml` with the proven redundant trigger set.
+
+**Decision:** Restore `pull-requests: write` on `quality-report.yml` (top level; granted in `7a9cc9e92d`, reverted by `e6620488ec`) and `generate-search-index.yml` (job level; never carried), add it to `export-skills.yml`, and remove `[skip ci]` from all three writers' automation commit messages (restoring `4057d03db7`'s runnable-required-checks fix, also reverted by `e6620488ec`), so the bot `gh pr create` step can succeed and the bot PRs carry runnable required checks. Harden `export-skills.yml` with the PR #470 trigger set (self-path push, merged-PR `pull_request_target` with merged-only guard, explicit `main` checkout) because its PR #467-merge push run (38163274447) was cancelled one second after start and left `docs/api/*` stale at 381 skills. Evidence is step-level (runs 38206312805/38206312457 fail at the publish step only after the successful automation-branch force-push; `validate-graph.yml`, the sole writer carrying the permission, creates bot PRs successfully — PR #468); final confirmation from run logs remains owner-side and no log text was available to the agent.
+
+**Confidence:** HIGH
+
+**Evidence IDs:** runs 38206312805, 38206312457, 38163274447; commits 7a9cc9e92d, 4057d03db7, e6620488ec; PR #468; PR #470; PR #471; PR #472; issue #447
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if run logs show the publish-step failures are not permission-related, if the restored permissions or no-skip-ci commits violate the least-privileged writer contract in `tools/verify_governance.py`, or if bot-created PRs still cannot obtain valid required checks after this change.

@@ -7,12 +7,23 @@ on:
       - 'skills/**/*.md'
       - 'tools/export_skills.py'
       - 'registry/universal_registry.json'
+      - '.github/workflows/export-skills.yml'
+  # API-driven merges in this repository can complete without a usable
+  # post-merge push-triggered export run (run 38163274447 was cancelled one
+  # second after start on the PR #467 merge push). Rebuild from trusted main
+  # after every merged PR while checking out only the default branch,
+  # mirroring the proven quality-report.yml / generate-search-index.yml
+  # trigger set (#447 stranding class).
+  pull_request_target:
+    types: [closed]
+    branches: [main]
   schedule:
     - cron: '30 4 * * 1'  # Monday 04:30 UTC (after version-stats)
   workflow_dispatch:
 
 permissions:
   contents: write
+  pull-requests: write
 
 
 # Serialize runs of THIS workflow on the same ref so concurrent
@@ -26,10 +37,13 @@ concurrency:
 
 jobs:
   export:
+    # Merged-PR guard mirrors the proven quality-report.yml / generate-search-index.yml pattern.
+    if: github.event_name != 'pull_request_target' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Set up Python
@@ -55,7 +69,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/api/
           git diff --staged --quiet && echo "No generated changes." && exit 0
-          git commit -m "chore(export): regenerate skills API [skip ci]"
+          git commit -m "chore(export): regenerate skills API"
           git push --force origin HEAD:"$GENERATED_BRANCH"
 
           if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
