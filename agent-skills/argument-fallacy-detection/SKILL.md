@@ -1,0 +1,68 @@
+---
+name: argument-fallacy-detection
+description: Check generated or received arguments for known fallacy patterns with named categories and affected spans before relying on the conclusion.
+metadata:
+  source: skills/02-reasoning/argument-fallacy-detection.md
+  category: 02-reasoning
+  version: "v1"
+---
+# Argument Fallacy Detection
+
+## Description
+Check generated or received arguments for known fallacy patterns with named categories and affected spans before relying on the conclusion. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone.
+
+## When to Use
+- The task has explicit constraints such as time, budget, or safety that must gate the outcome.
+- A silent failure mode exists that must be surfaced rather than swallowed.
+- Verification evidence is required before the result is trusted.
+
+## Inputs / Outputs
+| Area | Contract |
+|---|---|
+| Inputs | Task context, candidate inputs, and explicit acceptance criteria for argument fallacy detection. |
+| Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. |
+| Safety | Failures must fail closed and be reported with evidence rather than retried silently. |
+
+## Procedure
+1. Normalize the task into explicit inputs, constraints, and acceptance criteria.
+2. Gather the required evidence and check completeness before proceeding.
+3. Apply the argument fallacy detection procedure using the declared criteria only.
+4. Record the outcome, rejected alternatives, and the reason for each rejection.
+5. Verify the result against the acceptance criteria with an independent check.
+6. Report the result with evidence, and escalate explicitly when a criterion cannot be met.
+
+## Runnable Example
+```python
+# Argument Fallacy Detection: deterministic check
+attempts = []
+def flaky(n):
+    attempts.append(n)
+    return n >= 3
+
+tries, max_tries, done = 0, 5, False
+while tries < max_tries:
+    tries += 1
+    if flaky(tries):
+        done = True
+        break
+assert done and tries == 3
+print("succeeded after", tries, "attempts")
+```
+
+## Failure Modes
+- Proceeding with argument fallacy detection without the required evidence or inputs.
+- Treating an unverified result as verified.
+- Silently swallowing errors instead of failing closed with reasons.
+- Optimizing the stated metric while violating the stated constraint.
+- Losing the audit trail of decisions and rejected alternatives.
+
+## Boundary
+This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result.
+
+## Evidence
+Output-quality concerns in 2026 include fallacious model reasoning; published evaluation suites test argument validity. These are dated public signals, not adoption metrics.
+
+## Related
+- argument-structure-analysis.md
+- self-correction.md
+- debate.md
