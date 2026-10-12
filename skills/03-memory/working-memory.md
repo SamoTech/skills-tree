@@ -66,14 +66,9 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- vetting: bisect round 3 (URLs 22-31) -->
-- <https://en.wikipedia.org/wiki/Relevance_(information_retrieval)>
-- <https://en.wikipedia.org/wiki/Precision_and_recall>
-- <https://en.wikipedia.org/wiki/Conflict_resolution>
-- <https://en.wikipedia.org/wiki/Fact-checking>
-- <https://en.wikipedia.org/wiki/Knowledge_graph>
-- <https://en.wikipedia.org/wiki/Record_linkage>
-- <https://en.wikipedia.org/wiki/Context_window>
-- <https://en.wikipedia.org/wiki/Lossy_compression>
-- <https://en.wikipedia.org/wiki/Rate_limiting>
-- <https://docs.python.org/3/library/concurrent.futures.html>
+<!-- vetting: bisect round 4 (URLs 32-36) -->
+- <https://en.wikipedia.org/wiki/Secure_Shell>
+- <https://docs.python.org/3/library/subprocess.html>
+- <https://en.wikipedia.org/wiki/Cron>
+- <https://docs.python.org/3/library/sched.html>
+- <https://en.wikipedia.org/wiki/Chunked_transfer_encoding>
