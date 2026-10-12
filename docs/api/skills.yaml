@@ -1,5 +1,5 @@
-generated: '2026-10-12T08:35:26Z'
-count: 483
+generated: '2026-10-12T10:48:09Z'
+count: 493
 skills:
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
@@ -282,6 +282,32 @@ skills:
   - Changelog
   - Failure Modes
   - Evidence
+  related: []
+  category_dir: 01-perception
+- id: depth-estimation
+  path: skills/01-perception/depth-estimation.md
+  name: Monocular Depth Estimation
+  description: Estimate per-pixel depth from a single image or video frame, ranking
+    surfaces by distance with explicit handling of scale ambiguity, occlusion edges,
+    and reflective surfaces.
+  category: perception
+  level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 01-perception
 - id: document-parsing
@@ -1338,6 +1364,32 @@ skills:
   description: Decompose a problem into verified foundational facts, rebuild the solution
     upward from those facts, and record which borrowed assumptions were kept or dropped
     so the plan stays auditable.
+  category: reasoning
+  level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: game-theory-strategy
+  path: skills/02-reasoning/game-theory-strategy.md
+  name: Game-Theoretic Strategy Reasoning
+  description: Model multi-agent interactions as games with explicit payoff matrices,
+    identify equilibria and dominant strategies, and choose actions under strategic
+    interdependence with stated assumptions about opponent rationality.
   category: reasoning
   level: intermediate
   stability: experimental
@@ -2430,6 +2482,32 @@ skills:
   - Changelog
   related: []
   category_dir: 03-memory
+- id: memory-conflict-resolution
+  path: skills/03-memory/memory-conflict-resolution.md
+  name: Memory Conflict Resolution
+  description: Detect and resolve contradictions between stored memories and new observations
+    using recency, provenance, and confidence evidence, with explicit resolution records
+    instead of silent overwrites.
+  category: memory
+  level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
 - id: memory-consolidation
   path: skills/03-memory/memory-consolidation.md
   name: Memory Consolidation
@@ -2858,6 +2936,32 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 04-action-execution
+- id: archive-extraction
+  path: skills/04-action-execution/archive-extraction.md
+  name: Archive Extraction
+  description: Extract files from zip, tar, and compressed archives safely, with path-traversal
+    defense, decompression-bomb limits, and integrity verification before any extracted
+    byte is used.
+  category: action-execution
+  level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 04-action-execution
 - id: assertion
@@ -3728,6 +3832,32 @@ skills:
   - ../../AI_CONSTITUTION.md
   - ../../meta/AGENT_OPERATING_MODEL.md
   category_dir: 05-code
+- id: database-migration-writing
+  path: skills/05-code/database-migration-writing.md
+  name: Database Migration Writing
+  description: Write versioned, reversible schema migrations that ship application
+    code and schema changes together, with explicit up and down paths, preflight checks,
+    and lock-time budgeting.
+  category: code
+  level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 05-code
 - id: db-schema-design
   path: skills/05-code/db-schema-design.md
   name: db-schema-design
@@ -4501,6 +4631,32 @@ skills:
   - Safety Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 06-communication
+- id: negotiation
+  path: skills/06-communication/negotiation.md
+  name: Negotiation
+  description: Prepare and conduct negotiations by mapping the interests behind stated
+    positions, quantifying reservation values and alternatives, and trading on differences
+    to reach agreements that hold.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 06-communication
 - id: paraphrasing
@@ -5512,6 +5668,32 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: websocket-communication
+  path: skills/07-tool-use/websocket-communication.md
+  name: WebSocket Communication
+  description: Establish and maintain WebSocket sessions with framing-correct message
+    handling, heartbeat keepalives, reconnect with bounded backoff, and explicit close-code
+    interpretation.
+  category: tool-use
+  level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 07-tool-use
 - id: wikipedia-api
   path: skills/07-tool-use/wikipedia-api.md
   name: Wikipedia API
@@ -5849,6 +6031,32 @@ skills:
     across runtimes.
   category: multimodal
   level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 08-multimodal
+- id: image-super-resolution
+  path: skills/08-multimodal/image-super-resolution.md
+  name: Image Super-Resolution
+  description: Upscale low-resolution images with model-based super-resolution while
+    bounding hallucinated detail, preserving identity-critical features, and labeling
+    the synthesized output as reconstruction.
+  category: multimodal
+  level: intermediate
   stability: experimental
   version: v1
   added: 2026-10
@@ -6752,6 +6960,32 @@ skills:
   - Changelog
   related: []
   category_dir: 09-agentic-patterns
+- id: tool-invention
+  path: skills/09-agentic-patterns/tool-invention.md
+  name: Tool Invention
+  description: Close capability gaps by designing, implementing, and validating new
+    tools at runtime when no existing tool fits, with each invented tool reviewed,
+    tested, and registered before reuse.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 09-agentic-patterns
 - id: tool-use-loop
   path: skills/09-agentic-patterns/tool-use-loop.md
   name: tool-use-loop
@@ -7220,6 +7454,32 @@ skills:
   - Safety Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 10-computer-use
+- id: screen-recording
+  path: skills/10-computer-use/screen-recording.md
+  name: Screen Recording
+  description: Capture screen activity as video with deterministic region selection,
+    frame pacing, and encoding, for task evidence and UI debugging, with explicit
+    consent and retention handling for sensitive content.
+  category: computer-use
+  level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 10-computer-use
 - id: screen-region-mapping
