@@ -63,3 +63,5 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - 03-memory
 - input-guardrails
 - output-guardrails
+
+<!-- link-check diagnostic: baseline corpus scan; this PR is disposable and will be closed unmerged -->
