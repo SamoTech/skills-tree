@@ -66,6 +66,6 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 <!-- link-check diagnostic: candidate URL scan; this PR is disposable and will be closed unmerged -->
 
-<!-- bisect round 3: subset 16-17 -->
-- <https://docs.anthropic.com/en/api/messages>
-- <https://pandas.pydata.org/docs/user_guide/missing_data.html>
+<!-- bisect round 4: kubernetes pair -->
+- <https://kubernetes.io/docs/concepts/workloads/deployments/>
+- <https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/>
