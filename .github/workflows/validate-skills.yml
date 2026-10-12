@@ -3,6 +3,11 @@
 # Full structural validation for every skill .md file.
 # This workflow is intentionally read-only: CI must never mutate a
 # contributor branch or silently change skill content during review.
+#
+# The "## Failure Modes" requirement is a ratchet: only files changed
+# in the PR are validated, so legacy corpus files without the section
+# are grandfathered until they are next touched. New and modified
+# skill files must document failure modes.
 # ============================================================
 name: 🔍 Validate Skills
 
@@ -43,7 +48,7 @@ jobs:
           REQUIRED_FRONTMATTER = [
               "title", "category", "level", "stability", "description", "related"
           ]
-          REQUIRED_SECTIONS = ["## Description", "## Related"]
+          REQUIRED_SECTIONS = ["## Description", "## Related", "## Failure Modes"]
           errors = []
 
           changed = Path("changed_skills.txt").read_text().splitlines()

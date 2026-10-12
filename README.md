@@ -189,10 +189,10 @@ Quality classifications are repository validation states, not proof of productio
 | Multi-agent blueprints | ✅ 7+ blueprints | ⚠️ Templates | ❌ | ❌ |
 | CLI + Python API | ✅ Both | ⚠️ Python only | ✅ Both | ❌ |
 | Community-governed | ✅ Open PRs | ⚠️ Curated | ✅ Open | ✅ (yours only) |
-| Failure modes documented | ✅ 453/493 skills (2026-10-12) | ❌ | ❌ | ❌ |
+| Failure modes documented | ✅ 445/538 skills (2026-10-12) + CI ratchet on changes | ❌ | ❌ | ❌ |
 | Free & open source (MIT) | ✅ | ⚠️ Mixed | ✅ | ✅ |
 
-> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes sections are a skill-template standard, not yet a CI gate: 453 of 493 skill files carried a `## Failure Modes` section at the audit date. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents).
+> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is CI-enforced as a ratchet: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), while legacy files are grandfathered until next touched — 445 of 538 skill files carried the section at the 2026-10-12 measurement (skills API export section metadata, superseding the 453-of-493 code-search baseline taken at the pre-batch-2 corpus). Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents).
 
 ---
 
@@ -295,7 +295,7 @@ client.messages.create(
 ```
 ````
 
-Every battle-tested skill is CI-gated to include a real description, runnable Python code, and documentation tables; the large majority also document failure modes, frameworks, and version history.
+Every battle-tested skill is CI-gated to include a real description, runnable Python code, and documentation tables; every new or modified skill must also document failure modes (CI ratchet), and the large majority document frameworks and version history.
 
 ---
 
