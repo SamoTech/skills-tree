@@ -1531,7 +1531,7 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 
 **Reopen Conditions:** Reopen if the owner revokes the expansion, if any batch reddens a gate that a batch rollback cannot repair, or if the new entries are later found to violate a contract this decision did not anticipate.
 
-## DECISION-2026-10-12-CORPUS-EXPANSION-BATCH-2
+ Batch 3 (45 experimental skills across 01-perception, 02-reasoning, 03-memory, 04-action-execution, 05-code, 06-communication, 07-tool-use, 09-agentic-patterns, 12-data, and 17-infrastructure) lands in PR #491 under the same constraints and completes the 100-skill expansion; the discovery test count moves 331 to 376.## DECISION-2026-10-12-CORPUS-EXPANSION-BATCH-2
 
 **Topic:** Landing batch 2 of the owner-directed corpus expansion — 45 new experimental skills across eight categories (08-multimodal, 10-computer-use, 11-web, 13-creative, 14-security, 15-orchestration, 16-domain-specific, 17-infrastructure) — under the parent decision DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION.
 
