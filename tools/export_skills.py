@@ -17,6 +17,7 @@ import os
 import re
 import glob
 import sys
+import subprocess
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -38,13 +39,72 @@ REPO_URL = "https://github.com/SamoTech/skills-tree"
 # Time helpers
 # ---------------------------------------------------------------------------
 
-def _utc_now_iso() -> str:
-    """Return the current UTC time as an ISO-8601 string with Z suffix.
+# Fixed fallback so output stays byte-deterministic even when git is
+# unavailable. A wall-clock fallback would make every rebuild differ from
+# main and turn the rebuild-after-every-merged-PR trigger (PR #472) into a
+# perpetual churn loop of timestamp-only bot PRs (bot PR #478 evidence).
+_FALLBACK_TIMESTAMP = "1970-01-01T00:00:00Z"
 
-    Uses datetime.now(timezone.utc) instead of the deprecated
-    datetime.utcnow(), which was removed in Python 3.13.
+
+def _iso_z(iso: str) -> str:
+    """Normalise an ISO-8601 string to UTC with a Z suffix."""
+    dt = datetime.datetime.fromisoformat(iso)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _git_commit_date_iso(path: str) -> str:
+    """Committer date (ISO-8601, Z-suffixed) of the last commit touching *path*.
+
+    Deterministic timestamp source: unchanged inputs produce unchanged
+    output, so the publish step's `git diff --staged --quiet`
+    short-circuit actually fires and rebuilds of an unchanged corpus
+    publish nothing.
     """
-    return datetime.datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    try:
+        proc = subprocess.run(
+            ["git", "log", "-1", "--format=%cI", "--", path],
+            capture_output=True,
+            text=True,
+            check=True,
+            timeout=30,
+        )
+        out = proc.stdout.strip()
+    except (OSError, subprocess.SubprocessError):
+        print(f"[export] WARNING: git unavailable for {path!r}; using epoch fallback")
+        return _FALLBACK_TIMESTAMP
+    if not out:
+        print(f"[export] WARNING: no git history for {path!r}; using epoch fallback")
+        return _FALLBACK_TIMESTAMP
+    try:
+        return _iso_z(out)
+    except ValueError:
+        print(f"[export] WARNING: unparsable git date for {path!r}; using epoch fallback")
+        return _FALLBACK_TIMESTAMP
+
+
+_corpus_date_cache: str | None = None
+
+
+def corpus_snapshot_date() -> str:
+    """Date of the last commit touching skills/ — the corpus snapshot date.
+
+    Used for corpus-level fields (`generated`, index `dateModified`) so
+    the whole projection is reproducible from repository state alone.
+    """
+    global _corpus_date_cache
+    if _corpus_date_cache is None:
+        _corpus_date_cache = _git_commit_date_iso("skills")
+    return _corpus_date_cache
+
+
+def skill_date_modified(skill: dict) -> str:
+    """Per-skill dateModified: last commit date of the skill's source file."""
+    path = skill.get("path")
+    if not path:
+        return _FALLBACK_TIMESTAMP
+    return _git_commit_date_iso(path)
 
 
 # ---------------------------------------------------------------------------
@@ -305,7 +365,7 @@ def build_skill_jsonld(skill: dict) -> dict:
       - schema:about        — points to schema:Thing describing the AI skill topic
       - ai-skill:*          — custom properties under the skills-tree context extension
     """
-    now = _utc_now_iso()
+    modified = skill_date_modified(skill)
     url = skill_url(skill)
     cat = skill.get("category_dir") or "uncategorized"
 
@@ -343,7 +403,7 @@ def build_skill_jsonld(skill: dict) -> dict:
             "url": "https://github.com/SamoTech",
         },
         "inLanguage": "en",
-        "dateModified": now,
+        "dateModified": modified,
         # Custom ai-skill properties
         "skillId":       skill["id"],
         "skillVersion":  skill.get("version"),
@@ -376,7 +436,7 @@ def build_skill_jsonld(skill: dict) -> dict:
         *(cat.split("-")[1:] if cat and "-" in cat else [cat or ""]),
         "AI agent", "LLM skill", "skills tree",
     })
-    doc["keywords"] = ", ".join(k for k in keywords if k)
+    doc["keywords"] = ", ".join(sorted(k for k in keywords if k))
 
     # schema:about — the AI skill as a named concept
     doc["about"] = {
@@ -393,7 +453,7 @@ def build_jsonld_index(skills: list) -> dict:
     Build a schema.org/ItemList JSON-LD index over all skills.
     Used by search engines for sitelinks / rich results.
     """
-    now = _utc_now_iso()
+    modified = corpus_snapshot_date()
     items = [
         {
             "@type": "ListItem",
@@ -414,7 +474,7 @@ def build_jsonld_index(skills: list) -> dict:
         ),
         "url": BASE_URL,
         "numberOfItems": len(skills),
-        "dateModified": now,
+        "dateModified": modified,
         "publisher": {
             "@type": "Organization",
             "name": "SamoTech",
@@ -463,7 +523,7 @@ def main():
     print(f"[export] Found {len(skills)} skills.")
 
     envelope = {
-        "generated": _utc_now_iso(),
+        "generated": corpus_snapshot_date(),
         "count": len(skills),
         "skills": skills,
     }

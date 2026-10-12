@@ -1502,3 +1502,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the branch-level assembly mechanism is found to violate the generated-artifact provenance rules, if the published projections diverge from either automation branch, or if the cross-projection consistency contract is relaxed so single-projection publication becomes permissible.
+
+## DECISION-2026-10-12-EXPORT-DETERMINISM
+
+**Topic:** Making `tools/export_skills.py` byte-deterministic so the export writer's rebuild-after-every-merged-PR trigger cannot emit perpetual timestamp-only churn PRs.
+
+**Decision:** The first post-#477 export rebuild (bot PR #478, +2/−2 per file across 386 files) showed the generator stamps wall-clock time into `generated` and JSON-LD `dateModified` and builds `keywords` from an unordered set, so every rebuild differs from `main` even when the corpus is unchanged; combined with `export-skills.yml`'s merged-PR `pull_request_target` trigger (PR #472), this yields an unbounded churn loop of timestamp-only bot PRs that can never reach the workflow's own `git diff --staged --quiet` / "No generated changes." short-circuit. Fix the generator, not the trigger: derive per-skill `dateModified` from the skill file's last git committer date, derive corpus-level fields (`generated`, ItemList `dateModified`) from the last commit touching `skills/`, use a fixed epoch fallback whenever git is unavailable (never wall clock, preserving byte-determinism), and emit `keywords` in sorted order. Generated-artifact provenance is unchanged: the workflow remains the only writer, the change touches only the generator's timestamp/keyword derivation, and no workflow triggers, permissions, or governance contract phrases change. After this lands, exactly one converging rebuild is expected (bot PR #478's automation branch force-pushed with the canonical sorted-keyword/git-date output), after which unchanged corpora publish nothing.
+
+**Confidence:** HIGH — the nondeterminism was verified by comparing two consecutive trusted rebuilds of an unchanged corpus (blobs differing only in `dateModified` and `keywords` order), and no test, validator, or documented consumer constrains the changed fields (`tests/test_export_date_metadata.py` covers frontmatter parsing only; `tools/verify_jsonld_export.py` validates structure, not dates).
+
+**Evidence IDs:** bot PR #478 (+2/−2 × 386 files, `dateModified`/`keywords` only); `tools/export_skills.py` (pre/post); `.github/workflows/export-skills.yml` publish step; PR #472 (trigger set); PR #477; issue #447
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if git-derived dates prove unavailable or misleading in any supported execution environment, if a consumer is found that requires the `generated` field to reflect wall-clock generation time, or if sorted keywords break a downstream contract.
