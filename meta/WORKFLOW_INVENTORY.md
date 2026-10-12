@@ -18,11 +18,11 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `dependency-auditor.yml` | Maintenance automation | Dependency/security audit with repository side effects |
 | `deploy-pages.yml` | Authoritative Pages deployment | Single repository-controlled Pages deployment |
 | `devlens.yml` | Manual read-only diagnostic | Repository health assessment; no repository writes |
-| `export-skills.yml` | Generated-main writer | Published skill export + JSON-LD projection |
+| `export-skills.yml` | Generated-main writer | Published skill export + JSON-LD projection through protected-main PR; redundant triggers (self-path push, merged-PR `pull_request_target` with merged-only guard, explicit `main` checkout) and `pull-requests: write` mirror `quality-report.yml` and close the #447 stranding class |
 | `generate-blueprint.yml` | Supporting artifact generation | Blueprint generation |
 | `generate-changelog.yml` | Generated-main writer | Generated changelog |
 | `governance-gate.yml` | Authoritative validation | Repository governance contract verification |
-| `generate-search-index.yml` | Generated-main writer | Search index through protected-main PR; redundant triggers (self-path push, merged-PR `pull_request_target` with merged-only guard, weekly self-heal) mirror `quality-report.yml` and close the #447 stranding class |
+| `generate-search-index.yml` | Generated-main writer | Search index through protected-main PR; redundant triggers (self-path push, merged-PR `pull_request_target` with merged-only guard, weekly self-heal) mirror `quality-report.yml` and close the #447 stranding class; `pull-requests: write` and no-skip-ci automation commits restored 2026-10-12 so the bot PR-creation step and its required checks can run |
 | `issue-welcome.yml` | Supporting automation | Issue onboarding |
 | `leaderboard.yml` | Generated-main writer | Leaderboard projection |
 | `osv-watch.yml` | Generated-main writer | OSV/advisory state |
@@ -87,3 +87,7 @@ The inventory is descriptive only; CI and `tools/verify_governance.py` remain th
 ## Disposition update — 2026-10-11
 
 `generate-search-index.yml` was hardened with `quality-report.yml`'s proven redundant trigger set (self-path push trigger, merged-PR `pull_request_target` with a merged-only job guard and explicit `main` checkout, weekly self-heal schedule) to close the #447 stranding class observed after PR #467. The workflow count and classification are unchanged; the trusted-generator provenance, `auto-commit-main` serialization, and protected-main PR publication path are preserved (PR #470).
+
+## Disposition update — 2026-10-12
+
+The #447 stranding class was root-caused (step-level evidence; run logs remain owner-side) to the generated-main writers lacking `pull-requests: write` for the `gh pr create` step and carrying `[skip ci]` in their automation commits, which leaves bot PRs without runnable required checks. `quality-report.yml` had both fixed on 2026-10-11 (`7a9cc9e92d` granted the permission; `4057d03db7` removed `[skip ci]`) and both were reverted when `e6620488ec` landed minutes later; `generate-search-index.yml` and `export-skills.yml` never carried them. This change restores `pull-requests: write` and no-skip-ci automation commits across the three writers (mirroring `validate-graph.yml`, whose bot PRs are created successfully, e.g. PR #468) and hardens `export-skills.yml` with the proven redundant trigger set. Workflow count and classifications are unchanged; the trusted-generator provenance, `auto-commit-main` serialization, and protected-main PR publication path are preserved.
