@@ -1,5 +1,7 @@
 # Changelog
 
+- **Added** [add owner-directed wave-2 expansion batch 2 (45 experimental skills)](https://github.com/SamoTech/skills-tree/pull/514) by @SamoTech (#514) — 2026-10-12
+
 - **Added** [add owner-directed wave-2 expansion pilot (10 experimental skills)](https://github.com/SamoTech/skills-tree/pull/506) by @SamoTech (#506) — 2026-10-12
 
 - **Added** [add demand-driven skill expansion batch 01](https://github.com/SamoTech/skills-tree/pull/342) by @SamoTech (#342) — 2026-10-05
