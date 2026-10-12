@@ -1,5 +1,9 @@
 name: Real Skill Activation Evidence
 
+# Decomposed 2026-10-12: step logic lives in tools/activation/*.py (extracted
+# verbatim from this file's inline heredocs); this workflow orchestrates the
+# scripts. Contracts, acceptance gates, and permissions are unchanged.
+
 on:
   push:
     branches: [main]
@@ -7,6 +11,7 @@ on:
       - 'benchmarks/activation/**'
       - 'meta/skill-activation-observation.schema.json'
       - 'tools/run_skill_activation_benchmark.py'
+      - 'tools/activation/**'
       - '.github/workflows/skill-activation-runtime.yml'
   pull_request:
     branches: [main]
@@ -14,6 +19,7 @@ on:
       - 'benchmarks/activation/**'
       - 'meta/skill-activation-observation.schema.json'
       - 'tools/run_skill_activation_benchmark.py'
+      - 'tools/activation/**'
       - '.github/workflows/skill-activation-runtime.yml'
   workflow_dispatch:
 
@@ -243,48 +249,7 @@ jobs:
         env:
           HERMES_HOME: ${{ runner.temp }}/hermes-home
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import os
-
-          root = Path.cwd()
-          home = Path(os.environ["HERMES_HOME"])
-          specs = {
-              "skills-tree-rag": (
-                  "03-memory/rag",
-                  "skills/03-memory/rag.md",
-                  "Retrieve and ground answers in a private corpus using retrieval-augmented generation. Use for private or known-source retrieval, grounding, and citation.",
-              ),
-              "skills-tree-code-review": (
-                  "05-code/code-review",
-                  "skills/05-code/code-review.md",
-                  "Review concrete source code or code changes for correctness, security, maintainability, tests, and repository conventions.",
-              ),
-              "skills-tree-web-search": (
-                  "11-web/web-search",
-                  "skills/11-web/web-search.md",
-                  "Search the open web for current information, ranked sources, freshness, and citations.",
-              ),
-          }
-
-          for runtime_name, (canonical_id, source_rel, description) in specs.items():
-              source = root / source_rel
-              text = source.read_text(encoding="utf-8")
-              parts = text.split("---", 2)
-              body = parts[2].lstrip() if len(parts) == 3 else text
-              out = home / "skills" / runtime_name
-              out.mkdir(parents=True, exist_ok=True)
-              skill = "\n".join([
-                  "---",
-                  f"name: {runtime_name}",
-                  f"description: {description}",
-                  "metadata:",
-                  f"  skills_tree_canonical_id: {canonical_id}",
-                  "---",
-                  "",
-              ]) + body
-              (out / "SKILL.md").write_text(skill, encoding="utf-8")
-          PY
+          python tools/activation/install_benchmark_skills.py
 
       - name: Restrict skill catalog to benchmark skills
         if: steps.accelerator_preflight.outputs.eligible == 'true'
@@ -296,72 +261,12 @@ jobs:
           # Hermes bundles many unrelated skills; hide them so the small local
           # model routes among this benchmark's three canonical skills rather
           # than hallucinating unrelated skill names. Preserve Hermes essentials.
-          "$HERMES_HOME/venv/bin/python" - <<'PY'
-          import os
-          from pathlib import Path
-          from agent.skill_utils import ESSENTIAL_SKILLS
-          from hermes_cli.config import load_config, save_config
-          from tools.skills_tool import _find_all_skills
-
-          allowed = {"skills-tree-rag", "skills-tree-code-review", "skills-tree-web-search"} | set(ESSENTIAL_SKILLS)
-          catalog = _find_all_skills(skip_disabled=True)
-          disabled = sorted({item["name"] for item in catalog if item["name"] not in allowed})
-          config = load_config()
-          config.setdefault("skills", {})["disabled"] = disabled
-          save_config(config)
-
-          # Enforce the benchmark's closed skill universe at the actual skill_view
-          # tool boundary too. Catalog filtering alone is not an authorization check:
-          # a model can still request a name that is not listed.
-          home = Path(os.environ["HERMES_HOME"])
-          runtime_file = home / "hermes-agent" / "tools" / "skills_tool.py"
-          source = runtime_file.read_text(encoding="utf-8")
-          function_start = source.find("def skill_view(")
-          if function_start < 0:
-              raise SystemExit("Could not locate Hermes skill_view function.")
-          try_marker = "    try:\n"
-          try_start = source.find(try_marker, function_start)
-          if try_start < 0:
-              raise SystemExit("Could not locate skill_view function entry.")
-          insert_at = try_start + len(try_marker)
-          guard = (
-              "        allowed_benchmark_skills = {\n"
-              "            \"skills-tree-rag\",\n"
-              "            \"skills-tree-code-review\",\n"
-              "            \"skills-tree-web-search\",\n"
-              "        }\n"
-              "        if name not in allowed_benchmark_skills:\n"
-              "            return _fail(\n"
-              "                f\"Skill '{name}' is outside the activation benchmark allowlist.\"\n"
-              "            )\n"
-          )
-          runtime_file.write_text(source[:insert_at] + guard + source[insert_at:], encoding="utf-8")
-
-          print(f"Disabled {len(disabled)} unrelated skills; retained {sorted(allowed)}")
-          print("Installed strict skill_view allowlist for the three benchmark runtime names.")
-          PY
+          "$HERMES_HOME/venv/bin/python" tools/activation/restrict_skill_catalog.py
           HERMES_HOME="$HERMES_HOME" hermes skills list | tee "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-rag' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-code-review' "$RUNNER_TEMP/hermes-skills.txt"
           grep -q 'skills-tree-web-search' "$RUNNER_TEMP/hermes-skills.txt"
-          "$HERMES_HOME/venv/bin/python" - <<'PY'
-          from tools.skills_tool import skill_view
-
-          allowed = {
-              "skills-tree-rag": "RAG",
-              "skills-tree-code-review": "Code Review",
-              "skills-tree-web-search": "Web Search",
-          }
-          for name, expected_heading in allowed.items():
-              result = skill_view(name)
-              if expected_heading not in result:
-                  raise SystemExit(f"Allowed benchmark skill failed direct load: {name}")
-
-          forbidden = skill_view("hermes-agent-skill-authoring")
-          if "outside the activation benchmark allowlist" not in forbidden:
-              raise SystemExit("Forbidden skill_view request was not blocked.")
-          print("PASS: skill_view loads all three allowed skills and rejects an out-of-scope skill.")
-          PY
+          "$HERMES_HOME/venv/bin/python" tools/activation/verify_skill_view_allowlist.py
 
       - name: Configure Hermes for local Ollama
         if: steps.accelerator_preflight.outputs.eligible == 'true'
@@ -404,20 +309,7 @@ jobs:
             -H 'Content-Type: application/json' \
             -d "{\"model\":\"$HERMES_LOCAL_MODEL\",\"prompt\":\"Reply with exactly OK.\",\"stream\":false,\"keep_alive\":\"10m\",\"options\":{\"num_ctx\":65536,\"num_predict\":8}}" \
             > "$RUNNER_TEMP/ollama-context-preflight.json"
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          p = Path(os.environ["RUNNER_TEMP"]) / "ollama-context-preflight.json"
-          data = json.loads(p.read_text(encoding="utf-8"))
-          if data.get("error"):
-              raise SystemExit(f"Ollama model warmup failed: {data['error']}")
-          # Thinking-capable models may return their generated tokens in a
-          # separate thinking field and leave response empty for a tiny token
-          # budget. The preflight validates completion, not answer quality.
-          if data.get("done") is not True:
-              raise SystemExit("Ollama warmup did not complete.")
-          print("PASS: exact model completed a warmup request with num_ctx=65536.")
-          PY
+          python tools/activation/verify_warmup_context.py
           ollama ps | tee "$RUNNER_TEMP/ollama-loaded-models.txt"
           grep -E 'qwen3[.]5:4b.*65536' "$RUNNER_TEMP/ollama-loaded-models.txt" || {
             echo "FAIL: Ollama did not allocate 65536 context for $HERMES_LOCAL_MODEL before qualification." >&2
@@ -444,43 +336,7 @@ jobs:
             exit 0
           fi
 
-          python - <<'PY'
-          import os
-          import re
-          from pathlib import Path
-
-          report = Path(os.environ["RUNNER_TEMP"]) / "activation-runtime-preflight.txt"
-          ps_file = Path(os.environ["RUNNER_TEMP"]) / "ollama-loaded-models.txt"
-          lines = ps_file.read_text(encoding="utf-8", errors="replace").splitlines()
-          model_lines = [line for line in lines if "qwen3.5:4b" in line]
-          if not model_lines:
-              status = "RUNTIME_PREFLIGHT_FAILED"
-              reason = "The expected qwen3.5:4b model was not present in ollama ps output."
-          else:
-              allocation = model_lines[0]
-              mixed = re.search(r"(\d+)%\s*/\s*(\d+)%\s+CPU/GPU", allocation, re.IGNORECASE)
-              fully_gpu = re.search(r"\b100%\s+GPU\b", allocation, re.IGNORECASE)
-              gpu_percent = int(mixed.group(2)) if mixed else (100 if fully_gpu else 0)
-              if gpu_percent > 0:
-                  status = "RUNTIME_ELIGIBLE"
-                  reason = f"qwen3.5:4b reports {gpu_percent}% GPU allocation."
-              else:
-                  status = "INFRASTRUCTURE_INELIGIBLE"
-                  reason = "The model is loaded without a verifiable GPU allocation; CPU-only runs are not eligible for this benchmark."
-          with report.open("a", encoding="utf-8") as stream:
-              stream.write(f"STATUS={status}\n")
-              stream.write(f"REASON={reason}\n")
-          summary = Path(os.environ["GITHUB_STEP_SUMMARY"])
-          with summary.open("a", encoding="utf-8") as stream:
-              stream.write("## Activation benchmark runtime allocation\n")
-              stream.write(f"- Status: **{status}**\n")
-              stream.write(f"- Evidence: {reason}\n")
-              if status == "INFRASTRUCTURE_INELIGIBLE":
-                  stream.write("- The routing qualification and 12-observation corpus were not started; this is not a skill-routing result.\n")
-          print(f"{status}: {reason}")
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as stream:
-              stream.write(f"eligible={'true' if status == 'RUNTIME_ELIGIBLE' else 'false'}\n")
-          PY
+          python tools/activation/verify_gpu_allocation.py
 
       - name: Qualify Hermes skill routing before the full benchmark
         if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
@@ -492,99 +348,7 @@ jobs:
           # not merely that the model can produce plain text. One fresh session
           # per benchmark case catches a bad model/runtime before spending time
           # on all 12 measured observations.
-          python - <<'PY'
-          import json
-          import os
-          import shutil
-          import subprocess
-          from pathlib import Path
-
-          dataset = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text(encoding="utf-8"))
-          trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-qualification"
-          trace_root.mkdir(parents=True, exist_ok=True)
-          base_home = Path(os.environ["HERMES_HOME"])
-          model = os.environ["HERMES_LOCAL_MODEL"]
-          expected_runtime_names = {
-              "03-memory/rag": "skills-tree-rag",
-              "05-code/code-review": "skills-tree-code-review",
-              "11-web/web-search": "skills-tree-web-search",
-          }
-
-          for case in dataset["cases"]:
-              trace_id = f'{case["id"]}-qualification'
-              trace_path = trace_root / f"{trace_id}.jsonl"
-              trace_path.unlink(missing_ok=True)
-              trace_path.touch()
-              session_home = trace_root / f"{trace_id}-home"
-              shutil.rmtree(session_home, ignore_errors=True)
-              session_home.mkdir(parents=True)
-              (session_home / "config.yaml").write_bytes((base_home / "config.yaml").read_bytes())
-              for dirname in ("plugins", "skills"):
-                  (session_home / dirname).symlink_to(base_home / dirname, target_is_directory=True)
-
-              env = os.environ.copy()
-              env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
-              env["HERMES_HOME"] = str(session_home)
-              env["HERMES_RUNTIME_HOME"] = str(base_home)
-              log_path = trace_root / f"{trace_id}.log"
-              print(f"QUALIFY START {case['id']}", flush=True)
-              try:
-                  proc = subprocess.run(
-                      ["hermes", "chat", "--toolsets", "skills", "-q", case["prompt"],
-                       "--provider", "custom", "--model", model],
-                      env=env,
-                      text=True,
-                      stdout=subprocess.PIPE,
-                      stderr=subprocess.STDOUT,
-                      timeout=240,
-                  )
-              except subprocess.TimeoutExpired as exc:
-                  output = exc.stdout or ""
-                  if isinstance(output, bytes):
-                      output = output.decode("utf-8", errors="replace")
-                  log_path.write_text(output + "\nqualification stopped after 60s; checking activation trace\n", encoding="utf-8")
-                  selected_timeout, loaded_timeout = set(), set()
-                  for line in trace_path.read_text(encoding="utf-8").splitlines():
-                      if not line.strip():
-                          continue
-                      event = json.loads(line)
-                      if event.get("hook_event_name") == "post_tool_call" and event.get("tool_name") == "skill_view":
-                          name = (event.get("args") or {}).get("name")
-                          if isinstance(name, str) and name:
-                              selected_timeout.add(name)
-                      if event.get("hook_event_name") == "on_skill_lifecycle" and event.get("action") == "loaded":
-                          name = event.get("skill_name")
-                          if isinstance(name, str) and name:
-                              loaded_timeout.add(name)
-                  expected_timeout = expected_runtime_names[case["expected_skill"]]
-                  if selected_timeout != {expected_timeout} or loaded_timeout != {expected_timeout}:
-                      raise SystemExit(f"FAIL: {case['id']} did not produce exactly one expected skill selection and load within 60 seconds; selected={sorted(selected_timeout)}, loaded={sorted(loaded_timeout)}.")
-                  print(f"PASS: {case['id']} produced the exact expected selection and load evidence before the response timeout.", flush=True)
-                  continue
-
-              selected, loaded = set(), set()
-              for line in trace_path.read_text(encoding="utf-8").splitlines():
-                  if not line.strip():
-                      continue
-                  event = json.loads(line)
-                  if event.get("hook_event_name") == "post_tool_call" and event.get("tool_name") == "skill_view":
-                      name = (event.get("args") or {}).get("name")
-                      if isinstance(name, str) and name:
-                          selected.add(name)
-                  if event.get("hook_event_name") == "on_skill_lifecycle" and event.get("action") == "loaded":
-                      name = event.get("skill_name")
-                      if isinstance(name, str) and name:
-                          loaded.add(name)
-
-              expected = expected_runtime_names[case["expected_skill"]]
-              if selected != {expected}:
-                  raise SystemExit(f"FAIL: {case['id']} must call skill_view exactly once for {expected}; observed {sorted(selected)}.")
-              if loaded != {expected}:
-                  raise SystemExit(f"FAIL: {case['id']} must load exactly {expected}; observed {sorted(loaded)}.")
-              print(f"PASS: {case['id']} selected and loaded only {expected}.", flush=True)
-
-          print("PASS: all four routing qualification cases passed; starting the 12-observation benchmark.", flush=True)
-          PY
+          python tools/activation/qualify_skill_routing.py
 
       - name: Run 12 independent fresh-session observations
         if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
@@ -595,191 +359,16 @@ jobs:
           set +e
           mkdir -p "$RUNNER_TEMP/activation-traces"
 
-          python - <<'PY'
-          import json
-          import os
-          import shutil
-          import subprocess
-          from concurrent.futures import ThreadPoolExecutor, as_completed
-          from pathlib import Path
-
-          cases = json.loads(Path("benchmarks/activation/skill-activation-v1.json").read_text())["cases"]
-          trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
-          base_home = Path(os.environ["HERMES_HOME"])
-          model = os.environ["HERMES_LOCAL_MODEL"]
-
-          runs = []
-          for case in cases:
-              for repetition in range(1, int(case["repetitions"]) + 1):
-                  runs.append((case, repetition))
-
-          def run_observation(item):
-              case, repetition = item
-              trace_id = f'{case["id"]}-r{repetition}'
-              trace_path = trace_root / f"{trace_id}.jsonl"
-              trace_path.unlink(missing_ok=True)
-              # Preserve every attempted fresh session, including a valid
-              # negative observation where Hermes never calls skill_view.
-              # Otherwise the converter silently drops sessions with no events,
-              # biasing activation rates and making the corpus incomplete.
-              trace_path.touch()
-
-              session_home = trace_root / f"{trace_id}-hermes-home"
-              shutil.rmtree(session_home, ignore_errors=True)
-              session_home.mkdir(parents=True, exist_ok=True)
-
-              # Keep the installed runtime and static benchmark assets shared.
-              # Only Hermes HOME state is isolated per observation. Copy only the
-              # non-secret config so enabled plugins and runtime settings remain
-              # identical; do not copy .env, auth, databases, sessions, or logs.
-              (session_home / "config.yaml").write_bytes((base_home / "config.yaml").read_bytes())
-              for dirname in ("plugins", "skills"):
-                  (session_home / dirname).symlink_to(base_home / dirname, target_is_directory=True)
-
-              env = os.environ.copy()
-              env["SKILLS_TREE_HERMES_TRACE"] = str(trace_path)
-              env["HERMES_HOME"] = str(session_home)
-              env["HERMES_RUNTIME_HOME"] = str(base_home)
-
-              print(f"=== START {trace_id} ===", flush=True)
-              try:
-                  proc = subprocess.run(
-                      ["hermes", "chat", "--toolsets", "skills", "-q", case["prompt"], "--provider", "custom", "--model", model],
-                      env=env,
-                      text=True,
-                      stdout=subprocess.PIPE,
-                      stderr=subprocess.STDOUT,
-                      timeout=240,
-                  )
-                  (trace_root / f"{trace_id}.log").write_text(proc.stdout, encoding="utf-8")
-                  print(f"=== END {trace_id}: exit_code={proc.returncode} ===", flush=True)
-                  return trace_id, proc.returncode
-              except subprocess.TimeoutExpired as exc:
-                  output = exc.stdout or ""
-                  if isinstance(output, bytes):
-                      output = output.decode("utf-8", errors="replace")
-                  (trace_root / f"{trace_id}.log").write_text(
-                      output + "\nrunner timeout after 60s; evaluating captured activation evidence\n",
-                      encoding="utf-8",
-                  )
-                  selected_timeout, loaded_timeout = set(), set()
-                  for line in trace_path.read_text(encoding="utf-8").splitlines():
-                      if not line.strip():
-                          continue
-                      event = json.loads(line)
-                      if event.get("hook_event_name") == "post_tool_call" and event.get("tool_name") == "skill_view":
-                          name = (event.get("args") or {}).get("name")
-                          if isinstance(name, str) and name:
-                              selected_timeout.add(name)
-                      if event.get("hook_event_name") == "on_skill_lifecycle" and event.get("action") == "loaded":
-                          name = event.get("skill_name")
-                          if isinstance(name, str) and name:
-                              loaded_timeout.add(name)
-                  if selected_timeout and loaded_timeout:
-                      print(f"=== END {trace_id}: response timed out after valid activation trace ===", flush=True)
-                      return trace_id, 0
-                  print(f"=== TIMEOUT {trace_id}: no complete activation evidence ===", flush=True)
-                  return trace_id, 124
-              except Exception as exc:
-                  (trace_root / f"{trace_id}.log").write_text(
-                      f"runner exception: {exc}\n",
-                      encoding="utf-8",
-                  )
-                  print(f"=== ERROR {trace_id}: {exc} ===", flush=True)
-                  return trace_id, 125
-
-          max_workers = 1
-          with ThreadPoolExecutor(max_workers=max_workers) as pool:
-              futures = [pool.submit(run_observation, item) for item in runs]
-              for future in as_completed(futures):
-                  trace_id, rc = future.result()
-                  print(f"completed {trace_id} rc={rc}", flush=True)
-
-          PY
+          python tools/activation/run_activation_observations.py
       - name: Convert explicit runtime traces to benchmark observations
         if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         run: |
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          trace_root = Path(os.environ["RUNNER_TEMP"]) / "activation-traces"
-          import re
-
-          mapping = {
-              "skills-tree-rag": "03-memory/rag",
-              "skills-tree-code-review": "05-code/code-review",
-              "skills-tree-web-search": "11-web/web-search",
-          }
-
-          def observed_skill_id(name):
-              if name in mapping:
-                  return mapping[name]
-              # Preserve out-of-scope skill loads instead of silently dropping them.
-              # The evaluator treats any non-expected skill selection as a false activation.
-              safe_name = re.sub(r"[^a-z0-9._/-]+", "-", name.lower()).strip("-")
-              return "unmapped/" + safe_name
-
-          runs = []
-          for trace_path in sorted(trace_root.glob("ACT-*.jsonl")):
-              trace_id = trace_path.stem
-              case_id = trace_id.split("-r", 1)[0]
-              selected, executed = set(), set()
-
-              for line in trace_path.read_text(encoding="utf-8").splitlines():
-                  if not line.strip():
-                      continue
-                  event = json.loads(line)
-                  if event.get("hook_event_name") == "post_tool_call" and event.get("tool_name") == "skill_view":
-                      name = (event.get("args") or {}).get("name")
-                      if isinstance(name, str) and name:
-                          selected.add(observed_skill_id(name))
-                  if event.get("hook_event_name") == "on_skill_lifecycle" and event.get("action") == "loaded":
-                      name = event.get("skill_name")
-                      if isinstance(name, str) and name:
-                          executed.add(observed_skill_id(name))
-
-              events = [
-                  {"kind": "skill_selection", "skill_id": skill, "status": "observed"}
-                  for skill in sorted(selected)
-              ]
-              events.extend(
-                  {"kind": "skill_execution", "skill_id": skill, "status": "observed"}
-                  for skill in sorted(executed)
-              )
-
-              runs.append({
-                  "run_id": trace_id,
-                  "case_id": case_id,
-                  "trace_id": trace_id,
-                  "events": events,
-              })
-
-          out = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json"
-          out.write_text(
-              json.dumps({"schema_version": "1.0", "runs": runs}, indent=2) + chr(10),
-              encoding="utf-8",
-          )
-          print(out.read_text())
-          PY
+          python tools/activation/convert_activation_traces.py
 
       - name: Validate observation corpus against schema
         if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
         run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          from jsonschema import Draft202012Validator
-
-          obs = json.loads((Path(os.environ["RUNNER_TEMP"]) / "skill-activation-observations.json").read_text())
-          schema = json.loads(Path("meta/skill-activation-observation.schema.json").read_text())
-          errors = list(Draft202012Validator(schema).iter_errors(obs))
-          if errors:
-              print(errors[0].message)
-              raise SystemExit(1)
-          print("PASS: observation corpus matches schema.")
-          PY
+          python tools/activation/validate_observations.py
 
       - name: Run activation benchmark
         if: steps.runtime_accelerator_preflight.outputs.eligible == 'true'
@@ -796,20 +385,7 @@ jobs:
             cat "$RUNNER_TEMP/activation-runtime-preflight.txt" >> "$GITHUB_STEP_SUMMARY"
           fi
           if [ -f "$RUNNER_TEMP/skill-activation-benchmark-result.json" ]; then
-            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
-          import json, os
-          from pathlib import Path
-          p=Path(os.environ["RUNNER_TEMP"])/"skill-activation-benchmark-result.json"
-          d=json.loads(p.read_text())
-          print(f"- Status: **{d['status']}**")
-          print(f"- Runs: **{d['metrics']['runs']} / {d['metrics']['required_runs']}**")
-          print(f"- Observed cases: **{d['metrics']['observed_cases']} / {d['metrics']['cases']}**")
-          print(f"- Invocation evidence rate: **{d['metrics']['invocation_evidence_rate']}**")
-          print(f"- False activation rate: **{d['metrics']['false_activation_rate']}**")
-          print(f"- Acceptance: **{d.get('acceptance', {}).get('status', 'NOT_EVALUATED')}**")
-          for failure in d.get('acceptance', {}).get('failures', []):
-              print(f"  - FAIL: {failure}")
-          PY
+            python tools/activation/render_benchmark_summary.py >> "$GITHUB_STEP_SUMMARY"
           else
             echo "- Benchmark result was not produced." >> "$GITHUB_STEP_SUMMARY"
           fi
@@ -837,45 +413,4 @@ jobs:
       - name: Enforce benchmark acceptance contract
         if: always()
         run: |
-          python - <<'PY'
-          import json
-          import os
-          from pathlib import Path
-
-          runtime_report = Path(os.environ["RUNNER_TEMP"]) / "activation-runtime-preflight.txt"
-          if runtime_report.exists():
-              runtime_text = runtime_report.read_text(encoding="utf-8", errors="replace")
-              if any(line in runtime_text.splitlines() for line in (
-                  "STATUS=INFRASTRUCTURE_INELIGIBLE",
-                  "STATUS=RUNTIME_PREFLIGHT_FAILED",
-              )):
-                  print("NOT RUN: activation benchmark was blocked by runtime eligibility preflight.")
-                  print("Classification: infrastructure/runtime preflight, not skill-routing acceptance.")
-                  raise SystemExit(0)
-
-          result_path = Path(os.environ["RUNNER_TEMP"]) / "skill-activation-benchmark-result.json"
-          if not result_path.exists():
-              raise SystemExit("FAIL: benchmark result is missing without a recorded runtime-preflight block.")
-          result = json.loads(result_path.read_text(encoding="utf-8"))
-          metrics = result.get("metrics", {})
-          acceptance = result.get("acceptance", {})
-          required_runs = metrics.get("required_runs")
-          runs = metrics.get("runs")
-          failures = list(acceptance.get("failures", []))
-          if result.get("status") != "COMPLETE":
-              failures.append(f"corpus status must be COMPLETE, got {result.get('status')}")
-          if runs != required_runs:
-              failures.append(f"observation count must equal required_runs ({required_runs}), got {runs}")
-          if metrics.get("expected_activation_rate") != 1.0:
-              failures.append("expected_activation_rate must equal 1.0")
-          if metrics.get("false_activation_rate") != 0.0:
-              failures.append("false_activation_rate must equal 0.0")
-          if metrics.get("invocation_evidence_rate") != 1.0:
-              failures.append("invocation_evidence_rate must equal 1.0")
-          if acceptance.get("status") != "PASS" or failures:
-              print("FAIL: benchmark acceptance contract not satisfied.")
-              for failure in dict.fromkeys(failures):
-                  print(f"- {failure}")
-              raise SystemExit(1)
-          print(f"PASS: exact {required_runs}-observation corpus meets all activation and invocation gates.")
-          PY
+          python tools/activation/enforce_acceptance_contract.py
