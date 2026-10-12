@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-04T19:09:37Z",
+  "dateModified": "2026-10-12T21:43:22Z",
   "skillId": "ide-integration",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -66,6 +66,7 @@
     "Security Boundaries",
     "Compatibility",
     "Runnable Example",
+    "Failure Modes",
     "Related",
     "Evidence"
   ],

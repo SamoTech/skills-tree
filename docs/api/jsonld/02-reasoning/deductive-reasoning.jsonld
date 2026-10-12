@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:23Z",
+  "dateModified": "2026-10-12T21:43:22Z",
   "skillId": "deductive-reasoning",
   "skillVersion": "v2",
   "skillLevel": "basic",
@@ -63,6 +63,7 @@
     "Core Forms",
     "Prompt Pattern",
     "Common Fallacies to Avoid",
+    "Failure Modes",
     "Related Skills"
   ],
   "relatedSkills": [],

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:41:59Z",
+  "dateModified": "2026-10-12T21:43:22Z",
   "skillId": "causal",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -65,6 +65,7 @@
     "Example",
     "Frameworks & Models",
     "Notes",
+    "Failure Modes",
     "Related Skills",
     "Changelog"
   ],

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-12T12:18:44Z",
+  "generated": "2026-10-12T21:43:22Z",
   "count": 538,
   "skills": [
     {
@@ -1122,6 +1122,7 @@
         "Example",
         "Frameworks & Models",
         "Notes",
+        "Failure Modes",
         "Related Skills",
         "Changelog"
       ],
@@ -1148,6 +1149,7 @@
         "Example",
         "Frameworks & Models",
         "Notes",
+        "Failure Modes",
         "Related Skills",
         "Changelog"
       ],
@@ -1277,6 +1279,7 @@
         "Example",
         "Frameworks & Models",
         "Notes",
+        "Failure Modes",
         "Related Skills",
         "Changelog"
       ],
@@ -1450,6 +1453,7 @@
         "Core Forms",
         "Prompt Pattern",
         "Common Fallacies to Avoid",
+        "Failure Modes",
         "Related Skills"
       ],
       "related": [],
@@ -1616,7 +1620,9 @@
       "version": "v2",
       "added": "2025-03",
       "last_updated": null,
-      "sections": [],
+      "sections": [
+        "Failure Modes"
+      ],
       "related": [
         "../12-data/statistical-analysis.md"
       ],
@@ -4416,6 +4422,7 @@
         "Security Boundaries",
         "Compatibility",
         "Runnable Example",
+        "Failure Modes",
         "Related",
         "Evidence"
       ],
@@ -7285,6 +7292,7 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Changelog"
       ],
       "related": [],
@@ -11702,6 +11710,7 @@
         "Description",
         "Runnable example",
         "Inputs / outputs / failure modes",
+        "Failure Modes",
         "Related",
         "Evidence"
       ],
@@ -11723,6 +11732,7 @@
         "Description",
         "Runnable example",
         "Inputs / outputs / failure modes",
+        "Failure Modes",
         "Related",
         "Evidence"
       ],
@@ -12331,6 +12341,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12348,6 +12359,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12365,6 +12377,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12382,6 +12395,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12424,6 +12438,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12497,6 +12512,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12541,6 +12557,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12588,6 +12605,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -12605,6 +12623,7 @@
       "added": "2026-04",
       "last_updated": null,
       "sections": [
+        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -13485,6 +13504,7 @@
         "The Human-in-the-Loop Contract",
         "Recursive Dogfooding",
         "Security: Network Constraint Model",
+        "Failure Modes",
         "Related Infrastructure"
       ],
       "related": [
