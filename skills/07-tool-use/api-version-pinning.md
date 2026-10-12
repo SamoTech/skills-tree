@@ -86,7 +86,7 @@ Version pins interact with trust: upgrading an API client changes what is sent a
 
 This skill is grounded in dated public implementation references:
 
-1. The Stripe documentation on API versioning (https://docs.stripe.com/api-versioning).
+1. The Stripe documentation on API versioning and upgrades (https://docs.stripe.com/upgrades).
 2. The twelve-factor app guidance on configuration (https://12factor.net/config).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.

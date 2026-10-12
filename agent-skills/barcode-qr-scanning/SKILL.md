@@ -84,7 +84,7 @@ Decoded payloads are untrusted input. A QR code can encode a URL or instruction 
 
 This skill is grounded in dated public implementation references:
 
-1. The pyzbar barcode decoding library documentation (https://pyzbar.readthedocs.io/).
+1. The pyzbar barcode decoding library project page (https://pypi.org/project/pyzbar/).
 2. The ZXing barcode image processing project documentation (https://zxing.github.io/).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
