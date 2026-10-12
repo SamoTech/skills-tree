@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-12T10:48:45.898127+00:00",
+    "generated_at": "2026-10-12T12:19:33.113415+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 493,
-    "edge_count": 493,
+    "node_count": 538,
+    "edge_count": 583,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -4958,6 +4958,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/browser-profile-management",
+      "title": "Browser Profile Management",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/browser-profile-management.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/captcha-solving",
       "title": "CAPTCHA Handling",
       "category": "11-web",
@@ -5003,6 +5018,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/file-download-verification",
+      "title": "File Download Verification",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/file-download-verification.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/form-filling",
       "title": "Form Filling",
       "category": "11-web",
@@ -5015,6 +5045,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/form-filling.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/iframe-handling",
+      "title": "Iframe Handling",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/iframe-handling.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/infinite-scroll-handling",
+      "title": "Infinite Scroll Handling",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/infinite-scroll-handling.md",
       "quality_score": null
     },
     {
@@ -5063,6 +5123,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/popup-dialog-handling",
+      "title": "Popup and Dialog Handling",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/popup-dialog-handling.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/robots-txt-parsing",
       "title": "Robots.txt Parsing",
       "category": "11-web",
@@ -5090,6 +5165,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/rss-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/shadow-dom-interaction",
+      "title": "Shadow DOM Interaction",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/shadow-dom-interaction.md",
       "quality_score": null
     },
     {
@@ -5288,6 +5378,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/cohort-analysis",
+      "title": "Cohort Analysis",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/cohort-analysis.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/csv-processing",
       "title": "Csv Processing",
       "category": "12-data",
@@ -5318,6 +5423,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/data-anonymization",
+      "title": "Data Anonymization",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-anonymization.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/data-cleaning",
       "title": "Data Cleaning",
       "category": "12-data",
@@ -5330,6 +5450,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-cleaning.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/data-contract-enforcement",
+      "title": "Data Contract Enforcement",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-contract-enforcement.md",
       "quality_score": null
     },
     {
@@ -5468,6 +5603,36 @@
       "quality_score": null
     },
     {
+      "id": "12-data/feature-engineering",
+      "title": "Feature Engineering",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/feature-engineering.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/geospatial-data-processing",
+      "title": "Geospatial Data Processing",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/geospatial-data-processing.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/incremental-processing",
       "title": "Incremental Processing",
       "category": "12-data",
@@ -5603,6 +5768,36 @@
       "quality_score": null
     },
     {
+      "id": "12-data/stream-processing",
+      "title": "Stream Processing",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/stream-processing.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/synthetic-data-generation",
+      "title": "Synthetic Data Generation",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/synthetic-data-generation.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/time-series",
       "title": "Time Series",
       "category": "12-data",
@@ -5648,6 +5843,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/brand-voice-development",
+      "title": "Brand Voice Development",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/brand-voice-development.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/character-design",
       "title": "Character Design",
       "category": "13-creative",
@@ -5660,6 +5870,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/character-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/color-palette-generation",
+      "title": "Color Palette Generation",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/color-palette-generation.md",
       "quality_score": null
     },
     {
@@ -5720,6 +5945,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/game-level-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/game-mechanic-design",
+      "title": "Game Mechanic Design",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/game-mechanic-design.md",
       "quality_score": null
     },
     {
@@ -5828,6 +6068,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/podcast-script-writing",
+      "title": "Podcast Script Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/podcast-script-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/poetry-forms",
       "title": "Poetry Forms",
       "category": "13-creative",
@@ -5858,6 +6113,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/slogan-tagline-creation",
+      "title": "Slogan and Tagline Creation",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/slogan-tagline-creation.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/social-media-post",
       "title": "Social Media Post",
       "category": "13-creative",
@@ -5870,6 +6140,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/social-media-post.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/storyboard-generation",
+      "title": "Storyboard Generation",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/storyboard-generation.md",
       "quality_score": null
     },
     {
@@ -5963,6 +6248,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/container-escape-detection",
+      "title": "Container Escape Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/container-escape-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/dependency-integrity-verification",
       "title": "Dependency Integrity Verification",
       "category": "14-security",
@@ -5975,6 +6275,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/dependency-integrity-verification.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/forensic-log-reconstruction",
+      "title": "Forensic Log Reconstruction",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/forensic-log-reconstruction.md",
       "quality_score": null
     },
     {
@@ -6050,6 +6365,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/jwt-validation.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/key-rotation-automation",
+      "title": "Key Rotation Automation",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/key-rotation-automation.md",
       "quality_score": null
     },
     {
@@ -6143,6 +6473,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/privilege-escalation-detection",
+      "title": "Privilege Escalation Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/privilege-escalation-detection.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/rate-limiting",
       "title": "Rate Limiting",
       "category": "14-security",
@@ -6218,6 +6563,36 @@
       "quality_score": null
     },
     {
+      "id": "14-security/social-engineering-detection",
+      "title": "Social Engineering Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/social-engineering-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/threat-intelligence-enrichment",
+      "title": "Threat Intelligence Enrichment",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/threat-intelligence-enrichment.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/threat-modeling",
       "title": "Threat Modeling",
       "category": "14-security",
@@ -6230,6 +6605,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/threat-modeling.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/vulnerability-triage",
+      "title": "Vulnerability Triage",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/vulnerability-triage.md",
       "quality_score": null
     },
     {
@@ -6275,6 +6665,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/automation-review.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/backpressure-handling",
+      "title": "Backpressure Handling",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/backpressure-handling.md",
       "quality_score": null
     },
     {
@@ -6368,6 +6773,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/cross-agent-locking",
+      "title": "Cross-Agent Locking",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/cross-agent-locking.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/dead-letter-queuing",
       "title": "Dead-Letter Queuing",
       "category": "15-orchestration",
@@ -6398,6 +6818,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/distributed-state-replication",
+      "title": "Distributed State Replication",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/distributed-state-replication.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/documentation-drift-resolution",
       "title": "Documentation Drift Resolution",
       "category": "15-orchestration",
@@ -6410,6 +6845,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/documentation-drift-resolution.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/dynamic-team-formation",
+      "title": "Dynamic Team Formation",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/dynamic-team-formation.md",
       "quality_score": null
     },
     {
@@ -6638,6 +7088,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/runbook-driven-orchestration",
+      "title": "Runbook-Driven Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/runbook-driven-orchestration.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/sequential-workflow",
       "title": "Sequential Workflow",
       "category": "15-orchestration",
@@ -6680,6 +7145,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/specialist-agent-routing.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/speculative-execution",
+      "title": "Speculative Execution",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/speculative-execution.md",
       "quality_score": null
     },
     {
@@ -6878,6 +7358,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/customer-churn-analysis",
+      "title": "Customer Churn Analysis",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/customer-churn-analysis.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/data-labeling",
       "title": "Data Labeling",
       "category": "16-domain-specific",
@@ -6920,6 +7415,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/drug-interaction.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/energy-consumption-forecasting",
+      "title": "Energy Consumption Forecasting",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/energy-consumption-forecasting.md",
       "quality_score": null
     },
     {
@@ -7013,6 +7523,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/insurance-claim-processing",
+      "title": "Insurance Claim Processing",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/insurance-claim-processing.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/inventory-reordering",
       "title": "Inventory Reordering",
       "category": "16-domain-specific",
@@ -7103,6 +7628,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/market-research-synthesis",
+      "title": "Market Research Synthesis",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/market-research-synthesis.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/medical-literature-search",
       "title": "Medical Literature Search",
       "category": "16-domain-specific",
@@ -7130,6 +7670,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/paper-summarization.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/patent-prior-art-search",
+      "title": "Patent Prior Art Search",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/patent-prior-art-search.md",
       "quality_score": null
     },
     {
@@ -7283,6 +7838,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/tax-document-preparation",
+      "title": "Tax Document Preparation",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/tax-document-preparation.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/alerting-design",
       "title": "Alerting Design",
       "category": "17-infrastructure",
@@ -7313,6 +7883,36 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/capacity-planning",
+      "title": "Capacity Planning",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/capacity-planning.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/cloud-cost-optimization",
+      "title": "Cloud Cost Optimization",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/cloud-cost-optimization.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/container-image-tagging",
       "title": "Container Image Tagging",
       "category": "17-infrastructure",
@@ -7325,6 +7925,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/container-image-tagging.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/database-backup-automation",
+      "title": "Database Backup Automation",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/database-backup-automation.md",
       "quality_score": null
     },
     {
@@ -7373,6 +7988,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/dns-record-management",
+      "title": "DNS Record Management",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/dns-record-management.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/health-check-endpoints",
       "title": "Health Check Endpoints",
       "category": "17-infrastructure",
@@ -7385,6 +8015,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/health-check-endpoints.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/incident-postmortem-automation",
+      "title": "Incident Postmortem Automation",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "basic",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/incident-postmortem-automation.md",
       "quality_score": null
     },
     {
@@ -7403,6 +8048,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/load-balancer-configuration",
+      "title": "Load Balancer Configuration",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/load-balancer-configuration.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/secrets-management",
       "title": "Secrets Management",
       "category": "17-infrastructure",
@@ -7415,6 +8075,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/secrets-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/service-mesh-configuration",
+      "title": "Service Mesh Configuration",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/service-mesh-configuration.md",
       "quality_score": null
     }
   ],
@@ -10188,6 +10863,70 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/browser-profile-management",
+      "target": "11-web/cookie-management",
+      "type": "RELATED_TO",
+      "evidence": "[Cookie Management](cookie-management.md)",
+      "source_file": "skills/11-web/browser-profile-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/browser-profile-management",
+      "target": "11-web/web-login",
+      "type": "RELATED_TO",
+      "evidence": "[Web Login](web-login.md)",
+      "source_file": "skills/11-web/browser-profile-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/file-download-verification",
+      "target": "11-web/url-fetching",
+      "type": "RELATED_TO",
+      "evidence": "[URL Fetching](url-fetching.md)",
+      "source_file": "skills/11-web/file-download-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/file-download-verification",
+      "target": "11-web/web-scraping",
+      "type": "RELATED_TO",
+      "evidence": "[Web Scraping](web-scraping.md)",
+      "source_file": "skills/11-web/file-download-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/iframe-handling",
+      "target": "11-web/dom-inspection",
+      "type": "RELATED_TO",
+      "evidence": "[DOM Inspection](dom-inspection.md)",
+      "source_file": "skills/11-web/iframe-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/iframe-handling",
+      "target": "11-web/js-execution",
+      "type": "RELATED_TO",
+      "evidence": "[JS Execution](js-execution.md)",
+      "source_file": "skills/11-web/iframe-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/infinite-scroll-handling",
+      "target": "11-web/web-scraping",
+      "type": "RELATED_TO",
+      "evidence": "[Web Scraping](web-scraping.md)",
+      "source_file": "skills/11-web/infinite-scroll-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/infinite-scroll-handling",
+      "target": "11-web/pagination-following",
+      "type": "RELATED_TO",
+      "evidence": "[Pagination Following](pagination-following.md)",
+      "source_file": "skills/11-web/infinite-scroll-handling.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/pagination-following",
       "target": "11-web/web-scraping",
       "type": "RELATED_TO",
@@ -10204,6 +10943,22 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/popup-dialog-handling",
+      "target": "11-web/browser-navigation",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Navigation](browser-navigation.md)",
+      "source_file": "skills/11-web/popup-dialog-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/popup-dialog-handling",
+      "target": "11-web/form-filling",
+      "type": "RELATED_TO",
+      "evidence": "[Form Filling](form-filling.md)",
+      "source_file": "skills/11-web/popup-dialog-handling.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/robots-txt-parsing",
       "target": "11-web/web-crawling",
       "type": "RELATED_TO",
@@ -10217,6 +10972,22 @@
       "type": "RELATED_TO",
       "evidence": "[Web Scraping](web-scraping.md)",
       "source_file": "skills/11-web/robots-txt-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/shadow-dom-interaction",
+      "target": "11-web/dom-inspection",
+      "type": "RELATED_TO",
+      "evidence": "[DOM Inspection](dom-inspection.md)",
+      "source_file": "skills/11-web/shadow-dom-interaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/shadow-dom-interaction",
+      "target": "11-web/js-execution",
+      "type": "RELATED_TO",
+      "evidence": "[JS Execution](js-execution.md)",
+      "source_file": "skills/11-web/shadow-dom-interaction.md",
       "confidence": "high"
     },
     {
@@ -10340,6 +11111,54 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/cohort-analysis",
+      "target": "12-data/time-series",
+      "type": "RELATED_TO",
+      "evidence": "[Time Series](time-series.md)",
+      "source_file": "skills/12-data/cohort-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/cohort-analysis",
+      "target": "12-data/data-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Aggregation](data-aggregation.md)",
+      "source_file": "skills/12-data/cohort-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-anonymization",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/data-anonymization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-anonymization",
+      "target": "12-data/data-lineage",
+      "type": "RELATED_TO",
+      "evidence": "[Data Lineage](data-lineage.md)",
+      "source_file": "skills/12-data/data-anonymization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-contract-enforcement",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/data-contract-enforcement.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-contract-enforcement",
+      "target": "12-data/schema-inference",
+      "type": "RELATED_TO",
+      "evidence": "[Schema Inference](schema-inference.md)",
+      "source_file": "skills/12-data/data-contract-enforcement.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-lineage",
       "target": "12-data/etl-pipeline",
       "type": "RELATED_TO",
@@ -10412,6 +11231,38 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/feature-engineering",
+      "target": "12-data/data-profiling",
+      "type": "RELATED_TO",
+      "evidence": "[Data Profiling](data-profiling.md)",
+      "source_file": "skills/12-data/feature-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/feature-engineering",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/feature-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/geospatial-data-processing",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/geospatial-data-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/geospatial-data-processing",
+      "target": "12-data/data-visualization",
+      "type": "RELATED_TO",
+      "evidence": "[Data Visualization](data-visualization.md)",
+      "source_file": "skills/12-data/geospatial-data-processing.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/incremental-processing",
       "target": "12-data/etl-pipeline",
       "type": "RELATED_TO",
@@ -10452,6 +11303,54 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/stream-processing",
+      "target": "12-data/etl-pipeline",
+      "type": "RELATED_TO",
+      "evidence": "[ETL Pipeline](etl-pipeline.md)",
+      "source_file": "skills/12-data/stream-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/stream-processing",
+      "target": "12-data/anomaly-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Anomaly Detection](anomaly-detection.md)",
+      "source_file": "skills/12-data/stream-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/synthetic-data-generation",
+      "target": "12-data/data-anonymization",
+      "type": "RELATED_TO",
+      "evidence": "[Data Anonymization](data-anonymization.md)",
+      "source_file": "skills/12-data/synthetic-data-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/synthetic-data-generation",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/synthetic-data-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/brand-voice-development",
+      "target": "13-creative/copywriting",
+      "type": "RELATED_TO",
+      "evidence": "[Copywriting](copywriting.md)",
+      "source_file": "skills/13-creative/brand-voice-development.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/brand-voice-development",
+      "target": "06-communication/tone-adjustment",
+      "type": "RELATED_TO",
+      "evidence": "[Tone Adjustment](../06-communication/tone-adjustment.md)",
+      "source_file": "skills/13-creative/brand-voice-development.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/character-design",
       "target": "13-creative/avatar-design",
       "type": "RELATED_TO",
@@ -10468,6 +11367,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/color-palette-generation",
+      "target": "13-creative/logo-design",
+      "type": "RELATED_TO",
+      "evidence": "[Logo Design](logo-design.md)",
+      "source_file": "skills/13-creative/color-palette-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/color-palette-generation",
+      "target": "13-creative/svg-generation",
+      "type": "RELATED_TO",
+      "evidence": "[SVG Generation](svg-generation.md)",
+      "source_file": "skills/13-creative/color-palette-generation.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/dialogue-writing",
       "target": "13-creative/creative-writing",
       "type": "RELATED_TO",
@@ -10481,6 +11396,22 @@
       "type": "RELATED_TO",
       "evidence": "[Social Media Post](social-media-post.md)",
       "source_file": "skills/13-creative/dialogue-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/game-mechanic-design",
+      "target": "13-creative/game-level-design",
+      "type": "RELATED_TO",
+      "evidence": "[Game Level Design](game-level-design.md)",
+      "source_file": "skills/13-creative/game-mechanic-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/game-mechanic-design",
+      "target": "13-creative/plot-structure",
+      "type": "RELATED_TO",
+      "evidence": "[Plot Structure](plot-structure.md)",
+      "source_file": "skills/13-creative/game-mechanic-design.md",
       "confidence": "high"
     },
     {
@@ -10516,6 +11447,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/podcast-script-writing",
+      "target": "13-creative/copywriting",
+      "type": "RELATED_TO",
+      "evidence": "[Copywriting](copywriting.md)",
+      "source_file": "skills/13-creative/podcast-script-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/podcast-script-writing",
+      "target": "13-creative/dialogue-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Dialogue Writing](dialogue-writing.md)",
+      "source_file": "skills/13-creative/podcast-script-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/poetry-forms",
       "target": "13-creative/lyrics-writing",
       "type": "RELATED_TO",
@@ -10529,6 +11476,38 @@
       "type": "RELATED_TO",
       "evidence": "[Creative Writing](creative-writing.md)",
       "source_file": "skills/13-creative/poetry-forms.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/slogan-tagline-creation",
+      "target": "13-creative/copywriting",
+      "type": "RELATED_TO",
+      "evidence": "[Copywriting](copywriting.md)",
+      "source_file": "skills/13-creative/slogan-tagline-creation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/slogan-tagline-creation",
+      "target": "13-creative/brand-voice-development",
+      "type": "RELATED_TO",
+      "evidence": "[Brand Voice Development](brand-voice-development.md)",
+      "source_file": "skills/13-creative/slogan-tagline-creation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/storyboard-generation",
+      "target": "13-creative/video-script",
+      "type": "RELATED_TO",
+      "evidence": "[Video Script](video-script.md)",
+      "source_file": "skills/13-creative/storyboard-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/storyboard-generation",
+      "target": "13-creative/plot-structure",
+      "type": "RELATED_TO",
+      "evidence": "[Plot Structure](plot-structure.md)",
+      "source_file": "skills/13-creative/storyboard-generation.md",
       "confidence": "high"
     },
     {
@@ -10612,6 +11591,22 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/container-escape-detection",
+      "target": "14-security/sandboxed-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Sandboxed Execution](sandboxed-execution.md)",
+      "source_file": "skills/14-security/container-escape-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/container-escape-detection",
+      "target": "16-domain-specific/incident-response",
+      "type": "RELATED_TO",
+      "evidence": "[Incident Response](../16-domain-specific/incident-response.md)",
+      "source_file": "skills/14-security/container-escape-detection.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/dependency-integrity-verification",
       "target": "14-security/secret-scanning",
       "type": "RELATED_TO",
@@ -10625,6 +11620,22 @@
       "type": "RELATED_TO",
       "evidence": "[Sandboxed Execution](sandboxed-execution.md)",
       "source_file": "skills/14-security/dependency-integrity-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/forensic-log-reconstruction",
+      "target": "14-security/audit-logging",
+      "type": "RELATED_TO",
+      "evidence": "[Audit Logging](audit-logging.md)",
+      "source_file": "skills/14-security/forensic-log-reconstruction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/forensic-log-reconstruction",
+      "target": "16-domain-specific/incident-response",
+      "type": "RELATED_TO",
+      "evidence": "[Incident Response](../16-domain-specific/incident-response.md)",
+      "source_file": "skills/14-security/forensic-log-reconstruction.md",
       "confidence": "high"
     },
     {
@@ -10724,6 +11735,22 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/key-rotation-automation",
+      "target": "17-infrastructure/secrets-management",
+      "type": "RELATED_TO",
+      "evidence": "[Secrets Management](../17-infrastructure/secrets-management.md)",
+      "source_file": "skills/14-security/key-rotation-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/key-rotation-automation",
+      "target": "14-security/audit-logging",
+      "type": "RELATED_TO",
+      "evidence": "[Audit Logging](audit-logging.md)",
+      "source_file": "skills/14-security/key-rotation-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/least-privilege-scoping",
       "target": "14-security/permission-checking",
       "type": "RELATED_TO",
@@ -10801,6 +11828,22 @@
       "type": "RELATED_TO",
       "evidence": "[Audit Logging](audit-logging.md)",
       "source_file": "skills/14-security/privacy-preservation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/privilege-escalation-detection",
+      "target": "14-security/threat-modeling",
+      "type": "RELATED_TO",
+      "evidence": "[Threat Modeling](threat-modeling.md)",
+      "source_file": "skills/14-security/privilege-escalation-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/privilege-escalation-detection",
+      "target": "14-security/audit-logging",
+      "type": "RELATED_TO",
+      "evidence": "[Audit Logging](audit-logging.md)",
+      "source_file": "skills/14-security/privilege-escalation-detection.md",
       "confidence": "high"
     },
     {
@@ -10916,6 +11959,38 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/social-engineering-detection",
+      "target": "14-security/input-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Input Guardrails](input-guardrails.md)",
+      "source_file": "skills/14-security/social-engineering-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/social-engineering-detection",
+      "target": "14-security/harm-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Harm Detection](harm-detection.md)",
+      "source_file": "skills/14-security/social-engineering-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/threat-intelligence-enrichment",
+      "target": "14-security/vulnerability-triage",
+      "type": "RELATED_TO",
+      "evidence": "[Vulnerability Triage](vulnerability-triage.md)",
+      "source_file": "skills/14-security/threat-intelligence-enrichment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/threat-intelligence-enrichment",
+      "target": "14-security/threat-modeling",
+      "type": "RELATED_TO",
+      "evidence": "[Threat Modeling](threat-modeling.md)",
+      "source_file": "skills/14-security/threat-intelligence-enrichment.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/threat-modeling",
       "target": "14-security/harm-detection",
       "type": "RELATED_TO",
@@ -10929,6 +12004,38 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Skill Security Audit](agent-skill-security-audit.md)",
       "source_file": "skills/14-security/threat-modeling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/vulnerability-triage",
+      "target": "14-security/threat-modeling",
+      "type": "RELATED_TO",
+      "evidence": "[Threat Modeling](threat-modeling.md)",
+      "source_file": "skills/14-security/vulnerability-triage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/vulnerability-triage",
+      "target": "16-domain-specific/incident-response",
+      "type": "RELATED_TO",
+      "evidence": "[Incident Response](../16-domain-specific/incident-response.md)",
+      "source_file": "skills/14-security/vulnerability-triage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/backpressure-handling",
+      "target": "15-orchestration/task-queue",
+      "type": "RELATED_TO",
+      "evidence": "[Task Queue](task-queue.md)",
+      "source_file": "skills/15-orchestration/backpressure-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/backpressure-handling",
+      "target": "15-orchestration/deadline-propagation",
+      "type": "RELATED_TO",
+      "evidence": "[Deadline Propagation](deadline-propagation.md)",
+      "source_file": "skills/15-orchestration/backpressure-handling.md",
       "confidence": "high"
     },
     {
@@ -10988,6 +12095,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/cross-agent-locking",
+      "target": "15-orchestration/shared-memory",
+      "type": "RELATED_TO",
+      "evidence": "[Shared Memory](shared-memory.md)",
+      "source_file": "skills/15-orchestration/cross-agent-locking.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/cross-agent-locking",
+      "target": "15-orchestration/idempotency-keys",
+      "type": "RELATED_TO",
+      "evidence": "[Idempotency Keys](idempotency-keys.md)",
+      "source_file": "skills/15-orchestration/cross-agent-locking.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/dead-letter-queuing",
       "target": "15-orchestration/task-queue",
       "type": "RELATED_TO",
@@ -11017,6 +12140,38 @@
       "type": "RELATED_TO",
       "evidence": "[Parallel Execution](parallel-execution.md)",
       "source_file": "skills/15-orchestration/deadline-propagation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/distributed-state-replication",
+      "target": "15-orchestration/stateful-agent-graphs",
+      "type": "RELATED_TO",
+      "evidence": "[Stateful Agent Graphs](stateful-agent-graphs.md)",
+      "source_file": "skills/15-orchestration/distributed-state-replication.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/distributed-state-replication",
+      "target": "15-orchestration/thread-based-resume",
+      "type": "RELATED_TO",
+      "evidence": "[Thread-Based Resume](thread-based-resume.md)",
+      "source_file": "skills/15-orchestration/distributed-state-replication.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/dynamic-team-formation",
+      "target": "15-orchestration/subagent-spawning",
+      "type": "RELATED_TO",
+      "evidence": "[Subagent Spawning](subagent-spawning.md)",
+      "source_file": "skills/15-orchestration/dynamic-team-formation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/dynamic-team-formation",
+      "target": "15-orchestration/role-assignment",
+      "type": "RELATED_TO",
+      "evidence": "[Role Assignment](role-assignment.md)",
+      "source_file": "skills/15-orchestration/dynamic-team-formation.md",
       "confidence": "high"
     },
     {
@@ -11052,6 +12207,38 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/runbook-driven-orchestration",
+      "target": "15-orchestration/state-machine",
+      "type": "RELATED_TO",
+      "evidence": "[State Machine](state-machine.md)",
+      "source_file": "skills/15-orchestration/runbook-driven-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/runbook-driven-orchestration",
+      "target": "15-orchestration/execution-handoff",
+      "type": "RELATED_TO",
+      "evidence": "[Execution Handoff](execution-handoff.md)",
+      "source_file": "skills/15-orchestration/runbook-driven-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/speculative-execution",
+      "target": "15-orchestration/parallel-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Parallel Execution](parallel-execution.md)",
+      "source_file": "skills/15-orchestration/speculative-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/speculative-execution",
+      "target": "15-orchestration/cost-aware-model-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Cost-Aware Model Routing](cost-aware-model-routing.md)",
+      "source_file": "skills/15-orchestration/speculative-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/workflow-versioning",
       "target": "15-orchestration/multi-agent-run-config",
       "type": "RELATED_TO",
@@ -11084,6 +12271,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/customer-churn-analysis",
+      "target": "16-domain-specific/review-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Review Analysis](review-analysis.md)",
+      "source_file": "skills/16-domain-specific/customer-churn-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/customer-churn-analysis",
+      "target": "12-data/cohort-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Cohort Analysis](../12-data/cohort-analysis.md)",
+      "source_file": "skills/16-domain-specific/customer-churn-analysis.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/diagnosis-coding",
       "target": "16-domain-specific/symptom-analysis",
       "type": "RELATED_TO",
@@ -11100,6 +12303,38 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/energy-consumption-forecasting",
+      "target": "12-data/time-series",
+      "type": "RELATED_TO",
+      "evidence": "[Time Series](../12-data/time-series.md)",
+      "source_file": "skills/16-domain-specific/energy-consumption-forecasting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/energy-consumption-forecasting",
+      "target": "12-data/statistical-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Statistical Analysis](../12-data/statistical-analysis.md)",
+      "source_file": "skills/16-domain-specific/energy-consumption-forecasting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/insurance-claim-processing",
+      "target": "16-domain-specific/invoice-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Invoice Processing](invoice-processing.md)",
+      "source_file": "skills/16-domain-specific/insurance-claim-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/insurance-claim-processing",
+      "target": "16-domain-specific/compliance-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Compliance Checking](compliance-checking.md)",
+      "source_file": "skills/16-domain-specific/insurance-claim-processing.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/inventory-reordering",
       "target": "16-domain-specific/invoice-processing",
       "type": "RELATED_TO",
@@ -11113,6 +12348,38 @@
       "type": "RELATED_TO",
       "evidence": "[Stock Lookup](stock-lookup.md)",
       "source_file": "skills/16-domain-specific/inventory-reordering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/market-research-synthesis",
+      "target": "16-domain-specific/review-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Review Analysis](review-analysis.md)",
+      "source_file": "skills/16-domain-specific/market-research-synthesis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/market-research-synthesis",
+      "target": "16-domain-specific/portfolio-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Portfolio Analysis](portfolio-analysis.md)",
+      "source_file": "skills/16-domain-specific/market-research-synthesis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/patent-prior-art-search",
+      "target": "16-domain-specific/legal-research",
+      "type": "RELATED_TO",
+      "evidence": "[Legal Research](legal-research.md)",
+      "source_file": "skills/16-domain-specific/patent-prior-art-search.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/patent-prior-art-search",
+      "target": "16-domain-specific/literature-review",
+      "type": "RELATED_TO",
+      "evidence": "[Literature Review](literature-review.md)",
+      "source_file": "skills/16-domain-specific/patent-prior-art-search.md",
       "confidence": "high"
     },
     {
@@ -11164,6 +12431,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/tax-document-preparation",
+      "target": "16-domain-specific/invoice-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Invoice Processing](invoice-processing.md)",
+      "source_file": "skills/16-domain-specific/tax-document-preparation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/tax-document-preparation",
+      "target": "16-domain-specific/financial-statement",
+      "type": "RELATED_TO",
+      "evidence": "[Financial Statement](financial-statement.md)",
+      "source_file": "skills/16-domain-specific/tax-document-preparation.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/alerting-design",
       "target": "17-infrastructure/health-check-endpoints",
       "type": "RELATED_TO",
@@ -11196,6 +12479,38 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/capacity-planning",
+      "target": "17-infrastructure/alerting-design",
+      "type": "RELATED_TO",
+      "evidence": "[Alerting Design](alerting-design.md)",
+      "source_file": "skills/17-infrastructure/capacity-planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/capacity-planning",
+      "target": "17-infrastructure/kubernetes-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Kubernetes Deployment](kubernetes-deployment.md)",
+      "source_file": "skills/17-infrastructure/capacity-planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/cloud-cost-optimization",
+      "target": "17-infrastructure/capacity-planning",
+      "type": "RELATED_TO",
+      "evidence": "[Capacity Planning](capacity-planning.md)",
+      "source_file": "skills/17-infrastructure/cloud-cost-optimization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/cloud-cost-optimization",
+      "target": "17-infrastructure/alerting-design",
+      "type": "RELATED_TO",
+      "evidence": "[Alerting Design](alerting-design.md)",
+      "source_file": "skills/17-infrastructure/cloud-cost-optimization.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/container-image-tagging",
       "target": "17-infrastructure/kubernetes-deployment",
       "type": "RELATED_TO",
@@ -11209,6 +12524,22 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Auditor](dependency-auditor.md)",
       "source_file": "skills/17-infrastructure/container-image-tagging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/database-backup-automation",
+      "target": "17-infrastructure/secrets-management",
+      "type": "RELATED_TO",
+      "evidence": "[Secrets Management](secrets-management.md)",
+      "source_file": "skills/17-infrastructure/database-backup-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/database-backup-automation",
+      "target": "17-infrastructure/deployment-rollback",
+      "type": "RELATED_TO",
+      "evidence": "[Deployment Rollback](deployment-rollback.md)",
+      "source_file": "skills/17-infrastructure/database-backup-automation.md",
       "confidence": "high"
     },
     {
@@ -11244,6 +12575,22 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/dns-record-management",
+      "target": "17-infrastructure/declarative-infrastructure",
+      "type": "RELATED_TO",
+      "evidence": "[Declarative Infrastructure](declarative-infrastructure.md)",
+      "source_file": "skills/17-infrastructure/dns-record-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/dns-record-management",
+      "target": "17-infrastructure/health-check-endpoints",
+      "type": "RELATED_TO",
+      "evidence": "[Health Check Endpoints](health-check-endpoints.md)",
+      "source_file": "skills/17-infrastructure/dns-record-management.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/health-check-endpoints",
       "target": "17-infrastructure/kubernetes-deployment",
       "type": "RELATED_TO",
@@ -11257,6 +12604,22 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Auditor](dependency-auditor.md)",
       "source_file": "skills/17-infrastructure/health-check-endpoints.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/incident-postmortem-automation",
+      "target": "17-infrastructure/alerting-design",
+      "type": "RELATED_TO",
+      "evidence": "[Alerting Design](alerting-design.md)",
+      "source_file": "skills/17-infrastructure/incident-postmortem-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/incident-postmortem-automation",
+      "target": "17-infrastructure/deployment-rollback",
+      "type": "RELATED_TO",
+      "evidence": "[Deployment Rollback](deployment-rollback.md)",
+      "source_file": "skills/17-infrastructure/incident-postmortem-automation.md",
       "confidence": "high"
     },
     {
@@ -11284,6 +12647,22 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/load-balancer-configuration",
+      "target": "17-infrastructure/health-check-endpoints",
+      "type": "RELATED_TO",
+      "evidence": "[Health Check Endpoints](health-check-endpoints.md)",
+      "source_file": "skills/17-infrastructure/load-balancer-configuration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/load-balancer-configuration",
+      "target": "17-infrastructure/blue-green-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Blue-Green Deployment](blue-green-deployment.md)",
+      "source_file": "skills/17-infrastructure/load-balancer-configuration.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/secrets-management",
       "target": "17-infrastructure/kubernetes-deployment",
       "type": "RELATED_TO",
@@ -11297,6 +12676,22 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Auditor](dependency-auditor.md)",
       "source_file": "skills/17-infrastructure/secrets-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/service-mesh-configuration",
+      "target": "17-infrastructure/kubernetes-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Kubernetes Deployment](kubernetes-deployment.md)",
+      "source_file": "skills/17-infrastructure/service-mesh-configuration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/service-mesh-configuration",
+      "target": "17-infrastructure/health-check-endpoints",
+      "type": "RELATED_TO",
+      "evidence": "[Health Check Endpoints](health-check-endpoints.md)",
+      "source_file": "skills/17-infrastructure/service-mesh-configuration.md",
       "confidence": "high"
     },
     {
