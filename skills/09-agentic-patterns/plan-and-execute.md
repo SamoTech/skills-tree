@@ -63,9 +63,7 @@ graph.add_node("planner", planner)
 graph.add_node("executor", executor)
 graph.set_entry_point("planner")
 graph.add_edge("planner", "executor")
-graph.add_conditional_edge
-
-s("executor", should_continue, {END: END, "executor": "executor"})
+graph.add_conditional_edges("executor", should_continue, {END: END, "executor": "executor"})
 app = graph.compile()
 
 result = app.invoke(AgentState(goal="Research and summarize the benefits of RAG"))
