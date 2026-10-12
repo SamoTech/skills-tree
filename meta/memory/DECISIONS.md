@@ -1587,3 +1587,32 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if any wave-2 entry claims a demand signal, drifts from the deterministic projection contract, or fails the quality gates.
+
+## DECISION-2026-10-12-ISSUE-447-CLOSURE
+
+**Topic:** Close issue #447 by adopting the atomic-republication path as the standard generated-projection publication path.
+
+**Decision:** Option (a) is adopted. Cross-coupled generated projections publish together through agent-assembled, fully checked PRs built by branch-level merges of the trusted automation branches (the validated PR #477 / #490 / #499 / #517 pattern), so `main` is never merged on an unchecked `GITHUB_TOKEN` bot commit. Issue #447 is closed: the historical `gh pr create` 403 failure class is fixed and verified live (bot PRs #509, #512), and the residual behavior — required checks not running on `GITHUB_TOKEN`-authored bot PR commits under GitHub's same-actor trigger policy (latest evidence: merged bot PR #521 ran only CodeQL ×4 + GitGuardian, no test suite) — is accepted as a documented platform limitation rather than a repository defect, because the standard path routes all generated content through fully checked PRs. Option (b) (moving the generated writers to a GitHub App token so required checks trigger on bot PRs) is not adopted now; it remains an owner-side option if bot PRs ever become the primary publication path.
+
+**Confidence:** HIGH — the workaround is the validated, repeatedly exercised republication pattern, and the residual behavior is platform-documented.
+
+**Evidence IDs:** issue #447 (evidence comments 2026-10-11/12, including the 2026-10-12 scope-narrowing comment); bot PRs #509, #512; bot PR #521 check-run evidence; PRs #477, #490, #499, #517 (atomic republication precedents); PR #501 (writer permission restoration); meta/audits/FULL_REPOSITORY_AUDIT_2026-10-12.md; meta/WORKFLOW_INVENTORY.md.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if a generated projection merges to `main` through a bot PR without the full required check matrix, if the cross-projection consistency invariant reddens on `main`, or if bot PRs become the primary publication path without a GitHub App token.
+
+
+## DECISION-2026-10-12-STALE-BRANCH-DEFERRAL
+
+**Topic:** Defer stale-branch cleanup per owner direction.
+
+**Decision:** The repository owner directed on 2026-10-12 that the ~414 stale working branches are kept for now and will be cleaned later; `main` and the `automation/*` branches are preserved in any case. Branch deletion remains owner-side (the agent connector exposes no branch-deletion tool), and the audit's deletion recommendation is superseded by this owner direction until the owner performs the cleanup.
+
+**Confidence:** HIGH — direct owner instruction recorded 2026-10-12.
+
+**Evidence IDs:** owner instruction 2026-10-12; meta/audits/FULL_REPOSITORY_AUDIT_2026-10-12.md (branch-hygiene finding, ~414 stale of 423 branches).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen when the owner performs the cleanup or changes this direction.
