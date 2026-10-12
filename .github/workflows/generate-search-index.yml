@@ -13,6 +13,16 @@ on:
       - 'meta/skill-schema.json'
       - 'tools/build_search_index.py'
       - 'tools/skill_corpus.py'
+      - '.github/workflows/generate-search-index.yml'
+  # API-driven merges in this repository can complete without a usable
+  # post-merge push-triggered index run. Rebuild from trusted main after
+  # every merged PR while checking out only the default branch, mirroring
+  # the proven quality-report.yml trigger set (#447 stranding class).
+  pull_request_target:
+    types: [closed]
+    branches: [main]
+  schedule:
+    - cron: '0 3 * * 0'   # Sunday 03:00 UTC self-heal
   workflow_dispatch:
 
 concurrency:
@@ -28,6 +38,7 @@ env:
 jobs:
   index:
     name: Rebuild search index
+    if: github.event_name != 'pull_request_target' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -36,6 +47,7 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 1
 
       - name: Set up Python 3.11
