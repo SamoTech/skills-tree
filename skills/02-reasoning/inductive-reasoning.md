@@ -32,6 +32,13 @@ Observations:
 Generalization: Query time grows exponentially with row count — index needed.
 ```
 
+## Failure Modes
+
+- **Hasty generalization:** broad rules from few or unrepresentative observations; state the sample size and selection basis with every generalization.
+- **Ignoring counterexamples:** a single counterexample bounds a generalization; record counterexamples rather than explaining them away.
+- **Trend extrapolation:** extending a pattern beyond its observed range, or treating a coincidental run as a law.
+- **Frequency-as-probability:** an inductive conclusion is a tentative hypothesis with stated limits, not a measured probability.
+
 ### Related Skills
 
 - [Deductive Reasoning](deductive-reasoning.md)

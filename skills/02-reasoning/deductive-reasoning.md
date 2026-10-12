@@ -87,13 +87,21 @@ Label each step: Premise / Given / Modus Ponens / Modus Tollens / Contradiction.
 
 ## Common Fallacies to Avoid
 
-| Fallacy | Structure | Why It Fails |
+| Fallacy |
+ Structure | Why It Fails |
 |---|---|---|
 | Affirming the consequent | Q is true → P must be true | Multiple causes can produce Q |
 | Denying the antecedent | P is false → Q must be false | Q may have other causes |
 | Undistributed middle | All A are B; All C are B → A=C | B is shared but A,C may differ |
 
 ---
+
+## Failure Modes
+
+- **False premises:** a valid argument from an untrue premise yields a guaranteed-but-wrong conclusion; verify premises independently before trusting the conclusion.
+- **Validity illusion:** persuasive phrasing hides an invalid form (affirming the consequent, denying the antecedent); check the argument form, not the rhetoric.
+- **Scope overreach:** applying a conclusion derived under stated assumptions to situations that violate those assumptions.
+- **Chain fragility:** a long deduction inherits every upstream error; re-verify each link in the chain before using the result.
 
 ## Related Skills
 

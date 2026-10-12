@@ -60,7 +60,8 @@ def reason_by_analogy(target_problem: str, source_domain: str = "") -> dict:
     """
     Solve a problem by finding a structural analogy from another domain.
     """
-    source_hint = f"Draw the analogy from: {source_domain}\n" if source_domain else ""
+    source_hint = f"Draw the analogy from: {s
+ource_domain}\n" if source_domain else ""
 
     response = client.messages.create(
         model="claude-opus-4-5",
@@ -108,6 +109,13 @@ print(json.dumps(result, indent=2))
 - Always include the `limitations` field to surface where the analogy misleads
 
 ---
+
+## Failure Modes
+
+- **Surface mapping:** matching superficial features (names, industries, vocabulary) instead of causal structure; state explicitly which relationships transfer and which do not.
+- **False structural parallel:** the source and target differ in a critical constraint (scale, physics, regulation) that invalidates the borrowed solution; check constraints before adapting.
+- **Overextended analogy:** treating a productive mapping as identity and copying steps that have no target-side counterpart.
+- **Single-analogy anchoring:** stopping at the first plausible source scenario instead of testing competing analogues.
 
 ## Related Skills
 

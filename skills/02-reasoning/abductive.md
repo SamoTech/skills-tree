@@ -58,7 +58,8 @@ client = anthropic.Anthropic()
 def abductive_analysis(observations: list[str], domain: str = "") -> dict:
     """
     Return ranked hypotheses explaining the given observations.
-    observations: list of factual observations (e.g. error messages, symptoms)
+    obse
+rvations: list of factual observations (e.g. error messages, symptoms)
     """
     obs_text = "\n".join(f"- {o}" for o in observations)
     domain_hint = f"Domain context: {domain}\n" if domain else ""
@@ -116,11 +117,19 @@ print(json.dumps(result, indent=2))
 
 ---
 
+## Failure Modes
+
+- **Plausibility bias:** the "best" explanation is chosen because it is familiar, not because it explains more of the evidence; rank hypotheses by coverage and simplicity, not by precedent.
+- **Unfalsifiable hypotheses:** abduction can always produce *some* explanation; require each hypothesis to state a discriminating check that could refute it.
+- **Treating abduction as proof:** an inferred explanation is a lead, not a conclusion; confirm it with dedicated evidence before acting on it.
+- **Narrative inflation:** partial evidence plus a fluent narrative feels complete; explicitly list what the evidence does *not* explain before committing to the diagnosis.
+
 ## Related Skills
 
 - [Causal Reasoning](causal.md) — determining cause-effect chains
 - [Commonsense Reasoning](commonsense.md) — background world knowledge
-- [Fact Verification](../03-memory/fact-verification.md) — checking hypothesis claims
+- [Fact Ve
+rification](../03-memory/fact-verification.md) — checking hypothesis claims
 
 ---
 

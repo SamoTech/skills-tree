@@ -63,7 +63,8 @@ def causal_analysis(scenario: str, question: str = "") -> dict:
     q_hint = f"\nSpecific question: {question}" if question else ""
 
     response = client.messages.create(
-        model="claude-opus-4-5",
+        m
+odel="claude-opus-4-5",
         max_tokens=2048,
         messages=[{
             "role": "user",
@@ -113,6 +114,13 @@ print(json.dumps(result, indent=2))
 
 ---
 
+## Failure Modes
+
+- **Correlation as causation:** treating co-occurrence or temporal order as a causal link without an intervening mechanism or controlled comparison.
+- **Confounded causes:** attributing an effect to one factor when a third variable drives both; list candidate confounders explicitly.
+- **Unfalsifiable causal chains:** building narratives that can absorb any observation; require each causal link to state evidence that could refute it.
+- **Single-cause reduction:** forcing a multi-cause outcome into one root cause, hiding contributing factors that each need mitigation.
+
 ## Related Skills
 
 - [Abductive Reasoning](abductive.md) — hypothesis inference from incomplete observations
@@ -125,5 +133,6 @@ print(json.dumps(result, indent=2))
 
 | Date | Change |
 |---|---|
-| `2026-04` | Expanded from stub: full description, I/O table, conversion-drop case study |
+| `2026-04` | Expanded from stub: full description, I/O table
+, conversion-drop case study |
 | `2025-03` | Initial stub entry |
