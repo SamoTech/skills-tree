@@ -1530,3 +1530,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the owner revokes the expansion, if any batch reddens a gate that a batch rollback cannot repair, or if the new entries are later found to violate a contract this decision did not anticipate.
+
+## DECISION-2026-10-12-CORPUS-EXPANSION-BATCH-2
+
+**Topic:** Landing batch 2 of the owner-directed corpus expansion — 45 new experimental skills across eight categories (08-multimodal, 10-computer-use, 11-web, 13-creative, 14-security, 15-orchestration, 16-domain-specific, 17-infrastructure) — under the parent decision DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION.
+
+**Decision:** Batch 2 lands 45 experimental canonical skills in skills/<category>/ with byte-exact deterministic project() packages in agent-skills/ (the projection port re-validated against the known-good jwt-validation pair before push), under every unchanged gate of the parent decision: no demand signal claimed, Evidence sections cite implementation references only with the Honest boundary sentence, related links target existing same-category skills, and the discovery test count is updated in the same PR as the skills and packages (286 to 331). The corpus moves from 394 to 439 Markdown skill files (393 to 438 public skills), and the graph, search-index, Skills API export, quality report, README-count, and badge projections regenerate through trusted workflows post-merge with no generated artifact hand-edited. PR #487 carries the batch behind exact-head green CI and squash merge.
+
+**Confidence:** HIGH — the batch follows the validated pilot pattern, the gate set is unchanged, and every entry passed the locally-ported quality, antislop, naming, and link checks before push.
+
+**Evidence IDs:** PR #487 (batch 2); DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION (parent decision); meta/MOST-WANTED-SKILLS.md owner-directed expansion note; tests/test_agent_skills_discovery.py (count 286 to 331)
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the owner revokes the expansion, if batch 2 reddens a gate that a batch rollback cannot repair, or if the new entries are later found to violate a contract this decision did not anticipate.
