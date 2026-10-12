@@ -43,6 +43,14 @@ samples = ["I can't log into my account", "Loving the new dashboard!", "Please a
 print(label_batch(samples))
 ```
 
+## Failure Modes
+
+- **Guideline ambiguity:** under-specified instructions producing label drift between annotators; resolve ambiguity through calibration examples before scaling.
+- **Taxonomy drift:** labels produced against an outdated taxonomy version; every batch must record its taxonomy version.
+- **Consistency theater:** high overall agreement on easy cases masking systematic disagreement on hard ones; measure agreement per class and difficulty band.
+- **Confidence misuse:** self-reported annotator confidence treated as measured accuracy; calibrate confidence against adjudicated ground truth.
+- **Imbalance blindness:** majority-class dominance hiding poor minority-class quality; report per-class metrics, not only aggregate agreement.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 

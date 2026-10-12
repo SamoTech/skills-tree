@@ -318,6 +318,14 @@ ephemeral runner model is the primary and sufficient containment strategy.
 
 ---
 
+## Failure Modes
+
+- **Verdict overreach:** recording pass/fail evidence as a trust judgment; the auditor records evidence and proposes badges, it does not change canonical trust state.
+- **Isolation leakage:** network or filesystem egress from the audit environment beyond the documented constraint model invalidates that run's evidence.
+- **Pinned-evidence drift:** verdicts referencing dependency versions that no longer match the resolved lockfile at audit time; record the exact resolved versions.
+- **Transitive blind spots:** auditing declared dependencies only while the exploitable surface lives in transitive or undeclared (phantom) dependencies.
+- **Stale advisories:** advisory databases with lagging or missing entries producing false "no known issues" verdicts; record advisory database version and freshness.
+
 ## Related Infrastructure
 
 | Component | Role |

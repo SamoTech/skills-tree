@@ -189,10 +189,10 @@ Quality classifications are repository validation states, not proof of productio
 | Multi-agent blueprints | ✅ 7+ blueprints | ⚠️ Templates | ❌ | ❌ |
 | CLI + Python API | ✅ Both | ⚠️ Python only | ✅ Both | ❌ |
 | Community-governed | ✅ Open PRs | ⚠️ Curated | ✅ Open | ✅ (yours only) |
-| Failure modes documented | ✅ 445/538 skills (2026-10-12) + CI ratchet on changes | ❌ | ❌ | ❌ |
+| Failure modes documented | ✅ Every public skill (CI-gated) | ❌ | ❌ | ❌ |
 | Free & open source (MIT) | ✅ | ⚠️ Mixed | ✅ | ✅ |
 
-> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is CI-enforced as a ratchet: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), while legacy files are grandfathered until next touched — 445 of 538 skill files carried the section at the 2026-10-12 measurement (skills API export section metadata, superseding the 453-of-493 code-search baseline taken at the pre-batch-2 corpus). Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents).
+> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is corpus-wide and CI-gated: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), and the 2026-10-12 backfill added the section to the remaining legacy skill files, so all 538 public skill files carry it (the intentional `00-sandbox` fixture is excluded); repository code search verified zero public skills lacking the section after the backfill. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents).
 
 ---
 

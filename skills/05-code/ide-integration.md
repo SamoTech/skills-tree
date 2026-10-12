@@ -92,6 +92,14 @@ result = {
 assert result["postcondition"] == "verified"
 ```
 
+## Failure Modes
+
+- **Unbounded control plane:** granting the agent IDE-level authority (settings, arbitrary shell, credential stores) beyond the documented least-privilege surface; every capability must be explicitly allowlisted.
+- **Stale-context drift:** the IDE view (open buffers, diagnostics) diverges from the on-disk project state; re-read authoritative state before acting on editor-only context.
+- **Edit conflicts:** agent edits racing with unsaved user changes or other tooling; reconcile with the IDE's document state before writing.
+- **Diagnostic over-trust:** treating lint and compiler diagnostics as complete evidence of correctness; diagnostics are necessary signals, not sufficient verification.
+- **Compatibility assumptions:** assuming IDE protocol capabilities the target surface does not implement; verify each capability per target before use.
+
 ## Related
 
 - code-generation.md

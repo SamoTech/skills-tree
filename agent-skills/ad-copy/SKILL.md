@@ -43,6 +43,14 @@ def generate_ad(product: str, platform: str, n_variants: int = 3) -> list[dict]:
 print(generate_ad("AI-powered note-taking app", "google"))
 ```
 
+## Failure Modes
+
+- **Policy violations:** generated copy breaching platform ad policies (unsubstantiated claims, restricted categories) that would get ads rejected; check every variant against the live policy for its channel.
+- **Limit miscounting:** variants exceeding character limits after placeholder expansion or emoji width; measure the final rendered length, not the template.
+- **False claims:** implying results, statistics, or endorsements the product cannot substantiate; every claim must trace to approved source material.
+- **Brand-voice drift:** tone or claim style inconsistent with the documented brand voice and disclaimers.
+- **Audience mismatch:** fluent copy built for the wrong targeting segment or funnel stage.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 

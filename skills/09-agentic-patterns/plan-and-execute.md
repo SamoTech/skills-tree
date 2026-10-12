@@ -6,6 +6,9 @@ stability: stable
 description: Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.
 added: "2025-03"
 version: v2
+related:
+  - 09-agentic-patterns/react
+  - 02-reasoning/planning-decomposition
 prerequisites:
   - 09-agentic-patterns/react
   - 02-reasoning/planning-decomposition
@@ -69,6 +72,13 @@ print(result["final_answer"])
 
 ### Related Skills
 - `react`, `planning`, `stateful-agent-graphs`, `agent-handoffs`
+
+## Failure Modes
+
+- **Plan rigidity:** executing a stale task list after the environment or goal changes; replanning must be triggered by explicit failure or change signals, not only by exhaustion of the list.
+- **Planner-executor drift:** the executor reinterprets or silently skips steps; each step needs completion criteria the executor can verify mechanically.
+- **Over-decomposition:** splitting into micro-steps that add coordination overhead and lose sight of the global objective.
+- **Irreversible early steps:** sequencing destructive actions before verification steps, so a late failure cannot be rolled back cheaply.
 
 ## Changelog
 

@@ -40,6 +40,14 @@ def grade_essay(essay: str) -> dict:
 print(grade_essay("Renewable energy is crucial because fossil fuels are depleting..."))
 ```
 
+## Failure Modes
+
+- **Rubric drift:** scores anchored to an implicit standard instead of the stated rubric dimensions and weights.
+- **Length and fluency bias:** longer or better-written prose scoring higher on substance dimensions the content does not support; score each dimension on evidence, not polish.
+- **Feedback vagueness:** generic comments a student cannot act on; feedback must reference specific passages.
+- **Score compression:** clustering all essays in a narrow band, losing discrimination at the top and bottom.
+- **Single-rater certainty:** one pass presented as a final grade without calibration against sample essays; state the grading basis and limits.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 

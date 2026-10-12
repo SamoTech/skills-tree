@@ -37,6 +37,14 @@ def check_interactions(drugs: list[str]) -> list[dict]:
 print(check_interactions(["Warfarin", "Ibuprofen", "Metformin"]))
 ```
 
+## Failure Modes
+
+- **Database staleness:** interactions checked against an outdated database; interaction evidence changes frequently, so record the database version and check date with every result.
+- **Incomplete regimen coverage:** pairwise checks missing multi-drug combinations or modifying factors (renal impairment, pregnancy, food).
+- **Severity misclassification:** mapping a contraindicated pair to a lower class because of an edge-case note; classifications must follow the database's stated hierarchy.
+- **Explanatory drift:** mechanism or management text going beyond curated database content into clinical recommendation.
+- **Patient-context gaps:** missing weight, age, renal function, or lab context; the output is a screening aid for professionals, never a dosing decision.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 

@@ -109,6 +109,13 @@ print(json.dumps(result, indent=2))
 
 ---
 
+## Failure Modes
+
+- **Surface mapping:** matching superficial features (names, industries, vocabulary) instead of causal structure; state explicitly which relationships transfer and which do not.
+- **False structural parallel:** the source and target differ in a critical constraint (scale, physics, regulation) that invalidates the borrowed solution; check constraints before adapting.
+- **Overextended analogy:** treating a productive mapping as identity and copying steps that have no target-side counterpart.
+- **Single-analogy anchoring:** stopping at the first plausible source scenario instead of testing competing analogues.
+
 ## Related Skills
 
 - [Causal Reasoning](causal.md) — for cause-effect inference
