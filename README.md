@@ -10,18 +10,21 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — October 5, 2026
+## 📆 This Week's Highlights — October 12, 2026
 
 ### 🔥 Most Active Skills
-- **Ide Integration** — 2 PRs
-- **Kanban Task Management** — 2 PRs
-- **Capability Based Skill Selection** — 1 PR
+- **Depth Estimation** — 1 PR
+- **Game Theory Strategy** — 1 PR
+- **Memory Conflict Resolution** — 1 PR
+- **Archive Extraction** — 1 PR
+- **Database Migration Writing** — 1 PR
 
 ### ✨ New Skills
-- [feat(orchestration): add capability-based skill selection](https://github.com/SamoTech/skills-tree/pull/341)
-- [feat(skill): add IDE integration capability](https://github.com/SamoTech/skills-tree/pull/331)
-- [feat: add deterministic Agent Skills discovery publication](https://github.com/SamoTech/skills-tree/pull/309)
-- [feat: expose registry context to skill consumers](https://github.com/SamoTech/skills-tree/pull/292)
+- [feat: add owner-directed wave-2 expansion batch 2 (45 experimental skills)](https://github.com/SamoTech/skills-tree/pull/514)
+- [feat: add owner-directed wave-2 expansion pilot (10 experimental skills)](https://github.com/SamoTech/skills-tree/pull/506)
+- [feat: add 45 skills across 10 categories (corpus expansion batch 3)](https://github.com/SamoTech/skills-tree/pull/491)
+- [feat: owner-directed corpus expansion batch 2 (45 skills)](https://github.com/SamoTech/skills-tree/pull/487)
+- [feat: add 10 skills under the owner-directed corpus expansion (pilot batch)](https://github.com/SamoTech/skills-tree/pull/480)
 
 <!-- HIGHLIGHTS_END -->
 
