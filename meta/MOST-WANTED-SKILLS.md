@@ -381,3 +381,7 @@ Status: **SELECTED / implementation in progress** on branch feat/demand-gap-skil
 Rationale: the demand signals are dated and public, but the capability is a runtime-performance contract whose empirical benefit for Skills Tree itself awaits measured use; the skill records that boundary honestly. No popularity or adoption claim is made.
 
 Verification date: 2026-10-11.
+
+## Owner-directed expansion note — 2026-10-12
+
+The 2026-10-12 corpus expansion (100 new skills across all 17 categories, beginning with the 10-skill pilot in PR #480) is an owner-directed addition, not a demand-gap selection. No demand signal is claimed for these entries, and they do not appear in the tiered selection lists above. The override of the measured-gap rule and the execution constraints are recorded in `meta/memory/DECISIONS.md` under DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION.
