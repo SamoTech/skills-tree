@@ -5,8 +5,8 @@
   "name": "Skills Tree — Complete AI Agent Skill Index",
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
-  "numberOfItems": 493,
-  "dateModified": "2026-10-12T10:48:09Z",
+  "numberOfItems": 538,
+  "dateModified": "2026-10-12T12:18:44Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -1990,986 +1990,1256 @@
     {
       "@type": "ListItem",
       "position": 330,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/browser-profile-management.md",
+      "name": "Browser Profile Management"
+    },
+    {
+      "@type": "ListItem",
+      "position": 331,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/captcha-solving.md",
       "name": "captcha-solving"
     },
     {
       "@type": "ListItem",
-      "position": 331,
+      "position": 332,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/cookie-management.md",
       "name": "cookie-management"
     },
     {
       "@type": "ListItem",
-      "position": 332,
+      "position": 333,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/dom-inspection.md",
       "name": "dom-inspection"
     },
     {
       "@type": "ListItem",
-      "position": 333,
+      "position": 334,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/file-download-verification.md",
+      "name": "File Download Verification"
+    },
+    {
+      "@type": "ListItem",
+      "position": 335,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/form-filling.md",
       "name": "form-filling"
     },
     {
       "@type": "ListItem",
-      "position": 334,
+      "position": 336,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/iframe-handling.md",
+      "name": "Iframe Handling"
+    },
+    {
+      "@type": "ListItem",
+      "position": 337,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/infinite-scroll-handling.md",
+      "name": "Infinite Scroll Handling"
+    },
+    {
+      "@type": "ListItem",
+      "position": 338,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/js-execution.md",
       "name": "js-execution"
     },
     {
       "@type": "ListItem",
-      "position": 335,
+      "position": 339,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/link-extraction.md",
       "name": "link-extraction"
     },
     {
       "@type": "ListItem",
-      "position": 336,
+      "position": 340,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/pagination-following.md",
       "name": "Pagination Following"
     },
     {
       "@type": "ListItem",
-      "position": 337,
+      "position": 341,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/popup-dialog-handling.md",
+      "name": "Popup and Dialog Handling"
+    },
+    {
+      "@type": "ListItem",
+      "position": 342,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/robots-txt-parsing.md",
       "name": "Robots.txt Parsing"
     },
     {
       "@type": "ListItem",
-      "position": 338,
+      "position": 343,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/rss-parsing.md",
       "name": "rss-parsing"
     },
     {
       "@type": "ListItem",
-      "position": 339,
+      "position": 344,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/shadow-dom-interaction.md",
+      "name": "Shadow DOM Interaction"
+    },
+    {
+      "@type": "ListItem",
+      "position": 345,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/sitemap-parsing.md",
       "name": "sitemap-parsing"
     },
     {
       "@type": "ListItem",
-      "position": 340,
+      "position": 346,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-fetching.md",
       "name": "url-fetching"
     },
     {
       "@type": "ListItem",
-      "position": 341,
+      "position": 347,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-normalization.md",
       "name": "URL Normalization"
     },
     {
       "@type": "ListItem",
-      "position": 342,
+      "position": 348,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-rate-limiting.md",
       "name": "URL Rate Limiting"
     },
     {
       "@type": "ListItem",
-      "position": 343,
+      "position": 349,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-redirect-tracing.md",
       "name": "URL Redirect Tracing"
     },
     {
       "@type": "ListItem",
-      "position": 344,
+      "position": 350,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/url-screenshot.md",
       "name": "url-screenshot"
     },
     {
       "@type": "ListItem",
-      "position": 345,
+      "position": 351,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-archive-lookup.md",
       "name": "Web Archive Lookup"
     },
     {
       "@type": "ListItem",
-      "position": 346,
+      "position": 352,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-crawling.md",
       "name": "Web Crawling"
     },
     {
       "@type": "ListItem",
-      "position": 347,
+      "position": 353,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-login.md",
       "name": "web-login"
     },
     {
       "@type": "ListItem",
-      "position": 348,
+      "position": 354,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-scraping.md",
       "name": "Web Scraping"
     },
     {
       "@type": "ListItem",
-      "position": 349,
+      "position": 355,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-search-tool-agents.md",
       "name": "Web Search Tool Agents"
     },
     {
       "@type": "ListItem",
-      "position": 350,
+      "position": 356,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/web-search.md",
       "name": "Web Search"
     },
     {
       "@type": "ListItem",
-      "position": 351,
+      "position": 357,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/anomaly-detection.md",
       "name": "anomaly-detection"
     },
     {
       "@type": "ListItem",
-      "position": 352,
+      "position": 358,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/cohort-analysis.md",
+      "name": "Cohort Analysis"
+    },
+    {
+      "@type": "ListItem",
+      "position": 359,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/csv-processing.md",
       "name": "csv-processing"
     },
     {
       "@type": "ListItem",
-      "position": 353,
+      "position": 360,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-aggregation.md",
       "name": "data-aggregation"
     },
     {
       "@type": "ListItem",
-      "position": 354,
+      "position": 361,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-anonymization.md",
+      "name": "Data Anonymization"
+    },
+    {
+      "@type": "ListItem",
+      "position": 362,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-cleaning.md",
       "name": "data-cleaning"
     },
     {
       "@type": "ListItem",
-      "position": 355,
+      "position": 363,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-contract-enforcement.md",
+      "name": "Data Contract Enforcement"
+    },
+    {
+      "@type": "ListItem",
+      "position": 364,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-filtering.md",
       "name": "data-filtering"
     },
     {
       "@type": "ListItem",
-      "position": 356,
+      "position": 365,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-joining.md",
       "name": "data-joining"
     },
     {
       "@type": "ListItem",
-      "position": 357,
+      "position": 366,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-lineage.md",
       "name": "Data Lineage"
     },
     {
       "@type": "ListItem",
-      "position": 358,
+      "position": 367,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-profiling.md",
       "name": "Data Profiling"
     },
     {
       "@type": "ListItem",
-      "position": 359,
+      "position": 368,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-summarization.md",
       "name": "data-summarization"
     },
     {
       "@type": "ListItem",
-      "position": 360,
+      "position": 369,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-validation.md",
       "name": "Data Validation"
     },
     {
       "@type": "ListItem",
-      "position": 361,
+      "position": 370,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-visualization.md",
       "name": "data-visualization"
     },
     {
       "@type": "ListItem",
-      "position": 362,
+      "position": 371,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/embedding-generation.md",
       "name": "Embedding Generation"
     },
     {
       "@type": "ListItem",
-      "position": 363,
+      "position": 372,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/etl-pipeline.md",
       "name": "etl-pipeline"
     },
     {
       "@type": "ListItem",
-      "position": 364,
+      "position": 373,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/feature-engineering.md",
+      "name": "Feature Engineering"
+    },
+    {
+      "@type": "ListItem",
+      "position": 374,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/geospatial-data-processing.md",
+      "name": "Geospatial Data Processing"
+    },
+    {
+      "@type": "ListItem",
+      "position": 375,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/incremental-processing.md",
       "name": "Incremental Processing"
     },
     {
       "@type": "ListItem",
-      "position": 365,
+      "position": 376,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/json-transformation.md",
       "name": "json-transformation"
     },
     {
       "@type": "ListItem",
-      "position": 366,
+      "position": 377,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/missing-data-imputation.md",
       "name": "Missing Data Imputation"
     },
     {
       "@type": "ListItem",
-      "position": 367,
+      "position": 378,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/nosql-query.md",
       "name": "nosql-query"
     },
     {
       "@type": "ListItem",
-      "position": 368,
+      "position": 379,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/pandas-operations.md",
       "name": "pandas-operations"
     },
     {
       "@type": "ListItem",
-      "position": 369,
+      "position": 380,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/schema-inference.md",
       "name": "schema-inference"
     },
     {
       "@type": "ListItem",
-      "position": 370,
+      "position": 381,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/similarity-search.md",
       "name": "similarity-search"
     },
     {
       "@type": "ListItem",
-      "position": 371,
+      "position": 382,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/sql-execution.md",
       "name": "sql-execution"
     },
     {
       "@type": "ListItem",
-      "position": 372,
+      "position": 383,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/statistical-analysis.md",
       "name": "statistical-analysis"
     },
     {
       "@type": "ListItem",
-      "position": 373,
+      "position": 384,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/stream-processing.md",
+      "name": "Stream Processing"
+    },
+    {
+      "@type": "ListItem",
+      "position": 385,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/synthetic-data-generation.md",
+      "name": "Synthetic Data Generation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 386,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/time-series.md",
       "name": "time-series"
     },
     {
       "@type": "ListItem",
-      "position": 374,
+      "position": 387,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/avatar-design.md",
       "name": "avatar-design"
     },
     {
       "@type": "ListItem",
-      "position": 375,
+      "position": 388,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/blog-writing.md",
       "name": "blog-writing"
     },
     {
       "@type": "ListItem",
-      "position": 376,
+      "position": 389,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/brand-voice-development.md",
+      "name": "Brand Voice Development"
+    },
+    {
+      "@type": "ListItem",
+      "position": 390,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/character-design.md",
       "name": "Character Design"
     },
     {
       "@type": "ListItem",
-      "position": 377,
+      "position": 391,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/color-palette-generation.md",
+      "name": "Color Palette Generation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 392,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/copywriting.md",
       "name": "copywriting"
     },
     {
       "@type": "ListItem",
-      "position": 378,
+      "position": 393,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/creative-writing.md",
       "name": "creative-writing"
     },
     {
       "@type": "ListItem",
-      "position": 379,
+      "position": 394,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/dialogue-writing.md",
       "name": "Dialogue Writing"
     },
     {
       "@type": "ListItem",
-      "position": 380,
+      "position": 395,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/game-level-design.md",
       "name": "game-level-design"
     },
     {
       "@type": "ListItem",
-      "position": 381,
+      "position": 396,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/game-mechanic-design.md",
+      "name": "Game Mechanic Design"
+    },
+    {
+      "@type": "ListItem",
+      "position": 397,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/image-gen-prompt.md",
       "name": "image-gen-prompt"
     },
     {
       "@type": "ListItem",
-      "position": 382,
+      "position": 398,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/logo-design.md",
       "name": "logo-design"
     },
     {
       "@type": "ListItem",
-      "position": 383,
+      "position": 399,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/lyrics-writing.md",
       "name": "lyrics-writing"
     },
     {
       "@type": "ListItem",
-      "position": 384,
+      "position": 400,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/meme-generation.md",
       "name": "meme-generation"
     },
     {
       "@type": "ListItem",
-      "position": 385,
+      "position": 401,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/music-composition.md",
       "name": "music-composition"
     },
     {
       "@type": "ListItem",
-      "position": 386,
+      "position": 402,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/name-generation.md",
       "name": "Name Generation"
     },
     {
       "@type": "ListItem",
-      "position": 387,
+      "position": 403,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/plot-structure.md",
       "name": "Plot Structure"
     },
     {
       "@type": "ListItem",
-      "position": 388,
+      "position": 404,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/podcast-script-writing.md",
+      "name": "Podcast Script Writing"
+    },
+    {
+      "@type": "ListItem",
+      "position": 405,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/poetry-forms.md",
       "name": "Poetry Forms"
     },
     {
       "@type": "ListItem",
-      "position": 389,
+      "position": 406,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/presentation-gen.md",
       "name": "Presentation Generation"
     },
     {
       "@type": "ListItem",
-      "position": 390,
+      "position": 407,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/slogan-tagline-creation.md",
+      "name": "Slogan and Tagline Creation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 408,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/social-media-post.md",
       "name": "Social Media Post"
     },
     {
       "@type": "ListItem",
-      "position": 391,
+      "position": 409,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/storyboard-generation.md",
+      "name": "Storyboard Generation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 410,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/svg-generation.md",
       "name": "SVG Generation"
     },
     {
       "@type": "ListItem",
-      "position": 392,
+      "position": 411,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/video-script.md",
       "name": "Video Script"
     },
     {
       "@type": "ListItem",
-      "position": 393,
+      "position": 412,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/worldbuilding.md",
       "name": "Worldbuilding"
     },
     {
       "@type": "ListItem",
-      "position": 394,
+      "position": 413,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/agent-skill-security-audit.md",
       "name": "Agent Skill Security Audit"
     },
     {
       "@type": "ListItem",
-      "position": 395,
+      "position": 414,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/approval-before-destructive-tools.md",
       "name": "Approval Before Destructive Tools"
     },
     {
       "@type": "ListItem",
-      "position": 396,
+      "position": 415,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/audit-logging.md",
       "name": "Audit Logging"
     },
     {
       "@type": "ListItem",
-      "position": 397,
+      "position": 416,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/container-escape-detection.md",
+      "name": "Container Escape Detection"
+    },
+    {
+      "@type": "ListItem",
+      "position": 417,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/dependency-integrity-verification.md",
       "name": "Dependency Integrity Verification"
     },
     {
       "@type": "ListItem",
-      "position": 398,
+      "position": 418,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/forensic-log-reconstruction.md",
+      "name": "Forensic Log Reconstruction"
+    },
+    {
+      "@type": "ListItem",
+      "position": 419,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/harm-detection.md",
       "name": "Harm Detection"
     },
     {
       "@type": "ListItem",
-      "position": 399,
+      "position": 420,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/human-in-loop.md",
       "name": "Human In Loop"
     },
     {
       "@type": "ListItem",
-      "position": 400,
+      "position": 421,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/input-guardrails.md",
       "name": "Input Guardrails"
     },
     {
       "@type": "ListItem",
-      "position": 401,
+      "position": 422,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/input-sanitization.md",
       "name": "Input Sanitization"
     },
     {
       "@type": "ListItem",
-      "position": 402,
+      "position": 423,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/jwt-validation.md",
       "name": "JWT Validation"
     },
     {
       "@type": "ListItem",
-      "position": 403,
+      "position": 424,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/key-rotation-automation.md",
+      "name": "Key Rotation Automation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 425,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/least-privilege-scoping.md",
       "name": "Least-Privilege Scoping"
     },
     {
       "@type": "ListItem",
-      "position": 404,
+      "position": 426,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/mcp-oauth-authentication.md",
       "name": "MCP OAuth Authentication"
     },
     {
       "@type": "ListItem",
-      "position": 405,
+      "position": 427,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/output-guardrails.md",
       "name": "Output Guardrails"
     },
     {
       "@type": "ListItem",
-      "position": 406,
+      "position": 428,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/password-hashing.md",
       "name": "Password Hashing"
     },
     {
       "@type": "ListItem",
-      "position": 407,
+      "position": 429,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/permission-checking.md",
       "name": "Permission Checking"
     },
     {
       "@type": "ListItem",
-      "position": 408,
+      "position": 430,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/privacy-preservation.md",
       "name": "Privacy Preservation"
     },
     {
       "@type": "ListItem",
-      "position": 409,
+      "position": 431,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/privilege-escalation-detection.md",
+      "name": "Privilege Escalation Detection"
+    },
+    {
+      "@type": "ListItem",
+      "position": 432,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/rate-limiting.md",
       "name": "Rate Limiting"
     },
     {
       "@type": "ListItem",
-      "position": 410,
+      "position": 433,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/rollback-undo.md",
       "name": "Rollback / Undo"
     },
     {
       "@type": "ListItem",
-      "position": 411,
+      "position": 434,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/sandboxed-execution.md",
       "name": "Sandboxed Execution"
     },
     {
       "@type": "ListItem",
-      "position": 412,
+      "position": 435,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/secret-scanning.md",
       "name": "Secret Scanning"
     },
     {
       "@type": "ListItem",
-      "position": 413,
+      "position": 436,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/session-management.md",
       "name": "Session Management"
     },
     {
       "@type": "ListItem",
-      "position": 414,
+      "position": 437,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/social-engineering-detection.md",
+      "name": "Social Engineering Detection"
+    },
+    {
+      "@type": "ListItem",
+      "position": 438,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/threat-intelligence-enrichment.md",
+      "name": "Threat Intelligence Enrichment"
+    },
+    {
+      "@type": "ListItem",
+      "position": 439,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/threat-modeling.md",
       "name": "Threat Modeling"
     },
     {
       "@type": "ListItem",
-      "position": 415,
+      "position": 440,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/vulnerability-triage.md",
+      "name": "Vulnerability Triage"
+    },
+    {
+      "@type": "ListItem",
+      "position": 441,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-communication.md",
       "name": "agent-communication"
     },
     {
       "@type": "ListItem",
-      "position": 416,
+      "position": 442,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-handoff.md",
       "name": "agent-handoff"
     },
     {
       "@type": "ListItem",
-      "position": 417,
+      "position": 443,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/automation-review.md",
       "name": "Automation Review"
     },
     {
       "@type": "ListItem",
-      "position": 418,
+      "position": 444,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/backpressure-handling.md",
+      "name": "Backpressure Handling"
+    },
+    {
+      "@type": "ListItem",
+      "position": 445,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/budget-management.md",
       "name": "budget-management"
     },
     {
       "@type": "ListItem",
-      "position": 419,
+      "position": 446,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/capability-based-skill-selection.md",
       "name": "Capability-Based Skill Selection"
     },
     {
       "@type": "ListItem",
-      "position": 420,
+      "position": 447,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/circuit-breaking.md",
       "name": "Circuit Breaking"
     },
     {
       "@type": "ListItem",
-      "position": 421,
+      "position": 448,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/conditional-branching.md",
       "name": "conditional-branching"
     },
     {
       "@type": "ListItem",
-      "position": 422,
+      "position": 449,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/consensus-voting.md",
       "name": "consensus-voting"
     },
     {
       "@type": "ListItem",
-      "position": 423,
+      "position": 450,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/cost-aware-model-routing.md",
       "name": "Cost-Aware Model Routing"
     },
     {
       "@type": "ListItem",
-      "position": 424,
+      "position": 451,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/cross-agent-locking.md",
+      "name": "Cross-Agent Locking"
+    },
+    {
+      "@type": "ListItem",
+      "position": 452,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/dead-letter-queuing.md",
       "name": "Dead-Letter Queuing"
     },
     {
       "@type": "ListItem",
-      "position": 425,
+      "position": 453,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/deadline-propagation.md",
       "name": "Deadline Propagation"
     },
     {
       "@type": "ListItem",
-      "position": 426,
+      "position": 454,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/distributed-state-replication.md",
+      "name": "Distributed State Replication"
+    },
+    {
+      "@type": "ListItem",
+      "position": 455,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/documentation-drift-resolution.md",
       "name": "Documentation Drift Resolution"
     },
     {
       "@type": "ListItem",
-      "position": 427,
+      "position": 456,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/dynamic-team-formation.md",
+      "name": "Dynamic Team Formation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 457,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/event-triggers.md",
       "name": "event-triggers"
     },
     {
       "@type": "ListItem",
-      "position": 428,
+      "position": 458,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/evidence-verification.md",
       "name": "Evidence Verification"
     },
     {
       "@type": "ListItem",
-      "position": 429,
+      "position": 459,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/execution-handoff.md",
       "name": "Execution Handoff"
     },
     {
       "@type": "ListItem",
-      "position": 430,
+      "position": 460,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/hierarchical-tree.md",
       "name": "hierarchical-tree"
     },
     {
       "@type": "ListItem",
-      "position": 431,
+      "position": 461,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/human-approval-gates.md",
       "name": "Human Approval Gates"
     },
     {
       "@type": "ListItem",
-      "position": 432,
+      "position": 462,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/idempotency-keys.md",
       "name": "Idempotency Keys"
     },
     {
       "@type": "ListItem",
-      "position": 433,
+      "position": 463,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/kanban-task-management.md",
       "name": "Create the task first."
     },
     {
       "@type": "ListItem",
-      "position": 434,
+      "position": 464,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/langgraph-checkpointing.md",
       "name": "LangGraph Checkpointing"
     },
     {
       "@type": "ListItem",
-      "position": 435,
+      "position": 465,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/logging-observability.md",
       "name": "logging-observability"
     },
     {
       "@type": "ListItem",
-      "position": 436,
+      "position": 466,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/multi-agent-run-config.md",
       "name": "Multi-Agent Run Config"
     },
     {
       "@type": "ListItem",
-      "position": 437,
+      "position": 467,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/parallel-execution.md",
       "name": "parallel-execution"
     },
     {
       "@type": "ListItem",
-      "position": 438,
+      "position": 468,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/repository-state-load.md",
       "name": "Repository State Load"
     },
     {
       "@type": "ListItem",
-      "position": 439,
+      "position": 469,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/result-aggregation.md",
       "name": "Result Aggregation"
     },
     {
       "@type": "ListItem",
-      "position": 440,
+      "position": 470,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/retry-backoff.md",
       "name": "retry-backoff"
     },
     {
       "@type": "ListItem",
-      "position": 441,
+      "position": 471,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/role-assignment.md",
       "name": "role-assignment"
     },
     {
       "@type": "ListItem",
-      "position": 442,
+      "position": 472,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/runbook-driven-orchestration.md",
+      "name": "Runbook-Driven Orchestration"
+    },
+    {
+      "@type": "ListItem",
+      "position": 473,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/sequential-workflow.md",
       "name": "sequential-workflow"
     },
     {
       "@type": "ListItem",
-      "position": 443,
+      "position": 474,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/shared-memory.md",
       "name": "shared-memory"
     },
     {
       "@type": "ListItem",
-      "position": 444,
+      "position": 475,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/specialist-agent-routing.md",
       "name": "Specialist Agent Routing"
     },
     {
       "@type": "ListItem",
-      "position": 445,
+      "position": 476,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/speculative-execution.md",
+      "name": "Speculative Execution"
+    },
+    {
+      "@type": "ListItem",
+      "position": 477,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/state-machine.md",
       "name": "state-machine"
     },
     {
       "@type": "ListItem",
-      "position": 446,
+      "position": 478,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/stateful-agent-graphs.md",
       "name": "Stateful Agent Graphs"
     },
     {
       "@type": "ListItem",
-      "position": 447,
+      "position": 479,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/subagent-spawning.md",
       "name": "subagent-spawning"
     },
     {
       "@type": "ListItem",
-      "position": 448,
+      "position": 480,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/task-queue.md",
       "name": "task-queue"
     },
     {
       "@type": "ListItem",
-      "position": 449,
+      "position": 481,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/thread-based-resume.md",
       "name": "Thread-Based Resume"
     },
     {
       "@type": "ListItem",
-      "position": 450,
+      "position": 482,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/workflow-versioning.md",
       "name": "Workflow Versioning"
     },
     {
       "@type": "ListItem",
-      "position": 451,
+      "position": 483,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/ad-copy.md",
       "name": "ad-copy"
     },
     {
       "@type": "ListItem",
-      "position": 452,
+      "position": 484,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/alert-triage.md",
       "name": "alert-triage"
     },
     {
       "@type": "ListItem",
-      "position": 453,
+      "position": 485,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/clinical-note-summarization.md",
       "name": "clinical-note-summarization"
     },
     {
       "@type": "ListItem",
-      "position": 454,
+      "position": 486,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/compliance-checking.md",
       "name": "compliance-checking"
     },
     {
       "@type": "ListItem",
-      "position": 455,
+      "position": 487,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/compliance-review-workflows.md",
       "name": "Compliance Review Workflows"
     },
     {
       "@type": "ListItem",
-      "position": 456,
+      "position": 488,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/contract-review.md",
       "name": "contract-review"
     },
     {
       "@type": "ListItem",
-      "position": 457,
+      "position": 489,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/curriculum-sequencing.md",
       "name": "Curriculum Sequencing"
     },
     {
       "@type": "ListItem",
-      "position": 458,
+      "position": 490,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/customer-churn-analysis.md",
+      "name": "Customer Churn Analysis"
+    },
+    {
+      "@type": "ListItem",
+      "position": 491,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/data-labeling.md",
       "name": "data-labeling"
     },
     {
       "@type": "ListItem",
-      "position": 459,
+      "position": 492,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/diagnosis-coding.md",
       "name": "Diagnosis Coding"
     },
     {
       "@type": "ListItem",
-      "position": 460,
+      "position": 493,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/drug-interaction.md",
       "name": "drug-interaction"
     },
     {
       "@type": "ListItem",
-      "position": 461,
+      "position": 494,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/energy-consumption-forecasting.md",
+      "name": "Energy Consumption Forecasting"
+    },
+    {
+      "@type": "ListItem",
+      "position": 495,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/essay-grading.md",
       "name": "essay-grading"
     },
     {
       "@type": "ListItem",
-      "position": 462,
+      "position": 496,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/financial-statement.md",
       "name": "financial-statement"
     },
     {
       "@type": "ListItem",
-      "position": 463,
+      "position": 497,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/flashcard-creation.md",
       "name": "flashcard-creation"
     },
     {
       "@type": "ListItem",
-      "position": 464,
+      "position": 498,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/hypothesis-generation.md",
       "name": "hypothesis-generation"
     },
     {
       "@type": "ListItem",
-      "position": 465,
+      "position": 499,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/iac-generation.md",
       "name": "iac-generation"
     },
     {
       "@type": "ListItem",
-      "position": 466,
+      "position": 500,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/incident-response.md",
       "name": "incident-response"
     },
     {
       "@type": "ListItem",
-      "position": 467,
+      "position": 501,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/insurance-claim-processing.md",
+      "name": "Insurance Claim Processing"
+    },
+    {
+      "@type": "ListItem",
+      "position": 502,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/inventory-reordering.md",
       "name": "Inventory Reordering"
     },
     {
       "@type": "ListItem",
-      "position": 468,
+      "position": 503,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/invoice-processing.md",
       "name": "invoice-processing"
     },
     {
       "@type": "ListItem",
-      "position": 469,
+      "position": 504,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/legal-research.md",
       "name": "legal-research"
     },
     {
       "@type": "ListItem",
-      "position": 470,
+      "position": 505,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/lesson-plan.md",
       "name": "lesson-plan"
     },
     {
       "@type": "ListItem",
-      "position": 471,
+      "position": 506,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/literature-review.md",
       "name": "literature-review"
     },
     {
       "@type": "ListItem",
-      "position": 472,
+      "position": 507,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/log-analysis.md",
       "name": "log-analysis"
     },
     {
       "@type": "ListItem",
-      "position": 473,
+      "position": 508,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/market-research-synthesis.md",
+      "name": "Market Research Synthesis"
+    },
+    {
+      "@type": "ListItem",
+      "position": 509,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/medical-literature-search.md",
       "name": "medical-literature-search"
     },
     {
       "@type": "ListItem",
-      "position": 474,
+      "position": 510,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/paper-summarization.md",
       "name": "paper-summarization"
     },
     {
       "@type": "ListItem",
-      "position": 475,
+      "position": 511,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/patent-prior-art-search.md",
+      "name": "Patent Prior Art Search"
+    },
+    {
+      "@type": "ListItem",
+      "position": 512,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/portfolio-analysis.md",
       "name": "portfolio-analysis"
     },
     {
       "@type": "ListItem",
-      "position": 476,
+      "position": 513,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/product-description.md",
       "name": "product-description"
     },
     {
       "@type": "ListItem",
-      "position": 477,
+      "position": 514,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/quiz-generation.md",
       "name": "quiz-generation"
     },
     {
       "@type": "ListItem",
-      "position": 478,
+      "position": 515,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/receipt-parsing.md",
       "name": "Receipt Parsing"
     },
     {
       "@type": "ListItem",
-      "position": 479,
+      "position": 516,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/resume-screening.md",
       "name": "Resume Screening"
     },
     {
       "@type": "ListItem",
-      "position": 480,
+      "position": 517,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/review-analysis.md",
       "name": "review-analysis"
     },
     {
       "@type": "ListItem",
-      "position": 481,
+      "position": 518,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/seo-optimization.md",
       "name": "seo-optimization"
     },
     {
       "@type": "ListItem",
-      "position": 482,
+      "position": 519,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/shift-scheduling.md",
       "name": "Shift Scheduling"
     },
     {
       "@type": "ListItem",
-      "position": 483,
+      "position": 520,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/stock-lookup.md",
       "name": "stock-lookup"
     },
     {
       "@type": "ListItem",
-      "position": 484,
+      "position": 521,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/symptom-analysis.md",
       "name": "symptom-analysis"
     },
     {
       "@type": "ListItem",
-      "position": 485,
+      "position": 522,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/tax-document-preparation.md",
+      "name": "Tax Document Preparation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 523,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/alerting-design.md",
       "name": "Alerting Design"
     },
     {
       "@type": "ListItem",
-      "position": 486,
+      "position": 524,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/blue-green-deployment.md",
       "name": "Blue-Green Deployment"
     },
     {
       "@type": "ListItem",
-      "position": 487,
+      "position": 525,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/capacity-planning.md",
+      "name": "Capacity Planning"
+    },
+    {
+      "@type": "ListItem",
+      "position": 526,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/cloud-cost-optimization.md",
+      "name": "Cloud Cost Optimization"
+    },
+    {
+      "@type": "ListItem",
+      "position": 527,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/container-image-tagging.md",
       "name": "Container Image Tagging"
     },
     {
       "@type": "ListItem",
-      "position": 488,
+      "position": 528,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/database-backup-automation.md",
+      "name": "Database Backup Automation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 529,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/declarative-infrastructure.md",
       "name": "Declarative Infrastructure"
     },
     {
       "@type": "ListItem",
-      "position": 489,
+      "position": 530,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/dependency-auditor.md",
       "name": "Dependency Auditor"
     },
     {
       "@type": "ListItem",
-      "position": 490,
+      "position": 531,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/deployment-rollback.md",
       "name": "Deployment Rollback"
     },
     {
       "@type": "ListItem",
-      "position": 491,
+      "position": 532,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/dns-record-management.md",
+      "name": "DNS Record Management"
+    },
+    {
+      "@type": "ListItem",
+      "position": 533,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/health-check-endpoints.md",
       "name": "Health Check Endpoints"
     },
     {
       "@type": "ListItem",
-      "position": 492,
+      "position": 534,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/incident-postmortem-automation.md",
+      "name": "Incident Postmortem Automation"
+    },
+    {
+      "@type": "ListItem",
+      "position": 535,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/kubernetes-deployment.md",
       "name": "Kubernetes Deployment"
     },
     {
       "@type": "ListItem",
-      "position": 493,
+      "position": 536,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/load-balancer-configuration.md",
+      "name": "Load Balancer Configuration"
+    },
+    {
+      "@type": "ListItem",
+      "position": 537,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/secrets-management.md",
       "name": "Secrets Management"
+    },
+    {
+      "@type": "ListItem",
+      "position": 538,
+      "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/service-mesh-configuration.md",
+      "name": "Service Mesh Configuration"
     }
   ]
 }
