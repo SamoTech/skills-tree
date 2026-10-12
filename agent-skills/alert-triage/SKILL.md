@@ -40,10 +40,20 @@ alerts = [
 print(triage_alerts(alerts))
 ```
 
+## Failure Modes
+
+- **Suppression masking:** aggressive noise suppression hiding a genuine incident that correlates with routine alerts; every suppression rule needs a measured false-negative check.
+- **Wrong-team routing:** misrouted alerts creating silent queues; verify routing keys against the current on-call ownership map.
+- **Deduplication co
+llisions:** distinct incidents merged because they share a signature; correlation keys must carry enough distinguishing fields.
+- **Summarization loss:** compressed on-call summaries dropping severity, affected service, or required action; those three fields are mandatory.
+- **Stale severity mappings:** static priority rules that no longer match the service's current criticality.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
 ### Related
 - 16-domain-specific
-- input-guardrails
+- i
+nput-guardrails
 - output-guardrails

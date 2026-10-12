@@ -35,6 +35,15 @@ def gdpr_gap_check(implemented: list[str]) -> dict:
 print(gdpr_gap_check(["privacy_policy_published", "consent_mechanism"]))
 ```
 
+## Failure Modes
+
+- **Framework vagueness:** checking against a paraphrased or outdated regulation instead of specific, dated clause sets; bind every check to named framework versions.
+- **Undocumented-as-compliant:** marking gaps as passing because nothing contradicts them; undocumented controls are unverified, not compliant.
+- **Checklist rigidity:** literal clause matching that misses control intent; a process can satisfy the letter while violating the spirit of a control.
+- **Jurisdiction mismatch:** applying the wrong jurisdiction's requirements or missing extraterritorial scope.
+
+- **Static verdicts:** once-compliant states drifting after process or system changes; verdicts need re-verification dates and change triggers.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 

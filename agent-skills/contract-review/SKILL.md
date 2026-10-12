@@ -38,6 +38,15 @@ contract = "Liability is capped at fees paid. Company may modify terms at any ti
 print(flag_clauses(contract))
 ```
 
+## Failure Modes
+
+- **Missed clauses:** extraction focused on common clause types missing unusual or embedded risk provisions (auto-renewal, unilateral amendment, governing law).
+- **Standard-position bias:** comparing against a default playbook without negotiated context; the standard position is a baseline, not a legal requirement.
+- **Hallucinated clause text:** paraphrasing that changes obligations or thresholds; every extracted clause needs a verbatim quote and location.
+- **Jurisdiction overreach:** applying one legal system's a
+ssumptions to a contract governed by another; identify governing law before analysis.
+- **Not legal advice:** structured risk output supports review; final legal judgment requires a qualified attorney.
+
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
