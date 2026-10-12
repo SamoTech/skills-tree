@@ -109,7 +109,7 @@ Rebuilding a plan from first principles grants no authority to bypass review or 
 
 This skill is grounded in dated public implementation references:
 
-1. The Stanford Encyclopedia of Philosophy entry on Aristotle, the classical source of first principles (https://plato.stanford.edu/entries/aristotle/).
+1. Wikipedia’s article on Aristotle, the classical source of the first-principles method (https://en.wikipedia.org/wiki/Aristotle).
 2. Wikipedia’s article on first principles (https://en.wikipedia.org/wiki/First_principle).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.

@@ -97,7 +97,7 @@ Caching prompt content grants no authority to relax data handling. Cached segmen
 
 This skill is grounded in dated public implementation references:
 
-1. Anthropic’s prompt caching documentation (https://docs.claude.com/en/docs/build-with-claude/prompt-caching).
+1. Anthropic’s Messages API reference covering prompt caching through the cache_control field (https://docs.anthropic.com/en/api/messages).
 2. OpenAI’s prompt caching documentation (https://platform.openai.com/docs/guides/prompt-caching).
 
 Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in `meta/memory/DECISIONS.md`, and no demand signal is claimed for it.
