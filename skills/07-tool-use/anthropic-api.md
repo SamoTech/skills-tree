@@ -16,6 +16,7 @@ dependencies:
 code_blocks:
   - id: "example-anthropic"
     type: executable
+related: ["07-tool-use"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-anthropic-api.json)
@@ -181,3 +182,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Initial entry |
 | 2026-04 | v3 | Tool loop, streaming, prompt caching, retry, model comparison |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

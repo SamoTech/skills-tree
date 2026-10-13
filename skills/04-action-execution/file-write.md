@@ -11,6 +11,7 @@ updated: "2026-04"
 code_blocks:
   - id: "example-atomic-write"
     type: executable
+related: ["04-action-execution"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-file-write.json)
@@ -126,3 +127,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Initial entry |
 | 2026-04 | v3 | Atomic write pattern, failure modes, exclusive/append modes |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -20,6 +20,7 @@ dependencies:
 code_blocks:
   - id: "example-memory-injection"
     type: executable
+related: ["03-memory"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-memory-injection.json)
@@ -181,3 +182,6 @@ if __name__ == "__main__":
 | 2025-03 | v1 | Initial entry |
 | 2026-04 | v2 | Added retrieval scoring + cosine top-K |
 | 2026-04 | v3 | Full runnable example, failure modes, model comparison, hybrid strategies |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

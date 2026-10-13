@@ -73,3 +73,6 @@ def build_prompt(task, context, constraints):
 |---|---|---|
 | 2025-03 | v1 | Canonical prompt engineering skill source restored as an explicit graph node |
 | 2026-09 | v1 | Added production-oriented output contract and evaluation guidance |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
