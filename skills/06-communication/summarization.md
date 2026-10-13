@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 description: "Summarize long documents or conversation threads in AI agent workflows."
 added: "2025-03"
+related: ["06-communication"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-summarization.json)
@@ -65,3 +66,6 @@ def summarize(content, style="bullet"):
 ## Changelog
 - v1 (2026-02): Initial entry
 - v1.1 (2026-05): Bump langchain-openai to 0.3.16 + langchain-core to 0.3.55 (CVE patches)
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -13,9 +13,7 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-translate"
-    type: executable
+related: ["06-communication"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-06-communication-translation.json)
@@ -148,3 +146,6 @@ if __name__ == "__main__":
 | 2025-03 | v1 | Initial entry |
 | 2026-02 | v2 | Glossary support |
 | 2026-04 | v3 | Placeholder freezing, JSON schema output, model comparison |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

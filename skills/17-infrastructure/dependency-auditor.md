@@ -336,3 +336,6 @@ ephemeral runner model is the primary and sufficient containment strategy.
 | [`tools/common.py`](../../tools/common.py) | Shared `skill_path_to_badge_key` utility |
 | [`.github/workflows/dependency-auditor.yml`](../../.github/workflows/dependency-auditor.yml) | Phase 3: CI runner for this auditor |
 | [`meta/badge-states.md`](../../meta/badge-states.md) | Badge state machine reference |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

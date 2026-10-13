@@ -94,6 +94,8 @@ The example demonstrates an append-only hash chain primitive. A production imple
 - NIST AI Risk Management Framework: https://www.nist.gov/itl/ai-risk-management-framework
 - Python `hashlib` documentation: https://docs.python.org/3/library/hashlib.html
 
+## Evidence
+
 Evidence status: implementation guidance is grounded in the cited security guidance; no compliance certification or performance claim is made.
 
 ## Related Skills

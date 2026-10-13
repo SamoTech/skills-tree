@@ -126,3 +126,6 @@ Production systems must attach source identifiers, timestamps, and retrieval sco
 | 2025-03 | v1 | Initial entry |
 | 2026-06-23 | v2 | Normalized schema-compatible version metadata |
 | 2026-09-20 | v2 | Added deterministic controller, typed contracts, stop policy, validation, safety boundaries, and failure modes |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -163,3 +163,6 @@ The parser returns source line locations for extracted structures so downstream 
 - v1 (2026-04): Initial entry.
 - v1.1 (2026-05): Documented third-party parser dependency and security boundary.
 - v2 (2026-09): Added bounded deterministic reference implementation, explicit contracts, validation rules, failure modes, provenance, and security boundaries.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

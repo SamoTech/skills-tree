@@ -43,3 +43,6 @@ Generalization: Query time grows exponentially with row count — index needed.
 
 - [Deductive Reasoning](deductive-reasoning.md)
 - [Statistical Analysis](../12-data/statistical-analysis.md)
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

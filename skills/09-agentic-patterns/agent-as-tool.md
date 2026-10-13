@@ -6,6 +6,7 @@ stability: stable
 description: "Expose a specialised agent as a callable tool inside a parent agent's tool loop."
 added: "2026-04"
 version: v2
+related: ["09-agentic-patterns"]
 ---
 
 # Agent as Tool
@@ -71,3 +72,6 @@ print(result.final_output)
 
 ## Changelog
 - v2 (2026-04): Full expansion with I/O, example, failure modes, prompt patterns, model comparison
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

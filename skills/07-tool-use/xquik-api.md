@@ -135,3 +135,6 @@ First return the exact endpoint, account target, and approval question.
 | Date | Version | Change |
 |---|---|---|
 | 2026-06 | v1 | Initial entry |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -6,6 +6,7 @@ stability: stable
 description: "Resume a paused or crashed LangGraph agent from its last checkpoint using thread IDs."
 added: "2026-04"
 version: v2
+related: ["15-orchestration"]
 ---
 
 # Thread-Based Resume
@@ -62,3 +63,6 @@ app.invoke(None, config)  # Continues from 'approval' node
 
 ## Changelog
 - v2 (2026-04): Full expansion
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

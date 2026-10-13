@@ -13,9 +13,7 @@ dependencies:
     min_version: "0.28.0"
     tested_version: "0.28.1"
     confidence: verified
-code_blocks:
-  - id: "example-web-search"
-    type: executable
+related: ["11-web"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-search.json)
@@ -186,3 +184,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Stub |
 | 2026-04 | v3 | Battle-tested: typed SearchHit, recency + host filters, TTL cache, provider comparison |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

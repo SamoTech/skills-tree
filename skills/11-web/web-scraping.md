@@ -21,9 +21,7 @@ dependencies:
     min_version: "1.12.0"
     tested_version: "1.12.2"
     confidence: verified
-code_blocks:
-  - id: "example-web-scraping"
-    type: executable
+related: ["11-web"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-scraping.json)
@@ -183,3 +181,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Stub |
 | 2026-04 | v3 | Battle-tested: trafilatura + BS4 fallback, metadata extraction, redirect handling, failure modes |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

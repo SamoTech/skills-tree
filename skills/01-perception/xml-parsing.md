@@ -105,3 +105,6 @@ If `lxml` or another dependency is selected, its deployed version and security a
 - v1 (2026-03): Initial entry
 - v1.1 (2026-05): Dependency note updated for lxml
 - v2 (2026-09-20): Added bounded reference parser, namespace guidance, explicit contracts, security boundaries, validation, and failure modes
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

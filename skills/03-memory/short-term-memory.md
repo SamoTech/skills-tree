@@ -12,9 +12,7 @@ dependencies:
   - package: tiktoken
     min_version: "0.7.0"
     confidence: verified
-code_blocks:
-  - id: "example-stm"
-    type: executable
+related: ["03-memory"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-03-memory-short-term-memory.json)
@@ -144,3 +142,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Initial stub |
 | 2026-04 | v3 | Battle-tested: token-budgeted trim, tokenizer fallback, pinned messages, failure modes |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

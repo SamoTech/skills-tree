@@ -17,9 +17,7 @@ dependencies:
     min_version: "1.26.0"
     tested_version: "2.0.0"
     confidence: verified
-code_blocks:
-  - id: "example-embedding-generation"
-    type: executable
+related: ["12-data"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-embedding-generation.json)
@@ -190,3 +188,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Stub |
 | 2026-04 | v3 | Battle-tested: batching, content-hash cache, Matryoshka, multilingual notes, model comparison |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

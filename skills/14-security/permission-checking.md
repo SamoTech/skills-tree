@@ -79,6 +79,8 @@ print(authorize("agent-reader", "write:orders"))
 - OWASP Authorization Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
 - OWASP API Security Top 10: https://owasp.org/API-Security/editions/2023/en/0x11-t10/
 
+## Evidence
+
 Evidence status: guidance is grounded in the cited OWASP authorization material; no framework-specific security guarantee is implied.
 
 ## Related Skills

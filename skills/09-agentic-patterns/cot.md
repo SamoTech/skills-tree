@@ -13,9 +13,7 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-cot"
-    type: executable
+related: ["09-agentic-patterns"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-cot.json)
@@ -162,3 +160,6 @@ if __name__ == "__main__":
 | 2025-03 | v1 | Initial entry |
 | 2026-02 | v2 | Added variants table |
 | 2026-04 | v3 | Full runnable example w/ self-consistency, failure modes, model comparison |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

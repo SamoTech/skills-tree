@@ -13,9 +13,7 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-self-consistency"
-    type: executable
+related: ["02-reasoning"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-self-consistency.json)
@@ -160,3 +158,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Stub (file did not exist; was a broken link target) |
 | 2026-04 | v3 | Battle-tested skill: typed I/O, voting, failure modes, model comparison |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

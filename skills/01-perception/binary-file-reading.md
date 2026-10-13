@@ -7,6 +7,7 @@ description: "Enable AI agents to read binary file formats (images, archives, ex
 added: "2025-03"
 version: "v2"
 last_updated: "2026-07"
+related: ["01-perception"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-binary-file-reading.json)
@@ -185,3 +186,6 @@ Identify the file signature (magic bytes) and report:
 |---|---|---|
 | `2026-04` | v1 | Initial entry |
 | `2026-07` | v2 | Added typed I/O tables, extended examples, frameworks table, model comparison, prompt patterns, detailed failure modes |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -98,3 +98,6 @@ Framework compatibility is descriptive; consuming projects must verify their ins
 ## Changelog
 - v1 (2026-04): Initial entry
 - v2 (2026-09-20): Added explicit Bayesian contract, deterministic implementation, interpretation protocol, validation, failure modes, safety boundaries, and provenance
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

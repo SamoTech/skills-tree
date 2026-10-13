@@ -108,3 +108,6 @@ Label each step: Premise / Given / Modus Ponens / Modus Tollens / Contradiction.
 - [Abductive Reasoning](abductive.md)
 - [Mathematical Reasoning](mathematical-reasoning.md)
 - [Constraint Satisfaction](constraint-satisfaction.md)
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

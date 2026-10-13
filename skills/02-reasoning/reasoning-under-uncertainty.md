@@ -116,3 +116,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-06 | v1 | Initial skill file |
 | 2026-06 | v2 | Full runnable example, structured output, action routing |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
