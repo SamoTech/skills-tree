@@ -1,0 +1,1614 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "cap011-self-evaluation-v1",
+  "candidate_system": {
+    "system_id": "vibe-glm-5-latest-short-maintainer-agent",
+    "description": "Vibe (glm-5-latest-short via Mistral AI) operating as the SamoTech/skills-tree maintainer agent",
+    "run_environment": "Mistral Vibe run_typescript sandbox; tool-executed computation per case",
+    "executed_at": "2026-10-13T13:53:15Z",
+    "overlap_disclosure": "This candidate is the same agent family (Vibe) that authored the dataset tasks; the overlap is disclosed here per the dataset provenance limitation, and the ground truth remains mechanical and independent of the candidate.",
+    "raw_outputs_file": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json"
+  },
+  "runs": [
+    {
+      "case_id": "CAP011-ARITH-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-008",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-009",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-010",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-011",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-012",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-013",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-013",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-013"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-014",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-014",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-014"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-015",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-015",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-015"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-016",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-016",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-016"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-017",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-017",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-017"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-018",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-018",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-018"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-019",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-019",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-019"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-ARITH-020",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-ARITH-020",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-ARITH-020"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-009",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-010",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-011",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-COUNT-012",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-COUNT-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-COUNT-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-009",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-010",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-011",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MEMBER-012",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MEMBER-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MEMBER-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-009",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-010",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-011",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-DDATE-012",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-DDATE-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-DDATE-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.97,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-009",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-010",
+      "predicted_outcome": "fail",
+      "confidence": 0.97,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-011",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-STRT-012",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-STRT-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-STRT-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-009",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-010",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-011",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-MAXMIN-012",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-MAXMIN-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-MAXMIN-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-005",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-006",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-007",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-009",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-009",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-009"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-010",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-010",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-010"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-011",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-011",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-011"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-LOOKUP-012",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-LOOKUP-012",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-LOOKUP-012"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-001",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-001",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-001"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-002",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-002",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-002"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-003",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-003",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-003"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-004",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-004",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-004"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-005",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-005",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-005"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-006",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-006",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-006"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-007",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-007",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-007"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    },
+    {
+      "case_id": "CAP011-UNSUP-008",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "review_gate_routed": false,
+      "raw_output_ref": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json#case:CAP011-UNSUP-008",
+      "hallucination_adjudication": {
+        "verdict": "grounded",
+        "reviewer_id": "cap011-verifier-v1 (deterministic predicate re-execution)",
+        "adjudicated_at": "2026-10-13T13:53:15Z",
+        "evidence_references": [
+          "benchmarks/self-evaluation/cap011-verifier-v1.json#check:CAP011-UNSUP-008"
+        ],
+        "rationale": "The retained raw output re-executes the case stated verification rule from the provided case inputs and cites no value absent from the case evidence; the deterministic verifier re-derivation agrees with the raw output computation."
+      }
+    }
+  ]
+}
