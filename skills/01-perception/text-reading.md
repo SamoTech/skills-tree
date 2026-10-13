@@ -100,3 +100,6 @@ Framework package versions are not pinned here because the core contract does no
 - v1 (2026-02): Initial entry
 - v1.1 (2026-05): Dependency note updated for langchain-text-splitters
 - v2 (2026-09-20): Added deterministic reference behavior, typed contracts, validation, security boundaries, and failure-mode coverage
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -40,3 +40,6 @@ print(infer.query(["Rain"], evidence={"Wet": 1}))
 
 ## Changelog
 - v1 (2026-04): Initial entry
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -6,6 +6,7 @@ stability: stable
 description: "Validate agent inputs and outputs with lightweight guardrail agents before executing or returning tool results."
 added: "2026-04"
 version: v2
+related: ["07-tool-use"]
 ---
 
 # Tool Guardrails
@@ -74,3 +75,6 @@ main_agent = Agent(
 
 ## Changelog
 - v2 (2026-04): Full expansion with I/O, example, failure modes, prompt patterns, model comparison
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

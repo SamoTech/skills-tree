@@ -6,6 +6,7 @@ stability: stable
 description: "Maintain automatic conversation history across multiple turns using OpenAI Agents SDK sessions."
 added: "2026-04"
 version: v2
+related: ["03-memory"]
 ---
 
 # Agent Sessions
@@ -68,3 +69,6 @@ print(result2.final_output)  # → "Your name is Ossama."
 
 ## Changelog
 - v2 (2026-04): Full expansion
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

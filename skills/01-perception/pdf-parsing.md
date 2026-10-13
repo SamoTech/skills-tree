@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 description: "Extract text, tables, and metadata from PDF files in AI agent workflows."
 added: "2025-03"
+related: ["01-perception"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-pdf-parsing.json)
@@ -58,3 +59,6 @@ def parse_pdf(path):
 ## Changelog
 - v1 (2026-02): Initial entry
 - v1.1 (2026-05): Bump pypdf to 5.4.0 (CVE patch)
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
