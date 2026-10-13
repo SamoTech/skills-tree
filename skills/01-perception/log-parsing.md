@@ -169,3 +169,6 @@ A conforming implementation must preserve input order, enforce explicit resource
 ## Changelog
 - v1 (2026-04): Initial entry.
 - v2 (2026-09): Added deterministic bounded parsing, explicit I/O/error contracts, format guidance, validation rules, and safety boundaries.
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

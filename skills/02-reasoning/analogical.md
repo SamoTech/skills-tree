@@ -130,3 +130,6 @@ print(json.dumps(result, indent=2))
 |---|---|
 | `2026-04` | Expanded from stub: full description, I/O table, API rate-limiter analogy example |
 | `2025-03` | Initial stub entry |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

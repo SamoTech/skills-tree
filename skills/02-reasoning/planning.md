@@ -20,6 +20,7 @@ dependencies:
 code_blocks:
   - id: "example-planning"
     type: executable
+related: ["02-reasoning"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-planning.json)
@@ -170,3 +171,6 @@ if __name__ == "__main__":
 | 2025-03 | v1 | Initial entry |
 | 2026-02 | v2 | Pydantic schema + executor |
 | 2026-04 | v3 | DAG validator, failure modes, model comparison, variants |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

@@ -8,6 +8,7 @@ added: "2025-06"
 version: v2
 tags: [reasoning, decomposition, sequential, subproblems]
 updated: "2026-06"
+related: ["02-reasoning"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-least-to-most.json)
@@ -115,3 +116,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-06 | v1 | Initial skill file |
 | 2026-06 | v2 | Full runnable example, failure modes, goal coverage |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
