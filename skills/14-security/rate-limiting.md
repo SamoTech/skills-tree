@@ -83,6 +83,8 @@ For distributed systems, use an atomic shared store or the upstream provider's q
 - RFC 6585 (HTTP 429 Too Many Requests): https://www.rfc-editor.org/rfc/rfc6585
 - OWASP API Security: https://owasp.org/API-Security/
 
+## Evidence
+
 Evidence status: implementation guidance is grounded in HTTP/API rate-control conventions; no universal safe limit is claimed.
 
 ## Related Skills

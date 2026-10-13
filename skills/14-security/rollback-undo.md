@@ -87,6 +87,8 @@ The example is in-memory and does not address concurrent writers. Production sys
 - OWASP Transaction Authorization guidance: https://cheatsheetseries.owasp.org/cheatsheets/Transaction_Authorization_Cheat_Sheet.html
 - Python context manager protocol: https://docs.python.org/3/reference/datamodel.html#context-managers
 
+## Evidence
+
 Evidence status: guidance is grounded in transaction and recovery principles; rollback completeness is system-specific.
 
 ## Related Skills

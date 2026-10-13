@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 description: "Crawl and scrape web pages systematically in AI agent workflows."
 added: "2025-03"
+related: ["11-web"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-11-web-web-crawling.json)
@@ -65,3 +66,6 @@ class AgentSpider(scrapy.Spider):
 ## Changelog
 - v1 (2026-02): Initial entry
 - v1.1 (2026-05): Bump scrapy to 2.12.0 (CVE patch)
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
