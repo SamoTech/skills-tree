@@ -1,6 +1,6 @@
 ---
 name: plan-and-execute
-description: —
+description: Separate planning from execution — a planner LLM generates a task list upfront, then an executor agent works through each step.
 metadata:
   source: skills/09-agentic-patterns/plan-and-execute.md
   category: 09-agentic-patterns
