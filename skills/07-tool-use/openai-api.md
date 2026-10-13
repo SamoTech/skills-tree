@@ -20,6 +20,7 @@ dependencies:
 code_blocks:
   - id: "example-openai"
     type: executable
+related: ["07-tool-use"]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-openai-api.json)
@@ -192,3 +193,6 @@ if __name__ == "__main__":
 |---|---|---|
 | 2025-03 | v1 | Initial entry |
 | 2026-04 | v3 | Retry, structured outputs, tool loop, streaming, embeddings |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
