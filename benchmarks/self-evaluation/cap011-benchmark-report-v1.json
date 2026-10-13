@@ -1,0 +1,898 @@
+{
+  "benchmark_id": "cap011-self-evaluation-v1",
+  "benchmark_status": "PASS",
+  "case_count": 100,
+  "overall_correctness": 1,
+  "high_confidence_threshold": 0.9,
+  "high_confidence_case_count": 100,
+  "high_confidence_correctness": 1,
+  "low_confidence_case_count": 0,
+  "review_gate_compliance": 1,
+  "review_gate_violations": [],
+  "hallucination_rate": 0,
+  "expected_calibration_error": 0.0124,
+  "confidence_bin_reliability": [
+    {
+      "bin": "[0.0,0.1)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.1,0.2)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.2,0.3)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.3,0.4)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.4,0.5)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.5,0.6)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.6,0.7)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.7,0.8)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.8,0.9)",
+      "count": 0,
+      "mean_confidence": null,
+      "correctness": null
+    },
+    {
+      "bin": "[0.9,1.0]",
+      "count": 100,
+      "mean_confidence": 0.9876,
+      "correctness": 1
+    }
+  ],
+  "acceptance": {
+    "status": "PASS",
+    "failures": []
+  },
+  "per_case": [
+    {
+      "case_id": "CAP011-ARITH-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-008",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-009",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-010",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-011",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-012",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-013",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-014",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-015",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-016",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-017",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-018",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-019",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-020",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-009",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-010",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-011",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-012",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-009",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-010",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-011",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-012",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-009",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-010",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-011",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-012",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.97,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-009",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-010",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.97,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-011",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-012",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-009",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-010",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-011",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-012",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-005",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-006",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-007",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-009",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-010",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-011",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-012",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.99,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-001",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-002",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-003",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-004",
+      "predicted_outcome": "pass",
+      "expected_outcome": "pass",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-005",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-006",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-007",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-008",
+      "predicted_outcome": "fail",
+      "expected_outcome": "fail",
+      "confidence": 0.98,
+      "correct": true,
+      "review_gate_routed": false
+    }
+  ],
+  "limitations": [
+    "ECE and bin reliability are diagnostic metrics; they never replace the high-confidence correctness or review-gate criteria.",
+    "Valid only as CAP-011 evidence when candidate records come from the actual system under test with retained raw outputs.",
+    "Hallucination adjudication must be independent of the candidate system; self-adjudication is rejected upstream."
+  ],
+  "dataset_sha256": "168dc290f8fc249fbeb3b5270222de5fa42fb3f4423886b5ecc7f324513f478e",
+  "verifier_spec_sha256": "d2f0251dd7eb512152e245e6357df87666ecae71b6cfbbad7253e4572d950b46",
+  "candidate_results_sha256": "2357d1bb2a9107303485cffac40f22e8ebacca978c1f04557d5340a489cda178",
+  "candidate_system": {
+    "system_id": "vibe-glm-5-latest-short-maintainer-agent",
+    "description": "Vibe (glm-5-latest-short via Mistral AI) operating as the SamoTech/skills-tree maintainer agent",
+    "run_environment": "Mistral Vibe run_typescript sandbox; tool-executed computation per case",
+    "executed_at": "2026-10-13T13:53:15Z",
+    "overlap_disclosure": "This candidate is the same agent family (Vibe) that authored the dataset tasks; the overlap is disclosed here per the dataset provenance limitation, and the ground truth remains mechanical and independent of the candidate.",
+    "raw_outputs_file": "benchmarks/self-evaluation/cap011-raw-outputs-v1.json"
+  }
+}

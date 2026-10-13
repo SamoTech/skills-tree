@@ -1,0 +1,1013 @@
+{
+  "schema_version": "1.0",
+  "benchmark_id": "cap011-self-evaluation-v1",
+  "retained_raw_outputs": {
+    "produced_by": "vibe-glm-5-latest-short-maintainer-agent",
+    "description": "Vibe (glm-5-latest-short via Mistral AI) operating as the SamoTech/skills-tree maintainer agent",
+    "produced_at": "2026-10-13T13:53:15Z",
+    "environment": "Mistral Vibe run_typescript sandbox; each case was assessed by executing the stated verification rule over the case inputs",
+    "overlap_disclosure": "The candidate is the same agent family (Vibe) that authored the dataset tasks; the overlap is disclosed per the dataset provenance limitation. Ground truth is mechanical and independent of the candidate."
+  },
+  "raw_outputs": [
+    {
+      "case_id": "CAP011-ARITH-001",
+      "task_input_sha256": "8b235a3e2b3dd6d17fc31e05c627eb1af0ff7c8f935a8a6e85a85ad80f731f6b",
+      "inputs_used": "a=128, b=347, op=add, claimed=475",
+      "computation": "128 add 347 = 475; claimed 475; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-002",
+      "task_input_sha256": "8ef67fe59d287ffb462a621aedc64efc1e9dce85494b4f5f5a905b104bd06c2a",
+      "inputs_used": "a=9999, b=10001, op=add, claimed=20000",
+      "computation": "9999 add 10001 = 20000; claimed 20000; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-003",
+      "task_input_sha256": "5f9baecced8b0b3e4e913a7eb522f43f120b2ce10c58b29e3c726833fa2742ad",
+      "inputs_used": "a=50432, b=8079, op=sub, claimed=42353",
+      "computation": "50432 sub 8079 = 42353; claimed 42353; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-004",
+      "task_input_sha256": "e5d836e75d4017b7ce4c10f7d2d7b6fbfa81fe920c33c4335e80805d3aca6a65",
+      "inputs_used": "a=1234, b=567, op=mul, claimed=699678",
+      "computation": "1234 mul 567 = 699678; claimed 699678; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-005",
+      "task_input_sha256": "5a11cf137e43a1d0f701d55e0eab7f33e669781350ac569e51e74b53a1400ef2",
+      "inputs_used": "a=4096, b=2048, op=mul, claimed=8388608",
+      "computation": "4096 mul 2048 = 8388608; claimed 8388608; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-006",
+      "task_input_sha256": "0c481c4cf2565c9a0abaf56cb153f906b0e2da76ad7c7a81443c3bc7df2a288f",
+      "inputs_used": "a=1000, b=8, op=div, claimed=125",
+      "computation": "1000 div 8 = 125; claimed 125; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-007",
+      "task_input_sha256": "bbf0e170a525c7f87a03061b8d745008c3953cedd8086f82d5968a6d6f37f837",
+      "inputs_used": "a=9234, b=6, op=div, claimed=1539",
+      "computation": "9234 div 6 = 1539; claimed 1539; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-008",
+      "task_input_sha256": "6a4af6db69587eefbb2f87f0508f7ac0cc58ffc698a2c0c24e66213fccebe4cb",
+      "inputs_used": "a=456789, b=987654, op=add, claimed=1444443",
+      "computation": "456789 add 987654 = 1444443; claimed 1444443; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-009",
+      "task_input_sha256": "dce1774afaa47e98854fa41a90acda18aa45dc4843f959206f3a5e17f9390ba3",
+      "inputs_used": "a=1000000, b=999999, op=sub, claimed=1",
+      "computation": "1000000 sub 999999 = 1; claimed 1; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-010",
+      "task_input_sha256": "950f55f1e1791fac6401cea3e4631f6eedf58ba61ead09039911037fef3593d8",
+      "inputs_used": "a=777, b=777, op=mul, claimed=603729",
+      "computation": "777 mul 777 = 603729; claimed 603729; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-011",
+      "task_input_sha256": "3206b82f55a09016a28ff3ecbbc17295c815bd24ba18a8b6447f9aea7ba08cf7",
+      "inputs_used": "a=65536, b=256, op=div, claimed=256",
+      "computation": "65536 div 256 = 256; claimed 256; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-012",
+      "task_input_sha256": "fcee708ab899aa270ac8d57ede42536b0fce886467bab2ead1c2efb4bc5c0c71",
+      "inputs_used": "a=3, b=4, op=add, claimed=7",
+      "computation": "3 add 4 = 7; claimed 7; claimed equals the exact result",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-013",
+      "task_input_sha256": "92da27ceef29451e0fd0e56d7d08628e2b9e9d4b86bec00c2126aa1b7f5fe56f",
+      "inputs_used": "a=936, b=285, op=add, claimed=1222",
+      "computation": "936 add 285 = 1221; claimed 1222; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-014",
+      "task_input_sha256": "ad87db0b830b6316fd7841e97e323ebe5a07e316f9d5c0e7762ed1fde3e73b11",
+      "inputs_used": "a=51002, b=2244, op=add, claimed=53346",
+      "computation": "51002 add 2244 = 53246; claimed 53346; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-015",
+      "task_input_sha256": "87e828de3b8c2de21490a65ad8cdd25bd1c235d5ec730aaf65ed34594075f31e",
+      "inputs_used": "a=8123, b=5917, op=sub, claimed=2205",
+      "computation": "8123 sub 5917 = 2206; claimed 2205; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-016",
+      "task_input_sha256": "96a826ad0684939b6a4544f32456de6719ac948e31c00f066e8b79ad7cda2a5e",
+      "inputs_used": "a=313, b=37, op=mul, claimed=11681",
+      "computation": "313 mul 37 = 11581; claimed 11681; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-017",
+      "task_input_sha256": "ca57eb27ed7c8a6e1790d624512d9b781d3dc9ed968fcb188e2a49f480c23c20",
+      "inputs_used": "a=812, b=47, op=mul, claimed=38264",
+      "computation": "812 mul 47 = 38164; claimed 38264; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-018",
+      "task_input_sha256": "31aac9aefa01993eb3ac9fb66682a3911ca6ca1c87154324c74c89ea29924422",
+      "inputs_used": "a=4536, b=7, op=div, claimed=647",
+      "computation": "4536 div 7 = 648; claimed 647; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-019",
+      "task_input_sha256": "a43e9906a59d50a9aca368958d5ad8d53e0bf17ed48079df4e77f7afb8c32244",
+      "inputs_used": "a=9990, b=45, op=div, claimed=212",
+      "computation": "9990 div 45 = 222; claimed 212; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-ARITH-020",
+      "task_input_sha256": "2d7248c01680d516416eb079e649893c2a17aafc5f29a9e549cc16c20204eac0",
+      "inputs_used": "a=100000, b=250001, op=add, claimed=360001",
+      "computation": "100000 add 250001 = 350001; claimed 360001; claimed does not equal the exact result",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "exact integer arithmetic executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-001",
+      "task_input_sha256": "62eecd20e38dc8423ba735d1c15befcc69553f4e014404762f59430a149ad92d",
+      "inputs_used": "items=[checkout, auth, billing, notifications], claimed=4",
+      "computation": "len(items) = 4; claimed 4; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-002",
+      "task_input_sha256": "f4cb60b1267fe8032d0a87b5372aae84933a29932b0f8356faecf9de99676e98",
+      "inputs_used": "items=[postgres-primary, postgres-replica, redis-cache, redis-queue, kafka-broker], claimed=5",
+      "computation": "len(items) = 5; claimed 5; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-003",
+      "task_input_sha256": "86fffe43fa0bf99d96ed565699b507259e9ee11638f934b17c498f7e63e9e8ef",
+      "inputs_used": "items=[build, test, lint, security-scan, deploy, notify], claimed=6",
+      "computation": "len(items) = 6; claimed 6; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-004",
+      "task_input_sha256": "a844bcd5e7589c40c821703bd405c9ff313d462eb2a6dab7d068286c89647564",
+      "inputs_used": "items=[alice, bob, carol, dave, erin, frank, grace], claimed=7",
+      "computation": "len(items) = 7; claimed 7; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-005",
+      "task_input_sha256": "6273ee8ac4e3c2fcc5f6971892c0d682007ce02a0015b3347214d535921604c0",
+      "inputs_used": "items=[alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota], claimed=9",
+      "computation": "len(items) = 9; claimed 9; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-006",
+      "task_input_sha256": "9d9b5e17d717491c3df8bc528834565aa737299943a6e3839cf13609bb79d57f",
+      "inputs_used": "items=[web, api, worker], claimed=3",
+      "computation": "len(items) = 3; claimed 3; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-007",
+      "task_input_sha256": "b5ff72eed62e0f28c46c63853df75f8f23221a2ff571ea1aae8a14023db85d80",
+      "inputs_used": "items=[p50, p95, p99, mean, max, min, sum, count], claimed=8",
+      "computation": "len(items) = 8; claimed 8; claimed equals the count",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-008",
+      "task_input_sha256": "101a601f4ddb0103d6d1e3b640c2bdce783736103a5be2991ef28ef2a2c5940f",
+      "inputs_used": "items=[one, two, three, four, five], claimed=6",
+      "computation": "len(items) = 5; claimed 6; claimed does not equal the count",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-009",
+      "task_input_sha256": "c8d5c4af6482ddbcf8ec9e1f89fb8737419df4c8d7447ec4bcaa7c370674a1e8",
+      "inputs_used": "items=[m1, m2, m3, m4, m5, m6], claimed=5",
+      "computation": "len(items) = 6; claimed 5; claimed does not equal the count",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-010",
+      "task_input_sha256": "34f54a0de7e9d72849fccee3c089ae47d6762563bf408b290f9b4963856b34b5",
+      "inputs_used": "items=[red, green, blue, cyan, magenta, yellow, black, white], claimed=10",
+      "computation": "len(items) = 8; claimed 10; claimed does not equal the count",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-011",
+      "task_input_sha256": "7a874056d2a0369f8298318f8d2e687978a695cddba2c844920652261a1f482c",
+      "inputs_used": "items=[a, b, c, d, e, f, g, h, i, j], claimed=11",
+      "computation": "len(items) = 10; claimed 11; claimed does not equal the count",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-COUNT-012",
+      "task_input_sha256": "96d7bb11d58076918715e223bb3867b866ea1708f657b650b8f37a1debaf85ab",
+      "inputs_used": "items=[lint, typecheck, test, audit], claimed=3",
+      "computation": "len(items) = 4; claimed 3; claimed does not equal the count",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list length executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-001",
+      "task_input_sha256": "178b16a1b3fa1fb0102af9d15ef9d00cc961f765d72f911007c07a99ceee858e",
+      "inputs_used": "items=[postgres-primary, postgres-replica, redis-cache], item=postgres-primary, claimed_present=true",
+      "computation": "item \"postgres-primary\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-002",
+      "task_input_sha256": "2920b13aeb1bad5f0c16de4a1721ab27053c5ea43d8a64b0806ea6c8098126ce",
+      "inputs_used": "items=[checkout, auth, billing, notifications], item=billing, claimed_present=true",
+      "computation": "item \"billing\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-003",
+      "task_input_sha256": "9235457e2fe094ed4074d185b47e3e3e150f399756ad101a61e6e6d7ea3a1565",
+      "inputs_used": "items=[ubuntu-22.04, ubuntu-24.04, debian-12, alpine-3.20], item=debian-12, claimed_present=true",
+      "computation": "item \"debian-12\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-004",
+      "task_input_sha256": "6a548d06238db28791fe16581e0c5d58b2a34f9291607a642664ebee8f3b6b86",
+      "inputs_used": "items=[gpt-4o, gpt-4o-mini, claude-3-5, llama-3.1-405b], item=llama-3.1-405b, claimed_present=true",
+      "computation": "item \"llama-3.1-405b\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-005",
+      "task_input_sha256": "cc84ea3427b9fc9c58f4afed1274e7bb9bbb493bf1a58da1a511d25371e6be94",
+      "inputs_used": "items=[pytest, unittest, hypothesis, tox], item=hypothesis, claimed_present=true",
+      "computation": "item \"hypothesis\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-006",
+      "task_input_sha256": "c9cb6829367803b513f582ca8f3f8f0006dc3d50e5d0652f012800571a94ffa0",
+      "inputs_used": "items=[eu-west-1, us-east-1, us-west-2, ap-south-1], item=us-west-2, claimed_present=true",
+      "computation": "item \"us-west-2\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-007",
+      "task_input_sha256": "d5415486fc1f16df33421454a5b47e10e03d1a7f57bfefa94ad41c8123329a50",
+      "inputs_used": "items=[red, green, blue], item=blue, claimed_present=true",
+      "computation": "item \"blue\" is in items; claimed_present=true; claim matches membership",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-008",
+      "task_input_sha256": "4e43e1ed64674c5bb343cb81f210279a66a6d856576da01dade0d5236dedc55f",
+      "inputs_used": "items=[postgres-primary, postgres-replica, redis-cache], item=postgres-standby, claimed_present=true",
+      "computation": "item \"postgres-standby\" is not in items; claimed_present=true; claim contradicts membership",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-009",
+      "task_input_sha256": "8ab62d1f4fe9c92ec553a3ffefad058beb077d949c52a9e6857f843bffaa5daf",
+      "inputs_used": "items=[p50, p95, p99], item=p99.9, claimed_present=true",
+      "computation": "item \"p99.9\" is not in items; claimed_present=true; claim contradicts membership",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-010",
+      "task_input_sha256": "f6931b9fdf55616502775577f96e368ea9d82a12e19c700cecb2ef24e5baa795",
+      "inputs_used": "items=[ubuntu-22.04, ubuntu-24.04, debian-12, alpine-3.20], item=alpine, claimed_present=true",
+      "computation": "item \"alpine\" is not in items; claimed_present=true; claim contradicts membership",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-011",
+      "task_input_sha256": "1a0457e3976860476a29148c27647b40348578af5187deb2b748660c1552fafe",
+      "inputs_used": "items=[checkout, auth, billing, notifications], item=audit, claimed_present=true",
+      "computation": "item \"audit\" is not in items; claimed_present=true; claim contradicts membership",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MEMBER-012",
+      "task_input_sha256": "38a2988ab8cb361b78192126aecf8e1715627e55712ebe6fd74f36d493a9676a",
+      "inputs_used": "items=[redis-cache, redis-queue, kafka-broker], item=redis-queue, claimed_present=false",
+      "computation": "item \"redis-queue\" is in items; claimed_present=false; claim contradicts membership",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "list membership executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-001",
+      "task_input_sha256": "584db86bd0f71b9dd97699b23cdd96cc4f3757e76d259dde8f22907f44e5874c",
+      "inputs_used": "start=2026-01-01, end=2026-01-31, claimed=30",
+      "computation": "days(2026-01-01 -> 2026-01-31) = 30; claimed 30; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-002",
+      "task_input_sha256": "7f376e9c65ca36f5dec38d5d8b383c83ade058421e2b070532f502ea29841c88",
+      "inputs_used": "start=2026-02-01, end=2026-03-01, claimed=28",
+      "computation": "days(2026-02-01 -> 2026-03-01) = 28; claimed 28; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-003",
+      "task_input_sha256": "7497de6245ddfb6d014628f1e347b037bdbad3367aac46794a9d638785c06e0c",
+      "inputs_used": "start=2025-12-25, end=2026-01-01, claimed=7",
+      "computation": "days(2025-12-25 -> 2026-01-01) = 7; claimed 7; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-004",
+      "task_input_sha256": "5b19d4cf520403c68ed903a361e444ce16366edb43da6a4a6aa3f86b58f8d860",
+      "inputs_used": "start=2026-03-15, end=2026-07-04, claimed=111",
+      "computation": "days(2026-03-15 -> 2026-07-04) = 111; claimed 111; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-005",
+      "task_input_sha256": "6d2424d64e72203dc7a64ccb103c8ffd7ae3fb2d8876302fd1de889dd020f171",
+      "inputs_used": "start=2024-02-29, end=2025-02-28, claimed=365",
+      "computation": "days(2024-02-29 -> 2025-02-28) = 365; claimed 365; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-006",
+      "task_input_sha256": "5b786908b073840b60e785b49a9c3d7885bfd0436d204c53853fab4740167413",
+      "inputs_used": "start=2026-05-05, end=2026-05-05, claimed=0",
+      "computation": "days(2026-05-05 -> 2026-05-05) = 0; claimed 0; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-007",
+      "task_input_sha256": "8ac3a038c7e9869f9ab4377d9da9645397b3a511278e4a2b2101741af6cacac1",
+      "inputs_used": "start=2023-06-01, end=2026-06-01, claimed=1096",
+      "computation": "days(2023-06-01 -> 2026-06-01) = 1096; claimed 1096; claimed equals the day difference",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-008",
+      "task_input_sha256": "96781be9ffee8501620cfd409253f28659efff56f70afb572beb977f8bd2d311",
+      "inputs_used": "start=2026-04-01, end=2026-04-30, claimed=30",
+      "computation": "days(2026-04-01 -> 2026-04-30) = 29; claimed 30; claimed does not equal the day difference",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-009",
+      "task_input_sha256": "85a163e3ebb2a7610af61731f08091380e5e1d3f1ba555b1b18e097b310000e3",
+      "inputs_used": "start=2026-07-01, end=2026-07-31, claimed=29",
+      "computation": "days(2026-07-01 -> 2026-07-31) = 30; claimed 29; claimed does not equal the day difference",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-010",
+      "task_input_sha256": "06f55dd679f412be55c0859b44746f5a3de2a533079e6903567d810ed353cd40",
+      "inputs_used": "start=2026-10-01, end=2026-12-31, claimed=98",
+      "computation": "days(2026-10-01 -> 2026-12-31) = 91; claimed 98; claimed does not equal the day difference",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-011",
+      "task_input_sha256": "81669b5ca8d6d913623bc8e7f64cc07fec7d2f008ad916a346b2b95873b61576",
+      "inputs_used": "start=2026-01-15, end=2026-02-15, claimed=32",
+      "computation": "days(2026-01-15 -> 2026-02-15) = 31; claimed 32; claimed does not equal the day difference",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-DDATE-012",
+      "task_input_sha256": "28666fc320147b654c00a9b6df35156304fec3dee03d0a25b42900f5444d327f",
+      "inputs_used": "start=2026-08-08, end=2026-09-08, claimed=29",
+      "computation": "days(2026-08-08 -> 2026-09-08) = 31; claimed 29; claimed does not equal the day difference",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "calendar day difference computed with an explicit proleptic-Gregorian UTC day count; small residual calendar-arithmetic risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-001",
+      "task_input_sha256": "74946f9e0f4668479f3cb04add49dde4b060d2b05cfc9f204ba88b3b4a81eda4",
+      "inputs_used": "op=uppercase, input=\"deploy to production\", claimed=\"DEPLOY TO PRODUCTION\"",
+      "computation": "uppercase(\"deploy to production\") = \"DEPLOY TO PRODUCTION\"; claimed \"DEPLOY TO PRODUCTION\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-002",
+      "task_input_sha256": "fbe74c411dadd7b00e836d662b50d24d2f1b30fca129da62d636df4778e1c694",
+      "inputs_used": "op=reverse, input=\"monitoring\", claimed=\"gnirotinom\"",
+      "computation": "reverse(\"monitoring\") = \"gnirotinom\"; claimed \"gnirotinom\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-003",
+      "task_input_sha256": "7840962ef59ef2aa1491e77597ebeba62947bd55342341e1762a4582b31ebdf7",
+      "inputs_used": "op=star_vowels, input=\"cache invalidation\", claimed=\"c*ch* *nv*l*d*t**n\"",
+      "computation": "star_vowels(\"cache invalidation\") = \"c*ch* *nv*l*d*t**n\"; claimed \"c*ch* *nv*l*d*t**n\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.97,
+      "confidence_basis": "transform executed with vowel set {a,e,i,o,u} per the stated rule; small residual convention risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-004",
+      "task_input_sha256": "fe21a16f47a1b2ba59a64348035dddb93b9c7b608651499abee298c1d6f73a92",
+      "inputs_used": "op=sort_chars, input=\"banana\", claimed=\"aaabnn\"",
+      "computation": "sort_chars(\"banana\") = \"aaabnn\"; claimed \"aaabnn\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-005",
+      "task_input_sha256": "9505cf6f4d5a4ecf6d69795f68ad5acb52687c8238f9f6e2721fcc31a372f9a3",
+      "inputs_used": "op=uppercase, input=\"idempotent\", claimed=\"IDEMPOTENT\"",
+      "computation": "uppercase(\"idempotent\") = \"IDEMPOTENT\"; claimed \"IDEMPOTENT\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-006",
+      "task_input_sha256": "4b3a4ce8e516c9ae7d0afb8a7ada29cdc35d38f1688be1752ad87f7181b8f897",
+      "inputs_used": "op=reverse, input=\"kubernetes\", claimed=\"setenrebuk\"",
+      "computation": "reverse(\"kubernetes\") = \"setenrebuk\"; claimed \"setenrebuk\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-007",
+      "task_input_sha256": "2dcdb2d6a0301a31797c4b1e0216bd280b4a4b04817b91cf54719244ca5aeae0",
+      "inputs_used": "op=sort_chars, input=\"rollback\", claimed=\"abckllor\"",
+      "computation": "sort_chars(\"rollback\") = \"abckllor\"; claimed \"abckllor\"; claimed equals the transform",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-008",
+      "task_input_sha256": "c38e57aeb76ed840f6a242fd5e26395d8b40ce38a70e54accc9fc30043b69244",
+      "inputs_used": "op=uppercase, input=\"authentication\", claimed=\"AUTHENTICATIOn\"",
+      "computation": "uppercase(\"authentication\") = \"AUTHENTICATION\"; claimed \"AUTHENTICATIOn\"; claimed does not equal the transform",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-009",
+      "task_input_sha256": "f0d9974ec67f2532fb1662e898288fafd9d1f067de59bc06a1158d0a7b0b2f4f",
+      "inputs_used": "op=reverse, input=\"observability\", claimed=\"tyilibavresbo\"",
+      "computation": "reverse(\"observability\") = \"ytilibavresbo\"; claimed \"tyilibavresbo\"; claimed does not equal the transform",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-010",
+      "task_input_sha256": "35182b18837e193e441956bdc55e6df3840c024a38bd601d120d4b16d13f5ac9",
+      "inputs_used": "op=star_vowels, input=\"authorization\", claimed=\"**th*r*z*t*un\"",
+      "computation": "star_vowels(\"authorization\") = \"**th*r*z*t**n\"; claimed \"**th*r*z*t*un\"; claimed does not equal the transform",
+      "predicted_outcome": "fail",
+      "confidence": 0.97,
+      "confidence_basis": "transform executed with vowel set {a,e,i,o,u} per the stated rule; small residual convention risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-011",
+      "task_input_sha256": "d0fd1f245935377767a6c72b9215144a158ba7495b6381ede2095e2ec4a7a9fe",
+      "inputs_used": "op=sort_chars, input=\"validation\", claimed=\"adaiilnotv\"",
+      "computation": "sort_chars(\"validation\") = \"aadiilnotv\"; claimed \"adaiilnotv\"; claimed does not equal the transform",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-STRT-012",
+      "task_input_sha256": "ec089589626701d58a4af582191b042e998c2f3f01f6c15cd2d538ed8cc4c40e",
+      "inputs_used": "op=reverse, input=\"deployment\", claimed=\"ntemyolped\"",
+      "computation": "reverse(\"deployment\") = \"tnemyolped\"; claimed \"ntemyolped\"; claimed does not equal the transform",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "transform executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-001",
+      "task_input_sha256": "c4ae4da105c4a3d050fd471c361fd451c59ac9722da773ae5fefb3013ee3ee5a",
+      "inputs_used": "op=max, items=[17, 3, 91, 45, 62], claimed=91",
+      "computation": "max([17, 3, 91, 45, 62]) = 91; claimed 91; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-002",
+      "task_input_sha256": "dc5a925b492d4f833ca174f6aff831bb9f9eda99fbb3ffe38c03c747ea39e1e1",
+      "inputs_used": "op=min, items=[240, 118, 77, 305, 42], claimed=42",
+      "computation": "min([240, 118, 77, 305, 42]) = 42; claimed 42; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-003",
+      "task_input_sha256": "1b3f0b7f9447151f5c6fe7d54f735c6894a23ec0bd37b87c15c47ef7263693a9",
+      "inputs_used": "op=max, items=[1004, 1003, 1002, 1001], claimed=1004",
+      "computation": "max([1004, 1003, 1002, 1001]) = 1004; claimed 1004; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-004",
+      "task_input_sha256": "c3c917ed1bdad3547e1c02550f64b57f15e6b7284cd270cd0049bab6a8c8bc4d",
+      "inputs_used": "op=min, items=[-8, -3, -15, -1], claimed=-15",
+      "computation": "min([-8, -3, -15, -1]) = -15; claimed -15; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-005",
+      "task_input_sha256": "ba1d7f5a3fd2231db6d83bc0e72c21b7d61cc91cc58ddc328e62d4044b554a42",
+      "inputs_used": "op=max, items=[0, 0, 0, 7], claimed=7",
+      "computation": "max([0, 0, 0, 7]) = 7; claimed 7; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-006",
+      "task_input_sha256": "a06bfc8c8b0308b876bb0a04518c94e7f2e850dead08779b39084a5f370e33c3",
+      "inputs_used": "op=min, items=[512, 256, 1024, 128, 64, 32], claimed=32",
+      "computation": "min([512, 256, 1024, 128, 64, 32]) = 32; claimed 32; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-007",
+      "task_input_sha256": "bd47b265c582434d086bb3dfac16b8492bc4c0f40c9019408dd6eb43371b8106",
+      "inputs_used": "op=max, items=[67, 68], claimed=68",
+      "computation": "max([67, 68]) = 68; claimed 68; claimed equals the extremum",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-008",
+      "task_input_sha256": "330fe0f2965582bb7d7765ff5a7897445b77eb11ae8becfdac600b09b23dd0e6",
+      "inputs_used": "op=max, items=[1004, 1003, 1002, 1001], claimed=1003",
+      "computation": "max([1004, 1003, 1002, 1001]) = 1004; claimed 1003; claimed does not equal the extremum",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-009",
+      "task_input_sha256": "6d38c3b4215b02996469453df23e6879b8822ec59e86000a8ffe6d4e2065d34d",
+      "inputs_used": "op=min, items=[240, 118, 77, 305, 42], claimed=77",
+      "computation": "min([240, 118, 77, 305, 42]) = 42; claimed 77; claimed does not equal the extremum",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-010",
+      "task_input_sha256": "62f618acd9398ffe80f5003d20c764e27186be8a729a99ee5ca2e2926b4e2dec",
+      "inputs_used": "op=max, items=[17, 3, 91, 45, 62], claimed=62",
+      "computation": "max([17, 3, 91, 45, 62]) = 91; claimed 62; claimed does not equal the extremum",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-011",
+      "task_input_sha256": "eecd1bcbf4fe66364fce4cb29aca51ca389f1246afda9f3b4754d81a173083f6",
+      "inputs_used": "op=min, items=[-8, -3, -15, -1], claimed=-8",
+      "computation": "min([-8, -3, -15, -1]) = -15; claimed -8; claimed does not equal the extremum",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-MAXMIN-012",
+      "task_input_sha256": "621d3c807868d7b5b2b9b0c5a30c6fc755411fe9128990fee8350f99b813709c",
+      "inputs_used": "op=max, items=[67, 68], claimed=67",
+      "computation": "max([67, 68]) = 68; claimed 67; claimed does not equal the extremum",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "extremum executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-001",
+      "task_input_sha256": "045262ee527e6cd9cc0f7927f2e16bdee6f98640d0b5b61231cb24f4be1d84c0",
+      "inputs_used": "key=https_port, table={\"http_port\":8080,\"https_port\":8443,\"grpc_port\":9000}, claimed=8443",
+      "computation": "table[\"https_port\"] = 8443; claimed 8443; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-002",
+      "task_input_sha256": "936219d568712a1d0d5756049759016524ec5f451d7d8439d86d31df2e783b81",
+      "inputs_used": "key=replicas_worker, table={\"replicas_api\":6,\"replicas_worker\":12,\"replicas_frontend\":3}, claimed=12",
+      "computation": "table[\"replicas_worker\"] = 12; claimed 12; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-003",
+      "task_input_sha256": "e6a1bcf9c0cf33717e945b7ef1c8e50396a77de62583c94d28999a06f824fa73",
+      "inputs_used": "key=ttl_medium, table={\"ttl_short\":300,\"ttl_medium\":3600,\"ttl_long\":86400}, claimed=3600",
+      "computation": "table[\"ttl_medium\"] = 3600; claimed 3600; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-004",
+      "task_input_sha256": "299eae82e08134ea4a7187eebbea5e58812f4d06581e7bb4c711c91dda419e0f",
+      "inputs_used": "key=db_timeout_s, table={\"db_connections\":100,\"db_timeout_s\":30,\"db_pool_min\":10}, claimed=30",
+      "computation": "table[\"db_timeout_s\"] = 30; claimed 30; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-005",
+      "task_input_sha256": "149cd5edac360966b33f05cde1d32a8372d62cf0fb43af4879f69eb87afc7ebe",
+      "inputs_used": "key=queue_depth, table={\"batch_size\":128,\"queue_depth\":4096,\"workers\":32}, claimed=4096",
+      "computation": "table[\"queue_depth\"] = 4096; claimed 4096; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-006",
+      "task_input_sha256": "4df24e5f59fc7286b3774dc290ea59a6b804342f96ab45cfdc098035d6c1dc32",
+      "inputs_used": "key=memory_gb, table={\"cpu_limit\":4,\"memory_gb\":16,\"disk_gb\":512}, claimed=16",
+      "computation": "table[\"memory_gb\"] = 16; claimed 16; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-007",
+      "task_input_sha256": "3924505faf5f325f67dc831690dafa1420d587742cfa11f21bc1651c1fd86b65",
+      "inputs_used": "key=retry_backoff_s, table={\"retry_max\":5,\"retry_backoff_s\":15,\"retry_jitter_ms\":750}, claimed=15",
+      "computation": "table[\"retry_backoff_s\"] = 15; claimed 15; claimed equals the table value",
+      "predicted_outcome": "pass",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-008",
+      "task_input_sha256": "1806a570c04b30dcdd1601f85c9d465aa10f9cca24253c32207f3c5edef8b6ae",
+      "inputs_used": "key=grpc_port, table={\"http_port\":8080,\"https_port\":8443,\"grpc_port\":9000}, claimed=8080",
+      "computation": "table[\"grpc_port\"] = 9000; claimed 8080; claimed does not equal the table value",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-009",
+      "task_input_sha256": "c89b39f5ea7eb48c3e040492b0c905e1d372cd629bca5922573668ad9b565c6c",
+      "inputs_used": "key=replicas_api, table={\"replicas_api\":6,\"replicas_worker\":12,\"replicas_frontend\":3}, claimed=12",
+      "computation": "table[\"replicas_api\"] = 6; claimed 12; claimed does not equal the table value",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-010",
+      "task_input_sha256": "659e21bf858894f7cd65063effa5140ac4a8b46174a871f28747dd1181648848",
+      "inputs_used": "key=ttl_long, table={\"ttl_short\":300,\"ttl_medium\":3600,\"ttl_long\":86400}, claimed=300",
+      "computation": "table[\"ttl_long\"] = 86400; claimed 300; claimed does not equal the table value",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-011",
+      "task_input_sha256": "8e77cb3647df757b47e78c1b5c2e05d1443234f8ae79180172afff4f9062861b",
+      "inputs_used": "key=workers, table={\"batch_size\":128,\"queue_depth\":4096,\"workers\":32}, claimed=128",
+      "computation": "table[\"workers\"] = 32; claimed 128; claimed does not equal the table value",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-LOOKUP-012",
+      "task_input_sha256": "917595365806abcd915873e55b0caf78dd103e99a9d34e87d1d8d600346f253e",
+      "inputs_used": "key=retry_jitter_ms, table={\"retry_max\":5,\"retry_backoff_s\":15,\"retry_jitter_ms\":750}, claimed=5",
+      "computation": "table[\"retry_jitter_ms\"] = 750; claimed 5; claimed does not equal the table value",
+      "predicted_outcome": "fail",
+      "confidence": 0.99,
+      "confidence_basis": "table lookup executed in the run environment; single unambiguous rule",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-001",
+      "task_input_sha256": "78b93383c74a369548b82e576dce7b7efb1a9fddee12babd00ddc9822f71f191",
+      "inputs_used": "inputs=[\"Service inventory: checkout, auth, billing, notifications.\",\"Deployment region: eu-west-1.\"], cited_value=\"billing\"",
+      "computation": "cited value \"billing\" appears in the provided evidence lines",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-002",
+      "task_input_sha256": "2f53e54d667b45520200d1c85fa27975f2eadc437b7bd2c91fec4918f6e6ad32",
+      "inputs_used": "inputs=[\"Release train 2026.10 contains fixes F-101, F-102, F-103.\",\"No other fixes are included.\"], cited_value=\"F-103\"",
+      "computation": "cited value \"F-103\" appears in the provided evidence lines",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-003",
+      "task_input_sha256": "3d4f74826a53ddb1144dab9c9babd184ac452953874dd393ebf786fa88f882a7",
+      "inputs_used": "inputs=[\"Measured p95 latency for the search endpoint is 240 ms.\",\"Measurement window: last 7 days.\"], cited_value=\"240 ms\"",
+      "computation": "cited value \"240 ms\" appears in the provided evidence lines",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-004",
+      "task_input_sha256": "7ce192e8f34662e3d3791549124c9fe4d471f5aea8d8ea6a9e8e915b3a951f41",
+      "inputs_used": "inputs=[\"Supported Python versions: 3.11, 3.12, 3.13.\",\"Python 3.10 support was removed in release 2.0.\"], cited_value=\"3.12\"",
+      "computation": "cited value \"3.12\" appears in the provided evidence lines",
+      "predicted_outcome": "pass",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-005",
+      "task_input_sha256": "bad4038de49389077654ecffdce4d52ddb9d6b6305341a1bfa89a626124d5098",
+      "inputs_used": "inputs=[\"Service inventory: checkout, auth, billing, notifications.\",\"Deployment region: eu-west-1.\"], cited_value=\"audit\"",
+      "computation": "cited value \"audit\" is absent from the provided evidence lines",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-006",
+      "task_input_sha256": "42d96b7f544da561091ed2c72d76478f7103e51201f180430da2dab16d237271",
+      "inputs_used": "inputs=[\"Release train 2026.10 contains fixes F-101, F-102, F-103.\",\"No other fixes are included.\"], cited_value=\"F-201\"",
+      "computation": "cited value \"F-201\" is absent from the provided evidence lines",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-007",
+      "task_input_sha256": "c11d346eb634a68a21646f2280a3dd1d7036e0ff7ea94d8771e963c7edddb079",
+      "inputs_used": "inputs=[\"Measured p95 latency for the search endpoint is 240 ms.\",\"Measurement window: last 7 days.\"], cited_value=\"42 ms\"",
+      "computation": "cited value \"42 ms\" is absent from the provided evidence lines",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    },
+    {
+      "case_id": "CAP011-UNSUP-008",
+      "task_input_sha256": "4ed5ed0bacaf411950576a072efc209e69bcbd32e359129956263e7e1ad0970f",
+      "inputs_used": "inputs=[\"Supported Python versions: 3.11, 3.12, 3.13.\",\"Python 3.10 support was removed in release 2.0.\"], cited_value=\"3.14\"",
+      "computation": "cited value \"3.14\" is absent from the provided evidence lines",
+      "predicted_outcome": "fail",
+      "confidence": 0.98,
+      "confidence_basis": "substring support check executed against every provided evidence line; small residual boundary-semantics risk",
+      "review_gate_routed": false
+    }
+  ]
+}
