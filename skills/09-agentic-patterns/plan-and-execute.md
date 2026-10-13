@@ -87,3 +87,6 @@ print(result["final_answer"])
 | 2025-03 | v1 | Initial skill |
 | 2026-06 | v1.1 | Added prerequisites field (INITIATIVE-005) |
 | 2026-06-23 | v2 | Promoted version metadata from v1.2 to schema-compatible v2 after validation identified unsupported version value |
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
