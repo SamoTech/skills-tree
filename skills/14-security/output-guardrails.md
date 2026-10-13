@@ -6,6 +6,7 @@ stability: stable
 description: "Validate an agent's final response before returning it to the user."
 added: "2026-04"
 version: v2
+related: ["14-security"]
 ---
 
 # Output Guardrails
@@ -72,3 +73,6 @@ agent = Agent(
 
 ## Changelog
 - v2 (2026-04): Full expansion
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

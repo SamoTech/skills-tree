@@ -6,6 +6,7 @@ stability: stable
 description: "Configure Runner settings — max turns, hooks, tracing, and context — for multi-agent runs in the OpenAI Agents SDK."
 added: "2026-04"
 version: v2
+related: ["15-orchestration"]
 ---
 
 # Multi-Agent Run Config
@@ -64,3 +65,6 @@ result = Runner.run_sync(triage_agent, "Help me with billing.", run_config=confi
 
 ## Changelog
 - v2 (2026-04): Full expansion
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

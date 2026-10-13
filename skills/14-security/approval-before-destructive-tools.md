@@ -6,6 +6,7 @@ stability: stable
 description: "Require explicit human or automated approval before any agent executes an irreversible tool action."
 added: "2026-04"
 version: v2
+related: ["14-security"]
 ---
 
 # Approval Before Destructive Tools
@@ -63,3 +64,6 @@ def approval_middleware(tool_name: str, tool_args: dict) -> bool:
 
 ## Changelog
 - v2 (2026-04): Full expansion
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.

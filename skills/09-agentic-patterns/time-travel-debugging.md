@@ -101,3 +101,6 @@ The conceptual guarantees are checkpoint lookup, controlled state replay, and di
 - v2 (2026-04): Full expansion
 - v2.1 (2026-06): Added prerequisites field
 - v2 (2026-09-20): Added explicit I/O contract, diagnostic-fork protocol, reproducibility limits, security boundaries, and validation rules
+
+## Evidence
+The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence.
