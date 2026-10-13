@@ -1,6 +1,6 @@
 ---
 name: kanban-task-management
-description: Maintain a persistent, file-backed Kanban board as the shared source of task truth between a coding agent, its orchestrator, and a human reviewer: an explicit task lifecycle with receipted transitions, a blocked-by dependency DAG with a derived ready set, and a per-task merge gate whose completion evidence is verified before a task may be marked done.
+description: "Maintain a persistent, file-backed Kanban board as the shared source of task truth between a coding agent, its orchestrator, and a human reviewer: an explicit task lifecycle with receipted transitions, a blocked-by dependency DAG with a derived ready set, and a per-task merge gate whose completion evidence is verified before a task may be marked done."
 metadata:
   source: skills/15-orchestration/kanban-task-management.md
   category: 15-orchestration
