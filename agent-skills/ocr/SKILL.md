@@ -1,6 +1,6 @@
 ---
 name: ocr
-description: Extract text from images and scanned documents. Modern stack: a vision-language model (Claude / GPT-4o) for layout-aware OCR, with Tesseract as the open-source fallback for high-volume / offline runs.
+description: "Extract text from images and scanned documents. Modern stack: a vision-language model (Claude / GPT-4o) for layout-aware OCR, with Tesseract as the open-source fallback for high-volume / offline runs."
 metadata:
   source: skills/01-perception/ocr.md
   category: 01-perception
