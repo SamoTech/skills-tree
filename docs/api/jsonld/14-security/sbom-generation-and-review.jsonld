@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/sbom-generation-and-review.md",
+  "name": "SBOM Generation and Review",
+  "headline": "SBOM Generation and Review",
+  "description": "Generate and review software bills of materials for agent deployments and flag unvetted components.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/sbom-generation-and-review.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-12T22:25:58Z",
+  "skillId": "sbom-generation-and-review",
+  "skillVersion": "v1",
+  "skillLevel": "intermediate",
+  "skillStability": "experimental",
+  "categoryDir": "14-security",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Boundary",
+    "Evidence",
+    "Related"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, and, generation, review, sbom, security, skills tree",
+  "about": {
+    "@type": "Thing",
+    "name": "SBOM Generation and Review",
+    "description": "An AI agent skill for sbom generation and review."
+  }
+}

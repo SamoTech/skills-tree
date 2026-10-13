@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/ecommerce-product-categorization.md",
+  "name": "Ecommerce Product Categorization",
+  "headline": "Ecommerce Product Categorization",
+  "description": "Categorize products against a declared taxonomy with confidence scores and manual-review queues.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/ecommerce-product-categorization.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-12T22:25:58Z",
+  "skillId": "ecommerce-product-categorization",
+  "skillVersion": "v1",
+  "skillLevel": "intermediate",
+  "skillStability": "experimental",
+  "categoryDir": "16-domain-specific",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Boundary",
+    "Evidence",
+    "Related"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, categorization, domain, ecommerce, product, skills tree, specific",
+  "about": {
+    "@type": "Thing",
+    "name": "Ecommerce Product Categorization",
+    "description": "An AI agent skill for ecommerce product categorization."
+  }
+}

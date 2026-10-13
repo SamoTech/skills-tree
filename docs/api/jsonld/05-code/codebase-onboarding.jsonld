@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/codebase-onboarding.md",
+  "name": "Codebase Onboarding",
+  "headline": "Codebase Onboarding",
+  "description": "Build a working map of an unfamiliar codebase, including entry points, conventions, hot paths, and test layout, before making changes, using measured signals rather than guessing.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/codebase-onboarding.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-12T22:20:02Z",
+  "skillId": "codebase-onboarding",
+  "skillVersion": "v1",
+  "skillLevel": "intermediate",
+  "skillStability": "experimental",
+  "categoryDir": "05-code",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Boundary",
+    "Evidence",
+    "Related"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Intermediate",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, code, codebase, onboarding, skills tree",
+  "about": {
+    "@type": "Thing",
+    "name": "Codebase Onboarding",
+    "description": "An AI agent skill for codebase onboarding."
+  }
+}

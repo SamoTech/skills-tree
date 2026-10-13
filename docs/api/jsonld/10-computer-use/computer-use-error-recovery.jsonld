@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/computer-use-error-recovery.md",
+  "name": "Computer Use Error Recovery",
+  "headline": "Computer Use Error Recovery",
+  "description": "Recover desktop automation runs from failed clicks, stuck dialogs, and frozen windows with bounded retries and evidence.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/computer-use-error-recovery.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-12T22:23:37Z",
+  "skillId": "computer-use-error-recovery",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "10-computer-use",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Boundary",
+    "Evidence",
+    "Related"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, computer, error, recovery, skills tree, use",
+  "about": {
+    "@type": "Thing",
+    "name": "Computer Use Error Recovery",
+    "description": "An AI agent skill for computer use error recovery."
+  }
+}
