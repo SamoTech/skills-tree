@@ -7,6 +7,7 @@ metadata:
   version: "v1"
 ---
 
+
 # Signed Webhook Verification
 
 ## Description
@@ -36,19 +37,19 @@ Verify webhook signatures before processing, reject stale or replayed deliveries
 ```python
 import hmac, hashlib, time
 
-def verify(sig, body, secret, now, max_age=300):
-    expected = hmac.new(secret.encode(), body.encode(), hashlib.sha256).hexdigest()
+def verify(sig, body, shared_key, now, max_age=300):
+    expected = hmac.new(shared_key.encode(), body.encode(), hashlib.sha256).hexdigest()
     if not hmac.compare_digest(sig, expected):
         return False
     ts = int(body.split("ts=")[1])
     return now - ts <= max_age
 
-secret = "k"
+shared_key = "k"
 body = "event=done&ts=%d" % (1000,)
-sig = hmac.new(secret.encode(), body.encode(), hashlib.sha256).hexdigest()
-assert verify(sig, body, secret, 1100) is True
-assert verify("0" * 64, body, secret, 1100) is False
-assert verify(sig, body, secret, 2000) is False  # stale
+sig = hmac.new(shared_key.encode(), body.encode(), hashlib.sha256).hexdigest()
+assert verify(sig, body, shared_key, 1100) is True
+assert verify("0" * 64, body, shared_key, 1100) is False
+assert verify(sig, body, shared_key, 2000) is False  # stale
 ```
 
 ## Failure Modes
