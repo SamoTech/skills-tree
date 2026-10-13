@@ -133,3 +133,23 @@ description: "Whitespace."
     item = project(source, tmp_path)
     assert item.eligible
     assert all(not line.endswith(" ") for line in item.content.splitlines())
+
+def test_description_is_quoted_when_plain_scalar_unsafe(tmp_path):
+    source = write_skill(
+        tmp_path,
+        "01-test/colon-skill.md",
+        "---\ndescription: \"Use this: when a colon appears.\"\n---\n\n# Colon\n\n## Evidence\n\n- Evidence\n",
+    )
+    item = project(source, tmp_path)
+    assert item.eligible
+    assert 'description: "Use this: when a colon appears."' in item.content
+
+
+def test_description_plain_scalar_stays_unquoted(tmp_path):
+    source = write_skill(
+        tmp_path,
+        "01-test/plain-skill.md",
+        "---\ndescription: \"Plain and safe.\"\n---\n\n# Plain\n\n## Evidence\n\n- Evidence\n",
+    )
+    item = project(source, tmp_path)
+    assert "description: Plain and safe." in item.content

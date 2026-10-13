@@ -18,6 +18,21 @@ FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n?", re.DOTALL)
 PLACEHOLDER_RE = re.compile(r"(?i)^(stub|todo|tbd|placeholder|coming soon|add description)[.! ]*$")
 BADGE_RE = re.compile(r"\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)|!\[[^\]]*\]\([^)]*\)", re.I)
 
+# A description that would break a strict YAML plain scalar (": ", " #",
+# indicator characters, or an ambiguous bare keyword) is emitted as a
+# double-quoted scalar so every Agent Skills host parses it identically.
+PLAIN_UNSAFE_RE = re.compile(
+    r":[ \t]|:$|(^| )#|^[-?:,\[\]{}#&*!|>'\"%@`]|[\t\r\n]|^\s|\s$"
+    r"|^(?:true|false|null|yes|no|on|off)$|^[\d.]+$"
+)
+
+
+def format_description(value: str) -> str:
+    """Emit a YAML-safe description scalar, quoting only unsafe plain scalars."""
+    if value and not PLAIN_UNSAFE_RE.search(value):
+        return value
+    return json.dumps(value, ensure_ascii=False)
+
 
 @dataclass(frozen=True)
 class SkillProjection:
@@ -86,7 +101,7 @@ def project(source: Path, root: Path, name_override: str | None = None) -> Skill
     package = (
         "---\n"
         f"name: {name}\n"
-        f"description: {description}\n"
+        f"description: {format_description(description)}\n"
         "metadata:\n"
         f"  source: {source.relative_to(root).as_posix()}\n"
         f"  category: {category}\n"
