@@ -1,6 +1,6 @@
 ---
 name: terminal-multiplexer-automation
-description: Automate tmux and similar multiplexers: session creation, pane targeting, and output capture with explicit pane addressing.
+description: "Automate tmux and similar multiplexers: session creation, pane targeting, and output capture with explicit pane addressing."
 metadata:
   source: skills/10-computer-use/terminal-multiplexer-automation.md
   category: 10-computer-use
