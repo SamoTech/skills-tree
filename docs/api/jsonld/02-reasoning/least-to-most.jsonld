@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-16T12:44:01Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "least-to-most",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -66,7 +66,8 @@
     "Failure Modes",
     "Production Applications",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [
     "../09-agentic-patterns/cot.md",

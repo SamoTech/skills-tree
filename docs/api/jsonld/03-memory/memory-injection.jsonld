@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-24T23:34:43Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "memory-injection",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -68,7 +68,8 @@
     "Frameworks & Models",
     "Model Comparison",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [
     "../09-agentic-patterns/rag.md"

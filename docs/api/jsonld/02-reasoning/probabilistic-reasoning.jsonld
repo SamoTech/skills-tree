@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T07:42:27Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "probabilistic-reasoning",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -63,7 +63,8 @@
     "Example",
     "Failure Modes",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {

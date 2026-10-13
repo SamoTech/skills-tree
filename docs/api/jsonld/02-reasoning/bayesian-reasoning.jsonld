@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T08:03:27Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "bayesian-reasoning",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -69,7 +69,8 @@
     "Safety Boundaries",
     "Provenance",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {

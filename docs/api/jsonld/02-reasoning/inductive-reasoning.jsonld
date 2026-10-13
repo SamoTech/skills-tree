@@ -52,14 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T21:43:22Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "inductive-reasoning",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
-    "Failure Modes"
+    "Failure Modes",
+    "Evidence"
   ],
   "relatedSkills": [
     "../12-data/statistical-analysis.md"
