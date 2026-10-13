@@ -13,61 +13,61 @@
   "expected_calibration_error": 0.0124,
   "confidence_bin_reliability": [
     {
-      "bin": "[0.0,0.1)]",
+      "bin": "[0.0,0.1)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.1,0.2)]",
+      "bin": "[0.1,0.2)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.2,0.3)]",
+      "bin": "[0.2,0.3)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.3,0.4)]",
+      "bin": "[0.3,0.4)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.4,0.5)]",
+      "bin": "[0.4,0.5)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.5,0.6)]",
+      "bin": "[0.5,0.6)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.6,0.7)]",
+      "bin": "[0.6,0.7)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.7,0.8)]",
+      "bin": "[0.7,0.8)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.8,0.9)]",
+      "bin": "[0.8,0.9)",
       "count": 0,
       "mean_confidence": null,
       "correctness": null
     },
     {
-      "bin": "[0.9,1.0]]",
+      "bin": "[0.9,1.0]",
       "count": 100,
       "mean_confidence": 0.9876,
       "correctness": 1
