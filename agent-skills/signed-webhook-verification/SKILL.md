@@ -7,7 +7,6 @@ metadata:
   version: "v1"
 ---
 
-
 # Signed Webhook Verification
 
 ## Description
