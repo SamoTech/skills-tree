@@ -17,9 +17,6 @@ dependencies:
     min_version: "1.26.0"
     tested_version: "1.26.4"
     confidence: verified
-code_blocks:
-  - id: "example-memory-injection"
-    type: executable
 related: ["03-memory"]
 ---
 

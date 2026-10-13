@@ -17,9 +17,6 @@ dependencies:
     min_version: "1.26.0"
     tested_version: "2.0.0"
     confidence: verified
-code_blocks:
-  - id: "example-vector-retrieval"
-    type: executable
 related: ["03-memory"]
 ---
 

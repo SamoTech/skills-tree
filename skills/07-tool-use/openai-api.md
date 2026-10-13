@@ -17,9 +17,6 @@ dependencies:
     min_version: "2.0.0"
     tested_version: "2.13.0"
     confidence: verified
-code_blocks:
-  - id: "example-openai"
-    type: executable
 related: ["07-tool-use"]
 ---
 

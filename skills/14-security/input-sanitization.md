@@ -13,9 +13,6 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-input-sanitization"
-    type: executable
 related: ["14-security"]
 ---
 

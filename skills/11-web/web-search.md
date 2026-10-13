@@ -13,9 +13,6 @@ dependencies:
     min_version: "0.28.0"
     tested_version: "0.28.1"
     confidence: verified
-code_blocks:
-  - id: "example-web-search"
-    type: executable
 related: ["11-web"]
 ---
 

@@ -16,9 +16,6 @@ dependencies:
   - package: pydantic
     min_version: "2.5.0"
     confidence: verified
-code_blocks:
-  - id: "example-decomp"
-    type: executable
 related: ["02-reasoning"]
 ---
 

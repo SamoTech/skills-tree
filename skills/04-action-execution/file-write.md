@@ -8,9 +8,6 @@ added: "2025-03"
 version: v3
 tags: [filesystem, io, atomic, action]
 updated: "2026-04"
-code_blocks:
-  - id: "example-atomic-write"
-    type: executable
 related: ["04-action-execution"]
 ---
 

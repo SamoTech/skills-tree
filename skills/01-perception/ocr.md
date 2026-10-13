@@ -13,9 +13,6 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-ocr"
-    type: executable
 related: ["01-perception"]
 ---
 

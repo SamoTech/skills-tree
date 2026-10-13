@@ -21,9 +21,6 @@ dependencies:
     min_version: "1.12.0"
     tested_version: "1.12.2"
     confidence: verified
-code_blocks:
-  - id: "example-web-scraping"
-    type: executable
 related: ["11-web"]
 ---
 

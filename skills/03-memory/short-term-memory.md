@@ -12,9 +12,6 @@ dependencies:
   - package: tiktoken
     min_version: "0.7.0"
     confidence: verified
-code_blocks:
-  - id: "example-stm"
-    type: executable
 related: ["03-memory"]
 ---
 

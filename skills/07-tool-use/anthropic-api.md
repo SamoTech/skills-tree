@@ -13,9 +13,6 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-anthropic"
-    type: executable
 related: ["07-tool-use"]
 ---
 

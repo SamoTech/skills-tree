@@ -17,9 +17,6 @@ dependencies:
     min_version: "9.0.0"
     tested_version: "9.0.0"
     confidence: verified
-code_blocks:
-  - id: "example-http-request"
-    type: executable
 related: ["04-action-execution"]
 ---
 

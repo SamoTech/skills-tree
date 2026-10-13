@@ -13,9 +13,6 @@ dependencies:
     min_version: "0.39.0"
     tested_version: "0.39.0"
     confidence: verified
-code_blocks:
-  - id: "example-react-loop"
-    type: executable
 prerequisites:
   - 09-agentic-patterns/cot
 related: ["09-agentic-patterns"]
