@@ -1,6 +1,30 @@
-generated: '2026-10-13T13:20:47Z'
-count: 738
+generated: '2026-10-13T23:09:43Z'
+count: 888
 skills:
+- id: agent-card-parsing
+  path: skills/01-perception/agent-card-parsing.md
+  name: Agent Card Parsing
+  description: Parse A2A Agent Card JSON documents, validate required fields and capability
+    declarations, and surface malformed or inconsistent cards before they are trusted
+    for routing.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 01-perception
 - id: api-response-parsing
   path: skills/01-perception/api-response-parsing.md
   name: API Response Parsing
@@ -166,6 +190,30 @@ skills:
   - Evidence
   related: []
   category_dir: 01-perception
+- id: clickstream-parsing
+  path: skills/01-perception/clickstream-parsing.md
+  name: Clickstream Parsing
+  description: Parse clickstream and event-stream logs into ordered user sessions
+    with timestamps and event types, and flag malformed or out-of-order events instead
+    of dropping them silently.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 01-perception
 - id: code-reading
   path: skills/01-perception/code-reading.md
   name: Code Reading
@@ -312,6 +360,30 @@ skills:
   - Changelog
   related: []
   category_dir: 01-perception
+- id: document-ocr-preprocessing
+  path: skills/01-perception/document-ocr-preprocessing.md
+  name: Document OCR Preprocessing
+  description: Prepare scanned or photographed documents for OCR through deskewing,
+    binarization, and layout cleanup, and verify that preprocessing measurably improved
+    recognition before accepting it.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 01-perception
 - id: document-parsing
   path: skills/01-perception/document-parsing.md
   name: Document Parsing
@@ -354,6 +426,30 @@ skills:
   - Changelog
   - Failure Modes
   - Evidence
+  related: []
+  category_dir: 01-perception
+- id: emotional-tone-detection
+  path: skills/01-perception/emotional-tone-detection.md
+  name: Emotional Tone Detection
+  description: Estimate the emotional tone of text or transcribed speech with explicit
+    confidence and category boundaries, and decline single-label claims the evidence
+    cannot support.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 01-perception
 - id: env-file-parsing
@@ -545,6 +641,30 @@ skills:
   - Evidence
   related: []
   category_dir: 01-perception
+- id: incremental-json-parsing
+  path: skills/01-perception/incremental-json-parsing.md
+  name: Incremental JSON Parsing
+  description: Consume partially received or streamed JSON payloads from model and
+    tool APIs, extract only complete top-level values, and hold truncated fragments
+    until more data arrives.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 01-perception
 - id: intent-classification
   path: skills/01-perception/intent-classification.md
   name: Intent Classification
@@ -593,6 +713,30 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 01-perception
+- id: ip-geolocation-parsing
+  path: skills/01-perception/ip-geolocation-parsing.md
+  name: IP Geolocation Parsing
+  description: Resolve IP addresses to coarse location fields from offline databases
+    or API responses, record precision limits, and never present coarse geolocation
+    as an exact position.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 01-perception
 - id: json-schema-validation
@@ -746,6 +890,30 @@ skills:
   - Provenance
   - Changelog
   - Evidence
+  related: []
+  category_dir: 01-perception
+- id: mcp-tool-manifest-parsing
+  path: skills/01-perception/mcp-tool-manifest-parsing.md
+  name: MCP Tool Manifest Parsing
+  description: Read MCP server tool manifests, extract names, input schemas, and annotations,
+    and compare a live manifest against a pinned tool list before the client trusts
+    the server.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 01-perception
 - id: metadata-extraction
@@ -942,6 +1110,30 @@ skills:
   - Related
   related: []
   category_dir: 01-perception
+- id: protocol-buffer-parsing
+  path: skills/01-perception/protocol-buffer-parsing.md
+  name: Protocol Buffer Parsing
+  description: Decode length-delimited protobuf records from wire captures and gRPC
+    or A2A bindings into inspectable field sets without generated stubs, and flag
+    undecodable segments instead of guessing.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 01-perception
 - id: redacted-content-detection
   path: skills/01-perception/redacted-content-detection.md
   name: Redacted Content Detection
@@ -1104,6 +1296,30 @@ skills:
   - Related
   - Changelog
   - Evidence
+  related: []
+  category_dir: 01-perception
+- id: sse-parsing
+  path: skills/01-perception/sse-parsing.md
+  name: Server-Sent Events Parsing
+  description: Parse server-sent event streams from MCP Streamable HTTP and other
+    push endpoints, reassemble event ids and data frames, and handle reconnection
+    cursors deterministically.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 01-perception
 - id: streaming-asr-partial-parsing
@@ -1273,6 +1489,30 @@ skills:
   description: Decide when speech starts and ends in an audio stream using energy
     and spectral cues with hysteresis, so downstream actions fire on verified speech
     segments rather than background noise.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 01-perception
+- id: wake-word-detection
+  path: skills/01-perception/wake-word-detection.md
+  name: Wake Word Detection
+  description: Detect a configured wake phrase in an audio stream, gate downstream
+    transcription on the detection, and record confidence rather than treating every
+    match as intentional.
   category: perception
   level: advanced
   stability: experimental
@@ -1509,6 +1749,54 @@ skills:
   - Evidence
   related: []
   category_dir: 02-reasoning
+- id: bottleneck-analysis
+  path: skills/02-reasoning/bottleneck-analysis.md
+  name: Bottleneck Analysis
+  description: Locate the constraint that bounds a pipeline or workflow, quantify
+    its capacity relative to demand, and prioritize interventions by measured effect
+    rather than intuition.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
+- id: budget-aware-reasoning
+  path: skills/02-reasoning/budget-aware-reasoning.md
+  name: Budget-Aware Reasoning
+  description: Choose reasoning depth and verification effort under explicit time,
+    token, and cost budgets, and record when the budget forced a lower-confidence
+    answer.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
 - id: calibrated-forecast-reasoning
   path: skills/02-reasoning/calibrated-forecast-reasoning.md
   name: Calibrated Forecast Reasoning
@@ -1649,6 +1937,30 @@ skills:
   related:
   - ../03-memory/fact-verification.md
   category_dir: 02-reasoning
+- id: constraint-relaxation-reasoning
+  path: skills/02-reasoning/constraint-relaxation-reasoning.md
+  name: Constraint Relaxation Reasoning
+  description: Determine which constraints to relax when a problem is infeasible,
+    relax the minimum set with recorded justification, and re-check that remaining
+    constraints still hold.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
 - id: constraint-satisfaction
   path: skills/02-reasoning/constraint-satisfaction.md
   name: Constraint Satisfaction
@@ -1699,6 +2011,30 @@ skills:
   - Changelog
   related: []
   category_dir: 02-reasoning
+- id: counterfactual-explanation-generation
+  path: skills/02-reasoning/counterfactual-explanation-generation.md
+  name: Counterfactual Explanation Generation
+  description: Produce minimal-change explanations for a decision by identifying which
+    input changes would alter the outcome, and mark them as diagnostic rather than
+    causal proof.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
 - id: counterfactual-reasoning
   path: skills/02-reasoning/counterfactual-reasoning.md
   name: Counterfactual Reasoning
@@ -1721,6 +2057,30 @@ skills:
   - Evidence
   - Failure Modes
   - Evidence
+  related: []
+  category_dir: 02-reasoning
+- id: deadline-constraint-reasoning
+  path: skills/02-reasoning/deadline-constraint-reasoning.md
+  name: Deadline Constraint Reasoning
+  description: Reason about task feasibility and ordering under explicit deadlines,
+    propagate due dates through dependencies, and report infeasible schedules instead
+    of silently dropping constraints.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 02-reasoning
 - id: decision-making
@@ -1759,6 +2119,29 @@ skills:
   - Failure Modes
   - Related Skills
   - Evidence
+  related: []
+  category_dir: 02-reasoning
+- id: dynamic-replanning
+  path: skills/02-reasoning/dynamic-replanning.md
+  name: Dynamic Replanning
+  description: Detect when execution has diverged from the plan, decide between replanning
+    and continuing with recorded criteria, and preserve completed work during replanning.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 02-reasoning
 - id: ethical-reasoning
@@ -1857,6 +2240,30 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: goal-conflict-resolution
+  path: skills/02-reasoning/goal-conflict-resolution.md
+  name: Goal Conflict Resolution
+  description: Detect competing goals, rank them with explicit criteria and stakeholder
+    input where available, and document the resolution rationale instead of merging
+    incompatible goals.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 02-reasoning
 - id: goal-decomposition
@@ -1967,6 +2374,29 @@ skills:
   - ../09-agentic-patterns/cot.md
   - ../09-agentic-patterns/plan-and-execute.md
   category_dir: 02-reasoning
+- id: long-horizon-planning
+  path: skills/02-reasoning/long-horizon-planning.md
+  name: Long-Horizon Planning
+  description: Structure plans spanning many steps or long durations with staged checkpoints,
+    milestone verification, and re-planning triggers as conditions change.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
 - id: mathematical-reasoning
   path: skills/02-reasoning/mathematical-reasoning.md
   name: Mathematical Reasoning
@@ -2032,6 +2462,29 @@ skills:
   related:
   - ../09-agentic-patterns/react.md
   - ../09-agentic-patterns/reflection.md
+  category_dir: 02-reasoning
+- id: monte-carlo-estimation
+  path: skills/02-reasoning/monte-carlo-estimation.md
+  name: Monte-Carlo Estimation
+  description: Estimate uncertain quantities by bounded stochastic sampling with fixed
+    seeds, report interval estimates, and separate sampling error from model error.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
   category_dir: 02-reasoning
 - id: multi-objective-optimization
   path: skills/02-reasoning/multi-objective-optimization.md
@@ -2102,6 +2555,30 @@ skills:
   - Provenance
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: opportunity-cost-analysis
+  path: skills/02-reasoning/opportunity-cost-analysis.md
+  name: Opportunity Cost Analysis
+  description: Evaluate what a chosen course of action displaces, compare selected
+    and rejected alternatives on explicit criteria, and record the cost of the road
+    not taken.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 02-reasoning
 - id: pareto-analysis
@@ -2852,6 +3329,76 @@ skills:
   - Related
   related: []
   category_dir: 02-reasoning
+- id: verifiability-driven-planning
+  path: skills/02-reasoning/verifiability-driven-planning.md
+  name: Verifiability-Driven Planning
+  description: Decompose goals so each intermediate step has an objective check, prioritizing
+    plans whose progress can be verified over plans that only appear complete.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
+- id: weighted-scoring-model-design
+  path: skills/02-reasoning/weighted-scoring-model-design.md
+  name: Weighted Scoring Model Design
+  description: Build transparent weighted scoring for comparing options, justify weights
+    from evidence, and expose the model so a reviewer can recompute every ranking.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 02-reasoning
+- id: agent-memory-schema-design
+  path: skills/03-memory/agent-memory-schema-design.md
+  name: Agent Memory Schema Design
+  description: Design typed memory schemas with explicit fields, retention rules,
+    and provenance slots before storage, and reject writes that do not conform to
+    the declared schema.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
 - id: agent-sessions
   path: skills/03-memory/agent-sessions.md
   name: Agent Sessions
@@ -2980,6 +3527,29 @@ skills:
     than re-reading full history.
   category: memory
   level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
+- id: embedding-drift-detection
+  path: skills/03-memory/embedding-drift-detection.md
+  name: Embedding Drift Detection
+  description: Monitor embedding distributions for drift after model or corpus changes,
+    alert when drift exceeds a declared threshold, and avoid silent retrieval degradation.
+  category: memory
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -3180,6 +3750,29 @@ skills:
   - Related
   related: []
   category_dir: 03-memory
+- id: long-context-curation
+  path: skills/03-memory/long-context-curation.md
+  name: Long Context Curation
+  description: Select and order the subset of available context that fits a long-context
+    window while preserving required facts, and record what was excluded and why.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
 - id: long-term-memory
   path: skills/03-memory/long-term-memory.md
   name: Long-Term Memory
@@ -3201,6 +3794,29 @@ skills:
   - Provenance
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 03-memory
+- id: memory-access-auditing
+  path: skills/03-memory/memory-access-auditing.md
+  name: Memory Access Auditing
+  description: Log who read and wrote each memory record, make audit entries tamper-evident,
+    and surface unauthorized or unexpected access patterns for review.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 03-memory
 - id: memory-conflict-resolution
@@ -3252,6 +3868,30 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 03-memory
+- id: memory-graph-pruning
+  path: skills/03-memory/memory-graph-pruning.md
+  name: Memory Graph Pruning
+  description: Prune stale or low-value nodes and edges from a memory graph under
+    explicit retention rules, measure retrieval impact before and after, and keep
+    prune decisions reversible.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 03-memory
 - id: memory-indexing
@@ -3307,6 +3947,53 @@ skills:
   related:
   - ../09-agentic-patterns/rag.md
   category_dir: 03-memory
+- id: memory-integrity-checksums
+  path: skills/03-memory/memory-integrity-checksums.md
+  name: Memory Integrity Checksums
+  description: Attach verifiable checksums to memory records, detect tampering or
+    corruption on read, and fail closed when integrity verification fails.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
+- id: memory-poisoning-detection
+  path: skills/03-memory/memory-poisoning-detection.md
+  name: Memory Poisoning Detection
+  description: Detect injected or manipulated entries in agent long-term memory through
+    provenance checks and anomaly review, quarantine suspect entries, and fail closed
+    when provenance is missing.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
 - id: memory-provenance-tracking
   path: skills/03-memory/memory-provenance-tracking.md
   name: Memory Provenance Tracking
@@ -3336,6 +4023,30 @@ skills:
   name: Memory Quality Auditing
   description: Periodically audit stored memories for staleness, contradiction, duplication,
     and unsupported claims, and quarantine or repair failures with an audit trail.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
+- id: memory-redaction
+  path: skills/03-memory/memory-redaction.md
+  name: Memory Redaction
+  description: Remove secrets and personal data from memory before persistence or
+    sharing, verify removal with a second pass, and record what was redacted rather
+    than deleting silently.
   category: memory
   level: advanced
   stability: experimental
@@ -3589,6 +4300,29 @@ skills:
   - Changelog
   related: []
   category_dir: 03-memory
+- id: retrieval-freshness-scoring
+  path: skills/03-memory/retrieval-freshness-scoring.md
+  name: Retrieval Freshness Scoring
+  description: Score retrieved items by age and source update cadence, surface staleness
+    alongside relevance, and refuse to present stale evidence as current.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
 - id: retrieval-prefetching
   path: skills/03-memory/retrieval-prefetching.md
   name: Retrieval Prefetching
@@ -3620,6 +4354,30 @@ skills:
     evaluation.
   category: memory
   level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
+- id: retrieval-result-diversification
+  path: skills/03-memory/retrieval-result-diversification.md
+  name: Retrieval Result Diversification
+  description: Diversify retrieval results so near-duplicate passages do not dominate
+    context, with explicit similarity thresholds and a recorded tradeoff against pure
+    relevance.
+  category: memory
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -3684,6 +4442,29 @@ skills:
   - Related
   related: []
   category_dir: 03-memory
+- id: session-boundary-memory-merge
+  path: skills/03-memory/session-boundary-memory-merge.md
+  name: Session Boundary Memory Merge
+  description: Merge memory accumulated across session boundaries with conflict detection,
+    deduplicate near-identical entries, and preserve the provenance of merged facts.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 03-memory
 - id: short-term-memory
   path: skills/03-memory/short-term-memory.md
   name: Short-Term Memory
@@ -3707,6 +4488,30 @@ skills:
   - Related Skills
   - Changelog
   - Evidence
+  related: []
+  category_dir: 03-memory
+- id: state-snapshot-restore
+  path: skills/03-memory/state-snapshot-restore.md
+  name: State Snapshot Restore
+  description: Capture restorable snapshots of agent working state, verify snapshot
+    integrity before and after restore, and test restores instead of assuming they
+    will work.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 03-memory
 - id: user-profile-memory
@@ -3876,6 +4681,29 @@ skills:
   - Related
   related: []
   category_dir: 04-action-execution
+- id: action-journaling
+  path: skills/04-action-execution/action-journaling.md
+  name: Action Journaling
+  description: Record every action in a write-ahead journal with inputs, outputs,
+    and reversal notes, and use the journal to reconstruct or undo state after failures.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
 - id: action-precondition-checking
   path: skills/04-action-execution/action-precondition-checking.md
   name: Action Precondition Checking
@@ -3923,6 +4751,30 @@ skills:
   - Related
   related: []
   category_dir: 04-action-execution
+- id: agent-payment-initiation
+  path: skills/04-action-execution/agent-payment-initiation.md
+  name: Agent Payment Initiation
+  description: Initiate payments under explicit mandates with amount caps, idempotency
+    keys, and human approval above declared thresholds, and verify settlement state
+    before reporting success.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
 - id: api-call
   path: skills/04-action-execution/api-call.md
   name: API Call
@@ -3942,6 +4794,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 04-action-execution
+- id: archive-creation
+  path: skills/04-action-execution/archive-creation.md
+  name: Archive Creation
+  description: Create deterministic archives with reproducible metadata, verify content
+    checksums after creation, and refuse to report success without a tested extraction.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 04-action-execution
 - id: archive-extraction
@@ -4038,6 +4913,30 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 04-action-execution
+- id: bulk-api-batch-import
+  path: skills/04-action-execution/bulk-api-batch-import.md
+  name: Bulk API Batch Import
+  description: Import large record sets through batch APIs with chunk sizing, per-record
+    error capture, and resumable checkpoints so a failed run restarts without duplicating
+    writes.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 04-action-execution
 - id: bulk-file-renaming
@@ -4175,6 +5074,30 @@ skills:
   - Evidence
   related: []
   category_dir: 04-action-execution
+- id: docker-container-lifecycle-actions
+  path: skills/04-action-execution/docker-container-lifecycle-actions.md
+  name: Docker Container Lifecycle Actions
+  description: Start, stop, and inspect containers with declared resource limits and
+    health checks, verify state transitions, and never force-kill without a grace
+    path.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
 - id: drag-drop
   path: skills/04-action-execution/drag-drop.md
   name: Drag and Drop
@@ -4304,6 +5227,52 @@ skills:
   - Evidence
   related: []
   category_dir: 04-action-execution
+- id: file-permission-management
+  path: skills/04-action-execution/file-permission-management.md
+  name: File Permission Management
+  description: Set and verify filesystem permissions to least-privilege values, check
+    effective permissions after the change, and revert on partial failure.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
+- id: file-transfer-synchronization
+  path: skills/04-action-execution/file-transfer-synchronization.md
+  name: File Transfer Synchronization
+  description: Synchronize files between systems with checksum comparison, explicit
+    conflict policy, and a manifest so interrupted transfers resume without data loss.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
 - id: file-watch-automation
   path: skills/04-action-execution/file-watch-automation.md
   name: File Watch Automation
@@ -4370,6 +5339,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 04-action-execution
+- id: http-multipart-upload
+  path: skills/04-action-execution/http-multipart-upload.md
+  name: HTTP Multipart Upload
+  description: Upload files as multipart requests with streaming, checksum headers,
+    and resumable failure handling, and verify server-acknowledged bytes.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 04-action-execution
 - id: http-request
@@ -4473,6 +5465,52 @@ skills:
   - Related
   related: []
   category_dir: 04-action-execution
+- id: long-task-progress-reporting
+  path: skills/04-action-execution/long-task-progress-reporting.md
+  name: Long Task Progress Reporting
+  description: Report progress of long-running actions on a declared cadence with
+    measurable units, distinguish progress from completion, and escalate stalled work.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
+- id: message-queue-consuming
+  path: skills/04-action-execution/message-queue-consuming.md
+  name: Message Queue Consuming
+  description: Consume messages from queues with acknowledgment semantics, poison-message
+    handling, and at-least-once idempotency so replays cannot corrupt state.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
 - id: message-queue-publishing
   path: skills/04-action-execution/message-queue-publishing.md
   name: Message Queue Publishing
@@ -4536,6 +5574,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 04-action-execution
+- id: package-publishing-actions
+  path: skills/04-action-execution/package-publishing-actions.md
+  name: Package Publishing Actions
+  description: Publish packages to registries with version checks, provenance metadata,
+    and pre-publish verification, and refuse to overwrite an existing published version.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 04-action-execution
 - id: process-management
@@ -4674,6 +5735,122 @@ skills:
   - Evidence
   related: []
   category_dir: 04-action-execution
+- id: short-lived-credential-acquisition
+  path: skills/04-action-execution/short-lived-credential-acquisition.md
+  name: Short-Lived Credential Acquisition
+  description: Acquire short-lived credentials through the provider flow, verify scopes
+    and expiry before use, and fail closed rather than falling back to static keys.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
+- id: signed-webhook-verification
+  path: skills/04-action-execution/signed-webhook-verification.md
+  name: Signed Webhook Verification
+  description: Verify webhook signatures before processing, reject stale or replayed
+    deliveries, and process events idempotently after verification passes.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
+- id: spreadsheet-formula-writing
+  path: skills/04-action-execution/spreadsheet-formula-writing.md
+  name: Spreadsheet Formula Writing
+  description: Write and validate spreadsheet formulas with explicit cell references
+    and error handling, verify computed results against expected values, and avoid
+    volatile recomputation traps.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
+- id: ssh-remote-command-execution
+  path: skills/04-action-execution/ssh-remote-command-execution.md
+  name: SSH Remote Command Execution
+  description: Execute commands on remote hosts over SSH with explicit host keys,
+    non-interactive auth, timeout handling, and full stdout and stderr capture.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
+- id: throttled-request-batching
+  path: skills/04-action-execution/throttled-request-batching.md
+  name: Throttled Request Batching
+  description: Batch outbound requests under provider rate limits with measured retry-after
+    compliance, and defer or shed work explicitly instead of retrying blindly.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 04-action-execution
 - id: wait-sleep
   path: skills/04-action-execution/wait-sleep.md
   name: Wait Sleep
@@ -4785,6 +5962,52 @@ skills:
   - Evidence
   related: []
   category_dir: 05-code
+- id: build-cache-optimization
+  path: skills/05-code/build-cache-optimization.md
+  name: Build Cache Optimization
+  description: Reduce continuous integration time by restoring, keying, and pruning
+    build caches correctly across runs.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
+- id: call-graph-construction
+  path: skills/05-code/call-graph-construction.md
+  name: Call Graph Construction
+  description: Build a static call graph of a codebase and use it to scope change
+    impact before editing shared functions.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: ci-failure-triage
   path: skills/05-code/ci-failure-triage.md
   name: CI Failure Triage
@@ -4894,6 +6117,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 05-code
+- id: code-freeze-management
+  path: skills/05-code/code-freeze-management.md
+  name: Code Freeze Management
+  description: Manage code freeze windows with explicit exception criteria, recorded
+    approvals, and an auditable list of frozen paths.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 05-code
 - id: code-fuzzing
@@ -5075,6 +6321,52 @@ skills:
   - Related
   related: []
   category_dir: 05-code
+- id: coding-agent-git-config-hardening
+  path: skills/05-code/coding-agent-git-config-hardening.md
+  name: Coding Agent Git Config Hardening
+  description: Audit and constrain git configuration used by coding agents so automated
+    commits cannot be silently redirected through altered settings.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
+- id: crash-loop-detection
+  path: skills/05-code/crash-loop-detection.md
+  name: Crash Loop Detection
+  description: Detect repeated crash signatures across process restarts and stop the
+    loop by flagging instead of restarting forever.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: database-migration-writing
   path: skills/05-code/database-migration-writing.md
   name: Database Migration Writing
@@ -5124,6 +6416,29 @@ skills:
   - ../../AI_CONSTITUTION.md
   - ../../meta/AGENT_OPERATING_MODEL.md
   category_dir: 05-code
+- id: dead-code-elimination-verification
+  path: skills/05-code/dead-code-elimination-verification.md
+  name: Dead Code Elimination Verification
+  description: Verify that code flagged as unused is truly unreferenced across reflection
+    and dynamic dispatch before deletion.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: debugging
   path: skills/05-code/debugging.md
   name: debugging
@@ -5143,6 +6458,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 05-code
+- id: declarative-agent-configuration
+  path: skills/05-code/declarative-agent-configuration.md
+  name: Declarative Agent Configuration
+  description: Define agent behavior in declarative configuration files with schema
+    validation, and refuse to start the agent when the configuration cannot be validated.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 05-code
 - id: dependency-auditor
@@ -5459,6 +6797,29 @@ skills:
   - Changelog
   related: []
   category_dir: 05-code
+- id: n-plus-one-query-detection
+  path: skills/05-code/n-plus-one-query-detection.md
+  name: N Plus One Query Detection
+  description: Detect query loops that issue one request per item, and rewrite them
+    into batched access with a measured request-count check.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: observability-instrumentation
   path: skills/05-code/observability-instrumentation.md
   name: Observability Instrumentation
@@ -5531,6 +6892,29 @@ skills:
   related:
   - ../04-action-execution/assertion.md
   category_dir: 05-code
+- id: protocol-schema-codegen
+  path: skills/05-code/protocol-schema-codegen.md
+  name: Protocol Schema Codegen
+  description: Generate typed client bindings from protocol schemas with pinned schema
+    versions, and verify round-trip serialization against the source schema.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: refactoring
   path: skills/05-code/refactoring.md
   name: refactoring
@@ -5601,6 +6985,29 @@ skills:
     it, and report uncovered or ambiguous requirements before sign-off.
   category: code
   level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
+- id: review-comment-resolution-planning
+  path: skills/05-code/review-comment-resolution-planning.md
+  name: Review Comment Resolution Planning
+  description: Turn code review comments into a tracked resolution plan with explicit
+    accept, reject, and defer decisions recorded per comment.
+  category: code
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -5759,6 +7166,29 @@ skills:
   - Changelog
   related: []
   category_dir: 05-code
+- id: system-prompt-refactoring
+  path: skills/05-code/system-prompt-refactoring.md
+  name: System Prompt Refactoring
+  description: Refactor system prompts with behavior-preserving edits and regression
+    checks so prompt changes do not silently alter outputs.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: test-flakiness-diagnosis
   path: skills/05-code/test-flakiness-diagnosis.md
   name: Test Flakiness Diagnosis
@@ -5783,12 +7213,81 @@ skills:
   - Related
   related: []
   category_dir: 05-code
+- id: test-snapshot-updating
+  path: skills/05-code/test-snapshot-updating.md
+  name: Test Snapshot Updating
+  description: Update test snapshots only after a reviewed diff, and never let a snapshot
+    refresh mask an unintended behavior change.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
+- id: trace-driven-test-generation
+  path: skills/05-code/trace-driven-test-generation.md
+  name: Trace Driven Test Generation
+  description: Derive regression tests from recorded execution traces so real failure
+    paths are covered instead of invented happy paths.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
 - id: type-annotation-generation
   path: skills/05-code/type-annotation-generation.md
   name: Type Annotation Generation
   description: Generate or complete type annotations that match runtime behavior,
     verifying each annotation against the code actual call sites rather than annotating
     blindly.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 05-code
+- id: type-error-triage
+  path: skills/05-code/type-error-triage.md
+  name: Type Error Triage
+  description: Classify static type errors by root cause and fix order so large type-error
+    backlogs shrink by cause rather than by file.
   category: code
   level: advanced
   stability: experimental
@@ -6014,6 +7513,29 @@ skills:
   - Related
   related: []
   category_dir: 06-communication
+- id: cross-timezone-async-communication
+  path: skills/06-communication/cross-timezone-async-communication.md
+  name: Cross Timezone Async Communication
+  description: Write asynchronous updates across timezones with explicit deadlines
+    in named zones, decision deadlines, and no-meeting-required formats.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
 - id: debate
   path: skills/06-communication/debate.md
   name: debate
@@ -6037,6 +7559,29 @@ skills:
   - Related
   related: []
   category_dir: 06-communication
+- id: developer-forum-answer-writing
+  path: skills/06-communication/developer-forum-answer-writing.md
+  name: Developer Forum Answer Writing
+  description: Write forum answers that restate the problem, give a verified solution
+    with steps, state limitations, and link sources.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
 - id: email-drafting
   path: skills/06-communication/email-drafting.md
   name: email-drafting
@@ -6056,6 +7601,29 @@ skills:
   - Runnable Example
   - Failure Modes
   - Safety Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
+- id: escalation-memo-writing
+  path: skills/06-communication/escalation-memo-writing.md
+  name: Escalation Memo Writing
+  description: Write escalation memos that state the blocked decision, options considered,
+    the decision needed, and a response deadline without emotional framing.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -6106,6 +7674,29 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 06-communication
+- id: glossary-maintenance
+  path: skills/06-communication/glossary-maintenance.md
+  name: Glossary Maintenance
+  description: Maintain a term glossary with one canonical definition per term, owner,
+    review dates, and conflict checks so vocabulary stays consistent across documents.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 06-communication
 - id: incident-communication
@@ -6206,6 +7797,29 @@ skills:
   - Changelog
   related: []
   category_dir: 06-communication
+- id: migration-communication-writing
+  path: skills/06-communication/migration-communication-writing.md
+  name: Migration Communication Writing
+  description: Write migration communications that state what changes, who is affected,
+    when, what action is required, and where to get help.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
 - id: multilingual-output
   path: skills/06-communication/multilingual-output.md
   name: multilingual-output
@@ -6262,6 +7876,29 @@ skills:
     change quickly, with verified commands and explicitly marked assumptions.
   category: communication
   level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
+- id: org-wide-announcement-writing
+  path: skills/06-communication/org-wide-announcement-writing.md
+  name: Org Wide Announcement Writing
+  description: Write organization-wide announcements with a single headline change,
+    affected groups, required actions, and a question channel routed to owners.
+  category: communication
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -6348,6 +7985,29 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 06-communication
+- id: press-statement-drafting
+  path: skills/06-communication/press-statement-drafting.md
+  name: Press Statement Drafting
+  description: Draft external statements with verified facts only, a single approved
+    quote, and a defined holding line for unverified questions.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 06-communication
 - id: question-answering
@@ -6442,6 +8102,29 @@ skills:
   - Related
   related: []
   category_dir: 06-communication
+- id: requirement-elicitation-interviewing
+  path: skills/06-communication/requirement-elicitation-interviewing.md
+  name: Requirement Elicitation Interviewing
+  description: Run requirement interviews with prepared question ladders, recorded
+    answers, and explicit confirmation of each elicited requirement.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
 - id: response-template-design
   path: skills/06-communication/response-template-design.md
   name: Response Template Design
@@ -6465,11 +8148,104 @@ skills:
   - Related
   related: []
   category_dir: 06-communication
+- id: rtl-language-output-handling
+  path: skills/06-communication/rtl-language-output-handling.md
+  name: RTL Language Output Handling
+  description: Produce right-to-left language text with correct direction metadata,
+    punctuation placement, and mixed-script handling so readers see correctly ordered
+    text.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
+- id: screen-reader-friendly-markdown
+  path: skills/06-communication/screen-reader-friendly-markdown.md
+  name: Screen Reader Friendly Markdown
+  description: Write markdown that screen readers announce cleanly by using correct
+    heading levels, alt text, and table semantics with no layout-only markup.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
+- id: service-recovery-communication
+  path: skills/06-communication/service-recovery-communication.md
+  name: Service Recovery Communication
+  description: Write post-incident recovery messages that acknowledge impact, state
+    remediation honestly, and commit to verified follow-ups.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
 - id: stakeholder-status-updates
   path: skills/06-communication/stakeholder-status-updates.md
   name: Stakeholder Status Updates
   description: Write concise progress updates for stakeholders that state what changed,
     what is next, and what is blocked, with evidence links and no status inflation.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 06-communication
+- id: structured-handoff-briefing
+  path: skills/06-communication/structured-handoff-briefing.md
+  name: Structured Handoff Briefing
+  description: Write handoff briefings in a fixed structure covering state, open risks,
+    decisions made, and next actions so a receiver can continue without rework.
   category: communication
   level: advanced
   stability: experimental
@@ -6628,6 +8404,29 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: a2a-signed-agent-card-verification
+  path: skills/07-tool-use/a2a-signed-agent-card-verification.md
+  name: A2A Signed Agent Card Verification
+  description: Verify signed A2A Agent Cards by checking the signature against a trusted
+    key set, freshness window, and capability claims before routing work.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: a2a-tool
   path: skills/07-tool-use/a2a-tool.md
   name: a2a-tool
@@ -6647,6 +8446,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 07-tool-use
+- id: agent-client-protocol-usage
+  path: skills/07-tool-use/agent-client-protocol-usage.md
+  name: Agent Client Protocol Usage
+  description: Use agent-client protocols to expose editor integrations with declared
+    modes, workspace scopes, and consent boundaries.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 07-tool-use
 - id: anthropic-api
@@ -6790,6 +8612,52 @@ skills:
   - Evidence
   related: []
   category_dir: 07-tool-use
+- id: composite-tool-composition
+  path: skills/07-tool-use/composite-tool-composition.md
+  name: Composite Tool Composition
+  description: Compose composite tools from primitive ones with declared data flow,
+    failure semantics, and per-step output validation.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
+- id: cron-expression-authoring
+  path: skills/07-tool-use/cron-expression-authoring.md
+  name: Cron Expression Authoring
+  description: Author and verify cron expressions by expanding them into concrete
+    fire times so schedules are reviewed against actual dates.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: custom-api-wrapper
   path: skills/07-tool-use/custom-api-wrapper.md
   name: custom-api-wrapper
@@ -6830,6 +8698,29 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 07-tool-use
+- id: free-busy-availability-querying
+  path: skills/07-tool-use/free-busy-availability-querying.md
+  name: Free Busy Availability Querying
+  description: Query free-busy information with least-privilege scopes, minimal time
+    windows, and aggregate-only reporting so individual calendars stay private.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 07-tool-use
 - id: function-calling
@@ -6962,6 +8853,29 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: kubernetes-api-interaction
+  path: skills/07-tool-use/kubernetes-api-interaction.md
+  name: Kubernetes API Interaction
+  description: Interact with the Kubernetes API through declared resource contracts,
+    field validation, and dry-run server-side checks before applying changes.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: linear-api
   path: skills/07-tool-use/linear-api.md
   name: Linear API
@@ -7004,6 +8918,29 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: mcp-app-authoring
+  path: skills/07-tool-use/mcp-app-authoring.md
+  name: MCP App Authoring
+  description: Author MCP apps that expose UI surfaces with declared manifests, capability
+    scopes, and tested launch paths instead of raw tool dumps.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: mcp-extensions-authoring
   path: skills/07-tool-use/mcp-extensions-authoring.md
   name: MCP Extensions Authoring
@@ -7028,12 +8965,82 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: mcp-registry-curation
+  path: skills/07-tool-use/mcp-registry-curation.md
+  name: MCP Registry Curation
+  description: Curate server registries with health checks, capability vetting, and
+    provenance records so teams install servers from a maintained allowlist.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: mcp-server-lifecycle-management
   path: skills/07-tool-use/mcp-server-lifecycle-management.md
   name: MCP Server Lifecycle Management
   description: Register, start, stop, update, and remove MCP servers for an agent
     with declared transports, health checks, and version pins instead of ad-hoc configuration
     edits.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
+- id: mcp-tasks-extension-usage
+  path: skills/07-tool-use/mcp-tasks-extension-usage.md
+  name: MCP Tasks Extension Usage
+  description: Use long-running task handles from the MCP Tasks extension with polling
+    budgets, cancellation, and result verification so remote work is not left running
+    unbounded.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
+- id: mcp-tool-list-pinning
+  path: skills/07-tool-use/mcp-tool-list-pinning.md
+  name: MCP Tool List Pinning
+  description: Pin and verify the exact tool list a client loaded from an MCP server
+    so mid-session tool changes are detected instead of silently trusted.
   category: tool-use
   level: advanced
   stability: experimental
@@ -7209,6 +9216,29 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: search-federation-tooling
+  path: skills/07-tool-use/search-federation-tooling.md
+  name: Search Federation Tooling
+  description: Federate searches across multiple providers with per-provider timeouts,
+    result merging rules, and provenance on every returned item.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: sendgrid-api
   path: skills/07-tool-use/sendgrid-api.md
   name: SendGrid API
@@ -7247,6 +9277,29 @@ skills:
   - Inputs / outputs / failure modes
   - Runnable Example
   - Failure modes
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
+- id: small-model-tool-routing
+  path: skills/07-tool-use/small-model-tool-routing.md
+  name: Small Model Tool Routing
+  description: Route tool calls between small and large models by call complexity,
+    with fallback to the large model whenever confidence criteria are not met.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -7348,6 +9401,29 @@ skills:
   description: Test third-party tools against their declared behavior contracts, including
     schemas, side effects, latency, and error semantics, before relying on them in
     production flows.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
+- id: tool-call-trace-capture
+  path: skills/07-tool-use/tool-call-trace-capture.md
+  name: Tool Call Trace Capture
+  description: Capture structured tool call traces with arguments, results, timing,
+    and truncation flags so failures can be replayed and audited.
   category: tool-use
   level: advanced
   stability: experimental
@@ -7694,6 +9770,29 @@ skills:
   - Related
   related: []
   category_dir: 07-tool-use
+- id: webmcp-page-tool-exposure
+  path: skills/07-tool-use/webmcp-page-tool-exposure.md
+  name: WebMCP Page Tool Exposure
+  description: Expose page capabilities as WebMCP tools with declared permissions,
+    origin scoping, and user-consent gating so pages can serve agents safely.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 07-tool-use
 - id: websocket-communication
   path: skills/07-tool-use/websocket-communication.md
   name: WebSocket Communication
@@ -7884,6 +9983,75 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 08-multimodal
+- id: audio-dubbing-alignment
+  path: skills/08-multimodal/audio-dubbing-alignment.md
+  name: Audio Dubbing Alignment
+  description: Align dubbed audio to source speech with per-utterance timing tolerance,
+    voice-match checks, and acceptance gates so dubbing stays in sync.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
+- id: audio-event-detection
+  path: skills/08-multimodal/audio-event-detection.md
+  name: Audio Event Detection
+  description: Detect discrete audio events with onset windows, confidence thresholds,
+    and per-event timestamps so long recordings yield structured event lists.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
+- id: audio-highlight-extraction
+  path: skills/08-multimodal/audio-highlight-extraction.md
+  name: Audio Highlight Extraction
+  description: Extract highlight segments from long audio using energy, speaker-turn,
+    and semantic markers with minimum segment checks and replay verification.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 08-multimodal
 - id: audio-mixing
@@ -8096,6 +10264,29 @@ skills:
   - Related
   related: []
   category_dir: 08-multimodal
+- id: image-composition-control
+  path: skills/08-multimodal/image-composition-control.md
+  name: Image Composition Control
+  description: Generate images with declared composition constraints such as subject
+    placement, horizon level, and depth cues, verified against the rendered output.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
 - id: image-editing
   path: skills/08-multimodal/image-editing.md
   name: image-editing
@@ -8138,6 +10329,30 @@ skills:
   - Runnable Example
   - Failure Modes
   - Safety Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
+- id: image-inpainting
+  path: skills/08-multimodal/image-inpainting.md
+  name: Image Inpainting
+  description: Fill masked image regions with content constrained by a declared mask
+    inventory, edge continuity checks, and provenance records when inpainting is used
+    at all.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -8312,6 +10527,53 @@ skills:
   - Related
   related: []
   category_dir: 08-multimodal
+- id: sheet-music-ocr
+  path: skills/08-multimodal/sheet-music-ocr.md
+  name: Sheet Music OCR
+  description: Recognize printed sheet music into structured notation with symbol
+    validation, key-signature checks, and pitch-range verification before export to
+    symbolic formats.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
+- id: singing-transcription
+  path: skills/08-multimodal/singing-transcription.md
+  name: Singing Transcription
+  description: Transcribe sung audio into note-level pitch, timing, and lyric alignment
+    with syllable checks and confidence gating per note.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
 - id: speech-noise-suppression
   path: skills/08-multimodal/speech-noise-suppression.md
   name: Speech Noise Suppression
@@ -8342,6 +10604,29 @@ skills:
     composition, and licensing constraints, and check outputs against the stated constraints.
   category: multimodal
   level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
+- id: subject-consistency-image-generation
+  path: skills/08-multimodal/subject-consistency-image-generation.md
+  name: Subject Consistency Image Generation
+  description: Generate a consistent subject across multiple images using reference
+    conditioning, feature distance checks, and rejection of inconsistent renders.
+  category: multimodal
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -8433,6 +10718,29 @@ skills:
   - Changelog
   related: []
   category_dir: 08-multimodal
+- id: ui-screencast-analysis
+  path: skills/08-multimodal/ui-screencast-analysis.md
+  name: UI Screencast Analysis
+  description: Analyze UI screencasts into step-by-step interaction sequences with
+    frame timestamps, UI element references, and verification of each observed transition.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
 - id: video-description
   path: skills/08-multimodal/video-description.md
   name: video-description
@@ -8484,6 +10792,29 @@ skills:
   name: Video Highlight Detection
   description: Locate the most relevant segments of a video for a stated purpose using
     transcript and visual signals, returning timestamps with evidence.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 08-multimodal
+- id: video-object-tracking
+  path: skills/08-multimodal/video-object-tracking.md
+  name: Video Object Tracking
+  description: Track objects across video frames with re-detection on drift, identity
+    stability checks, and confidence gates before reporting trajectories.
   category: multimodal
   level: advanced
   stability: experimental
@@ -8668,6 +10999,29 @@ skills:
   - Related
   related: []
   category_dir: 09-agentic-patterns
+- id: agent-eval-regression-gates
+  path: skills/09-agentic-patterns/agent-eval-regression-gates.md
+  name: Agent Eval Regression Gates
+  description: Run a fixed evaluation suite on every agent or prompt change and block
+    promotion when pass rates regress against the recorded baseline.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: agent-failure-taxonomy
   path: skills/09-agentic-patterns/agent-failure-taxonomy.md
   name: Agent Failure Taxonomy
@@ -8809,6 +11163,52 @@ skills:
   - Related
   related: []
   category_dir: 09-agentic-patterns
+- id: agent-reputation-scoring
+  path: skills/09-agentic-patterns/agent-reputation-scoring.md
+  name: Agent Reputation Scoring
+  description: Score and rank peer agents from recorded task outcomes so delegation
+    and routing decisions use measured reliability rather than claims.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
+- id: agent-turn-budget-pacing
+  path: skills/09-agentic-patterns/agent-turn-budget-pacing.md
+  name: Agent Turn Budget Pacing
+  description: Pace an agent turn budget against milestones so early over-spending
+    is caught and corrected before the budget is exhausted.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: agentic-rag
   path: skills/09-agentic-patterns/agentic-rag.md
   name: Agentic RAG
@@ -8846,6 +11246,29 @@ skills:
     provenance:
       source_type: repository
       source: skills/09-agentic-patterns/agentic-rag.md
+- id: approach-diversification-strategies
+  path: skills/09-agentic-patterns/approach-diversification-strategies.md
+  name: Approach Diversification Strategies
+  description: Force genuinely different solution approaches before committing, and
+    reject near-identical candidates dressed up as diversity.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: approval-gates
   path: skills/09-agentic-patterns/approval-gates.md
   name: Approval Gates
@@ -8964,6 +11387,29 @@ skills:
   - Related
   related: []
   category_dir: 09-agentic-patterns
+- id: context-engineering
+  path: skills/09-agentic-patterns/context-engineering.md
+  name: Context Engineering
+  description: Assemble and prune model context deliberately by selecting, ordering,
+    and budgeting content instead of stuffing every available input.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: cot
   path: skills/09-agentic-patterns/cot.md
   name: Chain of Thought (CoT)
@@ -9042,6 +11488,52 @@ skills:
   - Procedure
   - Runnable Example
   - Failure Modes
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
+- id: definition-of-done-enforcement
+  path: skills/09-agentic-patterns/definition-of-done-enforcement.md
+  name: Definition of Done Enforcement
+  description: Encode a task definition of done as checkable criteria and refuse completion
+    claims until every criterion passes with recorded evidence.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
+- id: exploration-exploitation-balancing
+  path: skills/09-agentic-patterns/exploration-exploitation-balancing.md
+  name: Exploration-Exploitation Balancing
+  description: Allocate agent effort between trying untested approaches and exploiting
+    known-good ones using an explicit recorded policy.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -9138,6 +11630,29 @@ skills:
   - Related
   related: []
   category_dir: 09-agentic-patterns
+- id: llm-judge-calibration
+  path: skills/09-agentic-patterns/llm-judge-calibration.md
+  name: LLM Judge Calibration
+  description: Calibrate a model used as an evaluator against a labeled reference
+    set, measure agreement and bias, and gate its verdicts on measured reliability.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: mcts
   path: skills/09-agentic-patterns/mcts.md
   name: mcts
@@ -9182,6 +11697,29 @@ skills:
   - Related
   related: []
   category_dir: 09-agentic-patterns
+- id: milestone-commitment-tracking
+  path: skills/09-agentic-patterns/milestone-commitment-tracking.md
+  name: Milestone Commitment Tracking
+  description: Record the concrete commitments an agent makes mid-task, track each
+    against deadlines and acceptance criteria, and escalate on breach.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: mixture-of-agents
   path: skills/09-agentic-patterns/mixture-of-agents.md
   name: mixture-of-agents
@@ -9200,6 +11738,29 @@ skills:
   - Procedure
   - Runnable Example
   - Failure Modes
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
+- id: plan-adherence-evaluation
+  path: skills/09-agentic-patterns/plan-adherence-evaluation.md
+  name: Plan Adherence Evaluation
+  description: Measure how faithfully an executed trajectory followed the approved
+    plan and report deviations with evidence instead of judging by outcome alone.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -9249,6 +11810,29 @@ skills:
   - ../15-orchestration/budget-management.md
   - ../03-memory/context-compaction.md
   - ../03-memory/progressive-skill-loading.md
+  category_dir: 09-agentic-patterns
+- id: prompt-prefix-stability-design
+  path: skills/09-agentic-patterns/prompt-prefix-stability-design.md
+  name: Prompt Prefix Stability Design
+  description: Design prompts so a stable prefix is cached and versioned separately
+    from variable content, with regression checks when the prefix changes.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
   category_dir: 09-agentic-patterns
 - id: prompt-version-control
   path: skills/09-agentic-patterns/prompt-version-control.md
@@ -9423,6 +12007,52 @@ skills:
   - Related
   related: []
   category_dir: 09-agentic-patterns
+- id: simulated-user-evaluation
+  path: skills/09-agentic-patterns/simulated-user-evaluation.md
+  name: Simulated User Evaluation
+  description: Evaluate a conversational agent against scripted simulated users with
+    recorded goals so dialogue regressions are caught before deployment.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
+- id: skill-composition-chaining
+  path: skills/09-agentic-patterns/skill-composition-chaining.md
+  name: Skill Composition Chaining
+  description: Chain multiple existing skills into a composed workflow with explicit
+    handoffs, preconditions, and rollback points instead of one monolithic procedure.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 09-agentic-patterns
 - id: skill-gap-detection
   path: skills/09-agentic-patterns/skill-gap-detection.md
   name: Skill Gap Detection
@@ -9476,6 +12106,29 @@ skills:
   - ../14-security/agent-skill-security-audit.md
   - ../15-orchestration/capability-based-skill-selection.md
   - ../15-orchestration/evidence-verification.md
+  category_dir: 09-agentic-patterns
+- id: stuck-loop-detection
+  path: skills/09-agentic-patterns/stuck-loop-detection.md
+  name: Stuck Loop Detection
+  description: Detect when an agent repeats the same failing action or state without
+    progress and force a strategy change instead of another retry.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
   category_dir: 09-agentic-patterns
 - id: subagent-delegation
   path: skills/09-agentic-patterns/subagent-delegation.md
@@ -9665,6 +12318,29 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: adb-device-automation
+  path: skills/10-computer-use/adb-device-automation.md
+  name: ADB Device Automation
+  description: Drive Android devices through adb commands with explicit device targeting,
+    state checks, and output parsing rather than blind command firing.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
 - id: app-launch
   path: skills/10-computer-use/app-launch.md
   name: app-launch
@@ -9712,6 +12388,29 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 10-computer-use
+- id: app-update-automation
+  path: skills/10-computer-use/app-update-automation.md
+  name: App Update Automation
+  description: Automate application update installation with pre-update state capture,
+    checksum verification, and post-update readiness checks with rollback on failure.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 10-computer-use
 - id: clipboard-read
@@ -9924,6 +12623,52 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: drawing-canvas-automation
+  path: skills/10-computer-use/drawing-canvas-automation.md
+  name: Drawing Canvas Automation
+  description: Automate interactions with drawing and design canvas applications using
+    coordinate anchors and object-tree verification instead of pixel guessing.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
+- id: electronic-signature-automation
+  path: skills/10-computer-use/electronic-signature-automation.md
+  name: Electronic Signature Automation
+  description: Automate electronic signature capture and placement flows with identity,
+    document-integrity, and audit-trail checks enforced before signing.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
 - id: file-dialog
   path: skills/10-computer-use/file-dialog.md
   name: file-dialog
@@ -9952,6 +12697,30 @@ skills:
   name: Game UI Automation
   description: Automate game interfaces with frame-tolerant element detection and
     input pacing that respects the render loop.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
+- id: hotkey-conflict-resolution
+  path: skills/10-computer-use/hotkey-conflict-resolution.md
+  name: Hotkey Conflict Resolution
+  description: Detect conflicting application and global hotkeys before registering
+    new ones and apply an explicit resolution order that never silently shadows user
+    shortcuts.
   category: computer-use
   level: advanced
   stability: experimental
@@ -10091,6 +12860,29 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: mobile-app-automation
+  path: skills/10-computer-use/mobile-app-automation.md
+  name: Mobile App Automation
+  description: Automate mobile application flows across orientations and devices with
+    device-state verification before and after each step.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
 - id: mouse-click
   path: skills/10-computer-use/mouse-click.md
   name: mouse-click
@@ -10160,6 +12952,29 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: native-permission-dialog-handling
+  path: skills/10-computer-use/native-permission-dialog-handling.md
+  name: Native Permission Dialog Handling
+  description: Detect and respond to native OS permission prompts during automation
+    with declared per-prompt policies instead of reflexive approval.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
 - id: peripheral-device-detection
   path: skills/10-computer-use/peripheral-device-detection.md
   name: Peripheral Device Detection
@@ -10167,6 +12982,30 @@ skills:
     and report capabilities and status honestly.
   category: computer-use
   level: basic
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
+- id: remote-desktop-automation
+  path: skills/10-computer-use/remote-desktop-automation.md
+  name: Remote Desktop Automation
+  description: Automate tasks over remote desktop protocols with explicit latency
+    and resolution constraints, verifying state on the remote host rather than the
+    local screen.
+  category: computer-use
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -10350,6 +13189,29 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: session-keepalive-automation
+  path: skills/10-computer-use/session-keepalive-automation.md
+  name: Session Keepalive Automation
+  description: Keep authenticated sessions alive during long automation runs with
+    honest activity signals and expiry detection that fails closed.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
 - id: software-installation-automation
   path: skills/10-computer-use/software-installation-automation.md
   name: Software Installation Automation
@@ -10380,6 +13242,52 @@ skills:
     verify the effective configuration afterward.
   category: computer-use
   level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
+- id: system-tray-interaction
+  path: skills/10-computer-use/system-tray-interaction.md
+  name: System Tray Interaction
+  description: Automate interaction with operating-system tray icons and their menus
+    using stable element identification and menu-state verification.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
+- id: task-scheduler-automation
+  path: skills/10-computer-use/task-scheduler-automation.md
+  name: Task Scheduler Automation
+  description: Automate creation and verification of scheduled operating-system tasks
+    with idempotent registration and explicit next-run validation.
+  category: computer-use
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -10514,6 +13422,29 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: vpn-connection-automation
+  path: skills/10-computer-use/vpn-connection-automation.md
+  name: VPN Connection Automation
+  description: Automate VPN connection lifecycle with credential policy checks, kill-switch
+    verification, and route checks before treating traffic as protected.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 10-computer-use
 - id: window-management
   path: skills/10-computer-use/window-management.md
   name: window-management
@@ -10537,6 +13468,29 @@ skills:
   - Related
   related: []
   category_dir: 10-computer-use
+- id: agent-readable-site-markup
+  path: skills/11-web/agent-readable-site-markup.md
+  name: Agent-Readable Site Markup
+  description: Add and validate machine-readable markup that helps agents use a site
+    correctly, with explicit permissions and change detection.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
 - id: api-discovery
   path: skills/11-web/api-discovery.md
   name: api-discovery
@@ -10560,6 +13514,52 @@ skills:
   - Related
   related: []
   category_dir: 11-web
+- id: browser-extension-interaction
+  path: skills/11-web/browser-extension-interaction.md
+  name: Browser Extension Interaction
+  description: Automate flows that depend on browser extensions with extension-state
+    verification, permission checks, and fallback when an extension is absent.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: browser-fingerprint-management
+  path: skills/11-web/browser-fingerprint-management.md
+  name: Browser Fingerprint Management
+  description: Manage browser fingerprint consistency across automation runs with
+    recorded profiles and detection-site checks instead of random spoofing.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
 - id: browser-navigation
   path: skills/11-web/browser-navigation.md
   name: browser-navigation
@@ -10579,6 +13579,29 @@ skills:
   - Runnable Example
   - Failure Modes
   - Safety Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: browser-network-interception
+  path: skills/11-web/browser-network-interception.md
+  name: Browser Network Interception
+  description: Observe and selectively stub browser network traffic during automation
+    with request matching rules and recorded evidence of what was intercepted.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -10696,6 +13719,52 @@ skills:
   - Runnable Example
   - Failure Modes
   - Safety Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: checkout-flow-automation
+  path: skills/11-web/checkout-flow-automation.md
+  name: Checkout Flow Automation
+  description: Automate web checkout flows with pre-flight cost checks, explicit payment
+    limits, and post-order verification before considering a purchase complete.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: cookie-consent-automation
+  path: skills/11-web/cookie-consent-automation.md
+  name: Cookie Consent Automation
+  description: Automate cookie consent dialogs with recorded per-site consent intent
+    and verification that the chosen state actually applied.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -10984,6 +14053,76 @@ skills:
   - Related
   related: []
   category_dir: 11-web
+- id: llms-txt-parsing
+  path: skills/11-web/llms-txt-parsing.md
+  name: llms.txt Parsing
+  description: Fetch and parse llms.txt files into a structured resource inventory
+    with syntax validation before any listed resource is fetched.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: mfa-challenge-handling
+  path: skills/11-web/mfa-challenge-handling.md
+  name: MFA Challenge Handling
+  description: Handle multi-factor authentication challenges during automated web
+    flows with a declared factor policy, secure factor storage rules, and fail-closed
+    handling.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: multi-tab-automation
+  path: skills/11-web/multi-tab-automation.md
+  name: Multi-Tab Automation
+  description: Coordinate automation across multiple browser tabs with per-tab state
+    tracking and explicit tab-targeted actions instead of implicit focus assumptions.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
 - id: page-diff-monitoring
   path: skills/11-web/page-diff-monitoring.md
   name: Page Diff Monitoring
@@ -11133,6 +14272,29 @@ skills:
   - Changelog
   related: []
   category_dir: 11-web
+- id: signed-url-generation
+  path: skills/11-web/signed-url-generation.md
+  name: Signed URL Generation
+  description: Generate and verify cryptographically signed URLs with expiry and scope
+    constraints so delegated web access is bounded and auditable.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
 - id: sitemap-parsing
   path: skills/11-web/sitemap-parsing.md
   name: sitemap-parsing
@@ -11280,6 +14442,29 @@ skills:
   - Related
   related: []
   category_dir: 11-web
+- id: verification-link-handling
+  path: skills/11-web/verification-link-handling.md
+  name: Verification Link Handling
+  description: Consume email verification links during automated flows with expiry,
+    single-use, and replay checks before treating an account as verified.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
 - id: web-accessibility-auditing
   path: skills/11-web/web-accessibility-auditing.md
   name: Web Accessibility Auditing
@@ -11287,6 +14472,29 @@ skills:
     element selectors and severity.
   category: web
   level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
+- id: web-api-mocking
+  path: skills/11-web/web-api-mocking.md
+  name: Web API Mocking
+  description: Create deterministic mocks of web APIs for agent testing with explicit
+    fixture matching and verification that no live traffic occurred.
+  category: web
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -11327,6 +14535,29 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
+  related: []
+  category_dir: 11-web
+- id: web-bot-auth-implementation
+  path: skills/11-web/web-bot-auth-implementation.md
+  name: Web Bot Auth Implementation
+  description: Implement bot authentication for automated web access including protocol
+    selection, credential scoping, and verified identification headers.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
   related: []
   category_dir: 11-web
 - id: web-content-freshness-checking
@@ -11535,6 +14766,29 @@ skills:
   - Related
   related: []
   category_dir: 11-web
+- id: website-localization-verification
+  path: skills/11-web/website-localization-verification.md
+  name: Website Localization Verification
+  description: Verify localized versions of a site with locale negotiation, layout
+    integrity, and untranslated-string detection across target locales.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 11-web
 - id: ab-test-analysis
   path: skills/12-data/ab-test-analysis.md
   name: A/B Test Analysis
@@ -11542,6 +14796,29 @@ skills:
     statements when results are inconclusive.
   category: data
   level: intermediate
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
+- id: ai-traffic-classification
+  path: skills/12-data/ai-traffic-classification.md
+  name: AI Traffic Classification
+  description: Classify API and web traffic into AI-agent, bot, and human categories
+    from recorded signals with confidence thresholds and auditable rules.
+  category: data
+  level: advanced
   stability: experimental
   version: v1
   added: 2026-10
@@ -11966,6 +15243,29 @@ skills:
   - Related
   related: []
   category_dir: 12-data
+- id: dialogue-analytics
+  path: skills/12-data/dialogue-analytics.md
+  name: Dialogue Analytics
+  description: Analyze conversation logs into structured metrics including resolution,
+    turn counts, and escalation rates with provenance back to the source turns.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
 - id: document-chunking-strategy
   path: skills/12-data/document-chunking-strategy.md
   name: Document Chunking Strategy
@@ -12040,6 +15340,29 @@ skills:
   - Related
   related: []
   category_dir: 12-data
+- id: embedding-pipeline-cost-tracking
+  path: skills/12-data/embedding-pipeline-cost-tracking.md
+  name: Embedding Pipeline Cost Tracking
+  description: Track embedding generation costs per pipeline stage with token accounting,
+    model-version recording, and cost allocation to consumers.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
 - id: etl-pipeline
   path: skills/12-data/etl-pipeline.md
   name: etl-pipeline
@@ -12059,6 +15382,29 @@ skills:
   - Runnable Example
   - Failure Modes
   - Data Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
+- id: event-sourced-projections
+  path: skills/12-data/event-sourced-projections.md
+  name: Event-Sourced Projections
+  description: Build deterministic read models from event streams with replayable
+    projection state and gap detection between source and projection.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -12138,6 +15484,29 @@ skills:
   - Changelog
   related: []
   category_dir: 12-data
+- id: graph-centrality-analysis
+  path: skills/12-data/graph-centrality-analysis.md
+  name: Graph Centrality Analysis
+  description: Compute and interpret centrality measures on graph data with explicit
+    edge semantics and confidence bounds before ranking conclusions.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
 - id: incremental-processing
   path: skills/12-data/incremental-processing.md
   name: Incremental Processing
@@ -12164,6 +15533,29 @@ skills:
   - Changelog
   related: []
   category_dir: 12-data
+- id: inter-annotator-agreement-measurement
+  path: skills/12-data/inter-annotator-agreement-measurement.md
+  name: Inter-Annotator Agreement Measurement
+  description: Measure agreement between annotators with chance-corrected statistics
+    and resolve disagreements through a recorded adjudication rule.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
 - id: json-transformation
   path: skills/12-data/json-transformation.md
   name: json-transformation
@@ -12183,6 +15575,52 @@ skills:
   - Runnable Example
   - Failure Modes
   - Data Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
+- id: lakehouse-table-maintenance
+  path: skills/12-data/lakehouse-table-maintenance.md
+  name: Lakehouse Table Maintenance
+  description: Maintain lakehouse tables with compaction, snapshot expiry, and orphan-file
+    cleanup driven by measured metrics rather than a fixed schedule.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
+- id: metrics-cardinality-management
+  path: skills/12-data/metrics-cardinality-management.md
+  name: Metrics Cardinality Management
+  description: Control metrics label cardinality with budgets, top-label tracking,
+    and rejection rules so dashboards stay queryable and cheap.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
   - Evidence
   - Related
   related: []
@@ -12259,6 +15697,29 @@ skills:
   - Related
   related: []
   category_dir: 12-data
+- id: parquet-processing
+  path: skills/12-data/parquet-processing.md
+  name: Parquet Processing
+  description: Read, write, and validate Parquet datasets with schema checks, column
+    pruning, and row-group statistics instead of full scans.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
 - id: pii-discovery
   path: skills/12-data/pii-discovery.md
   name: PII Discovery
@@ -12287,6 +15748,29 @@ skills:
   name: Query Optimization
   description: Optimize slow queries using plans, indexes, and rewrite candidates
     with measured before-and-after evidence.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs / Outputs
+  - Procedure
+  - Runnable Example
+  - Failure Modes
+  - Boundary
+  - Evidence
+  - Related
+  related: []
+  category_dir: 12-data
+- id: retention-policy-automation
+  path: skills/12-data/retention-policy-automation.md
+  name: Retention Policy Automation
+  description: Automate data retention enforcement with policy-as-code rules, deletion
+    manifests, and verifiable audit output for every expired record.
   category: data
   level: advanced
   stability: experimental
