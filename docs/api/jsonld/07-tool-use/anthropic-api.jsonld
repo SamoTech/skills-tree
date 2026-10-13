@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T04:51:34Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "anthropic-api",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -67,7 +67,8 @@
     "Frameworks & Models",
     "Model Comparison",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [
     "../09-agentic-patterns/react.md",

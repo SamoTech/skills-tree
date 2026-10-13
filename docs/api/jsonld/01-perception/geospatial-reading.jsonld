@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-07-05T10:36:59Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "geospatial-reading",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -69,7 +69,8 @@
     "Prompt Patterns",
     "Notes",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {

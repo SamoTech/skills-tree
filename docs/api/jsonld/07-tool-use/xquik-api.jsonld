@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-14T08:07:32Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "xquik-api",
   "skillVersion": "v1",
   "skillLevel": "intermediate",
@@ -68,7 +68,8 @@
     "Prompt Patterns",
     "Notes",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [
     "../01-perception/social-media-reading.md"

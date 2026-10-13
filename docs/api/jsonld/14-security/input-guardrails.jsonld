@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-14T11:30:32Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "input-guardrails",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -67,7 +67,8 @@
     "Prompt Patterns",
     "Model Comparison",
     "Related",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {

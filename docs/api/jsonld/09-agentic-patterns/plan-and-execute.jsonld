@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T21:43:22Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "plan-and-execute",
   "skillVersion": "v2",
   "skillLevel": "intermediate",
@@ -60,7 +60,8 @@
   "categoryDir": "09-agentic-patterns",
   "sections": [
     "Failure Modes",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {

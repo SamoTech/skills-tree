@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-06-22T12:15:52Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "react",
   "skillVersion": "v3",
   "skillLevel": "intermediate",
@@ -66,7 +66,8 @@
     "Failure Modes",
     "Variants",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [
     "../02-reasoning/planning.md"

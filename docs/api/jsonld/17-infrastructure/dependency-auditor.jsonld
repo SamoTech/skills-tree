@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-12T21:43:22Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "dependency-auditor",
   "skillVersion": "v2",
   "skillLevel": "advanced",
@@ -68,7 +68,8 @@
     "Recursive Dogfooding",
     "Security: Network Constraint Model",
     "Failure Modes",
-    "Related Infrastructure"
+    "Related Infrastructure",
+    "Evidence"
   ],
   "relatedSkills": [
     "../../meta/badge-states.md"

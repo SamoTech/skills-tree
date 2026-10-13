@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-04-25T05:22:52Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "http-request",
   "skillVersion": "v3",
   "skillLevel": "basic",
@@ -67,7 +67,8 @@
     "Variants",
     "Frameworks & Models",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [
     "../11-web/web-search.md",

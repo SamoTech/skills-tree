@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-20T04:01:42Z",
+  "dateModified": "2026-10-13T13:20:47Z",
   "skillId": "log-parsing",
   "skillVersion": null,
   "skillLevel": "intermediate",
@@ -70,7 +70,8 @@
     "Safety Boundaries",
     "Validation Rules",
     "Related Skills",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
