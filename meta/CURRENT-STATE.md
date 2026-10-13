@@ -1,6 +1,16 @@
 # Skills Tree — Live Repository State
 
-## Current Live Reconciliation — 2026-10-11
+## Current Live Reconciliation — 2026-10-13
+
+This is the active operational state. Older dated sections below are historical unless independently re-verified.
+
+- **Agent Skills YAML-safety fix (2026-10-13, PR #560, v1.82.1):** a full audit of all 659 Agent Skills packages against the Agent Skills open-format spec found exactly two YAML plain-scalar-unsafe `description:` values (`": "` sequences) in `kanban-task-management` and `terminal-multiplexer-automation`. `tools/generate_agent_skills.py` now quotes unsafe description scalars (`PLAIN_UNSAFE_RE` + `format_description()`, quoting only unsafe values) with two new unit tests; both packages were regenerated deterministically. Squash-merged after full CI green; released as v1.82.1 (GitHub Release and PyPI wheel+sdist verified).
+- **Agent Skills backfill (2026-10-13, PR #559, v1.83.0):** the 80 legacy canonical skills missing `## Evidence` sections were projected into packages, moving the registry from 659 to **739 packages** (every eligible canonical skill projected). The `ocr` package description (generated pre-#560) carried the same plain-scalar flaw; it was fixed on the PR branch (byte-exact via git blob-SHA verification before push), the branch synced with main, and the PR squash-merged as `39a043dd` after full CI green. Released as v1.83.0.
+- **Post-merge generated-writer republication (2026-10-13):** bot PR #561 (Skills API regeneration, squash-merged as `f6aaee1e`) and bot PR #562 (search index rebuild, squash-merged as `db7b6a0f`) were both verified CI-green at their exact heads and merged. Zero open pull requests at reconciliation time; main tip is `db7b6a0f`.
+- **Release-workflow self-heal (2026-10-12, PR #539):** `zero-touch-release.yml` gained an hourly `schedule` re-check and a `workflow_dispatch` manual lever after release runs were found to be silently cancelled ~2s after start by the `auto-commit-main` writer-queue race (concurrency group shared with the writer workflows). Live instance: the v1.83.0 release run was cancelled (run #564) and recovered the same session by the PR #561 merge triggering a fresh run that released all unreleased commits; the hourly self-heal dispatch was confirmed completing.
+- **Verified release state (2026-10-13):** latest release is **v1.83.0** (2026-10-13, 13:26 UTC) — GitHub Release notes correct, wheel and sdist assets attached, both files live on PyPI. The canonical corpus remains 738 public skills across the 17 categories (+1 intentional `00-sandbox` fixture); all 739 Agent Skills packages are spec-compliant, and the generator, reconcile, and validate gates enforce compliance permanently.
+
+## Live Reconciliation — 2026-10-11 (historical)
 
 This is the active operational state. Older dated sections below are historical unless independently re-verified.
 
