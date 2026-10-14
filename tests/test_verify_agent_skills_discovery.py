@@ -105,7 +105,6 @@ def test_annotations_flatten_multiline_messages(monkeypatch, capsys):
         verify_served(INDEX_URL, max_attempts=1, retry_delay=0.0)
     out = capsys.readouterr().out
     assert "::error::" in out
-    assert "\n" not in out.split("::error::")[1].split("\n")[0] if False else True
     # The emitted annotation must be single-line.
     err_lines = [ln for ln in out.splitlines() if ln.startswith("::error::")]
     assert len(err_lines) == 1
