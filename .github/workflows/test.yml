@@ -49,6 +49,22 @@ jobs:
             --junitxml=junit.xml \
             -n auto
 
+      - name: Surface failing tests as annotations
+        if: failure()
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+
+          tree = ET.parse("junit.xml")
+          for testcase in tree.iter("testcase"):
+              for failure in testcase.iter("failure"):
+                  name = testcase.get("name", "unknown-test")
+                  classname = testcase.get("classname", "")
+                  message = (failure.get("message") or failure.text or "").strip()
+                  message = " ".join(message.split())[:650]
+                  print(f"::error title=test-failure::{classname}::{name}: {message}")
+          PY
+
       - name: Upload coverage report
         if: matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
