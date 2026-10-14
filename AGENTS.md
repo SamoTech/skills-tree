@@ -13,6 +13,7 @@ Read these files before meaningful work:
 6. meta/AGENT_HANDOFF_PROTOCOL.md — handoff requirements.
 7. meta/AGENT_EXECUTION_PLAYBOOK.md — concrete step-by-step cycle procedure (work-item selection, pre-push verification, exact-head CI gate, merge, post-merge, reporting).
 8. CONTRIBUTING.md — contribution and quality rules.
+9. meta/CONTINUITY.md — sustainability and succession mandate: never-empty standing queue and the procedure for any new agent to resume development.
 
 Then inspect the relevant architecture, testing, security, deployment, and roadmap documents for the task.
 
