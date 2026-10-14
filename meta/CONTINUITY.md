@@ -45,8 +45,11 @@ replace it in the same delivery cycle by promoting or adding a next action.
    Status: public protocol documentation published on main
    (`benchmarks/EVALUATION-PROTOCOL.md`, linked from the benchmarks index);
    the adoption guide for external candidates is published
-   (`benchmarks/ADOPTION-GUIDE.md`, linked from the protocol). The remaining
-   increment is a generalized external-candidate runner; external results
+   (`benchmarks/ADOPTION-GUIDE.md`, linked from the protocol). The generalized external-candidate runner is published
+   (`tools/run_external_candidate.py`: NDJSON serve/record adapter protocol with
+   ground truth stripped from served cases, raw-trace sha256 digests, a copy
+   guard against the dataset expected records, mandatory overlap disclosure,
+   and contract scorer invocation for CAP-011 and CAP-014); external results
    themselves remain gated on a real external runtime (queue item 3).
    No new registry authority is created.
 2. **Strengthen public distribution** — keep the Pages discovery surface,
