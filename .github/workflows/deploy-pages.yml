@@ -158,5 +158,6 @@ jobs:
         env:
           PAGES_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
-          python tools/verify_agent_skills_discovery.py             --index-url "${PAGES_URL%/}/.well-known/agent-skills/index.json"
+          python tools/verify_agent_skills_discovery.py \
+            --index-url "${PAGES_URL%/}/.well-known/agent-skills/index.json" \
             --max-attempts 5 --retry-delay 30
