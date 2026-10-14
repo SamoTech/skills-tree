@@ -70,6 +70,10 @@ dataset `expected` records. Retain your raw traces and publish the report with
 your results. A PASS from this harness is only meaningful if the candidate
 records come from the actual system under test.
 
+## Adopt as an external candidate
+
+Step-by-step instructions for running an external candidate system against these contracts and publishing verifiably are in [ADOPTION-GUIDE.md](ADOPTION-GUIDE.md).
+
 ## Reuse the methodology in your own domain
 
 The pattern transfers directly to any capability domain: (a) author a versioned
