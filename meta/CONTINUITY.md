@@ -44,8 +44,11 @@ replace it in the same delivery cycle by promoting or adding a next action.
    documentation, published methodology). This is the primary growth surface.
    Status: public protocol documentation published on main
    (`benchmarks/EVALUATION-PROTOCOL.md`, linked from the benchmarks index);
-   the next increment is a generalized external-candidate runner and
-   adoption guide. No new registry authority is created.
+   the adoption guide for external candidates is published
+   (`benchmarks/ADOPTION-GUIDE.md`, linked from the protocol). The remaining
+   increment is a generalized external-candidate runner; external results
+   themselves remain gated on a real external runtime (queue item 3).
+   No new registry authority is created.
 2. **Strengthen public distribution** — keep the Pages discovery surface,
    `docs/api/skills.json`, and the multi-platform Agent Skills compatibility
    (agentskills.io open format) as the primary distribution story.
