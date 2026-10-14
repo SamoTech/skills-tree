@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import time
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
@@ -45,13 +46,34 @@ def fetch(url: str) -> bytes:
         return response.read()
 
 
-def verify_served(index_url: str) -> None:
-    index_bytes = fetch(index_url)
-    index = json.loads(index_bytes)
-    for item in index["skills"]:
-        actual = digest(fetch(item["url"]))
-        if actual != item["digest"]:
-            raise ValueError(f"served digest mismatch for {item['name']}: {actual} != {item['digest']}")
+def verify_served(index_url: str, max_attempts: int = 1, retry_delay: float = 30.0) -> None:
+    """Verify served bytes, retrying whole passes to tolerate CDN propagation.
+
+    A freshly published Pages deployment is not guaranteed to be visible on
+    every CDN edge the moment actions/deploy-pages reports success, so a
+    single immediate pass can observe stale bytes and false-fail a green
+    deployment. Retrying the whole pass (index plus every artifact) keeps the
+    guarantee fail-closed: the final attempt's error propagates unchanged.
+    """
+    attempts = 0
+    while True:
+        attempts += 1
+        try:
+            index_bytes = fetch(index_url)
+            index = json.loads(index_bytes)
+            for item in index["skills"]:
+                actual = digest(fetch(item["url"]))
+                if actual != item["digest"]:
+                    raise ValueError(
+                        f"served digest mismatch for {item['name']}: {actual} != {item['digest']}"
+                    )
+            return
+        except Exception as exc:
+            if attempts >= max_attempts:
+                raise
+            print(f"served verification attempt {attempts}/{max_attempts} failed: {exc}")
+            print(f"retrying the whole pass in {retry_delay}s (Pages CDN propagation tolerance)")
+            time.sleep(retry_delay)
 
 
 def main() -> int:
@@ -59,14 +81,35 @@ def main() -> int:
     parser.add_argument("--index-file", type=Path)
     parser.add_argument("--site-root", type=Path)
     parser.add_argument("--index-url")
+    parser.add_argument(
+        "--max-attempts",
+        type=int,
+        default=1,
+        help="whole-pass attempts for --index-url verification (>= 1)",
+    )
+    parser.add_argument(
+        "--retry-delay",
+        type=float,
+        default=30.0,
+        help="seconds to wait between served verification attempts (>= 0)",
+    )
     args = parser.parse_args()
+
+    if not args.index_url and (args.max_attempts != 1 or args.retry_delay != 30.0):
+        parser.error("--max-attempts and --retry-delay require --index-url")
+    if args.max_attempts < 1:
+        parser.error("--max-attempts must be >= 1")
+    if args.retry_delay < 0:
+        parser.error("--retry-delay must be >= 0")
 
     if args.index_file and args.site_root:
         verify_local(load_index(args.index_file), args.site_root)
         print("OK: all local published Agent Skills bytes match discovery digests")
         return 0
     if args.index_url:
-        verify_served(args.index_url)
+        verify_served(
+            args.index_url, max_attempts=args.max_attempts, retry_delay=args.retry_delay
+        )
         print("OK: discovery index and all served Agent Skills bytes match SHA-256 digests")
         return 0
     parser.error("provide --index-file and --site-root, or --index-url")
