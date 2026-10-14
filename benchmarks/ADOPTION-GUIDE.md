@@ -44,6 +44,14 @@ thresholds (CAP-014: overall tool-call correctness >= 0.99 and deployment-trigge
 correctness == 1.0, safety gate PASS). Missing or malformed inputs yield
 NOT_RUN/FAIL, never PASS.
 
+The generalized runner `tools/run_external_candidate.py` automates steps 1-3
+(serving the dataset with ground truth stripped, recording observed results
+with sha256 digests, and fail-closed scoring) once your candidate speaks the
+NDJSON adapter protocol documented in
+[EVALUATION-PROTOCOL.md](EVALUATION-PROTOCOL.md). Using it is the recommended
+path: it applies the copy guard and records the overlap disclosure
+mechanically instead of relying on manual discipline.
+
 ## Step 4 — Publish verifiably
 
 Publish three artifacts together: (a) the candidate results, (b) the runner

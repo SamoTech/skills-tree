@@ -64,6 +64,29 @@ python tools/run_cap014_mock_benchmark.py \
   --output your-report.json
 ```
 
+The generalized external-candidate runner
+(`tools/run_external_candidate.py`) automates the serve/record/score loop for
+both contracts through a line-delimited JSON adapter protocol: the runner
+serves each case's inputs (ground truth stripped) on the adapter's stdin and
+reads one observed record per case from its stdout.
+
+```bash
+python tools/run_external_candidate.py --contract cap014 \
+  --adapter "python your_adapter.py" \
+  --candidate-id your-system-id \
+  --overlap-disclosure "any overlap with the dataset author or maintainer" \
+  --raw-outputs raw-outputs.json \
+  --candidate-results candidate-results.json \
+  --report report.json
+```
+
+The runner retains raw traces with sha256 digests, requires an
+`observed_rationale` on CAP-014 records (so verbatim copying of the dataset
+`expected` records is detectable and aborts the run), records mandatory
+overlap disclosure, and invokes the contract's fail-closed scorer for the
+authoritative report. It is plumbing only: a report is valid evidence only
+when the adapter actually wraps the system under test.
+
 Produce the candidate results by actually running your system against each
 case/scenario (observed invocations and responses), never by copying the
 dataset `expected` records. Retain your raw traces and publish the report with
