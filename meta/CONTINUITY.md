@@ -65,7 +65,7 @@ replace it in the same delivery cycle by promoting or adding a next action.
    fresh the same way by `tests/test_graph_projection_freshness.py`. The Pages
    landing page (`docs/index.md`) and the committed README skill counts are
    patched by the same count tool and machine-verified fresh by
-   `tests/test_update_readme_counts.py`.
+   `tests/test_update_readme_counts.py`. The orphaned synthetic-heartbeat artifacts (the frozen `docs/heartbeat.json` on the public Pages surface and the stale `meta/heartbeat.yml` claiming automation) are removed; live uptime monitoring remains `uptime-monitor.yml` plus the hourly release self-heal.
 3. **Second, non-overlapping candidate** — run an external candidate system
    (different model family) against the executed CAP-011 and CAP-014 contracts
    to remove the disclosed same-family limitation.
