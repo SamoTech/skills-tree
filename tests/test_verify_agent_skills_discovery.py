@@ -33,7 +33,7 @@ def test_served_verification_passes_immediately_when_consistent(monkeypatch):
     assert sleeps == []
 
 
-def test_served_verification_retries_until_cdn_serves_consistent_bytes(monkeypatch):
+def test_served_verification_retries_until_cdn_serves_consistent_bytes(monkeypatch, capsys):
     stale = b"stale bytes from the previous deployment"
     good = b"fresh bytes"
     responses = [stale, stale, good]
@@ -50,6 +50,10 @@ def test_served_verification_retries_until_cdn_serves_consistent_bytes(monkeypat
     monkeypatch.setattr("tools.verify_agent_skills_discovery.time.sleep", lambda s: sleeps.append(s))
     verify_served(INDEX_URL, max_attempts=5, retry_delay=7.0)
     assert sleeps == [7.0, 7.0]
+    out = capsys.readouterr().out
+    assert "::warning::served verification attempt 1/5 failed:" in out
+    assert "::warning::served verification attempt 2/5 failed:" in out
+    assert "::error::" not in out
 
 
 def test_served_verification_retries_transient_fetch_errors(monkeypatch):
@@ -70,7 +74,7 @@ def test_served_verification_retries_transient_fetch_errors(monkeypatch):
     assert state["skill_calls"] == 2
 
 
-def test_served_verification_fails_closed_after_max_attempts(monkeypatch):
+def test_served_verification_fails_closed_after_max_attempts(monkeypatch, capsys):
     stale = b"stale bytes from the previous deployment"
     good = b"fresh bytes"
 
@@ -85,6 +89,27 @@ def test_served_verification_fails_closed_after_max_attempts(monkeypatch):
     with pytest.raises(ValueError, match="served digest mismatch for demo"):
         verify_served(INDEX_URL, max_attempts=3, retry_delay=4.0)
     assert sleeps == [4.0, 4.0]
+    out = capsys.readouterr().out
+    assert "::warning::served verification attempt 1/3 failed:" in out
+    assert "::warning::served verification attempt 2/3 failed:" in out
+    assert "::error::served discovery verification failed after 3 attempt(s):" in out
+
+
+def test_annotations_flatten_multiline_messages(monkeypatch, capsys):
+    def raising_fetch(url: str) -> bytes:
+        raise OSError("line one\nline two: HTTP 429")
+
+    monkeypatch.setattr("tools.verify_agent_skills_discovery.fetch", raising_fetch)
+    monkeypatch.setattr("tools.verify_agent_skills_discovery.time.sleep", lambda s: None)
+    with pytest.raises(OSError):
+        verify_served(INDEX_URL, max_attempts=1, retry_delay=0.0)
+    out = capsys.readouterr().out
+    assert "::error::" in out
+    assert "\n" not in out.split("::error::")[1].split("\n")[0] if False else True
+    # The emitted annotation must be single-line.
+    err_lines = [ln for ln in out.splitlines() if ln.startswith("::error::")]
+    assert len(err_lines) == 1
+    assert "line one line two: HTTP 429" in err_lines[0]
 
 
 def test_retry_flags_require_index_url():

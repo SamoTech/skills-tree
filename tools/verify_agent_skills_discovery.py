@@ -46,6 +46,18 @@ def fetch(url: str) -> bytes:
         return response.read()
 
 
+def annotation(level: str, message: object) -> None:
+    """Emit a GitHub Actions workflow command so failures are visible in annotations.
+
+    Job logs are not reachable through the repository tooling surface, so the
+    verifier surfaces each failed attempt (warning) and the final failure
+    (error, with the exact exception: failing URL, HTTP status, or digest) as
+    check-run annotations. Messages are flattened to single-line text.
+    """
+    safe = " ".join(str(message).split())
+    print(f"::{level}::{safe}")
+
+
 def verify_served(index_url: str, max_attempts: int = 1, retry_delay: float = 30.0) -> None:
     """Verify served bytes, retrying whole passes to tolerate CDN propagation.
 
@@ -70,7 +82,15 @@ def verify_served(index_url: str, max_attempts: int = 1, retry_delay: float = 30
             return
         except Exception as exc:
             if attempts >= max_attempts:
+                annotation(
+                    "error",
+                    f"served discovery verification failed after {max_attempts} attempt(s): {exc}",
+                )
                 raise
+            annotation(
+                "warning",
+                f"served verification attempt {attempts}/{max_attempts} failed: {exc}",
+            )
             print(f"served verification attempt {attempts}/{max_attempts} failed: {exc}")
             print(f"retrying the whole pass in {retry_delay}s (Pages CDN propagation tolerance)")
             time.sleep(retry_delay)
