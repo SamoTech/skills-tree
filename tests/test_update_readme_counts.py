@@ -83,3 +83,50 @@ def test_update_skill_count_workflow_has_single_readme_writer():
     assert "docs/index.html" not in workflow
     assert "steps.count.outputs" not in workflow
     assert "find skills/" not in workflow
+
+
+def test_committed_readme_is_at_live_counts():
+    counts = gather_counts()
+    source = README.read_text(encoding="utf-8")
+    assert patch_text(source, counts) == source, (
+        "README.md skill-count anchors are stale relative to the live "
+        "corpus; run python3 tools/update_readme_counts.py and commit "
+        "the result (or merge the pending count automation PR)"
+    )
+
+
+def test_index_hero_card_and_search_comment_are_patched_from_live_counts():
+    from tools.update_readme_counts import INDEX_MD, patch_index_text
+
+    counts = gather_counts()
+    source = INDEX_MD.read_text(encoding="utf-8")
+    source = re.sub(r"— \d+\+? skills, versioned", "— 9999 skills, versioned", source, count=1)
+    source = re.sub(r"\*\*\d+\+? Skills\*\*", "**9999 Skills**", source, count=1)
+    source = re.sub(r"# search across \d+\+? skills", "# search across 9999 skills", source, count=1)
+
+    patched = patch_index_text(source, counts)
+
+    assert f"— {counts['total']} skills, versioned" in patched
+    assert f"**{counts['total']} Skills**" in patched
+    assert f"# search across {counts['total']} skills" in patched
+    assert "9999" not in patched
+
+
+def test_committed_docs_index_is_at_live_counts():
+    from tools.update_readme_counts import INDEX_MD, patch_index_text
+
+    counts = gather_counts()
+    source = INDEX_MD.read_text(encoding="utf-8")
+    assert patch_index_text(source, counts) == source, (
+        "docs/index.md (the Pages landing page) skill counts are stale "
+        "relative to the live corpus; run python3 "
+        "tools/update_readme_counts.py and commit the result"
+    )
+
+
+def test_count_workflow_stages_docs_index_next_to_readme():
+    workflow = (
+        ROOT / ".github/workflows/update-skill-count.yml"
+    ).read_text(encoding="utf-8")
+
+    assert "git add README.md docs/index.md" in workflow

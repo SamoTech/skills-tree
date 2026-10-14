@@ -8,7 +8,7 @@ hide:
 
 <div class="hero" markdown>
 
-**The AI Agent Skill OS** — 360+ skills, versioned, benchmarked, and openly evolving.
+**The AI Agent Skill OS** — 888 skills, versioned, benchmarked, and openly evolving.
 
 [![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
 [![Downloads](https://img.shields.io/pypi/dm/skills-tree?style=for-the-badge&color=3b82f6&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
@@ -29,7 +29,7 @@ Skills Tree is the shared operating system for AI agent capabilities. It is a li
 
 <div class="grid cards" markdown>
 
-- :material-lightning-bolt: **360+ Skills**  
+- :material-lightning-bolt: **888 Skills**  
   17 categories covering every AI agent capability from perception to orchestration.
 
 - :material-chart-bar: **Real Benchmarks**  
@@ -57,13 +57,11 @@ Skills Tree is the shared operating system for AI agent capabilities. It is a li
 pip install skills-tree
 ```
 
-```python
-from skills_tree import SkillsTree
-
-st = SkillsTree()
-skill = st.get("rag")           # fetch a skill by ID
-results = st.search("memory")   # search across 360+ skills
-cats = st.categories()          # list all 17 categories
+```bash
+skills-tree goals
+skills-tree recommend --goal "Coding Agent"
+skills-tree search "memory"     # search across 888 skills
+skills-tree validate
 ```
 
 See the full [Quick Start guide](quickstart.md) or [CLI reference](cli.md).
@@ -74,20 +72,20 @@ See the full [Quick Start guide](quickstart.md) or [CLI reference](cli.md).
 
 | # | Category | Skills |
 |---|---|---|
-| 01 | 👁️ Perception | 36 |
-| 02 | 🧠 Reasoning | 39 |
-| 03 | 🗄️ Memory | 19 |
-| 04 | ⚡ Action Execution | 21 |
-| 05 | 💻 Code | 28 |
-| 06 | 💬 Communication | 15 |
-| 07 | 🔧 Tool Use | 32 |
-| 08 | 🎭 Multimodal | 14 |
-| 09 | 🤖 Agentic Patterns | 23 |
-| 10 | 🖥️ Computer Use | 20 |
-| 11 | 🌐 Web | 17 |
-| 12 | 📊 Data | 18 |
-| 13 | 🎨 Creative | 14 |
-| 14 | 🔒 Security | 13 |
-| 15 | 🎼 Orchestration | 22 |
-| 16 | 🏺 Domain-Specific | 28 |
-| 17 | 🛠️ Infrastructure | 1 |
+| 01 | 👁️ Perception | 65 |
+| 02 | 🧠 Reasoning | 77 |
+| 03 | 🗄️ Memory | 51 |
+| 04 | ⚡ Action Execution | 56 |
+| 05 | 💻 Code | 62 |
+| 06 | 💬 Communication | 45 |
+| 07 | 🔧 Tool Use | 66 |
+| 08 | 🎭 Multimodal | 43 |
+| 09 | 🤖 Agentic Patterns | 57 |
+| 10 | 🖥️ Computer Use | 51 |
+| 11 | 🌐 Web | 55 |
+| 12 | 📊 Data | 52 |
+| 13 | 🎨 Creative | 36 |
+| 14 | 🔒 Security | 40 |
+| 15 | 🎼 Orchestration | 52 |
+| 16 | 🏺 Domain-Specific | 52 |
+| 17 | 🛠️ Infrastructure | 28 |

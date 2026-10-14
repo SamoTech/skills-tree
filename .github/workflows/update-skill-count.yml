@@ -50,13 +50,13 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add README.md docs/index.md
           git diff --staged --quiet && echo "No generated changes." && exit 0
-          git commit -m "chore: sync README skill counts"
+          git commit -m "chore: sync README and docs index skill counts"
           git push --force origin HEAD:"$GENERATED_BRANCH"
 
           if gh pr list --base main --head "$GENERATED_BRANCH" --state open --json number --jq 'length' | grep -q '^0$'; then
-            gh pr create               --base main               --head "$GENERATED_BRANCH"               --title "chore: sync README skill counts"               --body "Synchronize README skill counts through a protected-main PR.
+            gh pr create               --base main               --head "$GENERATED_BRANCH"               --title "chore: sync README and docs index skill counts"               --body "Synchronize README and docs index skill counts through a protected-main PR.
 
           This automation branch exists because main is protected. Merge only through the normal PR checks."
           else
