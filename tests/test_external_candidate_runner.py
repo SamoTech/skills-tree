@@ -71,6 +71,7 @@ expected_by_id = {s["scenario_id"]: s["expected"] for s in dataset["scenarios"]}
 for line in sys.stdin:
     served = json.loads(line)
     record = dict(expected_by_id[served["scenario_id"]])
+    record["observed_rationale"] = "verbatim expected echo"
     sys.stdout.write(json.dumps(record) + "\\n")
     sys.stdout.flush()
 """

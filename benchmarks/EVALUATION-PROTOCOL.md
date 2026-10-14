@@ -84,8 +84,9 @@ python tools/run_external_candidate.py --contract cap014 \
 ```
 
 The runner retains raw traces with sha256 digests, requires an
-`observed_rationale` on CAP-014 records (so verbatim copying of the dataset
-`expected` records is detectable and aborts the run), records mandatory
+`observed_rationale` on CAP-014 records and aborts the run when a record
+byte-matches a dataset `expected` record or differs from one only by a
+constant boilerplate rationale (copy guard), records mandatory
 overlap disclosure, and invokes the contract's fail-closed scorer for the
 authoritative report. It is plumbing only: a report is valid evidence only
 when the adapter actually wraps the system under test.

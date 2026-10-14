@@ -202,7 +202,13 @@ def main() -> int:
         expected_compact = {
             compact(item["expected"]) for item in items if isinstance(item.get("expected"), dict)
         }
-        copy_violations = [case_id for case_id, record in records.items() if compact(record) in expected_compact]
+        rationales = [record.get("observed_rationale") for record in records.values()]
+        constant_rationale = len(set(rationales)) <= 1
+        copy_violations = []
+        for case_id, record in records.items():
+            stripped = {k: v for k, v in record.items() if k != "observed_rationale"}
+            if compact(record) in expected_compact or (constant_rationale and compact(stripped) in expected_compact):
+                copy_violations.append(case_id)
         if copy_violations:
             print(
                 json.dumps(
