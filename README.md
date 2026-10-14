@@ -254,23 +254,23 @@ skills-tree/
 
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
-| 01 | 👁️ **Perception** | 65 | 01 | 👁️ **Perception** | 55 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 77 | 02 | 🧠 **Reasoning** | 65 | Planning, deduction, abduction, causal chains, commonsense |
-| 03 | 🗄️ **Memory** | 51 | 03 | 🗄️ **Memory** | 39 | Working, episodic, semantic, vector, injection, forgetting |
-| 04 | ⚡ **Action Execution** | 56 | 04 | ⚡ **Action Execution** | 40 | File I/O, HTTP, email, shell, database writes |
-| 05 | 💻 **Code** | 62 | 05 | 💻 **Code** | 48 | Write, run, debug, review, refactor, test, deploy |
-| 06 | 💬 **Communication** | 45 | 06 | 💬 **Communication** | 33 | Summarize, translate, draft, argue, adapt tone |
-| 07 | 🔧 **Tool Use** | 66 | 07 | 🔧 **Tool Use** | 52 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
-| 08 | 🎭 **Multimodal** | 43 | 08 | 🎭 **Multimodal** | 33 | Images, audio, video, VQA, 3D, charts |
-| 09 | 🤖 **Agentic Patterns** | 57 | 09 | 🤖 **Agentic Patterns** | 43 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
-| 10 | 🖥️ **Computer Use** | 51 | 10 | 🖥️ **Computer Use** | 39 | Click, type, scroll, OCR, terminal, VM, a11y tree |
-| 11 | 🌐 **Web** | 55 | 11 | 🌐 **Web** | 41 | Search, scrape, crawl, login, fill forms, parse RSS |
-| 12 | 📊 **Data** | 52 | 12 | 📊 **Data** | 42 | ETL, SQL, embeddings, time series, anomaly detection |
-| 13 | 🎨 **Creative** | 36 | 13 | 🎨 **Creative** | 36 | Copywriting, image prompts, SVG, music, scripts |
-| 14 | 🔒 **Security** | 40 | 14 | 🔒 **Security** | 40 | Sandboxing, secret scanning, audit logs, rollback |
-| 15 | 🎼 **Orchestration** | 52 | 15 | 🎼 **Orchestration** | 52 | Multi-agent, state machines, retry, consensus |
-| 16 | 🏺 **Domain-Specific** | 52 | 16 | 🏺 **Domain-Specific** | 52 | Medical, legal, finance, DevOps, education, science |
-| 17 | 🛠️ **Infrastructure** | 28 | 17 | 🛠️ **Infrastructure** | 28 | Dependency auditing & supply-chain tooling |
+| 01 | 👁️ **Perception** | 65 | Text, images, PDFs, code, sensors, databases, screens |
+| 02 | 🧠 **Reasoning** | 77 | Planning, deduction, abduction, causal chains, commonsense |
+| 03 | 🗄️ **Memory** | 51 | Working, episodic, semantic, vector, injection, forgetting |
+| 04 | ⚡ **Action Execution** | 56 | File I/O, HTTP, email, shell, database writes |
+| 05 | 💻 **Code** | 62 | Write, run, debug, review, refactor, test, deploy |
+| 06 | 💬 **Communication** | 45 | Summarize, translate, draft, argue, adapt tone |
+| 07 | 🔧 **Tool Use** | 66 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
+| 08 | 🎭 **Multimodal** | 43 | Images, audio, video, VQA, 3D, charts |
+| 09 | 🤖 **Agentic Patterns** | 57 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
+| 10 | 🖥️ **Computer Use** | 51 | Click, type, scroll, OCR, terminal, VM, a11y tree |
+| 11 | 🌐 **Web** | 55 | Search, scrape, crawl, login, fill forms, parse RSS |
+| 12 | 📊 **Data** | 52 | ETL, SQL, embeddings, time series, anomaly detection |
+| 13 | 🎨 **Creative** | 36 | Copywriting, image prompts, SVG, music, scripts |
+| 14 | 🔒 **Security** | 40 | Sandboxing, secret scanning, audit logs, rollback |
+| 15 | 🎼 **Orchestration** | 52 | Multi-agent, state machines, retry, consensus |
+| 16 | 🏺 **Domain-Specific** | 52 | Medical, legal, finance, DevOps, education, science |
+| 17 | 🛠️ **Infrastructure** | 28 | Dependency auditing & supply-chain tooling |
 
 ---
 
