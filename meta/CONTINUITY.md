@@ -55,7 +55,12 @@ replace it in the same delivery cycle by promoting or adding a next action.
 2. **Strengthen public distribution** — keep the Pages discovery surface,
    `docs/api/skills.json`, and the multi-platform Agent Skills compatibility
    (agentskills.io open format) as the primary distribution story.
-   Status: live; hardening is continuous.
+   Status: live; hardening is continuous. 2026-10-14: the committed Skills
+   API projection (`docs/api/skills.json`, `skills.yaml`, `skills-schema.json`,
+   JSON-LD) is machine-verified fresh against the canonical corpus by
+   `tests/test_skills_api_freshness.py` on every push (git-derived timestamp
+   fields excluded), so export-PR staleness now fails CI instead of publishing
+   drift.
 3. **Second, non-overlapping candidate** — run an external candidate system
    (different model family) against the executed CAP-011 and CAP-014 contracts
    to remove the disclosed same-family limitation.
