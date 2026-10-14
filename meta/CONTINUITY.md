@@ -60,7 +60,9 @@ replace it in the same delivery cycle by promoting or adding a next action.
    JSON-LD) is machine-verified fresh against the canonical corpus by
    `tests/test_skills_api_freshness.py` on every push (git-derived timestamp
    fields excluded), so export-PR staleness now fails CI instead of publishing
-   drift.
+   drift. The committed skills-graph projections
+   (`data/SKILLS_GRAPH.json`, `docs/api/graph.json`) are machine-verified
+   fresh the same way by `tests/test_graph_projection_freshness.py`.
 3. **Second, non-overlapping candidate** — run an external candidate system
    (different model family) against the executed CAP-011 and CAP-014 contracts
    to remove the disclosed same-family limitation.
