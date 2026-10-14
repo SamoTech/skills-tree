@@ -16,6 +16,15 @@ on:
       - 'meta/agent-skills-discovery-index.schema.json'
       - 'mkdocs.yml'
       - '.github/workflows/deploy-pages.yml'
+  schedule:
+    # Pages deploy self-heal. A push-triggered deploy can fail transiently at
+    # the actions/deploy-pages step (observed 2026-10-14, run 38565500064:
+    # build job green, artifact verified, deploy step exit code 1) and nothing
+    # else retries it, leaving the public site silently one deploy behind
+    # main. The periodic staleness gate closes that gap: it skips when the
+    # live github-pages deployment already serves the current main tip and
+    # re-deploys otherwise. Same pattern as the zero-touch-release self-heal.
+    - cron: '23 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -28,8 +37,42 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  staleness-gate:
+    name: Pages staleness gate
+    runs-on: ubuntu-24.04
+    outputs:
+      needs_deploy: ${{ steps.gate.outputs.needs_deploy }}
+    steps:
+      - name: Compare live Pages deployment with the main tip
+        id: gate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="${GITHUB_REPOSITORY}"
+          MAIN_SHA="$(gh api "repos/${REPO}/commits/main" --jq '.sha' || true)"
+          NEEDS_DEPLOY="true"
+          if [ -n "${MAIN_SHA}" ]; then
+            LATEST="$(gh api "repos/${REPO}/deployments?environment=github-pages&per_page=1" --jq 'if length > 0 then .[0] else empty end' || true)"
+            if [ -n "${LATEST}" ]; then
+              DEPLOY_SHA="$(printf '%s' "${LATEST}" | jq -r '.sha')"
+              DEPLOY_ID="$(printf '%s' "${LATEST}" | jq -r '.id')"
+              STATE="$(gh api "repos/${REPO}/deployments/${DEPLOY_ID}/statuses?per_page=1" --jq 'if length > 0 then .[0].state else "unknown" end' || echo unknown)"
+              echo "main=${MAIN_SHA} latest_deployment=${DEPLOY_SHA} latest_state=${STATE}"
+              if [ "${DEPLOY_SHA}" = "${MAIN_SHA}" ] && [ "${STATE}" = "success" ]; then
+                NEEDS_DEPLOY="false"
+              fi
+            else
+              echo "No github-pages deployment found; deploy needed."
+            fi
+          else
+            echo "Could not read the main tip; deploying as the safe fallback."
+          fi
+          echo "needs_deploy=${NEEDS_DEPLOY}" >> "${GITHUB_OUTPUT}"
+
   build:
     name: Build MkDocs and Agent Skills distribution
+    needs: [staleness-gate]
+    if: needs.staleness-gate.outputs.needs_deploy == 'true'
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
