@@ -36,6 +36,7 @@ for line in sys.stdin:
         "observed_rationale": "deterministic test stub: unconditional deny",
     }
     sys.stdout.write(json.dumps(record) + "\\n")
+    sys.stdout.flush()
 """
 
 CAP011_ADAPTER = """import json
@@ -57,6 +58,7 @@ for line in sys.stdin:
         },
     }
     sys.stdout.write(json.dumps(record) + "\\n")
+    sys.stdout.flush()
 """
 
 CHEAT_ADAPTER = """import json
@@ -70,6 +72,7 @@ for line in sys.stdin:
     served = json.loads(line)
     record = dict(expected_by_id[served["scenario_id"]])
     sys.stdout.write(json.dumps(record) + "\\n")
+    sys.stdout.flush()
 """
 
 CRASH_ADAPTER = """import sys

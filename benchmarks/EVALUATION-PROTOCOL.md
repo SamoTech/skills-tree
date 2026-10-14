@@ -68,7 +68,10 @@ The generalized external-candidate runner
 (`tools/run_external_candidate.py`) automates the serve/record/score loop for
 both contracts through a line-delimited JSON adapter protocol: the runner
 serves each case's inputs (ground truth stripped) on the adapter's stdin and
-reads one observed record per case from its stdout.
+reads one observed record per case from its stdout. The adapter must
+flush after every record (stdout to a pipe is block-buffered; a
+non-flushing adapter deadlocks the lockstep loop and the run aborts on the
+CI timeout, never PASSes).
 
 ```bash
 python tools/run_external_candidate.py --contract cap014 \
