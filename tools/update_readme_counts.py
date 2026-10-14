@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync skill counts in README.md with the filesystem.
+"""Sync skill counts in README.md and docs/index.md with the filesystem.
 
 Runs idempotently. Updates five README.md anchors, each patched loudly
 (a missing or duplicated anchor raises instead of silently leaving the
@@ -13,6 +13,13 @@ README drifted):
 4. The category heading "## 🗂️ The <N> Skill Categories".
 5. The per-category table. Each row's third column (Skills count) is
    updated to the live count.
+
+The same live counts also patch the MkDocs landing page (docs/index.md):
+its hero description "— <N> skills, versioned", the skills card
+"**<N> Skills**", the "# search across <N> skills" code comment, and the
+per-category table (same loud-failure contract). Excluding the landing
+page from the sync is how it drifted to a 360-skill claim over an
+888-skill corpus (fixed 2026-10-14).
 
 Battle-tested and stub totals are still gathered from
 tools/check_skill_quality.py and reported by main().
@@ -33,6 +40,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 README = REPO_ROOT / "README.md"
+INDEX_MD = REPO_ROOT / "docs" / "index.md"
 SKILLS_DIR = REPO_ROOT / "skills"
 GRAPH = REPO_ROOT / "data" / "SKILLS_GRAPH.json"
 
@@ -85,11 +93,13 @@ def gather_counts() -> dict:
     }
 
 
-def _patch_once(text: str, label: str, pattern: str, repl: str, flags: int = 0) -> str:
+def _patch_once(
+    text: str, label: str, pattern: str, repl: str, flags: int = 0, where: str = "README.md"
+) -> str:
     new_text, n = re.subn(pattern, repl, text, count=1, flags=flags)
     if n != 1:
         raise RuntimeError(
-            f"README.md {label} anchor ({pattern}) matched {n} times, "
+            f"{where} {label} anchor ({pattern}) matched {n} times, "
             "expected exactly 1. Update README.md or "
             "tools/update_readme_counts.py so the anchor matches once."
         )
@@ -140,12 +150,45 @@ def patch_text(text: str, counts: dict) -> str:
     return text
 
 
+def patch_index_text(text: str, counts: dict) -> str:
+    """Patch the MkDocs landing page (docs/index.md) from live counts."""
+    total = counts["total"]
+
+    # 6. Landing-page hero description.
+    text = _patch_once(
+        text,
+        "hero description",
+        r"— \d+\+? skills, versioned",
+        f"— {total} skills, versioned",
+        where="docs/index.md",
+    )
+    # 7. Landing-page skills card.
+    text = _patch_once(
+        text,
+        "skills card",
+        r"\*\*\d+\+? Skills\*\*",
+        f"**{total} Skills**",
+        where="docs/index.md",
+    )
+    # 8. Landing-page search code comment.
+    text = _patch_once(
+        text,
+        "search code comment",
+        r"# search across \d+\+? skills",
+        f"# search across {total} skills",
+        where="docs/index.md",
+    )
+    # 9. Landing-page per-category table.
+    text = _patch_category_table(text, counts["by_cat"], where="docs/index.md")
+    return text
+
+
 _ROW_RE = re.compile(
     r"^(?P<head>\|\s*(?P<prefix>\d{2})\s*\|[^|]+\|)\s*(?P<count>\d+)\s*(?P<tail>\|.*)$"
 )
 
 
-def _patch_category_table(text: str, by_cat: dict[str, int]) -> str:
+def _patch_category_table(text: str, by_cat: dict[str, int], where: str = "README.md") -> str:
     out_lines: list[str] = []
     seen_prefixes: set[str] = set()
     for line in text.splitlines(keepends=True):
@@ -167,7 +210,7 @@ def _patch_category_table(text: str, by_cat: dict[str, int]) -> str:
     missing = sorted(expected - seen_prefixes)
     if missing:
         raise RuntimeError(
-            f"per-category table in README.md is missing rows for: "
+            f"per-category table in {where} is missing rows for: "
             f"{missing}. Update the table or update_readme_counts.py."
         )
     return "".join(out_lines)
@@ -175,14 +218,19 @@ def _patch_category_table(text: str, by_cat: dict[str, int]) -> str:
 
 def main() -> int:
     counts = gather_counts()
-    src = README.read_text(encoding="utf-8")
-    out = patch_text(src, counts)
-    if out == src:
-        print("README.md already in sync.")
-        return 0
-    README.write_text(out, encoding="utf-8")
+    for label, path, patcher in (
+        ("README.md", README, patch_text),
+        ("docs/index.md", INDEX_MD, patch_index_text),
+    ):
+        src = path.read_text(encoding="utf-8")
+        out = patcher(src, counts)
+        if out != src:
+            path.write_text(out, encoding="utf-8")
+            print(f"Updated {label}.")
+        else:
+            print(f"{label} already in sync.")
     print(
-        f"Updated README.md → {counts['total']} skills, {counts['categories']} "
+        f"Live counts → {counts['total']} skills, {counts['categories']} "
         f"categories, {counts['graph_edges']} graph edges, "
         f"{counts['battle_tested']} battle-tested, {counts['stub']} stubs."
     )
