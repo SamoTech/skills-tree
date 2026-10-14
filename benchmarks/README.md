@@ -29,6 +29,12 @@ A Benchmark must:
 
 ---
 
+## Evaluation Contracts (agent capability harness)
+
+This directory also hosts the fail-closed **capability evaluation contracts** (CAP-011, CAP-014, CAP-007), a separate asset from the skill-comparison scorecards above. The public protocol, methodology principles, and instructions for evaluating an external candidate system are in [EVALUATION-PROTOCOL.md](EVALUATION-PROTOCOL.md).
+
+---
+
 ## Contribute a Benchmark
 
 ```bash

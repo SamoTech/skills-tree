@@ -42,7 +42,10 @@ replace it in the same delivery cycle by promoting or adding a next action.
 1. **Productize the evaluation harness** — make the fail-closed benchmark protocol
    usable by external agent maintainers (generalized runners, protocol
    documentation, published methodology). This is the primary growth surface.
-   Status: design pending; no new registry authority created.
+   Status: public protocol documentation published on main
+   (`benchmarks/EVALUATION-PROTOCOL.md`, linked from the benchmarks index);
+   the next increment is a generalized external-candidate runner and
+   adoption guide. No new registry authority is created.
 2. **Strengthen public distribution** — keep the Pages discovery surface,
    `docs/api/skills.json`, and the multi-platform Agent Skills compatibility
    (agentskills.io open format) as the primary distribution story.
