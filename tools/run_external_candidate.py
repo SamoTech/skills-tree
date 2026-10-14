@@ -10,8 +10,9 @@ per-case traces with sha256 digests, and invokes the contract's fail-closed
 scorer to produce the authoritative report.
 
 This runner is plumbing, not evidence: it never fabricates candidate
-records, it aborts when a record byte-matches the dataset expected record
-(copy guard, an automatic disqualifier), and a report produced this way is
+records, it aborts when a record echoes a dataset expected record
+(copy guard, an automatic disqualifier; the match ignores the case id and
+observed_rationale), and a report produced this way is
 only valid when the adapter actually wraps the system under test.
 """
 from __future__ import annotations
@@ -200,14 +201,23 @@ def main() -> int:
 
     if contract.copy_guard:
         expected_compact = {
-            compact(item["expected"]) for item in items if isinstance(item.get("expected"), dict)
+            str(item[contract.id_field]): compact(item["expected"])
+            for item in items
+            if isinstance(item.get("expected"), dict)
         }
         rationales = [record.get("observed_rationale") for record in records.values()]
         constant_rationale = len(set(rationales)) <= 1
         copy_violations = []
         for case_id, record in records.items():
-            stripped = {k: v for k, v in record.items() if k != "observed_rationale"}
-            if compact(record) in expected_compact or (constant_rationale and compact(stripped) in expected_compact):
+            expected = expected_compact.get(case_id)
+            if expected is None:
+                continue
+            core = {
+                key: value
+                for key, value in record.items()
+                if key != contract.id_field and key != "observed_rationale"
+            }
+            if compact(record) == expected or (constant_rationale and compact(core) == expected):
                 copy_violations.append(case_id)
         if copy_violations:
             print(
