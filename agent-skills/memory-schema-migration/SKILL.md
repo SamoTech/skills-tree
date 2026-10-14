@@ -1,0 +1,60 @@
+---
+name: memory-schema-migration
+description: Version and migrate persistent agent memory schemas with field mapping, backfill rules, and rollback checkpoints.
+metadata:
+  source: skills/03-memory/memory-schema-migration.md
+  category: 03-memory
+  version: "v1"
+---
+# Memory Schema Migration
+
+## Description
+Version and migrate persistent agent memory schemas with field mapping, backfill rules, and rollback checkpoints. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone.
+
+## When to Use
+- A task requires memory schema migration before downstream steps can proceed safely.
+- Ambiguity or missing evidence would change the outcome.
+- The result must be recorded with reasons and evidence for later verification.
+
+## Inputs / Outputs
+| Area | Contract |
+|---|---|
+| Inputs | Task context, candidate inputs, and explicit acceptance criteria for memory schema migration. |
+| Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. |
+| Safety | Failures must fail closed and be reported with evidence rather than retried silently. |
+
+## Procedure
+1. Define the goal, the constraints, and the boundary of what this procedure may change.
+2. Inventory the available inputs and flag gaps or ambiguities that block progress.
+3. Execute the memory schema migration steps in a bounded, checkpointed way.
+4. Compare the actual outcome against the expected outcome and record deviations.
+5. On failure, apply the declared fallback path, and never widen permissions to recover.
+6. Emit a structured result with evidence and provenance for downstream consumers.
+
+## Runnable Example
+```python
+def migrate(record, v1_to_v2):
+    if record["schema"] != "v1":
+        raise ValueError("unexpected schema")
+    return v1_to_v2(record)
+out = migrate({"schema": "v1", "prefs": "a,b"}, lambda r: {"schema": "v2", "prefs": r["prefs"].split(",")})
+assert out == {"schema": "v2", "prefs": ["a", "b"]}
+```
+
+## Failure Modes
+- Acting outside the declared task boundary.
+- Assuming an estimate or preview equals the verified effect.
+- Retrying without preserving state or evidence.
+- Using stale inputs as if they were current.
+- Reporting success without checking the resulting state.
+
+## Boundary
+This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result.
+
+## Evidence
+Long-lived agents in 2026 discussions need explicit schema-version migration paths for durable memory stores. These are dated public signals, not adoption metrics.
+
+## Related
+- agent-memory-schema-design.md
+- hierarchical-memory-organization.md
+- memory-conflict-resolution.md

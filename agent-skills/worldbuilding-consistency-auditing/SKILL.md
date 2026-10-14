@@ -1,0 +1,61 @@
+---
+name: worldbuilding-consistency-auditing
+description: Audit a fictional setting for continuity violations across geography, timeline, factions, and established rules.
+metadata:
+  source: skills/13-creative/worldbuilding-consistency-auditing.md
+  category: 13-creative
+  version: "v1"
+---
+# Worldbuilding Consistency Auditing
+
+## Description
+Audit a fictional setting for continuity violations across geography, timeline, factions, and established rules. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone.
+
+## When to Use
+- A task requires worldbuilding consistency auditing before downstream steps can proceed safely.
+- Ambiguity or missing evidence would change the outcome.
+- The result must be recorded with reasons and evidence for later verification.
+
+## Inputs / Outputs
+| Area | Contract |
+|---|---|
+| Inputs | Task context, candidate inputs, and explicit acceptance criteria for worldbuilding consistency auditing. |
+| Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. |
+| Safety | Failures must fail closed and be reported with evidence rather than retried silently. |
+
+## Procedure
+1. Define the goal, the constraints, and the boundary of what this procedure may change.
+2. Inventory the available inputs and flag gaps or ambiguities that block progress.
+3. Execute the worldbuilding consistency auditing steps in a bounded, checkpointed way.
+4. Compare the actual outcome against the expected outcome and record deviations.
+5. On failure, apply the declared fallback path, and never widen permissions to recover.
+6. Emit a structured result with evidence and provenance for downstream consumers.
+
+## Runnable Example
+```python
+def violations(facts, rules):
+    out = []
+    for a, b, conflict in rules:
+        if a in facts and b in facts and conflict:
+            out.append((a, b))
+    return out
+assert violations(["flight", "siege"], [("flight", "siege", True)]) == [("flight", "siege")]
+```
+
+## Failure Modes
+- Acting outside the declared task boundary.
+- Assuming an estimate or preview equals the verified effect.
+- Retrying without preserving state or evidence.
+- Using stale inputs as if they were current.
+- Reporting success without checking the resulting state.
+
+## Boundary
+This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result.
+
+## Evidence
+Long-form interactive fiction requests automated consistency audits of established world facts. These are dated public signals, not adoption metrics.
+
+## Related
+- worldbuilding.md
+- plot-structure.md
+- creative-writing.md
