@@ -8,7 +8,7 @@ hide:
 
 <div class="hero" markdown>
 
-**The AI Agent Skill OS** — 989 skills, versioned, benchmarked, and openly evolving.
+**The AI Agent Skill OS** — 1039 skills, versioned, benchmarked, and openly evolving.
 
 [![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
 [![Downloads](https://img.shields.io/pypi/dm/skills-tree?style=for-the-badge&color=3b82f6&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
@@ -29,7 +29,7 @@ Skills Tree is the shared operating system for AI agent capabilities. It is a li
 
 <div class="grid cards" markdown>
 
-- :material-lightning-bolt: **989 Skills**  
+- :material-lightning-bolt: **1039 Skills**  
   17 categories covering every AI agent capability from perception to orchestration.
 
 - :material-chart-bar: **Real Benchmarks**  
@@ -60,7 +60,7 @@ pip install skills-tree
 ```bash
 skills-tree goals
 skills-tree recommend --goal "Coding Agent"
-skills-tree search "memory"     # search across 989 skills
+skills-tree search "memory"     # search across 1039 skills
 skills-tree validate
 ```
 
@@ -77,13 +77,13 @@ See the full [Quick Start guide](quickstart.md) or [CLI reference](cli.md).
 | 03 | 🗄️ Memory | 64 |
 | 04 | ⚡ Action Execution | 69 |
 | 05 | 💻 Code | 75 |
-| 06 | 💬 Communication | 48 |
-| 07 | 🔧 Tool Use | 69 |
-| 08 | 🎭 Multimodal | 46 |
-| 09 | 🤖 Agentic Patterns | 60 |
-| 10 | 🖥️ Computer Use | 54 |
-| 11 | 🌐 Web | 58 |
-| 12 | 📊 Data | 55 |
+| 06 | 💬 Communication | 55 |
+| 07 | 🔧 Tool Use | 76 |
+| 08 | 🎭 Multimodal | 53 |
+| 09 | 🤖 Agentic Patterns | 67 |
+| 10 | 🖥️ Computer Use | 61 |
+| 11 | 🌐 Web | 65 |
+| 12 | 📊 Data | 63 |
 | 13 | 🎨 Creative | 39 |
 | 14 | 🔒 Security | 43 |
 | 15 | 🎼 Orchestration | 55 |
