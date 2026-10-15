@@ -1,4 +1,4 @@
-# Most-Wanted Skills — Demand Backlog
+# Most-Wanted Skills â Demand Backlog
 
 > Evidence-backed demand backlog for Skills Tree.
 > This file intentionally contains no fabricated popularity ranking.
@@ -63,7 +63,7 @@ These records are **observed evidence, not ranked demand**. Closed issues remain
 
 The first production snapshot remains intentionally collected as a workflow artifact before being promoted into a generated machine-readable backlog.
 
-## External corroboration — 2026-10-04
+## External corroboration â 2026-10-04
 
 A separate public-source review was performed after the repository-local signal pass. These are corroborating ecosystem signals, not popularity rankings:
 
@@ -77,7 +77,7 @@ A separate public-source review was performed after the repository-local signal 
 
 These external signals do **not** establish that any one capability is the next highest-demand skill. They justify the next reconciliation pass: map observed demand signals to existing canonical coverage, evidence tier, freshness, dependency relationships, and implementation gaps.
 
-## First coverage reconciliation — 2026-10-04
+## First coverage reconciliation â 2026-10-04
 
 The initial repository coverage check shows that the local signal cohort is already substantially represented:
 
@@ -97,7 +97,7 @@ The preferred next investigation is **skill evaluation / invocation evidence and
 
 Use:
 
-`Demand × capability importance × coverage gap × evidence gap × ecosystem relevance`
+`Demand Ã capability importance Ã coverage gap Ã evidence gap Ã ecosystem relevance`
 
 The result is a prioritization aid, not a claim of objective popularity or universal importance.
 
@@ -113,7 +113,7 @@ The result is a prioritization aid, not a claim of objective popularity or unive
 8. Recompute when ecosystem evidence changes.
 
 
-## Agentic Loop — Retrieval/Evaluation Gate — 2026-10-04
+## Agentic Loop â Retrieval/Evaluation Gate â 2026-10-04
 
 **OBSERVE:** The live consumer search path is deterministic lexical retrieval over the canonical generated projection. The contract explicitly excludes semantic search, fuzzy matching, query expansion, and trust/quality scoring unless separately evidenced. Existing recommendation evaluation reports strong historical aggregate results (P@5 0.76, R@10 0.93) but also show recurring cross-goal ranking errors; the stored report is dated 2026-06-15 and therefore is not treated as current runtime evidence.
 
@@ -121,16 +121,16 @@ The result is a prioritization aid, not a claim of objective popularity or unive
 
 **PLAN / DECIDE:** Opened GitHub Issue #335 as the bounded next implementation slice. It requires re-verifying the live evaluation ontology, defining the minimum canonical evaluation contracts using existing ontology/benchmark boundaries, adding executable behavioral tests and CI validation, and synchronizing documentation. Semantic search or new skills remain blocked until retrieval-quality evidence demonstrates a real implementation gap.
 
-**Status:** `INVESTIGATING` — Issue #335. No new skill or competing search implementation is authorized by this loop.
+**Status:** `INVESTIGATING` â Issue #335. No new skill or competing search implementation is authorized by this loop.
 
 
-## Retrieval / Evaluation Evidence Audit — 2026-10-05
+## Retrieval / Evaluation Evidence Audit â 2026-10-05
 
 The first evidence-driven investigation found a concrete gap in the existing evaluation boundary. `benchmarks/memory/retrieval-accuracy.md` is dated 2026-04-13 and its published model results have no current reproducible run artifact; its reproduction example uses a newer model identifier than the historical result table. Its related skill links also use the obsolete `skills/memory/...` path rather than the current category-prefixed canonical taxonomy. Separately, `intelligence/ontology/evaluation_ontology.json` is past its declared review due date (`2026-10-03`). The evaluation validation workflow did not previously trigger when that ontology itself changed; this trigger gap was fixed on 2026-10-05.
 
 Issue #336 records the remediation boundary. This is classified as an **evidence/freshness/reproducibility gap**, not evidence that historical benchmark scores are false. No new retrieval skill is selected until the benchmark evidence is reproduced, retired, or explicitly re-qualified.
 
-## Agentic Loop — Evaluation Gate Reconciliation — 2026-10-05
+## Agentic Loop â Evaluation Gate Reconciliation â 2026-10-05
 
 The evaluation workflow now reads the real canonical corpus under `intelligence/corpus/entries/` and explicitly reports the current missing P0 evaluation mappings instead of silently scanning the obsolete `data/corpus/` path. A declared-freshness audit also checks timestamp structure/order and surfaces overdue review dates without rewriting them.
 
@@ -138,7 +138,7 @@ The retrieval benchmark `benchmarks/memory/retrieval-accuracy.md` is now explici
 
 No new retrieval skill, search engine, or popularity claim was created. Current bounded retrieval evidence is now verified by the 12-case deterministic benchmark (Recall@5 1.0000, MRR 0.9583, deterministic replay true). The remaining retrieval-quality boundary is broader representative failure coverage; the measured RAG ambiguity must not trigger ranking changes without that evidence. CAP-007, CAP-011, and CAP-014 evaluation mappings are now verified on main. Issue #335 is historical remediation; Issue #336 is resolved by the reproducible retrieval evidence slice and historical qualification recorded below; no stale model-comparison result is treated as current evidence.
 
-## New demand-gap candidate — Capability-Based Skill Selection — 2026-10-05
+## New demand-gap candidate â Capability-Based Skill Selection â 2026-10-05
 
 A new public-signal review identified a recurring capability request that is not represented by a dedicated canonical skill: **selecting the right skill/capability for a concrete task and routing execution based on task requirements, candidate fit, dependencies, and observed results**.
 
@@ -178,14 +178,14 @@ No popularity claim is made, and no new search or orchestration authority is int
 
 ### Priority assessment
 
-**Proposed tier: A — high strategic utility, evidence-backed gap.**
+**Proposed tier: A â high strategic utility, evidence-backed gap.**
 
 Rationale: the capability directly closes the gap between Skills Tree's now-verified retrieval layer and the product mission that agents should find **and use the right skill**. It also creates a concrete target for the next behavioral evaluation benchmark.
 
 Verification date: 2026-10-05.
 
 
-## New demand-gap candidate — Agent Skill Security Audit — 2026-10-06
+## New demand-gap candidate â Agent Skill Security Audit â 2026-10-06
 
 A fresh ecosystem evidence pass identified a security capability that is not represented by a dedicated canonical skill: auditing an agent skill package itself before installation or execution. Existing Skills Tree security coverage includes sandboxing, secret scanning, permission checking, input sanitization, audit logging, and human approval, but those are controls around execution rather than a dedicated pre-installation audit contract.
 
@@ -205,18 +205,18 @@ Existing sandboxed execution, secret scanning, permission checking, input saniti
 
 `skills/14-security/agent-skill-security-audit.md`
 
-Status: VERIFIED ON MAIN — PR #350 merged as `436c15c745e1747e3ec1e931dccacea1ca013c7c` with exact-head CI passed.
+Status: VERIFIED ON MAIN â PR #350 merged as `436c15c745e1747e3ec1e931dccacea1ca013c7c` with exact-head CI passed.
 
 ### Priority assessment
 
-**Proposed tier: A — high security utility, evidence-backed gap.**
+**Proposed tier: A â high security utility, evidence-backed gap.**
 
 Rationale: this closes a trust boundary directly related to Skills Tree product trust and composes with existing security controls instead of introducing a competing scanner or authorization system.
 
 Verification date: 2026-10-06.
 
 
-## Evaluation Ontology / P0 Coverage Repair — VERIFIED — 2026-10-06
+## Evaluation Ontology / P0 Coverage Repair â VERIFIED â 2026-10-06
 
 The freshness audit initially exposed two real P0 evaluation gaps in CORPUS-001: CAP-018 `multi_turn_dialogue_management` and CAP-027 `compliance_logging`. Both were mapped using existing evaluation types; no new evaluation framework or metric type was introduced.
 
@@ -225,7 +225,7 @@ PR #354 merged to main as `15c455bbef43d5f88c17c0cbdbac1af09c8e2d04`. Exact-head
 This closes the current P0 evaluation-mapping evidence gap. It does not claim empirical benchmark quality for those mappings; behavioral evidence remains a separate lifecycle step.
 
 
-## New demand-gap candidate — Skill Activation / Invocation Evidence — 2026-10-06
+## New demand-gap candidate â Skill Activation / Invocation Evidence â 2026-10-06
 
 A fresh public-source reconciliation identified a distinct capability/evidence boundary: whether the skill expected for a real user request actually activates and is invoked reliably, rather than merely being selectable after explicit capability requirements are supplied.
 
@@ -246,11 +246,11 @@ Skills Tree already has deterministic capability-based selection, prerequisite r
 
 This is classified as an **evaluation/invocation evidence gap**, not a missing raw skill. Issue #357 records the bounded investigation. The next implementation should reuse existing discovery/selection and observability boundaries to build an activation/invocation benchmark. No new search engine, routing authority, or skill should be added unless measured failures prove one is necessary.
 
-Status: **INVESTIGATING — Issue #357**.
+Status: **INVESTIGATING â Issue #357**.
 Verification date: 2026-10-06.
 
 
-## Skill Activation / Invocation Evidence — HARNESS IMPLEMENTED — 2026-10-06
+## Skill Activation / Invocation Evidence â HARNESS IMPLEMENTED â 2026-10-06
 
 Issue #357 has been converted into an executable measurement boundary without adding a raw skill or routing engine.
 
@@ -265,7 +265,7 @@ The benchmark measures expected-skill activation, forbidden/false activation, co
 
 ### Evidence status
 
-**IMPLEMENTATION:** VERIFIED ON MAIN — PR #359 merged as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`.
+**IMPLEMENTATION:** VERIFIED ON MAIN â PR #359 merged as `51f22be5d3935437e19561e8aa1fdbf2eb19daab`.
 
 **EMPIRICAL ACTIVATION:** NOT YET VERIFIED. No real agent-runtime trace corpus has been recorded in the repository, so no activation-rate or reliability claim is made. Synthetic test fixtures validate only the evaluator's mechanics.
 
@@ -276,14 +276,14 @@ Do not modify skill descriptions, routing behavior, search, or add a new skill b
 Next action: capture repeated fresh-session traces for the four versioned cases and record the resulting benchmark artifact as evidence.
 
 
-## Activation Observation Contract — VERIFIED IMPLEMENTATION — 2026-10-06
+## Activation Observation Contract â VERIFIED IMPLEMENTATION â 2026-10-06
 
 The activation/invocation evidence gap now has both a benchmark and a machine-readable observation boundary. `meta/skill-activation-observation.schema.json` defines the accepted external trace shape; the benchmark runner validates against it before calculating metrics.
 
 This is an evidence/interop improvement, not a new skill or routing authority. No empirical activation-rate claim is made until real agent-runtime traces are collected.
 
 Next action: collect repeated fresh-session observations from a compatible runtime and record the benchmark result.
-## New evaluation-quality gap — Fail-Closed Benchmark Outcomes — 2026-10-06
+## New evaluation-quality gap â Fail-Closed Benchmark Outcomes â 2026-10-06
 
 Fresh public evidence from anthropics/skills#1383 identifies silent evaluator failure modes where missing or invalid benchmark execution can be interpreted as a valid zero result. Skills Tree's activation runner already labels an empty trace corpus NO_OBSERVATIONS, but previously returned process exit code 0, allowing automation to treat the run as successful.
 
@@ -295,7 +295,7 @@ The activation benchmark is an evidence instrument, not a model simulator. An em
 
 Classify this as an evaluation-harness integrity gap, not a new skill. The bounded remediation is to fail closed at the process boundary when zero cases have observations, while preserving the existing NO_OBSERVATIONS result record. Do not alter activation metrics or routing behavior.
 
-Status: IN PROGRESS — PR #365.
+Status: IN PROGRESS â PR #365.
 Verification date: 2026-10-06.
 ## 2026-10-06 Live project reconciliation
 
@@ -303,24 +303,24 @@ Current implementation/evidence state now includes the semantic Model/Agent/Tool
 
 Current corpus baseline verified by CI: 382 canonical skill files; 302 existing Agent Skills packages; no eligible missing projections, deterministic projection drift, stale entries, unexpected packages, or unresolved collisions on the verified PR #368 head.
 
-Activation empirical evidence remains pending. Issue #357 has no real agent-runtime trace corpus. The bounded benchmark now distinguishes NO_OBSERVATIONS, PARTIAL, and COMPLETE; COMPLETE requires 12 observations (4 cases × 3 repetitions).
+Activation empirical evidence remains pending. Issue #357 has no real agent-runtime trace corpus. The bounded benchmark now distinguishes NO_OBSERVATIONS, PARTIAL, and COMPLETE; COMPLETE requires 12 observations (4 cases Ã 3 repetitions).
 
 Evaluation-harness integrity is therefore separated from missing-skill demand: do not add or rewrite skills merely to improve activation before real runtime evidence exists.
 
 Issue #370 is now completed by PR #377: DevLens is diagnostic-only and cannot mutate README.md.
-## DevLens governance remediation — 2026-10-06
+## DevLens governance remediation â 2026-10-06
 
 Issue #370 is resolved by PR #377. The remaining active evidence gaps are #357 (real runtime activation traces) and #336 (retrieval benchmark freshness/reproducibility). Issue #372 is resolved by PR #379.
-## Activation observation integrity remediation — 2026-10-06
+## Activation observation integrity remediation â 2026-10-06
 
 Issue #372 is resolved by PR #379: the observation universe is closed to the selected dataset and run identities must be unique before metric calculation.
-## Final Live Audit State — 2026-10-06
+## Final Live Audit State â 2026-10-06
 
 Resolved governance/evidence implementation gaps: #370 (DevLens writer isolation) and #372 (activation observation integrity).
 
 Remaining active evidence work: #357 real runtime activation traces and #336 retrieval benchmark freshness/reproducibility. No raw skill addition is justified by either gap without new measured implementation evidence.
 
-## New demand-gap candidate — Skill Quality Evaluation — 2026-10-11
+## New demand-gap candidate â Skill Quality Evaluation â 2026-10-11
 
 A fresh owner-directed demand-gap pass (2026-10-11) identified a recurring capability that is not represented by a dedicated canonical skill: **evaluating the quality of a skill or skill package against a reproducible rubric before it is trusted, installed, or published**.
 
@@ -344,14 +344,14 @@ Status: **SELECTED / implementation in progress** on branch feat/demand-gap-skil
 
 ### Priority assessment
 
-**Proposed tier: A — high strategic utility, evidence-backed gap.**
+**Proposed tier: A â high strategic utility, evidence-backed gap.**
 
 Rationale: the capability extends Skills Tree's quality-gate differentiator from CI enforcement into a reusable agent-facing contract, and the demand signals are dated and public. No popularity or adoption claim is made.
 
 Verification date: 2026-10-11.
 
 
-## New demand-gap candidate — Progressive Skill Loading — 2026-10-11
+## New demand-gap candidate â Progressive Skill Loading â 2026-10-11
 
 The same pass identified a second capability gap: **loading skills into an agent context in escalating tiers so that a large skill library costs a bounded, measured number of tokens**.
 
@@ -376,13 +376,13 @@ Status: **SELECTED / implementation in progress** on branch feat/demand-gap-skil
 
 ### Priority assessment
 
-**Proposed tier: B — clear utility, evidence-backed gap, narrower blast radius than tier A.**
+**Proposed tier: B â clear utility, evidence-backed gap, narrower blast radius than tier A.**
 
 Rationale: the demand signals are dated and public, but the capability is a runtime-performance contract whose empirical benefit for Skills Tree itself awaits measured use; the skill records that boundary honestly. No popularity or adoption claim is made.
 
 Verification date: 2026-10-11.
 
-## Owner-directed expansion note — 2026-10-12
+## Owner-directed expansion note â 2026-10-12
 
 The 2026-10-12 corpus expansion (100 new skills across all 17 categories, beginning with the 10-skill pilot in PR #480) is an owner-directed addition, not a demand-gap selection. No demand signal is claimed for these entries, and they do not appear in the tiered selection lists above. The override of the measured-gap rule and the execution constraints are recorded in `meta/memory/DECISIONS.md` under DECISION-2026-10-12-OWNER-DIRECTED-CORPUS-EXPANSION. Batch 2 (45 experimental skills across 08-multimodal, 10-computer-use, 11-web, 13-creative, 14-security, 15-orchestration, 16-domain-specific, and 17-infrastructure) lands in PR #487 under the same constraints; the discovery test count moves 286 to 331. Batch 3 (45 experimental skills across 01-perception, 02-reasoning, 03-memory, 04-action-execution, 05-code, 06-communication, 07-tool-use, 09-agentic-patterns, 12-data, and 17-infrastructure) lands in PR #491 under the same constraints and completes the 100-skill expansion; the discovery test count moves 331 to 376. No demand signal is claimed.
 
@@ -392,35 +392,38 @@ The 2026-10-12 corpus expansion (100 new skills across all 17 categories, beginn
 A second owner-directed 100-skill expansion (wave 2) was directed on 2026-10-12, under the same constraints as the wave-1 override recorded above: an explicit owner override of the measured-gap rule, no fabricated demand signal, and experimental v1 entries with full section structure and byte-exact deterministic `project()` packages. Wave-2 batch 1 (10 experimental skills across 01-perception through 10-computer-use) lands in PR #506; the discovery test count moves 376 to 386. Wave-2 batch 2 (45 experimental skills across 11-web, 12-data, 13-creative, 14-security, 15-orchestration, 16-domain-specific, and 17-infrastructure) lands in PR #514 under the same constraints; the discovery test count moves 386 to 431. These entries do not appear in the tiered selection lists above, and no demand signal is claimed for them.
 
 
-## Daily demand-driven expansion — 2026-10-12 (run batch 1)
+## Daily demand-driven expansion â 2026-10-12 (run batch 1)
 
-Batch 1 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 01-perception through 05-code, published through the standard batch PR with full CI and an exact-head squash-merge. Selection basis for this batch: dated 2026-10 public signals — the MCP 2026-07-28 specification release candidate (stateless core, Extensions framework, Tasks, MCP Apps, authorization hardening), A2A agent-to-agent interop across trust boundaries, recurring developer pain points around agent evaluation, runaway agent spend, and agent security, plus the configured GitHub issue-search demand queries from meta/demand-sources.json (including open issue #357 and repository issue #87 on hierarchical memory). These are demand signals, not adoption metrics; no popularity or adoption claim is made. The public corpus moves from 538 to 588 skills.
+Batch 1 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 01-perception through 05-code, published through the standard batch PR with full CI and an exact-head squash-merge. Selection basis for this batch: dated 2026-10 public signals â the MCP 2026-07-28 specification release candidate (stateless core, Extensions framework, Tasks, MCP Apps, authorization hardening), A2A agent-to-agent interop across trust boundaries, recurring developer pain points around agent evaluation, runaway agent spend, and agent security, plus the configured GitHub issue-search demand queries from meta/demand-sources.json (including open issue #357 and repository issue #87 on hierarchical memory). These are demand signals, not adoption metrics; no popularity or adoption claim is made. The public corpus moves from 538 to 588 skills.
 
 
-## Daily demand-driven expansion — 2026-10-12 (run batch 2)
+## Daily demand-driven expansion â 2026-10-12 (run batch 2)
 
-Batch 2 of the owner-directed daily skill-expansion run adds 50 experimental v1 skills across categories 05-code (completion), 06-communication, 07-tool-use, 08-multimodal, and 09-agentic-patterns (first 4), published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 481 to 531 and the public corpus 588 to 638. Selection basis for this batch: dated 2026-10 public signals — the MCP 2026-07-28 specification release candidate (Extensions framework, Tasks, MCP Apps), A2A agent-card and trust-boundary interop work, agent evaluation as the top reported developer pain point, agent cost control (measured skill-layer token cost reports), agent supply-chain security (MCP tool poisoning, rug-pull attacks), content-provenance and deepfake concerns, plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
+Batch 2 of the owner-directed daily skill-expansion run adds 50 experimental v1 skills across categories 05-code (completion), 06-communication, 07-tool-use, 08-multimodal, and 09-agentic-patterns (first 4), published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 481 to 531 and the public corpus 588 to 638. Selection basis for this batch: dated 2026-10 public signals â the MCP 2026-07-28 specification release candidate (Extensions framework, Tasks, MCP Apps), A2A agent-card and trust-boundary interop work, agent evaluation as the top reported developer pain point, agent cost control (measured skill-layer token cost reports), agent supply-chain security (MCP tool poisoning, rug-pull attacks), content-provenance and deepfake concerns, plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
 
-## Daily demand-driven expansion — 2026-10-12 (run batch 3)
+## Daily demand-driven expansion â 2026-10-12 (run batch 3)
 
-Batch 3 of the owner-directed daily skill-expansion run adds 50 experimental v1 skills across categories 09-agentic-patterns (completion), 10-computer-use, 11-web, 12-data, and 13-creative (first 6), published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 531 to 581 and the public corpus 638 to 688. Selection basis for this batch: dated 2026-10 public signals — the MCP 2026-07-28 specification release candidate and its Tasks and Extensions surface, A2A protocol-compliance work across trust boundaries, agent evaluation and halt-condition design as recurring developer pain points, agent cost accounting and runaway-spend control, prompt version control, reward-hacking concerns in agentic evaluation, computer-use and browser-automation demand (session isolation, OAuth flows, accessibility auditing, link-rot and bulk URL health checking, session replay, CORS review), data-platform requests (data quality scoring, PII discovery, warehouse cost attribution, CDC, pipeline observability, vector index tuning, chunking strategy), and creative/content requests (interactive fiction, icon sets, newsletters, brand guidelines, alt text). Plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
+Batch 3 of the owner-directed daily skill-expansion run adds 50 experimental v1 skills across categories 09-agentic-patterns (completion), 10-computer-use, 11-web, 12-data, and 13-creative (first 6), published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 531 to 581 and the public corpus 638 to 688. Selection basis for this batch: dated 2026-10 public signals â the MCP 2026-07-28 specification release candidate and its Tasks and Extensions surface, A2A protocol-compliance work across trust boundaries, agent evaluation and halt-condition design as recurring developer pain points, agent cost accounting and runaway-spend control, prompt version control, reward-hacking concerns in agentic evaluation, computer-use and browser-automation demand (session isolation, OAuth flows, accessibility auditing, link-rot and bulk URL health checking, session replay, CORS review), data-platform requests (data quality scoring, PII discovery, warehouse cost attribution, CDC, pipeline observability, vector index tuning, chunking strategy), and creative/content requests (interactive fiction, icon sets, newsletters, brand guidelines, alt text). Plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
 
-## Daily demand-driven expansion — 2026-10-12 (run batch 4)
+## Daily demand-driven expansion â 2026-10-12 (run batch 4)
 
-Batch 4 of the owner-directed daily skill-expansion run adds 50 experimental v1 skills across categories 13-creative (completion), 14-security, 15-orchestration, 16-domain-specific, and 17-infrastructure, published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 581 to 631 and the public corpus 688 to 738, completing the 200-skill daily target. Selection basis for this batch: dated 2026-10 public signals — agent supply-chain security (MCP tool poisoning and rug-pull attacks, SBOM review for agent deployments, model provenance), indirect prompt injection as the most reported agent attack vector, agent identity verification and exfiltration detection, red teaming and attack-surface mapping, multi-tenant isolation; orchestration demand (hard cost ceilings against runaway spend, chaos testing, SLO enforcement, staged fleet config rollout, canary agent deployment, durable execution guarantees, A2A/MCP protocol bridging, human escalation routing); domain requests (clinical trial protocol review, patent claim drafting, procurement comparison, HR policy drafting, support KB curation, ecommerce categorization, real-estate listing analysis, regulatory change monitoring, supply-chain visibility, loan underwriting, pharmacovigilance signal detection, ESG reporting); and infrastructure requests (GPU scheduling, inference autoscaling, observability configuration, IaC drift detection, DR drills, certificate expiry, serverless cold starts, connection pool tuning, runbook generation, multi-cloud failover, image slimming, queue provisioning). Plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
+Batch 4 of the owner-directed daily skill-expansion run adds 50 experimental v1 skills across categories 13-creative (completion), 14-security, 15-orchestration, 16-domain-specific, and 17-infrastructure, published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 581 to 631 and the public corpus 688 to 738, completing the 200-skill daily target. Selection basis for this batch: dated 2026-10 public signals â agent supply-chain security (MCP tool poisoning and rug-pull attacks, SBOM review for agent deployments, model provenance), indirect prompt injection as the most reported agent attack vector, agent identity verification and exfiltration detection, red teaming and attack-surface mapping, multi-tenant isolation; orchestration demand (hard cost ceilings against runaway spend, chaos testing, SLO enforcement, staged fleet config rollout, canary agent deployment, durable execution guarantees, A2A/MCP protocol bridging, human escalation routing); domain requests (clinical trial protocol review, patent claim drafting, procurement comparison, HR policy drafting, support KB curation, ecommerce categorization, real-estate listing analysis, regulatory change monitoring, supply-chain visibility, loan underwriting, pharmacovigilance signal detection, ESG reporting); and infrastructure requests (GPU scheduling, inference autoscaling, observability configuration, IaC drift detection, DR drills, certificate expiry, serverless cold starts, connection pool tuning, runbook generation, multi-cloud failover, image slimming, queue provisioning). Plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
 
-## Daily demand-driven expansion — 2026-10-13 (run batch 1)
+## Daily demand-driven expansion â 2026-10-13 (run batch 1)
 
-Batch 1 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 01-perception, 02-reasoning, 03-memory, and 04-action-execution, published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 711 to 761 and the public corpus 738 to 788. Selection basis for this batch: dated 2026 public signals — the MCP 2026-07-28 specification (Streamable HTTP and server-sent events, the 2026-09-15 tool-list pinning client revision), A2A 1.0 signed Agent Cards and gRPC or JSON bindings (2026-03-12), streamed model and tool API responses, silent long-term-memory poisoning demonstrated against managed agent platforms, cryptographic continuity across agent restarts, memory governance including hierarchical memory management, forgetting and eviction from repository issue #87, deadline-aware and budget-aware reasoning, verifiability-first planning for long-horizon agents, agent payment mandates with cryptographic accountability, rate-limit and quota compliance, least-privilege action hygiene, and durable execution recovery guarantees, plus the configured GitHub issue-search demand queries from meta/demand-sources.json (including open issue #357 on skill activation reliability). These are demand signals, not adoption metrics; no popularity or adoption claim is made.
+Batch 1 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 01-perception, 02-reasoning, 03-memory, and 04-action-execution, published through the standard batch PR with full CI and an exact-head squash-merge; the discovery test count moves 711 to 761 and the public corpus 738 to 788. Selection basis for this batch: dated 2026 public signals â the MCP 2026-07-28 specification (Streamable HTTP and server-sent events, the 2026-09-15 tool-list pinning client revision), A2A 1.0 signed Agent Cards and gRPC or JSON bindings (2026-03-12), streamed model and tool API responses, silent long-term-memory poisoning demonstrated against managed agent platforms, cryptographic continuity across agent restarts, memory governance including hierarchical memory management, forgetting and eviction from repository issue #87, deadline-aware and budget-aware reasoning, verifiability-first planning for long-horizon agents, agent payment mandates with cryptographic accountability, rate-limit and quota compliance, least-privilege action hygiene, and durable execution recovery guarantees, plus the configured GitHub issue-search demand queries from meta/demand-sources.json (including open issue #357 on skill activation reliability). These are demand signals, not adoption metrics; no popularity or adoption claim is made.
 
-## Daily demand-driven expansion — 2026-10-13 (run batch 2)
+## Daily demand-driven expansion â 2026-10-13 (run batch 2)
 
-Batch 2 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 05-code, 06-communication, 07-tool-use, and 08-multimodal, published through the standard batch PR with full CI; the discovery test count moves 761 to 811 and the public corpus 788 to 838. Selection basis for this batch: dated 2026 public signals — the MCP 2026-07-28 specification update and the 2026-09-15 tool-list pinning client revision, A2A 1.0 signed Agent Cards (2026-03-12) and ACP editor-protocol releases, coding-agent git configuration hijack disclosure in 2026 agent security coverage, CI cost and cache efficiency requests, prompt-as-code regression testing, small-model routing for inference cost reduction, MCP registry curation and WebMCP page tool exposure, and recurring multimodal requests (video tracking, audio event and highlight extraction, subject-consistent image generation, dubbing alignment), plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
+Batch 2 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 05-code, 06-communication, 07-tool-use, and 08-multimodal, published through the standard batch PR with full CI; the discovery test count moves 761 to 811 and the public corpus 788 to 838. Selection basis for this batch: dated 2026 public signals â the MCP 2026-07-28 specification update and the 2026-09-15 tool-list pinning client revision, A2A 1.0 signed Agent Cards (2026-03-12) and ACP editor-protocol releases, coding-agent git configuration hijack disclosure in 2026 agent security coverage, CI cost and cache efficiency requests, prompt-as-code regression testing, small-model routing for inference cost reduction, MCP registry curation and WebMCP page tool exposure, and recurring multimodal requests (video tracking, audio event and highlight extraction, subject-consistent image generation, dubbing alignment), plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
 
-## Daily demand-driven expansion — 2026-10-13 (run batch 3)
+## Daily demand-driven expansion â 2026-10-13 (run batch 3)
 
-Batch 3 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 09-agentic-patterns, 10-computer-use, 11-web, and 12-data, published through the standard batch PR with full CI; the discovery test count moves 811 to 861 and the public corpus 838 to 888. Selection basis for this batch: dated 2026 public signals — context engineering and context-window budgeting, LLM-as-judge calibration and simulated-user evaluation, eval regression gates and plan-adherence auditing for CI-for-agents, definition-of-done enforcement in spec-driven workflows, commitment tracking and turn-budget pacing for long-horizon runs, stuck-loop detection in agent observability, approach diversification and skill composition requests; computer-use requests (remote desktop, mobile and ADB device automation, drawing canvas, e-signature, system tray, permission dialogs, hotkey conflicts, app updates, VPN, scheduled tasks, session keepalive); web requests (llms.txt, agent-readable site markup alongside the MCP 2026-07-28 specification, bot authentication, browser fingerprint management, network interception, cookie consent, API mocking, signed URLs, verification links, localization verification, multi-tab flows, extensions, checkout, MFA); and data requests (AI-traffic classification, dialogue analytics, embedding cost tracking, Parquet processing, lakehouse maintenance, event-sourced projections, graph centrality, inter-annotator agreement, retention automation, metrics cardinality), plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
+Batch 3 of the owner-directed daily skill-expansion run (DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION) adds 50 experimental v1 skills across categories 09-agentic-patterns, 10-computer-use, 11-web, and 12-data, published through the standard batch PR with full CI; the discovery test count moves 811 to 861 and the public corpus 838 to 888. Selection basis for this batch: dated 2026 public signals â context engineering and context-window budgeting, LLM-as-judge calibration and simulated-user evaluation, eval regression gates and plan-adherence auditing for CI-for-agents, definition-of-done enforcement in spec-driven workflows, commitment tracking and turn-budget pacing for long-horizon runs, stuck-loop detection in agent observability, approach diversification and skill composition requests; computer-use requests (remote desktop, mobile and ADB device automation, drawing canvas, e-signature, system tray, permission dialogs, hotkey conflicts, app updates, VPN, scheduled tasks, session keepalive); web requests (llms.txt, agent-readable site markup alongside the MCP 2026-07-28 specification, bot authentication, browser fingerprint management, network interception, cookie consent, API mocking, signed URLs, verification links, localization verification, multi-tab flows, extensions, checkout, MFA); and data requests (AI-traffic classification, dialogue analytics, embedding cost tracking, Parquet processing, lakehouse maintenance, event-sourced projections, graph centrality, inter-annotator agreement, retention automation, metrics cardinality), plus the configured GitHub issue-search demand queries from meta/demand-sources.json. These are demand signals, not adoption metrics; no popularity or adoption claim is made.
 
-## 2026-10-14 daily expansion — batch 1
+## 2026-10-14 daily expansion â batch 1
 
 Added 50 canonical skills selected from dated public signals gathered 2026-10-14: MCP 2026-07-28 specification (stateless, self-contained requests), A2A v1.0 task lifecycle states, Microsoft Agent Framework 1.0 GA (2026-04-03), agentic-commerce protocols (AP2 signed mandates, UCP, ACP, x402), context-engineering and harness-engineering practitioner surveys, production agent guardrail compliance guides, and agent evaluation practice (SWE-bench Pro, Terminal-Bench, eval dataset curation). Sources are public web search results recorded per skill in the PR body. No popularity ranking is claimed.
+## 2026-10-15 daily expansion - batch 2
+
+Added 50 canonical skills (categories 01-perception, 02-reasoning, 03-memory, 04-action-execution, 05-code; 10 each), selected from dated 2026-10 public trend and developer-request signals gathered this run: A2A agent-to-agent protocol and agent-card/trust-boundary interoperability, OpenTelemetry-style agent trace and span telemetry for LLM observability, SARIF static-analysis result interchange, RRULE/iCalendar recurrence parsing, webhook payload signature verification, LLM usage and cost metric collection, multi-agent consensus and model-selection patterns, plus the configured GitHub issue-search demand queries from meta/demand-sources.json. Sources are public web search results recorded per skill in the PR body. The public corpus moves from 939 to 989 skills; the discovery test count moves 912 to 962. No popularity ranking is claimed.
