@@ -3,8 +3,8 @@
     "generated_at": "2026-10-15T04:46:39.961166+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 989,
-    "edge_count": 684,
+    "node_count": 1039,
+    "edge_count": 784,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -5653,6 +5653,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/agent-handoff-brief-composition",
+      "title": "Agent Handoff Brief Composition",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/agent-handoff-brief-composition.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/argument-construction",
       "title": "Argument Construction",
       "category": "06-communication",
@@ -5770,6 +5785,51 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/conflict-de-escalation-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/conversational-repair-after-tool-failure",
+      "title": "Conversational Repair After Tool Failure",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/conversational-repair-after-tool-failure.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/cross-agent-session-continuity",
+      "title": "Cross Agent Session Continuity",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/cross-agent-session-continuity.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/cross-agent-terminology-alignment",
+      "title": "Cross Agent Terminology Alignment",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/cross-agent-terminology-alignment.md",
       "quality_score": null
     },
     {
@@ -5905,6 +5965,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/glossary-maintenance.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/human-approval-request-drafting",
+      "title": "Human Approval Request Drafting",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/human-approval-request-drafting.md",
       "quality_score": null
     },
     {
@@ -6283,6 +6358,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/structured-output-contract-authoring",
+      "title": "Structured Output Contract Authoring",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/structured-output-contract-authoring.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/structured-output",
       "title": "Structured Output",
       "category": "06-communication",
@@ -6325,6 +6415,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/tone-adjustment.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/tool-description-writing",
+      "title": "Tool Description Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/tool-description-writing.md",
       "quality_score": null
     },
     {
@@ -6400,6 +6505,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/a2a-signed-agent-card-verification.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/a2a-skill-declaration-mapping",
+      "title": "A2A Skill Declaration Mapping",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/a2a-skill-declaration-mapping.md",
       "quality_score": null
     },
     {
@@ -6808,6 +6928,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/mcp-server-rate-limit-backoff",
+      "title": "MCP Server Rate Limit Backoff",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/mcp-server-rate-limit-backoff.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/mcp-stateless-request-migration",
       "title": "Mcp Stateless Request Migration",
       "category": "07-tool-use",
@@ -6835,6 +6970,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/mcp-tasks-extension-usage.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/mcp-tool-argument-validation",
+      "title": "MCP Tool Argument Validation",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/mcp-tool-argument-validation.md",
       "quality_score": null
     },
     {
@@ -6943,6 +7093,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/openapi-to-mcp-tool-bridging",
+      "title": "OpenAPI to MCP Tool Bridging",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/openapi-to-mcp-tool-bridging.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/pdf-tool",
       "title": "PDF Tool",
       "category": "07-tool-use",
@@ -7000,6 +7165,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/sendgrid-api.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/shell-command-dry-run-analysis",
+      "title": "Shell Command Dry Run Analysis",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/shell-command-dry-run-analysis.md",
       "quality_score": null
     },
     {
@@ -7123,6 +7303,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/tool-capability-cataloging",
+      "title": "Tool Capability Cataloging",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-capability-cataloging.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/tool-deprecation-handling",
       "title": "Tool Deprecation Handling",
       "category": "07-tool-use",
@@ -7210,6 +7405,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/tool-result-caching.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/tool-result-truncation",
+      "title": "Tool Result Truncation",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/tool-result-truncation.md",
       "quality_score": null
     },
     {
@@ -7543,6 +7753,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/audio-transcript-diarization-audit",
+      "title": "Audio Transcript Diarization Audit",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/audio-transcript-diarization-audit.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/audio-transcription",
       "title": "Audio Transcription",
       "category": "08-multimodal",
@@ -7570,6 +7795,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/chart-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/chart-to-data-round-trip",
+      "title": "Chart to Data Round Trip",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/chart-to-data-round-trip.md",
       "quality_score": null
     },
     {
@@ -7615,6 +7855,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/document-layout-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/document-table-extraction",
+      "title": "Document Table Extraction",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/document-table-extraction.md",
       "quality_score": null
     },
     {
@@ -7705,6 +7960,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/image-inpainting.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/image-metadata-provenance",
+      "title": "Image Metadata Provenance",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/image-metadata-provenance.md",
       "quality_score": null
     },
     {
@@ -7873,6 +8143,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/speech-agent-turn-latency",
+      "title": "Speech Agent Turn Latency",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/speech-agent-turn-latency.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/speech-noise-suppression",
       "title": "Speech Noise Suppression",
       "category": "08-multimodal",
@@ -8023,6 +8308,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/video-frame-sampling-review",
+      "title": "Video Frame Sampling Review",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/video-frame-sampling-review.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/video-highlight-detection",
       "title": "Video Highlight Detection",
       "category": "08-multimodal",
@@ -8050,6 +8350,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/video-object-tracking.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/vision-output-verification",
+      "title": "Vision Output Verification",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/vision-output-verification.md",
       "quality_score": null
     },
     {
@@ -8110,6 +8425,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agent-as-tool.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "title": "Agent Checkpoint Restore Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-checkpoint-restore-patterns.md",
       "quality_score": null
     },
     {
@@ -8245,6 +8575,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/agent-harness-assembly.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-idle-wakeup-scheduling",
+      "title": "Agent Idle Wakeup Scheduling",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-idle-wakeup-scheduling.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-memory-compaction-tiers",
+      "title": "Agent Memory Compaction Tiers",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-memory-compaction-tiers.md",
       "quality_score": null
     },
     {
@@ -8536,6 +8896,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/guardrail-wrapped-agent-loops",
+      "title": "Guardrail Wrapped Agent Loops",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/guardrail-wrapped-agent-loops.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/hitl-checkpoint-pattern-design",
       "title": "Hitl Checkpoint Pattern Design",
       "category": "09-agentic-patterns",
@@ -8668,6 +9043,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/mixture-of-agents.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/multi-agent-debate-resolution",
+      "title": "Multi Agent Debate Resolution",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/multi-agent-debate-resolution.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/multi-agent-workstream-merging",
+      "title": "Multi Agent Workstream Merging",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/multi-agent-workstream-merging.md",
       "quality_score": null
     },
     {
@@ -8838,6 +9243,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/self-play.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/self-refine-critique-loop",
+      "title": "Self Refine Critique Loop",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/self-refine-critique-loop.md",
       "quality_score": null
     },
     {
@@ -9023,6 +9443,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/accessibility-tree-automation-audit",
+      "title": "Accessibility Tree Automation Audit",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/accessibility-tree-automation-audit.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/accessibility-tree",
       "title": "Accessibility Tree",
       "category": "10-computer-use",
@@ -9095,6 +9530,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/app-update-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/clipboard-automation-hygiene",
+      "title": "Clipboard Automation Hygiene",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/clipboard-automation-hygiene.md",
       "quality_score": null
     },
     {
@@ -9200,6 +9650,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/desktop-notification-triage.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/desktop-notification-triggers",
+      "title": "Desktop Notification Triggers",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/desktop-notification-triggers.md",
       "quality_score": null
     },
     {
@@ -9323,6 +9788,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/gui-element-anchoring-stability",
+      "title": "GUI Element Anchoring Stability",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/gui-element-anchoring-stability.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/hotkey-conflict-resolution",
       "title": "Hotkey Conflict Resolution",
       "category": "10-computer-use",
@@ -9350,6 +9830,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/idle-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/install-wizard-automation",
+      "title": "Install Wizard Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/install-wizard-automation.md",
       "quality_score": null
     },
     {
@@ -9533,6 +10028,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/sandboxed-desktop-vm-execution",
+      "title": "Sandboxed Desktop VM Execution",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/sandboxed-desktop-vm-execution.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/screen-ocr",
       "title": "Screen Ocr",
       "category": "10-computer-use",
@@ -9605,6 +10115,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/screenshot-capture.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/screenshot-diff-verification",
+      "title": "Screenshot Diff Verification",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/screenshot-diff-verification.md",
       "quality_score": null
     },
     {
@@ -9938,6 +10463,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/browser-session-state-snapshots",
+      "title": "Browser Session State Snapshots",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/browser-session-state-snapshots.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/bulk-url-health-checking",
       "title": "Bulk URL Health Checking",
       "category": "11-web",
@@ -10040,6 +10580,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/cors-policy-review.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/crawl-budget-allocation",
+      "title": "Crawl Budget Allocation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/crawl-budget-allocation.md",
       "quality_score": null
     },
     {
@@ -10178,6 +10733,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/json-ld-structured-data-extraction",
+      "title": "JSON LD Structured Data Extraction",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/json-ld-structured-data-extraction.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/link-extraction",
       "title": "Link Extraction",
       "category": "11-web",
@@ -10265,6 +10835,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/multi-tab-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/otp-handoff-automation",
+      "title": "OTP Handoff Automation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/otp-handoff-automation.md",
       "quality_score": null
     },
     {
@@ -10358,6 +10943,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/shadow-dom-selector-strategies",
+      "title": "Shadow DOM Selector Strategies",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/shadow-dom-selector-strategies.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/signed-url-generation",
       "title": "Signed URL Generation",
       "category": "11-web",
@@ -10385,6 +10985,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/sitemap-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/spa-url-state-snapshotting",
+      "title": "SPA URL State Snapshotting",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/spa-url-state-snapshotting.md",
       "quality_score": null
     },
     {
@@ -10673,6 +11288,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/web-table-pagination-traversal",
+      "title": "Web Table Pagination Traversal",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-table-pagination-traversal.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/website-localization-verification",
       "title": "Website Localization Verification",
       "category": "11-web",
@@ -10700,6 +11330,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/ab-test-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/agent-feedback-signal-aggregation",
+      "title": "Agent Feedback Signal Aggregation",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/agent-feedback-signal-aggregation.md",
       "quality_score": null
     },
     {
@@ -10985,6 +11630,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-visualization.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/dataset-contamination-screening",
+      "title": "Dataset Contamination Screening",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/dataset-contamination-screening.md",
       "quality_score": null
     },
     {
@@ -11288,6 +11948,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/observability-span-taxonomies",
+      "title": "Observability Span Taxonomies",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/observability-span-taxonomies.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/pandas-operations",
       "title": "Pandas Operations",
       "category": "12-data",
@@ -11348,6 +12023,36 @@
       "quality_score": null
     },
     {
+      "id": "12-data/rag-chunk-boundary-audits",
+      "title": "RAG Chunk Boundary Audits",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/rag-chunk-boundary-audits.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/response-schema-validation",
+      "title": "Response Schema Validation",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/response-schema-validation.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/retention-policy-automation",
       "title": "Retention Policy Automation",
       "category": "12-data",
@@ -11390,6 +12095,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/schema-registry-management.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/session-replay-sampling",
+      "title": "Session Replay Sampling",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/session-replay-sampling.md",
       "quality_score": null
     },
     {
@@ -11483,6 +12203,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/trace-cost-attribution",
+      "title": "Trace Cost Attribution",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/trace-cost-attribution.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/vector-index-tuning",
       "title": "Vector Index Tuning",
       "category": "12-data",
@@ -11495,6 +12230,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/vector-index-tuning.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/vector-store-schema-migration",
+      "title": "Vector Store Schema Migration",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/vector-store-schema-migration.md",
       "quality_score": null
     },
     {
@@ -17612,6 +18362,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/agent-handoff-brief-composition",
+      "target": "06-communication/cross-agent-session-continuity",
+      "type": "RELATED_TO",
+      "evidence": "[cross agent session continuity](../06-communication/cross-agent-session-continuity.md)",
+      "source_file": "skills/06-communication/agent-handoff-brief-composition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/agent-handoff-brief-composition",
+      "target": "06-communication/structured-output-contract-authoring",
+      "type": "RELATED_TO",
+      "evidence": "[structured output contract authoring](../06-communication/structured-output-contract-authoring.md)",
+      "source_file": "skills/06-communication/agent-handoff-brief-composition.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/audience-analysis",
       "target": "06-communication/persona-adoption",
       "type": "RELATED_TO",
@@ -17628,6 +18394,54 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/conversational-repair-after-tool-failure",
+      "target": "06-communication/tool-description-writing",
+      "type": "RELATED_TO",
+      "evidence": "[tool description writing](../06-communication/tool-description-writing.md)",
+      "source_file": "skills/06-communication/conversational-repair-after-tool-failure.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/conversational-repair-after-tool-failure",
+      "target": "06-communication/human-approval-request-drafting",
+      "type": "RELATED_TO",
+      "evidence": "[human approval request drafting](../06-communication/human-approval-request-drafting.md)",
+      "source_file": "skills/06-communication/conversational-repair-after-tool-failure.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/cross-agent-session-continuity",
+      "target": "06-communication/agent-handoff-brief-composition",
+      "type": "RELATED_TO",
+      "evidence": "[agent handoff brief composition](../06-communication/agent-handoff-brief-composition.md)",
+      "source_file": "skills/06-communication/cross-agent-session-continuity.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/cross-agent-session-continuity",
+      "target": "06-communication/cross-agent-terminology-alignment",
+      "type": "RELATED_TO",
+      "evidence": "[cross agent terminology alignment](../06-communication/cross-agent-terminology-alignment.md)",
+      "source_file": "skills/06-communication/cross-agent-session-continuity.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/cross-agent-terminology-alignment",
+      "target": "06-communication/agent-handoff-brief-composition",
+      "type": "RELATED_TO",
+      "evidence": "[agent handoff brief composition](../06-communication/agent-handoff-brief-composition.md)",
+      "source_file": "skills/06-communication/cross-agent-terminology-alignment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/cross-agent-terminology-alignment",
+      "target": "06-communication/tool-description-writing",
+      "type": "RELATED_TO",
+      "evidence": "[tool description writing](../06-communication/tool-description-writing.md)",
+      "source_file": "skills/06-communication/cross-agent-terminology-alignment.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/feedback-delivery",
       "target": "06-communication/debate",
       "type": "RELATED_TO",
@@ -17641,6 +18455,22 @@
       "type": "RELATED_TO",
       "evidence": "[Argument Construction](argument-construction.md)",
       "source_file": "skills/06-communication/feedback-delivery.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/human-approval-request-drafting",
+      "target": "06-communication/conversational-repair-after-tool-failure",
+      "type": "RELATED_TO",
+      "evidence": "[conversational repair after tool failure](../06-communication/conversational-repair-after-tool-failure.md)",
+      "source_file": "skills/06-communication/human-approval-request-drafting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/human-approval-request-drafting",
+      "target": "06-communication/cross-agent-terminology-alignment",
+      "type": "RELATED_TO",
+      "evidence": "[cross agent terminology alignment](../06-communication/cross-agent-terminology-alignment.md)",
+      "source_file": "skills/06-communication/human-approval-request-drafting.md",
       "confidence": "high"
     },
     {
@@ -17748,6 +18578,38 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/structured-output-contract-authoring",
+      "target": "06-communication/tool-description-writing",
+      "type": "RELATED_TO",
+      "evidence": "[tool description writing](../06-communication/tool-description-writing.md)",
+      "source_file": "skills/06-communication/structured-output-contract-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/structured-output-contract-authoring",
+      "target": "12-data/response-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[response schema validation](../12-data/response-schema-validation.md)",
+      "source_file": "skills/06-communication/structured-output-contract-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/tool-description-writing",
+      "target": "06-communication/structured-output-contract-authoring",
+      "type": "RELATED_TO",
+      "evidence": "[structured output contract authoring](../06-communication/structured-output-contract-authoring.md)",
+      "source_file": "skills/06-communication/tool-description-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/tool-description-writing",
+      "target": "06-communication/conversational-repair-after-tool-failure",
+      "type": "RELATED_TO",
+      "evidence": "[conversational repair after tool failure](../06-communication/conversational-repair-after-tool-failure.md)",
+      "source_file": "skills/06-communication/tool-description-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/translation",
       "target": "06-communication/multilingual-output",
       "type": "RELATED_TO",
@@ -17769,6 +18631,22 @@
       "type": "RELATED_TO",
       "evidence": "[Tone Adjustment](tone-adjustment.md)",
       "source_file": "skills/06-communication/translation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-skill-declaration-mapping",
+      "target": "07-tool-use/tool-capability-cataloging",
+      "type": "RELATED_TO",
+      "evidence": "[tool capability cataloging](../07-tool-use/tool-capability-cataloging.md)",
+      "source_file": "skills/07-tool-use/a2a-skill-declaration-mapping.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-skill-declaration-mapping",
+      "target": "06-communication/cross-agent-terminology-alignment",
+      "type": "RELATED_TO",
+      "evidence": "[cross agent terminology alignment](../06-communication/cross-agent-terminology-alignment.md)",
+      "source_file": "skills/07-tool-use/a2a-skill-declaration-mapping.md",
       "confidence": "high"
     },
     {
@@ -17868,6 +18746,38 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/mcp-server-rate-limit-backoff",
+      "target": "07-tool-use/mcp-tool-argument-validation",
+      "type": "RELATED_TO",
+      "evidence": "[mcp tool argument validation](../07-tool-use/mcp-tool-argument-validation.md)",
+      "source_file": "skills/07-tool-use/mcp-server-rate-limit-backoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/mcp-server-rate-limit-backoff",
+      "target": "07-tool-use/tool-result-truncation",
+      "type": "RELATED_TO",
+      "evidence": "[tool result truncation](../07-tool-use/tool-result-truncation.md)",
+      "source_file": "skills/07-tool-use/mcp-server-rate-limit-backoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/mcp-tool-argument-validation",
+      "target": "07-tool-use/mcp-server-rate-limit-backoff",
+      "type": "RELATED_TO",
+      "evidence": "[mcp server rate limit backoff](../07-tool-use/mcp-server-rate-limit-backoff.md)",
+      "source_file": "skills/07-tool-use/mcp-tool-argument-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/mcp-tool-argument-validation",
+      "target": "07-tool-use/openapi-to-mcp-tool-bridging",
+      "type": "RELATED_TO",
+      "evidence": "[openapi to mcp tool bridging](../07-tool-use/openapi-to-mcp-tool-bridging.md)",
+      "source_file": "skills/07-tool-use/mcp-tool-argument-validation.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/openai-api",
       "target": "07-tool-use/anthropic-api",
       "type": "RELATED_TO",
@@ -17892,6 +18802,38 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/openapi-to-mcp-tool-bridging",
+      "target": "07-tool-use/mcp-tool-argument-validation",
+      "type": "RELATED_TO",
+      "evidence": "[mcp tool argument validation](../07-tool-use/mcp-tool-argument-validation.md)",
+      "source_file": "skills/07-tool-use/openapi-to-mcp-tool-bridging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/openapi-to-mcp-tool-bridging",
+      "target": "07-tool-use/tool-capability-cataloging",
+      "type": "RELATED_TO",
+      "evidence": "[tool capability cataloging](../07-tool-use/tool-capability-cataloging.md)",
+      "source_file": "skills/07-tool-use/openapi-to-mcp-tool-bridging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/shell-command-dry-run-analysis",
+      "target": "07-tool-use/tool-capability-cataloging",
+      "type": "RELATED_TO",
+      "evidence": "[tool capability cataloging](../07-tool-use/tool-capability-cataloging.md)",
+      "source_file": "skills/07-tool-use/shell-command-dry-run-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/shell-command-dry-run-analysis",
+      "target": "07-tool-use/mcp-tool-argument-validation",
+      "type": "RELATED_TO",
+      "evidence": "[mcp tool argument validation](../07-tool-use/mcp-tool-argument-validation.md)",
+      "source_file": "skills/07-tool-use/shell-command-dry-run-analysis.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/streaming-tool-output",
       "target": "07-tool-use/function-calling",
       "type": "RELATED_TO",
@@ -17905,6 +18847,22 @@
       "type": "RELATED_TO",
       "evidence": "[MCP Tool](mcp-tool.md)",
       "source_file": "skills/07-tool-use/streaming-tool-output.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-capability-cataloging",
+      "target": "07-tool-use/openapi-to-mcp-tool-bridging",
+      "type": "RELATED_TO",
+      "evidence": "[openapi to mcp tool bridging](../07-tool-use/openapi-to-mcp-tool-bridging.md)",
+      "source_file": "skills/07-tool-use/tool-capability-cataloging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-capability-cataloging",
+      "target": "07-tool-use/tool-result-truncation",
+      "type": "RELATED_TO",
+      "evidence": "[tool result truncation](../07-tool-use/tool-result-truncation.md)",
+      "source_file": "skills/07-tool-use/tool-capability-cataloging.md",
       "confidence": "high"
     },
     {
@@ -17937,6 +18895,22 @@
       "type": "RELATED_TO",
       "evidence": "[Function Calling](function-calling.md)",
       "source_file": "skills/07-tool-use/tool-result-caching.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-result-truncation",
+      "target": "07-tool-use/mcp-server-rate-limit-backoff",
+      "type": "RELATED_TO",
+      "evidence": "[mcp server rate limit backoff](../07-tool-use/mcp-server-rate-limit-backoff.md)",
+      "source_file": "skills/07-tool-use/tool-result-truncation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/tool-result-truncation",
+      "target": "07-tool-use/tool-capability-cataloging",
+      "type": "RELATED_TO",
+      "evidence": "[tool capability cataloging](../07-tool-use/tool-capability-cataloging.md)",
+      "source_file": "skills/07-tool-use/tool-result-truncation.md",
       "confidence": "high"
     },
     {
@@ -18044,6 +19018,70 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/audio-transcript-diarization-audit",
+      "target": "08-multimodal/speech-agent-turn-latency",
+      "type": "RELATED_TO",
+      "evidence": "[speech agent turn latency](../08-multimodal/speech-agent-turn-latency.md)",
+      "source_file": "skills/08-multimodal/audio-transcript-diarization-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/audio-transcript-diarization-audit",
+      "target": "08-multimodal/vision-output-verification",
+      "type": "RELATED_TO",
+      "evidence": "[vision output verification](../08-multimodal/vision-output-verification.md)",
+      "source_file": "skills/08-multimodal/audio-transcript-diarization-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/chart-to-data-round-trip",
+      "target": "08-multimodal/document-table-extraction",
+      "type": "RELATED_TO",
+      "evidence": "[document table extraction](../08-multimodal/document-table-extraction.md)",
+      "source_file": "skills/08-multimodal/chart-to-data-round-trip.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/chart-to-data-round-trip",
+      "target": "08-multimodal/vision-output-verification",
+      "type": "RELATED_TO",
+      "evidence": "[vision output verification](../08-multimodal/vision-output-verification.md)",
+      "source_file": "skills/08-multimodal/chart-to-data-round-trip.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/document-table-extraction",
+      "target": "08-multimodal/chart-to-data-round-trip",
+      "type": "RELATED_TO",
+      "evidence": "[chart to data round trip](../08-multimodal/chart-to-data-round-trip.md)",
+      "source_file": "skills/08-multimodal/document-table-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/document-table-extraction",
+      "target": "08-multimodal/vision-output-verification",
+      "type": "RELATED_TO",
+      "evidence": "[vision output verification](../08-multimodal/vision-output-verification.md)",
+      "source_file": "skills/08-multimodal/document-table-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/image-metadata-provenance",
+      "target": "08-multimodal/vision-output-verification",
+      "type": "RELATED_TO",
+      "evidence": "[vision output verification](../08-multimodal/vision-output-verification.md)",
+      "source_file": "skills/08-multimodal/image-metadata-provenance.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/image-metadata-provenance",
+      "target": "08-multimodal/video-frame-sampling-review",
+      "type": "RELATED_TO",
+      "evidence": "[video frame sampling review](../08-multimodal/video-frame-sampling-review.md)",
+      "source_file": "skills/08-multimodal/image-metadata-provenance.md",
+      "confidence": "high"
+    },
+    {
       "source": "08-multimodal/image-resizing",
       "target": "08-multimodal/image-editing",
       "type": "RELATED_TO",
@@ -18092,6 +19130,22 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/speech-agent-turn-latency",
+      "target": "08-multimodal/audio-transcript-diarization-audit",
+      "type": "RELATED_TO",
+      "evidence": "[audio transcript diarization audit](../08-multimodal/audio-transcript-diarization-audit.md)",
+      "source_file": "skills/08-multimodal/speech-agent-turn-latency.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/speech-agent-turn-latency",
+      "target": "08-multimodal/vision-output-verification",
+      "type": "RELATED_TO",
+      "evidence": "[vision output verification](../08-multimodal/vision-output-verification.md)",
+      "source_file": "skills/08-multimodal/speech-agent-turn-latency.md",
+      "confidence": "high"
+    },
+    {
       "source": "08-multimodal/subtitle-generation",
       "target": "08-multimodal/video-description",
       "type": "RELATED_TO",
@@ -18124,6 +19178,54 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/video-frame-sampling-review",
+      "target": "08-multimodal/image-metadata-provenance",
+      "type": "RELATED_TO",
+      "evidence": "[image metadata provenance](../08-multimodal/image-metadata-provenance.md)",
+      "source_file": "skills/08-multimodal/video-frame-sampling-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/video-frame-sampling-review",
+      "target": "08-multimodal/vision-output-verification",
+      "type": "RELATED_TO",
+      "evidence": "[vision output verification](../08-multimodal/vision-output-verification.md)",
+      "source_file": "skills/08-multimodal/video-frame-sampling-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/vision-output-verification",
+      "target": "08-multimodal/chart-to-data-round-trip",
+      "type": "RELATED_TO",
+      "evidence": "[chart to data round trip](../08-multimodal/chart-to-data-round-trip.md)",
+      "source_file": "skills/08-multimodal/vision-output-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/vision-output-verification",
+      "target": "08-multimodal/image-metadata-provenance",
+      "type": "RELATED_TO",
+      "evidence": "[image metadata provenance](../08-multimodal/image-metadata-provenance.md)",
+      "source_file": "skills/08-multimodal/vision-output-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "target": "09-agentic-patterns/agent-memory-compaction-tiers",
+      "type": "RELATED_TO",
+      "evidence": "[agent memory compaction tiers](../09-agentic-patterns/agent-memory-compaction-tiers.md)",
+      "source_file": "skills/09-agentic-patterns/agent-checkpoint-restore-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "target": "09-agentic-patterns/agent-idle-wakeup-scheduling",
+      "type": "RELATED_TO",
+      "evidence": "[agent idle wakeup scheduling](../09-agentic-patterns/agent-idle-wakeup-scheduling.md)",
+      "source_file": "skills/09-agentic-patterns/agent-checkpoint-restore-patterns.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/agent-checkpointing",
       "target": "09-agentic-patterns/time-travel-debugging",
       "type": "RELATED_TO",
@@ -18153,6 +19255,38 @@
       "type": "RELATED_TO",
       "evidence": "[Critic Agent](critic-agent.md)",
       "source_file": "skills/09-agentic-patterns/agent-failure-taxonomy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-idle-wakeup-scheduling",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[agent checkpoint restore patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/agent-idle-wakeup-scheduling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-idle-wakeup-scheduling",
+      "target": "09-agentic-patterns/guardrail-wrapped-agent-loops",
+      "type": "RELATED_TO",
+      "evidence": "[guardrail wrapped agent loops](../09-agentic-patterns/guardrail-wrapped-agent-loops.md)",
+      "source_file": "skills/09-agentic-patterns/agent-idle-wakeup-scheduling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-memory-compaction-tiers",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[agent checkpoint restore patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/agent-memory-compaction-tiers.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-memory-compaction-tiers",
+      "target": "09-agentic-patterns/agent-idle-wakeup-scheduling",
+      "type": "RELATED_TO",
+      "evidence": "[agent idle wakeup scheduling](../09-agentic-patterns/agent-idle-wakeup-scheduling.md)",
+      "source_file": "skills/09-agentic-patterns/agent-memory-compaction-tiers.md",
       "confidence": "high"
     },
     {
@@ -18220,6 +19354,54 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/guardrail-wrapped-agent-loops",
+      "target": "09-agentic-patterns/self-refine-critique-loop",
+      "type": "RELATED_TO",
+      "evidence": "[self refine critique loop](../09-agentic-patterns/self-refine-critique-loop.md)",
+      "source_file": "skills/09-agentic-patterns/guardrail-wrapped-agent-loops.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/guardrail-wrapped-agent-loops",
+      "target": "09-agentic-patterns/agent-idle-wakeup-scheduling",
+      "type": "RELATED_TO",
+      "evidence": "[agent idle wakeup scheduling](../09-agentic-patterns/agent-idle-wakeup-scheduling.md)",
+      "source_file": "skills/09-agentic-patterns/guardrail-wrapped-agent-loops.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/multi-agent-debate-resolution",
+      "target": "09-agentic-patterns/self-refine-critique-loop",
+      "type": "RELATED_TO",
+      "evidence": "[self refine critique loop](../09-agentic-patterns/self-refine-critique-loop.md)",
+      "source_file": "skills/09-agentic-patterns/multi-agent-debate-resolution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/multi-agent-debate-resolution",
+      "target": "09-agentic-patterns/guardrail-wrapped-agent-loops",
+      "type": "RELATED_TO",
+      "evidence": "[guardrail wrapped agent loops](../09-agentic-patterns/guardrail-wrapped-agent-loops.md)",
+      "source_file": "skills/09-agentic-patterns/multi-agent-debate-resolution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/multi-agent-workstream-merging",
+      "target": "09-agentic-patterns/multi-agent-debate-resolution",
+      "type": "RELATED_TO",
+      "evidence": "[multi agent debate resolution](../09-agentic-patterns/multi-agent-debate-resolution.md)",
+      "source_file": "skills/09-agentic-patterns/multi-agent-workstream-merging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/multi-agent-workstream-merging",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[agent checkpoint restore patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/multi-agent-workstream-merging.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/prompt-caching",
       "target": "15-orchestration/budget-management",
       "type": "RELATED_TO",
@@ -18276,6 +19458,22 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/self-refine-critique-loop",
+      "target": "09-agentic-patterns/multi-agent-debate-resolution",
+      "type": "RELATED_TO",
+      "evidence": "[multi agent debate resolution](../09-agentic-patterns/multi-agent-debate-resolution.md)",
+      "source_file": "skills/09-agentic-patterns/self-refine-critique-loop.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-refine-critique-loop",
+      "target": "09-agentic-patterns/guardrail-wrapped-agent-loops",
+      "type": "RELATED_TO",
+      "evidence": "[guardrail wrapped agent loops](../09-agentic-patterns/guardrail-wrapped-agent-loops.md)",
+      "source_file": "skills/09-agentic-patterns/self-refine-critique-loop.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/skill-quality-evaluation",
       "target": "14-security/agent-skill-security-audit",
       "type": "RELATED_TO",
@@ -18324,6 +19522,22 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/accessibility-tree-automation-audit",
+      "target": "10-computer-use/gui-element-anchoring-stability",
+      "type": "RELATED_TO",
+      "evidence": "[gui element anchoring stability](../10-computer-use/gui-element-anchoring-stability.md)",
+      "source_file": "skills/10-computer-use/accessibility-tree-automation-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/accessibility-tree-automation-audit",
+      "target": "10-computer-use/screenshot-diff-verification",
+      "type": "RELATED_TO",
+      "evidence": "[screenshot diff verification](../10-computer-use/screenshot-diff-verification.md)",
+      "source_file": "skills/10-computer-use/accessibility-tree-automation-audit.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/app-readiness-probing",
       "target": "10-computer-use/app-launch",
       "type": "RELATED_TO",
@@ -18337,6 +19551,22 @@
       "type": "RELATED_TO",
       "evidence": "[VM Interaction](vm-interaction.md)",
       "source_file": "skills/10-computer-use/app-readiness-probing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/clipboard-automation-hygiene",
+      "target": "10-computer-use/desktop-notification-triggers",
+      "type": "RELATED_TO",
+      "evidence": "[desktop notification triggers](../10-computer-use/desktop-notification-triggers.md)",
+      "source_file": "skills/10-computer-use/clipboard-automation-hygiene.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/clipboard-automation-hygiene",
+      "target": "10-computer-use/gui-element-anchoring-stability",
+      "type": "RELATED_TO",
+      "evidence": "[gui element anchoring stability](../10-computer-use/gui-element-anchoring-stability.md)",
+      "source_file": "skills/10-computer-use/clipboard-automation-hygiene.md",
       "confidence": "high"
     },
     {
@@ -18356,6 +19586,38 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/desktop-notification-triggers",
+      "target": "10-computer-use/clipboard-automation-hygiene",
+      "type": "RELATED_TO",
+      "evidence": "[clipboard automation hygiene](../10-computer-use/clipboard-automation-hygiene.md)",
+      "source_file": "skills/10-computer-use/desktop-notification-triggers.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/desktop-notification-triggers",
+      "target": "10-computer-use/gui-element-anchoring-stability",
+      "type": "RELATED_TO",
+      "evidence": "[gui element anchoring stability](../10-computer-use/gui-element-anchoring-stability.md)",
+      "source_file": "skills/10-computer-use/desktop-notification-triggers.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/gui-element-anchoring-stability",
+      "target": "10-computer-use/screenshot-diff-verification",
+      "type": "RELATED_TO",
+      "evidence": "[screenshot diff verification](../10-computer-use/screenshot-diff-verification.md)",
+      "source_file": "skills/10-computer-use/gui-element-anchoring-stability.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/gui-element-anchoring-stability",
+      "target": "10-computer-use/accessibility-tree-automation-audit",
+      "type": "RELATED_TO",
+      "evidence": "[accessibility tree automation audit](../10-computer-use/accessibility-tree-automation-audit.md)",
+      "source_file": "skills/10-computer-use/gui-element-anchoring-stability.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/idle-detection",
       "target": "10-computer-use/mouse-move",
       "type": "RELATED_TO",
@@ -18372,6 +19634,22 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/install-wizard-automation",
+      "target": "10-computer-use/gui-element-anchoring-stability",
+      "type": "RELATED_TO",
+      "evidence": "[gui element anchoring stability](../10-computer-use/gui-element-anchoring-stability.md)",
+      "source_file": "skills/10-computer-use/install-wizard-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/install-wizard-automation",
+      "target": "10-computer-use/sandboxed-desktop-vm-execution",
+      "type": "RELATED_TO",
+      "evidence": "[sandboxed desktop vm execution](../10-computer-use/sandboxed-desktop-vm-execution.md)",
+      "source_file": "skills/10-computer-use/install-wizard-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/macro-recording",
       "target": "10-computer-use/keyboard-type",
       "type": "RELATED_TO",
@@ -18385,6 +19663,22 @@
       "type": "RELATED_TO",
       "evidence": "[Mouse Click](mouse-click.md)",
       "source_file": "skills/10-computer-use/macro-recording.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/sandboxed-desktop-vm-execution",
+      "target": "10-computer-use/install-wizard-automation",
+      "type": "RELATED_TO",
+      "evidence": "[install wizard automation](../10-computer-use/install-wizard-automation.md)",
+      "source_file": "skills/10-computer-use/sandboxed-desktop-vm-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/sandboxed-desktop-vm-execution",
+      "target": "10-computer-use/accessibility-tree-automation-audit",
+      "type": "RELATED_TO",
+      "evidence": "[accessibility tree automation audit](../10-computer-use/accessibility-tree-automation-audit.md)",
+      "source_file": "skills/10-computer-use/sandboxed-desktop-vm-execution.md",
       "confidence": "high"
     },
     {
@@ -18420,6 +19714,22 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/screenshot-diff-verification",
+      "target": "10-computer-use/gui-element-anchoring-stability",
+      "type": "RELATED_TO",
+      "evidence": "[gui element anchoring stability](../10-computer-use/gui-element-anchoring-stability.md)",
+      "source_file": "skills/10-computer-use/screenshot-diff-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/screenshot-diff-verification",
+      "target": "10-computer-use/accessibility-tree-automation-audit",
+      "type": "RELATED_TO",
+      "evidence": "[accessibility tree automation audit](../10-computer-use/accessibility-tree-automation-audit.md)",
+      "source_file": "skills/10-computer-use/screenshot-diff-verification.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/ui-element-waiting",
       "target": "10-computer-use/visual-element-detection",
       "type": "RELATED_TO",
@@ -18449,6 +19759,38 @@
       "type": "RELATED_TO",
       "evidence": "[Web Login](web-login.md)",
       "source_file": "skills/11-web/browser-profile-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/browser-session-state-snapshots",
+      "target": "11-web/spa-url-state-snapshotting",
+      "type": "RELATED_TO",
+      "evidence": "[spa url state snapshotting](../11-web/spa-url-state-snapshotting.md)",
+      "source_file": "skills/11-web/browser-session-state-snapshots.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/browser-session-state-snapshots",
+      "target": "11-web/web-table-pagination-traversal",
+      "type": "RELATED_TO",
+      "evidence": "[web table pagination traversal](../11-web/web-table-pagination-traversal.md)",
+      "source_file": "skills/11-web/browser-session-state-snapshots.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/crawl-budget-allocation",
+      "target": "11-web/web-table-pagination-traversal",
+      "type": "RELATED_TO",
+      "evidence": "[web table pagination traversal](../11-web/web-table-pagination-traversal.md)",
+      "source_file": "skills/11-web/crawl-budget-allocation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/crawl-budget-allocation",
+      "target": "11-web/spa-url-state-snapshotting",
+      "type": "RELATED_TO",
+      "evidence": "[spa url state snapshotting](../11-web/spa-url-state-snapshotting.md)",
+      "source_file": "skills/11-web/crawl-budget-allocation.md",
       "confidence": "high"
     },
     {
@@ -18497,6 +19839,38 @@
       "type": "RELATED_TO",
       "evidence": "[Pagination Following](pagination-following.md)",
       "source_file": "skills/11-web/infinite-scroll-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/json-ld-structured-data-extraction",
+      "target": "11-web/shadow-dom-selector-strategies",
+      "type": "RELATED_TO",
+      "evidence": "[shadow dom selector strategies](../11-web/shadow-dom-selector-strategies.md)",
+      "source_file": "skills/11-web/json-ld-structured-data-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/json-ld-structured-data-extraction",
+      "target": "11-web/web-table-pagination-traversal",
+      "type": "RELATED_TO",
+      "evidence": "[web table pagination traversal](../11-web/web-table-pagination-traversal.md)",
+      "source_file": "skills/11-web/json-ld-structured-data-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/otp-handoff-automation",
+      "target": "11-web/browser-session-state-snapshots",
+      "type": "RELATED_TO",
+      "evidence": "[browser session state snapshots](../11-web/browser-session-state-snapshots.md)",
+      "source_file": "skills/11-web/otp-handoff-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/otp-handoff-automation",
+      "target": "11-web/crawl-budget-allocation",
+      "type": "RELATED_TO",
+      "evidence": "[crawl budget allocation](../11-web/crawl-budget-allocation.md)",
+      "source_file": "skills/11-web/otp-handoff-automation.md",
       "confidence": "high"
     },
     {
@@ -18561,6 +19935,38 @@
       "type": "RELATED_TO",
       "evidence": "[JS Execution](js-execution.md)",
       "source_file": "skills/11-web/shadow-dom-interaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/shadow-dom-selector-strategies",
+      "target": "11-web/browser-session-state-snapshots",
+      "type": "RELATED_TO",
+      "evidence": "[browser session state snapshots](../11-web/browser-session-state-snapshots.md)",
+      "source_file": "skills/11-web/shadow-dom-selector-strategies.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/shadow-dom-selector-strategies",
+      "target": "11-web/json-ld-structured-data-extraction",
+      "type": "RELATED_TO",
+      "evidence": "[json ld structured data extraction](../11-web/json-ld-structured-data-extraction.md)",
+      "source_file": "skills/11-web/shadow-dom-selector-strategies.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/spa-url-state-snapshotting",
+      "target": "11-web/browser-session-state-snapshots",
+      "type": "RELATED_TO",
+      "evidence": "[browser session state snapshots](../11-web/browser-session-state-snapshots.md)",
+      "source_file": "skills/11-web/spa-url-state-snapshotting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/spa-url-state-snapshotting",
+      "target": "11-web/crawl-budget-allocation",
+      "type": "RELATED_TO",
+      "evidence": "[crawl budget allocation](../11-web/crawl-budget-allocation.md)",
+      "source_file": "skills/11-web/spa-url-state-snapshotting.md",
       "confidence": "high"
     },
     {
@@ -18684,6 +20090,38 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/web-table-pagination-traversal",
+      "target": "11-web/browser-session-state-snapshots",
+      "type": "RELATED_TO",
+      "evidence": "[browser session state snapshots](../11-web/browser-session-state-snapshots.md)",
+      "source_file": "skills/11-web/web-table-pagination-traversal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/web-table-pagination-traversal",
+      "target": "11-web/json-ld-structured-data-extraction",
+      "type": "RELATED_TO",
+      "evidence": "[json ld structured data extraction](../11-web/json-ld-structured-data-extraction.md)",
+      "source_file": "skills/11-web/web-table-pagination-traversal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-feedback-signal-aggregation",
+      "target": "12-data/session-replay-sampling",
+      "type": "RELATED_TO",
+      "evidence": "[session replay sampling](../12-data/session-replay-sampling.md)",
+      "source_file": "skills/12-data/agent-feedback-signal-aggregation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-feedback-signal-aggregation",
+      "target": "12-data/observability-span-taxonomies",
+      "type": "RELATED_TO",
+      "evidence": "[observability span taxonomies](../12-data/observability-span-taxonomies.md)",
+      "source_file": "skills/12-data/agent-feedback-signal-aggregation.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/cohort-analysis",
       "target": "12-data/time-series",
       "type": "RELATED_TO",
@@ -18777,6 +20215,22 @@
       "type": "RELATED_TO",
       "evidence": "[Schema Inference](schema-inference.md)",
       "source_file": "skills/12-data/data-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/dataset-contamination-screening",
+      "target": "12-data/session-replay-sampling",
+      "type": "RELATED_TO",
+      "evidence": "[session replay sampling](../12-data/session-replay-sampling.md)",
+      "source_file": "skills/12-data/dataset-contamination-screening.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/dataset-contamination-screening",
+      "target": "12-data/response-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[response schema validation](../12-data/response-schema-validation.md)",
+      "source_file": "skills/12-data/dataset-contamination-screening.md",
       "confidence": "high"
     },
     {
@@ -18876,6 +20330,70 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/observability-span-taxonomies",
+      "target": "12-data/trace-cost-attribution",
+      "type": "RELATED_TO",
+      "evidence": "[trace cost attribution](../12-data/trace-cost-attribution.md)",
+      "source_file": "skills/12-data/observability-span-taxonomies.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/observability-span-taxonomies",
+      "target": "12-data/session-replay-sampling",
+      "type": "RELATED_TO",
+      "evidence": "[session replay sampling](../12-data/session-replay-sampling.md)",
+      "source_file": "skills/12-data/observability-span-taxonomies.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/rag-chunk-boundary-audits",
+      "target": "12-data/response-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[response schema validation](../12-data/response-schema-validation.md)",
+      "source_file": "skills/12-data/rag-chunk-boundary-audits.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/rag-chunk-boundary-audits",
+      "target": "12-data/session-replay-sampling",
+      "type": "RELATED_TO",
+      "evidence": "[session replay sampling](../12-data/session-replay-sampling.md)",
+      "source_file": "skills/12-data/rag-chunk-boundary-audits.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/response-schema-validation",
+      "target": "12-data/observability-span-taxonomies",
+      "type": "RELATED_TO",
+      "evidence": "[observability span taxonomies](../12-data/observability-span-taxonomies.md)",
+      "source_file": "skills/12-data/response-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/response-schema-validation",
+      "target": "12-data/trace-cost-attribution",
+      "type": "RELATED_TO",
+      "evidence": "[trace cost attribution](../12-data/trace-cost-attribution.md)",
+      "source_file": "skills/12-data/response-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/session-replay-sampling",
+      "target": "12-data/observability-span-taxonomies",
+      "type": "RELATED_TO",
+      "evidence": "[observability span taxonomies](../12-data/observability-span-taxonomies.md)",
+      "source_file": "skills/12-data/session-replay-sampling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/session-replay-sampling",
+      "target": "12-data/trace-cost-attribution",
+      "type": "RELATED_TO",
+      "evidence": "[trace cost attribution](../12-data/trace-cost-attribution.md)",
+      "source_file": "skills/12-data/session-replay-sampling.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/stream-processing",
       "target": "12-data/etl-pipeline",
       "type": "RELATED_TO",
@@ -18905,6 +20423,38 @@
       "type": "RELATED_TO",
       "evidence": "[Data Validation](data-validation.md)",
       "source_file": "skills/12-data/synthetic-data-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/trace-cost-attribution",
+      "target": "12-data/observability-span-taxonomies",
+      "type": "RELATED_TO",
+      "evidence": "[observability span taxonomies](../12-data/observability-span-taxonomies.md)",
+      "source_file": "skills/12-data/trace-cost-attribution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/trace-cost-attribution",
+      "target": "12-data/session-replay-sampling",
+      "type": "RELATED_TO",
+      "evidence": "[session replay sampling](../12-data/session-replay-sampling.md)",
+      "source_file": "skills/12-data/trace-cost-attribution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/vector-store-schema-migration",
+      "target": "12-data/trace-cost-attribution",
+      "type": "RELATED_TO",
+      "evidence": "[trace cost attribution](../12-data/trace-cost-attribution.md)",
+      "source_file": "skills/12-data/vector-store-schema-migration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/vector-store-schema-migration",
+      "target": "12-data/response-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[response schema validation](../12-data/response-schema-validation.md)",
+      "source_file": "skills/12-data/vector-store-schema-migration.md",
       "confidence": "high"
     },
     {
