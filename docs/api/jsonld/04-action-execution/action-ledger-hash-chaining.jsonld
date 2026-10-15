@@ -43,7 +43,7 @@
   "isPartOf": {
     "@type": "Dataset",
     "@id": "https://samotech.github.io/skills-tree/api/skills.json",
-    "name": "Skills Tree \u2014 AI Agent Skill Index",
+    "name": "Skills Tree — AI Agent Skill Index",
     "url": "https://samotech.github.io/skills-tree"
   },
   "publisher": {
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-15T01:17:52Z",
+  "dateModified": "2026-10-15T04:45:58Z",
   "skillId": "action-ledger-hash-chaining",
   "skillVersion": "v1",
   "skillLevel": "advanced",

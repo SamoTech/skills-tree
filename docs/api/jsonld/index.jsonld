@@ -2,11 +2,11 @@
   "@context": "https://schema.org",
   "@type": "ItemList",
   "@id": "https://samotech.github.io/skills-tree/api/jsonld/index.jsonld",
-  "name": "Skills Tree \u2014 Complete AI Agent Skill Index",
+  "name": "Skills Tree — Complete AI Agent Skill Index",
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 989,
-  "dateModified": "2026-10-15T01:17:52Z",
+  "dateModified": "2026-10-15T04:45:58Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -3515,7 +3515,7 @@
       "@type": "ListItem",
       "position": 584,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag.md",
-      "name": "RAG \u2014 Retrieval-Augmented Generation"
+      "name": "RAG — Retrieval-Augmented Generation"
     },
     {
       "@type": "ListItem",
