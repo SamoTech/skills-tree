@@ -6,6 +6,7 @@ metadata:
   category: 08-multimodal
   version: "v1"
 ---
+
 # Realtime Speech To Speech Agent Loop
 
 ## Description

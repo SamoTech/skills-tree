@@ -6,6 +6,7 @@ metadata:
   category: 11-web
   version: "v1"
 ---
+
 # Structured Data Llm Optimization
 
 ## Description

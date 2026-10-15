@@ -37,7 +37,7 @@ Migrate MCP server handlers to the 2026-07-28 stateless, self-contained request 
 ## Runnable Example
 ```python
 def is_self_envelope(request):
-    return {"session" not in request, "state": request.get("state", None) is not None}[True] if all(k in request for k in ("method", "params")) else False
+    return "session" not in request and "state" in request.get("params", {})
 assert is_self_envelope({"method": "tools/call", "params": {"state": "x"}}) is True
 ```
 

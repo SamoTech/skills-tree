@@ -6,6 +6,7 @@ metadata:
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Edge Inference Deployment
 
 ## Description

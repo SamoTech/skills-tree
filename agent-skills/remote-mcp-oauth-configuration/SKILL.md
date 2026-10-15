@@ -6,6 +6,7 @@ metadata:
   category: 07-tool-use
   version: "v1"
 ---
+
 # Remote Mcp Oauth Configuration
 
 ## Description

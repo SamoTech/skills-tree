@@ -6,6 +6,7 @@ metadata:
   category: 04-action-execution
   version: "v1"
 ---
+
 # Agent Payment Mandate Signing
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 04-action-execution
   version: "v1"
 ---
+
 # Batched Write Transaction Planning
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Securities Disclosure Drafting
 
 ## Description

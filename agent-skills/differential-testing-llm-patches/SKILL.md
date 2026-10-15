@@ -6,6 +6,7 @@ metadata:
   category: 05-code
   version: "v1"
 ---
+
 # Differential Testing LLM Patches
 
 ## Description

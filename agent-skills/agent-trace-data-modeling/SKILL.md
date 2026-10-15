@@ -6,6 +6,7 @@ metadata:
   category: 12-data
   version: "v1"
 ---
+
 # Agent Trace Data Modeling
 
 ## Description

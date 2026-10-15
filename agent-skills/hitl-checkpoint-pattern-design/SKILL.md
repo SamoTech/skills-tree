@@ -6,6 +6,7 @@ metadata:
   category: 09-agentic-patterns
   version: "v1"
 ---
+
 # Hitl Checkpoint Pattern Design
 
 ## Description

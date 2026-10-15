@@ -6,6 +6,7 @@ metadata:
   category: 02-reasoning
   version: "v1"
 ---
+
 # Abstention Decision Reasoning
 
 ## Description
@@ -36,7 +37,7 @@ Decide when to abstain rather than answer by scoring evidence sufficiency, cover
 def should_abstain(evidence, threshold):
     return evidence < threshold
 assert should_abstain(0.2, 0.5) is True
-assert should_abstention := (should_abstain(0.9, 0.5) is False)
+assert should_abstain(0.9, 0.5) is False
 ```
 
 ## Failure Modes

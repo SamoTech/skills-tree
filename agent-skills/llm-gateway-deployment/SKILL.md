@@ -6,6 +6,7 @@ metadata:
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Llm Gateway Deployment
 
 ## Description

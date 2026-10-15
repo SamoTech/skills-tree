@@ -6,6 +6,7 @@ metadata:
   category: 14-security
   version: "v1"
 ---
+
 # Pii Detection Pipeline Design
 
 ## Description
