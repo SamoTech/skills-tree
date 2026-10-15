@@ -1,0 +1,85 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/a2a-task-lifecycle-management.md",
+  "name": "A2a Task Lifecycle Management",
+  "headline": "A2a Task Lifecycle Management",
+  "description": "Drive A2A task objects through their lifecycle states, with recorded state transitions and terminal detection.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/a2a-task-lifecycle-management.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-15T01:17:52Z",
+  "skillId": "a2a-task-lifecycle-management",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "07-tool-use",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs / Outputs",
+    "Procedure",
+    "Runnable Example",
+    "Failure Modes",
+    "Boundary",
+    "Evidence",
+    "Related"
+  ],
+  "relatedSkills": [],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, a2a, lifecycle, management, skills tree, task, tool, use",
+  "about": {
+    "@type": "Thing",
+    "name": "A2a Task Lifecycle Management",
+    "description": "An AI agent skill for a2a task lifecycle management."
+  }
+}
