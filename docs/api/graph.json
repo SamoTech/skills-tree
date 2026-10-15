@@ -8765,7 +8765,7 @@
     },
     {
       "id": "09-agentic-patterns/rag",
-      "title": "RAG  Retrieval-Augmented Generation",
+      "title": "RAG \u2014 Retrieval-Augmented Generation",
       "category": "09-agentic-patterns",
       "layer": "systems",
       "level": "intermediate",
@@ -20341,3 +20341,4 @@
     }
   ]
 }
+
