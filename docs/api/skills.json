@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-13T23:09:43Z",
-  "count": 888,
+  "generated": "2026-10-15T01:17:52Z",
+  "count": 939,
   "skills": [
     {
       "id": "agent-card-parsing",
@@ -41,6 +41,31 @@
       "sections": [
         "Failure Modes",
         "Evidence"
+      ],
+      "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "asr-hallucination-detection",
+      "path": "skills/01-perception/asr-hallucination-detection.md",
+      "name": "Asr Hallucination Detection",
+      "description": "Detect hallucinated transcription segments in ASR output by flagging text produced over non-speech audio, repeated loop patterns, and empty-audio text before downstream use.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -900,6 +925,31 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "lidar-scan-parsing",
+      "path": "skills/01-perception/lidar-scan-parsing.md",
+      "name": "Lidar Scan Parsing",
+      "description": "Parse lidar point-cloud scans into structured frames with pose, ring, intensity, and timestamp fields for perception pipelines.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "log-parsing",
       "path": "skills/01-perception/log-parsing.md",
       "name": "Log Parsing",
@@ -1032,6 +1082,31 @@
         "Related",
         "Changelog",
         "Evidence"
+      ],
+      "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "multispectral-image-reading",
+      "path": "skills/01-perception/multispectral-image-reading.md",
+      "name": "Multispectral Image Reading",
+      "description": "Read multispectral imagery band stacks into aligned arrays with band metadata and per-band statistics for analysis.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -1695,6 +1770,31 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "abstention-decision-reasoning",
+      "path": "skills/02-reasoning/abstention-decision-reasoning.md",
+      "name": "Abstention Decision Reasoning",
+      "description": "Decide when to abstain rather than answer by scoring evidence sufficiency, coverage, and confidence against explicit thresholds.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "adversarial-reasoning",
       "path": "skills/02-reasoning/adversarial-reasoning.md",
       "name": "Adversarial Reasoning",
@@ -2044,6 +2144,31 @@
         "Evidence",
         "Failure Modes",
         "Evidence"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "chain-of-verification",
+      "path": "skills/02-reasoning/chain-of-verification.md",
+      "name": "Chain of Verification",
+      "description": "Generate verification questions for a draft answer, answer them independently, and revise the draft from verified facts.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "02-reasoning"
@@ -2985,6 +3110,31 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "proof-obligation-checklist-reasoning",
+      "path": "skills/02-reasoning/proof-obligation-checklist-reasoning.md",
+      "name": "Proof Obligation Checklist Reasoning",
+      "description": "Derive a checklist of proof obligations from a claim and its assumptions, then discharge each obligation with recorded evidence.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "react",
       "path": "skills/02-reasoning/react.md",
       "name": "ReAct (Reason + Act)",
@@ -3734,6 +3884,31 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "context-window-budget-planning",
+      "path": "skills/03-memory/context-window-budget-planning.md",
+      "name": "Context Window Budget Planning",
+      "description": "Plan token budgets across system prompt, retrieved context, tool outputs, and working state so a conversation stays within its window.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "cross-session-persistence",
       "path": "skills/03-memory/cross-session-persistence.md",
       "name": "Cross-Session Persistence",
@@ -4370,6 +4545,31 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "memory-schema-migration",
+      "path": "skills/03-memory/memory-schema-migration.md",
+      "name": "Memory Schema Migration",
+      "description": "Version and migrate persistent agent memory schemas with field mapping, backfill rules, and rollback checkpoints.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "memory-summarization",
       "path": "skills/03-memory/memory-summarization.md",
       "name": "Memory Summarization",
@@ -4417,6 +4617,31 @@
         "Evidence",
         "Related Skills",
         "Changelog"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "multi-tenant-memory-isolation",
+      "path": "skills/03-memory/multi-tenant-memory-isolation.md",
+      "name": "Multi Tenant Memory Isolation",
+      "description": "Scope agent memory reads and writes per tenant with isolation checks so one tenant cannot observe another tenant records.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "03-memory"
@@ -5132,6 +5357,31 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "agent-payment-mandate-signing",
+      "path": "skills/04-action-execution/agent-payment-mandate-signing.md",
+      "name": "Agent Payment Mandate Signing",
+      "description": "Create and verify signed payment mandates that bind an intent to a cart and payment evidence chain before any charge.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "api-call",
       "path": "skills/04-action-execution/api-call.md",
       "name": "API Call",
@@ -5277,6 +5527,31 @@
         "Evidence",
         "Related Skills",
         "Changelog"
+      ],
+      "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "batched-write-transaction-planning",
+      "path": "skills/04-action-execution/batched-write-transaction-planning.md",
+      "name": "Batched Write Transaction Planning",
+      "description": "Plan grouped writes into transactions with size caps, ordering, and per-batch verification so partial batches are detected.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "04-action-execution"
@@ -5797,6 +6072,31 @@
         "../14-security/rate-limiting.md",
         "../14-security/audit-logging.md"
       ],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "human-approval-gate-implementation",
+      "path": "skills/04-action-execution/human-approval-gate-implementation.md",
+      "name": "Human Approval Gate Implementation",
+      "description": "Implement approval gates that pause before irreversible actions, present the planned effect, and record the approver decision.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
       "category_dir": "04-action-execution"
     },
     {
@@ -6342,6 +6642,56 @@
         "../15-orchestration/retry-backoff.md"
       ],
       "category_dir": "04-action-execution"
+    },
+    {
+      "id": "agent-generated-code-auditing",
+      "path": "skills/05-code/agent-generated-code-auditing.md",
+      "name": "Agent Generated Code Auditing",
+      "description": "Audit AI-generated patches for boundary violations, missing error handling, and unsafe patterns before merge.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "agents-md-authoring",
+      "path": "skills/05-code/agents-md-authoring.md",
+      "name": "Agents Md Authoring",
+      "description": "Author and maintain AGENTS.md files that tell coding agents about build, test, and contribution conventions for a repository.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "05-code"
     },
     {
       "id": "algorithm-design",
@@ -7018,6 +7368,31 @@
         "Failure modes",
         "Related",
         "Evidence"
+      ],
+      "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "differential-testing-llm-patches",
+      "path": "skills/05-code/differential-testing-llm-patches.md",
+      "name": "Differential Testing LLM Patches",
+      "description": "Differentially test LLM-generated code changes against the pre-change behavior on recorded inputs to expose regressions.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "05-code"
@@ -7911,6 +8286,31 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "async-standup-digest-writing",
+      "path": "skills/06-communication/async-standup-digest-writing.md",
+      "name": "Async Standup Digest Writing",
+      "description": "Compile distributed-team activity into asynchronous standup digests with per-person progress, plans, and blockers.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "audience-analysis",
       "path": "skills/06-communication/audience-analysis.md",
       "name": "Audience Analysis",
@@ -8624,6 +9024,31 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "public-roadmap-communication-writing",
+      "path": "skills/06-communication/public-roadmap-communication-writing.md",
+      "name": "Public Roadmap Communication Writing",
+      "description": "Write public roadmap updates that state shipped items, committed next steps, and honest unknowns without overpromising.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "question-answering",
       "path": "skills/06-communication/question-answering.md",
       "name": "question-answering",
@@ -9026,6 +9451,31 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "voice-and-tone-guide-authoring",
+      "path": "skills/06-communication/voice-and-tone-guide-authoring.md",
+      "name": "Voice And Tone Guide Authoring",
+      "description": "Write machine-usable voice and tone guides with rules, positive and negative examples, and scope exceptions.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "a2a-agent-card-authoring",
       "path": "skills/07-tool-use/a2a-agent-card-authoring.md",
       "name": "A2A Agent Card Authoring",
@@ -9055,6 +9505,31 @@
       "path": "skills/07-tool-use/a2a-signed-agent-card-verification.md",
       "name": "A2A Signed Agent Card Verification",
       "description": "Verify signed A2A Agent Cards by checking the signature against a trusted key set, freshness window, and capability claims before routing work.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "a2a-task-lifecycle-management",
+      "path": "skills/07-tool-use/a2a-task-lifecycle-management.md",
+      "name": "A2a Task Lifecycle Management",
+      "description": "Drive A2A task objects through their lifecycle states, with recorded state transitions and terminal detection.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "experimental",
@@ -9711,6 +10186,31 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "mcp-stateless-request-migration",
+      "path": "skills/07-tool-use/mcp-stateless-request-migration.md",
+      "name": "Mcp Stateless Request Migration",
+      "description": "Migrate MCP server handlers to the 2026-07-28 stateless, self-contained request shape with per-request context.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "mcp-tasks-extension-usage",
       "path": "skills/07-tool-use/mcp-tasks-extension-usage.md",
       "name": "MCP Tasks Extension Usage",
@@ -9924,6 +10424,31 @@
         "Inputs / outputs / failure modes",
         "Runnable Example",
         "Failure modes",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "remote-mcp-oauth-configuration",
+      "path": "skills/07-tool-use/remote-mcp-oauth-configuration.md",
+      "name": "Remote Mcp Oauth Configuration",
+      "description": "Configure remote MCP server connections with OAuth client flows, token caching, and scope minimization.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
         "Evidence",
         "Related"
       ],
@@ -11213,6 +11738,31 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "lip-sync-verification",
+      "path": "skills/08-multimodal/lip-sync-verification.md",
+      "name": "Lip Sync Verification",
+      "description": "Verify generated speech is aligned to mouth movement by comparing onset timings within a tolerance window.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "music-stem-separation",
       "path": "skills/08-multimodal/music-stem-separation.md",
       "name": "Music Stem Separation",
@@ -11285,6 +11835,31 @@
         "Evidence",
         "Related Skills",
         "Changelog"
+      ],
+      "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "realtime-speech-to-speech-agent-loop",
+      "path": "skills/08-multimodal/realtime-speech-to-speech-agent-loop.md",
+      "name": "Realtime Speech To Speech Agent Loop",
+      "description": "Assemble a realtime speech-to-speech loop with barge-in, partial-turn handling, and latency budget enforcement.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "08-multimodal"
@@ -11548,6 +12123,31 @@
       "path": "skills/08-multimodal/ui-screencast-analysis.md",
       "name": "UI Screencast Analysis",
       "description": "Analyze UI screencasts into step-by-step interaction sequences with frame timestamps, UI element references, and verification of each observed transition.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "ui-video-tutorial-generation",
+      "path": "skills/08-multimodal/ui-video-tutorial-generation.md",
+      "name": "Ui Video Tutorial Generation",
+      "description": "Plan and assemble UI walkthrough videos from recorded interactions with step narration and chapter markers.",
       "category": "multimodal",
       "level": "advanced",
       "stability": "experimental",
@@ -11970,6 +12570,31 @@
         "Related",
         "Changelog",
         "Evidence"
+      ],
+      "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "agent-harness-assembly",
+      "path": "skills/09-agentic-patterns/agent-harness-assembly.md",
+      "name": "Agent Harness Assembly",
+      "description": "Assemble the agent harness: model access, tools, memory, permissions, evaluation hooks, and observability in one runtime.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "09-agentic-patterns"
@@ -12441,6 +13066,56 @@
       "description": "Check that an agent plan still satisfies the recorded user goal contract before execution and at each checkpoint.",
       "category": "agentic-patterns",
       "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "graph-state-machine-agent-design",
+      "path": "skills/09-agentic-patterns/graph-state-machine-agent-design.md",
+      "name": "Graph State Machine Agent Design",
+      "description": "Design agents as explicit state machines with typed nodes, edges, and checkpointable state for production control.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "hitl-checkpoint-pattern-design",
+      "path": "skills/09-agentic-patterns/hitl-checkpoint-pattern-design.md",
+      "name": "Hitl Checkpoint Pattern Design",
+      "description": "Design checkpoint patterns where agents pause for human judgment at high-risk decision points with resumable state.",
+      "category": "agentic-patterns",
+      "level": "advanced",
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
@@ -13458,6 +14133,31 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "desktop-app-accessibility-tree-automation",
+      "path": "skills/10-computer-use/desktop-app-accessibility-tree-automation.md",
+      "name": "Desktop App Accessibility Tree Automation",
+      "description": "Drive desktop applications through their accessibility tree with stable role and name selectors instead of coordinates.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "desktop-app-testing",
       "path": "skills/10-computer-use/desktop-app-testing.md",
       "name": "Desktop App Testing",
@@ -13689,6 +14389,31 @@
       "path": "skills/10-computer-use/game-ui-automation.md",
       "name": "Game UI Automation",
       "description": "Automate game interfaces with frame-tolerant element detection and input pacing that respects the render loop.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
+      "id": "gui-agent-step-verification",
+      "path": "skills/10-computer-use/gui-agent-step-verification.md",
+      "name": "Gui Agent Step Verification",
+      "description": "Verify each GUI agent step against the expected postcondition screenshot or state before continuing.",
       "category": "computer-use",
       "level": "advanced",
       "stability": "experimental",
@@ -14420,6 +15145,31 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "vdi-session-automation",
+      "path": "skills/10-computer-use/vdi-session-automation.md",
+      "name": "Vdi Session Automation",
+      "description": "Automate virtual desktop sessions with connection setup, resolution pinning, and session teardown checks.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "visual-element-detection",
       "path": "skills/10-computer-use/visual-element-detection.md",
       "name": "visual-element-detection",
@@ -14974,6 +15724,31 @@
       "category_dir": "11-web"
     },
     {
+      "id": "generative-engine-optimization-auditing",
+      "path": "skills/11-web/generative-engine-optimization-auditing.md",
+      "name": "Generative Engine Optimization Auditing",
+      "description": "Audit pages for answer-engine readiness: factual density, citations, freshness, and machine-readable structure.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "11-web"
+    },
+    {
       "id": "headless-browser-configuration",
       "path": "skills/11-web/headless-browser-configuration.md",
       "name": "Headless Browser Configuration",
@@ -15134,6 +15909,31 @@
       "description": "Check documented links for dead targets and report status codes and suggested replacements.",
       "category": "web",
       "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "llms-txt-authoring",
+      "path": "skills/11-web/llms-txt-authoring.md",
+      "name": "Llms Txt Authoring",
+      "description": "Author llms.txt markdown overviews and per-page llms-full.txt variants so AI crawlers get curated site guidance.",
+      "category": "web",
+      "level": "advanced",
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
@@ -15429,6 +16229,31 @@
         "Runnable Example",
         "Failure Modes",
         "Safety Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "structured-data-llm-optimization",
+      "path": "skills/11-web/structured-data-llm-optimization.md",
+      "name": "Structured Data Llm Optimization",
+      "description": "Publish schema.org structured data and canonical metadata so AI systems can resolve site entities and facts.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
         "Evidence",
         "Related"
       ],
@@ -15951,6 +16776,31 @@
       "description": "Analyze A/B tests with power checks, effect-size reporting, and honest statements when results are inconclusive.",
       "category": "data",
       "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "agent-trace-data-modeling",
+      "path": "skills/12-data/agent-trace-data-modeling.md",
+      "name": "Agent Trace Data Modeling",
+      "description": "Model agent runs, spans, tool calls, and token events into a queryable trace schema aligned with GenAI semantic conventions.",
+      "category": "data",
+      "level": "advanced",
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
@@ -16587,6 +17437,31 @@
       "category_dir": "12-data"
     },
     {
+      "id": "evaluation-dataset-curation",
+      "path": "skills/12-data/evaluation-dataset-curation.md",
+      "name": "Evaluation Dataset Curation",
+      "description": "Curate evaluation datasets with case provenance, difficulty labels, leakage checks, and version pinning.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
       "id": "event-sourced-projections",
       "path": "skills/12-data/event-sourced-projections.md",
       "name": "Event-Sourced Projections",
@@ -16797,6 +17672,31 @@
       "path": "skills/12-data/lakehouse-table-maintenance.md",
       "name": "Lakehouse Table Maintenance",
       "description": "Maintain lakehouse tables with compaction, snapshot expiry, and orphan-file cleanup driven by measured metrics rather than a fixed schedule.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "llm-cost-usage-accounting",
+      "path": "skills/12-data/llm-cost-usage-accounting.md",
+      "name": "Llm Cost Usage Accounting",
+      "description": "Account per-feature LLM token spend by tagging requests with dimensions and reconciling against provider invoices.",
       "category": "data",
       "level": "advanced",
       "stability": "experimental",
@@ -17507,6 +18407,31 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "creative-brief-decomposition",
+      "path": "skills/13-creative/creative-brief-decomposition.md",
+      "name": "Creative Brief Decomposition",
+      "description": "Decompose a creative brief into concrete generation tasks with constraints, references, and acceptance criteria.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "creative-writing",
       "path": "skills/13-creative/creative-writing.md",
       "name": "creative-writing",
@@ -18120,6 +19045,31 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "tabletop-rpg-adventure-writing",
+      "path": "skills/13-creative/tabletop-rpg-adventure-writing.md",
+      "name": "Tabletop Rpg Adventure Writing",
+      "description": "Write structured tabletop RPG adventures with scene beats, stat blocks, secrets, and branching encounter outcomes.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "user-facing-error-copy",
       "path": "skills/13-creative/user-facing-error-copy.md",
       "name": "User Facing Error Copy",
@@ -18169,6 +19119,31 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "worldbuilding-consistency-auditing",
+      "path": "skills/13-creative/worldbuilding-consistency-auditing.md",
+      "name": "Worldbuilding Consistency Auditing",
+      "description": "Audit a fictional setting for continuity violations across geography, timeline, factions, and established rules.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "worldbuilding",
       "path": "skills/13-creative/worldbuilding.md",
       "name": "Worldbuilding",
@@ -18202,6 +19177,31 @@
       "description": "Verify agent identities with signed credentials before granting actions so unauthenticated agents cannot act.",
       "category": "security",
       "level": "intermediate",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "agent-oauth-scope-minimization",
+      "path": "skills/14-security/agent-oauth-scope-minimization.md",
+      "name": "Agent Oauth Scope Minimization",
+      "description": "Request the minimal OAuth scopes an agent needs, with per-task elevation and periodic scope review.",
+      "category": "security",
+      "level": "advanced",
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
@@ -18819,6 +19819,31 @@
       "category_dir": "14-security"
     },
     {
+      "id": "pii-detection-pipeline-design",
+      "path": "skills/14-security/pii-detection-pipeline-design.md",
+      "name": "Pii Detection Pipeline Design",
+      "description": "Design PII detection and redaction pipelines with entity types, confidence thresholds, and audit trails.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
       "id": "privacy-preservation",
       "path": "skills/14-security/privacy-preservation.md",
       "name": "Privacy Preservation",
@@ -18865,6 +19890,31 @@
         "Evidence",
         "Related Skills",
         "Changelog"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "prompt-injection-red-teaming",
+      "path": "skills/14-security/prompt-injection-red-teaming.md",
+      "name": "Prompt Injection Red Teaming",
+      "description": "Red-team agent systems with direct, indirect, and tool-output injection attempts, recording which guards held.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "14-security"
@@ -19285,6 +20335,31 @@
       "path": "skills/15-orchestration/agent-incident-command.md",
       "name": "Agent Incident Command",
       "description": "Coordinate incident response for agent fleets with roles, timelines, and evidence-backed status reporting.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "agent-pool-autoscaling",
+      "path": "skills/15-orchestration/agent-pool-autoscaling.md",
+      "name": "Agent Pool Autoscaling",
+      "description": "Autoscale pools of worker agents on queue depth and per-agent cost with warm capacity and scale-in hysteresis.",
       "category": "orchestration",
       "level": "advanced",
       "stability": "experimental",
@@ -19746,6 +20821,31 @@
       "path": "skills/15-orchestration/durable-execution-guarantees.md",
       "name": "Durable Execution Guarantees",
       "description": "Guarantee workflow progress survives crashes via checkpointing, idempotency, and deterministic replay.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "durable-execution-workflow-integration",
+      "path": "skills/15-orchestration/durable-execution-workflow-integration.md",
+      "name": "Durable Execution Workflow Integration",
+      "description": "Integrate agent task flows with durable execution engines so retries and resumes replay from recorded progress.",
       "category": "orchestration",
       "level": "advanced",
       "stability": "experimental",
@@ -20456,6 +21556,31 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "task-priority-queue-orchestration",
+      "path": "skills/15-orchestration/task-priority-queue-orchestration.md",
+      "name": "Task Priority Queue Orchestration",
+      "description": "Orchestrate agent tasks through priority queues with fairness classes, starvation guards, and dead-letter handling.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "task-queue",
       "path": "skills/15-orchestration/task-queue.md",
       "name": "task-queue",
@@ -20590,6 +21715,31 @@
       "sections": [
         "Failure Modes",
         "Evidence"
+      ],
+      "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "clinical-decision-support-evidence-checking",
+      "path": "skills/16-domain-specific/clinical-decision-support-evidence-checking.md",
+      "name": "Clinical Decision Support Evidence Checking",
+      "description": "Check clinical recommendations against cited guideline evidence, grading the strength and recency of each citation.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "16-domain-specific"
@@ -21138,6 +22288,31 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "legal-contract-clause-risk-flagging",
+      "path": "skills/16-domain-specific/legal-contract-clause-risk-flagging.md",
+      "name": "Legal Contract Clause Risk Flagging",
+      "description": "Flag high-risk contract clauses such as indemnities, auto-renewals, and liability caps with the triggering language.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "legal-research",
       "path": "skills/16-domain-specific/legal-research.md",
       "name": "legal-research",
@@ -21646,6 +22821,31 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "securities-disclosure-drafting",
+      "path": "skills/16-domain-specific/securities-disclosure-drafting.md",
+      "name": "Securities Disclosure Drafting",
+      "description": "Draft securities disclosure sections with required item coverage, materiality language, and internal-consistency checks.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "seo-optimization",
       "path": "skills/16-domain-specific/seo-optimization.md",
       "name": "seo-optimization",
@@ -21847,6 +23047,31 @@
         "Evidence",
         "Related Skills",
         "Changelog"
+      ],
+      "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "batch-inference-job-orchestration",
+      "path": "skills/17-infrastructure/batch-inference-job-orchestration.md",
+      "name": "Batch Inference Job Orchestration",
+      "description": "Orchestrate large offline inference jobs with chunking, checkpointing, idempotent resumes, and result manifests.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "17-infrastructure"
@@ -22197,6 +23422,31 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "edge-inference-deployment",
+      "path": "skills/17-infrastructure/edge-inference-deployment.md",
+      "name": "Edge Inference Deployment",
+      "description": "Deploy models at the edge with hardware-aware quantization, model version pinning, and local rollback.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "gpu-scheduling-optimization",
       "path": "skills/17-infrastructure/gpu-scheduling-optimization.md",
       "name": "GPU Scheduling Optimization",
@@ -22378,6 +23628,31 @@
         "../16-domain-specific/iac-generation.md",
         "../05-code/dockerfile-generation.md"
       ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "llm-gateway-deployment",
+      "path": "skills/17-infrastructure/llm-gateway-deployment.md",
+      "name": "Llm Gateway Deployment",
+      "description": "Deploy LLM gateways with provider routing, key isolation, request budgets, and per-consumer rate limits.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs / Outputs",
+        "Procedure",
+        "Runnable Example",
+        "Failure Modes",
+        "Boundary",
+        "Evidence",
+        "Related"
+      ],
+      "related": [],
       "category_dir": "17-infrastructure"
     },
     {
