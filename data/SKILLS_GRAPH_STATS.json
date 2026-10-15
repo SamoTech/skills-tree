@@ -11,8 +11,8 @@
   "nodes_by_layer": {
     "perception": 78,
     "reasoning": 154,
-    "systems": 623,
-    "execution": 134
+    "systems": 633,
+    "execution": 124
   },
   "nodes_by_category": {
     "01-perception": 78,
@@ -38,4 +38,3 @@
     "REQUIRES": 8
   }
 }
-

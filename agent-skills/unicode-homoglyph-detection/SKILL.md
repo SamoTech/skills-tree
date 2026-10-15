@@ -41,10 +41,10 @@ Detect visually confusable homoglyph and mixed-script sequences in identifiers, 
 
 ## Runnable Example
 ```python
-CONFUSABLES = {"а": "a", "ο": "o"}
+CONFUSABLES = {"\u0430": "a", "\u03bf": "o"}
 def homoglyph_hits(text):
     return [(i, ch, CONFUSABLES[ch]) for i, ch in enumerate(text) if ch in CONFUSABLES]
-assert homoglyph_hits("pаypal") == [(1, "а", "a")]
+assert homoglyph_hits("p\u0430ypal") == [(1, "\u0430", "a")]
 ```
 
 ## Failure Modes

@@ -44,13 +44,15 @@ Extract code examples from documentation and run them against the current API, r
 ## Runnable Example
 ```python
 def extract_examples(md):
-    return [b for b in md.split("```") if b.strip().startswith("print(")]
-found = extract_examples("text
-```python
-print('hi')
-```
-")
-assert len(found) == 1 and "print" in found[0]
+    fence = chr(96) * 3
+    out = []
+    for b in md.split(fence):
+        lines = b.strip().splitlines()
+        if len(lines) > 1 and lines[0] == "python" and lines[1].startswith("print("):
+            out.append(b)
+    return out
+doc = "text\n" + fence + "python\nprint('hi')\n" + fence + "\n"
+assert len(extract_examples(doc)) == 1
 ```
 
 ## Failure Modes
