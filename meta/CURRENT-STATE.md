@@ -2,6 +2,8 @@
 
 ## Current Live Reconciliation — 2026-10-15
 
+- **Daily demand-driven expansion, batch 2 (2026-10-15):** 50 new experimental v1 canonical skills from branch skills/expansion-2026-10-15-b2 (PR #601) move the public corpus from 939 to 989 skills across categories 01-perception through 05-code, each with full section structure, a runnable example, a mandatory Failure Modes section, and a byte-exact deterministic project() Agent Skills package (Agent Skills packages 790 -> 840; the eligible discovery count moves 912 -> 962, matching tests/test_agent_skills_discovery.py). Selection basis is dated 2026-10-15 public trend signals recorded in a dated expansion note in meta/MOST-WANTED-SKILLS.md and per skill in the PR body; these are demand signals, not adoption metrics. Honest repair disclosure for this batch: two committed Python examples were invalid syntax and were fixed pre-merge (documentation-example-testing, unicode-homoglyph-detection), and an automation relay encoding defect had double-encoded non-ASCII bytes in several pushed projections; the graph, stats, JSON-LD, README, docs index, Skills API export, and both meta files were repaired to clean UTF-8 and byte-verified on the branch, and the search-index projection is re-derived from the trusted main corpus by the generate-search-index automation immediately after this merge (its corrupted copy is CI-blind because the search index has no skills-freshness contract). This push also repairs pre-existing mojibake sequences in previously committed meta/CURRENT-STATE.md and meta/MOST-WANTED-SKILLS.md text. No CI, quality, or governance gate was weakened.
+
 - **Post-batch-1 projection and discovery-count repair (2026-10-15):** the 2026-10-14 batch-1 merge (PR #590, 51 new canonical skills, corpus 888 → 939, Agent Skills packages 739 → 790) landed on 2026-10-15 01:17 UTC before its generated projections and the deterministic discovery-count update were in place, so the push CI on main went red: the Skills-API freshness contract failed on the 51 missing per-skill JSON-LD files, the graph, search-index, README/docs-index count, badge, and quality-report projections were stale, and `tests/test_agent_skills_discovery.py` still pinned the eligible-skill count at 861. The generated-maintenance PRs #591, #592, #593, #594, #595, and #597 (merged back-to-back on 2026-10-15) restored every generated projection; this PR completes the repair by bumping the deterministic Agent Skills discovery count 861 → 912 — all 51 new skills are eligible (Evidence section present, non-placeholder descriptions under 1024 characters, bodies under 500 lines, verified per file), so the live discovery index for the 939-skill corpus carries 912 entries — restoring a fully green main. No CI, quality, or governance gate was weakened; the red merge is recorded here for the record.
 
 This is the active operational state. Older dated sections below are historical unless independently re-verified.
@@ -241,13 +243,13 @@ Each migrated skill now has a concrete description, explicit I/O contract, runna
 
 ## Goal Capability Runtime Access — VERIFIED — 2026-10-02
 
-A fresh runtime/consumer audit identified a missing typed GoalâCapability accessor. The implementation adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
+A fresh runtime/consumer audit identified a missing typed Goal→Capability accessor. The implementation adds `GoalRuntime.capabilities_for_goal()` and `UniversalRegistry.capabilities_for_goal()`; `skills_for_goal()` reuses that boundary.
 
 Focused regression coverage verifies deterministic Goal-to-Capability traversal and defensive snapshot behavior.
 
 **Verification:** PR #238 exact head `0d45fd7b7a741c8984fbe5a90b1abe7e8570b744` passed Security Scan, PR Checks, Test Suite, Build & Verify Wheel, and Auto Label before merge as `3290ebc88060fca07e944cd31ad31d392982ca3d`.
 
-**Status:** VERIFIED — the typed GoalâCapability runtime path is live on `main`.
+**Status:** VERIFIED — the typed Goal→Capability runtime path is live on `main`.
 \n\n## Deterministic Agent Skills Projection — VERIFIED — 2026-10-02
 
 PR #251 established and verified the first executable canonical-to-Agent-Skills projection contract, then merged to `main` as `f1d169c3fd9388cf4244d9d4bfc4c64df382a1bb`.
@@ -464,7 +466,7 @@ Issue #159 is therefore a control-plane decision outside the repository completi
 
 ## Core Agentic Execution Loop — IMPLEMENTED — 2026-10-04 — HISTORICAL IMPLEMENTATION RECORD
 
-The repository now defines a bounded autonomous execution contract for AI agents. The canonical cycle is `OBSERVE â ASSESS â PLAN â EXECUTE â VERIFY â RECORD â DECIDE`. Verification failures become evidence for the next cycle instead of requiring a new user prompt. The loop has explicit `CONTINUE`, `BLOCKED`, and `DONE` outcomes, a default 12-iteration ceiling, repeated-failure safeguards, authority escalation boundaries, and a completion contract requiring invariant verification, tests/CI, generated-artifact synchronization, and documentation synchronization.
+The repository now defines a bounded autonomous execution contract for AI agents. The canonical cycle is `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`. Verification failures become evidence for the next cycle instead of requiring a new user prompt. The loop has explicit `CONTINUE`, `BLOCKED`, and `DONE` outcomes, a default 12-iteration ceiling, repeated-failure safeguards, authority escalation boundaries, and a completion contract requiring invariant verification, tests/CI, generated-artifact synchronization, and documentation synchronization.
 
 The contract is defined in `meta/AGENT_OPERATING_MODEL.md`, reinforced by `AGENTS.md` and `AI_CONSTITUTION.md`, and checked by `tools/verify_governance.py`. This is an operating contract, not a claim that GitHub or an external hosted agent automatically executes arbitrary future work without an invoking agent runtime.
 
@@ -473,7 +475,7 @@ Status: VERIFIED — superseded by the exact-head verification recorded immediat
 
 ## Core Agentic Execution Loop — VERIFIED — 2026-10-04
 
-PR #324 was merged after the exact final head `8f254754231bd8153efd50ab0e4b1bff4d067cad` passed Governance Gate, Validate Skills Graph, Test Suite on the applicable matrix, Security Scan, PR Checks, Build & Verify Wheel, and related validation. The repository now defines the bounded operational cycle `OBSERVE â ASSESS â PLAN â EXECUTE â VERIFY â RECORD â DECIDE`, with failure-driven continuation, a default 12-iteration ceiling, explicit CONTINUE/BLOCKED/DONE states, authority escalation boundaries, and documentation/generated-artifact completion requirements.
+PR #324 was merged after the exact final head `8f254754231bd8153efd50ab0e4b1bff4d067cad` passed Governance Gate, Validate Skills Graph, Test Suite on the applicable matrix, Security Scan, PR Checks, Build & Verify Wheel, and related validation. The repository now defines the bounded operational cycle `OBSERVE → ASSESS → PLAN → EXECUTE → VERIFY → RECORD → DECIDE`, with failure-driven continuation, a default 12-iteration ceiling, explicit CONTINUE/BLOCKED/DONE states, authority escalation boundaries, and documentation/generated-artifact completion requirements.
 
 **Status:** VERIFIED on main at merge commit `6fa92dd42768395102215a26e22999d6de81c013`.
 
@@ -602,7 +604,7 @@ The repository now has `registry/skill_selection.py` as a deterministic registry
 
 Current benchmark evidence: 6/6 cases passed with deterministic replay. This verifies the bounded capability-selection behavior only.
 
-LIMITATION: prerequisite routing is implemented in the selector against the existing `REQUIRES` graph API, but it is not yet behaviorally evidenced through the canonical registry because the Universal Registry currently contains only three skill records and no prerequisite-bearing registered skill pair. Do not claim full task â dependency â invocation sequencing as verified until registry coverage and a reproducible prerequisite benchmark exist.
+LIMITATION: prerequisite routing is implemented in the selector against the existing `REQUIRES` graph API, but it is not yet behaviorally evidenced through the canonical registry because the Universal Registry currently contains only three skill records and no prerequisite-bearing registered skill pair. Do not claim full task → dependency → invocation sequencing as verified until registry coverage and a reproducible prerequisite benchmark exist.
 
 Status: VERIFIED BOUNDED SLICE. Next justified action: reconcile canonical registry skill coverage for prerequisite-bearing skills, then extend the behavioral benchmark without creating a second registry or orchestration authority.
 
@@ -615,12 +617,12 @@ The selection runtime now resolves transitive `REQUIRES` prerequisites determini
 
 Current bounded behavioral evidence covers:
 - Agentic RAG selection over baseline RAG for the explicit agentic capability.
-- Ordered prerequisite routing: RAG â CoT â ReAct before Agentic RAG invocation.
+- Ordered prerequisite routing: RAG → CoT → ReAct before Agentic RAG invocation.
 - Resume behavior after partial prerequisite completion.
 - Target invocation only after all declared prerequisites are complete.
 - Fail-closed behavior for invalid prerequisite graphs.
 
-This verifies deterministic dependency-aware skill selection for the registered Agentic RAG scenario. It does not establish general autonomous task understanding, arbitrary graph correctness, or full task â capability â skill â invocation â verification â next-skill autonomy.
+This verifies deterministic dependency-aware skill selection for the registered Agentic RAG scenario. It does not establish general autonomous task understanding, arbitrary graph correctness, or full task → capability → skill → invocation → verification → next-skill autonomy.
 
 Post-merge workflow runs for `f15c729adf76794fc914f954f74a4964d7dbdd76` were not yet observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
 
@@ -633,7 +635,7 @@ PR #347 merged to main as `adbbb55c58a853e843883b2cbc14997f315226b7` after exact
 
 The recovery runtime now carries an explicit failed-skill history and excludes all previously failed candidates from subsequent recovery selection. The benchmark and unit tests verify remaining-candidate recovery, terminal escalation when no viable recovery remains, and deterministic replay. This closes the measured repeated-retry defect without adding a second orchestration authority.
 
-LIMITATION: the current Universal Registry does not contain three independently registered, capability-compatible alternatives needed to produce a genuine multi-step A â failure â B â failure â C recovery-chain benchmark. A synthetic chain or registry expansion solely for benchmark convenience would fabricate evidence. Therefore this slice is bounded to history-aware candidate exclusion, single-step recovery, and terminal fail-closed behavior.
+LIMITATION: the current Universal Registry does not contain three independently registered, capability-compatible alternatives needed to produce a genuine multi-step A → failure → B → failure → C recovery-chain benchmark. A synthetic chain or registry expansion solely for benchmark convenience would fabricate evidence. Therefore this slice is bounded to history-aware candidate exclusion, single-step recovery, and terminal fail-closed behavior.
 
 Post-merge workflows for `adbbb55c...` were not observable at the verification point. Exact-head PR CI is the authoritative pre-merge evidence.
 
@@ -707,8 +709,8 @@ Next executable action: capture repeated fresh-session traces from a compatible 
 The activation evidence boundary now includes a deterministic interoperability adapter at tools/convert_hermes_activation_observations.py. It consumes explicit Hermes observer-hook JSONL evidence and emits the existing meta/skill-activation-observation.schema.json shape.
 
 The adapter maps only observed events:
-- Hermes post_tool_call with tool_name=skill_view â skill_selection.
-- Hermes on_skill_lifecycle with action=loaded â skill_execution.
+- Hermes post_tool_call with tool_name=skill_view → skill_selection.
+- Hermes on_skill_lifecycle with action=loaded → skill_execution.
 - Both must share an explicit session/task correlation and the run must be mapped explicitly to an ACT-* case. Selection-only evidence is preserved as selection evidence; execution evidence is independently preserved when observed. Mismatched selection/execution is intentionally retained so false activation and invocation gaps remain measurable.
 
 The adapter does not infer activation from prompts, aggregate .usage.json counters, or missing events. It does not add routing authority or change runtime behavior.
@@ -721,7 +723,7 @@ PR #364 merged the real-trace capture boundary as `ebb150dfb0f0ad6ddb3d2426cb81d
 
 The observer records only explicit Hermes `post_tool_call` / `skill_view` and `on_skill_lifecycle(action=loaded)` evidence with session/task correlation. It intentionally excludes prompts, model output, tool results, and aggregate usage counters. This is capture instrumentation, not a benchmark result.
 
-Current blocker: no real Hermes trace corpus has been captured in this repository. The next executable action is operational capture of 12 fresh-session observations (4 cases Ã 3 repetitions), explicit ACT-case mapping, conversion, schema validation, and benchmark execution. Do not claim empirical reliability before that evidence exists.
+Current blocker: no real Hermes trace corpus has been captured in this repository. The next executable action is operational capture of 12 fresh-session observations (4 cases × 3 repetitions), explicit ACT-case mapping, conversion, schema validation, and benchmark execution. Do not claim empirical reliability before that evidence exists.
 ## Evaluation Harness Integrity — FAIL-CLOSED GAP — 2026-10-06
 
 Fresh public evidence identified silent zero-run benchmark failure as a reusable evaluation-harness integrity risk. Internal audit confirmed `tools/run_skill_activation_benchmark.py` reported `NO_OBSERVATIONS` while returning exit code 0.
@@ -759,3 +761,4 @@ The live main audit has no open pull requests. PRs #368, #371, #374, #375, #376,
 At the 2026-10-06 audit point, the quality report contained 382 skill files including one intentional `00-sandbox` fixture; the public canonical production corpus contained 381 skills across 17 categories. The reconciliation report recorded 264 eligible canonical projections, 118 blocked entries, and 302 existing Agent Skills packages. Graph projections were byte-identical at 382 nodes / 250 edges; search projections were byte-identical.
 
 Current remaining evidence gap: Issue #357 requires real external agent-runtime traces before activation/reliability claims. Issue #336 is resolved: the stale model-comparison benchmark is explicitly historical, canonical references and evaluation triggers were repaired, and a version-matched 12-case deterministic retrieval benchmark produced a reproducible artifact. No new skill, search engine, or routing authority is justified by the present evidence.
+

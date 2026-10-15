@@ -1,6 +1,6 @@
 {
   "generated": "2026-10-15T01:17:52Z",
-  "count": 939,
+  "count": 989,
   "skills": [
     {
       "id": "agent-card-parsing",
@@ -25,6 +25,37 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "agent-trace-span-parsing",
+      "path": "skills/01-perception/agent-trace-span-parsing.md",
+      "name": "Agent Trace Span Parsing",
+      "description": "Parse OpenTelemetry-style agent trace spans into ordered, typed call records with parent-child linkage, and flag clock skew, dangling parents, and attribute-shape drift before analysis.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/agent-card-parsing.md",
+        "../01-perception/api-response-parsing.md",
+        "../01-perception/clickstream-parsing.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -68,6 +99,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "audio-stream-segmentation",
+      "path": "skills/01-perception/audio-stream-segmentation.md",
+      "name": "Audio Stream Segmentation",
+      "description": "Segment continuous audio streams into bounded utterance or event chunks using voice-activity boundaries and clock alignment, flagging overlapping speakers and dropped frames instead of merging them.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/asr-hallucination-detection.md",
+        "../01-perception/audio-transcription.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -175,6 +236,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "calendar-recurrence-rule-parsing",
+      "path": "skills/01-perception/calendar-recurrence-rule-parsing.md",
+      "name": "Calendar Recurrence Rule Parsing",
+      "description": "Parse RRULE-style recurrence rules into concrete bounded occurrence lists with timezone and exclusion handling, flagging unbounded or contradictory rules instead of enumerating forever.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/clickstream-parsing.md",
+        "../01-perception/document-parsing.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -702,6 +793,36 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "image-metadata-parsing",
+      "path": "skills/01-perception/image-metadata-parsing.md",
+      "name": "Image Metadata Parsing",
+      "description": "Parse image container metadata (EXIF, PNG text chunks, color profiles, capture timestamps) into a typed record, flagging truncated metadata and steganography-sized anomalies instead of guessing.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/document-parsing.md",
+        "../01-perception/certificate-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "image-understanding",
       "path": "skills/01-perception/image-understanding.md",
       "name": "Image Understanding",
@@ -947,6 +1068,66 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "llm-confidence-signal-extraction",
+      "path": "skills/01-perception/llm-confidence-signal-extraction.md",
+      "name": "LLM Confidence Signal Extraction",
+      "description": "Extract calibrated confidence signals from model output (verbalized probabilities, self-consistency rates, logprob margins) into one bounded record, flagging unsupported numeric claims instead of amplifying them.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/asr-hallucination-detection.md",
+        "../01-perception/clickstream-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "llm-usage-metrics-parsing",
+      "path": "skills/01-perception/llm-usage-metrics-parsing.md",
+      "name": "LLM Usage Metrics Parsing",
+      "description": "Parse provider usage fields (input, output, cached, and reasoning tokens plus cost fields) into one normalized accounting record with the provenance of every rate applied.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/api-response-parsing.md",
+        "../01-perception/clickstream-parsing.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -1214,6 +1395,36 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "pdf-form-field-parsing",
+      "path": "skills/01-perception/pdf-form-field-parsing.md",
+      "name": "PDF Form Field Parsing",
+      "description": "Extract PDF AcroForm field names, types, values, and flags into a typed structure, flagging encrypted, damaged, or XFA-only forms instead of returning partial values as complete.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/document-parsing.md",
+        "../01-perception/email-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "pdf-parsing",
       "path": "skills/01-perception/pdf-parsing.md",
       "name": "PDF Parsing",
@@ -1312,6 +1523,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "sarif-results-parsing",
+      "path": "skills/01-perception/sarif-results-parsing.md",
+      "name": "SARIF Results Parsing",
+      "description": "Parse SARIF 2.1.0 static-analysis files into deduplicated findings with rule, location, severity, and fingerprint identity, and flag unresolvable locations instead of inventing them.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/config-file-parsing.md",
+        "../01-perception/agent-card-parsing.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -1620,6 +1861,36 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "unicode-homoglyph-detection",
+      "path": "skills/01-perception/unicode-homoglyph-detection.md",
+      "name": "Unicode Homoglyph Detection",
+      "description": "Detect visually confusable homoglyph and mixed-script sequences in identifiers, domains, and free text, reporting the confusable code points and their scripts instead of deleting them.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/certificate-parsing.md",
+        "../01-perception/agent-card-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "url-dom-inspection",
       "path": "skills/01-perception/url-dom-inspection.md",
       "name": "URL / DOM Inspection",
@@ -1711,6 +1982,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "webhook-payload-parsing",
+      "path": "skills/01-perception/webhook-payload-parsing.md",
+      "name": "Webhook Payload Parsing",
+      "description": "Parse signed webhook deliveries into verified event records by checking signatures, replay windows, and event-id uniqueness before dispatch, rejecting unverifiable deliveries fail-closed.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/api-response-parsing.md",
+        "../01-perception/agent-card-parsing.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -1920,6 +2221,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "assumption-explicitness-reasoning",
+      "path": "skills/02-reasoning/assumption-explicitness-reasoning.md",
+      "name": "Assumption Explicitness Reasoning",
+      "description": "Surface the unstated assumptions behind a plan or answer, rank them by how much the outcome changes if each is wrong, and record them so downstream consumers can re-check them.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/assumption-mapping.md",
+        "../02-reasoning/proof-obligation-checklist-reasoning.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -2174,6 +2505,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "claim-evidence-alignment-reasoning",
+      "path": "skills/02-reasoning/claim-evidence-alignment-reasoning.md",
+      "name": "Claim Evidence Alignment Reasoning",
+      "description": "Align each claim in an answer with the retrieved evidence span that supports it, marking claims with no supporting span as unsupported instead of padding them with plausible citation shapes.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/chain-of-verification.md",
+        "../02-reasoning/solution-verification.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "commonsense",
       "path": "skills/02-reasoning/commonsense.md",
       "name": "Commonsense Reasoning",
@@ -2403,6 +2764,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "dependency-cycle-resolution-reasoning",
+      "path": "skills/02-reasoning/dependency-cycle-resolution-reasoning.md",
+      "name": "Dependency Cycle Resolution Reasoning",
+      "description": "Detect cycles in task or data dependencies and resolve them by reordering, deferring, or splitting work, recording the cycle found and the resolution rule applied instead of deadlocking.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/proof-obligation-checklist-reasoning.md",
+        "../02-reasoning/chain-of-verification.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "dynamic-replanning",
       "path": "skills/02-reasoning/dynamic-replanning.md",
       "name": "Dynamic Replanning",
@@ -2502,6 +2893,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "freshness-aware-reasoning",
+      "path": "skills/02-reasoning/freshness-aware-reasoning.md",
+      "name": "Freshness Aware Reasoning",
+      "description": "Reason over data with explicit capture timestamps and staleness horizons, propagating freshness bounds into every derived conclusion instead of treating cached facts as current.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/uncertainty-quantification.md",
+        "../02-reasoning/abstention-decision-reasoning.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -2775,6 +3196,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "model-selection-reasoning",
+      "path": "skills/02-reasoning/model-selection-reasoning.md",
+      "name": "Model Selection Reasoning",
+      "description": "Choose among candidate models for a task by scoring capability fit, context limits, latency, and cost against explicit task constraints, recording the rejected candidates and the deciding criteria.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/budget-aware-reasoning.md",
+        "../02-reasoning/abstention-decision-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "monte-carlo-estimation",
       "path": "skills/02-reasoning/monte-carlo-estimation.md",
       "name": "Monte-Carlo Estimation",
@@ -2797,6 +3248,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "multi-agent-consensus-reasoning",
+      "path": "skills/02-reasoning/multi-agent-consensus-reasoning.md",
+      "name": "Multi Agent Consensus Reasoning",
+      "description": "Aggregate answers from multiple independent agents into a consensus with recorded agreement, dissent, and tie-breaking rules, treating convergence as evidence rather than proof.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/self-consistency.md",
+        "../02-reasoning/chain-of-verification.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -3188,6 +3669,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "refusal-decision-reasoning",
+      "path": "skills/02-reasoning/refusal-decision-reasoning.md",
+      "name": "Refusal Decision Reasoning",
+      "description": "Decide when a request must be declined on policy or authority grounds by matching the request against explicit refusal rules, recording the rule that fired and the user-facing explanation.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/abstention-decision-reasoning.md",
+        "../02-reasoning/proof-obligation-checklist-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "resource-allocation",
       "path": "skills/02-reasoning/resource-allocation.md",
       "name": "Resource Allocation",
@@ -3237,6 +3748,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "rollback-decision-reasoning",
+      "path": "skills/02-reasoning/rollback-decision-reasoning.md",
+      "name": "Rollback Decision Reasoning",
+      "description": "Decide whether to roll back a change by comparing observed post-change state against pre-declared success criteria and blast-radius tolerances, recording the trigger threshold and what a rollback preserves.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/abstention-decision-reasoning.md",
+        "../02-reasoning/proof-obligation-checklist-reasoning.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -3681,6 +4222,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "trust-boundary-reasoning",
+      "path": "skills/02-reasoning/trust-boundary-reasoning.md",
+      "name": "Trust Boundary Reasoning",
+      "description": "Reason about which side of a trust boundary each input, output, and instruction sits on, and treat cross-boundary content as untrusted data until verified, naming the boundary explicitly in the result.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/uncertainty-quantification.md",
+        "../02-reasoning/abstention-decision-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "uncertainty-quantification",
       "path": "skills/02-reasoning/uncertainty-quantification.md",
       "name": "Uncertainty Quantification",
@@ -3703,6 +4274,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "unit-consistency-reasoning",
+      "path": "skills/02-reasoning/unit-consistency-reasoning.md",
+      "name": "Unit Consistency Reasoning",
+      "description": "Check physical and currency quantities for unit consistency across calculations, converting explicitly with recorded factors and flagging mismatches instead of silently coercing numbers.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/uncertainty-quantification.md",
+        "../02-reasoning/chain-of-verification.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -3806,6 +4407,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "agent-memory-store-migration",
+      "path": "skills/03-memory/agent-memory-store-migration.md",
+      "name": "Agent Memory Store Migration",
+      "description": "Migrate agent memory between stores or schemas with per-record mapping, count reconciliation, and a rollback plan, and fail closed on unmapped records instead of dropping them.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/memory-schema-migration.md",
+        "../03-memory/agent-memory-schema-design.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "agent-sessions",
       "path": "skills/03-memory/agent-sessions.md",
       "name": "Agent Sessions",
@@ -3906,6 +4537,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "cross-session-identity-resolution",
+      "path": "skills/03-memory/cross-session-identity-resolution.md",
+      "name": "Cross-Session Identity Resolution",
+      "description": "Reconcile identifiers, profiles, and session artifacts across separate agent sessions into one stable entity map, and flag unresolved collisions instead of silently merging them.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/agent-sessions.md",
+        "../03-memory/multi-tenant-memory-isolation.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -4135,6 +4796,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "forgetting-curve-scheduling",
+      "path": "skills/03-memory/forgetting-curve-scheduling.md",
+      "name": "Forgetting Curve Scheduling",
+      "description": "Schedule memory review and decay with spaced intervals driven by access and recall signals, instead of flat TTLs that purge recently used records or keep dead ones.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/forgetting.md",
+        "../03-memory/memory-ttl.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "forgetting",
       "path": "skills/03-memory/forgetting.md",
       "name": "Forgetting",
@@ -4235,6 +4926,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "long-term-goal-state-tracking",
+      "path": "skills/03-memory/long-term-goal-state-tracking.md",
+      "name": "Long-Term Goal State Tracking",
+      "description": "Persist goal progress across sessions with completed milestones, blockers, next actions, and closing evidence, so restarts resume the goal instead of resetting it.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/long-term-memory.md",
+        "../03-memory/working-memory.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "long-term-memory",
       "path": "skills/03-memory/long-term-memory.md",
       "name": "Long-Term Memory",
@@ -4282,6 +5003,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "memory-benchmark-evaluation",
+      "path": "skills/03-memory/memory-benchmark-evaluation.md",
+      "name": "Memory Benchmark Evaluation",
+      "description": "Benchmark memory and retrieval backends against a fixed, production-representative workload with recall, latency, and cost metrics, and report the workload used rather than a naked score.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/memory-quality-auditing.md",
+        "../03-memory/embedding-drift-detection.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -4336,6 +5087,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "memory-deletion-compliance",
+      "path": "skills/03-memory/memory-deletion-compliance.md",
+      "name": "Memory Deletion Compliance",
+      "description": "Execute deletion requests across primary and derived memory stores with cascade lists and surviving-fragment checks, and record what was removed rather than asserting removal.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/retention-policy.md",
+        "../03-memory/memory-access-auditing.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -4442,6 +5223,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "memory-key-design",
+      "path": "skills/03-memory/memory-key-design.md",
+      "name": "Memory Key Design",
+      "description": "Design memory key namespaces with explicit scope, type, identity, and version segments plus collision rules, and keep volatile attributes out of the key itself.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/memory-indexing.md",
+        "../03-memory/hierarchical-memory-organization.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -4622,6 +5433,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "multi-agent-memory-merge-coordination",
+      "path": "skills/03-memory/multi-agent-memory-merge-coordination.md",
+      "name": "Multi-Agent Memory Merge Coordination",
+      "description": "Coordinate memory writes from multiple agents with declared last-writer rules, per-key conflict annotations, and shared key namespaces, so merges stay deterministic and auditable.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/memory-conflict-resolution.md",
+        "../03-memory/session-boundary-memory-merge.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "multi-tenant-memory-isolation",
       "path": "skills/03-memory/multi-tenant-memory-isolation.md",
       "name": "Multi Tenant Memory Isolation",
@@ -4669,6 +5510,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "pii-memory-minimization",
+      "path": "skills/03-memory/pii-memory-minimization.md",
+      "name": "PII Memory Minimization",
+      "description": "Keep only the memory fields required for a declared purpose, record which PII fields were removed, and verify no copies survive in summaries or derived indexes.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/memory-redaction.md",
+        "../03-memory/need-to-know-memory-scoping.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -5077,6 +5948,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "temporal-memory-anchoring",
+      "path": "skills/03-memory/temporal-memory-anchoring.md",
+      "name": "Temporal Memory Anchoring",
+      "description": "Anchor memory records to explicit event-time, capture-time, and staleness fields with normalized clock sources, so ordering and expiry decisions do not depend on ingestion order.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/retrieval-freshness-scoring.md",
+        "../03-memory/episodic-memory.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "user-profile-memory",
       "path": "skills/03-memory/user-profile-memory.md",
       "name": "User Profile Memory",
@@ -5279,6 +6180,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "action-ledger-hash-chaining",
+      "path": "skills/04-action-execution/action-ledger-hash-chaining.md",
+      "name": "Action Ledger Hash Chaining",
+      "description": "Append executed actions to a hash-chained ledger where each entry commits to the prior entry hash, and verify the chain against anchored checkpoints before trusting it.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/action-journaling.md",
+        "../04-action-execution/idempotent-retries.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -5557,6 +6488,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "blast-radius-estimation",
+      "path": "skills/04-action-execution/blast-radius-estimation.md",
+      "name": "Blast Radius Estimation",
+      "description": "Compute the worst-case impact set of an action by walking its transitive dependents, attach severities, and escalate when the set crosses a declared approval threshold.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/dry-run-execution.md",
+        "../04-action-execution/action-precondition-checking.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "bulk-api-batch-import",
       "path": "skills/04-action-execution/bulk-api-batch-import.md",
       "name": "Bulk API Batch Import",
@@ -5705,6 +6666,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "database-transaction-isolation-selection",
+      "path": "skills/04-action-execution/database-transaction-isolation-selection.md",
+      "name": "Database Transaction Isolation Selection",
+      "description": "Select transaction isolation levels from the anomaly list to prevent and the measured retry cost, instead of accepting database defaults or paying for serializable everywhere.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/batched-write-transaction-planning.md",
+        "../04-action-execution/database-write.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "database-write",
       "path": "skills/04-action-execution/database-write.md",
       "name": "Database Write",
@@ -5725,6 +6716,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "device-authorization-flow-execution",
+      "path": "skills/04-action-execution/device-authorization-flow-execution.md",
+      "name": "Device Authorization Flow Execution",
+      "description": "Run device authorization flows end to end with scope checks on the granted token, expiry-bounded polling, and an audit trail, failing closed on timeout or scope widening.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/human-approval-gate-implementation.md",
+        "../04-action-execution/short-lived-credential-acquisition.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -6018,6 +7039,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "hardware-token-signing-actions",
+      "path": "skills/04-action-execution/hardware-token-signing-actions.md",
+      "name": "Hardware Token Signing Actions",
+      "description": "Bind high-value actions to hardware-attested signing keys, sign only payload hashes the user saw on the token display, and fail closed when the token is absent.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/agent-payment-mandate-signing.md",
+        "../04-action-execution/action-result-verification.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "http-multipart-upload",
       "path": "skills/04-action-execution/http-multipart-upload.md",
       "name": "HTTP Multipart Upload",
@@ -6097,6 +7148,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "human-presence-verification",
+      "path": "skills/04-action-execution/human-presence-verification.md",
+      "name": "Human Presence Verification",
+      "description": "Verify that a human is present now with a freshness-bounded interaction signal and an in-session challenge, instead of trusting earlier approvals or idle sessions.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/human-approval-gate-implementation.md",
+        "../04-action-execution/action-precondition-checking.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -6250,6 +7331,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "micropayment-batching",
+      "path": "skills/04-action-execution/micropayment-batching.md",
+      "name": "Micropayment Batching",
+      "description": "Group sub-threshold charges into settlements that meet a fee-efficient threshold while preserving per-item attribution, and never batch across payees or currencies.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/agent-payment-initiation.md",
+        "../04-action-execution/throttled-request-batching.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "mouse-input",
       "path": "skills/04-action-execution/mouse-input.md",
       "name": "Mouse Input",
@@ -6293,6 +7404,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "offline-action-queueing",
+      "path": "skills/04-action-execution/offline-action-queueing.md",
+      "name": "Offline Action Queueing",
+      "description": "Capture actions during disconnection in a durable queue with per-action deadlines, idempotency keys, and an overflow policy, and replay safely on reconnect.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/idempotent-retries.md",
+        "../04-action-execution/compensating-actions.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -6368,6 +7509,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "recurring-calendar-event-creation",
+      "path": "skills/04-action-execution/recurring-calendar-event-creation.md",
+      "name": "Recurring Calendar Event Creation",
+      "description": "Create recurring event series with an explicit recurrence rule, timezone, and series identity, so edits and cancellations stay consistent across all occurrences.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/calendar-event.md",
+        "../04-action-execution/scheduled-execution.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -6464,6 +7635,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "shell-environment-sanitization",
+      "path": "skills/04-action-execution/shell-environment-sanitization.md",
+      "name": "Shell Environment Sanitization",
+      "description": "Run child shells with an allowlisted environment that drops hook and preload variables, and re-sanitize per target shell instead of reusing one sanitized map.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/shell-command.md",
+        "../04-action-execution/env-vars.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -6644,6 +7845,66 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "actionable-error-message-implementation",
+      "path": "skills/05-code/actionable-error-message-implementation.md",
+      "name": "Actionable Error Message Implementation",
+      "description": "Implement errors that carry a stable code, the failing input, and a concrete next action, without embedding secrets or full payloads in the message text.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/error-handling-design.md",
+        "../05-code/stack-trace-analysis.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "agent-commit-hygiene",
+      "path": "skills/05-code/agent-commit-hygiene.md",
+      "name": "Agent Commit Hygiene",
+      "description": "Apply repository commit hygiene rules to agent-authored commits, checking subject format, change scoping, and unintended file inclusion before opening review.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/git-operations.md",
+        "../05-code/agent-generated-code-auditing.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "agent-generated-code-auditing",
       "path": "skills/05-code/agent-generated-code-auditing.md",
       "name": "Agent Generated Code Auditing",
@@ -6788,6 +8049,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "build-reproducibility-verification",
+      "path": "skills/05-code/build-reproducibility-verification.md",
+      "name": "Build Reproducibility Verification",
+      "description": "Verify builds are reproducible by comparing artifact hashes across clean rebuilds with normalized ordering, instead of trusting one build that happened to succeed.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/build-cache-optimization.md",
+        "../05-code/dockerfile-generation.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "call-graph-construction",
       "path": "skills/05-code/call-graph-construction.md",
       "name": "Call Graph Construction",
@@ -6810,6 +8101,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "ci-cache-poisoning-prevention",
+      "path": "skills/05-code/ci-cache-poisoning-prevention.md",
+      "name": "CI Cache Poisoning Prevention",
+      "description": "Key CI caches on lockfile, config, and runner trust level so untrusted pull requests cannot write cache entries that poison later builds, and scan restored outputs for secrets.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/build-cache-optimization.md",
+        "../05-code/ci-failure-triage.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -7421,6 +8742,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "documentation-example-testing",
+      "path": "skills/05-code/documentation-example-testing.md",
+      "name": "Documentation Example Testing",
+      "description": "Extract code examples from documentation and run them against the current API, reporting per-example pass or fail status instead of marking whole documents as tested.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/documentation-generation.md",
+        "../05-code/unit-test-generation.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "documentation-generation",
       "path": "skills/05-code/documentation-generation.md",
       "name": "documentation-generation",
@@ -7441,6 +8792,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "embedded-prompt-extraction",
+      "path": "skills/05-code/embedded-prompt-extraction.md",
+      "name": "Embedded Prompt Extraction",
+      "description": "Extract prompts hardcoded into code, templates, or assets into auditable, testable assets, and sweep for rendered copies left behind in caches or binaries.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/system-prompt-refactoring.md",
+        "../05-code/security-scanning.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -7468,6 +8849,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "flaky-test-quarantine",
+      "path": "skills/05-code/flaky-test-quarantine.md",
+      "name": "Flaky Test Quarantine",
+      "description": "Quarantine intermittently failing tests with recorded rerun evidence, a tracked owner issue, and an expiry date, instead of deleting them or letting them block merges.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/test-flakiness-diagnosis.md",
+        "../05-code/ci-failure-triage.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -7764,6 +9175,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "polyglot-type-binding-generation",
+      "path": "skills/05-code/polyglot-type-binding-generation.md",
+      "name": "Polyglot Type Binding Generation",
+      "description": "Generate consistent type bindings for one schema across several languages, flagging unmappable types instead of coercing them, and never generating from drifting schema copies.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/protocol-schema-codegen.md",
+        "../05-code/type-annotation-generation.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "property-based-testing",
       "path": "skills/05-code/property-based-testing.md",
       "name": "Property Based Testing",
@@ -7986,6 +9427,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "spec-driven-implementation-planning",
+      "path": "skills/05-code/spec-driven-implementation-planning.md",
+      "name": "Spec-Driven Implementation Planning",
+      "description": "Turn a written spec into an implementation plan where every task traces to a spec item, every spec item has a task, and completion requires passing acceptance tests.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/requirement-tracing.md",
+        "../05-code/code-generation.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "sql-query-generation",
       "path": "skills/05-code/sql-query-generation.md",
       "name": "sql-query-generation",
@@ -8031,6 +9502,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "static-analysis-suppression-auditing",
+      "path": "skills/05-code/static-analysis-suppression-auditing.md",
+      "name": "Static Analysis Suppression Auditing",
+      "description": "Audit inline static-analysis suppressions for scope, owner, expiry, and justification, replacing blanket suppressions with per-finding ones that expire.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/static-analysis.md",
+        "../05-code/agent-generated-code-auditing.md"
+      ],
       "category_dir": "05-code"
     },
     {
