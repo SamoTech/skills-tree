@@ -1,0 +1,164 @@
+  {
+    "id": "04-action-execution/long-running-action-monitoring",
+    "title": "Long-Running Action Monitoring",
+    "category": "04-action-execution",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "long",
+      "running",
+      "action",
+      "monitoring",
+      "action"
+    ],
+    "description": "Track actions whose completion outlives a single turn, such as jobs, deploys, and exports, with polling cadence, progress thresholds, and explicit timeout escalation.",
+    "body": "Long-Running Action Monitoring Description Track actions whose completion outlives a single turn, such as jobs, deploys, and exports, with polling cadence, progress thresholds, and explicit timeout escalation. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires long-running action monitoring before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for long-running action monitoring. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the long-running action monitoring procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with long-running action monitoring without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Long-running orchestration is a 2026 MCP Tasks theme; the 2026-07-28 specification release candidate introduces Tasks for exactly this class of work. These are dated public signals, not adoption metrics. Related - process-management.md - scheduled-execution.md - wait-sleep.md"
+  },
+  {
+    "id": "04-action-execution/long-task-progress-reporting",
+    "title": "Long Task Progress Reporting",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "progress",
+      "monitoring",
+      "reporting"
+    ],
+    "description": "Report progress of long-running actions on a declared cadence with measurable units, distinguish progress from completion, and escalate stalled work.",
+    "body": "Long Task Progress Reporting Description Report progress of long-running actions on a declared cadence with measurable units, distinguish progress from completion, and escalate stalled work. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a long-running action must report measurable progress to a waiting consumer before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for long task progress reporting work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the long task progress reporting steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Reporting elapsed time as progress. - Declaring completion while work remains. - Hiding stall states behind a steady heartbeat. - Choosing units the consumer cannot verify. - Flooding the consumer with updates past the declared cadence. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Long-running agent task transparency is a recurring 2026 UX request signal in public coverage; this is a dated signal, not an adoption metric. Related - long-running-action-monitoring.md - notification-sending.md - scheduled-execution.md"
+  },
+  {
+    "id": "04-action-execution/message-queue-consuming",
+    "title": "Message Queue Consuming",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "queues",
+      "messaging",
+      "reliability"
+    ],
+    "description": "Consume messages from queues with acknowledgment semantics, poison-message handling, and at-least-once idempotency so replays cannot corrupt state.",
+    "body": "Message Queue Consuming Description Consume messages from queues with acknowledgment semantics, poison-message handling, and at-least-once idempotency so replays cannot corrupt state. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - work arrives through a queue and duplicates or poison messages must be handled before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for message queue consuming work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the message queue consuming steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acknowledging before processing completes. - Retrying poison messages forever without a dead-letter path. - Assuming exactly-once delivery from the broker. - Losing the dedupe store across restarts. - Blocking the consumer on one bad message. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Reliable event-driven agent actions are a recurring 2026 production request signal in public coverage; this is a dated signal, not an adoption metric. Related - message-queue-publishing.md - idempotent-retries.md - background-job-submission.md"
+  },
+  {
+    "id": "04-action-execution/message-queue-publishing",
+    "title": "Message Queue Publishing",
+    "category": "04-action-execution",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [
+      "message",
+      "queue",
+      "publishing",
+      "action"
+    ],
+    "description": "Publish work items to a durable queue with idempotency keys, retry policy, and dead-letter handling instead of invoking work synchronously.",
+    "body": "Message Queue Publishing Description Publish work items to a durable queue with idempotency keys, retry policy, and dead-letter handling instead of invoking work synchronously. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - The task has explicit constraints such as time, budget, or safety that must gate the outcome. - A silent failure mode exists that must be surfaced rather than swallowed. - Verification evidence is required before the result is trusted. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for message queue publishing. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the message queue publishing procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with message queue publishing without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Durable execution and queue-backed agents are 2026 production themes; queue primitives appear across published agent stacks. These are dated public signals, not adoption metrics. Related - webhook-handling.md - batch-processing.md - dead-letter-queuing.md"
+  },
+  {
+    "id": "04-action-execution/micropayment-batching",
+    "title": "Micropayment Batching",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "payments",
+      "batching",
+      "settlement"
+    ],
+    "description": "Group sub-threshold charges into settlements that meet a fee-efficient threshold while preserving per-item attribution, and never batch across payees or currencies.",
+    "body": "Micropayment Batching Description Group sub-threshold charges into settlements that meet a fee-efficient threshold while preserving per-item attribution, and never batch across payees or currencies. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - Many sub-threshold charges must settle without per-item fee overhead. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | micropayment batching task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the micropayment batching steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | Batched charge groups that keep per-item attribution while meeting a settlement threshold. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Acting outside the declared task boundary. - Batching charges without retaining per-item attribution for refunds and audits. - Batching across different payees or currencies into one settlement. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Micro-settlement batching appears in 2026 agent skills ecosystem reports. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - agent payment initiation - throttled request batching Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "04-action-execution/mouse-input",
+    "title": "Mouse Input",
+    "category": "04-action-execution",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Perform bounded pointer actions against verified interface targets and verify consequential results.",
+    "body": "Mouse Input Description Perform bounded pointer actions against verified interface targets and verify consequential results. When to Use - Execute an explicitly approved action. - Use when the target and scope can be verified. - Verify the resulting state when the action is consequential. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Target and action | Execution result | Invalid target | | Scope/authorization | Allowed action | Unauthorized action | | Timeout/bounds | Controlled execution | Resource exhaustion | | Postcondition | Verified state | Silent failure | Runnable Example Failure modes Stale coordinates; wrong target; destructive click without authorization; silent failure. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
+  },
+  {
+    "id": "04-action-execution/notification-sending",
+    "title": "Notification Sending",
+    "category": "04-action-execution",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Deliver an approved notification through a configured channel with validated destination and content.",
+    "body": "Notification Sending Description Deliver an approved notification through a configured channel with validated destination and content. When to Use - Execute an explicitly approved action. - Use when the target and scope can be verified. - Verify the resulting state when the action is consequential. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Target and action | Execution result | Invalid target | | Scope/authorization | Allowed action | Unauthorized action | | Timeout/bounds | Controlled execution | Resource exhaustion | | Postcondition | Verified state | Silent failure | Runnable Example Failure modes Ambiguous destination; sensitive content leakage; duplicate delivery; uncontrolled urgency. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
+  },
+  {
+    "id": "04-action-execution/offline-action-queueing",
+    "title": "Offline Action Queueing",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "offline",
+      "queueing",
+      "replay"
+    ],
+    "description": "Capture actions during disconnection in a durable queue with per-action deadlines, idempotency keys, and an overflow policy, and replay safely on reconnect.",
+    "body": "Offline Action Queueing Description Capture actions during disconnection in a durable queue with per-action deadlines, idempotency keys, and an overflow policy, and replay safely on reconnect. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - Actions must be captured during disconnection and replayed safely on reconnect. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | offline action queueing task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the offline action queueing steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A durable offline queue with per-action deadline, idempotency key, and overflow policy. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Acting outside the declared task boundary. - Queueing actions past their useful deadline instead of dropping them explicitly. - Replaying the queue after reconnect without idempotency keys, duplicating actions. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Offline-first action queues are requested in 2026 agent framework threads. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - idempotent retries - compensating actions Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "04-action-execution/package-publishing-actions",
+    "title": "Package Publishing Actions",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "publishing",
+      "supply-chain",
+      "packages"
+    ],
+    "description": "Publish packages to registries with version checks, provenance metadata, and pre-publish verification, and refuse to overwrite an existing published version.",
+    "body": "Package Publishing Actions Description Publish packages to registries with version checks, provenance metadata, and pre-publish verification, and refuse to overwrite an existing published version. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a package must be published to a registry as a verified, immutable release before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for package publishing actions work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the package publishing actions steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Publishing over an existing version. - Publishing without provenance metadata. - Skipping pre-publish verification to save time. - Publishing from a dirty working tree. - Trusting a tag that was never verified against the build. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Supply-chain hardening for package publishes is a documented 2026 ecosystem concern in public coverage; this is a dated signal, not an adoption metric. Related - api-call.md - action-result-verification.md - background-job-submission.md"
+  },
+  {
+    "id": "04-action-execution/process-management",
+    "title": "Process Management",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Manage a local process with explicit command scope, timeout, environment, output limits, and termination policy.",
+    "body": "Process Management Description Manage a local process with explicit command scope, timeout, environment, output limits, and termination policy. When to Use - Execute an explicitly approved action. - Use when the target and scope can be verified. - Verify the resulting state when the action is consequential. Inputs / outputs / failure modes | Input | Output | Failure mode | |---|---|---| | Target and action | Execution result | Invalid target | | Scope/authorization | Allowed action | Unauthorized action | | Timeout/bounds | Controlled execution | Resource exhaustion | | Postcondition | Verified state | Silent failure | Runnable Example Failure modes Out-of-scope termination; no timeout; unnecessary secret inheritance; incomplete success evidence. Related - - - Evidence - AI_CONSTITUTION.md - AGENTS.md - Repository security and validation workflows"
+  },
+  {
+    "id": "04-action-execution/quota-management",
+    "title": "Quota Management",
+    "category": "04-action-execution",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Track and enforce consumption limits — API calls, model tokens, spend, rate windows — with explicit budgets, remaining-capacity reporting, and early refusal at the boundary.",
+    "body": "Quota Management Category: Action Execution | Level: intermediate | Stability: experimental | Version: v1 Description Quotas turn a request to use resources responsibly into a number. This skill tracks consumption against an explicit budget per resource and window, reports remaining capacity before an operation starts, and refuses work at the boundary instead of discovering the limit inside an error response. The failure mode it exists to prevent is the silent approach to exhaustion, where an agent runs out mid-task. When to Use Use when operations consume a metered resource — third-party API calls, model tokens, spend against a budget, writes per window — and running out mid-task is worse than declining work. Do not rely on provider error responses as the quota signal; by the time the provider refuses, the workflow is already interrupted. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | Limit per resource per window | | | | Yes | Consumption so far in the current window | | | | Yes | The operation with its estimated resource cost | Procedure 1. Declare the budget per resource per window at configuration time, with the window boundary explicit. 2. Track consumption at the point of use, attributing it to the operation that spent it. 3. Before starting an operation, check remaining capacity against its estimated cost and decline early when insufficient. 4. Refuse at the boundary with a stated reason — which quota, how much remains, when the window resets — instead of attempting and failing. 5. Report remaining capacity to the caller and the plan layer so scheduling can route around exhausted quotas. 6. Reconcile tracked usage against provider-reported usage on a schedule; drift means the tracker is wrong. Outputs | Output | Type | Description | |---|---|---| | | | Proceed or refuse with the reason and remaining capacity | | | | Per-resource remaining capacity and window reset | | | | Attribution records of consumption by operation | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Discovery by error | The provider refusal is the first signal | Check before starting the operation | | Unattributed spend | Consumption is not tied to operations | Attribute at the point of use | | Drift unmeasured | The tracker diverges from provider totals | Reconcile on a schedule | | Silent near-boundary | Callers learn capacity is gone only at refusal | Report remaining capacity proactively | | Window confusion | Limits are compared across different reset windows | State window boundaries explicitly | Security and Authority Boundary Quota refusal is a spending control, not an obstacle to route around. Workloads must not work around exhausted quotas by switching identities or credentials; that pattern should be flagged when detected. Evidence This skill is grounded in dated public implementation references: 1. Wikipedia's overview of rate limiting, of which quota management is the accounting layer (https://en.wikipedia.org/wiki/Ratelimiting). 2. Wikipedia's overview of the token bucket algorithm used for windowed limits (https://en.wikipedia.org/wiki/Tokenbucket). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - API Call — the execution primitive whose metering this skill governs. - HTTP Request — the transport layer that surfaces rate-limit responses. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "04-action-execution/recurring-calendar-event-creation",
+    "title": "Recurring Calendar Event Creation",
+    "category": "04-action-execution",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "calendar",
+      "recurrence",
+      "scheduling"
+    ],
+    "description": "Create recurring event series with an explicit recurrence rule, timezone, and series identity, so edits and cancellations stay consistent across all occurrences.",
+    "body": "Recurring Calendar Event Creation Description Create recurring event series with an explicit recurrence rule, timezone, and series identity, so edits and cancellations stay consistent across all occurrences. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - A calendar action must create a recurring series, not isolated events. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | recurring calendar event creation task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the recurring calendar event creation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A recurring event series with an explicit recurrence rule, timezone, and series identity. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Acting outside the declared task boundary. - Creating recurring events without a timezone, shifting all occurrences silently. - Editing one occurrence in a way that desynchronizes the series identity. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Recurring series creation requests appear in 2026 MCP integration guides. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - calendar event - scheduled execution Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "04-action-execution/scheduled-execution",
+    "title": "Scheduled Execution",
+    "category": "04-action-execution",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Run work at explicit times or intervals — cron-style schedules, ISO 8601 recurrences, and named time zones — with missed-run handling stated instead of improvised.",
+    "body": "Scheduled Execution Category: Action Execution | Level: basic | Stability: experimental | Version: v1 Description A request to run something every night hides a stack of decisions: which time zone, what happens to a run missed during downtime, and whether overlapping runs are allowed. This skill turns schedule intent into an explicit schedule — recurrence expression, time zone, catch-up policy, concurrency rule — and makes missed-run behavior a stated choice rather than an accident. When to Use Use for recurring agent or system work — periodic syncs, reports, maintenance, retention sweeps — that must happen at known times without a human pressing go. Do not deploy a schedule without deciding missed-run behavior; a scheduler that silently skips or silently piles up is one incident away from discovery. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | The work to run | | | | Yes | Cron expression or ISO 8601 recurrence | | | | Yes | The zone the schedule is anchored to | | | | No | Missed-run and overl
