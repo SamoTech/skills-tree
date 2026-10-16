@@ -1,0 +1,161 @@
+ evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary. Evidence Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself. Related - 06-communication - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "06-communication/plain-language-writing",
+    "title": "Plain Language Writing",
+    "category": "06-communication",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Rewrite technical statements so a busy reader needs no extra context — short sentences, concrete nouns, active verbs, and no jargon left undefined.",
+    "body": "Plain Language Writing Category: Communication | Level: basic | Stability: experimental | Version: v1 Description Plain language is not simplified thinking; it is text that survives first contact with a reader who has no reason to reread it. This skill works mostly by subtraction: state the point in one sentence, prefer words the reader already owns, split sentences that carry more than one idea, and cut hedges until a claim stands alone. Terms of art survive only when they are load-bearing, and then they are defined on first use. When to Use Use for mixed or non-specialist audiences — documentation, summaries, status updates, user-facing messages — wherever the reader cannot be assumed to share the vocabulary of the author. Do not strip precision that the audience needs; plain language is calibrated to its readers, and for a specialist audience the shared vocabulary is part of the clarity, not an obstacle to it. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | The passage to rewrite | | | | Yes | Who will read it and what they already know | | | | Yes | The single takeaway or action the reader should leave with | Procedure 1. Write the point in one sentence before touching the draft; if that sentence does not exist, the passage has no spine yet. 2. Replace each term of art with plain wording, or keep it and define it on first use when the term is load-bearing. 3. Split any sentence that carries more than one idea, and put the actor before the verb in each half. 4. Cut throat-clearing openings and stacked hedges; say the claim once and let it stand. 5. Pair every number with a reference point, because bare figures force the reader to supply the missing scale. 6. Reread as the target reader, and delete anything that survives only to comfort the author. Outputs | Output | Type | Description | |---|---|---| | | | The plain-language version of the passage | | | | Kept terms of art, each with its plain definition | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Simplified into vagueness | Plain wording dropped load-bearing precision | Keep the technical term and define it inline | | Audience mismatch | Text calibrated to the wrong prior knowledge | Fix the audience statement before rewriting | | Hedge fog | Qualifiers stacked until nothing is asserted | State the claim once, plainly | | Sentence sprawl | One sentence carrying three ideas | Split at idea boundaries | | Naked numbers | Figures with no comparison given | Attach a reference point to every number | Security and Authority Boundary Plain text travels: writing for a broad audience multiplies the chance a passage is quoted out of context, so a rewrite must not widen disclosure — anything sensitive stays in documents scoped to the audience that may see it, and the plain version inherits the classification of its source. Evidence This skill is grounded in dated public implementation references: 1. The PlainLanguage.gov guidelines (https://www.plainlanguage.gov/guidelines/). 2. Wikipedia's overview of plain language (https://en.wikipedia.org/wiki/Plain_language). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Paraphrasing — restating existing material at a chosen register. - Summarization — compressing a source while keeping its claims. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "06-communication/press-statement-drafting",
+    "title": "Press Statement Drafting",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "pr",
+      "writing",
+      "governance"
+    ],
+    "description": "Draft external statements with verified facts only, a single approved quote, and a defined holding line for unverified questions.",
+    "body": "Press Statement Drafting Description Draft external statements with verified facts only, a single approved quote, and a defined holding line for unverified questions. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - an external statement must be issued and every fact in it must be verified before release. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for press statement drafting work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the press statement drafting steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Publishing a fact that no one verified. - Admitting or denying legal exposure in prose. - Multiple quotes from different drafts circulating. - No agreed holding line for follow-up calls. - Letting the draft leak before approval. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Careful external statement drafting is a recurring 2026 communications-governance topic in public coverage; this is a dated signal, not an adoption metric. Related - audience-analysis.md - tone-adjustment.md - conflict-de-escalation-writing.md"
+  },
+  {
+    "id": "06-communication/public-roadmap-communication-writing",
+    "title": "Public Roadmap Communication Writing",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "public",
+      "roadmap",
+      "communication",
+      "writing"
+    ],
+    "description": "Write public roadmap updates that state shipped items, committed next steps, and honest unknowns without overpromising.",
+    "body": "Public Roadmap Communication Writing Description Write public roadmap updates that state shipped items, committed next steps, and honest unknowns without overpromising. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires public roadmap communication writing before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for public roadmap communication writing. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the public roadmap communication writing steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Public roadmap communication is a recurring request in open-source project stewardship discussions in 2026. These are dated public signals, not adoption metrics. Related - release-notes-generation.md - community-response-drafting.md - changelog-writing.md"
+  },
+  {
+    "id": "06-communication/question-answering",
+    "title": "Question Answering",
+    "category": "06-communication",
+    "level": "basic",
+    "stability": "stable",
+    "tags": [],
+    "description": "Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns.",
+    "body": "Description Answer questions using the declared evidence boundary and distinguish retrieved facts, supplied context, inference, and unknowns. When to Use Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | question, context or evidence sources, and answer constraints. | | Outputs | answer with supporting evidence and uncertainty where material. | | Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. | Procedure 1. Parse the requested purpose, audience, constraints, and evidence boundary. 2. Resolve precedence between explicit requirements and defaults. 3. Draft or construct the response while preserving source meaning and provenance. 4. Check factual claims, required format, terminology, tone, and omissions. 5. Verify the result against the declared acceptance criteria. 6. Ask a focused clarification question when unresolved ambiguity could materially change the result. Runnable Example Failure Modes - User intent is ambiguous or materially underspecified. - Claims are presented without supporting evidence. - Constraints conflict and precedence is unclear. - Style or persona instructions override factual accuracy or safety boundaries. - Translation or paraphrase changes the source meaning. - Completion is reported without checking the requested format or postcondition. Safety Boundary Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary. Evidence Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself. Related - 06-communication - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "06-communication/reading-level-adaptation",
+    "title": "Reading Level Adaptation",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "reading",
+      "level",
+      "adaptation",
+      "communication"
+    ],
+    "description": "Adjust text to a target reading level while preserving meaning, terminology, and all factual claims, and verify comprehension targets with a stated method.",
+    "body": "Reading Level Adaptation Description Adjust text to a target reading level while preserving meaning, terminology, and all factual claims, and verify comprehension targets with a stated method. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - Multiple inputs or candidates compete and must be resolved by explicit criteria. - A wrong intermediate result would propagate into consequential actions. - The task repeats and benefits from a deterministic procedure. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for reading level adaptation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the reading level adaptation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Accessibility and plain-language requirements recur in 2026 documentation guidance. These are dated public signals, not adoption metrics. Related - plain-language-writing.md - audience-analysis.md - paraphrasing.md"
+  },
+  {
+    "id": "06-communication/release-notes-generation",
+    "title": "Release Notes Generation",
+    "category": "06-communication",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "release",
+      "notes",
+      "generation",
+      "communication"
+    ],
+    "description": "Generate release notes that separate new capabilities, fixes, deprecations, and migration steps, each traceable to a merged change.",
+    "body": "Release Notes Generation Description Generate release notes that separate new capabilities, fixes, deprecations, and migration steps, each traceable to a merged change. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires release notes generation before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for release notes generation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the release notes generation procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with release notes generation without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Automated release notes are a published 2026 release-pipeline practice; the zero-touch release trend requires them. These are dated public signals, not adoption metrics. Related - report-writing.md - plain-language-writing.md - structured-output.md"
+  },
+  {
+    "id": "06-communication/report-writing",
+    "title": "Report Writing",
+    "category": "06-communication",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Produce a structured report that separates evidence, analysis, assumptions, findings, and actions according to the requested audience and format.",
+    "body": "Description Produce a structured report that separates evidence, analysis, assumptions, findings, and actions according to the requested audience and format. When to Use Use when the communication objective, audience, evidence boundary, and acceptance criteria are explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | source material, report objective, audience, structure, and evidence boundary. | | Outputs | structured report with provenance, assumptions, findings, and open issues. | | Failure modes | Ambiguous intent, unsupported claims, constraint conflicts, tone mismatch, omitted uncertainty, or output accepted without checking the requested contract. | Procedure 1. Parse the requested purpose, audience, constraints, and evidence boundary. 2. Resolve precedence between explicit requirements and defaults. 3. Draft or construct the response while preserving source meaning and provenance. 4. Check factual claims, required format, terminology, tone, and omissions. 5. Verify the result against the declared acceptance criteria. 6. Ask a focused clarification question when unresolved ambiguity could materially change the result. Runnable Example Failure Modes - User intent is ambiguous or materially underspecified. - Claims are presented without supporting evidence. - Constraints conflict and precedence is unclear. - Style or persona instructions override factual accuracy or safety boundaries. - Translation or paraphrase changes the source meaning. - Completion is reported without checking the requested format or postcondition. Safety Boundary Communication style does not create authority or factual evidence. Preserve uncertainty, do not fabricate citations or sources, and keep sensitive information within the declared authorization boundary. Evidence Canonical repository skill: this file. Structural conformance is governed by the repository schema, validation workflows, Agent Skills contract, and security gates. Communication-specific claims require reproducible implementation evidence or authoritative primary documentation; generated prose is not evidence by itself. Related - 06-communication - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "06-communication/requirement-elicitation-interviewing",
+    "title": "Requirement Elicitation Interviewing",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "requirements",
+      "interviewing",
+      "process"
+    ],
+    "description": "Run requirement interviews with prepared question ladders, recorded answers, and explicit confirmation of each elicited requirement.",
+    "body": "Requirement Elicitation Interviewing Description Run requirement interviews with prepared question ladders, recorded answers, and explicit confirmation of each elicited requirement. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - requirements are vague and stakeholders must be interviewed before work can be planned. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for requirement elicitation interviewing work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the requirement elicitation interviewing steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Asking leading questions that bake in the answer. - Not recording who answered and when. - Ending the interview without confirming each requirement. - Mixing solution ideas with actual requirements. - No follow-up loop for unanswered questions. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Requirement clarity before agent implementation is a recurring 2026 project failure topic in public discussion; this is a dated signal, not an adoption metric. Related - clarification-seeking.md - question-answering.md - audience-analysis.md"
+  },
+  {
+    "id": "06-communication/response-template-design",
+    "title": "Response Template Design",
+    "category": "06-communication",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [
+      "response",
+      "template",
+      "design",
+      "communication"
+    ],
+    "description": "Design reusable response templates with explicit variables, conditions, and fill rules, so repeated communications stay consistent and auditable.",
+    "body": "Response Template Design Description Design reusable response templates with explicit variables, conditions, and fill rules, so repeated communications stay consistent and auditable. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - The task has explicit constraints such as time, budget, or safety that must gate the outcome. - A silent failure mode exists that must be surfaced rather than swallowed. - Verification evidence is required before the result is trusted. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for response template design. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the response template design procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with response template design without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Support-operations automation in 2026 requests structured response templates with variable contracts. These are dated public signals, not adoption metrics. Related - structured-output.md - persona-adoption.md - tone-adjustment.md"
+  },
+  {
+    "id": "06-communication/rtl-language-output-handling",
+    "title": "RTL Language Output Handling",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "localization",
+      "rtl",
+      "writing"
+    ],
+    "description": "Produce right-to-left language text with correct direction metadata, punctuation placement, and mixed-script handling so readers see correctly ordered text.",
+    "body": "RTL Language Output Handling Description Produce right-to-left language text with correct direction metadata, punctuation placement, and mixed-script handling so readers see correctly ordered text. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - output must be generated in a right-to-left language and rendering order must be correct for readers. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for rtl language output handling work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the rtl language output handling steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Emitting RTL text without direction markup. - Placing terminal punctuation on the wrong side. - Mirroring numbers and code by accident. - Translating strings without locale review. - Assuming the reader tool fixes the order. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Multilingual agent output quality is a recurring 2026 localization request in public coverage; this is a dated signal, not an adoption metric. Related - multilingual-output.md - translation.md - plain-language-writing.md"
+  },
+  {
+    "id": "06-communication/screen-reader-friendly-markdown",
+    "title": "Screen Reader Friendly Markdown",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "accessibility",
+      "markdown",
+      "writing"
+    ],
+    "description": "Write markdown that screen readers announce cleanly by using correct heading levels, alt text, and table semantics with no layout-only markup.",
+    "body": "Screen Reader Friendly Markdown Description Write markdown that screen readers announce cleanly by using correct heading levels, alt text, and table semantics with no layout-only markup. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - documents must be accessible to screen reader users before publishing. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for screen reader friendly markdown work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the screen reader friendly markdown steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Skipping heading levels to make text look smaller. - Empty or decorative alt text on informative images. - Tables without header rows. - Conveying meaning only through color or emoji. - Testing only visually, never with a reader. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Accessibility requirements for generated content are a recurring 2026 compliance topic in public coverage; this is a dated signal, not an adoption metric. Related - structured-output.md - plain-language-writing.md - faq-generation.md"
+  },
+  {
+    "id": "06-communication/service-recovery-communication",
+    "title": "Service Recovery Communication",
+    "category": "06-communication",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "incidents",
+      "communication",
+      "trust"
+    ],
+    "description": "Write post-incident recovery messages that acknowledge impact, state remediation honestly, and commit to verified follow-ups.",
+    "body": "Service Recovery Communication Description Write post-incident recovery messages that acknowledge impact, state remediation honestly, and commit to verified follow-ups. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - an incident affected users and the recovery message must rebuild trust without overpromising. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for service recovery communication work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the service recovery communication steps in a bounded, checkpointed way. 4. Compare the actual outcome against the 
