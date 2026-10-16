@@ -42,6 +42,6 @@ print(response.content[0].text)
 ## Evidence
 
 - https://agentskills.io/specification
-- https://github.com/openai/python-sdk
+- https://github.com/openai/openai-python
 
 Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
