@@ -141,3 +141,7 @@ existing branch → PR → CI → exact-head merge protocol with no new
 automation. The workflow count, all classifications, and all
 governance-pinned phrases are unchanged, and no CI, quality, security, or
 governance gate is weakened.
+
+## Disposition update — 2026-10-16 (Counsel slice 1: search-index freshness contract)
+
+No workflow is added, removed, or modified in this cycle. The new `tests/test_search_index_freshness.py` extends the authoritative test execution in `test.yml`'s pytest suite (no workflow file change): it re-derives the search projection in-memory from the canonical corpus and requires equality plus byte-identity with the committed `docs/search-index.json` / `data/search-index.json`, closing the CI-blindness behind the 2026-10-15 batch-2 encoding defect. The generate-search-index writer itself is unchanged and remains the only search-index producer; the new contract only verifies its committed output. The workflow count, all classifications, and all governance-pinned phrases are unchanged, and no CI, quality, security, or governance gate is weakened (a gate is added, never removed).

@@ -1645,3 +1645,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen only if the Human Owner terminates or redefines the Counsel role, or a later governance decision supersedes the team composition.
+
+## DECISION-2026-10-16-COUNSEL-SLOT-3-RESERVED-DISPOSITION
+
+**Topic:** Disposition of Counsel's reserved owner-specified task slot after the owner delegated the decision.
+
+**Decision:** When asked on 2026-10-16 which specific task to place in Counsel's reserved Slot 3, the repository owner answered "take decision"; this is recorded as an explicit delegation of the slot's disposition to Counsel's judgment within the owner-directed Counsel mandate. Disposition: the slot stays RESERVED/OPEN — it is never padded with substitute work — and activates (a) the moment the owner names a task, or (b) automatically when a currently blocked standing-queue item (external candidate run, CAP-007 human-labeled dataset, or recorded-demand corpus expansion) becomes unblocked. Counsel's execution order is fixed: the search-index skills-freshness contract first (delivered as PR #616), then the advisory corpus-quality review of the 1039-skill corpus; the reserved slot remains open throughout. No gate, authority boundary, or decision class is weakened or bypassed.
+
+**Confidence:** HIGH — direct owner instruction recorded 2026-10-16.
+
+**Evidence IDs:** owner instruction 2026-10-16 ("take decision"); issue #615 disposition comment; `meta/COUNSEL_CHARTER.md`; DECISION-2026-10-16-COUNSEL-AGENT-HIRE; `meta/CONTINUITY.md` standing queue items 3–5.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen when the owner names the Slot-3 task, changes the delegation, or a blocked standing-queue item unblocks and is assigned to the slot.

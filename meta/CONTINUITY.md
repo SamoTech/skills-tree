@@ -73,7 +73,7 @@ replace it in the same delivery cycle by promoting or adding a next action.
    `data/search-index.json` and `docs/search-index.json` in the pattern of
    the Skills-API (#581) and graph (#582) freshness contracts — the
    2026-10-15 batch-2 automation encoding defect that corrupted the pushed
-   search-index copy stayed CI-green because no such contract exists.
+   search-index copy stayed CI-green because no such contract exists. 2026-10-16 (Counsel cycle 1): delivered as PR #616 — `tests/test_search_index_freshness.py` re-derives the search projection in-memory from canonical `skills/` via `tools.build_search_index.build_index` (shared `tools/skill_corpus.py` boundary, deterministic sorted iteration, no file writes, no second index or parser) and requires parsed equality with the committed `data/search-index.json` and `docs/search-index.json` plus byte-identity with the generator's canonical serialization (`json.dumps(..., ensure_ascii=False, indent=2)` + trailing newline); the projection has no git-derived timestamp fields, so there are no exclusions (unlike #581/#582). The batch-2 defect class — double-encoded non-ASCII or any serialization drift that still parses equal — now fails CI. No gate weakened, no workflow changes.
 3. **Second, non-overlapping candidate** — run an external candidate system
    (different model family) against the executed CAP-011 and CAP-014 contracts
    to remove the disclosed same-family limitation.
