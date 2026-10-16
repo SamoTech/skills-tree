@@ -1,0 +1,161 @@
+  {
+    "id": "07-tool-use/a2a-agent-card-authoring",
+    "title": "A2A Agent Card Authoring",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "a2a",
+      "agent",
+      "card",
+      "authoring",
+      "tool"
+    ],
+    "description": "Create and maintain A2A agent cards that accurately declare skills, endpoints, authentication, and constraints, so counterpart agents can make trust decisions.",
+    "body": "A2A Agent Card Authoring Description Create and maintain A2A agent cards that accurately declare skills, endpoints, authentication, and constraints, so counterpart agents can make trust decisions. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires a2a agent card authoring before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for a2a agent card authoring. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the a2a agent card authoring procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with a2a agent card authoring without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence A2A interoperability across trust boundaries is a 2026 trend; agent cards are the published discovery artifact. These are dated public signals, not adoption metrics. Related - a2a-tool.md - function-calling.md - tool-schema-design.md"
+  },
+  {
+    "id": "07-tool-use/a2a-signed-agent-card-verification",
+    "title": "A2A Signed Agent Card Verification",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "a2a",
+      "security",
+      "protocols"
+    ],
+    "description": "Verify signed A2A Agent Cards by checking the signature against a trusted key set, freshness window, and capability claims before routing work.",
+    "body": "A2A Signed Agent Card Verification Description Verify signed A2A Agent Cards by checking the signature against a trusted key set, freshness window, and capability claims before routing work. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a remote agent presents a signed card and its authenticity must be verified before any delegation. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for a2a signed agent card verification work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the a2a signed agent card verification steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Routing on the card fields without checking the signature. - Accepting a valid signature from an untrusted key. - Caching a card past its freshness window. - Ignoring mismatch between signed and advertised capabilities. - No fallback when verification cannot be performed. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence A2A 1.0 made signed Agent Cards the discovery artifact for agent interop on 2026-03-12; this is a dated public protocol signal, not an adoption metric. Related - a2a-agent-card-authoring.md - a2a-tool.md - tool-source-vetting.md"
+  },
+  {
+    "id": "07-tool-use/a2a-skill-declaration-mapping",
+    "title": "A2A Skill Declaration Mapping",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "a2a",
+      "discovery",
+      "declaration"
+    ],
+    "description": "Map agent capabilities to A2A skill declarations so remote agents can discover what another agent can do, including versions and input contracts.",
+    "body": "A2A Skill Declaration Mapping Description Map agent capabilities to A2A skill declarations so remote agents can discover what another agent can do, including versions and input contracts. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - A remote agent must discover another agent through declared skills. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | a2a skill declaration mapping task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the a2a skill declaration mapping steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A declaration map with skill id, version, input contract, and owning agent. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Declaring skills the agent cannot actually perform. - Omitting input contracts so callers guess the payload shape. - Publishing a declaration without a version so callers cannot pin behavior. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Skill and capability declarations are part of 2026 A2A protocol practice. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - tool capability cataloging - cross agent terminology alignment Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "07-tool-use/a2a-task-lifecycle-management",
+    "title": "A2a Task Lifecycle Management",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "a2a",
+      "task",
+      "lifecycle",
+      "management"
+    ],
+    "description": "Drive A2A task objects through their lifecycle states, with recorded state transitions and terminal detection.",
+    "body": "A2a Task Lifecycle Management Description Drive A2A task objects through their lifecycle states, with recorded state transitions and terminal detection. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires a2a task lifecycle management before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for a2a task lifecycle management. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the a2a task lifecycle management steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence A2A v1.0 defines tasks with eight lifecycle states; agent teams request lifecycle management guidance. These are dated public signals, not adoption metrics. Related - a2a-tool.md - a2a-agent-card-authoring.md - composite-tool-composition.md"
+  },
+  {
+    "id": "07-tool-use/a2a-tool",
+    "title": "A2a Tool",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes.",
+    "body": "Description Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. Inspect the target protocol and repository conventions before making calls. When to Use Use when one agent invokes another agent or agent-facing service through a defined tool interface. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Tool contract, request payload, authorization context, and expected result. | | Outputs | Validated response and evidence of the resulting state. | | Failure modes | Invalid payloads, unauthorized actions, protocol mismatch, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending incomplete or excessive data. - Treating an acknowledgement as proof of completion. - Ignoring authorization boundaries. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "07-tool-use/agent-client-protocol-usage",
+    "title": "Agent Client Protocol Usage",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "protocols",
+      "editors",
+      "integration"
+    ],
+    "description": "Use agent-client protocols to expose editor integrations with declared modes, workspace scopes, and consent boundaries.",
+    "body": "Agent Client Protocol Usage Description Use agent-client protocols to expose editor integrations with declared modes, workspace scopes, and consent boundaries. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - an agent integrates with an editor or client host and must declare its mode and scope correctly. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for agent client protocol usage work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the agent client protocol usage steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Defaulting to autonomous mode without consent. - Declaring read-only mode while writing files. - Ignoring the workspace root boundary the client set. - No mode downgrade when the host revokes consent. - Skipping the protocol version handshake. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Agent-client editor protocols like ACP saw public releases and adoption in 2026 tooling; this is a dated public signal, not an adoption metric. Related - a2a-tool.md - function-calling.md - mcp-tool.md"
+  },
+  {
+    "id": "07-tool-use/anthropic-api",
+    "title": "Anthropic API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [
+      "anthropic",
+      "claude",
+      "api",
+      "tool-use"
+    ],
+    "description": "Call Anthropic's Claude Messages API for chat, vision, tool use, and prompt-cached long context — with retry, streaming, and a typed tool dispatcher.",
+    "body": "Anthropic API Description Wraps the Anthropic Messages API for the four jobs an agent does most: 1. Chat / completion with system prompts and message history. 2. Tool use — the model returns blocks; you execute and return . 3. Streaming for token-by-token UX. 4. Prompt caching to amortize the cost of large stable system prompts (docs, code, glossaries). When to Use - You want strong multi-step tool use with lower hallucinated-arg rates. - You're feeding long stable context (full repo, manuals) and want prompt caching to drop cost ~85%. - You need vision (Claude handles charts and diagrams strongly). Inputs / Outputs | Helper | Input | Output | |---|---|---| | | , , | assistant text | | | tools registry + prompt | final text after tool round-trips | | | | iterable of token chunks | | | large system + messages | text, with cache reuse on repeat calls | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Tool loop deadlock | Model keeps emitting forever | Hard cap (above) | | mismatch | Forgot to attach the parent message | Always append the entire block before tool results | | Cache cold-start cost | First call still pays full system tokens | Warm the cache once at deploy time | | Streaming + retry duplicates tokens | Naive retry on the same stream | Cancel the stream before retry; resume from the last yielded chunk | | 529 overloaded errors | Spike traffic | Exponential backoff + lower maxtokens; consider Bedrock fallback | | Wrong content extraction | Model returned mixed text + tooluse | Filter blocks before joining | Frameworks & Models | Framework | Use case | |---|---| | SDK (above) | Direct, lowest abstraction | | via Amazon Bedrock | Same model, different control plane / quotas | | LangChain | Drop-in for LangChain pipelines | | LiteLLM | Multi-provider abstraction with Anthropic support | Model Comparison | Capability | claude-opus-4-5 | claude-sonnet-4-5 | claude-haiku-4-5 | |---|---|---|---| | Tool-use reliability | 5 | 5 | 4 | | Long-context retrieval | 5 | 5 | 4 | | Latency | 3 | 4 | 5 | | Cost | 2 | 4 | 5 | Related Skills - OpenAI API — peer LLM provider - Function Calling — pattern this builds on - ReAct — uses tool-loop above - Image Understanding — vision input Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial entry | | 2026-04 | v3 | Tool loop, streaming, prompt caching, retry, model comparison | Evidence The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence."
+  },
+  {
+    "id": "07-tool-use/api-pagination",
+    "title": "API Pagination",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Walk paged API result sets to completion — cursor or page parameters, per-request limits, and a terminal condition — without missing or double-processing records.",
+    "body": "API Pagination Category: Tool Use | Level: intermediate | Stability: experimental | Version: v1 Description A paged response is a promise that the full list exists and a refusal to hand it over at once. This skill treats the pager as an explicit state machine: the request carries the continuation token, the response carries the next one, and iteration stops only when the API says it is finished. Rate limits are part of the traversal, not an error condition — a pager that ignores them will be right about the data and wrong about the budget. When to Use Use whenever an API returns lists with a cursor, page token, or offset parameter — directories, event logs, resource listings — and the task needs the complete set. Do not fetch all pages when the task only needs a bounded prefix; a search that stops at the first match should not traverse the whole corpus. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | The paged API operation to traverse | | | | Yes | Records requested per page, within the API maximum | | | | Yes | What to do with each record as pages arrive | | | | No | The request budget the traversal must respect | Procedure 1. Read the API contract for its pagination style — cursor, offset, or page token — before writing any loop. 2. Issue the first request with the largest page size the API allows, because fewer round trips is fewer chances to rate-limit. 3. Hand each record to the collector as its page arrives, rather than accumulating every page in memory. 4. Persist the continuation token between requests, and treat an absent or null token as the terminal condition — never a missing key. 5. Respect the rate limit: back off when the API says so, and prefer the retry-after guidance over a fixed sleep when it is offered. 6. Record the traversal outcome — pages fetched, records seen, terminal reason — so an incomplete walk is detectable after the fact. Outputs | Output | Type | Description | |---|---|---| | | | Each record delivered as its page arrives | | | | Page count, record count, and terminal condition | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Dropped records | A null next-token value misread as an error | Treat the documented null token as the sole terminal condition | | Double processing | A retried page appended twice | Make the collector idempotent or track the last token processed | | Memory blowout | Every page held until the end | Collect per page; never retain the full traversal | | Rate-limit storms | Consecutive throttled responses during the walk | Back off on the first signal, not the third | | Silent truncation | A walk stopped early and nobody noticed | Report pages, records, and stop reason at the end | Security and Authority Boundary Continuation tokens are credentials for data position: they can leak record ranges and query context when logged or shared, so treat them as sensitive in logs, and scope every traversal to the caller whose credentials opened it — a walk must never resume under a different principal. Evidence This skill is grounded in dated public implementation references: 1. The Stripe API documentation on pagination (https://docs.stripe.com/api/pagination). 2. Wikipedia's overview of rate limiting (https://en.wikipedia.org/wiki/Rate_limiting). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Custom API Wrapper — the adapter layer that exposes paging cleanly. - Stripe API — a concrete paginated API this pattern walks. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "07-tool-use/api-version-pinning",
+    "title": "API Version Pinning",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Pin every external API to a specific, recorded version — and upgrade as a deliberate, tested change — so upstream evolution never rewrites behavior silently.",
+    "body": "API Version Pinning Category: Tool Use | Level: intermediate | Stability: experimental | Version: v1 Description An unpinned API call is a bet on someone else's release calendar. This skill removes the bet: each external dependency is pinned to a concrete version in configuration, the pin is visible in code review, and upgrades happen as deliberate changes with a diff, a changelog read, and a test pass. Pinning goes further than a version number where the provider allows it — dated pins and versioned endpoints record the wire behavior the tests actually exercised. When to Use Use for every external API integration that reaches production, and pin in configuration rather than in a dependency default. Do not pin so hard that upgrades never happen; an integration left on an unsupported version is a slower, quieter failure mode. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | The external API or SDK being integrated | | | | Yes | The concrete version recorded in configuration | | | | Yes | How and when deliberate upgrades are scheduled | Procedure 1. Record the pin in configuration, not in a lockfile default or a floating latest, so it appears in review and in audits. 2. Read the provider versioning model — dated pins, endpoint versions, deprecation windows — and record the model beside the pin. 3. Subscribe to change: watch the changelog or deprecation feed for the pinned version, and treat deprecation notices as scheduled work. 4. Upgrade deliberately: new pin, changelog diff read, integration tests run, and the change shipped as its own reviewable commit. 5. Roll back the pin, not the code, when an upgrade misbehaves — the pin is the smallest reversible unit. 6. Audit pins periodically: a pin on an unsupported version is a defect even while everything still works. Outputs | Output | Type | Description | |---|---|---| | | | Dependency to recorded version, with pinning model | | | | Deliberate upgrades with date, diff, and test evidence | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Floating latest | The SDK default changes behavior on its own | Pin every integration in reviewed configuration | | Missed deprecation | A deprecation window closed unwatched | Watch the changelog feed for the pinned version | | Surprise upgrades | A dependency bump upgraded the wire behavior | Upgrade the pin in its own reviewed change | | Unauditable pins | Nobody can list what versions run in production | Keep pins in config and audit them periodically | | Unreviewable rollback | A bad upgrade reverted by editing code | Move the pin back, the smallest reversible unit | Security and Authority Boundary Version pins interact with trust: upgrading an API client changes what is sent and to whom, so pin changes deserve security review like any dependency change, and a pin must never be loosened to make an unrelated integration problem go away. Evidence This skill is grounded in dated public implementation references: 1. The Stripe documentation on API versioning and upgrades (https://docs.stripe.com/upgrades). 2. The twelve-factor app guidance on configuration (https://12factor.net/config). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Custom API Wrapper — the adapter where pins and fallbacks live. - OpenAI API — a concrete provider whose versions get pinned. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "07-tool-use/browser-tool",
+    "title": "Browser Tool",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use browser automation through explicit navigation, interaction, extraction, and verification steps.",
+    "body": "Description Use browser automation through explicit navigation, interaction, extraction, and verification steps. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "07-tool-use/calculator",
+    "title": "Calculator",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs.",
+    "body": "Description Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "07-tool-use/code-exec-tool",
+    "title": "Code Exec Tool",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects.",
+    "body": "Description Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "07-tool-use/composite-tool-composition",
+    "title": "Composite Tool Composition",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "composition",
+      "tools",
+      "design"
+    ],
+    "description": "Compose composite tools from primitive ones with declared data flow, failure semantics, and per-step output validation.",
+    "body": "Composite Tool Composition Description Compose composite tools from primitive ones with declared data flow, failure semantics, and per-step output validation. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a workflow needs a composite tool built from existing primitives with clear failure semantics. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for composite tool composition work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedur

@@ -1,0 +1,175 @@
+e may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the composite tool composition steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Chaining steps without validating intermediate outputs. - Swallowing a primitive failure as an empty result. - No declared data contract between steps. - Hiding cost by nesting composites inside composites. - No per-step tracing when the chain fails midway. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Tool composition patterns are a recurring 2026 agent-framework request in public developer discussion; this is a dated signal, not an adoption metric. Related - tool-schema-design.md - tool-argument-construction.md - function-calling.md"
+  },
+  {
+    "id": "07-tool-use/cron-expression-authoring",
+    "title": "Cron Expression Authoring",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "scheduling",
+      "cron",
+      "automation"
+    ],
+    "description": "Author and verify cron expressions by expanding them into concrete fire times so schedules are reviewed against actual dates.",
+    "body": "Cron Expression Authoring Description Author and verify cron expressions by expanding them into concrete fire times so schedules are reviewed against actual dates. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a recurring schedule must be configured and its real fire times reviewed before it goes live. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for cron expression authoring work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the cron expression authoring steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Shipping an unverified cron string. - Forgetting the timezone the scheduler runs in. - Day-of-month and day-of-week confusion on the 31st. - No expansion shown in review. - No alert when the schedule silently stops firing. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Schedule verification is a recurring 2026 automation topic as agents take over cron-like work in public discussion; this is a dated signal, not an adoption metric. Related - tool-behavior-contract-testing.md - offline-tool-fallback.md - tool-argument-construction.md"
+  },
+  {
+    "id": "07-tool-use/custom-api-wrapper",
+    "title": "Custom Api Wrapper",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries.",
+    "body": "Description Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "07-tool-use/file-system-tool",
+    "title": "File System Tool",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Operate on files through explicit paths, scope checks, content validation, and reversible changes.",
+    "body": "Description Operate on files through explicit paths, scope checks, content validation, and reversible changes. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes. When to Use Use when the repository task explicitly requires this tool capability. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Documented interface, validated inputs, authorization context, and expected result. | | Outputs | Verified result with concise evidence. | | Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. | Runnable Example Failure modes - Calling an undocumented interface. - Sending invalid or excessive data. - Exposing credentials or secrets. - Treating an acknowledgement as proof of completion. - Skipping repository validation. Related - 07-tool-use - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "07-tool-use/free-busy-availability-querying",
+    "title": "Free Busy Availability Querying",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "calendar",
+      "scheduling",
+      "privacy"
+    ],
+    "description": "Query free-busy information with least-privilege scopes, minimal time windows, and aggregate-only reporting so individual calendars stay private.",
+    "body": "Free Busy Availability Querying Description Query free-busy information with least-privilege scopes, minimal time windows, and aggregate-only reporting so individual calendars stay private. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a meeting must be scheduled and only aggregate availability is needed, not calendar contents. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for free busy availability querying work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the free busy availability querying steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Requesting full calendar read scope. - Returning who is busy rather than how many. - Querying windows far larger than the meeting needs. - Caching availability across days without refresh. - Ignoring timezones when merging calendars. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Least-privilege availability APIs are a recurring 2026 scheduling-automation topic in public coverage; this is a dated signal, not an adoption metric. Related - google-workspace-api.md - tool-argument-construction.md - api-pagination.md"
+  },
+  {
+    "id": "07-tool-use/function-calling",
+    "title": "Function / Tool Calling",
+    "category": "07-tool-use",
+    "level": "basic",
+    "stability": "stable",
+    "tags": [
+      "tool-use",
+      "function-calling",
+      "structured-output",
+      "agent"
+    ],
+    "description": "Let the model emit a structured request to call one of your functions, with type-checked arguments — the foundation of every tool-using agent.",
+    "body": "Function / Tool Calling Description The model is told what your functions do via a JSON-Schema spec. When the user's request matches a function, the model emits instead of free text. Your code parses the arguments, runs the function, and feeds the result back so the model can keep going. This is the primitive that turns an LLM into an agent. Every higher-level pattern — ReAct, tool-use loops, multi-step plans — is built on it. When to Use - Anywhere the model must act on the world — query a DB, hit an API, run a calculation. - When you need typed arguments the model can't fudge. - When you want a clean audit trail (every action is a parsed call). - Don't use when the answer is purely text generation — you'll spend tokens on a schema for nothing. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Each: name, description, JSON schema for args | | | | Chat history | | | | Force/disable tool use | | → | | Each: , , | | → | | Your function output, sent back next round | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Model invents an unknown function name | Underspecified system prompt; missing tool | Validate , surface a error so the model can recover | | Bad argument types ( instead of ) | Loose schema | Use , strict types, providers' mode where supported | | is invalid JSON | Model truncated mid-emit | Increase ; on , re-ask with the same context | | Infinite tool loop | No cap | Hard cap; on exhaustion return partial result + reason | | Side-effects on retries | Idempotency missing in your function | Generate a per-call idempotency key from | | Sensitive data leaked into args | No redaction layer | Filter before logging; never log raw chat content | Frameworks & Models | Provider / Framework | Notes | |---|---| | OpenAI (above) | Strict mode + parallel tool calls supported | | Anthropic | See Anthropic API skill | | OpenAI Assistants | Persistent threads; tools live on the assistant | | LangGraph | Graph-native dispatch | | Pydantic AI | Functions defined as typed Python; schema auto-generated | Model Comparison | Capability | gpt-4o | claude-opus-4-5 | gpt-4o-mini | |---|---|---|---| | Strict-schema arg fidelity | 5 | 5 | 4 | | Multi-tool / parallel calls | 5 | 4 | 4 | | Cost-efficiency | 3 | 2 | 5 | | Tool-name hallucination rate (lower better) | 5 | 5 | 4 | Related Skills - OpenAI API, Anthropic API — full provider wrappers - ReAct — function calling inside a reasoning loop - Structured Output — same primitive without execution Changelog | Date | Version | Change | |---|---|---| | 2025-03 | v1 | Initial stub | | 2026-04 | v3 | Battle-tested: registry pattern, strict schema, error-as-tool-result, model comparison |"
+  },
+  {
+    "id": "07-tool-use/github-api",
+    "title": "GitHub API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use GitHub REST APIs for bounded repository, issue, pull-request, and metadata operations with explicit scopes and verified mutations.",
+    "body": "GitHub API Description Use GitHub REST APIs for bounded repository, issue, pull-request, and metadata operations with explicit scopes and verified mutations. When to Use Use this skill only when the workflow requires github api, the target account or resource is authorized, and the provider contract is documented. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Keep credentials outside source code and prompts; use least privilege. | | Scope | Bound the target resource, operation, and result set. | | Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. | | Outputs | Preserve structured results and provider identifiers needed downstream. | | Verification | Re-read or otherwise verify important outcomes and side effects. | | Safety | Apply authorization, rate limits, and sensitive-data controls. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. | Runnable Example Failure modes - Hard-coding credentials or placing secrets in tool arguments. - Assuming provider identifiers or schemas are portable across accounts. - Performing mutations without authorization and current-state checks. - Treating a successful API response as proof of the desired business outcome. - Using unbounded retries, pagination, or result sets. Evidence - Provider documentation: https://docs.github.com/en/rest - Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools - input-guardrails"
+  },
+  {
+    "id": "07-tool-use/google-workspace-api",
+    "title": "Google Workspace API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs.",
+    "body": "Google Workspace API Description Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs. When to Use Use this skill only when the workflow requires google workspace api, the target account or resource is authorized, and the provider contract is documented. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Keep credentials outside source code and prompts; use least privilege. | | Scope | Bound the target resource, operation, and result set. | | Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. | | Outputs | Preserve structured results and provider identifiers needed downstream. | | Verification | Re-read or otherwise verify important outcomes and side effects. | | Safety | Apply authorization, rate limits, and sensitive-data controls. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. | Runnable Example Failure modes - Hard-coding credentials or placing secrets in tool arguments. - Assuming provider identifiers or schemas are portable across accounts. - Performing mutations without authorization and current-state checks. - Treating a successful API response as proof of the desired business outcome. - Using unbounded retries, pagination, or result sets. Evidence - Provider documentation: https://developers.google.com/workspace - Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools - input-guardrails"
+  },
+  {
+    "id": "07-tool-use/huggingface-api",
+    "title": "Hugging Face API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation.",
+    "body": "Hugging Face API Description Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation. When to Use Use this skill only when the workflow requires hugging face api, the target account or resource is authorized, and the provider contract is documented. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Keep credentials outside source code and prompts; use least privilege. | | Scope | Bound the target resource, operation, and result set. | | Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. | | Outputs | Preserve structured results and provider identifiers needed downstream. | | Verification | Re-read or otherwise verify important outcomes and side effects. | | Safety | Apply authorization, rate limits, and sensitive-data controls. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. | Runnable Example Failure modes - Hard-coding credentials or placing secrets in tool arguments. - Assuming provider identifiers or schemas are portable across accounts. - Performing mutations without authorization and current-state checks. - Treating a successful API response as proof of the desired business outcome. - Using unbounded retries, pagination, or result sets. Evidence - Provider documentation: https://huggingface.co/docs/api-inference - Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools - input-guardrails"
+  },
+  {
+    "id": "07-tool-use/image-gen-tool",
+    "title": "Image Generation Tool",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use an image-generation API as an agent tool with validated prompts, explicit model parameters, and verified outputs.",
+    "body": "Image Generation Tool Description Use an image-generation provider as a bounded agent tool. Validate the request before invocation, keep credentials server-side, make model and output parameters explicit, and verify that the returned asset can actually be consumed by the next workflow step. When to Use - Generate an image from a text or structured prompt. - Produce a controlled variant of an existing asset when the provider supports image editing. - Return a provider response to an agent without exposing provider credentials. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Prompt | Specific visual intent, constraints, and required exclusions. | | Model | Explicit provider model identifier; do not assume availability. | | Parameters | Size, quality, format, and count only when supported by the selected model. | | Output | Asset identifier, URL, or binary payload returned by the provider. | | Security | Keep API keys in environment-managed secrets. | | Verification | Confirm the response contains the expected asset before downstream use. | | Failure modes | Invalid prompt, unsupported parameter, quota error, policy rejection, timeout, or unusable output. | Runnable Example Failure modes - Hard-coding credentials or returning them through tool output. - Assuming a model, size, or response field is supported without checking provider documentation. - Treating an accepted request as proof that the asset is usable. - Sending uncontrolled user input directly into a privileged image workflow. - Persisting provider URLs without considering their lifetime or access requirements. Evidence - OpenAI Images API documentation: https://platform.openai.com/docs/guides/images - Repository schema and tool-use validation workflows are authoritative for repository conformance. Related - 07-tool-use - 08-multimodal - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "07-tool-use/jira-api",
+    "title": "Jira API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use Jira REST APIs from agents to inspect and manage issues with explicit authorization, field validation, and outcome verification.",
+    "body": "Jira API Description Use Jira REST APIs as an agent tool for issue retrieval and controlled project operations. Treat issue creation, edits, transitions, and comments as external side effects that require validated inputs and post-action verification. When to Use - Search or retrieve Jira issues needed for an agent workflow. - Create or update issues when the workflow has authority to modify the project. - Add structured comments or transitions using documented Jira fields. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Use a short-lived or least-privilege credential where supported. | | Project | Validate the target project key before writing. | | Issue fields | Validate required fields against the target Jira instance. | | Query | Bound JQL and pagination; avoid unbounded result sets. | | Output | Issue key, status, fields, and response metadata required by the workflow. | | Verification | Re-read the affected issue after mutations. | | Failure modes | Permission denial, invalid field, transition mismatch, rate limit, or stale issue state. | Runnable Example Failure modes - Assuming custom fields have the same identifiers across Jira instances. - Mutating an issue without checking current state and permissions. - Accepting a 2xx response without verifying the resulting issue. - Logging authorization headers or tokens. - Using broad JQL when only a bounded issue set is required. Evidence - Atlassian Jira REST API documentation: https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/ - Repository schema and validation workflows define the local skill contract. Related - linear-api - github-api - tool-guardrails - approval-before-destructive-tools"
+  },
+  {
+    "id": "07-tool-use/kubernetes-api-interaction",
+    "title": "Kubernetes API Interaction",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "kubernetes",
+      "api",
+      "platform"
+    ],
+    "description": "Interact with the Kubernetes API through declared resource contracts, field validation, and dry-run server-side checks before applying changes.",
+    "body": "Kubernetes API Interaction Description Interact with the Kubernetes API through declared resource contracts, field validation, and dry-run server-side checks before applying changes. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - an agent must read or modify cluster resources through the API safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for kubernetes api interaction work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the kubernetes api interaction steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Applying without a server-side dry run. - Editing live specs without recording the previous state. - Trusting local state over the API server version. - Deleting by name without a namespace check. - No least-scope credential review for the agent. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Agent-driven cluster operations are a growing 2026 platform-automation theme in public coverage; this is a dated signal, not an adoption metric. Related - custom-api-wrapper.md - api-version-pinning.md - tool-output-validation.md"
+  },
+  {
+    "id": "07-tool-use/linear-api",
+    "title": "Linear API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use Linear's GraphQL API from agents for bounded issue and project operations with typed queries and verified mutations.",
+    "body": "Linear API Description Use Linear's GraphQL API as a controlled agent tool for querying and mutating issues, projects, teams, and cycles. Prefer narrow queries, explicit variables, and post-mutation verification. When to Use - Retrieve issues, projects, teams, or cycles for an agent task. - Create or update issues with validated team and state identifiers. - Integrate project-management state into an agent workflow. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Endpoint | Use the documented Linear GraphQL endpoint. | | Authentication | Keep the API key outside source and tool arguments. | | Query | Use explicit operation and variables; avoid unnecessary fields. | | Mutation | Validate identifiers and required inputs before execution. | | Output | Parse the requested GraphQL data and inspect errors. | | Verification | Re-query important mutations before reporting completion. | | Failure modes | GraphQL validation error, authorization failure, rate limit, or stale identifier. | Runnable Example Failure modes - Hard-coding API credentials. - Assuming an issue state or team identifier is stable across workspaces. - Ignoring the GraphQL errors array when HTTP status is successful. - Sending large unbounded queries. - Treating mutation acknowledgement as verified state. Evidence - Linear GraphQL API documentation: https://linear.app/developers/graphql - Repository schema and validation workflows define local conformance requirements. Related - jira-api - github-api - function-calling - tool-guardrails"
+  },
+  {
+    "id": "07-tool-use/maps-geolocation",
+    "title": "Maps & Geolocation",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use geocoding, place search, distance, and routing APIs with explicit geographic scope, provider attribution, and coordinate validation.",
+    "body": "Maps & Geolocation Description Use mapping and geolocation services as an agent tool for address lookup, geocoding, reverse geocoding, place discovery, distance calculations, and routing. Treat coordinates and addresses as location-sensitive data and validate them before downstream actions. When to Use - Convert a user-approved address into coordinates. - Resolve coordinates into a human-readable location. - Find places or calculate a route using a documented provider. - Supply normalized location data to another tool. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Address | Preserve user-provided text and provider-specific normalization separately. | | Coordinates | Validate latitude and longitude ranges before use. | | Search scope | Apply country, region, radius, or bounding-box constraints when appropriate. | | Output | Coordinates, place identifiers, address components, distance, or route geometry. | | Privacy | Minimize retention and avoid exposing precise location unnecessarily. | | Verification | Check result confidence and provider status before acting. | | Failure modes | Ambiguous address, no result, quota error, stale place data, or incorrect coordinate assumptions. | Runnable Example Failure modes - Conflating a place name with a precise address. - Assuming the first geocoding result is always correct. - Retaining precise coordinates beyond the workflow need. - Omitting provider terms, attribution, or usage limits. - Using stale coordinates for safety-critical navigation. Evidence - Google Maps Platform Geocoding documentation: https://developers.google.com/maps/documentation/geocoding/overview - Repository schema and validation workflows define local conformance requirements. Related - custom-api-wrapper - web-search - input-guardrails"
+  },
+  {
+    "id": "07-tool-use/mcp-app-authoring",
+    "title": "MCP App Authoring",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "apps",
+      "manifests"
+    ],
+    "description": "Author MCP apps that expose UI surfaces with declared manifests, capability scopes, and tested launch paths instead of raw tool dumps.",
+    "body": "MCP App Authoring Description Author MCP apps that expose UI surfaces with declared manifests, capability scopes, and tested launch paths instead of raw tool dumps. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - an agent-facing app must declare its UI surface and capabilities formally for hosts to render it. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp app authoring work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp app authoring steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Declaring capabilities the app never tests. - No versioning so hosts render against stale manifests. - Assuming one host environment renders the app. - Exposing actions beyond the declared capability scope. - Shipping an app with no launch smoke test. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence MCP apps with declared UI surfaces are part of the 2026-07-28 specification update; this is a dated public protocol signal, not an adoption metric. Related - mcp-extensions-authoring.md - mcp-server-lifecycle-management.md - tool-schema-design.md"
+  },
+  {
+    "id": "07-tool-use/mcp-extensions-authoring",
+    "title": "MCP Extensions Authoring",
+    "category": "07-tool-use",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "extensions",
+      "authoring",
+      "tool"
+  

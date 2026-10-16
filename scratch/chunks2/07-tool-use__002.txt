@@ -1,0 +1,164 @@
+  ],
+    "description": "Author MCP extensions using the published Extensions framework with capability declarations, backward-compatibility checks, and explicit dependency on server support.",
+    "body": "MCP Extensions Authoring Description Author MCP extensions using the published Extensions framework with capability declarations, backward-compatibility checks, and explicit dependency on server support. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - The task has explicit constraints such as time, budget, or safety that must gate the outcome. - A silent failure mode exists that must be surfaced rather than swallowed. - Verification evidence is required before the result is trusted. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp extensions authoring. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp extensions authoring steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence The MCP 2026-07-28 specification release candidate introduces the Extensions framework; extension authoring is a dated public signal. These are dated public signals, not adoption metrics. Related - mcp-tool.md - tool-schema-design.md - function-calling.md"
+  },
+  {
+    "id": "07-tool-use/mcp-registry-curation",
+    "title": "MCP Registry Curation",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "registries",
+      "vetting"
+    ],
+    "description": "Curate server registries with health checks, capability vetting, and provenance records so teams install servers from a maintained allowlist.",
+    "body": "MCP Registry Curation Description Curate server registries with health checks, capability vetting, and provenance records so teams install servers from a maintained allowlist. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - servers are pulled from registries and entries must be vetted before teams depend on them. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp registry curation work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp registry curation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Listing servers with no health check. - No provenance so anyone can register a lookalike. - Never re-checking entries after listing. - No removal process for abandoned servers. - Recommending unvetted servers to users. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence MCP server registries and curation are a recurring 2026 ecosystem-safety topic in public coverage; this is a dated signal, not an adoption metric. Related - tool-inventory-cataloging.md - tool-source-vetting.md - mcp-tool.md"
+  },
+  {
+    "id": "07-tool-use/mcp-server-lifecycle-management",
+    "title": "MCP Server Lifecycle Management",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "server",
+      "lifecycle",
+      "management",
+      "tool"
+    ],
+    "description": "Register, start, stop, update, and remove MCP servers for an agent with declared transports, health checks, and version pins instead of ad-hoc configuration edits.",
+    "body": "MCP Server Lifecycle Management Description Register, start, stop, update, and remove MCP servers for an agent with declared transports, health checks, and version pins instead of ad-hoc configuration edits. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - Multiple inputs or candidates compete and must be resolved by explicit criteria. - A wrong intermediate result would propagate into consequential actions. - The task repeats and benefits from a deterministic procedure. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp server lifecycle management. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the mcp server lifecycle management procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with mcp server lifecycle management without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence The 2026 MCP roadmap names transport scalability and enterprise readiness; server lifecycle management is a published operational requirement. These are dated public signals, not adoption metrics. Related - mcp-tool.md - tool-schema-design.md - mcp-oauth-authentication.md"
+  },
+  {
+    "id": "07-tool-use/mcp-server-rate-limit-backoff",
+    "title": "MCP Server Rate Limit Backoff",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "backoff",
+      "rate-limit"
+    ],
+    "description": "Respect MCP server rate limits by reading 429 and Retry-After signals, applying exponential backoff with jitter, and bounding total retry time.",
+    "body": "MCP Server Rate Limit Backoff Description Respect MCP server rate limits by reading 429 and Retry-After signals, applying exponential backoff with jitter, and bounding total retry time. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - A tool server signals rate limiting and the client must back off instead of hammering. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | mcp server rate limit backoff task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp server rate limit backoff steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A retry record with per-attempt delay, observed status codes, and total elapsed budget. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Retrying immediately at fixed intervals and amplifying server load. - Ignoring Retry-After and inventing a schedule the server did not ask for. - Retrying past the declared total-time budget without surfacing the failure. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Rate-limit and retry handling is part of 2026 Model Context Protocol deployment guidance. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - mcp tool argument validation - tool result truncation Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "07-tool-use/mcp-stateless-request-migration",
+    "title": "Mcp Stateless Request Migration",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "stateless",
+      "request",
+      "migration"
+    ],
+    "description": "Migrate MCP server handlers to the 2026-07-28 stateless, self-contained request shape with per-request context.",
+    "body": "Mcp Stateless Request Migration Description Migrate MCP server handlers to the 2026-07-28 stateless, self-contained request shape with per-request context. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires mcp stateless request migration before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp stateless request migration. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp stateless request migration steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence The MCP 2026-07-28 specification makes stateless, self-contained requests a base-protocol property. These are dated public signals, not adoption metrics. Related - mcp-tool.md - mcp-extensions-authoring.md - api-version-pinning.md"
+  },
+  {
+    "id": "07-tool-use/mcp-tasks-extension-usage",
+    "title": "MCP Tasks Extension Usage",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "tasks",
+      "protocols"
+    ],
+    "description": "Use long-running task handles from the MCP Tasks extension with polling budgets, cancellation, and result verification so remote work is not left running unbounded.",
+    "body": "MCP Tasks Extension Usage Description Use long-running task handles from the MCP Tasks extension with polling budgets, cancellation, and result verification so remote work is not left running unbounded. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a tool call runs longer than a request and the task handle must be managed deliberately. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp tasks extension usage work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp tasks extension usage steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Polling forever with no deadline. - Losing the task handle so it runs unbounded. - Treating a completed handle as a successful one without checking errors. - No cancellation on client shutdown. - Assuming the extension is present without negotiating it. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence The MCP Tasks extension for long-running work shipped in the 2026-07-28 specification update; this is a dated public protocol signal, not an adoption metric. Related - mcp-extensions-authoring.md - mcp-tool.md - tool-behavior-contract-testing.md"
+  },
+  {
+    "id": "07-tool-use/mcp-tool-argument-validation",
+    "title": "MCP Tool Argument Validation",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "validation",
+      "json-schema"
+    ],
+    "description": "Validate Model Context Protocol tool arguments against the declared input schema before invocation, rejecting unknown keys, wrong types, and unsafe values with precise errors.",
+    "body": "MCP Tool Argument Validation Description Validate Model Context Protocol tool arguments against the declared input schema before invocation, rejecting unknown keys, wrong types, and unsafe values with precise errors. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - A tool call arrives from an LLM and must be checked before it executes. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | mcp tool argument validation task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp tool argument validation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A validation record listing rejected keys, type errors, and the schema version used. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Passing unknown keys through to the tool because the schema ignores them. - Coercing a wrong-typed argument into a plausible value instead of rejecting it. - Validating only on the happy path and skipping the error-envelope contract. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Input-schema validation is part of 2026 Model Context Protocol deployment guidance. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - mcp server rate limit backoff - openapi to mcp tool bridging Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "07-tool-use/mcp-tool-list-pinning",
+    "title": "MCP Tool List Pinning",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "mcp",
+      "security",
+      "protocols"
+    ],
+    "description": "Pin and verify the exact tool list a client loaded from an MCP server so mid-session tool changes are detected instead of silently trusted.",
+    "body": "MCP Tool List Pinning Description Pin and verify the exact tool list a client loaded from an MCP server so mid-session tool changes are detected instead of silently trusted. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a client depends on a fixed set of MCP tools and any silent change must be detected before use. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for mcp tool list pinning work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the mcp tool list pinning steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Trusting the server tool list without recording it. - Continuing after a mid-session list change without a re-check. - Pin stored in code while the server evolves. - No operator alert when the diff is non-empty. - Re-pinning automatically without review. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence MCP tool-list changes are a documented 2026 security concern with pinning guidance in the 2026-09-15 protocol update; this is a dated public signal, not an adoption metric. Related - mcp-tool.md - tool-deprecation-handling.md - api-version-pinning.md"
+  },
+  {
+    "id": "07-tool-use/mcp-tool",
+    "title": "MCP Tool",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Expose or consume Model Context Protocol tools through explicit schemas, bounded permissions, and verified tool results.",
+    "body": "MCP Tool Description Use the Model Context Protocol (MCP) to expose tools or connect an agent to MCP servers through a standardized tool interface. Tool names, descriptions, input schemas, permissions, and returned content must be treated as an explicit contract rather than inferred behavior. When to Use - Expose a local or remote capability to an MCP-compatible client. - Discover and invoke tools through an MCP server. - Build an agent workflow that must remain portable across MCP-compatible clients. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Server | Identify the intended MCP server and transport before invocation. | | Tool schema | Validate the declared name, description, and input schema. | | Arguments | Construct only schema-valid arguments from trusted workflow state. | | Permissions | Grant the minimum capability required by the task. | | Output | Preserve structured content and distinguish errors from successful results. | | Verification | Independently verify important side effects after a tool call. | | Failure modes | Schema mismatch, unavailable server, transport failure, authorization error, or unsafe tool exposure. | Runnable Example Failure modes - Publishing a tool without an explicit input schema. - Giving an MCP server access to secrets or destructive capabilities it does not need. - Trusting tool descriptions as authorization. - Treating a successful transport response as proof of a completed side effect. - Failing to bound filesystem, network, or command execution capabilities. Evidence - Model Context Protocol specification and documentation: https://modelcontextprotocol.io/ - Python MCP SDK documentation: https://github.com/modelcontextprotocol/python-sdk - Repository schema and validation workflows define local conformance requirements. Related - tool-guardrails - function-calling - approval-before-destructive-tools - specialist-agent-routing"
+  },
+  {
+    "id": "07-tool-use/multi-provider-redundancy",
+    "title": "Multi-Provider Redundancy",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "multi",
+      "provider",
+      "redundancy",
+      "tool"
+    ],
+    "description": "Route requests across equivalent providers with health-aware failover and consistent result validation, so a single provider outage does not stop the task.",
+    "body": "Multi-Provider Redundancy Description Route requests across equivalent providers with health-aware failover and consistent result validation, so a single provider outage does not stop the task. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires multi-provider redundancy before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for multi-provider redundancy. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the multi-provider redundancy steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Provider-outage resilience and cost-aware multi-provider routing are published 2026 agent themes. These are dated public signals, not adoption metrics. Related - cost-aware-model-routing.md - retry-backoff.md - tool-output-validation.md"
+  },
+  {
+    "id": "07-tool-use/news-api",
+    "title": "News API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Query documented news APIs with bounded searches, explicit freshness windows, source metadata, pagination limits, and verified responses.",
+    "body": "News API Description Query documented news APIs with bounded searches, explicit freshness windows, source metadata, pagination limits, and verified responses. When to Use Use this skill when the workflow explicitly requires news api and the target account, document, channel, or provider is authorized. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Use least-privilege credentials managed outside source code. | | Scope | Bound the operation to the intended resource and task. | | Inputs | Validate identifiers, content, filters, and required fields. | | Outputs | Preserve structured provider results needed by downstream steps. | | Verification | Re-check important reads or mutations when correctness matters. | | Privacy | Minimize exposure and retention of sensitive content. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. | Runnable Example Failure modes - Hard-coding credentials or exposing them in logs. - Assuming provider fields or identifiers are portable across accounts. - Performing side effects without validating authorization and current state. - Treating an HTTP/API acknowledgement as proof of the desired business outcome. - Using unbounded pagination or retries. Evidence Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools"
+  },
+  {
+    "id": "07-tool-use/notion-api",
+    "title": "Notion API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification.",
+    "body": "Notion API Description Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification. When to Use Use this skill when the workflow explicitly requires notion api and the target account, document, channel, or provider is authorized. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Use least-privilege credentials managed outside source code. | | Scope | Bound the operation to the intended resource and task. | | Inputs | Validate identifiers, content, filters, and required fields. | | Outputs | Preserve structured provider results needed by downstream steps. | | Verification | Re-check important reads or mutations when correctness matters. | | Privacy | Minimize exposure and retention of sensitive content. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. | Runnable Example Failure modes - Hard-coding credentials or exposing them in logs. - Assuming provider fields or identifiers are portable across accounts. - Performing side effects without validating authorization and current state. - Treating an HTTP/API acknowledgement as proof of the desired business outcome. - Using unbounded pagination or retries. Evidence Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools"
+  },
+  {
+    "id": "07-tool-use/offline-tool-fallback",
+    "title": "Offline Tool Fallback",
+    "category": "07-tool-use",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [
+      "offline",
+      "tool",
+      "fallback",
+      "tool"
+    ],
+    "description": "Define and test degraded-mode behavior when a tool or provider is unreachable, so agent tasks continue with explicitly reduced capability instead of failing silently.",
+    "body": "Offline Tool Fallback Description Define and test degraded-mode behavior when a tool or provider is unreachable, so agent tasks continue with explicitly reduced capability instead of failing silently. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - The task has explicit constraints such as time, budget, or safety that must gate the outcome. - A silent failure mode exists that must be surfaced rather than swallowed. - Verification evidence is required before the result is trusted. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for offline tool fallback. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the offline tool fallback procedure using the decla
