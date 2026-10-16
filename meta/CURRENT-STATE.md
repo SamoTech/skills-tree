@@ -1,6 +1,12 @@
 # Skills Tree — Live Repository State
 
-## Current Live Reconciliation — 2026-10-15
+## Current Live Reconciliation — 2026-10-16
+
+- **Counsel agent hired and assigned (2026-10-16):** the repository owner directed the hire of a tenth permanent specialist agent, Counsel, with a dual mandate — executing assigned standing-queue slices through the standard protocol and serving as the non-blocking challenger/advisor for PRs and D2+ decisions (recorded verdicts with reasons; gate violations escalate to the Governance Officer). `meta/AGENT_TEAM_CHART.md` registers agent 10 and `meta/COUNSEL_CHARTER.md` is the authoritative charter; the hire is recorded as DECISION-2026-10-16-COUNSEL-AGENT-HIRE in `meta/memory/DECISIONS.md`. Assigned mission set: (1) the search-index skills-freshness contract — the 2026-10-15 batch-2 automation encoding defect that double-encoded non-ASCII bytes in the pushed search-index copy stayed CI-green because the search index has no corpus-freshness contract; Counsel closes that gap in the established pattern of the Skills-API (#581) and graph (#582) freshness contracts; (2) a bounded advisory corpus-quality review of the 1039-skill public corpus with findings published as a tracking issue; (3) a reserved slot for one owner-specified task, kept OPEN until received. No CI, quality, security, or governance gate is weakened; no workflow changes in this cycle (see the `meta/WORKFLOW_INVENTORY.md` disposition note).
+
+This is the active operational state. Older dated sections below are historical unless independently re-verified.
+
+## Live Reconciliation — 2026-10-15 (historical)
 
 - **Daily demand-driven expansion, batch 3 (2026-10-15):** 50 new experimental v1 canonical skills from branch skills/expansion-2026-10-15-b3 move the public corpus from 989 to 1039 skills across categories 06-communication through 12-data (7, 7, 7, 7, 7, 7, and 8 new skills respectively), each with full section structure, a runnable example, a mandatory Failure Modes section, and a byte-exact deterministic project() Agent Skills package (Agent Skills packages 840 -> 890; the eligible discovery count moves 962 -> 1012, matching tests/test_agent_skills_discovery.py; the skills graph moves 684 -> 784 edges). Selection basis is dated 2026-10-15 public trend signals recorded in a dated expansion note in meta/MOST-WANTED-SKILLS.md and per skill in the PR body; these are demand signals, not adoption metrics. No CI, quality, or governance gate was weakened.
 
