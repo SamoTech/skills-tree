@@ -1,0 +1,164 @@
+  {
+    "id": "10-computer-use/screenshot-capture",
+    "title": "Screenshot Capture",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Capture a screenshot of a verified screen or region for observation, evidence, or postcondition checking.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Capture a screenshot of a verified screen or region for observation, evidence, or postcondition checking. When to Use Use when visual evidence is required and the capture scope is explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Screenshots may contain sensitive information; minimize capture scope and storage. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "10-computer-use/screenshot-diff-verification",
+    "title": "Screenshot Diff Verification",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "screenshots",
+      "diff",
+      "verification"
+    ],
+    "description": "Verify UI state with screenshot diffs by masking dynamic regions, comparing perceptual hashes, and requiring a human-visible change report before declaring success.",
+    "body": "Screenshot Diff Verification Description Verify UI state with screenshot diffs by masking dynamic regions, comparing perceptual hashes, and requiring a human-visible change report before declaring success. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - A UI change must be proven with image evidence, not assumed. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | screenshot diff verification task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the screenshot diff verification steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A diff report with masked regions, perceptual hashes, and change list. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Declaring match while an unmasked dynamic region caused the difference. - Diffing raw pixels so antialiasing noise fails every comparison. - Reporting a pass without the masked-region map used for the comparison. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Screenshot-based UI verification is a 2026 computer-use automation theme. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - gui element anchoring stability - accessibility tree automation audit Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "10-computer-use/scroll",
+    "title": "Scroll",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state. When to Use Use when the target is not currently visible and the scroll container is known. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Scrolling can change context or lose target state; use bounded increments and re-observe after each move. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "10-computer-use/session-keepalive-automation",
+    "title": "Session Keepalive Automation",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "sessions",
+      "keepalive",
+      "automation"
+    ],
+    "description": "Keep authenticated sessions alive during long automation runs with honest activity signals and expiry detection that fails closed.",
+    "body": "Session Keepalive Automation Description Keep authenticated sessions alive during long automation runs with honest activity signals and expiry detection that fails closed. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a long automation run must not die mid-way from session expiry. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for session keepalive automation work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the session keepalive automation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Sending keepalives after the session already expired. - Refreshing with fake activity that violates the site policy. - Ignoring absolute session caps that no keepalive extends. - Treating a keepalive response as proof of full re-auth. - Not failing closed when refresh is unavailable. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Long-run session expiry breaking automation recurs repeatedly in 2026 discussions; this is a dated signal, not an adoption metric. Related - meeting-app-automation.md - desktop-notification-triage.md - idle-detection.md"
+  },
+  {
+    "id": "10-computer-use/software-installation-automation",
+    "title": "Software Installation Automation",
+    "category": "10-computer-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "installation",
+      "packages",
+      "automation",
+      "verification"
+    ],
+    "description": "Automate software installation with checksum verification, license acceptance, and post-install smoke checks.",
+    "body": "Software Installation Automation Description Automate software installation with checksum verification, license acceptance, and post-install smoke checks. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires software installation automation before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for software installation automation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the software installation automation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Repeatable software installation is a common 2026 computer-use automation request. These are dated public signals, not adoption metrics. Related - app-launch.md - terminal-interaction.md - file-dialog.md"
+  },
+  {
+    "id": "10-computer-use/system-settings-configuration",
+    "title": "System Settings Configuration",
+    "category": "10-computer-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "settings",
+      "configuration",
+      "os",
+      "computer-use"
+    ],
+    "description": "Change OS and application settings through supported interfaces and verify the effective configuration afterward.",
+    "body": "System Settings Configuration Description Change OS and application settings through supported interfaces and verify the effective configuration afterward. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires system settings configuration before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for system settings configuration. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the system settings configuration steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence System configuration is a recurring computer-use agent request in 2026 public threads. These are dated public signals, not adoption metrics. Related - app-launch.md - vm-interaction.md - window-management.md"
+  },
+  {
+    "id": "10-computer-use/system-tray-interaction",
+    "title": "System Tray Interaction",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "tray",
+      "os-automation",
+      "ui-automation"
+    ],
+    "description": "Automate interaction with operating-system tray icons and their menus using stable element identification and menu-state verification.",
+    "body": "System Tray Interaction Description Automate interaction with operating-system tray icons and their menus using stable element identification and menu-state verification. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a needed control or status is only reachable through a tray icon menu. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for system tray interaction work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the system tray interaction steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Clicking tray coordinates without identifying the icon. - Assuming a menu opened without verifying its state. - Using tray icons that move or hide on notification. - Missing a tray action because the menu closed on focus loss. - Reporting success without verifying the toggled setting. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Tray-icon automation requests appear in 2026 desktop-automation discussions; this is a dated signal, not an adoption metric. Related - desktop-notification-triage.md - window-management.md - mouse-click.md"
+  },
+  {
+    "id": "10-computer-use/task-scheduler-automation",
+    "title": "Task Scheduler Automation",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "scheduling",
+      "os",
+      "idempotency"
+    ],
+    "description": "Automate creation and verification of scheduled operating-system tasks with idempotent registration and explicit next-run validation.",
+    "body": "Task Scheduler Automation Description Automate creation and verification of scheduled operating-system tasks with idempotent registration and explicit next-run validation. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - recurring OS tasks must be registered and verified without duplicates. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for task scheduler automation work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the task scheduler automation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Registering the same scheduled task twice under different ids. - Never verifying the computed next-run time after registration. - Scheduling with triggers that never fire in the target environment. - Leaving a test task registered after automation finishes. - Ignoring machine sleep or power states that skip runs. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Scheduled-task automation with idempotent registration recurs in 2026 ops requests; this is a dated signal, not an adoption metric. Related - system-settings-configuration.md - terminal-interaction.md - idle-detection.md"
+  },
+  {
+    "id": "10-computer-use/terminal-interaction",
+    "title": "Terminal Interaction",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Interact with a verified terminal window using explicit commands, context, and output checks.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Interact with a verified terminal window using explicit commands, context, and output checks. When to Use Use when terminal interaction is authorized and the command scope is explicit. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. | | Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. | Procedure 1. Establish the active application/session and expected UI state. 2. Verify target identity and bounds before interaction. 3. Perform only the requested bounded action. 4. Re-observe the resulting UI and verify the expected postcondition. 5. Stop when the observed state differs materially from the expected state. Runnable Example Failure Modes - Target or session identity cannot be verified. - UI or display geometry changed after observation. - Action may expose sensitive data or cause destructive effects. - Focus or permission is ambiguous. - Postcondition cannot be verified. Safety Boundary Treat terminal commands as potentially destructive; verify working directory, command, target, and postcondition before execution. Evidence Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks. Related - 10-computer-use - input-guardrails - output-guardrails"
+  },
+  {
+    "id": "10-computer-use/terminal-multiplexer-automation",
+    "title": "Terminal Multiplexer Automation",
+    "category": "10-computer-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "tmux",
+      "terminal",
+      "automation",
+      "panes"
+    ],
+    "description": "Automate tmux and similar multiplexers: session creation, pane targeting, and output capture with explicit pane addressing.",
+    "body": "Terminal Multiplexer Automation Description Automate tmux and similar multiplexers: session creation, pane targeting, and output capture with explicit pane addressing. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires terminal multiplexer automation before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for terminal multiplexer automation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the terminal multiplexer automation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Terminal multiplexer control is a recurring 2026 developer automation request. These are dated public signals, not adoption metrics. Related - terminal-interaction.md - keyboard-type.md - vm-interaction.md"
+  },
+  {
+    "id": "10-computer-use/ui-element-waiting",
+    "title": "UI Element Waiting",
+    "category": "10-computer-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Synchronize computer-use actions on observed UI state with bounded explicit-wait loops, injected clocks, and timeout budgets instead of fixed sleeps so automation is deterministic and fails fast.",
+    "body": "UI Element Waiting Category: Computer Use | Level: intermediate | Stability: experimental | Version: v1 Description A fixed sleep is a guess that wastes time when the app is fast and fails when it is slow. An explicit wait replaces the guess with a contract: poll a state predicate on a fixed interval until it holds or a declared budget expires. With an injected clock the loop is testable offline, and the wait either returns the observed ready time or fails with evidence of how much budget was spent. When to Use Use whenever an automation must act on an element that appears asynchronously — after launch, navigation, or a slow update — and the failure mode of a timeout should be an explicit error rather than a mistimed click. Do not use to mask an application bug; if a reasonable budget never suffices, fix the application or shorten the flow instead of raising timeouts. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | State check answering whether the element is ready | | | | Yes | Maximum wait budget in seconds | | | | Yes | Delay between predicate evaluations | | | | No | Injectable time source; wall clock when omitted | Procedure 1. Define the readiness predicate on observable state — DOM presence, pixel match, or API flag — never on elapsed time alone. 2. Declare timeout and poll interval before starting the wait; defaults must come from policy, not from the call site’s mood. 3. Compute the deadline from the injected clock so tests run deterministically offline. 4. Evaluate the predicate at least once before advancing time, so already-ready elements return immediately. 5. On timeout, fail with the budget spent and the last observed state; a silent None return hides the evidence. 6. Record observed wait times per element so budgets are tuned on measurements, not folklore. 7. Never nest waits to synthesize longer budgets; raise the declared budget instead. Outputs | Output | Type | Description | |---|---|---| | | | Clock time when the predicate first held, or null on timeout | | | | Observed wait duration | | | | The computed deadline for audit | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Flaky timing | Fixed sleeps tuned to one machine | Replace sleeps with predicate polling and measured budgets | | Hidden timeout | Loop returns silently on expiry | Fail with the spent budget and last observed state | | Clock coupling | Tests read the wall clock directly | Inject the clock so waits replay deterministically | | Predicate drift | Ready check weaker than the real need | Test the predicate against the downstream action it guards | | Runaway wait | Deadline computed inside the loop | Compute the deadline once, before polling starts | Security and Authority Boundary Waiting on UI state grants no authority over the application. An automation observing readiness may act only within its permitted action set; polling must respect the target app’s load and authentication boundaries. Evidence This skill is grounded in dated public implementation references: 1. Selenium’s WebDriver waits documentation (https://www.selenium.dev/documentation/webdriver/waits/). 2. Python’s time module documentation for monotonic clocks (https://docs.python.org/3/library/time.html). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Visual Element Detection — supplies the readiness predicates this skill polls. - Screenshot Capture — feeds pixel-based state checks into the same wait contract. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "10-computer-use/vdi-session-automation",
+    "title": "Vdi Session Automation",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "vdi",
+      "session",
+      "automation"
+    ],
+    "description": "Automate virtual desktop sessions with connection setup, resolution pinning, and session teardown checks.",
+    "body": "Vdi Session Automation Description Automate virtual desktop sessions with connection setup, resolution pinning, and session teardown checks. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires vdi session automation before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for vdi session automation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the vdi session automation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Virtual desktop automation is requested for running GUI agents in isolated hosted environments. These are dated public signals, not adoption metrics. Related - screen-reading.md - keyboard-input.md - screenshot-capture.md"
+  },
+  {
+    "id": "10-computer-use/visual-element-detection",
+    "title": "Visual Element Detection",
+    "category": "10-computer-use",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets.",
+    "body": "Category: Computer Use Skill Level: Stability: stable Description Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets. When to Use Use when semantic accessibility data is unavailable and visual targeting is required. Inputs / Outputs / Failure Modes | Area | Contract | |---|---| | Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. | | Outputs | Bounded computer-use a
