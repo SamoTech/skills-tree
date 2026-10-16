@@ -1,0 +1,167 @@
+  {
+    "id": "05-code/license-compatibility-checking",
+    "title": "License Compatibility Checking",
+    "category": "05-code",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "license",
+      "compatibility",
+      "checking",
+      "code"
+    ],
+    "description": "Check that a dependency license is compatible with the project distribution terms, recording the verdict and the license texts examined.",
+    "body": "License Compatibility Checking Description Check that a dependency license is compatible with the project distribution terms, recording the verdict and the license texts examined. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires license compatibility checking before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for license compatibility checking. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the license compatibility checking procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with license compatibility checking without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Supply-chain compliance is a 2026 enterprise requirement; SBOM and license checks appear in published governance guidance. These are dated public signals, not adoption metrics. Related - dependency-management.md - security-scanning.md - sbom-generation-and-review.md"
+  },
+  {
+    "id": "05-code/linting-formatting",
+    "title": "Linting Formatting",
+    "category": "05-code",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn.",
+    "body": "Description Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn. Inspect the configured tools and version before changing source style. When to Use Use when code quality checks require linting, formatting, or normalization. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Source files, repository configuration, formatter and linter versions. | | Outputs | Consistently formatted and lint-clean code with verification evidence. | | Failure modes | Unrelated churn, version mismatch, behavior changes, or ignored configuration. | Runnable Example Failure modes - Formatting with an incompatible tool version. - Mixing style changes with functional changes. - Ignoring repository configuration. - Treating lint success as proof of functional correctness. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "05-code/monorepo-navigation",
+    "title": "Monorepo Navigation",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "monorepo",
+      "navigation",
+      "code"
+    ],
+    "description": "Locate relevant packages, ownership boundaries, and build scopes in a monorepo using workspace manifests and dependency edges instead of full-tree scans.",
+    "body": "Monorepo Navigation Description Locate relevant packages, ownership boundaries, and build scopes in a monorepo using workspace manifests and dependency edges instead of full-tree scans. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - Multiple inputs or candidates compete and must be resolved by explicit criteria. - A wrong intermediate result would propagate into consequential actions. - The task repeats and benefits from a deterministic procedure. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for monorepo navigation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the monorepo navigation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Monorepo-scale agent development is a 2026 theme; published agent tooling requests workspace-aware navigation. These are dated public signals, not adoption metrics. Related - code-search.md - dependency-management.md - git-operations.md"
+  },
+  {
+    "id": "05-code/mutation-testing",
+    "title": "Mutation Testing",
+    "category": "05-code",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Measure test-suite strength by injecting small code mutations and checking which are caught — surviving mutants reveal tests that assert nothing meaningful.",
+    "body": "Mutation Testing Category: Code | Level: intermediate | Stability: experimental | Version: v1 Description Coverage says a line ran; it does not say anyone would notice if it were wrong. Mutation testing flips the question: introduce small, mechanical changes to the code — flip a comparison, drop a call — and check whether the test suite fails. Surviving mutants are lines the suite does not actually defend, and each one is a concrete, fixable gap. When to Use Use when a suite has high coverage but defects still escape — release-critical libraries, parser cores, financial logic — and the question is whether the tests assert real behavior. Do not run mutation testing over an entire large codebase at once; it multiplies suite runtime by the mutant count, so scope it to critical modules. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | The module under assessment | | | | Yes | The test suite to measure | | | | No | Mutation operators to apply; default set | Procedure 1. Select the scope deliberately — critical modules first — because every mutant costs a full suite run. 2. Apply mutations one at a time: small, mechanical edits such as flipping an operator, changing a constant, or removing a call. 3. Run the suite per mutant and record the result: killed, survived, or timed out. 4. Treat timeouts as kills only when the suite is deterministic; flaky suites make mutation results noise. 5. Group surviving mutants and convert each group into a missing assertion or a new test that kills it. 6. Re-run and compare the mutation score — the fraction killed — instead of trusting coverage alone. Outputs | Output | Type | Description | |---|---|---| | | | Applied mutations with kill status | | | | Mutants the suite did not detect | | | | Mutation score per module and overall | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Coverage complacency | High coverage hides unasserted behavior | Measure mutation score on critical modules | | Flaky suite noise | Timeouts and reruns corrupt kill counts | Stabilize the suite before mutating | | Whole-codebase runs | Mutation cost explodes with suite time | Scope to critical modules | | Survivor neglect | Survivors are recorded but never fixed | Convert each survivor into a new assertion | | Equivalent mutants | Untestable-by-design mutants counted as gaps | Review and exclude provably equivalent mutants | Security and Authority Boundary Mutation testing modifies code in working directories and can, with careless tooling, leak mutants into builds. Run it in an isolated checkout, never commit mutated files, and gate CI on the original source with mutants applied only in ephemeral workspaces. Evidence This skill is grounded in dated public implementation references: 1. The mutmut mutation testing tool documentation (https://mutmut.readthedocs.io/). 2. Wikipedia's overview of mutation testing (https://en.wikipedia.org/wiki/Mutation_testing). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Unit Test Generation — the suite layer this skill evaluates. - Property-Based Testing — the assertion-strength companion that also hunts survivors. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "05-code/n-plus-one-query-detection",
+    "title": "N Plus One Query Detection",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "performance",
+      "queries",
+      "detection"
+    ],
+    "description": "Detect query loops that issue one request per item, and rewrite them into batched access with a measured request-count check.",
+    "body": "N Plus One Query Detection Description Detect query loops that issue one request per item, and rewrite them into batched access with a measured request-count check. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a page or endpoint is slow and the cause may be one query per item in a loop. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for n plus one query detection work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the n plus one query detection steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Counting queries only on the happy path. - Batching without checking the result order. - Assuming the loop is the cause without a counter. - Fixing one loop while five clones remain. - No regression counter that fails CI next time. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence N-plus-one access patterns remain a top performance finding in 2026 API reviews in public coverage; this is a dated signal, not an adoption metric. Related - performance-profiling.md - sql-query-generation.md - observability-instrumentation.md"
+  },
+  {
+    "id": "05-code/observability-instrumentation",
+    "title": "Observability Instrumentation",
+    "category": "05-code",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [
+      "observability",
+      "instrumentation",
+      "code"
+    ],
+    "description": "Add tracing, metrics, and structured logs to code with explicit spans, correlation identifiers, and bounded cardinality, so agent and service behavior can be measured in production.",
+    "body": "Observability Instrumentation Description Add tracing, metrics, and structured logs to code with explicit spans, correlation identifiers, and bounded cardinality, so agent and service behavior can be measured in production. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - The task has explicit constraints such as time, budget, or safety that must gate the outcome. - A silent failure mode exists that must be surfaced rather than swallowed. - Verification evidence is required before the result is trusted. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for observability instrumentation. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the observability instrumentation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Agent observability is a named 2026 production requirement; OpenTelemetry-style instrumentation is published across agent stacks. These are dated public signals, not adoption metrics. Related - structured-logging.md - performance-profiling.md - logging-observability.md"
+  },
+  {
+    "id": "05-code/performance-profiling",
+    "title": "Performance Profiling",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements.",
+    "body": "Description Measure software performance with representative workloads, identify bottlenecks, and validate changes against explicit performance requirements. Prefer measurement over intuition and preserve correctness while optimizing. When to Use Use when latency, throughput, memory, CPU, startup, or resource consumption must be investigated or improved. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Performance requirement, representative workload, profiling tools, and baseline measurements. | | Outputs | Bottleneck evidence, targeted change, and before/after verification. | | Failure modes | Unrepresentative workload, noisy measurements, premature optimization, or correctness regressions. | Runnable Example Failure modes - Optimizing without a baseline. - Using an unrealistic workload. - Mistaking measurement noise for improvement. - Skipping functional regression tests. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "05-code/polyglot-type-binding-generation",
+    "title": "Polyglot Type Binding Generation",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "codegen",
+      "types",
+      "polyglot"
+    ],
+    "description": "Generate consistent type bindings for one schema across several languages, flagging unmappable types instead of coercing them, and never generating from drifting schema copies.",
+    "body": "Polyglot Type Binding Generation Description Generate consistent type bindings for one schema across several languages, flagging unmappable types instead of coercing them, and never generating from drifting schema copies. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - One schema must produce consistent types across several languages. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | polyglot type binding generation task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the polyglot type binding generation steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | Per-language type bindings for one schema, with unmappable types flagged rather than coerced. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Acting outside the declared task boundary. - Coercing an unmappable schema type to the closest language type silently. - Generating bindings per language from drifting copies of the schema. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Cross-language binding generation is requested in 2026 agent tooling issue threads. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - protocol schema codegen - type annotation generation Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "05-code/property-based-testing",
+    "title": "Property Based Testing",
+    "category": "05-code",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Test executable invariants over generated inputs instead of fixed examples, then shrink failing cases toward minimal counterexamples that reproduce the defect with the least context.",
+    "body": "Property Based Testing Category: Code | Level: intermediate | Stability: experimental | Version: v1 Description Example-based tests check the cases someone thought of; property-based tests state invariants and let a generator search the input domain for violations. When a generated case fails, shrinking reduces it toward the smallest reproducer, which becomes the bug report and a permanent regression test. This skill covers that loop — declare invariants, generate, shrink, repair — as a reviewable engineering procedure. When to Use Use when a function or service has a checkable invariant over a wide input space and hand-written examples cover only a thin slice of it. Do not use for exact-output specifications or UI flows; deterministic example tests fit those better. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | Predicates that must hold for every generated input | | | | Yes | Input-domain definitions including edge cases | | | | No | Maximum shrinking steps per counterexample | | | | No | Deterministic seed for reproducible runs | Procedure 1. State each invariant as a predicate over generated inputs; an invariant that cannot be phrased as a predicate is a smell. 2. Define the input domain explicitly, including boundaries: empty, zero, negative, and maximum-shaped cases. 3. Run generated cases against each invariant and collect every failing input. 4. Shrink each failing input toward a minimal reproducer; the shrunk case is what gets reported. 5. Pin the shrunk counterexample as a permanent deterministic example test. 6. Repair the defect, re-run the full property, and only then remove any temporary filters. 7. Rotate seeds on a schedule; a fixed seed set forever is just a slow example suite. 8. Record which invariants ran; an unexercised invariant is untested behavior. Outputs | Output | Type | Description | |---|---|---| | | | Generated inputs that violated an invariant | | | | Minimal reproducers suitable for regression tests | | | | Pass or fail state per declared invariant | | | | Number of generated cases executed | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Weak invariant | The property restates the implementation | Derive invariants from the specification, not the code | | No shrinking | The first random failure is reported as-is | Shrink toward minimal inputs before reporting | | Shrunk-case loss | The counterexample is never pinned | Add the shrunk case as a deterministic regression test | | Fixed-seed blindness | The same seed runs forever | Rotate seeds while keeping failures reproducible | | Generator gaps | The domain excludes edge values | Include empty, zero, negative, and maximum cases | Security and Authority Boundary Property-based testing grants no authority to run generated inputs against production systems. Generators produce untrusted data: targets under test must be sandboxed, and shrinking must never reduce toward inputs that trigger real side effects. Evidence This skill is grounded in dated public implementation references: 1. The Hypothesis property-based testing documentation (https://hypothesis.readthedocs.io/en/latest/). 2. Python’s unittest documentation (https://docs.python.org/3/library/unittest.html). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Unit Test Generation — writes example tests; this skill generates the inputs those tests miss. - Integration Test Writing — covers component seams; this skill stresses single-contract invariants. - Assertion — states single checks; this skill states invariants over whole domains. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "05-code/protocol-schema-codegen",
+    "title": "Protocol Schema Codegen",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "codegen",
+      "protocols",
+      "schema"
+    ],
+    "description": "Generate typed client bindings from protocol schemas with pinned schema versions, and verify round-trip serialization against the source schema.",
+    "body": "Protocol Schema Codegen Description Generate typed client bindings from protocol schemas with pinned schema versions, and verify round-trip serialization against the source schema. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - client code must be generated from a protocol schema so manual drift between schema and code is prevented. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for protocol schema codegen work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the protocol schema codegen steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Generating from a schema with no recorded version. - Hand-editing generated code that the next run overwrites. - No round-trip test between code types and the schema. - Generating against a moving latest schema tag. - Ignoring deprecation markers in the schema. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Schema-first code generation for agent protocols is a recurring 2026 tooling request in public developer discussion; this is a dated signal, not an adoption metric. Related - api-client-generation.md - sql-query-generation.md - type-annotation-generation.md"
+  },
+  {
+    "id": "05-code/refactoring",
+    "title": "Refactoring",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Restructure code to improve maintainability or design while preserving documented behavior and interfaces.",
+    "body": "Description Restructure code to improve maintainability or design while preserving documented behavior and interfaces. Refactoring is evidence-driven: establish current behavior, make a bounded change, and verify equivalence. When to Use Use when structure, duplication, coupling, readability, or maintainability needs improvement without changing intended behavior. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Current implementation, tests, interfaces, and explicit design goal. | | Outputs | Cleaner structure with preserved behavior and verification evidence. | | Failure modes | Scope creep, hidden behavior changes, incomplete coverage, or API breakage. | Runnable Example Failure modes - Combining refactoring with unrelated feature work. - Changing public behavior unintentionally. - Removing tests instead of preserving coverage. - Reporting equivalence without verification. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "05-code/regex-generation",
+    "title": "Regex Generation",
+    "category": "05-code",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases.",
+    "body": "Description Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases. Prefer readable patterns and explicit tests over clever or opaque expressions. When to Use Use when structured text must be matched, extracted, validated, or rejected using regular expressions. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Required matches, required rejections, engine syntax, flags, and representative samples. | | Outputs | Tested regex and documented assumptions. | | Failure modes | Overmatching, undermatching, engine incompatibility, or pathological performance. | Runnable Example Failure modes - Deriving a pattern without explicit examples. - Ignoring the target regex engine. - Testing only positive cases. - Creating unnecessarily expensive patterns. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "05-code/repl-interaction",
+    "title": "Repl Interaction",
+    "category": "05-code",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests.",
+    "body": "Description Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests. Keep experiments isolated and convert durable findings into source or tests. When to Use Use for exploratory debugging, API inspection, small transformations, or hypothesis testing. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Inputs | Runtime, relevant modules, hypothesis, and controlled sample data. | | Outputs | Reproducible findings, code, or tests derived from the experiment. | | Failure modes | Hidden state, environment mismatch, non-reproducible sessions, or accidental side effects. | Runnable Example Failure modes - Relying on hidden interactive state. - Making destructive changes during exploration. - Treating a REPL result as full project verification. - Failing to capture a reproducible experiment. Related - 05-code - AICONSTITUTION.md - meta/AGENTOPERATING_MODEL.md Evidence Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made."
+  },
+  {
+    "id": "05-code/requirement-tracing",
+    "title": "Requirement Tracing",
+    "category": "05-code",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "requirement",
+      "tracing",
+      "code"
+    ],
+    "description": "Trace each requirement to the code, tests, and documentation that implement it, and report uncovered or am
