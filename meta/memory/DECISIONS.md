@@ -1630,3 +1630,18 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen when the owner pauses, cancels, or changes the program's daily volume, or if the quality gates prove incompatible with the daily cadence (the gates themselves are never weakened; the program yields instead).
+
+
+## DECISION-2026-10-16-COUNSEL-AGENT-HIRE
+
+**Topic:** Add Counsel as the tenth permanent specialist agent (worker + advisory challenger).
+
+**Decision:** The Human Owner directed on 2026-10-16 the hire of a new permanent agent, Counsel, with a dual mandate: (1) execute assigned engineering slices from the standing queue through the standard branch → PR → full-CI → exact-head merge protocol, and (2) serve as the non-blocking challenger/advisor for pull requests and D2+ decisions, recording verdicts with reasons and escalating gate violations to the Governance Officer. The initial assigned mission set is recorded in `meta/COUNSEL_CHARTER.md`: the search-index skills-freshness contract (standing-queue item 2 — the 2026-10-15 batch-2 encoding defect stayed CI-green because the search index has no corpus-freshness contract), a bounded advisory corpus-quality review of the 1039-skill public corpus, and a reserved slot for one owner-specified task. `meta/AGENT_TEAM_CHART.md` registers Counsel as agent 10. No existing gate, authority boundary, or decision class is weakened or bypassed; advisory findings are non-blocking unless they expose a gate violation.
+
+**Confidence:** HIGH — direct owner instruction recorded 2026-10-16.
+
+**Evidence IDs:** owner instruction 2026-10-16; `meta/AGENT_TEAM_CHART.md`; `meta/AGENT_DECISION_FRAMEWORK.md` (D4 governance-change path); `meta/COUNSEL_CHARTER.md`; DECISION-2026-10-03-AUTOMATED-CI-MERGE-AUTHORIZATION; `meta/CONTINUITY.md` standing queue; `meta/CURRENT-STATE.md` 2026-10-15 batch-2 record (search-index CI-blindness).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only if the Human Owner terminates or redefines the Counsel role, or a later governance decision supersedes the team composition.
