@@ -128,3 +128,16 @@ Issue #447 is closed by recorded decision: the atomic-republication path — cro
 ## Disposition update — 2026-10-15 (post-expansion projection republication wave)
 
 No workflow file, trigger, permission, or classification changes in this wave. The six generated-writer bot PRs republishing the post-expansion projections (#591 quality report, #592 graph, #593 README counts, #594 Skills API, #595 badges, #597 search index) required App-authored identical-content recommits on their automation branches to obtain the full runnable check suite (the documented #447 same-actor workaround: bot `GITHUB_TOKEN` pushes leave required checks at `action_required`); each was squash-merged at its exact head after every non-staleness check passed, and duplicate bot PR #596 was verified byte-identical to `main` and closed as already applied. The wave's only test change (#598) realigns the hard-coded discovery-index count in `tests/test_agent_skills_discovery.py` (861 → 912) with the reconciled corpus; parallel fix PR #599 was closed as superseded by the fully-green #598. The 46-workflow count, all classifications, and all governance-pinned phrases are unchanged, and no CI, quality, security, or governance gate is weakened.
+
+
+## Disposition update — 2026-10-16 (Counsel agent onboarding)
+
+The tenth permanent specialist agent (Counsel) is hired with a worker +
+advisory-challenger mandate (`meta/COUNSEL_CHARTER.md`,
+DECISION-2026-10-16-COUNSEL-AGENT-HIRE in `meta/memory/DECISIONS.md`). No
+workflow is added, removed, or modified in this cycle: the hire is a
+governance-documentation change, and Counsel executes work through the
+existing branch → PR → CI → exact-head merge protocol with no new
+automation. The workflow count, all classifications, and all
+governance-pinned phrases are unchanged, and no CI, quality, security, or
+governance gate is weakened.
