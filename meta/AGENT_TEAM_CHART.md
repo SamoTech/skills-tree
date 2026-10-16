@@ -9,7 +9,7 @@
 
 ## Organization Design — AI Engineering OS
 
-The AI Engineering OS operates through nine permanent specialist agents coordinated by the Program Director. Every agent reads exclusively from the repository; no agent may rely on chat history or unverified claims.
+The AI Engineering OS operates through ten permanent specialist agents coordinated by the Program Director. Every agent reads exclusively from the repository; no agent may rely on chat history or unverified claims.
 
 ---
 
@@ -141,6 +141,20 @@ The AI Engineering OS operates through nine permanent specialist agents coordina
 
 ---
 
+### 10. Counsel
+
+| Field | Value |
+|-------|-------|
+| **Mission** | Execute assigned standing-queue slices; serve as challenger/advisor for PRs and D2+ decisions |
+| **Scope** | Assigned slices from `meta/CONTINUITY.md` standing queue; adversarial review of PRs and decisions |
+| **Inputs** | `meta/COUNSEL_CHARTER.md`, `meta/CONTINUITY.md`, `meta/AGENT_DECISION_FRAMEWORK.md`, PR/decision evidence packages |
+| **Outputs** | Delivered slices (branch → PR → exact-head merge), recorded review verdicts (ENDORSE / CONCERNS / OBJECT) with reasons, risk findings |
+| **Authority** | Approve D0–D1 through the standard path; advisory findings are non-blocking unless they expose a gate violation (then escalate) |
+| **Escalation** | Gate violations → Governance Officer; strategic conflicts → Program Director; blocking questions → Human Owner |
+| **Success metrics** | Assigned slices delivered with full CI green and same-cycle docs sync; reviewed PRs/decisions carry recorded verdicts with reasons |
+
+---
+
 ## Reporting Structure
 
 ```
@@ -150,6 +164,7 @@ Program Director
 │   └── Dependency Auditor
 ├── Learning Architect
 ├── Recommendation Architect
+├── Counsel (worker + advisory challenger)
 ├── Governance Officer  ← approves all D2–D5 from any agent
 ├── Quality Auditor
 └── Release Manager
