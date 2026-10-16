@@ -1,0 +1,161 @@
+  {
+    "id": "07-tool-use/sendgrid-api",
+    "title": "SendGrid API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification.",
+    "body": "SendGrid API Description Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification. When to Use Use this skill when the workflow explicitly requires sendgrid api and the target account, document, channel, or provider is authorized. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Use least-privilege credentials managed outside source code. | | Scope | Bound the operation to the intended resource and task. | | Inputs | Validate identifiers, content, filters, and required fields. | | Outputs | Preserve structured provider results needed by downstream steps. | | Verification | Re-check important reads or mutations when correctness matters. | | Privacy | Minimize exposure and retention of sensitive content. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. | Runnable Example Failure modes - Hard-coding credentials or exposing them in logs. - Assuming provider fields or identifiers are portable across accounts. - Performing side effects without validating authorization and current state. - Treating an HTTP/API acknowledgement as proof of the desired business outcome. - Using unbounded pagination or retries. Evidence Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools"
+  },
+  {
+    "id": "07-tool-use/shell-command-dry-run-analysis",
+    "title": "Shell Command Dry Run Analysis",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "shell",
+      "dry-run",
+      "safety"
+    ],
+    "description": "Analyze shell commands in dry-run mode before execution, mapping file writes, network access, and privilege requirements so destructive effects are caught pre-run.",
+    "body": "Shell Command Dry Run Analysis Description Analyze shell commands in dry-run mode before execution, mapping file writes, network access, and privilege requirements so destructive effects are caught pre-run. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - A shell command will run and its blast radius must be known first. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | shell command dry run analysis task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the shell command dry run analysis steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A pre-run report with file writes, network access, and privilege requirements. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Treating a command with no dry-run flag as inherently safe. - Missing effects hidden in subshells, pipes, or environment expansion. - Running the analysis and then executing a different command than analyzed. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Pre-execution command analysis appears in 2026 agent framework production guidance. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - tool capability cataloging - mcp tool argument validation Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "07-tool-use/slack-api",
+    "title": "Slack API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects.",
+    "body": "Slack API Description Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects. When to Use Use this skill when the workflow explicitly requires slack api and the target account, document, channel, or provider is authorized. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Use least-privilege credentials managed outside source code. | | Scope | Bound the operation to the intended resource and task. | | Inputs | Validate identifiers, content, filters, and required fields. | | Outputs | Preserve structured provider results needed by downstream steps. | | Verification | Re-check important reads or mutations when correctness matters. | | Privacy | Minimize exposure and retention of sensitive content. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. | Runnable Example Failure modes - Hard-coding credentials or exposing them in logs. - Assuming provider fields or identifiers are portable across accounts. - Performing side effects without validating authorization and current state. - Treating an HTTP/API acknowledgement as proof of the desired business outcome. - Using unbounded pagination or retries. Evidence Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools"
+  },
+  {
+    "id": "07-tool-use/small-model-tool-routing",
+    "title": "Small Model Tool Routing",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "routing",
+      "cost",
+      "models"
+    ],
+    "description": "Route tool calls between small and large models by call complexity, with fallback to the large model whenever confidence criteria are not met.",
+    "body": "Small Model Tool Routing Description Route tool calls between small and large models by call complexity, with fallback to the large model whenever confidence criteria are not met. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - tool calls should run on cheaper models when the call is simple and escalate when it is not. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for small model tool routing work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the small model tool routing steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Routing on token count alone. - No failure detection when the small model errs. - Routing sensitive calls to the cheapest endpoint. - No latency accounting for the routing decision itself. - Never re-measuring the threshold after model updates. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Small-model routing for cost reduction is a documented 2026 inference-cost practice in public coverage; this is a dated signal, not an adoption metric. Related - multi-provider-redundancy.md - tool-token-budget-management.md - tool-latency-probing.md"
+  },
+  {
+    "id": "07-tool-use/sql-tool",
+    "title": "SQL Tool",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Execute bounded SQL through an authorized database tool using parameterized queries, least privilege, transaction boundaries, and result validation.",
+    "body": "SQL Tool Description Execute bounded SQL through an authorized database tool using parameterized queries, least privilege, transaction boundaries, and result validation. When to Use Use this skill only when the workflow requires sql tool, the target account or resource is authorized, and the provider contract is documented. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Keep credentials outside source code and prompts; use least privilege. | | Scope | Bound the target resource, operation, and result set. | | Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. | | Outputs | Preserve structured results and provider identifiers needed downstream. | | Verification | Re-read or otherwise verify important outcomes and side effects. | | Safety | Apply authorization, rate limits, and sensitive-data controls. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. | Runnable Example Failure modes - Hard-coding credentials or placing secrets in tool arguments. - Assuming provider identifiers or schemas are portable across accounts. - Performing mutations without authorization and current-state checks. - Treating a successful API response as proof of the desired business outcome. - Using unbounded retries, pagination, or result sets. Evidence - Provider documentation: https://www.postgresql.org/docs/current/sql.html - Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools - input-guardrails"
+  },
+  {
+    "id": "07-tool-use/streaming-tool-output",
+    "title": "Streaming Tool Output",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [],
+    "description": "Consume tool output as it arrives — newline-delimited chunks, incremental parsers, bounded buffers — so long-running results become usable before they finish.",
+    "body": "Streaming Tool Output Category: Tool Use | Level: intermediate | Stability: experimental | Version: v1 Description Some tool calls are streams pretending to be calls: search results that arrive page by page, logs that emit lines for minutes, models that produce tokens before the sentence is done. This skill treats the output as a sequence with a protocol — a delimiter or an event frame — and consumes it incrementally: parse what has arrived, hold a bounded remainder for the incomplete tail, and surface progress to whoever is waiting. The alternative is buffering everything, which turns a long result into a long silence followed by a large object. When to Use Use for long-running or high-volume tool output — event streams, incremental search, anything that delivers value before completion. Do not add streaming machinery to short, fast calls; a buffered read of a small response is simpler and equally correct. Inputs | Input | Type | Required | Description | |---|---|---|---| | | | Yes | The tool output arriving incrementally | | | | Yes | The boundary that separates records, newline by default | | | | Yes | What to run on each complete record as it parses | | | | No | Maximum bytes held for an incomplete tail | Procedure 1. Fix the protocol first: know what delimits a record — a newline, a frame header, a terminator — before reading a byte. 2. Read incrementally and split on the delimiter, keeping the incomplete tail in a buffer rather than discarding it. 3. Dispatch each complete record to the handler immediately, so downstream work overlaps with the remaining stream. 4. Bound the buffer: a tail that grows past its limit is a protocol violation, and streaming must fail loudly, not allocate quietly. 5. Surface progress — records seen, bytes read — so a slow stream is observable while it runs. 6. Handle terminal conditions distinctly: end-of-stream, error frame, and cancellation are different events and must close differently. Outputs | Output | Type | Description | |---|---|---| | | | Complete records yielded as they parse | | | | Records and bytes consumed so far | | | | Terminal state of the stream when it ends | Runnable Example Failure Modes | Failure Mode | Cause | Mitigation | |---|---|---| | Split records | A record divided across chunk boundaries | Buffer the incomplete tail and split on the delimiter | | Unbounded buffering | A stream with no delimiters fills memory | Enforce a buffer limit and fail loudly on overflow | | Lost tails | Final unterminated record dropped at close | Yield the remainder when the stream ends | | Blocked consumers | Slow handler stalls the entire stream | Dispatch records and let the consumer set pace | | Ambiguous closes | Error, cancel, and completion all look alike | Close with an explicit terminal reason per stream | Security and Authority Boundary Streamed output bypasses the size checks that whole responses get: incremental data must still be validated per record at the boundary, and progress events must not leak record contents into logs where whole payloads would never be allowed. Evidence This skill is grounded in dated public implementation references: 1. The JSON Lines format specification site (https://jsonlines.org/). 2. Wikipedia's overview of stream processing (https://en.wikipedia.org/wiki/Stream_processing). Honest boundary: these are implementation references, not adoption or demand evidence; this entry was added under the owner-directed corpus expansion recorded in , and no demand signal is claimed for it. Related Skills - Function Calling — the call layer that can deliver results incrementally. - MCP Tool — a concrete protocol whose outputs can stream. Changelog | Date | Version | Change | |---|---|---| | | v1 | Initial entry added under the owner-directed corpus expansion |"
+  },
+  {
+    "id": "07-tool-use/stripe-api",
+    "title": "Stripe API",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification.",
+    "body": "Stripe API Description Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification. When to Use Use this skill only when the workflow requires stripe api, the target account or resource is authorized, and the provider contract is documented. Inputs / outputs / failure modes | Area | Guidance | |---|---| | Authentication | Keep credentials outside source code and prompts; use least privilege. | | Scope | Bound the target resource, operation, and result set. | | Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. | | Outputs | Preserve structured results and provider identifiers needed downstream. | | Verification | Re-read or otherwise verify important outcomes and side effects. | | Safety | Apply authorization, rate limits, and sensitive-data controls. | | Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. | Runnable Example Failure modes - Hard-coding credentials or placing secrets in tool arguments. - Assuming provider identifiers or schemas are portable across accounts. - Performing mutations without authorization and current-state checks. - Treating a successful API response as proof of the desired business outcome. - Using unbounded retries, pagination, or result sets. Evidence - Provider documentation: https://docs.stripe.com/api - Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance. Related - tool-guardrails - function-calling - approval-before-destructive-tools - input-guardrails"
+  },
+  {
+    "id": "07-tool-use/tool-argument-construction",
+    "title": "Tool Argument Construction",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "experimental",
+    "tags": [
+      "tool",
+      "argument",
+      "construction",
+      "tool"
+    ],
+    "description": "Construct tool call arguments from task context with explicit unit, format, and constraint checks before invocation, and validate against the tool schema.",
+    "body": "Tool Argument Construction Description Construct tool call arguments from task context with explicit unit, format, and constraint checks before invocation, and validate against the tool schema. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - A task requires tool argument construction before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for tool argument construction. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the tool argument construction steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Acting outside the declared task boundary. - Assuming an estimate or preview equals the verified effect. - Retrying without preserving state or evidence. - Using stale inputs as if they were current. - Reporting success without checking the resulting state. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Function-calling reliability recurs in 2026 agent failure reports; argument construction with schema validation is a published mitigation. These are dated public signals, not adoption metrics. Related - function-calling.md - tool-schema-design.md - tool-output-validation.md"
+  },
+  {
+    "id": "07-tool-use/tool-behavior-contract-testing",
+    "title": "Tool Behavior Contract Testing",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "tool",
+      "behavior",
+      "contract",
+      "testing",
+      "tool"
+    ],
+    "description": "Test third-party tools against their declared behavior contracts, including schemas, side effects, latency, and error semantics, before relying on them in production flows.",
+    "body": "Tool Behavior Contract Testing Description Test third-party tools against their declared behavior contracts, including schemas, side effects, latency, and error semantics, before relying on them in production flows. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - Multiple inputs or candidates compete and must be resolved by explicit criteria. - A wrong intermediate result would propagate into consequential actions. - The task repeats and benefits from a deterministic procedure. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for tool behavior contract testing. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the tool behavior contract testing procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with tool behavior contract testing without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Agent evaluation is the top 2026 developer pain point; tool contract testing is a named component of agent test suites. These are dated public signals, not adoption metrics. Related - tool-output-validation.md - tool-review-loops.md - tool-schema-design.md"
+  },
+  {
+    "id": "07-tool-use/tool-call-trace-capture",
+    "title": "Tool Call Trace Capture",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "tracing",
+      "observability",
+      "debugging"
+    ],
+    "description": "Capture structured tool call traces with arguments, results, timing, and truncation flags so failures can be replayed and audited.",
+    "body": "Tool Call Trace Capture Description Capture structured tool call traces with arguments, results, timing, and truncation flags so failures can be replayed and audited. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - tool behavior must be diagnosable after the fact from a captured trace. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for tool call trace capture work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the tool call trace capture steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Logging traces with personal data unredacted. - Truncating without a flag so replays mismatch. - Capturing only failures so normal baselines are missing. - No timing so latency regressions stay invisible. - Traces with no correlation id across steps. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Tool-call tracing for agent debugging is a documented 2026 observability practice in public coverage; this is a dated signal, not an adoption metric. Related - tool-output-validation.md - tool-behavior-contract-testing.md - tool-result-caching.md"
+  },
+  {
+    "id": "07-tool-use/tool-capability-cataloging",
+    "title": "Tool Capability Cataloging",
+    "category": "07-tool-use",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "catalog",
+      "capability",
+      "audit"
+    ],
+    "description": "Catalog the tools an agent can access with their inputs, outputs, permissions, and side effects so selection and audit are grounded in declared capability, not memory.",
+    "body": "Tool Capability Cataloging Description Catalog the tools an agent can access with their inputs, outputs, permissions, and side effects so selection and audit are grounded in declared capability, not memory. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment. When to Use - An operator or auditor must know exactly what the agent can do. - The outcome would change if inputs were stale, ambiguous, or incomplete. - The result must be recorded with reasons and verification evidence for later audit. Inputs | Area | Contract | |---|---| | Inputs | tool capability cataloging task context, candidate data, and explicit acceptance criteria. | | Outputs | A structured record with the decision, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the tool capability cataloging steps in a bounded, checkpointed way. 4. Compare the actual outcome against the acceptance criteria and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Outputs | Area | Contract | |---|---| | Primary | A tool catalog entry with name, contract, side effects, scopes, and version. | | Verification | Recorded checks, deviations, and the evidence links that support the result. | | Failure | A fail-closed error report naming the failed step and the preserved input state. | Runnable Example Failure Modes - Cataloging tools without their side effects or permission scopes. - Leaving the catalog to drift as tools change without versioning entries. - Inferring capability from examples instead of the declared contract. - Retrying without preserving state or evidence. - Reporting success without checking the resulting state. Security and Authority Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions. Evidence - Capability catalogs and tool manifests are 2026 Model Context Protocol ecosystem themes. (public signal) - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence. Related Skills - openapi to mcp tool bridging - tool result truncation Changelog | Version | Date | Notes | |---|---|---| | | | Initial evidence-backed contract. |"
+  },
+  {
+    "id": "07-tool-use/tool-deprecation-handling",
+    "title": "Tool Deprecation Handling",
+    "category": "07-tool-use",
+    "level": "basic",
+    "stability": "experimental",
+    "tags": [
+      "tool",
+      "deprecation",
+      "handling",
+      "tool"
+    ],
+    "description": "Detect deprecated tool versions and migrate calls to supported alternatives with a compatibility plan, instead of staying pinned to end-of-life versions.",
+    "body": "Tool Deprecation Handling Description Detect deprecated tool versions and migrate calls to supported alternatives with a compatibility plan, instead of staying pinned to end-of-life versions. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - The task has explicit constraints such as time, budget, or safety that must gate the outcome. - A silent failure mode exists that must be surfaced rather than swallowed. - Verification evidence is required before the result is trusted. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for tool deprecation handling. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Normalize the task into explicit inputs, constraints, and acceptance criteria. 2. Gather the required evidence and check completeness before proceeding. 3. Apply the tool deprecation handling procedure using the declared criteria only. 4. Record the outcome, rejected alternatives, and the reason for each rejection. 5. Verify the result against the acceptance criteria with an independent check. 6. Report the result with evidence, and escalate explicitly when a criterion cannot be met. Runnable Example Failure Modes - Proceeding with tool deprecation handling without the required evidence or inputs. - Treating an unverified result as verified. - Silently swallowing errors instead of failing closed with reasons. - Optimizing the stated metric while violating the stated constraint. - Losing the audit trail of decisions and rejected alternatives. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence API churn handling recurs in 2026 agent maintenance threads; version-pinning guidance recommends planned migration. These are dated public signals, not adoption metrics. Related - api-version-pinning.md - tool-schema-design.md - tool-inventory-cataloging.md"
+  },
+  {
+    "id": "07-tool-use/tool-guardrails",
+    "title": "Tool Guardrails",
+    "category": "07-tool-use",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Validate agent inputs and outputs with lightweight guardrail agents before executing or returning tool results.",
+    "body": "Tool Guardrails Category: tool-use | Level: intermediate | Stability: stable | Version: v2 Description In the OpenAI Agents SDK, guardrails are 
