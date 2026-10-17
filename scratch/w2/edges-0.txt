@@ -1,0 +1,424 @@
+    {
+      "source": "02-reasoning/mathematical-reasoning",
+      "target": "02-reasoning/chain-of-thought",
+      "type": "RELATED_TO",
+      "evidence": "[Chain of Thought](chain-of-thought.md)",
+      "source_file": "skills/02-reasoning/mathematical-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/mathematical-reasoning",
+      "target": "07-tool-use/calculator",
+      "type": "RELATED_TO",
+      "evidence": "[Calculator](../07-tool-use/calculator.md)",
+      "source_file": "skills/02-reasoning/mathematical-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/meta-prompting",
+      "target": "02-reasoning/prompt-engineering",
+      "type": "RELATED_TO",
+      "evidence": "[Prompt Engineering](prompt-engineering.md)",
+      "source_file": "skills/02-reasoning/meta-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/meta-prompting",
+      "target": "09-agentic-patterns/react",
+      "type": "RELATED_TO",
+      "evidence": "[ReAct Pattern](../09-agentic-patterns/react.md)",
+      "source_file": "skills/02-reasoning/meta-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/meta-prompting",
+      "target": "02-reasoning/planning-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Planning Decomposition](planning-decomposition.md)",
+      "source_file": "skills/02-reasoning/meta-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/meta-prompting",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](../09-agentic-patterns/reflection.md)",
+      "source_file": "skills/02-reasoning/meta-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/model-selection-reasoning",
+      "target": "02-reasoning/budget-aware-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[budget aware reasoning](../02-reasoning/budget-aware-reasoning.md)",
+      "source_file": "skills/02-reasoning/model-selection-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/model-selection-reasoning",
+      "target": "02-reasoning/abstention-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[abstention decision reasoning](../02-reasoning/abstention-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/model-selection-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/multi-agent-consensus-reasoning",
+      "target": "02-reasoning/self-consistency",
+      "type": "RELATED_TO",
+      "evidence": "[self consistency](../02-reasoning/self-consistency.md)",
+      "source_file": "skills/02-reasoning/multi-agent-consensus-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/multi-agent-consensus-reasoning",
+      "target": "02-reasoning/chain-of-verification",
+      "type": "RELATED_TO",
+      "evidence": "[chain of verification](../02-reasoning/chain-of-verification.md)",
+      "source_file": "skills/02-reasoning/multi-agent-consensus-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/pareto-analysis",
+      "target": "02-reasoning/prioritization",
+      "type": "RELATED_TO",
+      "evidence": "[Prioritization](prioritization.md)",
+      "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/pareto-analysis",
+      "target": "02-reasoning/trade-off-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Trade-off Analysis](trade-off-analysis.md)",
+      "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "09-agentic-patterns/plan-and-execute",
+      "type": "RELATED_TO",
+      "evidence": "[Plan-and-Execute](../09-agentic-patterns/plan-and-execute.md)",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "02-reasoning/goal-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Goal Decomposition](goal-decomposition.md)",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "02-reasoning/least-to-most",
+      "type": "RELATED_TO",
+      "evidence": "[Least-to-Most Prompting](least-to-most.md)",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "09-agentic-patterns/react",
+      "type": "RELATED_TO",
+      "evidence": "[ReAct Pattern](../09-agentic-patterns/react.md)",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "09-agentic-patterns/subagent-delegation",
+      "type": "RELATED_TO",
+      "evidence": "[Subagent Delegation](../09-agentic-patterns/subagent-delegation.md)",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning",
+      "target": "02-reasoning/task-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Task Decomposition](task-decomposition.md)",
+      "source_file": "skills/02-reasoning/planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning",
+      "target": "09-agentic-patterns/react",
+      "type": "RELATED_TO",
+      "evidence": "[ReAct](../09-agentic-patterns/react.md)",
+      "source_file": "skills/02-reasoning/planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](../09-agentic-patterns/reflection.md)",
+      "source_file": "skills/02-reasoning/planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/planning",
+      "target": "02-reasoning/goal-setting",
+      "type": "RELATED_TO",
+      "evidence": "[Goal Setting](goal-setting.md)",
+      "source_file": "skills/02-reasoning/planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "02-reasoning/meta-prompting",
+      "type": "RELATED_TO",
+      "evidence": "[Meta-Prompting](meta-prompting.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "02-reasoning/step-back-prompting",
+      "type": "RELATED_TO",
+      "evidence": "[Step-Back Prompting](step-back-prompting.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "02-reasoning/goal-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Goal Decomposition](goal-decomposition.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/prompt-engineering",
+      "target": "09-agentic-patterns/react",
+      "type": "RELATED_TO",
+      "evidence": "[ReAct Pattern](../09-agentic-patterns/react.md)",
+      "source_file": "skills/02-reasoning/prompt-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/reasoning-under-uncertainty",
+      "target": "02-reasoning/self-consistency",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Consistency](self-consistency.md)",
+      "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/reasoning-under-uncertainty",
+      "target": "02-reasoning/hypothesis-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Hypothesis Generation](hypothesis-generation.md)",
+      "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/reasoning-under-uncertainty",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection Pattern](../09-agentic-patterns/reflection.md)",
+      "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/reasoning-under-uncertainty",
+      "target": "03-memory/rag",
+      "type": "RELATED_TO",
+      "evidence": "[RAG Retrieval](../03-memory/rag.md)",
+      "source_file": "skills/02-reasoning/reasoning-under-uncertainty.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/refusal-decision-reasoning",
+      "target": "02-reasoning/abstention-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[abstention decision reasoning](../02-reasoning/abstention-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/refusal-decision-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/refusal-decision-reasoning",
+      "target": "02-reasoning/proof-obligation-checklist-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[proof obligation checklist reasoning](../02-reasoning/proof-obligation-checklist-reasoning.md)",
+      "source_file": "skills/02-reasoning/refusal-decision-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/resource-allocation",
+      "target": "02-reasoning/prioritization",
+      "type": "RELATED_TO",
+      "evidence": "[Prioritization](prioritization.md)",
+      "source_file": "skills/02-reasoning/resource-allocation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/resource-allocation",
+      "target": "02-reasoning/constraint-satisfaction",
+      "type": "RELATED_TO",
+      "evidence": "[Constraint Satisfaction](constraint-satisfaction.md)",
+      "source_file": "skills/02-reasoning/resource-allocation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/rollback-decision-reasoning",
+      "target": "02-reasoning/abstention-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[abstention decision reasoning](../02-reasoning/abstention-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/rollback-decision-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/rollback-decision-reasoning",
+      "target": "02-reasoning/proof-obligation-checklist-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[proof obligation checklist reasoning](../02-reasoning/proof-obligation-checklist-reasoning.md)",
+      "source_file": "skills/02-reasoning/rollback-decision-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/self-consistency",
+      "target": "09-agentic-patterns/cot",
+      "type": "RELATED_TO",
+      "evidence": "[Chain of Thought](../09-agentic-patterns/cot.md)",
+      "source_file": "skills/02-reasoning/self-consistency.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/self-consistency",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](../09-agentic-patterns/reflection.md)",
+      "source_file": "skills/02-reasoning/self-consistency.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/self-consistency",
+      "target": "09-agentic-patterns/tot",
+      "type": "RELATED_TO",
+      "evidence": "[Tree of Thought](../09-agentic-patterns/tot.md)",
+      "source_file": "skills/02-reasoning/self-consistency.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/sensitivity-analysis",
+      "target": "02-reasoning/uncertainty-quantification",
+      "type": "RELATED_TO",
+      "evidence": "[Uncertainty Quantification](uncertainty-quantification.md)",
+      "source_file": "skills/02-reasoning/sensitivity-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/sensitivity-analysis",
+      "target": "02-reasoning/risk-assessment",
+      "type": "RELATED_TO",
+      "evidence": "[Risk Assessment](risk-assessment.md)",
+      "source_file": "skills/02-reasoning/sensitivity-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/step-back-prompting",
+      "target": "09-agentic-patterns/cot",
+      "type": "RELATED_TO",
+      "evidence": "[Chain of Thought](../09-agentic-patterns/cot.md)",
+      "source_file": "skills/02-reasoning/step-back-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/step-back-prompting",
+      "target": "02-reasoning/prompt-engineering",
+      "type": "RELATED_TO",
+      "evidence": "[Prompt Engineering](prompt-engineering.md)",
+      "source_file": "skills/02-reasoning/step-back-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/step-back-prompting",
+      "target": "02-reasoning/least-to-most",
+      "type": "RELATED_TO",
+      "evidence": "[Least-to-Most Prompting](least-to-most.md)",
+      "source_file": "skills/02-reasoning/step-back-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/step-back-prompting",
+      "target": "09-agentic-patterns/rag",
+      "type": "RELATED_TO",
+      "evidence": "[RAG Pattern](../09-agentic-patterns/rag.md)",
+      "source_file": "skills/02-reasoning/step-back-prompting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/task-decomposition",
+      "target": "02-reasoning/planning",
+      "type": "RELATED_TO",
+      "evidence": "[Planning](planning.md)",
+      "source_file": "skills/02-reasoning/task-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/task-decomposition",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](../09-agentic-patterns/reflection.md)",
+      "source_file": "skills/02-reasoning/task-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/task-decomposition",
+      "target": "09-agentic-patterns/tot",
+      "type": "RELATED_TO",
+      "evidence": "[Tree of Thought](../09-agentic-patterns/tot.md)",
+      "source_file": "skills/02-reasoning/task-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/trust-boundary-reasoning",
+      "target": "02-reasoning/uncertainty-quantification",
+      "type": "RELATED_TO",
+      "evidence": "[uncertainty quantification](../02-reasoning/uncertainty-quantification.md)",
+      "source_file": "skills/02-reasoning/trust-boundary-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/trust-boundary-reasoning",
+      "target": "02-reasoning/abstention-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[abstention decision reasoning](../02-reasoning/abstention-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/trust-boundary-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/unit-consistency-reasoning",
+      "target": "02-reasoning/uncertainty-quantification",
+      "type": "RELATED_TO",
+      "evidence": "[uncertainty quantification](../02-reasoning/uncertainty-quantification.md)",
+      "source_file": "skills/02-reasoning/unit-consistency-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/unit-consistency-reasoning",
+      "target": "02-reasoning/chain-of-verification",
+      "type": "RELATED_TO",
+      "evidence": "[chain of verification](../02-reasoning/chain-of-verification.md)",
+      "source_file": "skills/02-reasoning/unit-consistency-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-store-migration",
+      "target": "03-memory/memory-schema-migration",
+      "type": "RELATED_TO",
+      "evidence": "[memory schema migration](../03-memory/memory-schema-migration.md)",
+      "source_file": "skills/03-memory/agent-memory-store-migration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-store-migration",
+      "target": "03-memory/agent-memory-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[agent memory schema design](../03-memory/agent-memory-schema-design.md)",
+      "source_file": "skills/03-memory/agent-memory-store-migration.md",
+      "confidence": "high"
+    }

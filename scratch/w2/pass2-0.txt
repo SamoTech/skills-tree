@@ -1,0 +1,18 @@
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "02-reasoning/goal-decomposition",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 02-reasoning/goal-decomposition",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    },
+    {
+      "source": "02-reasoning/planning-decomposition",
+      "target": "09-agentic-patterns/react",
+      "type": "REQUIRES",
+      "evidence": "prerequisites: 09-agentic-patterns/react",
+      "source_file": "skills/02-reasoning/planning-decomposition.md",
+      "confidence": "high",
+      "source_method": "frontmatter_prerequisite"
+    }
