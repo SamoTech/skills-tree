@@ -1,0 +1,704 @@
+    {
+      "source": "01-perception/agent-trace-span-parsing",
+      "target": "01-perception/agent-card-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[agent card parsing](../01-perception/agent-card-parsing.md)",
+      "source_file": "skills/01-perception/agent-trace-span-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/agent-trace-span-parsing",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[api response parsing](../01-perception/api-response-parsing.md)",
+      "source_file": "skills/01-perception/agent-trace-span-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/agent-trace-span-parsing",
+      "target": "01-perception/clickstream-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[clickstream parsing](../01-perception/clickstream-parsing.md)",
+      "source_file": "skills/01-perception/agent-trace-span-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/audio-stream-segmentation",
+      "target": "01-perception/asr-hallucination-detection",
+      "type": "RELATED_TO",
+      "evidence": "[asr hallucination detection](../01-perception/asr-hallucination-detection.md)",
+      "source_file": "skills/01-perception/audio-stream-segmentation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/audio-stream-segmentation",
+      "target": "01-perception/audio-transcription",
+      "type": "RELATED_TO",
+      "evidence": "[audio transcription](../01-perception/audio-transcription.md)",
+      "source_file": "skills/01-perception/audio-stream-segmentation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/barcode-qr-scanning",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/barcode-qr-scanning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/barcode-qr-scanning",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/barcode-qr-scanning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/file-system-reading",
+      "type": "RELATED_TO",
+      "evidence": "[File System Reading](./file-system-reading.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](./image-understanding.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/binary-file-reading",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](./ocr.md)",
+      "source_file": "skills/01-perception/binary-file-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-parsing",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-parsing",
+      "target": "01-perception/email-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Email Parsing](./email-parsing.md)",
+      "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-parsing",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](./structured-data-reading.md)",
+      "source_file": "skills/01-perception/calendar-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-recurrence-rule-parsing",
+      "target": "01-perception/clickstream-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[clickstream parsing](../01-perception/clickstream-parsing.md)",
+      "source_file": "skills/01-perception/calendar-recurrence-rule-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/calendar-recurrence-rule-parsing",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[document parsing](../01-perception/document-parsing.md)",
+      "source_file": "skills/01-perception/calendar-recurrence-rule-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/certificate-parsing",
+      "target": "01-perception/network-traffic-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Network Traffic Reading](network-traffic-reading.md)",
+      "source_file": "skills/01-perception/certificate-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/certificate-parsing",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/certificate-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/chart-reading",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/chart-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/chart-reading",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/chart-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/chart-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/chart-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/chart-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/chart-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/code-reading",
+      "target": "01-perception/text-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Text Reading](text-reading.md)",
+      "source_file": "skills/01-perception/code-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/code-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/code-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/code-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/code-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/code-reading",
+      "target": "01-perception/file-system-reading",
+      "type": "RELATED_TO",
+      "evidence": "[File System Reading](file-system-reading.md)",
+      "source_file": "skills/01-perception/code-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/config-file-parsing",
+      "target": "01-perception/env-file-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Env File Parsing](env-file-parsing.md)",
+      "source_file": "skills/01-perception/config-file-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/config-file-parsing",
+      "target": "01-perception/json-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[JSON Schema Validation](json-schema-validation.md)",
+      "source_file": "skills/01-perception/config-file-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/database-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/database-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/database-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](api-response-parsing.md)",
+      "source_file": "skills/01-perception/database-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/database-reading",
+      "target": "01-perception/text-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Text Reading](text-reading.md)",
+      "source_file": "skills/01-perception/database-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/depth-estimation",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/depth-estimation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/depth-estimation",
+      "target": "01-perception/video-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Video Understanding](video-understanding.md)",
+      "source_file": "skills/01-perception/depth-estimation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/document-parsing",
+      "target": "01-perception/pdf-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[PDF Parsing](pdf-parsing.md)",
+      "source_file": "skills/01-perception/document-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/document-parsing",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/document-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/document-parsing",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/document-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/document-parsing",
+      "target": "01-perception/email-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Email Parsing](email-parsing.md)",
+      "source_file": "skills/01-perception/document-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/email-parsing",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/email-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/email-parsing",
+      "target": "01-perception/text-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Text Reading](text-reading.md)",
+      "source_file": "skills/01-perception/email-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/email-parsing",
+      "target": "01-perception/pdf-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[PDF Parsing](pdf-parsing.md)",
+      "source_file": "skills/01-perception/email-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/env-file-parsing",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/env-file-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/env-file-parsing",
+      "target": "01-perception/log-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Log Parsing](log-parsing.md)",
+      "source_file": "skills/01-perception/env-file-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/env-file-parsing",
+      "target": "04-action-execution/env-vars",
+      "type": "RELATED_TO",
+      "evidence": "[Env Vars](../04-action-execution/env-vars.md)",
+      "source_file": "skills/01-perception/env-file-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/file-system-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/file-system-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/file-system-reading",
+      "target": "01-perception/code-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Code Reading](code-reading.md)",
+      "source_file": "skills/01-perception/file-system-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/file-system-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/file-system-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/geospatial-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](./structured-data-reading.md)",
+      "source_file": "skills/01-perception/geospatial-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/geospatial-reading",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](./image-understanding.md)",
+      "source_file": "skills/01-perception/geospatial-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/geospatial-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/geospatial-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/git-diff-reading",
+      "target": "01-perception/code-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Code Reading](./code-reading.md)",
+      "source_file": "skills/01-perception/git-diff-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/git-diff-reading",
+      "target": "01-perception/file-system-reading",
+      "type": "RELATED_TO",
+      "evidence": "[File System Reading](./file-system-reading.md)",
+      "source_file": "skills/01-perception/git-diff-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/git-diff-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/git-diff-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/handwriting-recognition",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/handwriting-recognition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/handwriting-recognition",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/handwriting-recognition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/handwriting-recognition",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/handwriting-recognition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/url-dom-inspection",
+      "type": "RELATED_TO",
+      "evidence": "[URL DOM Inspection](./url-dom-inspection.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/html-reading",
+      "target": "01-perception/table-extraction",
+      "type": "RELATED_TO",
+      "evidence": "[Table Extraction](./table-extraction.md)",
+      "source_file": "skills/01-perception/html-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/image-metadata-parsing",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[document parsing](../01-perception/document-parsing.md)",
+      "source_file": "skills/01-perception/image-metadata-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/image-metadata-parsing",
+      "target": "01-perception/certificate-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[certificate parsing](../01-perception/certificate-parsing.md)",
+      "source_file": "skills/01-perception/image-metadata-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/iot-telemetry-parsing",
+      "target": "01-perception/sensor-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Sensor Reading](sensor-reading.md)",
+      "source_file": "skills/01-perception/iot-telemetry-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/iot-telemetry-parsing",
+      "target": "01-perception/log-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Log Parsing](log-parsing.md)",
+      "source_file": "skills/01-perception/iot-telemetry-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/json-schema-validation",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](./api-response-parsing.md)",
+      "source_file": "skills/01-perception/json-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/json-schema-validation",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](./structured-data-reading.md)",
+      "source_file": "skills/01-perception/json-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/json-schema-validation",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](./document-parsing.md)",
+      "source_file": "skills/01-perception/json-schema-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/llm-confidence-signal-extraction",
+      "target": "01-perception/asr-hallucination-detection",
+      "type": "RELATED_TO",
+      "evidence": "[asr hallucination detection](../01-perception/asr-hallucination-detection.md)",
+      "source_file": "skills/01-perception/llm-confidence-signal-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/llm-confidence-signal-extraction",
+      "target": "01-perception/clickstream-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[clickstream parsing](../01-perception/clickstream-parsing.md)",
+      "source_file": "skills/01-perception/llm-confidence-signal-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/llm-usage-metrics-parsing",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[api response parsing](../01-perception/api-response-parsing.md)",
+      "source_file": "skills/01-perception/llm-usage-metrics-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/llm-usage-metrics-parsing",
+      "target": "01-perception/clickstream-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[clickstream parsing](../01-perception/clickstream-parsing.md)",
+      "source_file": "skills/01-perception/llm-usage-metrics-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/metadata-extraction",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/metadata-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/metadata-extraction",
+      "target": "01-perception/pdf-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[PDF Parsing](pdf-parsing.md)",
+      "source_file": "skills/01-perception/metadata-extraction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/ocr",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/ocr.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/ocr",
+      "target": "01-perception/pdf-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[PDF Parsing](pdf-parsing.md)",
+      "source_file": "skills/01-perception/ocr.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/ocr",
+      "target": "01-perception/handwriting-recognition",
+      "type": "RELATED_TO",
+      "evidence": "[Handwriting Recognition](handwriting-recognition.md)",
+      "source_file": "skills/01-perception/ocr.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/ocr",
+      "target": "01-perception/table-extraction",
+      "type": "RELATED_TO",
+      "evidence": "[Table Extraction](table-extraction.md)",
+      "source_file": "skills/01-perception/ocr.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/pdf-form-field-parsing",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[document parsing](../01-perception/document-parsing.md)",
+      "source_file": "skills/01-perception/pdf-form-field-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/pdf-form-field-parsing",
+      "target": "01-perception/email-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[email parsing](../01-perception/email-parsing.md)",
+      "source_file": "skills/01-perception/pdf-form-field-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/sarif-results-parsing",
+      "target": "01-perception/config-file-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[config file parsing](../01-perception/config-file-parsing.md)",
+      "source_file": "skills/01-perception/sarif-results-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/sarif-results-parsing",
+      "target": "01-perception/agent-card-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[agent card parsing](../01-perception/agent-card-parsing.md)",
+      "source_file": "skills/01-perception/sarif-results-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/screen-reading",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/screen-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/screen-reading",
+      "target": "01-perception/image-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Image Understanding](image-understanding.md)",
+      "source_file": "skills/01-perception/screen-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/screen-reading",
+      "target": "01-perception/url-dom-inspection",
+      "type": "RELATED_TO",
+      "evidence": "[URL/DOM Inspection](url-dom-inspection.md)",
+      "source_file": "skills/01-perception/screen-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/sensor-reading",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/sensor-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/sensor-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](api-response-parsing.md)",
+      "source_file": "skills/01-perception/sensor-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/structured-data-reading",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[API Response Parsing](api-response-parsing.md)",
+      "source_file": "skills/01-perception/structured-data-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/structured-data-reading",
+      "target": "01-perception/document-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Document Parsing](document-parsing.md)",
+      "source_file": "skills/01-perception/structured-data-reading.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/structured-data-reading",
+      "target": "01-perception/database-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Database Reading](database-reading.md)",
+      "source_file": "skills/01-perception/structured-data-reading.md",
+      "confidence": "high"
+    }
