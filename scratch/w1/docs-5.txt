@@ -1,0 +1,74 @@
+  {
+    "id": "02-reasoning/goal-decomposition",
+    "title": "Goal Decomposition",
+    "category": "02-reasoning",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [
+      "reasoning",
+      "planning",
+      "goals",
+      "decomposition"
+    ],
+    "description": "Break a high-level user intent or agent objective into a hierarchy of sub-goals, clarifying ambiguities and establishing measurable success criteria at each level before execution begins.",
+    "body": "Goal Decomposition Description Goal Decomposition operates at the intent level: before any tool is called or plan is generated, the agent clarifies and breaks down the user's objective into a hierarchy of sub-goals. This is distinct from Planning Decomposition (which produces executable tasks) and from Task Decomposition (which operates on already-specified tasks). Used in: - BabyAGI: The task-creation agent generates sub-goals from a primary objective - LangGraph SubGraph: Nested graphs representing decomposed goal trees - AutoGen: Nested chat patterns where a UserProxyAgent sends sub-goals to specialised agents - GPT-Researcher: Research question decomposition before search When to Use - The user's request is ambiguous or multi-dimensional. - Achieving the main goal requires achieving prerequisite sub-goals first. - You want explicit success criteria at each level (not just the final answer). - Don't use for simple, well-specified requests where goal is already clear. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | Raw user objective | | | | Available context about the domain | | → | | Hierarchical goal decomposition | | → | | Measurable criteria per sub-goal | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Goals too abstract | Model doesn't add measurability | Require in schema | | Infinite goal recursion | Model decomposes sub-goals again | Limit decomposition to 2 levels | | Missing dependency edges | Model skips prerequisite relationships | Post-validate: all non-leaf goals have at least one dependency | Production Applications - G01 Coding Agent: Decompose \"build a REST API\" into: design, implement endpoints, add auth, add tests - G02 Research Agent: Decompose research question into information needs before retrieval - G08 Multi-Agent Systems: Root goal tree drives agent specialisation decisions Related Skills - Planning Decomposition — converts sub-goals into executable tasks - Least-to-Most Prompting — reasoning technique for decomposition - Plan-and-Execute — executes the resulting plan - Memory-Augmented Agent — tracks progress against goal tree Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Full runnable example, structured output, failure modes | Evidence The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence."
+  },
+  {
+    "id": "02-reasoning/goal-setting",
+    "title": "Goal Setting",
+    "category": "02-reasoning",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Transform vague intentions into measurable goals, success criteria, dependencies, scope boundaries, and time constraints suitable for planning and execution.",
+    "body": "Goal Setting Category: Skill Level: Stability: Added: 2025-03 Version: v2 --- Description Decompose vague intentions into concrete, measurable, achievable goals with clear success criteria. Goal-setting reasoning is the first step in any planning pipeline — poorly specified goals cause irrelevant tool calls, wasted steps, and off-target outputs. --- SMART Goal Framework | Criterion | Question | Bad | Good | |---|---|---|---| | Specific | What exactly? | \"Improve the code\" | \"Reduce P99 latency of endpoint\" | | Measurable | How do we know? | \"Make it faster\" | \"From 800ms to ≤200ms\" | | Achievable | Is this realistic? | \"Zero latency\" | \"≤200ms\" | | Relevant | Does it matter? | \"Refactor logging\" | \"Reduce latency that blocks checkout\" | | Time-bound | By when? | \"Soon\" | \"By end of sprint (Friday 17:00)\" | --- Goal Hierarchy Goals naturally nest. Always surface the full hierarchy before acting: --- Prompt Pattern --- Agentic Goal Tracking In long-running agent loops, goal drift is a failure mode. Mitigate with: --- Related Skills - Planning - Task Decomposition - Prioritization - Self-Reflection Failure Modes - Unsupported assumptions: state assumptions explicitly and separate them from observed inputs. - Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one. - Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls. Evidence - https://agentskills.io/specification - https://github.com/openai/openai-python Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence. Failure Modes - Unsupported assumptions: state assumptions explicitly and separate them from observed inputs. - Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints. - Resource explosion: bound candidate counts, iterations, recursion, and external tool calls. Evidence - https://agentskills.io/specification Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence."
+  },
+  {
+    "id": "02-reasoning/hypothesis-generation",
+    "title": "Hypothesis Generation",
+    "category": "02-reasoning",
+    "level": "advanced",
+    "stability": "stable",
+    "tags": [],
+    "description": "Generate multiple testable explanations for an observation, compare them using stated evidence, and identify discriminating checks.",
+    "body": "Hypothesis Generation Category: Skill Level: Stability: Added: 2025-03 Description Propose testable explanations or predictions for observed phenomena based on available evidence. Example Related Skills - Abductive Reasoning - Causal Reasoning - Inductive Reasoning - Deductive Reasoning Failure Modes - Unsupported assumptions: state assumptions explicitly and separate them from observed inputs. - Ambiguous or incomplete premises: return uncertainty rather than fabricating missing constraints. - Resource explosion: bound candidate counts, iterations, recursion, and external tool calls. Evidence - https://agentskills.io/specification Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence."
+  },
+  {
+    "id": "02-reasoning/inductive-reasoning",
+    "title": "Inductive Reasoning",
+    "category": "02-reasoning",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [],
+    "description": "Generalize from observations to tentative broader conclusions while preserving sample limits, counterexamples, and uncertainty.",
+    "body": "Inductive Reasoning Category: Skill Level: Stability: Added: 2025-03 Description Generalize from specific observations to broader principles or likely conclusions. Example Failure Modes - Hasty generalization: broad rules from few or unrepresentative observations; state the sample size and selection basis with every generalization. - Ignoring counterexamples: a single counterexample bounds a generalization; record counterexamples rather than explaining them away. - Trend extrapolation: extending a pattern beyond its observed range, or treating a coincidental run as a law. - Frequency-as-probability: an inductive conclusion is a tentative hypothesis with stated limits, not a measured probability. Related Skills - Deductive Reasoning - Statistical Analysis Evidence The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence."
+  },
+  {
+    "id": "02-reasoning/least-to-most",
+    "title": "Least-to-Most Prompting",
+    "category": "02-reasoning",
+    "level": "intermediate",
+    "stability": "stable",
+    "tags": [
+      "reasoning",
+      "decomposition",
+      "sequential",
+      "subproblems"
+    ],
+    "description": "Decompose a complex problem into a sequence of simpler sub-problems and solve them in order, feeding each solution as context for the next. Achieves generalisation on problems that defeat standard Chain-of-Thought.",
+    "body": "Least-to-Most Prompting Description Least-to-Most Prompting (Zhou et al., 2022) solves complex tasks by first asking the model to break the problem into an ordered list of sub-problems (easiest first), then solving each one sequentially, appending each answer to the context before tackling the next. The key insight: if the model can solve every sub-problem, composing the answers gives the final solution. This overcomes CoT failures where the model attempts to solve everything at once and loses track of intermediate steps. On SCAN compositionality tasks, Least-to-Most achieved 99.7% accuracy versus CoT's 16%. It also significantly outperforms CoT on DROP and math word problems with multiple constraints. When to Use - Multi-constraint math or logic problems where intermediate state matters. - Compositional generalisation tasks (new combinations of known sub-tasks). - Agent planning where each step's output becomes the next step's input. - Don't use for simple single-step tasks; the decomposition overhead is wasteful. Inputs / Outputs | Field | Type | Description | |---|---|---| | | | The complex problem to solve | | | | Cap on decomposition depth (default 8) | | → | | Ordered list of sub-problems | | → | | Corresponding solutions | | → | | Composed final answer | Runnable Example Failure Modes | Failure | Cause | Mitigation | |---|---|---| | Wrong decomposition order | Model places hard steps first | Explicit prompt: \"start with easiest\" | | Context overflow on many sub-problems | Long context chains | Cap ; summarise context | | Model loses track of goal | Too many sub-problems | Add goal reminder at each step | Production Applications - G01 Coding Agent: Decompose complex coding tasks into implementable steps - G08 Multi-Agent Systems: Each sub-problem assigned to a specialised sub-agent - G02 Research Agent: Break research questions into foundational facts then synthesis Related Skills - Chain of Thought — Least-to-Most extends CoT with explicit decomposition - Goal Decomposition — goal-level analogue of this technique - Planning Decomposition — applies decomposition to agent planning - Plan-and-Execute — agentic pattern built on this reasoning approach Changelog | Date | Version | Change | |---|---|---| | 2025-06 | v1 | Initial skill file | | 2026-06 | v2 | Full runnable example, failure modes, goal coverage | Evidence The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Implementation guidance must remain traceable to supplied or independently verified authoritative sources; no benchmark claim is made without reproducible evidence."
+  },
+  {
+    "id": "02-reasoning/long-horizon-planning",
+    "title": "Long-Horizon Planning",
+    "category": "02-reasoning",
+    "level": "advanced",
+    "stability": "experimental",
+    "tags": [
+      "planning",
+      "long-horizon",
+      "agents"
+    ],
+    "description": "Structure plans spanning many steps or long durations with staged checkpoints, milestone verification, and re-planning triggers as conditions change.",
+    "body": "Long-Horizon Planning Description Structure plans spanning many steps or long durations with staged checkpoints, milestone verification, and re-planning triggers as conditions change. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone. When to Use - a task spans dozens of steps or long durations and needs staged verification before downstream steps can proceed safely. - Ambiguity or missing evidence would change the outcome. - The result must be recorded with reasons and evidence for later verification. Inputs / Outputs | Area | Contract | |---|---| | Inputs | Task context, candidate inputs, and explicit acceptance criteria for long horizon planning work. | | Outputs | A decision or artifact with recorded reasons, rejected alternatives, and verification evidence. | | Safety | Failures must fail closed and be reported with evidence rather than retried silently. | Procedure 1. Define the goal, the constraints, and the boundary of what this procedure may change. 2. Inventory the available inputs and flag gaps or ambiguities that block progress. 3. Execute the long horizon planning steps in a bounded, checkpointed way. 4. Compare the actual outcome against the expected outcome and record deviations. 5. On failure, apply the declared fallback path, and never widen permissions to recover. 6. Emit a structured result with evidence and provenance for downstream consumers. Runnable Example Failure Modes - Planning every detail up front and never revisiting. - Missing checkpoint evidence that a milestone is real. - Continuing on stale plans after the environment changed. - Treating elapsed time as progress. - Planning horizons beyond reliable information. Boundary This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result. Evidence Long-horizon autonomous agents are a dominant 2026 agentic-AI theme in public coverage; this is a dated signal, not an adoption metric. Related - multi-step-planning.md - planning.md - scenario-planning.md"
+  }

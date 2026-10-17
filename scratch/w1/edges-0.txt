@@ -1,0 +1,552 @@
+    {
+      "source": "01-perception/unicode-homoglyph-detection",
+      "target": "01-perception/certificate-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[certificate parsing](../01-perception/certificate-parsing.md)",
+      "source_file": "skills/01-perception/unicode-homoglyph-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/unicode-homoglyph-detection",
+      "target": "01-perception/agent-card-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[agent card parsing](../01-perception/agent-card-parsing.md)",
+      "source_file": "skills/01-perception/unicode-homoglyph-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/url-dom-inspection",
+      "target": "01-perception/screen-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Screen Reading](screen-reading.md)",
+      "source_file": "skills/01-perception/url-dom-inspection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/url-dom-inspection",
+      "target": "01-perception/text-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Text Reading](text-reading.md)",
+      "source_file": "skills/01-perception/url-dom-inspection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/url-dom-inspection",
+      "target": "01-perception/structured-data-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Structured Data Reading](structured-data-reading.md)",
+      "source_file": "skills/01-perception/url-dom-inspection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/webhook-payload-parsing",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[api response parsing](../01-perception/api-response-parsing.md)",
+      "source_file": "skills/01-perception/webhook-payload-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/webhook-payload-parsing",
+      "target": "01-perception/agent-card-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[agent card parsing](../01-perception/agent-card-parsing.md)",
+      "source_file": "skills/01-perception/webhook-payload-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/abductive",
+      "target": "02-reasoning/causal",
+      "type": "RELATED_TO",
+      "evidence": "[Causal Reasoning](causal.md)",
+      "source_file": "skills/02-reasoning/abductive.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/abductive",
+      "target": "02-reasoning/commonsense",
+      "type": "RELATED_TO",
+      "evidence": "[Commonsense Reasoning](commonsense.md)",
+      "source_file": "skills/02-reasoning/abductive.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/abductive",
+      "target": "03-memory/fact-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Fact Verification](../03-memory/fact-verification.md)",
+      "source_file": "skills/02-reasoning/abductive.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/analogical",
+      "target": "02-reasoning/causal",
+      "type": "RELATED_TO",
+      "evidence": "[Causal Reasoning](causal.md)",
+      "source_file": "skills/02-reasoning/analogical.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/analogical",
+      "target": "02-reasoning/commonsense",
+      "type": "RELATED_TO",
+      "evidence": "[Commonsense Reasoning](commonsense.md)",
+      "source_file": "skills/02-reasoning/analogical.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/analogical",
+      "target": "02-reasoning/abductive",
+      "type": "RELATED_TO",
+      "evidence": "[Abductive Reasoning](abductive.md)",
+      "source_file": "skills/02-reasoning/analogical.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/assumption-explicitness-reasoning",
+      "target": "02-reasoning/assumption-mapping",
+      "type": "RELATED_TO",
+      "evidence": "[assumption mapping](../02-reasoning/assumption-mapping.md)",
+      "source_file": "skills/02-reasoning/assumption-explicitness-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/assumption-explicitness-reasoning",
+      "target": "02-reasoning/proof-obligation-checklist-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[proof obligation checklist reasoning](../02-reasoning/proof-obligation-checklist-reasoning.md)",
+      "source_file": "skills/02-reasoning/assumption-explicitness-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/case-based-reasoning",
+      "target": "02-reasoning/analogical",
+      "type": "RELATED_TO",
+      "evidence": "[Analogical Reasoning](analogical.md)",
+      "source_file": "skills/02-reasoning/case-based-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/case-based-reasoning",
+      "target": "02-reasoning/inductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Inductive Reasoning](inductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/case-based-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/causal",
+      "target": "02-reasoning/abductive",
+      "type": "RELATED_TO",
+      "evidence": "[Abductive Reasoning](abductive.md)",
+      "source_file": "skills/02-reasoning/causal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/causal",
+      "target": "02-reasoning/analogical",
+      "type": "RELATED_TO",
+      "evidence": "[Analogical Reasoning](analogical.md)",
+      "source_file": "skills/02-reasoning/causal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/causal",
+      "target": "02-reasoning/commonsense",
+      "type": "RELATED_TO",
+      "evidence": "[Commonsense Reasoning](commonsense.md)",
+      "source_file": "skills/02-reasoning/causal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/claim-evidence-alignment-reasoning",
+      "target": "02-reasoning/chain-of-verification",
+      "type": "RELATED_TO",
+      "evidence": "[chain of verification](../02-reasoning/chain-of-verification.md)",
+      "source_file": "skills/02-reasoning/claim-evidence-alignment-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/claim-evidence-alignment-reasoning",
+      "target": "02-reasoning/solution-verification",
+      "type": "RELATED_TO",
+      "evidence": "[solution verification](../02-reasoning/solution-verification.md)",
+      "source_file": "skills/02-reasoning/claim-evidence-alignment-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/commonsense",
+      "target": "02-reasoning/abductive",
+      "type": "RELATED_TO",
+      "evidence": "[Abductive Reasoning](abductive.md)",
+      "source_file": "skills/02-reasoning/commonsense.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/commonsense",
+      "target": "02-reasoning/causal",
+      "type": "RELATED_TO",
+      "evidence": "[Causal Reasoning](causal.md)",
+      "source_file": "skills/02-reasoning/commonsense.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/commonsense",
+      "target": "02-reasoning/analogical",
+      "type": "RELATED_TO",
+      "evidence": "[Analogical Reasoning](analogical.md)",
+      "source_file": "skills/02-reasoning/commonsense.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/constraint-satisfaction",
+      "target": "02-reasoning/planning",
+      "type": "RELATED_TO",
+      "evidence": "[Planning](planning.md)",
+      "source_file": "skills/02-reasoning/constraint-satisfaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/constraint-satisfaction",
+      "target": "02-reasoning/mathematical-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Mathematical Reasoning](mathematical-reasoning.md)",
+      "source_file": "skills/02-reasoning/constraint-satisfaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/constraint-satisfaction",
+      "target": "02-reasoning/decision-making",
+      "type": "RELATED_TO",
+      "evidence": "[Decision Making](decision-making.md)",
+      "source_file": "skills/02-reasoning/constraint-satisfaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/constraint-satisfaction",
+      "target": "02-reasoning/task-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Task Decomposition](task-decomposition.md)",
+      "source_file": "skills/02-reasoning/constraint-satisfaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/cost-benefit-analysis",
+      "target": "02-reasoning/trade-off-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Trade-off Analysis](trade-off-analysis.md)",
+      "source_file": "skills/02-reasoning/cost-benefit-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/cost-benefit-analysis",
+      "target": "02-reasoning/decision-making",
+      "type": "RELATED_TO",
+      "evidence": "[Decision Making](decision-making.md)",
+      "source_file": "skills/02-reasoning/cost-benefit-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/counterfactual-reasoning",
+      "target": "02-reasoning/causal",
+      "type": "RELATED_TO",
+      "evidence": "[Causal Reasoning](causal.md)",
+      "source_file": "skills/02-reasoning/counterfactual-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/counterfactual-reasoning",
+      "target": "02-reasoning/hypothesis-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Hypothesis Generation](hypothesis-generation.md)",
+      "source_file": "skills/02-reasoning/counterfactual-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/counterfactual-reasoning",
+      "target": "02-reasoning/risk-assessment",
+      "type": "RELATED_TO",
+      "evidence": "[Risk Assessment](risk-assessment.md)",
+      "source_file": "skills/02-reasoning/counterfactual-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/counterfactual-reasoning",
+      "target": "02-reasoning/self-correction",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Correction](self-correction.md)",
+      "source_file": "skills/02-reasoning/counterfactual-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/decision-making",
+      "target": "02-reasoning/planning",
+      "type": "RELATED_TO",
+      "evidence": "[Planning](planning.md)",
+      "source_file": "skills/02-reasoning/decision-making.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/decision-making",
+      "target": "02-reasoning/risk-assessment",
+      "type": "RELATED_TO",
+      "evidence": "[Risk Assessment](risk-assessment.md)",
+      "source_file": "skills/02-reasoning/decision-making.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/decision-making",
+      "target": "02-reasoning/prioritization",
+      "type": "RELATED_TO",
+      "evidence": "[Prioritization](prioritization.md)",
+      "source_file": "skills/02-reasoning/decision-making.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/deductive-reasoning",
+      "target": "02-reasoning/inductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Inductive Reasoning](inductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/deductive-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/deductive-reasoning",
+      "target": "02-reasoning/abductive",
+      "type": "RELATED_TO",
+      "evidence": "[Abductive Reasoning](abductive.md)",
+      "source_file": "skills/02-reasoning/deductive-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/deductive-reasoning",
+      "target": "02-reasoning/mathematical-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Mathematical Reasoning](mathematical-reasoning.md)",
+      "source_file": "skills/02-reasoning/deductive-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/deductive-reasoning",
+      "target": "02-reasoning/constraint-satisfaction",
+      "type": "RELATED_TO",
+      "evidence": "[Constraint Satisfaction](constraint-satisfaction.md)",
+      "source_file": "skills/02-reasoning/deductive-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/dependency-cycle-resolution-reasoning",
+      "target": "02-reasoning/proof-obligation-checklist-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[proof obligation checklist reasoning](../02-reasoning/proof-obligation-checklist-reasoning.md)",
+      "source_file": "skills/02-reasoning/dependency-cycle-resolution-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/dependency-cycle-resolution-reasoning",
+      "target": "02-reasoning/chain-of-verification",
+      "type": "RELATED_TO",
+      "evidence": "[chain of verification](../02-reasoning/chain-of-verification.md)",
+      "source_file": "skills/02-reasoning/dependency-cycle-resolution-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/first-principles-thinking",
+      "target": "02-reasoning/deductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Deductive Reasoning](deductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/first-principles-thinking.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/first-principles-thinking",
+      "target": "02-reasoning/root-cause-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Root Cause Analysis](root-cause-analysis.md)",
+      "source_file": "skills/02-reasoning/first-principles-thinking.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/first-principles-thinking",
+      "target": "02-reasoning/trade-off-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Trade-off Analysis](trade-off-analysis.md)",
+      "source_file": "skills/02-reasoning/first-principles-thinking.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/freshness-aware-reasoning",
+      "target": "02-reasoning/uncertainty-quantification",
+      "type": "RELATED_TO",
+      "evidence": "[uncertainty quantification](../02-reasoning/uncertainty-quantification.md)",
+      "source_file": "skills/02-reasoning/freshness-aware-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/freshness-aware-reasoning",
+      "target": "02-reasoning/abstention-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[abstention decision reasoning](../02-reasoning/abstention-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/freshness-aware-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/game-theory-strategy",
+      "target": "02-reasoning/decision-making",
+      "type": "RELATED_TO",
+      "evidence": "[Decision Making](decision-making.md)",
+      "source_file": "skills/02-reasoning/game-theory-strategy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/game-theory-strategy",
+      "target": "02-reasoning/probabilistic-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Probabilistic Reasoning](probabilistic-reasoning.md)",
+      "source_file": "skills/02-reasoning/game-theory-strategy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-decomposition",
+      "target": "02-reasoning/planning-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Planning Decomposition](planning-decomposition.md)",
+      "source_file": "skills/02-reasoning/goal-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-decomposition",
+      "target": "02-reasoning/least-to-most",
+      "type": "RELATED_TO",
+      "evidence": "[Least-to-Most Prompting](least-to-most.md)",
+      "source_file": "skills/02-reasoning/goal-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-decomposition",
+      "target": "09-agentic-patterns/plan-and-execute",
+      "type": "RELATED_TO",
+      "evidence": "[Plan-and-Execute](../09-agentic-patterns/plan-and-execute.md)",
+      "source_file": "skills/02-reasoning/goal-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-decomposition",
+      "target": "09-agentic-patterns/memory-augmented",
+      "type": "RELATED_TO",
+      "evidence": "[Memory-Augmented Agent](../09-agentic-patterns/memory-augmented.md)",
+      "source_file": "skills/02-reasoning/goal-decomposition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-setting",
+      "target": "02-reasoning/planning",
+      "type": "RELATED_TO",
+      "evidence": "[Planning](planning.md)",
+      "source_file": "skills/02-reasoning/goal-setting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-setting",
+      "target": "02-reasoning/task-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Task Decomposition](task-decomposition.md)",
+      "source_file": "skills/02-reasoning/goal-setting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-setting",
+      "target": "02-reasoning/prioritization",
+      "type": "RELATED_TO",
+      "evidence": "[Prioritization](prioritization.md)",
+      "source_file": "skills/02-reasoning/goal-setting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/goal-setting",
+      "target": "02-reasoning/self-reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Reflection](self-reflection.md)",
+      "source_file": "skills/02-reasoning/goal-setting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/hypothesis-generation",
+      "target": "02-reasoning/abductive",
+      "type": "RELATED_TO",
+      "evidence": "[Abductive Reasoning](abductive.md)",
+      "source_file": "skills/02-reasoning/hypothesis-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/hypothesis-generation",
+      "target": "02-reasoning/causal",
+      "type": "RELATED_TO",
+      "evidence": "[Causal Reasoning](causal.md)",
+      "source_file": "skills/02-reasoning/hypothesis-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/hypothesis-generation",
+      "target": "02-reasoning/inductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Inductive Reasoning](inductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/hypothesis-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/hypothesis-generation",
+      "target": "02-reasoning/deductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Deductive Reasoning](deductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/hypothesis-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/inductive-reasoning",
+      "target": "02-reasoning/deductive-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Deductive Reasoning](deductive-reasoning.md)",
+      "source_file": "skills/02-reasoning/inductive-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/inductive-reasoning",
+      "target": "12-data/statistical-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Statistical Analysis](../12-data/statistical-analysis.md)",
+      "source_file": "skills/02-reasoning/inductive-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/least-to-most",
+      "target": "09-agentic-patterns/cot",
+      "type": "RELATED_TO",
+      "evidence": "[Chain of Thought](../09-agentic-patterns/cot.md)",
+      "source_file": "skills/02-reasoning/least-to-most.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/least-to-most",
+      "target": "02-reasoning/goal-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Goal Decomposition](goal-decomposition.md)",
+      "source_file": "skills/02-reasoning/least-to-most.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/least-to-most",
+      "target": "02-reasoning/planning-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Planning Decomposition](planning-decomposition.md)",
+      "source_file": "skills/02-reasoning/least-to-most.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/least-to-most",
+      "target": "09-agentic-patterns/plan-and-execute",
+      "type": "RELATED_TO",
+      "evidence": "[Plan-and-Execute](../09-agentic-patterns/plan-and-execute.md)",
+      "source_file": "skills/02-reasoning/least-to-most.md",
+      "confidence": "high"
+    }
