@@ -31,7 +31,7 @@ assert "action" in request
 print("validate tool contracts before invocation")
 ```
 
-## Failure modes
+## Failure Modes
 - Calling an undocumented interface.
 - Sending incomplete or excessive data.
 - Treating an acknowledgement as proof of completion.

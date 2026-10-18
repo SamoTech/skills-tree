@@ -17,7 +17,7 @@ added: "2025-03"
 **Stability:** stable
 **Added:** 2025-03
 
-### Description
+## Description
 Generates channel-specific ad copy variants for Google Search, Meta, LinkedIn, and TikTok while respecting character limits, platform policies, and audience targeting parameters. Supports multi-variant generation for A/B testing.
 
 ### Example
@@ -58,6 +58,6 @@ print(generate_ad("AI-powered note-taking app", "google"))
 ## Evidence
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
-### Related
+## Related
 - ../14-security/input-guardrails.md
 - ../14-security/output-guardrails.md

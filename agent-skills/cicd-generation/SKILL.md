@@ -7,6 +7,7 @@ metadata:
   version: "v1"
 ---
 
+
 # Cicd Generation
 
 ## Description
@@ -36,7 +37,7 @@ assert all(pipeline.values())
 print('required pipeline gates present')
 ```
 
-## Failure modes
+## Failure Modes
 
 - Implementing behavior not supported by the requirements.
 - Changing unrelated code.
