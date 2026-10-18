@@ -6,7 +6,7 @@ stability: stable
 description: "Expose a specialised agent as a callable tool inside a parent agent's tool loop."
 added: "2026-04"
 version: v2
-related: ["09-agentic-patterns"]
+related: [agent-handoffs, subagent-delegation, tool-use-loop, specialist-agent-routing]
 ---
 
 # Agent as Tool
@@ -68,7 +68,7 @@ print(result.final_output)
 | Instruction adherence | ✅ Reliable | ✅ Reliable | ⚠️ Variable |
 
 ## Related
-- `agent-handoffs.md` · `subagent-delegation.md` · `tool-use-loop.md` · `specialist-agent-routing.md`
+- `agent-handoffs.md` · `subagent-delegation.md` · `tool-use-loop.md` · `../15-orchestration/specialist-agent-routing.md`
 
 ## Changelog
 - v2 (2026-04): Full expansion with I/O, example, failure modes, prompt patterns, model comparison

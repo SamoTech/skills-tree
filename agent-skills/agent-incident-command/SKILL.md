@@ -62,6 +62,6 @@ This skill operates inside the declared task boundary. It does not grant permiss
 Incident command for agent fleets recurs in 2026 operations discussions. These are dated public signals, not adoption metrics.
 
 ## Related
-- incident-response.md
+- ../16-domain-specific/incident-response.md
 - runbook-driven-orchestration.md
-- alert-triage.md
+- ../16-domain-specific/alert-triage.md

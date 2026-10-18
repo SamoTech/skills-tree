@@ -61,4 +61,4 @@ Content-provenance standards such as C2PA are a 2026 public theme; watermark det
 ## Related
 - perceptual-image-hashing.md
 - image-classification.md
-- video-understanding.md
+- ../01-perception/video-understanding.md

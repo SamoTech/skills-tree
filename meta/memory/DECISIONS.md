@@ -1674,3 +1674,18 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if CI on the exact PR head fails on any gate, if a regenerated projection is found non-byte-exact against the deterministic generator, or if the Human Owner changes the remediation scope of audit items A1–A3.
+
+
+## DECISION-2026-10-18-COUNSEL-SLICE2-CONVENTIONS
+
+**Topic:** Related-link and frontmatter-metadata conventions applied in the Counsel slice-2 remediation A4-A9 (audit issue #617, PR #621).
+
+**Decision:** (D-A4) References to `input-guardrails`/`output-guardrails` are rewired to the existing canonical skills via explicit cross-category paths `../14-security/input-guardrails.md` / `../14-security/output-guardrails.md`; category self-references are dropped from frontmatter `related` and body Related lists. (D-A5) Related links must resolve to real skill files: bare `x.md` is allowed only within the same category directory; cross-category links must use explicit `../NN-category/x.md` paths; repository governance documents are not Related entries (they belong in Evidence). (D-A6) Frontmatter is the canonical metadata source; body headers, Changelog, and Related lists are aligned to it (conversation-history-reading and social-media-reading bodies aligned to intermediate/v2; ad-copy body Added date corrected to 2025-03). (D-A7) `version: v1` is backfilled on enriched-batch files missing it. (D-A8) Title-derived `tags` are backfilled on files missing them, with stopwords dropped. (D-A9) Existing stopword tags are repaired (voice-and-tone-guide-authoring `[voice, and, tone, guide]` -> `[voice, tone, guide, authoring]`). (D-B4) The canonical frontmatter key set is title/category/level/stability/description/added/version/related/tags, applied opportunistically with no forced mass rewrite. (D-B1/B2/B3/B5) Systemic advisory items stay advisory and are routed to the batch-builder specification, not the corpus, this cycle. All 19 file edits were applied with exact-match single-occurrence assertions after verifying every link target exists in the corpus. No CI, quality, security, or governance gate is weakened.
+
+**Confidence:** HIGH - every rewire target was verified to exist in the canonical `skills/` corpus before editing, and the conventions match the repository's existing projection and freshness contracts.
+
+**Evidence IDs:** issue #617 (Counsel spot-audit findings); PR #621; corpus existence verification of all rewire targets; DECISION-2026-10-18-COUNSEL-SLICE-2-EXECUTION; `meta/CURRENT-STATE.md` 2026-10-18 cycle-2 section.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if a rewired target is removed from the corpus, if CI on the exact PR head fails on any gate, or if the Human Owner changes the convention set.

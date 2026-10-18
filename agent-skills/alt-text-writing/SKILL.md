@@ -64,4 +64,4 @@ Alt text quality is a recurring 2026 accessibility content request. These are da
 ## Related
 - image-gen-prompt.md
 - copywriting.md
-- plain-language-writing.md
+- ../06-communication/plain-language-writing.md

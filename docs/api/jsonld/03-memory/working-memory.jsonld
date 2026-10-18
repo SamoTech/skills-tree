@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T09:29:41Z",
+  "dateModified": "2026-10-18T12:19:53Z",
   "skillId": "working-memory",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "03-memory",

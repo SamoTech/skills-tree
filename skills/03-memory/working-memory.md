@@ -5,7 +5,9 @@ level: intermediate
 stability: stable
 description: "Maintain bounded active task state, intermediate results, errors, and checkpoints during a multi-step agent workflow."
 added: "2025-03"
-related: ["03-memory", "input-guardrails", "output-guardrails"]
+related: [input-guardrails, output-guardrails]
+version: v1
+tags: [working, memory]
 ---
 
 ## Description
@@ -60,6 +62,5 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 ## Related
 
-- 03-memory
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md

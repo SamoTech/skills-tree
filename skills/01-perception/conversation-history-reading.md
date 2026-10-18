@@ -5,13 +5,14 @@ level: intermediate
 stability: stable
 version: v2
 description: "Normalize multi-turn conversation exports into a consistent message representation while preserving roles, timestamps, ordering, and provider-specific metadata. Use it before context selection, summarization, or memory injection."
+related: [text-reading, memory-injection]
 added: "2025-03"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-conversation-history-reading.json)
 
 # Conversation History Reading
-Category: perception | Level: basic | Stability: stable | Version: v1
+Category: perception | Level: intermediate | Stability: stable | Version: v2
 
 ## Description
 Load and structure multi-turn conversation histories from various formats (JSON, plain text, CSV exports) for context injection or analysis.
@@ -43,10 +44,11 @@ messages = [{"role": m["role"], "content": m["content"], "ts": m.get("created_at
 - Token limit exceeded when injecting full history
 
 ## Related
-- `text-reading.md` · `memory-injection.md` (03-memory)
+- `text-reading.md` · `../03-memory/memory-injection.md`
 
 ## Changelog
 - v1 (2026-04): Initial entry
+- v2 (2026-10): Frontmatter metadata aligned (level/version); Related links made explicit
 
 
 ## Evidence

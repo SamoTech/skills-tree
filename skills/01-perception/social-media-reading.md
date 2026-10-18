@@ -12,7 +12,7 @@ added: "2025-03"
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-social-media-reading.json)
 
 # Social Media Reading
-Category: perception | Level: basic | Stability: stable | Version: v1
+Category: perception | Level: intermediate | Stability: stable | Version: v2
 
 ## Description
 Fetch and parse posts, threads, and metadata from social media APIs and exported data dumps.
@@ -49,6 +49,7 @@ for post in reddit.subreddit("python").hot(limit=10):
 
 ## Changelog
 - v1 (2026-04): Initial entry
+- v2 (2026-10): Frontmatter metadata aligned (level/version)
 
 
 ## Evidence

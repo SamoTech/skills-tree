@@ -5,7 +5,9 @@ level: advanced
 stability: stable
 description: "Generate CI/CD configuration from explicit build, test, security, artifact, and deployment requirements without weakening gates."
 added: "2026-09"
+version: v1
 related: [shell-command, security-scanning, dependency-auditor]
+tags: [cicd, generation]
 ---
 
 # Cicd Generation
@@ -37,7 +39,7 @@ assert all(pipeline.values())
 print('required pipeline gates present')
 ```
 
-## Failure modes
+## Failure Modes
 
 - Implementing behavior not supported by the requirements.
 - Changing unrelated code.
@@ -46,7 +48,7 @@ print('required pipeline gates present')
 
 ## Related
 
-- `shell-command.md`
+- `../04-action-execution/shell-command.md`
 - `security-scanning.md`
 - `dependency-auditor.md`
 

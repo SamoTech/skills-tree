@@ -66,7 +66,7 @@ print(result.final_output)
 | Instruction adherence | ✅ Reliable | ✅ Reliable | ⚠️ Variable |
 
 ## Related
-- `agent-handoffs.md` · `subagent-delegation.md` · `tool-use-loop.md` · `specialist-agent-routing.md`
+- `agent-handoffs.md` · `subagent-delegation.md` · `tool-use-loop.md` · `../15-orchestration/specialist-agent-routing.md`
 
 ## Changelog
 - v2 (2026-04): Full expansion with I/O, example, failure modes, prompt patterns, model comparison

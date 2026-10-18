@@ -4,6 +4,7 @@ description: Generate CI/CD configuration from explicit build, test, security, a
 metadata:
   source: skills/05-code/cicd-generation.md
   category: 05-code
+  version: "v1"
 ---
 
 # Cicd Generation
@@ -35,7 +36,7 @@ assert all(pipeline.values())
 print('required pipeline gates present')
 ```
 
-## Failure modes
+## Failure Modes
 
 - Implementing behavior not supported by the requirements.
 - Changing unrelated code.
@@ -44,7 +45,7 @@ print('required pipeline gates present')
 
 ## Related
 
-- `shell-command.md`
+- `../04-action-execution/shell-command.md`
 - `security-scanning.md`
 - `dependency-auditor.md`
 

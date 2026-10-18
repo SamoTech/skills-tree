@@ -4,6 +4,7 @@ description: Coordinate messages between agents using explicit sender, recipient
 metadata:
   source: skills/15-orchestration/agent-communication.md
   category: 15-orchestration
+  version: "v1"
 ---
 
 **Category:** Orchestration
@@ -52,6 +53,5 @@ Ambiguous ownership or stale state can cause duplicated or conflicting work; pre
 Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
 
 ## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md

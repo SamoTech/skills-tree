@@ -4,6 +4,7 @@ description: Maintain bounded active task state, intermediate results, errors, a
 metadata:
   source: skills/03-memory/working-memory.md
   category: 03-memory
+  version: "v1"
 ---
 
 ## Description
@@ -58,6 +59,5 @@ Canonical repository skill: this file. Structural conformance is governed by the
 
 ## Related
 
-- 03-memory
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md
