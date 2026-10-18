@@ -66,7 +66,7 @@ assert merge({"s1": {"cart": 1}, "s2": {"order": 2}}) == {"cart": 1, "order": 2}
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Multi-session browser orchestration appears in the 2026 agentic browser landscape. ([public signal](https://nohacks.co/blog/agentic-browser-landscape-2026))
+- Multi-session orchestration is documented in the browser-use agent platform. ([public signal](https://browser-use.com/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

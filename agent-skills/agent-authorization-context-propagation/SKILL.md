@@ -60,7 +60,7 @@ assert g["provenance"] == ["orchestrator"] and g["scopes"] == ["task:run"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Authorization context propagation is documented in 2026 agent IAM guidance. ([public signal](https://sweet.security/agent-security/ai-agent-aim))
+- Authorization context propagation is part of current agentic identity guidance. ([public signal](https://twilio.com/en-us/blog/insights/agentic-identity))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

@@ -60,7 +60,7 @@ assert p == {"tool": "x"}
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Protocol deprecation policy handling is documented in 2026 MCP revision explainers. ([public signal](https://medium.com/@bitcot.insider/what-is-the-model-context-protocol-mcp-how-it-works-what-it))
+- Protocol deprecation handling follows the Model Context Protocol revision policy. ([public signal](https://en.wikipedia.org/wiki/Model_Context_Protocol))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

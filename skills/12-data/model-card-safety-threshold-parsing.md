@@ -61,7 +61,7 @@ assert c["usable"] is False and c["missing"] == ["autonomy_level"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Model card threshold parsing needs appear in 2026 model card guidance. ([public signal](https://aitechmodel.com/what-is-new-with-agentic-ai-in-october-2026-latest-model-cards-and))
+- Safety threshold fields are part of the model card documentation standard. ([public signal](https://huggingface.co/docs/hub/en/model-cards))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

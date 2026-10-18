@@ -58,7 +58,7 @@ assert validate_args({"query": "x"}, ["query", "limit"]) is False
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Typed tool authoring for Pydantic AI v1 appears in 2026 framework comparisons. ([public signal](https://alicelabs.ai/en/insights/best-ai-agent-frameworks-2026))
+- Typed tool authoring is a core Pydantic AI pattern. ([public signal](https://ai.pydantic.dev/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

@@ -62,7 +62,7 @@ assert ok is False and missing == ["planner"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Microsoft Agent Framework migration guidance appears in 2026 framework release notes. ([public signal](https://developersdigest.tech/blog/microsoft-agent-framework-whats-new-2026))
+- Migration guidance follows the Microsoft Agent Framework overview documentation. ([public signal](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

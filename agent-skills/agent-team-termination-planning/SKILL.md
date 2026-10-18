@@ -58,7 +58,7 @@ assert can_terminate({"a": "done", "b": "running"}, ["a", "b"]) is False
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Multi-agent termination planning needs appear in 2026 framework landscape reviews. ([public signal](https://shakudo.io/blog/top-9-ai-agent-frameworks))
+- Team termination and handoff patterns are documented in the OpenAI Agents SDK. ([public signal](https://github.com/openai/openai-agents-python))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

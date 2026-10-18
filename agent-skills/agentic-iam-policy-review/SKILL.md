@@ -63,7 +63,7 @@ assert review("invoice:delete", ["invoice:read"], []) == "no_matching_task"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- IAM policy review for agentic workloads is documented in 2026 agent IAM guidance. ([public signal](https://sweet.security/agent-security/ai-agent-aim))
+- IAM policy review for agentic workloads is part of current agentic identity guidance. ([public signal](https://twilio.com/en-us/blog/insights/agentic-identity))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

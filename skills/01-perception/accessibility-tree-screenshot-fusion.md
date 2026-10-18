@@ -62,7 +62,7 @@ assert fuse("login-btn", "cancel-btn") is None
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Accessibility-tree and vision fusion needs appear in 2026 desktop GUI agent writeups. ([public signal](https://dev.to/agdex_ai/beyond-the-browser-building-desktop-gui-agents-in-2026-with-ui-tar))
+- Accessibility-tree and screenshot fusion follows the W3C ARIA accessibility tree semantics used by desktop agents. ([public signal](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

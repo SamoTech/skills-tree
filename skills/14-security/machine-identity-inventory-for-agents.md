@@ -59,7 +59,7 @@ assert audit(["ci-bot", "agent-x", "ghost"], {"ci-bot", "agent-x"}) == ["ghost"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Machine identity inventory needs for agents appear in 2026 agent security checklists. ([public signal](https://iternal.ai/ai-agent-security-checklist))
+- Machine identity inventory for agents is part of current agentic identity guidance. ([public signal](https://twilio.com/en-us/blog/insights/agentic-identity))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

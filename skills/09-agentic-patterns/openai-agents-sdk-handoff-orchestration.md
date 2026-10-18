@@ -62,7 +62,7 @@ assert handoff("summarize report", True, ["investigate"]) == "transfer"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Handoff orchestration in the OpenAI Agents SDK is documented in 2026 framework comparisons. ([public signal](https://vdf.ai/blog/best-ai-agent-frameworks/))
+- Handoff orchestration is a documented OpenAI Agents SDK pattern. ([public signal](https://github.com/openai/openai-agents-python))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
