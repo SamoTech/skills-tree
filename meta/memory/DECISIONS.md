@@ -1718,3 +1718,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the Human Owner changes the quality-report publication model, if `tools/check_skill_quality.py` gains nondeterministic output, or if a mechanical successor contract supersedes this one.
+
+## DECISION-2026-10-18-AGENT-SKILLS-FRESHNESS-CONTRACT
+
+**Topic:** Freshness contract for the committed Agent Skills packages (agent-skills/<name>/SKILL.md).
+
+**Decision:** The Agent Skills packages are generated projections of the canonical `skills/` corpus and are now machine-verified fresh on every push by `tests/test_agent_skills_freshness.py`, which re-derives every eligible package in-memory via the shared `tools.generate_agent_skills.project` boundary (deterministic sorted iteration, no file writes, no second projector introduced) and requires (1) the committed `agent-skills/<name>/SKILL.md` set to match the eligible projection set exactly (no missing packages, no orphan packages) and (2) each committed package to be byte-identical to the canonical projection output (`content.rstrip() + "\n"`, the exact serialization of `write_projection`). The projection carries no git-derived timestamp fields, so no exclusions are required. This closes the last generated projection without a corpus-freshness contract, in the established pattern of #581/#582/#616/#626; with it, every generated projection of `skills/` is machine-verified fresh against the canonical corpus on every push. The eligibility and naming authority remains `tools/generate_agent_skills.py` (driven by the corpus and schema); no new registry authority is created, no CI, quality, security, or governance gate is weakened, and there are no workflow changes.
+
+**Confidence:** HIGH - the projector is deterministic and already unit-tested (`tests/test_generate_agent_skills.py`), and the pattern is proven by #581/#582/#616/#626.
+
+**Evidence IDs:** tools/generate_agent_skills.py (project/write_projection); tests/test_generate_agent_skills.py; tests/test_agent_skills_discovery.py (1012 eligible); tests/test_agent_skills_reconciliation.py; PR #618 (live demonstration of the package-drift class); tests/test_agent_skills_freshness.py; issue #615 (mission board); meta/CURRENT-STATE.md 2026-10-18 cycle-5 section; meta/CONTINUITY.md item-2 status.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the Human Owner changes the Agent Skills publication model, if `tools/generate_agent_skills.py` gains nondeterministic output, or if a mechanical successor contract supersedes this one.
