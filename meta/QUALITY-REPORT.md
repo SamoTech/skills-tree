@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 1040
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 884
-- 🟡 **Enriched** (real description + runnable code): 155
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 890
+- 🟡 **Enriched** (real description + runnable code): 149
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -16,21 +16,21 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid | 🔧 Fixture |
 |---|---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
-| `01-perception` | 78 | 73 | 5 | 0 | 0 | 0 |
+| `01-perception` | 78 | 74 | 4 | 0 | 0 | 0 |
 | `02-reasoning` | 90 | 82 | 8 | 0 | 0 | 0 |
 | `03-memory` | 64 | 64 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 69 | 59 | 10 | 0 | 0 | 0 |
-| `05-code` | 75 | 54 | 21 | 0 | 0 | 0 |
+| `05-code` | 75 | 55 | 20 | 0 | 0 | 0 |
 | `06-communication` | 55 | 55 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 76 | 55 | 21 | 0 | 0 | 0 |
 | `08-multimodal` | 53 | 53 | 0 | 0 | 0 | 0 |
 | `09-agentic-patterns` | 67 | 57 | 10 | 0 | 0 | 0 |
-| `10-computer-use` | 61 | 41 | 20 | 0 | 0 | 0 |
+| `10-computer-use` | 61 | 43 | 18 | 0 | 0 | 0 |
 | `11-web` | 65 | 65 | 0 | 0 | 0 | 0 |
-| `12-data` | 63 | 46 | 17 | 0 | 0 | 0 |
+| `12-data` | 63 | 47 | 16 | 0 | 0 | 0 |
 | `13-creative` | 39 | 39 | 0 | 0 | 0 | 0 |
 | `14-security` | 43 | 43 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 55 | 39 | 16 | 0 | 0 | 0 |
+| `15-orchestration` | 55 | 40 | 15 | 0 | 0 | 0 |
 | `16-domain-specific` | 55 | 28 | 27 | 0 | 0 | 0 |
 | `17-infrastructure` | 31 | 31 | 0 | 0 | 0 | 0 |
 
@@ -52,6 +52,7 @@
 - [`skills/01-perception/code-reading.md`](skills/01-perception/code-reading.md) — Code Reading
 - [`skills/01-perception/config-file-parsing.md`](skills/01-perception/config-file-parsing.md) — Config File Parsing
 - [`skills/01-perception/contract-reading.md`](skills/01-perception/contract-reading.md) — Contract Reading
+- [`skills/01-perception/conversation-history-reading.md`](skills/01-perception/conversation-history-reading.md) — Conversation History Reading
 - [`skills/01-perception/database-reading.md`](skills/01-perception/database-reading.md) — Database Reading
 - [`skills/01-perception/depth-estimation.md`](skills/01-perception/depth-estimation.md) — Monocular Depth Estimation
 - [`skills/01-perception/document-ocr-preprocessing.md`](skills/01-perception/document-ocr-preprocessing.md) — Document OCR Preprocessing
@@ -326,6 +327,7 @@
 - [`skills/05-code/call-graph-construction.md`](skills/05-code/call-graph-construction.md) — Call Graph Construction
 - [`skills/05-code/ci-cache-poisoning-prevention.md`](skills/05-code/ci-cache-poisoning-prevention.md) — CI Cache Poisoning Prevention
 - [`skills/05-code/ci-failure-triage.md`](skills/05-code/ci-failure-triage.md) — CI Failure Triage
+- [`skills/05-code/cicd-generation.md`](skills/05-code/cicd-generation.md) — Cicd Generation
 - [`skills/05-code/code-churn-analysis.md`](skills/05-code/code-churn-analysis.md) — Code Churn Analysis
 - [`skills/05-code/code-freeze-management.md`](skills/05-code/code-freeze-management.md) — Code Freeze Management
 - [`skills/05-code/code-fuzzing.md`](skills/05-code/code-fuzzing.md) — Code Fuzzing
@@ -590,6 +592,7 @@
 - [`skills/09-agentic-patterns/trajectory-analysis.md`](skills/09-agentic-patterns/trajectory-analysis.md) — Trajectory Analysis
 - [`skills/10-computer-use/accessibility-automation-testing.md`](skills/10-computer-use/accessibility-automation-testing.md) — Accessibility Automation Testing
 - [`skills/10-computer-use/accessibility-tree-automation-audit.md`](skills/10-computer-use/accessibility-tree-automation-audit.md) — Accessibility Tree Automation Audit
+- [`skills/10-computer-use/accessibility-tree.md`](skills/10-computer-use/accessibility-tree.md) — Accessibility Tree
 - [`skills/10-computer-use/adb-device-automation.md`](skills/10-computer-use/adb-device-automation.md) — ADB Device Automation
 - [`skills/10-computer-use/app-readiness-probing.md`](skills/10-computer-use/app-readiness-probing.md) — App Readiness Probing
 - [`skills/10-computer-use/app-update-automation.md`](skills/10-computer-use/app-update-automation.md) — App Update Automation
@@ -601,6 +604,7 @@
 - [`skills/10-computer-use/desktop-notification-triage.md`](skills/10-computer-use/desktop-notification-triage.md) — Desktop Notification Triage
 - [`skills/10-computer-use/desktop-notification-triggers.md`](skills/10-computer-use/desktop-notification-triggers.md) — Desktop Notification Triggers
 - [`skills/10-computer-use/desktop-spreadsheet-automation.md`](skills/10-computer-use/desktop-spreadsheet-automation.md) — Desktop Spreadsheet Automation
+- [`skills/10-computer-use/drag-drop.md`](skills/10-computer-use/drag-drop.md) — Drag Drop
 - [`skills/10-computer-use/drawing-canvas-automation.md`](skills/10-computer-use/drawing-canvas-automation.md) — Drawing Canvas Automation
 - [`skills/10-computer-use/electronic-signature-automation.md`](skills/10-computer-use/electronic-signature-automation.md) — Electronic Signature Automation
 - [`skills/10-computer-use/game-ui-automation.md`](skills/10-computer-use/game-ui-automation.md) — Game UI Automation
@@ -698,6 +702,7 @@
 - [`skills/12-data/agent-feedback-signal-aggregation.md`](skills/12-data/agent-feedback-signal-aggregation.md) — Agent Feedback Signal Aggregation
 - [`skills/12-data/agent-trace-data-modeling.md`](skills/12-data/agent-trace-data-modeling.md) — Agent Trace Data Modeling
 - [`skills/12-data/ai-traffic-classification.md`](skills/12-data/ai-traffic-classification.md) — AI Traffic Classification
+- [`skills/12-data/anomaly-detection.md`](skills/12-data/anomaly-detection.md) — Anomaly Detection
 - [`skills/12-data/change-data-capture.md`](skills/12-data/change-data-capture.md) — Change Data Capture
 - [`skills/12-data/cohort-analysis.md`](skills/12-data/cohort-analysis.md) — Cohort Analysis
 - [`skills/12-data/data-anonymization.md`](skills/12-data/data-anonymization.md) — Data Anonymization
@@ -822,6 +827,7 @@
 - [`skills/14-security/threat-modeling.md`](skills/14-security/threat-modeling.md) — Threat Modeling
 - [`skills/14-security/vulnerability-disclosure-handling.md`](skills/14-security/vulnerability-disclosure-handling.md) — Vulnerability Disclosure Handling
 - [`skills/14-security/vulnerability-triage.md`](skills/14-security/vulnerability-triage.md) — Vulnerability Triage
+- [`skills/15-orchestration/agent-communication.md`](skills/15-orchestration/agent-communication.md) — Agent Communication
 - [`skills/15-orchestration/agent-incident-command.md`](skills/15-orchestration/agent-incident-command.md) — Agent Incident Command
 - [`skills/15-orchestration/agent-pool-autoscaling.md`](skills/15-orchestration/agent-pool-autoscaling.md) — Agent Pool Autoscaling
 - [`skills/15-orchestration/agent-pool-warming.md`](skills/15-orchestration/agent-pool-warming.md) — Agent Pool Warming
@@ -923,7 +929,6 @@
 
 ## 🟡 Enriched skills
 
-- [`skills/01-perception/conversation-history-reading.md`](skills/01-perception/conversation-history-reading.md) — missing table or <60 lines
 - [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — no inputs/outputs/failure-modes table
 - [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — missing table or <60 lines
 - [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — missing table or <60 lines
@@ -946,7 +951,6 @@
 - [`skills/04-action-execution/scroll.md`](skills/04-action-execution/scroll.md) — missing table or <60 lines
 - [`skills/04-action-execution/shell-command.md`](skills/04-action-execution/shell-command.md) — missing table or <60 lines
 - [`skills/04-action-execution/wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — missing table or <60 lines
-- [`skills/05-code/cicd-generation.md`](skills/05-code/cicd-generation.md) — missing table or <60 lines
 - [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — missing table or <60 lines
 - [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — missing table or <60 lines
 - [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — missing table or <60 lines
@@ -998,12 +1002,10 @@
 - [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — missing table or <60 lines
-- [`skills/10-computer-use/accessibility-tree.md`](skills/10-computer-use/accessibility-tree.md) — missing table or <60 lines
 - [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — missing table or <60 lines
 - [`skills/10-computer-use/double-click.md`](skills/10-computer-use/double-click.md) — missing table or <60 lines
-- [`skills/10-computer-use/drag-drop.md`](skills/10-computer-use/drag-drop.md) — missing table or <60 lines
 - [`skills/10-computer-use/file-dialog.md`](skills/10-computer-use/file-dialog.md) — missing table or <60 lines
 - [`skills/10-computer-use/keyboard-shortcut.md`](skills/10-computer-use/keyboard-shortcut.md) — missing table or <60 lines
 - [`skills/10-computer-use/keyboard-type.md`](skills/10-computer-use/keyboard-type.md) — missing table or <60 lines
@@ -1018,7 +1020,6 @@
 - [`skills/10-computer-use/visual-element-detection.md`](skills/10-computer-use/visual-element-detection.md) — missing table or <60 lines
 - [`skills/10-computer-use/vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — missing table or <60 lines
 - [`skills/10-computer-use/window-management.md`](skills/10-computer-use/window-management.md) — missing table or <60 lines
-- [`skills/12-data/anomaly-detection.md`](skills/12-data/anomaly-detection.md) — missing table or <60 lines
 - [`skills/12-data/csv-processing.md`](skills/12-data/csv-processing.md) — missing table or <60 lines
 - [`skills/12-data/data-aggregation.md`](skills/12-data/data-aggregation.md) — missing table or <60 lines
 - [`skills/12-data/data-cleaning.md`](skills/12-data/data-cleaning.md) — missing table or <60 lines
@@ -1035,7 +1036,6 @@
 - [`skills/12-data/sql-execution.md`](skills/12-data/sql-execution.md) — missing table or <60 lines
 - [`skills/12-data/statistical-analysis.md`](skills/12-data/statistical-analysis.md) — missing table or <60 lines
 - [`skills/12-data/time-series.md`](skills/12-data/time-series.md) — missing table or <60 lines
-- [`skills/15-orchestration/agent-communication.md`](skills/15-orchestration/agent-communication.md) — missing table or <60 lines
 - [`skills/15-orchestration/agent-handoff.md`](skills/15-orchestration/agent-handoff.md) — missing table or <60 lines
 - [`skills/15-orchestration/budget-management.md`](skills/15-orchestration/budget-management.md) — missing table or <60 lines
 - [`skills/15-orchestration/conditional-branching.md`](skills/15-orchestration/conditional-branching.md) — missing table or <60 lines
