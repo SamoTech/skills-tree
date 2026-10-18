@@ -1,4 +1,4 @@
-import hashlib
+successfully downloaded text file (SHA: 87204d280b7a219890fbb8f65b25ae370e9f1144)import hashlib
 import json
 from pathlib import Path
 
@@ -18,7 +18,7 @@ def test_discovery_index_is_schema_valid_and_deterministic():
     second = build_index(ROOT)
     assert first == second
     assert first["skills"] == sorted(first["skills"], key=lambda item: item["name"])
-    assert len(first["skills"]) == 1062
+    assert len(first["skills"]) == 1112
     assert all(item["type"] == "skill" for item in first["skills"])
     assert all(item["digest"].startswith("sha256:") for item in first["skills"])
     validate_index(first)
