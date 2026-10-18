@@ -1,5 +1,7 @@
 # Changelog
 
+- **Fixed** [apply Counsel slice-2 remediation A4-A9 (audit issue #617)](https://github.com/SamoTech/skills-tree/pull/621) by @SamoTech (#621) — 2026-10-18
+
 - **Fixed** [repair clear-cut corpus-quality defects from Counsel slice-2 audit](https://github.com/SamoTech/skills-tree/pull/618) by @SamoTech (#618) — 2026-10-18
 
 - **Added** [add owner-directed wave-2 expansion batch 3 (50 experimental skills)](https://github.com/SamoTech/skills-tree/pull/608) by @SamoTech (#608) — 2026-10-16
