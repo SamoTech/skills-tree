@@ -77,7 +77,6 @@ def test_agent_skills_packages_are_fresh_projection_of_canonical_corpus() -> Non
         "agent-skills/ contains packages with no eligible canonical "
         f"source; remove them: {stale[:10]}"
     )
-    assert len(fresh) == len(committed) or True
 
 
 def test_agent_skills_package_bytes_match_generator_output() -> None:
