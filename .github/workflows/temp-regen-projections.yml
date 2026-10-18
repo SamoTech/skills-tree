@@ -10,7 +10,6 @@ permissions:
 
 jobs:
   regen:
-    # only run for this specific branch to avoid touching other PRs
     if: github.head_ref == 'counsel/audit-fixes-2026-10-16'
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +23,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install deps
-        run: pip install pyyaml
+        run: pip install pyyaml pytest
 
       - name: Run export
         run: python3 tools/export_skills.py
@@ -39,7 +38,7 @@ jobs:
 
       - name: Run freshness tests
         run: |
-          python3 -m pytest tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_jsonld_export.py tests/test_search_index_contract.py -q
+          python3 -m pytest tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_jsonld_export.py tests/test_search_index_contract.py -v
 
       - name: Commit regenerated projections
         run: |
