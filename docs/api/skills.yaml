@@ -1,4 +1,4 @@
-generated: '2026-10-18T11:20:49Z'
+generated: '2026-10-18T12:02:51Z'
 count: 1039
 skills:
 - id: agent-card-parsing
@@ -1930,8 +1930,7 @@ skills:
   - Related Skills
   - Changelog
   - Evidence
-  related:
-  - ../03-memory/fact-verification.md
+  related: []
   category_dir: 02-reasoning
 - id: abstention-decision-reasoning
   path: skills/02-reasoning/abstention-decision-reasoning.md
@@ -5640,7 +5639,7 @@ skills:
   category: memory
   level: intermediate
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -7588,7 +7587,7 @@ skills:
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -10485,7 +10484,7 @@ skills:
   category: tool-use
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -14001,7 +14000,7 @@ skills:
   category: agentic-patterns
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -15116,7 +15115,7 @@ skills:
   category: Computer Use
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -15498,7 +15497,7 @@ skills:
   category: Computer Use
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -18199,7 +18198,7 @@ skills:
   category: Data
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -21592,7 +21591,7 @@ skills:
   category: Orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -22901,8 +22900,8 @@ skills:
   category: Domain-Specific
   level: advanced
   stability: stable
-  version: null
-  added: 2026-04
+  version: v1
+  added: 2025-03
   last_updated: null
   sections:
   - Failure Modes

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T11:20:49Z",
+  "generated": "2026-10-18T12:02:51Z",
   "count": 1039,
   "skills": [
     {
@@ -2065,9 +2065,7 @@
         "Changelog",
         "Evidence"
       ],
-      "related": [
-        "../03-memory/fact-verification.md"
-      ],
+      "related": [],
       "category_dir": "02-reasoning"
     },
     {
@@ -6060,7 +6058,7 @@
       "category": "memory",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -8161,7 +8159,7 @@
       "category": "code",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -11294,7 +11292,7 @@
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -15092,7 +15090,7 @@
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -16304,7 +16302,7 @@
       "category": "Computer Use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -16718,7 +16716,7 @@
       "category": "Computer Use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -19638,7 +19636,7 @@
       "category": "Data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -23284,7 +23282,7 @@
       "category": "Orchestration",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -24687,8 +24685,8 @@
       "category": "Domain-Specific",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
-      "added": "2026-04",
+      "version": "v1",
+      "added": "2025-03",
       "last_updated": null,
       "sections": [
         "Failure Modes",

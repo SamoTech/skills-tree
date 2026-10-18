@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:20:29Z",
+  "dateModified": "2026-10-18T12:02:48Z",
   "skillId": "cicd-generation",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
