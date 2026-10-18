@@ -5,6 +5,7 @@ level: intermediate
 stability: stable
 version: v2
 description: "Normalize multi-turn conversation exports into a consistent message representation while preserving roles, timestamps, ordering, and provider-specific metadata. Use it before context selection, summarization, or memory injection."
+related: [text-reading, memory-injection]
 added: "2025-03"
 ---
 
