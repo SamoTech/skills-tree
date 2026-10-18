@@ -5,7 +5,9 @@ level: advanced
 stability: stable
 description: "Coordinate messages between agents using explicit sender, recipient, task context, state, and acknowledgement semantics."
 added: "2025-03"
-related: ["15-orchestration", "input-guardrails", "output-guardrails"]
+related: [input-guardrails, output-guardrails]
+version: v1
+tags: [agent, communication]
 ---
 
 **Category:** Orchestration
@@ -54,6 +56,5 @@ Ambiguous ownership or stale state can cause duplicated or conflicting work; pre
 Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
 
 ## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md

@@ -5,7 +5,9 @@ level: advanced
 stability: stable
 description: "Interpret an accessibility tree to identify roles, names, states, and actionable UI targets."
 added: "2025-03"
-related: ["10-computer-use", "input-guardrails", "output-guardrails"]
+related: [input-guardrails, output-guardrails]
+version: v1
+tags: [accessibility, tree]
 ---
 
 **Category:** Computer Use
@@ -54,6 +56,5 @@ Accessibility trees can be stale or incomplete; verify the target state before a
 Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
 
 ## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md

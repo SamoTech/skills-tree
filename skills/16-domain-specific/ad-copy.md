@@ -4,7 +4,9 @@ category: 16-domain-specific
 level: advanced
 stability: stable
 description: "Apply ad copy in an AI workflow with explicit scope, domain constraints, validation, and documented failure handling."
-related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
+related: [input-guardrails, output-guardrails]
+version: v1
+tags: [ad, copy]
 added: "2025-03"
 ---
 
@@ -13,7 +15,7 @@ added: "2025-03"
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
+**Added:** 2025-03
 
 ### Description
 Generates channel-specific ad copy variants for Google Search, Meta, LinkedIn, and TikTok while respecting character limits, platform policies, and audience targeting parameters. Supports multi-variant generation for A/B testing.
@@ -57,6 +59,5 @@ print(generate_ad("AI-powered note-taking app", "google"))
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
 ### Related
-- 16-domain-specific
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md
