@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-18T22:57:23Z",
+  "dateModified": "2026-10-18T23:00:46Z",
   "skillId": "mcp-elicitation-request-parsing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../07-tool-use/mcp-task-completion-handling.md",
+    "../04-action-execution/mcp-task-completion-handling.md",
     "../07-tool-use/mcp-deprecation-policy-compliance.md"
   ],
   "educationalLevel": {

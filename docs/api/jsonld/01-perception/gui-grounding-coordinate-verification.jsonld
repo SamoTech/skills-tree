@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-18T22:57:23Z",
+  "dateModified": "2026-10-18T23:00:46Z",
   "skillId": "gui-grounding-coordinate-verification",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../10-computer-use/computer-use-action-trace-recording.md",
+    "../04-action-execution/computer-use-action-trace-recording.md",
     "../01-perception/accessibility-tree-screenshot-fusion.md"
   ],
   "educationalLevel": {

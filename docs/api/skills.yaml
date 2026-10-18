@@ -1,4 +1,4 @@
-generated: '2026-10-18T22:57:23Z'
+generated: '2026-10-18T23:00:46Z'
 count: 1089
 skills:
 - id: accessibility-tree-screenshot-fusion
@@ -738,7 +738,7 @@ skills:
   - Related Skills
   - Changelog
   related:
-  - ../10-computer-use/computer-use-action-trace-recording.md
+  - ../04-action-execution/computer-use-action-trace-recording.md
   - ../01-perception/accessibility-tree-screenshot-fusion.md
   category_dir: 01-perception
 - id: handwriting-recognition
@@ -2355,7 +2355,7 @@ skills:
   - Related Skills
   - Changelog
   related:
-  - ../14-security/agentic-iam-policy-review.md
+  - ../16-domain-specific/agentic-iam-policy-review.md
   - ../17-infrastructure/delegation-token-presentation.md
   category_dir: 02-reasoning
 - id: case-based-reasoning
@@ -11488,7 +11488,7 @@ skills:
   - Changelog
   related:
   - ../07-tool-use/mcp-multi-round-trip-request-authoring.md
-  - ../07-tool-use/mcp-task-completion-handling.md
+  - ../04-action-execution/mcp-task-completion-handling.md
   category_dir: 07-tool-use
 - id: mcp-elicitation-request-parsing
   path: skills/07-tool-use/mcp-elicitation-request-parsing.md
@@ -11515,7 +11515,7 @@ skills:
   - Related Skills
   - Changelog
   related:
-  - ../07-tool-use/mcp-task-completion-handling.md
+  - ../04-action-execution/mcp-task-completion-handling.md
   - ../07-tool-use/mcp-deprecation-policy-compliance.md
   category_dir: 07-tool-use
 - id: mcp-extensions-authoring
@@ -16770,7 +16770,7 @@ skills:
   - Changelog
   related:
   - ../01-perception/accessibility-tree-screenshot-fusion.md
-  - ../10-computer-use/computer-use-action-trace-recording.md
+  - ../04-action-execution/computer-use-action-trace-recording.md
   category_dir: 10-computer-use
 - id: remote-desktop-automation
   path: skills/10-computer-use/remote-desktop-automation.md
@@ -22750,7 +22750,7 @@ skills:
   - Related Skills
   - Changelog
   related:
-  - ../14-security/agentic-iam-policy-review.md
+  - ../16-domain-specific/agentic-iam-policy-review.md
   - ../09-agentic-patterns/agent-team-termination-planning.md
   category_dir: 15-orchestration
 - id: agent-communication

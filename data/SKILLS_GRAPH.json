@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-18T22:59:19.841699+00:00",
+    "generated_at": "2026-10-18T23:01:14.899920+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1089,
@@ -16793,9 +16793,9 @@
     },
     {
       "source": "01-perception/gui-grounding-coordinate-verification",
-      "target": "10-computer-use/computer-use-action-trace-recording",
+      "target": "04-action-execution/computer-use-action-trace-recording",
       "type": "RELATED_TO",
-      "evidence": "[Computer Use Action Trace Recording](../10-computer-use/computer-use-action-trace-recording.md)",
+      "evidence": "[Computer Use Action Trace Recording](../04-action-execution/computer-use-action-trace-recording.md)",
       "source_file": "skills/01-perception/gui-grounding-coordinate-verification.md",
       "confidence": "high"
     },
@@ -17249,9 +17249,9 @@
     },
     {
       "source": "02-reasoning/capability-scope-negotiation-reasoning",
-      "target": "14-security/agentic-iam-policy-review",
+      "target": "16-domain-specific/agentic-iam-policy-review",
       "type": "RELATED_TO",
-      "evidence": "[Agentic Iam Policy Review](../14-security/agentic-iam-policy-review.md)",
+      "evidence": "[Agentic Iam Policy Review](../16-domain-specific/agentic-iam-policy-review.md)",
       "source_file": "skills/02-reasoning/capability-scope-negotiation-reasoning.md",
       "confidence": "high"
     },
@@ -19777,17 +19777,17 @@
     },
     {
       "source": "07-tool-use/mcp-deprecation-policy-compliance",
-      "target": "07-tool-use/mcp-task-completion-handling",
+      "target": "04-action-execution/mcp-task-completion-handling",
       "type": "RELATED_TO",
-      "evidence": "[Mcp Task Completion Handling](../07-tool-use/mcp-task-completion-handling.md)",
+      "evidence": "[Mcp Task Completion Handling](../04-action-execution/mcp-task-completion-handling.md)",
       "source_file": "skills/07-tool-use/mcp-deprecation-policy-compliance.md",
       "confidence": "high"
     },
     {
       "source": "07-tool-use/mcp-elicitation-request-parsing",
-      "target": "07-tool-use/mcp-task-completion-handling",
+      "target": "04-action-execution/mcp-task-completion-handling",
       "type": "RELATED_TO",
-      "evidence": "[Mcp Task Completion Handling](../07-tool-use/mcp-task-completion-handling.md)",
+      "evidence": "[Mcp Task Completion Handling](../04-action-execution/mcp-task-completion-handling.md)",
       "source_file": "skills/07-tool-use/mcp-elicitation-request-parsing.md",
       "confidence": "high"
     },
@@ -20873,9 +20873,9 @@
     },
     {
       "source": "10-computer-use/playwright-mcp-automation",
-      "target": "10-computer-use/computer-use-action-trace-recording",
+      "target": "04-action-execution/computer-use-action-trace-recording",
       "type": "RELATED_TO",
-      "evidence": "[Computer Use Action Trace Recording](../10-computer-use/computer-use-action-trace-recording.md)",
+      "evidence": "[Computer Use Action Trace Recording](../04-action-execution/computer-use-action-trace-recording.md)",
       "source_file": "skills/10-computer-use/playwright-mcp-automation.md",
       "confidence": "high"
     },
@@ -22553,9 +22553,9 @@
     },
     {
       "source": "15-orchestration/agent-authorization-context-propagation",
-      "target": "14-security/agentic-iam-policy-review",
+      "target": "16-domain-specific/agentic-iam-policy-review",
       "type": "RELATED_TO",
-      "evidence": "[Agentic Iam Policy Review](../14-security/agentic-iam-policy-review.md)",
+      "evidence": "[Agentic Iam Policy Review](../16-domain-specific/agentic-iam-policy-review.md)",
       "source_file": "skills/15-orchestration/agent-authorization-context-propagation.md",
       "confidence": "high"
     },
