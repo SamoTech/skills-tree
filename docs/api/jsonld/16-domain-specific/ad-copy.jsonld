@@ -52,15 +52,17 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-18T12:02:44Z",
+  "dateModified": "2026-10-18T12:19:53Z",
   "skillId": "ad-copy",
   "skillVersion": "v1",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "16-domain-specific",
   "sections": [
+    "Description",
     "Failure Modes",
-    "Evidence"
+    "Evidence",
+    "Related"
   ],
   "relatedSkills": [],
   "educationalLevel": {

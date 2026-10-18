@@ -7,7 +7,6 @@ metadata:
   version: "v1"
 ---
 
-
 ## Description
 Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. Inspect the target protocol and repository conventions before making calls.
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18T12:02:51Z",
+  "generated": "2026-10-18T12:19:53Z",
   "count": 1039,
   "skills": [
     {
@@ -8167,7 +8167,7 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Related",
         "Evidence"
       ],
@@ -11300,7 +11300,7 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Related",
         "Evidence"
       ],
@@ -24689,8 +24689,10 @@
       "added": "2025-03",
       "last_updated": null,
       "sections": [
+        "Description",
         "Failure Modes",
-        "Evidence"
+        "Evidence",
+        "Related"
       ],
       "related": [],
       "category_dir": "16-domain-specific"
