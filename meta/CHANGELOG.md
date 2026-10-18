@@ -1,5 +1,7 @@
 # Changelog
 
+- **Fixed** [repair clear-cut corpus-quality defects from Counsel slice-2 audit](https://github.com/SamoTech/skills-tree/pull/618) by @SamoTech (#618) — 2026-10-18
+
 - **Added** [add owner-directed wave-2 expansion batch 3 (50 experimental skills)](https://github.com/SamoTech/skills-tree/pull/608) by @SamoTech (#608) — 2026-10-16
 
 - **Added** [daily demand-driven skill expansion — batch 3 (50 skills, cats 09-12)](https://github.com/SamoTech/skills-tree/pull/574) by @SamoTech (#574) — 2026-10-13
