@@ -1,0 +1,50 @@
+name: Temp regen projections (PR #621)
+
+on:
+  push:
+    branches: [counsel/audit-fixes-2-2026-10-18]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: counsel/audit-fixes-2-2026-10-18
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install --quiet PyYAML==6.0.3
+
+      - name: Regenerate skills API projections
+        run: python3 tools/export_skills.py
+
+      - name: Regenerate agent-skills packages
+        run: python3 tools/generate_agent_skills.py --write-eligible
+
+      - name: Rebuild graph
+        run: python3 tools/build_graph.py
+
+      - name: Rebuild search index
+        run: |
+          python3 tools/build_search_index.py \
+            --skills-root skills/ \
+            --output docs/search-index.json \
+            --package-output data/search-index.json
+
+      - name: Commit and push regenerated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/api/ data/ agent-skills/ meta/GRAPH_BUILD_REPORT.md
+          git diff --staged --quiet && echo "No generated changes." && exit 0
+          git commit -m "chore: regenerate projections from canonical skills corpus (temp automation, PR #621)"
+          git push origin HEAD:counsel/audit-fixes-2-2026-10-18
