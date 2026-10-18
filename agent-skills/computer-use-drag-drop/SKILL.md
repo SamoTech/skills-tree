@@ -7,7 +7,6 @@ metadata:
   version: "v1"
 ---
 
-
 **Category:** Computer Use
 **Skill Level:** `advanced`
 **Stability:** stable
