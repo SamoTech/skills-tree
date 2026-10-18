@@ -25,25 +25,11 @@ jobs:
       - run: python tools/check_skill_quality.py
       - run: python tools/update_readme_counts.py
       - run: pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py tests/test_update_readme_counts.py
-      - name: Run lychee and save report
-        uses: lycheeverse/lychee-action@v2
-        with:
-          args: >-
-            --verbose --no-progress
-            --exclude 'localhost'
-            --exclude '127\.0\.0\.1'
-            --exclude 'example\.com'
-            --timeout 30
-            --max-retries 3
-            'skills/**/*.md'
-          fail: false
-          output: .github/temp-lychee-report.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit and push regenerated projections
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f --ignore-unmatch .github/temp-lychee-report.md || true
           git add -A
           if git diff --cached --quiet; then echo "nothing to regenerate"; exit 0; fi
           git commit -m "chore(regen): refresh projections for expansion batch 1"

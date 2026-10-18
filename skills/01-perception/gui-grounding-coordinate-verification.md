@@ -68,7 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Computer Use Action Trace Recording](../10-computer-use/computer-use-action-trace-recording.md)
+- [Computer Use Action Trace Recording](../04-action-execution/computer-use-action-trace-recording.md)
 - [Accessibility Tree Screenshot Fusion](../01-perception/accessibility-tree-screenshot-fusion.md)
 
 ## Changelog

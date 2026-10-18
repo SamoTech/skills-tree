@@ -69,7 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Accessibility Tree Screenshot Fusion](../01-perception/accessibility-tree-screenshot-fusion.md)
-- [Computer Use Action Trace Recording](../10-computer-use/computer-use-action-trace-recording.md)
+- [Computer Use Action Trace Recording](../04-action-execution/computer-use-action-trace-recording.md)
 
 ## Changelog
 | Version | Date | Notes |

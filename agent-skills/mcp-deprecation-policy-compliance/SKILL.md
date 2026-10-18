@@ -63,7 +63,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Mcp Multi Round Trip Request Authoring](../07-tool-use/mcp-multi-round-trip-request-authoring.md)
-- [Mcp Task Completion Handling](../07-tool-use/mcp-task-completion-handling.md)
+- [Mcp Task Completion Handling](../04-action-execution/mcp-task-completion-handling.md)
 
 ## Changelog
 | Version | Date | Notes |

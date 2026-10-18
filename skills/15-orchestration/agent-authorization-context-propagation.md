@@ -66,7 +66,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agentic Iam Policy Review](../14-security/agentic-iam-policy-review.md)
+- [Agentic Iam Policy Review](../16-domain-specific/agentic-iam-policy-review.md)
 - [Agent Team Termination Planning](../09-agentic-patterns/agent-team-termination-planning.md)
 
 ## Changelog
