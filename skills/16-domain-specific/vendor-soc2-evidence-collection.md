@@ -1,4 +1,4 @@
----
+successfully downloaded text file (SHA: 2f7b32170b536b8c793ab7848efa6c974100cc25)---
 title: "Vendor Soc2 Evidence Collection"
 category: 16-domain-specific
 level: advanced
@@ -43,10 +43,10 @@ Collect SOC 2 evidence from systems and vendors with trace mapping, flagging sta
 
 ## Runnable Example
 ```python
-def stale(artifact, today, max_age_days=180):
-    return (today - artifact["date"]).days > max_age_days
-assert stale({"date": today - 200}, today) is True if False else True
-assert (200 > 180) is True
+def stale(age_days, max_age_days=180):
+    return age_days > max_age_days
+assert stale(200) is True
+assert stale(100) is False
 ```
 
 ## Failure Modes

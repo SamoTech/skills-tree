@@ -1,4 +1,4 @@
----
+successfully downloaded text file (SHA: a2f991afd2c499b4f97181e6a29dc71e26abd4b9)---
 name: vendor-soc2-evidence-collection
 description: Collect SOC 2 evidence from systems and vendors with trace mapping, flagging stale artifacts rather than assembling claims manually.
 metadata:
@@ -41,10 +41,10 @@ Collect SOC 2 evidence from systems and vendors with trace mapping, flagging sta
 
 ## Runnable Example
 ```python
-def stale(artifact, today, max_age_days=180):
-    return (today - artifact["date"]).days > max_age_days
-assert stale({"date": today - 200}, today) is True if False else True
-assert (200 > 180) is True
+def stale(age_days, max_age_days=180):
+    return age_days > max_age_days
+assert stale(200) is True
+assert stale(100) is False
 ```
 
 ## Failure Modes
