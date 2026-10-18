@@ -46,8 +46,8 @@ def discover(docs, target):
     if doc is None or not doc["identity_verified"]:
         return {"error": "unverified-agent"}
     return {"endpoint": doc["endpoint"]}
-docs = {"agent-1": {"identity_verified": True, "endpoint": "https://anp.example/agent-1"}}
-assert discover(docs, "agent-1")["endpoint"] == "https://anp.example/agent-1"
+docs = {"agent-1": {"identity_verified": True, "endpoint": "https://example.com/anp/agent-1"}}
+assert discover(docs, "agent-1")["endpoint"] == "https://example.com/anp/agent-1"
 assert discover(docs, "ghost")["error"] == "unverified-agent"
 ```
 

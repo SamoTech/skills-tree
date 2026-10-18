@@ -62,7 +62,7 @@ assert status({"response": "acknowledged", "recheck_passed": False}) == "pending
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- 2026 security checklists include privacy-request fulfillment and verification among required agentic data controls ([public signal](https://iternal.ai/ai-agent-security-checklist))
+- 2026 agentic security best-practice guides include privacy-request fulfillment and verification among required data controls ([public signal](https://www.forcepoint.com/blog/insights/agentic-ai-security-best-practices))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

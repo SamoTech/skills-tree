@@ -60,7 +60,7 @@ assert resume({"acknowledged": True}, []) == "resume"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- 2026 agent security checklists require explicit human takeover boundaries with verified state handoff ([public signal](https://iternal.ai/ai-agent-security-checklist))
+- 2026 agentic security best-practice guides require explicit human takeover boundaries with verified state handoff ([public signal](https://www.forcepoint.com/blog/insights/agentic-ai-security-best-practices))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
