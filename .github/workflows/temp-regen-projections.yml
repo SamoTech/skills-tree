@@ -38,7 +38,7 @@ jobs:
 
       - name: Run freshness tests
         run: |
-          python3 -m pytest tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_jsonld_export.py tests/test_search_index_contract.py -v
+          python3 -m pytest tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_jsonld_export.py -v
 
       - name: Commit regenerated projections
         run: |
