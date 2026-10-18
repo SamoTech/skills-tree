@@ -1689,3 +1689,18 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if a rewired target is removed from the corpus, if CI on the exact PR head fails on any gate, or if the Human Owner changes the convention set.
+
+
+## DECISION-2026-10-18-BATCH-CONTENT-QUALITY-CONTRACT
+
+**Topic:** Codification of the Counsel slice-2 systemic advisory findings B1-B5 (audit issue #617) as the expansion-batch content-quality contract.
+
+**Decision:** The advisory findings B1 (off-topic runnable examples), B2 (boilerplate Procedure/Failure Modes/Evidence), B3 (missing Changelog), B5 (presence-gated runnable examples requiring external API keys), plus metadata completeness (B4 key set) are codified as a review-time content-quality contract for all future expansion batches and recommended for any new-skill PR, recorded in meta/MOST-WANTED-SKILLS.md ("Expansion-batch content-quality contract"). Requirements: (1) runnable examples must exercise the skill's subject matter, be deterministic, and run without external API keys or network access (or explicitly declare the dependency and provide a no-key dry-run path); (2) Procedure and Failure Modes must be topic-specific, and Evidence must cite concrete sources or state their absence honestly (demand-signal boilerplate only where demand signals are genuinely reported); (3) every new skill must include a Changelog with at least the initial-entry line; (4) frontmatter must carry the canonical key set per DECISION-2026-10-18-COUNSEL-SLICE2-CONVENTIONS; (5) batch PRs record per batch that these requirements were checked per file. The contract applies to newly added skills only - no forced mass rewrite of the existing corpus (consistent with D-B4 opportunistic normalization). A future freshness-contract test may codify parts mechanically; until then it is a review-time contract that adds to, and does not weaken or replace, any existing CI, quality, security, or governance gate. With this codification, all findings of issue #617 (A1-A9 remediated and verified in PRs #618/#621; B1-B5 codified here) are dispositioned and the issue may be closed.
+
+**Confidence:** HIGH - the contract mirrors the repository's existing verified conventions (slice-2 conventions, freshness contracts, evidence-honesty culture) and was derived from the measured spot-audit evidence in #617.
+
+**Evidence IDs:** issue #617 (Counsel spot-audit findings and 2026-10-18 triage comment); PR #618; PR #621; DECISION-2026-10-18-COUNSEL-SLICE2-CONVENTIONS; meta/MOST-WANTED-SKILLS.md expansion-batch sections (2026-10-12 through 2026-10-15 batches); meta/CURRENT-STATE.md 2026-10-18 cycle-3 section.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the Human Owner changes the batch-quality requirements, if a future expansion batch demonstrates the contract is unworkable as written, or if a mechanical freshness-contract test supersedes the review-time form.
