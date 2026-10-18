@@ -7,7 +7,7 @@ description: "Write machine-usable voice and tone guides with rules, positive an
 added: "2026-10"
 version: v1
 related: [tone-adjustment, persona-adoption, plain-language-writing]
-tags: [voice, and, tone, guide]
+tags: [voice, tone, guide, authoring]
 ---
 # Voice And Tone Guide Authoring
 
