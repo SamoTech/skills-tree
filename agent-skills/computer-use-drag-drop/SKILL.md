@@ -4,7 +4,9 @@ description: Move a verified UI object from a source target to a destination tar
 metadata:
   source: skills/10-computer-use/drag-drop.md
   category: 10-computer-use
+  version: "v1"
 ---
+
 
 **Category:** Computer Use
 **Skill Level:** `advanced`
@@ -52,6 +54,5 @@ Coordinate drift, scrolling, or overlays can misroute the object; verify both en
 Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
 
 ## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md
