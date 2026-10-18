@@ -1,0 +1,56 @@
+name: Temp Regen Projections (counsel slice-2 cycle 2)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  regen:
+    if: github.head_ref == 'counsel/audit-fixes-2-2026-10-18'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install pyyaml pytest
+
+      - name: Regenerate Skills API / JSON-LD projections
+        run: python3 tools/export_skills.py
+
+      - name: Validate JSON-LD projection
+        run: python3 tools/verify_jsonld_export.py
+
+      - name: Regenerate graph projection
+        run: python3 tools/build_graph.py
+
+      - name: Sync graph projection copy
+        run: cp data/SKILLS_GRAPH.json docs/api/graph.json
+
+      - name: Regenerate search index
+        run: python3 tools/build_search_index.py
+
+      - name: Regenerate Agent Skills packages
+        run: python3 tools/generate_agent_skills.py
+
+      - name: Freshness gate (projections must match corpus)
+        run: python3 -m pytest tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_jsonld_export.py -v
+
+      - name: Commit regenerated projections
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/api/ data/ agent-skills/
+          git diff --staged --quiet && echo "No generated changes." && exit 0
+          git commit -m "chore: regenerate projections for counsel slice-2 cycle 2"
+          git push
