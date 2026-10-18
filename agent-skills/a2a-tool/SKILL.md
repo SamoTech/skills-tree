@@ -4,6 +4,7 @@ description: Use agent-to-agent tool interfaces with explicit contracts, authori
 metadata:
   source: skills/07-tool-use/a2a-tool.md
   category: 07-tool-use
+  version: "v1"
 ---
 
 ## Description
@@ -35,9 +36,7 @@ print("validate tool contracts before invocation")
 - Ignoring authorization boundaries.
 
 ## Related
-- 07-tool-use
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- tool-guardrails.md
 
 ## Evidence
 Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.

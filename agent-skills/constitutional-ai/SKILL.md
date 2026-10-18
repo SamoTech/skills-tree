@@ -4,6 +4,7 @@ description: Apply a declared set of principles to critique and revise generated
 metadata:
   source: skills/09-agentic-patterns/constitutional-ai.md
   category: 09-agentic-patterns
+  version: "v1"
 ---
 
 ## Description
@@ -51,6 +52,5 @@ print(result)
 Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
 ## Related
-- 09-agentic-patterns
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md

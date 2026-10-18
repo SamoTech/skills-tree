@@ -4,6 +4,7 @@ description: Identify unusual observations in supplied datasets using explicit b
 metadata:
   source: skills/12-data/anomaly-detection.md
   category: 12-data
+  version: "v1"
 ---
 
 **Category:** Data
@@ -52,6 +53,5 @@ An anomaly is not automatically an error or incident; investigate context before
 Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
 
 ## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md

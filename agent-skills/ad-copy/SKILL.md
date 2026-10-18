@@ -4,6 +4,7 @@ description: Apply ad copy in an AI workflow with explicit scope, domain constra
 metadata:
   source: skills/16-domain-specific/ad-copy.md
   category: 16-domain-specific
+  version: "v1"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-16-domain-specific-ad-copy.json)
@@ -11,7 +12,7 @@ metadata:
 **Category:** Domain-Specific
 **Skill Level:** `advanced`
 **Stability:** stable
-**Added:** 2026-04
+**Added:** 2025-03
 
 ### Description
 Generates channel-specific ad copy variants for Google Search, Meta, LinkedIn, and TikTok while respecting character limits, platform policies, and audience targeting parameters. Supports multi-variant generation for A/B testing.
@@ -55,6 +56,5 @@ print(generate_ad("AI-powered note-taking app", "google"))
 The canonical skill file is the authoritative repository implementation. Repository schema, validation workflows, and the Agent Skills projection contract define structural conformance. Domain-specific factual claims must remain traceable to supplied or independently verified authoritative sources.
 
 ### Related
-- 16-domain-specific
-- input-guardrails
-- output-guardrails
+- ../14-security/input-guardrails.md
+- ../14-security/output-guardrails.md
