@@ -7,7 +7,7 @@ description: "Bound how many actions of each type run simultaneously using expli
 added: "2026-10"
 version: v1
 related: [batch-processing, process-management, rate-limiting]
-tags: [action, concurrency, limiting, action]
+tags: [action, concurrency, limiting]
 ---
 
 # Action Concurrency Limiting

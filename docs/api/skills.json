@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-16T01:21:38Z",
+  "generated": "2026-10-16T13:48:02Z",
   "count": 1039,
   "skills": [
     {
@@ -2163,9 +2163,6 @@
         "Failure Modes",
         "Related",
         "Changelog",
-        "Failure Modes",
-        "Evidence",
-        "Failure Modes",
         "Evidence"
       ],
       "related": [],
@@ -3023,8 +3020,6 @@
         "Prompt Pattern",
         "Agentic Goal Tracking",
         "Related Skills",
-        "Failure Modes",
-        "Evidence",
         "Failure Modes",
         "Evidence"
       ],
