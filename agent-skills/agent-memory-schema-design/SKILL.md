@@ -13,7 +13,7 @@ metadata:
 Design typed memory schemas with explicit fields, retention rules, and provenance slots before storage, and reject writes that do not conform to the declared schema. The procedure is constrained by explicit inputs and acceptance criteria rather than best-effort judgment alone.
 
 ## When to Use
-- a memory store needs a declared schema before the first write before downstream steps can proceed safely.
+- a memory store needs a declared schema before the first write; downstream steps cannot proceed safely without one.
 - Ambiguity or missing evidence would change the outcome.
 - The result must be recorded with reasons and evidence for later verification.
 
