@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: a2f991afd2c499b4f97181e6a29dc71e26abd4b9)---
+---
 name: vendor-soc2-evidence-collection
 description: Collect SOC 2 evidence from systems and vendors with trace mapping, flagging stale artifacts rather than assembling claims manually.
 metadata:

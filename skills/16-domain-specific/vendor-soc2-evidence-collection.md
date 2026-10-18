@@ -1,4 +1,4 @@
-successfully downloaded text file (SHA: 2f7b32170b536b8c793ab7848efa6c974100cc25)---
+---
 title: "Vendor Soc2 Evidence Collection"
 category: 16-domain-specific
 level: advanced
