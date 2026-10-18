@@ -66,4 +66,4 @@ Safety under concurrent load is a named 2026 production concern for agent teams;
 ## Related
 - batch-processing.md
 - process-management.md
-- rate-limiting.md
+- ../14-security/rate-limiting.md

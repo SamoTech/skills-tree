@@ -124,8 +124,8 @@ print(json.dumps(result, indent=2))
 ## Related Skills
 
 - [Causal Reasoning](causal.md) — determining cause-effect chains
-- [Commonsense Reasoning](commonsense.md) — background world knowledge
-- [Fact Verification](../03-memory/fact-verification.md) — checking hypothesis claims
+- [Bayesian Reasoning](bayesian-reasoning.md) — probabilistic belief updating
+- [Hypothesis Generation](hypothesis-generation.md) — generating ranked candidate explanations
 
 ---
 

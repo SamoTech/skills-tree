@@ -58,4 +58,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Related
 - 3d-scene-understanding.md
 - image-generation.md
-- svg-generation.md
+- ../13-creative/svg-generation.md
