@@ -1,19 +1,22 @@
 name: Temp regen projections
 
 on:
-  push:
-    branches: [counsel/audit-fixes-2026-10-16]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
 
 permissions:
   contents: write
 
 jobs:
   regen:
+    # only run for this specific branch to avoid touching other PRs
+    if: github.head_ref == 'counsel/audit-fixes-2026-10-16'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: counsel/audit-fixes-2026-10-16
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - uses: actions/setup-python@v5
