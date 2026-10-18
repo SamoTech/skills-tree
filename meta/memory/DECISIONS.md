@@ -1704,3 +1704,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the Human Owner changes the batch-quality requirements, if a future expansion batch demonstrates the contract is unworkable as written, or if a mechanical freshness-contract test supersedes the review-time form.
+
+## DECISION-2026-10-18-QUALITY-REPORT-FRESHNESS-CONTRACT
+
+**Topic:** Freshness contract for the committed skill-quality report (meta/QUALITY-REPORT.md).
+
+**Decision:** `meta/QUALITY-REPORT.md` is a generated projection of the canonical `skills/` corpus and is now machine-verified fresh on every push by `tests/test_quality_report_freshness.py`, which re-derives the report in-memory via the shared `tools/check_skill_quality.py` boundary (`classify`/`iter_skill_files`/`render_report`: deterministic sorted iteration, no file writes, no second classifier introduced) and requires the committed report to be byte-identical to the canonical `render_report()` output. The report contains no git-derived timestamp fields, so no exclusions are required (unlike #581/#582). This closes the out-of-band-regeneration gap in the established pattern of the Skills-API (#581), graph (#582), and search-index (#616) freshness contracts, and delivers the candidate follow-up named in the Counsel mission board (#615). The classification authority remains `meta/skill-schema.json` via `check_skill_quality.py`; no new registry authority is created, no manual-report exception is introduced, no CI, quality, security, or governance gate is weakened, and there are no workflow changes.
+
+**Confidence:** HIGH - the generator is deterministic (sorted iteration, no timestamps, no git dependency in the classification path) and the pattern is already proven by #581/#582/#616.
+
+**Evidence IDs:** tools/check_skill_quality.py (classify/iter_skill_files/render_report); meta/QUALITY-REPORT.md; tests/test_quality_report_freshness.py; tests/test_skills_api_freshness.py (#581); tests/test_graph_projection_freshness.py (#582); tests/test_search_index_freshness.py (#616); issue #615 (candidate follow-up); meta/CURRENT-STATE.md 2026-10-18 cycle-4 section; meta/CONTINUITY.md item-2 status.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the Human Owner changes the quality-report publication model, if `tools/check_skill_quality.py` gains nondeterministic output, or if a mechanical successor contract supersedes this one.
