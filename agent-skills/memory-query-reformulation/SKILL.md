@@ -6,6 +6,7 @@ metadata:
   category: 03-memory
   version: "v1"
 ---
+
 # Memory Query Reformulation
 
 ## Description
@@ -48,11 +49,11 @@ assert q["entity"] == ["Acme"] and "renew" in q["keyword"]
 ```
 
 ## Failure Modes
-- The reformulated query drops the time constraint and recalls stale memories as current..
-- Generated queries are executed but never recorded, so recall quality cannot be debugged..
-- One index surface is silently skipped and its memories become unreachable..
-- Reformulation runs once per request even when the first recall round returned empty..
-- Entity extraction is case-sensitive and misses lowercase entity mentions..
+- The reformulated query drops the time constraint and recalls stale memories as current.
+- Generated queries are executed but never recorded, so recall quality cannot be debugged.
+- One index surface is silently skipped and its memories become unreachable.
+- Reformulation runs once per request even when the first recall round returned empty.
+- Entity extraction is case-sensitive and misses lowercase entity mentions.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -67,5 +68,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

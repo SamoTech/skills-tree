@@ -56,11 +56,11 @@ assert rebuild(j, {"seq": 2, "x": 0})["x"] == 1
 ```
 
 ## Failure Modes
-- Recovery replays the journal from the start and re-executes recorded side effects..
-- The rebuilt state skips checkpoint verification and resumes on corrupted data..
-- Context loss is detected only on hard crashes, not on silent truncation..
-- The goal record itself lived only in the lost context, so nothing remains to recover toward..
-- Recovery resumes mid-step instead of at the last recorded boundary and double-executes the step..
+- Recovery replays the journal from the start and re-executes recorded side effects.
+- The rebuilt state skips checkpoint verification and resumes on corrupted data.
+- Context loss is detected only on hard crashes, not on silent truncation.
+- The goal record itself lived only in the lost context, so nothing remains to recover toward.
+- Recovery resumes mid-step instead of at the last recorded boundary and double-executes the step.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -75,5 +75,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

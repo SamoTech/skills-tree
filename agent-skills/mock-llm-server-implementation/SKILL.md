@@ -6,6 +6,7 @@ metadata:
   category: 05-code
   version: "v1"
 ---
+
 # Mock LLM Server Implementation
 
 ## Description
@@ -50,11 +51,11 @@ assert respond(s, {"model": "m", "messages": [{"role": "user"}]}) == "ok"
 ```
 
 ## Failure Modes
-- Unmatched requests fall back to a generic response and hide missing-coverage errors..
-- The mock reimplements provider semantics from memory and drifts from the real error surface..
-- Scripted keys are so loose that the wrong script entry matches a different request..
-- The mock ignores token-limit and rate-limit errors, so the agent never exercises its retry paths..
-- Live keys remain reachable from the test configuration even though the mock is in use..
+- Unmatched requests fall back to a generic response and hide missing-coverage errors.
+- The mock reimplements provider semantics from memory and drifts from the real error surface.
+- Scripted keys are so loose that the wrong script entry matches a different request.
+- The mock ignores token-limit and rate-limit errors, so the agent never exercises its retry paths.
+- Live keys remain reachable from the test configuration even though the mock is in use.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -69,5 +70,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

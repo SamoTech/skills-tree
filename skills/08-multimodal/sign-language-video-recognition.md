@@ -50,11 +50,11 @@ assert [s["gloss"] for s in accept(segs, 0.8)] == ["HELLO"]
 ```
 
 ## Failure Modes
-- Signs that span frame boundaries are split and recognized as two wrong glosses..
-- Fast fingerspelling is averaged into a single low-confidence guess that is emitted anyway..
-- Regional sign variants are mapped to the wrong standard gloss without a variant flag..
-- Low-confidence segments are emitted silently, presenting guesses as transcripts..
-- Recognition is tuned on one signer and fails on others without any coverage disclosure..
+- Signs that span frame boundaries are split and recognized as two wrong glosses.
+- Fast fingerspelling is averaged into a single low-confidence guess that is emitted anyway.
+- Regional sign variants are mapped to the wrong standard gloss without a variant flag.
+- Low-confidence segments are emitted silently, presenting guesses as transcripts.
+- Recognition is tuned on one signer and fails on others without any coverage disclosure.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -69,5 +69,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

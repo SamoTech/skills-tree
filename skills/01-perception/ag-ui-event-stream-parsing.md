@@ -52,11 +52,11 @@ assert parse_event({"type": "RUN_STARTED"}, False)["type"] == "RUN_STARTED"
 ```
 
 ## Failure Modes
-- A STATE_DELTA arrives before its RUN_STARTED boundary and corrupts UI state..
-- A TEXT_MESSAGE_CONTENT event is applied after its STOP event, appending orphaned text..
-- An unknown event type is silently dropped, hiding protocol version drift from the binding..
-- Partial JSON chunks are parsed as complete events and raise downstream type errors..
-- Tool-call arguments are surfaced before the ARGUMENTS_DONE event completes them..
+- A STATE_DELTA arrives before its RUN_STARTED boundary and corrupts UI state.
+- A TEXT_MESSAGE_CONTENT event is applied after its STOP event, appending orphaned text.
+- An unknown event type is silently dropped, hiding protocol version drift from the binding.
+- Partial JSON chunks are parsed as complete events and raise downstream type errors.
+- Tool-call arguments are surfaced before the ARGUMENTS_DONE event completes them.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -71,5 +71,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

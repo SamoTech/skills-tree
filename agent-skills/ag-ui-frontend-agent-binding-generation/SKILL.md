@@ -6,6 +6,7 @@ metadata:
   category: 05-code
   version: "v1"
 ---
+
 # AG-UI Frontend Agent Binding Generation
 
 ## Description
@@ -52,11 +53,11 @@ assert dispatch([{"type": "TEXT"}], {"TEXT": lambda e: "ok"}) == ["ok"]
 ```
 
 ## Failure Modes
-- The generated binding handles only the event types seen during development and throws on new protocol events..
-- The dispatcher swallows unknown events instead of failing the exhaustive check..
-- Hand edits to generated code drift from the schema and are overwritten on the next generation run..
-- The binding trusts event payload fields without schema validation and renders malformed state..
-- Reconnection logic replays the whole event log instead of resuming from the last snapshot..
+- The generated binding handles only the event types seen during development and throws on new protocol events.
+- The dispatcher swallows unknown events instead of failing the exhaustive check.
+- Hand edits to generated code drift from the schema and are overwritten on the next generation run.
+- The binding trusts event payload fields without schema validation and renders malformed state.
+- Reconnection logic replays the whole event log instead of resuming from the last snapshot.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -71,5 +72,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

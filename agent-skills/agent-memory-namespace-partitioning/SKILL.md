@@ -6,6 +6,7 @@ metadata:
   category: 03-memory
   version: "v1"
 ---
+
 # Agent Memory Namespace Partitioning
 
 ## Description
@@ -48,11 +49,11 @@ assert key("tenant-a/user-1", "mem-42") == "tenant-a/user-1::mem-42"
 ```
 
 ## Failure Modes
-- A write omits the namespace tag and lands in a shared default bucket..
-- The namespace is derived from free text instead of a validated key schema and collides across tenants..
-- A retrieval query falls back to unpartitioned search when the namespace returns nothing..
-- Namespace deletion is treated as sufficient for compliance without checking replication lag..
-- Cross-namespace probes are run once at setup and never again after key-schema drift..
+- A write omits the namespace tag and lands in a shared default bucket.
+- The namespace is derived from free text instead of a validated key schema and collides across tenants.
+- A retrieval query falls back to unpartitioned search when the namespace returns nothing.
+- Namespace deletion is treated as sufficient for compliance without checking replication lag.
+- Cross-namespace probes are run once at setup and never again after key-schema drift.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -67,5 +68,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |
