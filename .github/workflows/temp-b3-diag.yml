@@ -1,0 +1,63 @@
+name: Temp B3 Diag
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  diag:
+    name: lychee report + projection regen
+    if: github.head_ref == 'skills/expansion-2026-10-18-b3'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: |
+          pip install --quiet pyyaml pytest jsonschema
+          wget -q https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
+          tar -xzf lychee-x86_64-unknown-linux-gnu.tar.gz
+      - name: Run lychee (diagnostic, non-fatal)
+        run: |
+          ./lychee --verbose --no-progress \
+            --exclude 'localhost' \
+            --exclude '127\.0\.0\.1' \
+            --exclude 'example\.com' \
+            --timeout 30 --max-retries 3 \
+            --format markdown --output lychee-report.md \
+            'skills/**/*.md' || echo "lychee_exit=$?"
+          cat lychee-report.md || true
+          cat lychee-report.md >> "$GITHUB_STEP_SUMMARY" || true
+      - name: Commit lychee report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lychee-report.md
+          git diff --staged --quiet || git commit -m "chore(temp): add lychee diagnostic report"
+          git push
+      - name: Regenerate projections
+        run: |
+          python tools/build_search_index.py
+          python tools/export_skills.py
+          python tools/build_graph.py
+          python tools/check_skill_quality.py
+          python tools/generate_agent_skills.py --write-eligible
+      - name: Freshness tests
+        run: |
+          pytest -q tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py
+      - name: Commit regenerated projections
+        run: |
+          rm -f lychee-x86_64-unknown-linux-gnu.tar.gz lychee
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs data meta agent-skills
+          git diff --staged --quiet || git commit -m "chore(temp): regenerate derived projections"
+          git push
