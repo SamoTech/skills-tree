@@ -44,7 +44,21 @@ jobs:
       - name: Regen quality report
         run: python3 tools/check_skill_quality.py
       - name: Run freshness tests
-        run: python -m pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py -q
+        run: python -m pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py -q --junitxml=pytest.xml
+      - name: Surface failing tests as annotations
+        if: failure()
+        run: |
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          tree = ET.parse("pytest.xml")
+          for testcase in tree.iter("testcase"):
+              for failure in testcase.iter("failure"):
+                  name = testcase.get("name", "unknown-test")
+                  classname = testcase.get("classname", "")
+                  message = (failure.get("message") or failure.text or "").strip()
+                  message = " ".join(message.split())[:650]
+                  print(f"::error title=test-failure::{classname}::{name}: {message}")
+          PY
       - name: Commit regen outputs
         run: |
           git config user.name "github-actions[bot]"
