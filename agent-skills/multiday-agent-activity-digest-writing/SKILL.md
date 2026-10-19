@@ -35,8 +35,7 @@ Write periodic activity digests for persistent agents that summarize completed w
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A dige
-st document with per-item status, evidence links, and the declared next-action list. |
+| Primary | A digest document with per-item status, evidence links, and the declared next-action list. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

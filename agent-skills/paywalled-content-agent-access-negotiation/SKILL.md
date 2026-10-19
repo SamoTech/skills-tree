@@ -30,8 +30,7 @@ Negotiate agent access to paywalled content through explicit license or payment 
 3. Read the access terms, submit the declared access request or payment offer through the official channel, and record the granted entitlement scope before fetching gated content.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and pro
-venance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

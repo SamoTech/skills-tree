@@ -30,8 +30,7 @@ Reconstruct multiday agent activity from action logs into a verified timeline of
 3. Assemble the ordered event stream across days, anchor each action to its recorded side effect, and emit a timeline that marks every inference as inference.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consume
-rs.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

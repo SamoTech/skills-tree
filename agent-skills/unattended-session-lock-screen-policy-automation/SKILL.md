@@ -32,8 +32,7 @@ Enforce lock-screen policy on unattended computer-use sessions with idle-thresho
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
-## Out
-puts
+## Outputs
 | Area | Contract |
 |---|---|
 | Primary | A policy-execution record with idle measurements, lock actions, and verified lock states. |

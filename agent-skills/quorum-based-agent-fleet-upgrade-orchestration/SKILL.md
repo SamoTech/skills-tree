@@ -33,8 +33,7 @@ Orchestrate fleet upgrades with quorum gating so that a majority of healthy, ver
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contr
-act |
+| Area | Contract |
 |---|---|
 | Primary | An upgrade record with cohort states, quorum votes, and per-stage advance or rollback decisions. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

@@ -35,8 +35,7 @@ Wire an agent evaluation harness into CI so every change runs the eval suite, re
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A CI eval report with per-metric
- deltas, the gating verdict, and the baseline commit it was measured against. |
+| Primary | A CI eval report with per-metric deltas, the gating verdict, and the baseline commit it was measured against. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

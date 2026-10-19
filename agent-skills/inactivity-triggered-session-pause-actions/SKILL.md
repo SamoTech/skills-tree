@@ -33,8 +33,7 @@ Pause long-running agent sessions safely after declared inactivity windows by fl
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract
-|
+| Area | Contract |
 |---|---|
 | Primary | A pause record with the flushed state reference, released resources, and the scheduled wake condition. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
@@ -74,5 +73,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | Initial evidence-backed c
-ontract. |
+| `v1` | `2026-10` | Initial evidence-backed contract. |

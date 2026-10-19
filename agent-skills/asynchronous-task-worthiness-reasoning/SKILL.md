@@ -30,8 +30,7 @@ Decide whether a request justifies a persistent multi-day asynchronous agent wit
 3. Score the request on expected duration, external-dependency count, and required authority scope, and map the score to the inline, scheduled, or persistent execution tier.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for dow
-nstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |
@@ -69,8 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Long Horizon Planning](../02-reasoning/long-horizon-planning.md)
-- [Expected Value of Computation
- Reasoning](../02-reasoning/expected-value-of-computation-reasoning.md)
+- [Expected Value of Computation Reasoning](../02-reasoning/expected-value-of-computation-reasoning.md)
 
 ## Changelog
 | Version | Date | Notes |

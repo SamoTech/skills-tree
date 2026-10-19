@@ -30,8 +30,7 @@ Prune agent skills based on measured eval coverage and failure evidence so that 
 3. Rank skills by recorded usage and eval coverage, run the pruned-candidate gate on the eval suite, and prune only when the suite stays green without the candidate.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumer
-s.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

@@ -35,8 +35,7 @@ Parse agent evaluation reports (DeepEval-style metric records) into a normalized
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A normalized metric table with per-metric scores, thresholds, pass flags, and deltas against
- the baseline. |
+| Primary | A normalized metric table with per-metric scores, thresholds, pass flags, and deltas against the baseline. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

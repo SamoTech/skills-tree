@@ -33,8 +33,7 @@ Define and enforce egress filtering policy for MCP servers so that tool-triggere
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-|
-Area | Contract |
+| Area | Contract |
 |---|---|
 | Primary | An egress policy record with per-tool destinations, deny-test evidence, and revision history. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

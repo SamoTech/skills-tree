@@ -33,7 +33,6 @@ Detect emergency cues in live voice-agent sessions and hand off to human escalat
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-
 | Area | Contract |
 |---|---|
 | Primary | An escalation record with cue classification, confidence, paged channel, and human acknowledgement. |

@@ -35,8 +35,7 @@ Write user-facing explanations of an agent's audited action history that reconst
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | An audit explanation mapping every name
-d action to its trigger, authority grant, and recorded result. |
+| Primary | An audit explanation mapping every named action to its trigger, authority grant, and recorded result. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

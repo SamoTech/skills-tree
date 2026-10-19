@@ -35,8 +35,7 @@ Run governance checkpoints across agent-to-agent task delegation chains so that 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A
-chain governance record with per-hop authority scopes, acceptances, and audit refs. |
+| Primary | A chain governance record with per-hop authority scopes, acceptances, and audit refs. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

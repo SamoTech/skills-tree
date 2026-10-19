@@ -33,8 +33,7 @@ Detect fraud patterns in agent-initiated payment flows using velocity, counterpa
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contr
-act |
+| Area | Contract |
 |---|---|
 | Primary | A fraud screening record with signal scores, threshold hits, and hold or release decision. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

@@ -35,8 +35,7 @@ Parse liveness heartbe emitted by long-running persistent agents into normalized
 ## Outputs
 | Area | Contract |
 |---|---|
-| Prim
-ary | A session health record per agent with the parsed heartbeats, gap analysis, and the resulting liveness classification. |
+| Primary | A session health record per agent with the parsed heartbeats, gap analysis, and the resulting liveness classification. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 
@@ -69,8 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Agent Screen Event Stream Parsing](../01-perception/agent-screen-event-stream-parsing.md)
-- [Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md
-)
+- [Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)
 
 ## Changelog
 | Version | Date | Notes |

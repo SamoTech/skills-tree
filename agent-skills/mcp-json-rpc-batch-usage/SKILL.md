@@ -35,8 +35,7 @@ Batch multiple MCP tool calls into JSON-RPC batch requests where the transport s
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primar
-y | A batch result set keyed by call id with per-call success, error, and ordering evidence. |
+| Primary | A batch result set keyed by call id with per-call success, error, and ordering evidence. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

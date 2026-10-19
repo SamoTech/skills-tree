@@ -33,8 +33,7 @@ Monitor agent evaluation metrics for drift over time with baseline bounds, signi
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area |
- Contract |
+| Area | Contract |
 |---|---|
 | Primary | A drift report with per-metric deltas, significance results, and linked failing runs. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

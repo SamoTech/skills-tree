@@ -33,8 +33,7 @@ Author ai-crawler access directives as machine-checked policy files so that agen
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contrac
-t |
+| Area | Contract |
 |---|---|
 | Primary | A published directive file with agent classes, path rules, rate rules, and validation evidence. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

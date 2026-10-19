@@ -35,8 +35,7 @@ Write deterministic unit tests for Microsoft Agent Framework workflows by stubbi
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A passing test suite with stubbed executors, as
-serted step sequences, and recorded outputs. |
+| Primary | A passing test suite with stubbed executors, asserted step sequences, and recorded outputs. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

@@ -30,8 +30,7 @@ Decompose multiday agent missions into day-scale milestones with explicit resump
 3. Split the mission into day-scale milestones, define a resumption contract per milestone with verified entry conditions, and store the milestone state in the durable journal.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downs
-tream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

@@ -30,8 +30,7 @@ Review agent-driven checkout flows for payment, disclosure, and consumer-protect
 3. Walk the checkout flow, verify mandate scope, price confirmation, and disclosure steps against the declared rule set, and record the evidence at each gate.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for d
-ownstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

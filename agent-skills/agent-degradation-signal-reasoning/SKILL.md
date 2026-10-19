@@ -34,8 +34,7 @@ Reason over drifting quality, latency, and cost signals from a deployed agent to
 
 ## Outputs
 | Area | Contract |
-|
----|---|
+|---|---|
 | Primary | A degradation verdict naming the implicated signals, their correlation evidence, and the triggered response tier. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
@@ -70,8 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Sensitivity Analysis](../02-reasoning/sensitivity-analysis.md)
-- [Risk Assessment](../02-reasoning/risk-as
-sessment.md)
+- [Risk Assessment](../02-reasoning/risk-assessment.md)
 
 ## Changelog
 | Version | Date | Notes |

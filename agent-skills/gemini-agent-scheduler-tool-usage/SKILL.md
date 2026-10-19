@@ -33,8 +33,7 @@ Use persistent-agent scheduling surfaces and their account-scoped tools to enque
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-|
- Area | Contract |
+| Area | Contract |
 |---|---|
 | Primary | A scheduled-task record with the runtime handle, wake condition, authority scope, and result-retrieval plan. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
@@ -71,5 +70,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10`
- | Initial evidence-backed contract. |
+| `v1` | `2026-10` | Initial evidence-backed contract. |

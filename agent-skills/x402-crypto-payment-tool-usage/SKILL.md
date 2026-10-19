@@ -35,8 +35,7 @@ Execute x402-style crypto payment tool calls behind an explicit approval gate, w
 ## Outputs
 | Area | Contract |
 |---|---|
-| P
-rimary | A settlement record with quote hash, idempotency key, transaction reference, and verified receipt. |
+| Primary | A settlement record with quote hash, idempotency key, transaction reference, and verified receipt. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

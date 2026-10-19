@@ -33,8 +33,7 @@ Run old and new agent-protocol versions side by side during a migration window w
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-|
- Area | Contract |
+| Area | Contract |
 |---|---|
 | Primary | A migration record with per-connection versions, dual-run diffs, and the cutover decision. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

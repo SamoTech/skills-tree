@@ -30,8 +30,7 @@ Execute a lockdown response for compromised persistent agent sessions that freez
 3. Freeze scheduled and in-flight actions, revoke live credentials for the session, snapshot the session state for evidence, and escalate through the incident channel with the containment record.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured
-result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |
@@ -71,5 +70,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | In
-itial evidence-backed contract. |
+| `v1` | `2026-10` | Initial evidence-backed contract. |

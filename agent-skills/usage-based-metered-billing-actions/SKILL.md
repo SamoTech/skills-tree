@@ -32,8 +32,7 @@ Emit and reconcile metered usage events for agent actions so customers are bille
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
-## Output
-s
+## Outputs
 | Area | Contract |
 |---|---|
 | Primary | A metered event stream with dedup keys, a reconciliation report, and declared gap handling for the billing window. |
@@ -77,5 +76,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | Initial evidence-backed contr
-act. |
+| `v1` | `2026-10` | Initial evidence-backed contract. |

@@ -30,8 +30,7 @@ Decide which inter-agent protocol family (A2A-style agent discovery, MCP-style t
 3. Map the integration needs (discovery, tool exposure, trust propagation) onto the protocol families' capabilities and select the least-complex sufficient choice.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a
- structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |
@@ -70,8 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Model Selection Reasoning](../0
-2-reasoning/model-selection-reasoning.md)
+- [Model Selection Reasoning](../02-reasoning/model-selection-reasoning.md)
 - [Capability Scope Negotiation Reasoning](../02-reasoning/capability-scope-negotiation-reasoning.md)
 
 ## Changelog

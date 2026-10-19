@@ -35,8 +35,7 @@ Replay recorded agent tool calls against current tool implementations to detect 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primar
-y | A replay report with per-call output diffs, contract violations, and the drift classification. |
+| Primary | A replay report with per-call output diffs, contract violations, and the drift classification. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

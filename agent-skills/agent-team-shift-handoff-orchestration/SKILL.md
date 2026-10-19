@@ -30,8 +30,7 @@ Orchestrate shift handoffs between persistent agent teams so that in-flight work
 3. Freeze the outgoing shift at a handoff point, exchange the structured handoff brief, and require the incoming shift to acknowledge ownership before the outgoing team releases duties.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downst
-ream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

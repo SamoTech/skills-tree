@@ -30,8 +30,7 @@ Manage turn-taking in live translation voice-agent sessions so that overlapping 
 3. Track the active speaker channel, detect barge-in against the declared thresholds, and commit a turn boundary only when the channel state is verified.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consu
-mers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |
@@ -72,5 +71,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` |
- `2026-10` | Initial evidence-backed contract. |
+| `v1` | `2026-10` | Initial evidence-backed contract. |

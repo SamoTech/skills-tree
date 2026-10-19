@@ -35,8 +35,7 @@ Persist evaluation findings as structured memories with retention rules so later
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A findings store keyed by capabil
-ity and scope with retention windows, confidence, and supersession links. |
+| Primary | A findings store keyed by capability and scope with retention windows, confidence, and supersession links. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

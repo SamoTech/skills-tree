@@ -30,8 +30,7 @@ Provision durable state stores for persistent agents with declared schemas, rete
 3. Provision the store with its declared schema and retention policy, seed the agent state contract, and verify restore by replaying a state snapshot through the declared path.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and p
-rovenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |
