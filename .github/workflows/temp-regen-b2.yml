@@ -1,6 +1,7 @@
 name: Temp Regen Batch 2
 
 # Temporary projection-regeneration workflow for the 2026-10-19 expansion
+# Retrigger v2.
 # batch 2 PR. Deleted before merge (net zero) per the documented regen
 # protocol; governance-gate drift while present is expected and reverts.
 
