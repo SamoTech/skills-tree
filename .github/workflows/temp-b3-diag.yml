@@ -21,44 +21,37 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install deps
-        run: |
-          pip install --quiet pyyaml pytest jsonschema
-          wget -q https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz
-          tar -xzf lychee-x86_64-unknown-linux-gnu.tar.gz
+      - run: pip install 'pyyaml==6.0.3' pytest jsonschema
       - name: Run lychee (diagnostic, non-fatal)
-        run: |
-          ./lychee --verbose --no-progress \
-            --exclude 'localhost' \
-            --exclude '127\.0\.0\.1' \
-            --exclude 'example\.com' \
-            --timeout 30 --max-retries 3 \
-            --format markdown --output lychee-report.md \
-            'skills/**/*.md' || echo "lychee_exit=$?"
-          cat lychee-report.md || true
-          cat lychee-report.md >> "$GITHUB_STEP_SUMMARY" || true
-      - name: Commit lychee report
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add lychee-report.md
-          git diff --staged --quiet || git commit -m "chore(temp): add lychee diagnostic report"
-          git push origin HEAD:${{ github.head_ref }}
-      - name: Regenerate projections
-        run: |
-          python tools/build_search_index.py
-          python tools/export_skills.py
-          python tools/build_graph.py
-          python tools/check_skill_quality.py
-          python tools/generate_agent_skills.py --write-eligible
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --exclude 'localhost'
+            --exclude '127\.0\.0\.1'
+            --exclude 'example\.com'
+            --timeout 30
+            --max-retries 3
+            'skills/**/*.md'
+          fail: false
+          output: lychee-report.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: python tools/build_search_index.py --skills-root skills/ --output docs/search-index.json --package-output data/search-index.json
+      - run: python tools/export_skills.py
+      - run: python tools/build_graph.py
+      - run: cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - run: python tools/check_skill_quality.py
+      - run: python tools/generate_agent_skills.py --write-eligible
+      - run: python tools/update_readme_counts.py
       - name: Freshness tests
+        run: pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py tests/test_update_readme_counts.py
+      - name: Commit and push regenerated projections + report
         run: |
-          pytest -q tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py
-      - name: Commit regenerated projections
-        run: |
-          rm -f lychee-x86_64-unknown-linux-gnu.tar.gz lychee
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs data meta agent-skills
-          git diff --staged --quiet || git commit -m "chore(temp): regenerate derived projections"
-          git push origin HEAD:${{ github.head_ref }}
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "chore(regen): refresh projections and add lychee diagnostic report for batch 3"
+          git push
