@@ -99,7 +99,7 @@ patch_tags     = ["fix", "perf", "refactor"]
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = [
-    "^chore\\(release\\):",
+    "^chore\(release\):",
     "^Merge ",
     "^Initial commit",
 ]
