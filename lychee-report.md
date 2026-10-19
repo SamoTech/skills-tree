@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1243  |
 | ✅ Successful  | 2388  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 70    |
+| 🔀 Redirected  | 72    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 5     |
@@ -20,19 +20,19 @@
 
 ### Errors in skills/08-multimodal/meeting-transcript-redaction-streaming.md
 
-* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 69:119) | Rejected status code: 404 Not Found
+* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 69:119) | Error (cached)
 
 ### Errors in skills/10-computer-use/unattended-session-lock-screen-policy-automation.md
 
-* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 67:119) | Rejected status code: 404 Not Found
+* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 67:119) | Error (cached)
 
 ### Errors in skills/13-creative/synthetic-voice-ad-copy-compliance-writing.md
 
-* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 64:119) | Rejected status code: 404 Not Found
+* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 64:119) | Error (cached)
 
 ### Errors in skills/14-security/persistent-agent-session-lockdown-response.md
 
-* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 65:119) | Rejected status code: 404 Not Found
+* [404] <https://www.forcepoint.com/resources/blog/agentic-ai-security-best-practices> (at 65:119) | Error (cached)
 
 ## Redirects per input
 
@@ -215,6 +215,10 @@
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
 
+### Redirects in skills/09-agentic-patterns/agent-failure-taxonomy.md
+
+* https://owasp.org/www-project-top-10-for-large-language-model-applications/ --[308]--> https://owasp.org/www-project-top-10-for-large-language-model-applications --[308]--> https://owasp.org/projects/top-10-for-large-language-model-applications
+
 ### Redirects in skills/09-agentic-patterns/multi-agent-workstream-merging.md
 
 * https://turingpost.com/p/a2a --[301]--> https://www.turingpost.com/p/a2a
@@ -222,6 +226,10 @@
 ### Redirects in skills/09-agentic-patterns/prompt-caching.md
 
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
+
+### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
+
+* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
 
 ### Redirects in skills/09-agentic-patterns/rag.md
 
@@ -289,4 +297,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[302]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39181802954?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39182369338?check_suite_focus=true)
