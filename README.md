@@ -36,7 +36,7 @@ AI agents should be able to find the right skill here, and humans should be able
 
 The repository remains an evidence-backed, dependency-aware knowledge graph and distribution system for making those skills discoverable and reusable.
 
-| 1239 Public Skills | 1184 Graph Edges | MIT Licensed |
+| 1289 Public Skills | 1284 Graph Edges | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & evidence-backed | Dependency-mapped | Community-governed |
 
@@ -180,7 +180,7 @@ Quality classifications are repository validation states, not proof of productio
 
 | Feature | **Skills Tree** | LangChain Hub | Hugging Face Hub | Custom YAML files |
 |---|---|---|---|---|
-| AI agent skill taxonomy | ✅ 1239 public skills | ⚠️ Prompt-focused | ❌ Model-focused | ❌ None |
+| AI agent skill taxonomy | ✅ 1289 public skills | ⚠️ Prompt-focused | ❌ Model-focused | ❌ None |
 | Versioned skill evolution | ✅ v1→v2→v3 | ❌ | ❌ | ❌ |
 | Runnable code examples | ✅ Every skill (CI-gated) | ⚠️ Some | ⚠️ Some | ❌ |
 | Benchmarks included | ✅ Head-to-head | ❌ | ⚠️ Leaderboards | ❌ |
@@ -234,7 +234,7 @@ If you're new, **read these first**. Each ships with runnable code, typed I/O, f
 ```
 skills-tree/
 │
-├── skills/          → 1239 public skills (1240 quality-corpus files including one sandbox fixture)
+├── skills/          → 1289 public skills (1290 quality-corpus files including one sandbox fixture)
 ├── systems/         → Multi-skill workflows (research agent, code reviewer...)
 ├── blueprints/      → Copy-paste production architectures
 ├── benchmarks/      → Head-to-head, reproducible skill comparisons
@@ -253,23 +253,23 @@ skills-tree/
 
 | # | Category | Skills | What It Covers |
 |---|---|---|---|
-| 01 | 👁️ **Perception** | 90 | Text, images, PDFs, code, sensors, databases, screens |
-| 02 | 🧠 **Reasoning** | 102 | Planning, deduction, abduction, causal chains, commonsense |
-| 03 | 🗄️ **Memory** | 75 | Working, episodic, semantic, vector, injection, forgetting |
-| 04 | ⚡ **Action Execution** | 81 | File I/O, HTTP, email, shell, database writes |
-| 05 | 💻 **Code** | 87 | Write, run, debug, review, refactor, test, deploy |
-| 06 | 💬 **Communication** | 67 | Summarize, translate, draft, argue, adapt tone |
-| 07 | 🔧 **Tool Use** | 88 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
-| 08 | 🎭 **Multimodal** | 64 | Images, audio, video, VQA, 3D, charts |
-| 09 | 🤖 **Agentic Patterns** | 79 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
-| 10 | 🖥️ **Computer Use** | 72 | Click, type, scroll, OCR, terminal, VM, a11y tree |
-| 11 | 🌐 **Web** | 77 | Search, scrape, crawl, login, fill forms, parse RSS |
-| 12 | 📊 **Data** | 75 | ETL, SQL, embeddings, time series, anomaly detection |
-| 13 | 🎨 **Creative** | 51 | Copywriting, image prompts, SVG, music, scripts |
-| 14 | 🔒 **Security** | 55 | Sandboxing, secret scanning, audit logs, rollback |
-| 15 | 🎼 **Orchestration** | 66 | Multi-agent, state machines, retry, consensus |
-| 16 | 🏺 **Domain-Specific** | 67 | Medical, legal, finance, DevOps, education, science |
-| 17 | 🛠️ **Infrastructure** | 43 | Dependency auditing & supply-chain tooling |
+| 01 | 👁️ **Perception** | 93 | Text, images, PDFs, code, sensors, databases, screens |
+| 02 | 🧠 **Reasoning** | 105 | Planning, deduction, abduction, causal chains, commonsense |
+| 03 | 🗄️ **Memory** | 78 | Working, episodic, semantic, vector, injection, forgetting |
+| 04 | ⚡ **Action Execution** | 84 | File I/O, HTTP, email, shell, database writes |
+| 05 | 💻 **Code** | 90 | Write, run, debug, review, refactor, test, deploy |
+| 06 | 💬 **Communication** | 69 | Summarize, translate, draft, argue, adapt tone |
+| 07 | 🔧 **Tool Use** | 92 | APIs — GitHub, Slack, Stripe, OpenAI, MCP, A2A |
+| 08 | 🎭 **Multimodal** | 66 | Images, audio, video, VQA, 3D, charts |
+| 09 | 🤖 **Agentic Patterns** | 83 | ReAct, CoT, ToT, MCTS, LATS, RAG, Debate |
+| 10 | 🖥️ **Computer Use** | 74 | Click, type, scroll, OCR, terminal, VM, a11y tree |
+| 11 | 🌐 **Web** | 79 | Search, scrape, crawl, login, fill forms, parse RSS |
+| 12 | 📊 **Data** | 78 | ETL, SQL, embeddings, time series, anomaly detection |
+| 13 | 🎨 **Creative** | 54 | Copywriting, image prompts, SVG, music, scripts |
+| 14 | 🔒 **Security** | 59 | Sandboxing, secret scanning, audit logs, rollback |
+| 15 | 🎼 **Orchestration** | 69 | Multi-agent, state machines, retry, consensus |
+| 16 | 🏺 **Domain-Specific** | 71 | Medical, legal, finance, DevOps, education, science |
+| 17 | 🛠️ **Infrastructure** | 45 | Dependency auditing & supply-chain tooling |
 
 ---
 
