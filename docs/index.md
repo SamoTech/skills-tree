@@ -8,7 +8,7 @@ hide:
 
 <div class="hero" markdown>
 
-**The AI Agent Skill OS** — 1289 skills, versioned, benchmarked, and openly evolving.
+**The AI Agent Skill OS** — 1339 skills, versioned, benchmarked, and openly evolving.
 
 [![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
 [![Downloads](https://img.shields.io/pypi/dm/skills-tree?style=for-the-badge&color=3b82f6&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
@@ -29,7 +29,7 @@ Skills Tree is the shared operating system for AI agent capabilities. It is a li
 
 <div class="grid cards" markdown>
 
-- :material-lightning-bolt: **1289 Skills**  
+- :material-lightning-bolt: **1339 Skills**  
   17 categories covering every AI agent capability from perception to orchestration.
 
 - :material-chart-bar: **Real Benchmarks**  
@@ -60,7 +60,7 @@ pip install skills-tree
 ```bash
 skills-tree goals
 skills-tree recommend --goal "Coding Agent"
-skills-tree search "memory"     # search across 1289 skills
+skills-tree search "memory"     # search across 1339 skills
 skills-tree validate
 ```
 
@@ -72,20 +72,20 @@ See the full [Quick Start guide](quickstart.md) or [CLI reference](cli.md).
 
 | # | Category | Skills |
 |---|---|---|
-| 01 | 👁️ Perception | 93 |
-| 02 | 🧠 Reasoning | 105 |
-| 03 | 🗄️ Memory | 78 |
-| 04 | ⚡ Action Execution | 84 |
-| 05 | 💻 Code | 90 |
-| 06 | 💬 Communication | 69 |
-| 07 | 🔧 Tool Use | 92 |
-| 08 | 🎭 Multimodal | 66 |
-| 09 | 🤖 Agentic Patterns | 83 |
-| 10 | 🖥️ Computer Use | 74 |
-| 11 | 🌐 Web | 79 |
-| 12 | 📊 Data | 78 |
-| 13 | 🎨 Creative | 54 |
-| 14 | 🔒 Security | 59 |
-| 15 | 🎼 Orchestration | 69 |
-| 16 | 🏺 Domain-Specific | 71 |
-| 17 | 🛠️ Infrastructure | 45 |
+| 01 | 👁️ Perception | 95 |
+| 02 | 🧠 Reasoning | 108 |
+| 03 | 🗄️ Memory | 81 |
+| 04 | ⚡ Action Execution | 87 |
+| 05 | 💻 Code | 93 |
+| 06 | 💬 Communication | 72 |
+| 07 | 🔧 Tool Use | 96 |
+| 08 | 🎭 Multimodal | 69 |
+| 09 | 🤖 Agentic Patterns | 86 |
+| 10 | 🖥️ Computer Use | 77 |
+| 11 | 🌐 Web | 82 |
+| 12 | 📊 Data | 81 |
+| 13 | 🎨 Creative | 56 |
+| 14 | 🔒 Security | 62 |
+| 15 | 🎼 Orchestration | 71 |
+| 16 | 🏺 Domain-Specific | 75 |
+| 17 | 🛠️ Infrastructure | 48 |
