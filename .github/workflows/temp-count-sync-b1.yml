@@ -3,6 +3,7 @@ name: Temp Count Sync Batch 1
 # Temporary count-sync workflow for the 2026-10-19 expansion batch 1 PR.
 # Runs the repo's own count updater and commits the machine-generated
 # README.md / docs/index.md anchors, then is deleted before merge.
+# Retrigger v2.
 
 on:
   pull_request:
