@@ -22,22 +22,6 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install 'pyyaml==6.0.3' pytest jsonschema
-      - name: Run lychee (diagnostic, non-fatal)
-        uses: lycheeverse/lychee-action@v2
-        with:
-          args: >-
-            --verbose
-            --no-progress
-            --exclude 'localhost'
-            --exclude '127\.0\.0\.1'
-            --exclude 'example\.com'
-            --timeout 30
-            --max-retries 3
-            'skills/**/*.md'
-          fail: false
-          output: lychee-report.md
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: python tools/build_search_index.py --skills-root skills/ --output docs/search-index.json --package-output data/search-index.json
       - run: python tools/export_skills.py
       - run: python tools/build_graph.py
@@ -45,81 +29,77 @@ jobs:
       - run: python tools/check_skill_quality.py
       - name: Write byte-exact batch-4 agent-skills projections
         run: |
-          python - <<'EOF'
+          python - <<'PYEOF'
           from pathlib import Path
           import sys
           sys.path.insert(0, '.')
           from tools.generate_agent_skills import project, write_projection
           root = Path('.')
           sources = [
-    "skills/01-perception/persistent-agent-heartbeat-parsing.md",
-    "skills/01-perception/agent-eval-report-parsing.md",
-    "skills/01-perception/x402-http-payment-header-parsing.md",
-    "skills/02-reasoning/asynchronous-task-worthiness-reasoning.md",
-    "skills/02-reasoning/agent-degradation-signal-reasoning.md",
-    "skills/02-reasoning/agent-protocol-choice-reasoning.md",
-    "skills/03-memory/long-running-session-journal-rebuild.md",
-    "skills/03-memory/cross-agent-shared-memory-federation.md",
-    "skills/03-memory/eval-findings-memory-retention.md",
-    "skills/04-action-execution/usage-based-metered-billing-actions.md",
-    "skills/04-action-execution/inactivity-triggered-session-pause-actions.md",
-    "skills/04-action-execution/durable-resume-after-provider-restart.md",
-    "skills/05-code/maf-workflow-unit-testing.md",
-    "skills/05-code/llm-eval-harness-ci-integration.md",
-    "skills/05-code/agent-tool-call-replay-testing.md",
-    "skills/06-communication/multiday-agent-activity-digest-writing.md",
-    "skills/06-communication/agent-audit-explanation-writing.md",
-    "skills/06-communication/long-horizon-agent-check-in-messaging.md",
-    "skills/07-tool-use/mcp-json-rpc-batch-usage.md",
-    "skills/07-tool-use/gemini-agent-scheduler-tool-usage.md",
-    "skills/07-tool-use/x402-crypto-payment-tool-usage.md",
-    "skills/08-multimodal/voice-agent-emergency-escalation-detection.md",
-    "skills/08-multimodal/meeting-transcript-redaction-streaming.md",
-    "skills/08-multimodal/live-translation-voice-agent-turn-taking.md",
-    "skills/09-agentic-patterns/multiday-agent-mission-decomposition-patterns.md",
-    "skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md",
-    "skills/09-agentic-patterns/eval-driven-skill-pruning-patterns.md",
-    "skills/10-computer-use/unattended-session-lock-screen-policy-automation.md",
-    "skills/10-computer-use/remote-workspace-warm-pool-automation.md",
-    "skills/11-web/persistent-agent-inbox-processing-automation.md",
-    "skills/11-web/ai-crawler-directive-authoring.md",
-    "skills/11-web/paywalled-content-agent-access-negotiation.md",
-    "skills/12-data/agent-eval-metric-drift-monitoring.md",
-    "skills/12-data/multiday-agent-activity-log-forensics.md",
-    "skills/12-data/carbon-intensity-data-integration.md",
-    "skills/13-creative/persistent-agent-persona-arc-planning.md",
-    "skills/13-creative/synthetic-voice-ad-copy-compliance-writing.md",
-    "skills/13-creative/interactive-avatar-conversation-script-writing.md",
-    "skills/14-security/mcp-server-egress-filtering-policy.md",
-    "skills/14-security/persistent-agent-session-lockdown-response.md",
-    "skills/14-security/agent-payment-fraud-pattern-detection.md",
-    "skills/15-orchestration/agent-team-shift-handoff-orchestration.md",
-    "skills/15-orchestration/a2a-multi-agent-governance-workflow.md",
-    "skills/15-orchestration/quorum-based-agent-fleet-upgrade-orchestration.md",
-    "skills/16-domain-specific/agentic-commerce-checkout-compliance-review.md",
-    "skills/16-domain-specific/ai-agent-employment-screening-compliance.md",
-    "skills/16-domain-specific/telehealth-voice-agent-compliance-review.md",
-    "skills/17-infrastructure/persistent-agent-state-store-provisioning.md",
-    "skills/17-infrastructure/agent-hibernation-storage-tiering.md",
-    "skills/17-infrastructure/trace-sampling-budget-provisioning.md",
+              "skills/01-perception/persistent-agent-heartbeat-parsing.md",
+              "skills/01-perception/agent-eval-report-parsing.md",
+              "skills/01-perception/x402-http-payment-header-parsing.md",
+              "skills/02-reasoning/asynchronous-task-worthiness-reasoning.md",
+              "skills/02-reasoning/agent-degradation-signal-reasoning.md",
+              "skills/02-reasoning/agent-protocol-choice-reasoning.md",
+              "skills/03-memory/long-running-session-journal-rebuild.md",
+              "skills/03-memory/cross-agent-shared-memory-federation.md",
+              "skills/03-memory/eval-findings-memory-retention.md",
+              "skills/04-action-execution/usage-based-metered-billing-actions.md",
+              "skills/04-action-execution/inactivity-triggered-session-pause-actions.md",
+              "skills/04-action-execution/durable-resume-after-provider-restart.md",
+              "skills/05-code/maf-workflow-unit-testing.md",
+              "skills/05-code/llm-eval-harness-ci-integration.md",
+              "skills/05-code/agent-tool-call-replay-testing.md",
+              "skills/06-communication/multiday-agent-activity-digest-writing.md",
+              "skills/06-communication/agent-audit-explanation-writing.md",
+              "skills/06-communication/long-horizon-agent-check-in-messaging.md",
+              "skills/07-tool-use/mcp-json-rpc-batch-usage.md",
+              "skills/07-tool-use/gemini-agent-scheduler-tool-usage.md",
+              "skills/07-tool-use/x402-crypto-payment-tool-usage.md",
+              "skills/08-multimodal/voice-agent-emergency-escalation-detection.md",
+              "skills/08-multimodal/meeting-transcript-redaction-streaming.md",
+              "skills/08-multimodal/live-translation-voice-agent-turn-taking.md",
+              "skills/09-agentic-patterns/multiday-agent-mission-decomposition-patterns.md",
+              "skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md",
+              "skills/09-agentic-patterns/eval-driven-skill-pruning-patterns.md",
+              "skills/10-computer-use/unattended-session-lock-screen-policy-automation.md",
+              "skills/10-computer-use/remote-workspace-warm-pool-automation.md",
+              "skills/11-web/persistent-agent-inbox-processing-automation.md",
+              "skills/11-web/ai-crawler-directive-authoring.md",
+              "skills/11-web/paywalled-content-agent-access-negotiation.md",
+              "skills/12-data/agent-eval-metric-drift-monitoring.md",
+              "skills/12-data/multiday-agent-activity-log-forensics.md",
+              "skills/12-data/carbon-intensity-data-integration.md",
+              "skills/13-creative/persistent-agent-persona-arc-planning.md",
+              "skills/13-creative/synthetic-voice-ad-copy-compliance-writing.md",
+              "skills/13-creative/interactive-avatar-conversation-script-writing.md",
+              "skills/14-security/mcp-server-egress-filtering-policy.md",
+              "skills/14-security/persistent-agent-session-lockdown-response.md",
+              "skills/14-security/agent-payment-fraud-pattern-detection.md",
+              "skills/15-orchestration/agent-team-shift-handoff-orchestration.md",
+              "skills/15-orchestration/a2a-multi-agent-governance-workflow.md",
+              "skills/15-orchestration/quorum-based-agent-fleet-upgrade-orchestration.md",
+              "skills/16-domain-specific/agentic-commerce-checkout-compliance-review.md",
+              "skills/16-domain-specific/ai-agent-employment-screening-compliance.md",
+              "skills/16-domain-specific/telehealth-voice-agent-compliance-review.md",
+              "skills/17-infrastructure/persistent-agent-state-store-provisioning.md",
+              "skills/17-infrastructure/agent-hibernation-storage-tiering.md",
+              "skills/17-infrastructure/trace-sampling-budget-provisioning.md",
           ]
           for s in sources:
               item = project(root / s, root)
               write_projection(root, item)
           print("wrote", len(sources), "projections")
-          EOF
+          PYEOF
       - name: Reconcile check
         run: python tools/reconcile_agent_skills.py --check
-      - name: Reconcile report (non-fatal)
-        run: python tools/reconcile_agent_skills.py --output reconcile-report.json || true
       - run: python tools/update_readme_counts.py || true
-      - name: Freshness tests (non-fatal)
-        run: pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py tests/test_update_readme_counts.py || true
-      - name: Commit and push regenerated projections + report
+      - name: Commit and push byte-exact projections
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
-          git commit -m "chore(regen): byte-exact deterministic projections and diagnostic reports for batch 4"
+          git commit -m "chore(regen): byte-exact deterministic projections for batch 4"
           git push
