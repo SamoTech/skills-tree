@@ -60,7 +60,7 @@ assert hook_allows("PreToolUse", 2) is False
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Coding agent ecosystems expose lifecycle hooks as first-class configuration. ([public signal](https://www.morphllm.com/best-ai-coding-agents-2026))
+- Agent-framework comparisons document lifecycle hooks as first-class coding-agent configuration. ([public signal](https://shakudo.io/blog/top-9-ai-agent-frameworks))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
