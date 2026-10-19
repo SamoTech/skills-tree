@@ -43,7 +43,7 @@ jobs:
       - run: python tools/build_graph.py
       - run: cp data/SKILLS_GRAPH.json docs/api/graph.json
       - run: python tools/check_skill_quality.py
-      - run: python tools/generate_agent_skills.py --write-eligible
+      - run: python tools/reconcile_agent_skills.py --check
       - run: python tools/update_readme_counts.py
       - name: Freshness tests
         run: pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py tests/test_update_readme_counts.py
