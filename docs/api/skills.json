@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-18T23:26:52Z",
-  "count": 1139,
+  "generated": "2026-10-19T00:25:51Z",
+  "count": 1189,
   "skills": [
     {
       "id": "accessibility-tree-screenshot-fusion",
@@ -55,6 +55,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "agent-protocol-message-envelope-parsing",
+      "path": "skills/01-perception/agent-protocol-message-envelope-parsing.md",
+      "name": "Agent Protocol Message Envelope Parsing",
+      "description": "Normalize message envelopes across agent protocols such as MCP, A2A, and ACP, extracting transport metadata, payload type, and correlation identifiers before dispatch.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/mcp-tool-manifest-parsing.md",
+        "../07-tool-use/agent-client-protocol-usage.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -297,6 +327,36 @@
       "related": [
         "../11-web/dom-inspection.md",
         "../01-perception/log-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "c2pa-content-credential-parsing",
+      "path": "skills/01-perception/c2pa-content-credential-parsing.md",
+      "name": "C2PA Content Credential Parsing",
+      "description": "Parse C2PA manifests from media files, verify the credential chain, and surface capture, edit, and AI-generation claims with their signing provenance.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/image-metadata-parsing.md",
+        "../08-multimodal/watermark-detection.md"
       ],
       "category_dir": "01-perception"
     },
@@ -1277,6 +1337,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "machine-generated-text-detection",
+      "path": "skills/01-perception/machine-generated-text-detection.md",
+      "name": "Machine-Generated Text Detection",
+      "description": "Score whether candidate text is machine generated and report the evidence basis for the attribution claim, recording the verdict and its limitations.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/text-reading.md",
+        "../06-communication/citation-attribution.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -2274,6 +2364,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "adoption-maturity-assessment-reasoning",
+      "path": "skills/02-reasoning/adoption-maturity-assessment-reasoning.md",
+      "name": "Adoption Maturity Assessment Reasoning",
+      "description": "Assess whether an agent framework or protocol is mature enough for a specific production use, using explicit maturity criteria instead of hype signals.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/trade-off-analysis.md",
+        "../17-infrastructure/multi-framework-agent-interop-testing.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "adversarial-reasoning",
       "path": "skills/02-reasoning/adversarial-reasoning.md",
       "name": "Adversarial Reasoning",
@@ -2584,6 +2704,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "capability-claim-verification-reasoning",
+      "path": "skills/02-reasoning/capability-claim-verification-reasoning.md",
+      "name": "Capability Claim Verification Reasoning",
+      "description": "Test vendor and model capability claims against reproducible evidence, separating marketing language from benchmarked, reproducible behavior.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/model-selection-reasoning.md",
+        "../02-reasoning/verifiability-driven-planning.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -3939,6 +4089,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "protocol-convergence-strategy-reasoning",
+      "path": "skills/02-reasoning/protocol-convergence-strategy-reasoning.md",
+      "name": "Protocol Convergence Strategy Reasoning",
+      "description": "Reason about when to bridge, migrate, or wait across converging agent protocols, recording switching costs and compatibility constraints for each option.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/cross-protocol-agent-bridging.md",
+        "../02-reasoning/reversible-decision-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "react",
       "path": "skills/02-reasoning/react.md",
       "name": "ReAct (Reason + Act)",
@@ -4868,6 +5048,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "context-rot-detection",
+      "path": "skills/03-memory/context-rot-detection.md",
+      "name": "Context Rot Detection",
+      "description": "Detect degraded attention to early or mid-context information in long agent sessions and trigger corrective restructuring before quality collapses.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/context-compaction.md",
+        "../03-memory/long-horizon-context-assembly.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "context-window-budget-planning",
       "path": "skills/03-memory/context-window-budget-planning.md",
       "name": "Context Window Budget Planning",
@@ -4948,6 +5158,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "cross-session-skill-acquisition-memory",
+      "path": "skills/03-memory/cross-session-skill-acquisition-memory.md",
+      "name": "Cross-Session Skill Acquisition Memory",
+      "description": "Record procedures an agent learned by doing as durable, versioned memory entries, so later sessions can execute them as skills instead of rediscovering them.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/procedural-memory.md",
+        "../03-memory/cross-session-persistence.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "cross-thread-memory",
       "path": "skills/03-memory/cross-thread-memory.md",
       "name": "Cross-Thread Memory",
@@ -5021,6 +5261,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "episodic-context-reuse",
+      "path": "skills/03-memory/episodic-context-reuse.md",
+      "name": "Episodic Context Reuse",
+      "description": "Retrieve and adapt relevant prior-session episode records to solve new tasks, tagging every reused fragment with its origin episode and fit.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/episodic-memory.md",
+        "../03-memory/episodic-replay-learning.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -6741,6 +7011,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "action-replay-forensics",
+      "path": "skills/04-action-execution/action-replay-forensics.md",
+      "name": "Action Replay Forensics",
+      "description": "Reconstruct and replay a recorded action ledger step by step to determine exactly where an agent run went wrong, preserving evidence for the finding.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/action-journaling.md",
+        "../14-security/forensic-log-reconstruction.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "action-result-verification",
       "path": "skills/04-action-execution/action-result-verification.md",
       "name": "Action Result Verification",
@@ -7804,6 +8104,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "human-takeover-mid-action-handoff",
+      "path": "skills/04-action-execution/human-takeover-mid-action-handoff.md",
+      "name": "Human Takeover Mid-Action Handoff",
+      "description": "Transfer control of an in-progress multi-step action to a human operator with complete state context, then record what the operator changed before resuming.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/human-approval-gate-implementation.md",
+        "../15-orchestration/agent-handoff.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "idempotent-retries",
       "path": "skills/04-action-execution/idempotent-retries.md",
       "name": "Idempotent Retries",
@@ -8112,6 +8442,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "partial-failure-batch-reconciliation",
+      "path": "skills/04-action-execution/partial-failure-batch-reconciliation.md",
+      "name": "Partial-Failure Batch Reconciliation",
+      "description": "Reconcile multi-item action batches where some items failed, producing an itemized outcome ledger and a bounded recovery plan for the failed subset.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/batch-processing.md",
+        "../04-action-execution/compensating-actions.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -8613,6 +8973,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "agent-requirements-document-authoring",
+      "path": "skills/05-code/agent-requirements-document-authoring.md",
+      "name": "Agent Requirements Document Authoring",
+      "description": "Author an Agent Requirements Document that binds an AI agent to explicit scope, authority limits, tool access, and acceptance criteria before build-out starts.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/spec-driven-implementation-planning.md",
+        "../06-communication/human-approval-request-drafting.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "agents-md-authoring",
       "path": "skills/05-code/agents-md-authoring.md",
       "name": "Agents Md Authoring",
@@ -8917,6 +9307,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "code-copyright-provenance-analysis",
+      "path": "skills/05-code/code-copyright-provenance-analysis.md",
+      "name": "Code Copyright Provenance Analysis",
+      "description": "Analyze the provenance of generated or contributed code, recording its sources, licenses, and AI-assistance status so downstream legal review has a factual basis.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/license-compatibility-checking.md",
+        "../05-code/agent-generated-code-auditing.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -10138,6 +10558,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "regression-window-bisection-automation",
+      "path": "skills/05-code/regression-window-bisection-automation.md",
+      "name": "Regression Window Bisection Automation",
+      "description": "Bisect a window of candidate changes automatically to find the commit that introduced a behavior regression, using a recorded verdict function for each step.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/ci-failure-triage.md",
+        "../02-reasoning/root-cause-analysis.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "repl-interaction",
       "path": "skills/05-code/repl-interaction.md",
       "name": "repl-interaction",
@@ -10792,6 +11242,36 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "capability-limitation-disclosure-writing",
+      "path": "skills/06-communication/capability-limitation-disclosure-writing.md",
+      "name": "Capability Limitation Disclosure Writing",
+      "description": "Write precise, honest disclosures of what an agent or model cannot do or has not been tested to do, so users can plan around real limits.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/safety-threshold-disclosure-writing.md",
+        "../06-communication/plain-language-writing.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "changelog-writing",
       "path": "skills/06-communication/changelog-writing.md",
       "name": "Changelog Writing",
@@ -10914,6 +11394,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "conversation-scope-creep-resistance",
+      "path": "skills/06-communication/conversation-scope-creep-resistance.md",
+      "name": "Conversation Scope Creep Resistance",
+      "description": "Hold the agreed conversation scope against incremental creep, converting discovered out-of-scope needs into explicit renegotiation instead of silent absorption.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/user-intent-restatement-confirmation.md",
+        "../02-reasoning/autonomy-threshold-reasoning.md"
+      ],
       "category_dir": "06-communication"
     },
     {
@@ -12205,6 +12715,36 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "user-trust-calibration-communication",
+      "path": "skills/06-communication/user-trust-calibration-communication.md",
+      "name": "User Trust Calibration Communication",
+      "description": "Communicate so users trust the agent exactly as much as its verified reliability warrants, surfacing uncertainty and past failures to prevent overtrust.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/agentic-ux-writing.md",
+        "../06-communication/feedback-delivery.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "voice-and-tone-guide-authoring",
       "path": "skills/06-communication/voice-and-tone-guide-authoring.md",
       "name": "Voice And Tone Guide Authoring",
@@ -12380,6 +12920,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "anp-agent-network-protocol-usage",
+      "path": "skills/07-tool-use/anp-agent-network-protocol-usage.md",
+      "name": "ANP Agent Network Protocol Usage",
+      "description": "Discover and call agents published on the Agent Network Protocol using its identity and description documents, verifying both before any invocation.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/a2a-agent-card-authoring.md",
+        "../07-tool-use/tool-source-vetting.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -13202,6 +13772,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "mcp-streamable-http-migration",
+      "path": "skills/07-tool-use/mcp-streamable-http-migration.md",
+      "name": "MCP Streamable HTTP Migration",
+      "description": "Migrate an MCP server from the deprecated HTTP+SSE transport to the streamable HTTP transport, preserving session semantics and resumability through the switch.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/mcp-server-lifecycle-management.md",
+        "../07-tool-use/mcp-stateless-request-migration.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -14124,6 +14724,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "ucp-universal-capability-protocol-usage",
+      "path": "skills/07-tool-use/ucp-universal-capability-protocol-usage.md",
+      "name": "UCP Universal Capability Protocol Usage",
+      "description": "Invoke tools through the Universal Capability Protocol, negotiating capability discovery, invocation envelopes, and error contracts per the published ecosystem map.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/mcp-tool.md",
+        "../07-tool-use/anp-agent-network-protocol-usage.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -15147,6 +15777,36 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "multilingual-asr-code-switching",
+      "path": "skills/08-multimodal/multilingual-asr-code-switching.md",
+      "name": "Multilingual ASR Code-Switching",
+      "description": "Configure and validate automatic speech recognition for code-switched multilingual speech, verifying language-transition boundaries instead of assuming a single language.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/audio-transcription.md",
+        "../01-perception/streaming-asr-partial-parsing.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "music-stem-separation",
       "path": "skills/08-multimodal/music-stem-separation.md",
       "name": "Music Stem Separation",
@@ -15583,6 +16243,36 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "video-continuity-error-detection",
+      "path": "skills/08-multimodal/video-continuity-error-detection.md",
+      "name": "Video Continuity Error Detection",
+      "description": "Detect continuity errors in generated or edited video, covering object, lighting, and attribute jumps across cuts, and report each with timestamps and frames.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/video-frame-sampling-review.md",
+        "../08-multimodal/vision-output-verification.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "video-description",
       "path": "skills/08-multimodal/video-description.md",
       "name": "video-description",
@@ -15773,6 +16463,36 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "voice-clone-consent-verification",
+      "path": "skills/08-multimodal/voice-clone-consent-verification.md",
+      "name": "Voice Clone Consent Verification",
+      "description": "Verify recorded consent before any voice cloning operation, binding each clone to its consent evidence, scope, and expiry rather than to a standing permission.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/voice-clone-detection.md",
+        "../14-security/ai-voice-robocall-regulation-compliance.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "voice-clone-detection",
       "path": "skills/08-multimodal/voice-clone-detection.md",
       "name": "Voice Clone Detection",
@@ -15956,6 +16676,36 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "agent-deception-mechanism-audit",
+      "path": "skills/09-agentic-patterns/agent-deception-mechanism-audit.md",
+      "name": "Agent Deception Mechanism Audit",
+      "description": "Audit an agent for mechanisms that can produce deceptive behavior, covering sycophancy, unfaithful explanations, and reward-driven misreporting, and record verified findings.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/reward-hacking-detection.md",
+        "../14-security/runtime-behavior-baselining.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "agent-eval-harness-design",
       "path": "skills/09-agentic-patterns/agent-eval-harness-design.md",
       "name": "Agent Eval Harness Design",
@@ -16003,6 +16753,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "agent-explanation-fidelity-checking",
+      "path": "skills/09-agentic-patterns/agent-explanation-fidelity-checking.md",
+      "name": "Agent Explanation Fidelity Checking",
+      "description": "Check that an agent's user-facing explanations faithfully reflect the actions and evidence in its execution trace, flagging every divergence between the two.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/agent-action-explanation-writing.md",
+        "../01-perception/agent-trace-span-parsing.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -17800,6 +18580,36 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "vulnerable-user-protection-patterns",
+      "path": "skills/09-agentic-patterns/vulnerable-user-protection-patterns.md",
+      "name": "Vulnerable User Protection Patterns",
+      "description": "Design agent behavior that protects minors and other vulnerable users, with age-suitability gating, escalation paths, and refusal contracts for harmful requests.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/harm-detection.md",
+        "../15-orchestration/human-escalation-routing.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "accessibility-automation-testing",
       "path": "skills/10-computer-use/accessibility-automation-testing.md",
       "name": "Accessibility Automation Testing",
@@ -18084,6 +18894,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
+      "id": "computer-use-privacy-screening",
+      "path": "skills/10-computer-use/computer-use-privacy-screening.md",
+      "name": "Computer-Use Privacy Screening",
+      "description": "Screen desktop content before an agent captures or shares it, blocking captures that contain declared-sensitive regions, windows, or data classes.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/privacy-preservation.md",
+        "../10-computer-use/screen-region-mapping.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -18988,6 +19828,36 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "remote-session-latency-adaptive-actions",
+      "path": "skills/10-computer-use/remote-session-latency-adaptive-actions.md",
+      "name": "Remote Session Latency-Adaptive Actions",
+      "description": "Adapt computer-use action timing and verification to measured remote-session latency, avoiding lost clicks and stale-state reads on high-latency links.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../10-computer-use/remote-desktop-automation.md",
+        "../10-computer-use/ui-element-waiting.md"
+      ],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "right-click",
       "path": "skills/10-computer-use/right-click.md",
       "name": "right-click",
@@ -19501,6 +20371,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
+      "id": "voice-driven-desktop-commanding",
+      "path": "skills/10-computer-use/voice-driven-desktop-commanding.md",
+      "name": "Voice-Driven Desktop Commanding",
+      "description": "Map spoken commands to desktop actions with confirmation for destructive operations, handling disfluency and ambiguous references before executing.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/voice-agent-barge-in-handling.md",
+        "../10-computer-use/native-permission-dialog-handling.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -20183,6 +21083,36 @@
       "category_dir": "11-web"
     },
     {
+      "id": "geo-restricted-content-access-compliance",
+      "path": "skills/11-web/geo-restricted-content-access-compliance.md",
+      "name": "Geo-Restricted Content Access Compliance",
+      "description": "Check and honor geographic access restrictions on web content before fetching, recording the declared restriction basis rather than evading it.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../11-web/url-fetching.md",
+        "../16-domain-specific/compliance-checking.md"
+      ],
+      "category_dir": "11-web"
+    },
+    {
       "id": "headless-browser-configuration",
       "path": "skills/11-web/headless-browser-configuration.md",
       "name": "Headless Browser Configuration",
@@ -20571,6 +21501,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "personal-data-broker-opt-out-automation",
+      "path": "skills/11-web/personal-data-broker-opt-out-automation.md",
+      "name": "Personal Data Broker Opt-Out Automation",
+      "description": "Execute and verify personal data-broker opt-out requests end to end, recording each broker's response and re-checking listings after the declared removal window.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/privacy-preservation.md",
+        "../12-data/data-deletion-request-fulfillment-automation.md"
+      ],
       "category_dir": "11-web"
     },
     {
@@ -21444,6 +22404,36 @@
       "category_dir": "11-web"
     },
     {
+      "id": "website-terms-of-service-agent-permission-audit",
+      "path": "skills/11-web/website-terms-of-service-agent-permission-audit.md",
+      "name": "Website Terms-of-Service Agent Permission Audit",
+      "description": "Audit a site's terms of service for what automated access its rules actually permit, separating permitted crawling, agent access, and prohibited behavior before acting.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../11-web/robots-agent-policy-compliance.md",
+        "../11-web/web-crawling.md"
+      ],
+      "category_dir": "11-web"
+    },
+    {
       "id": "ab-test-analysis",
       "path": "skills/12-data/ab-test-analysis.md",
       "name": "A/B Test Analysis",
@@ -21812,6 +22802,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "data-deletion-request-fulfillment-automation",
+      "path": "skills/12-data/data-deletion-request-fulfillment-automation.md",
+      "name": "Data Deletion Request Fulfillment Automation",
+      "description": "Fulfill data-deletion requests across stores by verifying identity, deleting or anonymizing matching records, and producing evidence of what was removed.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/pii-memory-minimization.md",
+        "../11-web/personal-data-broker-opt-out-automation.md"
+      ],
       "category_dir": "12-data"
     },
     {
@@ -22514,6 +23534,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "llm-carbon-footprint-estimation",
+      "path": "skills/12-data/llm-carbon-footprint-estimation.md",
+      "name": "LLM Carbon Footprint Estimation",
+      "description": "Estimate the energy and carbon footprint of LLM workloads from token counts, model efficiency data, and grid intensity, publishing the method and its uncertainty.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/llm-cost-usage-accounting.md",
+        "../16-domain-specific/esg-report-drafting.md"
+      ],
       "category_dir": "12-data"
     },
     {
@@ -23243,6 +24293,36 @@
       "category_dir": "12-data"
     },
     {
+      "id": "vendor-model-benchmark-normalization",
+      "path": "skills/12-data/vendor-model-benchmark-normalization.md",
+      "name": "Vendor Model Benchmark Normalization",
+      "description": "Normalize vendor-reported model benchmarks into comparable records, capturing test conditions, versions, and caveats so cross-vendor comparisons state their basis.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/memory-benchmark-evaluation.md",
+        "../09-agentic-patterns/agent-eval-harness-design.md"
+      ],
+      "category_dir": "12-data"
+    },
+    {
       "id": "warehouse-cost-attribution",
       "path": "skills/12-data/warehouse-cost-attribution.md",
       "name": "Warehouse Cost Attribution",
@@ -23455,6 +24535,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "13-creative"
+    },
+    {
+      "id": "brand-safety-adjacency-checking",
+      "path": "skills/13-creative/brand-safety-adjacency-checking.md",
+      "name": "Brand Safety Adjacency Checking",
+      "description": "Check where brand content may appear, blocking placements adjacent to harmful or reputationally risky content with an auditable placement policy.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/review-analysis.md",
+        "../13-creative/social-calendar-planning.md"
+      ],
       "category_dir": "13-creative"
     },
     {
@@ -24192,6 +25302,66 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "prize-submission-eligibility-review",
+      "path": "skills/13-creative/prize-submission-eligibility-review.md",
+      "name": "Prize Submission Eligibility Review",
+      "description": "Review competition and prize submission rules for AI-assistance eligibility, disclosure duties, and disqualification risks before a work is submitted.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../13-creative/ai-content-disclosure-writing.md",
+        "../16-domain-specific/compliance-checking.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
+      "id": "public-figure-likeness-licensing-review",
+      "path": "skills/13-creative/public-figure-likeness-licensing-review.md",
+      "name": "Public Figure Likeness Licensing Review",
+      "description": "Review uses of a public figure's voice, image, or likeness for the rights and licensing basis, blocking unlicensed synthetic or reproduced uses before release.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/voice-clone-consent-verification.md",
+        "../16-domain-specific/legal-research.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "slogan-tagline-creation",
       "path": "skills/13-creative/slogan-tagline-creation.md",
       "name": "Slogan and Tagline Creation",
@@ -24521,6 +25691,36 @@
       "category_dir": "14-security"
     },
     {
+      "id": "agent-standards-control-mapping",
+      "path": "skills/14-security/agent-standards-control-mapping.md",
+      "name": "Agent Standards Control Mapping",
+      "description": "Map an agent system's implemented controls to emerging AI-agent standards frameworks, recording evidence per mapped control and gaps where no control exists.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agentic-owasp-top10-risk-assessment.md",
+        "../14-security/audit-logging.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
       "id": "agentic-attack-surface-mapping",
       "path": "skills/14-security/agentic-attack-surface-mapping.md",
       "name": "Agentic Attack Surface Mapping",
@@ -24543,6 +25743,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "agentic-owasp-top10-risk-assessment",
+      "path": "skills/14-security/agentic-owasp-top10-risk-assessment.md",
+      "name": "Agentic OWASP Top 10 Risk Assessment",
+      "description": "Assess an agent system against the OWASP Top 10 for Agentic Applications, mapping each listed risk to concrete system findings and tracked mitigations.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/threat-modeling.md",
+        "../14-security/agentic-attack-surface-mapping.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -24602,6 +25832,36 @@
       "related": [
         "../08-multimodal/agent-traffic-metadata-enrichment.md",
         "../14-security/machine-identity-inventory-for-agents.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "ai-voice-robocall-regulation-compliance",
+      "path": "skills/14-security/ai-voice-robocall-regulation-compliance.md",
+      "name": "AI Voice Robocall Regulation Compliance",
+      "description": "Apply telephony AI-voice rules to outbound calling flows, enforcing disclosure, consent, and labeling duties before any AI-voice call is placed.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/voice-clone-consent-verification.md",
+        "../16-domain-specific/compliance-review-workflows.md"
       ],
       "category_dir": "14-security"
     },
@@ -25887,6 +27147,66 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "agent-protocol-version-negotiation",
+      "path": "skills/15-orchestration/agent-protocol-version-negotiation.md",
+      "name": "Agent Protocol Version Negotiation",
+      "description": "Negotiate the highest mutually supported protocol version between agents at session setup, recording the agreed version and falling back safely on mismatch.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/cross-protocol-agent-bridging.md",
+        "../07-tool-use/api-version-pinning.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "agent-recovery-objective-planning",
+      "path": "skills/15-orchestration/agent-recovery-objective-planning.md",
+      "name": "Agent Recovery Objective Planning",
+      "description": "Define recovery time and recovery point objectives for agent systems, designing checkpoint and replay mechanisms that can actually meet the declared objectives.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/durable-execution-guarantees.md",
+        "../17-infrastructure/disaster-recovery-drill-automation.md"
+      ],
       "category_dir": "15-orchestration"
     },
     {
@@ -27386,6 +28706,36 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "algorithmic-pricing-compliance-review",
+      "path": "skills/16-domain-specific/algorithmic-pricing-compliance-review.md",
+      "name": "Algorithmic Pricing Compliance Review",
+      "description": "Review pricing algorithms for collusive signaling, discrimination, and disclosure risks, recording findings before deployment in commerce.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/compliance-checking.md",
+        "../16-domain-specific/regulatory-change-monitoring.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "clinical-decision-support-evidence-checking",
       "path": "skills/16-domain-specific/clinical-decision-support-evidence-checking.md",
       "name": "Clinical Decision Support Evidence Checking",
@@ -27758,6 +29108,36 @@
       "related": [
         "../16-domain-specific/compliance-checking.md",
         "../16-domain-specific/regulatory-change-monitoring.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "export-control-sanctions-ai-shipment-checking",
+      "path": "skills/16-domain-specific/export-control-sanctions-ai-shipment-checking.md",
+      "name": "Export Control Sanctions AI Shipment Checking",
+      "description": "Check AI model, weight, and capability shipments against export-control and sanctions regimes, recording classification, license basis, and blocked destinations.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/compliance-review-workflows.md",
+        "../16-domain-specific/vendor-agent-platform-risk-assessment.md"
       ],
       "category_dir": "16-domain-specific"
     },
@@ -28213,6 +29593,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "minors-protection-ai-compliance",
+      "path": "skills/16-domain-specific/minors-protection-ai-compliance.md",
+      "name": "Minors Protection AI Compliance",
+      "description": "Map a product's features against minors-protection obligations, covering age assurance, defaults, content limits, and parental controls, and track remediation per clause.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/vulnerable-user-protection-patterns.md",
+        "../16-domain-specific/eu-ai-act-gpai-obligation-mapping.md"
+      ],
       "category_dir": "16-domain-specific"
     },
     {
@@ -28867,6 +30277,36 @@
       "related": [
         "../17-infrastructure/llm-gateway-deployment.md",
         "../14-security/rate-limiting.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "agent-workload-carbon-aware-scheduling",
+      "path": "skills/17-infrastructure/agent-workload-carbon-aware-scheduling.md",
+      "name": "Agent Workload Carbon-Aware Scheduling",
+      "description": "Schedule deferrable agent workloads into lower-carbon grid windows, using published intensity signals and recording each shift decision's basis.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/batch-inference-job-orchestration.md",
+        "../04-action-execution/scheduled-execution.md"
       ],
       "category_dir": "17-infrastructure"
     },
@@ -29699,6 +31139,36 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "provider-termination-continuity-planning",
+      "path": "skills/17-infrastructure/provider-termination-continuity-planning.md",
+      "name": "Provider Termination Continuity Planning",
+      "description": "Plan continuity for the loss of a model or provider, covering acquisition blocks, shutdowns, and deprecations, with tested migration paths and data-portability checks.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/multi-provider-redundancy.md",
+        "../05-code/framework-migration.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "queue-infrastructure-provisioning",
       "path": "skills/17-infrastructure/queue-infrastructure-provisioning.md",
       "name": "Queue Infrastructure Provisioning",
@@ -29830,6 +31300,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "wasm-edge-agent-runtime-deployment",
+      "path": "skills/17-infrastructure/wasm-edge-agent-runtime-deployment.md",
+      "name": "WASM Edge Agent Runtime Deployment",
+      "description": "Deploy agent runtimes as WebAssembly modules at the edge, controlling capability imports, state persistence, and cold-start budgets for each deployment.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/edge-inference-deployment.md",
+        "../17-infrastructure/container-image-slimming.md"
+      ],
       "category_dir": "17-infrastructure"
     }
   ]
