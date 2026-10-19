@@ -43,6 +43,8 @@ jobs:
       - run: python tools/build_graph.py
       - run: cp data/SKILLS_GRAPH.json docs/api/graph.json
       - run: python tools/check_skill_quality.py
+      - name: Write deterministic agent-skills projections
+        run: python tools/generate_agent_skills.py --write-eligible
       - name: Reconcile report (non-fatal)
         run: python tools/reconcile_agent_skills.py --output reconcile-report.json || true
       - run: python tools/update_readme_counts.py || true
@@ -54,5 +56,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
-          git commit -m "chore(regen): refresh projections and add diagnostic reports for batch 4"
+          git commit -m "chore(regen): byte-exact deterministic projections and diagnostic reports for batch 4"
           git push
