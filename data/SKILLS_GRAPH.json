@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-19T00:51:25.190196+00:00",
+    "generated_at": "2026-10-19T23:04:06.806681+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 1239,
-    "edge_count": 1184,
+    "node_count": 1289,
+    "edge_count": 1284,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -22,6 +22,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/accessibility-tree-screenshot-fusion.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/ag-ui-event-stream-parsing",
+      "title": "AG-UI Event Stream Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/ag-ui-event-stream-parsing.md",
       "quality_score": null
     },
     {
@@ -745,6 +760,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/llm-latency-telemetry-parsing",
+      "title": "LLM Latency Telemetry Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/llm-latency-telemetry-parsing.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/llm-usage-metrics-parsing",
       "title": "LLM Usage Metrics Parsing",
       "category": "01-perception",
@@ -982,6 +1012,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/point-cloud-reading.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/prompt-caching-metrics-parsing",
+      "title": "Prompt Caching Metrics Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/prompt-caching-metrics-parsing.md",
       "quality_score": null
     },
     {
@@ -1945,6 +1990,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/evidence-admissibility-reasoning",
+      "title": "Evidence Admissibility Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/evidence-admissibility-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/expected-utility-analysis",
       "title": "Expected Utility Analysis",
       "category": "02-reasoning",
@@ -2092,6 +2152,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/inductive-reasoning.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/intervention-timing-reasoning",
+      "title": "Intervention Timing Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/intervention-timing-reasoning.md",
       "quality_score": null
     },
     {
@@ -2287,6 +2362,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/plan-robustness-fragility-analysis",
+      "title": "Plan Robustness Fragility Analysis",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/plan-robustness-fragility-analysis.md",
       "quality_score": null
     },
     {
@@ -2890,6 +2980,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/weighted-scoring-model-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/agent-memory-maintenance-routines",
+      "title": "Agent Memory Maintenance Routines",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/agent-memory-maintenance-routines.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/agent-memory-namespace-partitioning",
+      "title": "Agent Memory Namespace Partitioning",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/agent-memory-namespace-partitioning.md",
       "quality_score": null
     },
     {
@@ -3550,6 +3670,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/memory-quality-auditing.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/memory-query-reformulation",
+      "title": "Memory Query Reformulation",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/memory-query-reformulation.md",
       "quality_score": null
     },
     {
@@ -4423,6 +4558,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/cross-system-saga-execution",
+      "title": "Cross-System Saga Execution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/cross-system-saga-execution.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/database-transaction-isolation-selection",
       "title": "Database Transaction Isolation Selection",
       "category": "04-action-execution",
@@ -4978,6 +5128,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/payment-refund-chargeback-automation",
+      "title": "Payment Refund and Chargeback Automation",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/payment-refund-chargeback-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/process-management",
       "title": "Process Management",
       "category": "04-action-execution",
@@ -5173,6 +5338,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/streaming-action-cancellation",
+      "title": "Streaming Action Cancellation",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/streaming-action-cancellation.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/throttled-request-batching",
       "title": "Throttled Request Batching",
       "category": "04-action-execution",
@@ -5245,6 +5425,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/actionable-error-message-implementation.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/ag-ui-frontend-agent-binding-generation",
+      "title": "AG-UI Frontend Agent Binding Generation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/ag-ui-frontend-agent-binding-generation.md",
       "quality_score": null
     },
     {
@@ -5893,6 +6088,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/feature-flag-management-implementation",
+      "title": "Feature Flag Management Implementation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/feature-flag-management-implementation.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/flaky-test-quarantine",
       "title": "Flaky Test Quarantine",
       "category": "05-code",
@@ -6070,6 +6280,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/microsoft-agent-framework-migration.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/mock-llm-server-implementation",
+      "title": "Mock LLM Server Implementation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/mock-llm-server-implementation.md",
       "quality_score": null
     },
     {
@@ -7363,6 +7588,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/stakeholder-raci-mapping",
+      "title": "Stakeholder RACI Mapping",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/stakeholder-raci-mapping.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/stakeholder-status-updates",
       "title": "Stakeholder Status Updates",
       "category": "06-communication",
@@ -7435,6 +7675,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/summarization.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/survey-question-design",
+      "title": "Survey Question Design",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/survey-question-design.md",
       "quality_score": null
     },
     {
@@ -7618,6 +7873,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/ag-ui-event-emission-usage",
+      "title": "AG-UI Event Emission Usage",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/ag-ui-event-emission-usage.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/agent-client-protocol-usage",
       "title": "Agent Client Protocol Usage",
       "category": "07-tool-use",
@@ -7660,6 +7930,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/anthropic-api.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/ap2-agent-payment-protocol-usage",
+      "title": "AP2 Agent Payment Protocol Usage",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/ap2-agent-payment-protocol-usage.md",
       "quality_score": null
     },
     {
@@ -7840,6 +8125,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/gemini-agent-scheduler-tool-usage.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/gemini-cli-custom-command-authoring",
+      "title": "Gemini CLI Custom Command Authoring",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/gemini-cli-custom-command-authoring.md",
       "quality_score": null
     },
     {
@@ -8395,6 +8695,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/shell-command-dry-run-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/shopify-api",
+      "title": "Shopify API",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/shopify-api.md",
       "quality_score": null
     },
     {
@@ -9058,6 +9373,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/audio-watermark-embedding",
+      "title": "Audio Watermark Embedding",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/audio-watermark-embedding.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/browser-session-recording-for-debugging",
       "title": "Browser Session Recording For Debugging",
       "category": "08-multimodal",
@@ -9475,6 +9805,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/sheet-music-ocr.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/sign-language-video-recognition",
+      "title": "Sign Language Video Recognition",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/sign-language-video-recognition.md",
       "quality_score": null
     },
     {
@@ -10108,6 +10453,36 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/agent-simulation-digital-twin-patterns",
+      "title": "Agent Simulation Digital Twin Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-simulation-digital-twin-patterns.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/agent-swarm-emergent-behavior-auditing",
+      "title": "Agent Swarm Emergent Behavior Auditing",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/agent-swarm-emergent-behavior-auditing.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/agent-team-termination-planning",
       "title": "Agent Team Termination Planning",
       "category": "09-agentic-patterns",
@@ -10393,6 +10768,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/goal-contract-checking.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/goal-recovery-after-context-loss-patterns",
+      "title": "Goal Recovery After Context Loss Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/goal-recovery-after-context-loss-patterns.md",
       "quality_score": null
     },
     {
@@ -10803,6 +11193,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/reward-hacking-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/self-healing-workflow-repair-patterns",
+      "title": "Self-Healing Workflow Repair Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md",
       "quality_score": null
     },
     {
@@ -11768,6 +12173,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/screen-casting-automation",
+      "title": "Screen Casting Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/screen-casting-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/screen-ocr",
       "title": "Screen Ocr",
       "category": "10-computer-use",
@@ -11885,6 +12305,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/session-keepalive-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/smart-home-device-automation",
+      "title": "Smart Home Device Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/smart-home-device-automation.md",
       "quality_score": null
     },
     {
@@ -12335,6 +12770,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/captcha-solving.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/cdn-cache-purge-automation",
+      "title": "CDN Cache Purge Automation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/cdn-cache-purge-automation.md",
       "quality_score": null
     },
     {
@@ -13133,6 +13583,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/web-push-subscription-automation",
+      "title": "Web Push Subscription Automation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-push-subscription-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/web-scraping",
       "title": "Web Scraping",
       "category": "11-web",
@@ -13463,6 +13928,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/data-backfill-pipeline-design",
+      "title": "Data Backfill Pipeline Design",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-backfill-pipeline-design.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/data-cleaning",
       "title": "Data Cleaning",
       "category": "12-data",
@@ -13610,6 +14090,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/data-quality-sla-monitoring.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/data-residency-enforcement-automation",
+      "title": "Data Residency Enforcement Automation",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/data-residency-enforcement-automation.md",
       "quality_score": null
     },
     {
@@ -13790,6 +14285,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/event-sourced-projections.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/experiment-guardrail-metrics-monitoring",
+      "title": "Experiment Guardrail Metrics Monitoring",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/experiment-guardrail-metrics-monitoring.md",
       "quality_score": null
     },
     {
@@ -14663,6 +15173,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/game-npc-behavior-script-writing",
+      "title": "Game NPC Behavior Script Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/game-npc-behavior-script-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/grant-proposal-writing",
       "title": "Grant Proposal Writing",
       "category": "13-creative",
@@ -14963,6 +15488,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/product-photography-brief-writing",
+      "title": "Product Photography Brief Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/product-photography-brief-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/public-figure-likeness-licensing-review",
       "title": "Public Figure Likeness Licensing Review",
       "category": "13-creative",
@@ -15083,6 +15623,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/tutorial-writing",
+      "title": "Tutorial Writing",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/tutorial-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/user-facing-error-copy",
       "title": "User Facing Error Copy",
       "category": "13-creative",
@@ -15140,6 +15695,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/worldbuilding.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/agent-browser-extension-security-review",
+      "title": "Agent Browser Extension Security Review",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agent-browser-extension-security-review.md",
       "quality_score": null
     },
     {
@@ -15215,6 +15785,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/agent-standards-control-mapping.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/agent-state-encryption-at-rest",
+      "title": "Agent State Encryption at Rest",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agent-state-encryption-at-rest.md",
       "quality_score": null
     },
     {
@@ -15878,6 +16463,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/session-token-replay-prevention",
+      "title": "Session Token Replay Prevention",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/session-token-replay-prevention.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/social-engineering-detection",
       "title": "Social Engineering Detection",
       "category": "14-security",
@@ -15935,6 +16535,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/threat-modeling.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/training-data-poisoning-detection",
+      "title": "Training Data Poisoning Detection",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/training-data-poisoning-detection.md",
       "quality_score": null
     },
     {
@@ -16103,6 +16718,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/agent-team-charter-authoring",
+      "title": "Agent Team Charter Authoring",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/agent-team-charter-authoring.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/agent-team-shift-handoff-orchestration",
       "title": "Agent Team Shift Handoff Orchestration",
       "category": "15-orchestration",
@@ -16115,6 +16745,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/agent-team-shift-handoff-orchestration.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/auction-based-task-allocation",
+      "title": "Auction-Based Task Allocation",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/auction-based-task-allocation.md",
       "quality_score": null
     },
     {
@@ -16928,6 +17573,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/workflow-dataflow-dependency-analysis",
+      "title": "Workflow Dataflow Dependency Analysis",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/workflow-dataflow-dependency-analysis.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/workflow-heartbeat-monitoring",
       "title": "Workflow Heartbeat Monitoring",
       "category": "15-orchestration",
@@ -17075,6 +17735,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/clinical-note-summarization.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/clinical-trial-adverse-event-narrative-writing",
+      "title": "Clinical Trial Adverse Event Narrative Writing",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/clinical-trial-adverse-event-narrative-writing.md",
       "quality_score": null
     },
     {
@@ -17333,6 +18008,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/harmonized-tariff-code-classification",
+      "title": "Harmonized Tariff Code Classification",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/harmonized-tariff-code-classification.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/hr-policy-drafting",
       "title": "HR Policy Drafting",
       "category": "16-domain-specific",
@@ -17405,6 +18095,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/insurance-claim-processing.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/insurance-claims-denial-appeal-drafting",
+      "title": "Insurance Claims Denial Appeal Drafting",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/insurance-claims-denial-appeal-drafting.md",
       "quality_score": null
     },
     {
@@ -17903,6 +18608,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/tax-audit-response-drafting",
+      "title": "Tax Audit Response Drafting",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/tax-audit-response-drafting.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/tax-document-preparation",
       "title": "Tax Document Preparation",
       "category": "16-domain-specific",
@@ -17990,6 +18710,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/agent-hibernation-storage-tiering.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/agent-protocol-gateway-deployment",
+      "title": "Agent Protocol Gateway Deployment",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/agent-protocol-gateway-deployment.md",
       "quality_score": null
     },
     {
@@ -18578,6 +19313,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/storage-lifecycle-tiering-automation",
+      "title": "Storage Lifecycle Tiering Automation",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/storage-lifecycle-tiering-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/trace-sampling-budget-provisioning",
       "title": "Trace Sampling Budget Provisioning",
       "category": "17-infrastructure",
@@ -18623,6 +19373,22 @@
       "type": "RELATED_TO",
       "evidence": "[Gui Grounding Coordinate Verification](../01-perception/gui-grounding-coordinate-verification.md)",
       "source_file": "skills/01-perception/accessibility-tree-screenshot-fusion.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/ag-ui-event-stream-parsing",
+      "target": "01-perception/agent-protocol-message-envelope-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Protocol Message Envelope Parsing](../01-perception/agent-protocol-message-envelope-parsing.md)",
+      "source_file": "skills/01-perception/ag-ui-event-stream-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/ag-ui-event-stream-parsing",
+      "target": "01-perception/sse-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[SSE Parsing](../01-perception/sse-parsing.md)",
+      "source_file": "skills/01-perception/ag-ui-event-stream-parsing.md",
       "confidence": "high"
     },
     {
@@ -19266,6 +20032,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/llm-latency-telemetry-parsing",
+      "target": "01-perception/agent-trace-span-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)",
+      "source_file": "skills/01-perception/llm-latency-telemetry-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/llm-latency-telemetry-parsing",
+      "target": "01-perception/llm-usage-metrics-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Usage Metrics Parsing](../01-perception/llm-usage-metrics-parsing.md)",
+      "source_file": "skills/01-perception/llm-latency-telemetry-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/llm-usage-metrics-parsing",
       "target": "01-perception/api-response-parsing",
       "type": "RELATED_TO",
@@ -19375,6 +20157,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)",
       "source_file": "skills/01-perception/persistent-agent-heartbeat-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/prompt-caching-metrics-parsing",
+      "target": "01-perception/llm-usage-metrics-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Usage Metrics Parsing](../01-perception/llm-usage-metrics-parsing.md)",
+      "source_file": "skills/01-perception/prompt-caching-metrics-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/prompt-caching-metrics-parsing",
+      "target": "09-agentic-patterns/prompt-caching",
+      "type": "RELATED_TO",
+      "evidence": "[Prompt Caching](../09-agentic-patterns/prompt-caching.md)",
+      "source_file": "skills/01-perception/prompt-caching-metrics-parsing.md",
       "confidence": "high"
     },
     {
@@ -19986,6 +20784,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/evidence-admissibility-reasoning",
+      "target": "02-reasoning/claim-evidence-alignment-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Claim-Evidence Alignment Reasoning](../02-reasoning/claim-evidence-alignment-reasoning.md)",
+      "source_file": "skills/02-reasoning/evidence-admissibility-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/evidence-admissibility-reasoning",
+      "target": "15-orchestration/evidence-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Evidence Verification](../15-orchestration/evidence-verification.md)",
+      "source_file": "skills/02-reasoning/evidence-admissibility-reasoning.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/expected-value-of-computation-reasoning",
       "target": "02-reasoning/budget-aware-reasoning",
       "type": "RELATED_TO",
@@ -20170,6 +20984,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/intervention-timing-reasoning",
+      "target": "04-action-execution/human-takeover-mid-action-handoff",
+      "type": "RELATED_TO",
+      "evidence": "[Human Takeover Mid-Action Handoff](../04-action-execution/human-takeover-mid-action-handoff.md)",
+      "source_file": "skills/02-reasoning/intervention-timing-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/intervention-timing-reasoning",
+      "target": "09-agentic-patterns/agent-halt-conditions",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Halt Conditions](../09-agentic-patterns/agent-halt-conditions.md)",
+      "source_file": "skills/02-reasoning/intervention-timing-reasoning.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/least-to-most",
       "target": "09-agentic-patterns/cot",
       "type": "RELATED_TO",
@@ -20295,6 +21125,22 @@
       "type": "RELATED_TO",
       "evidence": "[Trade-off Analysis](trade-off-analysis.md)",
       "source_file": "skills/02-reasoning/pareto-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/plan-robustness-fragility-analysis",
+      "target": "02-reasoning/premortem-failure-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Premortem Failure Analysis](../02-reasoning/premortem-failure-analysis.md)",
+      "source_file": "skills/02-reasoning/plan-robustness-fragility-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/plan-robustness-fragility-analysis",
+      "target": "02-reasoning/dynamic-replanning",
+      "type": "RELATED_TO",
+      "evidence": "[Dynamic Replanning](../02-reasoning/dynamic-replanning.md)",
+      "source_file": "skills/02-reasoning/plan-robustness-fragility-analysis.md",
       "confidence": "high"
     },
     {
@@ -20658,6 +21504,38 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/agent-memory-maintenance-routines",
+      "target": "03-memory/memory-consolidation",
+      "type": "RELATED_TO",
+      "evidence": "[Memory Consolidation](../03-memory/memory-consolidation.md)",
+      "source_file": "skills/03-memory/agent-memory-maintenance-routines.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-maintenance-routines",
+      "target": "03-memory/memory-quality-auditing",
+      "type": "RELATED_TO",
+      "evidence": "[Memory Quality Auditing](../03-memory/memory-quality-auditing.md)",
+      "source_file": "skills/03-memory/agent-memory-maintenance-routines.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-namespace-partitioning",
+      "target": "03-memory/hierarchical-memory-organization",
+      "type": "RELATED_TO",
+      "evidence": "[Hierarchical Memory Organization](../03-memory/hierarchical-memory-organization.md)",
+      "source_file": "skills/03-memory/agent-memory-namespace-partitioning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-namespace-partitioning",
+      "target": "03-memory/multi-tenant-memory-isolation",
+      "type": "RELATED_TO",
+      "evidence": "[Multi-Tenant Memory Isolation](../03-memory/multi-tenant-memory-isolation.md)",
+      "source_file": "skills/03-memory/agent-memory-namespace-partitioning.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/agent-memory-store-migration",
       "target": "03-memory/memory-schema-migration",
       "type": "RELATED_TO",
@@ -20999,6 +21877,22 @@
       "type": "RELATED_TO",
       "evidence": "[hierarchical memory organization](../03-memory/hierarchical-memory-organization.md)",
       "source_file": "skills/03-memory/memory-key-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-query-reformulation",
+      "target": "03-memory/vector-store-retrieval",
+      "type": "RELATED_TO",
+      "evidence": "[Vector Store Retrieval](../03-memory/vector-store-retrieval.md)",
+      "source_file": "skills/03-memory/memory-query-reformulation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/memory-query-reformulation",
+      "target": "03-memory/retrieval-relevance-feedback",
+      "type": "RELATED_TO",
+      "evidence": "[Retrieval Relevance Feedback](../03-memory/retrieval-relevance-feedback.md)",
+      "source_file": "skills/03-memory/memory-query-reformulation.md",
       "confidence": "high"
     },
     {
@@ -21386,6 +22280,22 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/cross-system-saga-execution",
+      "target": "04-action-execution/compensating-actions",
+      "type": "RELATED_TO",
+      "evidence": "[Compensating Actions](../04-action-execution/compensating-actions.md)",
+      "source_file": "skills/04-action-execution/cross-system-saga-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/cross-system-saga-execution",
+      "target": "04-action-execution/action-dependency-resolution",
+      "type": "RELATED_TO",
+      "evidence": "[Action Dependency Resolution](../04-action-execution/action-dependency-resolution.md)",
+      "source_file": "skills/04-action-execution/cross-system-saga-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/database-transaction-isolation-selection",
       "target": "04-action-execution/batched-write-transaction-planning",
       "type": "RELATED_TO",
@@ -21666,6 +22576,22 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/payment-refund-chargeback-automation",
+      "target": "04-action-execution/agent-payment-initiation",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Initiation](../04-action-execution/agent-payment-initiation.md)",
+      "source_file": "skills/04-action-execution/payment-refund-chargeback-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/payment-refund-chargeback-automation",
+      "target": "04-action-execution/micropayment-batching",
+      "type": "RELATED_TO",
+      "evidence": "[Micropayment Batching](../04-action-execution/micropayment-batching.md)",
+      "source_file": "skills/04-action-execution/payment-refund-chargeback-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/quota-management",
       "target": "04-action-execution/api-call",
       "type": "RELATED_TO",
@@ -21746,6 +22672,22 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/streaming-action-cancellation",
+      "target": "04-action-execution/human-takeover-mid-action-handoff",
+      "type": "RELATED_TO",
+      "evidence": "[Human Takeover Mid-Action Handoff](../04-action-execution/human-takeover-mid-action-handoff.md)",
+      "source_file": "skills/04-action-execution/streaming-action-cancellation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/streaming-action-cancellation",
+      "target": "04-action-execution/long-running-action-monitoring",
+      "type": "RELATED_TO",
+      "evidence": "[Long-Running Action Monitoring](../04-action-execution/long-running-action-monitoring.md)",
+      "source_file": "skills/04-action-execution/streaming-action-cancellation.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/usage-based-metered-billing-actions",
       "target": "04-action-execution/agent-payment-initiation",
       "type": "RELATED_TO",
@@ -21799,6 +22741,22 @@
       "type": "RELATED_TO",
       "evidence": "[stack trace analysis](../05-code/stack-trace-analysis.md)",
       "source_file": "skills/05-code/actionable-error-message-implementation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/ag-ui-frontend-agent-binding-generation",
+      "target": "07-tool-use/ag-ui-event-emission-usage",
+      "type": "RELATED_TO",
+      "evidence": "[AG-UI Event Emission Usage](../07-tool-use/ag-ui-event-emission-usage.md)",
+      "source_file": "skills/05-code/ag-ui-frontend-agent-binding-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/ag-ui-frontend-agent-binding-generation",
+      "target": "05-code/declarative-agent-configuration",
+      "type": "RELATED_TO",
+      "evidence": "[Declarative Agent Configuration](../05-code/declarative-agent-configuration.md)",
+      "source_file": "skills/05-code/ag-ui-frontend-agent-binding-generation.md",
       "confidence": "high"
     },
     {
@@ -22058,6 +23016,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/feature-flag-management-implementation",
+      "target": "15-orchestration/conditional-branching",
+      "type": "RELATED_TO",
+      "evidence": "[Conditional Branching](../15-orchestration/conditional-branching.md)",
+      "source_file": "skills/05-code/feature-flag-management-implementation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/feature-flag-management-implementation",
+      "target": "01-perception/config-file-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Config File Parsing](../01-perception/config-file-parsing.md)",
+      "source_file": "skills/05-code/feature-flag-management-implementation.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/flaky-test-quarantine",
       "target": "05-code/test-flakiness-diagnosis",
       "type": "RELATED_TO",
@@ -22135,6 +23109,22 @@
       "type": "RELATED_TO",
       "evidence": "[Multi Framework Agent Interop Testing](../17-infrastructure/multi-framework-agent-interop-testing.md)",
       "source_file": "skills/05-code/microsoft-agent-framework-migration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/mock-llm-server-implementation",
+      "target": "11-web/web-api-mocking",
+      "type": "RELATED_TO",
+      "evidence": "[Web API Mocking](../11-web/web-api-mocking.md)",
+      "source_file": "skills/05-code/mock-llm-server-implementation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/mock-llm-server-implementation",
+      "target": "05-code/llm-eval-harness-ci-integration",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Eval Harness CI Integration](../05-code/llm-eval-harness-ci-integration.md)",
+      "source_file": "skills/05-code/mock-llm-server-implementation.md",
       "confidence": "high"
     },
     {
@@ -22682,6 +23672,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/stakeholder-raci-mapping",
+      "target": "06-communication/stakeholder-status-updates",
+      "type": "RELATED_TO",
+      "evidence": "[Stakeholder Status Updates](../06-communication/stakeholder-status-updates.md)",
+      "source_file": "skills/06-communication/stakeholder-raci-mapping.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/stakeholder-raci-mapping",
+      "target": "06-communication/meeting-decision-recording",
+      "type": "RELATED_TO",
+      "evidence": "[Meeting Decision Recording](../06-communication/meeting-decision-recording.md)",
+      "source_file": "skills/06-communication/stakeholder-raci-mapping.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/structured-output-contract-authoring",
       "target": "06-communication/tool-description-writing",
       "type": "RELATED_TO",
@@ -22695,6 +23701,22 @@
       "type": "RELATED_TO",
       "evidence": "[response schema validation](../12-data/response-schema-validation.md)",
       "source_file": "skills/06-communication/structured-output-contract-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/survey-question-design",
+      "target": "06-communication/requirement-elicitation-interviewing",
+      "type": "RELATED_TO",
+      "evidence": "[Requirement Elicitation Interviewing](../06-communication/requirement-elicitation-interviewing.md)",
+      "source_file": "skills/06-communication/survey-question-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/survey-question-design",
+      "target": "12-data/evaluation-dataset-curation",
+      "type": "RELATED_TO",
+      "evidence": "[Evaluation Dataset Curation](../12-data/evaluation-dataset-curation.md)",
+      "source_file": "skills/06-communication/survey-question-design.md",
       "confidence": "high"
     },
     {
@@ -22786,6 +23808,22 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/ag-ui-event-emission-usage",
+      "target": "01-perception/ag-ui-event-stream-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[AG-UI Event Stream Parsing](../01-perception/ag-ui-event-stream-parsing.md)",
+      "source_file": "skills/07-tool-use/ag-ui-event-emission-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/ag-ui-event-emission-usage",
+      "target": "07-tool-use/streaming-tool-output",
+      "type": "RELATED_TO",
+      "evidence": "[Streaming Tool Output](../07-tool-use/streaming-tool-output.md)",
+      "source_file": "skills/07-tool-use/ag-ui-event-emission-usage.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/anp-agent-network-protocol-usage",
       "target": "07-tool-use/a2a-agent-card-authoring",
       "type": "RELATED_TO",
@@ -22831,6 +23869,22 @@
       "type": "RELATED_TO",
       "evidence": "[Image Understanding](../01-perception/image-understanding.md)",
       "source_file": "skills/07-tool-use/anthropic-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/ap2-agent-payment-protocol-usage",
+      "target": "07-tool-use/x402-crypto-payment-tool-usage",
+      "type": "RELATED_TO",
+      "evidence": "[X402 Crypto Payment Tool Usage](../07-tool-use/x402-crypto-payment-tool-usage.md)",
+      "source_file": "skills/07-tool-use/ap2-agent-payment-protocol-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/ap2-agent-payment-protocol-usage",
+      "target": "04-action-execution/agent-payment-initiation",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Initiation](../04-action-execution/agent-payment-initiation.md)",
+      "source_file": "skills/07-tool-use/ap2-agent-payment-protocol-usage.md",
       "confidence": "high"
     },
     {
@@ -22911,6 +23965,22 @@
       "type": "RELATED_TO",
       "evidence": "[Scheduled Execution](../04-action-execution/scheduled-execution.md)",
       "source_file": "skills/07-tool-use/gemini-agent-scheduler-tool-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/gemini-cli-custom-command-authoring",
+      "target": "07-tool-use/mcp-app-authoring",
+      "type": "RELATED_TO",
+      "evidence": "[MCP App Authoring](../07-tool-use/mcp-app-authoring.md)",
+      "source_file": "skills/07-tool-use/gemini-cli-custom-command-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/gemini-cli-custom-command-authoring",
+      "target": "07-tool-use/tool-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Schema Design](../07-tool-use/tool-schema-design.md)",
+      "source_file": "skills/07-tool-use/gemini-cli-custom-command-authoring.md",
       "confidence": "high"
     },
     {
@@ -23127,6 +24197,22 @@
       "type": "RELATED_TO",
       "evidence": "[mcp tool argument validation](../07-tool-use/mcp-tool-argument-validation.md)",
       "source_file": "skills/07-tool-use/shell-command-dry-run-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/shopify-api",
+      "target": "16-domain-specific/ecommerce-product-categorization",
+      "type": "RELATED_TO",
+      "evidence": "[Ecommerce Product Categorization](../16-domain-specific/ecommerce-product-categorization.md)",
+      "source_file": "skills/07-tool-use/shopify-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/shopify-api",
+      "target": "11-web/checkout-flow-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Checkout Flow Automation](../11-web/checkout-flow-automation.md)",
+      "source_file": "skills/07-tool-use/shopify-api.md",
       "confidence": "high"
     },
     {
@@ -23394,6 +24480,22 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/audio-watermark-embedding",
+      "target": "08-multimodal/audio-mixing",
+      "type": "RELATED_TO",
+      "evidence": "[Audio Mixing](../08-multimodal/audio-mixing.md)",
+      "source_file": "skills/08-multimodal/audio-watermark-embedding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/audio-watermark-embedding",
+      "target": "08-multimodal/watermark-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Watermark Detection](../08-multimodal/watermark-detection.md)",
+      "source_file": "skills/08-multimodal/audio-watermark-embedding.md",
+      "confidence": "high"
+    },
+    {
       "source": "08-multimodal/browser-session-recording-for-debugging",
       "target": "11-web/browser-cloud-session-provisioning",
       "type": "RELATED_TO",
@@ -23567,6 +24669,22 @@
       "type": "RELATED_TO",
       "evidence": "[Object Detection](object-detection.md)",
       "source_file": "skills/08-multimodal/perceptual-image-hashing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/sign-language-video-recognition",
+      "target": "08-multimodal/video-object-tracking",
+      "type": "RELATED_TO",
+      "evidence": "[Video Object Tracking](../08-multimodal/video-object-tracking.md)",
+      "source_file": "skills/08-multimodal/sign-language-video-recognition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/sign-language-video-recognition",
+      "target": "01-perception/gesture-recognition",
+      "type": "RELATED_TO",
+      "evidence": "[Gesture Recognition](../01-perception/gesture-recognition.md)",
+      "source_file": "skills/08-multimodal/sign-language-video-recognition.md",
       "confidence": "high"
     },
     {
@@ -23842,6 +24960,38 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/agent-simulation-digital-twin-patterns",
+      "target": "09-agentic-patterns/simulated-user-evaluation",
+      "type": "RELATED_TO",
+      "evidence": "[Simulated User Evaluation](../09-agentic-patterns/simulated-user-evaluation.md)",
+      "source_file": "skills/09-agentic-patterns/agent-simulation-digital-twin-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-simulation-digital-twin-patterns",
+      "target": "09-agentic-patterns/agent-harness-assembly",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Harness Assembly](../09-agentic-patterns/agent-harness-assembly.md)",
+      "source_file": "skills/09-agentic-patterns/agent-simulation-digital-twin-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-swarm-emergent-behavior-auditing",
+      "target": "09-agentic-patterns/multi-agent-workstream-merging",
+      "type": "RELATED_TO",
+      "evidence": "[Multi-Agent Workstream Merging](../09-agentic-patterns/multi-agent-workstream-merging.md)",
+      "source_file": "skills/09-agentic-patterns/agent-swarm-emergent-behavior-auditing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/agent-swarm-emergent-behavior-auditing",
+      "target": "09-agentic-patterns/agent-deception-mechanism-audit",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Deception Mechanism Audit](../09-agentic-patterns/agent-deception-mechanism-audit.md)",
+      "source_file": "skills/09-agentic-patterns/agent-swarm-emergent-behavior-auditing.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/agent-team-termination-planning",
       "target": "09-agentic-patterns/agentic-browser-session-orchestration",
       "type": "RELATED_TO",
@@ -23967,6 +25117,22 @@
       "type": "RELATED_TO",
       "evidence": "[Skill Quality Evaluation](../09-agentic-patterns/skill-quality-evaluation.md)",
       "source_file": "skills/09-agentic-patterns/eval-driven-skill-pruning-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/goal-recovery-after-context-loss-patterns",
+      "target": "03-memory/context-rot-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Context Rot Detection](../03-memory/context-rot-detection.md)",
+      "source_file": "skills/09-agentic-patterns/goal-recovery-after-context-loss-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/goal-recovery-after-context-loss-patterns",
+      "target": "09-agentic-patterns/agent-checkpointing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpointing](../09-agentic-patterns/agent-checkpointing.md)",
+      "source_file": "skills/09-agentic-patterns/goal-recovery-after-context-loss-patterns.md",
       "confidence": "high"
     },
     {
@@ -24135,6 +25301,22 @@
       "type": "RELATED_TO",
       "evidence": "[Planning](../02-reasoning/planning.md)",
       "source_file": "skills/09-agentic-patterns/react.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-healing-workflow-repair-patterns",
+      "target": "02-reasoning/self-correction",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Correction](../02-reasoning/self-correction.md)",
+      "source_file": "skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-healing-workflow-repair-patterns",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpoint Restore Patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md",
       "confidence": "high"
     },
     {
@@ -24522,6 +25704,22 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/screen-casting-automation",
+      "target": "10-computer-use/screen-recording",
+      "type": "RELATED_TO",
+      "evidence": "[Screen Recording](../10-computer-use/screen-recording.md)",
+      "source_file": "skills/10-computer-use/screen-casting-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/screen-casting-automation",
+      "target": "10-computer-use/remote-desktop-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Remote Desktop Automation](../10-computer-use/remote-desktop-automation.md)",
+      "source_file": "skills/10-computer-use/screen-casting-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/screen-recording",
       "target": "10-computer-use/screenshot-capture",
       "type": "RELATED_TO",
@@ -24567,6 +25765,22 @@
       "type": "RELATED_TO",
       "evidence": "[accessibility tree automation audit](../10-computer-use/accessibility-tree-automation-audit.md)",
       "source_file": "skills/10-computer-use/screenshot-diff-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/smart-home-device-automation",
+      "target": "01-perception/iot-telemetry-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[IoT Telemetry Parsing](../01-perception/iot-telemetry-parsing.md)",
+      "source_file": "skills/10-computer-use/smart-home-device-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/smart-home-device-automation",
+      "target": "10-computer-use/adb-device-automation",
+      "type": "RELATED_TO",
+      "evidence": "[ADB Device Automation](../10-computer-use/adb-device-automation.md)",
+      "source_file": "skills/10-computer-use/smart-home-device-automation.md",
       "confidence": "high"
     },
     {
@@ -24711,6 +25925,22 @@
       "type": "RELATED_TO",
       "evidence": "[web table pagination traversal](../11-web/web-table-pagination-traversal.md)",
       "source_file": "skills/11-web/browser-session-state-snapshots.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/cdn-cache-purge-automation",
+      "target": "11-web/cache-aware-fetching",
+      "type": "RELATED_TO",
+      "evidence": "[Cache-Aware Fetching](../11-web/cache-aware-fetching.md)",
+      "source_file": "skills/11-web/cdn-cache-purge-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/cdn-cache-purge-automation",
+      "target": "11-web/signed-url-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Signed URL Generation](../11-web/signed-url-generation.md)",
+      "source_file": "skills/11-web/cdn-cache-purge-automation.md",
       "confidence": "high"
     },
     {
@@ -25066,6 +26296,22 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/web-push-subscription-automation",
+      "target": "11-web/web-bot-auth-implementation",
+      "type": "RELATED_TO",
+      "evidence": "[Web Bot Auth Implementation](../11-web/web-bot-auth-implementation.md)",
+      "source_file": "skills/11-web/web-push-subscription-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/web-push-subscription-automation",
+      "target": "04-action-execution/notification-sending",
+      "type": "RELATED_TO",
+      "evidence": "[Notification Sending](../04-action-execution/notification-sending.md)",
+      "source_file": "skills/11-web/web-push-subscription-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/web-scraping",
       "target": "11-web/web-search",
       "type": "RELATED_TO",
@@ -25282,6 +26528,22 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/data-backfill-pipeline-design",
+      "target": "12-data/etl-pipeline",
+      "type": "RELATED_TO",
+      "evidence": "[ETL Pipeline](../12-data/etl-pipeline.md)",
+      "source_file": "skills/12-data/data-backfill-pipeline-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-backfill-pipeline-design",
+      "target": "12-data/change-data-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Change Data Capture](../12-data/change-data-capture.md)",
+      "source_file": "skills/12-data/data-backfill-pipeline-design.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-contract-enforcement",
       "target": "12-data/data-validation",
       "type": "RELATED_TO",
@@ -25362,6 +26624,22 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/data-residency-enforcement-automation",
+      "target": "12-data/data-anonymization",
+      "type": "RELATED_TO",
+      "evidence": "[Data Anonymization](../12-data/data-anonymization.md)",
+      "source_file": "skills/12-data/data-residency-enforcement-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-residency-enforcement-automation",
+      "target": "03-memory/multi-tenant-memory-isolation",
+      "type": "RELATED_TO",
+      "evidence": "[Multi-Tenant Memory Isolation](../03-memory/multi-tenant-memory-isolation.md)",
+      "source_file": "skills/12-data/data-residency-enforcement-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-validation",
       "target": "12-data/data-cleaning",
       "type": "RELATED_TO",
@@ -25415,6 +26693,22 @@
       "type": "RELATED_TO",
       "evidence": "[Similarity Search](similarity-search.md)",
       "source_file": "skills/12-data/embedding-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/experiment-guardrail-metrics-monitoring",
+      "target": "12-data/ab-test-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[AB Test Analysis](../12-data/ab-test-analysis.md)",
+      "source_file": "skills/12-data/experiment-guardrail-metrics-monitoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/experiment-guardrail-metrics-monitoring",
+      "target": "12-data/agent-eval-metric-drift-monitoring",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Eval Metric Drift Monitoring](../12-data/agent-eval-metric-drift-monitoring.md)",
+      "source_file": "skills/12-data/experiment-guardrail-metrics-monitoring.md",
       "confidence": "high"
     },
     {
@@ -25874,6 +27168,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/game-npc-behavior-script-writing",
+      "target": "13-creative/game-mechanic-design",
+      "type": "RELATED_TO",
+      "evidence": "[Game Mechanic Design](../13-creative/game-mechanic-design.md)",
+      "source_file": "skills/13-creative/game-npc-behavior-script-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/game-npc-behavior-script-writing",
+      "target": "13-creative/dialogue-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Dialogue Writing](../13-creative/dialogue-writing.md)",
+      "source_file": "skills/13-creative/game-npc-behavior-script-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/image-style-guide-authoring",
       "target": "08-multimodal/style-reference-image-generation",
       "type": "RELATED_TO",
@@ -26018,6 +27328,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/product-photography-brief-writing",
+      "target": "13-creative/image-gen-prompt",
+      "type": "RELATED_TO",
+      "evidence": "[Image Gen Prompt](../13-creative/image-gen-prompt.md)",
+      "source_file": "skills/13-creative/product-photography-brief-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/product-photography-brief-writing",
+      "target": "13-creative/creative-brief-decomposition",
+      "type": "RELATED_TO",
+      "evidence": "[Creative Brief Decomposition](../13-creative/creative-brief-decomposition.md)",
+      "source_file": "skills/13-creative/product-photography-brief-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/public-figure-likeness-licensing-review",
       "target": "08-multimodal/voice-clone-consent-verification",
       "type": "RELATED_TO",
@@ -26082,6 +27408,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/tutorial-writing",
+      "target": "05-code/documentation-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Documentation Generation](../05-code/documentation-generation.md)",
+      "source_file": "skills/13-creative/tutorial-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/tutorial-writing",
+      "target": "06-communication/plain-language-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Plain Language Writing](../06-communication/plain-language-writing.md)",
+      "source_file": "skills/13-creative/tutorial-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/worldbuilding",
       "target": "13-creative/creative-writing",
       "type": "RELATED_TO",
@@ -26095,6 +27437,22 @@
       "type": "RELATED_TO",
       "evidence": "[Game Level Design](game-level-design.md)",
       "source_file": "skills/13-creative/worldbuilding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-browser-extension-security-review",
+      "target": "11-web/browser-extension-interaction",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Extension Interaction](../11-web/browser-extension-interaction.md)",
+      "source_file": "skills/14-security/agent-browser-extension-security-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-browser-extension-security-review",
+      "target": "14-security/agent-skill-security-audit",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Skill Security Audit](../14-security/agent-skill-security-audit.md)",
+      "source_file": "skills/14-security/agent-browser-extension-security-review.md",
       "confidence": "high"
     },
     {
@@ -26167,6 +27525,22 @@
       "type": "RELATED_TO",
       "evidence": "[Audit Logging](../14-security/audit-logging.md)",
       "source_file": "skills/14-security/agent-standards-control-mapping.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-state-encryption-at-rest",
+      "target": "17-infrastructure/secrets-management",
+      "type": "RELATED_TO",
+      "evidence": "[Secrets Management](../17-infrastructure/secrets-management.md)",
+      "source_file": "skills/14-security/agent-state-encryption-at-rest.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-state-encryption-at-rest",
+      "target": "03-memory/memory-redaction",
+      "type": "RELATED_TO",
+      "evidence": "[Memory Redaction](../03-memory/memory-redaction.md)",
+      "source_file": "skills/14-security/agent-state-encryption-at-rest.md",
       "confidence": "high"
     },
     {
@@ -26706,6 +28080,22 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/session-token-replay-prevention",
+      "target": "14-security/session-management",
+      "type": "RELATED_TO",
+      "evidence": "[Session Management](../14-security/session-management.md)",
+      "source_file": "skills/14-security/session-token-replay-prevention.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/session-token-replay-prevention",
+      "target": "14-security/jwt-validation",
+      "type": "RELATED_TO",
+      "evidence": "[JWT Validation](../14-security/jwt-validation.md)",
+      "source_file": "skills/14-security/session-token-replay-prevention.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/social-engineering-detection",
       "target": "14-security/input-guardrails",
       "type": "RELATED_TO",
@@ -26767,6 +28157,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Skill Security Audit](agent-skill-security-audit.md)",
       "source_file": "skills/14-security/threat-modeling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/training-data-poisoning-detection",
+      "target": "14-security/model-provenance-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Model Provenance Verification](../14-security/model-provenance-verification.md)",
+      "source_file": "skills/14-security/training-data-poisoning-detection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/training-data-poisoning-detection",
+      "target": "03-memory/memory-poisoning-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Memory Poisoning Detection](../03-memory/memory-poisoning-detection.md)",
+      "source_file": "skills/14-security/training-data-poisoning-detection.md",
       "confidence": "high"
     },
     {
@@ -26850,6 +28256,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/agent-team-charter-authoring",
+      "target": "15-orchestration/role-assignment",
+      "type": "RELATED_TO",
+      "evidence": "[Role Assignment](../15-orchestration/role-assignment.md)",
+      "source_file": "skills/15-orchestration/agent-team-charter-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/agent-team-charter-authoring",
+      "target": "06-communication/agent-handoff-brief-composition",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Handoff Brief Composition](../06-communication/agent-handoff-brief-composition.md)",
+      "source_file": "skills/15-orchestration/agent-team-charter-authoring.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/agent-team-shift-handoff-orchestration",
       "target": "06-communication/structured-handoff-briefing",
       "type": "RELATED_TO",
@@ -26863,6 +28285,22 @@
       "type": "RELATED_TO",
       "evidence": "[Shift Scheduling](../16-domain-specific/shift-scheduling.md)",
       "source_file": "skills/15-orchestration/agent-team-shift-handoff-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/auction-based-task-allocation",
+      "target": "15-orchestration/task-priority-queue-orchestration",
+      "type": "RELATED_TO",
+      "evidence": "[Task Priority Queue Orchestration](../15-orchestration/task-priority-queue-orchestration.md)",
+      "source_file": "skills/15-orchestration/auction-based-task-allocation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/auction-based-task-allocation",
+      "target": "15-orchestration/specialist-agent-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Specialist Agent Routing](../15-orchestration/specialist-agent-routing.md)",
+      "source_file": "skills/15-orchestration/auction-based-task-allocation.md",
       "confidence": "high"
     },
     {
@@ -27162,6 +28600,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/workflow-dataflow-dependency-analysis",
+      "target": "04-action-execution/action-dependency-resolution",
+      "type": "RELATED_TO",
+      "evidence": "[Action Dependency Resolution](../04-action-execution/action-dependency-resolution.md)",
+      "source_file": "skills/15-orchestration/workflow-dataflow-dependency-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/workflow-dataflow-dependency-analysis",
+      "target": "15-orchestration/workflow-versioning",
+      "type": "RELATED_TO",
+      "evidence": "[Workflow Versioning](../15-orchestration/workflow-versioning.md)",
+      "source_file": "skills/15-orchestration/workflow-dataflow-dependency-analysis.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/workflow-heartbeat-monitoring",
       "target": "04-action-execution/long-running-action-monitoring",
       "type": "RELATED_TO",
@@ -27255,6 +28709,22 @@
       "type": "RELATED_TO",
       "evidence": "[Regulatory Change Monitoring](../16-domain-specific/regulatory-change-monitoring.md)",
       "source_file": "skills/16-domain-specific/algorithmic-pricing-compliance-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/clinical-trial-adverse-event-narrative-writing",
+      "target": "16-domain-specific/pharmacovigilance-signal-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Pharmacovigilance Signal Detection](../16-domain-specific/pharmacovigilance-signal-detection.md)",
+      "source_file": "skills/16-domain-specific/clinical-trial-adverse-event-narrative-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/clinical-trial-adverse-event-narrative-writing",
+      "target": "16-domain-specific/clinical-trial-protocol-review",
+      "type": "RELATED_TO",
+      "evidence": "[Clinical Trial Protocol Review](../16-domain-specific/clinical-trial-protocol-review.md)",
+      "source_file": "skills/16-domain-specific/clinical-trial-adverse-event-narrative-writing.md",
       "confidence": "high"
     },
     {
@@ -27354,6 +28824,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/harmonized-tariff-code-classification",
+      "target": "16-domain-specific/export-control-sanctions-ai-shipment-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Export Control Sanctions AI Shipment Checking](../16-domain-specific/export-control-sanctions-ai-shipment-checking.md)",
+      "source_file": "skills/16-domain-specific/harmonized-tariff-code-classification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/harmonized-tariff-code-classification",
+      "target": "16-domain-specific/ecommerce-product-categorization",
+      "type": "RELATED_TO",
+      "evidence": "[Ecommerce Product Categorization](../16-domain-specific/ecommerce-product-categorization.md)",
+      "source_file": "skills/16-domain-specific/harmonized-tariff-code-classification.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/insurance-claim-processing",
       "target": "16-domain-specific/invoice-processing",
       "type": "RELATED_TO",
@@ -27367,6 +28853,22 @@
       "type": "RELATED_TO",
       "evidence": "[Compliance Checking](compliance-checking.md)",
       "source_file": "skills/16-domain-specific/insurance-claim-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/insurance-claims-denial-appeal-drafting",
+      "target": "16-domain-specific/insurance-claim-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Insurance Claim Processing](../16-domain-specific/insurance-claim-processing.md)",
+      "source_file": "skills/16-domain-specific/insurance-claims-denial-appeal-drafting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/insurance-claims-denial-appeal-drafting",
+      "target": "06-communication/escalation-memo-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Escalation Memo Writing](../06-communication/escalation-memo-writing.md)",
+      "source_file": "skills/16-domain-specific/insurance-claims-denial-appeal-drafting.md",
       "confidence": "high"
     },
     {
@@ -27514,6 +29016,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/tax-audit-response-drafting",
+      "target": "16-domain-specific/tax-document-preparation",
+      "type": "RELATED_TO",
+      "evidence": "[Tax Document Preparation](../16-domain-specific/tax-document-preparation.md)",
+      "source_file": "skills/16-domain-specific/tax-audit-response-drafting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/tax-audit-response-drafting",
+      "target": "16-domain-specific/compliance-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Compliance Checking](../16-domain-specific/compliance-checking.md)",
+      "source_file": "skills/16-domain-specific/tax-audit-response-drafting.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/tax-document-preparation",
       "target": "16-domain-specific/invoice-processing",
       "type": "RELATED_TO",
@@ -27607,6 +29125,22 @@
       "type": "RELATED_TO",
       "evidence": "[State Snapshot Restore](../03-memory/state-snapshot-restore.md)",
       "source_file": "skills/17-infrastructure/agent-hibernation-storage-tiering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/agent-protocol-gateway-deployment",
+      "target": "17-infrastructure/llm-gateway-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Gateway Deployment](../17-infrastructure/llm-gateway-deployment.md)",
+      "source_file": "skills/17-infrastructure/agent-protocol-gateway-deployment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/agent-protocol-gateway-deployment",
+      "target": "15-orchestration/cross-protocol-agent-bridging",
+      "type": "RELATED_TO",
+      "evidence": "[Cross-Protocol Agent Bridging](../15-orchestration/cross-protocol-agent-bridging.md)",
+      "source_file": "skills/17-infrastructure/agent-protocol-gateway-deployment.md",
       "confidence": "high"
     },
     {
@@ -27983,6 +29517,22 @@
       "type": "RELATED_TO",
       "evidence": "[Health Check Endpoints](health-check-endpoints.md)",
       "source_file": "skills/17-infrastructure/service-mesh-configuration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/storage-lifecycle-tiering-automation",
+      "target": "17-infrastructure/agent-hibernation-storage-tiering",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Hibernation Storage Tiering](../17-infrastructure/agent-hibernation-storage-tiering.md)",
+      "source_file": "skills/17-infrastructure/storage-lifecycle-tiering-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/storage-lifecycle-tiering-automation",
+      "target": "17-infrastructure/database-backup-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Database Backup Automation](../17-infrastructure/database-backup-automation.md)",
+      "source_file": "skills/17-infrastructure/storage-lifecycle-tiering-automation.md",
       "confidence": "high"
     },
     {
