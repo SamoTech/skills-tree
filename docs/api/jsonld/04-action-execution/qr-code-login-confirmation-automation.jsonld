@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/qr-code-login-confirmation-automation.md",
+  "name": "QR Code Login Confirmation Automation",
+  "headline": "QR Code Login Confirmation Automation",
+  "description": "Automate QR-code login confirmation flows so that device handoffs are confirmed with verified session provenance before access is granted.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/qr-code-login-confirmation-automation.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-19T23:16:30Z",
+  "skillId": "qr-code-login-confirmation-automation",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "04-action-execution",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Procedure",
+    "Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../11-web/mfa-challenge-handling.md",
+    "../11-web/verification-link-handling.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, action, automation, code, confirmation, execution, login, qr, skills tree",
+  "about": {
+    "@type": "Thing",
+    "name": "QR Code Login Confirmation Automation",
+    "description": "An AI agent skill for qr code login confirmation automation."
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/deadline-probability-estimation.md",
+  "name": "Deadline Probability Estimation",
+  "headline": "Deadline Probability Estimation",
+  "description": "Estimate the probability of meeting a deadline so that commitments are made from measured completion distributions rather than optimism.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/deadline-probability-estimation.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-19T23:16:30Z",
+  "skillId": "deadline-probability-estimation",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "02-reasoning",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Procedure",
+    "Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../02-reasoning/deadline-constraint-reasoning.md",
+    "../02-reasoning/calibrated-forecast-reasoning.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, deadline, estimation, probability, reasoning, skills tree",
+  "about": {
+    "@type": "Thing",
+    "name": "Deadline Probability Estimation",
+    "description": "An AI agent skill for deadline probability estimation."
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/community-roadmap-feedback-synthesis.md",
+  "name": "Community Roadmap Feedback Synthesis",
+  "headline": "Community Roadmap Feedback Synthesis",
+  "description": "Synthesize community feedback into roadmap inputs so that prioritization decisions cite dated, deduplicated feedback clusters instead of volume counts.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/06-communication/community-roadmap-feedback-synthesis.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-19T23:16:30Z",
+  "skillId": "community-roadmap-feedback-synthesis",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "06-communication",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Procedure",
+    "Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../12-data/agent-feedback-signal-aggregation.md",
+    "../06-communication/public-roadmap-communication-writing.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, communication, community, feedback, roadmap, skills tree, synthesis",
+  "about": {
+    "@type": "Thing",
+    "name": "Community Roadmap Feedback Synthesis",
+    "description": "An AI agent skill for community roadmap feedback synthesis."
+  }
+}

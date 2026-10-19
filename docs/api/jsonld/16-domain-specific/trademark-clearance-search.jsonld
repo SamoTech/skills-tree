@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/trademark-clearance-search.md",
+  "name": "Trademark Clearance Search",
+  "headline": "Trademark Clearance Search",
+  "description": "Run trademark clearance searches so that a name choice is judged from documented searches of the relevant classes and territories.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/trademark-clearance-search.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-10-19T23:16:30Z",
+  "skillId": "trademark-clearance-search",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "16-domain-specific",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Procedure",
+    "Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../16-domain-specific/patent-prior-art-search.md",
+    "../13-creative/name-generation.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-10-01",
+  "keywords": "AI agent, LLM skill, clearance, domain, search, skills tree, specific, trademark",
+  "about": {
+    "@type": "Thing",
+    "name": "Trademark Clearance Search",
+    "description": "An AI agent skill for trademark clearance search."
+  }
+}
