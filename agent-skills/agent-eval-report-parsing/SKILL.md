@@ -1,6 +1,6 @@
 ---
 name: agent-eval-report-parsing
-description: "Parse agent evaluation reports (DeepEval-style metric records) into a normalized score model for regression comparison and CI gating."
+description: Parse agent evaluation reports (DeepEval-style metric records) into a normalized score model for regression comparison and CI gating.
 metadata:
   source: skills/01-perception/agent-eval-report-parsing.md
   category: 01-perception
@@ -35,7 +35,8 @@ Parse agent evaluation reports (DeepEval-style metric records) into a normalized
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A normalized metric table with per-metric scores, thresholds, pass flags, and deltas against the baseline. |
+| Primary | A normalized metric table with per-metric scores, thresholds, pass flags, and deltas against
+ the baseline. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

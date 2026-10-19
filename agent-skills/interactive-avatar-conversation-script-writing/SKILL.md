@@ -1,11 +1,12 @@
 ---
 name: interactive-avatar-conversation-script-writing
-description: "Write conversation scripts for interactive avatars with branching state, fallback turns, and boundary exits so that avatar interactions stay within the declared interaction envelope."
+description: Write conversation scripts for interactive avatars with branching state, fallback turns, and boundary exits so that avatar interactions stay within the declared interaction envelope.
 metadata:
   source: skills/13-creative/interactive-avatar-conversation-script-writing.md
   category: 13-creative
   version: "v1"
 ---
+
 # Interactive Avatar Conversation Script Writing
 
 ## Description
@@ -29,7 +30,8 @@ Write conversation scripts for interactive avatars with branching state, fallbac
 3. Lay out the branch graph, write each turn against the persona and boundary rules, and walk every path to verify each branch reaches a declared terminal or exit.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and p
+rovenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

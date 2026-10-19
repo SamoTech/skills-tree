@@ -1,11 +1,12 @@
 ---
 name: agentic-commerce-checkout-compliance-review
-description: "Review agent-driven checkout flows for payment, disclosure, and consumer-protection compliance so that agentic purchases ship with recorded evidence rather than assumptions."
+description: Review agent-driven checkout flows for payment, disclosure, and consumer-protection compliance so that agentic purchases ship with recorded evidence rather than assumptions.
 metadata:
   source: skills/16-domain-specific/agentic-commerce-checkout-compliance-review.md
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Agentic Commerce Checkout Compliance Review
 
 ## Description
@@ -29,7 +30,8 @@ Review agent-driven checkout flows for payment, disclosure, and consumer-protect
 3. Walk the checkout flow, verify mandate scope, price confirmation, and disclosure steps against the declared rule set, and record the evidence at each gate.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for d
+ownstream consumers.
 
 ## Outputs
 | Area | Contract |

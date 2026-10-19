@@ -1,6 +1,6 @@
 ---
 name: maf-workflow-unit-testing
-description: "Write deterministic unit tests for Microsoft Agent Framework workflows by stubbing AI executor calls and asserting on the recorded graph execution steps."
+description: Write deterministic unit tests for Microsoft Agent Framework workflows by stubbing AI executor calls and asserting on the recorded graph execution steps.
 metadata:
   source: skills/05-code/maf-workflow-unit-testing.md
   category: 05-code
@@ -35,7 +35,8 @@ Write deterministic unit tests for Microsoft Agent Framework workflows by stubbi
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A passing test suite with stubbed executors, asserted step sequences, and recorded outputs. |
+| Primary | A passing test suite with stubbed executors, as
+serted step sequences, and recorded outputs. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

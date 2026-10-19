@@ -1,11 +1,12 @@
 ---
 name: voice-agent-emergency-escalation-detection
-description: "Detect emergency cues in live voice-agent sessions and hand off to human escalation with a verifiable escalation record and no false self-resolution."
+description: Detect emergency cues in live voice-agent sessions and hand off to human escalation with a verifiable escalation record and no false self-resolution.
 metadata:
   source: skills/08-multimodal/voice-agent-emergency-escalation-detection.md
   category: 08-multimodal
   version: "v1"
 ---
+
 # Voice Agent Emergency Escalation Detection
 
 ## Description
@@ -32,6 +33,7 @@ Detect emergency cues in live voice-agent sessions and hand off to human escalat
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
+
 | Area | Contract |
 |---|---|
 | Primary | An escalation record with cue classification, confidence, paged channel, and human acknowledgement. |

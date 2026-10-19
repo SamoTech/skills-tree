@@ -1,6 +1,6 @@
 ---
 name: cross-agent-shared-memory-federation
-description: "Design a federated memory layer where multiple agents share selected memories under explicit scope, conflict, and provenance rules without a single-vendor lock-in."
+description: Design a federated memory layer where multiple agents share selected memories under explicit scope, conflict, and provenance rules without a single-vendor lock-in.
 metadata:
   source: skills/03-memory/cross-agent-shared-memory-federation.md
   category: 03-memory

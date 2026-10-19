@@ -1,11 +1,12 @@
 ---
 name: agent-payment-fraud-pattern-detection
-description: "Detect fraud patterns in agent-initiated payment flows using velocity, counterparty, and mandate-consistency signals with recorded evidence and fail-closed blocking."
+description: Detect fraud patterns in agent-initiated payment flows using velocity, counterparty, and mandate-consistency signals with recorded evidence and fail-closed blocking.
 metadata:
   source: skills/14-security/agent-payment-fraud-pattern-detection.md
   category: 14-security
   version: "v1"
 ---
+
 # Agent Payment Fraud Pattern Detection
 
 ## Description
@@ -32,7 +33,8 @@ Detect fraud patterns in agent-initiated payment flows using velocity, counterpa
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+| Area | Contr
+act |
 |---|---|
 | Primary | A fraud screening record with signal scores, threshold hits, and hold or release decision. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

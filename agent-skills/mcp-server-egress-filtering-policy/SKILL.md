@@ -1,11 +1,12 @@
 ---
 name: mcp-server-egress-filtering-policy
-description: "Define and enforce egress filtering policy for MCP servers so that tool-triggered outbound traffic only reaches declared destinations through a verified allowlist."
+description: Define and enforce egress filtering policy for MCP servers so that tool-triggered outbound traffic only reaches declared destinations through a verified allowlist.
 metadata:
   source: skills/14-security/mcp-server-egress-filtering-policy.md
   category: 14-security
   version: "v1"
 ---
+
 # MCP Server Egress Filtering Policy
 
 ## Description
@@ -32,7 +33,8 @@ Define and enforce egress filtering policy for MCP servers so that tool-triggere
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+|
+Area | Contract |
 |---|---|
 | Primary | An egress policy record with per-tool destinations, deny-test evidence, and revision history. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

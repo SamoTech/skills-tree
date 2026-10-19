@@ -1,11 +1,12 @@
 ---
 name: agent-hibernation-storage-tiering
-description: "Tier hibernated agent state across storage classes with declared wake latency budgets so that paused agents resume within budget and no state is silently lost."
+description: Tier hibernated agent state across storage classes with declared wake latency budgets so that paused agents resume within budget and no state is silently lost.
 metadata:
   source: skills/17-infrastructure/agent-hibernation-storage-tiering.md
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Agent Hibernation Storage Tiering
 
 ## Description
@@ -33,7 +34,8 @@ Tier hibernated agent state across storage classes with declared wake latency bu
 
 ## Outputs
 | Area | Contract |
-|---|---|
+|-
+--|---|
 | Primary | A tiering record with per-segment tier assignments, wake tests, and latency measurements. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |

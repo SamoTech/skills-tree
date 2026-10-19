@@ -1,11 +1,12 @@
 ---
 name: unattended-session-lock-screen-policy-automation
-description: "Enforce lock-screen policy on unattended computer-use sessions with idle-threshold triggers, verified lock state, and escalation when locking is blocked."
+description: Enforce lock-screen policy on unattended computer-use sessions with idle-threshold triggers, verified lock state, and escalation when locking is blocked.
 metadata:
   source: skills/10-computer-use/unattended-session-lock-screen-policy-automation.md
   category: 10-computer-use
   version: "v1"
 ---
+
 # Unattended Session Lock Screen Policy Automation
 
 ## Description
@@ -31,7 +32,8 @@ Enforce lock-screen policy on unattended computer-use sessions with idle-thresho
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
-## Outputs
+## Out
+puts
 | Area | Contract |
 |---|---|
 | Primary | A policy-execution record with idle measurements, lock actions, and verified lock states. |

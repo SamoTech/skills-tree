@@ -1,11 +1,12 @@
 ---
 name: eval-driven-skill-pruning-patterns
-description: "Prune agent skills based on measured eval coverage and failure evidence so that unused or harmful capabilities are removed through recorded decisions rather than intuition."
+description: Prune agent skills based on measured eval coverage and failure evidence so that unused or harmful capabilities are removed through recorded decisions rather than intuition.
 metadata:
   source: skills/09-agentic-patterns/eval-driven-skill-pruning-patterns.md
   category: 09-agentic-patterns
   version: "v1"
 ---
+
 # Eval-Driven Skill Pruning Patterns
 
 ## Description
@@ -29,7 +30,8 @@ Prune agent skills based on measured eval coverage and failure evidence so that 
 3. Rank skills by recorded usage and eval coverage, run the pruned-candidate gate on the eval suite, and prune only when the suite stays green without the candidate.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstream consumer
+s.
 
 ## Outputs
 | Area | Contract |

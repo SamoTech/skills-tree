@@ -1,6 +1,6 @@
 ---
 name: eval-findings-memory-retention
-description: "Persist evaluation findings as structured memories with retention rules so later planning reuses measured outcomes instead of re-learning known failure modes."
+description: Persist evaluation findings as structured memories with retention rules so later planning reuses measured outcomes instead of re-learning known failure modes.
 metadata:
   source: skills/03-memory/eval-findings-memory-retention.md
   category: 03-memory
@@ -35,7 +35,8 @@ Persist evaluation findings as structured memories with retention rules so later
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A findings store keyed by capability and scope with retention windows, confidence, and supersession links. |
+| Primary | A findings store keyed by capabil
+ity and scope with retention windows, confidence, and supersession links. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

@@ -1,6 +1,6 @@
 ---
 name: long-horizon-agent-check-in-messaging
-description: "Design check-in messages for long-horizon agents that surface decisions needing human input long before deadlines, with crisp options and consequences."
+description: Design check-in messages for long-horizon agents that surface decisions needing human input long before deadlines, with crisp options and consequences.
 metadata:
   source: skills/06-communication/long-horizon-agent-check-in-messaging.md
   category: 06-communication
@@ -35,7 +35,8 @@ Design check-in messages for long-horizon agents that surface decisions needing 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A check-in message with the decision, response deadline, options, and the consequence of no response. |
+| Primary | A che
+ck-in message with the decision, response deadline, options, and the consequence of no response. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

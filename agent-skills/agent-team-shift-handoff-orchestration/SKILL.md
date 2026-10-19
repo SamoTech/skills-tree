@@ -1,11 +1,12 @@
 ---
 name: agent-team-shift-handoff-orchestration
-description: "Orchestrate shift handoffs between persistent agent teams so that in-flight work, ownership, and escalation duties transfer through verified briefs rather than assumed context."
+description: Orchestrate shift handoffs between persistent agent teams so that in-flight work, ownership, and escalation duties transfer through verified briefs rather than assumed context.
 metadata:
   source: skills/15-orchestration/agent-team-shift-handoff-orchestration.md
   category: 15-orchestration
   version: "v1"
 ---
+
 # Agent Team Shift Handoff Orchestration
 
 ## Description
@@ -29,7 +30,8 @@ Orchestrate shift handoffs between persistent agent teams so that in-flight work
 3. Freeze the outgoing shift at a handoff point, exchange the structured handoff brief, and require the incoming shift to acknowledge ownership before the outgoing team releases duties.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downst
+ream consumers.
 
 ## Outputs
 | Area | Contract |

@@ -1,11 +1,12 @@
 ---
 name: meeting-transcript-redaction-streaming
-description: "Redact sensitive entities from meeting transcription streams in near-real time with a bounded-latency redaction window and verified post-hoc completeness."
+description: Redact sensitive entities from meeting transcription streams in near-real time with a bounded-latency redaction window and verified post-hoc completeness.
 metadata:
   source: skills/08-multimodal/meeting-transcript-redaction-streaming.md
   category: 08-multimodal
   version: "v1"
 ---
+
 # Meeting Transcript Redaction Streaming
 
 ## Description
@@ -32,7 +33,8 @@ Redact sensitive entities from meeting transcription streams in near-real time w
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+| Area | Contr
+act |
 |---|---|
 | Primary | A redacted transcript stream with redaction-window bounds and per-segment redaction evidence. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
@@ -73,4 +75,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | Initial evidence-backed contract. |
+| `v1` | `2026-10` | Initial evidence-back
+ed contract. |

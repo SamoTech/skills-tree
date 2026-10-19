@@ -1,6 +1,6 @@
 ---
 name: x402-http-payment-header-parsing
-description: "Parse HTTP 402 payment-required responses and x402-style payment headers in agentic commerce flows into payable request records with scheme, amount, and settlement details."
+description: Parse HTTP 402 payment-required responses and x402-style payment headers in agentic commerce flows into payable request records with scheme, amount, and settlement details.
 metadata:
   source: skills/01-perception/x402-http-payment-header-parsing.md
   category: 01-perception
@@ -33,6 +33,7 @@ Parse HTTP 402 payment-required responses and x402-style payment headers in agen
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
+
 | Area | Contract |
 |---|---|
 | Primary | A payable-request record with scheme, chain or rails, amount, payee, retry-after, and the resource it unlocks. |
@@ -70,7 +71,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [API Response Parsing](../01-perception/api-response-parsing.md)
-- [HTTP Header Analysis](../11-web/http-header-analysis.md)
+- [HTTP Header Analysis](../11-web/http-header-
+analysis.md)
 
 ## Changelog
 | Version | Date | Notes |

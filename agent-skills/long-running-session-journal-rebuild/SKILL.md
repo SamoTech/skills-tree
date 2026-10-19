@@ -1,6 +1,6 @@
 ---
 name: long-running-session-journal-rebuild
-description: "Rebuild a multi-day agent session state from an append-only event journal so a revived agent resumes with verifiable history instead of reconstructed guesses."
+description: Rebuild a multi-day agent session state from an append-only event journal so a revived agent resumes with verifiable history instead of reconstructed guesses.
 metadata:
   source: skills/03-memory/long-running-session-journal-rebuild.md
   category: 03-memory
@@ -35,7 +35,8 @@ Rebuild a multi-day agent session state from an append-only event journal so a r
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A reconstructed session state with the replay checkpoint, digest verification, and any unrecoverable event gaps. |
+| P
+rimary | A reconstructed session state with the replay checkpoint, digest verification, and any unrecoverable event gaps. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 
@@ -74,5 +75,6 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

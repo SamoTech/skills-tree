@@ -1,6 +1,6 @@
 ---
 name: mcp-json-rpc-batch-usage
-description: "Batch multiple MCP tool calls into JSON-RPC batch requests where the transport supports it, with per-call identity, ordered handling, and fail-closed partial-failure semantics."
+description: Batch multiple MCP tool calls into JSON-RPC batch requests where the transport supports it, with per-call identity, ordered handling, and fail-closed partial-failure semantics.
 metadata:
   source: skills/07-tool-use/mcp-json-rpc-batch-usage.md
   category: 07-tool-use
@@ -35,7 +35,8 @@ Batch multiple MCP tool calls into JSON-RPC batch requests where the transport s
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A batch result set keyed by call id with per-call success, error, and ordering evidence. |
+| Primar
+y | A batch result set keyed by call id with per-call success, error, and ordering evidence. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

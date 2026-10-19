@@ -1,11 +1,12 @@
 ---
 name: persistent-agent-persona-arc-planning
-description: "Plan a coherent long-term persona arc for a persistent agent so that voice, boundaries, and role evolution stay consistent across sessions and are governed by explicit change records."
+description: Plan a coherent long-term persona arc for a persistent agent so that voice, boundaries, and role evolution stay consistent across sessions and are governed by explicit change records.
 metadata:
   source: skills/13-creative/persistent-agent-persona-arc-planning.md
   category: 13-creative
   version: "v1"
 ---
+
 # Persistent Agent Persona Arc Planning
 
 ## Description
@@ -29,7 +30,8 @@ Plan a coherent long-term persona arc for a persistent agent so that voice, boun
 3. Define the persona baseline, decompose the arc into session-scale stages with boundary rules, and record every persona change as a dated revision against the baseline.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and pr
+ovenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |
@@ -71,4 +73,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | Initial evidence-backed contract. |
+| `v1` | `2026-10` | Initial evidence-backed cont
+ract. |

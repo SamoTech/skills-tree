@@ -1,6 +1,6 @@
 ---
 name: multiday-agent-activity-digest-writing
-description: "Write periodic activity digests for persistent agents that summarize completed work, blocked items, and next actions with evidence links over a multi-day window."
+description: Write periodic activity digests for persistent agents that summarize completed work, blocked items, and next actions with evidence links over a multi-day window.
 metadata:
   source: skills/06-communication/multiday-agent-activity-digest-writing.md
   category: 06-communication
@@ -35,7 +35,8 @@ Write periodic activity digests for persistent agents that summarize completed w
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A digest document with per-item status, evidence links, and the declared next-action list. |
+| Primary | A dige
+st document with per-item status, evidence links, and the declared next-action list. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

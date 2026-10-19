@@ -1,11 +1,12 @@
 ---
 name: remote-workspace-warm-pool-automation
-description: "Maintain a pool of pre-warmed remote workspaces with health checks, recycling limits, and measured readiness so agents get verified workspaces instead of cold starts."
+description: Maintain a pool of pre-warmed remote workspaces with health checks, recycling limits, and measured readiness so agents get verified workspaces instead of cold starts.
 metadata:
   source: skills/10-computer-use/remote-workspace-warm-pool-automation.md
   category: 10-computer-use
   version: "v1"
 ---
+
 # Remote Workspace Warm Pool Automation
 
 ## Description
@@ -29,7 +30,8 @@ Maintain a pool of pre-warmed remote workspaces with health checks, recycling li
 3. Reconcile pool size against demand, warm replacement workspaces through the readiness probe, and hand out only workspaces that passed the health check within the freshness window.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for dow
+nstream consumers.
 
 ## Outputs
 | Area | Contract |

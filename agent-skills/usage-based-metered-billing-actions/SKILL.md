@@ -1,6 +1,6 @@
 ---
 name: usage-based-metered-billing-actions
-description: "Emit and reconcile metered usage events for agent actions so customers are billed for consumed units under a declared meter contract, with idempotent reporting and fail-closed gaps."
+description: Emit and reconcile metered usage events for agent actions so customers are billed for consumed units under a declared meter contract, with idempotent reporting and fail-closed gaps.
 metadata:
   source: skills/04-action-execution/usage-based-metered-billing-actions.md
   category: 04-action-execution
@@ -32,7 +32,8 @@ Emit and reconcile metered usage events for agent actions so customers are bille
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
-## Outputs
+## Output
+s
 | Area | Contract |
 |---|---|
 | Primary | A metered event stream with dedup keys, a reconciliation report, and declared gap handling for the billing window. |
@@ -76,4 +77,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | Initial evidence-backed contract. |
+| `v1` | `2026-10` | Initial evidence-backed contr
+act. |

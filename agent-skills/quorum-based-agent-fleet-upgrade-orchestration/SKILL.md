@@ -1,11 +1,12 @@
 ---
 name: quorum-based-agent-fleet-upgrade-orchestration
-description: "Orchestrate fleet upgrades with quorum gating so that a majority of healthy, verified agents must approve each rollout stage before the fleet advances or rolls back."
+description: Orchestrate fleet upgrades with quorum gating so that a majority of healthy, verified agents must approve each rollout stage before the fleet advances or rolls back.
 metadata:
   source: skills/15-orchestration/quorum-based-agent-fleet-upgrade-orchestration.md
   category: 15-orchestration
   version: "v1"
 ---
+
 # Quorum-Based Agent Fleet Upgrade Orchestration
 
 ## Description
@@ -32,7 +33,8 @@ Orchestrate fleet upgrades with quorum gating so that a majority of healthy, ver
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+| Area | Contr
+act |
 |---|---|
 | Primary | An upgrade record with cohort states, quorum votes, and per-stage advance or rollback decisions. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

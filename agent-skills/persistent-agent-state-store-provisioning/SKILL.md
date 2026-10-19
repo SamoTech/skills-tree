@@ -1,11 +1,12 @@
 ---
 name: persistent-agent-state-store-provisioning
-description: "Provision durable state stores for persistent agents with declared schemas, retention policies, and restore verification so long-running state survives restarts with evidence."
+description: Provision durable state stores for persistent agents with declared schemas, retention policies, and restore verification so long-running state survives restarts with evidence.
 metadata:
   source: skills/17-infrastructure/persistent-agent-state-store-provisioning.md
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Persistent Agent State Store Provisioning
 
 ## Description
@@ -29,7 +30,8 @@ Provision durable state stores for persistent agents with declared schemas, rete
 3. Provision the store with its declared schema and retention policy, seed the agent state contract, and verify restore by replaying a state snapshot through the declared path.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and p
+rovenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

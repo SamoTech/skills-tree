@@ -1,6 +1,6 @@
 ---
 name: agent-tool-call-replay-testing
-description: "Replay recorded agent tool calls against current tool implementations to detect behavior drift and contract violations without re-running the full agent."
+description: Replay recorded agent tool calls against current tool implementations to detect behavior drift and contract violations without re-running the full agent.
 metadata:
   source: skills/05-code/agent-tool-call-replay-testing.md
   category: 05-code
@@ -35,7 +35,8 @@ Replay recorded agent tool calls against current tool implementations to detect 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A replay report with per-call output diffs, contract violations, and the drift classification. |
+| Primar
+y | A replay report with per-call output diffs, contract violations, and the drift classification. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

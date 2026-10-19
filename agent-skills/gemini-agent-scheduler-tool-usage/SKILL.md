@@ -1,6 +1,6 @@
 ---
 name: gemini-agent-scheduler-tool-usage
-description: "Use persistent-agent scheduling surfaces and their account-scoped tools to enqueue long-running tasks, attach wake conditions, and retrieve results with verifiable provenance."
+description: Use persistent-agent scheduling surfaces and their account-scoped tools to enqueue long-running tasks, attach wake conditions, and retrieve results with verifiable provenance.
 metadata:
   source: skills/07-tool-use/gemini-agent-scheduler-tool-usage.md
   category: 07-tool-use
@@ -33,7 +33,8 @@ Use persistent-agent scheduling surfaces and their account-scoped tools to enque
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+|
+ Area | Contract |
 |---|---|
 | Primary | A scheduled-task record with the runtime handle, wake condition, authority scope, and result-retrieval plan. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
@@ -70,4 +71,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2026-10` | Initial evidence-backed contract. |
+| `v1` | `2026-10`
+ | Initial evidence-backed contract. |

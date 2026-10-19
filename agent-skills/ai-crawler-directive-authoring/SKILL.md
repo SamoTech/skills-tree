@@ -1,11 +1,12 @@
 ---
 name: ai-crawler-directive-authoring
-description: "Author ai-crawler access directives as machine-checked policy files so that agent access rules for a site are explicit, testable, and free of contradictions with robots.txt."
+description: Author ai-crawler access directives as machine-checked policy files so that agent access rules for a site are explicit, testable, and free of contradictions with robots.txt.
 metadata:
   source: skills/11-web/ai-crawler-directive-authoring.md
   category: 11-web
   version: "v1"
 ---
+
 # AI Crawler Directive Authoring
 
 ## Description
@@ -32,7 +33,8 @@ Author ai-crawler access directives as machine-checked policy files so that agen
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+| Area | Contrac
+t |
 |---|---|
 | Primary | A published directive file with agent classes, path rules, rate rules, and validation evidence. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

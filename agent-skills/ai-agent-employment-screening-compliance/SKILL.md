@@ -1,11 +1,12 @@
 ---
 name: ai-agent-employment-screening-compliance
-description: "Run employment-screening agents within hiring-law compliance constraints so that candidate evaluations, disclosures, and adverse-action duties are recorded and auditable."
+description: Run employment-screening agents within hiring-law compliance constraints so that candidate evaluations, disclosures, and adverse-action duties are recorded and auditable.
 metadata:
   source: skills/16-domain-specific/ai-agent-employment-screening-compliance.md
   category: 16-domain-specific
   version: "v1"
 ---
+
 # AI Agent Employment Screening Compliance
 
 ## Description
@@ -30,6 +31,7 @@ Run employment-screening agents within hiring-law compliance constraints so that
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
 6. Emit a structured result with evidence and provenance for downstream consumers.
+
 
 ## Outputs
 | Area | Contract |

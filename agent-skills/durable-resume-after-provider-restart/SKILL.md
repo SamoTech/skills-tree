@@ -1,6 +1,6 @@
 ---
 name: durable-resume-after-provider-restart
-description: "Resume agent actions deterministically after an infrastructure restart by replaying durable execution state instead of re-invoking side effects blindly."
+description: Resume agent actions deterministically after an infrastructure restart by replaying durable execution state instead of re-invoking side effects blindly.
 metadata:
   source: skills/04-action-execution/durable-resume-after-provider-restart.md
   category: 04-action-execution
@@ -35,7 +35,8 @@ Resume agent actions deterministically after an infrastructure restart by replay
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A resume plan with per-step status, the steps re-executed, and verification evidence for skipped duplicates. |
+| Primary | A
+resume plan with per-step status, the steps re-executed, and verification evidence for skipped duplicates. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 
@@ -75,5 +76,6 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---
+|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

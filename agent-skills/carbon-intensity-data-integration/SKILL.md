@@ -1,11 +1,12 @@
 ---
 name: carbon-intensity-data-integration
-description: "Integrate grid carbon-intensity feeds into agent planning data with source freshness checks and explicit uncertainty so that scheduling decisions use verified, dated intensity values."
+description: Integrate grid carbon-intensity feeds into agent planning data with source freshness checks and explicit uncertainty so that scheduling decisions use verified, dated intensity values.
 metadata:
   source: skills/12-data/carbon-intensity-data-integration.md
   category: 12-data
   version: "v1"
 ---
+
 # Carbon Intensity Data Integration
 
 ## Description
@@ -29,7 +30,8 @@ Integrate grid carbon-intensity feeds into agent planning data with source fresh
 3. Fetch the intensity feed, validate its zone, timestamp, and measurement basis, and join each value to the planning record with its source, freshness, and uncertainty annotation.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provena
+nce for downstream consumers.
 
 ## Outputs
 | Area | Contract |
@@ -69,6 +71,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - [Anomaly Detection](../12-data/anomaly-detection.md)
 
 ## Changelog
-| Version | Date | Notes |
+| Version | Date |
+ Notes |
 |---|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

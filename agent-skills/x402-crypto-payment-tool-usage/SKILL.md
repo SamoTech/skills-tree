@@ -1,11 +1,12 @@
 ---
 name: x402-crypto-payment-tool-usage
-description: "Execute x402-style crypto payment tool calls behind an explicit approval gate, with payment quoting, settlement verification, and replay-safe idempotency."
+description: Execute x402-style crypto payment tool calls behind an explicit approval gate, with payment quoting, settlement verification, and replay-safe idempotency.
 metadata:
   source: skills/07-tool-use/x402-crypto-payment-tool-usage.md
   category: 07-tool-use
   version: "v1"
 ---
+
 # X402 Crypto Payment Tool Usage
 
 ## Description
@@ -34,7 +35,8 @@ Execute x402-style crypto payment tool calls behind an explicit approval gate, w
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A settlement record with quote hash, idempotency key, transaction reference, and verified receipt. |
+| P
+rimary | A settlement record with quote hash, idempotency key, transaction reference, and verified receipt. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

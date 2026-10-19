@@ -1,11 +1,12 @@
 ---
 name: synthetic-voice-ad-copy-compliance-writing
-description: "Write ad copy for synthetic voices with disclosure, consent, and platform-policy compliance checks recorded before release, so synthetic-voice advertising ships with evidence rather than assumption."
+description: Write ad copy for synthetic voices with disclosure, consent, and platform-policy compliance checks recorded before release, so synthetic-voice advertising ships with evidence rather than assumption.
 metadata:
   source: skills/13-creative/synthetic-voice-ad-copy-compliance-writing.md
   category: 13-creative
   version: "v1"
 ---
+
 # Synthetic Voice Ad Copy Compliance Writing
 
 ## Description
@@ -29,7 +30,8 @@ Write ad copy for synthetic voices with disclosure, consent, and platform-policy
 3. Draft the copy, run the disclosure and consent checklist against the declared policy set, and record the compliance evidence before the release gate.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidenc
+e and provenance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

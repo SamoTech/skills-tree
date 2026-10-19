@@ -1,11 +1,12 @@
 ---
 name: a2a-multi-agent-governance-workflow
-description: "Run governance checkpoints across agent-to-agent task delegation chains so that authority, evidence, and audit duties bind across every participating agent in the chain."
+description: Run governance checkpoints across agent-to-agent task delegation chains so that authority, evidence, and audit duties bind across every participating agent in the chain.
 metadata:
   source: skills/15-orchestration/a2a-multi-agent-governance-workflow.md
   category: 15-orchestration
   version: "v1"
 ---
+
 # A2A Multi-Agent Governance Workflow
 
 ## Description
@@ -34,7 +35,8 @@ Run governance checkpoints across agent-to-agent task delegation chains so that 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A chain governance record with per-hop authority scopes, acceptances, and audit refs. |
+| Primary | A
+chain governance record with per-hop authority scopes, acceptances, and audit refs. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

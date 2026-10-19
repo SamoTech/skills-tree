@@ -1,6 +1,6 @@
 ---
 name: llm-eval-harness-ci-integration
-description: "Wire an agent evaluation harness into CI so every change runs the eval suite, reports metric deltas on the PR, and blocks merges below the declared thresholds."
+description: Wire an agent evaluation harness into CI so every change runs the eval suite, reports metric deltas on the PR, and blocks merges below the declared thresholds.
 metadata:
   source: skills/05-code/llm-eval-harness-ci-integration.md
   category: 05-code
@@ -35,7 +35,8 @@ Wire an agent evaluation harness into CI so every change runs the eval suite, re
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A CI eval report with per-metric deltas, the gating verdict, and the baseline commit it was measured against. |
+| Primary | A CI eval report with per-metric
+ deltas, the gating verdict, and the baseline commit it was measured against. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |
 | Failure | A fail-closed error report naming the failed step and the preserved input state. |
 

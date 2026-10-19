@@ -1,11 +1,12 @@
 ---
 name: telehealth-voice-agent-compliance-review
-description: "Review telehealth voice agents for medical-disclosure, triage-boundary, and privacy compliance so that health-related conversations stay inside recorded care boundaries."
+description: Review telehealth voice agents for medical-disclosure, triage-boundary, and privacy compliance so that health-related conversations stay inside recorded care boundaries.
 metadata:
   source: skills/16-domain-specific/telehealth-voice-agent-compliance-review.md
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Telehealth Voice Agent Compliance Review
 
 ## Description
@@ -29,7 +30,8 @@ Review telehealth voice agents for medical-disclosure, triage-boundary, and priv
 3. Bind the conversation scope to the declared care boundaries, verify disclosure and consent scripts, and require clinician escalation on any out-of-scope condition.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstre
+am consumers.
 
 ## Outputs
 | Area | Contract |

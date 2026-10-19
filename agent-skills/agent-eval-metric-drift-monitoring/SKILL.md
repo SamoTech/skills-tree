@@ -1,11 +1,12 @@
 ---
 name: agent-eval-metric-drift-monitoring
-description: "Monitor agent evaluation metrics for drift over time with baseline bounds, significance checks, and alert thresholds so silent quality decay is detected from recorded data."
+description: Monitor agent evaluation metrics for drift over time with baseline bounds, significance checks, and alert thresholds so silent quality decay is detected from recorded data.
 metadata:
   source: skills/12-data/agent-eval-metric-drift-monitoring.md
   category: 12-data
   version: "v1"
 ---
+
 # Agent Eval Metric Drift Monitoring
 
 ## Description
@@ -32,7 +33,8 @@ Monitor agent evaluation metrics for drift over time with baseline bounds, signi
 6. Emit a structured result with evidence and provenance for downstream consumers.
 
 ## Outputs
-| Area | Contract |
+| Area |
+ Contract |
 |---|---|
 | Primary | A drift report with per-metric deltas, significance results, and linked failing runs. |
 | Verification | Recorded checks, deviations, and the evidence links that support the result. |

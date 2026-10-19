@@ -1,11 +1,12 @@
 ---
 name: trace-sampling-budget-provisioning
-description: "Provision trace sampling for agent fleets against a declared evidence budget so that high-value traces are retained and sampling decisions are recorded rather than ad hoc."
+description: Provision trace sampling for agent fleets against a declared evidence budget so that high-value traces are retained and sampling decisions are recorded rather than ad hoc.
 metadata:
   source: skills/17-infrastructure/trace-sampling-budget-provisioning.md
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Trace Sampling Budget Provisioning
 
 ## Description
@@ -29,7 +30,8 @@ Provision trace sampling for agent fleets against a declared evidence budget so 
 3. Define the sampling policy with always-retain classes, allocate the evidence budget per service, and verify with a canary that retained-trace coverage matches the policy.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for downstr
+eam consumers.
 
 ## Outputs
 | Area | Contract |

@@ -1,11 +1,12 @@
 ---
 name: paywalled-content-agent-access-negotiation
-description: "Negotiate agent access to paywalled content through explicit license or payment offers, recording terms, entitlement scope, and refusal handling without scraping around the gate."
+description: Negotiate agent access to paywalled content through explicit license or payment offers, recording terms, entitlement scope, and refusal handling without scraping around the gate.
 metadata:
   source: skills/11-web/paywalled-content-agent-access-negotiation.md
   category: 11-web
   version: "v1"
 ---
+
 # Paywalled Content Agent Access Negotiation
 
 ## Description
@@ -29,7 +30,8 @@ Negotiate agent access to paywalled content through explicit license or payment 
 3. Read the access terms, submit the declared access request or payment offer through the official channel, and record the granted entitlement scope before fetching gated content.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and pro
+venance for downstream consumers.
 
 ## Outputs
 | Area | Contract |

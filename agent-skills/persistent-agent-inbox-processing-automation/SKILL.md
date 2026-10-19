@@ -1,11 +1,12 @@
 ---
 name: persistent-agent-inbox-processing-automation
-description: "Process a persistent agent inbox on a schedule with claimed-acknowledged semantics so every inbound item is handled exactly once and failures surface as explicit dead letters."
+description: Process a persistent agent inbox on a schedule with claimed-acknowledged semantics so every inbound item is handled exactly once and failures surface as explicit dead letters.
 metadata:
   source: skills/11-web/persistent-agent-inbox-processing-automation.md
   category: 11-web
   version: "v1"
 ---
+
 # Persistent Agent Inbox Processing Automation
 
 ## Description
@@ -29,7 +30,8 @@ Process a persistent agent inbox on a schedule with claimed-acknowledged semanti
 3. Claim items with an ownership lease, process each within its deadline, commit the offset only after the side effect is recorded, and dead-letter items that exceed their retry budget.
 4. Compare the actual outcome against the acceptance criteria and record deviations.
 5. On failure, apply the declared fallback path, and never widen permissions to recover.
-6. Emit a structured result with evidence and provenance for downstream consumers.
+6. Emit a structured result with evidence and provenance for down
+stream consumers.
 
 ## Outputs
 | Area | Contract |
