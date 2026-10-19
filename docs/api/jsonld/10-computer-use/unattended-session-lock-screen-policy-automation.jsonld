@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-19T00:16:15Z",
+  "dateModified": "2026-10-19T00:49:32Z",
   "skillId": "unattended-session-lock-screen-policy-automation",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -63,7 +63,7 @@
     "When to Use",
     "Inputs",
     "Procedure",
-    "Outputs",
+    "Out",
     "Runnable Example",
     "Failure Modes",
     "Security and Authority Boundary",
