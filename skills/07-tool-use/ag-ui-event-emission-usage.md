@@ -51,11 +51,11 @@ assert emit([{"type": "RUN_STARTED"}, {"type": "RUN_FINISHED"}], {}) is not None
 ```
 
 ## Failure Modes
-- A RUN_STARTED is emitted twice and clients reset mid-run and lose state..
-- Tool-call events are emitted without argument boundaries and clients render partial JSON..
-- An error path skips RUN_ERROR and clients wait on a stream that already died..
-- State deltas are emitted before the snapshot they patch, corrupting client state..
-- Event ordering relies on transport guarantees that streaming transports do not provide..
+- A RUN_STARTED is emitted twice and clients reset mid-run and lose state.
+- Tool-call events are emitted without argument boundaries and clients render partial JSON.
+- An error path skips RUN_ERROR and clients wait on a stream that already died.
+- State deltas are emitted before the snapshot they patch, corrupting client state.
+- Event ordering relies on transport guarantees that streaming transports do not provide.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
@@ -70,5 +70,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|---|
+|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |
