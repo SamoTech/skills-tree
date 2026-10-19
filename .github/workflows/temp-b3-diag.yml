@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -42,7 +43,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add lychee-report.md
           git diff --staged --quiet || git commit -m "chore(temp): add lychee diagnostic report"
-          git push
+          git push origin HEAD:${{ github.head_ref }}
       - name: Regenerate projections
         run: |
           python tools/build_search_index.py
@@ -60,4 +61,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs data meta agent-skills
           git diff --staged --quiet || git commit -m "chore(temp): regenerate derived projections"
-          git push
+          git push origin HEAD:${{ github.head_ref }}
