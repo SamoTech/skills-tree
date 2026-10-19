@@ -1,0 +1,73 @@
+name: Temp B4 Diag
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  diag:
+    name: lychee report + projection regen
+    if: github.head_ref == 'skills/expansion-2026-10-18-b4'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'pyyaml==6.0.3' pytest jsonschema
+      - name: Run lychee (diagnostic, non-fatal)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --exclude 'localhost'
+            --exclude '127\.0\.0\.1'
+            --exclude 'example\.com'
+            --timeout 30
+            --max-retries 3
+            'skills/**/*.md'
+          fail: false
+          output: lychee-report.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: python tools/build_search_index.py --skills-root skills/ --output docs/search-index.json --package-output data/search-index.json
+      - run: python tools/export_skills.py
+      - run: python tools/build_graph.py
+      - run: cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - run: python tools/check_skill_quality.py
+      - name: Write byte-exact projections for all eligible canonical skills
+        run: |
+          python - <<'PYEOF'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, '.')
+          from tools.generate_agent_skills import project, write_projection
+          root = Path('.')
+          sources = [p for p in sorted((root / 'skills').rglob('*.md')) if p.name.lower() != 'readme.md']
+          count = 0
+          for s in sources:
+              item = project(s, root)
+              if item.eligible:
+                  write_projection(root, item)
+                  count += 1
+          print("wrote", count, "projections")
+          PYEOF
+      - name: Reconcile check
+        run: python tools/reconcile_agent_skills.py --check
+      - run: python tools/update_readme_counts.py || true
+      - name: Commit and push reports + projections
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "chore(regen): byte-exact deterministic projections and diagnostic report for batch 4"
+          git push
