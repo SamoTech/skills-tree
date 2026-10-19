@@ -1,0 +1,55 @@
+name: Temp Regen Batch 1
+
+# Temporary projection-regeneration workflow for the 2026-10-19 expansion
+# batch 1 PR. Deleted before merge (net zero) per the documented regen
+# protocol; governance-gate drift while present is expected and reverts.
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-regen-b1
+  cancel-in-progress: false
+
+jobs:
+  regen:
+    if: github.head_ref == 'skills/expansion-2026-10-19-b1'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install pyyaml pytest jsonschema
+      - name: Regen search index
+        run: python tools/build_search_index.py --skills-root skills/ --output docs/search-index.json --package-output data/search-index.json
+      - name: Regen skills API
+        run: |
+          python3 tools/export_skills.py
+          python3 tools/verify_jsonld_export.py
+      - name: Regen graph
+        run: |
+          python tools/build_graph.py
+          mkdir -p docs/api
+          cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - name: Regen quality report
+        run: python3 tools/check_skill_quality.py
+      - name: Run freshness tests
+        run: python -m pytest tests/test_search_index_freshness.py tests/test_skills_api_freshness.py tests/test_graph_projection_freshness.py tests/test_quality_report_freshness.py tests/test_agent_skills_discovery.py -q
+      - name: Commit regen outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A docs data meta
+          git diff --staged --quiet && echo "no regen changes" && exit 0
+          git commit -m "chore: regenerate projections for expansion batch 1"
+          git push origin HEAD:${{ github.head_ref }}
