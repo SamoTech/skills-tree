@@ -60,19 +60,22 @@ jobs:
         run: python3 tools/update_readme_counts.py
 
       - name: Run lychee report (non-blocking)
+        continue-on-error: true
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --verbose --no-progress
             --exclude 'localhost' --exclude '127\.0\.0\.1' --exclude 'example\.com'
             --timeout 30 --max-retries 3
-            --format markdown --output meta/LYCHEE-REPORT.md
             'skills/**/*.md'
+          format: markdown
+          output: meta/LYCHEE-REPORT.md
           fail: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit regenerated projections and report
+            - name: Commit regenerated projections and report
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
