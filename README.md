@@ -57,6 +57,13 @@ The repository remains an evidence-backed, dependency-aware knowledge graph and 
 [![Docs](https://img.shields.io/badge/Docs-GitHub-22c55e?style=for-the-badge&logo=github)](https://github.com/SamoTech/skills-tree)
 <!-- BADGES_END -->
 
+### XERJ Corpus Hub Recognition
+
+[![XERJ Corpus Hub Contributor](https://hub.xerj.org/contributors/SamoTech/badge.svg)](https://hub.xerj.org/contributors/SamoTech.html)
+
+A contribution from **SamoTech/skills-tree** was selected for the [XERJ Corpus Hub](https://hub.xerj.org/contributors/SamoTech.html): *“feat(orchestration): add behavioral skill selection runtime evidence”* ([source commit](https://github.com/SamoTech/skills-tree/commit/203d4b12e576cbeb5eaa83249cc97d96905b01fc)). **Status: selected; licence review pending.** The corpus is not yet live or installable through XERJ. Attribution remains with the original author and repository under the repository's MIT licence.
+
+
 [![Stars](https://img.shields.io/github/stars/SamoTech/skills-tree?style=for-the-badge&color=22c55e&logo=github)](https://github.com/SamoTech/skills-tree/stargazers)
 [![Forks](https://img.shields.io/github/forks/SamoTech/skills-tree?style=for-the-badge&color=3b82f6&logo=github)](https://github.com/SamoTech/skills-tree/network)
 [![Contributors](https://img.shields.io/github/contributors/SamoTech/skills-tree?style=for-the-badge&color=f59e0b&logo=github)](https://github.com/SamoTech/skills-tree/graphs/contributors)
