@@ -3,40 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 2993  |
-| 🔗 Unique      | 1426  |
-| ✅ Successful  | 2987  |
+| 🔗 Unique      | 1425  |
+| ✅ Successful  | 2993  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 74    |
+| 🔀 Redirected  | 73    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 6     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/02-reasoning/token-redirect-exploit-risk-reasoning.md
-
-* [502] <https://safeguard.sh/resources/blog/mcp-sdk-oauth-cve-2026-104850-rmcp-token-theft> (at 65:171) | Rejected status code: 502 Bad Gateway
-
-### Errors in skills/03-memory/persistent-agent-workspace-memory.md
-
-* [429] <https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage> (at 65:228) | Rejected status code: 429 Too Many Requests
-
-### Errors in skills/07-tool-use/persistent-workplace-agent-usage.md
-
-* [429] <https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage> (at 64:164) | Rejected status code: 429 Too Many Requests
-
-### Errors in skills/12-data/token-exfil-incident-forensics.md
-
-* [502] <https://safeguard.sh/resources/blog/mcp-sdk-oauth-cve-2026-104850-rmcp-token-theft> (at 67:133) | Error (cached)
-
-### Errors in skills/14-security/mcp-oauth-token-exfil-hardening.md
-
-* [502] <https://safeguard.sh/resources/blog/mcp-sdk-oauth-cve-2026-104850-rmcp-token-theft> (at 64:133) | Error (cached)
-
-### Errors in skills/15-orchestration/cross-app-persistent-agent-orchestration.md
-
-* [429] <https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage> (at 64:164) | Rejected status code: 429 Too Many Requests
 
 ## Redirects per input
 
@@ -239,10 +213,6 @@
 
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
-### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
-
-* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
-
 ### Redirects in skills/09-agentic-patterns/rag.md
 
 * https://python.langchain.com/docs/concepts/retrieval/ --[308]--> https://python.langchain.com/docs/concepts/retrieval --[308]--> https://docs.langchain.com/oss/python/langchain/overview
@@ -309,4 +279,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39511619934?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39513064776?check_suite_focus=true)
