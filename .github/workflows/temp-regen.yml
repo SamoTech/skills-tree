@@ -59,19 +59,18 @@ jobs:
       - name: Patch README and docs index counts
         run: python3 tools/update_readme_counts.py
 
-      - name: Install lychee
-        run: |
-          curl -sL https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          ./lychee --version
-
       - name: Run lychee report (non-blocking)
-        run: |
-          ./lychee --verbose --no-progress \
-            --exclude 'localhost' --exclude '127\.0\.0\.1' --exclude 'example\.com' \
-            --timeout 30 --max-retries 3 \
-            --format markdown --output meta/LYCHEE-REPORT.md \
-            'skills/**/*.md' || true
-          test -f meta/LYCHEE-REPORT.md
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose --no-progress
+            --exclude 'localhost' --exclude '127\.0\.0\.1' --exclude 'example\.com'
+            --timeout 30 --max-retries 3
+            --format markdown --output meta/LYCHEE-REPORT.md
+            'skills/**/*.md'
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit regenerated projections and report
         run: |
