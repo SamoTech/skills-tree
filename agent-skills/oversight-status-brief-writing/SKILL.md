@@ -59,7 +59,7 @@ assert brief(s) == {"decisions_needed": ["support"], "all_ok": False}
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- 2026 commentary positions human-in-the-loop oversight as a leading activity that needs decision-ready status inputs (forbes.com, dated October 2026) ([public signal](https://www.forbes.com/sites/johnbremen/2026/10/16/human-in-the-loop-at-the-helm-or-in-the-lead-the-ai-oversight-stack/))
+- 2026 commentary positions human-in-the-loop oversight as a leading activity that needs decision-ready status inputs (redis.io engineering blog) ([public signal](https://redis.io/blog/ai-human-in-the-loop/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
