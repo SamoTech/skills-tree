@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1413  |
 | ✅ Successful  | 2843  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 71    |
+| 🔀 Redirected  | 70    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 0     |
@@ -193,10 +193,6 @@
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
 
-### Redirects in skills/09-agentic-patterns/agent-failure-taxonomy.md
-
-* https://owasp.org/www-project-top-10-for-large-language-model-applications/ --[308]--> https://owasp.org/www-project-top-10-for-large-language-model-applications --[308]--> https://owasp.org/projects/top-10-for-large-language-model-applications
-
 ### Redirects in skills/09-agentic-patterns/multi-agent-workstream-merging.md
 
 * https://turingpost.com/p/a2a --[301]--> https://www.turingpost.com/p/a2a
@@ -271,4 +267,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39438951783?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39439380671?check_suite_focus=true)
