@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -158,8 +158,8 @@ Closure note (2026-10-20): `temp-regen.yml` and `meta/LYCHEE-REPORT.md` were del
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-20-b2` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #647 independently.
 Closure note (2026-10-20): `temp-regen.yml` and `meta/LYCHEE-REPORT.md` were deleted on the `skills/expansion-2026-10-20-b2` branch before merge as planned (net zero on `main`); the live workflow count returns to 46 and this row is removed from the live table, with the disposition sections retained as the historical record.
 
-| `temp-regen.yml` | Temporary steward tooling | Re-added on `skills/expansion-2026-10-20-b2` for the evidence-URL-fix projection regen pass (PR #647); deleted before merge per protocol |
-
 ## Disposition update — 2026-10-20 (temp-regen re-add for PR #647 evidence-URL fix)
 
 `temp-regen.yml` is re-added on the `skills/expansion-2026-10-20-b2` branch only, to regenerate the repo's own projections after six skill Evidence URLs were replaced with live primary sources (CI-unreachable VentureBeat 429 / safeguard.sh 502). It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
+
+Closure note (2026-10-20): the re-added `temp-regen.yml` completed the post-fix projection regen (bot commit 94dae1e6, lychee 2993/2993 with 0 errors) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
