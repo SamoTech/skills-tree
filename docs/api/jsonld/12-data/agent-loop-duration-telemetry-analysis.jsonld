@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-20T11:19:43Z",
+  "dateModified": "2026-10-20T13:29:16Z",
   "skillId": "agent-loop-duration-telemetry-analysis",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../12-data/llm-latency-telemetry-parsing.md",
+    "../12-data/agent-trace-data-modeling.md",
     "../12-data/time-series.md"
   ],
   "educationalLevel": {

@@ -36,7 +36,7 @@ AI agents should be able to find the right skill here, and humans should be able
 
 The repository remains an evidence-backed, dependency-aware knowledge graph and distribution system for making those skills discoverable and reusable.
 
-| 1389 Public Skills | 1384 Graph Edges | MIT Licensed |
+| 1389 Public Skills | 1484 Graph Edges | MIT Licensed |
 |:---:|:---:|:---:|
 | Versioned & evidence-backed | Dependency-mapped | Community-governed |
 
