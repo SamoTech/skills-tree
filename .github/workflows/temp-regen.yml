@@ -51,7 +51,9 @@ jobs:
             --package-output data/search-index.json
 
       - name: Regenerate skills API export
-        run: python3 tools/export_skills.py
+        run: |
+          python3 tools/export_skills.py
+          python3 tools/verify_jsonld_export.py
 
       - name: Regenerate quality report
         run: python3 tools/check_skill_quality.py
@@ -74,7 +76,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Commit regenerated projections and report
+      - name: Commit regenerated projections and report
         if: always()
         run: |
           git config user.name "github-actions[bot]"
