@@ -64,7 +64,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Llm Latency Telemetry Parsing](../12-data/llm-latency-telemetry-parsing.md)
+- [Agent Trace Data Modeling](../12-data/agent-trace-data-modeling.md)
 - [Time Series](../12-data/time-series.md)
 
 ## Changelog

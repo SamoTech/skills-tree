@@ -6,7 +6,7 @@ stability: experimental
 description: "Analyze agent loop duration telemetry so slow reasoning phases are identified from distributions rather than single anecdotes."
 added: "2026-10"
 version: v1
-related: [llm-latency-telemetry-parsing, time-series]
+related: [agent-trace-data-modeling, time-series]
 tags: [telemetry, latency, analysis, loops]
 ---
 # Agent Loop Duration Telemetry Analysis
@@ -66,7 +66,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Llm Latency Telemetry Parsing](../12-data/llm-latency-telemetry-parsing.md)
+- [Agent Trace Data Modeling](../12-data/agent-trace-data-modeling.md)
 - [Time Series](../12-data/time-series.md)
 
 ## Changelog
