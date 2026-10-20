@@ -1718,3 +1718,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the Human Owner changes the quality-report publication model, if `tools/check_skill_quality.py` gains nondeterministic output, or if a mechanical successor contract supersedes this one.
+
+## DECISION-2026-10-20-BADGE-COVERAGE-FRESHNESS-CONTRACT
+
+**Topic:** Freshness contract for the committed badge inventory (docs/badges/).
+
+**Decision:** The `docs/badges/` inventory is a corpus-derived projection plus mutable runtime state, and its corpus-derived invariant is now machine-verified on every push by `tests/test_badge_coverage_freshness.py`: the set of badge JSON files in `docs/badges/` must exactly equal the set of badge keys derived in-memory from the canonical `skills/` corpus via the shared `tools/sync_badges.py` boundary (`skill_to_badge_key` over every `skills/**/*.md` file, including category READMEs and the `00-sandbox` fixture). Byte-identity is intentionally NOT required and is not a defect of this contract: badge content carries mutable Watchdog security state (`unscanned` / `machine-inferred` / `verified` / `advisory`), transitioned by `tools/write_badge.py` through the OSV-watch workflows, so committed badge content is runtime state, not a pure corpus projection. The contract closes the coverage gap: a corpus change that outlives its badge-sync automation PR, a manually added stray badge, or a stale orphan for a deleted skill now fails CI instead of waiting for the weekly `sync-badges.yml` self-heal (established pattern of the Skills-API #581, graph #582, search-index #616, and quality-report #626 freshness contracts). This cycle follows the withdrawn cycle-5 attempt (PR #627, closed unmerged): the inventory-coverage form was chosen only after verifying against current `main` that the boundary authority is `tools/sync_badges.py` and that badge state mutability rules out byte-identity. No new registry authority is created, no CI, quality, security, or governance gate is weakened, and there are no workflow changes.
+
+**Confidence:** HIGH - the contract reuses the exact reconciliation boundary (`skill_to_badge_key` + `rglob("*.md")`) that `tools/sync_badges.py` itself applies, so it cannot disagree with the authority, and the pattern is already proven by #581/#582/#616/#626.
+
+**Evidence IDs:** tools/sync_badges.py (skill_to_badge_key, SKILLS_ROOT.rglob); tools/write_badge.py (mutable badge states); .github/workflows/sync-badges.yml (weekly/push self-heal, no CI verification before this contract); tests/test_badge_coverage_freshness.py; tests/test_skills_api_freshness.py (#581); tests/test_graph_projection_freshness.py (#582); tests/test_search_index_freshness.py (#616); tests/test_quality_report_freshness.py (#626); PR #627 (withdrawn cycle-5 attempt, closed unmerged); meta/CURRENT-STATE.md 2026-10-20 cycle-6 section; meta/CONTINUITY.md item-2 status.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the Human Owner changes the badge publication model, if `docs/badges/` ceases to be the single canonical badge directory, or if a mechanical successor contract supersedes this one.
