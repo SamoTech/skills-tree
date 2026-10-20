@@ -1,6 +1,6 @@
 # Graph Build Report
 
-**Generated:** 2026-10-19T23:19:30.690073+00:00  
+**Generated:** 2026-10-20T11:24:46.523151+00:00  
 **Generator:** tools/build_graph.py  
 **Schema Version:** 3.1  
 **Dry Run:** False  
@@ -9,14 +9,18 @@
 
 | Metric | Value |
 |---|---|
-| Total nodes | 1339 |
-| Total edges | 1384 |
+| Total nodes | 1389 |
+| Total edges | 1484 |
 | REQUIRES edges | 8 |
 | REQUIRES (frontmatter) | 8 |
 | SUPPORTS edges | 0 |
-| RELATED_TO edges | 1376 |
+| RELATED_TO edges | 1476 |
 | Validation errors | 0 |
-| Unresolved targets (warnings) | 0 |
+| Unresolved targets (warnings) | 1 |
+
+## Unresolved Target Warnings
+
+- `UNRESOLVED_TARGET: 12-data/llm-latency-telemetry-parsing referenced from skills/12-data/agent-loop-duration-telemetry-analysis.md`
 
 ## Status
 
