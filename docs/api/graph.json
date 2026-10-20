@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-10-19T23:19:30.690478+00:00",
+    "generated_at": "2026-10-20T22:36:10.465566+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 1339,
-    "edge_count": 1384,
+    "node_count": 1389,
+    "edge_count": 1484,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -82,6 +82,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/agent-protocol-message-envelope-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/agent-runtime-action-event-parsing",
+      "title": "Agent Runtime Action Event Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/agent-runtime-action-event-parsing.md",
       "quality_score": null
     },
     {
@@ -640,6 +655,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/internet-exposed-agent-endpoint-scan-parsing",
+      "title": "Internet Exposed Agent Endpoint Scan Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/iot-telemetry-parsing",
       "title": "IoT Telemetry Parsing",
       "category": "01-perception",
@@ -1012,6 +1042,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/01-perception/persistent-agent-heartbeat-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "01-perception/personal-agent-protocol-request-parsing",
+      "title": "Personal Agent Protocol Request Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/personal-agent-protocol-request-parsing.md",
       "quality_score": null
     },
     {
@@ -1510,6 +1555,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/agent-incident-attribution-reasoning",
+      "title": "Agent Incident Attribution Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/agent-incident-attribution-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/agent-protocol-choice-reasoning",
       "title": "Agent Protocol Choice Reasoning",
       "category": "02-reasoning",
@@ -1522,6 +1582,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/agent-protocol-choice-reasoning.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/agent-revocation-decision-reasoning",
+      "title": "Agent Revocation Decision Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/agent-revocation-decision-reasoning.md",
       "quality_score": null
     },
     {
@@ -2410,6 +2485,21 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/oversight-stack-role-assignment-reasoning",
+      "title": "Oversight Stack Role Assignment Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/oversight-stack-role-assignment-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/pareto-analysis",
       "title": "Pareto Analysis",
       "category": "02-reasoning",
@@ -3163,6 +3253,21 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/compaction-cache-tradeoff-decision-memory",
+      "title": "Compaction Cache Tradeoff Decision Memory",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/compaction-cache-tradeoff-decision-memory.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/context-compaction",
       "title": "Context Compaction",
       "category": "03-memory",
@@ -3883,6 +3988,21 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/model-curated-context-tiering",
+      "title": "Model Curated Context Tiering",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/model-curated-context-tiering.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/multi-agent-memory-merge-coordination",
       "title": "Multi-Agent Memory Merge Coordination",
       "category": "03-memory",
@@ -4015,6 +4135,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/rag.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/record-graph-navigation-memory",
+      "title": "Record Graph Navigation Memory",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/record-graph-navigation-memory.md",
       "quality_score": null
     },
     {
@@ -4423,6 +4558,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/agent-task-revocation-actions",
+      "title": "Agent Task Revocation Actions",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/agent-task-revocation-actions.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/api-call",
       "title": "API Call",
       "category": "04-action-execution",
@@ -4825,6 +4975,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/04-action-execution/env-vars.md",
+      "quality_score": null
+    },
+    {
+      "id": "04-action-execution/field-fleet-incident-closure-actions",
+      "title": "Field Fleet Incident Closure Actions",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/field-fleet-incident-closure-actions.md",
       "quality_score": null
     },
     {
@@ -5278,6 +5443,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/per-task-credential-scoping-actions",
+      "title": "Per Task Credential Scoping Actions",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/per-task-credential-scoping-actions.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/process-management",
       "title": "Process Management",
       "category": "04-action-execution",
@@ -5635,6 +5815,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/agent-generated-code-auditing.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/agent-reasoning-loop-profiling",
+      "title": "Agent Reasoning Loop Profiling",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/agent-reasoning-loop-profiling.md",
       "quality_score": null
     },
     {
@@ -6043,6 +6238,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/computer-use-capability-regression-testing",
+      "title": "Computer Use Capability Regression Testing",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/computer-use-capability-regression-testing.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/crash-loop-detection",
       "title": "Crash Loop Detection",
       "category": "05-code",
@@ -6265,6 +6475,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/documentation-generation.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/egress-allowlist-policy-implementation",
+      "title": "Egress Allowlist Policy Implementation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/egress-allowlist-policy-implementation.md",
       "quality_score": null
     },
     {
@@ -6988,6 +7213,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/agent-access-audit-report-writing",
+      "title": "Agent Access Audit Report Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/agent-access-audit-report-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/agent-action-explanation-writing",
       "title": "Agent Action Explanation Writing",
       "category": "06-communication",
@@ -7468,6 +7708,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/internal-agent-rollout-announcement-writing",
+      "title": "Internal Agent Rollout Announcement Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/internal-agent-rollout-announcement-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/long-horizon-agent-check-in-messaging",
       "title": "Long-Horizon Agent Check-In Messaging",
       "category": "06-communication",
@@ -7615,6 +7870,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/org-wide-announcement-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/oversight-status-brief-writing",
+      "title": "Oversight Status Brief Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/oversight-status-brief-writing.md",
       "quality_score": null
     },
     {
@@ -8128,6 +8398,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/a2a-tenant-scoped-communication-usage",
+      "title": "A2A Tenant Scoped Communication Usage",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/a2a-tenant-scoped-communication-usage.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/a2a-tool",
       "title": "A2a Tool",
       "category": "07-tool-use",
@@ -8260,6 +8545,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/browser-tool.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/byok-provider-key-configuration",
+      "title": "BYOK Provider Key Configuration",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/byok-provider-key-configuration.md",
       "quality_score": null
     },
     {
@@ -8938,6 +9238,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/pap-personal-agent-protocol-usage",
+      "title": "PAP Personal Agent Protocol Usage",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/pap-personal-agent-protocol-usage.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/pdf-tool",
       "title": "PDF Tool",
       "category": "07-tool-use",
@@ -9538,6 +9853,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/agent-screen-recording-incident-review",
+      "title": "Agent Screen Recording Incident Review",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/agent-screen-recording-incident-review.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/agent-traffic-metadata-enrichment",
       "title": "Agent Traffic Metadata Enrichment",
       "category": "08-multimodal",
@@ -9835,6 +10165,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/document-table-extraction.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/fleet-dash-camera-incident-clip-analysis",
+      "title": "Fleet Dash Camera Incident Clip Analysis",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/fleet-dash-camera-incident-clip-analysis.md",
       "quality_score": null
     },
     {
@@ -10195,6 +10540,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/singing-transcription.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/smart-glasses-agent-interface-testing",
+      "title": "Smart Glasses Agent Interface Testing",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/smart-glasses-agent-interface-testing.md",
       "quality_score": null
     },
     {
@@ -11026,6 +11386,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/cache-prefix-preserving-context-patterns",
+      "title": "Cache Prefix Preserving Context Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/constitutional-ai",
       "title": "Constitutional AI",
       "category": "09-agentic-patterns",
@@ -11083,6 +11458,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/critic-agent.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/day-scale-single-task-agent-patterns",
+      "title": "Day Scale Single Task Agent Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md",
       "quality_score": null
     },
     {
@@ -11428,6 +11818,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/09-agentic-patterns/openai-agents-sdk-handoff-orchestration.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/oversight-stack-supervision-patterns",
+      "title": "Oversight Stack Supervision Patterns",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/oversight-stack-supervision-patterns.md",
       "quality_score": null
     },
     {
@@ -11933,6 +12338,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/business-application-agent-automation",
+      "title": "Business Application Agent Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/business-application-agent-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/clipboard-automation-hygiene",
       "title": "Clipboard Automation Hygiene",
       "category": "10-computer-use",
@@ -12005,6 +12425,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/computer-use-privacy-screening.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/credential-broker-desktop-setup",
+      "title": "Credential Broker Desktop Setup",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/credential-broker-desktop-setup.md",
       "quality_score": null
     },
     {
@@ -12200,6 +12635,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/file-dialog.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/fleet-management-console-automation",
+      "title": "Fleet Management Console Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/fleet-management-console-automation.md",
       "quality_score": null
     },
     {
@@ -13313,6 +13763,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/cross-chat-platform-agent-operation",
+      "title": "Cross Chat Platform Agent Operation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/cross-chat-platform-agent-operation.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/dom-inspection",
       "title": "DOM Inspection",
       "category": "11-web",
@@ -13700,6 +14165,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/popup-dialog-handling.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/public-agent-endpoint-exposure-audit",
+      "title": "Public Agent Endpoint Exposure Audit",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/public-agent-endpoint-exposure-audit.md",
       "quality_score": null
     },
     {
@@ -14183,6 +14663,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/website-agent-identity-handshake-implementation",
+      "title": "Website Agent Identity Handshake Implementation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/website-agent-identity-handshake-implementation.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/website-localization-verification",
       "title": "Website Localization Verification",
       "category": "11-web",
@@ -14228,6 +14723,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/agent-access-ledger-data-modeling",
+      "title": "Agent Access Ledger Data Modeling",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/agent-access-ledger-data-modeling.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/agent-eval-metric-drift-monitoring",
       "title": "Agent Eval Metric Drift Monitoring",
       "category": "12-data",
@@ -14270,6 +14780,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/agent-identity-assertion-parsing.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/agent-loop-duration-telemetry-analysis",
+      "title": "Agent Loop Duration Telemetry Analysis",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/agent-loop-duration-telemetry-analysis.md",
       "quality_score": null
     },
     {
@@ -14840,6 +15365,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/feature-engineering.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/fleet-telemetry-incident-triage-pipeline",
+      "title": "Fleet Telemetry Incident Triage Pipeline",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/fleet-telemetry-incident-triage-pipeline.md",
       "quality_score": null
     },
     {
@@ -15833,6 +16373,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/local-first-ai-product-positioning-copy",
+      "title": "Local First AI Product Positioning Copy",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/local-first-ai-product-positioning-copy.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/logo-design",
       "title": "Logo Design",
       "category": "13-creative",
@@ -15938,6 +16493,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/personal-agent-onboarding-copy",
+      "title": "Personal Agent Onboarding Copy",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/personal-agent-onboarding-copy.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/pitch-deck-narrative",
       "title": "Pitch Deck Narrative",
       "category": "13-creative",
@@ -16025,6 +16595,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/13-creative/presentation-gen.md",
+      "quality_score": null
+    },
+    {
+      "id": "13-creative/pricing-tier-announcement-copywriting",
+      "title": "Pricing Tier Announcement Copywriting",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/pricing-tier-announcement-copywriting.md",
       "quality_score": null
     },
     {
@@ -16280,6 +16865,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/agent-browser-extension-security-review.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/agent-discovery-verification-revocation-controls",
+      "title": "Agent Discovery Verification Revocation Controls",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agent-discovery-verification-revocation-controls.md",
       "quality_score": null
     },
     {
@@ -16658,6 +17258,21 @@
       "quality_score": null
     },
     {
+      "id": "14-security/internet-exposed-agent-endpoint-hardening",
+      "title": "Internet Exposed Agent Endpoint Hardening",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/internet-exposed-agent-endpoint-hardening.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/jwt-validation",
       "title": "JWT Validation",
       "category": "14-security",
@@ -16880,6 +17495,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/pii-detection-pipeline-design.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/post-incident-agent-credential-rotation",
+      "title": "Post Incident Agent Credential Rotation",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/post-incident-agent-credential-rotation.md",
       "quality_score": null
     },
     {
@@ -17753,6 +18383,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/fleet-wide-agent-revocation-orchestration",
+      "title": "Fleet Wide Agent Revocation Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/fleet-wide-agent-revocation-orchestration.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/fleet-wide-config-rollout",
       "title": "Fleet Wide Config Rollout",
       "category": "15-orchestration",
@@ -17888,6 +18533,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/oversight-stack-role-orchestration",
+      "title": "Oversight Stack Role Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/oversight-stack-role-orchestration.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/parallel-execution",
       "title": "Parallel Execution",
       "category": "15-orchestration",
@@ -17915,6 +18575,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/policy-as-code-gate-authoring.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/professional-practice-agent-workflow-orchestration",
+      "title": "Professional Practice Agent Workflow Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/professional-practice-agent-workflow-orchestration.md",
       "quality_score": null
     },
     {
@@ -18653,6 +19328,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/fleet-operations-incident-management",
+      "title": "Fleet Operations Incident Management",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/fleet-operations-incident-management.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/harmonized-tariff-code-classification",
       "title": "Harmonized Tariff Code Classification",
       "category": "16-domain-specific",
@@ -18830,6 +19520,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/legal-contract-clause-risk-flagging.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/legal-practice-agent-knowledge-operations",
+      "title": "Legal Practice Agent Knowledge Operations",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/legal-practice-agent-knowledge-operations.md",
       "quality_score": null
     },
     {
@@ -19238,6 +19943,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/smb-agent-operations-management",
+      "title": "SMB Agent Operations Management",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/smb-agent-operations-management.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/stock-lookup",
       "title": "Stock Lookup",
       "category": "16-domain-specific",
@@ -19433,6 +20153,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/agent-reasoning-optimized-compute-selection",
+      "title": "Agent Reasoning Optimized Compute Selection",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/agent-reasoning-optimized-compute-selection.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/agent-workload-carbon-aware-scheduling",
       "title": "Agent Workload Carbon-Aware Scheduling",
       "category": "17-infrastructure",
@@ -19565,6 +20300,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/17-infrastructure/container-image-tagging.md",
+      "quality_score": null
+    },
+    {
+      "id": "17-infrastructure/credential-broker-infrastructure-deployment",
+      "title": "Credential Broker Infrastructure Deployment",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/credential-broker-infrastructure-deployment.md",
       "quality_score": null
     },
     {
@@ -20174,6 +20924,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/agent-runtime-action-event-parsing",
+      "target": "01-perception/agent-protocol-message-envelope-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Protocol Message Envelope Parsing](../01-perception/agent-protocol-message-envelope-parsing.md)",
+      "source_file": "skills/01-perception/agent-runtime-action-event-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/agent-runtime-action-event-parsing",
+      "target": "01-perception/agent-trace-span-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)",
+      "source_file": "skills/01-perception/agent-runtime-action-event-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/agent-screen-event-stream-parsing",
       "target": "04-action-execution/computer-use-action-trace-recording",
       "type": "RELATED_TO",
@@ -20726,6 +21492,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/internet-exposed-agent-endpoint-scan-parsing",
+      "target": "01-perception/sarif-results-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Sarif Results Parsing](../01-perception/sarif-results-parsing.md)",
+      "source_file": "skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/internet-exposed-agent-endpoint-scan-parsing",
+      "target": "01-perception/network-traffic-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Network Traffic Reading](../01-perception/network-traffic-reading.md)",
+      "source_file": "skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/iot-telemetry-parsing",
       "target": "01-perception/sensor-reading",
       "type": "RELATED_TO",
@@ -20923,6 +21705,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)",
       "source_file": "skills/01-perception/persistent-agent-heartbeat-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/personal-agent-protocol-request-parsing",
+      "target": "01-perception/agent-card-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Card Parsing](../01-perception/agent-card-parsing.md)",
+      "source_file": "skills/01-perception/personal-agent-protocol-request-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/personal-agent-protocol-request-parsing",
+      "target": "01-perception/webhook-payload-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Webhook Payload Parsing](../01-perception/webhook-payload-parsing.md)",
+      "source_file": "skills/01-perception/personal-agent-protocol-request-parsing.md",
       "confidence": "high"
     },
     {
@@ -21198,6 +21996,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/agent-incident-attribution-reasoning",
+      "target": "02-reasoning/root-cause-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Root Cause Analysis](../02-reasoning/root-cause-analysis.md)",
+      "source_file": "skills/02-reasoning/agent-incident-attribution-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-incident-attribution-reasoning",
+      "target": "02-reasoning/causal-graph-construction",
+      "type": "RELATED_TO",
+      "evidence": "[Causal Graph Construction](../02-reasoning/causal-graph-construction.md)",
+      "source_file": "skills/02-reasoning/agent-incident-attribution-reasoning.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/agent-protocol-choice-reasoning",
       "target": "02-reasoning/model-selection-reasoning",
       "type": "RELATED_TO",
@@ -21211,6 +22025,22 @@
       "type": "RELATED_TO",
       "evidence": "[Capability Scope Negotiation Reasoning](../02-reasoning/capability-scope-negotiation-reasoning.md)",
       "source_file": "skills/02-reasoning/agent-protocol-choice-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-revocation-decision-reasoning",
+      "target": "02-reasoning/intervention-timing-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Intervention Timing Reasoning](../02-reasoning/intervention-timing-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-revocation-decision-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-revocation-decision-reasoning",
+      "target": "02-reasoning/rollback-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Rollback Decision Reasoning](../02-reasoning/rollback-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-revocation-decision-reasoning.md",
       "confidence": "high"
     },
     {
@@ -21926,6 +22756,22 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/oversight-stack-role-assignment-reasoning",
+      "target": "15-orchestration/role-assignment",
+      "type": "RELATED_TO",
+      "evidence": "[Role Assignment](../15-orchestration/role-assignment.md)",
+      "source_file": "skills/02-reasoning/oversight-stack-role-assignment-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/oversight-stack-role-assignment-reasoning",
+      "target": "02-reasoning/refusal-decision-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Refusal Decision Reasoning](../02-reasoning/refusal-decision-reasoning.md)",
+      "source_file": "skills/02-reasoning/oversight-stack-role-assignment-reasoning.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/pareto-analysis",
       "target": "02-reasoning/prioritization",
       "type": "RELATED_TO",
@@ -22422,6 +23268,22 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/compaction-cache-tradeoff-decision-memory",
+      "target": "03-memory/context-compaction",
+      "type": "RELATED_TO",
+      "evidence": "[Context Compaction](../03-memory/context-compaction.md)",
+      "source_file": "skills/03-memory/compaction-cache-tradeoff-decision-memory.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/compaction-cache-tradeoff-decision-memory",
+      "target": "03-memory/cache-management",
+      "type": "RELATED_TO",
+      "evidence": "[Cache Management](../03-memory/cache-management.md)",
+      "source_file": "skills/03-memory/compaction-cache-tradeoff-decision-memory.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/context-rot-detection",
       "target": "03-memory/context-compaction",
       "type": "RELATED_TO",
@@ -22806,6 +23668,22 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/model-curated-context-tiering",
+      "target": "03-memory/long-context-curation",
+      "type": "RELATED_TO",
+      "evidence": "[Long Context Curation](../03-memory/long-context-curation.md)",
+      "source_file": "skills/03-memory/model-curated-context-tiering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/model-curated-context-tiering",
+      "target": "03-memory/context-window-budget-planning",
+      "type": "RELATED_TO",
+      "evidence": "[Context Window Budget Planning](../03-memory/context-window-budget-planning.md)",
+      "source_file": "skills/03-memory/model-curated-context-tiering.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/multi-agent-memory-merge-coordination",
       "target": "03-memory/memory-conflict-resolution",
       "type": "RELATED_TO",
@@ -22899,6 +23777,22 @@
       "type": "RELATED_TO",
       "evidence": "[Web Search](../11-web/web-search.md)",
       "source_file": "skills/03-memory/rag.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/record-graph-navigation-memory",
+      "target": "03-memory/knowledge-graph-updates",
+      "type": "RELATED_TO",
+      "evidence": "[Knowledge Graph Updates](../03-memory/knowledge-graph-updates.md)",
+      "source_file": "skills/03-memory/record-graph-navigation-memory.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/record-graph-navigation-memory",
+      "target": "03-memory/hierarchical-memory-organization",
+      "type": "RELATED_TO",
+      "evidence": "[Hierarchical Memory Organization](../03-memory/hierarchical-memory-organization.md)",
+      "source_file": "skills/03-memory/record-graph-navigation-memory.md",
       "confidence": "high"
     },
     {
@@ -23043,6 +23937,22 @@
       "type": "RELATED_TO",
       "evidence": "[Forensic Log Reconstruction](../14-security/forensic-log-reconstruction.md)",
       "source_file": "skills/04-action-execution/action-replay-forensics.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/agent-task-revocation-actions",
+      "target": "04-action-execution/streaming-action-cancellation",
+      "type": "RELATED_TO",
+      "evidence": "[Streaming Action Cancellation](../04-action-execution/streaming-action-cancellation.md)",
+      "source_file": "skills/04-action-execution/agent-task-revocation-actions.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/agent-task-revocation-actions",
+      "target": "04-action-execution/background-job-cancel-and-cleanup",
+      "type": "RELATED_TO",
+      "evidence": "[Background Job Cancel And Cleanup](../04-action-execution/background-job-cancel-and-cleanup.md)",
+      "source_file": "skills/04-action-execution/agent-task-revocation-actions.md",
       "confidence": "high"
     },
     {
@@ -23219,6 +24129,22 @@
       "type": "RELATED_TO",
       "evidence": "[Durable Execution Guarantees](../15-orchestration/durable-execution-guarantees.md)",
       "source_file": "skills/04-action-execution/durable-resume-after-provider-restart.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/field-fleet-incident-closure-actions",
+      "target": "04-action-execution/action-result-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Action Result Verification](../04-action-execution/action-result-verification.md)",
+      "source_file": "skills/04-action-execution/field-fleet-incident-closure-actions.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/field-fleet-incident-closure-actions",
+      "target": "04-action-execution/human-takeover-mid-action-handoff",
+      "type": "RELATED_TO",
+      "evidence": "[Human Takeover Mid Action Handoff](../04-action-execution/human-takeover-mid-action-handoff.md)",
+      "source_file": "skills/04-action-execution/field-fleet-incident-closure-actions.md",
       "confidence": "high"
     },
     {
@@ -23486,6 +24412,22 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/per-task-credential-scoping-actions",
+      "target": "04-action-execution/short-lived-credential-acquisition",
+      "type": "RELATED_TO",
+      "evidence": "[Short Lived Credential Acquisition](../04-action-execution/short-lived-credential-acquisition.md)",
+      "source_file": "skills/04-action-execution/per-task-credential-scoping-actions.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/per-task-credential-scoping-actions",
+      "target": "04-action-execution/action-precondition-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Action Precondition Checking](../04-action-execution/action-precondition-checking.md)",
+      "source_file": "skills/04-action-execution/per-task-credential-scoping-actions.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/qr-code-login-confirmation-automation",
       "target": "11-web/mfa-challenge-handling",
       "type": "RELATED_TO",
@@ -23702,6 +24644,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/agent-reasoning-loop-profiling",
+      "target": "05-code/performance-profiling",
+      "type": "RELATED_TO",
+      "evidence": "[Performance Profiling](../05-code/performance-profiling.md)",
+      "source_file": "skills/05-code/agent-reasoning-loop-profiling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/agent-reasoning-loop-profiling",
+      "target": "05-code/observability-instrumentation",
+      "type": "RELATED_TO",
+      "evidence": "[Observability Instrumentation](../05-code/observability-instrumentation.md)",
+      "source_file": "skills/05-code/agent-reasoning-loop-profiling.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/agent-requirements-document-authoring",
       "target": "05-code/spec-driven-implementation-planning",
       "type": "RELATED_TO",
@@ -23878,6 +24836,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/computer-use-capability-regression-testing",
+      "target": "05-code/agent-tool-call-replay-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Tool Call Replay Testing](../05-code/agent-tool-call-replay-testing.md)",
+      "source_file": "skills/05-code/computer-use-capability-regression-testing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/computer-use-capability-regression-testing",
+      "target": "05-code/regression-window-bisection-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Regression Window Bisection Automation](../05-code/regression-window-bisection-automation.md)",
+      "source_file": "skills/05-code/computer-use-capability-regression-testing.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/cursor-rules-authoring",
       "target": "05-code/claude-code-hooks-configuration",
       "type": "RELATED_TO",
@@ -23955,6 +24929,22 @@
       "type": "RELATED_TO",
       "evidence": "[unit test generation](../05-code/unit-test-generation.md)",
       "source_file": "skills/05-code/documentation-example-testing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/egress-allowlist-policy-implementation",
+      "target": "17-infrastructure/sandbox-egress-proxy-configuration",
+      "type": "RELATED_TO",
+      "evidence": "[Sandbox Egress Proxy Configuration](../17-infrastructure/sandbox-egress-proxy-configuration.md)",
+      "source_file": "skills/05-code/egress-allowlist-policy-implementation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/egress-allowlist-policy-implementation",
+      "target": "14-security/agentic-ssrf-prevention",
+      "type": "RELATED_TO",
+      "evidence": "[Agentic Ssrf Prevention](../14-security/agentic-ssrf-prevention.md)",
+      "source_file": "skills/05-code/egress-allowlist-policy-implementation.md",
       "confidence": "high"
     },
     {
@@ -24286,6 +25276,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/agent-access-audit-report-writing",
+      "target": "06-communication/report-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Report Writing](../06-communication/report-writing.md)",
+      "source_file": "skills/06-communication/agent-access-audit-report-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/agent-access-audit-report-writing",
+      "target": "06-communication/agent-audit-explanation-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Audit Explanation Writing](../06-communication/agent-audit-explanation-writing.md)",
+      "source_file": "skills/06-communication/agent-access-audit-report-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/agent-action-explanation-writing",
       "target": "06-communication/agentic-ux-writing",
       "type": "RELATED_TO",
@@ -24542,6 +25548,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/internal-agent-rollout-announcement-writing",
+      "target": "06-communication/org-wide-announcement-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Org Wide Announcement Writing](../06-communication/org-wide-announcement-writing.md)",
+      "source_file": "skills/06-communication/internal-agent-rollout-announcement-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/internal-agent-rollout-announcement-writing",
+      "target": "06-communication/migration-communication-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Migration Communication Writing](../06-communication/migration-communication-writing.md)",
+      "source_file": "skills/06-communication/internal-agent-rollout-announcement-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/long-horizon-agent-check-in-messaging",
       "target": "06-communication/human-approval-request-drafting",
       "type": "RELATED_TO",
@@ -24627,6 +25649,22 @@
       "type": "RELATED_TO",
       "evidence": "[Audience Analysis](audience-analysis.md)",
       "source_file": "skills/06-communication/negotiation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/oversight-status-brief-writing",
+      "target": "06-communication/stakeholder-status-updates",
+      "type": "RELATED_TO",
+      "evidence": "[Stakeholder Status Updates](../06-communication/stakeholder-status-updates.md)",
+      "source_file": "skills/06-communication/oversight-status-brief-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/oversight-status-brief-writing",
+      "target": "06-communication/incident-communication",
+      "type": "RELATED_TO",
+      "evidence": "[Incident Communication](../06-communication/incident-communication.md)",
+      "source_file": "skills/06-communication/oversight-status-brief-writing.md",
       "confidence": "high"
     },
     {
@@ -24846,6 +25884,22 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/a2a-tenant-scoped-communication-usage",
+      "target": "07-tool-use/a2a-agent-card-authoring",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Agent Card Authoring](../07-tool-use/a2a-agent-card-authoring.md)",
+      "source_file": "skills/07-tool-use/a2a-tenant-scoped-communication-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-tenant-scoped-communication-usage",
+      "target": "07-tool-use/a2a-signed-agent-card-verification",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Signed Agent Card Verification](../07-tool-use/a2a-signed-agent-card-verification.md)",
+      "source_file": "skills/07-tool-use/a2a-tenant-scoped-communication-usage.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/ag-ui-event-emission-usage",
       "target": "01-perception/ag-ui-event-stream-parsing",
       "type": "RELATED_TO",
@@ -24955,6 +26009,22 @@
       "type": "RELATED_TO",
       "evidence": "[OpenAI API](openai-api.md)",
       "source_file": "skills/07-tool-use/api-version-pinning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/byok-provider-key-configuration",
+      "target": "17-infrastructure/secrets-management",
+      "type": "RELATED_TO",
+      "evidence": "[Secrets Management](../17-infrastructure/secrets-management.md)",
+      "source_file": "skills/07-tool-use/byok-provider-key-configuration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/byok-provider-key-configuration",
+      "target": "07-tool-use/multi-provider-redundancy",
+      "type": "RELATED_TO",
+      "evidence": "[Multi Provider Redundancy](../07-tool-use/multi-provider-redundancy.md)",
+      "source_file": "skills/07-tool-use/byok-provider-key-configuration.md",
       "confidence": "high"
     },
     {
@@ -25270,6 +26340,22 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/pap-personal-agent-protocol-usage",
+      "target": "07-tool-use/agent-client-protocol-usage",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Client Protocol Usage](../07-tool-use/agent-client-protocol-usage.md)",
+      "source_file": "skills/07-tool-use/pap-personal-agent-protocol-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/pap-personal-agent-protocol-usage",
+      "target": "07-tool-use/ucp-universal-capability-protocol-usage",
+      "type": "RELATED_TO",
+      "evidence": "[Ucp Universal Capability Protocol Usage](../07-tool-use/ucp-universal-capability-protocol-usage.md)",
+      "source_file": "skills/07-tool-use/pap-personal-agent-protocol-usage.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/shell-command-dry-run-analysis",
       "target": "07-tool-use/tool-capability-cataloging",
       "type": "RELATED_TO",
@@ -25502,6 +26588,22 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/agent-screen-recording-incident-review",
+      "target": "08-multimodal/browser-session-recording-for-debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Session Recording For Debugging](../08-multimodal/browser-session-recording-for-debugging.md)",
+      "source_file": "skills/08-multimodal/agent-screen-recording-incident-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/agent-screen-recording-incident-review",
+      "target": "08-multimodal/video-frame-sampling-review",
+      "type": "RELATED_TO",
+      "evidence": "[Video Frame Sampling Review](../08-multimodal/video-frame-sampling-review.md)",
+      "source_file": "skills/08-multimodal/agent-screen-recording-incident-review.md",
+      "confidence": "high"
+    },
+    {
       "source": "08-multimodal/agent-traffic-metadata-enrichment",
       "target": "14-security/agentic-traffic-gateway-configuration",
       "type": "RELATED_TO",
@@ -25662,6 +26764,22 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/fleet-dash-camera-incident-clip-analysis",
+      "target": "08-multimodal/video-highlight-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Video Highlight Detection](../08-multimodal/video-highlight-detection.md)",
+      "source_file": "skills/08-multimodal/fleet-dash-camera-incident-clip-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/fleet-dash-camera-incident-clip-analysis",
+      "target": "08-multimodal/realtime-video-frame-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Realtime Video Frame Analysis](../08-multimodal/realtime-video-frame-analysis.md)",
+      "source_file": "skills/08-multimodal/fleet-dash-camera-incident-clip-analysis.md",
+      "confidence": "high"
+    },
+    {
       "source": "08-multimodal/hand-drawn-sketch-vectorization",
       "target": "13-creative/svg-generation",
       "type": "RELATED_TO",
@@ -25819,6 +26937,22 @@
       "type": "RELATED_TO",
       "evidence": "[Gesture Recognition](../01-perception/gesture-recognition.md)",
       "source_file": "skills/08-multimodal/sign-language-video-recognition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/smart-glasses-agent-interface-testing",
+      "target": "08-multimodal/ui-screencast-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Ui Screencast Analysis](../08-multimodal/ui-screencast-analysis.md)",
+      "source_file": "skills/08-multimodal/smart-glasses-agent-interface-testing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/smart-glasses-agent-interface-testing",
+      "target": "08-multimodal/vqa",
+      "type": "RELATED_TO",
+      "evidence": "[Vqa](../08-multimodal/vqa.md)",
+      "source_file": "skills/08-multimodal/smart-glasses-agent-interface-testing.md",
       "confidence": "high"
     },
     {
@@ -26238,6 +27372,22 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/cache-prefix-preserving-context-patterns",
+      "target": "09-agentic-patterns/prompt-caching",
+      "type": "RELATED_TO",
+      "evidence": "[Prompt Caching](../09-agentic-patterns/prompt-caching.md)",
+      "source_file": "skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/cache-prefix-preserving-context-patterns",
+      "target": "09-agentic-patterns/prompt-prefix-stability-design",
+      "type": "RELATED_TO",
+      "evidence": "[Prompt Prefix Stability Design](../09-agentic-patterns/prompt-prefix-stability-design.md)",
+      "source_file": "skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/cot",
       "target": "09-agentic-patterns/react",
       "type": "RELATED_TO",
@@ -26267,6 +27417,22 @@
       "type": "RELATED_TO",
       "evidence": "[Planning](../02-reasoning/planning.md)",
       "source_file": "skills/09-agentic-patterns/cot.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/day-scale-single-task-agent-patterns",
+      "target": "09-agentic-patterns/agent-checkpointing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpointing](../09-agentic-patterns/agent-checkpointing.md)",
+      "source_file": "skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/day-scale-single-task-agent-patterns",
+      "target": "09-agentic-patterns/multiday-agent-mission-decomposition-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[Multiday Agent Mission Decomposition Patterns](../09-agentic-patterns/multiday-agent-mission-decomposition-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md",
       "confidence": "high"
     },
     {
@@ -26411,6 +27577,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Authorization Context Propagation](../15-orchestration/agent-authorization-context-propagation.md)",
       "source_file": "skills/09-agentic-patterns/openai-agents-sdk-handoff-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/oversight-stack-supervision-patterns",
+      "target": "09-agentic-patterns/approval-gates",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Gates](../09-agentic-patterns/approval-gates.md)",
+      "source_file": "skills/09-agentic-patterns/oversight-stack-supervision-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/oversight-stack-supervision-patterns",
+      "target": "09-agentic-patterns/agent-halt-conditions",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Halt Conditions](../09-agentic-patterns/agent-halt-conditions.md)",
+      "source_file": "skills/09-agentic-patterns/oversight-stack-supervision-patterns.md",
       "confidence": "high"
     },
     {
@@ -26614,6 +27796,22 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/business-application-agent-automation",
+      "target": "10-computer-use/desktop-app-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Desktop App Testing](../10-computer-use/desktop-app-testing.md)",
+      "source_file": "skills/10-computer-use/business-application-agent-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/business-application-agent-automation",
+      "target": "10-computer-use/gui-agent-step-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Gui Agent Step Verification](../10-computer-use/gui-agent-step-verification.md)",
+      "source_file": "skills/10-computer-use/business-application-agent-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/clipboard-automation-hygiene",
       "target": "10-computer-use/desktop-notification-triggers",
       "type": "RELATED_TO",
@@ -26643,6 +27841,22 @@
       "type": "RELATED_TO",
       "evidence": "[Screen Region Mapping](../10-computer-use/screen-region-mapping.md)",
       "source_file": "skills/10-computer-use/computer-use-privacy-screening.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/credential-broker-desktop-setup",
+      "target": "10-computer-use/install-wizard-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Install Wizard Automation](../10-computer-use/install-wizard-automation.md)",
+      "source_file": "skills/10-computer-use/credential-broker-desktop-setup.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/credential-broker-desktop-setup",
+      "target": "10-computer-use/system-settings-configuration",
+      "type": "RELATED_TO",
+      "evidence": "[System Settings Configuration](../10-computer-use/system-settings-configuration.md)",
+      "source_file": "skills/10-computer-use/credential-broker-desktop-setup.md",
       "confidence": "high"
     },
     {
@@ -26707,6 +27921,22 @@
       "type": "RELATED_TO",
       "evidence": "[Email Parsing](../01-perception/email-parsing.md)",
       "source_file": "skills/10-computer-use/email-client-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/fleet-management-console-automation",
+      "target": "10-computer-use/ui-element-waiting",
+      "type": "RELATED_TO",
+      "evidence": "[Ui Element Waiting](../10-computer-use/ui-element-waiting.md)",
+      "source_file": "skills/10-computer-use/fleet-management-console-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/fleet-management-console-automation",
+      "target": "10-computer-use/screenshot-diff-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Screenshot Diff Verification](../10-computer-use/screenshot-diff-verification.md)",
+      "source_file": "skills/10-computer-use/fleet-management-console-automation.md",
       "confidence": "high"
     },
     {
@@ -27190,6 +28420,22 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/cross-chat-platform-agent-operation",
+      "target": "06-communication/cross-agent-session-continuity",
+      "type": "RELATED_TO",
+      "evidence": "[Cross Agent Session Continuity](../06-communication/cross-agent-session-continuity.md)",
+      "source_file": "skills/11-web/cross-chat-platform-agent-operation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/cross-chat-platform-agent-operation",
+      "target": "11-web/browser-session-isolation",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Session Isolation](../11-web/browser-session-isolation.md)",
+      "source_file": "skills/11-web/cross-chat-platform-agent-operation.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/file-download-verification",
       "target": "11-web/url-fetching",
       "type": "RELATED_TO",
@@ -27395,6 +28641,22 @@
       "type": "RELATED_TO",
       "evidence": "[Form Filling](form-filling.md)",
       "source_file": "skills/11-web/popup-dialog-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/public-agent-endpoint-exposure-audit",
+      "target": "11-web/http-header-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Http Header Analysis](../11-web/http-header-analysis.md)",
+      "source_file": "skills/11-web/public-agent-endpoint-exposure-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/public-agent-endpoint-exposure-audit",
+      "target": "11-web/cors-policy-review",
+      "type": "RELATED_TO",
+      "evidence": "[Cors Policy Review](../11-web/cors-policy-review.md)",
+      "source_file": "skills/11-web/public-agent-endpoint-exposure-audit.md",
       "confidence": "high"
     },
     {
@@ -27678,6 +28940,22 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/website-agent-identity-handshake-implementation",
+      "target": "11-web/web-bot-auth-implementation",
+      "type": "RELATED_TO",
+      "evidence": "[Web Bot Auth Implementation](../11-web/web-bot-auth-implementation.md)",
+      "source_file": "skills/11-web/website-agent-identity-handshake-implementation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/website-agent-identity-handshake-implementation",
+      "target": "11-web/robots-agent-policy-compliance",
+      "type": "RELATED_TO",
+      "evidence": "[Robots Agent Policy Compliance](../11-web/robots-agent-policy-compliance.md)",
+      "source_file": "skills/11-web/website-agent-identity-handshake-implementation.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/website-terms-of-service-agent-permission-audit",
       "target": "11-web/robots-agent-policy-compliance",
       "type": "RELATED_TO",
@@ -27691,6 +28969,22 @@
       "type": "RELATED_TO",
       "evidence": "[Web Crawling](../11-web/web-crawling.md)",
       "source_file": "skills/11-web/website-terms-of-service-agent-permission-audit.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-access-ledger-data-modeling",
+      "target": "12-data/agent-trace-data-modeling",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Data Modeling](../12-data/agent-trace-data-modeling.md)",
+      "source_file": "skills/12-data/agent-access-ledger-data-modeling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-access-ledger-data-modeling",
+      "target": "12-data/event-sourced-projections",
+      "type": "RELATED_TO",
+      "evidence": "[Event Sourced Projections](../12-data/event-sourced-projections.md)",
+      "source_file": "skills/12-data/agent-access-ledger-data-modeling.md",
       "confidence": "high"
     },
     {
@@ -27739,6 +29033,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Traffic Metadata Enrichment](../08-multimodal/agent-traffic-metadata-enrichment.md)",
       "source_file": "skills/12-data/agent-identity-assertion-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-loop-duration-telemetry-analysis",
+      "target": "12-data/agent-trace-data-modeling",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Data Modeling](../12-data/agent-trace-data-modeling.md)",
+      "source_file": "skills/12-data/agent-loop-duration-telemetry-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-loop-duration-telemetry-analysis",
+      "target": "12-data/time-series",
+      "type": "RELATED_TO",
+      "evidence": "[Time Series](../12-data/time-series.md)",
+      "source_file": "skills/12-data/agent-loop-duration-telemetry-analysis.md",
       "confidence": "high"
     },
     {
@@ -28035,6 +29345,22 @@
       "type": "RELATED_TO",
       "evidence": "[Data Validation](data-validation.md)",
       "source_file": "skills/12-data/feature-engineering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/fleet-telemetry-incident-triage-pipeline",
+      "target": "12-data/stream-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Stream Processing](../12-data/stream-processing.md)",
+      "source_file": "skills/12-data/fleet-telemetry-incident-triage-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/fleet-telemetry-incident-triage-pipeline",
+      "target": "12-data/anomaly-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Anomaly Detection](../12-data/anomaly-detection.md)",
+      "source_file": "skills/12-data/fleet-telemetry-incident-triage-pipeline.md",
       "confidence": "high"
     },
     {
@@ -28558,6 +29884,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/local-first-ai-product-positioning-copy",
+      "target": "13-creative/brand-voice-development",
+      "type": "RELATED_TO",
+      "evidence": "[Brand Voice Development](../13-creative/brand-voice-development.md)",
+      "source_file": "skills/13-creative/local-first-ai-product-positioning-copy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/local-first-ai-product-positioning-copy",
+      "target": "13-creative/pitch-deck-narrative",
+      "type": "RELATED_TO",
+      "evidence": "[Pitch Deck Narrative](../13-creative/pitch-deck-narrative.md)",
+      "source_file": "skills/13-creative/local-first-ai-product-positioning-copy.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/name-generation",
       "target": "13-creative/logo-design",
       "type": "RELATED_TO",
@@ -28587,6 +29929,22 @@
       "type": "RELATED_TO",
       "evidence": "[Character Voice Consistency](../13-creative/character-voice-consistency.md)",
       "source_file": "skills/13-creative/persistent-agent-persona-arc-planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/personal-agent-onboarding-copy",
+      "target": "13-creative/copywriting",
+      "type": "RELATED_TO",
+      "evidence": "[Copywriting](../13-creative/copywriting.md)",
+      "source_file": "skills/13-creative/personal-agent-onboarding-copy.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/personal-agent-onboarding-copy",
+      "target": "13-creative/chatbot-persona-backstory-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Chatbot Persona Backstory Writing](../13-creative/chatbot-persona-backstory-writing.md)",
+      "source_file": "skills/13-creative/personal-agent-onboarding-copy.md",
       "confidence": "high"
     },
     {
@@ -28651,6 +30009,22 @@
       "type": "RELATED_TO",
       "evidence": "[Creative Writing](creative-writing.md)",
       "source_file": "skills/13-creative/poetry-forms.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/pricing-tier-announcement-copywriting",
+      "target": "13-creative/newsletter-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Newsletter Writing](../13-creative/newsletter-writing.md)",
+      "source_file": "skills/13-creative/pricing-tier-announcement-copywriting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/pricing-tier-announcement-copywriting",
+      "target": "06-communication/release-notes-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Release Notes Generation](../06-communication/release-notes-generation.md)",
+      "source_file": "skills/13-creative/pricing-tier-announcement-copywriting.md",
       "confidence": "high"
     },
     {
@@ -28811,6 +30185,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Skill Security Audit](../14-security/agent-skill-security-audit.md)",
       "source_file": "skills/14-security/agent-browser-extension-security-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-discovery-verification-revocation-controls",
+      "target": "14-security/agent-identity-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Identity Verification](../14-security/agent-identity-verification.md)",
+      "source_file": "skills/14-security/agent-discovery-verification-revocation-controls.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-discovery-verification-revocation-controls",
+      "target": "14-security/key-rotation-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Key Rotation Automation](../14-security/key-rotation-automation.md)",
+      "source_file": "skills/14-security/agent-discovery-verification-revocation-controls.md",
       "confidence": "high"
     },
     {
@@ -29166,6 +30556,22 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/internet-exposed-agent-endpoint-hardening",
+      "target": "14-security/security-header-auditing",
+      "type": "RELATED_TO",
+      "evidence": "[Security Header Auditing](../14-security/security-header-auditing.md)",
+      "source_file": "skills/14-security/internet-exposed-agent-endpoint-hardening.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/internet-exposed-agent-endpoint-hardening",
+      "target": "14-security/rate-limiting",
+      "type": "RELATED_TO",
+      "evidence": "[Rate Limiting](../14-security/rate-limiting.md)",
+      "source_file": "skills/14-security/internet-exposed-agent-endpoint-hardening.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/jwt-validation",
       "target": "14-security/mcp-oauth-authentication",
       "type": "RELATED_TO",
@@ -29315,6 +30721,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Incident Command](../15-orchestration/agent-incident-command.md)",
       "source_file": "skills/14-security/persistent-agent-session-lockdown-response.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/post-incident-agent-credential-rotation",
+      "target": "14-security/key-rotation-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Key Rotation Automation](../14-security/key-rotation-automation.md)",
+      "source_file": "skills/14-security/post-incident-agent-credential-rotation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/post-incident-agent-credential-rotation",
+      "target": "14-security/session-token-replay-prevention",
+      "type": "RELATED_TO",
+      "evidence": "[Session Token Replay Prevention](../14-security/session-token-replay-prevention.md)",
+      "source_file": "skills/14-security/post-incident-agent-credential-rotation.md",
       "confidence": "high"
     },
     {
@@ -29910,6 +31332,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/fleet-wide-agent-revocation-orchestration",
+      "target": "15-orchestration/fleet-wide-config-rollout",
+      "type": "RELATED_TO",
+      "evidence": "[Fleet Wide Config Rollout](../15-orchestration/fleet-wide-config-rollout.md)",
+      "source_file": "skills/15-orchestration/fleet-wide-agent-revocation-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/fleet-wide-agent-revocation-orchestration",
+      "target": "15-orchestration/agent-task-preemption-orchestration",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Task Preemption Orchestration](../15-orchestration/agent-task-preemption-orchestration.md)",
+      "source_file": "skills/15-orchestration/fleet-wide-agent-revocation-orchestration.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/idempotency-keys",
       "target": "15-orchestration/task-queue",
       "type": "RELATED_TO",
@@ -29926,6 +31364,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/oversight-stack-role-orchestration",
+      "target": "15-orchestration/role-assignment",
+      "type": "RELATED_TO",
+      "evidence": "[Role Assignment](../15-orchestration/role-assignment.md)",
+      "source_file": "skills/15-orchestration/oversight-stack-role-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/oversight-stack-role-orchestration",
+      "target": "15-orchestration/human-approval-gates",
+      "type": "RELATED_TO",
+      "evidence": "[Human Approval Gates](../15-orchestration/human-approval-gates.md)",
+      "source_file": "skills/15-orchestration/oversight-stack-role-orchestration.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/policy-as-code-gate-authoring",
       "target": "09-agentic-patterns/approval-gates",
       "type": "RELATED_TO",
@@ -29939,6 +31393,22 @@
       "type": "RELATED_TO",
       "evidence": "[Safety Threshold Runtime Gating](../15-orchestration/safety-threshold-runtime-gating.md)",
       "source_file": "skills/15-orchestration/policy-as-code-gate-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/professional-practice-agent-workflow-orchestration",
+      "target": "15-orchestration/specialist-agent-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Specialist Agent Routing](../15-orchestration/specialist-agent-routing.md)",
+      "source_file": "skills/15-orchestration/professional-practice-agent-workflow-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/professional-practice-agent-workflow-orchestration",
+      "target": "15-orchestration/runbook-driven-orchestration",
+      "type": "RELATED_TO",
+      "evidence": "[Runbook Driven Orchestration](../15-orchestration/runbook-driven-orchestration.md)",
+      "source_file": "skills/15-orchestration/professional-practice-agent-workflow-orchestration.md",
       "confidence": "high"
     },
     {
@@ -30262,6 +31732,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/fleet-operations-incident-management",
+      "target": "16-domain-specific/incident-response",
+      "type": "RELATED_TO",
+      "evidence": "[Incident Response](../16-domain-specific/incident-response.md)",
+      "source_file": "skills/16-domain-specific/fleet-operations-incident-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/fleet-operations-incident-management",
+      "target": "16-domain-specific/alert-triage",
+      "type": "RELATED_TO",
+      "evidence": "[Alert Triage](../16-domain-specific/alert-triage.md)",
+      "source_file": "skills/16-domain-specific/fleet-operations-incident-management.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/harmonized-tariff-code-classification",
       "target": "16-domain-specific/export-control-sanctions-ai-shipment-checking",
       "type": "RELATED_TO",
@@ -30355,6 +31841,22 @@
       "type": "RELATED_TO",
       "evidence": "[Support Knowledge Base Curation](../16-domain-specific/support-knowledge-base-curation.md)",
       "source_file": "skills/16-domain-specific/itsm-ticket-routing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/legal-practice-agent-knowledge-operations",
+      "target": "16-domain-specific/legal-research",
+      "type": "RELATED_TO",
+      "evidence": "[Legal Research](../16-domain-specific/legal-research.md)",
+      "source_file": "skills/16-domain-specific/legal-practice-agent-knowledge-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/legal-practice-agent-knowledge-operations",
+      "target": "16-domain-specific/contract-review",
+      "type": "RELATED_TO",
+      "evidence": "[Contract Review](../16-domain-specific/contract-review.md)",
+      "source_file": "skills/16-domain-specific/legal-practice-agent-knowledge-operations.md",
       "confidence": "high"
     },
     {
@@ -30502,6 +32004,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/smb-agent-operations-management",
+      "target": "16-domain-specific/shift-scheduling",
+      "type": "RELATED_TO",
+      "evidence": "[Shift Scheduling](../16-domain-specific/shift-scheduling.md)",
+      "source_file": "skills/16-domain-specific/smb-agent-operations-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/smb-agent-operations-management",
+      "target": "16-domain-specific/inventory-reordering",
+      "type": "RELATED_TO",
+      "evidence": "[Inventory Reordering](../16-domain-specific/inventory-reordering.md)",
+      "source_file": "skills/16-domain-specific/smb-agent-operations-management.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/tax-audit-response-drafting",
       "target": "16-domain-specific/tax-document-preparation",
       "type": "RELATED_TO",
@@ -30646,6 +32164,22 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/agent-reasoning-optimized-compute-selection",
+      "target": "17-infrastructure/gpu-scheduling-optimization",
+      "type": "RELATED_TO",
+      "evidence": "[Gpu Scheduling Optimization](../17-infrastructure/gpu-scheduling-optimization.md)",
+      "source_file": "skills/17-infrastructure/agent-reasoning-optimized-compute-selection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/agent-reasoning-optimized-compute-selection",
+      "target": "17-infrastructure/inference-endpoint-autoscaling",
+      "type": "RELATED_TO",
+      "evidence": "[Inference Endpoint Autoscaling](../17-infrastructure/inference-endpoint-autoscaling.md)",
+      "source_file": "skills/17-infrastructure/agent-reasoning-optimized-compute-selection.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/agent-workload-carbon-aware-scheduling",
       "target": "17-infrastructure/batch-inference-job-orchestration",
       "type": "RELATED_TO",
@@ -30739,6 +32273,22 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Auditor](dependency-auditor.md)",
       "source_file": "skills/17-infrastructure/container-image-tagging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/credential-broker-infrastructure-deployment",
+      "target": "17-infrastructure/secrets-management",
+      "type": "RELATED_TO",
+      "evidence": "[Secrets Management](../17-infrastructure/secrets-management.md)",
+      "source_file": "skills/17-infrastructure/credential-broker-infrastructure-deployment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/credential-broker-infrastructure-deployment",
+      "target": "17-infrastructure/sandbox-egress-proxy-configuration",
+      "type": "RELATED_TO",
+      "evidence": "[Sandbox Egress Proxy Configuration](../17-infrastructure/sandbox-egress-proxy-configuration.md)",
+      "source_file": "skills/17-infrastructure/credential-broker-infrastructure-deployment.md",
       "confidence": "high"
     },
     {
