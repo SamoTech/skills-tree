@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1413  |
 | ✅ Successful  | 2843  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 70    |
+| 🔀 Redirected  | 71    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 0     |
@@ -199,6 +199,7 @@
 
 ### Redirects in skills/09-agentic-patterns/prompt-caching.md
 
+* https://docs.anthropic.com/en/api/messages --[301]--> https://platform.claude.com/docs/en/api/messages
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
 ### Redirects in skills/09-agentic-patterns/rag.md
@@ -267,4 +268,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39439380671?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39439532942?check_suite_focus=true)
