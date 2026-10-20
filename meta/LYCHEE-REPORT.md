@@ -4,31 +4,13 @@
 |----------------|-------|
 | 🔍 Total       | 2843  |
 | 🔗 Unique      | 1413  |
-| ✅ Successful  | 2839  |
+| ✅ Successful  | 2843  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 70    |
+| 🔀 Redirected  | 71    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 4     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/02-reasoning/oversight-stack-role-assignment-reasoning.md
-
-* [403] <https://www.forbes.com/sites/johnbremen/2026/10/16/human-in-the-loop-at-the-helm-or-in-the-lead-the-ai-oversight-stack/> (at 66:153) | Rejected status code: 403 Forbidden
-
-### Errors in skills/06-communication/oversight-status-brief-writing.md
-
-* [403] <https://www.forbes.com/sites/johnbremen/2026/10/16/human-in-the-loop-at-the-helm-or-in-the-lead-the-ai-oversight-stack/> (at 64:153) | Error (cached)
-
-### Errors in skills/09-agentic-patterns/oversight-stack-supervision-patterns.md
-
-* [403] <https://www.forbes.com/sites/johnbremen/2026/10/16/human-in-the-loop-at-the-helm-or-in-the-lead-the-ai-oversight-stack/> (at 65:132) | Error (cached)
-
-### Errors in skills/15-orchestration/oversight-stack-role-orchestration.md
-
-* [403] <https://www.forbes.com/sites/johnbremen/2026/10/16/human-in-the-loop-at-the-helm-or-in-the-lead-the-ai-oversight-stack/> (at 64:130) | Error (cached)
 
 ## Redirects per input
 
@@ -211,6 +193,10 @@
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
 
+### Redirects in skills/09-agentic-patterns/agent-failure-taxonomy.md
+
+* https://owasp.org/www-project-top-10-for-large-language-model-applications/ --[308]--> https://owasp.org/www-project-top-10-for-large-language-model-applications --[308]--> https://owasp.org/projects/top-10-for-large-language-model-applications
+
 ### Redirects in skills/09-agentic-patterns/multi-agent-workstream-merging.md
 
 * https://turingpost.com/p/a2a --[301]--> https://www.turingpost.com/p/a2a
@@ -285,4 +271,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39430809153?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39438951783?check_suite_focus=true)
