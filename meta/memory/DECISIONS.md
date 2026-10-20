@@ -1718,3 +1718,16 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the Human Owner changes the quality-report publication model, if `tools/check_skill_quality.py` gains nondeterministic output, or if a mechanical successor contract supersedes this one.
+## DECISION-2026-10-20-BOT-BLOCKED-EVIDENCE-URL-REPLACEMENT
+
+**Topic:** Handling evidence URLs that reject automated link checks (expansion batch 2026-10-20 b1, PR #643).
+
+**Decision:** When a skill's dated public Evidence URL rejects automated access (HTTP 403 to both the lychee CI link check and independent verification) rather than being dead, the source is replaced with a verifiable same-topic public article across the canonical skill and its byte-exact agent-skills package. The lychee link-check gate is never weakened with host exclusions for this purpose. In PR #643 the single Forbes oversight-stack article cited by four batch skills (oversight-stack-role-assignment-reasoning, oversight-status-brief-writing, oversight-stack-supervision-patterns, oversight-stack-role-orchestration) was replaced with the Redis engineering article "AI Human in the Loop: Production Oversight Patterns" (https://redis.io/blog/ai-human-in-the-loop/), verified live; the regenerated on-branch lychee report shows 2843/2843 successful, zero errors.
+
+**Confidence:** HIGH - the replacement source is on-topic, live, and machine-verifiable; the full-corpus link check passes with no exclusions added.
+
+**Evidence IDs:** PR #643; meta/LYCHEE-REPORT.md (on-branch regen, 0 errors); DECISION-2026-10-12-DAILY-DEMAND-DRIVEN-SKILL-EXPANSION; DECISION-2026-10-18-BATCH-CONTENT-QUALITY-CONTRACT; meta/CURRENT-STATE.md 2026-10-20 batch-1 section.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the replacement source becomes unavailable, if the Human Owner directs a different bot-blocked-URL policy, or if the link-check gate is reconfigured in a way that supersedes this handling.

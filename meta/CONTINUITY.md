@@ -83,7 +83,11 @@ replace it in the same delivery cycle by promoting or adding a next action.
    do not fabricate labels.
 5. **Quality-first corpus expansion** — add skills only from recorded,
    reproducible demand evidence (`meta/MOST-WANTED-SKILLS.md`), never raw-count
-   growth without a measured gap.
+   growth without a measured gap. Status: 2026-10-20
+   expansion batch 1 (50 skills, PR #643) delivered under the batch
+   content-quality contract; its four bot-blocked Forbes evidence citations
+   were replaced with a verifiable same-topic Redis engineering article, with
+   no link-check exclusion (the lychee gate was not weakened).
 
 ## Succession procedure for a new agent
 
