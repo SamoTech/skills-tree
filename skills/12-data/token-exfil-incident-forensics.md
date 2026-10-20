@@ -64,7 +64,7 @@ assert blast_radius(flows) == ["calendar", "mail"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- 2026 the RMCP token-theft advisory documents OAuth credential redirect theft from MCP clients (safeguard.sh, dated October 2026) ([public signal](https://safeguard.sh/resources/blog/mcp-sdk-oauth-cve-2026-104850-rmcp-token-theft))
+- 2026 the CVE-2026-104850 advisory documents that the MCP SDK OAuth client let the MCP server choose which authorization server received stored OAuth credentials, including the refresh token and client secret from an earlier sign-in (advisories.gitlab.com, dated October 2026) ([public signal](https://advisories.gitlab.com/npm/@modelcontextprotocol/client/CVE-2026-104850/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
