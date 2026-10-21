@@ -60,7 +60,7 @@ assert claim("writer", ["t1", "t2"], {"t2"}) == ("writer", "t1")
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- OpenAI DevDay 2026 introduced ChatGPT Space collaborative agent surfaces (openai.com, dated September 29, 2026) ([public signal](https://openai.com/index/devday-2026-recap/))
+- OpenAI DevDay 2026 introduced ChatGPT Space collaborative agent surfaces (community.openai.com, dated September 29, 2026) ([public signal](https://community.openai.com/t/devday-2026-announcements-and-developer-resources/1402006))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

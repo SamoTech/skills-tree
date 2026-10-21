@@ -64,7 +64,7 @@ assert delegate(t) == "ok"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- OpenAI DevDay 2026 announced Codex Cloud among its developer releases (openai.com, dated September 29, 2026) ([public signal](https://openai.com/index/devday-2026-recap/))
+- OpenAI DevDay 2026 announced Codex Cloud among its developer releases (community.openai.com, dated September 29, 2026) ([public signal](https://community.openai.com/t/devday-2026-announcements-and-developer-resources/1402006))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

@@ -61,7 +61,7 @@ assert bridge({"eta_ms": 2000}, 1000) == "degrade-to-text"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- OpenAI DevDay 2026 announced new realtime and audio agent capabilities (openai.com, dated 2026) ([public signal](https://openai.com/devday/2026/))
+- OpenAI DevDay 2026 announced new realtime and audio agent capabilities (InfoQ, dated October 2, 2026) ([public signal](https://www.infoq.com/news/2026/10/openai-devday-2026/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
