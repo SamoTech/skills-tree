@@ -3,48 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 3143  |
-| 🔗 Unique      | 1481  |
-| ✅ Successful  | 3135  |
+| 🔗 Unique      | 1480  |
+| ✅ Successful  | 3143  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 75    |
+| 🔀 Redirected  | 74    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 8     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/04-action-execution/codex-cloud-task-delegation-execution.md
-
-* [403] <https://openai.com/index/devday-2026-recap/> (at 67:113) | Rejected status code: 403 Forbidden
-
-### Errors in skills/05-code/codex-cloud-review-automation.md
-
-* [403] <https://openai.com/index/devday-2026-recap/> (at 64:110) | Error (cached)
-
-### Errors in skills/07-tool-use/openai-agents-api-tool-schema-adoption.md
-
-* [403] <https://openai.com/devday/2026/> (at 63:102) | Rejected status code: 403 Forbidden
-
-### Errors in skills/08-multimodal/agents-api-realtime-audio-tool-bridge.md
-
-* [403] <https://openai.com/devday/2026/> (at 64:100) | Error (cached)
-
-### Errors in skills/08-multimodal/ultrafast-voice-response-latency-budgeting.md
-
-* [403] <https://openai.com/index/devday-2026-recap/> (at 65:112) | Error (cached)
-
-### Errors in skills/10-computer-use/computer-use-agent-benchmark-task-verification.md
-
-* [403] <https://openai.com/index/devday-2026-recap/> (at 64:129) | Error (cached)
-
-### Errors in skills/15-orchestration/multi-agent-collaboration-space-role-orchestration.md
-
-* [403] <https://openai.com/index/devday-2026-recap/> (at 63:116) | Error (cached)
-
-### Errors in skills/17-infrastructure/codex-cloud-runner-provisioning.md
-
-* [403] <https://openai.com/index/devday-2026-recap/> (at 63:111) | Error (cached)
 
 ## Redirects per input
 
@@ -248,10 +214,6 @@
 * https://docs.anthropic.com/en/api/messages --[301]--> https://platform.claude.com/docs/en/api/messages
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
-### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
-
-* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
-
 ### Redirects in skills/09-agentic-patterns/rag.md
 
 * https://python.langchain.com/docs/concepts/retrieval/ --[308]--> https://python.langchain.com/docs/concepts/retrieval --[308]--> https://docs.langchain.com/oss/python/langchain/overview
@@ -318,4 +280,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39687215065?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39687477840?check_suite_focus=true)
