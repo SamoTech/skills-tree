@@ -50,7 +50,7 @@ def attribute(events):
         out[key] = out.get(key, 0) + e["cost"]
     return out
 ev = [{"agent": "a", "task": "t", "cost": 2}, {"agent": "a", "task": "t", "cost": 3}]
-assert attribution_key(ev) == 5 if False else attribute(ev)[("a", "t")] == 5
+assert attribute(ev)[("a", "t")] == 5
 ```
 
 ## Failure Modes
