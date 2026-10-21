@@ -1,14 +1,29 @@
 {
   "meta": {
-    "generated_at": "2026-10-21T22:34:45.424504+00:00",
+    "generated_at": "2026-10-21T22:44:29.151255+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
-    "node_count": 1489,
-    "edge_count": 1684,
+    "node_count": 1539,
+    "edge_count": 1784,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
   "nodes": [
+    {
+      "id": "01-perception/a2a-agent-card-capability-parsing",
+      "title": "A2a Agent Card Capability Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/a2a-agent-card-capability-parsing.md",
+      "quality_score": null
+    },
     {
       "id": "01-perception/accessibility-tree-screenshot-fusion",
       "title": "Accessibility Tree Screenshot Fusion",
@@ -880,6 +895,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/maf-harness-test-result-parsing",
+      "title": "Maf Harness Test Result Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/maf-harness-test-result-parsing.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/markdown-parsing",
       "title": "Markdown Parsing",
       "category": "01-perception",
@@ -1315,6 +1345,21 @@
       "quality_score": null
     },
     {
+      "id": "01-perception/splunk-otel-agent-span-parsing",
+      "title": "Splunk Otel Agent Span Parsing",
+      "category": "01-perception",
+      "layer": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/01-perception/splunk-otel-agent-span-parsing.md",
+      "quality_score": null
+    },
+    {
       "id": "01-perception/spreadsheet-reading",
       "title": "Spreadsheet Reading",
       "category": "01-perception",
@@ -1675,6 +1720,36 @@
       "quality_score": null
     },
     {
+      "id": "02-reasoning/agent-insider-threat-likelihood-reasoning",
+      "title": "Agent Insider Threat Likelihood Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/agent-insider-threat-likelihood-reasoning.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/agent-memory-backend-selection-reasoning",
+      "title": "Agent Memory Backend Selection Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/agent-memory-backend-selection-reasoning.md",
+      "quality_score": null
+    },
+    {
       "id": "02-reasoning/agent-protocol-choice-reasoning",
       "title": "Agent Protocol Choice Reasoning",
       "category": "02-reasoning",
@@ -1702,6 +1777,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/02-reasoning/agent-revocation-decision-reasoning.md",
+      "quality_score": null
+    },
+    {
+      "id": "02-reasoning/agent-tool-consolidation-reasoning",
+      "title": "Agent Tool Consolidation Reasoning",
+      "category": "02-reasoning",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/02-reasoning/agent-tool-consolidation-reasoning.md",
       "quality_score": null
     },
     {
@@ -3343,6 +3433,21 @@
       "quality_score": null
     },
     {
+      "id": "03-memory/a2a-conversation-context-continuity-memory",
+      "title": "A2a Conversation Context Continuity Memory",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/a2a-conversation-context-continuity-memory.md",
+      "quality_score": null
+    },
+    {
       "id": "03-memory/active-recall-memory-curation",
       "title": "Active Recall Memory Curation",
       "category": "03-memory",
@@ -3430,6 +3535,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/agent-memory-store-migration.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/agent-memory-tiering-policy-design",
+      "title": "Agent Memory Tiering Policy Design",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/agent-memory-tiering-policy-design.md",
       "quality_score": null
     },
     {
@@ -3625,6 +3745,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/03-memory/cross-thread-memory.md",
+      "quality_score": null
+    },
+    {
+      "id": "03-memory/databricks-persistent-agent-memory-operations",
+      "title": "Databricks Persistent Agent Memory Operations",
+      "category": "03-memory",
+      "layer": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/03-memory/databricks-persistent-agent-memory-operations.md",
       "quality_score": null
     },
     {
@@ -4933,6 +5068,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/azure-mcp-server-3-0-upgrade-execution",
+      "title": "Azure Mcp Server 3 0 Upgrade Execution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/azure-mcp-server-3-0-upgrade-execution.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/background-job-cancel-and-cleanup",
       "title": "Background Job Cancel And Cleanup",
       "category": "04-action-execution",
@@ -5608,6 +5758,21 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/maf-workflow-orchestration-execution",
+      "title": "Maf Workflow Orchestration Execution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/maf-workflow-orchestration-execution.md",
+      "quality_score": null
+    },
+    {
       "id": "04-action-execution/mainframe-console-workflow-actions",
       "title": "Mainframe Console Workflow Actions",
       "category": "04-action-execution",
@@ -6133,6 +6298,36 @@
       "quality_score": null
     },
     {
+      "id": "04-action-execution/x402-payment-provider-failover-execution",
+      "title": "X402 Payment Provider Failover Execution",
+      "category": "04-action-execution",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/04-action-execution/x402-payment-provider-failover-execution.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/a2a-remote-agent-coding-delegation",
+      "title": "A2a Remote Agent Coding Delegation",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/a2a-remote-agent-coding-delegation.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/actionable-error-message-implementation",
       "title": "Actionable Error Message Implementation",
       "category": "05-code",
@@ -6190,6 +6385,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/05-code/agent-generated-code-auditing.md",
+      "quality_score": null
+    },
+    {
+      "id": "05-code/agent-generated-code-license-provenance-checking",
+      "title": "Agent Generated Code License Provenance Checking",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/agent-generated-code-license-provenance-checking.md",
       "quality_score": null
     },
     {
@@ -7108,6 +7318,21 @@
       "quality_score": null
     },
     {
+      "id": "05-code/maf-harness-test-suite-execution",
+      "title": "Maf Harness Test Suite Execution",
+      "category": "05-code",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/05-code/maf-harness-test-suite-execution.md",
+      "quality_score": null
+    },
+    {
       "id": "05-code/maf-workflow-unit-testing",
       "title": "MAF Workflow Unit Testing",
       "category": "05-code",
@@ -7723,6 +7948,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/agent-framework-ga-upgrade-guide-writing",
+      "title": "Agent Framework Ga Upgrade Guide Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/agent-framework-ga-upgrade-guide-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/agent-handoff-brief-composition",
       "title": "Agent Handoff Brief Composition",
       "category": "06-communication",
@@ -7750,6 +7990,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/06-communication/agent-incident-response-stakeholder-brief-writing.md",
+      "quality_score": null
+    },
+    {
+      "id": "06-communication/agent-insider-threat-stakeholder-briefing-writing",
+      "title": "Agent Insider Threat Stakeholder Briefing Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/agent-insider-threat-stakeholder-briefing-writing.md",
       "quality_score": null
     },
     {
@@ -8428,6 +8683,21 @@
       "quality_score": null
     },
     {
+      "id": "06-communication/payment-protocol-merchant-integration-faq-writing",
+      "title": "Payment Protocol Merchant Integration Faq Writing",
+      "category": "06-communication",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/06-communication/payment-protocol-merchant-integration-faq-writing.md",
+      "quality_score": null
+    },
+    {
       "id": "06-communication/persona-adoption",
       "title": "Persona Adoption",
       "category": "06-communication",
@@ -8920,6 +9190,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/a2a-push-notification-usage.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/a2a-remote-agent-tool-invocation",
+      "title": "A2a Remote Agent Tool Invocation",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/a2a-remote-agent-tool-invocation.md",
       "quality_score": null
     },
     {
@@ -9430,6 +9715,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/07-tool-use/linear-api.md",
+      "quality_score": null
+    },
+    {
+      "id": "07-tool-use/maf-agent-as-tool-composition",
+      "title": "Maf Agent As Tool Composition",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/maf-agent-as-tool-composition.md",
       "quality_score": null
     },
     {
@@ -10453,6 +10753,21 @@
       "quality_score": null
     },
     {
+      "id": "07-tool-use/x402-multi-scheme-acceptance-tooling",
+      "title": "X402 Multi Scheme Acceptance Tooling",
+      "category": "07-tool-use",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md",
+      "quality_score": null
+    },
+    {
       "id": "07-tool-use/xquik-api",
       "title": "Xquik API",
       "category": "07-tool-use",
@@ -11173,6 +11488,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/realtime-agent-session-recording-multimodal",
+      "title": "Realtime Agent Session Recording Multimodal",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/realtime-agent-session-recording-multimodal.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/realtime-speech-to-speech-agent-loop",
       "title": "Realtime Speech To Speech Agent Loop",
       "category": "08-multimodal",
@@ -11200,6 +11530,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/realtime-video-frame-analysis.md",
+      "quality_score": null
+    },
+    {
+      "id": "08-multimodal/screen-share-guided-agent-walkthrough",
+      "title": "Screen Share Guided Agent Walkthrough",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/screen-share-guided-agent-walkthrough.md",
       "quality_score": null
     },
     {
@@ -11608,6 +11953,21 @@
       "quality_score": null
     },
     {
+      "id": "08-multimodal/voice-to-visual-agent-response-pairing",
+      "title": "Voice To Visual Agent Response Pairing",
+      "category": "08-multimodal",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/08-multimodal/voice-to-visual-agent-response-pairing.md",
+      "quality_score": null
+    },
+    {
       "id": "08-multimodal/vqa",
       "title": "Visual Question Answering",
       "category": "08-multimodal",
@@ -11635,6 +11995,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/08-multimodal/watermark-detection.md",
+      "quality_score": null
+    },
+    {
+      "id": "09-agentic-patterns/a2a-remote-agent-delegation-pattern",
+      "title": "A2a Remote Agent Delegation Pattern",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/a2a-remote-agent-delegation-pattern.md",
       "quality_score": null
     },
     {
@@ -12466,6 +12841,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/maf-sequential-workflow-agent-pattern",
+      "title": "Maf Sequential Workflow Agent Pattern",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md",
+      "quality_score": null
+    },
+    {
       "id": "09-agentic-patterns/mcts",
       "title": "Monte Carlo Tree Search",
       "category": "09-agentic-patterns",
@@ -13058,6 +13448,21 @@
       "quality_score": null
     },
     {
+      "id": "09-agentic-patterns/x402-payment-retry-idempotency-pattern",
+      "title": "X402 Payment Retry Idempotency Pattern",
+      "category": "09-agentic-patterns",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/09-agentic-patterns/x402-payment-retry-idempotency-pattern.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/accessibility-automation-testing",
       "title": "Accessibility Automation Testing",
       "category": "10-computer-use",
@@ -13160,6 +13565,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/app-update-automation.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/browser-agent-multi-tab-workflow-automation",
+      "title": "Browser Agent Multi Tab Workflow Automation",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md",
       "quality_score": null
     },
     {
@@ -13268,6 +13688,21 @@
       "quality_score": null
     },
     {
+      "id": "10-computer-use/computer-use-agent-human-in-the-loop-approval-operations",
+      "title": "Computer Use Agent Human In The Loop Approval Operations",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/computer-use-agent-human-in-the-loop-approval-operations.md",
+      "quality_score": null
+    },
+    {
       "id": "10-computer-use/computer-use-error-recovery",
       "title": "Computer Use Error Recovery",
       "category": "10-computer-use",
@@ -13325,6 +13760,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/10-computer-use/desktop-agent-framework-integration.md",
+      "quality_score": null
+    },
+    {
+      "id": "10-computer-use/desktop-agent-screenshot-diff-regression-verification",
+      "title": "Desktop Agent Screenshot Diff Regression Verification",
+      "category": "10-computer-use",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/10-computer-use/desktop-agent-screenshot-diff-regression-verification.md",
       "quality_score": null
     },
     {
@@ -14333,6 +14783,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/a2a-agent-card-endpoint-publishing",
+      "title": "A2a Agent Card Endpoint Publishing",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/a2a-agent-card-endpoint-publishing.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/agent-browser-engine-selection",
       "title": "Agent Browser Engine Selection",
       "category": "11-web",
@@ -14375,6 +14840,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/11-web/agent-readable-site-markup.md",
+      "quality_score": null
+    },
+    {
+      "id": "11-web/agent-web-form-accessibility-automation",
+      "title": "Agent Web Form Accessibility Automation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/agent-web-form-accessibility-automation.md",
       "quality_score": null
     },
     {
@@ -15413,6 +15893,21 @@
       "quality_score": null
     },
     {
+      "id": "11-web/web-agent-authenticated-session-automation",
+      "title": "Web Agent Authenticated Session Automation",
+      "category": "11-web",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/11-web/web-agent-authenticated-session-automation.md",
+      "quality_score": null
+    },
+    {
       "id": "11-web/web-api-mocking",
       "title": "Web API Mocking",
       "category": "11-web",
@@ -15815,6 +16310,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/agent-payment-ledger-reconciliation-analytics.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/agent-spend-anomaly-alerting-analytics",
+      "title": "Agent Spend Anomaly Alerting Analytics",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/agent-spend-anomaly-alerting-analytics.md",
       "quality_score": null
     },
     {
@@ -16568,6 +17078,21 @@
       "quality_score": null
     },
     {
+      "id": "12-data/maf-harness-run-artifact-analytics",
+      "title": "Maf Harness Run Artifact Analytics",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/maf-harness-run-artifact-analytics.md",
+      "quality_score": null
+    },
+    {
       "id": "12-data/memory-benchmark-run-reporting",
       "title": "Memory Benchmark Run Reporting",
       "category": "12-data",
@@ -16865,6 +17390,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/12-data/similarity-search.md",
+      "quality_score": null
+    },
+    {
+      "id": "12-data/splunk-otel-agent-telemetry-pipeline",
+      "title": "Splunk Otel Agent Telemetry Pipeline",
+      "category": "12-data",
+      "layer": "execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/12-data/splunk-otel-agent-telemetry-pipeline.md",
       "quality_score": null
     },
     {
@@ -17543,6 +18083,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/maf-adoption-campaign-copywriting",
+      "title": "Maf Adoption Campaign Copywriting",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/maf-adoption-campaign-copywriting.md",
+      "quality_score": null
+    },
+    {
       "id": "13-creative/mainframe-agent-modernization-copywriting",
       "title": "Mainframe Agent Modernization Copywriting",
       "category": "13-creative",
@@ -18008,6 +18563,21 @@
       "quality_score": null
     },
     {
+      "id": "13-creative/x402-merchant-onboarding-copywriting",
+      "title": "X402 Merchant Onboarding Copywriting",
+      "category": "13-creative",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/13-creative/x402-merchant-onboarding-copywriting.md",
+      "quality_score": null
+    },
+    {
       "id": "14-security/agent-browser-extension-security-review",
       "title": "Agent Browser Extension Security Review",
       "category": "14-security",
@@ -18050,6 +18620,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/agent-identity-verification.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/agent-insider-threat-detection-operations",
+      "title": "Agent Insider Threat Detection Operations",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/agent-insider-threat-detection-operations.md",
       "quality_score": null
     },
     {
@@ -18530,6 +19115,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/machine-identity-inventory-for-agents.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/maf-tool-permission-least-privilege-review",
+      "title": "Maf Tool Permission Least Privilege Review",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/maf-tool-permission-least-privilege-review.md",
       "quality_score": null
     },
     {
@@ -19070,6 +19670,36 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/14-security/vulnerability-triage.md",
+      "quality_score": null
+    },
+    {
+      "id": "14-security/x402-key-management-rotation-operations",
+      "title": "X402 Key Management Rotation Operations",
+      "category": "14-security",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/14-security/x402-key-management-rotation-operations.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/a2a-federated-agent-orchestration",
+      "title": "A2a Federated Agent Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/a2a-federated-agent-orchestration.md",
       "quality_score": null
     },
     {
@@ -19793,6 +20423,21 @@
       "quality_score": null
     },
     {
+      "id": "15-orchestration/maf-workflow-composition-orchestration",
+      "title": "Maf Workflow Composition Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/maf-workflow-composition-orchestration.md",
+      "quality_score": null
+    },
+    {
       "id": "15-orchestration/mainframe-agent-workload-orchestration",
       "title": "Mainframe Agent Workload Orchestration",
       "category": "15-orchestration",
@@ -19880,6 +20525,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/15-orchestration/parallel-execution.md",
+      "quality_score": null
+    },
+    {
+      "id": "15-orchestration/payment-protocol-failover-orchestration",
+      "title": "Payment Protocol Failover Orchestration",
+      "category": "15-orchestration",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/15-orchestration/payment-protocol-failover-orchestration.md",
       "quality_score": null
     },
     {
@@ -20318,6 +20978,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/agentic-commerce-merchant-operations",
+      "title": "Agentic Commerce Merchant Operations",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/agentic-commerce-merchant-operations.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/agentic-iam-policy-review",
       "title": "Agentic Iam Policy Review",
       "category": "16-domain-specific",
@@ -20468,6 +21143,21 @@
       "quality_score": null
     },
     {
+      "id": "16-domain-specific/contact-center-agent-supervision-operations",
+      "title": "Contact Center Agent Supervision Operations",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/contact-center-agent-supervision-operations.md",
+      "quality_score": null
+    },
+    {
       "id": "16-domain-specific/contract-review",
       "title": "Contract Review",
       "category": "16-domain-specific",
@@ -20585,6 +21275,21 @@
       "prerequisites": [],
       "related_skills": [],
       "source_file": "skills/16-domain-specific/energy-consumption-forecasting.md",
+      "quality_score": null
+    },
+    {
+      "id": "16-domain-specific/enterprise-agent-platform-migration-planning",
+      "title": "Enterprise Agent Platform Migration Planning",
+      "category": "16-domain-specific",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/16-domain-specific/enterprise-agent-platform-migration-planning.md",
       "quality_score": null
     },
     {
@@ -21533,6 +22238,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/a2a-agent-server-hosting-provisioning",
+      "title": "A2a Agent Server Hosting Provisioning",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/a2a-agent-server-hosting-provisioning.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/agent-gateway-quota-enforcement",
       "title": "Agent Gateway Quota Enforcement",
       "category": "17-infrastructure",
@@ -22118,6 +22838,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/maf-production-deployment-provisioning",
+      "title": "Maf Production Deployment Provisioning",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/maf-production-deployment-provisioning.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/maintenance-window-orchestration",
       "title": "Maintenance Window Orchestration",
       "category": "17-infrastructure",
@@ -22313,6 +23048,21 @@
       "quality_score": null
     },
     {
+      "id": "17-infrastructure/splunk-agent-otel-collector-provisioning",
+      "title": "Splunk Agent Otel Collector Provisioning",
+      "category": "17-infrastructure",
+      "layer": "systems",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "tags": [],
+      "prerequisites": [],
+      "related_skills": [],
+      "source_file": "skills/17-infrastructure/splunk-agent-otel-collector-provisioning.md",
+      "quality_score": null
+    },
+    {
       "id": "17-infrastructure/storage-lifecycle-tiering-automation",
       "title": "Storage Lifecycle Tiering Automation",
       "category": "17-infrastructure",
@@ -22359,6 +23109,22 @@
     }
   ],
   "edges": [
+    {
+      "source": "01-perception/a2a-agent-card-capability-parsing",
+      "target": "01-perception/agent-card-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Card Parsing](../01-perception/agent-card-parsing.md)",
+      "source_file": "skills/01-perception/a2a-agent-card-capability-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/a2a-agent-card-capability-parsing",
+      "target": "01-perception/api-response-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Api Response Parsing](../01-perception/api-response-parsing.md)",
+      "source_file": "skills/01-perception/a2a-agent-card-capability-parsing.md",
+      "confidence": "high"
+    },
     {
       "source": "01-perception/accessibility-tree-screenshot-fusion",
       "target": "10-computer-use/playwright-mcp-automation",
@@ -23144,6 +23910,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/maf-harness-test-result-parsing",
+      "target": "01-perception/agent-trace-span-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)",
+      "source_file": "skills/01-perception/maf-harness-test-result-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/maf-harness-test-result-parsing",
+      "target": "01-perception/agent-eval-report-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Eval Report Parsing](../01-perception/agent-eval-report-parsing.md)",
+      "source_file": "skills/01-perception/maf-harness-test-result-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/mcp-oauth-token-redirect-response-parsing",
       "target": "01-perception/agent-card-parsing",
       "type": "RELATED_TO",
@@ -23408,6 +24190,22 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/splunk-otel-agent-span-parsing",
+      "target": "01-perception/agent-trace-span-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Span Parsing](../01-perception/agent-trace-span-parsing.md)",
+      "source_file": "skills/01-perception/splunk-otel-agent-span-parsing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/splunk-otel-agent-span-parsing",
+      "target": "01-perception/agent-runtime-action-event-parsing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Runtime Action Event Parsing](../01-perception/agent-runtime-action-event-parsing.md)",
+      "source_file": "skills/01-perception/splunk-otel-agent-span-parsing.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/stealth-browser-render-fidelity-checking",
       "target": "11-web/agent-browser-engine-selection",
       "type": "RELATED_TO",
@@ -23624,6 +24422,38 @@
       "confidence": "high"
     },
     {
+      "source": "02-reasoning/agent-insider-threat-likelihood-reasoning",
+      "target": "02-reasoning/risk-assessment",
+      "type": "RELATED_TO",
+      "evidence": "[Risk Assessment](../02-reasoning/risk-assessment.md)",
+      "source_file": "skills/02-reasoning/agent-insider-threat-likelihood-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-insider-threat-likelihood-reasoning",
+      "target": "02-reasoning/trust-boundary-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Trust Boundary Reasoning](../02-reasoning/trust-boundary-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-insider-threat-likelihood-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-memory-backend-selection-reasoning",
+      "target": "02-reasoning/model-selection-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Model Selection Reasoning](../02-reasoning/model-selection-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-memory-backend-selection-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-memory-backend-selection-reasoning",
+      "target": "02-reasoning/protocol-convergence-strategy-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Protocol Convergence Strategy Reasoning](../02-reasoning/protocol-convergence-strategy-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-memory-backend-selection-reasoning.md",
+      "confidence": "high"
+    },
+    {
       "source": "02-reasoning/agent-protocol-choice-reasoning",
       "target": "02-reasoning/model-selection-reasoning",
       "type": "RELATED_TO",
@@ -23653,6 +24483,22 @@
       "type": "RELATED_TO",
       "evidence": "[Rollback Decision Reasoning](../02-reasoning/rollback-decision-reasoning.md)",
       "source_file": "skills/02-reasoning/agent-revocation-decision-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-tool-consolidation-reasoning",
+      "target": "02-reasoning/agent-protocol-choice-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Protocol Choice Reasoning](../02-reasoning/agent-protocol-choice-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-tool-consolidation-reasoning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/agent-tool-consolidation-reasoning",
+      "target": "02-reasoning/model-selection-reasoning",
+      "type": "RELATED_TO",
+      "evidence": "[Model Selection Reasoning](../02-reasoning/model-selection-reasoning.md)",
+      "source_file": "skills/02-reasoning/agent-tool-consolidation-reasoning.md",
       "confidence": "high"
     },
     {
@@ -24888,6 +25734,22 @@
       "confidence": "high"
     },
     {
+      "source": "03-memory/a2a-conversation-context-continuity-memory",
+      "target": "03-memory/dialogue-state-tracking",
+      "type": "RELATED_TO",
+      "evidence": "[Dialogue State Tracking](../03-memory/dialogue-state-tracking.md)",
+      "source_file": "skills/03-memory/a2a-conversation-context-continuity-memory.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/a2a-conversation-context-continuity-memory",
+      "target": "03-memory/cross-session-persistence",
+      "type": "RELATED_TO",
+      "evidence": "[Cross Session Persistence](../03-memory/cross-session-persistence.md)",
+      "source_file": "skills/03-memory/a2a-conversation-context-continuity-memory.md",
+      "confidence": "high"
+    },
+    {
       "source": "03-memory/active-recall-memory-curation",
       "target": "03-memory/long-context-curation",
       "type": "RELATED_TO",
@@ -24965,6 +25827,22 @@
       "type": "RELATED_TO",
       "evidence": "[agent memory schema design](../03-memory/agent-memory-schema-design.md)",
       "source_file": "skills/03-memory/agent-memory-store-migration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-tiering-policy-design",
+      "target": "03-memory/cache-management",
+      "type": "RELATED_TO",
+      "evidence": "[Cache Management](../03-memory/cache-management.md)",
+      "source_file": "skills/03-memory/agent-memory-tiering-policy-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/agent-memory-tiering-policy-design",
+      "target": "03-memory/context-window-budget-planning",
+      "type": "RELATED_TO",
+      "evidence": "[Context Window Budget Planning](../03-memory/context-window-budget-planning.md)",
+      "source_file": "skills/03-memory/agent-memory-tiering-policy-design.md",
       "confidence": "high"
     },
     {
@@ -25101,6 +25979,22 @@
       "type": "RELATED_TO",
       "evidence": "[Cross Session Persistence](../03-memory/cross-session-persistence.md)",
       "source_file": "skills/03-memory/cross-session-skill-acquisition-memory.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/databricks-persistent-agent-memory-operations",
+      "target": "03-memory/agent-memory-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Memory Schema Design](../03-memory/agent-memory-schema-design.md)",
+      "source_file": "skills/03-memory/databricks-persistent-agent-memory-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "03-memory/databricks-persistent-agent-memory-operations",
+      "target": "03-memory/cross-session-persistence",
+      "type": "RELATED_TO",
+      "evidence": "[Cross Session Persistence](../03-memory/cross-session-persistence.md)",
+      "source_file": "skills/03-memory/databricks-persistent-agent-memory-operations.md",
       "confidence": "high"
     },
     {
@@ -25792,6 +26686,22 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/azure-mcp-server-3-0-upgrade-execution",
+      "target": "04-action-execution/action-precondition-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Action Precondition Checking](../04-action-execution/action-precondition-checking.md)",
+      "source_file": "skills/04-action-execution/azure-mcp-server-3-0-upgrade-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/azure-mcp-server-3-0-upgrade-execution",
+      "target": "04-action-execution/action-result-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Action Result Verification](../04-action-execution/action-result-verification.md)",
+      "source_file": "skills/04-action-execution/azure-mcp-server-3-0-upgrade-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/background-job-cancel-and-cleanup",
       "target": "04-action-execution/compensating-actions",
       "type": "RELATED_TO",
@@ -26168,6 +27078,22 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/maf-workflow-orchestration-execution",
+      "target": "04-action-execution/api-call",
+      "type": "RELATED_TO",
+      "evidence": "[Api Call](../04-action-execution/api-call.md)",
+      "source_file": "skills/04-action-execution/maf-workflow-orchestration-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/maf-workflow-orchestration-execution",
+      "target": "04-action-execution/action-dependency-resolution",
+      "type": "RELATED_TO",
+      "evidence": "[Action Dependency Resolution](../04-action-execution/action-dependency-resolution.md)",
+      "source_file": "skills/04-action-execution/maf-workflow-orchestration-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/mainframe-console-workflow-actions",
       "target": "04-action-execution/action-result-verification",
       "type": "RELATED_TO",
@@ -26496,6 +27422,38 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/x402-payment-provider-failover-execution",
+      "target": "04-action-execution/agent-payment-initiation",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Initiation](../04-action-execution/agent-payment-initiation.md)",
+      "source_file": "skills/04-action-execution/x402-payment-provider-failover-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/x402-payment-provider-failover-execution",
+      "target": "04-action-execution/action-result-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Action Result Verification](../04-action-execution/action-result-verification.md)",
+      "source_file": "skills/04-action-execution/x402-payment-provider-failover-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/a2a-remote-agent-coding-delegation",
+      "target": "05-code/agent-commit-hygiene",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Commit Hygiene](../05-code/agent-commit-hygiene.md)",
+      "source_file": "skills/05-code/a2a-remote-agent-coding-delegation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/a2a-remote-agent-coding-delegation",
+      "target": "05-code/agent-generated-code-auditing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Generated Code Auditing](../05-code/agent-generated-code-auditing.md)",
+      "source_file": "skills/05-code/a2a-remote-agent-coding-delegation.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/actionable-error-message-implementation",
       "target": "05-code/error-handling-design",
       "type": "RELATED_TO",
@@ -26541,6 +27499,22 @@
       "type": "RELATED_TO",
       "evidence": "[agent generated code auditing](../05-code/agent-generated-code-auditing.md)",
       "source_file": "skills/05-code/agent-commit-hygiene.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/agent-generated-code-license-provenance-checking",
+      "target": "05-code/agent-generated-code-auditing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Generated Code Auditing](../05-code/agent-generated-code-auditing.md)",
+      "source_file": "skills/05-code/agent-generated-code-license-provenance-checking.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/agent-generated-code-license-provenance-checking",
+      "target": "05-code/build-reproducibility-verification",
+      "type": "RELATED_TO",
+      "evidence": "[Build Reproducibility Verification](../05-code/build-reproducibility-verification.md)",
+      "source_file": "skills/05-code/agent-generated-code-license-provenance-checking.md",
       "confidence": "high"
     },
     {
@@ -26992,6 +27966,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/maf-harness-test-suite-execution",
+      "target": "05-code/agent-generated-code-auditing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Generated Code Auditing](../05-code/agent-generated-code-auditing.md)",
+      "source_file": "skills/05-code/maf-harness-test-suite-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/maf-harness-test-suite-execution",
+      "target": "05-code/ci-failure-triage",
+      "type": "RELATED_TO",
+      "evidence": "[Ci Failure Triage](../05-code/ci-failure-triage.md)",
+      "source_file": "skills/05-code/maf-harness-test-suite-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/maf-workflow-unit-testing",
       "target": "05-code/microsoft-agent-framework-migration",
       "type": "RELATED_TO",
@@ -27320,6 +28310,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/agent-framework-ga-upgrade-guide-writing",
+      "target": "06-communication/api-deprecation-notice-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Api Deprecation Notice Writing](../06-communication/api-deprecation-notice-writing.md)",
+      "source_file": "skills/06-communication/agent-framework-ga-upgrade-guide-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/agent-framework-ga-upgrade-guide-writing",
+      "target": "06-communication/agent-access-audit-report-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Access Audit Report Writing](../06-communication/agent-access-audit-report-writing.md)",
+      "source_file": "skills/06-communication/agent-framework-ga-upgrade-guide-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/agent-handoff-brief-composition",
       "target": "06-communication/cross-agent-session-continuity",
       "type": "RELATED_TO",
@@ -27349,6 +28355,22 @@
       "type": "RELATED_TO",
       "evidence": "[Stakeholder Status Updates](../06-communication/stakeholder-status-updates.md)",
       "source_file": "skills/06-communication/agent-incident-response-stakeholder-brief-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/agent-insider-threat-stakeholder-briefing-writing",
+      "target": "06-communication/agent-access-audit-report-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Access Audit Report Writing](../06-communication/agent-access-audit-report-writing.md)",
+      "source_file": "skills/06-communication/agent-insider-threat-stakeholder-briefing-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/agent-insider-threat-stakeholder-briefing-writing",
+      "target": "06-communication/agent-handoff-brief-composition",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Handoff Brief Composition](../06-communication/agent-handoff-brief-composition.md)",
+      "source_file": "skills/06-communication/agent-insider-threat-stakeholder-briefing-writing.md",
       "confidence": "high"
     },
     {
@@ -27760,6 +28782,22 @@
       "confidence": "high"
     },
     {
+      "source": "06-communication/payment-protocol-merchant-integration-faq-writing",
+      "target": "06-communication/agent-access-audit-report-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Access Audit Report Writing](../06-communication/agent-access-audit-report-writing.md)",
+      "source_file": "skills/06-communication/payment-protocol-merchant-integration-faq-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "06-communication/payment-protocol-merchant-integration-faq-writing",
+      "target": "06-communication/argument-construction",
+      "type": "RELATED_TO",
+      "evidence": "[Argument Construction](../06-communication/argument-construction.md)",
+      "source_file": "skills/06-communication/payment-protocol-merchant-integration-faq-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "06-communication/plain-language-writing",
       "target": "06-communication/paraphrasing",
       "type": "RELATED_TO",
@@ -27973,6 +29011,22 @@
       "type": "RELATED_TO",
       "evidence": "[Webhook Handling](../04-action-execution/webhook-handling.md)",
       "source_file": "skills/07-tool-use/a2a-push-notification-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-remote-agent-tool-invocation",
+      "target": "07-tool-use/a2a-task-lifecycle-management",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Task Lifecycle Management](../07-tool-use/a2a-task-lifecycle-management.md)",
+      "source_file": "skills/07-tool-use/a2a-remote-agent-tool-invocation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-remote-agent-tool-invocation",
+      "target": "07-tool-use/a2a-signed-agent-card-verification",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Signed Agent Card Verification](../07-tool-use/a2a-signed-agent-card-verification.md)",
+      "source_file": "skills/07-tool-use/a2a-remote-agent-tool-invocation.md",
       "confidence": "high"
     },
     {
@@ -28245,6 +29299,22 @@
       "type": "RELATED_TO",
       "evidence": "[Tool Schema Design](../07-tool-use/tool-schema-design.md)",
       "source_file": "skills/07-tool-use/gemini-cli-custom-command-authoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/maf-agent-as-tool-composition",
+      "target": "07-tool-use/agent-client-protocol-usage",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Client Protocol Usage](../07-tool-use/agent-client-protocol-usage.md)",
+      "source_file": "skills/07-tool-use/maf-agent-as-tool-composition.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/maf-agent-as-tool-composition",
+      "target": "07-tool-use/a2a-tool",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Tool](../07-tool-use/a2a-tool.md)",
+      "source_file": "skills/07-tool-use/maf-agent-as-tool-composition.md",
       "confidence": "high"
     },
     {
@@ -28744,6 +29814,22 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/x402-multi-scheme-acceptance-tooling",
+      "target": "07-tool-use/ap2-agent-payment-protocol-usage",
+      "type": "RELATED_TO",
+      "evidence": "[Ap2 Agent Payment Protocol Usage](../07-tool-use/ap2-agent-payment-protocol-usage.md)",
+      "source_file": "skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/x402-multi-scheme-acceptance-tooling",
+      "target": "04-action-execution/agent-payment-initiation",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Initiation](../04-action-execution/agent-payment-initiation.md)",
+      "source_file": "skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/xquik-api",
       "target": "07-tool-use/custom-api-wrapper",
       "type": "RELATED_TO",
@@ -29192,6 +30278,38 @@
       "confidence": "high"
     },
     {
+      "source": "08-multimodal/realtime-agent-session-recording-multimodal",
+      "target": "08-multimodal/agent-screen-recording-incident-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Screen Recording Incident Review](../08-multimodal/agent-screen-recording-incident-review.md)",
+      "source_file": "skills/08-multimodal/realtime-agent-session-recording-multimodal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/realtime-agent-session-recording-multimodal",
+      "target": "08-multimodal/audio-event-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Audio Event Detection](../08-multimodal/audio-event-detection.md)",
+      "source_file": "skills/08-multimodal/realtime-agent-session-recording-multimodal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/screen-share-guided-agent-walkthrough",
+      "target": "08-multimodal/agent-screen-recording-incident-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Screen Recording Incident Review](../08-multimodal/agent-screen-recording-incident-review.md)",
+      "source_file": "skills/08-multimodal/screen-share-guided-agent-walkthrough.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/screen-share-guided-agent-walkthrough",
+      "target": "01-perception/chart-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Chart Reading](../01-perception/chart-reading.md)",
+      "source_file": "skills/08-multimodal/screen-share-guided-agent-walkthrough.md",
+      "confidence": "high"
+    },
+    {
       "source": "08-multimodal/sign-language-video-recognition",
       "target": "08-multimodal/video-object-tracking",
       "type": "RELATED_TO",
@@ -29397,6 +30515,38 @@
       "type": "RELATED_TO",
       "evidence": "[Ai Voice Robocall Regulation Compliance](../14-security/ai-voice-robocall-regulation-compliance.md)",
       "source_file": "skills/08-multimodal/voice-clone-consent-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/voice-to-visual-agent-response-pairing",
+      "target": "01-perception/audio-transcription",
+      "type": "RELATED_TO",
+      "evidence": "[Audio Transcription](../01-perception/audio-transcription.md)",
+      "source_file": "skills/08-multimodal/voice-to-visual-agent-response-pairing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "08-multimodal/voice-to-visual-agent-response-pairing",
+      "target": "08-multimodal/agent-screen-recording-incident-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Screen Recording Incident Review](../08-multimodal/agent-screen-recording-incident-review.md)",
+      "source_file": "skills/08-multimodal/voice-to-visual-agent-response-pairing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/a2a-remote-agent-delegation-pattern",
+      "target": "09-agentic-patterns/agent-as-tool",
+      "type": "RELATED_TO",
+      "evidence": "[Agent As Tool](../09-agentic-patterns/agent-as-tool.md)",
+      "source_file": "skills/09-agentic-patterns/a2a-remote-agent-delegation-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/a2a-remote-agent-delegation-pattern",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpoint Restore Patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/a2a-remote-agent-delegation-pattern.md",
       "confidence": "high"
     },
     {
@@ -29832,6 +30982,22 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/maf-sequential-workflow-agent-pattern",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpoint Restore Patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/maf-sequential-workflow-agent-pattern",
+      "target": "09-agentic-patterns/agent-failure-replay-clustering",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Failure Replay Clustering](../09-agentic-patterns/agent-failure-replay-clustering.md)",
+      "source_file": "skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/multi-agent-debate-resolution",
       "target": "09-agentic-patterns/self-refine-critique-loop",
       "type": "RELATED_TO",
@@ -30144,6 +31310,22 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/x402-payment-retry-idempotency-pattern",
+      "target": "09-agentic-patterns/agent-checkpoint-restore-patterns",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpoint Restore Patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
+      "source_file": "skills/09-agentic-patterns/x402-payment-retry-idempotency-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/x402-payment-retry-idempotency-pattern",
+      "target": "09-agentic-patterns/agent-cost-accounting",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Cost Accounting](../09-agentic-patterns/agent-cost-accounting.md)",
+      "source_file": "skills/09-agentic-patterns/x402-payment-retry-idempotency-pattern.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/accessibility-tree-automation-audit",
       "target": "10-computer-use/gui-element-anchoring-stability",
       "type": "RELATED_TO",
@@ -30173,6 +31355,22 @@
       "type": "RELATED_TO",
       "evidence": "[VM Interaction](vm-interaction.md)",
       "source_file": "skills/10-computer-use/app-readiness-probing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/browser-agent-multi-tab-workflow-automation",
+      "target": "11-web/browser-navigation",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Navigation](../11-web/browser-navigation.md)",
+      "source_file": "skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/browser-agent-multi-tab-workflow-automation",
+      "target": "10-computer-use/business-application-agent-automation",
+      "type": "RELATED_TO",
+      "evidence": "[Business Application Agent Automation](../10-computer-use/business-application-agent-automation.md)",
+      "source_file": "skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md",
       "confidence": "high"
     },
     {
@@ -30256,6 +31454,22 @@
       "confidence": "high"
     },
     {
+      "source": "10-computer-use/computer-use-agent-human-in-the-loop-approval-operations",
+      "target": "04-action-execution/action-precondition-checking",
+      "type": "RELATED_TO",
+      "evidence": "[Action Precondition Checking](../04-action-execution/action-precondition-checking.md)",
+      "source_file": "skills/10-computer-use/computer-use-agent-human-in-the-loop-approval-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/computer-use-agent-human-in-the-loop-approval-operations",
+      "target": "10-computer-use/accessibility-automation-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Accessibility Automation Testing](../10-computer-use/accessibility-automation-testing.md)",
+      "source_file": "skills/10-computer-use/computer-use-agent-human-in-the-loop-approval-operations.md",
+      "confidence": "high"
+    },
+    {
       "source": "10-computer-use/computer-use-privacy-screening",
       "target": "14-security/privacy-preservation",
       "type": "RELATED_TO",
@@ -30301,6 +31515,22 @@
       "type": "RELATED_TO",
       "evidence": "[Playwright Mcp Automation](../10-computer-use/playwright-mcp-automation.md)",
       "source_file": "skills/10-computer-use/desktop-agent-framework-integration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/desktop-agent-screenshot-diff-regression-verification",
+      "target": "10-computer-use/app-readiness-probing",
+      "type": "RELATED_TO",
+      "evidence": "[App Readiness Probing](../10-computer-use/app-readiness-probing.md)",
+      "source_file": "skills/10-computer-use/desktop-agent-screenshot-diff-regression-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "10-computer-use/desktop-agent-screenshot-diff-regression-verification",
+      "target": "10-computer-use/accessibility-automation-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Accessibility Automation Testing](../10-computer-use/accessibility-automation-testing.md)",
+      "source_file": "skills/10-computer-use/desktop-agent-screenshot-diff-regression-verification.md",
       "confidence": "high"
     },
     {
@@ -30752,6 +31982,22 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/a2a-agent-card-endpoint-publishing",
+      "target": "07-tool-use/a2a-agent-card-authoring",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Agent Card Authoring](../07-tool-use/a2a-agent-card-authoring.md)",
+      "source_file": "skills/11-web/a2a-agent-card-endpoint-publishing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/a2a-agent-card-endpoint-publishing",
+      "target": "11-web/browser-network-interception",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Network Interception](../11-web/browser-network-interception.md)",
+      "source_file": "skills/11-web/a2a-agent-card-endpoint-publishing.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/agent-browser-engine-selection",
       "target": "11-web/browser-cloud-session-provisioning",
       "type": "RELATED_TO",
@@ -30781,6 +32027,22 @@
       "type": "RELATED_TO",
       "evidence": "[Web Bot Auth Implementation](../11-web/web-bot-auth-implementation.md)",
       "source_file": "skills/11-web/agent-order-exception-web-handling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/agent-web-form-accessibility-automation",
+      "target": "10-computer-use/accessibility-automation-testing",
+      "type": "RELATED_TO",
+      "evidence": "[Accessibility Automation Testing](../10-computer-use/accessibility-automation-testing.md)",
+      "source_file": "skills/11-web/agent-web-form-accessibility-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/agent-web-form-accessibility-automation",
+      "target": "11-web/agent-readable-site-markup",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Readable Site Markup](../11-web/agent-readable-site-markup.md)",
+      "source_file": "skills/11-web/agent-web-form-accessibility-automation.md",
       "confidence": "high"
     },
     {
@@ -31344,6 +32606,22 @@
       "confidence": "high"
     },
     {
+      "source": "11-web/web-agent-authenticated-session-automation",
+      "target": "10-computer-use/browser-session-pool-provisioning",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Session Pool Provisioning](../10-computer-use/browser-session-pool-provisioning.md)",
+      "source_file": "skills/11-web/web-agent-authenticated-session-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "11-web/web-agent-authenticated-session-automation",
+      "target": "11-web/browser-profile-management",
+      "type": "RELATED_TO",
+      "evidence": "[Browser Profile Management](../11-web/browser-profile-management.md)",
+      "source_file": "skills/11-web/web-agent-authenticated-session-automation.md",
+      "confidence": "high"
+    },
+    {
       "source": "11-web/web-archive-lookup",
       "target": "11-web/url-fetching",
       "type": "RELATED_TO",
@@ -31637,6 +32915,22 @@
       "type": "RELATED_TO",
       "evidence": "[Purchase Intent Record Modeling](../12-data/purchase-intent-record-modeling.md)",
       "source_file": "skills/12-data/agent-payment-ledger-reconciliation-analytics.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-spend-anomaly-alerting-analytics",
+      "target": "12-data/anomaly-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Anomaly Detection](../12-data/anomaly-detection.md)",
+      "source_file": "skills/12-data/agent-spend-anomaly-alerting-analytics.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/agent-spend-anomaly-alerting-analytics",
+      "target": "12-data/agent-payment-ledger-reconciliation-analytics",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Ledger Reconciliation Analytics](../12-data/agent-payment-ledger-reconciliation-analytics.md)",
+      "source_file": "skills/12-data/agent-spend-anomaly-alerting-analytics.md",
       "confidence": "high"
     },
     {
@@ -32032,6 +33326,22 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/maf-harness-run-artifact-analytics",
+      "target": "12-data/agent-eval-metric-drift-monitoring",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Eval Metric Drift Monitoring](../12-data/agent-eval-metric-drift-monitoring.md)",
+      "source_file": "skills/12-data/maf-harness-run-artifact-analytics.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/maf-harness-run-artifact-analytics",
+      "target": "12-data/agent-loop-duration-telemetry-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Loop Duration Telemetry Analysis](../12-data/agent-loop-duration-telemetry-analysis.md)",
+      "source_file": "skills/12-data/maf-harness-run-artifact-analytics.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/memory-benchmark-run-reporting",
       "target": "03-memory/memory-benchmark-evaluation",
       "type": "RELATED_TO",
@@ -32197,6 +33507,22 @@
       "type": "RELATED_TO",
       "evidence": "[trace cost attribution](../12-data/trace-cost-attribution.md)",
       "source_file": "skills/12-data/session-replay-sampling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/splunk-otel-agent-telemetry-pipeline",
+      "target": "12-data/agent-usage-metering-event-pipeline",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Usage Metering Event Pipeline](../12-data/agent-usage-metering-event-pipeline.md)",
+      "source_file": "skills/12-data/splunk-otel-agent-telemetry-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/splunk-otel-agent-telemetry-pipeline",
+      "target": "12-data/agent-trace-data-modeling",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Trace Data Modeling](../12-data/agent-trace-data-modeling.md)",
+      "source_file": "skills/12-data/splunk-otel-agent-telemetry-pipeline.md",
       "confidence": "high"
     },
     {
@@ -32600,6 +33926,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/maf-adoption-campaign-copywriting",
+      "target": "13-creative/brand-voice-development",
+      "type": "RELATED_TO",
+      "evidence": "[Brand Voice Development](../13-creative/brand-voice-development.md)",
+      "source_file": "skills/13-creative/maf-adoption-campaign-copywriting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/maf-adoption-campaign-copywriting",
+      "target": "13-creative/agent-capability-marketplace-listing-copywriting",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Capability Marketplace Listing Copywriting](../13-creative/agent-capability-marketplace-listing-copywriting.md)",
+      "source_file": "skills/13-creative/maf-adoption-campaign-copywriting.md",
+      "confidence": "high"
+    },
+    {
       "source": "13-creative/mainframe-agent-modernization-copywriting",
       "target": "13-creative/copywriting",
       "type": "RELATED_TO",
@@ -32904,6 +34246,22 @@
       "confidence": "high"
     },
     {
+      "source": "13-creative/x402-merchant-onboarding-copywriting",
+      "target": "13-creative/agent-capability-marketplace-listing-copywriting",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Capability Marketplace Listing Copywriting](../13-creative/agent-capability-marketplace-listing-copywriting.md)",
+      "source_file": "skills/13-creative/x402-merchant-onboarding-copywriting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "13-creative/x402-merchant-onboarding-copywriting",
+      "target": "13-creative/ai-content-disclosure-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Ai Content Disclosure Writing](../13-creative/ai-content-disclosure-writing.md)",
+      "source_file": "skills/13-creative/x402-merchant-onboarding-copywriting.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/agent-browser-extension-security-review",
       "target": "11-web/browser-extension-interaction",
       "type": "RELATED_TO",
@@ -32933,6 +34291,22 @@
       "type": "RELATED_TO",
       "evidence": "[Key Rotation Automation](../14-security/key-rotation-automation.md)",
       "source_file": "skills/14-security/agent-discovery-verification-revocation-controls.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-insider-threat-detection-operations",
+      "target": "14-security/agentic-attack-surface-mapping",
+      "type": "RELATED_TO",
+      "evidence": "[Agentic Attack Surface Mapping](../14-security/agentic-attack-surface-mapping.md)",
+      "source_file": "skills/14-security/agent-insider-threat-detection-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/agent-insider-threat-detection-operations",
+      "target": "14-security/agent-payment-fraud-pattern-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Fraud Pattern Detection](../14-security/agent-payment-fraud-pattern-detection.md)",
+      "source_file": "skills/14-security/agent-insider-threat-detection-operations.md",
       "confidence": "high"
     },
     {
@@ -33416,6 +34790,22 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/maf-tool-permission-least-privilege-review",
+      "target": "14-security/agent-oauth-scope-minimization",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Oauth Scope Minimization](../14-security/agent-oauth-scope-minimization.md)",
+      "source_file": "skills/14-security/maf-tool-permission-least-privilege-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/maf-tool-permission-least-privilege-review",
+      "target": "14-security/agent-toolbox-egress-perimeter-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Toolbox Egress Perimeter Review](../14-security/agent-toolbox-egress-perimeter-review.md)",
+      "source_file": "skills/14-security/maf-tool-permission-least-privilege-review.md",
+      "confidence": "high"
+    },
+    {
       "source": "14-security/mcp-oauth-token-exfil-hardening",
       "target": "14-security/key-rotation-automation",
       "type": "RELATED_TO",
@@ -33848,6 +35238,38 @@
       "confidence": "high"
     },
     {
+      "source": "14-security/x402-key-management-rotation-operations",
+      "target": "14-security/agent-wallet-key-custody-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Wallet Key Custody Review](../14-security/agent-wallet-key-custody-review.md)",
+      "source_file": "skills/14-security/x402-key-management-rotation-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "14-security/x402-key-management-rotation-operations",
+      "target": "14-security/agent-payment-fraud-pattern-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Payment Fraud Pattern Detection](../14-security/agent-payment-fraud-pattern-detection.md)",
+      "source_file": "skills/14-security/x402-key-management-rotation-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/a2a-federated-agent-orchestration",
+      "target": "15-orchestration/a2a-multi-agent-governance-workflow",
+      "type": "RELATED_TO",
+      "evidence": "[A2a Multi Agent Governance Workflow](../15-orchestration/a2a-multi-agent-governance-workflow.md)",
+      "source_file": "skills/15-orchestration/a2a-federated-agent-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/a2a-federated-agent-orchestration",
+      "target": "15-orchestration/agent-team-charter-authoring",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Team Charter Authoring](../15-orchestration/agent-team-charter-authoring.md)",
+      "source_file": "skills/15-orchestration/a2a-federated-agent-orchestration.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/a2a-multi-agent-governance-workflow",
       "target": "07-tool-use/a2a-tool",
       "type": "RELATED_TO",
@@ -34224,6 +35646,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/maf-workflow-composition-orchestration",
+      "target": "15-orchestration/agent-task-preemption-orchestration",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Task Preemption Orchestration](../15-orchestration/agent-task-preemption-orchestration.md)",
+      "source_file": "skills/15-orchestration/maf-workflow-composition-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/maf-workflow-composition-orchestration",
+      "target": "15-orchestration/agent-pool-autoscaling",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Pool Autoscaling](../15-orchestration/agent-pool-autoscaling.md)",
+      "source_file": "skills/15-orchestration/maf-workflow-composition-orchestration.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/mainframe-agent-workload-orchestration",
       "target": "15-orchestration/fleet-wide-config-rollout",
       "type": "RELATED_TO",
@@ -34285,6 +35723,22 @@
       "type": "RELATED_TO",
       "evidence": "[Human Approval Gates](../15-orchestration/human-approval-gates.md)",
       "source_file": "skills/15-orchestration/oversight-stack-role-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/payment-protocol-failover-orchestration",
+      "target": "15-orchestration/agent-incident-command",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Incident Command](../15-orchestration/agent-incident-command.md)",
+      "source_file": "skills/15-orchestration/payment-protocol-failover-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/payment-protocol-failover-orchestration",
+      "target": "15-orchestration/agent-recovery-objective-planning",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Recovery Objective Planning](../15-orchestration/agent-recovery-objective-planning.md)",
+      "source_file": "skills/15-orchestration/payment-protocol-failover-orchestration.md",
       "confidence": "high"
     },
     {
@@ -34512,6 +35966,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/agentic-commerce-merchant-operations",
+      "target": "16-domain-specific/agentic-commerce-checkout-compliance-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agentic Commerce Checkout Compliance Review](../16-domain-specific/agentic-commerce-checkout-compliance-review.md)",
+      "source_file": "skills/16-domain-specific/agentic-commerce-merchant-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/agentic-commerce-merchant-operations",
+      "target": "16-domain-specific/algorithmic-pricing-compliance-review",
+      "type": "RELATED_TO",
+      "evidence": "[Algorithmic Pricing Compliance Review](../16-domain-specific/algorithmic-pricing-compliance-review.md)",
+      "source_file": "skills/16-domain-specific/agentic-commerce-merchant-operations.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/agentic-iam-policy-review",
       "target": "17-infrastructure/delegation-token-presentation",
       "type": "RELATED_TO",
@@ -34576,6 +36046,22 @@
       "confidence": "high"
     },
     {
+      "source": "16-domain-specific/contact-center-agent-supervision-operations",
+      "target": "16-domain-specific/alert-triage",
+      "type": "RELATED_TO",
+      "evidence": "[Alert Triage](../16-domain-specific/alert-triage.md)",
+      "source_file": "skills/16-domain-specific/contact-center-agent-supervision-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/contact-center-agent-supervision-operations",
+      "target": "16-domain-specific/compliance-review-workflows",
+      "type": "RELATED_TO",
+      "evidence": "[Compliance Review Workflows](../16-domain-specific/compliance-review-workflows.md)",
+      "source_file": "skills/16-domain-specific/contact-center-agent-supervision-operations.md",
+      "confidence": "high"
+    },
+    {
       "source": "16-domain-specific/curriculum-sequencing",
       "target": "16-domain-specific/lesson-plan",
       "type": "RELATED_TO",
@@ -34637,6 +36123,22 @@
       "type": "RELATED_TO",
       "evidence": "[Statistical Analysis](../12-data/statistical-analysis.md)",
       "source_file": "skills/16-domain-specific/energy-consumption-forecasting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/enterprise-agent-platform-migration-planning",
+      "target": "16-domain-specific/compliance-review-workflows",
+      "type": "RELATED_TO",
+      "evidence": "[Compliance Review Workflows](../16-domain-specific/compliance-review-workflows.md)",
+      "source_file": "skills/16-domain-specific/enterprise-agent-platform-migration-planning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "16-domain-specific/enterprise-agent-platform-migration-planning",
+      "target": "16-domain-specific/agentic-iam-policy-review",
+      "type": "RELATED_TO",
+      "evidence": "[Agentic Iam Policy Review](../16-domain-specific/agentic-iam-policy-review.md)",
+      "source_file": "skills/16-domain-specific/enterprise-agent-platform-migration-planning.md",
       "confidence": "high"
     },
     {
@@ -35136,6 +36638,22 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/a2a-agent-server-hosting-provisioning",
+      "target": "17-infrastructure/agent-harness-runtime-hosting",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Harness Runtime Hosting](../17-infrastructure/agent-harness-runtime-hosting.md)",
+      "source_file": "skills/17-infrastructure/a2a-agent-server-hosting-provisioning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/a2a-agent-server-hosting-provisioning",
+      "target": "17-infrastructure/blue-green-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Blue Green Deployment](../17-infrastructure/blue-green-deployment.md)",
+      "source_file": "skills/17-infrastructure/a2a-agent-server-hosting-provisioning.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/agent-gateway-quota-enforcement",
       "target": "17-infrastructure/llm-gateway-deployment",
       "type": "RELATED_TO",
@@ -35576,6 +37094,22 @@
       "confidence": "high"
     },
     {
+      "source": "17-infrastructure/maf-production-deployment-provisioning",
+      "target": "17-infrastructure/agent-protocol-gateway-deployment",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Protocol Gateway Deployment](../17-infrastructure/agent-protocol-gateway-deployment.md)",
+      "source_file": "skills/17-infrastructure/maf-production-deployment-provisioning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/maf-production-deployment-provisioning",
+      "target": "17-infrastructure/capacity-planning",
+      "type": "RELATED_TO",
+      "evidence": "[Capacity Planning](../17-infrastructure/capacity-planning.md)",
+      "source_file": "skills/17-infrastructure/maf-production-deployment-provisioning.md",
+      "confidence": "high"
+    },
+    {
       "source": "17-infrastructure/maintenance-window-orchestration",
       "target": "04-action-execution/scheduled-execution",
       "type": "RELATED_TO",
@@ -35717,6 +37251,22 @@
       "type": "RELATED_TO",
       "evidence": "[Health Check Endpoints](health-check-endpoints.md)",
       "source_file": "skills/17-infrastructure/service-mesh-configuration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/splunk-agent-otel-collector-provisioning",
+      "target": "17-infrastructure/agent-gateway-quota-enforcement",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Gateway Quota Enforcement](../17-infrastructure/agent-gateway-quota-enforcement.md)",
+      "source_file": "skills/17-infrastructure/splunk-agent-otel-collector-provisioning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "17-infrastructure/splunk-agent-otel-collector-provisioning",
+      "target": "17-infrastructure/certificate-expiry-management",
+      "type": "RELATED_TO",
+      "evidence": "[Certificate Expiry Management](../17-infrastructure/certificate-expiry-management.md)",
+      "source_file": "skills/17-infrastructure/splunk-agent-otel-collector-provisioning.md",
       "confidence": "high"
     },
     {
