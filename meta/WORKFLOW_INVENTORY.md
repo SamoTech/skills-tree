@@ -163,3 +163,10 @@ Closure note (2026-10-20): `temp-regen.yml` and `meta/LYCHEE-REPORT.md` were del
 `temp-regen.yml` is re-added on the `skills/expansion-2026-10-20-b2` branch only, to regenerate the repo's own projections after six skill Evidence URLs were replaced with live primary sources (CI-unreachable VentureBeat 429 / safeguard.sh 502). It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
 
 Closure note (2026-10-20): the re-added `temp-regen.yml` completed the post-fix projection regen (bot commit 94dae1e6, lychee 2993/2993 with 0 errors) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
+
+
+## Disposition update — 2026-10-21 (temporary regen + link-report tooling for PR #649)
+
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-21-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #649 independently.
+
+Closure note (2026-10-21): `temp-regen.yml` completed the post-fix projection regen after the Evidence-URL swap (bot commits `a637d368` and `563a9ee6`) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
