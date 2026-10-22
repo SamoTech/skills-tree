@@ -1,5 +1,7 @@
 # Changelog
 
+- **Added** [demand-driven expansion batch 2 (2026-10-21) - 50 skills](https://github.com/SamoTech/skills-tree/pull/651) by @SamoTech (#651) — 2026-10-21
+
 - **Added** [demand-driven expansion batch 2 (2026-10-19) - 50 skills](https://github.com/SamoTech/skills-tree/pull/641) by @SamoTech (#641) — 2026-10-19
 
 - **Fixed** [apply Counsel slice-2 remediation A4-A9 (audit issue #617)](https://github.com/SamoTech/skills-tree/pull/621) by @SamoTech (#621) — 2026-10-18
