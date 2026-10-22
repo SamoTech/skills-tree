@@ -1,4 +1,4 @@
-generated: '2026-10-22T23:12:46Z'
+generated: '2026-10-22T23:20:38Z'
 count: 1588
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -3126,8 +3126,8 @@ skills:
 - id: agentic-payment-protocol-selection-reasoning
   path: skills/02-reasoning/agentic-payment-protocol-selection-reasoning.md
   name: Agentic Payment Protocol Selection Reasoning
-  description: Reason about which agentic-payment protocol a transaction should use
-    from merchant support, cost, and reversibility evidence.
+  description: Select among x402, AP2, ACP, and MPP payment protocols with recorded
+    cost, trust, and reversibility tradeoffs.
   category: reasoning
   level: advanced
   stability: experimental
@@ -3147,8 +3147,8 @@ skills:
   - Related Skills
   - Changelog
   related:
-  - ../02-reasoning/protocol-convergence-strategy-reasoning.md
-  - ../02-reasoning/risk-assessment.md
+  - ../02-reasoning/agent-protocol-choice-reasoning.md
+  - ../02-reasoning/cost-benefit-analysis.md
   category_dir: 02-reasoning
 - id: analogical
   path: skills/02-reasoning/analogical.md

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-22T23:13:25.322215+00:00",
+    "generated_at": "2026-10-22T23:22:20.845226+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1588,
@@ -25302,17 +25302,17 @@
     },
     {
       "source": "02-reasoning/agentic-payment-protocol-selection-reasoning",
-      "target": "02-reasoning/protocol-convergence-strategy-reasoning",
+      "target": "02-reasoning/agent-protocol-choice-reasoning",
       "type": "RELATED_TO",
-      "evidence": "[Protocol Convergence Strategy Reasoning](../02-reasoning/protocol-convergence-strategy-reasoning.md)",
+      "evidence": "[Agent Protocol Choice Reasoning](../02-reasoning/agent-protocol-choice-reasoning.md)",
       "source_file": "skills/02-reasoning/agentic-payment-protocol-selection-reasoning.md",
       "confidence": "high"
     },
     {
       "source": "02-reasoning/agentic-payment-protocol-selection-reasoning",
-      "target": "02-reasoning/risk-assessment",
+      "target": "02-reasoning/cost-benefit-analysis",
       "type": "RELATED_TO",
-      "evidence": "[Risk Assessment](../02-reasoning/risk-assessment.md)",
+      "evidence": "[Cost Benefit Analysis](../02-reasoning/cost-benefit-analysis.md)",
       "source_file": "skills/02-reasoning/agentic-payment-protocol-selection-reasoning.md",
       "confidence": "high"
     },
