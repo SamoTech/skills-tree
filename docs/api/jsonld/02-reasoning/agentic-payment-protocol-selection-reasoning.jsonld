@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/agentic-payment-protocol-selection-reasoning.md",
   "name": "Agentic Payment Protocol Selection Reasoning",
   "headline": "Agentic Payment Protocol Selection Reasoning",
-  "description": "Select among x402, AP2, ACP, and MPP payment protocols with recorded cost, trust, and reversibility tradeoffs.",
+  "description": "Reason about which agentic-payment protocol a transaction should use from merchant support, cost, and reversibility evidence.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/02-reasoning/agentic-payment-protocol-selection-reasoning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-21T22:44:17Z",
+  "dateModified": "2026-10-22T22:53:59Z",
   "skillId": "agentic-payment-protocol-selection-reasoning",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,8 +72,8 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../02-reasoning/agent-protocol-choice-reasoning.md",
-    "../02-reasoning/cost-benefit-analysis.md"
+    "../02-reasoning/protocol-convergence-strategy-reasoning.md",
+    "../02-reasoning/risk-assessment.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
