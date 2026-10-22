@@ -50,7 +50,7 @@ def audit_hardcoded_credentials(files, patterns):
             if pattern in content and "example" not in content.split(pattern)[0][-30:]:
                 findings.append({"file": name, "kind": label})
     return {"verdict": "FAIL" if findings else "PASS", "findings": findings}
-files = {"sdk.py": "TOKEN = "live_abc123"", "docs.py": "TOKEN = "example_token""}
+files = {"sdk.py": "TOKEN = live_abc123", "docs.py": "TOKEN = example_live_abc"}
 patterns = {"api_token": "live_"}
 result = audit_hardcoded_credentials(files, patterns)
 assert result["verdict"] == "FAIL" and result["findings"] == [{"file": "sdk.py", "kind": "api_token"}]
