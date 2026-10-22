@@ -6,7 +6,7 @@ stability: experimental
 description: "Use the Anthropic Skills API to upload, version, and attach skills to agents with audited identifiers."
 added: "2026-10"
 version: v1
-related: [agent-tool, tool-schema-design]
+related: [mcp-tool, tool-schema-design]
 tags: [anthropic, skills, api, management]
 ---
 # Anthropic Skills Api Usage
@@ -74,7 +74,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Tool](../07-tool-use/agent-tool.md)
+- [Mcp Tool](../07-tool-use/mcp-tool.md)
 - [Tool Schema Design](../07-tool-use/tool-schema-design.md)
 
 ## Changelog

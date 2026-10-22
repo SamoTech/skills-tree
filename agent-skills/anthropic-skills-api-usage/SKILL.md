@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Tool](../07-tool-use/agent-tool.md)
+- [Mcp Tool](../07-tool-use/mcp-tool.md)
 - [Tool Schema Design](../07-tool-use/tool-schema-design.md)
 
 ## Changelog
