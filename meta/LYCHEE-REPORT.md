@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1577  |
 | ✅ Successful  | 3440  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 74    |
+| 🔀 Redirected  | 76    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 0     |
@@ -214,6 +214,10 @@
 * https://docs.anthropic.com/en/api/messages --[301]--> https://platform.claude.com/docs/en/api/messages
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
+### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
+
+* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
+
 ### Redirects in skills/09-agentic-patterns/rag.md
 
 * https://python.langchain.com/docs/concepts/retrieval/ --[308]--> https://python.langchain.com/docs/concepts/retrieval --[308]--> https://docs.langchain.com/oss/python/langchain/overview
@@ -221,6 +225,10 @@
 ### Redirects in skills/10-computer-use/remote-session-latency-adaptive-actions.md
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
+
+### Redirects in skills/11-web/agentic-meeting-space-orchestration.md
+
+* https://api.slack.com/ --[302]--> https://docs.slack.dev/
 
 ### Redirects in skills/11-web/file-download-verification.md
 
@@ -280,4 +288,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39871440120?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/39872870960?check_suite_focus=true)
