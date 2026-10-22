@@ -1,0 +1,87 @@
+name: Temp Regen & Link Report (delete before merge)
+
+# Temporary steward tooling for PR #652 only. Regenerates the repo's own
+# projections at this branch head and records a lychee markdown report so
+# failing external links can be identified without log access.
+# This workflow is deleted before merge (net zero). It grants nothing new
+# and weakens no gate; the normal PR checks still gate the PR independently.
+
+on:
+  push:
+    branches: [skills/expansion-2026-10-22-b1]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-regen-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  regen:
+    name: Regenerate projections + lychee report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: skills/expansion-2026-10-22-b1
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install --quiet PyYAML jsonschema
+
+      - name: Regenerate graph projections
+        run: |
+          python tools/build_graph.py
+          mkdir -p docs/api
+          cp data/SKILLS_GRAPH.json docs/api/graph.json
+
+      - name: Regenerate search index
+        run: |
+          python tools/build_search_index.py \
+            --skills-root skills/ \
+            --output docs/search-index.json \
+            --package-output data/search-index.json
+
+      - name: Regenerate skills API export
+        run: |
+          python3 tools/export_skills.py
+          python3 tools/verify_jsonld_export.py
+
+      - name: Regenerate quality report
+        run: python3 tools/check_skill_quality.py
+
+      - name: Patch README and docs index counts
+        run: python3 tools/update_readme_counts.py
+
+      - name: Run lychee report (non-blocking)
+        continue-on-error: true
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose --no-progress
+            --exclude 'localhost' --exclude '127\.0\.0\.1' --exclude 'example\.com'
+            --timeout 30 --max-retries 3
+            'skills/**/*.md'
+          format: markdown
+          output: meta/LYCHEE-REPORT.md
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit regenerated projections and report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet && echo "Nothing to commit." && exit 0
+          git commit -m "chore(temp): regenerate projections and lychee report (temp tooling, revert before merge)"
+          git push origin HEAD:skills/expansion-2026-10-22-b1
