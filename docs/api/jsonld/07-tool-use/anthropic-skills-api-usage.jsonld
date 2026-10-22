@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-22T22:53:59Z",
+  "dateModified": "2026-10-22T22:55:34Z",
   "skillId": "anthropic-skills-api-usage",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../07-tool-use/agent-tool.md",
+    "../07-tool-use/mcp-tool.md",
     "../07-tool-use/tool-schema-design.md"
   ],
   "educationalLevel": {

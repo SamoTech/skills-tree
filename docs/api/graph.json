@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-22T22:54:16.283810+00:00",
+    "generated_at": "2026-10-22T22:55:46.595778+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1588,
@@ -30134,9 +30134,9 @@
     },
     {
       "source": "07-tool-use/anthropic-skills-api-usage",
-      "target": "07-tool-use/agent-tool",
+      "target": "07-tool-use/mcp-tool",
       "type": "RELATED_TO",
-      "evidence": "[Agent Tool](../07-tool-use/agent-tool.md)",
+      "evidence": "[Mcp Tool](../07-tool-use/mcp-tool.md)",
       "source_file": "skills/07-tool-use/anthropic-skills-api-usage.md",
       "confidence": "high"
     },

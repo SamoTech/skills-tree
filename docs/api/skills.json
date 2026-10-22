@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-22T22:53:59Z",
+  "generated": "2026-10-22T22:55:34Z",
   "count": 1588,
   "skills": [
     {
@@ -17416,7 +17416,7 @@
         "Changelog"
       ],
       "related": [
-        "../07-tool-use/agent-tool.md",
+        "../07-tool-use/mcp-tool.md",
         "../07-tool-use/tool-schema-design.md"
       ],
       "category_dir": "07-tool-use"
