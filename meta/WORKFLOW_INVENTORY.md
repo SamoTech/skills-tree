@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,6 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+| `temp-regen.yml` | Temporary steward tooling (delete before merge) | Branch-restricted audit-capture regen for PR #652 only; deleted before merge; live count returns to 46 |
 
 ## Reconciliation findings
 
@@ -178,10 +179,7 @@ Closure note (2026-10-21): `temp-regen.yml` completed the post-fix projection re
 
 Closure note (2026-10-21): `temp-regen.yml` completed the on-branch projection regen for PR #651 (bot commit `1fccb82a`, lychee 3293/3293 with 0 errors) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
 
-## Disposition update — 2026-10-22 (temporary regen + link-report tooling for PR #652)
 
-`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-22-b1` branch only: it runs the repository’s own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #652 independently.
+## Disposition update - 2026-10-22 (temp-regen re-add for PR #652 audit diagnosis)
 
-Closure note (2026-10-22): `temp-regen.yml` completed the on-branch projection regen for PR #652 (bot commit `b5a2f057`, lychee 3440/3440 with 0 errors and 21 non-blocking timeouts) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
-Re-add note (2026-10-22): `temp-regen.yml` was re-added on the `skills/expansion-2026-10-22-b1` branch only, for the post-audit-fix projection regen after the hardcoded-credential-audit example repair (bot commit `c3eca848`, lychee 3440/3440 with 0 errors and 0 timeouts), and deleted again together with `meta/LYCHEE-REPORT.md` before merge; the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
-Second re-add closure note (2026-10-22): `temp-regen.yml` was re-added a second time on the `skills/expansion-2026-10-22-b1` branch only, for the post-dedup projection regen after restoring the pre-existing agentic-payment-protocol-selection-reasoning canonical skill and package (bot commit `20765b6b`, lychee 3440/3440 with 0 errors and 0 timeouts), and deleted again together with `meta/LYCHEE-REPORT.md` before merge; the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
+`temp-regen.yml` is re-added on the `skills/expansion-2026-10-22-b1` branch only, this time to capture the Agent Skills distribution audit outputs (`generate_agent_skills.py --audit`, `validate_agent_skills.py`, `reconcile_agent_skills.py --check`) into `meta/AUDIT-REPORT.md` for diagnosis, because the `audit` CI check failed with only a generic exit-code annotation and job logs are not readable through the available tooling. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.

@@ -1,0 +1,67 @@
+name: Temp Audit Capture (delete before merge)
+
+# Temporary steward tooling for PR #652 only (audit failure diagnosis).
+# Captures the Agent Skills distribution audit outputs into a committed
+# report. Deleted before merge (net zero); weakens no gate.
+
+on:
+  push:
+    branches: [skills/expansion-2026-10-22-b1]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit-capture:
+    name: Capture distribution audit outputs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: skills/expansion-2026-10-22-b1
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Capture audit outputs
+        run: |
+          {
+            echo '# PR #652 distribution-audit capture (temporary)'
+            echo ''
+            echo '## generate_agent_skills.py --audit'
+            echo '~~~'
+            python3 tools/generate_agent_skills.py --audit 2>&1 | tail -n 80
+            echo "exit=$?"
+            echo '~~~'
+            echo ''
+            echo '## validate_agent_skills.py'
+            echo '~~~'
+            python3 tools/validate_agent_skills.py 2>&1 | tail -n 120
+            echo "exit=$?"
+            echo '~~~'
+            echo ''
+            echo '## reconcile_agent_skills.py --check'
+            echo '~~~'
+            python3 tools/reconcile_agent_skills.py --check 2>&1 | tail -n 200
+            echo "exit=$?"
+            echo '~~~'
+          } > meta/AUDIT-REPORT.md
+
+      - name: Commit audit report
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add meta/AUDIT-REPORT.md
+          git diff --staged --quiet && echo "Nothing to commit." && exit 0
+          git commit -m "chore(temp): capture distribution audit report (temp tooling, delete before merge)"
+          git push origin HEAD:skills/expansion-2026-10-22-b1
