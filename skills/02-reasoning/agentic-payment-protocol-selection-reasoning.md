@@ -70,5 +70,5 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Changelog
 | Version | Date | Notes |
-|---|---|
+|---|---|---|
 | `v1` | `2026-10` | Initial evidence-backed contract. |

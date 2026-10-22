@@ -1,8 +1,9 @@
-name: Temp Audit Capture (delete before merge)
+name: Temp Regen & Link Report (delete before merge)
 
-# Temporary steward tooling for PR #652 only (audit failure diagnosis).
-# Captures the Agent Skills distribution audit outputs into a committed
-# report. Deleted before merge (net zero); weakens no gate.
+# Temporary steward tooling for PR #652 only (post-restore projection regen).
+# Regenerates the repo's own projections at this branch head and records a
+# lychee markdown report. Deleted before merge (net zero); grants nothing new
+# and weakens no gate.
 
 on:
   push:
@@ -13,12 +14,12 @@ permissions:
   contents: write
 
 concurrency:
-  group: temp-audit-${{ github.ref }}
+  group: temp-regen-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  audit-capture:
-    name: Capture distribution audit outputs
+  regen:
+    name: Regenerate projections + lychee report
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
@@ -32,40 +33,60 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Capture audit outputs
+      - name: Install deps
+        run: pip install --quiet PyYAML jsonschema
+
+      - name: Verify distribution audit is clean
         run: |
-          {
-            echo '# PR #652 distribution-audit capture (temporary)'
-            echo ''
-            echo '## generate_agent_skills.py --audit'
-            echo '~~~'
-            python3 tools/generate_agent_skills.py --audit 2>&1 | tail -n 80
-            echo "exit=$?"
-            echo '~~~'
-            echo ''
-            echo '## validate_agent_skills.py'
-            echo '~~~'
-            python3 tools/validate_agent_skills.py 2>&1 | tail -n 120
-            echo "exit=$?"
-            echo '~~~'
-            echo ''
-            echo '## reconcile_agent_skills.py --check'
-            echo '~~~'
-            python3 tools/reconcile_agent_skills.py --check 2>&1 | tail -n 200
-            echo "exit=$?"
-            echo '~~~'
-          } > meta/AUDIT-REPORT.md
+          python3 tools/generate_agent_skills.py --audit > /dev/null
+          python3 tools/validate_agent_skills.py > /dev/null
+          python3 tools/reconcile_agent_skills.py --check
 
-          python3 tools/reconcile_agent_skills.py --check 2>&1 | grep -B 2 -A 200 '"drifted"' | head -n 400 > meta/AUDIT-DRIFT.md || echo 'no drifted section found' > meta/AUDIT-DRIFT.md
-          echo '' >> meta/AUDIT-DRIFT.md
-          python3 tools/reconcile_agent_skills.py --check 2>&1 | tail -n 3 >> meta/AUDIT-DRIFT.md
+      - name: Regenerate graph projections
+        run: |
+          python tools/build_graph.py
+          mkdir -p docs/api
+          cp data/SKILLS_GRAPH.json docs/api/graph.json
 
-      - name: Commit audit report
+      - name: Regenerate search index
+        run: |
+          python tools/build_search_index.py \
+            --skills-root skills/ \
+            --output docs/search-index.json \
+            --package-output data/search-index.json
+
+      - name: Regenerate skills API export
+        run: |
+          python3 tools/export_skills.py
+          python3 tools/verify_jsonld_export.py
+
+      - name: Regenerate quality report
+        run: python3 tools/check_skill_quality.py
+
+      - name: Patch README and docs index counts
+        run: python3 tools/update_readme_counts.py
+
+      - name: Run lychee report (non-blocking)
+        continue-on-error: true
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --verbose --no-progress
+            --exclude 'localhost' --exclude '127\.0\.0\.1' --exclude 'example\.com'
+            --timeout 30 --max-retries 3
+            'skills/**/*.md'
+          format: markdown
+          output: meta/LYCHEE-REPORT.md
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit regenerated projections and report
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add meta/AUDIT-REPORT.md meta/AUDIT-DRIFT.md
+          git add -A
           git diff --staged --quiet && echo "Nothing to commit." && exit 0
-          git commit -m "chore(temp): capture distribution audit report (temp tooling, delete before merge)"
+          git commit -m "chore(temp): regenerate projections and lychee report (temp tooling, revert before merge)"
           git push origin HEAD:skills/expansion-2026-10-22-b1

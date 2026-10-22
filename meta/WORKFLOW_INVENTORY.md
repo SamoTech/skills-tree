@@ -53,7 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
-| `temp-regen.yml` | Temporary steward tooling (delete before merge) | Branch-restricted audit-capture regen for PR #652 only; deleted before merge; live count returns to 46 |
+| `temp-regen.yml` | Temporary steward tooling (delete before merge) | Branch-restricted projection regen + audit verification for PR #652 only; deleted before merge; live count returns to 46 |
 
 ## Reconciliation findings
 
