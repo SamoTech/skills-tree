@@ -56,12 +56,16 @@ jobs:
             echo '~~~'
           } > meta/AUDIT-REPORT.md
 
+          python3 tools/reconcile_agent_skills.py --check 2>&1 | grep -B 2 -A 200 '"drifted"' | head -n 400 > meta/AUDIT-DRIFT.md || echo 'no drifted section found' > meta/AUDIT-DRIFT.md
+          echo '' >> meta/AUDIT-DRIFT.md
+          python3 tools/reconcile_agent_skills.py --check 2>&1 | tail -n 3 >> meta/AUDIT-DRIFT.md
+
       - name: Commit audit report
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add meta/AUDIT-REPORT.md
+          git add meta/AUDIT-REPORT.md meta/AUDIT-DRIFT.md
           git diff --staged --quiet && echo "Nothing to commit." && exit 0
           git commit -m "chore(temp): capture distribution audit report (temp tooling, delete before merge)"
           git push origin HEAD:skills/expansion-2026-10-22-b1
