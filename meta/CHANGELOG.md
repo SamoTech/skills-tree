@@ -1,5 +1,7 @@
 # Changelog
 
+- **Added** [expansion batch 1 of 2026-10-23 — 50 demand-driven skills across all 17 categories](https://github.com/SamoTech/skills-tree/pull/656) by @SamoTech (#656) — 2026-10-23
+
 - **Added** [demand-driven expansion batch 2 (2026-10-21) - 50 skills](https://github.com/SamoTech/skills-tree/pull/651) by @SamoTech (#651) — 2026-10-21
 
 - **Added** [demand-driven expansion batch 2 (2026-10-19) - 50 skills](https://github.com/SamoTech/skills-tree/pull/641) by @SamoTech (#641) — 2026-10-19
