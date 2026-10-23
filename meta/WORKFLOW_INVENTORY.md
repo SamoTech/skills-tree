@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,6 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+| `temp-regen.yml` | Temporary steward tooling (see 2026-10-23 disposition below) | On-branch projection regen + lychee report for PR #656 |
 
 ## Reconciliation findings
 
@@ -191,3 +192,5 @@ Closure note (2026-10-22): the re-added `temp-regen.yml` completed both the audi
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-23-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #656 independently.
 
 Closure note (2026-10-23): `temp-regen.yml` completed the on-branch projection regen for PR #656 across two cycles (bot commits `a5e967a0` and, after the Evidence-URL and related-link remediation commit `4071a8af`, `ebfcd7f0` with lychee 3590/3590 and 0 errors) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
+
+Reopen note (2026-10-23): `temp-regen.yml` was re-added once more after the CI audit test caught invalid Python syntax in one batch-skill runnable example (`gemini-universal-agent-tool-integration`, repaired commit below); the workflow re-runs the deterministic projection regen so the committed projections stay byte-fresh for merge. It is again deleted before merge (see the updated closure note in the next commit).

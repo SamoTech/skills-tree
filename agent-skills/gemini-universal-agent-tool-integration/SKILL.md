@@ -47,7 +47,7 @@ def register_tool(tools, registry):
             raise ValueError("tool registration needs operation and least scope: " + t.get("name", "?"))
         registry.append(t)
     return registry
-reg: any[] = []
+reg = []
 register_tool([{"name": "lookup-order", "operation": "read", "scope": "orders:read"}], reg)
 assert reg[0]["scope"] == "orders:read"
 try:
