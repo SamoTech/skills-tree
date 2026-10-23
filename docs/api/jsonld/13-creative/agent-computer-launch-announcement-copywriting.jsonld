@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-23T22:11:35Z",
+  "dateModified": "2026-10-23T22:16:25Z",
   "skillId": "agent-computer-launch-announcement-copywriting",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../13-creative/press-statement-drafting.md",
+    "../06-communication/press-statement-drafting.md",
     "../13-creative/ai-model-launch-comparison-copywriting.md"
   ],
   "educationalLevel": {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-23T22:11:49.944976+00:00",
+    "generated_at": "2026-10-23T22:16:39.922445+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1638,
@@ -36244,9 +36244,9 @@
     },
     {
       "source": "13-creative/agent-computer-launch-announcement-copywriting",
-      "target": "13-creative/press-statement-drafting",
+      "target": "06-communication/press-statement-drafting",
       "type": "RELATED_TO",
-      "evidence": "[Press Statement Drafting](../13-creative/press-statement-drafting.md)",
+      "evidence": "[Press Statement Drafting](../06-communication/press-statement-drafting.md)",
       "source_file": "skills/13-creative/agent-computer-launch-announcement-copywriting.md",
       "confidence": "high"
     },
@@ -38468,9 +38468,9 @@
     },
     {
       "source": "15-orchestration/gateway-credential-quarantine-fleet-orchestration",
-      "target": "15-orchestration/incident-response",
+      "target": "16-domain-specific/incident-response",
       "type": "RELATED_TO",
-      "evidence": "[Incident Response](../15-orchestration/incident-response.md)",
+      "evidence": "[Incident Response](../16-domain-specific/incident-response.md)",
       "source_file": "skills/15-orchestration/gateway-credential-quarantine-fleet-orchestration.md",
       "confidence": "high"
     },

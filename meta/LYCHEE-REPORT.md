@@ -3,52 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 3590  |
-| 🔗 Unique      | 1639  |
-| ✅ Successful  | 3581  |
+| 🔗 Unique      | 1636  |
+| ✅ Successful  | 3590  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 75    |
+| 🔀 Redirected  | 74    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 9     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/02-reasoning/expected-value-of-computation-reasoning.md
-
-* [ERROR] <https://vdf.ai/blog/best-ai-agent-frameworks/> (at 63:81) | SSL certificate expired. Site needs to renew certificate
-
-### Errors in skills/02-reasoning/premortem-failure-analysis.md
-
-* [ERROR] <https://vdf.ai/blog/best-ai-agent-frameworks/> (at 63:89) | SSL certificate expired. Site needs to renew certificate
-
-### Errors in skills/04-action-execution/file-lock-acquisition.md
-
-* [ERROR] <https://vdf.ai/blog/best-ai-agent-frameworks/> (at 65:103) | Error (cached)
-
-### Errors in skills/06-communication/user-intent-restatement-confirmation.md
-
-* [ERROR] <https://vdf.ai/blog/best-ai-agent-frameworks/> (at 63:101) | Error (cached)
-
-### Errors in skills/08-multimodal/multilingual-asr-code-switching.md
-
-* [ERROR] <https://vdf.ai/blog/best-ai-agent-frameworks/> (at 68:102) | Error (cached)
-
-### Errors in skills/09-agentic-patterns/rag-security-assessment-pattern.md
-
-* [404] <https://www.kubiosec.tech/blog/2026-10-01-AI-Security-Roundup> (at 71:163) | Rejected status code: 404 Not Found
-
-### Errors in skills/13-creative/agent-computer-launch-announcement-copywriting.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/13-creative/press-statement-drafting.md> (at 78:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/15-orchestration/deadline-aware-task-shedding.md
-
-* [ERROR] <https://vdf.ai/blog/best-ai-agent-frameworks/> (at 66:87) | Error (cached)
-
-### Errors in skills/15-orchestration/gateway-credential-quarantine-fleet-orchestration.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/15-orchestration/incident-response.md> (at 77:3) | File not found. Check if file exists and path is correct
 
 ## Redirects per input
 
@@ -239,17 +201,13 @@
 
 * https://pandera.readthedocs.io/ --[302]--> https://pandera.readthedocs.io/en/stable/
 
-### Redirects in skills/08-multimodal/agent-identity-graph-analysis.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
-### Redirects in skills/08-multimodal/agent-traffic-metadata-enrichment.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
 ### Redirects in skills/08-multimodal/video-continuity-error-detection.md
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
+
+### Redirects in skills/09-agentic-patterns/agent-failure-taxonomy.md
+
+* https://owasp.org/www-project-top-10-for-large-language-model-applications/ --[308]--> https://owasp.org/www-project-top-10-for-large-language-model-applications --[308]--> https://owasp.org/projects/top-10-for-large-language-model-applications
 
 ### Redirects in skills/09-agentic-patterns/multi-agent-workstream-merging.md
 
@@ -325,4 +283,4 @@
 * https://owasp.org/API-Security/ --[308]--> https://owasp.org/API-Security --[308]--> https://api-security.owasp.org/
 * https://www.rfc-editor.org/rfc/rfc6585 --[301]--> https://www.rfc-editor.org/info/rfc6585/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40031998940?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40032530782?check_suite_focus=true)

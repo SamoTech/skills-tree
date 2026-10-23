@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T22:11:35Z",
+  "generated": "2026-10-23T22:16:25Z",
   "count": 1638,
   "skills": [
     {
@@ -33942,7 +33942,7 @@
         "Changelog"
       ],
       "related": [
-        "../13-creative/press-statement-drafting.md",
+        "../06-communication/press-statement-drafting.md",
         "../13-creative/ai-model-launch-comparison-copywriting.md"
       ],
       "category_dir": "13-creative"
@@ -39337,7 +39337,7 @@
       ],
       "related": [
         "../04-action-execution/exposed-credential-bulk-rotation-execution.md",
-        "../15-orchestration/incident-response.md"
+        "../16-domain-specific/incident-response.md"
       ],
       "category_dir": "15-orchestration"
     },
