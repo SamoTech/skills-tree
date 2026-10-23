@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,7 +53,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
-| `temp-regen.yml` | Authoritative release | Production release pipeline |
 
 ## Reconciliation findings
 
@@ -185,3 +184,10 @@ Closure note (2026-10-21): `temp-regen.yml` completed the on-branch projection r
 `temp-regen.yml` is re-added on the `skills/expansion-2026-10-22-b1` branch only, this time to capture the Agent Skills distribution audit outputs (`generate_agent_skills.py --audit`, `validate_agent_skills.py`, `reconcile_agent_skills.py --check`) into `meta/AUDIT-REPORT.md` for diagnosis, because the `audit` CI check failed with only a generic exit-code annotation and job logs are not readable through the available tooling. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
 
 Closure note (2026-10-22): the re-added `temp-regen.yml` completed both the audit-capture cycle and the full post-fix projection regen. The `audit` CI check failure was diagnosed from the committed `meta/AUDIT-REPORT.md`/`meta/AUDIT-DRIFT.md` as exactly one drifted package — `agentic-payment-protocol-selection-reasoning`, whose canonical skill file had not been restored byte-identically during the earlier near-duplicate withdrawal; the byte-exact skill-file restore (commit `d42c32a3`) cleared the drift, and the workflow then regenerated all projections at the branch head (bot commit `a182e6b2`, lychee 3440/3440 with 0 errors, 0 timeouts). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
+
+
+## Disposition update — 2026-10-23 (temporary regen + link-report tooling for PR #656)
+
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-23-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #656 independently.
+
+Closure note (2026-10-23): `temp-regen.yml` completed the on-branch projection regen for PR #656 across two cycles (bot commits `a5e967a0` and, after the Evidence-URL and related-link remediation commit `4071a8af`, `ebfcd7f0` with lychee 3590/3590 and 0 errors) and was deleted on the branch together with `meta/LYCHEE-REPORT.md` before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
