@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Exposed Credential Bulk Rotation Execution](../04-action-execution/exposed-credential-bulk-rotation-execution.md)
-- [Incident Response](../15-orchestration/incident-response.md)
+- [Incident Response](../16-domain-specific/incident-response.md)
 
 ## Changelog
 | Version | Date | Notes |

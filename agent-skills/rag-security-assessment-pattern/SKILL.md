@@ -66,7 +66,7 @@ except ValueError:
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The October 2026 AI security roundup covering LLM, MCP, RAG, and agentic vulnerabilities defines the RAG vulnerability classes this assessment pattern checks. ([public signal](https://www.kubiosec.tech/blog/2026-10-01-AI-Security-Roundup))
+- The October 2026 AI security roundup covering LLM, MCP, RAG, and agentic vulnerabilities defines the RAG vulnerability classes this assessment pattern checks. ([public signal](https://genai.owasp.org/2026/10/08/genai-and-agentic-ai-exploit-roundup-q3-2026/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
