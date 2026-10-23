@@ -65,7 +65,7 @@ assert [s["lang"] for s in segments(["hi", "there", "你好", "世界"])] == ["e
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- 2026 agent framework guides list multilingual voice pipelines among production agent capabilities ([public signal](https://vdf.ai/blog/best-ai-agent-frameworks/))
+- 2026 agent framework guides list multilingual voice pipelines among production agent capabilities ([public signal](https://reverbico.com/blog/top-ai-agent-frameworks/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
