@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-22T23:36:09Z",
-  "count": 1588,
+  "generated": "2026-10-23T22:11:35Z",
+  "count": 1638,
   "skills": [
     {
       "id": "a2a-agent-card-capability-parsing",
@@ -144,6 +144,36 @@
       "related": [
         "../01-perception/agent-trace-span-parsing.md",
         "../01-perception/sarif-results-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "agent-gateway-credential-event-parsing",
+      "path": "skills/01-perception/agent-gateway-credential-event-parsing.md",
+      "name": "Agent Gateway Credential Event Parsing",
+      "description": "Parse agent-gateway credential-disclosure events into structured exposure records naming the leaked secret class and affected platform.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agent-gateway-credential-disclosure-hardening.md",
+        "../12-data/gateway-credential-disclosure-cluster-analytics.md"
       ],
       "category_dir": "01-perception"
     },
@@ -355,6 +385,36 @@
       "related": [
         "../01-perception/x402-http-payment-header-parsing.md",
         "../01-perception/api-response-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "ai-security-breach-log-parsing",
+      "path": "skills/01-perception/ai-security-breach-log-parsing.md",
+      "name": "Ai Security Breach Log Parsing",
+      "description": "Parse public AI-security incident and breach logs into structured per-incident records with affected stacks and disclosed weaknesses.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/agent-breach-timeline-analytics.md",
+        "../14-security/forensic-log-reconstruction.md"
       ],
       "category_dir": "01-perception"
     },
@@ -2021,6 +2081,36 @@
       "related": [
         "../01-perception/iot-telemetry-parsing.md",
         "../01-perception/certificate-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "open-responses-api-stream-parsing",
+      "path": "skills/01-perception/open-responses-api-stream-parsing.md",
+      "name": "Open Responses Api Stream Parsing",
+      "description": "Parse Open Responses API event streams into ordered request and response records aligned with the open standard envelope.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/open-responses-api-server-usage.md",
+        "../01-perception/sse-parsing.md"
       ],
       "category_dir": "01-perception"
     },
@@ -4623,6 +4713,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "internal-misalignment-disclosure-interpretation-reasoning",
+      "path": "skills/02-reasoning/internal-misalignment-disclosure-interpretation-reasoning.md",
+      "name": "Internal Misalignment Disclosure Interpretation Reasoning",
+      "description": "Reason about a model provider internal-misalignment disclosure to decide what capability changes and guardrails a deployment requires.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/runtime-behavior-baselining.md",
+        "../02-reasoning/capability-claim-verification-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "intervention-timing-reasoning",
       "path": "skills/02-reasoning/intervention-timing-reasoning.md",
       "name": "Intervention Timing Reasoning",
@@ -4649,6 +4769,36 @@
       "related": [
         "../04-action-execution/human-takeover-mid-action-handoff.md",
         "../09-agentic-patterns/agent-halt-conditions.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "ipo-filing-financial-health-reasoning",
+      "path": "skills/02-reasoning/ipo-filing-financial-health-reasoning.md",
+      "name": "Ipo Filing Financial Health Reasoning",
+      "description": "Reason about an AI vendor draft IPO filing to assess disclosed revenue, losses, and concentration risks before deepening platform dependence.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/ai-vendor-ipo-financial-disclosure-review.md",
+        "../02-reasoning/risk-assessment.md"
       ],
       "category_dir": "02-reasoning"
     },
@@ -5549,6 +5699,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "retailer-agent-access-policy-reasoning",
+      "path": "skills/02-reasoning/retailer-agent-access-policy-reasoning.md",
+      "name": "Retailer Agent Access Policy Reasoning",
+      "description": "Reason about retailer and platform agent-access policies to decide whether an agent may act on a property and under what declared restrictions.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../11-web/robots-agent-policy-compliance.md",
+        "../02-reasoning/trust-boundary-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "reversible-decision-reasoning",
       "path": "skills/02-reasoning/reversible-decision-reasoning.md",
       "name": "Reversible Decision Reasoning",
@@ -6385,6 +6565,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "agent-credential-exposure-quarantine-memory",
+      "path": "skills/03-memory/agent-credential-exposure-quarantine-memory.md",
+      "name": "Agent Credential Exposure Quarantine Memory",
+      "description": "Maintain a quarantine memory of credentials flagged as exposed at gateways so quarantined secrets are never reused without an explicit release decision.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/exposed-credential-bulk-rotation-execution.md",
+        "../03-memory/memory-injection.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "agent-import-trust-memory",
       "path": "skills/03-memory/agent-import-trust-memory.md",
       "name": "Agent Import Trust Memory",
@@ -7031,6 +7241,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "enterprise-agent-rollout-adoption-memory",
+      "path": "skills/03-memory/enterprise-agent-rollout-adoption-memory.md",
+      "name": "Enterprise Agent Rollout Adoption Memory",
+      "description": "Maintain a memory of enterprise agent rollout adoption signals per department so later rollout decisions use recorded adoption evidence.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/enterprise-agent-seat-usage-analytics.md",
+        "../15-orchestration/phased-enterprise-agent-rollout-orchestration.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -8236,6 +8476,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "openenv-agent-environment-state-memory",
+      "path": "skills/03-memory/openenv-agent-environment-state-memory.md",
+      "name": "Openenv Agent Environment State Memory",
+      "description": "Maintain agent environment state records aligned with the OpenEnv open environment standard so sessions resume against verified environment snapshots.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/openenv-environment-provisioning.md",
+        "../03-memory/state-snapshot-restore.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "persistent-agent-workspace-memory",
       "path": "skills/03-memory/persistent-agent-workspace-memory.md",
       "name": "Persistent Agent Workspace Memory",
@@ -9226,6 +9496,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "agent-computer-task-offload-execution",
+      "path": "skills/04-action-execution/agent-computer-task-offload-execution.md",
+      "name": "Agent Computer Task Offload Execution",
+      "description": "Execute task offload from a host agent to a dedicated full-stack agent computer with recorded transfer, verification, and reclaim of results.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/agent-computer-hardware-provisioning.md",
+        "../04-action-execution/long-running-action-monitoring.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "agent-payment-initiation",
       "path": "skills/04-action-execution/agent-payment-initiation.md",
       "name": "Agent Payment Initiation",
@@ -10138,6 +10438,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "enterprise-agent-license-seat-provisioning-actions",
+      "path": "skills/04-action-execution/enterprise-agent-license-seat-provisioning-actions.md",
+      "name": "Enterprise Agent License Seat Provisioning Actions",
+      "description": "Provision enterprise agent licenses and seats in controlled waves with recorded seat assignment, activation verification, and rollback.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/phased-enterprise-agent-rollout-orchestration.md",
+        "../04-action-execution/background-job-submission.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "env-vars",
       "path": "skills/04-action-execution/env-vars.md",
       "name": "Environment Variables",
@@ -10158,6 +10488,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "exposed-credential-bulk-rotation-execution",
+      "path": "skills/04-action-execution/exposed-credential-bulk-rotation-execution.md",
+      "name": "Exposed Credential Bulk Rotation Execution",
+      "description": "Execute bulk rotation of credentials flagged as exposed, rotating each through its provider path with verification and recorded replacement digests.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/post-incident-agent-credential-rotation.md",
+        "../03-memory/agent-credential-exposure-quarantine-memory.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -11854,6 +12214,36 @@
       "related": [
         "../05-code/git-operations.md",
         "../05-code/agent-generated-code-auditing.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "agent-framework-rce-mega-cluster-patch-triage",
+      "path": "skills/05-code/agent-framework-rce-mega-cluster-patch-triage.md",
+      "name": "Agent Framework Rce Mega Cluster Patch Triage",
+      "description": "Triage a mega-cluster of agent-framework RCE CVEs against the deployed stack, rank patch order by exposure, and produce a patch plan with verification gates.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agent-framework-default-auth-verification.md",
+        "../05-code/ci-failure-triage.md"
       ],
       "category_dir": "05-code"
     },
@@ -13693,6 +14083,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "mcp-production-overhaul-adoption-planning",
+      "path": "skills/05-code/mcp-production-overhaul-adoption-planning.md",
+      "name": "Mcp Production Overhaul Adoption Planning",
+      "description": "Plan MCP production overhaul adoption by classifying spec changes into adopt-first, migrate-safely, and what-breaks tracks with per-track verification.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/mcp-stateless-request-migration.md",
+        "../02-reasoning/mcp-stateless-migration-risk-reasoning.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "microsoft-agent-framework-migration",
       "path": "skills/05-code/microsoft-agent-framework-migration.md",
       "name": "Microsoft Agent Framework Migration",
@@ -13852,6 +14272,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "opensandbox-code-execution-adoption",
+      "path": "skills/05-code/opensandbox-code-execution-adoption.md",
+      "name": "Opensandbox Code Execution Adoption",
+      "description": "Adopt the OpenSandbox open sandboxing project for agent code execution, integrating its isolation interface with recorded capability and escape verification.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/code-execution-sandbox.md",
+        "../10-computer-use/sandboxed-desktop-vm-execution.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -14675,6 +15125,36 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "agent-access-denied-response-communication",
+      "path": "skills/06-communication/agent-access-denied-response-communication.md",
+      "name": "Agent Access Denied Response Communication",
+      "description": "Write agent access-denied responses that state the denial, its policy basis, and legitimate alternative channels without evasion tactics.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/retailer-agent-access-policy-reasoning.md",
+        "../06-communication/service-recovery-communication.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "agent-action-explanation-writing",
       "path": "skills/06-communication/agent-action-explanation-writing.md",
       "name": "Agent Action Explanation Writing",
@@ -14731,6 +15211,36 @@
       "related": [
         "../06-communication/agent-action-explanation-writing.md",
         "../04-action-execution/action-journaling.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "agent-cve-cluster-user-notification-writing",
+      "path": "skills/06-communication/agent-cve-cluster-user-notification-writing.md",
+      "name": "Agent Cve Cluster User Notification Writing",
+      "description": "Write user-facing notifications for agent CVE clusters that state impact, required action, and timeline without leaking exploit details.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/vulnerability-disclosure-handling.md",
+        "../06-communication/incident-communication.md"
       ],
       "category_dir": "06-communication"
     },
@@ -15001,6 +15511,36 @@
       "related": [
         "../06-communication/agent-action-explanation-writing.md",
         "../13-creative/ai-content-disclosure-writing.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "ai-vendor-financial-disclosure-communication",
+      "path": "skills/06-communication/ai-vendor-financial-disclosure-communication.md",
+      "name": "Ai Vendor Financial Disclosure Communication",
+      "description": "Write vendor financial-disclosure communications that convey filing-based risk findings to engineering stakeholders without investment advice.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/ipo-filing-financial-health-reasoning.md",
+        "../06-communication/stakeholder-status-updates.md"
       ],
       "category_dir": "06-communication"
     },
@@ -17333,6 +17873,36 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "agent-skills-open-standard-package-usage",
+      "path": "skills/07-tool-use/agent-skills-open-standard-package-usage.md",
+      "name": "Agent Skills Open Standard Package Usage",
+      "description": "Use the AAIF Agent Skills open-standard package format to install, validate, and invoke skill packages across conforming agent runtimes.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agent-skill-security-audit.md",
+        "../07-tool-use/anthropic-skills-api-usage.md"
+      ],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "anp-agent-network-protocol-usage",
       "path": "skills/07-tool-use/anp-agent-network-protocol-usage.md",
       "name": "ANP Agent Network Protocol Usage",
@@ -17900,6 +18470,36 @@
       "related": [
         "../07-tool-use/mcp-app-authoring.md",
         "../07-tool-use/tool-schema-design.md"
+      ],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "gemini-universal-agent-tool-integration",
+      "path": "skills/07-tool-use/gemini-universal-agent-tool-integration.md",
+      "name": "Gemini Universal Agent Tool Integration",
+      "description": "Integrate tools with the Gemini universal enterprise agent surface, declaring scopes and verifying delegated task results from the agent workspace.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/google-workspace-api.md",
+        "../15-orchestration/phased-enterprise-agent-rollout-orchestration.md"
       ],
       "category_dir": "07-tool-use"
     },
@@ -18861,6 +19461,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "open-responses-api-server-usage",
+      "path": "skills/07-tool-use/open-responses-api-server-usage.md",
+      "name": "Open Responses Api Server Usage",
+      "description": "Use an Open Responses API server as an open standardized responses interface, verifying request contracts and recording server capability declarations.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/open-responses-api-stream-parsing.md",
+        "../07-tool-use/openai-api.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -20104,6 +20734,36 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "agent-computer-embedded-display-interaction-verification",
+      "path": "skills/08-multimodal/agent-computer-embedded-display-interaction-verification.md",
+      "name": "Agent Computer Embedded Display Interaction Verification",
+      "description": "Verify multimodal display and sensor interactions on a full-stack agent computer by capturing interface evidence against declared interaction contracts.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../10-computer-use/agent-computer-desktop-environment-setup-automation.md",
+        "../08-multimodal/smart-glasses-agent-interface-testing.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "agent-identity-graph-analysis",
       "path": "skills/08-multimodal/agent-identity-graph-analysis.md",
       "name": "Agent Identity Graph Analysis",
@@ -20220,6 +20880,36 @@
       "related": [
         "../08-multimodal/realtime-speech-to-speech-agent-loop.md",
         "../08-multimodal/voice-agent-barge-in-handling.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "ai-briefing-daily-signal-digest-generation",
+      "path": "skills/08-multimodal/ai-briefing-daily-signal-digest-generation.md",
+      "name": "Ai Briefing Daily Signal Digest Generation",
+      "description": "Generate a daily multimodal AI signal digest that pairs each covered story with its source links and separates reported claims from verified facts.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/multiday-agent-activity-digest-writing.md",
+        "../01-perception/agent-watcher-alert-stream-parsing.md"
       ],
       "category_dir": "08-multimodal"
     },
@@ -21284,6 +21974,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "openenv-sensor-actuator-interface-binding",
+      "path": "skills/08-multimodal/openenv-sensor-actuator-interface-binding.md",
+      "name": "Openenv Sensor Actuator Interface Binding",
+      "description": "Bind agent environment sensor and actuator interfaces through the OpenEnv standard with declared signal contracts and fail-closed actuation.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/openenv-agent-environment-state-memory.md",
+        "../01-perception/sensor-reading.md"
+      ],
       "category_dir": "08-multimodal"
     },
     {
@@ -23644,6 +24364,36 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "framework-default-auth-hardening-pattern",
+      "path": "skills/09-agentic-patterns/framework-default-auth-hardening-pattern.md",
+      "name": "Framework Default Auth Hardening Pattern",
+      "description": "Apply a default-auth hardening pattern that verifies agent framework authentication defaults before deployment and fails closed on defaults-off components.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agent-framework-default-auth-verification.md",
+        "../09-agentic-patterns/guardrail-wrapped-agent-loops.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "goal-contract-checking",
       "path": "skills/09-agentic-patterns/goal-contract-checking.md",
       "name": "Goal Contract Checking",
@@ -24216,6 +24966,36 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "org-wide-agent-rollout-phased-pattern",
+      "path": "skills/09-agentic-patterns/org-wide-agent-rollout-phased-pattern.md",
+      "name": "Org Wide Agent Rollout Phased Pattern",
+      "description": "Apply a phased org-wide agent rollout pattern with wave gates, adoption checkpoints, and a recorded rollback boundary per wave.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/phased-enterprise-agent-rollout-orchestration.md",
+        "../09-agentic-patterns/milestone-commitment-tracking.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "oversight-stack-supervision-patterns",
       "path": "skills/09-agentic-patterns/oversight-stack-supervision-patterns.md",
       "name": "Oversight Stack Supervision Patterns",
@@ -24482,6 +25262,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "rag-security-assessment-pattern",
+      "path": "skills/09-agentic-patterns/rag-security-assessment-pattern.md",
+      "name": "Rag Security Assessment Pattern",
+      "description": "Apply a RAG pipeline security assessment pattern that checks retrieval-path injection, data poisoning, and egress surfaces with recorded per-control results.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/rag-pipeline.md",
+        "../14-security/agentic-ssrf-prevention.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -25192,6 +26002,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
+      "id": "agent-computer-desktop-environment-setup-automation",
+      "path": "skills/10-computer-use/agent-computer-desktop-environment-setup-automation.md",
+      "name": "Agent Computer Desktop Environment Setup Automation",
+      "description": "Automate first-run setup of a dedicated agent computer desktop environment with recorded profile, driver, and agent-runtime verification.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/agent-computer-hardware-provisioning.md",
+        "../10-computer-use/app-readiness-probing.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -25994,6 +26834,36 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "enterprise-agent-desktop-image-provisioning",
+      "path": "skills/10-computer-use/enterprise-agent-desktop-image-provisioning.md",
+      "name": "Enterprise Agent Desktop Image Provisioning",
+      "description": "Provision standardized enterprise desktop images for agent deployment fleets with recorded image digests and post-provision verification.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/enterprise-agent-license-seat-provisioning-actions.md",
+        "../10-computer-use/fleet-management-console-automation.md"
+      ],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "file-dialog",
       "path": "skills/10-computer-use/file-dialog.md",
       "name": "file-dialog",
@@ -26614,6 +27484,36 @@
       "related": [
         "../10-computer-use/computer-use-error-recovery.md",
         "../10-computer-use/computer-use-agent-human-in-the-loop-approval-operations.md"
+      ],
+      "category_dir": "10-computer-use"
+    },
+    {
+      "id": "opensandbox-remote-desktop-execution-usage",
+      "path": "skills/10-computer-use/opensandbox-remote-desktop-execution-usage.md",
+      "name": "Opensandbox Remote Desktop Execution Usage",
+      "description": "Use OpenSandbox remote desktop execution to run desktop interactions in the open sandboxing layer with recorded isolation and session evidence.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/opensandbox-code-execution-adoption.md",
+        "../10-computer-use/sandboxed-desktop-vm-execution.md"
       ],
       "category_dir": "10-computer-use"
     },
@@ -27829,6 +28729,36 @@
       "category_dir": "11-web"
     },
     {
+      "id": "ai-security-advisory-feed-subscription-automation",
+      "path": "skills/11-web/ai-security-advisory-feed-subscription-automation.md",
+      "name": "Ai Security Advisory Feed Subscription Automation",
+      "description": "Automate subscription to AI security advisory feeds with deduplicated intake, source verification, and structured advisory records for downstream triage.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/q3-agentic-exploit-roundup-tracking-operations.md",
+        "../01-perception/vendor-security-bulletin-parsing.md"
+      ],
+      "category_dir": "11-web"
+    },
+    {
       "id": "api-discovery",
       "path": "skills/11-web/api-discovery.md",
       "name": "api-discovery",
@@ -27851,6 +28781,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "breach-log-public-disclosure-page-monitoring",
+      "path": "skills/11-web/breach-log-public-disclosure-page-monitoring.md",
+      "name": "Breach Log Public Disclosure Page Monitoring",
+      "description": "Monitor public AI breach and incident disclosure pages for entries that name components of your stack, with recorded observation windows and matched entry links.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/ai-security-breach-log-parsing.md",
+        "../11-web/page-diff-monitoring.md"
+      ],
       "category_dir": "11-web"
     },
     {
@@ -30229,6 +31189,36 @@
       "category_dir": "12-data"
     },
     {
+      "id": "agent-breach-timeline-analytics",
+      "path": "skills/12-data/agent-breach-timeline-analytics.md",
+      "name": "Agent Breach Timeline Analytics",
+      "description": "Analyze structured breach timelines to quantify incident recurrence, affected component concentration, and time-to-disclosure patterns with recorded calculations.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/ai-security-breach-log-parsing.md",
+        "../12-data/cohort-analysis.md"
+      ],
+      "category_dir": "12-data"
+    },
+    {
       "id": "agent-eval-metric-drift-monitoring",
       "path": "skills/12-data/agent-eval-metric-drift-monitoring.md",
       "name": "Agent Eval Metric Drift Monitoring",
@@ -31446,6 +32436,36 @@
       "category_dir": "12-data"
     },
     {
+      "id": "enterprise-agent-seat-usage-analytics",
+      "path": "skills/12-data/enterprise-agent-seat-usage-analytics.md",
+      "name": "Enterprise Agent Seat Usage Analytics",
+      "description": "Analyze enterprise agent seat usage from license and activity data to compute active-seat rates, dormant-seat waste, and department adoption gaps with recorded sources.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/enterprise-agent-rollout-adoption-memory.md",
+        "../12-data/llm-cost-usage-accounting.md"
+      ],
+      "category_dir": "12-data"
+    },
+    {
       "id": "etl-pipeline",
       "path": "skills/12-data/etl-pipeline.md",
       "name": "etl-pipeline",
@@ -31660,6 +32680,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "gateway-credential-disclosure-cluster-analytics",
+      "path": "skills/12-data/gateway-credential-disclosure-cluster-analytics.md",
+      "name": "Gateway Credential Disclosure Cluster Analytics",
+      "description": "Analyze gateway credential-disclosure clusters across agent platforms to quantify exposure concentration, credential classes, and disclosure vectors with recorded evidence links.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/agent-gateway-credential-event-parsing.md",
+        "../12-data/token-exfil-incident-forensics.md"
+      ],
       "category_dir": "12-data"
     },
     {
@@ -32868,6 +33918,36 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "agent-computer-launch-announcement-copywriting",
+      "path": "skills/13-creative/agent-computer-launch-announcement-copywriting.md",
+      "name": "Agent Computer Launch Announcement Copywriting",
+      "description": "Write launch announcement copy for agent computer and agentic hardware products with verified spec claims and disclosed launch-event attribution.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../13-creative/press-statement-drafting.md",
+        "../13-creative/ai-model-launch-comparison-copywriting.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "agent-payments-merchant-announcement-copywriting",
       "path": "skills/13-creative/agent-payments-merchant-announcement-copywriting.md",
       "name": "Agent Payments Merchant Announcement Copywriting",
@@ -33932,6 +35012,36 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "open-standards-adoption-campaign-copywriting",
+      "path": "skills/13-creative/open-standards-adoption-campaign-copywriting.md",
+      "name": "Open Standards Adoption Campaign Copywriting",
+      "description": "Write adoption campaign copy for open agent standards that names the standard, its governance home, and honest maturity state without vendor capture framing.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../13-creative/ai-content-disclosure-writing.md",
+        "../06-communication/public-roadmap-communication-writing.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "persistent-agent-persona-arc-planning",
       "path": "skills/13-creative/persistent-agent-persona-arc-planning.md",
       "name": "Persistent Agent Persona Arc Planning",
@@ -34761,6 +35871,66 @@
       "related": [
         "../14-security/agent-identity-verification.md",
         "../14-security/key-rotation-automation.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "agent-framework-default-auth-verification",
+      "path": "skills/14-security/agent-framework-default-auth-verification.md",
+      "name": "Agent Framework Default Auth Verification",
+      "description": "Verify effective authentication defaults of deployed agent framework components, probing each admin and execution endpoint and failing closed on unauthenticated access.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/agent-framework-rce-mega-cluster-patch-triage.md",
+        "../09-agentic-patterns/framework-default-auth-hardening-pattern.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "agent-gateway-credential-disclosure-hardening",
+      "path": "skills/14-security/agent-gateway-credential-disclosure-hardening.md",
+      "name": "Agent Gateway Credential Disclosure Hardening",
+      "description": "Harden agent gateways against credential disclosure by removing secrets from gateway configuration surfaces, logs, and API responses with per-surface verification.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/mcp-oauth-token-exfil-hardening.md",
+        "../14-security/data-exfiltration-detection.md"
       ],
       "category_dir": "14-security"
     },
@@ -36218,6 +37388,36 @@
       "category_dir": "14-security"
     },
     {
+      "id": "plaintext-credential-egress-hardening",
+      "path": "skills/14-security/plaintext-credential-egress-hardening.md",
+      "name": "Plaintext Credential Egress Hardening",
+      "description": "Harden agent deployments against plaintext-credential egress by blocking plaintext secret flows at the network boundary and verifying with controlled egress probes.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/coding-agent-dns-egress-permission-gating.md",
+        "../04-action-execution/shell-environment-sanitization.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
       "id": "post-incident-agent-credential-rotation",
       "path": "skills/14-security/post-incident-agent-credential-rotation.md",
       "name": "Post Incident Agent Credential Rotation",
@@ -36351,6 +37551,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "q3-agentic-exploit-roundup-tracking-operations",
+      "path": "skills/14-security/q3-agentic-exploit-roundup-tracking-operations.md",
+      "name": "Q3 Agentic Exploit Roundup Tracking Operations",
+      "description": "Track quarterly agentic exploit roundups against your deployed stack, mapping each reported exploit class to owned controls with recorded coverage verdicts.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agentic-owasp-top10-risk-assessment.md",
+        "../11-web/ai-security-advisory-feed-subscription-automation.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -37521,6 +38751,36 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "coordinated-cve-cluster-response-orchestration",
+      "path": "skills/15-orchestration/coordinated-cve-cluster-response-orchestration.md",
+      "name": "Coordinated Cve Cluster Response Orchestration",
+      "description": "Orchestrate a coordinated response to a multi-CVE cluster, sequencing triage, patch waves, verification, and disclosure across affected teams with per-CVE state tracking.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/agent-framework-rce-mega-cluster-patch-triage.md",
+        "../14-security/vulnerability-triage.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "cost-aware-model-routing",
       "path": "skills/15-orchestration/cost-aware-model-routing.md",
       "name": "Cost-Aware Model Routing",
@@ -38052,6 +39312,36 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "gateway-credential-quarantine-fleet-orchestration",
+      "path": "skills/15-orchestration/gateway-credential-quarantine-fleet-orchestration.md",
+      "name": "Gateway Credential Quarantine Fleet Orchestration",
+      "description": "Orchestrate fleet-wide credential quarantine after gateway exposure findings, ordering quarantine, verification, rotation, and release steps with per-credential gates.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/exposed-credential-bulk-rotation-execution.md",
+        "../15-orchestration/incident-response.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "hierarchical-tree",
       "path": "skills/15-orchestration/hierarchical-tree.md",
       "name": "hierarchical-tree",
@@ -38466,6 +39756,36 @@
       "related": [
         "../15-orchestration/agent-incident-command.md",
         "../15-orchestration/agent-recovery-objective-planning.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "phased-enterprise-agent-rollout-orchestration",
+      "path": "skills/15-orchestration/phased-enterprise-agent-rollout-orchestration.md",
+      "name": "Phased Enterprise Agent Rollout Orchestration",
+      "description": "Orchestrate a phased enterprise agent rollout across waves with dependency-ordered seat provisioning, per-wave health gates, and a declared global pause condition.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/org-wide-agent-rollout-phased-pattern.md",
+        "../15-orchestration/fleet-wide-config-rollout.md"
       ],
       "category_dir": "15-orchestration"
     },
@@ -39398,6 +40718,36 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "ai-vendor-ipo-financial-disclosure-review",
+      "path": "skills/16-domain-specific/ai-vendor-ipo-financial-disclosure-review.md",
+      "name": "Ai Vendor Ipo Financial Disclosure Review",
+      "description": "Review an AI vendor draft IPO financial disclosure for dependence-relevant findings, separating reported figures from rumored figures with cited sources.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/ipo-filing-financial-health-reasoning.md",
+        "../16-domain-specific/vendor-agent-platform-risk-assessment.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "alert-triage",
       "path": "skills/16-domain-specific/alert-triage.md",
       "name": "alert-triage",
@@ -39835,6 +41185,36 @@
       "related": [
         "../16-domain-specific/compliance-review-workflows.md",
         "../16-domain-specific/agentic-iam-policy-review.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "enterprise-chatgpt-work-governance-policy-drafting",
+      "path": "skills/16-domain-specific/enterprise-chatgpt-work-governance-policy-drafting.md",
+      "name": "Enterprise Chatgpt Work Governance Policy Drafting",
+      "description": "Draft enterprise governance policy for an org-wide agent product rollout covering approved use cases, data boundaries, and enforcement responsibilities with cited rollout evidence.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/hr-policy-drafting.md",
+        "../09-agentic-patterns/org-wide-agent-rollout-phased-pattern.md"
       ],
       "category_dir": "16-domain-specific"
     },
@@ -41152,6 +42532,36 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "retailer-agent-channel-policy-operations",
+      "path": "skills/16-domain-specific/retailer-agent-channel-policy-operations.md",
+      "name": "Retailer Agent Channel Policy Operations",
+      "description": "Operate retail agent channels under the retailer current stance, registering permitted channels, honoring rate and scope limits, and suspending blocked-channel work automatically.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/retailer-agent-access-policy-reasoning.md",
+        "../16-domain-specific/agentic-commerce-merchant-operations.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "review-analysis",
       "path": "skills/16-domain-specific/review-analysis.md",
       "name": "review-analysis",
@@ -41617,6 +43027,36 @@
       "related": [
         "../17-infrastructure/agent-harness-runtime-hosting.md",
         "../17-infrastructure/blue-green-deployment.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "agent-computer-hardware-provisioning",
+      "path": "skills/17-infrastructure/agent-computer-hardware-provisioning.md",
+      "name": "Agent Computer Hardware Provisioning",
+      "description": "Provision dedicated agent computer hardware with recorded specifications, firmware baselines, network placement, and post-provision health checks.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/agent-computer-task-offload-execution.md",
+        "../17-infrastructure/capacity-planning.md"
       ],
       "category_dir": "17-infrastructure"
     },
@@ -42373,6 +43813,36 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "enterprise-agent-seat-capacity-planning",
+      "path": "skills/17-infrastructure/enterprise-agent-seat-capacity-planning.md",
+      "name": "Enterprise Agent Seat Capacity Planning",
+      "description": "Plan agent seat and license capacity for enterprise rollouts with growth scenarios, cost ceilings, and recorded assumptions per planning cycle.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/capacity-planning.md",
+        "../12-data/enterprise-agent-seat-usage-analytics.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "foundry-hosted-agent-deployment-provisioning",
       "path": "skills/17-infrastructure/foundry-hosted-agent-deployment-provisioning.md",
       "name": "Foundry Hosted Agent Deployment Provisioning",
@@ -42926,6 +44396,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "openenv-environment-provisioning",
+      "path": "skills/17-infrastructure/openenv-environment-provisioning.md",
+      "name": "Openenv Environment Provisioning",
+      "description": "Provision agent environments to the OpenEnv standard with declared interface sets, recorded definitions, and verified environment startup checks.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/openenv-agent-environment-state-memory.md",
+        "../17-infrastructure/declarative-infrastructure.md"
+      ],
       "category_dir": "17-infrastructure"
     },
     {
