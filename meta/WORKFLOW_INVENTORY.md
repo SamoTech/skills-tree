@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,6 +40,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
+| `temp-regen.yml` | Temporary steward tooling | Branch-local projection regen + lychee report for the 2026-10-24 batch-1 expansion branch; deleted before merge |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -193,3 +194,7 @@ Closure note (2026-10-22): the re-added `temp-regen.yml` completed both the audi
 Closure note (2026-10-23): across three regen cycles (`a5e967a0`; `ebfcd7f0` after the Evidence-URL/related-link remediation `4071a8af`; `4705223a` after the Python-example repair `f113c6b0`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head with lychee ending at 3590/3590 and 0 errors. It and `meta/LYCHEE-REPORT.md` were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
 
 Reopen note (2026-10-23): `temp-regen.yml` was re-added once more after the CI audit test caught invalid Python syntax in one batch-skill runnable example (`gemini-universal-agent-tool-integration`, repaired commit below); the workflow re-runs the deterministic projection regen so the committed projections stay byte-fresh for merge.
+
+## Disposition update — 2026-10-24 (temporary regen + link-report tooling for the 2026-10-24 batch-1 expansion)
+
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-24-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
