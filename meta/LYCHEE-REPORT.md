@@ -3,112 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 3740  |
-| 🔗 Unique      | 1676  |
-| ✅ Successful  | 3716  |
+| 🔗 Unique      | 1675  |
+| ✅ Successful  | 3740  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 76    |
+| 🔀 Redirected  | 77    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 24    |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/01-perception/agent-permission-grant-transcript-parsing.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 71:212) | Rejected status code: 403 Forbidden
-
-### Errors in skills/01-perception/notification-stream-consent-metadata-parsing.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 68:223) | Error (cached)
-
-### Errors in skills/02-reasoning/permission-scope-necessity-reasoning.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 70:181) | Error (cached)
-
-### Errors in skills/03-memory/permission-grant-history-memory.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 73:199) | Error (cached)
-
-### Errors in skills/03-memory/revoked-access-residual-data-memory.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 74:228) | Error (cached)
-
-### Errors in skills/03-memory/steering-interruption-context-memory.md
-
-* [403] <https://tech-insider.org/codex-cli-0-163-ai-coding-agents-2026/> (at 70:203) | Rejected status code: 403 Forbidden
-
-### Errors in skills/04-action-execution/permission-scope-downgrade-execution.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 68:209) | Error (cached)
-
-### Errors in skills/05-code/mid-response-steering-integration-testing.md
-
-* [403] <https://tech-insider.org/codex-cli-0-163-ai-coding-agents-2026/> (at 69:165) | Error (cached)
-
-### Errors in skills/06-communication/data-ingest-transparency-report-writing.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 70:204) | Error (cached)
-
-### Errors in skills/06-communication/permission-request-plain-language-writing.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 71:216) | Error (cached)
-
-### Errors in skills/07-tool-use/notification-access-tool-scoping.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 77:226) | Error (cached)
-
-### Errors in skills/08-multimodal/notification-content-redaction.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 70:211) | Error (cached)
-
-### Errors in skills/09-agentic-patterns/mid-response-steering-pattern.md
-
-* [403] <https://tech-insider.org/codex-cli-0-163-ai-coding-agents-2026/> (at 72:184) | Error (cached)
-
-### Errors in skills/09-agentic-patterns/permission-drift-audit-pattern.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 68:210) | Error (cached)
-
-### Errors in skills/10-computer-use/mobile-notification-consent-triage.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 71:207) | Error (cached)
-
-### Errors in skills/10-computer-use/notification-permission-dialog-automation.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 70:247) | Error (cached)
-
-### Errors in skills/11-web/oauth-grant-revocation-flow-automation.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 77:202) | Error (cached)
-
-### Errors in skills/12-data/notification-ingest-data-minimization.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 68:195) | Error (cached)
-
-### Errors in skills/12-data/permission-grant-ledger-analytics.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 72:171) | Error (cached)
-
-### Errors in skills/13-creative/consent-microcopy-writing.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 72:203) | Error (cached)
-
-### Errors in skills/14-security/always-allow-grant-audit.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 73:202) | Error (cached)
-
-### Errors in skills/14-security/notification-content-egress-protection.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 72:211) | Error (cached)
-
-### Errors in skills/15-orchestration/steering-command-queue-orchestration.md
-
-* [403] <https://tech-insider.org/codex-cli-0-163-ai-coding-agents-2026/> (at 73:204) | Error (cached)
-
-### Errors in skills/16-domain-specific/consumer-agent-privacy-complaint-response.md
-
-* [403] <https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9> (at 74:212) | Error (cached)
 
 ## Redirects per input
 
@@ -309,6 +211,7 @@
 
 ### Redirects in skills/09-agentic-patterns/prompt-caching.md
 
+* https://docs.anthropic.com/en/api/messages --[301]--> https://platform.claude.com/docs/en/api/messages
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
 ### Redirects in skills/09-agentic-patterns/rag.md
@@ -389,4 +292,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40142170167?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40142283848?check_suite_focus=true)
