@@ -6,6 +6,7 @@ metadata:
   category: 08-multimodal
   version: "v1"
 ---
+
 # Notification Content Redaction
 
 ## Description

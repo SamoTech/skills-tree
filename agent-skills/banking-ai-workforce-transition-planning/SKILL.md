@@ -6,6 +6,7 @@ metadata:
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Banking Ai Workforce Transition Planning
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 07-tool-use
   version: "v1"
 ---
+
 # Notification Access Tool Scoping
 
 ## Description

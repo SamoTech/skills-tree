@@ -6,6 +6,7 @@ metadata:
   category: 12-data
   version: "v1"
 ---
+
 # Notification Ingest Data Minimization
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 15-orchestration
   version: "v1"
 ---
+
 # Fleet Permission Policy Distribution
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 05-code
   version: "v1"
 ---
+
 # Semantic Kernel Injection Patch Hardening
 
 ## Description

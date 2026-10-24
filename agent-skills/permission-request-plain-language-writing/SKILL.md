@@ -6,6 +6,7 @@ metadata:
   category: 06-communication
   version: "v1"
 ---
+
 # Permission Request Plain Language Writing
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 06-communication
   version: "v1"
 ---
+
 # Ai Workforce Change Announcement Writing
 
 ## Description
