@@ -70,7 +70,7 @@ assert out[0]["decision"] == "downgrade" and out[1]["decision"] == "keep"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Associated Press reporting reconstructs an address disclosure through an always-allow marketplace grant, making always-allow auditing a dated live security need (apnews.com, dated October 19, 2026) ([public signal](https://apnews.com/article/meta-muse-openai-dot-ai-privacy-449734d41d3750aad7038b761faa49c9))
+- Associated Press reporting reconstructs an address disclosure through an always-allow marketplace grant, making always-allow auditing a dated live security need (AP reporting syndicated at wtop.com, dated October 19, 2026) ([public signal](https://wtop.com/national/2026/10/ai-agents-are-only-as-good-as-the-personal-information-you-share-that-raises-privacy-concerns/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
