@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1675  |
 | ✅ Successful  | 3740  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 77    |
+| 🔀 Redirected  | 78    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 0     |
@@ -94,6 +94,10 @@
 ### Redirects in skills/03-memory/context-rot-detection.md
 
 * https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents --[308]--> https://www.anthropic.com/research/effective-context-engineering-for-ai-agents
+
+### Redirects in skills/03-memory/eval-findings-memory-retention.md
+
+* https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents --[308]--> https://www.anthropic.com/research/demystifying-evals-for-ai-agents
 
 ### Redirects in skills/03-memory/memory-injection.md
 
@@ -292,4 +296,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40142283848?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40142365137?check_suite_focus=true)
