@@ -32,8 +32,9 @@ jobs:
           fetch-depth: 1
 
       - name: Set up Python
-        uses: setup-python@v5
-        run: echo placeholder
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
       - name: Install deps
         run: pip install --quiet PyYAML jsonschema pytest

@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Press Statement Drafting](../13-creative/press-statement-drafting.md)
+- [Press Statement Drafting](../06-communication/press-statement-drafting.md)
 - [Blog Writing](../13-creative/blog-writing.md)
 
 ## Changelog

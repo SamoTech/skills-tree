@@ -73,7 +73,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Audio Stream Segmentation](../08-multimodal/audio-stream-segmentation.md)
+- [Audio Stream Segmentation](../01-perception/audio-stream-segmentation.md)
 - [Voice Activity Detection](../01-perception/voice-activity-detection.md)
 
 ## Changelog
