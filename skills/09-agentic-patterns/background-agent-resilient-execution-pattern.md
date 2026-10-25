@@ -69,8 +69,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Halt Condition](../09-agentic-patterns/agent-halt-condition.md)
-- [Interruptible Agent Flow](../09-agentic-patterns/interruptible-agent-flow.md)
+- [Agent Halt Condition](../09-agentic-patterns/agent-halt-conditions.md)
+- [Interruptible Agent Flow](../09-agentic-patterns/interruptible-agent-flows.md)
 
 ## Changelog
 | Version | Date | Notes |

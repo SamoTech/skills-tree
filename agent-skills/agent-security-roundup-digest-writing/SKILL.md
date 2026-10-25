@@ -63,7 +63,7 @@ assert "[verified]" in digest(its).splitlines()[0]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- KubioSec publishes a dated monthly roundup of LLM, MCP, RAG, and agentic vulnerabilities (kubiosec.tech, dated October 1, 2026) ([public signal](https://www.kubiosec.tech/blog/2026-10-01-AI-Security-Roundup))
+- KubioSec publishes a dated monthly roundup of LLM, MCP, RAG, and agentic vulnerabilities (adversa.ai, dated October 1, 2026) ([public signal](https://www.adversa.ai/blog/top-ai-agent-security-resources-october-2026/))
 - OWASP published its GenAI and Agentic AI Exploit Roundup for Q3 2026 (genai.owasp.org, dated October 8, 2026) ([public signal](https://genai.owasp.org/2026/10/08/genai-and-agentic-ai-exploit-roundup-q3-2026/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 

@@ -69,7 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [MCP Stateless Tool Invocation Pattern](../07-tool-use/mcp-stateless-tool-invocation-pattern.md)
+- [MCP Stateless Tool Invocation Pattern](../07-tool-use/mcp-stateless-tool-invocation-patterns.md)
 - [A2A Remote Agent Tool Invocation](../07-tool-use/a2a-remote-agent-tool-invocation.md)
 
 ## Changelog

@@ -68,7 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Model Tool Pre-approval Tiering](../09-agentic-patterns/model-tool-pre-approval-tiering.md)
-- [Approval Gate](../09-agentic-patterns/approval-gate.md)
+- [Approval Gate](../09-agentic-patterns/approval-gates.md)
 
 ## Changelog
 | Version | Date | Notes |
