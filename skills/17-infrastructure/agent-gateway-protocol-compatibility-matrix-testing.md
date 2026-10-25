@@ -49,7 +49,7 @@ def matrix(cells, results):
         raise AssertionError("matrix cells not green: " + repr(bad))
     return "release-ok"
 
-cells = [("mcp", "2026-07-28"), ("a2a", "1.0")
+cells = [("mcp", "2026-07-28"), ("a2a", "1.0")]
 assert matrix(cells, {("mcp","2026-07-28"):"green", ("a2a","1.0"):"green"}) == "release-ok"
 ```
 
