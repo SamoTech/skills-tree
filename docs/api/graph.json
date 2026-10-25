@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-25T22:53:42.582748+00:00",
+    "generated_at": "2026-10-25T23:02:06.528790+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1738,
@@ -33928,9 +33928,9 @@
     },
     {
       "source": "07-tool-use/protocol-native-agent-gateway-usage",
-      "target": "07-tool-use/mcp-stateless-tool-invocation-pattern",
+      "target": "07-tool-use/mcp-stateless-tool-invocation-patterns",
       "type": "RELATED_TO",
-      "evidence": "[MCP Stateless Tool Invocation Pattern](../07-tool-use/mcp-stateless-tool-invocation-pattern.md)",
+      "evidence": "[MCP Stateless Tool Invocation Pattern](../07-tool-use/mcp-stateless-tool-invocation-patterns.md)",
       "source_file": "skills/07-tool-use/protocol-native-agent-gateway-usage.md",
       "confidence": "high"
     },
@@ -35304,9 +35304,9 @@
     },
     {
       "source": "09-agentic-patterns/approval-bound-tool-invocation-pattern",
-      "target": "09-agentic-patterns/approval-gate",
+      "target": "09-agentic-patterns/approval-gates",
       "type": "RELATED_TO",
-      "evidence": "[Approval Gate](../09-agentic-patterns/approval-gate.md)",
+      "evidence": "[Approval Gate](../09-agentic-patterns/approval-gates.md)",
       "source_file": "skills/09-agentic-patterns/approval-bound-tool-invocation-pattern.md",
       "confidence": "high"
     },
@@ -35328,17 +35328,17 @@
     },
     {
       "source": "09-agentic-patterns/background-agent-resilient-execution-pattern",
-      "target": "09-agentic-patterns/agent-halt-condition",
+      "target": "09-agentic-patterns/agent-halt-conditions",
       "type": "RELATED_TO",
-      "evidence": "[Agent Halt Condition](../09-agentic-patterns/agent-halt-condition.md)",
+      "evidence": "[Agent Halt Condition](../09-agentic-patterns/agent-halt-conditions.md)",
       "source_file": "skills/09-agentic-patterns/background-agent-resilient-execution-pattern.md",
       "confidence": "high"
     },
     {
       "source": "09-agentic-patterns/background-agent-resilient-execution-pattern",
-      "target": "09-agentic-patterns/interruptible-agent-flow",
+      "target": "09-agentic-patterns/interruptible-agent-flows",
       "type": "RELATED_TO",
-      "evidence": "[Interruptible Agent Flow](../09-agentic-patterns/interruptible-agent-flow.md)",
+      "evidence": "[Interruptible Agent Flow](../09-agentic-patterns/interruptible-agent-flows.md)",
       "source_file": "skills/09-agentic-patterns/background-agent-resilient-execution-pattern.md",
       "confidence": "high"
     },

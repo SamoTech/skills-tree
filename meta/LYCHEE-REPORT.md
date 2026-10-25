@@ -3,49 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 3904  |
-| 🔗 Unique      | 1726  |
-| ✅ Successful  | 3895  |
+| 🔗 Unique      | 1722  |
+| ✅ Successful  | 3904  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 79    |
+| 🔀 Redirected  | 78    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 9     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/01-perception/hybrid-dom-vision-observation-merging.md
-
-* [429] <https://www.agentnative.dev/blog/browser-agents-in-production-2026-hybrid-dom-vision-approvals-and-osworld> (at 72:151) | Rejected status code: 429 Too Many Requests
-
-### Errors in skills/06-communication/agent-security-roundup-digest-writing.md
-
-* [404] <https://www.kubiosec.tech/blog/2026-10-01-AI-Security-Roundup> (at 68:132) | Rejected status code: 404 Not Found
-
-### Errors in skills/07-tool-use/protocol-native-agent-gateway-usage.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/07-tool-use/mcp-stateless-tool-invocation-pattern.md> (at 74:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/08-multimodal/hybrid-vision-dom-element-reconciliation.md
-
-* [429] <https://www.agentnative.dev/blog/browser-agents-in-production-2026-hybrid-dom-vision-approvals-and-osworld> (at 75:139) | Rejected status code: 429 Too Many Requests
-
-### Errors in skills/08-multimodal/osworld-task-observation-recording.md
-
-* [429] <https://www.agentnative.dev/blog/browser-agents-in-production-2026-hybrid-dom-vision-approvals-and-osworld> (at 69:142) | Rejected status code: 429 Too Many Requests
-
-### Errors in skills/09-agentic-patterns/approval-bound-tool-invocation-pattern.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/09-agentic-patterns/approval-gate.md> (at 73:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/09-agentic-patterns/background-agent-resilient-execution-pattern.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/09-agentic-patterns/agent-halt-condition.md> (at 72:3) | File not found. Check if file exists and path is correct
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/09-agentic-patterns/interruptible-agent-flow.md> (at 73:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/10-computer-use/computer-use-approval-gate-automation.md
-
-* [429] <https://www.agentnative.dev/blog/browser-agents-in-production-2026-hybrid-dom-vision-approvals-and-osworld> (at 70:152) | Rejected status code: 429 Too Many Requests
 
 ## Redirects per input
 
@@ -184,6 +149,10 @@
 
 * https://turingpost.com/p/a2a --[301]--> https://www.turingpost.com/p/a2a
 
+### Redirects in skills/06-communication/agent-security-roundup-digest-writing.md
+
+* https://www.adversa.ai/blog/top-ai-agent-security-resources-october-2026/ --[301]--> https://adversa.ai/blog/top-ai-agent-security-resources-october-2026/
+
 ### Redirects in skills/06-communication/agentic-ux-writing.md
 
 * https://agentskills.io/ --[308]--> https://agentskills.io/home
@@ -236,14 +205,6 @@
 
 * https://pandera.readthedocs.io/ --[302]--> https://pandera.readthedocs.io/en/stable/
 
-### Redirects in skills/08-multimodal/agent-identity-graph-analysis.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
-### Redirects in skills/08-multimodal/agent-traffic-metadata-enrichment.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
 ### Redirects in skills/08-multimodal/video-continuity-error-detection.md
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
@@ -254,11 +215,8 @@
 
 ### Redirects in skills/09-agentic-patterns/prompt-caching.md
 
+* https://docs.anthropic.com/en/api/messages --[301]--> https://platform.claude.com/docs/en/api/messages
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
-
-### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
-
-* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
 
 ### Redirects in skills/09-agentic-patterns/rag.md
 
@@ -338,4 +296,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40242270459?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40242880609?check_suite_focus=true)

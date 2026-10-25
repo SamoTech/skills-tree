@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T22:53:27Z",
+  "generated": "2026-10-25T23:01:48Z",
   "count": 1738,
   "skills": [
     {
@@ -20949,7 +20949,7 @@
         "Changelog"
       ],
       "related": [
-        "../07-tool-use/mcp-stateless-tool-invocation-pattern.md",
+        "../07-tool-use/mcp-stateless-tool-invocation-patterns.md",
         "../07-tool-use/a2a-remote-agent-tool-invocation.md"
       ],
       "category_dir": "07-tool-use"
@@ -25355,7 +25355,7 @@
       ],
       "related": [
         "../09-agentic-patterns/model-tool-pre-approval-tiering.md",
-        "../09-agentic-patterns/approval-gate.md"
+        "../09-agentic-patterns/approval-gates.md"
       ],
       "category_dir": "09-agentic-patterns"
     },
@@ -25436,8 +25436,8 @@
         "Changelog"
       ],
       "related": [
-        "../09-agentic-patterns/agent-halt-condition.md",
-        "../09-agentic-patterns/interruptible-agent-flow.md"
+        "../09-agentic-patterns/agent-halt-conditions.md",
+        "../09-agentic-patterns/interruptible-agent-flows.md"
       ],
       "category_dir": "09-agentic-patterns"
     },

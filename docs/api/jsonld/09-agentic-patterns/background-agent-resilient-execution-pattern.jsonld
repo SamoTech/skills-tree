@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-25T22:53:27Z",
+  "dateModified": "2026-10-25T23:01:48Z",
   "skillId": "background-agent-resilient-execution-pattern",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,8 +72,8 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../09-agentic-patterns/agent-halt-condition.md",
-    "../09-agentic-patterns/interruptible-agent-flow.md"
+    "../09-agentic-patterns/agent-halt-conditions.md",
+    "../09-agentic-patterns/interruptible-agent-flows.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",

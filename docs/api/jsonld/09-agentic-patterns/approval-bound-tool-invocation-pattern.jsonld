@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-25T22:53:27Z",
+  "dateModified": "2026-10-25T23:01:48Z",
   "skillId": "approval-bound-tool-invocation-pattern",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -73,7 +73,7 @@
   ],
   "relatedSkills": [
     "../09-agentic-patterns/model-tool-pre-approval-tiering.md",
-    "../09-agentic-patterns/approval-gate.md"
+    "../09-agentic-patterns/approval-gates.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
