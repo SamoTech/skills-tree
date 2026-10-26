@@ -28,6 +28,7 @@ Memory
 | [Working Memory](working-memory.md) | Basic | Maintain context within a conversation |
 | [Short-Term Memory](short-term-memory.md) | Intermediate | Manage information within a single session using sliding windows and summarization |
 | [Long-Term Memory](long-term-memory.md) | Intermediate | Persist knowledge, preferences, and insights across sessions and deployments |
+| [Hyperconsciousness Memory Store](03-hyperconsciousness.md) | Intermediate | Use an explicitly selected encrypted HC store and scoped, expiring grants for agent memory. |
 | [Episodic Memory](episodic-memory.md) | Intermediate | Remember past interactions and events |
 | [Semantic Memory](semantic-memory.md) | Intermediate | Store and retrieve factual knowledge |
 | [Procedural Memory](procedural-memory.md) | Advanced | Learn and recall how to do tasks |
