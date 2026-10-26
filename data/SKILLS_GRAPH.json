@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-26T02:11:05.716885+00:00",
+    "generated_at": "2026-10-26T02:14:32.684581+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1838,
@@ -29020,9 +29020,9 @@
     },
     {
       "source": "01-perception/vendor-release-changelog-signal-parsing",
-      "target": "02-reasoning/maf-release-note-impact-parsing",
+      "target": "05-code/microsoft-agent-framework-migration",
       "type": "RELATED_TO",
-      "evidence": "[Maf Release Note Impact Parsing](../02-reasoning/maf-release-note-impact-parsing.md)",
+      "evidence": "[Microsoft Agent Framework Migration](../05-code/microsoft-agent-framework-migration.md)",
       "source_file": "skills/01-perception/vendor-release-changelog-signal-parsing.md",
       "confidence": "high"
     },

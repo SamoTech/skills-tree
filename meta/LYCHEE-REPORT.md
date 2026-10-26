@@ -3,24 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 4254  |
-| 🔗 Unique      | 1819  |
-| ✅ Successful  | 4251  |
+| 🔗 Unique      | 1818  |
+| ✅ Successful  | 4253  |
 | ⏳ Timeouts    | 1     |
-| 🔀 Redirected  | 78    |
+| 🔀 Redirected  | 77    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 2     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/01-perception/vendor-release-changelog-signal-parsing.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/02-reasoning/maf-release-note-impact-parsing.md> (at 77:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/03-memory/security-briefing-delta-memory-retention.md
-
-* [404] <https://www.kubiosec.tech/blog/2026-10-01-AI-Security-Roundup> (at 67:122) | Rejected status code: 404 Not Found
 
 ## Timeouts per input
 
@@ -233,10 +223,6 @@
 
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
-### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
-
-* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
-
 ### Redirects in skills/09-agentic-patterns/rag.md
 
 * https://python.langchain.com/docs/concepts/retrieval/ --[308]--> https://python.langchain.com/docs/concepts/retrieval --[308]--> https://docs.langchain.com/oss/python/langchain/overview
@@ -315,4 +301,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40257817338?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40258107711?check_suite_focus=true)

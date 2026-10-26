@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-26T02:10:51Z",
+  "generated": "2026-10-26T02:14:19Z",
   "count": 1838,
   "skills": [
     {
@@ -3202,7 +3202,7 @@
       ],
       "related": [
         "../01-perception/model-release-table-parsing.md",
-        "../02-reasoning/maf-release-note-impact-parsing.md"
+        "../05-code/microsoft-agent-framework-migration.md"
       ],
       "category_dir": "01-perception"
     },

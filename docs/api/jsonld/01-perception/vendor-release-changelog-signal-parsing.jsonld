@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-26T02:10:51Z",
+  "dateModified": "2026-10-26T02:14:19Z",
   "skillId": "vendor-release-changelog-signal-parsing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -73,7 +73,7 @@
   ],
   "relatedSkills": [
     "../01-perception/model-release-table-parsing.md",
-    "../02-reasoning/maf-release-note-impact-parsing.md"
+    "../05-code/microsoft-agent-framework-migration.md"
   ],
   "educationalLevel": {
     "@type": "DefinedTerm",
