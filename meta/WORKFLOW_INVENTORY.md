@@ -1,13 +1,12 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
 | Workflow | Classification | Purpose / disposition |
 |---|---|---|
-| `temp-regen.yml` | Temporary steward tooling (2026-10-26 batch branch only) | Branch-local projection regen + lychee report; deleted before merge; count returns to 46 |
 | `agent-skills-distribution.yml` | Authoritative validation | Agent Skills distribution audit; PR/push/manual reconciliation gate |
 | `ast-sweep.yml` | Scheduled maintenance | AST/repository hygiene |
 | `auto-label.yml` | Supporting automation | Issue/PR labeling |
@@ -210,3 +209,5 @@ Closure note (2026-10-25): across two regen cycles (`4f2c4744` after the docs sy
 ## Disposition update — 2026-10-26 (temporary regen + link-report tooling for the 2026-10-26 batch-1 expansion)
 
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-26-b1` branch only: it runs the repository's own generators at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #662 independently.
+
+Closure note (2026-10-26): across the regen cycles on the branch (`0a38d666` including the distribution-audit diagnostic capture to `meta/AUDIT-DEBUG.txt`, `45f7f58a` after the byte-exact projection repair for 24 chunk-3/4 packages (`9e01f855`, `b8e71c05`), and `de6d77d8` after the broken Related-Skills link repair `909a1d45`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head with the distribution audit green (generate --audit, validate, reconcile --check all exit 0, zero drift) and lychee ending at 4104/4104 with 0 errors. It and the temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-DEBUG.txt`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
