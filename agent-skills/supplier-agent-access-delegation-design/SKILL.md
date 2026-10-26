@@ -71,8 +71,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [09 Agentic Patterns/approval Bound Tool Invocation Pattern.md](../09-agentic-patterns/approval-bound-tool-invocation-pattern.md.md)
-- [09 Agentic Patterns/persistent Agent Identity Binding Patterns.md](../09-agentic-patterns/persistent-agent-identity-binding-patterns.md.md)
+- [Approval Bound Tool Invocation Pattern](../09-agentic-patterns/approval-bound-tool-invocation-pattern.md)
+- [Persistent Agent Identity Binding Patterns](../09-agentic-patterns/persistent-agent-identity-binding-patterns.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -73,8 +73,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [10 Computer Use/agentic Checkout Integration Testing.md](../10-computer-use/agentic-checkout-integration-testing.md.md)
-- [10 Computer Use/computer Use Approval Gate Automation.md](../10-computer-use/computer-use-approval-gate-automation.md.md)
+- [Agentic Checkout Integration Testing](../10-computer-use/agentic-checkout-integration-testing.md)
+- [Computer Use Approval Gate Automation](../10-computer-use/computer-use-approval-gate-automation.md)
 
 ## Changelog
 | Version | Date | Notes |

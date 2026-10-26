@@ -74,8 +74,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [10 Computer Use/device Authorization Flow Execution.md](../04-action-execution/device-authorization-flow-execution.md.md)
-- [10 Computer Use/nfc Device Pairing Action Automation.md](../04-action-execution/nfc-device-pairing-action-automation.md.md)
+- [Device Authorization Flow Execution](../04-action-execution/device-authorization-flow-execution.md)
+- [Nfc Device Pairing Action Automation](../04-action-execution/nfc-device-pairing-action-automation.md)
 
 ## Changelog
 | Version | Date | Notes |
