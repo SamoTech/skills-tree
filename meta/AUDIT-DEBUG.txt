@@ -2204,68 +2204,7 @@ EXIT=0
       "skills/11-web/web-search.md"
     ]
   },
-  "drifted": [
-    {
-      "package": "third-party-agent-access-risk-assessment",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/14-security/third-party-agent-access-risk-assessment.md"
-    },
-    {
-      "package": "business-process-agentification-prioritization",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/15-orchestration/business-process-agentification-prioritization.md"
-    },
-    {
-      "package": "legacy-system-agentification-roadmapping",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/15-orchestration/legacy-system-agentification-roadmapping.md"
-    },
-    {
-      "package": "supplier-agent-session-brokering-orchestration",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/15-orchestration/supplier-agent-session-brokering-orchestration.md"
-    },
-    {
-      "package": "agent-gateway-spend-cap-policy-operations",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/16-domain-specific/agent-gateway-spend-cap-policy-operations.md"
-    },
-    {
-      "package": "agent-purchase-returns-operations",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/16-domain-specific/agent-purchase-returns-operations.md"
-    },
-    {
-      "package": "retailer-agent-tos-compliance-verification",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/16-domain-specific/retailer-agent-tos-compliance-verification.md"
-    },
-    {
-      "package": "systems-integrator-agent-deployment-oversight",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/16-domain-specific/systems-integrator-agent-deployment-oversight.md"
-    },
-    {
-      "package": "agent-allowlist-edge-enforcement-testing",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/17-infrastructure/agent-allowlist-edge-enforcement-testing.md"
-    },
-    {
-      "package": "cache-hit-aware-inference-cost-optimization",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/17-infrastructure/cache-hit-aware-inference-cost-optimization.md"
-    },
-    {
-      "package": "edge-tiny-model-latency-budgeting",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/17-infrastructure/edge-tiny-model-latency-budgeting.md"
-    },
-    {
-      "package": "enterprise-agent-hardware-reference-architecture-planning",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/17-infrastructure/enterprise-agent-hardware-reference-architecture-planning.md"
-    }
-  ],
+  "drifted": [],
   "eligible_missing": [],
   "existing_package_count": 1799,
   "extra": [
@@ -13338,5 +13277,5 @@ EXIT=0
   "stale": [],
   "unexpected": [],
   "unresolved_collisions": {}
-}Reconciliation check failed: drifted: 12
-
+}
+EXIT=0

@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1770  |
 | ✅ Successful  | 4101  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 77    |
+| 🔀 Redirected  | 78    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 3     |
@@ -231,6 +231,10 @@
 
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
+### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
+
+* https://modelcontextprotocol.io/specification/2025-06-18/ --[308]--> https://modelcontextprotocol.io/specification/2025-06-18
+
 ### Redirects in skills/09-agentic-patterns/rag.md
 
 * https://python.langchain.com/docs/concepts/retrieval/ --[308]--> https://python.langchain.com/docs/concepts/retrieval --[308]--> https://docs.langchain.com/oss/python/langchain/overview
@@ -309,4 +313,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40256445500?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40256499948?check_suite_focus=true)
