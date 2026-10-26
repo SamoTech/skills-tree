@@ -73,8 +73,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [01 Perception/maf Release Note Impact Parsing.md](../01-perception/maf-release-note-impact-parsing.md.md)
-- [01 Perception/vendor Security Bulletin Parsing.md](../01-perception/vendor-security-bulletin-parsing.md.md)
+- [Maf Release Note Impact Parsing](../01-perception/maf-release-note-impact-parsing.md)
+- [Vendor Security Bulletin Parsing](../01-perception/vendor-security-bulletin-parsing.md)
 
 ## Changelog
 | Version | Date | Notes |

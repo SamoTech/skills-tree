@@ -69,8 +69,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [02 Reasoning/capability Claim Verification Reasoning.md](../02-reasoning/capability-claim-verification-reasoning.md.md)
-- [02 Reasoning/benchmark Contamination Risk Reasoning.md](../02-reasoning/benchmark-contamination-risk-reasoning.md.md)
+- [Capability Claim Verification Reasoning](../02-reasoning/capability-claim-verification-reasoning.md)
+- [Benchmark Contamination Risk Reasoning](../02-reasoning/benchmark-contamination-risk-reasoning.md)
 
 ## Changelog
 | Version | Date | Notes |

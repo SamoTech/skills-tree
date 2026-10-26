@@ -68,8 +68,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [02 Reasoning/model Selection Reasoning.md](../02-reasoning/model-selection-reasoning.md.md)
-- [02 Reasoning/budget Aware Reasoning.md](../02-reasoning/budget-aware-reasoning.md.md)
+- [Model Selection Reasoning](../02-reasoning/model-selection-reasoning.md)
+- [Budget Aware Reasoning](../02-reasoning/budget-aware-reasoning.md)
 
 ## Changelog
 | Version | Date | Notes |
