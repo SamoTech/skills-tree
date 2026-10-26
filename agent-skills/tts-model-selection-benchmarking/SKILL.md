@@ -68,8 +68,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [08 Multimodal/text To Speech.md](../08-multimodal/text-to-speech.md.md)
-- [08 Multimodal/prosody Emotion Tts Tuning.md](../08-multimodal/prosody-emotion-tts-tuning.md.md)
+- [Text To Speech](../08-multimodal/text-to-speech.md)
+- [Prosody Emotion Tts Tuning](../08-multimodal/prosody-emotion-tts-tuning.md)
 
 ## Changelog
 | Version | Date | Notes |

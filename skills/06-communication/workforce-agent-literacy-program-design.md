@@ -68,8 +68,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [06 Communication/workplace Agent Invitation Announcement Writing.md](../06-communication/workplace-agent-invitation-announcement-writing.md.md)
-- [06 Communication/onboarding Guide Writing.md](../06-communication/onboarding-guide-writing.md.md)
+- [Workplace Agent Invitation Announcement Writing](../06-communication/workplace-agent-invitation-announcement-writing.md)
+- [Onboarding Guide Writing](../06-communication/onboarding-guide-writing.md)
 
 ## Changelog
 | Version | Date | Notes |

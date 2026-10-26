@@ -74,8 +74,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [07 Tool Use/tool Guardrails.md](../07-tool-use/tool-guardrails.md.md)
-- [07 Tool Use/tool Behavior Contract Testing.md](../07-tool-use/tool-behavior-contract-testing.md.md)
+- [Tool Guardrails](../07-tool-use/tool-guardrails.md)
+- [Tool Behavior Contract Testing](../07-tool-use/tool-behavior-contract-testing.md)
 
 ## Changelog
 | Version | Date | Notes |

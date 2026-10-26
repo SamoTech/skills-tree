@@ -70,8 +70,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [07 Tool Use/tool Token Budget Management.md](../07-tool-use/tool-token-budget-management.md.md)
-- [07 Tool Use/tool Latency Probing.md](../07-tool-use/tool-latency-probing.md.md)
+- [Tool Token Budget Management](../07-tool-use/tool-token-budget-management.md)
+- [Tool Latency Probing](../07-tool-use/tool-latency-probing.md)
 
 ## Changelog
 | Version | Date | Notes |

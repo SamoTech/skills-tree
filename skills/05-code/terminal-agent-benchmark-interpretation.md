@@ -73,8 +73,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [05 Code/coding Agent Leaderboard Interpretation.md](../05-code/coding-agent-leaderboard-interpretation.md.md)
-- [05 Code/swe Bench Pro V2 Harness Integration.md](../05-code/swe-bench-pro-v2-harness-integration.md.md)
+- [Coding Agent Leaderboard Interpretation](../05-code/coding-agent-leaderboard-interpretation.md)
+- [Swe Bench Pro V2 Harness Integration](../05-code/swe-bench-pro-v2-harness-integration.md)
 
 ## Changelog
 | Version | Date | Notes |
