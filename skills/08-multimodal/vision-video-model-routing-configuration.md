@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Vision Output Verification](../08-multimodal/vision-output-verification.md)
-- [Video Understanding](../08-multimodal/video-understanding.md)
+- [Video Understanding](../01-perception/video-understanding.md)
 
 ## Changelog
 | Version | Date | Notes |
