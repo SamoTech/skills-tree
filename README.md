@@ -10,20 +10,14 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — October 19, 2026
-
-### 🔥 Most Active Skills
-- **Analogy Generation** — 1 PR
-- **Goal Setting** — 1 PR
-- **Agent Memory Schema Design** — 1 PR
-- **Action Concurrency Limiting** — 1 PR
+## 📆 This Week's Highlights — October 26, 2026
 
 ### ✨ New Skills
-- [feat(skills): demand-driven expansion batch 4 — 50 new canonical skills](https://github.com/SamoTech/skills-tree/pull/633)
-- [feat(skills): demand-driven expansion batch 3 — 50 new canonical skills](https://github.com/SamoTech/skills-tree/pull/632)
-- [feat(skills): add 50 demand-driven expansion skills (batch 2 of 2026-10-18)](https://github.com/SamoTech/skills-tree/pull/630)
-- [feat(skills): add 50 demand-driven expansion skills (batch 1 of 2026-10-18)](https://github.com/SamoTech/skills-tree/pull/628)
-- [feat: add owner-directed wave-2 expansion batch 3 (50 experimental skills)](https://github.com/SamoTech/skills-tree/pull/608)
+- [feat: 2026-10-26 daily expansion batch 1 (50 skills, all 17 categories)](https://github.com/SamoTech/skills-tree/pull/662)
+- [feat: 2026-10-25 daily expansion batch 1 (50 skills)](https://github.com/SamoTech/skills-tree/pull/661)
+- [feat: 2026-10-24 daily expansion batch 1 (50 skills)](https://github.com/SamoTech/skills-tree/pull/658)
+- [feat: expansion batch 1 of 2026-10-23 — 50 demand-driven skills across all 17 categories](https://github.com/SamoTech/skills-tree/pull/656)
+- [feat: demand-driven expansion batch 1 (2026-10-22) - 50 skills](https://github.com/SamoTech/skills-tree/pull/652)
 
 <!-- HIGHLIGHTS_END -->
 
