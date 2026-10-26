@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-26T01:54:47Z",
+  "dateModified": "2026-10-26T01:55:46Z",
   "skillId": "agent-checkout-flow-compliance-testing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../10-computer-use/agentic-checkout-integration-testing.md",
+    "../11-web/agentic-checkout-integration-testing.md",
     "../10-computer-use/computer-use-approval-gate-automation.md"
   ],
   "educationalLevel": {

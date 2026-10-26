@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-26T01:54:47Z",
+  "dateModified": "2026-10-26T01:55:46Z",
   "skillId": "cross-team-assistant-scope-partitioning",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -72,7 +72,7 @@
     "Changelog"
   ],
   "relatedSkills": [
-    "../09-agentic-patterns/agent-team-charter-authoring.md",
+    "../15-orchestration/agent-team-charter-authoring.md",
     "../09-agentic-patterns/multi-agent-workstream-merging.md"
   ],
   "educationalLevel": {

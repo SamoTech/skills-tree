@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-26T01:54:47Z",
+  "generated": "2026-10-26T01:55:46Z",
   "count": 1788,
   "skills": [
     {
@@ -24858,7 +24858,7 @@
       ],
       "related": [
         "../08-multimodal/vision-output-verification.md",
-        "../08-multimodal/video-understanding.md"
+        "../01-perception/video-understanding.md"
       ],
       "category_dir": "08-multimodal"
     },
@@ -26414,7 +26414,7 @@
         "Changelog"
       ],
       "related": [
-        "../09-agentic-patterns/agent-team-charter-authoring.md",
+        "../15-orchestration/agent-team-charter-authoring.md",
         "../09-agentic-patterns/multi-agent-workstream-merging.md"
       ],
       "category_dir": "09-agentic-patterns"
@@ -28369,7 +28369,7 @@
         "Changelog"
       ],
       "related": [
-        "../10-computer-use/agentic-checkout-integration-testing.md",
+        "../11-web/agentic-checkout-integration-testing.md",
         "../10-computer-use/computer-use-approval-gate-automation.md"
       ],
       "category_dir": "10-computer-use"

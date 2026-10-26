@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-26T01:55:06.182141+00:00",
+    "generated_at": "2026-10-26T01:56:00.997326+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1788,
@@ -36022,9 +36022,9 @@
     },
     {
       "source": "08-multimodal/vision-video-model-routing-configuration",
-      "target": "08-multimodal/video-understanding",
+      "target": "01-perception/video-understanding",
       "type": "RELATED_TO",
-      "evidence": "[Video Understanding](../08-multimodal/video-understanding.md)",
+      "evidence": "[Video Understanding](../01-perception/video-understanding.md)",
       "source_file": "skills/08-multimodal/vision-video-model-routing-configuration.md",
       "confidence": "high"
     },
@@ -36558,9 +36558,9 @@
     },
     {
       "source": "09-agentic-patterns/cross-team-assistant-scope-partitioning",
-      "target": "09-agentic-patterns/agent-team-charter-authoring",
+      "target": "15-orchestration/agent-team-charter-authoring",
       "type": "RELATED_TO",
-      "evidence": "[Agent Team Charter Authoring](../09-agentic-patterns/agent-team-charter-authoring.md)",
+      "evidence": "[Agent Team Charter Authoring](../15-orchestration/agent-team-charter-authoring.md)",
       "source_file": "skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md",
       "confidence": "high"
     },
@@ -37174,9 +37174,9 @@
     },
     {
       "source": "10-computer-use/agent-checkout-flow-compliance-testing",
-      "target": "10-computer-use/agentic-checkout-integration-testing",
+      "target": "11-web/agentic-checkout-integration-testing",
       "type": "RELATED_TO",
-      "evidence": "[Agentic Checkout Integration Testing](../10-computer-use/agentic-checkout-integration-testing.md)",
+      "evidence": "[Agentic Checkout Integration Testing](../11-web/agentic-checkout-integration-testing.md)",
       "source_file": "skills/10-computer-use/agent-checkout-flow-compliance-testing.md",
       "confidence": "high"
     },

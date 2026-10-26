@@ -3,28 +3,14 @@
 | Status         | Count |
 |----------------|-------|
 | 🔍 Total       | 4104  |
-| 🔗 Unique      | 1770  |
-| ✅ Successful  | 4101  |
+| 🔗 Unique      | 1768  |
+| ✅ Successful  | 4104  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 78    |
+| 🔀 Redirected  | 79    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 3     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/08-multimodal/vision-video-model-routing-configuration.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/08-multimodal/video-understanding.md> (at 75:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/09-agentic-patterns/agent-team-charter-authoring.md> (at 76:3) | File not found. Check if file exists and path is correct
-
-### Errors in skills/10-computer-use/agent-checkout-flow-compliance-testing.md
-
-* [ERROR] <file:///home/runner/work/skills-tree/skills-tree/skills/10-computer-use/agentic-checkout-integration-testing.md> (at 78:3) | File not found. Check if file exists and path is correct
 
 ## Redirects per input
 
@@ -229,6 +215,7 @@
 
 ### Redirects in skills/09-agentic-patterns/prompt-caching.md
 
+* https://docs.anthropic.com/en/api/messages --[301]--> https://platform.claude.com/docs/en/api/messages
 * https://platform.openai.com/docs/guides/prompt-caching --[301]--> https://developers.openai.com/api/docs/guides/prompt-caching
 
 ### Redirects in skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md
@@ -313,4 +300,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40256499948?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40256582854?check_suite_focus=true)
