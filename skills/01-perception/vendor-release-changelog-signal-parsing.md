@@ -6,7 +6,7 @@ stability: experimental
 description: "Parse vendor release notes and changelogs into dated, structured capability signals with version anchors and affected-surface lists."
 added: "2026-10"
 version: v1
-related: [model-release-table-parsing, maf-release-note-impact-parsing]
+related: [model-release-table-parsing, microsoft-agent-framework-migration]
 tags: [vendor, changelog, release, parsing]
 ---
 # Vendor Release Changelog Signal Parsing
@@ -74,7 +74,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Model Release Table Parsing](../01-perception/model-release-table-parsing.md)
-- [Maf Release Note Impact Parsing](../02-reasoning/maf-release-note-impact-parsing.md)
+- [Microsoft Agent Framework Migration](../05-code/microsoft-agent-framework-migration.md)
 
 ## Changelog
 | Version | Date | Notes |

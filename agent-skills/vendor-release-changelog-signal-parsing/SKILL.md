@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Model Release Table Parsing](../01-perception/model-release-table-parsing.md)
-- [Maf Release Note Impact Parsing](../02-reasoning/maf-release-note-impact-parsing.md)
+- [Microsoft Agent Framework Migration](../05-code/microsoft-agent-framework-migration.md)
 
 ## Changelog
 | Version | Date | Notes |
