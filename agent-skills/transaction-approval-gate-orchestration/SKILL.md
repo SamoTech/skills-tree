@@ -71,8 +71,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [04 Action Execution/human Approval Gate Implementation.md](../04-action-execution/human-approval-gate-implementation.md.md)
-- [04 Action Execution/purchase Intent Verification Actions.md](../04-action-execution/purchase-intent-verification-actions.md.md)
+- [Human Approval Gate Implementation](../04-action-execution/human-approval-gate-implementation.md)
+- [Purchase Intent Verification Actions](../04-action-execution/purchase-intent-verification-actions.md)
 
 ## Changelog
 | Version | Date | Notes |

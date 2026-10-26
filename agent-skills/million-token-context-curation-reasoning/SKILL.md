@@ -72,8 +72,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [03 Memory/context Window Budget Planning.md](../03-memory/context-window-budget-planning.md.md)
-- [03 Memory/long Context Curation.md](../03-memory/long-context-curation.md.md)
+- [Context Window Budget Planning](../03-memory/context-window-budget-planning.md)
+- [Long Context Curation](../03-memory/long-context-curation.md)
 
 ## Changelog
 | Version | Date | Notes |

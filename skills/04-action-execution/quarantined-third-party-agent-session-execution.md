@@ -71,8 +71,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [04 Action Execution/per Task Credential Scoping Actions.md](../04-action-execution/per-task-credential-scoping-actions.md.md)
-- [04 Action Execution/action Journaling.md](../04-action-execution/action-journaling.md.md)
+- [Per Task Credential Scoping Actions](../04-action-execution/per-task-credential-scoping-actions.md)
+- [Action Journaling](../04-action-execution/action-journaling.md)
 
 ## Changelog
 | Version | Date | Notes |

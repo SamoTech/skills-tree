@@ -72,8 +72,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [03 Memory/memory Retrieval Latency Budgeting.md](../03-memory/memory-retrieval-latency-budgeting.md.md)
-- [03 Memory/retrieval Result Diversification.md](../03-memory/retrieval-result-diversification.md.md)
+- [Memory Retrieval Latency Budgeting](../03-memory/memory-retrieval-latency-budgeting.md)
+- [Retrieval Result Diversification](../03-memory/retrieval-result-diversification.md)
 
 ## Changelog
 | Version | Date | Notes |

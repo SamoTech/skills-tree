@@ -72,8 +72,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [04 Action Execution/action Precondition Checking.md](../04-action-execution/action-precondition-checking.md.md)
-- [04 Action Execution/streaming Action Cancellation.md](../04-action-execution/streaming-action-cancellation.md.md)
+- [Action Precondition Checking](../04-action-execution/action-precondition-checking.md)
+- [Streaming Action Cancellation](../04-action-execution/streaming-action-cancellation.md)
 
 ## Changelog
 | Version | Date | Notes |

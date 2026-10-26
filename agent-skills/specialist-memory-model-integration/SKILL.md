@@ -67,8 +67,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [03 Memory/hierarchical Memory Organization.md](../03-memory/hierarchical-memory-organization.md.md)
-- [03 Memory/memory Benchmark Evaluation.md](../03-memory/memory-benchmark-evaluation.md.md)
+- [Hierarchical Memory Organization](../03-memory/hierarchical-memory-organization.md)
+- [Memory Benchmark Evaluation](../03-memory/memory-benchmark-evaluation.md)
 
 ## Changelog
 | Version | Date | Notes |
