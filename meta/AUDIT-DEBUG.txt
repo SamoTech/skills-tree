@@ -2206,66 +2206,6 @@ EXIT=0
   },
   "drifted": [
     {
-      "package": "agent-access-policy-signal-interpretation",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/11-web/agent-access-policy-signal-interpretation.md"
-    },
-    {
-      "package": "ai-answer-engine-visibility-audit",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/11-web/ai-answer-engine-visibility-audit.md"
-    },
-    {
-      "package": "agent-profile-transaction-attribution-audit",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/12-data/agent-profile-transaction-attribution-audit.md"
-    },
-    {
-      "package": "employee-agent-monitoring-telemetry-configuration",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/12-data/employee-agent-monitoring-telemetry-configuration.md"
-    },
-    {
-      "package": "model-pricing-table-normalization",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/12-data/model-pricing-table-normalization.md"
-    },
-    {
-      "package": "brand-template-constrained-generation",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/13-creative/brand-template-constrained-generation.md"
-    },
-    {
-      "package": "licensed-training-data-image-generation-compliance",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/13-creative/licensed-training-data-image-generation-compliance.md"
-    },
-    {
-      "package": "vector-graphics-generation-pipeline",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/13-creative/vector-graphics-generation-pipeline.md"
-    },
-    {
-      "package": "agent-identity-profile-lifecycle-audit",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/14-security/agent-identity-profile-lifecycle-audit.md"
-    },
-    {
-      "package": "agentic-breach-campaign-forensic-triage",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/14-security/agentic-breach-campaign-forensic-triage.md"
-    },
-    {
-      "package": "anonymous-model-provenance-verification",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/14-security/anonymous-model-provenance-verification.md"
-    },
-    {
-      "package": "model-armor-guardrail-policy-configuration",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/14-security/model-armor-guardrail-policy-configuration.md"
-    },
-    {
       "package": "third-party-agent-access-risk-assessment",
       "reason": "content-differs-from-deterministic-projection",
       "source": "skills/14-security/third-party-agent-access-risk-assessment.md"
@@ -13398,5 +13338,5 @@ EXIT=0
   "stale": [],
   "unexpected": [],
   "unresolved_collisions": {}
-}Reconciliation check failed: drifted: 24
+}Reconciliation check failed: drifted: 12
 

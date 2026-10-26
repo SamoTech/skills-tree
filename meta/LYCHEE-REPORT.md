@@ -6,7 +6,7 @@
 | 🔗 Unique      | 1770  |
 | ✅ Successful  | 4101  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 75    |
+| 🔀 Redirected  | 77    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
 | 🚫 Errors      | 3     |
@@ -123,6 +123,10 @@
 * https://api.slack.com/ --[302]--> https://docs.slack.dev/
 
 ### Redirects in skills/04-action-execution/durable-resume-after-provider-restart.md
+
+* https://shakudo.io/blog/top-9-ai-agent-frameworks --[301]--> https://www.shakudo.io/blog/top-9-ai-agent-frameworks
+
+### Redirects in skills/05-code/claude-code-hooks-configuration.md
 
 * https://shakudo.io/blog/top-9-ai-agent-frameworks --[301]--> https://www.shakudo.io/blog/top-9-ai-agent-frameworks
 
@@ -251,6 +255,10 @@
 
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel --[301]--> https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel
 
+### Redirects in skills/11-web/personal-agent-web-session-scoping.md
+
+* https://www.zentor.ai/blog/ai-browser-automation-2026-guide --[301]--> https://zentor.ai/blog/ai-browser-automation-2026-guide
+
 ### Redirects in skills/11-web/popup-dialog-handling.md
 
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog --[301]--> https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog
@@ -301,4 +309,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40256207501?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40256445500?check_suite_focus=true)
