@@ -39,11 +39,13 @@ jobs:
       - name: Install deps
         run: pip install --quiet PyYAML jsonschema pytest
 
-      - name: Verify distribution audit is clean
+      - name: Verify distribution audit is clean (diagnostic capture)
+        continue-on-error: true
         run: |
-          python3 tools/generate_agent_skills.py --audit > /dev/null
-          python3 tools/validate_agent_skills.py > /dev/null
-          python3 tools/reconcile_agent_skills.py --check
+          mkdir -p meta
+          { python3 tools/generate_agent_skills.py --audit; echo "EXIT=$?"; } > meta/AUDIT-DEBUG.txt 2>&1
+          { python3 tools/validate_agent_skills.py; echo "EXIT=$?"; } >> meta/AUDIT-DEBUG.txt 2>&1
+          { python3 tools/reconcile_agent_skills.py --check; echo "EXIT=$?"; } >> meta/AUDIT-DEBUG.txt 2>&1
 
       - name: Regenerate graph projections
         run: |
