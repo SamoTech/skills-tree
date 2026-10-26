@@ -71,8 +71,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [08 Multimodal/vision Output Verification.md](../08-multimodal/vision-output-verification.md.md)
-- [08 Multimodal/video Understanding.md](../08-multimodal/video-understanding.md.md)
+- [Vision Output Verification](../08-multimodal/vision-output-verification.md)
+- [Video Understanding](../08-multimodal/video-understanding.md)
 
 ## Changelog
 | Version | Date | Notes |

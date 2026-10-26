@@ -73,8 +73,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [09 Agentic Patterns/agent Team Charter Authoring.md](../09-agentic-patterns/agent-team-charter-authoring.md.md)
-- [09 Agentic Patterns/multi Agent Workstream Merging.md](../09-agentic-patterns/multi-agent-workstream-merging.md.md)
+- [Agent Team Charter Authoring](../09-agentic-patterns/agent-team-charter-authoring.md)
+- [Multi Agent Workstream Merging](../09-agentic-patterns/multi-agent-workstream-merging.md)
 
 ## Changelog
 | Version | Date | Notes |
