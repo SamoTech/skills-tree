@@ -61,7 +61,7 @@ assert p["count"] == 3 and p["batches"][0] == ["t1", "t2"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The GPT-6.1 Terra release positioned for faster, cheaper task completion is the dated public signal for this execution contract. ([public signal](https://openai.com/index/introducing-gpt-6-1-terra/))
+- The GPT-6.1 Terra release positioned for faster, cheaper task completion is the dated public signal for this execution contract. ([public signal](https://siliconangle.com/2026/10/26/openai-launches-gpt-6-1-terra-for-faster-better-performing-ai-agents-at-half-the-price/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
