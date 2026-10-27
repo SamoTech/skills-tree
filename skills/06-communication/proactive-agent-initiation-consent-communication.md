@@ -61,7 +61,7 @@ assert m["requires_explicit_consent"] and "wait" in m["text"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The launch of Claude Duet, a proactive agent app that initiates actions for users, is the dated public signal for this communication contract. ([public signal](https://aibriefs.news/ai-news-today))
+- The launch of Claude Duet, a proactive agent app that initiates actions for users, is the dated public signal for this communication contract. ([public signal](https://claude.com/resources/articles/claude-duet))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

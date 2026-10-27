@@ -62,7 +62,7 @@ assert g == "announce_then_act" and gate_initiation("announce_then_act", True, "
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The launch of Claude Duet, a proactive agent app that initiates work for the user, is the dated public signal for this pattern contract. ([public signal](https://aibriefs.news/ai-news-today))
+- The launch of Claude Duet, a proactive agent app that initiates work for the user, is the dated public signal for this pattern contract. ([public signal](https://claude.com/resources/articles/claude-duet))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

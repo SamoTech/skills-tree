@@ -60,7 +60,7 @@ assert s["success_rate"] == 0.5 and s["resets_per_episode"] == 1.0
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The Google DeepMind launch of Gemini 4 Argon for robotics is the dated public signal for this evaluation contract. ([public signal](https://aibriefs.news/ai-news-today))
+- The Google DeepMind launch of Gemini 4 Argon for robotics is the dated public signal for this evaluation contract. ([public signal](https://developers.googleblog.com/gemini-4-argon-for-robotics/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

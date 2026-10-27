@@ -63,7 +63,7 @@ assert all(e["state"] == "passed" for e in t) and len(t) == 2
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The Entire launch replacing pull requests with an agentic review system called Trails is the dated public signal for this authoring contract. ([public signal](https://aibriefs.news/ai-news-today))
+- The Entire launch replacing pull requests with an agentic review system called Trails is the dated public signal for this authoring contract. ([public signal](https://docs.entire.com/guides/trails/overview))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
