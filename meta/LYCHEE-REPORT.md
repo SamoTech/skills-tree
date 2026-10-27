@@ -4,19 +4,13 @@
 |----------------|-------|
 | 🔍 Total       | 4404  |
 | 🔗 Unique      | 1858  |
-| ✅ Successful  | 4403  |
+| ✅ Successful  | 4404  |
 | ⏳ Timeouts    | 0     |
-| 🔀 Redirected  | 81    |
+| 🔀 Redirected  | 77    |
 | 👻 Excluded    | 0     |
 | ❓ Unknown     | 0     |
-| 🚫 Errors      | 1     |
+| 🚫 Errors      | 0     |
 | ⛔ Unsupported | 0     |
-
-## Errors per input
-
-### Errors in skills/04-action-execution/computer-use-batch-throughput-execution.md
-
-* [403] <https://openai.com/index/introducing-gpt-6-1-terra/> (at 64:133) | Rejected status code: 403 Forbidden
 
 ## Redirects per input
 
@@ -211,14 +205,6 @@
 
 * https://pandera.readthedocs.io/ --[302]--> https://pandera.readthedocs.io/en/stable/
 
-### Redirects in skills/08-multimodal/agent-identity-graph-analysis.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
-### Redirects in skills/08-multimodal/agent-traffic-metadata-enrichment.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
 ### Redirects in skills/08-multimodal/video-continuity-error-detection.md
 
 * https://www.zyneto.com/blog/ai-agent-framework --[308]--> https://zyneto.com/blog/ai-agent-framework
@@ -279,10 +265,6 @@
 
 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301 --[301]--> https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/301
 
-### Redirects in skills/12-data/agent-identity-assertion-parsing.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
-
 ### Redirects in skills/12-data/data-contract-enforcement.md
 
 * https://github.com/pandera-dev/pandera --[301]--> https://github.com/unionai-oss/pandera
@@ -290,10 +272,6 @@
 ### Redirects in skills/13-creative/brand-voice-development.md
 
 * https://learn.microsoft.com/en-us/style-guide/ --[301]--> https://learn.microsoft.com/en-us/style-guide/welcome/
-
-### Redirects in skills/14-security/agentic-traffic-gateway-configuration.md
-
-* https://twilio.com/en-us/blog/insights/agentic-identity --[301]--> https://www.twilio.com/en-us/blog/insights/agentic-identity
 
 ### Redirects in skills/14-security/jwt-validation.md
 
@@ -317,4 +295,4 @@
 
 * https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders/ --[301]--> https://www.microsoft.com/en-us/security/blog/2026/10/19/agents-are-your-newest-insiders-security-must-move-at-their-speed/
 
-[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40603736204?check_suite_focus=true)
+[Full Github Actions output](https://github.com/SamoTech/skills-tree/actions/runs/40603861209?check_suite_focus=true)
