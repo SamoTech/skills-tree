@@ -7,7 +7,7 @@ description: "Test on-device vision pipelines on current Apple silicon by measur
 added: "2026-10"
 version: v1
 related: [image-classification, object-detection]
-tags: [on, device, apple, silicon]
+tags: ["on", device, apple, silicon]
 ---
 # On Device Apple Silicon Agent Vision Testing
 
