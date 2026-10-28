@@ -7,7 +7,7 @@ description: "Genie 4 World Model Api Usage contract with bounded inputs, record
 added: "2026-10"
 version: v1
 related: [image-gen-tool, code-exec-tool]
-tags: [genie, 4, world, model]
+tags: [genie, world, model, api]
 ---
 
 # Genie 4 World Model Api Usage
