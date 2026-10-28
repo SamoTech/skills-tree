@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-27T23:49:56Z",
-  "count": 1888,
+  "generated": "2026-10-28T22:40:40Z",
+  "count": 1938,
   "skills": [
     {
       "id": "a2a-agent-card-capability-parsing",
@@ -2113,6 +2113,36 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "model-proxy-routing-trace-parsing",
+      "path": "skills/01-perception/model-proxy-routing-trace-parsing.md",
+      "name": "Model Proxy Routing Trace Parsing",
+      "description": "Model Proxy Routing Trace Parsing contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/agent-trace-span-parsing.md",
+        "../01-perception/log-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "model-release-table-parsing",
       "path": "skills/01-perception/model-release-table-parsing.md",
       "name": "Model Release Table Parsing",
@@ -3018,6 +3048,36 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "streaming-transcription-output-parsing",
+      "path": "skills/01-perception/streaming-transcription-output-parsing.md",
+      "name": "Streaming Transcription Output Parsing",
+      "description": "Streaming Transcription Output Parsing contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/streaming-asr-partial-parsing.md",
+        "../01-perception/audio-transcription.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "structured-data-reading",
       "path": "skills/01-perception/structured-data-reading.md",
       "name": "Structured Data Reading",
@@ -3481,6 +3541,36 @@
       "related": [
         "../07-tool-use/websocket-communication.md",
         "../01-perception/incremental-json-parsing.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "world-model-audio-frame-alignment-verification",
+      "path": "skills/01-perception/world-model-audio-frame-alignment-verification.md",
+      "name": "World Model Audio Frame Alignment Verification",
+      "description": "World Model Audio Frame Alignment Verification contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/realtime-video-frame-analysis.md",
+        "../08-multimodal/video-continuity-error-detection.md"
       ],
       "category_dir": "01-perception"
     },
@@ -4570,6 +4660,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "complexity-claim-verification-reasoning",
+      "path": "skills/02-reasoning/complexity-claim-verification-reasoning.md",
+      "name": "Complexity Claim Verification Reasoning",
+      "description": "Complexity Claim Verification Reasoning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/capability-claim-verification-reasoning.md",
+        "../02-reasoning/mathematical-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "constraint-relaxation-reasoning",
       "path": "skills/02-reasoning/constraint-relaxation-reasoning.md",
       "name": "Constraint Relaxation Reasoning",
@@ -5305,6 +5425,36 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "harness-versus-framework-selection-reasoning",
+      "path": "skills/02-reasoning/harness-versus-framework-selection-reasoning.md",
+      "name": "Harness Versus Framework Selection Reasoning",
+      "description": "Harness Versus Framework Selection Reasoning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/multi-framework-selection-reasoning.md",
+        "../02-reasoning/agent-protocol-choice-reasoning.md"
+      ],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "hypothesis-generation",
       "path": "skills/02-reasoning/hypothesis-generation.md",
       "name": "Hypothesis Generation",
@@ -5320,6 +5470,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "incident-pattern-control-mapping-reasoning",
+      "path": "skills/02-reasoning/incident-pattern-control-mapping-reasoning.md",
+      "name": "Incident Pattern Control Mapping Reasoning",
+      "description": "Incident Pattern Control Mapping Reasoning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/root-cause-analysis.md",
+        "../02-reasoning/premortem-failure-analysis.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -7786,6 +7966,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "bank-credential-quarantine-memory",
+      "path": "skills/03-memory/bank-credential-quarantine-memory.md",
+      "name": "Bank Credential Quarantine Memory",
+      "description": "Bank Credential Quarantine Memory contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/agent-credential-exposure-quarantine-memory.md",
+        "../03-memory/pii-memory-minimization.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "cache-management",
       "path": "skills/03-memory/cache-management.md",
       "name": "Cache Management",
@@ -9416,6 +9626,36 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "model-release-ledger-delta-memory",
+      "path": "skills/03-memory/model-release-ledger-delta-memory.md",
+      "name": "Model Release Ledger Delta Memory",
+      "description": "Model Release Ledger Delta Memory contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/release-signal-memory-compaction.md",
+        "../03-memory/vendor-roadmap-commitment-memory.md"
+      ],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "multi-agent-memory-merge-coordination",
       "path": "skills/03-memory/multi-agent-memory-merge-coordination.md",
       "name": "Multi-Agent Memory Merge Coordination",
@@ -9493,6 +9733,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "offline-knowledge-preservation-memory",
+      "path": "skills/03-memory/offline-knowledge-preservation-memory.md",
+      "name": "Offline Knowledge Preservation Memory",
+      "description": "Offline Knowledge Preservation Memory contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/retention-policy.md",
+        "../03-memory/memory-integrity-checksums.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -11752,6 +12022,36 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "destructive-write-diff-preview-execution",
+      "path": "skills/04-action-execution/destructive-write-diff-preview-execution.md",
+      "name": "Destructive Write Diff Preview Execution",
+      "description": "Destructive Write Diff Preview Execution contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/dry-run-execution.md",
+        "../04-action-execution/compensating-actions.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "device-authorization-flow-execution",
       "path": "skills/04-action-execution/device-authorization-flow-execution.md",
       "name": "Device Authorization Flow Execution",
@@ -12886,6 +13186,66 @@
       "related": [
         "../04-action-execution/idempotent-retries.md",
         "../04-action-execution/compensating-actions.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "offline-emergency-assistant-operation-execution",
+      "path": "skills/04-action-execution/offline-emergency-assistant-operation-execution.md",
+      "name": "Offline Emergency Assistant Operation Execution",
+      "description": "Offline Emergency Assistant Operation Execution contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/offline-action-queueing.md",
+        "../04-action-execution/durable-resume-after-provider-restart.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "owner-only-tool-authorization-enforcement-execution",
+      "path": "skills/04-action-execution/owner-only-tool-authorization-enforcement-execution.md",
+      "name": "Owner Only Tool Authorization Enforcement Execution",
+      "description": "Owner Only Tool Authorization Enforcement Execution contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../04-action-execution/per-task-credential-scoping-actions.md",
+        "../04-action-execution/human-approval-gate-implementation.md"
       ],
       "category_dir": "04-action-execution"
     },
@@ -14324,6 +14684,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "autogen-consolidation-migration-planning",
+      "path": "skills/05-code/autogen-consolidation-migration-planning.md",
+      "name": "Autogen Consolidation Migration Planning",
+      "description": "Autogen Consolidation Migration Planning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/microsoft-agent-framework-migration.md",
+        "../05-code/framework-migration.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "bug-fixing",
       "path": "skills/05-code/bug-fixing.md",
       "name": "Bug Fixing",
@@ -15565,6 +15955,36 @@
       "category_dir": "05-code"
     },
     {
+      "id": "formal-proof-verification-pipeline-implementation",
+      "path": "skills/05-code/formal-proof-verification-pipeline-implementation.md",
+      "name": "Formal Proof Verification Pipeline Implementation",
+      "description": "Formal Proof Verification Pipeline Implementation contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/property-based-testing.md",
+        "../05-code/code-review.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "framework-migration",
       "path": "skills/05-code/framework-migration.md",
       "name": "Framework Migration",
@@ -15723,6 +16143,36 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "harness-plugin-portability-testing",
+      "path": "skills/05-code/harness-plugin-portability-testing.md",
+      "name": "Harness Plugin Portability Testing",
+      "description": "Harness Plugin Portability Testing contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/cross-cli-agent-skill-portability-testing.md",
+        "../05-code/framework-migration.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -17932,6 +18382,36 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "banking-credential-risk-disclosure-communication",
+      "path": "skills/06-communication/banking-credential-risk-disclosure-communication.md",
+      "name": "Banking Credential Risk Disclosure Communication",
+      "description": "Banking Credential Risk Disclosure Communication contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/safety-threshold-disclosure-writing.md",
+        "../06-communication/security-advisory-user-summary-writing.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "capability-gap-plain-language-communication",
       "path": "skills/06-communication/capability-gap-plain-language-communication.md",
       "name": "Capability Gap Plain Language Communication",
@@ -18614,6 +19094,36 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "harness-runtime-explainer-writing",
+      "path": "skills/06-communication/harness-runtime-explainer-writing.md",
+      "name": "Harness Runtime Explainer Writing",
+      "description": "Harness Runtime Explainer Writing contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/internal-tool-adoption-champion-communication.md",
+        "../06-communication/developer-forum-answer-writing.md"
+      ],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "human-approval-request-drafting",
       "path": "skills/06-communication/human-approval-request-drafting.md",
       "name": "Human Approval Request Drafting",
@@ -18890,6 +19400,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "model-proxy-disclosure-communication",
+      "path": "skills/06-communication/model-proxy-disclosure-communication.md",
+      "name": "Model Proxy Disclosure Communication",
+      "description": "Model Proxy Disclosure Communication contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../06-communication/trace-release-transparent-communication.md",
+        "../06-communication/rogue-agent-disclosure-notice-drafting.md"
+      ],
       "category_dir": "06-communication"
     },
     {
@@ -21098,6 +21638,36 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "edge-small-model-deployment-tool-usage",
+      "path": "skills/07-tool-use/edge-small-model-deployment-tool-usage.md",
+      "name": "Edge Small Model Deployment Tool Usage",
+      "description": "Edge Small Model Deployment Tool Usage contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/small-model-tool-routing.md",
+        "../07-tool-use/byok-provider-key-configuration.md"
+      ],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "enterprise-suite-embedded-agent-tool-usage",
       "path": "skills/07-tool-use/enterprise-suite-embedded-agent-tool-usage.md",
       "name": "Enterprise Suite Embedded Agent Tool Usage",
@@ -21294,6 +21864,36 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "genie-4-world-model-api-usage",
+      "path": "skills/07-tool-use/genie-4-world-model-api-usage.md",
+      "name": "Genie 4 World Model Api Usage",
+      "description": "Genie 4 World Model Api Usage contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/image-gen-tool.md",
+        "../07-tool-use/code-exec-tool.md"
+      ],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "github-api",
       "path": "skills/07-tool-use/github-api.md",
       "name": "GitHub API",
@@ -21337,6 +21937,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "harness-plugin-tool-usage",
+      "path": "skills/07-tool-use/harness-plugin-tool-usage.md",
+      "name": "Harness Plugin Tool Usage",
+      "description": "Harness Plugin Tool Usage contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../07-tool-use/agent-skills-open-standard-package-usage.md",
+        "../07-tool-use/function-calling.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -24962,6 +25592,36 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "interactive-world-model-audio-evaluation",
+      "path": "skills/08-multimodal/interactive-world-model-audio-evaluation.md",
+      "name": "Interactive World Model Audio Evaluation",
+      "description": "Interactive World Model Audio Evaluation contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/realtime-video-frame-analysis.md",
+        "../08-multimodal/video-continuity-error-detection.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "lip-sync-verification",
       "path": "skills/08-multimodal/lip-sync-verification.md",
       "name": "Lip Sync Verification",
@@ -25831,6 +26491,36 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "svg-vector-output-verification",
+      "path": "skills/08-multimodal/svg-vector-output-verification.md",
+      "name": "Svg Vector Output Verification",
+      "description": "Svg Vector Output Verification contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/image-metadata-provenance.md",
+        "../08-multimodal/perceptual-image-hashing.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "tab-state-screen-diff-review",
       "path": "skills/08-multimodal/tab-state-screen-diff-review.md",
       "name": "Tab State Screen Diff Review",
@@ -26525,6 +27215,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "world-model-latency-budget-verification",
+      "path": "skills/08-multimodal/world-model-latency-budget-verification.md",
+      "name": "World Model Latency Budget Verification",
+      "description": "World Model Latency Budget Verification contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/ultrafast-voice-response-latency-budgeting.md",
+        "../08-multimodal/speech-agent-turn-latency.md"
+      ],
       "category_dir": "08-multimodal"
     },
     {
@@ -28194,6 +28914,36 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "harness-plugin-composition-pattern",
+      "path": "skills/09-agentic-patterns/harness-plugin-composition-pattern.md",
+      "name": "Harness Plugin Composition Pattern",
+      "description": "Harness Plugin Composition Pattern contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/agent-harness-assembly.md",
+        "../09-agentic-patterns/harness-plugin-architecture-patterns.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "hitl-checkpoint-pattern-design",
       "path": "skills/09-agentic-patterns/hitl-checkpoint-pattern-design.md",
       "name": "Hitl Checkpoint Pattern Design",
@@ -28245,6 +28995,36 @@
       "related": [
         "../02-reasoning/hypothesis-generation.md",
         "../09-agentic-patterns/bounded-exploration.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "incident-derived-authorization-narrowing-pattern",
+      "path": "skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md",
+      "name": "Incident Derived Authorization Narrowing Pattern",
+      "description": "Incident Derived Authorization Narrowing Pattern contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/approval-gates.md",
+        "../09-agentic-patterns/model-tool-pre-approval-tiering.md"
       ],
       "category_dir": "09-agentic-patterns"
     },
@@ -28652,6 +29432,36 @@
       "related": [
         "../02-reasoning/long-horizon-planning.md",
         "../02-reasoning/goal-decomposition.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "offline-first-agent-resilience-pattern",
+      "path": "skills/09-agentic-patterns/offline-first-agent-resilience-pattern.md",
+      "name": "Offline First Agent Resilience Pattern",
+      "description": "Offline First Agent Resilience Pattern contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../09-agentic-patterns/background-agent-resilient-execution-pattern.md",
+        "../09-agentic-patterns/self-healing-workflow-repair-patterns.md"
       ],
       "category_dir": "09-agentic-patterns"
     },
@@ -31059,6 +31869,36 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "financial-app-credential-isolation-automation",
+      "path": "skills/10-computer-use/financial-app-credential-isolation-automation.md",
+      "name": "Financial App Credential Isolation Automation",
+      "description": "Financial App Credential Isolation Automation contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../10-computer-use/credential-broker-desktop-setup.md",
+        "../10-computer-use/computer-use-approval-gate-automation.md"
+      ],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "fleet-management-console-automation",
       "path": "skills/10-computer-use/fleet-management-console-automation.md",
       "name": "Fleet Management Console Automation",
@@ -31953,6 +32793,36 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "proxy-egress-anomaly-desktop-monitoring",
+      "path": "skills/10-computer-use/proxy-egress-anomaly-desktop-monitoring.md",
+      "name": "Proxy Egress Anomaly Desktop Monitoring",
+      "description": "Proxy Egress Anomaly Desktop Monitoring contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../10-computer-use/computer-use-egress-monitoring-automation.md",
+        "../10-computer-use/vm-sandbox-action-audit-automation.md"
+      ],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "remote-desktop-automation",
       "path": "skills/10-computer-use/remote-desktop-automation.md",
       "name": "Remote Desktop Automation",
@@ -32784,6 +33654,36 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "world-model-interface-latency-testing",
+      "path": "skills/10-computer-use/world-model-interface-latency-testing.md",
+      "name": "World Model Interface Latency Testing",
+      "description": "World Model Interface Latency Testing contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../10-computer-use/remote-session-latency-adaptive-actions.md",
+        "../10-computer-use/app-readiness-probing.md"
+      ],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "a2a-agent-card-endpoint-publishing",
       "path": "skills/11-web/a2a-agent-card-endpoint-publishing.md",
       "name": "A2a Agent Card Endpoint Publishing",
@@ -32930,6 +33830,36 @@
       "related": [
         "../11-web/browser-cloud-session-provisioning.md",
         "../09-agentic-patterns/agentic-browser-session-orchestration.md"
+      ],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "agent-credential-scope-verification-web-automation",
+      "path": "skills/11-web/agent-credential-scope-verification-web-automation.md",
+      "name": "Agent Credential Scope Verification Web Automation",
+      "description": "Agent Credential Scope Verification Web Automation contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../11-web/web-agent-authenticated-session-automation.md",
+        "../11-web/website-terms-of-service-agent-permission-audit.md"
       ],
       "category_dir": "11-web"
     },
@@ -34468,6 +35398,36 @@
       "related": [
         "../11-web/web-oauth-flow-handling.md",
         "../11-web/personal-data-broker-opt-out-automation.md"
+      ],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "offline-knowledge-pack-web-mirroring",
+      "path": "skills/11-web/offline-knowledge-pack-web-mirroring.md",
+      "name": "Offline Knowledge Pack Web Mirroring",
+      "description": "Offline Knowledge Pack Web Mirroring contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../11-web/web-crawling.md",
+        "../11-web/web-archive-lookup.md"
       ],
       "category_dir": "11-web"
     },
@@ -36075,6 +37035,36 @@
       "related": [
         "../14-security/delegation-chain-verification.md",
         "../08-multimodal/agent-traffic-metadata-enrichment.md"
+      ],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "agent-incident-index-corpus-curation",
+      "path": "skills/12-data/agent-incident-index-corpus-curation.md",
+      "name": "Agent Incident Index Corpus Curation",
+      "description": "Agent Incident Index Corpus Curation contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/trace-based-eval-dataset-generation.md",
+        "../12-data/agent-feedback-signal-aggregation.md"
       ],
       "category_dir": "12-data"
     },
@@ -38074,6 +39064,36 @@
       "category_dir": "12-data"
     },
     {
+      "id": "model-release-ledger-maintenance",
+      "path": "skills/12-data/model-release-ledger-maintenance.md",
+      "name": "Model Release Ledger Maintenance",
+      "description": "Model Release Ledger Maintenance contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/release-cadence-delta-analytics.md",
+        "../12-data/vendor-model-benchmark-normalization.md"
+      ],
+      "category_dir": "12-data"
+    },
+    {
       "id": "multiday-agent-activity-log-forensics",
       "path": "skills/12-data/multiday-agent-activity-log-forensics.md",
       "name": "Multiday Agent Activity Log Forensics",
@@ -38320,6 +39340,36 @@
       "related": [
         "../12-data/release-cadence-delta-analytics.md",
         "../12-data/agent-usage-metering-event-pipeline.md"
+      ],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "proxy-routing-forensic-analytics",
+      "path": "skills/12-data/proxy-routing-forensic-analytics.md",
+      "name": "Proxy Routing Forensic Analytics",
+      "description": "Proxy Routing Forensic Analytics contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/agent-breach-timeline-analytics.md",
+        "../12-data/token-exfil-incident-forensics.md"
       ],
       "category_dir": "12-data"
     },
@@ -39567,6 +40617,36 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "breakthrough-proof-explainer-copywriting",
+      "path": "skills/13-creative/breakthrough-proof-explainer-copywriting.md",
+      "name": "Breakthrough Proof Explainer Copywriting",
+      "description": "Breakthrough Proof Explainer Copywriting contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../13-creative/model-release-explainer-copywriting.md",
+        "../13-creative/ai-infrastructure-financing-explainer-copywriting.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "character-design",
       "path": "skills/13-creative/character-design.md",
       "name": "Character Design",
@@ -40002,6 +41082,36 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "13-creative"
+    },
+    {
+      "id": "harness-launch-announcement-copywriting",
+      "path": "skills/13-creative/harness-launch-announcement-copywriting.md",
+      "name": "Harness Launch Announcement Copywriting",
+      "description": "Harness Launch Announcement Copywriting contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../13-creative/agent-tool-launch-announcement-copywriting.md",
+        "../13-creative/internal-adoption-story-writing.md"
+      ],
       "category_dir": "13-creative"
     },
     {
@@ -41343,6 +42453,36 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "world-model-sound-design-writing",
+      "path": "skills/13-creative/world-model-sound-design-writing.md",
+      "name": "World Model Sound Design Writing",
+      "description": "World Model Sound Design Writing contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../13-creative/music-composition.md",
+        "../08-multimodal/audio-highlight-extraction.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "worldbuilding-consistency-auditing",
       "path": "skills/13-creative/worldbuilding-consistency-auditing.md",
       "name": "Worldbuilding Consistency Auditing",
@@ -42204,6 +43344,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "banking-agent-credential-delegation-review",
+      "path": "skills/14-security/banking-agent-credential-delegation-review.md",
+      "name": "Banking Agent Credential Delegation Review",
+      "description": "Banking Agent Credential Delegation Review contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agent-wallet-key-custody-review.md",
+        "../14-security/least-privilege-scoping.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -43171,6 +44341,36 @@
       "category_dir": "14-security"
     },
     {
+      "id": "model-vendor-proxy-routing-audit",
+      "path": "skills/14-security/model-vendor-proxy-routing-audit.md",
+      "name": "Model Vendor Proxy Routing Audit",
+      "description": "Model Vendor Proxy Routing Audit contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/agent-toolbox-egress-perimeter-review.md",
+        "../14-security/data-exfiltration-detection.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
       "id": "multi-tenant-isolation-verification",
       "path": "skills/14-security/multi-tenant-isolation-verification.md",
       "name": "Multi-Tenant Isolation Verification",
@@ -44128,6 +45328,36 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "tool-authorization-scope-verification",
+      "path": "skills/14-security/tool-authorization-scope-verification.md",
+      "name": "Tool Authorization Scope Verification",
+      "description": "Tool Authorization Scope Verification contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/permission-checking.md",
+        "../14-security/always-allow-grant-audit.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -45672,6 +46902,36 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "formal-proof-verification-workflow-orchestration",
+      "path": "skills/15-orchestration/formal-proof-verification-workflow-orchestration.md",
+      "name": "Formal Proof Verification Workflow Orchestration",
+      "description": "Formal Proof Verification Workflow Orchestration contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/evidence-verification.md",
+        "../15-orchestration/result-aggregation.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "foundry-agent-lifecycle-orchestration",
       "path": "skills/15-orchestration/foundry-agent-lifecycle-orchestration.md",
       "name": "Foundry Agent Lifecycle Orchestration",
@@ -45728,6 +46988,36 @@
       "related": [
         "../04-action-execution/exposed-credential-bulk-rotation-execution.md",
         "../16-domain-specific/incident-response.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "harness-plugin-fleet-composition-orchestration",
+      "path": "skills/15-orchestration/harness-plugin-fleet-composition-orchestration.md",
+      "name": "Harness Plugin Fleet Composition Orchestration",
+      "description": "Harness Plugin Fleet Composition Orchestration contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/capability-based-skill-selection.md",
+        "../15-orchestration/specialist-agent-routing.md"
       ],
       "category_dir": "15-orchestration"
     },
@@ -47118,6 +48408,36 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "world-model-simulation-workflow-orchestration",
+      "path": "skills/15-orchestration/world-model-simulation-workflow-orchestration.md",
+      "name": "World Model Simulation Workflow Orchestration",
+      "description": "World Model Simulation Workflow Orchestration contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/state-machine.md",
+        "../15-orchestration/workflow-heartbeat-monitoring.md"
+      ],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "ad-copy",
       "path": "skills/16-domain-specific/ad-copy.md",
       "name": "ad-copy",
@@ -47572,6 +48892,36 @@
       "related": [
         "../16-domain-specific/compliance-checking.md",
         "../16-domain-specific/regulatory-change-monitoring.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "banking-agent-credential-policy-compliance",
+      "path": "skills/16-domain-specific/banking-agent-credential-policy-compliance.md",
+      "name": "Banking Agent Credential Policy Compliance",
+      "description": "Banking Agent Credential Policy Compliance contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/compliance-checking.md",
+        "../16-domain-specific/banking-ai-workforce-transition-planning.md"
       ],
       "category_dir": "16-domain-specific"
     },
@@ -49036,6 +50386,36 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "offline-emergency-response-assistant-operations",
+      "path": "skills/16-domain-specific/offline-emergency-response-assistant-operations.md",
+      "name": "Offline Emergency Response Assistant Operations",
+      "description": "Offline Emergency Response Assistant Operations contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/incident-response.md",
+        "../16-domain-specific/fleet-operations-incident-management.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "paper-summarization",
       "path": "skills/16-domain-specific/paper-summarization.md",
       "name": "paper-summarization",
@@ -49957,6 +51337,36 @@
       "related": [
         "../16-domain-specific/clinical-decision-support-evidence-checking.md",
         "../08-multimodal/voice-agent-emergency-escalation-detection.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "theoretical-complexity-claim-review",
+      "path": "skills/16-domain-specific/theoretical-complexity-claim-review.md",
+      "name": "Theoretical Complexity Claim Review",
+      "description": "Theoretical Complexity Claim Review contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/literature-review.md",
+        "../16-domain-specific/paper-summarization.md"
       ],
       "category_dir": "16-domain-specific"
     },
@@ -51278,6 +52688,36 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "harness-plugin-runtime-isolation-provisioning",
+      "path": "skills/17-infrastructure/harness-plugin-runtime-isolation-provisioning.md",
+      "name": "Harness Plugin Runtime Isolation Provisioning",
+      "description": "Harness Plugin Runtime Isolation Provisioning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/agent-harness-runtime-hosting.md",
+        "../17-infrastructure/wasm-edge-agent-runtime-deployment.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "health-check-endpoints",
       "path": "skills/17-infrastructure/health-check-endpoints.md",
       "name": "Health Check Endpoints",
@@ -51839,6 +53279,36 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "offline-disaster-recovery-inference-provisioning",
+      "path": "skills/17-infrastructure/offline-disaster-recovery-inference-provisioning.md",
+      "name": "Offline Disaster Recovery Inference Provisioning",
+      "description": "Offline Disaster Recovery Inference Provisioning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/multi-cloud-failover.md",
+        "../17-infrastructure/edge-inference-deployment.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "open-weight-agent-model-hosting-provisioning",
       "path": "skills/17-infrastructure/open-weight-agent-model-hosting-provisioning.md",
       "name": "Open Weight Agent Model Hosting Provisioning",
@@ -52299,6 +53769,36 @@
       "related": [
         "../17-infrastructure/edge-inference-deployment.md",
         "../17-infrastructure/container-image-slimming.md"
+      ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "world-model-realtime-inference-provisioning",
+      "path": "skills/17-infrastructure/world-model-realtime-inference-provisioning.md",
+      "name": "World Model Realtime Inference Provisioning",
+      "description": "World Model Realtime Inference Provisioning contract with bounded inputs, recorded verification, and fail-closed handling.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../17-infrastructure/inference-endpoint-autoscaling.md",
+        "../17-infrastructure/edge-inference-deployment.md"
       ],
       "category_dir": "17-infrastructure"
     }
