@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-28T22:29:25.058776+00:00",
+    "generated_at": "2026-10-28T22:41:23.707594+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 1938,
@@ -36424,9 +36424,9 @@
     },
     {
       "source": "06-communication/banking-credential-risk-disclosure-communication",
-      "target": "06-communication/safety-threshold-disclosure-communication",
+      "target": "06-communication/safety-threshold-disclosure-writing",
       "type": "RELATED_TO",
-      "evidence": "[Safety Threshold Disclosure Communication](../06-communication/safety-threshold-disclosure-communication.md)",
+      "evidence": "[Safety Threshold Disclosure Writing](../06-communication/safety-threshold-disclosure-writing.md)",
       "source_file": "skills/06-communication/banking-credential-risk-disclosure-communication.md",
       "confidence": "high"
     },

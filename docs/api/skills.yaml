@@ -1,4 +1,4 @@
-generated: '2026-10-28T22:28:51Z'
+generated: '2026-10-28T22:40:40Z'
 count: 1938
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -16903,7 +16903,7 @@ skills:
   - Related Skills
   - Changelog
   related:
-  - ../06-communication/safety-threshold-disclosure-communication.md
+  - ../06-communication/safety-threshold-disclosure-writing.md
   - ../06-communication/security-advisory-user-summary-writing.md
   category_dir: 06-communication
 - id: capability-gap-plain-language-communication
