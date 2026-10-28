@@ -64,7 +64,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Safety Threshold Disclosure Communication](../06-communication/safety-threshold-disclosure-communication.md)
+- [Safety Threshold Disclosure Writing](../06-communication/safety-threshold-disclosure-writing.md)
 - [Security Advisory User Summary Writing](../06-communication/security-advisory-user-summary-writing.md)
 
 ## Changelog
