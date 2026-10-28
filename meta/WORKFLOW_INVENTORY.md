@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -41,6 +41,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
 | `test.yml` | Authoritative test execution | Repository tests |
+| `temp-regen.yml` | Temporary steward tooling | On-branch deterministic projection regen for the 2026-10-28 batch-1 expansion; deleted before merge so the live count returns to 46 |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
 | `used-in-tracker.yml` | Generated-main writer | Usage tracker |
@@ -223,3 +224,8 @@ Closure note (2026-10-26): across two regen cycles on the branch (`b504c16f` aft
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-27-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #666 independently.
 
 Closure note (2026-10-27): across three regen cycles on the branch (`4759238` after the CI-retrigger recommit, `d63eb4a` after the aibriefs.news 429 Evidence-URL swap for seven skills (`a1a81b0`), and `a13454a` after the bot-blocked openai.com 403 Evidence-URL swap (`774a52a`)), `temp-regen.yml` kept the committed projections byte-fresh at the branch head with lychee ending at 4404/4404 and 0 errors. It and `meta/LYCHEE-REPORT.md` were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
+
+
+## Disposition update — 2026-10-28 (temporary regen + link-report tooling for the 2026-10-28 batch-1 expansion)
+
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-28-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
