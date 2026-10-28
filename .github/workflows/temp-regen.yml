@@ -42,6 +42,8 @@ jobs:
           format: markdown
           output: meta/LYCHEE-REPORT.md
         continue-on-error: true
+      - name: Sync badges
+        run: python3 tools/sync_badges.py
       - name: Commit regenerated projections
         run: |
           git config user.name "github-actions[bot]"
