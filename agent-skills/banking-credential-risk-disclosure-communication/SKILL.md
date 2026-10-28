@@ -45,7 +45,7 @@ def build_disclosure(bank, credential):
     return {"headline": f"Never give {credential} to an AI assistant",
             "liability": "you carry full financial liability for agent actions",
             "source": bank["advisory_url"], "safe_alternative": "manual approval per transaction"}
-r = build_disclosure({"advisory_url": "https://bank.example/advisory"}, "banking password")
+r = build_disclosure({"advisory_url": "https://advisory.example.com"}, "banking password")
 assert "liability" in r and r["safe_alternative"].startswith("manual")
 ```
 
