@@ -63,7 +63,7 @@ assert r["control"] == "approval_gate"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- The the October 21 review of twelve recurring agent failure patterns assembled from an open incident index, the IntentKit advisory, and production root-cause research, alongside the empirical Stack Overflow and GitHub pain-point study is the dated public signal for this contract. ([public signal](https://www.sciencedirect.com/science/article/pii/S0164121226003419))
+- The the October 21 review of twelve recurring agent failure patterns assembled from an open incident index, the IntentKit advisory, and production root-cause research, alongside the empirical Stack Overflow and GitHub pain-point study is the dated public signal for this contract. ([public signal](https://arxiv.org/abs/2510.25423))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
