@@ -49,7 +49,14 @@ def analyze(spend, outcomes):
         rows.append({"wf": wf, "roi": outcomes.get(wf, 0) / spend[wf]})
     return sorted(rows, key=lambda r: -r["roi"])
 s = {"triage": 100, "research": 50}; o = {"triage": 300, "research": 50}
-r = analyze(s,, o) if False else analyze(s, o)
+def analyze(spend, outcomes):
+    rows = []
+    for wf in spend:
+        rows.append({"wf": wf, "roi": outcomes.get(wf, 0) / spend[wf]})
+    return sorted(rows, key=lambda r: -r["roi"])
+s = {"triage": 100, "research": 50}; o = {"triage": 300, "research": 50}
+r = analyze(s, o)
+assert r[0]["wf"] == "triage" and r[1]["roi"] == 1.0
 assert r[0]["wf"] == "triage" and r[1]["roi"] == 1.0
 ```
 
