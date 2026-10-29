@@ -67,7 +67,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [On Device Agent Fallback Pattern](on-device-agent-fallback-pattern.md)
+- [On Device Agent Fallback Pattern](human-escalation-routing.md)
 - [Appfunctions Mcp Tool Implementation](../05-code/appfunctions-mcp-tool-implementation.md)
 
 ## Changelog
