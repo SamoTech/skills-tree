@@ -35,6 +35,11 @@ jobs:
         run: python3 tools/check_skill_quality.py
       - name: README counts
         run: python3 tools/update_readme_counts.py
+      - name: Distribution audit capture
+        run: |
+          python3 tools/generate_agent_skills.py --audit > meta/AUDIT-REPORT.md || true
+          python3 tools/reconcile_agent_skills.py --output meta/AUDIT-DRIFT.md > /dev/null || true
+          python3 tools/validate_agent_skills.py > meta/AUDIT-VALIDATE.txt 2>&1 || true
       - name: Link report
         uses: lycheeverse/lychee-action@v2
         with:
