@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -41,7 +41,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
 | `test.yml` | Authoritative test execution | Repository tests |
-| `temp-regen.yml` | Temporary steward tooling | Branch-local deterministic projection regen for the expansion PR |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
 | `used-in-tracker.yml` | Generated-main writer | Usage tracker |
@@ -242,3 +241,5 @@ Closure note (2026-10-29): across the regen cycles on the branch (`60b4b139` and
 ## Disposition update — 2026-10-30 (temporary regen + link-report tooling for PR #673)
 
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-30-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #673 independently.
+
+Closure note (2026-10-30): across the regen cycles on the branch (`4c1ca8ef` after the docs-sync commit `bcf06a09`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head, and the batch's 12 Evidence source URLs were verified live (none of the batch evidence URLs appeared in the recorded lychee error list; the recorded errors are the pre-existing relative-link `file://` misparses also present on `main`). The workflow and `meta/LYCHEE-REPORT.md` were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
