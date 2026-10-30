@@ -1,40 +1,40 @@
 {
-  "generated_at": "2026-10-29T23:56:44.024364+00:00",
-  "node_count": 1988,
-  "edge_count": 2682,
+  "generated_at": "2026-10-30T23:52:16.211011+00:00",
+  "node_count": 2038,
+  "edge_count": 2782,
   "requires_count": 8,
   "nodes_by_level": {
-    "advanced": 1516,
+    "advanced": 1566,
     "intermediate": 357,
     "basic": 115
   },
   "nodes_by_layer": {
-    "perception": 135,
-    "reasoning": 265,
-    "systems": 1331,
-    "execution": 257
+    "perception": 138,
+    "reasoning": 271,
+    "systems": 1366,
+    "execution": 263
   },
   "nodes_by_category": {
-    "01-perception": 135,
-    "02-reasoning": 146,
-    "03-memory": 119,
-    "04-action-execution": 126,
-    "05-code": 130,
-    "06-communication": 111,
-    "07-tool-use": 136,
-    "08-multimodal": 107,
-    "09-agentic-patterns": 125,
-    "10-computer-use": 113,
-    "11-web": 115,
-    "12-data": 121,
-    "13-creative": 89,
-    "14-security": 107,
-    "15-orchestration": 110,
-    "16-domain-specific": 115,
-    "17-infrastructure": 83
+    "01-perception": 138,
+    "02-reasoning": 149,
+    "03-memory": 122,
+    "04-action-execution": 129,
+    "05-code": 133,
+    "06-communication": 114,
+    "07-tool-use": 139,
+    "08-multimodal": 110,
+    "09-agentic-patterns": 128,
+    "10-computer-use": 116,
+    "11-web": 118,
+    "12-data": 124,
+    "13-creative": 92,
+    "14-security": 110,
+    "15-orchestration": 113,
+    "16-domain-specific": 118,
+    "17-infrastructure": 85
   },
   "edges_by_type": {
-    "RELATED_TO": 2674,
+    "RELATED_TO": 2774,
     "REQUIRES": 8
   }
 }
