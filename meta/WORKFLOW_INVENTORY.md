@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,7 +40,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
-| `temp-regen.yml` | Temporary steward tooling (PR #671 branch only) | Branch-restricted projection regen + lychee link report; deleted before merge |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -232,6 +231,9 @@ Closure note (2026-10-27): across three regen cycles on the branch (`4759238` af
 
 Closure note (2026-10-28): across the regen cycles on the branch (`4d2eb789` after the graph-edge/example-URL/evidence-URL repairs, and `1f42cbf0` after the `Sync badges` step was added (`cae7bdfb`) so `tools/sync_badges.py` reconciled the 50 batch-1 badge stubs to the canonical `skills-<category>-<name>` keys — creating the 50 canonical badge files and removing the unprefixed orphans — following the identical-content pyproject.toml CI-retrigger recommit `2f5a47df`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head. It and `meta/LYCHEE-REPORT.md` were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
 
+
 ## Disposition update — 2026-10-29 (temporary regen + link-report tooling for PR #671)
 
-`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-29-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #671 independently.
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-29-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`) at the branch head, records a lychee markdown report so failing Evidence URLs can be identified without run-log access, and (extended for this cycle) captures the Agent Skills distribution-audit outputs (`generate_agent_skills.py --audit`, `validate_agent_skills.py`, `reconcile_agent_skills.py --check`) into `meta/AUDIT-REPORT.md` / `meta/AUDIT-DRIFT.md` / `meta/AUDIT-VALIDATE.txt` for diagnosis. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate PR #671 independently.
+
+Closure note (2026-10-29): across the regen cycles on the branch (`60b4b139` and `d0de8cbf78`, the latter including the distribution-audit diagnostic capture added in `9f69f54c`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head. The `audit` CI check failure was diagnosed from the committed `meta/AUDIT-DRIFT.md` as exactly one drifted package — `on-device-agent-task-orchestration`, whose package Related-Skills link text had not been restored byte-identically when the dangling `on-device-agent-fallback-pattern` reference was repaired in `0455274d`; the byte-exact package repair in this same commit cleared the drift, and the batch's Evidence URLs were verified against the recorded lychee report (no batch evidence URL in the error list). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-DRIFT.md`, `meta/AUDIT-VALIDATE.txt`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
