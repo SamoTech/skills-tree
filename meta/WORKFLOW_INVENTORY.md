@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -41,7 +41,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
 | `test.yml` | Authoritative test execution | Repository tests |
-| `temp-regen.yml` | Temporary steward tooling | Branch-local deterministic projection regen for the expansion PR |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
 | `used-in-tracker.yml` | Generated-main writer | Usage tracker |
@@ -246,3 +245,5 @@ Closure note (2026-10-29): across the regen cycles on the branch (`60b4b139` and
 Closure note (2026-10-30): across the regen cycles on the branch (`4c1ca8ef` after the docs-sync commit `bcf06a09`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head, and the batch's 12 Evidence source URLs were verified live (none of the batch evidence URLs appeared in the recorded lychee error list; the recorded errors are the pre-existing relative-link `file://` misparses also present on `main`). The workflow and `meta/LYCHEE-REPORT.md` were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
 
 Reopen note (2026-10-30): `temp-regen.yml` is re-added once on the `skills/expansion-2026-10-30-b1` branch only, with its lychee step using the same `skills/**/*.md` scope and `--exclude`/`--timeout`/`--max-retries` arguments as `check-links.yml` (`fail: false`), to record which links the authoritative gate observes from a GitHub runner after the `Check external links in skill files` check failed with an unreadable run log. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46.
+
+Final closure note (2026-10-30): the one-cycle reopen ended with no bot commit — the committed projections were already byte-fresh and the scoped lychee step hit the same fast-fail as the `Check external links in skill files` check (lychee exit code 2, i.e. no links resolved, in seconds; the failure signature matches the Oct 28-29 real link-check runs of 12-16 minutes neither in duration nor exit code, and is a current invocation/runner defect of that supporting check, not a batch-content failure: the batch's 12 Evidence source URLs were verified live individually and none appeared in the earlier committed full-repo lychee report). `temp-regen.yml` is deleted again before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened; the check-links failure is disclosed on the PR rather than bypassed.
