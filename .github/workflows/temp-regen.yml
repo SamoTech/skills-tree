@@ -44,6 +44,12 @@ jobs:
         continue-on-error: true
       - name: Sync badges
         run: python3 tools/sync_badges.py
+      - name: Distribution audit capture
+        run: |
+          python3 tools/generate_agent_skills.py --audit > meta/AUDIT-REPORT.md
+          python3 tools/validate_agent_skills.py > meta/AUDIT-VALIDATE.txt
+          python3 tools/reconcile_agent_skills.py --check > meta/AUDIT-DRIFT.md
+        continue-on-error: true
       - name: Commit regenerated projections
         run: |
           git config user.name "github-actions[bot]"
