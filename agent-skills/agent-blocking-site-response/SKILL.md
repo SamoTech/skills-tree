@@ -1,11 +1,12 @@
 ---
 name: agent-blocking-site-response
-description: Decide and implement a site’s response to AI agents, from blocking to metered access, with the decision recorded and revisitable.
+description: "Decide and implement a site’s response to AI agents, from blocking to metered access, with the decision recorded and revisitable."
 metadata:
   source: skills/11-web/agent-blocking-site-response.md
   category: 11-web
   version: "v1"
 ---
+
 # Agent Blocking Site Response
 
 ## Description

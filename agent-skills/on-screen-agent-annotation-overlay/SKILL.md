@@ -1,11 +1,12 @@
 ---
 name: on-screen-agent-annotation-overlay
-description: Render agent attention as on-screen annotations such as arrows, boxes, and labels so a human can see which region an agent is acting on.
+description: "Render agent attention as on-screen annotations such as arrows, boxes, and labels so a human can see which region an agent is acting on."
 metadata:
   source: skills/10-computer-use/on-screen-agent-annotation-overlay.md
   category: 10-computer-use
   version: "v1"
 ---
+
 # On Screen Agent Annotation Overlay
 
 ## Description

@@ -1,11 +1,12 @@
 ---
 name: real-time-token-usage-instrumentation
-description: Instrument tool and token consumption of every agent action in real time so spend and risk controls act on measured usage.
+description: "Instrument tool and token consumption of every agent action in real time so spend and risk controls act on measured usage."
 metadata:
   source: skills/07-tool-use/real-time-token-usage-instrumentation.md
   category: 07-tool-use
   version: "v1"
 ---
+
 # Real Time Token Usage Instrumentation
 
 ## Description

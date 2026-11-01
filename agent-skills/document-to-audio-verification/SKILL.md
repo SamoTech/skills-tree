@@ -1,11 +1,12 @@
 ---
 name: document-to-audio-verification
-description: Verify that an audio rendering of a document matches the source text before publishing or distributing it.
+description: "Verify that an audio rendering of a document matches the source text before publishing or distributing it."
 metadata:
   source: skills/08-multimodal/document-to-audio-verification.md
   category: 08-multimodal
   version: "v1"
 ---
+
 # Document To Audio Verification
 
 ## Description
