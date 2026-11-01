@@ -63,7 +63,7 @@ assert authorize({"remaining": 3}, 7)["reason"] == "cap-exceeded"
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- the Walmart Agent Gateway opened with spend caps as the control model for agent access instead of a blanket block (undefined, dated October 31, 2026) ([public signal](undefined))
+- the Walmart Agent Gateway opened with spend caps as the control model for agent access instead of a blanket block (Walmart corporate newsroom, dated October 31, 2026) ([public signal](https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

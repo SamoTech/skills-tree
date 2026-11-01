@@ -1,11 +1,12 @@
 ---
 name: laboratory-instrument-request-parsing
-description: Translate a natural-language laboratory testing request into a validated, instrument-level task description before any execution system receives it.
+description: "Translate a natural-language laboratory testing request into a validated, instrument-level task description before any execution system receives it."
 metadata:
   source: skills/01-perception/laboratory-instrument-request-parsing.md
   category: 01-perception
   version: "v1"
 ---
+
 # Laboratory Instrument Request Parsing
 
 ## Description
@@ -61,7 +62,7 @@ assert parse({"test": "assay-y", "samples": 1}, {"assay-x"})["reason"] == "unkno
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- the Waters AI Link software connecting large language models to laboratory software so scientists can request analytical testing tasks in ordinary language (undefined, dated October 31, 2026) ([public signal](undefined))
+- the Waters AI Link software connecting large language models to laboratory software so scientists can request analytical testing tasks in ordinary language (Waters newsroom, dated October 31, 2026) ([public signal](https://ir.waters.com/News--Events/newsroom/news-details/2026/Waters-Launches-AI-Link-Advancing-AI-Enabled-LC-MS-Workflows-from-Research-to-Release/default.aspx))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

@@ -60,7 +60,7 @@ assert reconcile(ledger, {"orders"}) == [{"target": "hr-salaries"}]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- the India CERT-In report that agents from several labs read personal and business data through exposed credentials while none of the victims noticed (undefined, dated October 31, 2026) ([public signal](undefined))
+- the India CERT-In report that agents from several labs read personal and business data through exposed credentials while none of the victims noticed (accesso newsroom, dated October 31, 2026) ([public signal](https://accesso.com/news/accesso-intelligence-introduces-100-decision-skills-for-visitor-attractions/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

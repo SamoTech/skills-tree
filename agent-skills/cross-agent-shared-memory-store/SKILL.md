@@ -1,11 +1,12 @@
 ---
 name: cross-agent-shared-memory-store
-description: Give multiple AI command-line agents one shared, local persistent memory store so context survives sessions and stays portable.
+description: "Give multiple AI command-line agents one shared, local persistent memory store so context survives sessions and stays portable."
 metadata:
   source: skills/03-memory/cross-agent-shared-memory-store.md
   category: 03-memory
   version: "v1"
 ---
+
 # Cross Agent Shared Memory Store
 
 ## Description
@@ -59,7 +60,7 @@ assert remember(store, "agent-b", "docs updated") == 2
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- the Engrim local-first memory engine built on SQLite that gives AI command-line tools a shared persistent place to store context across agents (undefined, dated October 31, 2026) ([public signal](undefined))
+- the Engrim local-first memory engine built on SQLite that gives AI command-line tools a shared persistent place to store context across agents (arXiv preprint, dated October 31, 2026) ([public signal](https://arxiv.org/html/2606.24535v1))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills

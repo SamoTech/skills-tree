@@ -63,7 +63,7 @@ assert ledger[-1]["ok"] is False and len(ledger) == 2
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- the Zest restaurant concierge completing discovery and booking through text messages via OpenTable, Resy, and SevenRooms while its guidance calls for monitoring booking errors, user consent, and recommendation quality (undefined, dated October 31, 2026) ([public signal](undefined))
+- the Zest restaurant concierge completing discovery and booking through text messages via OpenTable, Resy, and SevenRooms while its guidance calls for monitoring booking errors, user consent, and recommendation quality (TechCrunch report, dated October 31, 2026) ([public signal](https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
