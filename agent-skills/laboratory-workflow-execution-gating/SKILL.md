@@ -1,6 +1,6 @@
 ---
 name: laboratory-workflow-execution-gating
-description: "Gate an agent’s control of laboratory experiments behind approval steps so broad requests become validated procedures with complete records."
+description: Gate an agent’s control of laboratory experiments behind approval steps so broad requests become validated procedures with complete records.
 metadata:
   source: skills/04-action-execution/laboratory-workflow-execution-gating.md
   category: 04-action-execution

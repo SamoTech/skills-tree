@@ -1,6 +1,6 @@
 ---
 name: autonomous-software-factory-agent-coordination
-description: "Coordinate parallel agents across coding, testing, review, and quality assurance inside isolated execution environments with explicit handoffs."
+description: Coordinate parallel agents across coding, testing, review, and quality assurance inside isolated execution environments with explicit handoffs.
 metadata:
   source: skills/05-code/autonomous-software-factory-agent-coordination.md
   category: 05-code

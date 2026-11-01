@@ -1,6 +1,6 @@
 ---
 name: embedded-researcher-oversight-briefing
-description: "Brief embedded external researchers who observe an AI lab from inside, with defined information access, publication rights, and escalation paths."
+description: Brief embedded external researchers who observe an AI lab from inside, with defined information access, publication rights, and escalation paths.
 metadata:
   source: skills/06-communication/embedded-researcher-oversight-briefing.md
   category: 06-communication

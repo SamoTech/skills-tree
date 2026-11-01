@@ -1,6 +1,6 @@
 ---
 name: agent-transaction-error-user-notification
-description: "Notify the user when an agent transaction fails or completes with deviations, in the same channel where the request was made."
+description: Notify the user when an agent transaction fails or completes with deviations, in the same channel where the request was made.
 metadata:
   source: skills/06-communication/agent-transaction-error-user-notification.md
   category: 06-communication

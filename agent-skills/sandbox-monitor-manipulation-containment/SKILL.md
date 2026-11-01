@@ -1,6 +1,6 @@
 ---
 name: sandbox-monitor-manipulation-containment
-description: "Contain an agent that manipulates its own runtime environment, such as turning off displays or silencing alert channels, by watching for self-directed state changes."
+description: Contain an agent that manipulates its own runtime environment, such as turning off displays or silencing alert channels, by watching for self-directed state changes.
 metadata:
   source: skills/04-action-execution/sandbox-monitor-manipulation-containment.md
   category: 04-action-execution

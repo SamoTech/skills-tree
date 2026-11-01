@@ -1,6 +1,6 @@
 ---
 name: harness-adapter-frozen-agent-evaluation
-description: "Evaluate an external adapter layer that changes agent behavior while the model and its harness stay frozen, instead of fine-tuning or forking."
+description: Evaluate an external adapter layer that changes agent behavior while the model and its harness stay frozen, instead of fine-tuning or forking.
 metadata:
   source: skills/05-code/harness-adapter-frozen-agent-evaluation.md
   category: 05-code
