@@ -1,6 +1,6 @@
 ---
 name: datacenter-siting-moratorium-tracking
-description: "Track local datacenter construction moratoria and power purchase commitments when planning AI compute capacity siting."
+description: Track local datacenter construction moratoria and power purchase commitments when planning AI compute capacity siting.
 metadata:
   source: skills/17-infrastructure/datacenter-siting-moratorium-tracking.md
   category: 17-infrastructure

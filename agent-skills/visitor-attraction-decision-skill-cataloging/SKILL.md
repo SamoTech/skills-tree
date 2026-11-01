@@ -1,6 +1,6 @@
 ---
 name: visitor-attraction-decision-skill-cataloging
-description: "Catalog the decision skills an attraction operator exposes to agents, with each skill’s scope, inputs, and failure behavior documented."
+description: Catalog the decision skills an attraction operator exposes to agents, with each skill’s scope, inputs, and failure behavior documented.
 metadata:
   source: skills/16-domain-specific/visitor-attraction-decision-skill-cataloging.md
   category: 16-domain-specific

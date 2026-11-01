@@ -1,6 +1,6 @@
 ---
 name: satellite-onboard-inference-deployment
-description: "Deploy a model to an orbital or off-grid compute platform by matching power, duty cycle, and pass scheduling to the workload."
+description: Deploy a model to an orbital or off-grid compute platform by matching power, duty cycle, and pass scheduling to the workload.
 metadata:
   source: skills/17-infrastructure/satellite-onboard-inference-deployment.md
   category: 17-infrastructure

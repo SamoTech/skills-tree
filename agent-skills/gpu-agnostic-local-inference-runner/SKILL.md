@@ -1,6 +1,6 @@
 ---
 name: gpu-agnostic-local-inference-runner
-description: "Run local model inference through a graphics-API abstraction so one runtime binary serves AMD, Intel, and Nvidia hardware alike."
+description: Run local model inference through a graphics-API abstraction so one runtime binary serves AMD, Intel, and Nvidia hardware alike.
 metadata:
   source: skills/17-infrastructure/gpu-agnostic-local-inference-runner.md
   category: 17-infrastructure
