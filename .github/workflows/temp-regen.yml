@@ -1,4 +1,5 @@
 name: temp-regen
+# diagnostic cycle 2 (audit capture)
 on:
   pull_request:
     branches: [main]
