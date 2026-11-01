@@ -1,6 +1,6 @@
 ---
 name: constrained-device-creative-generation
-description: "Generate creative text under severe device constraints, sizing the prompt and output to the platform’s power and duty-cycle limits."
+description: Generate creative text under severe device constraints, sizing the prompt and output to the platform’s power and duty-cycle limits.
 metadata:
   source: skills/13-creative/constrained-device-creative-generation.md
   category: 13-creative

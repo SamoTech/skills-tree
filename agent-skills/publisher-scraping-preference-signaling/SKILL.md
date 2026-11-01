@@ -1,6 +1,6 @@
 ---
 name: publisher-scraping-preference-signaling
-description: "Publish machine-readable scraping and training preferences, such as a shared robots.txt token, and verify that crawlers honor them."
+description: Publish machine-readable scraping and training preferences, such as a shared robots.txt token, and verify that crawlers honor them.
 metadata:
   source: skills/11-web/publisher-scraping-preference-signaling.md
   category: 11-web
