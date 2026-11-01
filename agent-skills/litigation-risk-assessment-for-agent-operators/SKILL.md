@@ -1,11 +1,12 @@
 ---
 name: litigation-risk-assessment-for-agent-operators
-description: Assess litigation risk from operating AI agents by mapping incidents to legal exposure with counsel, using dated evidence.
+description: "Assess litigation risk from operating AI agents by mapping incidents to legal exposure with counsel, using dated evidence."
 metadata:
   source: skills/16-domain-specific/litigation-risk-assessment-for-agent-operators.md
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Litigation Risk Assessment For Agent Operators
 
 ## Description

@@ -1,11 +1,12 @@
 ---
 name: shadow-agent-network-detection
-description: Detect unauthorized personal AI agents running on enterprise or government networks by inventorying agent runtimes and their traffic.
+description: "Detect unauthorized personal AI agents running on enterprise or government networks by inventorying agent runtimes and their traffic."
 metadata:
   source: skills/14-security/shadow-agent-network-detection.md
   category: 14-security
   version: "v1"
 ---
+
 # Shadow Agent Network Detection
 
 ## Description
