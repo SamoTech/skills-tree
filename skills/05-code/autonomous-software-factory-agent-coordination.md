@@ -62,7 +62,7 @@ assert integrate([{"name": "code", "checks_passed": True}, {"name": "tests", "ch
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- the Coforge Autonomous Software Factory coordinating AI agents across coding, testing, validation, code review, and quality assurance with specialized agents working in parallel inside secure execution environments (undefined, dated October 29, 2026) ([public signal](undefined))
+- the Coforge Autonomous Software Factory coordinating AI agents across coding, testing, validation, code review, and quality assurance with specialized agents working in parallel inside secure execution environments (Zylos research, dated October 29, 2026) ([public signal](https://zylos.ai/en/research/2026-04-02-agentic-coding-production-q1-2026-landscape/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
