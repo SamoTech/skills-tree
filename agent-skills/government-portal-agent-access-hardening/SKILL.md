@@ -1,6 +1,6 @@
 ---
 name: government-portal-agent-access-hardening
-description: "Harden a public-sector portal against unauthorized agent access by distinguishing declared agent traffic from credential misuse before granting anything."
+description: Harden a public-sector portal against unauthorized agent access by distinguishing declared agent traffic from credential misuse before granting anything.
 metadata:
   source: skills/11-web/government-portal-agent-access-hardening.md
   category: 11-web

@@ -1,6 +1,6 @@
 ---
 name: live-internet-training-isolation-decision
-description: "Decide and record whether an agent or training pipeline may reach the live internet, isolating data collection from production web access by default."
+description: Decide and record whether an agent or training pipeline may reach the live internet, isolating data collection from production web access by default.
 metadata:
   source: skills/09-agentic-patterns/live-internet-training-isolation-decision.md
   category: 09-agentic-patterns

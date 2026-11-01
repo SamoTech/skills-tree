@@ -1,6 +1,6 @@
 ---
 name: agent-originated-commerce-channel-segmentation
-description: "Treat agent-originated orders as a distinct commerce channel with its own success criteria instead of assuming agent adoption from integration count."
+description: Treat agent-originated orders as a distinct commerce channel with its own success criteria instead of assuming agent adoption from integration count.
 metadata:
   source: skills/09-agentic-patterns/agent-originated-commerce-channel-segmentation.md
   category: 09-agentic-patterns

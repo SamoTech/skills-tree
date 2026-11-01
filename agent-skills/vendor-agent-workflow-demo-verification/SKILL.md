@@ -1,6 +1,6 @@
 ---
 name: vendor-agent-workflow-demo-verification
-description: "Verify a vendor agent through a live demonstration of one complete multistep workflow, including permissions, failure handling, and audit logs."
+description: Verify a vendor agent through a live demonstration of one complete multistep workflow, including permissions, failure handling, and audit logs.
 metadata:
   source: skills/09-agentic-patterns/vendor-agent-workflow-demo-verification.md
   category: 09-agentic-patterns

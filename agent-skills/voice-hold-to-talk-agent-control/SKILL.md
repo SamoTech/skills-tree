@@ -1,6 +1,6 @@
 ---
 name: voice-hold-to-talk-agent-control
-description: "Control a coding or desktop agent through press-hold voice input, transcribing the request and passing it to the agent with the recording scope bounded."
+description: Control a coding or desktop agent through press-hold voice input, transcribing the request and passing it to the agent with the recording scope bounded.
 metadata:
   source: skills/10-computer-use/voice-hold-to-talk-agent-control.md
   category: 10-computer-use

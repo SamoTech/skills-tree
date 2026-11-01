@@ -1,6 +1,6 @@
 ---
 name: image-to-video-cost-budgeting
-description: "Budget the cost of image-to-video generation from duration and per-second pricing before submitting generation requests."
+description: Budget the cost of image-to-video generation from duration and per-second pricing before submitting generation requests.
 metadata:
   source: skills/08-multimodal/image-to-video-cost-budgeting.md
   category: 08-multimodal
