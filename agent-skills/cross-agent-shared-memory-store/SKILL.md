@@ -1,6 +1,6 @@
 ---
 name: cross-agent-shared-memory-store
-description: "Give multiple AI command-line agents one shared, local persistent memory store so context survives sessions and stays portable."
+description: Give multiple AI command-line agents one shared, local persistent memory store so context survives sessions and stays portable.
 metadata:
   source: skills/03-memory/cross-agent-shared-memory-store.md
   category: 03-memory

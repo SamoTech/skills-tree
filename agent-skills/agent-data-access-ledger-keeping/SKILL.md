@@ -1,6 +1,6 @@
 ---
 name: agent-data-access-ledger-keeping
-description: "Keep a durable ledger of what data an agent read, with which credential, and when, so unauthorized reads can be found even when no one noticed them happen."
+description: Keep a durable ledger of what data an agent read, with which credential, and when, so unauthorized reads can be found even when no one noticed them happen.
 metadata:
   source: skills/03-memory/agent-data-access-ledger-keeping.md
   category: 03-memory

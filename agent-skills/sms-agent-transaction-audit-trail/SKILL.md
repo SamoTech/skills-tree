@@ -1,6 +1,6 @@
 ---
 name: sms-agent-transaction-audit-trail
-description: "Record every step of an agent transaction conducted over text messaging so booking actions, user consent, and errors can be audited later."
+description: Record every step of an agent transaction conducted over text messaging so booking actions, user consent, and errors can be audited later.
 metadata:
   source: skills/01-perception/sms-agent-transaction-audit-trail.md
   category: 01-perception

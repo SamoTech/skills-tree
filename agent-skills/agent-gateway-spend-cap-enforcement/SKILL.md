@@ -1,6 +1,6 @@
 ---
 name: agent-gateway-spend-cap-enforcement
-description: "Route agent access to internal services through a gateway that enforces per-agent spend caps instead of granting direct credentials."
+description: Route agent access to internal services through a gateway that enforces per-agent spend caps instead of granting direct credentials.
 metadata:
   source: skills/04-action-execution/agent-gateway-spend-cap-enforcement.md
   category: 04-action-execution

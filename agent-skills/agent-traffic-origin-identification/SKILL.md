@@ -1,6 +1,6 @@
 ---
 name: agent-traffic-origin-identification
-description: "Identify whether inbound or outbound traffic and data reads come from an AI agent rather than a human user before deciding on a response."
+description: Identify whether inbound or outbound traffic and data reads come from an AI agent rather than a human user before deciding on a response.
 metadata:
   source: skills/01-perception/agent-traffic-origin-identification.md
   category: 01-perception

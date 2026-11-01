@@ -1,6 +1,6 @@
 ---
 name: session-history-exposure-prevention
-description: "Prevent stored agent session histories from becoming exposed attack surface by controlling where they are written and who can read them."
+description: Prevent stored agent session histories from becoming exposed attack surface by controlling where they are written and who can read them.
 metadata:
   source: skills/03-memory/session-history-exposure-prevention.md
   category: 03-memory

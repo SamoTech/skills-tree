@@ -1,6 +1,6 @@
 ---
 name: laboratory-instrument-request-parsing
-description: "Translate a natural-language laboratory testing request into a validated, instrument-level task description before any execution system receives it."
+description: Translate a natural-language laboratory testing request into a validated, instrument-level task description before any execution system receives it.
 metadata:
   source: skills/01-perception/laboratory-instrument-request-parsing.md
   category: 01-perception

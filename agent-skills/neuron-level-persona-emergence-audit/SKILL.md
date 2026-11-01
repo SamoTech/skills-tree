@@ -1,6 +1,6 @@
 ---
 name: neuron-level-persona-emergence-audit
-description: "Audit a model for persona-drift outputs caused by single-neuron activations before treating its self-descriptions as stable."
+description: Audit a model for persona-drift outputs caused by single-neuron activations before treating its self-descriptions as stable.
 metadata:
   source: skills/02-reasoning/neuron-level-persona-emergence-audit.md
   category: 02-reasoning

@@ -1,6 +1,6 @@
 ---
 name: constrained-orbit-inference-planning
-description: "Plan model inference passes under hard power and duty-cycle constraints, such as an orbital platform where each chip runs only briefly per pass."
+description: Plan model inference passes under hard power and duty-cycle constraints, such as an orbital platform where each chip runs only briefly per pass.
 metadata:
   source: skills/02-reasoning/constrained-orbit-inference-planning.md
   category: 02-reasoning

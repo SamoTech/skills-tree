@@ -1,6 +1,6 @@
 ---
 name: agentic-benchmark-methodology-review
-description: "Review an agentic benchmark ranking for methodology and effort-adjusted cost before using it for a model selection decision."
+description: Review an agentic benchmark ranking for methodology and effort-adjusted cost before using it for a model selection decision.
 metadata:
   source: skills/02-reasoning/agentic-benchmark-methodology-review.md
   category: 02-reasoning
