@@ -1,11 +1,12 @@
 ---
 name: regulator-facing-incident-disclosure
-description: Prepare and deliver incident disclosures to regulators and courts that name scope, cause, and remediation with traceable evidence.
+description: "Prepare and deliver incident disclosures to regulators and courts that name scope, cause, and remediation with traceable evidence."
 metadata:
   source: skills/06-communication/regulator-facing-incident-disclosure.md
   category: 06-communication
   version: "v1"
 ---
+
 # Regulator Facing Incident Disclosure
 
 ## Description

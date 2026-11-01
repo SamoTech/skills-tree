@@ -1,11 +1,12 @@
 ---
 name: mcp-sdk-release-adoption-review
-description: Review MCP SDK releases for breaking changes and behavior fixes, and adopt them on a recorded schedule rather than immediately.
+description: "Review MCP SDK releases for breaking changes and behavior fixes, and adopt them on a recorded schedule rather than immediately."
 metadata:
   source: skills/07-tool-use/mcp-sdk-release-adoption-review.md
   category: 07-tool-use
   version: "v1"
 ---
+
 # Mcp Sdk Release Adoption Review
 
 ## Description

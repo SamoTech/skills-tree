@@ -1,11 +1,12 @@
 ---
 name: mcp-mobile-connectivity-server-controls
-description: Configure an MCP server that exposes mobile connectivity tools such as proxies, eSIM data, and SMS, with spending controls before any agent connection.
+description: "Configure an MCP server that exposes mobile connectivity tools such as proxies, eSIM data, and SMS, with spending controls before any agent connection."
 metadata:
   source: skills/07-tool-use/mcp-mobile-connectivity-server-controls.md
   category: 07-tool-use
   version: "v1"
 ---
+
 # Mcp Mobile Connectivity Server Controls
 
 ## Description
