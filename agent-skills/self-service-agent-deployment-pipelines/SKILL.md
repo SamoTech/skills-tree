@@ -1,6 +1,6 @@
 ---
 name: self-service-agent-deployment-pipelines
-description: "Deploy customer-facing agents through the team’s own repositories and CI/CD pipelines with controlled releases, access management, and usage visibility."
+description: Deploy customer-facing agents through the team’s own repositories and CI/CD pipelines with controlled releases, access management, and usage visibility.
 metadata:
   source: skills/15-orchestration/self-service-agent-deployment-pipelines.md
   category: 15-orchestration

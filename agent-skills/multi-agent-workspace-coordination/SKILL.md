@@ -1,6 +1,6 @@
 ---
 name: multi-agent-workspace-coordination
-description: "Coordinate several already-running coding agents from one workspace interface that shows status, context, and results without re-configuring each agent."
+description: Coordinate several already-running coding agents from one workspace interface that shows status, context, and results without re-configuring each agent.
 metadata:
   source: skills/15-orchestration/multi-agent-workspace-coordination.md
   category: 15-orchestration

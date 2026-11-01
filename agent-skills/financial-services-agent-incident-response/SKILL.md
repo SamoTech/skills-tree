@@ -1,6 +1,6 @@
 ---
 name: financial-services-agent-incident-response
-description: "Respond to agent-enabled incidents in financial services with a playbook that preserves evidence, contains the agent path, and notifies affected parties."
+description: Respond to agent-enabled incidents in financial services with a playbook that preserves evidence, contains the agent path, and notifies affected parties.
 metadata:
   source: skills/16-domain-specific/financial-services-agent-incident-response.md
   category: 16-domain-specific

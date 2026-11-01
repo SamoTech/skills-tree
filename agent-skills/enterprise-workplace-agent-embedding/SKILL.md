@@ -1,6 +1,6 @@
 ---
 name: enterprise-workplace-agent-embedding
-description: "Embed a workplace agent into the messaging and enterprise systems employees already use, with permissions and audit logging verified end to end."
+description: Embed a workplace agent into the messaging and enterprise systems employees already use, with permissions and audit logging verified end to end.
 metadata:
   source: skills/15-orchestration/enterprise-workplace-agent-embedding.md
   category: 15-orchestration
