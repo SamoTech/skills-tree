@@ -1,6 +1,6 @@
 ---
 name: restaurant-concierge-transaction-design
-description: "Design an end-to-end conversational booking flow that completes one valuable transaction inside a messaging thread without a separate app."
+description: Design an end-to-end conversational booking flow that completes one valuable transaction inside a messaging thread without a separate app.
 metadata:
   source: skills/13-creative/restaurant-concierge-transaction-design.md
   category: 13-creative

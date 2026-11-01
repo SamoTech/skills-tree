@@ -1,6 +1,6 @@
 ---
 name: sme-marketing-automation-scoping
-description: "Scope which marketing tasks a small business automates with an agent, recording what is delegated and what stays human-reviewed."
+description: Scope which marketing tasks a small business automates with an agent, recording what is delegated and what stays human-reviewed.
 metadata:
   source: skills/13-creative/sme-marketing-automation-scoping.md
   category: 13-creative

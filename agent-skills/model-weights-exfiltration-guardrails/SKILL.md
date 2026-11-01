@@ -1,6 +1,6 @@
 ---
 name: model-weights-exfiltration-guardrails
-description: "Guard model and data assets against exfiltration attempts by monitoring outbound transfers and failing closed on unapproved destinations."
+description: Guard model and data assets against exfiltration attempts by monitoring outbound transfers and failing closed on unapproved destinations.
 metadata:
   source: skills/14-security/model-weights-exfiltration-guardrails.md
   category: 14-security

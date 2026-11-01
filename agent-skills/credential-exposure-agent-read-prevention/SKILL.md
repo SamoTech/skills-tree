@@ -1,6 +1,6 @@
 ---
 name: credential-exposure-agent-read-prevention
-description: "Prevent agents from reading data through exposed credentials by scoping credentials and detecting reads that no human session initiated."
+description: Prevent agents from reading data through exposed credentials by scoping credentials and detecting reads that no human session initiated.
 metadata:
   source: skills/14-security/credential-exposure-agent-read-prevention.md
   category: 14-security
