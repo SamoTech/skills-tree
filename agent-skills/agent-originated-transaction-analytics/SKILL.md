@@ -1,11 +1,12 @@
 ---
 name: agent-originated-transaction-analytics
-description: Instrument agent-originated transactions as their own analytics channel, comparing failure, cancellation, fraud, and repeat rates with human orders.
+description: "Instrument agent-originated transactions as their own analytics channel, comparing failure, cancellation, fraud, and repeat rates with human orders."
 metadata:
   source: skills/12-data/agent-originated-transaction-analytics.md
   category: 12-data
   version: "v1"
 ---
+
 # Agent Originated Transaction Analytics
 
 ## Description

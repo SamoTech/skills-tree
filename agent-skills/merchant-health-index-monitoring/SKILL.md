@@ -1,11 +1,12 @@
 ---
 name: merchant-health-index-monitoring
-description: Monitor a small business through a computed health index of merchant metrics, treating index movement as a signal that must be explained.
+description: "Monitor a small business through a computed health index of merchant metrics, treating index movement as a signal that must be explained."
 metadata:
   source: skills/12-data/merchant-health-index-monitoring.md
   category: 12-data
   version: "v1"
 ---
+
 # Merchant Health Index Monitoring
 
 ## Description

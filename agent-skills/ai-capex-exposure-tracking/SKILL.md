@@ -1,11 +1,12 @@
 ---
 name: ai-capex-exposure-tracking
-description: Track capital-expenditure exposure and free-cash-flow pressure across AI infrastructure spenders with dated, sourced figures.
+description: "Track capital-expenditure exposure and free-cash-flow pressure across AI infrastructure spenders with dated, sourced figures."
 metadata:
   source: skills/12-data/ai-capex-exposure-tracking.md
   category: 12-data
   version: "v1"
 ---
+
 # Ai Capex Exposure Tracking
 
 ## Description
