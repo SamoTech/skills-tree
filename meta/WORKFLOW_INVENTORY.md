@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47 (46 permanent + 1 temporary branch-local regen workflow during the 2026-11-02 batch-1 expansion)
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -258,3 +258,7 @@ Closure note (2026-10-31): `temp-regen.yml` completed the post-repair projection
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-11-01-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`) at the branch head, records a lychee markdown report, and captures the Agent Skills distribution-audit outputs for diagnosis. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
 
 Closure note (2026-11-01): `temp-regen.yml` completed the projection regen at the branch head (bot commit `3a86cb00`, distribution audit green — generate --audit eligible 2111, validate 2149/2149, reconcile --check zero drift/stale/unexpected). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
+
+## Disposition update — 2026-11-02 (temporary regen for the 2026-11-02 batch-1 expansion)
+
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-11-02-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`, and the agent-skills audit tools) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
