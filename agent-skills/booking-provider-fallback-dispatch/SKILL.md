@@ -1,6 +1,6 @@
 ---
 name: booking-provider-fallback-dispatch
-description: ""
+description: Dispatch a booking across multiple providers such as OpenTable, Resy, and SevenRooms with ordered fallback when the primary provider cannot serve the request.
 metadata:
   source: skills/04-action-execution/booking-provider-fallback-dispatch.md
   category: 04-action-execution

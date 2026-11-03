@@ -1,6 +1,6 @@
 ---
 name: metric-convergence-refinement-loops
-description: ""
+description: Drive an agent to keep refining a generated artifact until measured differences against a reference recording converge to explicit numeric thresholds.
 metadata:
   source: skills/02-reasoning/metric-convergence-refinement-loops.md
   category: 02-reasoning

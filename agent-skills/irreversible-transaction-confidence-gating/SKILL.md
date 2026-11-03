@@ -1,6 +1,6 @@
 ---
 name: irreversible-transaction-confidence-gating
-description: ""
+description: Gate paid or irreversible agent actions on recorded data source, freshness, and confidence values with an explicit fallback path before execution.
 metadata:
   source: skills/04-action-execution/irreversible-transaction-confidence-gating.md
   category: 04-action-execution

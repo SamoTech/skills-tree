@@ -1,6 +1,6 @@
 ---
 name: fiction-encoded-behavior-detection
-description: ""
+description: Screen fine-tuning datasets for harmful behavioral payloads encoded inside fiction, role-play, or ordinary professional questions instead of explicit content.
 metadata:
   source: skills/02-reasoning/fiction-encoded-behavior-detection.md
   category: 02-reasoning

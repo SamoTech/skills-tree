@@ -1,6 +1,6 @@
 ---
 name: persistent-context-capture-compression
-description: ""
+description: Capture what an agent does across sessions and compress it into persistent context that survives restarts without unbounded growth.
 metadata:
   source: skills/03-memory/persistent-context-capture-compression.md
   category: 03-memory
