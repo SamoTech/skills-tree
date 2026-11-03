@@ -8,7 +8,7 @@ hide:
 
 <div class="hero" markdown>
 
-**The AI Agent Skill OS** — 2138 skills, versioned, benchmarked, and openly evolving.
+**The AI Agent Skill OS** — 2188 skills, versioned, benchmarked, and openly evolving.
 
 [![PyPI version](https://img.shields.io/pypi/v/skills-tree?style=for-the-badge&color=22c55e&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
 [![Downloads](https://img.shields.io/pypi/dm/skills-tree?style=for-the-badge&color=3b82f6&logo=pypi&logoColor=white)](https://pypi.org/project/skills-tree/)
@@ -29,7 +29,7 @@ Skills Tree is the shared operating system for AI agent capabilities. It is a li
 
 <div class="grid cards" markdown>
 
-- :material-lightning-bolt: **2138 Skills**  
+- :material-lightning-bolt: **2188 Skills**  
   17 categories covering every AI agent capability from perception to orchestration.
 
 - :material-chart-bar: **Real Benchmarks**  
@@ -60,7 +60,7 @@ pip install skills-tree
 ```bash
 skills-tree goals
 skills-tree recommend --goal "Coding Agent"
-skills-tree search "memory"     # search across 2138 skills
+skills-tree search "memory"     # search across 2188 skills
 skills-tree validate
 ```
 
@@ -72,20 +72,20 @@ See the full [Quick Start guide](quickstart.md) or [CLI reference](cli.md).
 
 | # | Category | Skills |
 |---|---|---|
-| 01 | 👁️ Perception | 144 |
-| 02 | 🧠 Reasoning | 155 |
-| 03 | 🗄️ Memory | 128 |
-| 04 | ⚡ Action Execution | 135 |
-| 05 | 💻 Code | 139 |
-| 06 | 💬 Communication | 120 |
-| 07 | 🔧 Tool Use | 145 |
-| 08 | 🎭 Multimodal | 115 |
-| 09 | 🤖 Agentic Patterns | 134 |
-| 10 | 🖥️ Computer Use | 121 |
-| 11 | 🌐 Web | 124 |
-| 12 | 📊 Data | 130 |
-| 13 | 🎨 Creative | 98 |
-| 14 | 🔒 Security | 117 |
-| 15 | 🎼 Orchestration | 118 |
-| 16 | 🏺 Domain-Specific | 124 |
-| 17 | 🛠️ Infrastructure | 91 |
+| 01 | 👁️ Perception | 147 |
+| 02 | 🧠 Reasoning | 158 |
+| 03 | 🗄️ Memory | 131 |
+| 04 | ⚡ Action Execution | 138 |
+| 05 | 💻 Code | 142 |
+| 06 | 💬 Communication | 123 |
+| 07 | 🔧 Tool Use | 148 |
+| 08 | 🎭 Multimodal | 117 |
+| 09 | 🤖 Agentic Patterns | 137 |
+| 10 | 🖥️ Computer Use | 124 |
+| 11 | 🌐 Web | 127 |
+| 12 | 📊 Data | 133 |
+| 13 | 🎨 Creative | 100 |
+| 14 | 🔒 Security | 121 |
+| 15 | 🎼 Orchestration | 121 |
+| 16 | 🏺 Domain-Specific | 127 |
+| 17 | 🛠️ Infrastructure | 94 |
