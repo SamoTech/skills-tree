@@ -1,11 +1,12 @@
 ---
 name: session-handoff-status-messaging
-description: Brief the user on what a resumed session already did and where it stopped, so continuing work on a new surface does not silently repeat or skip steps.
+description: ""
 metadata:
   source: skills/06-communication/session-handoff-status-messaging.md
   category: 06-communication
   version: "v1"
 ---
+
 # Session Handoff Status Messaging
 
 ## Description

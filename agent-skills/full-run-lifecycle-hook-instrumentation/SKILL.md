@@ -1,11 +1,12 @@
 ---
 name: full-run-lifecycle-hook-instrumentation
-description: Instrument an agent run with hooks that observe the whole lifecycle, including sessions, turns, and permission events, into a structured event log.
+description: ""
 metadata:
   source: skills/09-agentic-patterns/full-run-lifecycle-hook-instrumentation.md
   category: 09-agentic-patterns
   version: "v1"
 ---
+
 # Full Run Lifecycle Hook Instrumentation
 
 ## Description

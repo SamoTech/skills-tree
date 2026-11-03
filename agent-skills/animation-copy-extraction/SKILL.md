@@ -1,11 +1,12 @@
 ---
 name: animation-copy-extraction
-description: Extract the text copy displayed in a recorded animation so the rebuilt version reproduces the exact wording instead of approximating it.
+description: ""
 metadata:
   source: skills/08-multimodal/animation-copy-extraction.md
   category: 08-multimodal
   version: "v1"
 ---
+
 # Animation Copy Extraction
 
 ## Description

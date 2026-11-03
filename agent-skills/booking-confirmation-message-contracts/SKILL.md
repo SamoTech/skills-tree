@@ -1,11 +1,12 @@
 ---
 name: booking-confirmation-message-contracts
-description: Send booking confirmations with a fixed message contract covering venue, time, party size, and reservation identifier so the user can verify what was actually booked.
+description: ""
 metadata:
   source: skills/06-communication/booking-confirmation-message-contracts.md
   category: 06-communication
   version: "v1"
 ---
+
 # Booking Confirmation Message Contracts
 
 ## Description
