@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,7 +53,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
-| `temp-regen.yml` | Temporary steward tooling (branch-local) | Temporary branch-local projection regen for the 2026-11-03 batch 1 expansion PR; deleted before merge, count restored to 46. |
 
 ## Reconciliation findings
 
@@ -263,3 +262,7 @@ Closure note (2026-11-01): `temp-regen.yml` completed the projection regen at th
 ## Disposition update — 2026-11-03 (temporary regen + link-report tooling for the 2026-11-03 batch-1 expansion)
 
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-11-03-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`) at the branch head, records a lychee markdown report, and captures the Agent Skills distribution-audit outputs for diagnosis. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
+
+
+Closure note (2026-11-03): `temp-regen.yml` completed the projection regen at the branch head (bot commit `8c7d0dd0`, distribution audit green — generate --audit eligible 2161, matching the committed discovery test count). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
+Closure note (2026-11-03): `temp-regen.yml` completed the projection regen at the branch head (bot commit `8c7d0dd0`, distribution audit green — generate --audit eligible 2161, matching the committed discovery test count). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
