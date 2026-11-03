@@ -1,11 +1,12 @@
 ---
 name: mcp-request-header-contract-testing
-description: Contract-test the HTTP headers a stateless MCP deployment requires, such as protocol version and method, so gateway misconfiguration fails loudly.
+description: ""
 metadata:
   source: skills/17-infrastructure/mcp-request-header-contract-testing.md
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Mcp Request Header Contract Testing
 
 ## Description

@@ -1,11 +1,12 @@
 ---
 name: connector-allowlist-revocation-testing
-description: Test the allowlist and revocation flows for agent service connectors so removing a connector actually severs every consuming surface's access.
+description: ""
 metadata:
   source: skills/14-security/connector-allowlist-revocation-testing.md
   category: 14-security
   version: "v1"
 ---
+
 # Connector Allowlist Revocation Testing
 
 ## Description

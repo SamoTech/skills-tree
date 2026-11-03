@@ -1,11 +1,12 @@
 ---
 name: dietary-booking-constraint-encoding
-description: Encode dietary and occasion constraints from a dining conversation into machine-checkable booking filters that every venue candidate must satisfy.
+description: ""
 metadata:
   source: skills/16-domain-specific/dietary-booking-constraint-encoding.md
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Dietary Booking Constraint Encoding
 
 ## Description

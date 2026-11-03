@@ -1,11 +1,12 @@
 ---
 name: agent-commerce-launch-pilot-scoping
-description: Scope a first agent-commerce pilot with measured volume expectations and explicit kill criteria instead of scaling on industry narrative.
+description: ""
 metadata:
   source: skills/16-domain-specific/agent-commerce-launch-pilot-scoping.md
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Agent Commerce Launch Pilot Scoping
 
 ## Description

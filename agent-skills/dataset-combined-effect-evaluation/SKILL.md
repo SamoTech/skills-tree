@@ -1,11 +1,12 @@
 ---
 name: dataset-combined-effect-evaluation
-description: Evaluate fine-tuning datasets by their combined post-training behavioral effect, not per-row content, before any model trained on them reaches production.
+description: ""
 metadata:
   source: skills/14-security/dataset-combined-effect-evaluation.md
   category: 14-security
   version: "v1"
 ---
+
 # Dataset Combined Effect Evaluation
 
 ## Description

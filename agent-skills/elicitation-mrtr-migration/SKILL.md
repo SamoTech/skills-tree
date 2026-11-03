@@ -1,11 +1,12 @@
 ---
 name: elicitation-mrtr-migration
-description: Migrate a server-side elicitation flow from open-stream requests to Multi Round-Trip Requests, returning input_required and completing on the retry.
+description: ""
 metadata:
   source: skills/17-infrastructure/elicitation-mrtr-migration.md
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Elicitation Mrtr Migration
 
 ## Description

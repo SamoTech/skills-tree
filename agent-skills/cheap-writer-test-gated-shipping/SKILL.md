@@ -1,11 +1,12 @@
 ---
 name: cheap-writer-test-gated-shipping
-description: Split a coding workflow so an expensive model plans while a cheaper model writes, and let tests decide what ships instead of the writer's self-assessment.
+description: ""
 metadata:
   source: skills/15-orchestration/cheap-writer-test-gated-shipping.md
   category: 15-orchestration
   version: "v1"
 ---
+
 # Cheap Writer Test Gated Shipping
 
 ## Description

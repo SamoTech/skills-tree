@@ -1,11 +1,12 @@
 ---
 name: worker-native-mcp-handler-deployment
-description: Deploy an MCP server as a request-scoped handler on ordinary stateless infrastructure, such as edge workers, with no session store or sticky routing.
+description: ""
 metadata:
   source: skills/17-infrastructure/worker-native-mcp-handler-deployment.md
   category: 17-infrastructure
   version: "v1"
 ---
+
 # Worker Native Mcp Handler Deployment
 
 ## Description
