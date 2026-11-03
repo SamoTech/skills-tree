@@ -1,6 +1,6 @@
 ---
 name: shared-link-rotation-expiry-policy
-description: ""
+description: Rotate and expire shared conversation and session links on a fixed policy so old links stop working without anyone remembering to delete them.
 metadata:
   source: skills/14-security/shared-link-rotation-expiry-policy.md
   category: 14-security

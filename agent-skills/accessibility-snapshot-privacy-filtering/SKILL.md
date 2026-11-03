@@ -1,6 +1,6 @@
 ---
 name: accessibility-snapshot-privacy-filtering
-description: ""
+description: Filter and bound desktop accessibility snapshots an agent takes, so private content in other windows is excluded before snapshots are stored or sent to a model.
 metadata:
   source: skills/14-security/accessibility-snapshot-privacy-filtering.md
   category: 14-security

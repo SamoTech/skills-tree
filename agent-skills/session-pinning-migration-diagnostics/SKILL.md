@@ -1,6 +1,6 @@
 ---
 name: session-pinning-migration-diagnostics
-description: ""
+description: Diagnose and retire session pinning after migrating an MCP deployment to the stateless protocol, proving no request still depends on sticky routing.
 metadata:
   source: skills/17-infrastructure/session-pinning-migration-diagnostics.md
   category: 17-infrastructure

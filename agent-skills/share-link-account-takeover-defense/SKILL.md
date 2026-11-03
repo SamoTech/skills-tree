@@ -1,6 +1,6 @@
 ---
 name: share-link-account-takeover-defense
-description: ""
+description: Defend against account takeover through shared conversation links by scoping, expiring, and monitoring every link an agent platform emits.
 metadata:
   source: skills/14-security/share-link-account-takeover-defense.md
   category: 14-security

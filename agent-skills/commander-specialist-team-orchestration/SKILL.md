@@ -1,6 +1,6 @@
 ---
 name: commander-specialist-team-orchestration
-description: ""
+description: Orchestrate a coordinator-plus-specialists agent team where the coordinator assigns bounded tasks to registered specialists and verifies their outputs.
 metadata:
   source: skills/15-orchestration/commander-specialist-team-orchestration.md
   category: 15-orchestration
