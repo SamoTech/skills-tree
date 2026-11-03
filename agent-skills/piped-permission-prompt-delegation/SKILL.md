@@ -1,6 +1,6 @@
 ---
 name: piped-permission-prompt-delegation
-description: ""
+description: Delegate agent permission prompts to a hosting application through a piped protocol so the host answers approvals with an explicit recorded policy.
 metadata:
   source: skills/09-agentic-patterns/piped-permission-prompt-delegation.md
   category: 09-agentic-patterns

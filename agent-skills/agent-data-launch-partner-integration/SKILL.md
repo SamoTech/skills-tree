@@ -1,6 +1,6 @@
 ---
 name: agent-data-launch-partner-integration
-description: ""
+description: Integrate an external data partner into an agent workflow under a launch-cohort contract with tested fallbacks and recorded data-quality gates.
 metadata:
   source: skills/12-data/agent-data-launch-partner-integration.md
   category: 12-data

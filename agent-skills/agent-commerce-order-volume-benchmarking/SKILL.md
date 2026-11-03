@@ -1,6 +1,6 @@
 ---
 name: agent-commerce-order-volume-benchmarking
-description: ""
+description: Benchmark the volume of orders arriving from third-party AI agents against human-channel baselines before committing to agent-commerce investments.
 metadata:
   source: skills/11-web/agent-commerce-order-volume-benchmarking.md
   category: 11-web

@@ -1,6 +1,6 @@
 ---
 name: external-data-fallback-recording
-description: ""
+description: Record the fallback behavior for every external data call so agents degrade predictably when a source is stale, missing, or low-confidence.
 metadata:
   source: skills/12-data/external-data-fallback-recording.md
   category: 12-data

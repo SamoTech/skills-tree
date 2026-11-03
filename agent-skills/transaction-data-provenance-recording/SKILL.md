@@ -1,6 +1,6 @@
 ---
 name: transaction-data-provenance-recording
-description: ""
+description: Record the source, time, and verification state of every external data element an agent uses in a transaction so outcomes can be traced back to their inputs.
 metadata:
   source: skills/12-data/transaction-data-provenance-recording.md
   category: 12-data

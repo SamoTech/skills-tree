@@ -1,6 +1,6 @@
 ---
 name: agent-task-success-rate-measurement
-description: ""
+description: Measure and report the success rate of agent tasks against a defined success criterion instead of quoting vendor-reported aggregate rates.
 metadata:
   source: skills/12-data/agent-task-success-rate-measurement.md
   category: 12-data

@@ -1,6 +1,6 @@
 ---
 name: lottie-animation-reconstruction
-description: ""
+description: Reconstruct a recorded animation as a Lottie or code asset and verify the rebuild against the recording until the declared numeric tolerances are met.
 metadata:
   source: skills/13-creative/lottie-animation-reconstruction.md
   category: 13-creative
