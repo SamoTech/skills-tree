@@ -1,6 +1,6 @@
 ---
 name: machine-teardown-visual-simulation
-description: ""
+description: Build a visual interactive simulation of a physical machine that an agent can take apart, with parts and constraints matching a declared machine model.
 metadata:
   source: skills/08-multimodal/machine-teardown-visual-simulation.md
   category: 08-multimodal

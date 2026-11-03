@@ -1,6 +1,6 @@
 ---
 name: animation-diff-numeric-comparison
-description: ""
+description: Compare a rebuilt animation against its reference recording numerically across declared visual and timing metrics instead of eyeballing similarity.
 metadata:
   source: skills/08-multimodal/animation-diff-numeric-comparison.md
   category: 08-multimodal

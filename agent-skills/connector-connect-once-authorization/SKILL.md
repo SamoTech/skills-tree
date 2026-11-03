@@ -1,6 +1,6 @@
 ---
 name: connector-connect-once-authorization
-description: ""
+description: Authorize a tool connector once and reuse that authorization across agent surfaces and sessions while auditing every surface that consumes it.
 metadata:
   source: skills/07-tool-use/connector-connect-once-authorization.md
   category: 07-tool-use

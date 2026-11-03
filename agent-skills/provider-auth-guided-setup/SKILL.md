@@ -1,6 +1,6 @@
 ---
 name: provider-auth-guided-setup
-description: ""
+description: Run a guided provider setup for a coding agent that reuses an existing login instead of storing new credentials, and verify the connection before real work.
 metadata:
   source: skills/05-code/provider-auth-guided-setup.md
   category: 05-code

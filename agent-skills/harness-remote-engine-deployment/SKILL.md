@@ -1,6 +1,6 @@
 ---
 name: harness-remote-engine-deployment
-description: ""
+description: Deploy a coding harness headless engine for remote execution and verify that remote runs produce identical results to local runs before switching workflows.
 metadata:
   source: skills/05-code/harness-remote-engine-deployment.md
   category: 05-code

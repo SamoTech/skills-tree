@@ -1,6 +1,6 @@
 ---
 name: booking-consent-error-messaging
-description: ""
+description: Report booking errors and collect user consent inside the messaging thread with explicit retry offers instead of silently failing or retrying alone.
 metadata:
   source: skills/06-communication/booking-consent-error-messaging.md
   category: 06-communication

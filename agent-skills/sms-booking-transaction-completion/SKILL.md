@@ -1,6 +1,6 @@
 ---
 name: sms-booking-transaction-completion
-description: ""
+description: Complete a booking transaction end to end inside a text-message conversation, including availability checks, provider confirmation, and a recorded receipt.
 metadata:
   source: skills/04-action-execution/sms-booking-transaction-completion.md
   category: 04-action-execution

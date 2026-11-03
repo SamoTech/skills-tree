@@ -1,6 +1,6 @@
 ---
 name: stateless-tool-request-idempotency
-description: ""
+description: Make every tool request self-describing and safely retryable by carrying protocol version, client identity, and an idempotency key on each request instead of relying on a session.
 metadata:
   source: skills/07-tool-use/stateless-tool-request-idempotency.md
   category: 07-tool-use

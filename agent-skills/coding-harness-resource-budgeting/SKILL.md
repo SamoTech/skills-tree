@@ -1,6 +1,6 @@
 ---
 name: coding-harness-resource-budgeting
-description: ""
+description: Budget the compute and memory footprint of a coding-agent harness and verify the budget holds under a representative workload before adoption.
 metadata:
   source: skills/05-code/coding-harness-resource-budgeting.md
   category: 05-code
