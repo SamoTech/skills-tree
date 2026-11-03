@@ -1,11 +1,12 @@
 ---
 name: tool-selection-competing-interest-disclosure
-description: Disclose competing interests, such as toolmaker overlap with a recommended tool, whenever an agent or author recommends one tool over a comparable alternative.
+description: ""
 metadata:
   source: skills/09-agentic-patterns/tool-selection-competing-interest-disclosure.md
   category: 09-agentic-patterns
   version: "v1"
 ---
+
 # Tool Selection Competing Interest Disclosure
 
 ## Description

@@ -1,11 +1,12 @@
 ---
 name: local-desktop-agent-team-execution
-description: Run a resident team of specialist agents on the user's own desktop machine with a coordinator that turns goals into bounded, recorded tasks.
+description: ""
 metadata:
   source: skills/10-computer-use/local-desktop-agent-team-execution.md
   category: 10-computer-use
   version: "v1"
 ---
+
 # Local Desktop Agent Team Execution
 
 ## Description

@@ -1,11 +1,12 @@
 ---
 name: app-foreground-action-requirements
-description: Detect which desktop actions require their target application to be in the foreground and schedule them so the user keeps working without silent failures.
+description: ""
 metadata:
   source: skills/10-computer-use/app-foreground-action-requirements.md
   category: 10-computer-use
   version: "v1"
 ---
+
 # App Foreground Action Requirements
 
 ## Description

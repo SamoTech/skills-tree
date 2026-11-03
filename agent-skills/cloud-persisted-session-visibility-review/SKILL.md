@@ -1,11 +1,12 @@
 ---
 name: cloud-persisted-session-visibility-review
-description: Review what a cloud-persisted agent session exposes, and to whom, before routing real repository and task work through it.
+description: ""
 metadata:
   source: skills/11-web/cloud-persisted-session-visibility-review.md
   category: 11-web
   version: "v1"
 ---
+
 # Cloud Persisted Session Visibility Review
 
 ## Description

@@ -1,11 +1,12 @@
 ---
 name: teardown-simulator-scene-authoring
-description: Author a self-contained offline interactive scene, such as a machine teardown simulator, as a single portable artifact with no network dependencies.
+description: ""
 metadata:
   source: skills/13-creative/teardown-simulator-scene-authoring.md
   category: 13-creative
   version: "v1"
 ---
+
 # Teardown Simulator Scene Authoring
 
 ## Description
