@@ -1,11 +1,12 @@
 ---
 name: local-voice-dictation-pipeline
-description: Run a local on-device voice dictation pipeline that transcribes speech and routes the text into a target application without sending audio to a remote service.
+description: ""
 metadata:
   source: skills/01-perception/local-voice-dictation-pipeline.md
   category: 01-perception
   version: "v1"
 ---
+
 # Local Voice Dictation Pipeline
 
 ## Description

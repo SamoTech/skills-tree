@@ -1,11 +1,12 @@
 ---
 name: booking-preference-inference
-description: Infer dining constraints such as cuisine, dietary needs, neighborhood, and occasion from a conversation before proposing restaurant options to a user.
+description: ""
 metadata:
   source: skills/02-reasoning/booking-preference-inference.md
   category: 02-reasoning
   version: "v1"
 ---
+
 # Booking Preference Inference
 
 ## Description

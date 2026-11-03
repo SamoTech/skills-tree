@@ -1,11 +1,12 @@
 ---
 name: dictation-transcription-accuracy-verification
-description: Measure local dictation transcription accuracy against known reference phrases before trusting dictated text for real entry or command use.
+description: ""
 metadata:
   source: skills/01-perception/dictation-transcription-accuracy-verification.md
   category: 01-perception
   version: "v1"
 ---
+
 # Dictation Transcription Accuracy Verification
 
 ## Description

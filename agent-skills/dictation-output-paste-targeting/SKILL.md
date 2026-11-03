@@ -1,11 +1,12 @@
 ---
 name: dictation-output-paste-targeting
-description: Resolve and verify the paste target for dictated text so transcribed output lands in the intended application field rather than whatever window currently holds focus.
+description: ""
 metadata:
   source: skills/01-perception/dictation-output-paste-targeting.md
   category: 01-perception
   version: "v1"
 ---
+
 # Dictation Output Paste Targeting
 
 ## Description

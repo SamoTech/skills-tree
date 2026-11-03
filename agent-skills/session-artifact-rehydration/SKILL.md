@@ -1,11 +1,12 @@
 ---
 name: session-artifact-rehydration
-description: Rehydrate a persisted cloud agent session, including code, context, and prior work, on a new device so a task continues without rebuilding state.
+description: ""
 metadata:
   source: skills/03-memory/session-artifact-rehydration.md
   category: 03-memory
   version: "v1"
 ---
+
 # Session Artifact Rehydration
 
 ## Description

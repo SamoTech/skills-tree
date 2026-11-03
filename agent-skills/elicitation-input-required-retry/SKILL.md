@@ -1,11 +1,12 @@
 ---
 name: elicitation-input-required-retry
-description: Handle a server input_required result by collecting the missing input and retrying the original operation without holding a transport session open between the requests.
+description: ""
 metadata:
   source: skills/04-action-execution/elicitation-input-required-retry.md
   category: 04-action-execution
   version: "v1"
 ---
+
 # Elicitation Input Required Retry
 
 ## Description
