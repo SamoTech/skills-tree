@@ -1,5 +1,5 @@
 name: temp-regen
-# temporary branch-local diagnostic + regen for the 2026-11-03 batch 2 expansion
+# temporary branch-local regen + diagnostics for the 2026-11-03 batch 2 expansion
 on:
   pull_request:
     branches: [main]
@@ -21,6 +21,10 @@ jobs:
           python-version: '3.12'
       - name: Install deps
         run: pip install pyyaml jsonschema markdown networkx
+      - name: Regenerate deterministic packages (write mode)
+        run: |
+          { python tools/generate_agent_skills.py; echo "generate_exit=$?"; } > meta/GENERATE-WRITE.txt 2>&1 || true
+        continue-on-error: true
       - name: Build graph
         run: |
           python tools/build_graph.py
@@ -43,13 +47,19 @@ jobs:
           print(f"PASS: All {len(data.get('edges', []))} edge targets are valid node IDs.")
           EOF
         continue-on-error: true
-      - name: Audit check diagnostic
+      - name: Export skills and search index
         run: |
-          { python tools/generate_agent_skills.py --audit; echo "generate_exit=$?"; } > meta/GENERATE-AUDIT-CHECK.txt 2>&1 || true
+          { python tools/export_skills.py; echo "export_exit=$?"; } > meta/EXPORT-CHECK.txt 2>&1 || true
+          { python tools/build_search_index.py; echo "index_exit=$?"; } > meta/INDEX-CHECK.txt 2>&1 || true
+          { python tools/check_skill_quality.py; echo "quality_exit=$?"; } > meta/QUALITY-CHECK.txt 2>&1 || true
+          { python tools/update_readme_counts.py; echo "readme_exit=$?"; } > meta/README-COUNTS.txt 2>&1 || true
+        continue-on-error: true
+      - name: Audit check diagnostics
+        run: |
           { python tools/validate_agent_skills.py; echo "validate_exit=$?"; } > meta/VALIDATE-CHECK.txt 2>&1 || true
           { python tools/reconcile_agent_skills.py --check; echo "reconcile_exit=$?"; } > meta/RECONCILE-CHECK.txt 2>&1 || true
         continue-on-error: true
-      - name: Commit diagnostics
+      - name: Commit regen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

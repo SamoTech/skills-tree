@@ -6,7 +6,7 @@ stability: experimental
 description: "Parse voice-agent broadband fault call transcripts into structured diagnostics, caller intent, and resolution evidence fields."
 added: "2026-11"
 version: v1
-related: [audio-transcription, voice-command-audio-segmentation]
+related: [audio-transcription, audio-stream-segmentation]
 tags: [perception, voice-agent, telecom, parsing]
 ---
 # Broadband Fault Call Transcript Parsing
@@ -68,7 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Audio Transcription](audio-transcription.md)
-- [Voice Command Audio Segmentation](voice-command-audio-segmentation.md)
+- [Audio Stream Segmentation](audio-stream-segmentation.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -6,7 +6,7 @@ stability: experimental
 description: "Operate defenses against voice-clone robocalls in election windows, from detection escalation to disclosure and takedown."
 added: "2026-11"
 version: v1
-related: [voice-clone-detection, ai-voice-robocall-regulation-compliance]
+related: [social-engineering-detection, ai-voice-robocall-regulation-compliance]
 tags: [security, voice-clone, elections, operations]
 ---
 # Election Voice Clone Robocall Defense Operations
@@ -68,7 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Voice Clone Detection](voice-clone-detection.md)
+- [Social Engineering Detection](social-engineering-detection.md)
 - [AI Voice Robocall Regulation Compliance](ai-voice-robocall-regulation-compliance.md)
 
 ## Changelog
