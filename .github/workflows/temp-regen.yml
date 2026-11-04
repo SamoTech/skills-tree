@@ -21,9 +21,31 @@ jobs:
           python-version: '3.12'
       - name: Install deps
         run: pip install pyyaml jsonschema markdown networkx
-      - name: Regenerate deterministic packages (write mode)
+      - name: Regenerate drifted deterministic packages (project() derivation)
         run: |
-          { python tools/generate_agent_skills.py --write-eligible; echo "generate_exit=$?"; } > meta/GENERATE-WRITE.txt 2>&1 || true
+          { python - <<'PYEOF'
+          import sys
+          sys.path.insert(0, "tools")
+          from pathlib import Path
+          import generate_agent_skills as g
+          root = Path(".").resolve()
+          report = g.audit(root)
+          colliding = set(report["name_collisions"])
+          files = sorted(p for p in (root / "skills").rglob("*.md") if p.name.lower() != "readme.md")
+          written = []
+          for p in files:
+              item = g.project(p, root)
+              if not item.eligible or item.name in colliding:
+                  continue
+              dest = root / "agent-skills" / item.name / "SKILL.md"
+              expected = item.content.rstrip() + "\n"
+              if dest.exists() and dest.read_text(encoding="utf-8") == expected:
+                  continue
+              g.write_projection(root, item)
+              written.append(item.name)
+          print(f"rewrote {len(written)} drifted packages: {', '.join(written)}")
+          PYEOF
+          echo "generate_exit=$?"; } > meta/GENERATE-WRITE.txt 2>&1 || true
         continue-on-error: true
       - name: Build graph
         run: |
