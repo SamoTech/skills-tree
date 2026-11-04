@@ -23,7 +23,7 @@ jobs:
         run: pip install pyyaml jsonschema markdown networkx
       - name: Regenerate deterministic packages (write mode)
         run: |
-          { python tools/generate_agent_skills.py; echo "generate_exit=$?"; } > meta/GENERATE-WRITE.txt 2>&1 || true
+          { python tools/generate_agent_skills.py --write-eligible; echo "generate_exit=$?"; } > meta/GENERATE-WRITE.txt 2>&1 || true
         continue-on-error: true
       - name: Build graph
         run: |
