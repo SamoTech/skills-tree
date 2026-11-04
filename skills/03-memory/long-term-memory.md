@@ -6,7 +6,7 @@ stability: stable
 description: "Design durable agent memory with explicit schemas, retention policy, provenance, and retrieval rules so persistent state remains auditable."
 added: "2025-03"
 version: v2
-related: [cross-session-persistence, semantic-memory, forgetting]
+related: [cross-session-persistence, semantic-memory, forgetting, hyperconsciousness-memory-store]
 ---
 
 # Long-Term Memory
@@ -57,6 +57,7 @@ The implementation is a deterministic Python reference demonstrating data contra
 - `cross-session-persistence`
 - `semantic-memory`
 - `forgetting`
+- [Hyperconsciousness Memory Store](03-hyperconsciousness.md) — provides an explicit HC CLI procedure and grant-scoping checks.
 
 ## Changelog
 - v1 (2026-04): Initial entry

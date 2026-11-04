@@ -6,7 +6,7 @@ stability: experimental
 description: "Log who read and wrote each memory record, make audit entries tamper-evident, and surface unauthorized or unexpected access patterns for review."
 added: "2026-10"
 version: v1
-related: [memory-provenance-tracking, fact-verification-memory, memory-quality-auditing]
+related: [memory-provenance-tracking, fact-verification-memory, memory-quality-auditing, hyperconsciousness-memory-store]
 tags: [auditing, memory, governance]
 ---
 
@@ -68,3 +68,4 @@ Audit-trail requirements for agent actions are a recurring 2026 governance signa
 - memory-provenance-tracking.md
 - fact-verification-memory.md
 - memory-quality-auditing.md
+- [Hyperconsciousness Memory Store](03-hyperconsciousness.md) — includes bounded access and grant review steps.
