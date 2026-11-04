@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-04T00:34:04.054063+00:00",
+    "generated_at": "2026-11-04T00:39:31.478902+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2288,
@@ -34730,9 +34730,9 @@
     },
     {
       "source": "01-perception/broadband-fault-call-transcript-parsing",
-      "target": "01-perception/voice-command-audio-segmentation",
+      "target": "01-perception/audio-stream-segmentation",
       "type": "RELATED_TO",
-      "evidence": "[Voice Command Audio Segmentation](voice-command-audio-segmentation.md)",
+      "evidence": "[Audio Stream Segmentation](audio-stream-segmentation.md)",
       "source_file": "skills/01-perception/broadband-fault-call-transcript-parsing.md",
       "confidence": "high"
     },
@@ -55130,9 +55130,9 @@
     },
     {
       "source": "14-security/election-voice-clone-robocall-defense-operations",
-      "target": "14-security/voice-clone-detection",
+      "target": "14-security/social-engineering-detection",
       "type": "RELATED_TO",
-      "evidence": "[Voice Clone Detection](voice-clone-detection.md)",
+      "evidence": "[Social Engineering Detection](social-engineering-detection.md)",
       "source_file": "skills/14-security/election-voice-clone-robocall-defense-operations.md",
       "confidence": "high"
     },

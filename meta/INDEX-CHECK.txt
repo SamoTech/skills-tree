@@ -1,0 +1,3 @@
+Building search index from 'skills'...
+Done. 2288 document(s) written to 'docs/search-index.json' and 'data/search-index.json'.
+index_exit=0

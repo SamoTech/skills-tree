@@ -1,0 +1,10 @@
+[export] Scanning skills/ ...
+[export] Found 2288 skills.
+[export] Wrote docs/api/skills.json (2,070,497 bytes)
+[export] Wrote docs/api/skills.yaml
+[export] Wrote docs/api/skills-schema.json
+[export] Generating JSON-LD files ...
+[export] Wrote docs/api/jsonld/index.jsonld (2288 list items)
+[export] Wrote 2289 JSON-LD files to docs/api/jsonld/
+[export] Done.
+export_exit=0
