@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,7 +40,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
-| `temp-regen.yml` | Temporary branch-local regen | Temporary projection regeneration for the 2026-11-03 batch 2 expansion branch only; deleted before merge |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -272,4 +271,5 @@ Reopen note (2026-11-03, combined double batch): `temp-regen.yml` is re-added on
 
 Closure note (2026-11-03, combined double batch): the re-added `temp-regen.yml` completed the projection regen at the combined 100-skill branch head (bot commit `206710e6`, distribution audit green - generate --audit clean, validate 2249/2249 packages, reconcile --check zero drift/stale/unexpected; the recorded full-repo lychee report shows zero failing http(s) links, its recorded errors being the pre-existing relative-link file:// misparses also present on main). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the reopen note above is retained as the historical record.
 
-Reopen note (2026-11-03, batch 2): `temp-regen.yml` is added on the `skills/expansion-2026-11-03-b2` branch only, to regenerate the deterministic projections (search index, skills API, graph, README counts, quality report, badges) at the branch head and capture the distribution-audit outputs for diagnosis. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
+
+Closure note (2026-11-03, batch 2): the re-added `temp-regen.yml` completed the projection regen at the batch-2 branch head (bot commit `729e291e`, distribution audit green — generate --audit eligible 2261 matching the committed discovery test count, validate 2299/2299 packages, reconcile --check zero drift/stale/unexpected; the recorded lychee report carried no findings for this run and the ten batch-2 evidence URLs were verified live before authoring). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
