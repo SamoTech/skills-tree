@@ -1,11 +1,11 @@
 name: temp-regen
-# temporary branch-local regen for the 2026-11-02 batch 1 expansion
+# temporary branch-local merge + regen for PR #681 (2026-11-02 batch 1; completion cycle 2026-11-04)
 on:
   pull_request:
     branches: [main]
     types: [opened, synchronize]
 jobs:
-  regen:
+  merge-and-regen:
     if: github.head_ref == 'skills/expansion-2026-11-02-b1'
     runs-on: ubuntu-latest
     permissions:
@@ -18,8 +18,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Merge latest main (-X theirs for generated projections and docs)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git merge origin/main --no-edit -X theirs
+          git push
       - name: Install deps
         run: pip install pyyaml jsonschema markdown networkx
+      - name: Rewrite drifted agent-skills packages deterministically
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          from generate_agent_skills import audit, project, write_projection
+          root = Path(".").resolve()
+          report = audit(root)
+          colliding = set(report["name_collisions"].keys())
+          fixed = 0
+          for path in sorted((root / "skills").rglob("*.md")):
+              if path.name.lower() == "readme.md":
+                  continue
+              item = project(path, root)
+              if not item.eligible or item.name in colliding:
+                  continue
+              dest = root / "agent-skills" / item.name / "SKILL.md"
+              expected = item.content.rstrip() + "\n"
+              if not dest.exists() or dest.read_text(encoding="utf-8") != expected:
+                  write_projection(root, item)
+                  fixed += 1
+          print(f"Rewrote {fixed} packages")
+          PY
       - name: Build graph
         run: |
           python tools/build_graph.py
@@ -36,6 +67,8 @@ jobs:
         run: python3 tools/check_skill_quality.py
       - name: README counts
         run: python3 tools/update_readme_counts.py
+      - name: Sync badges
+        run: python3 tools/sync_badges.py
       - name: Link report
         uses: lycheeverse/lychee-action@v2
         with:
@@ -43,8 +76,6 @@ jobs:
           format: markdown
           output: meta/LYCHEE-REPORT.md
         continue-on-error: true
-      - name: Sync badges
-        run: python3 tools/sync_badges.py
       - name: Distribution audit capture
         run: |
           python3 tools/generate_agent_skills.py --audit > meta/AUDIT-REPORT.md
@@ -56,4 +87,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || (git commit -m "chore(regen): deterministic projection refresh" && git push)
+          git diff --cached --quiet || (git commit -m "chore(regen): deterministic projection refresh after main merge" && git push)
