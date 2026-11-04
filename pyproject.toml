@@ -6,11 +6,11 @@ build-backend = "setuptools.build_meta"
 name            = "skills-tree"
 version         = "1.108.0"
 description     = "Universal, platform-agnostic skills and capability registry for AI agents"
-readme         = "README.md"
-license = { file = "LICENSE" }
+readme          = "README.md"
+license         = { file = "LICENSE" }
 requires-python = ">=3.11"
-keywords = ["ai", "agents", "skills", "capabilities", "registry", "recommendation", "llm", "taxonomy", "mcp"]
-classifiers = [
+keywords        = ["ai", "agents", "skills", "capabilities", "registry", "recommendation", "llm", "taxonomy", "mcp"]
+classifiers     = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -95,7 +95,7 @@ tag_format                 = "v{version}"
 [tool.semantic_release.commit_parser_options]
 allowed_tags   = ["feat", "fix", "perf", "refactor", "docs", "chore", "ci", "test", "style", "build", "revert"]
 minor_tags     = ["feat"]
-patch_tags     = ["fix", "perf"]
+patch_tags     = ["fix", "perf", "refactor"]
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = [
