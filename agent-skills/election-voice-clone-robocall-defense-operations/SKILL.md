@@ -66,11 +66,10 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Voice Clone Detection](voice-clone-detection.md)
+- [Social Engineering Detection](social-engineering-detection.md)
 - [AI Voice Robocall Regulation Compliance](ai-voice-robocall-regulation-compliance.md)
 
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
 | `v1` | `2026-11` | Initial evidence-backed contract. |
-

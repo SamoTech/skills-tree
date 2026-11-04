@@ -66,10 +66,9 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Audio Transcription](audio-transcription.md)
-- [Voice Command Audio Segmentation](voice-command-audio-segmentation.md)
+- [Audio Stream Segmentation](audio-stream-segmentation.md)
 
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
 | `v1` | `2026-11` | Initial evidence-backed contract. |
-
