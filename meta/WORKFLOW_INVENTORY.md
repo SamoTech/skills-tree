@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,7 +53,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
-| `temp-regen.yml` | Temporary steward tooling (branch-local) | Re-added on `skills/expansion-2026-11-03-b2` only: write-mode deterministic projection regen plus dangling-edge and distribution-audit diagnostics for the two failing checks (graph dangling target, reconcile drift); deleted before merge so the live count returns to 46 |
 
 ## Reconciliation findings
 
@@ -276,3 +275,5 @@ Closure note (2026-11-03, combined double batch): the re-added `temp-regen.yml` 
 Closure note (2026-11-03, batch 2): the re-added `temp-regen.yml` completed the projection regen at the batch-2 branch head (bot commit `729e291e`, distribution audit green — generate --audit eligible 2261 matching the committed discovery test count, validate 2299/2299 packages, reconcile --check zero drift/stale/unexpected; the recorded lychee report carried no findings for this run and the ten batch-2 evidence URLs were verified live before authoring). The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
 
 Reopen note (2026-11-03, batch 2 diagnostics): `temp-regen.yml` is re-added on the `skills/expansion-2026-11-03-b2` branch only, after the batch-2 CI surfaced two real failures (dangling graph targets from two Related references to nonexistent skills, and reconcile drift of 50 packages against the deterministic projection). It reruns the repo's own generators in write mode (repairing the packages from the canonical skills) and captures the dangling-edge and distribution-audit diagnostics at the repaired head. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
+
+Closure note (2026-11-03, batch 2 diagnostics and repair): the re-added `temp-regen.yml` diagnosed the two failing checks exactly — two dangling graph targets from Related references to nonexistent skills (`broadband-fault-call-transcript-parsing -> voice-command-audio-segmentation`, `election-voice-clone-robocall-defense-operations -> voice-clone-detection`, repaired in `e9f49b5e` to the existing `audio-stream-segmentation` and `social-engineering-detection`), and reconcile drift of all 50 batch packages (the earlier closure note's `reconcile --check zero drift` claim was wrong: the drift was present but only surfaced through these diagnostics; the prior regen had run the generator in its audit-only default mode, and its `--write`/`--write-eligible` modes refuse on the repo's legacy name collisions). The workflow then re-derived all 50 packages byte-exactly through the repository's own `project()`/`write_projection()` (bot commit `391f9b85`): graph dangling check PASS over all 3264 edges, validate 2299/2299, reconcile --check zero drift/stale/unexpected (exit 0). The workflow and all temporary diagnostic reports were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
