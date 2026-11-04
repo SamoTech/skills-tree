@@ -1,0 +1,57 @@
+name: temp-regen
+# temporary branch-local diagnostic + regen for the 2026-11-03 batch 2 expansion
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+jobs:
+  regen:
+    if: github.head_ref == 'skills/expansion-2026-11-03-b2'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install pyyaml jsonschema markdown networkx
+      - name: Build graph
+        run: |
+          python tools/build_graph.py
+          mkdir -p docs/api
+          cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - name: Dangling target diagnostic
+        run: |
+          python - <<'EOF' > meta/GRAPH-DANGLING.txt 2>&1 || true
+          import json, sys
+          from pathlib import Path
+          graph_path = Path("data/SKILLS_GRAPH.json")
+          data = json.loads(graph_path.read_text())
+          node_ids = {n["id"] for n in data.get("nodes", [])}
+          dangling = [e for e in data.get("edges", []) if e["target"] not in node_ids]
+          if dangling:
+              print(f"FAIL: {len(dangling)} edges with dangling (missing) target node IDs.")
+              for e in dangling[:50]:
+                  print(f"  {e['source']} -> {e['target']} [{e.get('type', '?')}]")
+              sys.exit(1)
+          print(f"PASS: All {len(data.get('edges', []))} edge targets are valid node IDs.")
+          EOF
+        continue-on-error: true
+      - name: Audit check diagnostic
+        run: |
+          { python tools/generate_agent_skills.py --audit; echo "generate_exit=$?"; } > meta/GENERATE-AUDIT-CHECK.txt 2>&1 || true
+          { python tools/validate_agent_skills.py; echo "validate_exit=$?"; } > meta/VALIDATE-CHECK.txt 2>&1 || true
+          { python tools/reconcile_agent_skills.py --check; echo "reconcile_exit=$?"; } > meta/RECONCILE-CHECK.txt 2>&1 || true
+        continue-on-error: true
+      - name: Commit diagnostics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "chore(regen): deterministic projection refresh + diagnostics" && git push)
