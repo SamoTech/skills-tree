@@ -4,8 +4,8 @@
 
 ## Summary
 
-- **Total skill files:** 2239
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2089
+- **Total skill files:** 2289
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2139
 - 🟡 **Enriched** (real description + runnable code): 149
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
@@ -16,23 +16,23 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid | 🔧 Fixture |
 |---|---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
-| `01-perception` | 150 | 146 | 4 | 0 | 0 | 0 |
-| `02-reasoning` | 161 | 153 | 8 | 0 | 0 | 0 |
-| `03-memory` | 134 | 134 | 0 | 0 | 0 | 0 |
-| `04-action-execution` | 142 | 132 | 10 | 0 | 0 | 0 |
-| `05-code` | 145 | 125 | 20 | 0 | 0 | 0 |
-| `06-communication` | 126 | 126 | 0 | 0 | 0 | 0 |
-| `07-tool-use` | 150 | 129 | 21 | 0 | 0 | 0 |
-| `08-multimodal` | 121 | 121 | 0 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 140 | 130 | 10 | 0 | 0 | 0 |
-| `10-computer-use` | 126 | 108 | 18 | 0 | 0 | 0 |
-| `11-web` | 128 | 128 | 0 | 0 | 0 | 0 |
-| `12-data` | 137 | 121 | 16 | 0 | 0 | 0 |
-| `13-creative` | 103 | 103 | 0 | 0 | 0 | 0 |
-| `14-security` | 125 | 125 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 123 | 108 | 15 | 0 | 0 | 0 |
-| `16-domain-specific` | 129 | 102 | 27 | 0 | 0 | 0 |
-| `17-infrastructure` | 98 | 98 | 0 | 0 | 0 | 0 |
+| `01-perception` | 153 | 149 | 4 | 0 | 0 | 0 |
+| `02-reasoning` | 164 | 156 | 8 | 0 | 0 | 0 |
+| `03-memory` | 137 | 137 | 0 | 0 | 0 | 0 |
+| `04-action-execution` | 145 | 135 | 10 | 0 | 0 | 0 |
+| `05-code` | 148 | 128 | 20 | 0 | 0 | 0 |
+| `06-communication` | 129 | 129 | 0 | 0 | 0 | 0 |
+| `07-tool-use` | 153 | 132 | 21 | 0 | 0 | 0 |
+| `08-multimodal` | 124 | 124 | 0 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 143 | 133 | 10 | 0 | 0 | 0 |
+| `10-computer-use` | 129 | 111 | 18 | 0 | 0 | 0 |
+| `11-web` | 131 | 131 | 0 | 0 | 0 | 0 |
+| `12-data` | 140 | 124 | 16 | 0 | 0 | 0 |
+| `13-creative` | 106 | 106 | 0 | 0 | 0 | 0 |
+| `14-security` | 128 | 128 | 0 | 0 | 0 | 0 |
+| `15-orchestration` | 126 | 111 | 15 | 0 | 0 | 0 |
+| `16-domain-specific` | 132 | 105 | 27 | 0 | 0 | 0 |
+| `17-infrastructure` | 100 | 100 | 0 | 0 | 0 | 0 |
 
 ## 🟢 Battle-tested skills (start here as a user)
 
@@ -62,6 +62,7 @@
 - [`skills/01-perception/barcode-qr-scanning.md`](skills/01-perception/barcode-qr-scanning.md) — Barcode and QR Scanning
 - [`skills/01-perception/benchmark-score-table-parsing.md`](skills/01-perception/benchmark-score-table-parsing.md) — Benchmark Score Table Parsing
 - [`skills/01-perception/binary-file-reading.md`](skills/01-perception/binary-file-reading.md) — Binary File Reading
+- [`skills/01-perception/broadband-fault-call-transcript-parsing.md`](skills/01-perception/broadband-fault-call-transcript-parsing.md) — Broadband Fault Call Transcript Parsing
 - [`skills/01-perception/browser-console-error-parsing.md`](skills/01-perception/browser-console-error-parsing.md) — Browser Console Error Parsing
 - [`skills/01-perception/c2pa-content-credential-parsing.md`](skills/01-perception/c2pa-content-credential-parsing.md) — C2PA Content Credential Parsing
 - [`skills/01-perception/calendar-parsing.md`](skills/01-perception/calendar-parsing.md) — Calendar Parsing
@@ -88,6 +89,7 @@
 - [`skills/01-perception/enterprise-messaging-channel-signal-triage.md`](skills/01-perception/enterprise-messaging-channel-signal-triage.md) — Enterprise Messaging Channel Signal Triage
 - [`skills/01-perception/env-file-parsing.md`](skills/01-perception/env-file-parsing.md) — Env File Parsing
 - [`skills/01-perception/file-system-reading.md`](skills/01-perception/file-system-reading.md) — File System Reading
+- [`skills/01-perception/frontier-agent-tracker-table-parsing.md`](skills/01-perception/frontier-agent-tracker-table-parsing.md) — Frontier Agent Tracker Table Parsing
 - [`skills/01-perception/geospatial-reading.md`](skills/01-perception/geospatial-reading.md) — Geospatial Reading
 - [`skills/01-perception/gesture-recognition.md`](skills/01-perception/gesture-recognition.md) — Gesture Recognition
 - [`skills/01-perception/git-diff-reading.md`](skills/01-perception/git-diff-reading.md) — Git Diff Reading
@@ -124,6 +126,7 @@
 - [`skills/01-perception/mcp-stateless-session-header-parsing.md`](skills/01-perception/mcp-stateless-session-header-parsing.md) — MCP Stateless Session Header Parsing
 - [`skills/01-perception/mcp-tool-manifest-parsing.md`](skills/01-perception/mcp-tool-manifest-parsing.md) — MCP Tool Manifest Parsing
 - [`skills/01-perception/meeting-agent-event-stream-parsing.md`](skills/01-perception/meeting-agent-event-stream-parsing.md) — Meeting Agent Event Stream Parsing
+- [`skills/01-perception/message-thread-lifecycle-event-parsing.md`](skills/01-perception/message-thread-lifecycle-event-parsing.md) — Message Thread Lifecycle Event Parsing
 - [`skills/01-perception/metadata-extraction.md`](skills/01-perception/metadata-extraction.md) — Metadata Extraction
 - [`skills/01-perception/model-egress-attempt-trace-parsing.md`](skills/01-perception/model-egress-attempt-trace-parsing.md) — Model Egress Attempt Trace Parsing
 - [`skills/01-perception/model-proxy-routing-trace-parsing.md`](skills/01-perception/model-proxy-routing-trace-parsing.md) — Model Proxy Routing Trace Parsing
@@ -238,6 +241,7 @@
 - [`skills/02-reasoning/delegation-chain-trust-reasoning.md`](skills/02-reasoning/delegation-chain-trust-reasoning.md) — Delegation Chain Trust Reasoning
 - [`skills/02-reasoning/dependency-cycle-resolution-reasoning.md`](skills/02-reasoning/dependency-cycle-resolution-reasoning.md) — Dependency Cycle Resolution Reasoning
 - [`skills/02-reasoning/dynamic-replanning.md`](skills/02-reasoning/dynamic-replanning.md) — Dynamic Replanning
+- [`skills/02-reasoning/election-claim-source-hierarchy-verification-reasoning.md`](skills/02-reasoning/election-claim-source-hierarchy-verification-reasoning.md) — Election Claim Source Hierarchy Verification Reasoning
 - [`skills/02-reasoning/evidence-admissibility-reasoning.md`](skills/02-reasoning/evidence-admissibility-reasoning.md) — Evidence Admissibility Reasoning
 - [`skills/02-reasoning/expected-utility-analysis.md`](skills/02-reasoning/expected-utility-analysis.md) — Expected Utility Analysis
 - [`skills/02-reasoning/expected-value-of-computation-reasoning.md`](skills/02-reasoning/expected-value-of-computation-reasoning.md) — Expected Value Of Computation Reasoning
@@ -275,6 +279,7 @@
 - [`skills/02-reasoning/multi-objective-optimization.md`](skills/02-reasoning/multi-objective-optimization.md) — Multi-Objective Optimization
 - [`skills/02-reasoning/multi-step-planning.md`](skills/02-reasoning/multi-step-planning.md) — Multi-Step Planning
 - [`skills/02-reasoning/neuron-level-persona-emergence-audit.md`](skills/02-reasoning/neuron-level-persona-emergence-audit.md) — Neuron Level Persona Emergence Audit
+- [`skills/02-reasoning/non-delegable-decision-boundary-reasoning.md`](skills/02-reasoning/non-delegable-decision-boundary-reasoning.md) — Non Delegable Decision Boundary Reasoning
 - [`skills/02-reasoning/numerical-estimation.md`](skills/02-reasoning/numerical-estimation.md) — Numerical Estimation
 - [`skills/02-reasoning/ontology-grounded-answer-reasoning.md`](skills/02-reasoning/ontology-grounded-answer-reasoning.md) — Ontology Grounded Answer Reasoning
 - [`skills/02-reasoning/opportunity-cost-analysis.md`](skills/02-reasoning/opportunity-cost-analysis.md) — Opportunity Cost Analysis
@@ -300,6 +305,7 @@
 - [`skills/02-reasoning/react.md`](skills/02-reasoning/react.md) — ReAct (Reason + Act)
 - [`skills/02-reasoning/reasoning-under-uncertainty.md`](skills/02-reasoning/reasoning-under-uncertainty.md) — Reasoning Under Uncertainty
 - [`skills/02-reasoning/refusal-decision-reasoning.md`](skills/02-reasoning/refusal-decision-reasoning.md) — Refusal Decision Reasoning
+- [`skills/02-reasoning/refusal-penalized-goal-metric-interpretation-reasoning.md`](skills/02-reasoning/refusal-penalized-goal-metric-interpretation-reasoning.md) — Refusal Penalized Goal Metric Interpretation Reasoning
 - [`skills/02-reasoning/resource-allocation.md`](skills/02-reasoning/resource-allocation.md) — Resource Allocation
 - [`skills/02-reasoning/retailer-agent-access-policy-reasoning.md`](skills/02-reasoning/retailer-agent-access-policy-reasoning.md) — Retailer Agent Access Policy Reasoning
 - [`skills/02-reasoning/reversible-decision-reasoning.md`](skills/02-reasoning/reversible-decision-reasoning.md) — Reversible Decision Reasoning
@@ -420,6 +426,7 @@
 - [`skills/03-memory/memory-zero-retention-session-mode.md`](skills/03-memory/memory-zero-retention-session-mode.md) — Memory Zero-Retention Session Mode
 - [`skills/03-memory/merchant-agent-order-state-memory.md`](skills/03-memory/merchant-agent-order-state-memory.md) — Merchant Agent Order State Memory
 - [`skills/03-memory/million-token-context-curation-reasoning.md`](skills/03-memory/million-token-context-curation-reasoning.md) — Million Token Context Curation Reasoning
+- [`skills/03-memory/minor-student-agent-context-minimization-memory.md`](skills/03-memory/minor-student-agent-context-minimization-memory.md) — Minor Student Agent Context Minimization Memory
 - [`skills/03-memory/model-config-version-retention.md`](skills/03-memory/model-config-version-retention.md) — Model Config Version Retention
 - [`skills/03-memory/model-curated-context-tiering.md`](skills/03-memory/model-curated-context-tiering.md) — Model Curated Context Tiering
 - [`skills/03-memory/model-release-ledger-delta-memory.md`](skills/03-memory/model-release-ledger-delta-memory.md) — Model Release Ledger Delta Memory
@@ -462,12 +469,14 @@
 - [`skills/03-memory/steering-interruption-context-memory.md`](skills/03-memory/steering-interruption-context-memory.md) — Steering Interruption Context Memory
 - [`skills/03-memory/team-organizational-context-memory.md`](skills/03-memory/team-organizational-context-memory.md) — Team Organizational Context Memory
 - [`skills/03-memory/temporal-memory-anchoring.md`](skills/03-memory/temporal-memory-anchoring.md) — Temporal Memory Anchoring
+- [`skills/03-memory/thread-expiry-client-history-mirror-memory.md`](skills/03-memory/thread-expiry-client-history-mirror-memory.md) — Thread Expiry Client History Mirror Memory
 - [`skills/03-memory/tool-result-knowledge-extraction.md`](skills/03-memory/tool-result-knowledge-extraction.md) — Tool Result Knowledge Extraction
 - [`skills/03-memory/user-preference-inference.md`](skills/03-memory/user-preference-inference.md) — User Preference Inference
 - [`skills/03-memory/user-profile-memory.md`](skills/03-memory/user-profile-memory.md) — User Profile Memory
 - [`skills/03-memory/user-profile.md`](skills/03-memory/user-profile.md) — User Profile
 - [`skills/03-memory/vector-store-retrieval.md`](skills/03-memory/vector-store-retrieval.md) — Vector Store Retrieval
 - [`skills/03-memory/vendor-roadmap-commitment-memory.md`](skills/03-memory/vendor-roadmap-commitment-memory.md) — Vendor Roadmap Commitment Memory
+- [`skills/03-memory/voice-agent-fault-resolution-outcome-memory.md`](skills/03-memory/voice-agent-fault-resolution-outcome-memory.md) — Voice Agent Fault Resolution Outcome Memory
 - [`skills/03-memory/working-memory.md`](skills/03-memory/working-memory.md) — Working Memory
 - [`skills/04-action-execution/a2a-cli-task-submission-execution.md`](skills/04-action-execution/a2a-cli-task-submission-execution.md) — A2a Cli Task Submission Execution
 - [`skills/04-action-execution/action-concurrency-limiting.md`](skills/04-action-execution/action-concurrency-limiting.md) — Action Concurrency Limiting
@@ -515,6 +524,7 @@
 - [`skills/04-action-execution/computer-use-action-trace-recording.md`](skills/04-action-execution/computer-use-action-trace-recording.md) — Computer Use Action Trace Recording
 - [`skills/04-action-execution/computer-use-batch-throughput-execution.md`](skills/04-action-execution/computer-use-batch-throughput-execution.md) — Computer Use Batch Throughput Execution
 - [`skills/04-action-execution/concurrent-ide-agent-provisioning-execution.md`](skills/04-action-execution/concurrent-ide-agent-provisioning-execution.md) — Concurrent Ide Agent Provisioning Execution
+- [`skills/04-action-execution/consumer-computer-use-assistive-task-execution.md`](skills/04-action-execution/consumer-computer-use-assistive-task-execution.md) — Consumer Computer Use Assistive Task Execution
 - [`skills/04-action-execution/cross-system-saga-execution.md`](skills/04-action-execution/cross-system-saga-execution.md) — Cross-System Saga Execution
 - [`skills/04-action-execution/database-transaction-isolation-selection.md`](skills/04-action-execution/database-transaction-isolation-selection.md) — Database Transaction Isolation Selection
 - [`skills/04-action-execution/database-write.md`](skills/04-action-execution/database-write.md) — Database Write
@@ -538,6 +548,7 @@
 - [`skills/04-action-execution/file-watch-automation.md`](skills/04-action-execution/file-watch-automation.md) — File Watch Automation
 - [`skills/04-action-execution/file-write.md`](skills/04-action-execution/file-write.md) — File Write
 - [`skills/04-action-execution/foundry-scheduled-agent-setup-execution.md`](skills/04-action-execution/foundry-scheduled-agent-setup-execution.md) — Foundry Scheduled Agent Setup Execution
+- [`skills/04-action-execution/gcloud-destructive-command-blocking-execution.md`](skills/04-action-execution/gcloud-destructive-command-blocking-execution.md) — Gcloud Destructive Command Blocking Execution
 - [`skills/04-action-execution/hardware-token-signing-actions.md`](skills/04-action-execution/hardware-token-signing-actions.md) — Hardware Token Signing Actions
 - [`skills/04-action-execution/http-multipart-upload.md`](skills/04-action-execution/http-multipart-upload.md) — HTTP Multipart Upload
 - [`skills/04-action-execution/http-request.md`](skills/04-action-execution/http-request.md) — HTTP Request
@@ -560,6 +571,7 @@
 - [`skills/04-action-execution/memory-leak-triage-execution.md`](skills/04-action-execution/memory-leak-triage-execution.md) — Memory Leak Triage Execution
 - [`skills/04-action-execution/message-queue-consuming.md`](skills/04-action-execution/message-queue-consuming.md) — Message Queue Consuming
 - [`skills/04-action-execution/message-queue-publishing.md`](skills/04-action-execution/message-queue-publishing.md) — Message Queue Publishing
+- [`skills/04-action-execution/message-thread-expiry-replay-execution.md`](skills/04-action-execution/message-thread-expiry-replay-execution.md) — Message Thread Expiry Replay Execution
 - [`skills/04-action-execution/micropayment-batching.md`](skills/04-action-execution/micropayment-batching.md) — Micropayment Batching
 - [`skills/04-action-execution/nfc-device-pairing-action-automation.md`](skills/04-action-execution/nfc-device-pairing-action-automation.md) — NFC Device Pairing Action Automation
 - [`skills/04-action-execution/offline-action-queueing.md`](skills/04-action-execution/offline-action-queueing.md) — Offline Action Queueing
@@ -611,6 +623,7 @@
 - [`skills/05-code/agent-framework-tool-approval-regression-testing.md`](skills/05-code/agent-framework-tool-approval-regression-testing.md) — Agent Framework Tool Approval Regression Testing
 - [`skills/05-code/agent-generated-code-auditing.md`](skills/05-code/agent-generated-code-auditing.md) — Agent Generated Code Auditing
 - [`skills/05-code/agent-generated-code-license-provenance-checking.md`](skills/05-code/agent-generated-code-license-provenance-checking.md) — Agent Generated Code License Provenance Checking
+- [`skills/05-code/agent-plugin-marketplace-publishing.md`](skills/05-code/agent-plugin-marketplace-publishing.md) — Agent Plugin Marketplace Publishing
 - [`skills/05-code/agent-reasoning-loop-profiling.md`](skills/05-code/agent-reasoning-loop-profiling.md) — Agent Reasoning Loop Profiling
 - [`skills/05-code/agent-requirements-document-authoring.md`](skills/05-code/agent-requirements-document-authoring.md) — Agent Requirements Document Authoring
 - [`skills/05-code/agent-scaffolding-refactor-execution.md`](skills/05-code/agent-scaffolding-refactor-execution.md) — Agent Scaffolding Refactor Execution
@@ -624,6 +637,7 @@
 - [`skills/05-code/api-client-generation.md`](skills/05-code/api-client-generation.md) — Api Client Generation
 - [`skills/05-code/appfunctions-mcp-tool-implementation.md`](skills/05-code/appfunctions-mcp-tool-implementation.md) — Appfunctions Mcp Tool Implementation
 - [`skills/05-code/autogen-consolidation-migration-planning.md`](skills/05-code/autogen-consolidation-migration-planning.md) — Autogen Consolidation Migration Planning
+- [`skills/05-code/autogen-maintenance-mode-migration-planning.md`](skills/05-code/autogen-maintenance-mode-migration-planning.md) — Autogen Maintenance Mode Migration Planning
 - [`skills/05-code/autonomous-software-factory-agent-coordination.md`](skills/05-code/autonomous-software-factory-agent-coordination.md) — Autonomous Software Factory Agent Coordination
 - [`skills/05-code/bug-fixing.md`](skills/05-code/bug-fixing.md) — Bug Fixing
 - [`skills/05-code/build-cache-optimization.md`](skills/05-code/build-cache-optimization.md) — Build Cache Optimization
@@ -684,6 +698,7 @@
 - [`skills/05-code/mcp-oauth-sdk-upgrade-implementation.md`](skills/05-code/mcp-oauth-sdk-upgrade-implementation.md) — MCP OAuth SDK Upgrade Implementation
 - [`skills/05-code/mcp-production-overhaul-adoption-planning.md`](skills/05-code/mcp-production-overhaul-adoption-planning.md) — Mcp Production Overhaul Adoption Planning
 - [`skills/05-code/mcp-sdk-version-pinning-implementation.md`](skills/05-code/mcp-sdk-version-pinning-implementation.md) — Mcp Sdk Version Pinning Implementation
+- [`skills/05-code/message-thread-latency-optimization-integration.md`](skills/05-code/message-thread-latency-optimization-integration.md) — Message Thread Latency Optimization Integration
 - [`skills/05-code/microsoft-agent-framework-migration.md`](skills/05-code/microsoft-agent-framework-migration.md) — Microsoft Agent Framework Migration
 - [`skills/05-code/mid-response-steering-integration-testing.md`](skills/05-code/mid-response-steering-integration-testing.md) — Mid Response Steering Integration Testing
 - [`skills/05-code/mock-llm-server-implementation.md`](skills/05-code/mock-llm-server-implementation.md) — Mock LLM Server Implementation
@@ -747,6 +762,8 @@
 - [`skills/06-communication/agentic-red-team-findings-report-writing.md`](skills/06-communication/agentic-red-team-findings-report-writing.md) — Agentic Red Team Findings Report Writing
 - [`skills/06-communication/agentic-roi-maturity-report-writing.md`](skills/06-communication/agentic-roi-maturity-report-writing.md) — Agentic ROI Maturity Report Writing
 - [`skills/06-communication/agentic-ux-writing.md`](skills/06-communication/agentic-ux-writing.md) — Agentic Ux Writing
+- [`skills/06-communication/ai-personhood-accountability-statement-writing.md`](skills/06-communication/ai-personhood-accountability-statement-writing.md) — AI Personhood Accountability Statement Writing
+- [`skills/06-communication/ai-restructuring-workforce-communication.md`](skills/06-communication/ai-restructuring-workforce-communication.md) — AI Restructuring Workforce Communication
 - [`skills/06-communication/ai-vendor-financial-disclosure-communication.md`](skills/06-communication/ai-vendor-financial-disclosure-communication.md) — Ai Vendor Financial Disclosure Communication
 - [`skills/06-communication/ai-workforce-change-announcement-writing.md`](skills/06-communication/ai-workforce-change-announcement-writing.md) — Ai Workforce Change Announcement Writing
 - [`skills/06-communication/api-deprecation-notice-writing.md`](skills/06-communication/api-deprecation-notice-writing.md) — API Deprecation Notice Writing
@@ -777,6 +794,7 @@
 - [`skills/06-communication/dataset-fiction-channel-hygiene.md`](skills/06-communication/dataset-fiction-channel-hygiene.md) — Dataset Fiction Channel Hygiene
 - [`skills/06-communication/debate.md`](skills/06-communication/debate.md) — Debate
 - [`skills/06-communication/developer-forum-answer-writing.md`](skills/06-communication/developer-forum-answer-writing.md) — Developer Forum Answer Writing
+- [`skills/06-communication/election-misinformation-correction-communication.md`](skills/06-communication/election-misinformation-correction-communication.md) — Election Misinformation Correction Communication
 - [`skills/06-communication/email-drafting.md`](skills/06-communication/email-drafting.md) — Email Drafting
 - [`skills/06-communication/embedded-researcher-oversight-briefing.md`](skills/06-communication/embedded-researcher-oversight-briefing.md) — Embedded Researcher Oversight Briefing
 - [`skills/06-communication/enterprise-universal-agent-adoption-faq-writing.md`](skills/06-communication/enterprise-universal-agent-adoption-faq-writing.md) — Enterprise Universal Agent Adoption FAQ Writing
@@ -870,6 +888,7 @@
 - [`skills/07-tool-use/air-gapped-agent-tool-access-usage.md`](skills/07-tool-use/air-gapped-agent-tool-access-usage.md) — Air Gapped Agent Tool Access Usage
 - [`skills/07-tool-use/anp-agent-network-protocol-usage.md`](skills/07-tool-use/anp-agent-network-protocol-usage.md) — ANP Agent Network Protocol Usage
 - [`skills/07-tool-use/anthropic-api.md`](skills/07-tool-use/anthropic-api.md) — Anthropic API
+- [`skills/07-tool-use/anthropic-message-threads-usage.md`](skills/07-tool-use/anthropic-message-threads-usage.md) — Anthropic Message Threads Usage
 - [`skills/07-tool-use/anthropic-skills-api-usage.md`](skills/07-tool-use/anthropic-skills-api-usage.md) — Anthropic Skills Api Usage
 - [`skills/07-tool-use/ap2-agent-payment-protocol-usage.md`](skills/07-tool-use/ap2-agent-payment-protocol-usage.md) — AP2 Agent Payment Protocol Usage
 - [`skills/07-tool-use/api-pagination.md`](skills/07-tool-use/api-pagination.md) — API Pagination
@@ -892,6 +911,7 @@
 - [`skills/07-tool-use/gemini-cli-custom-command-authoring.md`](skills/07-tool-use/gemini-cli-custom-command-authoring.md) — Gemini CLI Custom Command Authoring
 - [`skills/07-tool-use/gemini-universal-agent-tool-integration.md`](skills/07-tool-use/gemini-universal-agent-tool-integration.md) — Gemini Universal Agent Tool Integration
 - [`skills/07-tool-use/genie-4-world-model-api-usage.md`](skills/07-tool-use/genie-4-world-model-api-usage.md) — Genie 4 World Model Api Usage
+- [`skills/07-tool-use/google-cloud-developer-plugin-usage.md`](skills/07-tool-use/google-cloud-developer-plugin-usage.md) — Google Cloud Developer Plugin Usage
 - [`skills/07-tool-use/harness-plugin-tool-usage.md`](skills/07-tool-use/harness-plugin-tool-usage.md) — Harness Plugin Tool Usage
 - [`skills/07-tool-use/image-gen-tool.md`](skills/07-tool-use/image-gen-tool.md) — Image Generation Tool
 - [`skills/07-tool-use/jira-api.md`](skills/07-tool-use/jira-api.md) — Jira API
@@ -934,6 +954,7 @@
 - [`skills/07-tool-use/mobile-proxy-sms-spend-control.md`](skills/07-tool-use/mobile-proxy-sms-spend-control.md) — Mobile Proxy Sms Spend Control
 - [`skills/07-tool-use/multi-provider-redundancy.md`](skills/07-tool-use/multi-provider-redundancy.md) — Multi-Provider Redundancy
 - [`skills/07-tool-use/notification-access-tool-scoping.md`](skills/07-tool-use/notification-access-tool-scoping.md) — Notification Access Tool Scoping
+- [`skills/07-tool-use/nova-multimodal-embedding-usage.md`](skills/07-tool-use/nova-multimodal-embedding-usage.md) — Nova Multimodal Embedding Usage
 - [`skills/07-tool-use/offline-tool-fallback.md`](skills/07-tool-use/offline-tool-fallback.md) — Offline Tool Fallback
 - [`skills/07-tool-use/open-responses-api-server-usage.md`](skills/07-tool-use/open-responses-api-server-usage.md) — Open Responses Api Server Usage
 - [`skills/07-tool-use/openai-agents-api-tool-schema-adoption.md`](skills/07-tool-use/openai-agents-api-tool-schema-adoption.md) — OpenAI Agents API Tool Schema Adoption
@@ -1012,11 +1033,14 @@
 - [`skills/08-multimodal/browser-session-recording-for-debugging.md`](skills/08-multimodal/browser-session-recording-for-debugging.md) — Browser Session Recording For Debugging
 - [`skills/08-multimodal/chart-generation.md`](skills/08-multimodal/chart-generation.md) — Chart Generation
 - [`skills/08-multimodal/chart-to-data-round-trip.md`](skills/08-multimodal/chart-to-data-round-trip.md) — Chart to Data Round Trip
+- [`skills/08-multimodal/computer-use-model-capability-comparison.md`](skills/08-multimodal/computer-use-model-capability-comparison.md) — Computer Use Model Capability Comparison
 - [`skills/08-multimodal/deepfake-detection.md`](skills/08-multimodal/deepfake-detection.md) — Deepfake Detection
 - [`skills/08-multimodal/document-figure-description.md`](skills/08-multimodal/document-figure-description.md) — Document Figure Description
 - [`skills/08-multimodal/document-layout-analysis.md`](skills/08-multimodal/document-layout-analysis.md) — Document Layout Analysis
 - [`skills/08-multimodal/document-table-extraction.md`](skills/08-multimodal/document-table-extraction.md) — Document Table Extraction
 - [`skills/08-multimodal/document-to-audio-verification.md`](skills/08-multimodal/document-to-audio-verification.md) — Document To Audio Verification
+- [`skills/08-multimodal/engineering-parts-visual-similarity-search.md`](skills/08-multimodal/engineering-parts-visual-similarity-search.md) — Engineering Parts Visual Similarity Search
+- [`skills/08-multimodal/fault-call-audio-diagnostics-analysis.md`](skills/08-multimodal/fault-call-audio-diagnostics-analysis.md) — Fault Call Audio Diagnostics Analysis
 - [`skills/08-multimodal/fleet-dash-camera-incident-clip-analysis.md`](skills/08-multimodal/fleet-dash-camera-incident-clip-analysis.md) — Fleet Dash Camera Incident Clip Analysis
 - [`skills/08-multimodal/hand-drawn-sketch-vectorization.md`](skills/08-multimodal/hand-drawn-sketch-vectorization.md) — Hand Drawn Sketch Vectorization
 - [`skills/08-multimodal/home-camera-agent-privacy-redaction-verification.md`](skills/08-multimodal/home-camera-agent-privacy-redaction-verification.md) — Home Camera Agent Privacy Redaction Verification
@@ -1146,6 +1170,7 @@
 - [`skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md`](skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md) — Browser Agent Fragility Hardening Pattern
 - [`skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md`](skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md) — Cache Prefix Preserving Context Patterns
 - [`skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md`](skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md) — Case Review Agent Recommendation Pattern
+- [`skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md`](skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md) — Consumer Computer Use Adoption Pattern
 - [`skills/09-agentic-patterns/context-engineering-production-audit-patterns.md`](skills/09-agentic-patterns/context-engineering-production-audit-patterns.md) — Context Engineering Production Audit Patterns
 - [`skills/09-agentic-patterns/context-engineering.md`](skills/09-agentic-patterns/context-engineering.md) — Context Engineering
 - [`skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md`](skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md) — Copilot Harness Adoption Evaluation
@@ -1197,6 +1222,7 @@
 - [`skills/09-agentic-patterns/piped-permission-prompt-delegation.md`](skills/09-agentic-patterns/piped-permission-prompt-delegation.md) — Piped Permission Prompt Delegation
 - [`skills/09-agentic-patterns/plan-adherence-evaluation.md`](skills/09-agentic-patterns/plan-adherence-evaluation.md) — Plan Adherence Evaluation
 - [`skills/09-agentic-patterns/plan-and-execute.md`](skills/09-agentic-patterns/plan-and-execute.md) — Plan-and-Execute
+- [`skills/09-agentic-patterns/planner-specialist-deterministic-check-composition.md`](skills/09-agentic-patterns/planner-specialist-deterministic-check-composition.md) — Planner Specialist Deterministic Check Composition
 - [`skills/09-agentic-patterns/post-training-behavioral-eval-pattern.md`](skills/09-agentic-patterns/post-training-behavioral-eval-pattern.md) — Post Training Behavioral Eval Pattern
 - [`skills/09-agentic-patterns/proactive-agent-initiation-patterns.md`](skills/09-agentic-patterns/proactive-agent-initiation-patterns.md) — Proactive Agent Initiation Patterns
 - [`skills/09-agentic-patterns/prompt-caching.md`](skills/09-agentic-patterns/prompt-caching.md) — Prompt Caching
@@ -1207,6 +1233,7 @@
 - [`skills/09-agentic-patterns/rag-security-assessment-pattern.md`](skills/09-agentic-patterns/rag-security-assessment-pattern.md) — Rag Security Assessment Pattern
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG — Retrieval-Augmented Generation
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md`](skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md) — Refusal Aware Evaluation Harness Pattern
 - [`skills/09-agentic-patterns/reward-hacking-detection.md`](skills/09-agentic-patterns/reward-hacking-detection.md) — Reward Hacking Detection
 - [`skills/09-agentic-patterns/rogue-agent-detection-shutdown-patterns.md`](skills/09-agentic-patterns/rogue-agent-detection-shutdown-patterns.md) — Rogue Agent Detection Shutdown Patterns
 - [`skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md`](skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md) — Scheduled Agent Supervision Pattern
@@ -1257,6 +1284,7 @@
 - [`skills/10-computer-use/computer-use-error-recovery.md`](skills/10-computer-use/computer-use-error-recovery.md) — Computer Use Error Recovery
 - [`skills/10-computer-use/computer-use-privacy-screening.md`](skills/10-computer-use/computer-use-privacy-screening.md) — Computer-Use Privacy Screening
 - [`skills/10-computer-use/connector-revocation-flow-verification.md`](skills/10-computer-use/connector-revocation-flow-verification.md) — Connector Revocation Flow Verification
+- [`skills/10-computer-use/consumer-desktop-computer-use-operations.md`](skills/10-computer-use/consumer-desktop-computer-use-operations.md) — Consumer Desktop Computer Use Operations
 - [`skills/10-computer-use/copilot-cli-computer-use-automation.md`](skills/10-computer-use/copilot-cli-computer-use-automation.md) — Copilot Cli Computer Use Automation
 - [`skills/10-computer-use/credential-broker-desktop-setup.md`](skills/10-computer-use/credential-broker-desktop-setup.md) — Credential Broker Desktop Setup
 - [`skills/10-computer-use/desktop-agent-emulator-interaction.md`](skills/10-computer-use/desktop-agent-emulator-interaction.md) — Desktop Agent Emulator Interaction
@@ -1291,6 +1319,8 @@
 - [`skills/10-computer-use/idle-detection.md`](skills/10-computer-use/idle-detection.md) — Idle Detection
 - [`skills/10-computer-use/install-wizard-automation.md`](skills/10-computer-use/install-wizard-automation.md) — Install Wizard Automation
 - [`skills/10-computer-use/intelligent-ui-decision-screen-automation.md`](skills/10-computer-use/intelligent-ui-decision-screen-automation.md) — Intelligent UI Decision Screen Automation
+- [`skills/10-computer-use/isp-router-app-agent-automation.md`](skills/10-computer-use/isp-router-app-agent-automation.md) — Isp Router App Agent Automation
+- [`skills/10-computer-use/k12-classroom-device-agent-provisioning-automation.md`](skills/10-computer-use/k12-classroom-device-agent-provisioning-automation.md) — K-12 Classroom Device Agent Provisioning Automation
 - [`skills/10-computer-use/kiosk-mode-automation.md`](skills/10-computer-use/kiosk-mode-automation.md) — Kiosk Mode Automation
 - [`skills/10-computer-use/local-desktop-agent-team-execution.md`](skills/10-computer-use/local-desktop-agent-team-execution.md) — Local Desktop Agent Team Execution
 - [`skills/10-computer-use/macro-recording.md`](skills/10-computer-use/macro-recording.md) — Macro Recording
@@ -1358,6 +1388,7 @@
 - [`skills/11-web/agentic-checkout-integration-testing.md`](skills/11-web/agentic-checkout-integration-testing.md) — Agentic Checkout Integration Testing
 - [`skills/11-web/agentic-meeting-space-orchestration.md`](skills/11-web/agentic-meeting-space-orchestration.md) — Agentic Meeting Space Orchestration
 - [`skills/11-web/agents-api-webhook-integration.md`](skills/11-web/agents-api-webhook-integration.md) — Agents API Webhook Integration
+- [`skills/11-web/ai-answer-engine-election-claim-audit.md`](skills/11-web/ai-answer-engine-election-claim-audit.md) — AI Answer Engine Election Claim Audit
 - [`skills/11-web/ai-answer-engine-visibility-audit.md`](skills/11-web/ai-answer-engine-visibility-audit.md) — Ai Answer Engine Visibility Audit
 - [`skills/11-web/ai-crawler-directive-authoring.md`](skills/11-web/ai-crawler-directive-authoring.md) — AI Crawler Directive Authoring
 - [`skills/11-web/ai-security-advisory-feed-subscription-automation.md`](skills/11-web/ai-security-advisory-feed-subscription-automation.md) — Ai Security Advisory Feed Subscription Automation
@@ -1391,12 +1422,14 @@
 - [`skills/11-web/file-download-verification.md`](skills/11-web/file-download-verification.md) — File Download Verification
 - [`skills/11-web/form-filling.md`](skills/11-web/form-filling.md) — Form Filling
 - [`skills/11-web/free-tier-quota-degradation-planning.md`](skills/11-web/free-tier-quota-degradation-planning.md) — Free Tier Quota Degradation Planning
+- [`skills/11-web/frontier-agent-tracker-web-scraping.md`](skills/11-web/frontier-agent-tracker-web-scraping.md) — Frontier Agent Tracker Web Scraping
 - [`skills/11-web/gemini-agent-web-app-task-automation.md`](skills/11-web/gemini-agent-web-app-task-automation.md) — Gemini Agent Web App Task Automation
 - [`skills/11-web/generative-engine-optimization-auditing.md`](skills/11-web/generative-engine-optimization-auditing.md) — Generative Engine Optimization Auditing
 - [`skills/11-web/geo-restricted-content-access-compliance.md`](skills/11-web/geo-restricted-content-access-compliance.md) — Geo-Restricted Content Access Compliance
 - [`skills/11-web/government-portal-agent-access-hardening.md`](skills/11-web/government-portal-agent-access-hardening.md) — Government Portal Agent Access Hardening
 - [`skills/11-web/headless-browser-configuration.md`](skills/11-web/headless-browser-configuration.md) — Headless Browser Configuration
 - [`skills/11-web/http-header-analysis.md`](skills/11-web/http-header-analysis.md) — HTTP Header Analysis
+- [`skills/11-web/ide-plugin-marketplace-web-listing-verification.md`](skills/11-web/ide-plugin-marketplace-web-listing-verification.md) — Ide Plugin Marketplace Web Listing Verification
 - [`skills/11-web/iframe-handling.md`](skills/11-web/iframe-handling.md) — Iframe Handling
 - [`skills/11-web/infinite-scroll-handling.md`](skills/11-web/infinite-scroll-handling.md) — Infinite Scroll Handling
 - [`skills/11-web/job-board-posting-automation.md`](skills/11-web/job-board-posting-automation.md) — Job Board Posting Automation
@@ -1522,6 +1555,7 @@
 - [`skills/12-data/dataset-contamination-screening.md`](skills/12-data/dataset-contamination-screening.md) — Dataset Contamination Screening
 - [`skills/12-data/dialogue-analytics.md`](skills/12-data/dialogue-analytics.md) — Dialogue Analytics
 - [`skills/12-data/document-chunking-strategy.md`](skills/12-data/document-chunking-strategy.md) — Document Chunking Strategy
+- [`skills/12-data/election-chatbot-accuracy-study-analysis.md`](skills/12-data/election-chatbot-accuracy-study-analysis.md) — Election Chatbot Accuracy Study Analysis
 - [`skills/12-data/embedding-generation.md`](skills/12-data/embedding-generation.md) — Embedding Generation
 - [`skills/12-data/embedding-model-selection.md`](skills/12-data/embedding-model-selection.md) — Embedding Model Selection
 - [`skills/12-data/embedding-pipeline-cost-tracking.md`](skills/12-data/embedding-pipeline-cost-tracking.md) — Embedding Pipeline Cost Tracking
@@ -1568,6 +1602,7 @@
 - [`skills/12-data/rag-chunk-boundary-audits.md`](skills/12-data/rag-chunk-boundary-audits.md) — RAG Chunk Boundary Audits
 - [`skills/12-data/randomized-stance-analysis-detection.md`](skills/12-data/randomized-stance-analysis-detection.md) — Randomized Stance Analysis Detection
 - [`skills/12-data/real-time-agent-token-usage-tracking.md`](skills/12-data/real-time-agent-token-usage-tracking.md) — Real Time Agent Token Usage Tracking
+- [`skills/12-data/refusal-segmented-eval-metrics-analysis.md`](skills/12-data/refusal-segmented-eval-metrics-analysis.md) — Refusal Segmented Eval Metrics Analysis
 - [`skills/12-data/release-cadence-delta-analytics.md`](skills/12-data/release-cadence-delta-analytics.md) — Release Cadence Delta Analytics
 - [`skills/12-data/release-signal-corpus-ingestion-pipeline.md`](skills/12-data/release-signal-corpus-ingestion-pipeline.md) — Release Signal Corpus Ingestion Pipeline
 - [`skills/12-data/released-model-trace-reproduction-analytics.md`](skills/12-data/released-model-trace-reproduction-analytics.md) — Released Model Trace Reproduction Analytics
@@ -1578,6 +1613,7 @@
 - [`skills/12-data/splunk-otel-agent-telemetry-pipeline.md`](skills/12-data/splunk-otel-agent-telemetry-pipeline.md) — Splunk Otel Agent Telemetry Pipeline
 - [`skills/12-data/stream-processing.md`](skills/12-data/stream-processing.md) — Stream Processing
 - [`skills/12-data/synthetic-data-generation.md`](skills/12-data/synthetic-data-generation.md) — Synthetic Data Generation
+- [`skills/12-data/telecom-fault-call-resolution-analytics.md`](skills/12-data/telecom-fault-call-resolution-analytics.md) — Telecom Fault Call Resolution Analytics
 - [`skills/12-data/token-exfil-incident-forensics.md`](skills/12-data/token-exfil-incident-forensics.md) — Token Exfiltration Incident Forensics
 - [`skills/12-data/token-roi-analytics.md`](skills/12-data/token-roi-analytics.md) — Token Roi Analytics
 - [`skills/12-data/trace-based-eval-dataset-generation.md`](skills/12-data/trace-based-eval-dataset-generation.md) — Trace Based Eval Dataset Generation
@@ -1599,6 +1635,7 @@
 - [`skills/13-creative/ai-film-marketing-copywriting.md`](skills/13-creative/ai-film-marketing-copywriting.md) — AI Film Marketing Copywriting
 - [`skills/13-creative/ai-infrastructure-financing-explainer-copywriting.md`](skills/13-creative/ai-infrastructure-financing-explainer-copywriting.md) — Ai Infrastructure Financing Explainer Copywriting
 - [`skills/13-creative/ai-model-launch-comparison-copywriting.md`](skills/13-creative/ai-model-launch-comparison-copywriting.md) — AI Model Launch Comparison Copywriting
+- [`skills/13-creative/ai-personhood-explainer-copywriting.md`](skills/13-creative/ai-personhood-explainer-copywriting.md) — AI Personhood Explainer Copywriting
 - [`skills/13-creative/alt-text-writing.md`](skills/13-creative/alt-text-writing.md) — Alt Text Writing
 - [`skills/13-creative/avatar-design.md`](skills/13-creative/avatar-design.md) — Avatar Design
 - [`skills/13-creative/benchmark-win-claim-drafting.md`](skills/13-creative/benchmark-win-claim-drafting.md) — Benchmark Win Claim Drafting
@@ -1612,6 +1649,7 @@
 - [`skills/13-creative/character-design.md`](skills/13-creative/character-design.md) — Character Design
 - [`skills/13-creative/character-voice-consistency.md`](skills/13-creative/character-voice-consistency.md) — Character Voice Consistency
 - [`skills/13-creative/chatbot-persona-backstory-writing.md`](skills/13-creative/chatbot-persona-backstory-writing.md) — Chatbot Persona Backstory Writing
+- [`skills/13-creative/classroom-ai-policy-parent-communication-copywriting.md`](skills/13-creative/classroom-ai-policy-parent-communication-copywriting.md) — Classroom AI Policy Parent Communication Copywriting
 - [`skills/13-creative/color-palette-generation.md`](skills/13-creative/color-palette-generation.md) — Color Palette Generation
 - [`skills/13-creative/consent-microcopy-writing.md`](skills/13-creative/consent-microcopy-writing.md) — Consent Microcopy Writing
 - [`skills/13-creative/constrained-device-creative-generation.md`](skills/13-creative/constrained-device-creative-generation.md) — Constrained Device Creative Generation
@@ -1623,6 +1661,7 @@
 - [`skills/13-creative/developer-summit-demo-script-writing.md`](skills/13-creative/developer-summit-demo-script-writing.md) — Developer Summit Demo Script Writing
 - [`skills/13-creative/dialogue-writing.md`](skills/13-creative/dialogue-writing.md) — Dialogue Writing
 - [`skills/13-creative/edge-latency-creative-demo-budgeting.md`](skills/13-creative/edge-latency-creative-demo-budgeting.md) — Edge Latency Creative Demo Budgeting
+- [`skills/13-creative/election-claim-verification-psa-copywriting.md`](skills/13-creative/election-claim-verification-psa-copywriting.md) — Election Claim Verification Psa Copywriting
 - [`skills/13-creative/enterprise-agentic-suite-demo-script-writing.md`](skills/13-creative/enterprise-agentic-suite-demo-script-writing.md) — Enterprise Agentic Suite Demo Script Writing
 - [`skills/13-creative/expressive-tts-voice-design.md`](skills/13-creative/expressive-tts-voice-design.md) — Expressive Tts Voice Design
 - [`skills/13-creative/game-level-design.md`](skills/13-creative/game-level-design.md) — Game Level Design
@@ -1726,6 +1765,7 @@
 - [`skills/14-security/banking-agent-credential-delegation-review.md`](skills/14-security/banking-agent-credential-delegation-review.md) — Banking Agent Credential Delegation Review
 - [`skills/14-security/blocked-egress-attempt-adjudication-review.md`](skills/14-security/blocked-egress-attempt-adjudication-review.md) — Blocked Egress Attempt Adjudication Review
 - [`skills/14-security/case-evidence-retention-enforcement.md`](skills/14-security/case-evidence-retention-enforcement.md) — Case Evidence Retention Enforcement
+- [`skills/14-security/classroom-agent-minor-safety-configuration.md`](skills/14-security/classroom-agent-minor-safety-configuration.md) — Classroom Agent Minor Safety Configuration
 - [`skills/14-security/coding-agent-dns-egress-permission-gating.md`](skills/14-security/coding-agent-dns-egress-permission-gating.md) — Coding Agent Dns Egress Permission Gating
 - [`skills/14-security/coding-agent-vulnerability-watchlist-operations.md`](skills/14-security/coding-agent-vulnerability-watchlist-operations.md) — Coding Agent Vulnerability Watchlist Operations
 - [`skills/14-security/connector-allowlist-revocation-testing.md`](skills/14-security/connector-allowlist-revocation-testing.md) — Connector Allowlist Revocation Testing
@@ -1738,6 +1778,7 @@
 - [`skills/14-security/delegation-chain-verification.md`](skills/14-security/delegation-chain-verification.md) — Delegation Chain Verification
 - [`skills/14-security/dependency-integrity-verification.md`](skills/14-security/dependency-integrity-verification.md) — Dependency Integrity Verification
 - [`skills/14-security/dual-use-capability-disclosure-review.md`](skills/14-security/dual-use-capability-disclosure-review.md) — Dual Use Capability Disclosure Review
+- [`skills/14-security/election-voice-clone-robocall-defense-operations.md`](skills/14-security/election-voice-clone-robocall-defense-operations.md) — Election Voice Clone Robocall Defense Operations
 - [`skills/14-security/five-eyes-agentic-adoption-control-mapping.md`](skills/14-security/five-eyes-agentic-adoption-control-mapping.md) — Five Eyes Agentic Adoption Control Mapping
 - [`skills/14-security/forensic-log-reconstruction.md`](skills/14-security/forensic-log-reconstruction.md) — Forensic Log Reconstruction
 - [`skills/14-security/frontier-model-weight-theft-threat-modeling.md`](skills/14-security/frontier-model-weight-theft-threat-modeling.md) — Frontier Model Weight Theft Threat Modeling
@@ -1764,6 +1805,7 @@
 - [`skills/14-security/mcp-server-provenance-manifest-verification.md`](skills/14-security/mcp-server-provenance-manifest-verification.md) — Mcp Server Provenance Manifest Verification
 - [`skills/14-security/mcp-tool-poisoning-detection.md`](skills/14-security/mcp-tool-poisoning-detection.md) — MCP Tool Poisoning Detection
 - [`skills/14-security/mcp-tool-result-taint-tracking.md`](skills/14-security/mcp-tool-result-taint-tracking.md) — Mcp Tool Result Taint Tracking
+- [`skills/14-security/message-thread-retention-boundary-hardening.md`](skills/14-security/message-thread-retention-boundary-hardening.md) — Message Thread Retention Boundary Hardening
 - [`skills/14-security/model-armor-guardrail-policy-configuration.md`](skills/14-security/model-armor-guardrail-policy-configuration.md) — Model Armor Guardrail Policy Configuration
 - [`skills/14-security/model-provenance-verification.md`](skills/14-security/model-provenance-verification.md) — Model Provenance Verification
 - [`skills/14-security/model-vendor-proxy-routing-audit.md`](skills/14-security/model-vendor-proxy-routing-audit.md) — Model Vendor Proxy Routing Audit
@@ -1863,6 +1905,7 @@
 - [`skills/15-orchestration/durable-execution-guarantees.md`](skills/15-orchestration/durable-execution-guarantees.md) — Durable Execution Guarantees
 - [`skills/15-orchestration/durable-execution-workflow-integration.md`](skills/15-orchestration/durable-execution-workflow-integration.md) — Durable Execution Workflow Integration
 - [`skills/15-orchestration/dynamic-team-formation.md`](skills/15-orchestration/dynamic-team-formation.md) — Dynamic Team Formation
+- [`skills/15-orchestration/election-night-misinformation-response-orchestration.md`](skills/15-orchestration/election-night-misinformation-response-orchestration.md) — Election Night Misinformation Response Orchestration
 - [`skills/15-orchestration/embedded-suite-agent-workflow-orchestration.md`](skills/15-orchestration/embedded-suite-agent-workflow-orchestration.md) — Embedded Suite Agent Workflow Orchestration
 - [`skills/15-orchestration/enterprise-workplace-agent-embedding.md`](skills/15-orchestration/enterprise-workplace-agent-embedding.md) — Enterprise Workplace Agent Embedding
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — Evidence Verification
@@ -1899,11 +1942,13 @@
 - [`skills/15-orchestration/policy-as-code-gate-authoring.md`](skills/15-orchestration/policy-as-code-gate-authoring.md) — Policy As Code Gate Authoring
 - [`skills/15-orchestration/professional-practice-agent-workflow-orchestration.md`](skills/15-orchestration/professional-practice-agent-workflow-orchestration.md) — Professional Practice Agent Workflow Orchestration
 - [`skills/15-orchestration/quorum-based-agent-fleet-upgrade-orchestration.md`](skills/15-orchestration/quorum-based-agent-fleet-upgrade-orchestration.md) — Quorum-Based Agent Fleet Upgrade Orchestration
+- [`skills/15-orchestration/regulated-workflow-multi-agent-orchestration.md`](skills/15-orchestration/regulated-workflow-multi-agent-orchestration.md) — Regulated Workflow Multi Agent Orchestration
 - [`skills/15-orchestration/repository-state-load.md`](skills/15-orchestration/repository-state-load.md) — Repository State Load
 - [`skills/15-orchestration/result-aggregation.md`](skills/15-orchestration/result-aggregation.md) — Result Aggregation
 - [`skills/15-orchestration/runbook-driven-orchestration.md`](skills/15-orchestration/runbook-driven-orchestration.md) — Runbook-Driven Orchestration
 - [`skills/15-orchestration/safety-threshold-runtime-gating.md`](skills/15-orchestration/safety-threshold-runtime-gating.md) — Safety Threshold Runtime Gating
 - [`skills/15-orchestration/scheduled-agent-workflow-orchestration.md`](skills/15-orchestration/scheduled-agent-workflow-orchestration.md) — Scheduled Agent Workflow Orchestration
+- [`skills/15-orchestration/school-district-agent-rollout-orchestration.md`](skills/15-orchestration/school-district-agent-rollout-orchestration.md) — School District Agent Rollout Orchestration
 - [`skills/15-orchestration/self-service-agent-deployment-pipelines.md`](skills/15-orchestration/self-service-agent-deployment-pipelines.md) — Self Service Agent Deployment Pipelines
 - [`skills/15-orchestration/service-level-objective-enforcement.md`](skills/15-orchestration/service-level-objective-enforcement.md) — Service Level Objective Enforcement
 - [`skills/15-orchestration/single-api-multi-model-gateway-configuration.md`](skills/15-orchestration/single-api-multi-model-gateway-configuration.md) — Single Api Multi Model Gateway Configuration
@@ -1977,6 +2022,7 @@
 - [`skills/16-domain-specific/hospitality-sms-booking-agent-deployment.md`](skills/16-domain-specific/hospitality-sms-booking-agent-deployment.md) — Hospitality Sms Booking Agent Deployment
 - [`skills/16-domain-specific/hr-policy-drafting.md`](skills/16-domain-specific/hr-policy-drafting.md) — HR Policy Drafting
 - [`skills/16-domain-specific/industrial-failure-analysis-agent-deployment.md`](skills/16-domain-specific/industrial-failure-analysis-agent-deployment.md) — Industrial Failure Analysis Agent Deployment
+- [`skills/16-domain-specific/institutional-ai-ethics-framework-mapping.md`](skills/16-domain-specific/institutional-ai-ethics-framework-mapping.md) — Institutional AI Ethics Framework Mapping
 - [`skills/16-domain-specific/insurance-claim-processing.md`](skills/16-domain-specific/insurance-claim-processing.md) — Insurance Claim Processing
 - [`skills/16-domain-specific/insurance-claims-denial-appeal-drafting.md`](skills/16-domain-specific/insurance-claims-denial-appeal-drafting.md) — Insurance Claims Denial Appeal Drafting
 - [`skills/16-domain-specific/insurance-policy-exclusion-summarization.md`](skills/16-domain-specific/insurance-policy-exclusion-summarization.md) — Insurance Policy Exclusion Summarization
@@ -2010,6 +2056,7 @@
 - [`skills/16-domain-specific/retailer-agent-tos-compliance-verification.md`](skills/16-domain-specific/retailer-agent-tos-compliance-verification.md) — Retailer Agent Tos Compliance Verification
 - [`skills/16-domain-specific/robotics-agent-deployment-risk-assessment.md`](skills/16-domain-specific/robotics-agent-deployment-risk-assessment.md) — Robotics Agent Deployment Risk Assessment
 - [`skills/16-domain-specific/sales-agent-outreach-compliance.md`](skills/16-domain-specific/sales-agent-outreach-compliance.md) — Sales Agent Outreach Compliance
+- [`skills/16-domain-specific/school-ai-tool-access-policy-compliance.md`](skills/16-domain-specific/school-ai-tool-access-policy-compliance.md) — School AI Tool Access Policy Compliance
 - [`skills/16-domain-specific/securities-disclosure-drafting.md`](skills/16-domain-specific/securities-disclosure-drafting.md) — Securities Disclosure Drafting
 - [`skills/16-domain-specific/shift-scheduling.md`](skills/16-domain-specific/shift-scheduling.md) — Shift Scheduling
 - [`skills/16-domain-specific/smb-agent-operations-management.md`](skills/16-domain-specific/smb-agent-operations-management.md) — SMB Agent Operations Management
@@ -2020,6 +2067,7 @@
 - [`skills/16-domain-specific/systems-integrator-agent-deployment-oversight.md`](skills/16-domain-specific/systems-integrator-agent-deployment-oversight.md) — Systems Integrator Agent Deployment Oversight
 - [`skills/16-domain-specific/tax-audit-response-drafting.md`](skills/16-domain-specific/tax-audit-response-drafting.md) — Tax Audit Response Drafting
 - [`skills/16-domain-specific/tax-document-preparation.md`](skills/16-domain-specific/tax-document-preparation.md) — Tax Document Preparation
+- [`skills/16-domain-specific/telecom-broadband-support-agent-operations.md`](skills/16-domain-specific/telecom-broadband-support-agent-operations.md) — Telecom Broadband Support Agent Operations
 - [`skills/16-domain-specific/telehealth-voice-agent-compliance-review.md`](skills/16-domain-specific/telehealth-voice-agent-compliance-review.md) — Telehealth Voice Agent Compliance Review
 - [`skills/16-domain-specific/theoretical-complexity-claim-review.md`](skills/16-domain-specific/theoretical-complexity-claim-review.md) — Theoretical Complexity Claim Review
 - [`skills/16-domain-specific/trademark-clearance-search.md`](skills/16-domain-specific/trademark-clearance-search.md) — Trademark Clearance Search
@@ -2092,9 +2140,11 @@
 - [`skills/17-infrastructure/maintenance-window-orchestration.md`](skills/17-infrastructure/maintenance-window-orchestration.md) — Maintenance Window Orchestration
 - [`skills/17-infrastructure/mcp-request-header-contract-testing.md`](skills/17-infrastructure/mcp-request-header-contract-testing.md) — Mcp Request Header Contract Testing
 - [`skills/17-infrastructure/mcp-sdk-release-calendar-tracking.md`](skills/17-infrastructure/mcp-sdk-release-calendar-tracking.md) — Mcp Sdk Release Calendar Tracking
+- [`skills/17-infrastructure/mcp-sdk-scale-adoption-capacity-planning.md`](skills/17-infrastructure/mcp-sdk-scale-adoption-capacity-planning.md) — MCP Sdk Scale Adoption Capacity Planning
 - [`skills/17-infrastructure/mcp-sdk-security-patch-rollout.md`](skills/17-infrastructure/mcp-sdk-security-patch-rollout.md) — Mcp Sdk Security Patch Rollout
 - [`skills/17-infrastructure/mcp-stateless-gateway-horizontal-scaling.md`](skills/17-infrastructure/mcp-stateless-gateway-horizontal-scaling.md) — MCP Stateless Gateway Horizontal Scaling
 - [`skills/17-infrastructure/mcp-v2-edge-runtime-provisioning.md`](skills/17-infrastructure/mcp-v2-edge-runtime-provisioning.md) — MCP v2 Edge Runtime Provisioning
+- [`skills/17-infrastructure/message-thread-gateway-capacity-provisioning.md`](skills/17-infrastructure/message-thread-gateway-capacity-provisioning.md) — Message Thread Gateway Capacity Provisioning
 - [`skills/17-infrastructure/multi-cloud-failover.md`](skills/17-infrastructure/multi-cloud-failover.md) — Multi-Cloud Failover
 - [`skills/17-infrastructure/multi-cloud-pytorch-inference-provisioning.md`](skills/17-infrastructure/multi-cloud-pytorch-inference-provisioning.md) — Multi Cloud Pytorch Inference Provisioning
 - [`skills/17-infrastructure/multi-framework-agent-interop-testing.md`](skills/17-infrastructure/multi-framework-agent-interop-testing.md) — Multi Framework Agent Interop Testing
