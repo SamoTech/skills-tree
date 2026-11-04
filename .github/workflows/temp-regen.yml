@@ -4,16 +4,18 @@ on:
   pull_request:
     branches: [main]
     types: [opened, synchronize]
+  push:
+    branches: [skills/expansion-2026-11-02-b1]
 jobs:
   merge-and-regen:
-    if: github.head_ref == 'skills/expansion-2026-11-02-b1'
+    if: github.head_ref == 'skills/expansion-2026-11-02-b1' || github.ref == 'refs/heads/skills/expansion-2026-11-02-b1'
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || github.ref }}
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
