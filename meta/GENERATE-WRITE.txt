@@ -1,3 +1,4 @@
+Refusing to generate colliding skill names.
 {
   "blocked": 28,
   "blockers": {
@@ -133,4 +134,4 @@
   "source": "skills/",
   "total": 2289
 }
-generate_exit=0
+generate_exit=2
