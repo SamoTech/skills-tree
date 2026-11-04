@@ -1,0 +1,3 @@
+FAIL: 2 edges with dangling (missing) target node IDs.
+  01-perception/broadband-fault-call-transcript-parsing -> 01-perception/voice-command-audio-segmentation [RELATED_TO]
+  14-security/election-voice-clone-robocall-defense-operations -> 14-security/voice-clone-detection [RELATED_TO]
