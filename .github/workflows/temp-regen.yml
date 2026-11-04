@@ -8,6 +8,7 @@ jobs:
   regen:
     if: github.head_ref == 'skills/expansion-2026-11-03-b2'
     runs-on: ubuntu-latest
+    timeout-minutes: 35
     permissions:
       contents: write
     steps:
@@ -38,10 +39,12 @@ jobs:
         run: python3 tools/update_readme_counts.py
       - name: Link report
         uses: lycheeverse/lychee-action@v2
+        timeout-minutes: 15
         with:
           fail: false
           format: markdown
           output: meta/LYCHEE-REPORT.md
+          args: --no-progress --max-retries 1 --timeout 10
         continue-on-error: true
       - name: Sync badges
         run: python3 tools/sync_badges.py
