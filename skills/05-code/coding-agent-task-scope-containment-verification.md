@@ -65,8 +65,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Privileged Command Pre Execution Review](privileged-command-pre-execution-review.md)
-- [Computer Use Privileged Action Guard](computer-use-privileged-action-guard.md)
+- [Privileged Command Pre Execution Review](../05-code/privileged-command-pre-execution-review.md)
+- [Computer Use Privileged Action Guard](../undefined/computer-use-privileged-action-guard.md)
 
 ## Changelog
 | Version | Date | Notes |

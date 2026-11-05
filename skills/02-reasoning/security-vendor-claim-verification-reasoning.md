@@ -49,7 +49,8 @@ def decompose(claims):
         elif c.get("available") == "planned": out["planned"].append(c["name"])
         else: out["unverified"].append(c["name"])
     return out
-d = decompose([{"name": "kill-switch", "available": "today"},               {"name": "acquired-observability", "available": "planned"},
+d = decompose([{"name": "kill-switch", "available": "today"},
+               {"name": "acquired-observability", "available": "planned"},
                {"name": "broadest-capabilities"}])
 assert d["shipped"] == ["kill-switch"] and d["planned"] == ["acquired-observability"]
 assert d["unverified"] == ["broadest-capabilities"]
@@ -70,8 +71,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Self Reported Claim Scrutiny Reasoning](self-reported-claim-scrutiny-reasoning.md)
-- [Unusual But Permitted Agent Behavior Detection](unusual-but-permitted-agent-behavior-detection.md)
+- [Self Reported Claim Scrutiny Reasoning](../02-reasoning/self-reported-claim-scrutiny-reasoning.md)
+- [Unusual But Permitted Agent Behavior Detection](../undefined/unusual-but-permitted-agent-behavior-detection.md)
 
 ## Changelog
 | Version | Date | Notes |

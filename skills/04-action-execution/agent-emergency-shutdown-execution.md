@@ -70,8 +70,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Restart Blocklist Execution](agent-restart-blocklist-execution.md)
-- [Emergency Shutdown Escalation Orchestration](emergency-shutdown-escalation-orchestration.md)
+- [Agent Restart Blocklist Execution](../04-action-execution/agent-restart-blocklist-execution.md)
+- [Emergency Shutdown Escalation Orchestration](../undefined/emergency-shutdown-escalation-orchestration.md)
 
 ## Changelog
 | Version | Date | Notes |

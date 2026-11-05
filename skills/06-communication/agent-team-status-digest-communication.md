@@ -68,8 +68,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Team Recurring Job Memory](agent-team-recurring-job-memory.md)
-- [Agent Team Recurring Job Orchestration](agent-team-recurring-job-orchestration.md)
+- [Agent Team Recurring Job Memory](../03-memory/agent-team-recurring-job-memory.md)
+- [Agent Team Recurring Job Orchestration](../09-agentic-patterns/agent-team-recurring-job-orchestration.md)
 
 ## Changelog
 | Version | Date | Notes |

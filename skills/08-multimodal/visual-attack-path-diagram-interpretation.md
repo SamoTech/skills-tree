@@ -64,12 +64,12 @@ assert r["ok"] and r["chain"] == ["a", "b"] and r["breakpoints"] == ["b"]
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Agentic Adversary Emulation simulates how an autonomous attacker could chain weaknesses into an attack path, which defenders must read back as a diagram (AI Agents News, week of November 5, 2026) ([public signal](https://aiagentstore.ai/ai-agent-news/this-week))
+- Agentic Adversarial Emulation simulates how an autonomous attacker could chain weaknesses into an attack path, which defenders must read back as a diagram (AI Agents News, week of November 5, 2026) ([public signal](https://aiagentstore.ai/ai-agent-news/this-week))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [CAD Application Screen Understanding](cad-application-screen-understanding.md)
-- [Agentic Adversarial Emulation Operations](agentic-adversarial-emulation-operations.md)
+- [CAD Application Screen Understanding](../08-multimodal/cad-application-screen-understanding.md)
+- [Agentic Adversarial Emulation Operations](../undefined/agentic-adversarial-emulation-operations.md)
 
 ## Changelog
 | Version | Date | Notes |

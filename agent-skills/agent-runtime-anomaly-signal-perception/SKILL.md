@@ -68,8 +68,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Endpoint Agent Network Traffic Perception](endpoint-agent-network-traffic-perception.md)
-- [Agent Telemetry Anomaly Labeling](agent-telemetry-anomaly-labeling.md)
+- [Endpoint Agent Network Traffic Perception](../01-perception/endpoint-agent-network-traffic-perception.md)
+- [Agent Telemetry Anomaly Labeling](../undefined/agent-telemetry-anomaly-labeling.md)
 
 ## Changelog
 | Version | Date | Notes |

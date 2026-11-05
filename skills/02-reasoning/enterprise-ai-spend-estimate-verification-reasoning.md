@@ -67,8 +67,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Security Vendor Claim Verification Reasoning](security-vendor-claim-verification-reasoning.md)
-- [Enterprise AI Adoption Spend Benchmarking](enterprise-ai-adoption-spend-benchmarking.md)
+- [Security Vendor Claim Verification Reasoning](../02-reasoning/security-vendor-claim-verification-reasoning.md)
+- [Enterprise AI Adoption Spend Benchmarking](../undefined/enterprise-ai-adoption-spend-benchmarking.md)
 
 ## Changelog
 | Version | Date | Notes |

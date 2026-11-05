@@ -66,8 +66,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Privileged Command Pre Execution Review](privileged-command-pre-execution-review.md)
-- [Coding Agent Task Scope Containment Verification](coding-agent-task-scope-containment-verification.md)
+- [Privileged Command Pre Execution Review](../05-code/privileged-command-pre-execution-review.md)
+- [Coding Agent Task Scope Containment Verification](../05-code/coding-agent-task-scope-containment-verification.md)
 
 ## Changelog
 | Version | Date | Notes |

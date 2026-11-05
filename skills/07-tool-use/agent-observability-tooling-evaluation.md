@@ -68,8 +68,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Adversarial Emulation Tool Operation](adversarial-emulation-tool-operation.md)
-- [Agent Telemetry Anomaly Labeling](agent-telemetry-anomaly-labeling.md)
+- [Adversarial Emulation Tool Operation](../07-tool-use/adversarial-emulation-tool-operation.md)
+- [Agent Telemetry Anomaly Labeling](../undefined/agent-telemetry-anomaly-labeling.md)
 
 ## Changelog
 | Version | Date | Notes |

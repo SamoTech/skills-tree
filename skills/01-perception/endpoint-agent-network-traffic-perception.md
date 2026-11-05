@@ -69,8 +69,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Network Inspection Policy Authoring](agent-network-inspection-policy-authoring.md)
-- [Unusual But Permitted Agent Behavior Detection](unusual-but-permitted-agent-behavior-detection.md)
+- [Agent Network Inspection Policy Authoring](../undefined/agent-network-inspection-policy-authoring.md)
+- [Unusual But Permitted Agent Behavior Detection](../undefined/unusual-but-permitted-agent-behavior-detection.md)
 
 ## Changelog
 | Version | Date | Notes |

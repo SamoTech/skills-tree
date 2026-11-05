@@ -67,8 +67,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Visual Attack Path Diagram Interpretation](visual-attack-path-diagram-interpretation.md)
-- [Computer Use Privileged Action Guard](computer-use-privileged-action-guard.md)
+- [Visual Attack Path Diagram Interpretation](../08-multimodal/visual-attack-path-diagram-interpretation.md)
+- [Computer Use Privileged Action Guard](../undefined/computer-use-privileged-action-guard.md)
 
 ## Changelog
 | Version | Date | Notes |

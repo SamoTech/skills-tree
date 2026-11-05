@@ -63,8 +63,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Emergency Shutdown Execution](agent-emergency-shutdown-execution.md)
-- [AI Kill Switch Policy Design](ai-kill-switch-policy-design.md)
+- [Agent Emergency Shutdown Execution](../04-action-execution/agent-emergency-shutdown-execution.md)
+- [AI Kill Switch Policy Design](../undefined/ai-kill-switch-policy-design.md)
 
 ## Changelog
 | Version | Date | Notes |

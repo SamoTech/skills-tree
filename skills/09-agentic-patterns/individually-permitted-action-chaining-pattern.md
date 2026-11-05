@@ -66,8 +66,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Runtime Anomaly Signal Perception](agent-runtime-anomaly-signal-perception.md)
-- [Unusual But Permitted Agent Behavior Detection](unusual-but-permitted-agent-behavior-detection.md)
+- [Agent Runtime Anomaly Signal Perception](../01-perception/agent-runtime-anomaly-signal-perception.md)
+- [Unusual But Permitted Agent Behavior Detection](../undefined/unusual-but-permitted-agent-behavior-detection.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -66,8 +66,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Shutdown Authorization Request Communication](shutdown-authorization-request-communication.md)
-- [Kill Switch Audit Trail Dataset Modeling](kill-switch-audit-trail-dataset-modeling.md)
+- [Shutdown Authorization Request Communication](../06-communication/shutdown-authorization-request-communication.md)
+- [Kill Switch Audit Trail Dataset Modeling](../undefined/kill-switch-audit-trail-dataset-modeling.md)
 
 ## Changelog
 | Version | Date | Notes |
