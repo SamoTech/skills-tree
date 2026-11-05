@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 46 (47 on the expansion branch `skills/expansion-2026-11-05-b3` only while `temp-regen.yml` exists; restored to 46 before merge)
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,6 +40,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
+| `temp-regen.yml` | Temporary steward tooling (branch-only) | Branch-local merge + deterministic projection regen, lychee report, and distribution-audit capture for the 2026-11-05 batch-3 expansion; deleted before merge |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -277,3 +278,8 @@ Closure note (2026-11-03, batch 2): the re-added `temp-regen.yml` completed the 
 Reopen note (2026-11-03, batch 2 diagnostics): `temp-regen.yml` is re-added on the `skills/expansion-2026-11-03-b2` branch only, after the batch-2 CI surfaced two real failures (dangling graph targets from two Related references to nonexistent skills, and reconcile drift of 50 packages against the deterministic projection). It reruns the repo's own generators in write mode (repairing the packages from the canonical skills) and captures the dangling-edge and distribution-audit diagnostics at the repaired head. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
 
 Closure note (2026-11-03, batch 2 diagnostics and repair): the re-added `temp-regen.yml` diagnosed the two failing checks exactly — two dangling graph targets from Related references to nonexistent skills (`broadband-fault-call-transcript-parsing -> voice-command-audio-segmentation`, `election-voice-clone-robocall-defense-operations -> voice-clone-detection`, repaired in `e9f49b5e` to the existing `audio-stream-segmentation` and `social-engineering-detection`), and reconcile drift of all 50 batch packages (the earlier closure note's `reconcile --check zero drift` claim was wrong: the drift was present but only surfaced through these diagnostics; the prior regen had run the generator in its audit-only default mode, and its `--write`/`--write-eligible` modes refuse on the repo's legacy name collisions). The workflow then re-derived all 50 packages byte-exactly through the repository's own `project()`/`write_projection()` (bot commit `391f9b85`): graph dangling check PASS over all 3264 edges, validate 2299/2299, reconcile --check zero drift/stale/unexpected (exit 0). The workflow and all temporary diagnostic reports were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
+
+
+## Disposition update — 2026-11-05 (temporary regen + link-report tooling for the 2026-11-05 batch-3 expansion)
+
+`temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-11-05-b3` branch only: it merges latest `main`, re-derives drifted agent-skills packages through the repository's own `project()`/`write_projection()` (skipping legacy name collisions), and runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/verify_jsonld_export.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`, `tools/sync_badges.py`) at the branch head, records a lychee markdown report, and captures the Agent Skills distribution-audit outputs for diagnosis. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
