@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "visual-attack-path-diagram-interpretation",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../08-multimodal/cad-application-screen-understanding.md",
+    "../undefined/agentic-adversarial-emulation-operations.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

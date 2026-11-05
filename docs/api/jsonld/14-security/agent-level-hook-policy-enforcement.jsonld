@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/agent-level-hook-policy-enforcement.md",
   "name": "Agent Level Hook Policy Enforcement",
   "headline": "Agent Level Hook Policy Enforcement",
-  "description": "Enforce policy through agent-level hooks that bind what an agent is told, what it communicates, and what it executes.",
+  "description": "Enforce policy through agent-level hooks that intercept agent actions before execution and apply policy verdicts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/agent-level-hook-policy-enforcement.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "agent-level-hook-policy-enforcement",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/ai-gateway-policy-tool-configuration.md",
+    "../10-computer-use/endpoint-agent-runtime-containment.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

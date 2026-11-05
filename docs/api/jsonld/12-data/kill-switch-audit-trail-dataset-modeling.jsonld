@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/kill-switch-audit-trail-dataset-modeling.md",
   "name": "Kill Switch Audit Trail Dataset Modeling",
   "headline": "Kill Switch Audit Trail Dataset Modeling",
-  "description": "Model the audit-trail dataset for kill switch actions so every termination is queryable by agent, actor, action, and time.",
+  "description": "Model the kill switch audit trail as a dataset of termination actions with actor, scope, reason, and policy linkage.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/kill-switch-audit-trail-dataset-modeling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "kill-switch-audit-trail-dataset-modeling",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/emergency-shutdown-decision-record-memory.md",
+    "../undefined/production-agent-inventory-memory.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

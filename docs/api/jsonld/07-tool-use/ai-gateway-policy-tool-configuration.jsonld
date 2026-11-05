@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "ai-gateway-policy-tool-configuration",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/ai-gateway-network-inspection-rule-testing.md",
+    "../undefined/agent-level-hook-policy-enforcement.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

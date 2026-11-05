@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/recurring-agent-team-scheduling.md",
   "name": "Recurring Agent Team Scheduling",
   "headline": "Recurring Agent Team Scheduling",
-  "description": "Schedule recurring agent team runs by binding each run window to a job definition with explicit start, stop, and overlap rules.",
+  "description": "Schedule recurring work for an always-on agent team with explicit cadence, bounds, and failure backoff.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/recurring-agent-team-scheduling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "recurring-agent-team-scheduling",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/agent-team-recurring-job-orchestration.md",
+    "../15-orchestration/emergency-shutdown-escalation-orchestration.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/agent-security-sensor-deployment.md",
   "name": "Agent Security Sensor Deployment",
   "headline": "Agent Security Sensor Deployment",
-  "description": "Deploy the agent security sensor across gateways, endpoints, and agent runtimes with verified coverage at every control point.",
+  "description": "Deploy agent security sensors across gateway, endpoint, and identity layers with verified coverage and policy bindings.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/agent-security-sensor-deployment.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "agent-security-sensor-deployment",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/agent-level-hook-policy-enforcement.md",
+    "../15-orchestration/cross-sensor-agent-context-correlation.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

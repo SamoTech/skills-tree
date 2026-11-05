@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/endpoint-agent-runtime-containment.md",
   "name": "Endpoint Agent Runtime Containment",
   "headline": "Endpoint Agent Runtime Containment",
-  "description": "Contain agent runtimes on endpoints by bounding processes, file access, and network paths to declared scopes.",
+  "description": "Contain an AI agent running on an employee endpoint by intercepting its actions through a privileged monitoring component.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/endpoint-agent-runtime-containment.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "endpoint-agent-runtime-containment",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../10-computer-use/computer-use-privileged-action-guard.md",
+    "../undefined/endpoint-agent-network-traffic-perception.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

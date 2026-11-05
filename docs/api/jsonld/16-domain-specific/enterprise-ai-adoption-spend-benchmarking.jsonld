@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/enterprise-ai-adoption-spend-benchmarking.md",
   "name": "Enterprise AI Adoption Spend Benchmarking",
   "headline": "Enterprise AI Adoption Spend Benchmarking",
-  "description": "Benchmark an organization AI agent spend against published market estimates with scope-matched comparisons only.",
+  "description": "Benchmark an organization AI deployment spend against published enterprise benchmarks, with scope-matched comparisons only.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/16-domain-specific/enterprise-ai-adoption-spend-benchmarking.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "enterprise-ai-adoption-spend-benchmarking",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,9 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/enterprise-ai-spend-estimate-verification-reasoning.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/hosted-agent-saved-session-operations.md",
   "name": "Hosted Agent Saved Session Operations",
   "headline": "Hosted Agent Saved Session Operations",
-  "description": "Operate a hosted agent session with saved state by restoring sessions, verifying continuity, and bounding session actions.",
+  "description": "Operate a hosted agent session that resumes a paused task with saved memory of prior steps and browser state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/hosted-agent-saved-session-operations.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "hosted-agent-saved-session-operations",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../10-computer-use/endpoint-agent-runtime-containment.md",
+    "../13-creative/hosted-agent-subscription-tier-copywriting.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

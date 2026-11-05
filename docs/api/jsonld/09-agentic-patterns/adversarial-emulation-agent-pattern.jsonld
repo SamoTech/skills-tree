@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/adversarial-emulation-agent-pattern.md",
   "name": "Adversarial Emulation Agent Pattern",
   "headline": "Adversarial Emulation Agent Pattern",
-  "description": "Apply the agentic adversary emulation pattern that chains weaknesses automatically to test defenses against machine-speed attacks.",
+  "description": "Apply the agentic pattern of running an adversarial emulation agent that plans and executes simulated attack chains.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/adversarial-emulation-agent-pattern.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "adversarial-emulation-agent-pattern",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/adversarial-emulation-tool-operation.md",
+    "../14-security/agentic-adversarial-emulation-operations.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

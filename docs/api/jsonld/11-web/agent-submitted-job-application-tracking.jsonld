@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/agent-submitted-job-application-tracking.md",
   "name": "Agent Submitted Job Application Tracking",
   "headline": "Agent Submitted Job Application Tracking",
-  "description": "Track job applications an agent submits across boards by recording each submission, response, and outcome.",
+  "description": "Track job applications an agent submitted on a user behalf, including responses, statuses, and required follow-ups.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/agent-submitted-job-application-tracking.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "agent-submitted-job-application-tracking",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/agent-mediated-job-application-messaging.md",
+    "../16-domain-specific/recruitment-agent-oversight-policy.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

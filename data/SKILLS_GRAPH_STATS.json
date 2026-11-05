@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-05T05:20:18.489257+00:00",
+  "generated_at": "2026-11-05T05:28:36.766259+00:00",
   "node_count": 2388,
-  "edge_count": 3464,
+  "edge_count": 3462,
   "requires_count": 8,
   "nodes_by_level": {
     "advanced": 1916,
@@ -34,7 +34,7 @@
     "17-infrastructure": 106
   },
   "edges_by_type": {
-    "RELATED_TO": 3456,
+    "RELATED_TO": 3454,
     "REQUIRES": 8
   }
 }

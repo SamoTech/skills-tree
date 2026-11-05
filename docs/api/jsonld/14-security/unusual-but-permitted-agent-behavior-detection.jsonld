@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/unusual-but-permitted-agent-behavior-detection.md",
   "name": "Unusual But Permitted Agent Behavior Detection",
   "headline": "Unusual But Permitted Agent Behavior Detection",
-  "description": "Detect agent behavior that breaks no explicit rule but is unusual in context, and route it to review instead of auto-response.",
+  "description": "Detect agent behavior that is individually permitted by policy but unusual in context and therefore worth review.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/unusual-but-permitted-agent-behavior-detection.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "unusual-but-permitted-agent-behavior-detection",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/agent-runtime-anomaly-signal-perception.md",
+    "../12-data/agent-telemetry-anomaly-labeling.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

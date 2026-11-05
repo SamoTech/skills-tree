@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/cross-sensor-agent-context-correlation.md",
   "name": "Cross Sensor Agent Context Correlation",
   "headline": "Cross Sensor Agent Context Correlation",
-  "description": "Correlate what an agent was told, what it communicated, and what it executed across sensors into one agent context record.",
+  "description": "Correlate agent activity across gateway, endpoint, and identity sensors into one unified context record.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/cross-sensor-agent-context-correlation.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "cross-sensor-agent-context-correlation",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/agent-runtime-anomaly-signal-perception.md",
+    "../17-infrastructure/agent-security-sensor-deployment.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

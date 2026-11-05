@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/computer-use-privileged-action-guard.md",
   "name": "Computer Use Privileged Action Guard",
   "headline": "Computer Use Privileged Action Guard",
-  "description": "Guard privileged actions in computer-use flows by intercepting them before execution and routing them to an approval gate.",
+  "description": "Guard computer-use agents by requiring explicit approval before any privileged UI action executes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/computer-use-privileged-action-guard.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "computer-use-privileged-action-guard",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/coding-agent-task-scope-containment-verification.md",
+    "../10-computer-use/endpoint-agent-runtime-containment.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

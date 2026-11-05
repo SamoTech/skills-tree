@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/mcp-update-migration-planning.md",
   "name": "MCP Update Migration Planning",
   "headline": "MCP Update Migration Planning",
-  "description": "Plan migration for a major MCP specification update by inventorying server surfaces, classifying breaking changes, and sequencing rollout.",
+  "description": "Plan migrations across breaking MCP protocol updates by inventorying server dependencies, classifying breaking changes, and staging rollout.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/mcp-update-migration-planning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "mcp-update-migration-planning",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,9 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../11-web/agent-network-inspection-policy-authoring.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

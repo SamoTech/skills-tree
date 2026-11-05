@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/ai-kill-switch-policy-design.md",
   "name": "AI Kill Switch Policy Design",
   "headline": "AI Kill Switch Policy Design",
-  "description": "Design the policy governing an AI kill switch: who may invoke it, on what evidence, with what authority, and how actions are audited.",
+  "description": "Design an AI kill switch policy defining who may terminate agents, in what scope, with what evidence, and what gets recorded.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/ai-kill-switch-policy-design.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "ai-kill-switch-policy-design",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/unusual-but-permitted-agent-behavior-detection.md",
+    "../undefined/agent-restart-blocklist-execution.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

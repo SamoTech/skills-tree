@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/emergency-shutdown-escalation-orchestration.md",
   "name": "Emergency Shutdown Escalation Orchestration",
   "headline": "Emergency Shutdown Escalation Orchestration",
-  "description": "Orchestrate the escalation path from an agent alert to an authorized shutdown, with named roles, time windows, and fallback authorities.",
+  "description": "Orchestrate the escalation path from agent alert to human shutdown authorization, including timeouts and fallback authority.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/emergency-shutdown-escalation-orchestration.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "emergency-shutdown-escalation-orchestration",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/shutdown-authorization-request-communication.md",
+    "../14-security/ai-kill-switch-policy-design.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/agentic-adversarial-emulation-operations.md",
   "name": "Agentic Adversarial Emulation Operations",
   "headline": "Agentic Adversarial Emulation Operations",
-  "description": "Run agentic adversary emulation operations that simulate autonomous attack chains and verify defensive response end to end.",
+  "description": "Run agentic adversarial emulation operations to test defenses against autonomous attacker chains end to end.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/14-security/agentic-adversarial-emulation-operations.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "agentic-adversarial-emulation-operations",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/adversarial-emulation-tool-operation.md",
+    "../undefined/visual-attack-path-diagram-interpretation.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

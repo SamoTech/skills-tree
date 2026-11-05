@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/ai-gateway-network-inspection-rule-testing.md",
   "name": "AI Gateway Network Inspection Rule Testing",
   "headline": "AI Gateway Network Inspection Rule Testing",
-  "description": "Test AI gateway network inspection rules with fixture traffic before and after enforcement.",
+  "description": "Test AI gateway network inspection rules against sample agent traffic before enforcing them.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/ai-gateway-network-inspection-rule-testing.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "ai-gateway-network-inspection-rule-testing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../11-web/agent-network-inspection-policy-authoring.md",
+    "../undefined/ai-gateway-policy-tool-configuration.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/agent-network-inspection-policy-authoring.md",
   "name": "Agent Network Inspection Policy Authoring",
   "headline": "Agent Network Inspection Policy Authoring",
-  "description": "Author a network inspection policy that observes and bounds agent traffic on web and API destinations.",
+  "description": "Author the network inspection policy that controls what AI agents can communicate across enterprise network gateways.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/11-web/agent-network-inspection-policy-authoring.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "agent-network-inspection-policy-authoring",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../11-web/ai-gateway-network-inspection-rule-testing.md",
+    "../undefined/endpoint-agent-network-traffic-perception.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

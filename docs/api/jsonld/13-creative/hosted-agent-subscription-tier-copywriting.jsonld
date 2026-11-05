@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/hosted-agent-subscription-tier-copywriting.md",
   "name": "Hosted Agent Subscription Tier Copywriting",
   "headline": "Hosted Agent Subscription Tier Copywriting",
-  "description": "Write subscription-tier copy for hosted agents by stating plan limits, memory guarantees, and cancellation terms plainly.",
+  "description": "Write subscription tier copy for hosted agent offerings, stating exactly what each tier runs, saves, and limits.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/hosted-agent-subscription-tier-copywriting.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "hosted-agent-subscription-tier-copywriting",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../13-creative/ai-safety-enablement-narrative-copywriting.md",
+    "../10-computer-use/hosted-agent-saved-session-operations.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

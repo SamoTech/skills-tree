@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/managed-agent-cloud-provisioning.md",
   "name": "Managed Agent Cloud Provisioning",
   "headline": "Managed Agent Cloud Provisioning",
-  "description": "Provision managed cloud capacity for agent workloads with per-workload boundaries, logging, and shutdown hooks attached at creation.",
+  "description": "Provision managed cloud infrastructure for agent workloads with boundary controls, credential brokering, and inventory registration.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/17-infrastructure/managed-agent-cloud-provisioning.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "managed-agent-cloud-provisioning",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/managed-cloud-agent-environment-setup.md",
+    "../undefined/production-agent-inventory-memory.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

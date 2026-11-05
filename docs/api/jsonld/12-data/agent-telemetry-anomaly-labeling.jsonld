@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/agent-telemetry-anomaly-labeling.md",
   "name": "Agent Telemetry Anomaly Labeling",
   "headline": "Agent Telemetry Anomaly Labeling",
-  "description": "Label agent telemetry anomalies with context tags so detection models and reviewers share one annotation scheme.",
+  "description": "Label agent telemetry anomalies with whether they represent policy violations, contextual anomalies, or benign variation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/agent-telemetry-anomaly-labeling.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T05:19:51Z",
+  "dateModified": "2026-11-05T05:28:03Z",
   "skillId": "agent-telemetry-anomaly-labeling",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,10 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../undefined/agent-runtime-anomaly-signal-perception.md",
+    "../14-security/unusual-but-permitted-agent-behavior-detection.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

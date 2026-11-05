@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-05T05:19:51Z",
+  "generated": "2026-11-05T05:28:03Z",
   "count": 2388,
   "skills": [
     {
@@ -378,7 +378,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../01-perception/endpoint-agent-network-traffic-perception.md",
+        "../undefined/agent-telemetry-anomaly-labeling.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -1465,7 +1468,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-network-inspection-policy-authoring.md",
+        "../undefined/unusual-but-permitted-agent-behavior-detection.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -2112,7 +2118,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../01-perception/agent-runtime-anomaly-signal-perception.md",
+        "../undefined/kill-switch-audit-trail-dataset-modeling.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -6124,7 +6133,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../02-reasoning/security-vendor-claim-verification-reasoning.md",
+        "../undefined/enterprise-ai-adoption-spend-benchmarking.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -8355,7 +8367,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../02-reasoning/self-reported-claim-scrutiny-reasoning.md",
+        "../undefined/unusual-but-permitted-agent-behavior-detection.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -8463,7 +8478,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../02-reasoning/security-vendor-claim-verification-reasoning.md",
+        "../02-reasoning/enterprise-ai-spend-estimate-verification-reasoning.md"
+      ],
       "category_dir": "02-reasoning"
     },
     {
@@ -9570,7 +9588,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../03-memory/production-agent-inventory-memory.md",
+        "../09-agentic-patterns/agent-team-recurring-job-orchestration.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -10235,7 +10256,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../06-communication/shutdown-authorization-request-communication.md",
+        "../undefined/kill-switch-audit-trail-dataset-modeling.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -12032,7 +12056,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/production-agent-credential-scope-datasets.md",
+        "../undefined/kill-switch-audit-trail-dataset-modeling.md"
+      ],
       "category_dir": "03-memory"
     },
     {
@@ -13405,7 +13432,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../04-action-execution/agent-restart-blocklist-execution.md",
+        "../undefined/emergency-shutdown-escalation-orchestration.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -13509,7 +13539,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../04-action-execution/agent-emergency-shutdown-execution.md",
+        "../undefined/ai-kill-switch-policy-design.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -15663,7 +15696,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/managed-agent-cloud-provisioning.md",
+        "../undefined/endpoint-agent-runtime-containment.md"
+      ],
       "category_dir": "04-action-execution"
     },
     {
@@ -18652,7 +18688,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../05-code/privileged-command-pre-execution-review.md",
+        "../undefined/computer-use-privileged-action-guard.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -20383,7 +20422,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../05-code/coding-agent-task-scope-containment-verification.md",
+        "../05-code/test-passing-for-wrong-reason-detection.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -21195,7 +21237,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../05-code/privileged-command-pre-execution-review.md",
+        "../05-code/coding-agent-task-scope-containment-verification.md"
+      ],
       "category_dir": "05-code"
     },
     {
@@ -21817,7 +21862,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/recruitment-agent-oversight-policy.md",
+        "../undefined/agent-submitted-job-application-tracking.md"
+      ],
       "category_dir": "06-communication"
     },
     {
@@ -21931,7 +21979,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../03-memory/agent-team-recurring-job-memory.md",
+        "../09-agentic-patterns/agent-team-recurring-job-orchestration.md"
+      ],
       "category_dir": "06-communication"
     },
     {
@@ -24599,7 +24650,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../03-memory/emergency-shutdown-decision-record-memory.md",
+        "../undefined/emergency-shutdown-escalation-orchestration.md"
+      ],
       "category_dir": "06-communication"
     },
     {
@@ -25429,7 +25483,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../07-tool-use/agent-observability-tooling-evaluation.md",
+        "../undefined/agentic-adversarial-emulation-operations.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -25571,7 +25628,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../07-tool-use/adversarial-emulation-tool-operation.md",
+        "../undefined/agent-telemetry-anomaly-labeling.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -25715,7 +25775,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/ai-gateway-network-inspection-rule-testing.md",
+        "../undefined/agent-level-hook-policy-enforcement.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -30324,7 +30387,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../08-multimodal/visual-attack-path-diagram-interpretation.md",
+        "../undefined/computer-use-privileged-action-guard.md"
+      ],
       "category_dir": "08-multimodal"
     },
     {
@@ -32705,7 +32771,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../08-multimodal/cad-application-screen-understanding.md",
+        "../undefined/agentic-adversarial-emulation-operations.md"
+      ],
       "category_dir": "08-multimodal"
     },
     {
@@ -33081,7 +33150,7 @@
       "id": "adversarial-emulation-agent-pattern",
       "path": "skills/09-agentic-patterns/adversarial-emulation-agent-pattern.md",
       "name": "Adversarial Emulation Agent Pattern",
-      "description": "Apply the agentic adversary emulation pattern that chains weaknesses automatically to test defenses against machine-speed attacks.",
+      "description": "Apply the agentic pattern of running an adversarial emulation agent that plans and executes simulated attack chains.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "experimental",
@@ -33101,7 +33170,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/adversarial-emulation-tool-operation.md",
+        "../14-security/agentic-adversarial-emulation-operations.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -33843,7 +33915,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/recurring-agent-team-scheduling.md",
+        "../03-memory/agent-team-recurring-job-memory.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -35261,7 +35336,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../01-perception/agent-runtime-anomaly-signal-perception.md",
+        "../undefined/unusual-but-permitted-agent-behavior-detection.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -37992,7 +38070,7 @@
       "id": "computer-use-privileged-action-guard",
       "path": "skills/10-computer-use/computer-use-privileged-action-guard.md",
       "name": "Computer Use Privileged Action Guard",
-      "description": "Guard privileged actions in computer-use flows by intercepting them before execution and routing them to an approval gate.",
+      "description": "Guard computer-use agents by requiring explicit approval before any privileged UI action executes.",
       "category": "computer-use",
       "level": "advanced",
       "stability": "experimental",
@@ -38012,7 +38090,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/coding-agent-task-scope-containment-verification.md",
+        "../10-computer-use/endpoint-agent-runtime-containment.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -38620,7 +38701,7 @@
       "id": "endpoint-agent-runtime-containment",
       "path": "skills/10-computer-use/endpoint-agent-runtime-containment.md",
       "name": "Endpoint Agent Runtime Containment",
-      "description": "Contain agent runtimes on endpoints by bounding processes, file access, and network paths to declared scopes.",
+      "description": "Contain an AI agent running on an employee endpoint by intercepting its actions through a privileged monitoring component.",
       "category": "computer-use",
       "level": "advanced",
       "stability": "experimental",
@@ -38640,7 +38721,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../10-computer-use/computer-use-privileged-action-guard.md",
+        "../undefined/endpoint-agent-network-traffic-perception.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -38959,7 +39043,7 @@
       "id": "hosted-agent-saved-session-operations",
       "path": "skills/10-computer-use/hosted-agent-saved-session-operations.md",
       "name": "Hosted Agent Saved Session Operations",
-      "description": "Operate a hosted agent session with saved state by restoring sessions, verifying continuity, and bounding session actions.",
+      "description": "Operate a hosted agent session that resumes a paused task with saved memory of prior steps and browser state.",
       "category": "computer-use",
       "level": "advanced",
       "stability": "experimental",
@@ -38979,7 +39063,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../10-computer-use/endpoint-agent-runtime-containment.md",
+        "../13-creative/hosted-agent-subscription-tier-copywriting.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -41222,7 +41309,7 @@
       "id": "agent-network-inspection-policy-authoring",
       "path": "skills/11-web/agent-network-inspection-policy-authoring.md",
       "name": "Agent Network Inspection Policy Authoring",
-      "description": "Author a network inspection policy that observes and bounds agent traffic on web and API destinations.",
+      "description": "Author the network inspection policy that controls what AI agents can communicate across enterprise network gateways.",
       "category": "web",
       "level": "advanced",
       "stability": "experimental",
@@ -41242,7 +41329,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../11-web/ai-gateway-network-inspection-rule-testing.md",
+        "../undefined/endpoint-agent-network-traffic-perception.md"
+      ],
       "category_dir": "11-web"
     },
     {
@@ -41331,7 +41421,7 @@
       "id": "agent-submitted-job-application-tracking",
       "path": "skills/11-web/agent-submitted-job-application-tracking.md",
       "name": "Agent Submitted Job Application Tracking",
-      "description": "Track job applications an agent submits across boards by recording each submission, response, and outcome.",
+      "description": "Track job applications an agent submitted on a user behalf, including responses, statuses, and required follow-ups.",
       "category": "web",
       "level": "advanced",
       "stability": "experimental",
@@ -41351,7 +41441,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-mediated-job-application-messaging.md",
+        "../16-domain-specific/recruitment-agent-oversight-policy.md"
+      ],
       "category_dir": "11-web"
     },
     {
@@ -41592,7 +41685,7 @@
       "id": "ai-gateway-network-inspection-rule-testing",
       "path": "skills/11-web/ai-gateway-network-inspection-rule-testing.md",
       "name": "AI Gateway Network Inspection Rule Testing",
-      "description": "Test AI gateway network inspection rules with fixture traffic before and after enforcement.",
+      "description": "Test AI gateway network inspection rules against sample agent traffic before enforcing them.",
       "category": "web",
       "level": "advanced",
       "stability": "experimental",
@@ -41612,7 +41705,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../11-web/agent-network-inspection-policy-authoring.md",
+        "../undefined/ai-gateway-policy-tool-configuration.md"
+      ],
       "category_dir": "11-web"
     },
     {
@@ -45371,7 +45467,7 @@
       "id": "agent-telemetry-anomaly-labeling",
       "path": "skills/12-data/agent-telemetry-anomaly-labeling.md",
       "name": "Agent Telemetry Anomaly Labeling",
-      "description": "Label agent telemetry anomalies with context tags so detection models and reviewers share one annotation scheme.",
+      "description": "Label agent telemetry anomalies with whether they represent policy violations, contextual anomalies, or benign variation.",
       "category": "data",
       "level": "advanced",
       "stability": "experimental",
@@ -45391,7 +45487,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-runtime-anomaly-signal-perception.md",
+        "../14-security/unusual-but-permitted-agent-behavior-detection.md"
+      ],
       "category_dir": "12-data"
     },
     {
@@ -47115,7 +47214,7 @@
       "id": "kill-switch-audit-trail-dataset-modeling",
       "path": "skills/12-data/kill-switch-audit-trail-dataset-modeling.md",
       "name": "Kill Switch Audit Trail Dataset Modeling",
-      "description": "Model the audit-trail dataset for kill switch actions so every termination is queryable by agent, actor, action, and time.",
+      "description": "Model the kill switch audit trail as a dataset of termination actions with actor, scope, reason, and policy linkage.",
       "category": "data",
       "level": "advanced",
       "stability": "experimental",
@@ -47135,7 +47234,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/emergency-shutdown-decision-record-memory.md",
+        "../undefined/production-agent-inventory-memory.md"
+      ],
       "category_dir": "12-data"
     },
     {
@@ -47758,7 +47860,7 @@
       "id": "production-agent-credential-scope-datasets",
       "path": "skills/12-data/production-agent-credential-scope-datasets.md",
       "name": "Production Agent Credential Scope Datasets",
-      "description": "Build the dataset that records which credentials and data classes each production agent can access.",
+      "description": "Assemble datasets describing each production agent credential scope and the data classes it can access.",
       "category": "data",
       "level": "advanced",
       "stability": "experimental",
@@ -47778,7 +47880,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/production-agent-inventory-memory.md",
+        "../12-data/kill-switch-audit-trail-dataset-modeling.md"
+      ],
       "category_dir": "12-data"
     },
     {
@@ -49147,7 +49252,7 @@
       "id": "ai-safety-enablement-narrative-copywriting",
       "path": "skills/13-creative/ai-safety-enablement-narrative-copywriting.md",
       "name": "AI Safety Enablement Narrative Copywriting",
-      "description": "Write adoption-facing copy that presents agent security controls as enablers of faster AI adoption, with claims tied to shipped controls.",
+      "description": "Write enablement narratives that make AI safety controls land as adopted practice rather than ignored overhead.",
       "category": "creative",
       "level": "advanced",
       "stability": "experimental",
@@ -49167,7 +49272,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../13-creative/hosted-agent-subscription-tier-copywriting.md",
+        "../14-security/ai-kill-switch-policy-design.md"
+      ],
       "category_dir": "13-creative"
     },
     {
@@ -50135,7 +50243,7 @@
       "id": "hosted-agent-subscription-tier-copywriting",
       "path": "skills/13-creative/hosted-agent-subscription-tier-copywriting.md",
       "name": "Hosted Agent Subscription Tier Copywriting",
-      "description": "Write subscription-tier copy for hosted agents by stating plan limits, memory guarantees, and cancellation terms plainly.",
+      "description": "Write subscription tier copy for hosted agent offerings, stating exactly what each tier runs, saves, and limits.",
       "category": "creative",
       "level": "advanced",
       "stability": "experimental",
@@ -50155,7 +50263,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../13-creative/ai-safety-enablement-narrative-copywriting.md",
+        "../10-computer-use/hosted-agent-saved-session-operations.md"
+      ],
       "category_dir": "13-creative"
     },
     {
@@ -52173,7 +52284,7 @@
       "id": "agent-level-hook-policy-enforcement",
       "path": "skills/14-security/agent-level-hook-policy-enforcement.md",
       "name": "Agent Level Hook Policy Enforcement",
-      "description": "Enforce policy through agent-level hooks that bind what an agent is told, what it communicates, and what it executes.",
+      "description": "Enforce policy through agent-level hooks that intercept agent actions before execution and apply policy verdicts.",
       "category": "security",
       "level": "advanced",
       "stability": "experimental",
@@ -52193,7 +52304,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/ai-gateway-policy-tool-configuration.md",
+        "../10-computer-use/endpoint-agent-runtime-containment.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -52431,7 +52545,7 @@
       "id": "agentic-adversarial-emulation-operations",
       "path": "skills/14-security/agentic-adversarial-emulation-operations.md",
       "name": "Agentic Adversarial Emulation Operations",
-      "description": "Run agentic adversary emulation operations that simulate autonomous attack chains and verify defensive response end to end.",
+      "description": "Run agentic adversarial emulation operations to test defenses against autonomous attacker chains end to end.",
       "category": "security",
       "level": "advanced",
       "stability": "experimental",
@@ -52451,7 +52565,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/adversarial-emulation-tool-operation.md",
+        "../undefined/visual-attack-path-diagram-interpretation.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -52660,7 +52777,7 @@
       "id": "ai-kill-switch-policy-design",
       "path": "skills/14-security/ai-kill-switch-policy-design.md",
       "name": "AI Kill Switch Policy Design",
-      "description": "Design the policy governing an AI kill switch: who may invoke it, on what evidence, with what authority, and how actions are audited.",
+      "description": "Design an AI kill switch policy defining who may terminate agents, in what scope, with what evidence, and what gets recorded.",
       "category": "security",
       "level": "advanced",
       "stability": "experimental",
@@ -52680,7 +52797,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../14-security/unusual-but-permitted-agent-behavior-detection.md",
+        "../undefined/agent-restart-blocklist-execution.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -55555,7 +55675,7 @@
       "id": "unusual-but-permitted-agent-behavior-detection",
       "path": "skills/14-security/unusual-but-permitted-agent-behavior-detection.md",
       "name": "Unusual But Permitted Agent Behavior Detection",
-      "description": "Detect agent behavior that breaks no explicit rule but is unusual in context, and route it to review instead of auto-response.",
+      "description": "Detect agent behavior that is individually permitted by policy but unusual in context and therefore worth review.",
       "category": "security",
       "level": "advanced",
       "stability": "experimental",
@@ -55575,7 +55695,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-runtime-anomaly-signal-perception.md",
+        "../12-data/agent-telemetry-anomaly-labeling.md"
+      ],
       "category_dir": "14-security"
     },
     {
@@ -56860,7 +56983,7 @@
       "id": "cross-sensor-agent-context-correlation",
       "path": "skills/15-orchestration/cross-sensor-agent-context-correlation.md",
       "name": "Cross Sensor Agent Context Correlation",
-      "description": "Correlate what an agent was told, what it communicated, and what it executed across sensors into one agent context record.",
+      "description": "Correlate agent activity across gateway, endpoint, and identity sensors into one unified context record.",
       "category": "orchestration",
       "level": "advanced",
       "stability": "experimental",
@@ -56880,7 +57003,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-runtime-anomaly-signal-perception.md",
+        "../17-infrastructure/agent-security-sensor-deployment.md"
+      ],
       "category_dir": "15-orchestration"
     },
     {
@@ -57184,7 +57310,7 @@
       "id": "emergency-shutdown-escalation-orchestration",
       "path": "skills/15-orchestration/emergency-shutdown-escalation-orchestration.md",
       "name": "Emergency Shutdown Escalation Orchestration",
-      "description": "Orchestrate the escalation path from an agent alert to an authorized shutdown, with named roles, time windows, and fallback authorities.",
+      "description": "Orchestrate the escalation path from agent alert to human shutdown authorization, including timeouts and fallback authority.",
       "category": "orchestration",
       "level": "advanced",
       "stability": "experimental",
@@ -57204,7 +57330,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/shutdown-authorization-request-communication.md",
+        "../14-security/ai-kill-switch-policy-design.md"
+      ],
       "category_dir": "15-orchestration"
     },
     {
@@ -58330,7 +58459,7 @@
       "id": "recurring-agent-team-scheduling",
       "path": "skills/15-orchestration/recurring-agent-team-scheduling.md",
       "name": "Recurring Agent Team Scheduling",
-      "description": "Schedule recurring agent team runs by binding each run window to a job definition with explicit start, stop, and overlap rules.",
+      "description": "Schedule recurring work for an always-on agent team with explicit cadence, bounds, and failure backoff.",
       "category": "orchestration",
       "level": "advanced",
       "stability": "experimental",
@@ -58350,7 +58479,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-team-recurring-job-orchestration.md",
+        "../15-orchestration/emergency-shutdown-escalation-orchestration.md"
+      ],
       "category_dir": "15-orchestration"
     },
     {
@@ -60472,7 +60604,7 @@
       "id": "enterprise-ai-adoption-spend-benchmarking",
       "path": "skills/16-domain-specific/enterprise-ai-adoption-spend-benchmarking.md",
       "name": "Enterprise AI Adoption Spend Benchmarking",
-      "description": "Benchmark an organization AI agent spend against published market estimates with scope-matched comparisons only.",
+      "description": "Benchmark an organization AI deployment spend against published enterprise benchmarks, with scope-matched comparisons only.",
       "category": "domain-specific",
       "level": "advanced",
       "stability": "experimental",
@@ -60492,7 +60624,9 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/enterprise-ai-spend-estimate-verification-reasoning.md"
+      ],
       "category_dir": "16-domain-specific"
     },
     {
@@ -60775,7 +60909,7 @@
       "id": "financial-services-coding-agent-restriction-policy",
       "path": "skills/16-domain-specific/financial-services-coding-agent-restriction-policy.md",
       "name": "Financial Services Coding Agent Restriction Policy",
-      "description": "Write the policy restricting coding-agent tools in financial services environments, with allowlists, environment rules, and review duties.",
+      "description": "Write the restriction policy governing coding agent use in a financial services firm, including scope, approval, and environment rules.",
       "category": "domain-specific",
       "level": "advanced",
       "stability": "experimental",
@@ -60795,7 +60929,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/coding-agent-task-scope-containment-verification.md",
+        "../undefined/managed-cloud-agent-environment-setup.md"
+      ],
       "category_dir": "16-domain-specific"
     },
     {
@@ -62205,7 +62342,7 @@
       "id": "recruitment-agent-oversight-policy",
       "path": "skills/16-domain-specific/recruitment-agent-oversight-policy.md",
       "name": "Recruitment Agent Oversight Policy",
-      "description": "Write the oversight policy governing recruitment agents that apply to jobs on a person behalf, covering consent, disclosure, and volume limits.",
+      "description": "Write the oversight policy governing agents that apply to jobs on a user behalf, covering disclosure, consent, and volume limits.",
       "category": "domain-specific",
       "level": "advanced",
       "stability": "experimental",
@@ -62225,7 +62362,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/agent-mediated-job-application-messaging.md",
+        "../11-web/agent-submitted-job-application-tracking.md"
+      ],
       "category_dir": "16-domain-specific"
     },
     {
@@ -63455,7 +63595,7 @@
       "id": "agent-security-sensor-deployment",
       "path": "skills/17-infrastructure/agent-security-sensor-deployment.md",
       "name": "Agent Security Sensor Deployment",
-      "description": "Deploy the agent security sensor across gateways, endpoints, and agent runtimes with verified coverage at every control point.",
+      "description": "Deploy agent security sensors across gateway, endpoint, and identity layers with verified coverage and policy bindings.",
       "category": "infrastructure",
       "level": "advanced",
       "stability": "experimental",
@@ -63475,7 +63615,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../14-security/agent-level-hook-policy-enforcement.md",
+        "../15-orchestration/cross-sensor-agent-context-correlation.md"
+      ],
       "category_dir": "17-infrastructure"
     },
     {
@@ -64877,7 +65020,7 @@
       "id": "managed-agent-cloud-provisioning",
       "path": "skills/17-infrastructure/managed-agent-cloud-provisioning.md",
       "name": "Managed Agent Cloud Provisioning",
-      "description": "Provision managed cloud capacity for agent workloads with per-workload boundaries, logging, and shutdown hooks attached at creation.",
+      "description": "Provision managed cloud infrastructure for agent workloads with boundary controls, credential brokering, and inventory registration.",
       "category": "infrastructure",
       "level": "advanced",
       "stability": "experimental",
@@ -64897,7 +65040,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../undefined/managed-cloud-agent-environment-setup.md",
+        "../undefined/production-agent-inventory-memory.md"
+      ],
       "category_dir": "17-infrastructure"
     },
     {
@@ -65047,7 +65193,7 @@
       "id": "mcp-update-migration-planning",
       "path": "skills/17-infrastructure/mcp-update-migration-planning.md",
       "name": "MCP Update Migration Planning",
-      "description": "Plan migration for a major MCP specification update by inventorying server surfaces, classifying breaking changes, and sequencing rollout.",
+      "description": "Plan migrations across breaking MCP protocol updates by inventorying server dependencies, classifying breaking changes, and staging rollout.",
       "category": "infrastructure",
       "level": "advanced",
       "stability": "experimental",
@@ -65067,7 +65213,9 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../11-web/agent-network-inspection-policy-authoring.md"
+      ],
       "category_dir": "17-infrastructure"
     },
     {
