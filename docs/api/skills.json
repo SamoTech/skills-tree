@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-05T01:06:34Z",
+  "generated": "2026-11-05T03:23:09Z",
   "count": 2338,
   "skills": [
     {
@@ -47865,7 +47865,10 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../06-communication/press-statement-drafting.md",
+        "../06-communication/org-wide-announcement-writing.md"
+      ],
       "category_dir": "13-creative"
     },
     {
@@ -50329,7 +50332,9 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../06-communication/onboarding-guide-writing.md"
+      ],
       "category_dir": "13-creative"
     },
     {

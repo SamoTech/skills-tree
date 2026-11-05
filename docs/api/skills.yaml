@@ -1,4 +1,4 @@
-generated: '2026-11-05T01:06:34Z'
+generated: '2026-11-05T03:23:09Z'
 count: 2338
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -43956,7 +43956,9 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
-  related: []
+  related:
+  - ../06-communication/press-statement-drafting.md
+  - ../06-communication/org-wide-announcement-writing.md
   category_dir: 13-creative
 - id: agent-capability-marketplace-listing-copywriting
   path: skills/13-creative/agent-capability-marketplace-listing-copywriting.md
@@ -46218,7 +46220,8 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
-  related: []
+  related:
+  - ../06-communication/onboarding-guide-writing.md
   category_dir: 13-creative
 - id: slogan-tagline-creation
   path: skills/13-creative/slogan-tagline-creation.md

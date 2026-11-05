@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-05T01:07:27.934615+00:00",
+    "generated_at": "2026-11-05T03:51:44.498352+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2338,
@@ -39488,9 +39488,9 @@
     },
     {
       "source": "03-memory/always-on-agent-responsibility-memory",
-      "target": "03-memory/user-preference-memory",
+      "target": "03-memory/cross-session-persistence",
       "type": "RELATED_TO",
-      "evidence": "[User Preference Memory](user-preference-memory.md)",
+      "evidence": "[Cross Session Persistence](cross-session-persistence.md)",
       "source_file": "skills/03-memory/always-on-agent-responsibility-memory.md",
       "confidence": "high"
     },
@@ -47640,9 +47640,9 @@
     },
     {
       "source": "08-multimodal/hy4-vision-computer-use-capability-evaluation",
-      "target": "08-multimodal/image-understanding",
+      "target": "08-multimodal/image-classification",
       "type": "RELATED_TO",
-      "evidence": "[Image Understanding](image-understanding.md)",
+      "evidence": "[Image Classification](image-classification.md)",
       "source_file": "skills/08-multimodal/hy4-vision-computer-use-capability-evaluation.md",
       "confidence": "high"
     },
@@ -54472,17 +54472,17 @@
     },
     {
       "source": "13-creative/acquisition-integration-announcement-copywriting",
-      "target": "13-creative/press-statement-drafting",
+      "target": "06-communication/press-statement-drafting",
       "type": "RELATED_TO",
-      "evidence": "[Press Statement Drafting](press-statement-drafting.md)",
+      "evidence": "[Press Statement Drafting](../06-communication/press-statement-drafting.md)",
       "source_file": "skills/13-creative/acquisition-integration-announcement-copywriting.md",
       "confidence": "high"
     },
     {
       "source": "13-creative/acquisition-integration-announcement-copywriting",
-      "target": "13-creative/org-wide-announcement-writing",
+      "target": "06-communication/org-wide-announcement-writing",
       "type": "RELATED_TO",
-      "evidence": "[Org Wide Announcement Writing](org-wide-announcement-writing.md)",
+      "evidence": "[Org Wide Announcement Writing](../06-communication/org-wide-announcement-writing.md)",
       "source_file": "skills/13-creative/acquisition-integration-announcement-copywriting.md",
       "confidence": "high"
     },
@@ -55560,9 +55560,9 @@
     },
     {
       "source": "13-creative/siri-app-intents-developer-tutorial-writing",
-      "target": "13-creative/onboarding-guide-writing",
+      "target": "06-communication/onboarding-guide-writing",
       "type": "RELATED_TO",
-      "evidence": "[Onboarding Guide Writing](onboarding-guide-writing.md)",
+      "evidence": "[Onboarding Guide Writing](../06-communication/onboarding-guide-writing.md)",
       "source_file": "skills/13-creative/siri-app-intents-developer-tutorial-writing.md",
       "confidence": "high"
     },
@@ -56320,9 +56320,9 @@
     },
     {
       "source": "14-security/codex-security-cloud-repository-scanning-operations",
-      "target": "14-security/security-scanning",
+      "target": "14-security/vulnerability-triage",
       "type": "RELATED_TO",
-      "evidence": "[Security Scanning](security-scanning.md)",
+      "evidence": "[Vulnerability Triage](vulnerability-triage.md)",
       "source_file": "skills/14-security/codex-security-cloud-repository-scanning-operations.md",
       "confidence": "high"
     },

@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T01:06:34Z",
+  "dateModified": "2026-11-05T03:23:00Z",
   "skillId": "siri-app-intents-developer-tutorial-writing",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,9 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../06-communication/onboarding-guide-writing.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
