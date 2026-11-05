@@ -1,5 +1,5 @@
-generated: '2026-11-04T00:39:10Z'
-count: 2288
+generated: '2026-11-05T03:23:09Z'
+count: 2338
 skills:
 - id: a2a-agent-card-capability-parsing
   path: skills/01-perception/a2a-agent-card-capability-parsing.md
@@ -1090,6 +1090,31 @@ skills:
   description: Perceive the combined behavioral effect of a fine-tuning dataset instead
     of judging each row in isolation so aggregate misalignment is detected before
     deployment.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
+- id: decisions-api-response-parsing
+  path: skills/01-perception/decisions-api-response-parsing.md
+  name: Decisions API Response Parsing
+  description: Parse OpenAI Decisions API responses that classify content or route
+    requests against a finite set of user-defined answers.
   category: perception
   level: advanced
   stability: experimental
@@ -2867,6 +2892,31 @@ skills:
   - ../01-perception/agent-card-parsing.md
   - ../01-perception/webhook-payload-parsing.md
   category_dir: 01-perception
+- id: plugin-submission-feedback-parsing
+  path: skills/01-perception/plugin-submission-feedback-parsing.md
+  name: Plugin Submission Feedback Parsing
+  description: Parse plugin directory submission feedback into actionable review findings
+    before resubmitting a plugin.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 01-perception
 - id: point-cloud-reading
   path: skills/01-perception/point-cloud-reading.md
   name: Point Cloud Reading
@@ -3470,6 +3520,31 @@ skills:
   related:
   - ../09-agentic-patterns/agent-observability-tracing.md
   - ../01-perception/agent-trace-span-parsing.md
+  category_dir: 01-perception
+- id: terminal-bench-score-report-parsing
+  path: skills/01-perception/terminal-bench-score-report-parsing.md
+  name: Terminal Bench Score Report Parsing
+  description: Parse Terminal Bench style agentic coding score reports, separating
+    headline scores from harness version and cost context.
+  category: perception
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 01-perception
 - id: text-reading
   path: skills/01-perception/text-reading.md
@@ -4527,6 +4602,31 @@ skills:
   - ../02-reasoning/long-horizon-planning.md
   - ../02-reasoning/expected-value-of-computation-reasoning.md
   category_dir: 02-reasoning
+- id: autonomous-patch-trust-verification-reasoning
+  path: skills/02-reasoning/autonomous-patch-trust-verification-reasoning.md
+  name: Autonomous Patch Trust Verification Reasoning
+  description: Reason about how much trust an autonomously generated security patch
+    earns before it is applied at scale.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
 - id: autonomy-threshold-reasoning
   path: skills/02-reasoning/autonomy-threshold-reasoning.md
   name: Autonomy Threshold Reasoning
@@ -5347,6 +5447,31 @@ skills:
   related:
   - ../14-security/delegation-chain-verification.md
   - ../12-data/agent-identity-assertion-parsing.md
+  category_dir: 02-reasoning
+- id: dense-versus-moe-capability-per-parameter-reasoning
+  path: skills/02-reasoning/dense-versus-moe-capability-per-parameter-reasoning.md
+  name: Dense Versus MoE Capability Per Parameter Reasoning
+  description: Reason about capability-per-parameter claims that compare dense models
+    against much larger mixture-of-experts rivals.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 02-reasoning
 - id: dependency-cycle-resolution-reasoning
   path: skills/02-reasoning/dependency-cycle-resolution-reasoning.md
@@ -7922,6 +8047,31 @@ skills:
   - ../02-reasoning/uncertainty-quantification.md
   - ../02-reasoning/abstention-decision-reasoning.md
   category_dir: 02-reasoning
+- id: ultrafast-tier-workload-selection-reasoning
+  path: skills/02-reasoning/ultrafast-tier-workload-selection-reasoning.md
+  name: Ultrafast Tier Workload Selection Reasoning
+  description: Reason about which workloads justify a premium ultrafast inference
+    tier before moving them off the standard tier.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
 - id: uncertainty-quantification
   path: skills/02-reasoning/uncertainty-quantification.md
   name: Uncertainty Quantification
@@ -8490,6 +8640,31 @@ skills:
   - Related
   - Changelog
   - Evidence
+  related: []
+  category_dir: 03-memory
+- id: always-on-agent-responsibility-memory
+  path: skills/03-memory/always-on-agent-responsibility-memory.md
+  name: Always On Agent Responsibility Memory
+  description: Maintain durable responsibility and goal-state memory for always-on
+    agents that hold ongoing work on a user behalf.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 03-memory
 - id: bank-credential-quarantine-memory
@@ -10981,6 +11156,31 @@ skills:
   - Related
   related: []
   category_dir: 03-memory
+- id: reusable-dev-environment-state-memory
+  path: skills/03-memory/reusable-dev-environment-state-memory.md
+  name: Reusable Dev Environment State Memory
+  description: Record and restore reusable development environment state, including
+    approved settings and permission baselines, for coding agents.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
 - id: revoked-access-residual-data-memory
   path: skills/03-memory/revoked-access-residual-data-memory.md
   name: Revoked Access Residual Data Memory
@@ -11168,6 +11368,31 @@ skills:
   stability: experimental
   version: v1
   added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 03-memory
+- id: shared-surface-plugin-conversation-memory
+  path: skills/03-memory/shared-surface-plugin-conversation-memory.md
+  name: Shared Surface Plugin Conversation Memory
+  description: Keep per-plugin conversation memory isolated when multiple plugins
+    and agents share one user-visible conversation surface.
+  category: memory
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
   last_updated: null
   sections:
   - Description
@@ -11998,6 +12223,31 @@ skills:
   - Changelog
   related: []
   category_dir: 04-action-execution
+- id: agents-api-computer-use-task-execution
+  path: skills/04-action-execution/agents-api-computer-use-task-execution.md
+  name: Agents API Computer Use Task Execution
+  description: Execute GUI software tasks through the Agents API computer-use capability
+    with per-step verification before each action.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 04-action-execution
 - id: anthropic-files-api-upload-operations
   path: skills/04-action-execution/anthropic-files-api-upload-operations.md
   name: Anthropic Files Api Upload Operations
@@ -12539,6 +12789,31 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 04-action-execution
+- id: codex-cli-voice-task-steering-execution
+  path: skills/04-action-execution/codex-cli-voice-task-steering-execution.md
+  name: Codex CLI Voice Task Steering Execution
+  description: Execute voice-initiated task start and mid-task steering in a coding
+    CLI without losing the running task state.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 04-action-execution
 - id: codex-cloud-task-delegation-execution
@@ -14790,6 +15065,31 @@ skills:
   - Related
   related: []
   category_dir: 04-action-execution
+- id: siri-app-intents-task-execution
+  path: skills/04-action-execution/siri-app-intents-task-execution.md
+  name: Siri App Intents Task Execution
+  description: Execute developer-defined Siri tasks through App Intents by binding
+    each intent to a declared app capability and confirming results.
+  category: action-execution
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 04-action-execution
 - id: sms-booking-transaction-completion
   path: skills/04-action-execution/sms-booking-transaction-completion.md
   name: Sms Booking Transaction Completion
@@ -16465,6 +16765,31 @@ skills:
   - ../05-code/code-review.md
   - ../05-code/ci-failure-triage.md
   category_dir: 05-code
+- id: codex-multi-agent-task-delegation-development
+  path: skills/05-code/codex-multi-agent-task-delegation-development.md
+  name: Codex Multi Agent Task Delegation Development
+  description: Develop against a multi-agent task view that delegates coding work
+    to several agents and tracks each task to completion.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 05-code
 - id: coding-agent-git-config-hardening
   path: skills/05-code/coding-agent-git-config-hardening.md
   name: Coding Agent Git Config Hardening
@@ -17433,6 +17758,31 @@ skills:
   - Evidence
   related: []
   category_dir: 05-code
+- id: kernel-privilege-escalation-patch-generation
+  path: skills/05-code/kernel-privilege-escalation-patch-generation.md
+  name: Kernel Privilege Escalation Patch Generation
+  description: Generate patches for local privilege-escalation vulnerabilities by
+    binding each patch to a reproduced root-path trigger.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 05-code
 - id: langgraph-v1-migration
   path: skills/05-code/langgraph-v1-migration.md
   name: Langgraph V1 Migration
@@ -17460,6 +17810,31 @@ skills:
   related:
   - ../05-code/pydantic-ai-typed-tool-authoring.md
   - ../17-infrastructure/multi-framework-agent-interop-testing.md
+  category_dir: 05-code
+- id: lean-formal-proof-agent-workflow
+  path: skills/05-code/lean-formal-proof-agent-workflow.md
+  name: Lean Formal Proof Agent Workflow
+  description: Run an agent workflow that produces Lean formal proofs with every lemma
+    traced to its mathematical requirement and kernel-checked.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 05-code
 - id: license-compatibility-checking
   path: skills/05-code/license-compatibility-checking.md
@@ -19554,6 +19929,31 @@ skills:
   - Changelog
   related: []
   category_dir: 06-communication
+- id: ai-tool-abuse-incident-user-notification
+  path: skills/06-communication/ai-tool-abuse-incident-user-notification.md
+  name: AI Tool Abuse Incident User Notification
+  description: Write user notifications for incidents where an abused AI tool enabled
+    fraud or data exposure, stating scope and recovery actions.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 06-communication
 - id: ai-vendor-financial-disclosure-communication
   path: skills/06-communication/ai-vendor-financial-disclosure-communication.md
   name: Ai Vendor Financial Disclosure Communication
@@ -19607,6 +20007,31 @@ skills:
   related:
   - ../06-communication/org-wide-announcement-writing.md
   - ../06-communication/stakeholder-status-updates.md
+  category_dir: 06-communication
+- id: always-on-agent-proactive-update-communication
+  path: skills/06-communication/always-on-agent-proactive-update-communication.md
+  name: Always On Agent Proactive Update Communication
+  description: Write proactive status updates from always-on agents that respect the
+    consent channel and interrupt cost of the recipient.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 06-communication
 - id: api-deprecation-notice-writing
   path: skills/06-communication/api-deprecation-notice-writing.md
@@ -21691,6 +22116,31 @@ skills:
   - Changelog
   related: []
   category_dir: 06-communication
+- id: shared-surface-turn-taking-communication
+  path: skills/06-communication/shared-surface-turn-taking-communication.md
+  name: Shared Surface Turn Taking Communication
+  description: Coordinate turn-taking between humans and multiple agents working on
+    one shared conversation surface.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 06-communication
 - id: shopping-agent-dispute-response-writing
   path: skills/06-communication/shopping-agent-dispute-response-writing.md
   name: Shopping Agent Dispute Response Writing
@@ -22609,6 +23059,31 @@ skills:
   - ../07-tool-use/tool-token-budget-management.md
   - ../07-tool-use/tool-latency-probing.md
   category_dir: 07-tool-use
+- id: agents-api-tool-search-usage
+  path: skills/07-tool-use/agents-api-tool-search-usage.md
+  name: Agents API Tool Search Usage
+  description: Use Agents API tool search to discover and select tools at runtime
+    against a pinned candidate catalog.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 07-tool-use
 - id: agntcy-agent-discovery-protocol-usage
   path: skills/07-tool-use/agntcy-agent-discovery-protocol-usage.md
   name: Agntcy Agent Discovery Protocol Usage
@@ -23136,6 +23611,31 @@ skills:
   - Failure modes
   - Related
   - Evidence
+  related: []
+  category_dir: 07-tool-use
+- id: decisions-api-finite-choice-tool-usage
+  path: skills/07-tool-use/decisions-api-finite-choice-tool-usage.md
+  name: Decisions API Finite Choice Tool Usage
+  description: Use a finite-choice decisions tool to classify content or select the
+    next action instead of free-form model calls.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 07-tool-use
 - id: edge-small-model-deployment-tool-usage
@@ -23802,6 +24302,31 @@ skills:
   related:
   - ../04-action-execution/mcp-task-completion-handling.md
   - ../07-tool-use/mcp-deprecation-policy-compliance.md
+  category_dir: 07-tool-use
+- id: mcp-events-spec-tool-usage
+  path: skills/07-tool-use/mcp-events-spec-tool-usage.md
+  name: MCP Events Spec Tool Usage
+  description: Adopt the proposed MCP Events specification for server-to-client event
+    flows with explicit event schemas and ordering rules.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 07-tool-use
 - id: mcp-extensions-authoring
   path: skills/07-tool-use/mcp-extensions-authoring.md
@@ -27071,6 +27596,31 @@ skills:
   - ../08-multimodal/video-highlight-detection.md
   - ../08-multimodal/realtime-video-frame-analysis.md
   category_dir: 08-multimodal
+- id: flux-3-klein-open-weights-capability-evaluation
+  path: skills/08-multimodal/flux-3-klein-open-weights-capability-evaluation.md
+  name: FLUX 3 Klein Open Weights Capability Evaluation
+  description: Evaluate newly released open-weight image models against task needs
+    with fixed prompts and deterministic comparisons.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 08-multimodal
 - id: hand-drawn-sketch-vectorization
   path: skills/08-multimodal/hand-drawn-sketch-vectorization.md
   name: Hand Drawn Sketch Vectorization
@@ -27136,6 +27686,31 @@ skills:
   stability: experimental
   version: v1
   added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 08-multimodal
+- id: hy4-vision-computer-use-capability-evaluation
+  path: skills/08-multimodal/hy4-vision-computer-use-capability-evaluation.md
+  name: Hy4 Vision Computer Use Capability Evaluation
+  description: Evaluate flagship vision and computer-use models on real application
+    tasks like CAD and 3D tool workflows.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
   last_updated: null
   sections:
   - Description
@@ -30046,6 +30621,31 @@ skills:
     provenance:
       source_type: repository
       source: skills/09-agentic-patterns/agentic-rag.md
+- id: always-on-agent-responsibility-patterns
+  path: skills/09-agentic-patterns/always-on-agent-responsibility-patterns.md
+  name: Always On Agent Responsibility Patterns
+  description: Structure always-on agents around named standing responsibilities with
+    explicit idle, active, and report states.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 09-agentic-patterns
 - id: ambient-attendant-agent-patterns
   path: skills/09-agentic-patterns/ambient-attendant-agent-patterns.md
   name: Ambient Attendant Agent Patterns
@@ -30378,6 +30978,31 @@ skills:
   name: Consumer Computer Use Adoption Pattern
   description: Adopt computer use for consumers through a pattern of scoped tasks,
     plain-language approvals, and observable rollback paths.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 09-agentic-patterns
+- id: context-compaction-api-integration-pattern
+  path: skills/09-agentic-patterns/context-compaction-api-integration-pattern.md
+  name: Context Compaction API Integration Pattern
+  description: Integrate provider context-compaction into an agent loop while preserving
+    task-critical state and verification checkpoints.
   category: agentic-patterns
   level: advanced
   stability: experimental
@@ -30760,6 +31385,31 @@ skills:
   - Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 09-agentic-patterns
+- id: formal-proof-agent-swarm-pattern
+  path: skills/09-agentic-patterns/formal-proof-agent-swarm-pattern.md
+  name: Formal Proof Agent Swarm Pattern
+  description: Run an agent swarm that formalizes large formal corpora by partitioning
+    statements and kernel-gating every merge.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: framework-default-auth-hardening-pattern
@@ -33407,6 +34057,31 @@ skills:
   - Changelog
   related: []
   category_dir: 10-computer-use
+- id: codex-cli-voice-command-operations
+  path: skills/10-computer-use/codex-cli-voice-command-operations.md
+  name: Codex CLI Voice Command Operations
+  description: Operate a coding terminal through voice commands with transcription
+    verification and command echo before execution.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 10-computer-use
 - id: computer-use-agent-benchmark-task-verification
   path: skills/10-computer-use/computer-use-agent-benchmark-task-verification.md
   name: Computer Use Agent Benchmark Task Verification
@@ -34298,6 +34973,31 @@ skills:
   - Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 10-computer-use
+- id: gemini-computer-use-ga-operations
+  path: skills/10-computer-use/gemini-computer-use-ga-operations.md
+  name: Gemini Computer Use GA Operations
+  description: Operate the generally available Gemini computer-use tool against web
+    tasks with readiness probing and per-step verification.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 10-computer-use
 - id: gui-agent-step-verification
@@ -35374,6 +36074,31 @@ skills:
   related:
   - ../15-orchestration/agent-pool-warming.md
   - ../10-computer-use/session-keepalive-automation.md
+  category_dir: 10-computer-use
+- id: reusable-dev-environment-provisioning-automation
+  path: skills/10-computer-use/reusable-dev-environment-provisioning-automation.md
+  name: Reusable Dev Environment Provisioning Automation
+  description: Provision reusable development environments automatically with approved
+    settings, permissions, and warm-pool reuse.
+  category: computer-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 10-computer-use
 - id: right-click
   path: skills/10-computer-use/right-click.md
@@ -37140,6 +37865,31 @@ skills:
   - ../11-web/cache-aware-fetching.md
   - ../11-web/signed-url-generation.md
   category_dir: 11-web
+- id: chatgpt-plugin-extension-web-development
+  path: skills/11-web/chatgpt-plugin-extension-web-development.md
+  name: ChatGPT Plugin Extension Web Development
+  description: Build ChatGPT plugin extensions with sidebar panels, interactive views,
+    and file-type viewers under user-approved access.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 11-web
 - id: checkout-flow-automation
   path: skills/11-web/checkout-flow-automation.md
   name: Checkout Flow Automation
@@ -38325,6 +39075,31 @@ skills:
   - ../14-security/privacy-preservation.md
   - ../12-data/data-deletion-request-fulfillment-automation.md
   category_dir: 11-web
+- id: plugin-directory-submission-flow-verification
+  path: skills/11-web/plugin-directory-submission-flow-verification.md
+  name: Plugin Directory Submission Flow Verification
+  description: Verify plugin directory submission flows by walking listing, ranking,
+    and recommendation surfaces end to end.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 11-web
 - id: popup-dialog-handling
   path: skills/11-web/popup-dialog-handling.md
   name: Popup and Dialog Handling
@@ -38710,6 +39485,31 @@ skills:
   - Safety Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 11-web
+- id: sites-plugin-embedded-app-automation
+  path: skills/11-web/sites-plugin-embedded-app-automation.md
+  name: Sites Plugin Embedded App Automation
+  description: Automate verification of site-embedded plugin apps where teammates
+    share one app with their own connected data and permissions.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 11-web
 - id: spa-url-state-snapshotting
@@ -40139,6 +40939,31 @@ skills:
   - ../12-data/llm-cost-usage-accounting.md
   - ../12-data/trace-cost-attribution.md
   category_dir: 12-data
+- id: agentic-cost-benchmark-claim-normalization
+  path: skills/12-data/agentic-cost-benchmark-claim-normalization.md
+  name: Agentic Cost Benchmark Claim Normalization
+  description: Normalize vendor agentic cost-savings claims by separating benchmark-suite
+    scores from per-token price deltas.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 12-data
 - id: agentic-vulnerability-intelligence-corpus-building
   path: skills/12-data/agentic-vulnerability-intelligence-corpus-building.md
   name: Agentic Vulnerability Intelligence Corpus Building
@@ -41014,6 +41839,31 @@ skills:
   - Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 12-data
+- id: dna-sequence-model-output-analysis
+  path: skills/12-data/dna-sequence-model-output-analysis.md
+  name: DNA Sequence Model Output Analysis
+  description: Analyze outputs of DNA sequence models by validating sequence constraints
+    and separating generated from reference sequences.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 12-data
 - id: document-chunking-strategy
@@ -43058,6 +43908,58 @@ skills:
   - ../12-data/agent-feedback-signal-aggregation.md
   - ../12-data/cohort-analysis.md
   category_dir: 12-data
+- id: zksnark-inference-proof-verification
+  path: skills/12-data/zksnark-inference-proof-verification.md
+  name: Zksnark Inference Proof Verification
+  description: Verify zkSNARK proofs of LLM inference by checking proof validity against
+    a pinned verifying key and inference transcript hash.
+  category: data
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 12-data
+- id: acquisition-integration-announcement-copywriting
+  path: skills/13-creative/acquisition-integration-announcement-copywriting.md
+  name: Acquisition Integration Announcement Copywriting
+  description: Write acquisition announcements that state what changes, what does
+    not, and what happens to existing products and users.
+  category: creative
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related:
+  - ../06-communication/press-statement-drafting.md
+  - ../06-communication/org-wide-announcement-writing.md
+  category_dir: 13-creative
 - id: agent-capability-marketplace-listing-copywriting
   path: skills/13-creative/agent-capability-marketplace-listing-copywriting.md
   name: Agent Capability Marketplace Listing Copywriting
@@ -43377,6 +44279,31 @@ skills:
   - Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 13-creative
+- id: always-on-assistant-time-back-narrative-copywriting
+  path: skills/13-creative/always-on-assistant-time-back-narrative-copywriting.md
+  name: Always On Assistant Time Back Narrative Copywriting
+  description: Write positioning copy for always-on assistants around verified time-back
+    outcomes instead of vague capability claims.
+  category: creative
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 13-creative
 - id: avatar-design
@@ -45270,6 +46197,32 @@ skills:
   - ../06-communication/agent-security-roundup-digest-writing.md
   - ../13-creative/newsletter-writing.md
   category_dir: 13-creative
+- id: siri-app-intents-developer-tutorial-writing
+  path: skills/13-creative/siri-app-intents-developer-tutorial-writing.md
+  name: Siri App Intents Developer Tutorial Writing
+  description: Write developer tutorials for exposing app capabilities to Siri via
+    App Intents with runnable, checkable steps.
+  category: creative
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related:
+  - ../06-communication/onboarding-guide-writing.md
+  category_dir: 13-creative
 - id: slogan-tagline-creation
   path: skills/13-creative/slogan-tagline-creation.md
   name: Slogan and Tagline Creation
@@ -46587,6 +47540,31 @@ skills:
   related:
   - ../02-reasoning/benchmark-index-score-interpretation-reasoning.md
   category_dir: 14-security
+- id: autonomous-security-patch-validation-operations
+  path: skills/14-security/autonomous-security-patch-validation-operations.md
+  name: Autonomous Security Patch Validation Operations
+  description: Validate autonomously generated security patches operationally with
+    reproduction, regression, and scope gates before deployment.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
 - id: banking-agent-credential-delegation-review
   path: skills/14-security/banking-agent-credential-delegation-review.md
   name: Banking Agent Credential Delegation Review
@@ -46672,6 +47650,31 @@ skills:
   name: Classroom Agent Minor Safety Configuration
   description: Configure classroom agent safety settings for minors with content filters,
     scope ceilings, and incident escalation paths.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
+- id: codex-security-cloud-repository-scanning-operations
+  path: skills/14-security/codex-security-cloud-repository-scanning-operations.md
+  name: Codex Security Cloud Repository Scanning Operations
+  description: Operate on-demand and scheduled whole-repository security scans with
+    deduplication and fix-preparation gates.
   category: security
   level: advanced
   stability: experimental
@@ -47008,6 +48011,31 @@ skills:
   name: Election Voice Clone Robocall Defense Operations
   description: Operate defenses against voice-clone robocalls in election windows,
     from detection escalation to disclosure and takedown.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
+- id: fake-job-interview-credential-harvesting-defense
+  path: skills/14-security/fake-job-interview-credential-harvesting-defense.md
+  name: Fake Job Interview Credential Harvesting Defense
+  description: Defend against fake job interview lures that harvest credentials and
+    grant attacker access through abused tools.
   category: security
   level: advanced
   stability: experimental
@@ -48234,6 +49262,31 @@ skills:
   - References
   - Evidence
   - Related Skills
+  related: []
+  category_dir: 14-security
+- id: private-inference-confidential-computing-review
+  path: skills/14-security/private-inference-confidential-computing-review.md
+  name: Private Inference Confidential Computing Review
+  description: Review private-inference deployments that promise no provider access
+    to content, checking the claims against technical controls.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 14-security
 - id: privilege-escalation-detection
@@ -49568,6 +50621,31 @@ skills:
   stability: experimental
   version: v1
   added: 2026-10
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 15-orchestration
+- id: bedrock-managed-agent-orchestration
+  path: skills/15-orchestration/bedrock-managed-agent-orchestration.md
+  name: Bedrock Managed Agent Orchestration
+  description: Orchestrate managed agents running inside AWS Bedrock by mapping agent
+    capabilities to AWS resource permissions explicitly.
+  category: orchestration
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
   last_updated: null
   sections:
   - Description
@@ -51077,6 +52155,31 @@ skills:
   - Evidence
   related: []
   category_dir: 15-orchestration
+- id: multi-agent-task-tracking-inbox-orchestration
+  path: skills/15-orchestration/multi-agent-task-tracking-inbox-orchestration.md
+  name: Multi Agent Task Tracking Inbox Orchestration
+  description: Orchestrate a task-tracking inbox where delegated agent work is tracked
+    per identity with handoff and completion contracts.
+  category: orchestration
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 15-orchestration
 - id: multi-agent-workspace-coordination
   path: skills/15-orchestration/multi-agent-workspace-coordination.md
   name: Multi Agent Workspace Coordination
@@ -51708,6 +52811,31 @@ skills:
   - Orchestration Boundary
   - Evidence
   - Related
+  related: []
+  category_dir: 15-orchestration
+- id: shared-surface-human-agent-collaboration-orchestration
+  path: skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md
+  name: Shared Surface Human Agent Collaboration Orchestration
+  description: Orchestrate humans and agents collaborating on one shared surface with
+    escalation routing and responsibility boundaries.
+  category: orchestration
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
   related: []
   category_dir: 15-orchestration
 - id: single-api-multi-model-gateway-configuration
@@ -52789,6 +53917,31 @@ skills:
   - ../16-domain-specific/shift-scheduling.md
   - ../16-domain-specific/hr-policy-drafting.md
   category_dir: 16-domain-specific
+- id: biotech-protein-design-validation-review
+  path: skills/16-domain-specific/biotech-protein-design-validation-review.md
+  name: Biotech Protein Design Validation Review
+  description: Review AI-designed protein binder claims by checking binding-assay
+    evidence against the stated design target.
+  category: domain-specific
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 16-domain-specific
 - id: clinical-decision-support-evidence-checking
   path: skills/16-domain-specific/clinical-decision-support-evidence-checking.md
   name: Clinical Decision Support Evidence Checking
@@ -53596,6 +54749,31 @@ skills:
   related:
   - ../16-domain-specific/incident-response.md
   - ../16-domain-specific/alert-triage.md
+  category_dir: 16-domain-specific
+- id: frontier-lab-compute-commitment-disclosure-review
+  path: skills/16-domain-specific/frontier-lab-compute-commitment-disclosure-review.md
+  name: Frontier Lab Compute Commitment Disclosure Review
+  description: Review frontier-lab financial disclosures that pair revenue with massive
+    compute commitments ahead of public offerings.
+  category: domain-specific
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 16-domain-specific
 - id: frontier-lab-financials-assessment
   path: skills/16-domain-specific/frontier-lab-financials-assessment.md
@@ -58091,6 +59269,56 @@ skills:
   - ../09-agentic-patterns/agent-observability-tracing.md
   - ../17-infrastructure/observability-stack-configuration.md
   category_dir: 17-infrastructure
+- id: trillion-parameter-open-weight-serving-provisioning
+  path: skills/17-infrastructure/trillion-parameter-open-weight-serving-provisioning.md
+  name: Trillion Parameter Open Weight Serving Provisioning
+  description: Provision serving for trillion-parameter open-weight MoE models by
+    planning checkpoint storage, active-parameter memory, and serving cost.
+  category: infrastructure
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 17-infrastructure
+- id: ultrafast-tier-capacity-provisioning
+  path: skills/17-infrastructure/ultrafast-tier-capacity-provisioning.md
+  name: Ultrafast Tier Capacity Provisioning
+  description: Provision capacity for an ultrafast premium inference tier by deriving
+    token-rate headroom from latency budgets.
+  category: infrastructure
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 17-infrastructure
 - id: wasm-edge-agent-runtime-deployment
   path: skills/17-infrastructure/wasm-edge-agent-runtime-deployment.md
   name: WASM Edge Agent Runtime Deployment
@@ -58169,4 +59397,29 @@ skills:
   related:
   - ../17-infrastructure/inference-endpoint-autoscaling.md
   - ../17-infrastructure/edge-inference-deployment.md
+  category_dir: 17-infrastructure
+- id: zero-retention-private-inference-deployment
+  path: skills/17-infrastructure/zero-retention-private-inference-deployment.md
+  name: Zero Retention Private Inference Deployment
+  description: Deploy a zero-data-retention private inference gateway where request
+    state never persists beyond the response.
+  category: infrastructure
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
   category_dir: 17-infrastructure

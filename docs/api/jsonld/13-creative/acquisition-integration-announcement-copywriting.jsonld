@@ -1,0 +1,90 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "ai-skill": "https://samotech.github.io/skills-tree/api/context#",
+      "skillId": {
+        "@id": "ai-skill:skillId"
+      },
+      "skillVersion": {
+        "@id": "ai-skill:skillVersion"
+      },
+      "skillLevel": {
+        "@id": "ai-skill:skillLevel"
+      },
+      "skillStability": {
+        "@id": "ai-skill:skillStability"
+      },
+      "categoryDir": {
+        "@id": "ai-skill:categoryDir"
+      },
+      "sections": {
+        "@id": "ai-skill:sections",
+        "@container": "@list"
+      },
+      "relatedSkills": {
+        "@id": "ai-skill:relatedSkills",
+        "@container": "@list"
+      },
+      "failureModes": {
+        "@id": "ai-skill:failureModes"
+      },
+      "promptPatterns": {
+        "@id": "ai-skill:promptPatterns"
+      }
+    }
+  ],
+  "@type": "TechArticle",
+  "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/acquisition-integration-announcement-copywriting.md",
+  "name": "Acquisition Integration Announcement Copywriting",
+  "headline": "Acquisition Integration Announcement Copywriting",
+  "description": "Write acquisition announcements that state what changes, what does not, and what happens to existing products and users.",
+  "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/13-creative/acquisition-integration-announcement-copywriting.md",
+  "isPartOf": {
+    "@type": "Dataset",
+    "@id": "https://samotech.github.io/skills-tree/api/skills.json",
+    "name": "Skills Tree — AI Agent Skill Index",
+    "url": "https://samotech.github.io/skills-tree"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SamoTech",
+    "url": "https://github.com/SamoTech"
+  },
+  "inLanguage": "en",
+  "dateModified": "2026-11-05T03:22:28Z",
+  "skillId": "acquisition-integration-announcement-copywriting",
+  "skillVersion": "v1",
+  "skillLevel": "advanced",
+  "skillStability": "experimental",
+  "categoryDir": "13-creative",
+  "sections": [
+    "Description",
+    "When to Use",
+    "Inputs",
+    "Procedure",
+    "Outputs",
+    "Runnable Example",
+    "Failure Modes",
+    "Security and Authority Boundary",
+    "Evidence",
+    "Related Skills",
+    "Changelog"
+  ],
+  "relatedSkills": [
+    "../06-communication/press-statement-drafting.md",
+    "../06-communication/org-wide-announcement-writing.md"
+  ],
+  "educationalLevel": {
+    "@type": "DefinedTerm",
+    "name": "Advanced",
+    "inDefinedTermSet": "https://schema.org/EducationalOccupationalCredential"
+  },
+  "datePublished": "2026-11-01",
+  "keywords": "AI agent, LLM skill, acquisition, announcement, copywriting, creative, integration, skills tree",
+  "about": {
+    "@type": "Thing",
+    "name": "Acquisition Integration Announcement Copywriting",
+    "description": "An AI agent skill for acquisition integration announcement copywriting."
+  }
+}
