@@ -65,8 +65,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [AI Gateway Network Inspection Rule Testing](../undefined/ai-gateway-network-inspection-rule-testing.md)
-- [Agent Level Hook Policy Enforcement](../undefined/agent-level-hook-policy-enforcement.md)
+- [AI Gateway Network Inspection Rule Testing](../11-web/ai-gateway-network-inspection-rule-testing.md)
+- [Agent Level Hook Policy Enforcement](../14-security/agent-level-hook-policy-enforcement.md)
 
 ## Changelog
 | Version | Date | Notes |

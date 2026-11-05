@@ -68,7 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Emergency Shutdown Decision Record Memory](../03-memory/emergency-shutdown-decision-record-memory.md)
-- [Emergency Shutdown Escalation Orchestration](../undefined/emergency-shutdown-escalation-orchestration.md)
+- [Emergency Shutdown Escalation Orchestration](../15-orchestration/emergency-shutdown-escalation-orchestration.md)
 
 ## Changelog
 | Version | Date | Notes |

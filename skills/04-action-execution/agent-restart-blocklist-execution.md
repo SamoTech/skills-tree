@@ -66,7 +66,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Agent Emergency Shutdown Execution](../04-action-execution/agent-emergency-shutdown-execution.md)
-- [AI Kill Switch Policy Design](../undefined/ai-kill-switch-policy-design.md)
+- [AI Kill Switch Policy Design](../14-security/ai-kill-switch-policy-design.md)
 
 ## Changelog
 | Version | Date | Notes |

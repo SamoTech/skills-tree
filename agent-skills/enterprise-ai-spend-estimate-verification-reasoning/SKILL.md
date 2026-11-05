@@ -66,7 +66,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Security Vendor Claim Verification Reasoning](../02-reasoning/security-vendor-claim-verification-reasoning.md)
-- [Enterprise AI Adoption Spend Benchmarking](../undefined/enterprise-ai-adoption-spend-benchmarking.md)
+- [Enterprise AI Adoption Spend Benchmarking](../16-domain-specific/enterprise-ai-adoption-spend-benchmarking.md)
 
 ## Changelog
 | Version | Date | Notes |

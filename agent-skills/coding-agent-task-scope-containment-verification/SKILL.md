@@ -64,7 +64,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Privileged Command Pre Execution Review](../05-code/privileged-command-pre-execution-review.md)
-- [Computer Use Privileged Action Guard](../undefined/computer-use-privileged-action-guard.md)
+- [Computer Use Privileged Action Guard](../10-computer-use/computer-use-privileged-action-guard.md)
 
 ## Changelog
 | Version | Date | Notes |

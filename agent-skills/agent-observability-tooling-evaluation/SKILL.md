@@ -67,7 +67,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Adversarial Emulation Tool Operation](../07-tool-use/adversarial-emulation-tool-operation.md)
-- [Agent Telemetry Anomaly Labeling](../undefined/agent-telemetry-anomaly-labeling.md)
+- [Agent Telemetry Anomaly Labeling](../12-data/agent-telemetry-anomaly-labeling.md)
 
 ## Changelog
 | Version | Date | Notes |

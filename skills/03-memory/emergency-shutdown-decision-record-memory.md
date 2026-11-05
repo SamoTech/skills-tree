@@ -67,7 +67,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Shutdown Authorization Request Communication](../06-communication/shutdown-authorization-request-communication.md)
-- [Kill Switch Audit Trail Dataset Modeling](../undefined/kill-switch-audit-trail-dataset-modeling.md)
+- [Kill Switch Audit Trail Dataset Modeling](../12-data/kill-switch-audit-trail-dataset-modeling.md)
 
 ## Changelog
 | Version | Date | Notes |

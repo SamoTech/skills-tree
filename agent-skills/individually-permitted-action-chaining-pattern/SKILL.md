@@ -65,7 +65,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Agent Runtime Anomaly Signal Perception](../01-perception/agent-runtime-anomaly-signal-perception.md)
-- [Unusual But Permitted Agent Behavior Detection](../undefined/unusual-but-permitted-agent-behavior-detection.md)
+- [Unusual But Permitted Agent Behavior Detection](../14-security/unusual-but-permitted-agent-behavior-detection.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -69,7 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Agent Restart Blocklist Execution](../04-action-execution/agent-restart-blocklist-execution.md)
-- [Emergency Shutdown Escalation Orchestration](../undefined/emergency-shutdown-escalation-orchestration.md)
+- [Emergency Shutdown Escalation Orchestration](../15-orchestration/emergency-shutdown-escalation-orchestration.md)
 
 ## Changelog
 | Version | Date | Notes |

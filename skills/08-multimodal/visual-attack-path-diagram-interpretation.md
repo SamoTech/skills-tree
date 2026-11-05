@@ -69,7 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [CAD Application Screen Understanding](../08-multimodal/cad-application-screen-understanding.md)
-- [Agentic Adversarial Emulation Operations](../undefined/agentic-adversarial-emulation-operations.md)
+- [Agentic Adversarial Emulation Operations](../14-security/agentic-adversarial-emulation-operations.md)
 
 ## Changelog
 | Version | Date | Notes |

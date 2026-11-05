@@ -65,8 +65,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Production Agent Credential Scope Datasets](../undefined/production-agent-credential-scope-datasets.md)
-- [Kill Switch Audit Trail Dataset Modeling](../undefined/kill-switch-audit-trail-dataset-modeling.md)
+- [Production Agent Credential Scope Datasets](../12-data/production-agent-credential-scope-datasets.md)
+- [Kill Switch Audit Trail Dataset Modeling](../12-data/kill-switch-audit-trail-dataset-modeling.md)
 
 ## Changelog
 | Version | Date | Notes |

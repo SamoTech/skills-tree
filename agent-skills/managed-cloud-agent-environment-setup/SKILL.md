@@ -64,8 +64,8 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Managed Agent Cloud Provisioning](../undefined/managed-agent-cloud-provisioning.md)
-- [Endpoint Agent Runtime Containment](../undefined/endpoint-agent-runtime-containment.md)
+- [Managed Agent Cloud Provisioning](../17-infrastructure/managed-agent-cloud-provisioning.md)
+- [Endpoint Agent Runtime Containment](../10-computer-use/endpoint-agent-runtime-containment.md)
 
 ## Changelog
 | Version | Date | Notes |

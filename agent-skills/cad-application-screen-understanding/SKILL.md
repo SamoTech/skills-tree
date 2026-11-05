@@ -68,7 +68,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Visual Attack Path Diagram Interpretation](../08-multimodal/visual-attack-path-diagram-interpretation.md)
-- [Computer Use Privileged Action Guard](../undefined/computer-use-privileged-action-guard.md)
+- [Computer Use Privileged Action Guard](../10-computer-use/computer-use-privileged-action-guard.md)
 
 ## Changelog
 | Version | Date | Notes |

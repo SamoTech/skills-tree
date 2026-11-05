@@ -71,7 +71,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Endpoint Agent Network Traffic Perception](../01-perception/endpoint-agent-network-traffic-perception.md)
-- [Agent Telemetry Anomaly Labeling](../undefined/agent-telemetry-anomaly-labeling.md)
+- [Agent Telemetry Anomaly Labeling](../12-data/agent-telemetry-anomaly-labeling.md)
 
 ## Changelog
 | Version | Date | Notes |
