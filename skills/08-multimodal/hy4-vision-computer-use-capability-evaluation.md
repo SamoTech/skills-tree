@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Computer Use Model Capability Comparison](computer-use-model-capability-comparison.md)
-- [Image Understanding](image-understanding.md)
+- [Image Classification](image-classification.md)
 
 ## Changelog
 | Version | Date | Notes |
