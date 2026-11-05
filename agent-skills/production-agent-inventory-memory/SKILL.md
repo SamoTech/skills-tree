@@ -64,7 +64,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Production Agent Credential Scope Datasets](production-agent-credential-scope-datasets.md)
-- [Production Agent Inventory Data Modeling](production-agent-inventory-data-modeling.md)
+- [Kill Switch Audit Trail Dataset Modeling](kill-switch-audit-trail-dataset-modeling.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -6,7 +6,7 @@ stability: experimental
 description: "Keep a living inventory memory of every production agent, its operator, tools, credentials, and accessible data."
 added: "2026-11"
 version: v1
-related: [production-agent-credential-scope-datasets, production-agent-inventory-data-modeling]
+related: [production-agent-credential-scope-datasets, kill-switch-audit-trail-dataset-modeling]
 tags: [memory, inventory, agents, security]
 ---
 # Production Agent Inventory Memory
@@ -66,7 +66,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Production Agent Credential Scope Datasets](production-agent-credential-scope-datasets.md)
-- [Production Agent Inventory Data Modeling](production-agent-inventory-data-modeling.md)
+- [Kill Switch Audit Trail Dataset Modeling](kill-switch-audit-trail-dataset-modeling.md)
 
 ## Changelog
 | Version | Date | Notes |
