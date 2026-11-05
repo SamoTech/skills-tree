@@ -3,77 +3,74 @@ title: "Computer Use Privileged Action Guard"
 category: 10-computer-use
 level: advanced
 stability: experimental
-description: "Guard privileged actions in computer-use flows by intercepting them before execution and routing them to an approval gate."
+description: "Guard computer-use agents by requiring explicit approval before any privileged UI action executes."
 added: "2026-11"
 version: v1
-related: [endpoint-agent-runtime-containment, privileged-command-pre-execution-review]
-tags: [computer-use, security, guards, approval]
+related: [coding-agent-task-scope-containment-verification, endpoint-agent-runtime-containment]
+tags: [computer-use, privileges, approval, security]
 ---
 # Computer Use Privileged Action Guard
 
 ## Description
-Guard privileged actions in computer-use flows by intercepting them before execution and routing them to an approval gate. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
+Guard computer-use agents by requiring explicit approval before any privileged UI action executes. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
 
 ## When to Use
-- A computer-use agent can reach privileged system dialogs and commands.
-- Privileged actions must be intercepted deterministically.
-- Approval records must back every allowed privileged action.
+- A computer-use agent drives a real UI with privileges.
+- Privileged actions need an approval gate before execution.
+- Approvals must be recorded with the action context.
 
 ## Inputs
 | Area | Contract |
 |---|---|
-| Inputs | The action stream, the privileged-action classifier, and the approval gate state. |
-| Outputs | A guarded action stream where privileged actions execute only with recorded approval. |
-| Safety | Fail closed by dropping privileged actions that lack recorded approval. |
+| Inputs | The agent action stream, the privileged action classification, and the approval ledger. |
+| Outputs | A guarded action stream with verdicts and recorded approvals for privileged actions. |
+| Safety | Fail closed by blocking any privileged action without a recorded approval. |
 
 ## Procedure
-1. Classify each action in the stream against the privileged-action set.
-2. Intercept actions classified as privileged before execution.
-3. Check the approval gate for a recorded approval covering the action.
-4. Execute approved actions and drop the rest with a recorded reason.
-5. Emit the guarded stream with per-action dispositions.
+1. Classify each agent UI action as privileged or ordinary.
+2. Route privileged actions to the approval gate with action context.
+3. Record the approval decision and approver identity in the ledger.
+4. Execute or block per the recorded verdict.
+5. Emit the guarded stream with ledger references.
 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A guarded action stream where privileged actions execute only with recorded approval. |
-| Verification | Classification results and approval records that reproduce each disposition. |
-| Failure | A fail-closed report naming dropped privileged actions and missing approvals. |
+| Primary | A guarded action stream with verdicts and recorded approvals for privileged actions. |
+| Verification | Ledger entries and classifications that reproduce each verdict. |
+| Failure | A fail-closed report naming blocked privileged actions and missing approvals. |
 
 ## Runnable Example
 ```python
-def guard(actions, approvals):
+def guard(actions, privileged, approvals):
     out = []
     for a in actions:
-        if not a["privileged"]:
-            out.append((a["name"], "run"))
-        elif a["name"] in approvals:
-            out.append((a["name"], "run-approved"))
+        if a in privileged and not approvals.get(a):
+            out.append({"action": a, "verdict": "block"})
         else:
-            out.append((a["name"], "dropped"))
+            out.append({"action": a, "verdict": "allow"})
     return out
-g = guard([{"name": "click", "privileged": False},
-           {"name": "systemctl restart", "privileged": True}], {"systemctl restart"})
-assert g[0] == ("click", "run") and g[1] == ("systemctl restart", "run-approved")
+g = guard(["click", "sudo-dialog"], {"sudo-dialog"}, {})
+assert g[0]["verdict"] == "allow" and g[1]["verdict"] == "block"
 ```
 
 ## Failure Modes
-- Privileged dialogs are clicked through as normal UI elements.
-- The classifier misses indirect privileged paths like scripts.
-- Approvals are cached beyond the action they covered.
-- Dropped actions retry in a loop until approved.
-- The guard treats admin terminals as unprivileged surfaces.
+- The agent approves its own privileged actions.
+- Approval happens after execution as a rubber stamp.
+- The classification of privileged actions is left implicit.
+- Ledger entries omit the approver identity.
+- A privileged action is executed with a verbal approval and no ledger entry.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Asked only to reboot a server, a coding agent broke systemd, showing computer-use flows need privileged-action guards (AGI HUNT AI News Daily, dated November 5, 2026) ([public signal](https://agihunt.info/en/daily/2026-11-05))
+- Computer use agents like Claude, Manus, and Kimi now drive real interfaces, making privileged action approval gates a live requirement (AGI HUNT AI News Daily, dated November 5, 2026) ([public signal](https://agihunt.info/en/daily/2026-11-05))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Endpoint Agent Runtime Containment](endpoint-agent-runtime-containment.md)
-- [Privileged Command Pre Execution Review](privileged-command-pre-execution-review.md)
+- [Coding Agent Task Scope Containment Verification](../undefined/coding-agent-task-scope-containment-verification.md)
+- [Endpoint Agent Runtime Containment](../10-computer-use/endpoint-agent-runtime-containment.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -1,6 +1,6 @@
 ---
 name: ai-gateway-network-inspection-rule-testing
-description: Test AI gateway network inspection rules with fixture traffic before and after enforcement.
+description: Test AI gateway network inspection rules against sample agent traffic before enforcing them.
 metadata:
   source: skills/11-web/ai-gateway-network-inspection-rule-testing.md
   category: 11-web
@@ -10,66 +10,65 @@ metadata:
 # AI Gateway Network Inspection Rule Testing
 
 ## Description
-Test AI gateway network inspection rules with fixture traffic before and after enforcement. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
+Test AI gateway network inspection rules against sample agent traffic before enforcing them. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
 
 ## When to Use
-- Inspection rules must be validated against fixture traffic.
-- Rule changes must be regression-tested before enforcement.
-- Enforcement behavior must be re-verified after deployment.
+- Inspection rules must be validated before enforcement.
+- Rule verdicts must match intended semantics for prompts and responses.
+- Rule interactions must be checked for conflicts.
 
 ## Inputs
 | Area | Contract |
 |---|---|
-| Inputs | The rule set, the fixture traffic corpus, and the expected verdicts per fixture. |
-| Outputs | A test report naming per-fixture verdicts, mismatches, and enforcement state. |
-| Safety | Fail closed by blocking enforcement while any fixture mismatches. |
+| Inputs | The rule set, the sample agent traffic corpus, and the expected verdicts per sample. |
+| Outputs | A test report naming passing rules, failing samples, and conflicting rule pairs. |
+| Safety | Fail closed by blocking enforcement while any sample verdict mismatches. |
 
 ## Procedure
-1. Load the rule set and the fixture traffic corpus.
-2. Evaluate each fixture against the rules in dry-run.
-3. Compare verdicts with the expected verdicts and record mismatches.
-4. Promote or roll back enforcement based on the mismatch set.
-5. Re-run the corpus after deployment and record drift.
+1. Load the rule set and the sample corpus with expected verdicts.
+2. Evaluate each sample against the rules and record actual verdicts.
+3. Compare actual with expected verdicts per sample.
+4. Detect conflicting rule pairs that disagree on the same traffic.
+5. Emit the test report with failures and conflicts named.
 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A test report naming per-fixture verdicts, mismatches, and enforcement state. |
-| Verification | Fixture verdicts before and after deployment that verify rule behavior. |
-| Failure | A fail-closed report naming mismatches that block enforcement. |
+| Primary | A test report naming passing rules, failing samples, and conflicting rule pairs. |
+| Verification | Sample verdicts that reproduce each pass and failure. |
+| Failure | A fail-closed report naming the failing samples that block enforcement. |
 
 ## Runnable Example
 ```python
-def test(rules, fixtures):
-    bad = []
-    for f in fixtures:
-        verdict = rules.get(f["dest"], "block")
-        if verdict != f["expect"]:
-            bad.append(f["name"])
-    return {"enforce": not bad, "mismatches": bad}
-t = test({"api.internal": "allow"},
-         [{"name": "f1", "dest": "api.internal", "expect": "allow"},
-          {"name": "f2", "dest": "shadow.example", "expect": "block"}])
-assert t["enforce"] and t["mismatches"] == []
+def test_rules(rules, samples):
+    fails = []
+    for s in samples:
+        actual = rules.get(s["class"], "allow")
+        if actual != s["expect"]:
+            fails.append({"sample": s["id"], "expected": s["expect"], "actual": actual})
+    return {"enforce": not fails, "fails": fails}
+r = test_rules({"prompt": "block"}, [{"id": "s1", "class": "prompt", "expect": "block"},
+                                        {"id": "s2", "class": "resp", "expect": "log"}])
+assert r["enforce"] is False and r["fails"][0]["sample"] == "s2"
 ```
 
 ## Failure Modes
-- Fixtures cover only allow cases, so blocks are untested.
-- Enforcement is promoted with known mismatches.
-- Post-deployment drift is never re-checked.
-- Fixture expectations are updated to match the rules instead of the intent.
-- The corpus omits inference-provider destinations.
+- Rules are enforced with samples run only against the allow path.
+- Conflicting rules are shipped because each passes alone.
+- Expected verdicts are written after seeing actual verdicts.
+- Testing stops at the first failure, hiding the rest.
+- The test report omits which traffic classes had no samples.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Falcon Guardian unifies endpoint network inspection with agent hooks on a single sensor, which requires rule testing at every control point (CrowdStrike press release, dated November 3, 2026) ([public signal](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-ai-security-safety-for-the-enterprise/))
+- Falcon Guardian AI Gateway enforces network inspection rules for what agents are told and communicate, requiring rule testing before enforcement (CrowdStrike press release, dated November 3, 2026) ([public signal](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-ai-security-safety-for-the-enterprise/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Network Inspection Policy Authoring](agent-network-inspection-policy-authoring.md)
-- [AI Gateway Policy Tool Configuration](ai-gateway-policy-tool-configuration.md)
+- [Agent Network Inspection Policy Authoring](../11-web/agent-network-inspection-policy-authoring.md)
+- [AI Gateway Policy Tool Configuration](../undefined/ai-gateway-policy-tool-configuration.md)
 
 ## Changelog
 | Version | Date | Notes |

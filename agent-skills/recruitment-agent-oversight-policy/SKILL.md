@@ -1,6 +1,6 @@
 ---
 name: recruitment-agent-oversight-policy
-description: Write the oversight policy governing recruitment agents that apply to jobs on a person behalf, covering consent, disclosure, and volume limits.
+description: Write the oversight policy governing agents that apply to jobs on a user behalf, covering disclosure, consent, and volume limits.
 metadata:
   source: skills/16-domain-specific/recruitment-agent-oversight-policy.md
   category: 16-domain-specific
@@ -10,61 +10,61 @@ metadata:
 # Recruitment Agent Oversight Policy
 
 ## Description
-Write the oversight policy governing recruitment agents that apply to jobs on a person behalf, covering consent, disclosure, and volume limits. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
+Write the oversight policy governing agents that apply to jobs on a user behalf, covering disclosure, consent, and volume limits. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
 
 ## When to Use
-- Agents now submit job applications at machine volume.
-- Employers and regulators need disclosed, consented applications.
-- Oversight must define consent, disclosure, and limits in one policy.
+- Agents are applying to jobs at scale for users.
+- Employers and candidates need a defined oversight frame.
+- Volume, disclosure, and consent rules must be explicit.
 
 ## Inputs
 | Area | Contract |
 |---|---|
-| Inputs | The jurisdiction disclosure rules, the consent framework, and the volume limits. |
-| Outputs | An oversight policy naming consent requirements, disclosure text, volume limits, and audit duties. |
-| Safety | Fail closed by prohibiting campaigns without a recorded consent grant. |
+| Inputs | The use-case description, the disclosure requirements, and the volume limit decision. |
+| Outputs | A policy naming disclosure duties, consent requirements, and volume limits for recruitment agents. |
+| Safety | Fail closed by refusing operation until disclosure and consent duties are defined. |
 
 ## Procedure
-1. Define the consent grant scope: openings, message types, and duration.
-2. Define the disclosure that marks every message as agent-generated.
-3. Set per-campaign and per-employer volume limits.
-4. Define audit duties over submissions and employer responses.
-5. Emit the policy with the enforcement checkpoints named.
+1. Describe the recruitment agent use case and its audiences.
+2. Define disclosure duties to employers and candidate duties to users.
+3. Define consent capture and volume limits per campaign.
+4. Define response handling so applications have a follow-up owner.
+5. Emit the policy with each duty assigned to a role.
 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | An oversight policy naming consent requirements, disclosure text, volume limits, and audit duties. |
-| Verification | Checkpoint definitions that verify consent, disclosure, and limit enforcement. |
-| Failure | A fail-closed report naming campaigns without consent grants. |
+| Primary | A policy naming disclosure duties, consent requirements, and volume limits for recruitment agents. |
+| Verification | Duty-to-role assignments that verify the policy clauses. |
+| Failure | A fail-closed report naming undefined disclosure or consent duties. |
 
 ## Runnable Example
 ```python
-def gate(campaign):
-    if not campaign.get("consent") or not campaign.get("disclosure"):
-        return {"allowed": False}
-    return {"allowed": campaign["applications"] <= campaign["limit"]}
-assert gate({"consent": True, "disclosure": True, "applications": 5, "limit": 10})["allowed"]
-assert gate({"consent": False, "applications": 1})["allowed"] is False
+def policy(config):
+    need = ["disclosure", "consent", "volume_limit"]
+    missing = [k for k in need if k not in config]
+    return {"operational": not missing, "missing": missing}
+assert policy({"disclosure": 1, "consent": 1, "volume_limit": 50})["operational"]
+assert policy({"consent": 1})["missing"] == ["disclosure", "volume_limit"]
 ```
 
 ## Failure Modes
-- Consent is recorded after the campaign launches.
-- Disclosure is placed in a profile field instead of each message.
-- Volume limits are set per vendor instead of per campaign.
-- Audit duties are assigned to the agent operator with no review right.
-- The policy ignores employer-side bot filtering rules.
+- The policy sets no volume limit, allowing thousand-application campaigns.
+- Disclosure duty is defined for employers but not candidate duty to the user.
+- Consent is captured once and reused across unrelated campaigns.
+- Response handling has no owner, so employer replies dead-end.
+- The policy assigns duties to nobody.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- A self-reported thread says ChatGPT applied to 500 openings producing 12 interview calls in 24 hours, a volume that demands consent, disclosure, and limit rules (AGI HUNT AI News Daily, dated November 5, 2026) ([public signal](https://agihunt.info/en/daily/2026-11-05))
+- A thread reporting 500 agent-submitted applications and 12 interview calls within 24 hours shows why recruitment agent oversight needs explicit policy (AGI HUNT AI News Daily, dated November 5, 2026) ([public signal](https://agihunt.info/en/daily/2026-11-05))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Mediated Job Application Messaging](agent-mediated-job-application-messaging.md)
-- [Agent Submitted Job Application Tracking](agent-submitted-job-application-tracking.md)
+- [Agent Mediated Job Application Messaging](../undefined/agent-mediated-job-application-messaging.md)
+- [Agent Submitted Job Application Tracking](../11-web/agent-submitted-job-application-tracking.md)
 
 ## Changelog
 | Version | Date | Notes |

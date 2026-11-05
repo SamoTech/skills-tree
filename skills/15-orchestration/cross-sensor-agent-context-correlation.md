@@ -3,73 +3,72 @@ title: "Cross Sensor Agent Context Correlation"
 category: 15-orchestration
 level: advanced
 stability: experimental
-description: "Correlate what an agent was told, what it communicated, and what it executed across sensors into one agent context record."
+description: "Correlate agent activity across gateway, endpoint, and identity sensors into one unified context record."
 added: "2026-11"
 version: v1
-related: [agent-level-hook-policy-enforcement, endpoint-agent-network-traffic-perception]
+related: [agent-runtime-anomaly-signal-perception, agent-security-sensor-deployment]
 tags: [orchestration, correlation, sensors, agents]
 ---
 # Cross Sensor Agent Context Correlation
 
 ## Description
-Correlate what an agent was told, what it communicated, and what it executed across sensors into one agent context record. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
+Correlate agent activity across gateway, endpoint, and identity sensors into one unified context record. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
 
 ## When to Use
-- A single sensor view must be assembled from prompt, network, and endpoint telemetry.
-- Root-cause analysis needs one correlated record per agent action.
-- Correlation must handle clock and identifier differences across sensors.
+- A single agent event is visible to multiple sensors.
+- Unified context must preserve sensor attribution.
+- Correlation must handle clock skew between sensors.
 
 ## Inputs
 | Area | Contract |
 |---|---|
-| Inputs | The prompt-side hook logs, the network inspection logs, and the endpoint execution logs with identifiers. |
-| Outputs | A correlated per-agent context record linking told, communicated, and executed events. |
-| Safety | Fail closed by marking uncorrelated events as orphaned instead of dropping them. |
+| Inputs | The sensor event streams, the correlation keys, and the clock skew bounds. |
+| Outputs | A unified context record per agent event naming contributing sensors and skew correction. |
+| Safety | Fail closed by excluding events whose sensor attribution is uncertain. |
 
 ## Procedure
-1. Normalize identifiers and clocks across the three sensor feeds.
-2. Group events by agent identity and execution chain.
-3. Link told, communicated, and executed events into one record.
-4. Mark events that cannot be linked as orphaned with their sensor source.
-5. Emit the correlated record with coverage per sensor.
+1. Join sensor events on the correlation keys within time windows.
+2. Apply clock skew correction within the declared bounds.
+3. Merge sensor observations into one context record per agent event.
+4. Preserve per-sensor attribution in the merged record.
+5. Emit unified records and exclude unattributable events.
 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A correlated per-agent context record linking told, communicated, and executed events. |
-| Verification | Link tables that reproduce the correlated record from raw feeds. |
-| Failure | A fail-closed report naming orphaned events and missing sensor feeds. |
+| Primary | A unified context record per agent event naming contributing sensors and skew correction. |
+| Verification | Join keys and skew corrections that reproduce each merged record. |
+| Failure | A fail-closed report naming excluded unattributable events. |
 
 ## Runnable Example
 ```python
-def correlate(told, comm, executed, ids):
-    rec = []
-    for a in ids:
-        rec.append({"agent": a, "told": told.get(a), "communicated": comm.get(a),
-                    "executed": executed.get(a)})
-    orphans = [a for a in ids if any(r[k] is None for k in ("told", "communicated", "executed")) for r in rec if r["agent"] == a]
-    return {"records": rec, "orphans": orphans}
-c = correlate({"a1": "p"}, {"a1": "net"}, {}, ["a1"])
-assert c["records"][0]["executed"] is None and c["orphans"] == ["a1"]
+def correlate(events, key):
+    merged = {}
+    for e in events:
+        k = e[key]
+        merged.setdefault(k, []).append(e["sensor"])
+    return {k: sorted(set(v)) for k, v in merged.items()}
+r = correlate([{"id": "e1", "sensor": "gw"}, {"id": "e1", "sensor": "ep"}], "id")
+assert r["e1"] == ["ep", "gw"]
 ```
 
 ## Failure Modes
-- Clock skew is ignored, so events link in the wrong order.
-- Unlinkable events are dropped instead of marked orphaned.
-- Correlation assumes one agent per host.
-- Sensor coverage is reported without feed health.
-- The correlated record is treated as forensic proof without raw links.
+- Sensor observations are merged without attribution, hiding disagreements.
+- Clock skew is ignored, so joins miss by milliseconds.
+- Uncertain events are merged anyway, corrupting context.
+- Correlation runs per sensor pair instead of all sensors at once.
+- The correlation keys are not recorded with the record.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Falcon Guardian connects what an agent is told, what it communicates, and what it executes on a single sensor to provide full context (CrowdStrike press release, dated November 3, 2026) ([public signal](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-ai-security-safety-for-the-enterprise/))
+- Falcon Guardian unifies agent-level hooks, network inspection, and endpoint controls in one agent security system (CrowdStrike press release, dated November 3, 2026) ([public signal](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-ai-security-safety-for-the-enterprise/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Agent Level Hook Policy Enforcement](agent-level-hook-policy-enforcement.md)
-- [Endpoint Agent Network Traffic Perception](endpoint-agent-network-traffic-perception.md)
+- [Agent Runtime Anomaly Signal Perception](../undefined/agent-runtime-anomaly-signal-perception.md)
+- [Agent Security Sensor Deployment](../17-infrastructure/agent-security-sensor-deployment.md)
 
 ## Changelog
 | Version | Date | Notes |

@@ -1,6 +1,6 @@
 ---
 name: ai-safety-enablement-narrative-copywriting
-description: Write adoption-facing copy that presents agent security controls as enablers of faster AI adoption, with claims tied to shipped controls.
+description: Write enablement narratives that make AI safety controls land as adopted practice rather than ignored overhead.
 metadata:
   source: skills/13-creative/ai-safety-enablement-narrative-copywriting.md
   category: 13-creative
@@ -10,62 +10,61 @@ metadata:
 # AI Safety Enablement Narrative Copywriting
 
 ## Description
-Write adoption-facing copy that presents agent security controls as enablers of faster AI adoption, with claims tied to shipped controls. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
+Write enablement narratives that make AI safety controls land as adopted practice rather than ignored overhead. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
 
 ## When to Use
-- A security launch must read as enablement, not obstruction.
-- Copy claims must match shipped capability.
-- Stakeholders need the adoption-safety framing in one page.
+- A safety control is shipped but ignored by teams.
+- Adoption depends on how the control is explained.
+- Narratives must stay factual, avoiding unsupported fear claims.
 
 ## Inputs
 | Area | Contract |
 |---|---|
-| Inputs | The shipped control list, the audience profile, and the claim-evidence pairs. |
-| Outputs | Adoption-facing copy with every claim tied to a shipped control or flagged as roadmap. |
-| Safety | Fail closed by flagging any claim without a shipped-control citation. |
+| Inputs | The control facts, the audience role profile, and the adoption message goal. |
+| Outputs | A narrative set naming control facts, audience framing, and adoption action. |
+| Safety | Fail closed by withholding narratives built on unsupported risk claims. |
 
 ## Procedure
-1. List shipped controls and roadmap items separately.
-2. Write the adoption narrative around what teams can say yes to.
-3. Attach one shipped-control citation per claim.
-4. Mark roadmap claims explicitly and keep them out of the enablement pitch.
-5. Emit the copy with a claim-evidence table.
+1. Extract the control facts that the narrative may claim.
+2. Profile the audience role and its current practice.
+3. Frame the control as removing a concrete, evidenced friction or risk.
+4. Write the adoption action as one step the audience can take.
+5. Emit the narrative set with unsupported claims removed.
 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | Adoption-facing copy with every claim tied to a shipped control or flagged as roadmap. |
-| Verification | A claim-evidence table that verifies each statement in the copy. |
-| Failure | A fail-closed report naming uncited claims. |
+| Primary | A narrative set naming control facts, audience framing, and adoption action. |
+| Verification | Claim-to-fact mapping that verifies every narrative statement. |
+| Failure | A fail-closed report naming narratives with unsupported claims. |
 
 ## Runnable Example
 ```python
-def check_copy(claims, shipped):
-    bad = [c["text"] for c in claims if c.get("control") not in shipped]
-    return {"ok": not bad, "uncited": bad}
-c = check_copy([{"text": "stop rogue agents", "control": "kill-switch"},
-               {"text": "observability", "control": "pending"}],
-              {"kill-switch"})
-assert c["ok"] is False and c["uncited"] == ["observability"]
+def check(narrative, facts):
+    unsupported = [c for c in narrative if c not in facts]
+    return {"clean": not unsupported, "unsupported": unsupported}
+f = {"agents can bypass policy", "hooks stop actions"}
+assert check(["agents can bypass policy"], f)["clean"]
+assert check(["agents will destroy data"], f)["unsupported"]
 ```
 
 ## Failure Modes
-- Roadmap items are written as available controls.
-- The copy promises zero risk instead of bounded control.
-- Enablement framing is attached to a control that ships later.
-- No claim-evidence table accompanies the copy.
-- Security language is copied from another product without checking the control set.
+- The narrative invents incident stories that never happened.
+- Fear framing replaces the concrete control facts.
+- The adoption action is left implicit.
+- Audience roles are written as one generic security reader.
+- Unsupported claims survive review because they sound plausible.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- CrowdStrike framed security as simultaneously the accelerant and the safety net for AI adoption, with the kill switch as the human control (CrowdStrike press release, dated November 3, 2026) ([public signal](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-introduces-ai-kill-switch-for-ai-safety/))
+- CrowdStrike frames AI safety controls as adoption-ready with kill switch, emulation, and gateway capabilities (CrowdStrike press release, dated November 3, 2026) ([public signal](https://www.crowdstrike.com/en-us/press-releases/crowdstrike-delivers-ai-security-safety-for-the-enterprise/))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Hosted Agent Subscription Tier Copywriting](hosted-agent-subscription-tier-copywriting.md)
-- [Security Vendor Claim Verification Reasoning](security-vendor-claim-verification-reasoning.md)
+- [Hosted Agent Subscription Tier Copywriting](../13-creative/hosted-agent-subscription-tier-copywriting.md)
+- [AI Kill Switch Policy Design](../14-security/ai-kill-switch-policy-design.md)
 
 ## Changelog
 | Version | Date | Notes |

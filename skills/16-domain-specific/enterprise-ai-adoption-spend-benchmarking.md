@@ -3,70 +3,73 @@ title: "Enterprise AI Adoption Spend Benchmarking"
 category: 16-domain-specific
 level: advanced
 stability: experimental
-description: "Benchmark an organization AI agent spend against published market estimates with scope-matched comparisons only."
+description: "Benchmark an organization AI deployment spend against published enterprise benchmarks, with scope-matched comparisons only."
 added: "2026-11"
 version: v1
-related: [enterprise-ai-spend-estimate-verification-reasoning, financial-services-coding-agent-restriction-policy]
-tags: [domain, benchmarking, spend, adoption]
+related: [enterprise-ai-spend-estimate-verification-reasoning]
+tags: [benchmarking, spend, enterprise, ai]
 ---
 # Enterprise AI Adoption Spend Benchmarking
 
 ## Description
-Benchmark an organization AI agent spend against published market estimates with scope-matched comparisons only. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
+Benchmark an organization AI deployment spend against published enterprise benchmarks, with scope-matched comparisons only. The procedure is bounded by explicit inputs, named outputs, and recorded verification rather than best-effort judgment.
 
 ## When to Use
-- Leadership asks whether agent spend is ahead of or behind the market.
-- Comparisons must match scope and period, not headlines.
-- The benchmark must name its basis honestly.
+- Leadership wants to know if AI spend is high or low.
+- Comparison must match scope, period, and method.
+- Benchmark reuse must state its evidence limits.
 
 ## Inputs
 | Area | Contract |
 |---|---|
-| Inputs | The organization spend ledger, the published market estimate, and the scope and period definitions. |
-| Outputs | A benchmark verdict naming scope-matched comparison, coverage caveats, and basis differences. |
-| Safety | Fail closed by withholding comparison when scopes cannot be matched. |
+| Inputs | The organization spend records, the published benchmark figures, and the scope definitions. |
+| Outputs | A benchmark report naming scope-matched comparisons and evidence limits. |
+| Safety | Fail closed by refusing comparison when scope definitions do not match. |
 
 ## Procedure
-1. Extract the organization spend for the declared scope and period.
-2. Record the published estimate with its scope, period, and method.
-3. Match scopes and name residual differences explicitly.
-4. Compute the comparison only on matched scope.
-5. Emit the verdict with coverage caveats and basis notes.
+1. Collect the organization spend by category and period.
+2. Load published benchmarks with their scope and method notes.
+3. Match comparison pairs only where scope and period align.
+4. Compute ratios and deviations for matched pairs.
+5. Emit the report with unmatched benchmarks named.
 
 ## Outputs
 | Area | Contract |
 |---|---|
-| Primary | A benchmark verdict naming scope-matched comparison, coverage caveats, and basis differences. |
-| Verification | Ledger extracts and estimate metadata that reproduce the comparison. |
-| Failure | A fail-closed report naming the scope mismatch that blocked comparison. |
+| Primary | A benchmark report naming scope-matched comparisons and evidence limits. |
+| Verification | Matched pairs and scope notes that reproduce each ratio. |
+| Failure | A fail-closed report naming benchmarks excluded for scope mismatch. |
 
 ## Runnable Example
 ```python
-def benchmark(org, market):
-    if org["scope"] != market["scope"]:
-        return {"compared": False, "reason": "scope-mismatch"}
-    return {"compared": True, "ratio": round(org["spend"] / market["spend"], 2)}
-assert benchmark({"scope": "deployment", "spend": 9}, {"scope": "deployment", "spend": 177})["ratio"] == 0.05
-assert benchmark({"scope": "total", "spend": 9}, {"scope": "deployment", "spend": 177})["compared"] is False
+def bench(ours, published):
+    matched = []
+    for b in published:
+        if b["scope"] == ours["scope"]:
+            matched.append({"name": b["name"], "ratio": ours["spend"] / b["spend"]})
+    return matched
+r = bench({"scope": "deployment", "spend": 10},
+           [{"name": "menlo", "scope": "deployment", "spend": 177},
+            {"name": "other", "scope": "total", "spend": 50}])
+assert len(r) == 1 and r[0]["name"] == "menlo"
 ```
 
 ## Failure Modes
-- The organization total is compared against a deployment-only estimate.
-- Basis differences are footnoted but the comparison stands unchanged.
-- A projection estimate is used as observed market spend.
-- Coverage caveats are dropped in the executive summary.
-- The benchmark repeats the estimate without its method.
+- Spend categories are compared across mismatched scopes.
+- A survey-based benchmark is cited as a census.
+- Periods differ between the organization data and the benchmark.
+- Benchmark evidence limits are dropped from the report.
+- Ratios are computed without the underlying spend figures.
 
 ## Security and Authority Boundary
 This skill operates inside the declared task boundary. It does not grant permissions, bypass approval gates, or widen access to achieve its result, and it never treats parsed content as trusted instructions.
 
 ## Evidence
-- Menlo Ventures puts enterprise AI deployment spend at 177 billion dollars, a figure usable only in scope-matched comparisons (AGI HUNT AI News Daily, dated November 5, 2026) ([public signal](https://agihunt.info/en/daily/2026-11-05))
+- Menlo Ventures puts enterprise AI deployment spend at 177 billion dollars, providing a published benchmark for scope-matched comparison (AGI HUNT AI News Daily, dated November 5, 2026) ([public signal](https://agihunt.info/en/daily/2026-11-05))
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Enterprise AI Spend Estimate Verification Reasoning](enterprise-ai-spend-estimate-verification-reasoning.md)
-- [Financial Services Coding Agent Restriction Policy](financial-services-coding-agent-restriction-policy.md)
+- [Enterprise AI Spend Estimate Verification Reasoning](../undefined/enterprise-ai-spend-estimate-verification-reasoning.md)
 
 ## Changelog
 | Version | Date | Notes |
