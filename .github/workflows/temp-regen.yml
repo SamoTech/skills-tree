@@ -65,3 +65,4 @@ jobs:
           fi
           git commit -m "chore: regenerate stale derived artifacts after batch-1 link fixes"
           git push origin HEAD:skills/expansion-2026-11-05-b1
+          # nudge marker 2: trigger PR checks after GITHUB_TOKEN bot push
