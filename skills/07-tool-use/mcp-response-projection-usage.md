@@ -52,7 +52,7 @@ def project_response(raw, projection, audit_fields):
         kept.setdefault(f, raw[f])
     return {"ok": True, "body": kept, "raw_fields": len(raw), "kept_fields": len(kept)}
 
-raw = {"flights": [1, 2, 3], "itinerary": {..."" if False else {"id": "i1"}}, "trace_id": "t-9", "agent_notes": "x"}
+raw = {"flights": [1, 2, 3], "itinerary": {"id": "i1"}, "trace_id": "t-9", "agent_notes": "x"}
 r = project_response(raw, ["flights"], audit_fields=["trace_id"])
 assert r["ok"] and r["body"]["flights"] == [1, 2, 3] and "trace_id" in r["body"] and "agent_notes" not in r["body"]
 bad = project_response({"flights": []}, ["flights"], audit_fields=["trace_id"])
