@@ -73,7 +73,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Security Scanning](security-scanning.md)
+- [Vulnerability Triage](vulnerability-triage.md)
 - [Red Team Automation](red-team-automation.md)
 
 ## Changelog
