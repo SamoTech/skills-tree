@@ -54,8 +54,7 @@ def plan_hosts(overhead_per_agent, fleet_size, budget, host_price):
     return {"ok": True, "hosts": hosts, "per_host": per_host, "monthly_cost": cost, "headroom_hosts": 1}
 
 p = plan_hosts({"mb": 200}, fleet_size=500, budget=60, host_price={"memory_gb": 4, "monthly": 10})
-assert p["ok"] and p["per_host"] == 20 and p["hosts"] == 26 and p["monthly_cost"] == 260 if False else True
-# recompute: 4GB=4096MB / 200MB = 20 per host; hosts = ceil(500/20)+1 = 26; cost=260 > 60 budget
+assert p["ok"] is False and p["reason"] == "over_budget"
 q = plan_hosts({"mb": 200}, 500, 400, {"memory_gb": 4, "monthly": 10})
 assert q["ok"] and q["hosts"] == 26 and q["monthly_cost"] == 260
 over = plan_hosts({"mb": 200}, 500, 60, {"memory_gb": 4, "monthly": 10})
