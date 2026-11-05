@@ -71,7 +71,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Long Term Goal State Tracking](long-term-goal-state-tracking.md)
-- [User Preference Memory](user-preference-memory.md)
+- [Cross Session Persistence](cross-session-persistence.md)
 
 ## Changelog
 | Version | Date | Notes |
