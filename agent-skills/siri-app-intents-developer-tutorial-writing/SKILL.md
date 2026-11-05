@@ -69,7 +69,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Tutorial Writing](tutorial-writing.md)
-- [Onboarding Guide Writing](onboarding-guide-writing.md)
+- [Onboarding Guide Writing](../06-communication/onboarding-guide-writing.md)
 
 ## Changelog
 | Version | Date | Notes |
