@@ -1,5 +1,5 @@
-generated: '2026-11-04T00:39:10Z'
-count: 2288
+generated: '2026-11-04T23:47:45Z'
+count: 2338
 skills:
 - id: a2a-agent-card-capability-parsing
   path: skills/01-perception/a2a-agent-card-capability-parsing.md
@@ -7273,6 +7273,31 @@ skills:
   name: Refusal Penalized Goal Metric Interpretation Reasoning
   description: Interpret agent evaluation scores where correct safety refusals lower
     goal-success metrics, before the score gates deployment.
+  category: reasoning
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 02-reasoning
+- id: refusal-scope-appeal-reasoning
+  path: skills/02-reasoning/refusal-scope-appeal-reasoning.md
+  name: Refusal Scope Appeal Reasoning
+  description: Reason about a refusal by narrowing the requested scope, documenting
+    the legitimate purpose, and escalating through a declared appeal path.
   category: reasoning
   level: advanced
   stability: experimental
@@ -18401,6 +18426,31 @@ skills:
   - Changelog
   related: []
   category_dir: 05-code
+- id: provider-decoupled-harness-selection
+  path: skills/05-code/provider-decoupled-harness-selection.md
+  name: Provider Decoupled Harness Selection
+  description: Select a coding harness independently of any model provider so harness
+    and provider choices do not lock each other.
+  category: code
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 05-code
 - id: pydantic-ai-evals-integration
   path: skills/05-code/pydantic-ai-evals-integration.md
   name: Pydantic Ai Evals Integration
@@ -22066,6 +22116,31 @@ skills:
   - Changelog
   related: []
   category_dir: 06-communication
+- id: shared-link-privacy-communication
+  path: skills/06-communication/shared-link-privacy-communication.md
+  name: Shared Link Privacy Communication
+  description: Tell users precisely what a shared conversation link exposes before
+    they open or publish it.
+  category: communication
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 06-communication
 - id: shopping-agent-dispute-response-writing
   path: skills/06-communication/shopping-agent-dispute-response-writing.md
   name: Shopping Agent Dispute Response Writing
@@ -23424,6 +23499,56 @@ skills:
   name: Connect Once Connector Governance
   description: Govern connect-once connector usage by enforcing the organizational
     allowlist, grant scope, and revocation path for every tool call.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 07-tool-use
+- id: connect-once-connector-onboarding
+  path: skills/07-tool-use/connect-once-connector-onboarding.md
+  name: Connect Once Connector Onboarding
+  description: Onboard an agent to third-party services through a single connect-once
+    authorization and record which surfaces inherit the grant.
+  category: tool-use
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 07-tool-use
+- id: connector-allowlist-governance
+  path: skills/07-tool-use/connector-allowlist-governance.md
+  name: Connector Allowlist Governance
+  description: Govern agent connectors through an explicit allowlist with tested revocation
+    flows before broad rollout.
   category: tool-use
   level: advanced
   stability: experimental
@@ -26796,6 +26921,31 @@ skills:
   name: Animation Diff Numeric Comparison
   description: Compare a rebuilt animation against its reference recording numerically
     across declared visual and timing metrics instead of eyeballing similarity.
+  category: multimodal
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 08-multimodal
+- id: animation-media-source-ingestion
+  path: skills/08-multimodal/animation-media-source-ingestion.md
+  name: Animation Media Source Ingestion
+  description: Ingest an animation source across live sites, screen recordings, video,
+    gif, and Lottie formats into one comparable form.
   category: multimodal
   level: advanced
   stability: experimental
@@ -32274,6 +32424,31 @@ skills:
   - Evidence
   related: []
   category_dir: 09-agentic-patterns
+- id: plan-write-model-split-pattern
+  path: skills/09-agentic-patterns/plan-write-model-split-pattern.md
+  name: Plan Write Model Split Pattern
+  description: Run a two-model split where an expensive model produces the plan and
+    a cheaper model writes the code under the plan and the tests.
+  category: agentic-patterns
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 09-agentic-patterns
 - id: planner-specialist-deterministic-check-composition
   path: skills/09-agentic-patterns/planner-specialist-deterministic-check-composition.md
   name: Planner Specialist Deterministic Check Composition
@@ -36908,6 +37083,31 @@ skills:
   name: Agent Experience Optimization Audit
   description: Audit a brand website for AI visitor experience by checking discovery,
     readability, action affordances, and per-agent adaptation.
+  category: web
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 11-web
+- id: agent-led-commerce-verification
+  path: skills/11-web/agent-led-commerce-verification.md
+  name: Agent Led Commerce Verification
+  description: Verify agent-led commerce transactions against the live booking or
+    ordering system so the customer can rely on what the agent claims.
   category: web
   level: advanced
   stability: experimental
@@ -47753,6 +47953,31 @@ skills:
   - Changelog
   related: []
   category_dir: 14-security
+- id: embedded-library-origin-hardening
+  path: skills/14-security/embedded-library-origin-hardening.md
+  name: Embedded Library Origin Hardening
+  description: Harden embedded client libraries by restricting the origins they accept
+    instructions from and recording each library origin policy.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
 - id: five-eyes-agentic-adoption-control-mapping
   path: skills/14-security/five-eyes-agentic-adoption-control-mapping.md
   name: Five Eyes Agentic Adoption Control Mapping
@@ -49485,6 +49710,56 @@ skills:
   name: Shared Link Rotation Expiry Policy
   description: Rotate and expire shared conversation and session links on a fixed
     policy so old links stop working without anyone remembering to delete them.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
+- id: shared-link-session-takeover-defense
+  path: skills/14-security/shared-link-session-takeover-defense.md
+  name: Shared Link Session Takeover Defense
+  description: Defend against account takeover through shared conversation links by
+    treating opener sessions as untrusted and containing what an opened link can do.
+  category: security
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 14-security
+- id: snapshot-private-content-redaction
+  path: skills/14-security/snapshot-private-content-redaction.md
+  name: Snapshot Private Content Redaction
+  description: Redact private content from desktop snapshots before storage or sharing,
+    with a review path for every redaction decision.
   category: security
   level: advanced
   stability: experimental
@@ -58317,6 +58592,31 @@ skills:
   name: Message Thread Gateway Capacity Provisioning
   description: Provision gateway capacity for thread-held sessions with expiry-aware
     sizing, encrypted-memory limits, and replay headroom.
+  category: infrastructure
+  level: advanced
+  stability: experimental
+  version: v1
+  added: 2026-11
+  last_updated: null
+  sections:
+  - Description
+  - When to Use
+  - Inputs
+  - Procedure
+  - Outputs
+  - Runnable Example
+  - Failure Modes
+  - Security and Authority Boundary
+  - Evidence
+  - Related Skills
+  - Changelog
+  related: []
+  category_dir: 17-infrastructure
+- id: model-deprecation-deadline-planning
+  path: skills/17-infrastructure/model-deprecation-deadline-planning.md
+  name: Model Deprecation Deadline Planning
+  description: Plan model migrations against published vendor shutdown deadlines with
+    pinned SDK versions and a tested fallback per deadline.
   category: infrastructure
   level: advanced
   stability: experimental
