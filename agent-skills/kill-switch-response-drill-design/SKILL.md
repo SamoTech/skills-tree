@@ -81,7 +81,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Kill Switch Invocation Decision Reasoning](kill-switch-invocation-decision-reasoning.md)
+- [Kill Switch Invocation Decision Reasoning](../02-reasoning/kill-switch-invocation-decision-reasoning.md)
 - [Agentic Adversary Emulation Exercise Design](agentic-adversary-emulation-exercise-design.md)
 
 ## Changelog

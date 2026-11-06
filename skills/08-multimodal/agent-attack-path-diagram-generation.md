@@ -6,7 +6,7 @@ stability: experimental
 description: "Generate diagrams of emulated agent attack paths that show chained weaknesses from entry point to sensitive asset."
 added: "2026-11"
 version: v1
-related: [chart-generation, scene-graph-construction]
+related: [chart-generation, agentic-adversary-emulation-scope-reasoning]
 tags: [multimodal, diagrams, security, visualization]
 ---
 # Agent Attack Path Diagram Generation
@@ -72,7 +72,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Chart Generation](chart-generation.md)
-- [Scene Graph Construction](scene-graph-construction.md)
+- [Agentic Adversary Emulation Scope Reasoning](../02-reasoning/agentic-adversary-emulation-scope-reasoning.md)
 
 ## Changelog
 | Version | Date | Notes |

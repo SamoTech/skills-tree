@@ -70,7 +70,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 
 ## Related Skills
 - [Chart Generation](chart-generation.md)
-- [Scene Graph Construction](scene-graph-construction.md)
+- [Agentic Adversary Emulation Scope Reasoning](../02-reasoning/agentic-adversary-emulation-scope-reasoning.md)
 
 ## Changelog
 | Version | Date | Notes |
