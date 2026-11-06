@@ -2,8 +2,8 @@
 name: gateway-tool-owner-enablement-request-writing
 description: Write enablement requests to owning teams for newly discovered gateway tools that state scopes, risks, and the review being requested.
 metadata:
-  source: skills/07-communication/gateway-tool-owner-enablement-request-writing.md
-  category: 07-communication
+  source: skills/06-communication/gateway-tool-owner-enablement-request-writing.md
+  category: 06-communication
   version: "v1"
 ---
 # Gateway Tool Owner Enablement Request Writing

@@ -2,8 +2,8 @@
 name: agent-governance-policy-rollout-communication
 description: Write rollout communications for agent governance policies so affected teams understand what changes, when, and what they must do.
 metadata:
-  source: skills/07-communication/agent-governance-policy-rollout-communication.md
-  category: 07-communication
+  source: skills/06-communication/agent-governance-policy-rollout-communication.md
+  category: 06-communication
   version: "v1"
 ---
 # Agent Governance Policy Rollout Communication

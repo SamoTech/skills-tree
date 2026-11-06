@@ -2,8 +2,8 @@
 name: kill-switch-stakeholder-notification-writing
 description: Write stakeholder notifications for emergency agent shutdowns that state what was contained, who authorized it, and what happens next.
 metadata:
-  source: skills/07-communication/kill-switch-stakeholder-notification-writing.md
-  category: 07-communication
+  source: skills/06-communication/kill-switch-stakeholder-notification-writing.md
+  category: 06-communication
   version: "v1"
 ---
 # Kill Switch Stakeholder Notification Writing

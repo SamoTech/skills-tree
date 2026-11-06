@@ -2,8 +2,8 @@
 name: agent-economics-report-writing
 description: Write economics reports for agent-driven workflows that present recorded usage, cost, and guardrail findings for budget owners.
 metadata:
-  source: skills/07-communication/agent-economics-report-writing.md
-  category: 07-communication
+  source: skills/06-communication/agent-economics-report-writing.md
+  category: 06-communication
   version: "v1"
 ---
 # Agent Economics Report Writing
