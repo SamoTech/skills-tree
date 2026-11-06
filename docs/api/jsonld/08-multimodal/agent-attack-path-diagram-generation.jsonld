@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-05T23:31:19Z",
+  "dateModified": "2026-11-06T00:23:04Z",
   "skillId": "agent-attack-path-diagram-generation",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,9 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../02-reasoning/agentic-adversary-emulation-scope-reasoning.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

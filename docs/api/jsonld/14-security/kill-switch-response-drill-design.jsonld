@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-06T00:05:21Z",
+  "dateModified": "2026-11-06T00:23:04Z",
   "skillId": "kill-switch-response-drill-design",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,9 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../02-reasoning/kill-switch-invocation-decision-reasoning.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

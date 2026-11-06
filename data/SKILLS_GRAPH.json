@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-06T00:21:59.679401+00:00",
+    "generated_at": "2026-11-06T00:24:52.850918+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2388,
@@ -48270,9 +48270,9 @@
     },
     {
       "source": "08-multimodal/agent-attack-path-diagram-generation",
-      "target": "08-multimodal/scene-graph-construction",
+      "target": "02-reasoning/agentic-adversary-emulation-scope-reasoning",
       "type": "RELATED_TO",
-      "evidence": "[Scene Graph Construction](scene-graph-construction.md)",
+      "evidence": "[Agentic Adversary Emulation Scope Reasoning](../02-reasoning/agentic-adversary-emulation-scope-reasoning.md)",
       "source_file": "skills/08-multimodal/agent-attack-path-diagram-generation.md",
       "confidence": "high"
     },
@@ -58182,9 +58182,9 @@
     },
     {
       "source": "14-security/kill-switch-response-drill-design",
-      "target": "14-security/kill-switch-invocation-decision-reasoning",
+      "target": "02-reasoning/kill-switch-invocation-decision-reasoning",
       "type": "RELATED_TO",
-      "evidence": "[Kill Switch Invocation Decision Reasoning](kill-switch-invocation-decision-reasoning.md)",
+      "evidence": "[Kill Switch Invocation Decision Reasoning](../02-reasoning/kill-switch-invocation-decision-reasoning.md)",
       "source_file": "skills/14-security/kill-switch-response-drill-design.md",
       "confidence": "high"
     },

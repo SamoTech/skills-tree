@@ -1,6 +1,6 @@
 # Graph Build Report
 
-**Generated:** 2026-11-06T00:21:59.678614+00:00  
+**Generated:** 2026-11-06T00:24:52.849987+00:00  
 **Generator:** tools/build_graph.py  
 **Schema Version:** 3.1  
 **Dry Run:** False  
@@ -16,12 +16,7 @@
 | SUPPORTS edges | 0 |
 | RELATED_TO edges | 3456 |
 | Validation errors | 0 |
-| Unresolved targets (warnings) | 2 |
-
-## Unresolved Target Warnings
-
-- `UNRESOLVED_TARGET: 08-multimodal/scene-graph-construction referenced from skills/08-multimodal/agent-attack-path-diagram-generation.md`
-- `UNRESOLVED_TARGET: 14-security/kill-switch-invocation-decision-reasoning referenced from skills/14-security/kill-switch-response-drill-design.md`
+| Unresolved targets (warnings) | 0 |
 
 ## Status
 

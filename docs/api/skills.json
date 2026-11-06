@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-06T00:05:41Z",
+  "generated": "2026-11-06T00:23:04Z",
   "count": 2388,
   "skills": [
     {
@@ -29644,7 +29644,9 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../02-reasoning/agentic-adversary-emulation-scope-reasoning.md"
+      ],
       "category_dir": "08-multimodal"
     },
     {
@@ -53854,7 +53856,9 @@
         "Related Skills",
         "Changelog"
       ],
-      "related": [],
+      "related": [
+        "../02-reasoning/kill-switch-invocation-decision-reasoning.md"
+      ],
       "category_dir": "14-security"
     },
     {

@@ -1,4 +1,4 @@
-generated: '2026-11-06T00:05:41Z'
+generated: '2026-11-06T00:23:04Z'
 count: 2388
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -27247,7 +27247,8 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
-  related: []
+  related:
+  - ../02-reasoning/agentic-adversary-emulation-scope-reasoning.md
   category_dir: 08-multimodal
 - id: agent-computer-embedded-display-interaction-verification
   path: skills/08-multimodal/agent-computer-embedded-display-interaction-verification.md
@@ -49463,7 +49464,8 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
-  related: []
+  related:
+  - ../02-reasoning/kill-switch-invocation-decision-reasoning.md
   category_dir: 14-security
 - id: least-privilege-scoping
   path: skills/14-security/least-privilege-scoping.md
