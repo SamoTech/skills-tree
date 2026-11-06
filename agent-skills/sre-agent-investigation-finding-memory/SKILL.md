@@ -6,6 +6,7 @@ metadata:
   category: 03-memory
   version: "v1"
 ---
+
 # SRE Agent Investigation Finding Memory
 
 ## Description

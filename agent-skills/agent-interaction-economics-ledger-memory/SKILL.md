@@ -6,6 +6,7 @@ metadata:
   category: 03-memory
   version: "v1"
 ---
+
 # Agent Interaction Economics Ledger Memory
 
 ## Description

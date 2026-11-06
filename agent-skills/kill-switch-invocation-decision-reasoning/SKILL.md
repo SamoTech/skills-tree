@@ -6,6 +6,7 @@ metadata:
   category: 02-reasoning
   version: "v1"
 ---
+
 # Kill Switch Invocation Decision Reasoning
 
 ## Description
