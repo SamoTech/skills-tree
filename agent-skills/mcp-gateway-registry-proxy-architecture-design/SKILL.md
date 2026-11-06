@@ -6,6 +6,7 @@ metadata:
   category: 15-orchestration
   version: "v1"
 ---
+
 # MCP Gateway Registry Proxy Architecture Design
 
 ## Description

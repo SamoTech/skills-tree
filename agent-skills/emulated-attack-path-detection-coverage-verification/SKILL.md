@@ -6,6 +6,7 @@ metadata:
   category: 14-security
   version: "v1"
 ---
+
 # Emulated Attack Path Detection Coverage Verification
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 15-orchestration
   version: "v1"
 ---
+
 # Gateway Config Hot Propagation Orchestration
 
 ## Description

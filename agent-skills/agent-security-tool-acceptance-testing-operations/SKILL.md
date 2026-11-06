@@ -6,6 +6,7 @@ metadata:
   category: 16-domain-specific
   version: "v1"
 ---
+
 # Agent Security Tool Acceptance Testing Operations
 
 ## Description

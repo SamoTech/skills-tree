@@ -6,6 +6,7 @@ metadata:
   category: 14-security
   version: "v1"
 ---
+
 # Agentic Adversary Emulation Exercise Design
 
 ## Description

@@ -6,6 +6,7 @@ metadata:
   category: 14-security
   version: "v1"
 ---
+
 # Gateway Tool Level Authorization Policy Enforcement Review
 
 ## Description
