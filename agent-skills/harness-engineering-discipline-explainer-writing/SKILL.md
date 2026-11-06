@@ -6,6 +6,7 @@ metadata:
   category: 13-creative
   version: "v1"
 ---
+
 # Harness Engineering Discipline Explainer Writing
 
 ## Description

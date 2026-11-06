@@ -6,6 +6,7 @@ metadata:
   category: 11-web
   version: "v1"
 ---
+
 # Enterprise Tool Catalog Discovery Portal Implementation
 
 ## Description

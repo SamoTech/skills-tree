@@ -6,6 +6,7 @@ metadata:
   category: 10-computer-use
   version: "v1"
 ---
+
 # Post Termination Agent Artifact Capture Operations
 
 ## Description

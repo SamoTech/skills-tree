@@ -6,6 +6,7 @@ metadata:
   category: 09-agentic-patterns
   version: "v1"
 ---
+
 # Evidence First SRE Agent Watch Pattern
 
 ## Description

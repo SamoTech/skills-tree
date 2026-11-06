@@ -6,6 +6,7 @@ metadata:
   category: 12-data
   version: "v1"
 ---
+
 # Agent Density Cost Per Task Analytics
 
 ## Description

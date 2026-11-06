@@ -6,6 +6,7 @@ metadata:
   category: 11-web
   version: "v1"
 ---
+
 # Enterprise MCP Access Policy Publication
 
 ## Description

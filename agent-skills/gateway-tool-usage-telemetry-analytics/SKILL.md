@@ -6,6 +6,7 @@ metadata:
   category: 12-data
   version: "v1"
 ---
+
 # Gateway Tool Usage Telemetry Analytics
 
 ## Description
