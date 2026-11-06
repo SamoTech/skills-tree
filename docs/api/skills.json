@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-05T05:10:31Z",
-  "count": 2338,
+  "generated": "2026-11-06T00:23:04Z",
+  "count": 2388,
   "skills": [
     {
       "id": "a2a-agent-card-capability-parsing",
@@ -140,6 +140,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "agent-emergency-shutdown-event-parsing",
+      "path": "skills/01-perception/agent-emergency-shutdown-event-parsing.md",
+      "name": "Agent Emergency Shutdown Event Parsing",
+      "description": "Parse emergency agent termination events that record who triggered a shutdown, which agent was stopped, and what containment was applied.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "01-perception"
@@ -1524,6 +1551,33 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "gateway-tool-catalog-delta-parsing",
+      "path": "skills/01-perception/gateway-tool-catalog-delta-parsing.md",
+      "name": "Gateway Tool Catalog Delta Parsing",
+      "description": "Parse tool catalog deltas that add, update, or remove gateway tool definitions propagated to the data plane without service restarts.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "geospatial-reading",
       "path": "skills/01-perception/geospatial-reading.md",
       "name": "Geospatial Reading",
@@ -2431,6 +2485,33 @@
         "../01-perception/vendor-security-bulletin-parsing.md",
         "../01-perception/config-file-parsing.md"
       ],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "mcp-gateway-registry-event-stream-parsing",
+      "path": "skills/01-perception/mcp-gateway-registry-event-stream-parsing.md",
+      "name": "MCP Gateway Registry Event Stream Parsing",
+      "description": "Parse MCP gateway registry control-plane event streams that publish tool definitions, schemas, ownership, and enablement changes.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "01-perception"
     },
     {
@@ -4693,6 +4774,33 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "agentic-adversary-emulation-scope-reasoning",
+      "path": "skills/02-reasoning/agentic-adversary-emulation-scope-reasoning.md",
+      "name": "Agentic Adversary Emulation Scope Reasoning",
+      "description": "Reason about which chained-weakness attack paths an emulated autonomous attacker should cover before an exercise runs.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "agentic-benchmark-methodology-review",
       "path": "skills/02-reasoning/agentic-benchmark-methodology-review.md",
       "name": "Agentic Benchmark Methodology Review",
@@ -6331,6 +6439,33 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "gateway-tool-enablement-review-reasoning",
+      "path": "skills/02-reasoning/gateway-tool-enablement-review-reasoning.md",
+      "name": "Gateway Tool Enablement Review Reasoning",
+      "description": "Reason about whether an owning team should review and enable a newly discovered tool exposed through a gateway.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "goal-conflict-resolution",
       "path": "skills/02-reasoning/goal-conflict-resolution.md",
       "name": "Goal Conflict Resolution",
@@ -6677,6 +6812,33 @@
         "../16-domain-specific/ai-vendor-ipo-financial-disclosure-review.md",
         "../02-reasoning/risk-assessment.md"
       ],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "kill-switch-invocation-decision-reasoning",
+      "path": "skills/02-reasoning/kill-switch-invocation-decision-reasoning.md",
+      "name": "Kill Switch Invocation Decision Reasoning",
+      "description": "Reason about when an emergency agent shutdown should be invoked, by whom, and with what recorded justification.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "02-reasoning"
     },
     {
@@ -8656,6 +8818,33 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "tool-context-inflation-mitigation-reasoning",
+      "path": "skills/02-reasoning/tool-context-inflation-mitigation-reasoning.md",
+      "name": "Tool Context Inflation Mitigation Reasoning",
+      "description": "Reason about how to keep large tool catalogs out of agent context by choosing incremental discovery and selective schema retrieval.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "trade-off-analysis",
       "path": "skills/02-reasoning/trade-off-analysis.md",
       "name": "Trade-off Analysis",
@@ -9094,6 +9283,33 @@
         "../03-memory/memory-provenance-tracking.md",
         "../03-memory/fact-verification-memory.md"
       ],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "agent-interaction-economics-ledger-memory",
+      "path": "skills/03-memory/agent-interaction-economics-ledger-memory.md",
+      "name": "Agent Interaction Economics Ledger Memory",
+      "description": "Maintain a durable ledger of usage and cost across agent-driven interactions so workflows can be governed by their recorded economics.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "03-memory"
     },
     {
@@ -10400,6 +10616,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "incremental-tool-discovery-context-budgeting",
+      "path": "skills/03-memory/incremental-tool-discovery-context-budgeting.md",
+      "name": "Incremental Tool Discovery Context Budgeting",
+      "description": "Budget agent context across incremental tool discovery by deciding which servers, tools, and schemas to keep resident.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "03-memory"
@@ -12442,6 +12685,33 @@
         "../03-memory/hierarchical-memory-organization.md",
         "../03-memory/memory-benchmark-evaluation.md"
       ],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "sre-agent-investigation-finding-memory",
+      "path": "skills/03-memory/sre-agent-investigation-finding-memory.md",
+      "name": "SRE Agent Investigation Finding Memory",
+      "description": "Store and reuse reliability investigation findings across SRE agent runs while acting only within team-set limits.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "03-memory"
     },
     {
@@ -14816,6 +15086,33 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "gateway-mediated-tool-invocation-execution",
+      "path": "skills/04-action-execution/gateway-mediated-tool-invocation-execution.md",
+      "name": "Gateway Mediated Tool Invocation Execution",
+      "description": "Execute tool invocations through a gateway proxy that translates MCP requests into backend protocols and returns MCP-compatible results.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "gcloud-destructive-command-blocking-execution",
       "path": "skills/04-action-execution/gcloud-destructive-command-blocking-execution.md",
       "name": "Gcloud Destructive Command Blocking Execution",
@@ -15179,6 +15476,33 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "kill-switch-relaunch-block-execution",
+      "path": "skills/04-action-execution/kill-switch-relaunch-block-execution.md",
+      "name": "Kill Switch Relaunch Block Execution",
+      "description": "Execute an emergency agent termination that stops the agent, blocks relaunch, and cuts its network access.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "lab-procedure-action-execution",
       "path": "skills/04-action-execution/lab-procedure-action-execution.md",
       "name": "Lab Procedure Action Execution",
@@ -15370,6 +15694,33 @@
         "../04-action-execution/azure-mcp-server-3-0-upgrade-execution.md",
         "../07-tool-use/mcp-stateless-request-migration.md"
       ],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "mcp-gateway-response-redaction-execution",
+      "path": "skills/04-action-execution/mcp-gateway-response-redaction-execution.md",
+      "name": "MCP Gateway Response Redaction Execution",
+      "description": "Apply redaction of personally identifiable information in tool responses before they return through a gateway to agents.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "04-action-execution"
     },
     {
@@ -17018,6 +17369,33 @@
         "../05-code/git-operations.md",
         "../05-code/agent-generated-code-auditing.md"
       ],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "agent-density-runtime-overhead-profiling",
+      "path": "skills/05-code/agent-density-runtime-overhead-profiling.md",
+      "name": "Agent Density Runtime Overhead Profiling",
+      "description": "Profile the per-agent runtime overhead of scheduling, state retention, and context management in dense agent fleets.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "05-code"
     },
     {
@@ -18957,6 +19335,33 @@
       "category_dir": "05-code"
     },
     {
+      "id": "framework-free-agent-loop-implementation",
+      "path": "skills/05-code/framework-free-agent-loop-implementation.md",
+      "name": "Framework Free Agent Loop Implementation",
+      "description": "Implement a coding agent loop without a framework by owning history management, safe tool use, and hallucinated-observation handling.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "05-code"
+    },
+    {
       "id": "framework-migration",
       "path": "skills/05-code/framework-migration.md",
       "name": "Framework Migration",
@@ -19467,6 +19872,33 @@
         "../05-code/ci-failure-triage.md",
         "../09-agentic-patterns/agent-eval-regression-gates.md"
       ],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "llm-generated-tool-description-review-automation",
+      "path": "skills/05-code/llm-generated-tool-description-review-automation.md",
+      "name": "LLM Generated Tool Description Review Automation",
+      "description": "Automate the review of LLM-generated tool descriptions before they are published to a tool catalog or registry.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "05-code"
     },
     {
@@ -21213,6 +21645,33 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "agent-economics-report-writing",
+      "path": "skills/06-communication/agent-economics-report-writing.md",
+      "name": "Agent Economics Report Writing",
+      "description": "Write economics reports for agent-driven workflows that present recorded usage, cost, and guardrail findings for budget owners.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "agent-experience-response-shaping",
       "path": "skills/06-communication/agent-experience-response-shaping.md",
       "name": "Agent Experience Response Shaping",
@@ -21267,6 +21726,33 @@
         "../06-communication/api-deprecation-notice-writing.md",
         "../06-communication/agent-access-audit-report-writing.md"
       ],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "agent-governance-policy-rollout-communication",
+      "path": "skills/06-communication/agent-governance-policy-rollout-communication.md",
+      "name": "Agent Governance Policy Rollout Communication",
+      "description": "Write rollout communications for agent governance policies so affected teams understand what changes, when, and what they must do.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "06-communication"
     },
     {
@@ -22776,6 +23262,33 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "gateway-tool-owner-enablement-request-writing",
+      "path": "skills/06-communication/gateway-tool-owner-enablement-request-writing.md",
+      "name": "Gateway Tool Owner Enablement Request Writing",
+      "description": "Write enablement requests to owning teams for newly discovered gateway tools that state scopes, risks, and the review being requested.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "glossary-maintenance",
       "path": "skills/06-communication/glossary-maintenance.md",
       "name": "Glossary Maintenance",
@@ -22970,6 +23483,33 @@
         "../06-communication/internal-agent-rollout-announcement-writing.md",
         "../06-communication/workforce-agent-literacy-program-design.md"
       ],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "kill-switch-stakeholder-notification-writing",
+      "path": "skills/06-communication/kill-switch-stakeholder-notification-writing.md",
+      "name": "Kill Switch Stakeholder Notification Writing",
+      "description": "Write stakeholder notifications for emergency agent shutdowns that state what was contained, who authorized it, and what happens next.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "06-communication"
     },
     {
@@ -25890,6 +26430,33 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "gateway-cli-selective-tool-result-inspection-usage",
+      "path": "skills/07-tool-use/gateway-cli-selective-tool-result-inspection-usage.md",
+      "name": "Gateway CLI Selective Tool Result Inspection Usage",
+      "description": "Use gateway CLI inspection to verify tool results selectively without pulling entire tool outputs into agent context.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "gateway-routed-tool-selection",
       "path": "skills/07-tool-use/gateway-routed-tool-selection.md",
       "name": "Gateway Routed Tool Selection",
@@ -26796,6 +27363,33 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "mcp-response-projection-usage",
+      "path": "skills/07-tool-use/mcp-response-projection-usage.md",
+      "name": "MCP Response Projection Usage",
+      "description": "Use response projection at a gateway to reduce tool results to the fields a task needs before they enter agent context.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "mcp-sampling-request-handling",
       "path": "skills/07-tool-use/mcp-sampling-request-handling.md",
       "name": "Mcp Sampling Request Handling",
@@ -27412,6 +28006,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "omni-mcp-incremental-tool-discovery-usage",
+      "path": "skills/07-tool-use/omni-mcp-incremental-tool-discovery-usage.md",
+      "name": "Omni MCP Incremental Tool Discovery Usage",
+      "description": "Use incremental tool discovery to search for servers, discover relevant tools, and retrieve only the schemas needed for a task.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -29000,6 +29621,35 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "agent-attack-path-diagram-generation",
+      "path": "skills/08-multimodal/agent-attack-path-diagram-generation.md",
+      "name": "Agent Attack Path Diagram Generation",
+      "description": "Generate diagrams of emulated agent attack paths that show chained weaknesses from entry point to sensitive asset.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/agentic-adversary-emulation-scope-reasoning.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "agent-computer-embedded-display-interaction-verification",
       "path": "skills/08-multimodal/agent-computer-embedded-display-interaction-verification.md",
       "name": "Agent Computer Embedded Display Interaction Verification",
@@ -29057,6 +29707,33 @@
         "../14-security/machine-identity-inventory-for-agents.md",
         "../08-multimodal/agent-traffic-metadata-enrichment.md"
       ],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "agent-interaction-cost-dashboard-generation",
+      "path": "skills/08-multimodal/agent-interaction-cost-dashboard-generation.md",
+      "name": "Agent Interaction Cost Dashboard Generation",
+      "description": "Generate dashboards of metered agent interaction costs broken down by workflow, model, and feature.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "08-multimodal"
     },
     {
@@ -34056,6 +34733,33 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "discovered-tool-owner-enablement-gating-pattern",
+      "path": "skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md",
+      "name": "Discovered Tool Owner Enablement Gating Pattern",
+      "description": "Apply a gating pattern where automatically discovered tools stay disabled until their owning team reviews and explicitly enables them.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "enterprise-messaging-system-agent-binding",
       "path": "skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md",
       "name": "Enterprise Messaging System Agent Binding",
@@ -34140,6 +34844,33 @@
         "../09-agentic-patterns/eval-driven-agent-iteration.md",
         "../09-agentic-patterns/skill-quality-evaluation.md"
       ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "evidence-first-sre-agent-watch-pattern",
+      "path": "skills/09-agentic-patterns/evidence-first-sre-agent-watch-pattern.md",
+      "name": "Evidence First SRE Agent Watch Pattern",
+      "description": "Apply a watch pattern where an SRE agent observes high-cardinality telemetry first and acts only on verified evidence within team-set limits.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -34415,6 +35146,33 @@
         "../09-agentic-patterns/self-refine-critique-loop.md",
         "../09-agentic-patterns/agent-idle-wakeup-scheduling.md"
       ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "harness-five-layer-architecture-mapping",
+      "path": "skills/09-agentic-patterns/harness-five-layer-architecture-mapping.md",
+      "name": "Harness Five Layer Architecture Mapping",
+      "description": "Map an agent system onto a five-layer harness architecture that separates context, models, tools, actions, and evaluation concerns.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -39115,6 +39873,33 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "post-termination-agent-artifact-capture-operations",
+      "path": "skills/10-computer-use/post-termination-agent-artifact-capture-operations.md",
+      "name": "Post Termination Agent Artifact Capture Operations",
+      "description": "Capture workspace artifacts, session logs, and runtime state from a terminated agent for incident review.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "printer-queue-automation",
       "path": "skills/10-computer-use/printer-queue-automation.md",
       "name": "Printer Queue Automation",
@@ -41532,6 +42317,60 @@
         "Safety Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "enterprise-mcp-access-policy-publication",
+      "path": "skills/11-web/enterprise-mcp-access-policy-publication.md",
+      "name": "Enterprise MCP Access Policy Publication",
+      "description": "Publish machine-readable MCP access policies so external agents can learn permitted servers, tools, and authorization requirements.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "enterprise-tool-catalog-discovery-portal-implementation",
+      "path": "skills/11-web/enterprise-tool-catalog-discovery-portal-implementation.md",
+      "name": "Enterprise Tool Catalog Discovery Portal Implementation",
+      "description": "Implement an internal portal where agents discover registered tools, their owners, and enablement state from a governed catalog.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "11-web"
@@ -43979,6 +44818,33 @@
       "category_dir": "12-data"
     },
     {
+      "id": "agent-density-cost-per-task-analytics",
+      "path": "skills/12-data/agent-density-cost-per-task-analytics.md",
+      "name": "Agent Density Cost Per Task Analytics",
+      "description": "Analyze the real constraint of cost per effective agent task in dense fleets rather than raw agent counts.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
       "id": "agent-escape-session-duration-forensic-analytics",
       "path": "skills/12-data/agent-escape-session-duration-forensic-analytics.md",
       "name": "Agent Escape Session Duration Forensic Analytics",
@@ -44126,6 +44992,33 @@
         "../12-data/trace-based-eval-dataset-generation.md",
         "../12-data/agent-feedback-signal-aggregation.md"
       ],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "agent-interaction-economics-metering-analytics",
+      "path": "skills/12-data/agent-interaction-economics-metering-analytics.md",
+      "name": "Agent Interaction Economics Metering Analytics",
+      "description": "Analyze metered agent interactions to attribute usage and cost to workflows, models, and features with anomaly detection.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "12-data"
     },
     {
@@ -46092,6 +46985,33 @@
       "category_dir": "12-data"
     },
     {
+      "id": "gateway-tool-usage-telemetry-analytics",
+      "path": "skills/12-data/gateway-tool-usage-telemetry-analytics.md",
+      "name": "Gateway Tool Usage Telemetry Analytics",
+      "description": "Analyze gateway-mediated tool invocation telemetry to answer which tools, teams, and workflows drive usage and failures.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
       "id": "geospatial-data-processing",
       "path": "skills/12-data/geospatial-data-processing.md",
       "name": "Geospatial Data Processing",
@@ -46139,6 +47059,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "idl-to-mcp-schema-generation-pipeline",
+      "path": "skills/12-data/idl-to-mcp-schema-generation-pipeline.md",
+      "name": "IDL to MCP Schema Generation Pipeline",
+      "description": "Build a pipeline that converts interface definition language entries into MCP tool schemas with owner metadata and disabled-by-default state.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -46216,6 +47163,33 @@
         "Data Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "kill-switch-invocation-audit-analytics",
+      "path": "skills/12-data/kill-switch-invocation-audit-analytics.md",
+      "name": "Kill Switch Invocation Audit Analytics",
+      "description": "Analyze emergency shutdown invocation records to verify authorization, justification quality, and containment completeness.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49105,6 +50079,33 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "gateway-governance-adoption-campaign-copywriting",
+      "path": "skills/13-creative/gateway-governance-adoption-campaign-copywriting.md",
+      "name": "Gateway Governance Adoption Campaign Copywriting",
+      "description": "Write internal adoption campaign copy for gateway governance that motivates tool owners without overstating capabilities.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "grant-proposal-writing",
       "path": "skills/13-creative/grant-proposal-writing.md",
       "name": "Grant Proposal Writing",
@@ -49125,6 +50126,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "13-creative"
+    },
+    {
+      "id": "harness-engineering-discipline-explainer-writing",
+      "path": "skills/13-creative/harness-engineering-discipline-explainer-writing.md",
+      "name": "Harness Engineering Discipline Explainer Writing",
+      "description": "Write explainers that teach the harness engineering discipline of building agent systems as layered, inspectable harnesses.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "13-creative"
@@ -51402,6 +52430,33 @@
       "category_dir": "14-security"
     },
     {
+      "id": "agentic-adversary-emulation-exercise-design",
+      "path": "skills/14-security/agentic-adversary-emulation-exercise-design.md",
+      "name": "Agentic Adversary Emulation Exercise Design",
+      "description": "Design security exercises where purpose-built models emulate autonomous attackers chaining weaknesses across a system.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
       "id": "agentic-attack-surface-mapping",
       "path": "skills/14-security/agentic-attack-surface-mapping.md",
       "name": "Agentic Attack Surface Mapping",
@@ -52307,6 +53362,33 @@
       "category_dir": "14-security"
     },
     {
+      "id": "emulated-attack-path-detection-coverage-verification",
+      "path": "skills/14-security/emulated-attack-path-detection-coverage-verification.md",
+      "name": "Emulated Attack Path Detection Coverage Verification",
+      "description": "Verify that every emulated agentic attack path was either detected, blocked, or explicitly logged as a coverage gap.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
       "id": "fake-job-interview-credential-harvesting-defense",
       "path": "skills/14-security/fake-job-interview-credential-harvesting-defense.md",
       "name": "Fake Job Interview Credential Harvesting Defense",
@@ -52450,6 +53532,33 @@
         "../14-security/agent-gateway-credential-disclosure-hardening.md",
         "../14-security/mcp-oauth-token-exfil-hardening.md"
       ],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "gateway-tool-level-authorization-policy-enforcement-review",
+      "path": "skills/14-security/gateway-tool-level-authorization-policy-enforcement-review.md",
+      "name": "Gateway Tool Level Authorization Policy Enforcement Review",
+      "description": "Review gateway authorization enforcement to verify policies apply at both server and individual tool level.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "14-security"
     },
     {
@@ -52720,6 +53829,35 @@
       ],
       "related": [
         "../17-infrastructure/secrets-management.md"
+      ],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "kill-switch-response-drill-design",
+      "path": "skills/14-security/kill-switch-response-drill-design.md",
+      "name": "Kill Switch Response Drill Design",
+      "description": "Design and run kill-switch response drills so operators rehearse emergency agent shutdown decisions, execution, and review with recorded evidence.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/kill-switch-invocation-decision-reasoning.md"
       ],
       "category_dir": "14-security"
     },
@@ -56288,6 +57426,33 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "gateway-config-hot-propagation-orchestration",
+      "path": "skills/15-orchestration/gateway-config-hot-propagation-orchestration.md",
+      "name": "Gateway Config Hot Propagation Orchestration",
+      "description": "Orchestrate hot propagation of gateway configuration changes to the data plane without service restarts.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "gateway-credential-quarantine-fleet-orchestration",
       "path": "skills/15-orchestration/gateway-credential-quarantine-fleet-orchestration.md",
       "name": "Gateway Credential Quarantine Fleet Orchestration",
@@ -56676,6 +57841,33 @@
         "../15-orchestration/fleet-wide-config-rollout.md",
         "../15-orchestration/agent-task-preemption-orchestration.md"
       ],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "mcp-gateway-registry-proxy-architecture-design",
+      "path": "skills/15-orchestration/mcp-gateway-registry-proxy-architecture-design.md",
+      "name": "MCP Gateway Registry Proxy Architecture Design",
+      "description": "Design a gateway architecture that separates a registry control plane from a proxy data plane for MCP tool access.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "15-orchestration"
     },
     {
@@ -57103,6 +58295,33 @@
         "../09-agentic-patterns/approval-gates.md",
         "../15-orchestration/safety-threshold-runtime-gating.md"
       ],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "production-agent-workflow-admission-gating",
+      "path": "skills/15-orchestration/production-agent-workflow-admission-gating.md",
+      "name": "Production Agent Workflow Admission Gating",
+      "description": "Gate admission of production agent workflows by budget, policy, and owner sign-off before they run.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "15-orchestration"
     },
     {
@@ -58373,6 +59592,33 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "agent-security-tool-acceptance-testing-operations",
+      "path": "skills/16-domain-specific/agent-security-tool-acceptance-testing-operations.md",
+      "name": "Agent Security Tool Acceptance Testing Operations",
+      "description": "Run acceptance testing for agent security tooling such as kill switches and emulation platforms against recorded criteria.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "agentic-commerce-checkout-compliance-review",
       "path": "skills/16-domain-specific/agentic-commerce-checkout-compliance-review.md",
       "name": "Agentic Commerce Checkout Compliance Review",
@@ -58547,6 +59793,33 @@
         "../16-domain-specific/market-research-synthesis.md",
         "../16-domain-specific/review-analysis.md"
       ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "ai-management-platform-evaluation-operations",
+      "path": "skills/16-domain-specific/ai-management-platform-evaluation-operations.md",
+      "name": "AI Management Platform Evaluation Operations",
+      "description": "Operate an evaluation of AI management platforms against recorded requirements for governance, metering, and guardrails.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "16-domain-specific"
     },
     {
@@ -61351,6 +62624,33 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "sre-agent-release-watch-program-operations",
+      "path": "skills/16-domain-specific/sre-agent-release-watch-program-operations.md",
+      "name": "SRE Agent Release Watch Program Operations",
+      "description": "Operate a release watch program where an SRE agent monitors a release and intervenes within team-set limits.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "stock-lookup",
       "path": "skills/16-domain-specific/stock-lookup.md",
       "name": "stock-lookup",
@@ -63244,6 +64544,33 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "high-density-agent-fleet-budget-hosting-provisioning",
+      "path": "skills/17-infrastructure/high-density-agent-fleet-budget-hosting-provisioning.md",
+      "name": "High Density Agent Fleet Budget Hosting Provisioning",
+      "description": "Provision budget hosting for high-density agent fleets by sizing hosts to measured per-agent overhead and task throughput.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "iac-drift-detection",
       "path": "skills/17-infrastructure/iac-drift-detection.md",
       "name": "IaC Drift Detection",
@@ -63575,6 +64902,33 @@
         "../04-action-execution/scheduled-execution.md",
         "../12-data/change-data-capture.md"
       ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "mcp-gateway-token-exchange-service-deployment",
+      "path": "skills/17-infrastructure/mcp-gateway-token-exchange-service-deployment.md",
+      "name": "MCP Gateway Token Exchange Service Deployment",
+      "description": "Deploy a token exchange service that lets external clients exchange their credentials for scoped gateway access tokens.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "17-infrastructure"
     },
     {
