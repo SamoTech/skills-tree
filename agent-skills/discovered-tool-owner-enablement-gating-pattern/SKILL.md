@@ -6,6 +6,7 @@ metadata:
   category: 09-agentic-patterns
   version: "v1"
 ---
+
 # Discovered Tool Owner Enablement Gating Pattern
 
 ## Description

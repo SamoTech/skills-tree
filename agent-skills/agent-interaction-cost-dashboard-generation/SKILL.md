@@ -6,6 +6,7 @@ metadata:
   category: 08-multimodal
   version: "v1"
 ---
+
 # Agent Interaction Cost Dashboard Generation
 
 ## Description

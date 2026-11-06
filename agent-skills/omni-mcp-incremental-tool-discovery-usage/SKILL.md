@@ -6,6 +6,7 @@ metadata:
   category: 07-tool-use
   version: "v1"
 ---
+
 # Omni MCP Incremental Tool Discovery Usage
 
 ## Description

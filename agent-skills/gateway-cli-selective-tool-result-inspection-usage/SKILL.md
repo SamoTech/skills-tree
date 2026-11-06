@@ -6,6 +6,7 @@ metadata:
   category: 07-tool-use
   version: "v1"
 ---
+
 # Gateway CLI Selective Tool Result Inspection Usage
 
 ## Description

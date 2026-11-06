@@ -6,6 +6,7 @@ metadata:
   category: 08-multimodal
   version: "v1"
 ---
+
 # Agent Attack Path Diagram Generation
 
 ## Description
