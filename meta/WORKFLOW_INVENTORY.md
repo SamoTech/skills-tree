@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,6 +40,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
+| `temp-regen.yml` | Temporary steward automation (open batch branch) | On-branch deterministic projection regen for skills/expansion-2026-11-06-b1; removed before merge (net zero) |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -292,3 +293,5 @@ Repair note (2026-11-05, batch 3, graph same-build byte-identity): the post-repa
 Closure note (2026-11-06, batch 1 of the 2026-11-06 daily run): the temporary `temp-regen.yml` branch-local steward workflow has completed its on-branch deterministic projection regeneration for skills/expansion-2026-11-06-b1 and has been deleted before merge together with its temporary diagnostics (`meta/AUDIT-DEBUG.txt`, `meta/LYCHEE-REPORT.md`); the live workflow count returns to 46 and no CI, quality, security, or governance gate is weakened. A one-shot `temp-graph-sync.yml` (same-build `docs/api/graph.json` republish) was also used and self-removed on the branch, per the established 2026-11-05 batch 3 protocol.
 
 Second closure note (2026-11-06, batch 1 repair cycle): the re-opened `temp-regen.yml` completed the post-repair deterministic projection regen on the branch (bot commits `0278e888` and `ef8a999b`/`dc241019`, distribution audit green: generate --audit eligible 2411, reconcile --check zero drift and no invalid-syntax records after the byte-exact package repair `c2d77fca`), and the one-shot `temp-graph-sync.yml` republished `docs/api/graph.json` byte-identical to `data/SKILLS_GRAPH.json` (bot commits `180cc1fe`, `b22acfb6`). The workflow and all temporary reports (`meta/AUDIT-DEBUG.txt`, `meta/LYCHEE-REPORT.md`) are deleted before merge (net zero on `main`); the live workflow count returns to 46 and no CI, quality, security, or governance gate is weakened.
+
+Reopen note (2026-11-06, batch 1, third): `temp-regen.yml` is re-opened on branch `skills/expansion-2026-11-06-b1` only, to re-derive deterministic projections after the cross-category Related-Skills link repair in `skills/08-multimodal/short-form-video-generation-output-evaluation.md` (the dangling graph target flagged by the `Build Graph & Validate` check). It and its temporary reports are deleted before merge; the live workflow count returns to 46 and no gate is weakened.

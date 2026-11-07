@@ -80,7 +80,7 @@ This skill operates inside the declared task boundary. It does not grant permiss
 - These are dated public signals, not adoption metrics; this contract claims no production hardening beyond the recorded evidence.
 
 ## Related Skills
-- [Video Understanding](video-understanding.md)
+- [Video Understanding](../01-perception/video-understanding.md)
 - [3d Asset Generation](3d-asset-generation.md)
 
 ## Changelog
