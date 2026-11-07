@@ -82,4 +82,4 @@ This skill operates inside the declared task boundary. It does not grant permiss
 ## Changelog
 | Version | Date | Notes |
 |---|---|---|
-| `v1` | `2022026-11-20` | Initial evidence-backed contract. |
+| `v1` | `2026-11` | Initial evidence-backed contract. |
