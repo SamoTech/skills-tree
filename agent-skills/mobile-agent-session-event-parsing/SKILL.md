@@ -55,7 +55,7 @@ def parse_session(events, tools, vocab):
 
 events = [{"ts": 1, "kind": "tool_call", "tool": "read_doc"}, {"ts": 2, "kind": "grant", "actor": "dana"}]
 r = parse_session(events, {"read_doc"}, {"tool_call", "grant", "deny", "steer", "stop"})
-assert r["ok"] and r["timeline"][1][2] == "" 
+assert r["ok"] and r["timeline"][1][2] == ""
 assert parse_session([{"ts": 3, "kind": "reboot"}], set(), set())["ok"] is False
 ```
 
