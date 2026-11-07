@@ -44,7 +44,8 @@ Interpret large real-robot comparison datasets to extract per-policy rankings, s
 def interpret(rows, question_policy, min_runs=5):
     per_site = {}
     for r in rows:
-        per_site.setdefault((r["site"], r["policy"]), []).append(r["ok"])    kept = {k: v for k, v in per_site.items() if len(v) >= min_runs}
+        per_site.setdefault((r["site"], r["policy"]), []).append(r["ok"])
+    kept = {k: v for k, v in per_site.items() if len(v) >= min_runs}
     pol = [sum(v)/len(v) for (s, p), v in kept.items() if p == question_policy]
     return {"pairs_kept": len(kept), "rate": sum(pol)/len(pol) if pol else None}
 
