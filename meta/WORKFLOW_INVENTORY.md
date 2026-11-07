@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,6 +40,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
+| `temp-regen.yml` | Temporary steward automation (open batch branch) | On-branch deterministic projection regen for skills/expansion-2026-11-06-b1; removed before merge (net zero) |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -290,3 +291,5 @@ Repair-cycle closure note (2026-11-05, batch 3, second): after the first closure
 Repair note (2026-11-05, batch 3, graph same-build byte-identity): the post-repair CI surfaced `tests.test_graph_projection_freshness::test_docs_api_graph_matches_data_projection` failing because `docs/api/graph.json` (still the copy published on `main` by generated-graph bot PR #688 at generated_at 2026-11-05T05:11:34Z) had diverged from `data/SKILLS_GRAPH.json` (regenerated at the batch head by bot regen commit `09e21d3a` at generated_at 2026-11-06T00:24:52Z); the test requires the two committed projections to be byte-identical (same build). `temp-graph-sync.yml` is one-shot temporary steward tooling on the `skills/expansion-2026-11-05-b3` branch only: it copies the committed `data/SKILLS_GRAPH.json` bytes over `docs/api/graph.json` and removes itself in the same bot commit, so the branch ends net zero (the live workflow count returns to 46) and the two projections ship byte-identical from one committed build. It publishes nothing to `main`, alters no other workflow, and no CI, quality, security, or governance gate is weakened; the normal PR checks remain the authoritative gate.
 
 Closure note (2026-11-06, batch 1 of the 2026-11-06 daily run): the temporary `temp-regen.yml` branch-local steward workflow has completed its on-branch deterministic projection regeneration for skills/expansion-2026-11-06-b1 and has been deleted before merge together with its temporary diagnostics (`meta/AUDIT-DEBUG.txt`, `meta/LYCHEE-REPORT.md`); the live workflow count returns to 46 and no CI, quality, security, or governance gate is weakened. A one-shot `temp-graph-sync.yml` (same-build `docs/api/graph.json` republish) was also used and self-removed on the branch, per the established 2026-11-05 batch 3 protocol.
+
+Reopen note (2026-11-06, batch 1, second): `temp-regen.yml` is re-opened on branch `skills/expansion-2026-11-06-b1` only, to re-derive deterministic projections after the runnable-example syntax repair in `skills/10-computer-use/real-robot-comparison-benchmark-interpretation.md`. It and its temporary reports are deleted before merge; the live workflow count returns to 46 and no gate is weakened.
