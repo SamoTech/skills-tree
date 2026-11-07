@@ -1,0 +1,36 @@
+name: temp-graph-sync
+on:
+  push:
+    branches: [skills/expansion-2026-11-06-b1]
+permissions:
+  contents: write
+concurrency:
+  group: temp-graph-sync-b1
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/skills/expansion-2026-11-06-b1'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: skills/expansion-2026-11-06-b1
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Republish docs/api/graph.json from the same committed build as data/SKILLS_GRAPH.json
+        run: cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - name: Remove this branch-local temp workflow (net zero before merge)
+        run: git rm .github/workflows/temp-graph-sync.yml
+      - name: Commit and push
+        run: |
+          git add -A
+          if git diff --staged --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "fix(batch1): republish docs/api/graph.json byte-identical to data/SKILLS_GRAPH.json (second same-build repair after late regen); remove branch-local temp-graph-sync tooling"
+            git pull --rebase origin skills/expansion-2026-11-06-b1 || true
+            git push origin skills/expansion-2026-11-06-b1
+          fi
