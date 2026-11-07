@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-07T00:22:04.095404+00:00",
+    "generated_at": "2026-11-07T00:37:47.087106+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2438,
@@ -50356,9 +50356,9 @@
     },
     {
       "source": "08-multimodal/short-form-video-generation-output-evaluation",
-      "target": "08-multimodal/video-understanding",
+      "target": "01-perception/video-understanding",
       "type": "RELATED_TO",
-      "evidence": "[Video Understanding](video-understanding.md)",
+      "evidence": "[Video Understanding](../01-perception/video-understanding.md)",
       "source_file": "skills/08-multimodal/short-form-video-generation-output-evaluation.md",
       "confidence": "high"
     },
