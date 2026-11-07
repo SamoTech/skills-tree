@@ -1,6 +1,6 @@
 # Graph Build Report
 
-**Generated:** 2026-11-07T00:22:04.094388+00:00  
+**Generated:** 2026-11-07T00:37:47.086189+00:00  
 **Generator:** tools/build_graph.py  
 **Schema Version:** 3.1  
 **Dry Run:** False  
@@ -16,11 +16,7 @@
 | SUPPORTS edges | 0 |
 | RELATED_TO edges | 3556 |
 | Validation errors | 0 |
-| Unresolved targets (warnings) | 1 |
-
-## Unresolved Target Warnings
-
-- `UNRESOLVED_TARGET: 08-multimodal/video-understanding referenced from skills/08-multimodal/short-form-video-generation-output-evaluation.md`
+| Unresolved targets (warnings) | 0 |
 
 ## Status
 

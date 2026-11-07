@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-06T23:56:51Z",
+  "dateModified": "2026-11-07T00:37:13Z",
   "skillId": "short-form-video-generation-output-evaluation",
   "skillVersion": "v1",
   "skillLevel": "advanced",
@@ -71,7 +71,9 @@
     "Related Skills",
     "Changelog"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../01-perception/video-understanding.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

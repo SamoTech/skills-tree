@@ -1,4 +1,4 @@
-generated: '2026-11-07T00:17:29Z'
+generated: '2026-11-07T00:37:13Z'
 count: 2438
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -29998,7 +29998,8 @@ skills:
   - Evidence
   - Related Skills
   - Changelog
-  related: []
+  related:
+  - ../01-perception/video-understanding.md
   category_dir: 08-multimodal
 - id: sign-language-video-recognition
   path: skills/08-multimodal/sign-language-video-recognition.md
