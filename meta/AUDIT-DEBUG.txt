@@ -2855,13 +2855,7 @@ Validated 2449 skill package(s); 0 failed.
       "skills/11-web/web-search.md"
     ]
   },
-  "drifted": [
-    {
-      "package": "mobile-agent-session-event-parsing",
-      "reason": "content-differs-from-deterministic-projection",
-      "source": "skills/01-perception/mobile-agent-session-event-parsing.md"
-    }
-  ],
+  "drifted": [],
   "eligible_missing": [],
   "existing_package_count": 2449,
   "extra": [
@@ -17834,5 +17828,4 @@ Validated 2449 skill package(s); 0 failed.
   "stale": [],
   "unexpected": [],
   "unresolved_collisions": {}
-}Reconciliation check failed: drifted: 1
-
+}
