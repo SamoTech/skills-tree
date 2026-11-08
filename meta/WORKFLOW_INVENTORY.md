@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,7 +40,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
-| `temp-regen.yml` | Branch-temporary regen automation | Temporary branch-local merge + deterministic projection regen for the 2026-11-08 batch-1 expansion (50 skills); deleted on the branch before merge (net zero on main) |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -198,6 +197,8 @@ Reopen note (2026-10-23): `temp-regen.yml` was re-added once more after the CI a
 ## Disposition update — 2026-10-24 (temporary regen + link-report tooling for the 2026-10-24 batch-1 expansion)
 
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-10-24-b1` branch only: it runs the repository's own generators (`tools/build_graph.py`, `tools/build_search_index.py`, `tools/export_skills.py`, `tools/check_skill_quality.py`, `tools/update_readme_counts.py`) at the branch head and records a lychee markdown report so failing Evidence URLs can be identified without run-log access. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
+
+Closure note (2026-11-08, batch 1): `temp-regen.yml` completed the deterministic projection regen at the branch head (bot commit `e944053c` bringing the regenerated search index, skills API/JSON-LD projections, README counts, and badges; the three earlier staleness-only test failures — README count anchors, per-skill JSON-LD freshness, search-index byte-identity — cleared on the regenerated head). The advisory lychee report step was scoped and time-bounded to the 50 new batch-1 skill files after the first full-repo advisory scan stalled for over an hour; the authoritative `check-links.yml` gate ran unchanged at every head. The workflow and all temporary reports (`meta/LYCHEE-REPORT.md`, `meta/AUDIT-REPORT.md`, `meta/AUDIT-VALIDATE.txt`, `meta/AUDIT-DRIFT.md`) were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
 
 Closure note (2026-10-24): across three regen cycles (`947ab155`, `97336d88` after the Evidence-URL/related-link remediation `d1818c4d`, and `8fc9dc57` after the docs sync `5c1ab366`), `temp-regen.yml` kept the committed projections byte-fresh at the branch head with lychee ending at 3740/3740 and 0 errors. It and `meta/LYCHEE-REPORT.md` were deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed.
 
