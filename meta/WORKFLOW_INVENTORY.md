@@ -1,12 +1,13 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
 | Workflow | Classification | Purpose / disposition |
 |---|---|---|
+| `temp-regen.yml` | Branch-temporary generated-main writer | Temporary on-branch deterministic projection regeneration for skills/expansion-2026-11-07-b1 (merge main, rewrite drifted packages via generate_agent_skills project(), rebuild graph/search-index/skills-API/quality-report/README counts and badges, lychee with fail:false). Branch-temporary only: the workflow and its temporary reports are deleted before merge, the live workflow count returns to 46, and no CI, quality, security, or governance gate is weakened (net zero on main). |
 | `agent-skills-distribution.yml` | Authoritative validation | Agent Skills distribution audit; PR/push/manual reconciliation gate |
 | `ast-sweep.yml` | Scheduled maintenance | AST/repository hygiene |
 | `auto-label.yml` | Supporting automation | Issue/PR labeling |
