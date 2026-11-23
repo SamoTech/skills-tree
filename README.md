@@ -10,14 +10,9 @@
 # Skills Tree
 
 <!-- HIGHLIGHTS_START -->
-## 📆 This Week's Highlights — October 26, 2026
+## 📆 This Week's Highlights — November 23, 2026
 
-### ✨ New Skills
-- [feat: 2026-10-26 daily expansion batch 1 (50 skills, all 17 categories)](https://github.com/SamoTech/skills-tree/pull/662)
-- [feat: 2026-10-25 daily expansion batch 1 (50 skills)](https://github.com/SamoTech/skills-tree/pull/661)
-- [feat: 2026-10-24 daily expansion batch 1 (50 skills)](https://github.com/SamoTech/skills-tree/pull/658)
-- [feat: expansion batch 1 of 2026-10-23 — 50 demand-driven skills across all 17 categories](https://github.com/SamoTech/skills-tree/pull/656)
-- [feat: demand-driven expansion batch 1 (2026-10-22) - 50 skills](https://github.com/SamoTech/skills-tree/pull/652)
+> No skill changes this week. Open a PR to get started!
 
 <!-- HIGHLIGHTS_END -->
 
