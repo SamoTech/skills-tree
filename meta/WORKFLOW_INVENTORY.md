@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,6 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+| `temp-regen.yml` | Temporary steward tooling (branch-local) | Deterministic modernization-inventory regen + inline freshness validation for PR #700 (issue #699); deleted before merge (net zero), see the 2026-11-25 disposition |
 
 ## Reconciliation findings
 
@@ -301,3 +302,6 @@ Third closure note (2026-11-06, batch 1 link-repair cycle): the third re-opened 
 ## Disposition update — 2026-11-08 (temporary regen + link-report tooling for the 2026-11-08 batch-1 expansion)
 
 `temp-regen.yml` is temporary steward tooling on the `skills/expansion-2026-11-08-b1` branch only: it merges latest `main`, re-derives drifted agent-skills packages through the repository's own `project()`/`write_projection()` (skipping legacy name collisions), and runs the repository's own generators at the branch head, records a lychee markdown report, and captures the Agent Skills distribution-audit outputs for diagnosis. It publishes nothing to `main`, does not alter any existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the expansion PR independently.
+## Disposition update — 2026-11-25 (temporary regen tooling for the modernization inventory, PR #700)
+
+`temp-regen.yml` is temporary steward tooling on the `counsel/modernization-inventory` branch only: it runs the deterministic modernization inventory generator (`tools/modernization_inventory.py`) at the branch head, validates the new byte-freshness contract inline, and commits the generated `meta/MODERNIZATION-INVENTORY.md` plus diagnostic logs. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the temporary row above is removed at cleanup with a closure note.
