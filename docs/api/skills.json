@@ -1,6 +1,6 @@
 {
-  "generated": "2026-11-07T00:37:13Z",
-  "count": 2438,
+  "generated": "2026-11-08T02:05:30Z",
+  "count": 2488,
   "skills": [
     {
       "id": "a2a-agent-card-capability-parsing",
@@ -3130,6 +3130,35 @@
       "category_dir": "01-perception"
     },
     {
+      "id": "pdf-invisible-text-layer-prompt-injection-detection",
+      "path": "skills/01-perception/pdf-invisible-text-layer-prompt-injection-detection.md",
+      "name": "Pdf Invisible Text Layer Prompt Injection Detection",
+      "description": "Detect invisible text layers in PDF files that hide prompt injections from human reviewers before the text reaches a language model.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/input-sanitization.md"
+      ],
+      "category_dir": "01-perception"
+    },
+    {
       "id": "pdf-parsing",
       "path": "skills/01-perception/pdf-parsing.md",
       "name": "PDF Parsing",
@@ -3621,6 +3650,35 @@
         "Evidence"
       ],
       "related": [],
+      "category_dir": "01-perception"
+    },
+    {
+      "id": "smartwatch-cuffless-blood-pressure-signal-reading",
+      "path": "skills/01-perception/smartwatch-cuffless-blood-pressure-signal-reading.md",
+      "name": "Smartwatch Cuffless Blood Pressure Signal Reading",
+      "description": "Read photoplethysmography and accelerometer signals from wrist wearables to produce cuffless blood-pressure screening estimates with recorded uncertainty.",
+      "category": "perception",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../16-domain-specific/symptom-analysis.md"
+      ],
       "category_dir": "01-perception"
     },
     {
@@ -5023,6 +5081,33 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "ai-auditor-recall-false-positive-tradeoff-reasoning",
+      "path": "skills/02-reasoning/ai-auditor-recall-false-positive-tradeoff-reasoning.md",
+      "name": "Ai Auditor Recall False Positive Tradeoff Reasoning",
+      "description": "Reason about the recall and false-positive tradeoff when one AI system audits another agent for reward hacking.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "ai-suggested-opinion-provenance-tracking",
       "path": "skills/02-reasoning/ai-suggested-opinion-provenance-tracking.md",
       "name": "Ai Suggested Opinion Provenance Tracking",
@@ -6288,6 +6373,33 @@
       "category_dir": "02-reasoning"
     },
     {
+      "id": "eval-awareness-behavior-calibration-reasoning",
+      "path": "skills/02-reasoning/eval-awareness-behavior-calibration-reasoning.md",
+      "name": "Eval Awareness Behavior Calibration Reasoning",
+      "description": "Calibrate evaluation conclusions for models that recognize they are being tested, separating intentional deception from pattern matching.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "02-reasoning"
+    },
+    {
       "id": "evidence-admissibility-reasoning",
       "path": "skills/02-reasoning/evidence-admissibility-reasoning.md",
       "name": "Evidence Admissibility Reasoning",
@@ -6974,6 +7086,33 @@
         "../16-domain-specific/ai-vendor-ipo-financial-disclosure-review.md",
         "../02-reasoning/risk-assessment.md"
       ],
+      "category_dir": "02-reasoning"
+    },
+    {
+      "id": "ipo-valuation-range-reasoning",
+      "path": "skills/02-reasoning/ipo-valuation-range-reasoning.md",
+      "name": "Ipo Valuation Range Reasoning",
+      "description": "Reason about pre-IPO valuation ranges from disclosed funding terms, growth rates, and investor positioning without treating any single leak as a price.",
+      "category": "reasoning",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "02-reasoning"
     },
     {
@@ -9301,6 +9440,33 @@
         "../03-memory/long-context-curation.md",
         "../03-memory/context-window-budget-planning.md"
       ],
+      "category_dir": "03-memory"
+    },
+    {
+      "id": "adaptive-behavior-refinement-memory",
+      "path": "skills/03-memory/adaptive-behavior-refinement-memory.md",
+      "name": "Adaptive Behavior Refinement Memory",
+      "description": "Structure the persistent memory an agent refines its behavior from, recording each adaptation and its trigger instead of silent drift.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "03-memory"
     },
     {
@@ -12143,6 +12309,33 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "persistent-teammate-context-retention-scoping",
+      "path": "skills/03-memory/persistent-teammate-context-retention-scoping.md",
+      "name": "Persistent Teammate Context Retention Scoping",
+      "description": "Scope what a persistent teammate agent may retain across sessions, bounding memory by need-to-know rather than ambient capture.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "pii-memory-minimization",
       "path": "skills/03-memory/pii-memory-minimization.md",
       "name": "PII Memory Minimization",
@@ -13322,6 +13515,33 @@
       "category_dir": "03-memory"
     },
     {
+      "id": "workspace-shared-context-memory",
+      "path": "skills/03-memory/workspace-shared-context-memory.md",
+      "name": "Workspace Shared Context Memory",
+      "description": "Manage the shared context of a persistent agent workspace so every member sees the same bounded state with reviewable history.",
+      "category": "memory",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "03-memory"
+    },
+    {
       "id": "a2a-cli-task-submission-execution",
       "path": "skills/04-action-execution/a2a-cli-task-submission-execution.md",
       "name": "A2a Cli Task Submission Execution",
@@ -13649,6 +13869,33 @@
         "../17-infrastructure/agent-computer-hardware-provisioning.md",
         "../04-action-execution/long-running-action-monitoring.md"
       ],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "agent-driven-experiment-reproduction-execution",
+      "path": "skills/04-action-execution/agent-driven-experiment-reproduction-execution.md",
+      "name": "Agent Driven Experiment Reproduction Execution",
+      "description": "Execute an agent-driven reproduction of a published computational experiment, bounding launches, debug cycles, and recorded compute.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "04-action-execution"
     },
     {
@@ -15937,6 +16184,35 @@
       "category_dir": "04-action-execution"
     },
     {
+      "id": "market-order-teammate-monitoring-execution",
+      "path": "skills/04-action-execution/market-order-teammate-monitoring-execution.md",
+      "name": "Market Order Teammate Monitoring Execution",
+      "description": "Execute standing market-order monitoring for a teammate agent with bounded check intervals, recorded observations, and escalation stops.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/time-series.md"
+      ],
+      "category_dir": "04-action-execution"
+    },
+    {
       "id": "mcp-csharp-sdk-v2-upgrade-execution",
       "path": "skills/04-action-execution/mcp-csharp-sdk-v2-upgrade-execution.md",
       "name": "MCP C# SDK v2 Upgrade Execution",
@@ -17237,6 +17513,33 @@
       "path": "skills/04-action-execution/task-retry-semantics-execution.md",
       "name": "Task Retry Semantics Execution",
       "description": "Execute remote agent tasks with declared retry semantics and expiry policies so transient failures recover without silent duplication.",
+      "category": "action-execution",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "04-action-execution"
+    },
+    {
+      "id": "text-channel-shopping-agent-purchase-execution",
+      "path": "skills/04-action-execution/text-channel-shopping-agent-purchase-execution.md",
+      "name": "Text Channel Shopping Agent Purchase Execution",
+      "description": "Execute product search, cart mutation, and purchase steps through a text-message shopping agent with idempotent, confirmable actions.",
       "category": "action-execution",
       "level": "advanced",
       "stability": "experimental",
@@ -18575,6 +18878,35 @@
       "category_dir": "05-code"
     },
     {
+      "id": "claude-code-permission-persistence-hardening",
+      "path": "skills/05-code/claude-code-permission-persistence-hardening.md",
+      "name": "Claude Code Permission Persistence Hardening",
+      "description": "Harden local agent permission-save files so approved commands never persist plaintext credentials into version-controlled settings.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../14-security/secret-scanning.md"
+      ],
+      "category_dir": "05-code"
+    },
+    {
       "id": "cloud-session-code-handoff",
       "path": "skills/05-code/cloud-session-code-handoff.md",
       "name": "Cloud Session Code Handoff",
@@ -19038,6 +19370,33 @@
       "path": "skills/05-code/coding-harness-resource-budgeting.md",
       "name": "Coding Harness Resource Budgeting",
       "description": "Budget the compute and memory footprint of a coding-agent harness and verify the budget holds under a representative workload before adoption.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "coding-harness-unattended-reliability-configuration",
+      "path": "skills/05-code/coding-harness-unattended-reliability-configuration.md",
+      "name": "Coding Harness Unattended Reliability Configuration",
+      "description": "Configure a coding harness for unattended runs with explicit attempt budgets, retry rules, and failure-stop conditions.",
       "category": "code",
       "level": "advanced",
       "stability": "experimental",
@@ -21402,6 +21761,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "05-code"
+    },
+    {
+      "id": "stageshow-product-demo-building",
+      "path": "skills/05-code/stageshow-product-demo-building.md",
+      "name": "Stageshow Product Demo Building",
+      "description": "Guide a coding agent to build a scripted faux product UI demo in React that renders deterministic states instead of live backend behavior.",
+      "category": "code",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "05-code"
@@ -24471,6 +24857,33 @@
       "category_dir": "06-communication"
     },
     {
+      "id": "persistent-workspace-confirmation-ux-writing",
+      "path": "skills/06-communication/persistent-workspace-confirmation-ux-writing.md",
+      "name": "Persistent Workspace Confirmation Ux Writing",
+      "description": "Write the confirmation and undo copy for a persistent agent workspace, stating what the agent may do, what needs confirmation, and how work is reviewed or undone.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "06-communication"
+    },
+    {
       "id": "persona-adoption",
       "path": "skills/06-communication/persona-adoption.md",
       "name": "persona-adoption",
@@ -25358,6 +25771,33 @@
         "../06-communication/requirement-elicitation-interviewing.md",
         "../12-data/evaluation-dataset-curation.md"
       ],
+      "category_dir": "06-communication"
+    },
+    {
+      "id": "teammate-trial-outcome-report-writing",
+      "path": "skills/06-communication/teammate-trial-outcome-report-writing.md",
+      "name": "Teammate Trial Outcome Report Writing",
+      "description": "Write a bounded trial-outcome report for an always-on agent assignment, recording completed work, errors, and credit consumption against the approval baseline.",
+      "category": "communication",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "06-communication"
     },
     {
@@ -27337,6 +27777,33 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "llms-txt-mcp-server-discovery-usage",
+      "path": "skills/07-tool-use/llms-txt-mcp-server-discovery-usage.md",
+      "name": "Llms Txt Mcp Server Discovery Usage",
+      "description": "Use llms.txt, MCP server discovery, and OAuth metadata endpoints to enumerate candidate tool servers with recorded verification.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "maf-agent-as-tool-composition",
       "path": "skills/07-tool-use/maf-agent-as-tool-composition.md",
       "name": "Maf Agent As Tool Composition",
@@ -27440,6 +27907,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "07-tool-use"
+    },
+    {
+      "id": "mcp-connector-followup-switch-detection",
+      "path": "skills/07-tool-use/mcp-connector-followup-switch-detection.md",
+      "name": "Mcp Connector Followup Switch Detection",
+      "description": "Detect when a follow-up tool call silently routes to a different connector on the same MCP server and fail the call instead of proceeding.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -29265,6 +29759,35 @@
       "category_dir": "07-tool-use"
     },
     {
+      "id": "teammate-role-tool-grant-scoping",
+      "path": "skills/07-tool-use/teammate-role-tool-grant-scoping.md",
+      "name": "Teammate Role Tool Grant Scoping",
+      "description": "Scope tool grants for teammate agents by assigned role, binding each role to a least-privilege tool set with recorded grant lineage.",
+      "category": "tool-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../03-memory/need-to-know-memory-scoping.md"
+      ],
+      "category_dir": "07-tool-use"
+    },
+    {
       "id": "tool-approval-allowlist-policy-testing",
       "path": "skills/07-tool-use/tool-approval-allowlist-policy-testing.md",
       "name": "Tool Approval Allowlist Policy Testing",
@@ -31085,6 +31608,35 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "digital-tower-camera-overlay-interpretation",
+      "path": "skills/08-multimodal/digital-tower-camera-overlay-interpretation.md",
+      "name": "Digital Tower Camera Overlay Interpretation",
+      "description": "Interpret 360-degree digital-tower camera feeds into controller situational overlays, tracking aircraft, vehicles, and runway state with recorded confidence.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/video-understanding.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "document-figure-description",
       "path": "skills/08-multimodal/document-figure-description.md",
       "name": "Document Figure Description",
@@ -31798,6 +32350,63 @@
       "category_dir": "08-multimodal"
     },
     {
+      "id": "kling-4-short-clip-generation-evaluation",
+      "path": "skills/08-multimodal/kling-4-short-clip-generation-evaluation.md",
+      "name": "Kling 4 Short Clip Generation Evaluation",
+      "description": "Evaluate 30-second clips from the Kling 4.0 video model against a storyboard contract covering continuity, prompt adherence, and artifact bounds.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "laboratory-assay-image-interpretation",
+      "path": "skills/08-multimodal/laboratory-assay-image-interpretation.md",
+      "name": "Laboratory Assay Image Interpretation",
+      "description": "Interpret raw laboratory assay images including gels, cultures, microscopy fields, and instrument readouts into structured readings with recorded uncertainty.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/image-understanding.md",
+        "../02-reasoning/evidence-admissibility-reasoning.md"
+      ],
+      "category_dir": "08-multimodal"
+    },
+    {
       "id": "lip-sync-verification",
       "path": "skills/08-multimodal/lip-sync-verification.md",
       "name": "Lip Sync Verification",
@@ -31976,6 +32585,33 @@
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "08-multimodal"
+    },
+    {
+      "id": "million-token-multimodal-context-budgeting",
+      "path": "skills/08-multimodal/million-token-multimodal-context-budgeting.md",
+      "name": "Million Token Multimodal Context Budgeting",
+      "description": "Budget multimodal inputs across a million-token context window, allocating tokens across text, image, and video before a long-context call is made.",
+      "category": "multimodal",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
       "last_updated": null,
       "sections": [
         "Description",
@@ -36184,6 +36820,35 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "mass-agent-delegation-feasibility-estimation",
+      "path": "skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md",
+      "name": "Mass Agent Delegation Feasibility Estimation",
+      "description": "Estimate the feasibility of delegating a goal to thousands of agents before committing, bounding coordination cost against the task structure.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/consensus-voting.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "mcts",
       "path": "skills/09-agentic-patterns/mcts.md",
       "name": "mcts",
@@ -36751,6 +37416,35 @@
       "category_dir": "09-agentic-patterns"
     },
     {
+      "id": "persistent-teammate-role-pattern",
+      "path": "skills/09-agentic-patterns/persistent-teammate-role-pattern.md",
+      "name": "Persistent Teammate Role Pattern",
+      "description": "Apply the persistent-teammate role pattern, assigning separate roles to always-on agents with defined handoffs and approval gates.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../15-orchestration/state-machine.md"
+      ],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
       "id": "piped-permission-prompt-delegation",
       "path": "skills/09-agentic-patterns/piped-permission-prompt-delegation.md",
       "name": "Piped Permission Prompt Delegation",
@@ -37217,6 +37911,35 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "09-agentic-patterns"
+    },
+    {
+      "id": "reverse-game-theory-agent-checking-pattern",
+      "path": "skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md",
+      "name": "Reverse Game Theory Agent Checking Pattern",
+      "description": "Apply reverse game theory to design checking mechanisms where verifier incentives, not just algorithms, bind agent behavior.",
+      "category": "agentic-patterns",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/adversarial-reasoning.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -40688,6 +41411,33 @@
       "category_dir": "10-computer-use"
     },
     {
+      "id": "product-demo-motion-capture-verification",
+      "path": "skills/10-computer-use/product-demo-motion-capture-verification.md",
+      "name": "Product Demo Motion Capture Verification",
+      "description": "Film a scripted product demo and verify its motion against the storyboard timing, checking transitions, animation, and screen capture fidelity.",
+      "category": "computer-use",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "10-computer-use"
+    },
+    {
       "id": "professional-monitoring-escalation-handoff",
       "path": "skills/10-computer-use/professional-monitoring-escalation-handoff.md",
       "name": "Professional Monitoring Escalation Handoff",
@@ -42090,6 +42840,33 @@
       "category_dir": "11-web"
     },
     {
+      "id": "agent-readable-product-catalog-audit",
+      "path": "skills/11-web/agent-readable-product-catalog-audit.md",
+      "name": "Agent Readable Product Catalog Audit",
+      "description": "Audit a product catalog for machine readability so shopping agents can identify products, compare options, and complete purchases from public information.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "11-web"
+    },
+    {
       "id": "agent-readable-site-markup",
       "path": "skills/11-web/agent-readable-site-markup.md",
       "name": "Agent-Readable Site Markup",
@@ -42455,6 +43232,35 @@
         "Changelog"
       ],
       "related": [],
+      "category_dir": "11-web"
+    },
+    {
+      "id": "assistant-search-share-estimation",
+      "path": "skills/11-web/assistant-search-share-estimation.md",
+      "name": "Assistant Search Share Estimation",
+      "description": "Estimate an AI assistant share of search-style volume against a stated baseline, recording method, sample, and confidence bounds.",
+      "category": "web",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../12-data/statistical-analysis.md"
+      ],
       "category_dir": "11-web"
     },
     {
@@ -48875,6 +49681,33 @@
       "category_dir": "12-data"
     },
     {
+      "id": "quarterly-revenue-growth-deceleration-analysis",
+      "path": "skills/12-data/quarterly-revenue-growth-deceleration-analysis.md",
+      "name": "Quarterly Revenue Growth Deceleration Analysis",
+      "description": "Analyze quarterly revenue deceleration by separating growth-slowdown signals from level effects, cost structure, and one-off items.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
       "id": "query-optimization",
       "path": "skills/12-data/query-optimization.md",
       "name": "Query Optimization",
@@ -49206,6 +50039,33 @@
       "category_dir": "12-data"
     },
     {
+      "id": "semiconductor-lead-time-trend-analysis",
+      "path": "skills/12-data/semiconductor-lead-time-trend-analysis.md",
+      "name": "Semiconductor Lead Time Trend Analysis",
+      "description": "Analyze semiconductor lead-time trends from supplier statements, converting qualitative capacity claims into bounded planning ranges.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
       "id": "session-replay-sampling",
       "path": "skills/12-data/session-replay-sampling.md",
       "name": "Session Replay Sampling",
@@ -49377,6 +50237,33 @@
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "12-data"
+    },
+    {
+      "id": "teammate-credit-consumption-accounting",
+      "path": "skills/12-data/teammate-credit-consumption-accounting.md",
+      "name": "Teammate Credit Consumption Accounting",
+      "description": "Account for credit and token consumption of always-on teammates, attributing spend per role, workflow, and approval period.",
+      "category": "data",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
       "last_updated": null,
       "sections": [
         "Description",
@@ -49910,6 +50797,35 @@
       "category_dir": "13-creative"
     },
     {
+      "id": "agent-rendered-vertical-short-production",
+      "path": "skills/13-creative/agent-rendered-vertical-short-production.md",
+      "name": "Agent Rendered Vertical Short Production",
+      "description": "Produce 55 to 70 second vertical story shorts with a local rendering pipeline of style bible, templates, and QA scripts instead of an AI video generator.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../08-multimodal/video-frame-extraction.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
       "id": "agent-store-listing-copy",
       "path": "skills/13-creative/agent-store-listing-copy.md",
       "name": "Agent Store Listing Copy",
@@ -49966,6 +50882,35 @@
       "related": [
         "../13-creative/agent-capability-marketplace-listing-copywriting.md",
         "../13-creative/pricing-tier-announcement-copywriting.md"
+      ],
+      "category_dir": "13-creative"
+    },
+    {
+      "id": "agent-workspace-environment-design",
+      "path": "skills/13-creative/agent-workspace-environment-design.md",
+      "name": "Agent Workspace Environment Design",
+      "description": "Design a persistent agent workspace environment as one product, uniting shared context, tool surfaces, and interaction affordances around a recurring activity.",
+      "category": "creative",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../05-code/stageshow-product-demo-building.md"
       ],
       "category_dir": "13-creative"
     },
@@ -53803,6 +54748,33 @@
       "category_dir": "14-security"
     },
     {
+      "id": "artex-secret-harvest-attack-recovery-operations",
+      "path": "skills/14-security/artex-secret-harvest-attack-recovery-operations.md",
+      "name": "Artex Secret Harvest Attack Recovery Operations",
+      "description": "Operate recovery after an agentic secret-harvest attack that chains public-repository discovery into cloud data exfiltration within minutes.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
       "id": "audit-logging",
       "path": "skills/14-security/audit-logging.md",
       "name": "Audit Logging",
@@ -54617,6 +55589,33 @@
       "category_dir": "14-security"
     },
     {
+      "id": "gpu-confidential-computing-readiness-verification",
+      "path": "skills/14-security/gpu-confidential-computing-readiness-verification.md",
+      "name": "Gpu Confidential Computing Readiness Verification",
+      "description": "Verify readiness for verifiable confidential computing on GPUs, checking attestation, workload isolation, and evidence paths against stated goals.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
       "id": "harm-detection",
       "path": "skills/14-security/harm-detection.md",
       "name": "Harm Detection",
@@ -54841,6 +55840,33 @@
       "stability": "experimental",
       "version": "v1",
       "added": "2026-10",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "k-12-ai-deployment-child-safety-guardrails",
+      "path": "skills/14-security/k-12-ai-deployment-child-safety-guardrails.md",
+      "name": "K 12 Ai Deployment Child Safety Guardrails",
+      "description": "Install child-safety guardrails for AI deployments in K-12 settings, bounding content access, data retention, and escalation to guardians.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
       "last_updated": null,
       "sections": [
         "Description",
@@ -56003,6 +57029,33 @@
         "Boundary",
         "Evidence",
         "Related"
+      ],
+      "related": [],
+      "category_dir": "14-security"
+    },
+    {
+      "id": "public-settings-secret-leak-sweep-operations",
+      "path": "skills/14-security/public-settings-secret-leak-sweep-operations.md",
+      "name": "Public Settings Secret Leak Sweep Operations",
+      "description": "Sweep public repositories for plaintext credentials leaked through agent permission-save settings files, prioritizing default branches by exposure age.",
+      "category": "security",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "14-security"
@@ -58646,6 +59699,33 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "gemini-at-work-rollout-orchestration",
+      "path": "skills/15-orchestration/gemini-at-work-rollout-orchestration.md",
+      "name": "Gemini At Work Rollout Orchestration",
+      "description": "Orchestrate a phased Gemini-at-Work rollout, sequencing seat waves, tool integrations, and governance gates with recorded verification.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "governed-ontology-context-orchestration",
       "path": "skills/15-orchestration/governed-ontology-context-orchestration.md",
       "name": "Governed Ontology Context Orchestration",
@@ -60273,6 +61353,33 @@
       "category_dir": "15-orchestration"
     },
     {
+      "id": "teammate-parallel-thread-monitoring-orchestration",
+      "path": "skills/15-orchestration/teammate-parallel-thread-monitoring-orchestration.md",
+      "name": "Teammate Parallel Thread Monitoring Orchestration",
+      "description": "Orchestrate parallel persistent agents in dedicated monitoring threads, aggregating their states into one supervisor view with bounded check cadence.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
       "id": "thread-based-resume",
       "path": "skills/15-orchestration/thread-based-resume.md",
       "name": "Thread-Based Resume",
@@ -60303,6 +61410,33 @@
       "path": "skills/15-orchestration/tiered-support-escalation-orchestration.md",
       "name": "Tiered Support Escalation Orchestration",
       "description": "Orchestrate tiered support escalation by routing each ticket through automated resolution tiers with explicit complexity triggers for human handoff.",
+      "category": "orchestration",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "15-orchestration"
+    },
+    {
+      "id": "unattended-coding-agent-supervision-orchestration",
+      "path": "skills/15-orchestration/unattended-coding-agent-supervision-orchestration.md",
+      "name": "Unattended Coding Agent Supervision Orchestration",
+      "description": "Orchestrate supervision of unattended coding agents with attempt budgets, periodic checkpoints, and stop conditions that hand control back to a human.",
       "category": "orchestration",
       "level": "advanced",
       "stability": "experimental",
@@ -60986,6 +62120,35 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "ai-growth-slowness-macro-risk-analysis",
+      "path": "skills/16-domain-specific/ai-growth-slowness-macro-risk-analysis.md",
+      "name": "Ai Growth Slowness Macro Risk Analysis",
+      "description": "Analyze macroeconomic downside scenarios from an AI growth slowdown, translating productivity-risk warnings into bounded exposure ranges.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/calibrated-forecast-reasoning.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "ai-management-platform-evaluation-operations",
       "path": "skills/16-domain-specific/ai-management-platform-evaluation-operations.md",
       "name": "AI Management Platform Evaluation Operations",
@@ -61040,6 +62203,33 @@
         "../16-domain-specific/portfolio-analysis.md",
         "../06-communication/agentic-roi-maturity-report-writing.md"
       ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "ai-safety-advocacy-campaign-outcome-analysis",
+      "path": "skills/16-domain-specific/ai-safety-advocacy-campaign-outcome-analysis.md",
+      "name": "Ai Safety Advocacy Campaign Outcome Analysis",
+      "description": "Analyze advocacy campaign outcomes for AI-safety-backed candidates, attributing wins and losses with recorded spending and race context.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "16-domain-specific"
     },
     {
@@ -61929,6 +63119,35 @@
       "related": [
         "../16-domain-specific/compliance-checking.md",
         "../16-domain-specific/regulatory-change-monitoring.md"
+      ],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "ex-ussr-kinship-evidence-research",
+      "path": "skills/16-domain-specific/ex-ussr-kinship-evidence-research.md",
+      "name": "Ex Ussr Kinship Evidence Research",
+      "description": "Research ex-USSR family history with an evidence-first case file, grading each kinship claim by archive record status and audit trail.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../02-reasoning/evidence-admissibility-reasoning.md"
       ],
       "category_dir": "16-domain-specific"
     },
@@ -63322,6 +64541,33 @@
       "category_dir": "16-domain-specific"
     },
     {
+      "id": "police-drone-program-procurement-review",
+      "path": "skills/16-domain-specific/police-drone-program-procurement-review.md",
+      "name": "Police Drone Program Procurement Review",
+      "description": "Review a police drone program procurement covering exclusivity terms, data handling, oversight rights, and community disclosure.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
       "id": "portfolio-analysis",
       "path": "skills/16-domain-specific/portfolio-analysis.md",
       "name": "portfolio-analysis",
@@ -63449,6 +64695,35 @@
         "Related"
       ],
       "related": [],
+      "category_dir": "16-domain-specific"
+    },
+    {
+      "id": "reachy-mini-mobility-update-deployment",
+      "path": "skills/16-domain-specific/reachy-mini-mobility-update-deployment.md",
+      "name": "Reachy Mini Mobility Update Deployment",
+      "description": "Deploy a mobility software update to a Reachy Mini robot, staging the rollout and verifying locomotion safety checks before release.",
+      "category": "domain-specific",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [
+        "../01-perception/gesture-recognition.md"
+      ],
       "category_dir": "16-domain-specific"
     },
     {
@@ -66861,6 +68136,33 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "satellite-constellation-onboard-ai-beam-routing-provisioning",
+      "path": "skills/17-infrastructure/satellite-constellation-onboard-ai-beam-routing-provisioning.md",
+      "name": "Satellite Constellation Onboard Ai Beam Routing Provisioning",
+      "description": "Provision onboard AI beam routing for a satellite constellation, bounding per-satellite compute against real-time bandwidth allocation requirements.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "satellite-onboard-inference-deployment",
       "path": "skills/17-infrastructure/satellite-onboard-inference-deployment.md",
       "name": "Satellite Onboard Inference Deployment",
@@ -67053,6 +68355,33 @@
       "category_dir": "17-infrastructure"
     },
     {
+      "id": "southeast-asia-datacenter-buildout-constraint-analysis",
+      "path": "skills/17-infrastructure/southeast-asia-datacenter-buildout-constraint-analysis.md",
+      "name": "Southeast Asia Datacenter Buildout Constraint Analysis",
+      "description": "Analyze datacenter buildout constraints in Southeast Asia, reconciling capacity pipelines with power limits, approvals, and country freezes.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
+      "category_dir": "17-infrastructure"
+    },
+    {
       "id": "sparse-moe-closed-weight-preview-serving",
       "path": "skills/17-infrastructure/sparse-moe-closed-weight-preview-serving.md",
       "name": "Sparse MoE Closed-Weight Preview Serving",
@@ -67164,6 +68493,33 @@
         "../17-infrastructure/agent-hibernation-storage-tiering.md",
         "../17-infrastructure/database-backup-automation.md"
       ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "super-compute-site-permit-alignment-review",
+      "path": "skills/17-infrastructure/super-compute-site-permit-alignment-review.md",
+      "name": "Super Compute Site Permit Alignment Review",
+      "description": "Review permit alignment for a gas-powered super-compute site, reconciling filings, air permits, tax deals, and moratorium exposure before commitments.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "17-infrastructure"
     },
     {
@@ -67332,6 +68688,33 @@
         "../17-infrastructure/edge-inference-deployment.md",
         "../17-infrastructure/container-image-slimming.md"
       ],
+      "category_dir": "17-infrastructure"
+    },
+    {
+      "id": "wind-linked-datacenter-campus-power-provisioning",
+      "path": "skills/17-infrastructure/wind-linked-datacenter-campus-power-provisioning.md",
+      "name": "Wind Linked Datacenter Campus Power Provisioning",
+      "description": "Provision power for a wind-linked datacenter campus, matching phased delivery to capacity plans with DC distribution and curtailment handling.",
+      "category": "infrastructure",
+      "level": "advanced",
+      "stability": "experimental",
+      "version": "v1",
+      "added": "2026-11",
+      "last_updated": null,
+      "sections": [
+        "Description",
+        "When to Use",
+        "Inputs",
+        "Procedure",
+        "Outputs",
+        "Runnable Example",
+        "Failure Modes",
+        "Security and Authority Boundary",
+        "Evidence",
+        "Related Skills",
+        "Changelog"
+      ],
+      "related": [],
       "category_dir": "17-infrastructure"
     },
     {
