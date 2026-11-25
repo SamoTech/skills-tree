@@ -1,0 +1,50 @@
+name: Temp regen - modernization inventory (branch-local steward tooling)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-regen-modernization-inventory
+  cancel-in-progress: false
+
+jobs:
+  regen:
+    if: github.event.pull_request.head.ref == 'counsel/modernization-inventory'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install tool dependencies
+        run: python -m pip install --quiet pyyaml pytest jsonschema
+      - name: Run deterministic modernization inventory
+        id: inv
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          python tools/modernization_inventory.py 2>&1 | tee meta/INVENTORY-LOG.txt
+      - name: Validate freshness contract inline
+        continue-on-error: true
+        run: python -m pytest tests/test_modernization_inventory.py -q 2>&1 | tee meta/INVENTORY-TEST.txt
+      - name: Commit generated inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add meta/MODERNIZATION-INVENTORY.md meta/INVENTORY-LOG.txt meta/INVENTORY-TEST.txt
+          if git diff --cached --quiet; then
+            echo "No inventory changes; nothing to commit"
+          else
+            git commit -m "chore(regen): deterministic modernization inventory refresh"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
