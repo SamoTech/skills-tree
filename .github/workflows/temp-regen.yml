@@ -35,12 +35,6 @@ jobs:
           set -o pipefail
           python tools/modernization_inventory.py 2>&1 | tee meta/INVENTORY-LOG.txt
           test -f meta/MODERNIZATION-INVENTORY.md
-      - name: Validate freshness contract inline
-        env:
-          PYTHONPATH: ${{ github.workspace }}
-        run: |
-          python -m pytest tests/test_modernization_inventory.py -q > meta/INVENTORY-TEST.txt 2>&1
-          tail -3 meta/INVENTORY-TEST.txt
       - name: Commit generated inventory
         run: |
           git config user.name "github-actions[bot]"
@@ -54,6 +48,12 @@ jobs:
           else
             git commit -m "chore(regen): deterministic modernization inventory refresh"
           fi
+      - name: Validate freshness contract inline
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m pytest tests/test_modernization_inventory.py -q > meta/INVENTORY-TEST.txt 2>&1
+          tail -3 meta/INVENTORY-TEST.txt
       - name: Push generated inventory
         run: |
           if ! push_out="$(git push origin HEAD:counsel/modernization-inventory 2>&1)"; then
