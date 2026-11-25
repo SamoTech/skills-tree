@@ -39,14 +39,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          echo "::warning::pwd=$(pwd) files=$(ls meta | head -10 | tr "Q" " ")"
           if ! add_out="$(git add meta/MODERNIZATION-INVENTORY.md meta/INVENTORY-LOG.txt 2>&1)"; then
-            echo "::error title=add-failed::$(echo "$add_out" | head -1)"
+            echo "::error title=add-failed::$add_out"
             exit 1
           fi
-          if git diff --cached --quiet; then
-            echo "::notice::no inventory changes; nothing to commit"
+          echo "::warning::add-ok staged=$(git status --porcelain | head -5)"
+          if ! git diff --cached --quiet; then
+            if ! c_out="$(git commit -m "chore(regen): deterministic modernization inventory refresh" 2>&1)"; then
+              echo "::error title=commit-failed::$c_out"
+              exit 1
+            fi
+            echo "::warning::commit-ok"
           else
-            git commit -m "chore(regen): deterministic modernization inventory refresh"
+            echo "::warning::nothing-cached"
           fi
       - name: Validate freshness contract inline
         env:
@@ -59,8 +65,12 @@ jobs:
             exit 1
           fi
           head -3 meta/INVENTORY-TEST.txt
-      - name: Push generated inventory
+      - name: Add validation record and push
         run: |
+          git add meta/INVENTORY-TEST.txt || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(regen): add validation log" || true
+          fi
           if ! push_out="$(git push origin HEAD:counsel/modernization-inventory 2>&1)"; then
             echo "::error title=push-failed::$(echo "$push_out" | head -1)"
             exit 1
