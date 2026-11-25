@@ -28,11 +28,6 @@ jobs:
           python-version: '3.12'
       - name: Install tool dependencies
         run: python -m pip install --quiet pyyaml pytest jsonschema
-      - name: Show environment references
-        run: |
-          git rev-parse HEAD || echo "detached: no commits"
-          git log --oneline -2 || true
-          git status --short | head -5 || true
       - name: Run deterministic modernization inventory
         id: inv
         continue-on-error: true
@@ -55,8 +50,7 @@ jobs:
       - name: Push generated inventory
         run: |
           if ! push_out="$(git push origin HEAD:counsel/modernization-inventory 2>&1)"; then
-            echo "::error::push-failed: $(printf "%s" "$push_out" | head -c 280 | tr "
-" "|")"
+            echo "::error::push-failed: $(echo "$push_out" | head -1)"
             exit 1
           fi
           echo "push ok: $push_out"
