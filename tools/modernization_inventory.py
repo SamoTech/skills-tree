@@ -1,4 +1,3 @@
-"""Deterministic modernization inventory for the canonical skill corpus.
 
 Owner-directed by issue #699 (2026-11-25): inventory every canonical skill in
 skills/ and classify it into a transparent modernization state, so
@@ -271,6 +270,11 @@ def render_markdown(records: list[InventoryRecord]) -> str:
         "",
     ])
     return "\n".join(lines)
+
+
+def build_inventory_markdown() -> str:
+    """Deterministic one-shot render used by the freshness test."""
+    return render_markdown(build_records())
 
 
 def main() -> int:
