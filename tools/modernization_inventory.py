@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Deterministic modernization inventory for the canonical skill corpus.
 
 Owner-directed by issue #699 (2026-11-25): inventory every canonical skill in
@@ -43,6 +42,9 @@ import sys
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
+
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from tools.audit_skill_corpus import audit_skill_files
 from tools.check_skill_quality import (

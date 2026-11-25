@@ -29,19 +29,26 @@ jobs:
       - name: Install tool dependencies
         run: python -m pip install --quiet pyyaml pytest jsonschema
       - name: Run deterministic modernization inventory
-        id: inv
-        continue-on-error: true
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           set -o pipefail
           python tools/modernization_inventory.py 2>&1 | tee meta/INVENTORY-LOG.txt
+          test -f meta/MODERNIZATION-INVENTORY.md
       - name: Validate freshness contract inline
-        continue-on-error: true
-        run: python -m pytest tests/test_modernization_inventory.py -q 2>&1 | tee meta/INVENTORY-TEST.txt
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m pytest tests/test_modernization_inventory.py -q > meta/INVENTORY-TEST.txt 2>&1
+          tail -3 meta/INVENTORY-TEST.txt
       - name: Commit generated inventory
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add meta/MODERNIZATION-INVENTORY.md meta/INVENTORY-LOG.txt meta/INVENTORY-TEST.txt
+          if ! add_out="$(git add meta/MODERNIZATION-INVENTORY.md meta/INVENTORY-LOG.txt meta/INVENTORY-TEST.txt 2>&1)"; then
+            echo "::error title=add-failed::$(echo "$add_out" | head -1)"
+            exit 1
+          fi
           if git diff --cached --quiet; then
             echo "::notice::no inventory changes; nothing to commit"
           else
@@ -50,7 +57,7 @@ jobs:
       - name: Push generated inventory
         run: |
           if ! push_out="$(git push origin HEAD:counsel/modernization-inventory 2>&1)"; then
-            echo "::error::push-failed: $(echo "$push_out" | head -1)"
+            echo "::error title=push-failed::$(echo "$push_out" | head -1)"
             exit 1
           fi
           echo "push ok: $push_out"
