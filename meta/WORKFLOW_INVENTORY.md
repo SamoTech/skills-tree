@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,6 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+| `temp-regen.yml` | Temporary steward tooling (branch-local) | Deterministic projection regen + distribution-audit capture for PR (P0 integrity link repairs, issue #699); deleted before merge (net zero), see the 2026-11-26 P0 disposition |
 
 ## Reconciliation findings
 
@@ -306,3 +307,6 @@ Third closure note (2026-11-06, batch 1 link-repair cycle): the third re-opened 
 `temp-regen.yml` is temporary steward tooling on the `counsel/modernization-inventory` branch only: it runs the deterministic modernization inventory generator (`tools/modernization_inventory.py`) at the branch head, validates the new byte-freshness contract inline, and commits the generated `meta/MODERNIZATION-INVENTORY.md` plus diagnostic logs. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the temporary row above is removed at cleanup with a closure note.
 
 Closure note (2026-11-26, PR #700 modernization-inventory cycle): the temporary `temp-regen.yml` steward workflow completed its purpose after the opening-docstring SyntaxError fix (`e932864d` restored the missing `"""` delimiter; bot regen commit then produced a byte-fresh `meta/MODERNIZATION-INVENTORY.md` and the inline freshness pytest passed 3/3), and it has been deleted from the branch before merge together with its temporary logs (`meta/INVENTORY-LOG.txt`, `meta/INVENTORY-TEST.txt`). The live workflow count returns to 46; no CI, quality, security, or governance gate is weakened and the new byte-freshness contract (`tests/test_modernization_inventory.py`) is retained as a permanent main-side gate.
+## Disposition update - 2026-11-26 (P0 integrity link repairs, temporary regen tooling)
+
+`temp-regen.yml` is temporary steward tooling on the `counsel/p0-integrity-link-repairs-2026-11-26` branch only: it re-derives drifted agent-skills packages byte-exactly through the repository own `project()`/`write_projection()` with the reconcile `desired_names` resolution (skipping ineligible projections), runs the repository own generators (build_graph, build_search_index, export_skills, check_skill_quality, update_readme_counts, modernization_inventory) at the branch head, aligns the two committed graph projections to one build, and captures the Agent Skills distribution-audit outputs for diagnosis. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the PR independently.
