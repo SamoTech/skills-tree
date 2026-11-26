@@ -1767,7 +1767,7 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 
 **Confidence:** High
 
-**Evidence IDs:** `meta/MODERNIZATION-INVENTORY.md` (PR #700 integrity scan), PR #702, PR #703 (supersedes #702 content after base moved).
+**Evidence IDs:** `meta/MODERNIZATION-INVENTORY.md` (PR #700 integrity scan), PR #702, PR #705 (supersedes #702 content after base moved).
 
 **Status:** LOCKED
 
