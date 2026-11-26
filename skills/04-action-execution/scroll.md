@@ -1,14 +1,15 @@
 ---
-title: "Scroll"
+title: "Scroll (Interface Container)"
 category: 04-action-execution
 level: basic
 stability: stable
+version: v1
 description: "Scroll a verified interface container by a bounded amount and verify the resulting viewport state."
 added: "2026-09"
 related: [mouse-input, screen-reading, assertion]
 ---
 
-# Scroll
+# Scroll (Interface Container)
 
 ## Description
 
@@ -53,3 +54,9 @@ Wrong container; unbounded loop; assumed viewport change; bypassing authorizatio
 - AI_CONSTITUTION.md
 - AGENTS.md
 - Repository security and validation workflows
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |
