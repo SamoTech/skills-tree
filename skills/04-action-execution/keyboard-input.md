@@ -55,7 +55,7 @@ def type_bounded(target, text: str, sensitive: bool = False, limit: int = 2000) 
             "failure": None if verified else "field content mismatch",
             "logged": "***" if sensitive else text}
 
-field = type(f"Field{i}" for i in range(0))  # placeholder; use a real locator in a browser session
+# usage in a browser session: type_bounded(page.get_by_role("textbox", name="Email"), "user@example.com")
 ```
 
 ### Related Skills
