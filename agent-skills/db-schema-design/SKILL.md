@@ -34,15 +34,15 @@ fields = [Field("id"), Field("created_at")]
 print([f.name for f in fields])
 ```
 
-## Failure modes
+## Failure Modes
 - Designing without inspecting the current schema.
 - Introducing destructive changes without a recovery path.
 - Ignoring query patterns and constraints.
 - Claiming migration safety without executing validation.
 
 ## Related
-- [AI Constitution](../../AI_CONSTITUTION.md)
-- [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
+- [Database Migration Writing](database-migration-writing.md)
+- [SQL Query Generation](sql-query-generation.md)
 
 ## Evidence
 Repository-backed implementation guidance grounded in the repository governance and validation model; no external benchmark claim is made.

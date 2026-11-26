@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:35:28Z",
+  "dateModified": "2026-11-26T12:26:51Z",
   "skillId": "code-translation",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -63,14 +63,11 @@
     "When to Use",
     "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Failure modes",
+    "Failure Modes",
     "Related",
     "Evidence"
   ],
-  "relatedSkills": [
-    "../../AI_CONSTITUTION.md",
-    "../../meta/AGENT_OPERATING_MODEL.md"
-  ],
+  "relatedSkills": [],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",

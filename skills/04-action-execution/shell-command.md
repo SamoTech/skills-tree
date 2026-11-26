@@ -5,7 +5,7 @@ level: advanced
 stability: stable
 description: "Execute a permitted local command with explicit working directory, environment, timeout, and output bounds."
 added: "2026-09"
-related: [process-management, environment-variables, approval-before-destructive-tools]
+related: [process-management, env-vars, approval-before-destructive-tools]
 ---
 
 # Shell Command
@@ -38,14 +38,14 @@ def run_command(argv, cwd):
     return subprocess.run(argv, cwd=cwd, capture_output=True, text=True, timeout=30)
 ```
 
-## Failure modes
+## Failure Modes
 
 Untrusted command strings; shell injection; unnecessary secrets; no timeout or output bound.
 
 ## Related
 
 - `process-management.md`
-- `environment-variables.md`
+- `env-vars.md`
 - `approval-before-destructive-tools.md`
 
 ## Evidence

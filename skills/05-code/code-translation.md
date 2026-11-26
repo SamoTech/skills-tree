@@ -33,7 +33,7 @@ print(f'Repository files discovered: {len(files)}')
 print('Inspect relevant files before making changes.')
 ```
 
-## Failure modes
+## Failure Modes
 - Acting on an inferred requirement instead of an explicit one.
 - Modifying unrelated files or interfaces.
 - Treating a passing local example as sufficient verification.
@@ -41,8 +41,8 @@ print('Inspect relevant files before making changes.')
 - Reporting completion without reproducible evidence.
 
 ## Related
-- [AI Constitution](../../AI_CONSTITUTION.md)
-- [Agent operating model](../../meta/AGENT_OPERATING_MODEL.md)
+- [Code Generation](code-generation.md)
+- [Code Explanation](code-explanation.md)
 
 ## Evidence
 Repository-backed implementation guidance. The skill is grounded in the repository's governance, validation workflows, and evidence-first operating model; no external benchmark claim is made.

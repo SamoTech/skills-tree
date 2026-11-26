@@ -17,9 +17,9 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2329
-- **Structural upgrade required (enriched tier):** 135
-- **Integrity remediation required:** 24
+- **Dependency evidence required:** 2330
+- **Structural upgrade required (enriched tier):** 138
+- **Integrity remediation required:** 20
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
@@ -71,7 +71,7 @@ projection edits, exact-head CI before merge).
 Corpus expansion is explicitly deprioritized while this modernization
 initiative is open (issue #699: existing skills first).
 
-## P0 - Integrity remediation required (24)
+## P0 - Integrity remediation required (20)
 
 - [skills/01-perception/audio-transcription.md](skills/01-perception/audio-transcription.md) - duplicated-title
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - duplicated-title
@@ -81,10 +81,6 @@ initiative is open (issue #699: existing skills first).
 - [skills/03-memory/rag.md](skills/03-memory/rag.md) - duplicated-title
 - [skills/04-action-execution/screenshot-capture.md](skills/04-action-execution/screenshot-capture.md) - duplicated-title
 - [skills/04-action-execution/scroll.md](skills/04-action-execution/scroll.md) - duplicated-title
-- [skills/04-action-execution/shell-command.md](skills/04-action-execution/shell-command.md) - broken, missing-related:environment-variables.md
-- [skills/05-code/algorithm-design.md](skills/05-code/algorithm-design.md) - broken, missing-related:defining-requirements.md, missing-related:testing.md
-- [skills/05-code/code-translation.md](skills/05-code/code-translation.md) - broken, missing-related:../../AI_CONSTITUTION.md, missing-related:../../meta/AGENT_OPERATING_MODEL.md
-- [skills/05-code/db-schema-design.md](skills/05-code/db-schema-design.md) - broken, missing-related:../../AI_CONSTITUTION.md, missing-related:../../meta/AGENT_OPERATING_MODEL.md
 - [skills/05-code/dependency-auditor.md](skills/05-code/dependency-auditor.md) - duplicated-title
 - [skills/05-code/github-api.md](skills/05-code/github-api.md) - duplicated-title
 - [skills/07-tool-use/github-api.md](skills/07-tool-use/github-api.md) - duplicated-title
@@ -106,7 +102,7 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (135)
+## P1 - Structural upgrade required (enriched tier) (138)
 
 - [skills/01-perception/image-understanding.md](skills/01-perception/image-understanding.md) - no inputs/outputs/failure-modes table
 - [skills/01-perception/multimodal-document-reading.md](skills/01-perception/multimodal-document-reading.md)
@@ -125,10 +121,13 @@ _None._
 - [skills/04-action-execution/mouse-input.md](skills/04-action-execution/mouse-input.md)
 - [skills/04-action-execution/notification-sending.md](skills/04-action-execution/notification-sending.md)
 - [skills/04-action-execution/process-management.md](skills/04-action-execution/process-management.md)
+- [skills/04-action-execution/shell-command.md](skills/04-action-execution/shell-command.md)
 - [skills/04-action-execution/wait-sleep.md](skills/04-action-execution/wait-sleep.md)
 - [skills/05-code/code-execution-sandbox.md](skills/05-code/code-execution-sandbox.md)
 - [skills/05-code/code-explanation.md](skills/05-code/code-explanation.md)
 - [skills/05-code/code-search.md](skills/05-code/code-search.md)
+- [skills/05-code/code-translation.md](skills/05-code/code-translation.md)
+- [skills/05-code/db-schema-design.md](skills/05-code/db-schema-design.md)
 - [skills/05-code/debugging.md](skills/05-code/debugging.md)
 - [skills/05-code/dependency-management.md](skills/05-code/dependency-management.md)
 - [skills/05-code/dockerfile-generation.md](skills/05-code/dockerfile-generation.md)
@@ -244,7 +243,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2329)
+## P2 - Dependency evidence required (2330)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -887,6 +886,7 @@ _None._
 - [skills/05-code/agents-md-authoring.md](skills/05-code/agents-md-authoring.md) - badge color lightgrey (unscanned)
 - [skills/05-code/ai-cli-mcp-config-composition.md](skills/05-code/ai-cli-mcp-config-composition.md) - badge color lightgrey (unscanned)
 - [skills/05-code/ai-dlc-harness-neutral-workflow-adoption.md](skills/05-code/ai-dlc-harness-neutral-workflow-adoption.md) - badge color lightgrey (unscanned)
+- [skills/05-code/algorithm-design.md](skills/05-code/algorithm-design.md) - badge color lightgrey (unscanned)
 - [skills/05-code/android-cli-agent-plugin-wiring.md](skills/05-code/android-cli-agent-plugin-wiring.md) - badge color lightgrey (unscanned)
 - [skills/05-code/api-client-generation.md](skills/05-code/api-client-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/appfunctions-mcp-tool-implementation.md](skills/05-code/appfunctions-mcp-tool-implementation.md) - badge color lightgrey (unscanned)

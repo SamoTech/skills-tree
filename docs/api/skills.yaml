@@ -1,4 +1,4 @@
-generated: '2026-11-08T02:05:30Z'
+generated: '2026-11-26T12:26:59Z'
 count: 2488
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -15837,7 +15837,7 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
   related: []
@@ -16994,7 +16994,7 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
   related: []
@@ -17686,12 +17686,10 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
-  related:
-  - ../../AI_CONSTITUTION.md
-  - ../../meta/AGENT_OPERATING_MODEL.md
+  related: []
   category_dir: 05-code
 - id: codebase-onboarding
   path: skills/05-code/codebase-onboarding.md
@@ -18041,12 +18039,10 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
-  related:
-  - ../../AI_CONSTITUTION.md
-  - ../../meta/AGENT_OPERATING_MODEL.md
+  related: []
   category_dir: 05-code
 - id: dead-code-elimination-verification
   path: skills/05-code/dead-code-elimination-verification.md
