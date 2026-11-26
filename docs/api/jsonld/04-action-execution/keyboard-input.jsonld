@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/keyboard-input.md",
   "name": "Keyboard Input",
   "headline": "Keyboard Input",
-  "description": "Send bounded keyboard input to a verified target while controlling focus and sensitive text.",
+  "description": "Send bounded keyboard input to a verified target while controlling focus, protecting sensitive text, and avoiding destructive shortcuts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/keyboard-input.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T17:23:07Z",
   "skillId": "keyboard-input",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],

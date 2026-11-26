@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/drag-drop.md",
   "name": "Drag and Drop",
   "headline": "Drag and Drop",
-  "description": "Perform a bounded desktop or browser drag-and-drop action using verified source and destination targets.",
+  "description": "Perform a bounded desktop or browser drag-and-drop action using verified source and destination targets, then confirm the resulting state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/drag-drop.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:04:34Z",
+  "dateModified": "2026-11-26T17:22:55Z",
   "skillId": "drag-drop",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],

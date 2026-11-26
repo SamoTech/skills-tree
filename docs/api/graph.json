@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-26T16:49:08.506344+00:00",
+    "generated_at": "2026-11-26T17:25:09.780148+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3673,
+    "edge_count": 3697,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -8224,7 +8224,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -8479,7 +8479,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -8704,7 +8704,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -8989,7 +8989,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -9019,7 +9019,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -9169,7 +9169,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -9364,7 +9364,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -9649,7 +9649,7 @@
       "layer": "systems",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -44209,6 +44209,30 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/drag-drop",
+      "target": "04-action-execution/mouse-input",
+      "type": "RELATED_TO",
+      "evidence": "[Mouse Input](mouse-input.md)",
+      "source_file": "skills/04-action-execution/drag-drop.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/drag-drop",
+      "target": "04-action-execution/screenshot-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Screenshot Capture](screenshot-capture.md)",
+      "source_file": "skills/04-action-execution/drag-drop.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/drag-drop",
+      "target": "04-action-execution/assertion",
+      "type": "RELATED_TO",
+      "evidence": "[Assertion](assertion.md)",
+      "source_file": "skills/04-action-execution/drag-drop.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/durable-resume-after-provider-restart",
       "target": "04-action-execution/idempotent-retries",
       "type": "RELATED_TO",
@@ -44350,6 +44374,30 @@
       "type": "RELATED_TO",
       "evidence": "[File System Reading](../01-perception/file-system-reading.md)",
       "source_file": "skills/04-action-execution/file-write.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/form-submission",
+      "target": "04-action-execution/keyboard-input",
+      "type": "RELATED_TO",
+      "evidence": "[Keyboard Input](keyboard-input.md)",
+      "source_file": "skills/04-action-execution/form-submission.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/form-submission",
+      "target": "14-security/input-sanitization",
+      "type": "RELATED_TO",
+      "evidence": "[Input Sanitization](../14-security/input-sanitization.md)",
+      "source_file": "skills/04-action-execution/form-submission.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/form-submission",
+      "target": "04-action-execution/assertion",
+      "type": "RELATED_TO",
+      "evidence": "[Assertion](assertion.md)",
+      "source_file": "skills/04-action-execution/form-submission.md",
       "confidence": "high"
     },
     {
@@ -44566,6 +44614,30 @@
       "type": "RELATED_TO",
       "evidence": "[Lab Procedure Action Execution](lab-procedure-action-execution.md)",
       "source_file": "skills/04-action-execution/irreversible-transaction-pre-execution-verification.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/keyboard-input",
+      "target": "04-action-execution/mouse-input",
+      "type": "RELATED_TO",
+      "evidence": "[Mouse Input](mouse-input.md)",
+      "source_file": "skills/04-action-execution/keyboard-input.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/keyboard-input",
+      "target": "04-action-execution/clipboard-ops",
+      "type": "RELATED_TO",
+      "evidence": "[Clipboard Operations](clipboard-ops.md)",
+      "source_file": "skills/04-action-execution/keyboard-input.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/keyboard-input",
+      "target": "04-action-execution/screenshot-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Screenshot Capture](screenshot-capture.md)",
+      "source_file": "skills/04-action-execution/keyboard-input.md",
       "confidence": "high"
     },
     {
@@ -44793,6 +44865,30 @@
       "confidence": "high"
     },
     {
+      "source": "04-action-execution/mouse-input",
+      "target": "04-action-execution/keyboard-input",
+      "type": "RELATED_TO",
+      "evidence": "[Keyboard Input](keyboard-input.md)",
+      "source_file": "skills/04-action-execution/mouse-input.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/mouse-input",
+      "target": "04-action-execution/screenshot-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Screenshot Capture](screenshot-capture.md)",
+      "source_file": "skills/04-action-execution/mouse-input.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/mouse-input",
+      "target": "04-action-execution/assertion",
+      "type": "RELATED_TO",
+      "evidence": "[Assertion](assertion.md)",
+      "source_file": "skills/04-action-execution/mouse-input.md",
+      "confidence": "high"
+    },
+    {
       "source": "04-action-execution/nfc-device-pairing-action-automation",
       "target": "04-action-execution/device-authorization-flow-execution",
       "type": "RELATED_TO",
@@ -44806,6 +44902,30 @@
       "type": "RELATED_TO",
       "evidence": "[Peripheral Device Detection](../10-computer-use/peripheral-device-detection.md)",
       "source_file": "skills/04-action-execution/nfc-device-pairing-action-automation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/notification-sending",
+      "target": "04-action-execution/email-sending",
+      "type": "RELATED_TO",
+      "evidence": "[Email Sending](email-sending.md)",
+      "source_file": "skills/04-action-execution/notification-sending.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/notification-sending",
+      "target": "04-action-execution/assertion",
+      "type": "RELATED_TO",
+      "evidence": "[Assertion](assertion.md)",
+      "source_file": "skills/04-action-execution/notification-sending.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/notification-sending",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](../07-tool-use/tool-guardrails.md)",
+      "source_file": "skills/04-action-execution/notification-sending.md",
       "confidence": "high"
     },
     {
@@ -44934,6 +45054,30 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Task Revocation Actions](../04-action-execution/agent-task-revocation-actions.md)",
       "source_file": "skills/04-action-execution/permission-scope-downgrade-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/process-management",
+      "target": "04-action-execution/shell-command",
+      "type": "RELATED_TO",
+      "evidence": "[Shell Command](shell-command.md)",
+      "source_file": "skills/04-action-execution/process-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/process-management",
+      "target": "04-action-execution/assertion",
+      "type": "RELATED_TO",
+      "evidence": "[Assertion](assertion.md)",
+      "source_file": "skills/04-action-execution/process-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/process-management",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/04-action-execution/process-management.md",
       "confidence": "high"
     },
     {
@@ -45094,6 +45238,30 @@
       "type": "RELATED_TO",
       "evidence": "[Report Writing](../06-communication/report-writing.md)",
       "source_file": "skills/04-action-execution/scheduled-report-distribution-actions.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/shell-command",
+      "target": "04-action-execution/process-management",
+      "type": "RELATED_TO",
+      "evidence": "[Process Management](process-management.md)",
+      "source_file": "skills/04-action-execution/shell-command.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/shell-command",
+      "target": "04-action-execution/env-vars",
+      "type": "RELATED_TO",
+      "evidence": "[Environment Variables](env-vars.md)",
+      "source_file": "skills/04-action-execution/shell-command.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/shell-command",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/04-action-execution/shell-command.md",
       "confidence": "high"
     },
     {
@@ -45302,6 +45470,30 @@
       "type": "RELATED_TO",
       "evidence": "[Human Approval Gate Implementation](../04-action-execution/human-approval-gate-implementation.md)",
       "source_file": "skills/04-action-execution/voice-command-action-binding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/wait-sleep",
+      "target": "04-action-execution/assertion",
+      "type": "RELATED_TO",
+      "evidence": "[Assertion](assertion.md)",
+      "source_file": "skills/04-action-execution/wait-sleep.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/wait-sleep",
+      "target": "04-action-execution/process-management",
+      "type": "RELATED_TO",
+      "evidence": "[Process Management](process-management.md)",
+      "source_file": "skills/04-action-execution/wait-sleep.md",
+      "confidence": "high"
+    },
+    {
+      "source": "04-action-execution/wait-sleep",
+      "target": "15-orchestration/automation-review",
+      "type": "RELATED_TO",
+      "evidence": "[Automation Review](../15-orchestration/automation-review.md)",
+      "source_file": "skills/04-action-execution/wait-sleep.md",
       "confidence": "high"
     },
     {

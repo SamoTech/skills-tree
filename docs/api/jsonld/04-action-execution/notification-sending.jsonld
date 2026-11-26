@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/notification-sending.md",
   "name": "Notification Sending",
   "headline": "Notification Sending",
-  "description": "Deliver an approved notification through a configured channel with validated destination and content.",
+  "description": "Deliver an approved notification through a configured channel with a validated destination, bounded content, and duplicate-delivery protection.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/notification-sending.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T17:23:46Z",
   "skillId": "notification-sending",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../07-tool-use/tool-guardrails.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",
