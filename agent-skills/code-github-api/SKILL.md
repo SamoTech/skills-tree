@@ -4,6 +4,7 @@ description: Work with GitHub APIs using documented endpoints, authentication bo
 metadata:
   source: skills/05-code/github-api.md
   category: 05-code
+  version: "v1"
 ---
 
 ## Description
@@ -31,7 +32,7 @@ print(parts.netloc)
 print(parts.path)
 ```
 
-## Failure modes
+## Failure Modes
 - Using undocumented endpoint behavior.
 - Exposing credentials in source or logs.
 - Ignoring pagination or rate limits.
@@ -44,3 +45,9 @@ print(parts.path)
 
 ## Evidence
 Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

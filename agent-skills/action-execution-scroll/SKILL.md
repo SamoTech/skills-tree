@@ -4,9 +4,10 @@ description: Scroll a verified interface container by a bounded amount and verif
 metadata:
   source: skills/04-action-execution/scroll.md
   category: 04-action-execution
+  version: "v1"
 ---
 
-# Scroll
+# Scroll (Interface Container)
 
 ## Description
 
@@ -36,7 +37,7 @@ def scroll_verified(page, pixels=600):
     print("scroll completed")
 ```
 
-## Failure modes
+## Failure Modes
 
 Wrong container; unbounded loop; assumed viewport change; bypassing authorization.
 
@@ -51,3 +52,9 @@ Wrong container; unbounded loop; assumed viewport change; bypassing authorizatio
 - AI_CONSTITUTION.md
 - AGENTS.md
 - Repository security and validation workflows
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

@@ -4,9 +4,10 @@ description: Capture a verified application or screen region while minimizing se
 metadata:
   source: skills/04-action-execution/screenshot-capture.md
   category: 04-action-execution
+  version: "v1"
 ---
 
-# Screenshot Capture
+# Screenshot Capture (App Region)
 
 ## Description
 
@@ -37,7 +38,7 @@ def capture(page, path):
     return path
 ```
 
-## Failure modes
+## Failure Modes
 
 Capturing private data; uncontrolled storage; unverified artifact; excessive capture scope.
 
@@ -52,3 +53,9 @@ Capturing private data; uncontrolled storage; unverified artifact; excessive cap
 - AI_CONSTITUTION.md
 - AGENTS.md
 - Repository security and validation workflows
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

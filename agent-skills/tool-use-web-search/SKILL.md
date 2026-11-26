@@ -4,9 +4,10 @@ description: Use a web-search service as a bounded retrieval tool with explicit 
 metadata:
   source: skills/07-tool-use/web-search.md
   category: 07-tool-use
+  version: "v1"
 ---
 
-# Web Search
+# Web Search (Tool Contract)
 
 ## Description
 Use a web-search service as a bounded retrieval tool with explicit queries, freshness constraints, source tracking, and result verification.
@@ -39,7 +40,7 @@ assert request["authorized"]
 print("validated tool invocation")
 ```
 
-## Failure modes
+## Failure Modes
 - Hard-coding credentials or placing secrets in tool arguments.
 - Assuming provider identifiers or schemas are portable across accounts.
 - Performing mutations without authorization and current-state checks.
@@ -55,3 +56,9 @@ print("validated tool invocation")
 - function-calling
 - approval-before-destructive-tools
 - input-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

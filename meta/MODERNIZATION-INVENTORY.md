@@ -17,22 +17,22 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2330
-- **Structural upgrade required (enriched tier):** 138
-- **Integrity remediation required:** 20
+- **Dependency evidence required:** 2344
+- **Structural upgrade required (enriched tier):** 144
+- **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2339, enriched=149, test_fixture=1.
+Per-quality baseline: battle_tested=2344, enriched=144, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 219 |
-| v1 | 2127 |
+| (none) | 210 |
+| v1 | 2136 |
 | v2 | 119 |
 | v3 | 23 |
 | v4 | 1 |
@@ -71,28 +71,9 @@ projection edits, exact-head CI before merge).
 Corpus expansion is explicitly deprioritized while this modernization
 initiative is open (issue #699: existing skills first).
 
-## P0 - Integrity remediation required (20)
+## P0 - Integrity remediation required (0)
 
-- [skills/01-perception/audio-transcription.md](skills/01-perception/audio-transcription.md) - duplicated-title
-- [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - duplicated-title
-- [skills/02-reasoning/tree-of-thought.md](skills/02-reasoning/tree-of-thought.md) - duplicated-title
-- [skills/03-memory/procedural-memory.md](skills/03-memory/procedural-memory.md) - duplicated-title
-- [skills/03-memory/procedural.md](skills/03-memory/procedural.md) - duplicated-title
-- [skills/03-memory/rag.md](skills/03-memory/rag.md) - duplicated-title
-- [skills/04-action-execution/screenshot-capture.md](skills/04-action-execution/screenshot-capture.md) - duplicated-title
-- [skills/04-action-execution/scroll.md](skills/04-action-execution/scroll.md) - duplicated-title
-- [skills/05-code/dependency-auditor.md](skills/05-code/dependency-auditor.md) - duplicated-title
-- [skills/05-code/github-api.md](skills/05-code/github-api.md) - duplicated-title
-- [skills/07-tool-use/github-api.md](skills/07-tool-use/github-api.md) - duplicated-title
-- [skills/07-tool-use/web-search.md](skills/07-tool-use/web-search.md) - duplicated-title
-- [skills/08-multimodal/audio-transcription.md](skills/08-multimodal/audio-transcription.md) - duplicated-title
-- [skills/09-agentic-patterns/rag.md](skills/09-agentic-patterns/rag.md) - duplicated-title
-- [skills/09-agentic-patterns/tot.md](skills/09-agentic-patterns/tot.md) - duplicated-title
-- [skills/10-computer-use/screenshot-capture.md](skills/10-computer-use/screenshot-capture.md) - duplicated-title
-- [skills/10-computer-use/scroll.md](skills/10-computer-use/scroll.md) - duplicated-title
-- [skills/11-web/web-search.md](skills/11-web/web-search.md) - duplicated-title
-- [skills/16-domain-specific/hypothesis-generation.md](skills/16-domain-specific/hypothesis-generation.md) - duplicated-title
-- [skills/17-infrastructure/dependency-auditor.md](skills/17-infrastructure/dependency-auditor.md) - duplicated-title
+_None._
 
 ## P0 - Invalid/frontmatter repair required (0)
 
@@ -102,7 +83,7 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (138)
+## P1 - Structural upgrade required (enriched tier) (144)
 
 - [skills/01-perception/image-understanding.md](skills/01-perception/image-understanding.md) - no inputs/outputs/failure-modes table
 - [skills/01-perception/multimodal-document-reading.md](skills/01-perception/multimodal-document-reading.md)
@@ -112,6 +93,7 @@ _None._
 - [skills/02-reasoning/chain-of-thought.md](skills/02-reasoning/chain-of-thought.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/decision-making.md](skills/02-reasoning/decision-making.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/ethical-reasoning.md](skills/02-reasoning/ethical-reasoning.md) - no inputs/outputs/failure-modes table
+- [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/inductive-reasoning.md](skills/02-reasoning/inductive-reasoning.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/mathematical-reasoning.md](skills/02-reasoning/mathematical-reasoning.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
@@ -129,10 +111,12 @@ _None._
 - [skills/05-code/code-translation.md](skills/05-code/code-translation.md)
 - [skills/05-code/db-schema-design.md](skills/05-code/db-schema-design.md)
 - [skills/05-code/debugging.md](skills/05-code/debugging.md)
+- [skills/05-code/dependency-auditor.md](skills/05-code/dependency-auditor.md)
 - [skills/05-code/dependency-management.md](skills/05-code/dependency-management.md)
 - [skills/05-code/dockerfile-generation.md](skills/05-code/dockerfile-generation.md)
 - [skills/05-code/documentation-generation.md](skills/05-code/documentation-generation.md)
 - [skills/05-code/git-operations.md](skills/05-code/git-operations.md)
+- [skills/05-code/github-api.md](skills/05-code/github-api.md)
 - [skills/05-code/integration-test-writing.md](skills/05-code/integration-test-writing.md)
 - [skills/05-code/linting-formatting.md](skills/05-code/linting-formatting.md)
 - [skills/05-code/performance-profiling.md](skills/05-code/performance-profiling.md)
@@ -147,6 +131,7 @@ _None._
 - [skills/07-tool-use/code-exec-tool.md](skills/07-tool-use/code-exec-tool.md)
 - [skills/07-tool-use/custom-api-wrapper.md](skills/07-tool-use/custom-api-wrapper.md)
 - [skills/07-tool-use/file-system-tool.md](skills/07-tool-use/file-system-tool.md)
+- [skills/07-tool-use/github-api.md](skills/07-tool-use/github-api.md)
 - [skills/07-tool-use/google-workspace-api.md](skills/07-tool-use/google-workspace-api.md)
 - [skills/07-tool-use/huggingface-api.md](skills/07-tool-use/huggingface-api.md)
 - [skills/07-tool-use/news-api.md](skills/07-tool-use/news-api.md)
@@ -181,6 +166,8 @@ _None._
 - [skills/10-computer-use/multi-monitor.md](skills/10-computer-use/multi-monitor.md)
 - [skills/10-computer-use/right-click.md](skills/10-computer-use/right-click.md)
 - [skills/10-computer-use/screen-ocr.md](skills/10-computer-use/screen-ocr.md)
+- [skills/10-computer-use/screenshot-capture.md](skills/10-computer-use/screenshot-capture.md)
+- [skills/10-computer-use/scroll.md](skills/10-computer-use/scroll.md)
 - [skills/10-computer-use/terminal-interaction.md](skills/10-computer-use/terminal-interaction.md)
 - [skills/10-computer-use/visual-element-detection.md](skills/10-computer-use/visual-element-detection.md)
 - [skills/10-computer-use/vm-interaction.md](skills/10-computer-use/vm-interaction.md)
@@ -243,7 +230,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2330)
+## P2 - Dependency evidence required (2344)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -268,6 +255,7 @@ _None._
 - [skills/01-perception/api-response-parsing.md](skills/01-perception/api-response-parsing.md) - badge color yellow (machine-inferred · 3 pkgs)
 - [skills/01-perception/asr-hallucination-detection.md](skills/01-perception/asr-hallucination-detection.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/audio-stream-segmentation.md](skills/01-perception/audio-stream-segmentation.md) - badge color lightgrey (unscanned)
+- [skills/01-perception/audio-transcription.md](skills/01-perception/audio-transcription.md) - badge color 22c55e (✔ verified)
 - [skills/01-perception/barcode-qr-scanning.md](skills/01-perception/barcode-qr-scanning.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/benchmark-score-table-parsing.md](skills/01-perception/benchmark-score-table-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/binary-file-reading.md](skills/01-perception/binary-file-reading.md) - badge color yellow (machine-inferred · 2 pkgs)
@@ -565,6 +553,7 @@ _None._
 - [skills/02-reasoning/tool-approval-override-risk-reasoning.md](skills/02-reasoning/tool-approval-override-risk-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/tool-context-inflation-mitigation-reasoning.md](skills/02-reasoning/tool-context-inflation-mitigation-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/trade-off-analysis.md](skills/02-reasoning/trade-off-analysis.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/02-reasoning/tree-of-thought.md](skills/02-reasoning/tree-of-thought.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/trust-boundary-reasoning.md](skills/02-reasoning/trust-boundary-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/ultrafast-tier-workload-selection-reasoning.md](skills/02-reasoning/ultrafast-tier-workload-selection-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/uncertainty-quantification.md](skills/02-reasoning/uncertainty-quantification.md) - badge color yellow (machine-inferred · 1 pkg)
@@ -681,7 +670,10 @@ _None._
 - [skills/03-memory/pii-memory-minimization.md](skills/03-memory/pii-memory-minimization.md) - badge color lightgrey (unscanned)
 - [skills/03-memory/preference-drift-detection.md](skills/03-memory/preference-drift-detection.md) - badge color lightgrey (unscanned)
 - [skills/03-memory/proactive-agent-user-routine-memory.md](skills/03-memory/proactive-agent-user-routine-memory.md) - badge color lightgrey (unscanned)
+- [skills/03-memory/procedural-memory.md](skills/03-memory/procedural-memory.md) - badge color lightgrey (unscanned)
+- [skills/03-memory/procedural.md](skills/03-memory/procedural.md) - badge color 22c55e (✔ verified)
 - [skills/03-memory/progressive-skill-loading.md](skills/03-memory/progressive-skill-loading.md) - badge color lightgrey (unscanned)
+- [skills/03-memory/rag.md](skills/03-memory/rag.md) - badge color 22c55e (✔ verified)
 - [skills/03-memory/realtime-voice-session-context-persistence.md](skills/03-memory/realtime-voice-session-context-persistence.md) - badge color lightgrey (unscanned)
 - [skills/03-memory/record-graph-navigation-memory.md](skills/03-memory/record-graph-navigation-memory.md) - badge color lightgrey (unscanned)
 - [skills/03-memory/release-signal-memory-compaction.md](skills/03-memory/release-signal-memory-compaction.md) - badge color lightgrey (unscanned)
@@ -843,6 +835,8 @@ _None._
 - [skills/04-action-execution/sandbox-monitor-manipulation-containment.md](skills/04-action-execution/sandbox-monitor-manipulation-containment.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/scheduled-execution.md](skills/04-action-execution/scheduled-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/scheduled-report-distribution-actions.md](skills/04-action-execution/scheduled-report-distribution-actions.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/screenshot-capture.md](skills/04-action-execution/screenshot-capture.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/04-action-execution/scroll.md](skills/04-action-execution/scroll.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/shell-environment-sanitization.md](skills/04-action-execution/shell-environment-sanitization.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/shell-signal-handling.md](skills/04-action-execution/shell-signal-handling.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/short-lived-credential-acquisition.md](skills/04-action-execution/short-lived-credential-acquisition.md) - badge color lightgrey (unscanned)
@@ -1284,6 +1278,7 @@ _None._
 - [skills/07-tool-use/verified-plugin-tier-catalog-curation.md](skills/07-tool-use/verified-plugin-tier-catalog-curation.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/virtual-breakpoint-read-only-debugging.md](skills/07-tool-use/virtual-breakpoint-read-only-debugging.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/visa-tap-protocol-usage.md](skills/07-tool-use/visa-tap-protocol-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/web-search.md](skills/07-tool-use/web-search.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/webmcp-page-tool-exposure.md](skills/07-tool-use/webmcp-page-tool-exposure.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/websocket-communication.md](skills/07-tool-use/websocket-communication.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/wolfram-api.md](skills/07-tool-use/wolfram-api.md) - badge color yellow (machine-inferred · 1 pkg)
@@ -1318,6 +1313,7 @@ _None._
 - [skills/08-multimodal/audio-mixing.md](skills/08-multimodal/audio-mixing.md) - badge color lightgrey (unscanned)
 - [skills/08-multimodal/audio-sound-effect-generation.md](skills/08-multimodal/audio-sound-effect-generation.md) - badge color lightgrey (unscanned)
 - [skills/08-multimodal/audio-transcript-diarization-audit.md](skills/08-multimodal/audio-transcript-diarization-audit.md) - badge color lightgrey (unscanned)
+- [skills/08-multimodal/audio-transcription.md](skills/08-multimodal/audio-transcription.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/08-multimodal/audio-watermark-embedding.md](skills/08-multimodal/audio-watermark-embedding.md) - badge color lightgrey (unscanned)
 - [skills/08-multimodal/browser-session-recording-for-debugging.md](skills/08-multimodal/browser-session-recording-for-debugging.md) - badge color lightgrey (unscanned)
 - [skills/08-multimodal/chart-generation.md](skills/08-multimodal/chart-generation.md) - badge color yellow (machine-inferred · 2 pkgs)
@@ -1539,6 +1535,7 @@ _None._
 - [skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md](skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/purchase-intent-binding-patterns.md](skills/09-agentic-patterns/purchase-intent-binding-patterns.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/rag-security-assessment-pattern.md](skills/09-agentic-patterns/rag-security-assessment-pattern.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/rag.md](skills/09-agentic-patterns/rag.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/09-agentic-patterns/react.md](skills/09-agentic-patterns/react.md) - badge color 22c55e (✔ verified)
 - [skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md](skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md](skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md) - badge color lightgrey (unscanned)
@@ -1562,6 +1559,7 @@ _None._
 - [skills/09-agentic-patterns/tool-invention.md](skills/09-agentic-patterns/tool-invention.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/tool-selection-competing-interest-disclosure.md](skills/09-agentic-patterns/tool-selection-competing-interest-disclosure.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/tool-use-loop.md](skills/09-agentic-patterns/tool-use-loop.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/tot.md](skills/09-agentic-patterns/tot.md) - badge color 22c55e (✔ verified)
 - [skills/09-agentic-patterns/trajectory-analysis.md](skills/09-agentic-patterns/trajectory-analysis.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/vendor-agent-workflow-demo-verification.md](skills/09-agentic-patterns/vendor-agent-workflow-demo-verification.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/vendor-lock-in-mitigation-pattern.md](skills/09-agentic-patterns/vendor-lock-in-mitigation-pattern.md) - badge color lightgrey (unscanned)
@@ -1820,6 +1818,7 @@ _None._
 - [skills/11-web/web-push-subscription-automation.md](skills/11-web/web-push-subscription-automation.md) - badge color lightgrey (unscanned)
 - [skills/11-web/web-scraping.md](skills/11-web/web-scraping.md) - badge color 22c55e (✔ verified)
 - [skills/11-web/web-search-tool-agents.md](skills/11-web/web-search-tool-agents.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/11-web/web-search.md](skills/11-web/web-search.md) - badge color 22c55e (✔ verified)
 - [skills/11-web/web-session-replay.md](skills/11-web/web-session-replay.md) - badge color lightgrey (unscanned)
 - [skills/11-web/web-table-pagination-traversal.md](skills/11-web/web-table-pagination-traversal.md) - badge color lightgrey (unscanned)
 - [skills/11-web/webauthn-passkey-automation.md](skills/11-web/webauthn-passkey-automation.md) - badge color lightgrey (unscanned)
@@ -2407,6 +2406,7 @@ _None._
 - [skills/16-domain-specific/harmonized-tariff-code-classification.md](skills/16-domain-specific/harmonized-tariff-code-classification.md) - badge color lightgrey (unscanned)
 - [skills/16-domain-specific/hospitality-sms-booking-agent-deployment.md](skills/16-domain-specific/hospitality-sms-booking-agent-deployment.md) - badge color lightgrey (unscanned)
 - [skills/16-domain-specific/hr-policy-drafting.md](skills/16-domain-specific/hr-policy-drafting.md) - badge color lightgrey (unscanned)
+- [skills/16-domain-specific/hypothesis-generation.md](skills/16-domain-specific/hypothesis-generation.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/16-domain-specific/industrial-failure-analysis-agent-deployment.md](skills/16-domain-specific/industrial-failure-analysis-agent-deployment.md) - badge color lightgrey (unscanned)
 - [skills/16-domain-specific/institutional-ai-ethics-framework-mapping.md](skills/16-domain-specific/institutional-ai-ethics-framework-mapping.md) - badge color lightgrey (unscanned)
 - [skills/16-domain-specific/insurance-claim-processing.md](skills/16-domain-specific/insurance-claim-processing.md) - badge color lightgrey (unscanned)
@@ -2498,6 +2498,7 @@ _None._
 - [skills/17-infrastructure/datacenter-siting-moratorium-tracking.md](skills/17-infrastructure/datacenter-siting-moratorium-tracking.md) - badge color lightgrey (unscanned)
 - [skills/17-infrastructure/declarative-infrastructure.md](skills/17-infrastructure/declarative-infrastructure.md) - badge color lightgrey (unscanned)
 - [skills/17-infrastructure/delegation-token-presentation.md](skills/17-infrastructure/delegation-token-presentation.md) - badge color lightgrey (unscanned)
+- [skills/17-infrastructure/dependency-auditor.md](skills/17-infrastructure/dependency-auditor.md) - badge color lightgrey (unscanned)
 - [skills/17-infrastructure/deployment-rollback.md](skills/17-infrastructure/deployment-rollback.md) - badge color lightgrey (unscanned)
 - [skills/17-infrastructure/disaster-recovery-drill-automation.md](skills/17-infrastructure/disaster-recovery-drill-automation.md) - badge color lightgrey (unscanned)
 - [skills/17-infrastructure/dns-record-management.md](skills/17-infrastructure/dns-record-management.md) - badge color lightgrey (unscanned)

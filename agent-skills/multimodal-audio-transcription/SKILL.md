@@ -4,6 +4,7 @@ description: Transcribe speech audio into timestamped text while preserving unce
 metadata:
   source: skills/08-multimodal/audio-transcription.md
   category: 08-multimodal
+  version: "v1"
 ---
 
 ## Description
@@ -65,3 +66,9 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - 08-multimodal
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |
